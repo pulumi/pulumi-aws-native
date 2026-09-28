@@ -67,6 +67,7 @@ __all__ = [
     'RecommenderConfig',
     'RecommenderEventParameters',
     'RecommenderEventsConfig',
+    'RecommenderSchemaField',
     'RecommenderTrainingMetrics',
     'RecommenderTrainingMetricsMetricsProperties',
     'RecommenderUpdate',
@@ -2847,6 +2848,55 @@ class RecommenderEventsConfig(dict):
         List of event parameters with their value thresholds
         """
         return pulumi.get(self, "event_parameters_list")
+
+
+@pulumi.output_type
+class RecommenderSchemaField(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "targetFieldName":
+            suggest = "target_field_name"
+        elif key == "contentType":
+            suggest = "content_type"
+        elif key == "featureType":
+            suggest = "feature_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RecommenderSchemaField. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RecommenderSchemaField.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RecommenderSchemaField.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 target_field_name: _builtins.str,
+                 content_type: Optional['RecommenderSchemaFieldContentType'] = None,
+                 feature_type: Optional['RecommenderSchemaFieldFeatureType'] = None):
+        pulumi.set(__self__, "target_field_name", target_field_name)
+        if content_type is not None:
+            pulumi.set(__self__, "content_type", content_type)
+        if feature_type is not None:
+            pulumi.set(__self__, "feature_type", feature_type)
+
+    @_builtins.property
+    @pulumi.getter(name="targetFieldName")
+    def target_field_name(self) -> _builtins.str:
+        return pulumi.get(self, "target_field_name")
+
+    @_builtins.property
+    @pulumi.getter(name="contentType")
+    def content_type(self) -> Optional['RecommenderSchemaFieldContentType']:
+        return pulumi.get(self, "content_type")
+
+    @_builtins.property
+    @pulumi.getter(name="featureType")
+    def feature_type(self) -> Optional['RecommenderSchemaFieldFeatureType']:
+        return pulumi.get(self, "feature_type")
 
 
 @pulumi.output_type

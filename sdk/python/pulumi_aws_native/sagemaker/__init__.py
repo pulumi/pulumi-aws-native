@@ -69,6 +69,7 @@ from .get_studio_lifecycle_config import *
 from .get_trial_component import *
 from .get_user_profile import *
 from .get_workforce import *
+from .get_workteam import *
 from .hub import *
 from .human_task_ui import *
 from .image import *
@@ -96,5 +97,6 @@ from .studio_lifecycle_config import *
 from .trial_component import *
 from .user_profile import *
 from .workforce import *
+from .workteam import *
 from ._inputs import *
 from . import outputs

@@ -26,10 +26,13 @@ __all__ = [
 
 @pulumi.output_type
 class GetDatasetResult:
-    def __init__(__self__, dataset_arn=None, dataset_description=None, dataset_id=None, dataset_name=None, dataset_source=None, tags=None):
+    def __init__(__self__, dataset_arn=None, dataset_config=None, dataset_description=None, dataset_id=None, dataset_name=None, dataset_source=None, tags=None):
         if dataset_arn and not isinstance(dataset_arn, str):
             raise TypeError("Expected argument 'dataset_arn' to be a str")
         pulumi.set(__self__, "dataset_arn", dataset_arn)
+        if dataset_config and not isinstance(dataset_config, dict):
+            raise TypeError("Expected argument 'dataset_config' to be a dict")
+        pulumi.set(__self__, "dataset_config", dataset_config)
         if dataset_description and not isinstance(dataset_description, str):
             raise TypeError("Expected argument 'dataset_description' to be a str")
         pulumi.set(__self__, "dataset_description", dataset_description)
@@ -55,6 +58,14 @@ class GetDatasetResult:
         return pulumi.get(self, "dataset_arn")
 
     @_builtins.property
+    @pulumi.getter(name="datasetConfig")
+    def dataset_config(self) -> Optional['outputs.DatasetConfig']:
+        """
+        The configuration for the dataset.
+        """
+        return pulumi.get(self, "dataset_config")
+
+    @_builtins.property
     @pulumi.getter(name="datasetDescription")
     def dataset_description(self) -> Optional[_builtins.str]:
         """
@@ -66,7 +77,7 @@ class GetDatasetResult:
     @pulumi.getter(name="datasetId")
     def dataset_id(self) -> Optional[_builtins.str]:
         """
-        The ID of the dataset.
+        The ID of the dataset. For workspace-scoped datasets this is the workspace name and dataset ID joined by a slash, for example my-workspace/123e4567-e89b-42d3-a456-426614174000.
         """
         return pulumi.get(self, "dataset_id")
 
@@ -102,6 +113,7 @@ class AwaitableGetDatasetResult(GetDatasetResult):
             yield self
         return GetDatasetResult(
             dataset_arn=self.dataset_arn,
+            dataset_config=self.dataset_config,
             dataset_description=self.dataset_description,
             dataset_id=self.dataset_id,
             dataset_name=self.dataset_name,
@@ -114,7 +126,7 @@ def get_dataset(dataset_id: Optional[_builtins.str] = None,
     """
     Resource schema for AWS::IoTSiteWise::Dataset.
 
-    :param _builtins.str dataset_id: The ID of the dataset.
+    :param _builtins.str dataset_id: The ID of the dataset. For workspace-scoped datasets this is the workspace name and dataset ID joined by a slash, for example my-workspace/123e4567-e89b-42d3-a456-426614174000.
     """
     __args__ = dict()
     __args__['datasetId'] = dataset_id
@@ -123,6 +135,7 @@ def get_dataset(dataset_id: Optional[_builtins.str] = None,
 
     return AwaitableGetDatasetResult(
         dataset_arn=pulumi.get(__ret__, 'dataset_arn'),
+        dataset_config=pulumi.get(__ret__, 'dataset_config'),
         dataset_description=pulumi.get(__ret__, 'dataset_description'),
         dataset_id=pulumi.get(__ret__, 'dataset_id'),
         dataset_name=pulumi.get(__ret__, 'dataset_name'),
@@ -133,7 +146,7 @@ def get_dataset_output(dataset_id: pulumi.Input[Optional[_builtins.str]] = None,
     """
     Resource schema for AWS::IoTSiteWise::Dataset.
 
-    :param _builtins.str dataset_id: The ID of the dataset.
+    :param _builtins.str dataset_id: The ID of the dataset. For workspace-scoped datasets this is the workspace name and dataset ID joined by a slash, for example my-workspace/123e4567-e89b-42d3-a456-426614174000.
     """
     __args__ = dict()
     __args__['datasetId'] = dataset_id
@@ -141,6 +154,7 @@ def get_dataset_output(dataset_id: pulumi.Input[Optional[_builtins.str]] = None,
     __ret__ = pulumi.runtime.invoke_output('aws-native:iotsitewise:getDataset', __args__, opts=opts, typ=GetDatasetResult)
     return __ret__.apply(lambda __response__: GetDatasetResult(
         dataset_arn=pulumi.get(__response__, 'dataset_arn'),
+        dataset_config=pulumi.get(__response__, 'dataset_config'),
         dataset_description=pulumi.get(__response__, 'dataset_description'),
         dataset_id=pulumi.get(__response__, 'dataset_id'),
         dataset_name=pulumi.get(__response__, 'dataset_name'),

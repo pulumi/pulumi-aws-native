@@ -3719,6 +3719,171 @@ func (o ServerProtocolArrayOutput) Index(i pulumi.IntInput) ServerProtocolOutput
 	}).(ServerProtocolOutput)
 }
 
+type ServerProxyMode string
+
+const (
+	ServerProxyModeProxyProtocolV2Enforced = ServerProxyMode("PROXY_PROTOCOL_V2_ENFORCED")
+	ServerProxyModeNone                    = ServerProxyMode("NONE")
+)
+
+func (ServerProxyMode) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerProxyMode)(nil)).Elem()
+}
+
+func (e ServerProxyMode) ToServerProxyModeOutput() ServerProxyModeOutput {
+	return pulumi.ToOutput(e).(ServerProxyModeOutput)
+}
+
+func (e ServerProxyMode) ToServerProxyModeOutputWithContext(ctx context.Context) ServerProxyModeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ServerProxyModeOutput)
+}
+
+func (e ServerProxyMode) ToServerProxyModePtrOutput() ServerProxyModePtrOutput {
+	return e.ToServerProxyModePtrOutputWithContext(context.Background())
+}
+
+func (e ServerProxyMode) ToServerProxyModePtrOutputWithContext(ctx context.Context) ServerProxyModePtrOutput {
+	return ServerProxyMode(e).ToServerProxyModeOutputWithContext(ctx).ToServerProxyModePtrOutputWithContext(ctx)
+}
+
+func (e ServerProxyMode) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ServerProxyMode) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ServerProxyMode) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ServerProxyMode) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ServerProxyModeOutput struct{ *pulumi.OutputState }
+
+func (ServerProxyModeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerProxyMode)(nil)).Elem()
+}
+
+func (o ServerProxyModeOutput) ToServerProxyModeOutput() ServerProxyModeOutput {
+	return o
+}
+
+func (o ServerProxyModeOutput) ToServerProxyModeOutputWithContext(ctx context.Context) ServerProxyModeOutput {
+	return o
+}
+
+func (o ServerProxyModeOutput) ToServerProxyModePtrOutput() ServerProxyModePtrOutput {
+	return o.ToServerProxyModePtrOutputWithContext(context.Background())
+}
+
+func (o ServerProxyModeOutput) ToServerProxyModePtrOutputWithContext(ctx context.Context) ServerProxyModePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServerProxyMode) *ServerProxyMode {
+		return &v
+	}).(ServerProxyModePtrOutput)
+}
+
+func (o ServerProxyModeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ServerProxyModeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ServerProxyMode) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ServerProxyModeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ServerProxyModeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ServerProxyMode) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ServerProxyModePtrOutput struct{ *pulumi.OutputState }
+
+func (ServerProxyModePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServerProxyMode)(nil)).Elem()
+}
+
+func (o ServerProxyModePtrOutput) ToServerProxyModePtrOutput() ServerProxyModePtrOutput {
+	return o
+}
+
+func (o ServerProxyModePtrOutput) ToServerProxyModePtrOutputWithContext(ctx context.Context) ServerProxyModePtrOutput {
+	return o
+}
+
+func (o ServerProxyModePtrOutput) Elem() ServerProxyModeOutput {
+	return o.ApplyT(func(v *ServerProxyMode) ServerProxyMode {
+		if v != nil {
+			return *v
+		}
+		var ret ServerProxyMode
+		return ret
+	}).(ServerProxyModeOutput)
+}
+
+func (o ServerProxyModePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ServerProxyModePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ServerProxyMode) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ServerProxyModeInput is an input type that accepts values of the ServerProxyMode enum
+// A concrete instance of `ServerProxyModeInput` can be one of the following:
+//
+//	ServerProxyModeProxyProtocolV2Enforced
+//	ServerProxyModeNone
+type ServerProxyModeInput interface {
+	pulumi.Input
+
+	ToServerProxyModeOutput() ServerProxyModeOutput
+	ToServerProxyModeOutputWithContext(context.Context) ServerProxyModeOutput
+}
+
+var serverProxyModePtrType = reflect.TypeOf((**ServerProxyMode)(nil)).Elem()
+
+type ServerProxyModePtrInput interface {
+	pulumi.Input
+
+	ToServerProxyModePtrOutput() ServerProxyModePtrOutput
+	ToServerProxyModePtrOutputWithContext(context.Context) ServerProxyModePtrOutput
+}
+
+type serverProxyModePtr string
+
+func ServerProxyModePtr(v string) ServerProxyModePtrInput {
+	return (*serverProxyModePtr)(&v)
+}
+
+func (*serverProxyModePtr) ElementType() reflect.Type {
+	return serverProxyModePtrType
+}
+
+func (in *serverProxyModePtr) ToServerProxyModePtrOutput() ServerProxyModePtrOutput {
+	return pulumi.ToOutput(in).(ServerProxyModePtrOutput)
+}
+
+func (in *serverProxyModePtr) ToServerProxyModePtrOutputWithContext(ctx context.Context) ServerProxyModePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ServerProxyModePtrOutput)
+}
+
 type ServerSetStatOption string
 
 const (
@@ -5685,6 +5850,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerProtocolInput)(nil)).Elem(), ServerProtocol("SFTP"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerProtocolPtrInput)(nil)).Elem(), ServerProtocol("SFTP"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerProtocolArrayInput)(nil)).Elem(), ServerProtocolArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerProxyModeInput)(nil)).Elem(), ServerProxyMode("PROXY_PROTOCOL_V2_ENFORCED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerProxyModePtrInput)(nil)).Elem(), ServerProxyMode("PROXY_PROTOCOL_V2_ENFORCED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerSetStatOptionInput)(nil)).Elem(), ServerSetStatOption("DEFAULT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerSetStatOptionPtrInput)(nil)).Elem(), ServerSetStatOption("DEFAULT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerSftpAuthenticationMethodsInput)(nil)).Elem(), ServerSftpAuthenticationMethods("PASSWORD"))
@@ -5755,6 +5922,8 @@ func init() {
 	pulumi.RegisterOutputType(ServerProtocolOutput{})
 	pulumi.RegisterOutputType(ServerProtocolPtrOutput{})
 	pulumi.RegisterOutputType(ServerProtocolArrayOutput{})
+	pulumi.RegisterOutputType(ServerProxyModeOutput{})
+	pulumi.RegisterOutputType(ServerProxyModePtrOutput{})
 	pulumi.RegisterOutputType(ServerSetStatOptionOutput{})
 	pulumi.RegisterOutputType(ServerSetStatOptionPtrOutput{})
 	pulumi.RegisterOutputType(ServerSftpAuthenticationMethodsOutput{})

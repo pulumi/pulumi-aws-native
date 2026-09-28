@@ -2200,7 +2200,7 @@
   },
   "handlers" : {
     "create" : {
-      "permissions" : [ "wafv2:CreateWebACL", "wafv2:GetWebACL", "wafv2:ListTagsForResource", "wafv2:TagResource", "wafv2:UntagResource" ]
+      "permissions" : [ "wafv2:CreateWebACL", "wafv2:GetWebACL", "wafv2:ListTagsForResource", "wafv2:TagResource", "wafv2:UntagResource", "payments:GetConnectedAccount" ]
     },
     "delete" : {
       "permissions" : [ "wafv2:DeleteWebACL", "wafv2:GetWebACL" ]
@@ -2209,7 +2209,7 @@
       "permissions" : [ "wafv2:GetWebACL", "wafv2:ListTagsForResource" ]
     },
     "update" : {
-      "permissions" : [ "wafv2:UpdateWebACL", "wafv2:GetWebACL", "wafv2:ListTagsForResource", "wafv2:TagResource", "wafv2:UntagResource" ]
+      "permissions" : [ "wafv2:UpdateWebACL", "wafv2:GetWebACL", "wafv2:ListTagsForResource", "wafv2:TagResource", "wafv2:UntagResource", "payments:GetConnectedAccount" ]
     },
     "list" : {
       "permissions" : [ "wafv2:listWebACLs" ],

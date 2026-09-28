@@ -290,6 +290,11 @@ export type ThingGroup = import("./thingGroup").ThingGroup;
 export const ThingGroup: typeof import("./thingGroup").ThingGroup = null as any;
 utilities.lazyLoad(exports, ["ThingGroup"], () => require("./thingGroup"));
 
+export { ThingPrincipalAttachmentArgs } from "./thingPrincipalAttachment";
+export type ThingPrincipalAttachment = import("./thingPrincipalAttachment").ThingPrincipalAttachment;
+export const ThingPrincipalAttachment: typeof import("./thingPrincipalAttachment").ThingPrincipalAttachment = null as any;
+utilities.lazyLoad(exports, ["ThingPrincipalAttachment"], () => require("./thingPrincipalAttachment"));
+
 export { ThingTypeArgs } from "./thingType";
 export type ThingType = import("./thingType").ThingType;
 export const ThingType: typeof import("./thingType").ThingType = null as any;
@@ -367,6 +372,8 @@ const _module = {
                 return new Thing(name, <any>undefined, { urn })
             case "aws-native:iot:ThingGroup":
                 return new ThingGroup(name, <any>undefined, { urn })
+            case "aws-native:iot:ThingPrincipalAttachment":
+                return new ThingPrincipalAttachment(name, <any>undefined, { urn })
             case "aws-native:iot:ThingType":
                 return new ThingType(name, <any>undefined, { urn })
             case "aws-native:iot:TopicRule":

@@ -8,6 +8,8 @@ from enum import Enum
 
 __all__ = [
     'ComputeEnvironmentEcsSettingsContainerInsights',
+    'ComputeEnvironmentEksAccessEntryDesiredState',
+    'ComputeEnvironmentEksAccessEntryStatus',
     'ComputeEnvironmentInstanceLaunchTemplateCapacityOptionType',
     'ComputeEnvironmentLaunchTemplateSpecificationOverrideUserdataType',
     'ComputeEnvironmentLaunchTemplateSpecificationUserdataType',
@@ -31,6 +33,25 @@ class ComputeEnvironmentEcsSettingsContainerInsights(_builtins.str, Enum):
     ENABLED = "ENABLED"
     ENHANCED = "ENHANCED"
     DISABLED = "DISABLED"
+
+
+@pulumi.type_token("aws-native:batch:ComputeEnvironmentEksAccessEntryDesiredState")
+class ComputeEnvironmentEksAccessEntryDesiredState(_builtins.str, Enum):
+    """
+    The desired state of the EKS access entry managed by AWS Batch. When omitted, AWS Batch applies INHERIT_FROM_CLUSTER.
+    """
+    ENABLED = "ENABLED"
+    DISABLED = "DISABLED"
+    INHERIT_FROM_CLUSTER = "INHERIT_FROM_CLUSTER"
+
+
+@pulumi.type_token("aws-native:batch:ComputeEnvironmentEksAccessEntryStatus")
+class ComputeEnvironmentEksAccessEntryStatus(_builtins.str, Enum):
+    """
+    The read-only status of the EKS access entry, returned by DescribeComputeEnvironments.
+    """
+    ACTIVE = "ACTIVE"
+    INACTIVE = "INACTIVE"
 
 
 @pulumi.type_token("aws-native:batch:ComputeEnvironmentInstanceLaunchTemplateCapacityOptionType")

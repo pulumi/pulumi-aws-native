@@ -24,6 +24,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         [Input("column", required: true)]
         public Input<Inputs.DashboardColumnIdentifierArgs> Column { get; set; } = null!;
 
+        [Input("decalSettingsConfiguration")]
+        public Input<Inputs.DashboardDecalSettingsConfigurationArgs>? DecalSettingsConfiguration { get; set; }
+
         /// <summary>
         /// The format configuration of a column.
         /// </summary>

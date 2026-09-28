@@ -1146,6 +1146,172 @@ func (in *codeSigningConfigCodeSigningPoliciesUntrustedArtifactOnDeploymentPtr) 
 	return pulumi.ToOutputWithContext(ctx, in).(CodeSigningConfigCodeSigningPoliciesUntrustedArtifactOnDeploymentPtrOutput)
 }
 
+// The mode that determines how Lambda reads from a Kafka topic. Use Stream for ordered processing or Queue for higher throughput when ordering is not required.
+type EventSourceMappingConsumptionMode string
+
+const (
+	EventSourceMappingConsumptionModeStream = EventSourceMappingConsumptionMode("Stream")
+	EventSourceMappingConsumptionModeQueue  = EventSourceMappingConsumptionMode("Queue")
+)
+
+func (EventSourceMappingConsumptionMode) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventSourceMappingConsumptionMode)(nil)).Elem()
+}
+
+func (e EventSourceMappingConsumptionMode) ToEventSourceMappingConsumptionModeOutput() EventSourceMappingConsumptionModeOutput {
+	return pulumi.ToOutput(e).(EventSourceMappingConsumptionModeOutput)
+}
+
+func (e EventSourceMappingConsumptionMode) ToEventSourceMappingConsumptionModeOutputWithContext(ctx context.Context) EventSourceMappingConsumptionModeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(EventSourceMappingConsumptionModeOutput)
+}
+
+func (e EventSourceMappingConsumptionMode) ToEventSourceMappingConsumptionModePtrOutput() EventSourceMappingConsumptionModePtrOutput {
+	return e.ToEventSourceMappingConsumptionModePtrOutputWithContext(context.Background())
+}
+
+func (e EventSourceMappingConsumptionMode) ToEventSourceMappingConsumptionModePtrOutputWithContext(ctx context.Context) EventSourceMappingConsumptionModePtrOutput {
+	return EventSourceMappingConsumptionMode(e).ToEventSourceMappingConsumptionModeOutputWithContext(ctx).ToEventSourceMappingConsumptionModePtrOutputWithContext(ctx)
+}
+
+func (e EventSourceMappingConsumptionMode) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e EventSourceMappingConsumptionMode) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e EventSourceMappingConsumptionMode) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e EventSourceMappingConsumptionMode) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type EventSourceMappingConsumptionModeOutput struct{ *pulumi.OutputState }
+
+func (EventSourceMappingConsumptionModeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventSourceMappingConsumptionMode)(nil)).Elem()
+}
+
+func (o EventSourceMappingConsumptionModeOutput) ToEventSourceMappingConsumptionModeOutput() EventSourceMappingConsumptionModeOutput {
+	return o
+}
+
+func (o EventSourceMappingConsumptionModeOutput) ToEventSourceMappingConsumptionModeOutputWithContext(ctx context.Context) EventSourceMappingConsumptionModeOutput {
+	return o
+}
+
+func (o EventSourceMappingConsumptionModeOutput) ToEventSourceMappingConsumptionModePtrOutput() EventSourceMappingConsumptionModePtrOutput {
+	return o.ToEventSourceMappingConsumptionModePtrOutputWithContext(context.Background())
+}
+
+func (o EventSourceMappingConsumptionModeOutput) ToEventSourceMappingConsumptionModePtrOutputWithContext(ctx context.Context) EventSourceMappingConsumptionModePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventSourceMappingConsumptionMode) *EventSourceMappingConsumptionMode {
+		return &v
+	}).(EventSourceMappingConsumptionModePtrOutput)
+}
+
+func (o EventSourceMappingConsumptionModeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o EventSourceMappingConsumptionModeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e EventSourceMappingConsumptionMode) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o EventSourceMappingConsumptionModeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o EventSourceMappingConsumptionModeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e EventSourceMappingConsumptionMode) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type EventSourceMappingConsumptionModePtrOutput struct{ *pulumi.OutputState }
+
+func (EventSourceMappingConsumptionModePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventSourceMappingConsumptionMode)(nil)).Elem()
+}
+
+func (o EventSourceMappingConsumptionModePtrOutput) ToEventSourceMappingConsumptionModePtrOutput() EventSourceMappingConsumptionModePtrOutput {
+	return o
+}
+
+func (o EventSourceMappingConsumptionModePtrOutput) ToEventSourceMappingConsumptionModePtrOutputWithContext(ctx context.Context) EventSourceMappingConsumptionModePtrOutput {
+	return o
+}
+
+func (o EventSourceMappingConsumptionModePtrOutput) Elem() EventSourceMappingConsumptionModeOutput {
+	return o.ApplyT(func(v *EventSourceMappingConsumptionMode) EventSourceMappingConsumptionMode {
+		if v != nil {
+			return *v
+		}
+		var ret EventSourceMappingConsumptionMode
+		return ret
+	}).(EventSourceMappingConsumptionModeOutput)
+}
+
+func (o EventSourceMappingConsumptionModePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o EventSourceMappingConsumptionModePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *EventSourceMappingConsumptionMode) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// EventSourceMappingConsumptionModeInput is an input type that accepts values of the EventSourceMappingConsumptionMode enum
+// A concrete instance of `EventSourceMappingConsumptionModeInput` can be one of the following:
+//
+//	EventSourceMappingConsumptionModeStream
+//	EventSourceMappingConsumptionModeQueue
+type EventSourceMappingConsumptionModeInput interface {
+	pulumi.Input
+
+	ToEventSourceMappingConsumptionModeOutput() EventSourceMappingConsumptionModeOutput
+	ToEventSourceMappingConsumptionModeOutputWithContext(context.Context) EventSourceMappingConsumptionModeOutput
+}
+
+var eventSourceMappingConsumptionModePtrType = reflect.TypeOf((**EventSourceMappingConsumptionMode)(nil)).Elem()
+
+type EventSourceMappingConsumptionModePtrInput interface {
+	pulumi.Input
+
+	ToEventSourceMappingConsumptionModePtrOutput() EventSourceMappingConsumptionModePtrOutput
+	ToEventSourceMappingConsumptionModePtrOutputWithContext(context.Context) EventSourceMappingConsumptionModePtrOutput
+}
+
+type eventSourceMappingConsumptionModePtr string
+
+func EventSourceMappingConsumptionModePtr(v string) EventSourceMappingConsumptionModePtrInput {
+	return (*eventSourceMappingConsumptionModePtr)(&v)
+}
+
+func (*eventSourceMappingConsumptionModePtr) ElementType() reflect.Type {
+	return eventSourceMappingConsumptionModePtrType
+}
+
+func (in *eventSourceMappingConsumptionModePtr) ToEventSourceMappingConsumptionModePtrOutput() EventSourceMappingConsumptionModePtrOutput {
+	return pulumi.ToOutput(in).(EventSourceMappingConsumptionModePtrOutput)
+}
+
+func (in *eventSourceMappingConsumptionModePtr) ToEventSourceMappingConsumptionModePtrOutputWithContext(ctx context.Context) EventSourceMappingConsumptionModePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(EventSourceMappingConsumptionModePtrOutput)
+}
+
 // Determines what DocumentDB sends to your event stream during document update operations. If set to UpdateLookup, DocumentDB sends a delta describing the changes, along with a copy of the entire document. Otherwise, DocumentDB sends only a partial document that contains the changes.
 type EventSourceMappingDocumentDbEventSourceConfigFullDocument string
 
@@ -1907,6 +2073,7 @@ const (
 	EventSourceMappingSchemaRegistryAccessConfigTypeBasicAuth                = EventSourceMappingSchemaRegistryAccessConfigType("BASIC_AUTH")
 	EventSourceMappingSchemaRegistryAccessConfigTypeClientCertificateTlsAuth = EventSourceMappingSchemaRegistryAccessConfigType("CLIENT_CERTIFICATE_TLS_AUTH")
 	EventSourceMappingSchemaRegistryAccessConfigTypeServerRootCaCertificate  = EventSourceMappingSchemaRegistryAccessConfigType("SERVER_ROOT_CA_CERTIFICATE")
+	EventSourceMappingSchemaRegistryAccessConfigTypeOauthbearerAuth          = EventSourceMappingSchemaRegistryAccessConfigType("OAUTHBEARER_AUTH")
 )
 
 func (EventSourceMappingSchemaRegistryAccessConfigType) ElementType() reflect.Type {
@@ -2034,6 +2201,7 @@ func (o EventSourceMappingSchemaRegistryAccessConfigTypePtrOutput) ToStringPtrOu
 //	EventSourceMappingSchemaRegistryAccessConfigTypeBasicAuth
 //	EventSourceMappingSchemaRegistryAccessConfigTypeClientCertificateTlsAuth
 //	EventSourceMappingSchemaRegistryAccessConfigTypeServerRootCaCertificate
+//	EventSourceMappingSchemaRegistryAccessConfigTypeOauthbearerAuth
 type EventSourceMappingSchemaRegistryAccessConfigTypeInput interface {
 	pulumi.Input
 
@@ -2415,14 +2583,21 @@ func (in *eventSourceMappingSchemaValidationConfigAttributePtr) ToEventSourceMap
 type EventSourceMappingSourceAccessConfigurationType string
 
 const (
-	EventSourceMappingSourceAccessConfigurationTypeBasicAuth                = EventSourceMappingSourceAccessConfigurationType("BASIC_AUTH")
-	EventSourceMappingSourceAccessConfigurationTypeVpcSubnet                = EventSourceMappingSourceAccessConfigurationType("VPC_SUBNET")
-	EventSourceMappingSourceAccessConfigurationTypeVpcSecurityGroup         = EventSourceMappingSourceAccessConfigurationType("VPC_SECURITY_GROUP")
-	EventSourceMappingSourceAccessConfigurationTypeSaslScram512Auth         = EventSourceMappingSourceAccessConfigurationType("SASL_SCRAM_512_AUTH")
-	EventSourceMappingSourceAccessConfigurationTypeSaslScram256Auth         = EventSourceMappingSourceAccessConfigurationType("SASL_SCRAM_256_AUTH")
-	EventSourceMappingSourceAccessConfigurationTypeVirtualHost              = EventSourceMappingSourceAccessConfigurationType("VIRTUAL_HOST")
-	EventSourceMappingSourceAccessConfigurationTypeClientCertificateTlsAuth = EventSourceMappingSourceAccessConfigurationType("CLIENT_CERTIFICATE_TLS_AUTH")
-	EventSourceMappingSourceAccessConfigurationTypeServerRootCaCertificate  = EventSourceMappingSourceAccessConfigurationType("SERVER_ROOT_CA_CERTIFICATE")
+	EventSourceMappingSourceAccessConfigurationTypeBasicAuth                 = EventSourceMappingSourceAccessConfigurationType("BASIC_AUTH")
+	EventSourceMappingSourceAccessConfigurationTypeVpcSubnet                 = EventSourceMappingSourceAccessConfigurationType("VPC_SUBNET")
+	EventSourceMappingSourceAccessConfigurationTypeVpcSecurityGroup          = EventSourceMappingSourceAccessConfigurationType("VPC_SECURITY_GROUP")
+	EventSourceMappingSourceAccessConfigurationTypeSaslScram512Auth          = EventSourceMappingSourceAccessConfigurationType("SASL_SCRAM_512_AUTH")
+	EventSourceMappingSourceAccessConfigurationTypeSaslScram256Auth          = EventSourceMappingSourceAccessConfigurationType("SASL_SCRAM_256_AUTH")
+	EventSourceMappingSourceAccessConfigurationTypeVirtualHost               = EventSourceMappingSourceAccessConfigurationType("VIRTUAL_HOST")
+	EventSourceMappingSourceAccessConfigurationTypeClientCertificateTlsAuth  = EventSourceMappingSourceAccessConfigurationType("CLIENT_CERTIFICATE_TLS_AUTH")
+	EventSourceMappingSourceAccessConfigurationTypeServerRootCaCertificate   = EventSourceMappingSourceAccessConfigurationType("SERVER_ROOT_CA_CERTIFICATE")
+	EventSourceMappingSourceAccessConfigurationTypeOauthbearerAuth           = EventSourceMappingSourceAccessConfigurationType("OAUTHBEARER_AUTH")
+	EventSourceMappingSourceAccessConfigurationTypeOauthbearerScope          = EventSourceMappingSourceAccessConfigurationType("OAUTHBEARER_SCOPE")
+	EventSourceMappingSourceAccessConfigurationTypeOauthbearerAudience       = EventSourceMappingSourceAccessConfigurationType("OAUTHBEARER_AUDIENCE")
+	EventSourceMappingSourceAccessConfigurationTypeOauthbearerLogicalCluster = EventSourceMappingSourceAccessConfigurationType("OAUTHBEARER_LOGICAL_CLUSTER")
+	EventSourceMappingSourceAccessConfigurationTypeOauthbearerIdentityPool   = EventSourceMappingSourceAccessConfigurationType("OAUTHBEARER_IDENTITY_POOL")
+	EventSourceMappingSourceAccessConfigurationTypeIamAuth                   = EventSourceMappingSourceAccessConfigurationType("IAM_AUTH")
+	EventSourceMappingSourceAccessConfigurationTypeIamOauthbearerAuth        = EventSourceMappingSourceAccessConfigurationType("IAM_OAUTHBEARER_AUTH")
 )
 
 func (EventSourceMappingSourceAccessConfigurationType) ElementType() reflect.Type {
@@ -2555,6 +2730,13 @@ func (o EventSourceMappingSourceAccessConfigurationTypePtrOutput) ToStringPtrOut
 //	EventSourceMappingSourceAccessConfigurationTypeVirtualHost
 //	EventSourceMappingSourceAccessConfigurationTypeClientCertificateTlsAuth
 //	EventSourceMappingSourceAccessConfigurationTypeServerRootCaCertificate
+//	EventSourceMappingSourceAccessConfigurationTypeOauthbearerAuth
+//	EventSourceMappingSourceAccessConfigurationTypeOauthbearerScope
+//	EventSourceMappingSourceAccessConfigurationTypeOauthbearerAudience
+//	EventSourceMappingSourceAccessConfigurationTypeOauthbearerLogicalCluster
+//	EventSourceMappingSourceAccessConfigurationTypeOauthbearerIdentityPool
+//	EventSourceMappingSourceAccessConfigurationTypeIamAuth
+//	EventSourceMappingSourceAccessConfigurationTypeIamOauthbearerAuth
 type EventSourceMappingSourceAccessConfigurationTypeInput interface {
 	pulumi.Input
 
@@ -3981,7 +4163,15 @@ func (in *functionRuntimeManagementConfigUpdateRuntimeOnPtr) ToFunctionRuntimeMa
 	return pulumi.ToOutputWithContext(ctx, in).(FunctionRuntimeManagementConfigUpdateRuntimeOnPtrOutput)
 }
 
-// Specifies if a function reads from the file system for the lowest latency, or through Amazon S3 Files feature "direct Amazon S3 bucket reads" for the highest throughput
+// Specifies if a function reads from the file system for the lowest latency, or through Amazon S3 Files feature "direct Amazon S3 bucket reads" for the highest throughput. Valid values:
+//
+//   - “AUTO“ (default) – Direct reads are active for functions you configure with 512 MB or more of memory.
+//
+//   - “ENABLED“ – Enforces all reads are directly from the Amazon S3 bucket, regardless of available memory (less than 512 MB).
+//
+//   - “DISABLED“ – Routes all reads through the file system, regardless of memory configuration.
+//
+//     To use direct reads, you must grant the execution role the “s3:GetObject“ and “s3:GetObjectVersion“ permissions. If a direct read fails, Lambda automatically falls back to reading through the file system.
 type FunctionS3FilesConfigDirectS3Read string
 
 const (
@@ -6827,6 +7017,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderScalingModePtrInput)(nil)).Elem(), CapacityProviderScalingMode("Auto"))
 	pulumi.RegisterInputType(reflect.TypeOf((*CodeSigningConfigCodeSigningPoliciesUntrustedArtifactOnDeploymentInput)(nil)).Elem(), CodeSigningConfigCodeSigningPoliciesUntrustedArtifactOnDeployment("Warn"))
 	pulumi.RegisterInputType(reflect.TypeOf((*CodeSigningConfigCodeSigningPoliciesUntrustedArtifactOnDeploymentPtrInput)(nil)).Elem(), CodeSigningConfigCodeSigningPoliciesUntrustedArtifactOnDeployment("Warn"))
+	pulumi.RegisterInputType(reflect.TypeOf((*EventSourceMappingConsumptionModeInput)(nil)).Elem(), EventSourceMappingConsumptionMode("Stream"))
+	pulumi.RegisterInputType(reflect.TypeOf((*EventSourceMappingConsumptionModePtrInput)(nil)).Elem(), EventSourceMappingConsumptionMode("Stream"))
 	pulumi.RegisterInputType(reflect.TypeOf((*EventSourceMappingDocumentDbEventSourceConfigFullDocumentInput)(nil)).Elem(), EventSourceMappingDocumentDbEventSourceConfigFullDocument("UpdateLookup"))
 	pulumi.RegisterInputType(reflect.TypeOf((*EventSourceMappingDocumentDbEventSourceConfigFullDocumentPtrInput)(nil)).Elem(), EventSourceMappingDocumentDbEventSourceConfigFullDocument("UpdateLookup"))
 	pulumi.RegisterInputType(reflect.TypeOf((*EventSourceMappingFunctionResponseTypesItemInput)(nil)).Elem(), EventSourceMappingFunctionResponseTypesItem("ReportBatchItemFailures"))
@@ -6908,6 +7100,8 @@ func init() {
 	pulumi.RegisterOutputType(CapacityProviderStateEnumPtrOutput{})
 	pulumi.RegisterOutputType(CodeSigningConfigCodeSigningPoliciesUntrustedArtifactOnDeploymentOutput{})
 	pulumi.RegisterOutputType(CodeSigningConfigCodeSigningPoliciesUntrustedArtifactOnDeploymentPtrOutput{})
+	pulumi.RegisterOutputType(EventSourceMappingConsumptionModeOutput{})
+	pulumi.RegisterOutputType(EventSourceMappingConsumptionModePtrOutput{})
 	pulumi.RegisterOutputType(EventSourceMappingDocumentDbEventSourceConfigFullDocumentOutput{})
 	pulumi.RegisterOutputType(EventSourceMappingDocumentDbEventSourceConfigFullDocumentPtrOutput{})
 	pulumi.RegisterOutputType(EventSourceMappingFunctionResponseTypesItemOutput{})

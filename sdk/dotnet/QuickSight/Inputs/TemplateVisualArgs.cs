@@ -114,6 +114,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         [Input("kpiVisual")]
         public Input<Inputs.TemplateKpiVisualArgs>? KpiVisual { get; set; }
 
+        [Input("layerMapVisual")]
+        public Input<Inputs.TemplateLayerMapVisualArgs>? LayerMapVisual { get; set; }
+
         /// <summary>
         /// A line chart.
         /// 

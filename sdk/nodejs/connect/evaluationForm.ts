@@ -37,6 +37,7 @@ export class EvaluationForm extends pulumi.CustomResource {
         return obj['__pulumiType'] === EvaluationForm.__pulumiType;
     }
 
+    declare public readonly aiVersion: pulumi.Output<string | undefined>;
     /**
      * The automatic evaluation configuration of an evaluation form.
      */
@@ -113,6 +114,7 @@ export class EvaluationForm extends pulumi.CustomResource {
             if (args?.title === undefined && !opts.urn) {
                 throw new Error("Missing required property 'title'");
             }
+            resourceInputs["aiVersion"] = args?.aiVersion;
             resourceInputs["autoEvaluationConfiguration"] = args?.autoEvaluationConfiguration;
             resourceInputs["description"] = args?.description;
             resourceInputs["instanceArn"] = args?.instanceArn;
@@ -126,6 +128,7 @@ export class EvaluationForm extends pulumi.CustomResource {
             resourceInputs["title"] = args?.title;
             resourceInputs["evaluationFormArn"] = undefined /*out*/;
         } else {
+            resourceInputs["aiVersion"] = undefined /*out*/;
             resourceInputs["autoEvaluationConfiguration"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["evaluationFormArn"] = undefined /*out*/;
@@ -148,6 +151,7 @@ export class EvaluationForm extends pulumi.CustomResource {
  * The set of arguments for constructing a EvaluationForm resource.
  */
 export interface EvaluationFormArgs {
+    aiVersion?: pulumi.Input<string | undefined>;
     /**
      * The automatic evaluation configuration of an evaluation form.
      */

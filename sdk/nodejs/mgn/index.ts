@@ -5,10 +5,30 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { ConnectorArgs } from "./connector";
+export type Connector = import("./connector").Connector;
+export const Connector: typeof import("./connector").Connector = null as any;
+utilities.lazyLoad(exports, ["Connector"], () => require("./connector"));
+
+export { GetConnectorArgs, GetConnectorResult, GetConnectorOutputArgs } from "./getConnector";
+export const getConnector: typeof import("./getConnector").getConnector = null as any;
+export const getConnectorOutput: typeof import("./getConnector").getConnectorOutput = null as any;
+utilities.lazyLoad(exports, ["getConnector","getConnectorOutput"], () => require("./getConnector"));
+
+export { GetLaunchConfigurationTemplateArgs, GetLaunchConfigurationTemplateResult, GetLaunchConfigurationTemplateOutputArgs } from "./getLaunchConfigurationTemplate";
+export const getLaunchConfigurationTemplate: typeof import("./getLaunchConfigurationTemplate").getLaunchConfigurationTemplate = null as any;
+export const getLaunchConfigurationTemplateOutput: typeof import("./getLaunchConfigurationTemplate").getLaunchConfigurationTemplateOutput = null as any;
+utilities.lazyLoad(exports, ["getLaunchConfigurationTemplate","getLaunchConfigurationTemplateOutput"], () => require("./getLaunchConfigurationTemplate"));
+
 export { GetNetworkMigrationDefinitionArgs, GetNetworkMigrationDefinitionResult, GetNetworkMigrationDefinitionOutputArgs } from "./getNetworkMigrationDefinition";
 export const getNetworkMigrationDefinition: typeof import("./getNetworkMigrationDefinition").getNetworkMigrationDefinition = null as any;
 export const getNetworkMigrationDefinitionOutput: typeof import("./getNetworkMigrationDefinition").getNetworkMigrationDefinitionOutput = null as any;
 utilities.lazyLoad(exports, ["getNetworkMigrationDefinition","getNetworkMigrationDefinitionOutput"], () => require("./getNetworkMigrationDefinition"));
+
+export { LaunchConfigurationTemplateArgs } from "./launchConfigurationTemplate";
+export type LaunchConfigurationTemplate = import("./launchConfigurationTemplate").LaunchConfigurationTemplate;
+export const LaunchConfigurationTemplate: typeof import("./launchConfigurationTemplate").LaunchConfigurationTemplate = null as any;
+utilities.lazyLoad(exports, ["LaunchConfigurationTemplate"], () => require("./launchConfigurationTemplate"));
 
 export { NetworkMigrationDefinitionArgs } from "./networkMigrationDefinition";
 export type NetworkMigrationDefinition = import("./networkMigrationDefinition").NetworkMigrationDefinition;
@@ -23,6 +43,10 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws-native:mgn:Connector":
+                return new Connector(name, <any>undefined, { urn })
+            case "aws-native:mgn:LaunchConfigurationTemplate":
+                return new LaunchConfigurationTemplate(name, <any>undefined, { urn })
             case "aws-native:mgn:NetworkMigrationDefinition":
                 return new NetworkMigrationDefinition(name, <any>undefined, { urn })
             default:

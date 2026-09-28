@@ -1040,6 +1040,1003 @@ func (o DocumentClassifierVpcConfigPtrOutput) Subnets() pulumi.StringArrayOutput
 	}).(pulumi.StringArrayOutput)
 }
 
+// Describes the annotations associated with an entity recognizer.
+type EntityRecognizerAnnotations struct {
+	// Specifies the Amazon S3 location where the annotations are located.
+	S3Uri string `pulumi:"s3Uri"`
+	// Specifies the Amazon S3 location where the test annotations are located.
+	TestS3Uri *string `pulumi:"testS3Uri"`
+}
+
+// EntityRecognizerAnnotationsInput is an input type that accepts EntityRecognizerAnnotationsArgs and EntityRecognizerAnnotationsOutput values.
+// You can construct a concrete instance of `EntityRecognizerAnnotationsInput` via:
+//
+//	EntityRecognizerAnnotationsArgs{...}
+type EntityRecognizerAnnotationsInput interface {
+	pulumi.Input
+
+	ToEntityRecognizerAnnotationsOutput() EntityRecognizerAnnotationsOutput
+	ToEntityRecognizerAnnotationsOutputWithContext(context.Context) EntityRecognizerAnnotationsOutput
+}
+
+// Describes the annotations associated with an entity recognizer.
+type EntityRecognizerAnnotationsArgs struct {
+	// Specifies the Amazon S3 location where the annotations are located.
+	S3Uri pulumi.StringInput `pulumi:"s3Uri"`
+	// Specifies the Amazon S3 location where the test annotations are located.
+	TestS3Uri pulumi.StringPtrInput `pulumi:"testS3Uri"`
+}
+
+func (EntityRecognizerAnnotationsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EntityRecognizerAnnotations)(nil)).Elem()
+}
+
+func (i EntityRecognizerAnnotationsArgs) ToEntityRecognizerAnnotationsOutput() EntityRecognizerAnnotationsOutput {
+	return i.ToEntityRecognizerAnnotationsOutputWithContext(context.Background())
+}
+
+func (i EntityRecognizerAnnotationsArgs) ToEntityRecognizerAnnotationsOutputWithContext(ctx context.Context) EntityRecognizerAnnotationsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EntityRecognizerAnnotationsOutput)
+}
+
+func (i EntityRecognizerAnnotationsArgs) ToEntityRecognizerAnnotationsPtrOutput() EntityRecognizerAnnotationsPtrOutput {
+	return i.ToEntityRecognizerAnnotationsPtrOutputWithContext(context.Background())
+}
+
+func (i EntityRecognizerAnnotationsArgs) ToEntityRecognizerAnnotationsPtrOutputWithContext(ctx context.Context) EntityRecognizerAnnotationsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EntityRecognizerAnnotationsOutput).ToEntityRecognizerAnnotationsPtrOutputWithContext(ctx)
+}
+
+// EntityRecognizerAnnotationsPtrInput is an input type that accepts EntityRecognizerAnnotationsArgs, EntityRecognizerAnnotationsPtr and EntityRecognizerAnnotationsPtrOutput values.
+// You can construct a concrete instance of `EntityRecognizerAnnotationsPtrInput` via:
+//
+//	        EntityRecognizerAnnotationsArgs{...}
+//
+//	or:
+//
+//	        nil
+type EntityRecognizerAnnotationsPtrInput interface {
+	pulumi.Input
+
+	ToEntityRecognizerAnnotationsPtrOutput() EntityRecognizerAnnotationsPtrOutput
+	ToEntityRecognizerAnnotationsPtrOutputWithContext(context.Context) EntityRecognizerAnnotationsPtrOutput
+}
+
+type entityRecognizerAnnotationsPtrType EntityRecognizerAnnotationsArgs
+
+func EntityRecognizerAnnotationsPtr(v *EntityRecognizerAnnotationsArgs) EntityRecognizerAnnotationsPtrInput {
+	return (*entityRecognizerAnnotationsPtrType)(v)
+}
+
+func (*entityRecognizerAnnotationsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EntityRecognizerAnnotations)(nil)).Elem()
+}
+
+func (i *entityRecognizerAnnotationsPtrType) ToEntityRecognizerAnnotationsPtrOutput() EntityRecognizerAnnotationsPtrOutput {
+	return i.ToEntityRecognizerAnnotationsPtrOutputWithContext(context.Background())
+}
+
+func (i *entityRecognizerAnnotationsPtrType) ToEntityRecognizerAnnotationsPtrOutputWithContext(ctx context.Context) EntityRecognizerAnnotationsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EntityRecognizerAnnotationsPtrOutput)
+}
+
+// Describes the annotations associated with an entity recognizer.
+type EntityRecognizerAnnotationsOutput struct{ *pulumi.OutputState }
+
+func (EntityRecognizerAnnotationsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EntityRecognizerAnnotations)(nil)).Elem()
+}
+
+func (o EntityRecognizerAnnotationsOutput) ToEntityRecognizerAnnotationsOutput() EntityRecognizerAnnotationsOutput {
+	return o
+}
+
+func (o EntityRecognizerAnnotationsOutput) ToEntityRecognizerAnnotationsOutputWithContext(ctx context.Context) EntityRecognizerAnnotationsOutput {
+	return o
+}
+
+func (o EntityRecognizerAnnotationsOutput) ToEntityRecognizerAnnotationsPtrOutput() EntityRecognizerAnnotationsPtrOutput {
+	return o.ToEntityRecognizerAnnotationsPtrOutputWithContext(context.Background())
+}
+
+func (o EntityRecognizerAnnotationsOutput) ToEntityRecognizerAnnotationsPtrOutputWithContext(ctx context.Context) EntityRecognizerAnnotationsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EntityRecognizerAnnotations) *EntityRecognizerAnnotations {
+		return &v
+	}).(EntityRecognizerAnnotationsPtrOutput)
+}
+
+// Specifies the Amazon S3 location where the annotations are located.
+func (o EntityRecognizerAnnotationsOutput) S3Uri() pulumi.StringOutput {
+	return o.ApplyT(func(v EntityRecognizerAnnotations) string { return v.S3Uri }).(pulumi.StringOutput)
+}
+
+// Specifies the Amazon S3 location where the test annotations are located.
+func (o EntityRecognizerAnnotationsOutput) TestS3Uri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EntityRecognizerAnnotations) *string { return v.TestS3Uri }).(pulumi.StringPtrOutput)
+}
+
+type EntityRecognizerAnnotationsPtrOutput struct{ *pulumi.OutputState }
+
+func (EntityRecognizerAnnotationsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EntityRecognizerAnnotations)(nil)).Elem()
+}
+
+func (o EntityRecognizerAnnotationsPtrOutput) ToEntityRecognizerAnnotationsPtrOutput() EntityRecognizerAnnotationsPtrOutput {
+	return o
+}
+
+func (o EntityRecognizerAnnotationsPtrOutput) ToEntityRecognizerAnnotationsPtrOutputWithContext(ctx context.Context) EntityRecognizerAnnotationsPtrOutput {
+	return o
+}
+
+func (o EntityRecognizerAnnotationsPtrOutput) Elem() EntityRecognizerAnnotationsOutput {
+	return o.ApplyT(func(v *EntityRecognizerAnnotations) EntityRecognizerAnnotations {
+		if v != nil {
+			return *v
+		}
+		var ret EntityRecognizerAnnotations
+		return ret
+	}).(EntityRecognizerAnnotationsOutput)
+}
+
+// Specifies the Amazon S3 location where the annotations are located.
+func (o EntityRecognizerAnnotationsPtrOutput) S3Uri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EntityRecognizerAnnotations) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.S3Uri
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the Amazon S3 location where the test annotations are located.
+func (o EntityRecognizerAnnotationsPtrOutput) TestS3Uri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EntityRecognizerAnnotations) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TestS3Uri
+	}).(pulumi.StringPtrOutput)
+}
+
+// An augmented manifest file that provides training data for your custom model.
+type EntityRecognizerAugmentedManifestsListItem struct {
+	// The S3 prefix to the annotation files that are referred in the augmented manifest file.
+	AnnotationDataS3Uri *string `pulumi:"annotationDataS3Uri"`
+	// The JSON attribute that contains the annotations for your training documents.
+	AttributeNames []string `pulumi:"attributeNames"`
+	// The type of augmented manifest.
+	DocumentType *EntityRecognizerAugmentedManifestsListItemDocumentType `pulumi:"documentType"`
+	// The Amazon S3 location of the augmented manifest file.
+	S3Uri string `pulumi:"s3Uri"`
+	// The S3 prefix to the source files (PDFs) that are referred to in the augmented manifest file.
+	SourceDocumentsS3Uri *string `pulumi:"sourceDocumentsS3Uri"`
+	// The purpose of the data you've provided in the augmented manifest.
+	Split *EntityRecognizerAugmentedManifestsListItemSplit `pulumi:"split"`
+}
+
+// EntityRecognizerAugmentedManifestsListItemInput is an input type that accepts EntityRecognizerAugmentedManifestsListItemArgs and EntityRecognizerAugmentedManifestsListItemOutput values.
+// You can construct a concrete instance of `EntityRecognizerAugmentedManifestsListItemInput` via:
+//
+//	EntityRecognizerAugmentedManifestsListItemArgs{...}
+type EntityRecognizerAugmentedManifestsListItemInput interface {
+	pulumi.Input
+
+	ToEntityRecognizerAugmentedManifestsListItemOutput() EntityRecognizerAugmentedManifestsListItemOutput
+	ToEntityRecognizerAugmentedManifestsListItemOutputWithContext(context.Context) EntityRecognizerAugmentedManifestsListItemOutput
+}
+
+// An augmented manifest file that provides training data for your custom model.
+type EntityRecognizerAugmentedManifestsListItemArgs struct {
+	// The S3 prefix to the annotation files that are referred in the augmented manifest file.
+	AnnotationDataS3Uri pulumi.StringPtrInput `pulumi:"annotationDataS3Uri"`
+	// The JSON attribute that contains the annotations for your training documents.
+	AttributeNames pulumi.StringArrayInput `pulumi:"attributeNames"`
+	// The type of augmented manifest.
+	DocumentType EntityRecognizerAugmentedManifestsListItemDocumentTypePtrInput `pulumi:"documentType"`
+	// The Amazon S3 location of the augmented manifest file.
+	S3Uri pulumi.StringInput `pulumi:"s3Uri"`
+	// The S3 prefix to the source files (PDFs) that are referred to in the augmented manifest file.
+	SourceDocumentsS3Uri pulumi.StringPtrInput `pulumi:"sourceDocumentsS3Uri"`
+	// The purpose of the data you've provided in the augmented manifest.
+	Split EntityRecognizerAugmentedManifestsListItemSplitPtrInput `pulumi:"split"`
+}
+
+func (EntityRecognizerAugmentedManifestsListItemArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EntityRecognizerAugmentedManifestsListItem)(nil)).Elem()
+}
+
+func (i EntityRecognizerAugmentedManifestsListItemArgs) ToEntityRecognizerAugmentedManifestsListItemOutput() EntityRecognizerAugmentedManifestsListItemOutput {
+	return i.ToEntityRecognizerAugmentedManifestsListItemOutputWithContext(context.Background())
+}
+
+func (i EntityRecognizerAugmentedManifestsListItemArgs) ToEntityRecognizerAugmentedManifestsListItemOutputWithContext(ctx context.Context) EntityRecognizerAugmentedManifestsListItemOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EntityRecognizerAugmentedManifestsListItemOutput)
+}
+
+// EntityRecognizerAugmentedManifestsListItemArrayInput is an input type that accepts EntityRecognizerAugmentedManifestsListItemArray and EntityRecognizerAugmentedManifestsListItemArrayOutput values.
+// You can construct a concrete instance of `EntityRecognizerAugmentedManifestsListItemArrayInput` via:
+//
+//	EntityRecognizerAugmentedManifestsListItemArray{ EntityRecognizerAugmentedManifestsListItemArgs{...} }
+type EntityRecognizerAugmentedManifestsListItemArrayInput interface {
+	pulumi.Input
+
+	ToEntityRecognizerAugmentedManifestsListItemArrayOutput() EntityRecognizerAugmentedManifestsListItemArrayOutput
+	ToEntityRecognizerAugmentedManifestsListItemArrayOutputWithContext(context.Context) EntityRecognizerAugmentedManifestsListItemArrayOutput
+}
+
+type EntityRecognizerAugmentedManifestsListItemArray []EntityRecognizerAugmentedManifestsListItemInput
+
+func (EntityRecognizerAugmentedManifestsListItemArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EntityRecognizerAugmentedManifestsListItem)(nil)).Elem()
+}
+
+func (i EntityRecognizerAugmentedManifestsListItemArray) ToEntityRecognizerAugmentedManifestsListItemArrayOutput() EntityRecognizerAugmentedManifestsListItemArrayOutput {
+	return i.ToEntityRecognizerAugmentedManifestsListItemArrayOutputWithContext(context.Background())
+}
+
+func (i EntityRecognizerAugmentedManifestsListItemArray) ToEntityRecognizerAugmentedManifestsListItemArrayOutputWithContext(ctx context.Context) EntityRecognizerAugmentedManifestsListItemArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EntityRecognizerAugmentedManifestsListItemArrayOutput)
+}
+
+// An augmented manifest file that provides training data for your custom model.
+type EntityRecognizerAugmentedManifestsListItemOutput struct{ *pulumi.OutputState }
+
+func (EntityRecognizerAugmentedManifestsListItemOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EntityRecognizerAugmentedManifestsListItem)(nil)).Elem()
+}
+
+func (o EntityRecognizerAugmentedManifestsListItemOutput) ToEntityRecognizerAugmentedManifestsListItemOutput() EntityRecognizerAugmentedManifestsListItemOutput {
+	return o
+}
+
+func (o EntityRecognizerAugmentedManifestsListItemOutput) ToEntityRecognizerAugmentedManifestsListItemOutputWithContext(ctx context.Context) EntityRecognizerAugmentedManifestsListItemOutput {
+	return o
+}
+
+// The S3 prefix to the annotation files that are referred in the augmented manifest file.
+func (o EntityRecognizerAugmentedManifestsListItemOutput) AnnotationDataS3Uri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EntityRecognizerAugmentedManifestsListItem) *string { return v.AnnotationDataS3Uri }).(pulumi.StringPtrOutput)
+}
+
+// The JSON attribute that contains the annotations for your training documents.
+func (o EntityRecognizerAugmentedManifestsListItemOutput) AttributeNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v EntityRecognizerAugmentedManifestsListItem) []string { return v.AttributeNames }).(pulumi.StringArrayOutput)
+}
+
+// The type of augmented manifest.
+func (o EntityRecognizerAugmentedManifestsListItemOutput) DocumentType() EntityRecognizerAugmentedManifestsListItemDocumentTypePtrOutput {
+	return o.ApplyT(func(v EntityRecognizerAugmentedManifestsListItem) *EntityRecognizerAugmentedManifestsListItemDocumentType {
+		return v.DocumentType
+	}).(EntityRecognizerAugmentedManifestsListItemDocumentTypePtrOutput)
+}
+
+// The Amazon S3 location of the augmented manifest file.
+func (o EntityRecognizerAugmentedManifestsListItemOutput) S3Uri() pulumi.StringOutput {
+	return o.ApplyT(func(v EntityRecognizerAugmentedManifestsListItem) string { return v.S3Uri }).(pulumi.StringOutput)
+}
+
+// The S3 prefix to the source files (PDFs) that are referred to in the augmented manifest file.
+func (o EntityRecognizerAugmentedManifestsListItemOutput) SourceDocumentsS3Uri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EntityRecognizerAugmentedManifestsListItem) *string { return v.SourceDocumentsS3Uri }).(pulumi.StringPtrOutput)
+}
+
+// The purpose of the data you've provided in the augmented manifest.
+func (o EntityRecognizerAugmentedManifestsListItemOutput) Split() EntityRecognizerAugmentedManifestsListItemSplitPtrOutput {
+	return o.ApplyT(func(v EntityRecognizerAugmentedManifestsListItem) *EntityRecognizerAugmentedManifestsListItemSplit {
+		return v.Split
+	}).(EntityRecognizerAugmentedManifestsListItemSplitPtrOutput)
+}
+
+type EntityRecognizerAugmentedManifestsListItemArrayOutput struct{ *pulumi.OutputState }
+
+func (EntityRecognizerAugmentedManifestsListItemArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EntityRecognizerAugmentedManifestsListItem)(nil)).Elem()
+}
+
+func (o EntityRecognizerAugmentedManifestsListItemArrayOutput) ToEntityRecognizerAugmentedManifestsListItemArrayOutput() EntityRecognizerAugmentedManifestsListItemArrayOutput {
+	return o
+}
+
+func (o EntityRecognizerAugmentedManifestsListItemArrayOutput) ToEntityRecognizerAugmentedManifestsListItemArrayOutputWithContext(ctx context.Context) EntityRecognizerAugmentedManifestsListItemArrayOutput {
+	return o
+}
+
+func (o EntityRecognizerAugmentedManifestsListItemArrayOutput) Index(i pulumi.IntInput) EntityRecognizerAugmentedManifestsListItemOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EntityRecognizerAugmentedManifestsListItem {
+		return vs[0].([]EntityRecognizerAugmentedManifestsListItem)[vs[1].(int)]
+	}).(EntityRecognizerAugmentedManifestsListItemOutput)
+}
+
+// Describes the training documents submitted with an entity recognizer.
+type EntityRecognizerDocuments struct {
+	// Specifies how the text in an input file should be processed.
+	InputFormat *EntityRecognizerDocumentsInputFormat `pulumi:"inputFormat"`
+	// Specifies the Amazon S3 location where the training documents are located.
+	S3Uri string `pulumi:"s3Uri"`
+	// Specifies the Amazon S3 location where the test documents are located.
+	TestS3Uri *string `pulumi:"testS3Uri"`
+}
+
+// EntityRecognizerDocumentsInput is an input type that accepts EntityRecognizerDocumentsArgs and EntityRecognizerDocumentsOutput values.
+// You can construct a concrete instance of `EntityRecognizerDocumentsInput` via:
+//
+//	EntityRecognizerDocumentsArgs{...}
+type EntityRecognizerDocumentsInput interface {
+	pulumi.Input
+
+	ToEntityRecognizerDocumentsOutput() EntityRecognizerDocumentsOutput
+	ToEntityRecognizerDocumentsOutputWithContext(context.Context) EntityRecognizerDocumentsOutput
+}
+
+// Describes the training documents submitted with an entity recognizer.
+type EntityRecognizerDocumentsArgs struct {
+	// Specifies how the text in an input file should be processed.
+	InputFormat EntityRecognizerDocumentsInputFormatPtrInput `pulumi:"inputFormat"`
+	// Specifies the Amazon S3 location where the training documents are located.
+	S3Uri pulumi.StringInput `pulumi:"s3Uri"`
+	// Specifies the Amazon S3 location where the test documents are located.
+	TestS3Uri pulumi.StringPtrInput `pulumi:"testS3Uri"`
+}
+
+func (EntityRecognizerDocumentsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EntityRecognizerDocuments)(nil)).Elem()
+}
+
+func (i EntityRecognizerDocumentsArgs) ToEntityRecognizerDocumentsOutput() EntityRecognizerDocumentsOutput {
+	return i.ToEntityRecognizerDocumentsOutputWithContext(context.Background())
+}
+
+func (i EntityRecognizerDocumentsArgs) ToEntityRecognizerDocumentsOutputWithContext(ctx context.Context) EntityRecognizerDocumentsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EntityRecognizerDocumentsOutput)
+}
+
+func (i EntityRecognizerDocumentsArgs) ToEntityRecognizerDocumentsPtrOutput() EntityRecognizerDocumentsPtrOutput {
+	return i.ToEntityRecognizerDocumentsPtrOutputWithContext(context.Background())
+}
+
+func (i EntityRecognizerDocumentsArgs) ToEntityRecognizerDocumentsPtrOutputWithContext(ctx context.Context) EntityRecognizerDocumentsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EntityRecognizerDocumentsOutput).ToEntityRecognizerDocumentsPtrOutputWithContext(ctx)
+}
+
+// EntityRecognizerDocumentsPtrInput is an input type that accepts EntityRecognizerDocumentsArgs, EntityRecognizerDocumentsPtr and EntityRecognizerDocumentsPtrOutput values.
+// You can construct a concrete instance of `EntityRecognizerDocumentsPtrInput` via:
+//
+//	        EntityRecognizerDocumentsArgs{...}
+//
+//	or:
+//
+//	        nil
+type EntityRecognizerDocumentsPtrInput interface {
+	pulumi.Input
+
+	ToEntityRecognizerDocumentsPtrOutput() EntityRecognizerDocumentsPtrOutput
+	ToEntityRecognizerDocumentsPtrOutputWithContext(context.Context) EntityRecognizerDocumentsPtrOutput
+}
+
+type entityRecognizerDocumentsPtrType EntityRecognizerDocumentsArgs
+
+func EntityRecognizerDocumentsPtr(v *EntityRecognizerDocumentsArgs) EntityRecognizerDocumentsPtrInput {
+	return (*entityRecognizerDocumentsPtrType)(v)
+}
+
+func (*entityRecognizerDocumentsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EntityRecognizerDocuments)(nil)).Elem()
+}
+
+func (i *entityRecognizerDocumentsPtrType) ToEntityRecognizerDocumentsPtrOutput() EntityRecognizerDocumentsPtrOutput {
+	return i.ToEntityRecognizerDocumentsPtrOutputWithContext(context.Background())
+}
+
+func (i *entityRecognizerDocumentsPtrType) ToEntityRecognizerDocumentsPtrOutputWithContext(ctx context.Context) EntityRecognizerDocumentsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EntityRecognizerDocumentsPtrOutput)
+}
+
+// Describes the training documents submitted with an entity recognizer.
+type EntityRecognizerDocumentsOutput struct{ *pulumi.OutputState }
+
+func (EntityRecognizerDocumentsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EntityRecognizerDocuments)(nil)).Elem()
+}
+
+func (o EntityRecognizerDocumentsOutput) ToEntityRecognizerDocumentsOutput() EntityRecognizerDocumentsOutput {
+	return o
+}
+
+func (o EntityRecognizerDocumentsOutput) ToEntityRecognizerDocumentsOutputWithContext(ctx context.Context) EntityRecognizerDocumentsOutput {
+	return o
+}
+
+func (o EntityRecognizerDocumentsOutput) ToEntityRecognizerDocumentsPtrOutput() EntityRecognizerDocumentsPtrOutput {
+	return o.ToEntityRecognizerDocumentsPtrOutputWithContext(context.Background())
+}
+
+func (o EntityRecognizerDocumentsOutput) ToEntityRecognizerDocumentsPtrOutputWithContext(ctx context.Context) EntityRecognizerDocumentsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EntityRecognizerDocuments) *EntityRecognizerDocuments {
+		return &v
+	}).(EntityRecognizerDocumentsPtrOutput)
+}
+
+// Specifies how the text in an input file should be processed.
+func (o EntityRecognizerDocumentsOutput) InputFormat() EntityRecognizerDocumentsInputFormatPtrOutput {
+	return o.ApplyT(func(v EntityRecognizerDocuments) *EntityRecognizerDocumentsInputFormat { return v.InputFormat }).(EntityRecognizerDocumentsInputFormatPtrOutput)
+}
+
+// Specifies the Amazon S3 location where the training documents are located.
+func (o EntityRecognizerDocumentsOutput) S3Uri() pulumi.StringOutput {
+	return o.ApplyT(func(v EntityRecognizerDocuments) string { return v.S3Uri }).(pulumi.StringOutput)
+}
+
+// Specifies the Amazon S3 location where the test documents are located.
+func (o EntityRecognizerDocumentsOutput) TestS3Uri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EntityRecognizerDocuments) *string { return v.TestS3Uri }).(pulumi.StringPtrOutput)
+}
+
+type EntityRecognizerDocumentsPtrOutput struct{ *pulumi.OutputState }
+
+func (EntityRecognizerDocumentsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EntityRecognizerDocuments)(nil)).Elem()
+}
+
+func (o EntityRecognizerDocumentsPtrOutput) ToEntityRecognizerDocumentsPtrOutput() EntityRecognizerDocumentsPtrOutput {
+	return o
+}
+
+func (o EntityRecognizerDocumentsPtrOutput) ToEntityRecognizerDocumentsPtrOutputWithContext(ctx context.Context) EntityRecognizerDocumentsPtrOutput {
+	return o
+}
+
+func (o EntityRecognizerDocumentsPtrOutput) Elem() EntityRecognizerDocumentsOutput {
+	return o.ApplyT(func(v *EntityRecognizerDocuments) EntityRecognizerDocuments {
+		if v != nil {
+			return *v
+		}
+		var ret EntityRecognizerDocuments
+		return ret
+	}).(EntityRecognizerDocumentsOutput)
+}
+
+// Specifies how the text in an input file should be processed.
+func (o EntityRecognizerDocumentsPtrOutput) InputFormat() EntityRecognizerDocumentsInputFormatPtrOutput {
+	return o.ApplyT(func(v *EntityRecognizerDocuments) *EntityRecognizerDocumentsInputFormat {
+		if v == nil {
+			return nil
+		}
+		return v.InputFormat
+	}).(EntityRecognizerDocumentsInputFormatPtrOutput)
+}
+
+// Specifies the Amazon S3 location where the training documents are located.
+func (o EntityRecognizerDocumentsPtrOutput) S3Uri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EntityRecognizerDocuments) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.S3Uri
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the Amazon S3 location where the test documents are located.
+func (o EntityRecognizerDocumentsPtrOutput) TestS3Uri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EntityRecognizerDocuments) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TestS3Uri
+	}).(pulumi.StringPtrOutput)
+}
+
+// Describes the entity list submitted with an entity recognizer.
+type EntityRecognizerEntityList struct {
+	// Specifies the Amazon S3 location where the entity list is located.
+	S3Uri string `pulumi:"s3Uri"`
+}
+
+// EntityRecognizerEntityListInput is an input type that accepts EntityRecognizerEntityListArgs and EntityRecognizerEntityListOutput values.
+// You can construct a concrete instance of `EntityRecognizerEntityListInput` via:
+//
+//	EntityRecognizerEntityListArgs{...}
+type EntityRecognizerEntityListInput interface {
+	pulumi.Input
+
+	ToEntityRecognizerEntityListOutput() EntityRecognizerEntityListOutput
+	ToEntityRecognizerEntityListOutputWithContext(context.Context) EntityRecognizerEntityListOutput
+}
+
+// Describes the entity list submitted with an entity recognizer.
+type EntityRecognizerEntityListArgs struct {
+	// Specifies the Amazon S3 location where the entity list is located.
+	S3Uri pulumi.StringInput `pulumi:"s3Uri"`
+}
+
+func (EntityRecognizerEntityListArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EntityRecognizerEntityList)(nil)).Elem()
+}
+
+func (i EntityRecognizerEntityListArgs) ToEntityRecognizerEntityListOutput() EntityRecognizerEntityListOutput {
+	return i.ToEntityRecognizerEntityListOutputWithContext(context.Background())
+}
+
+func (i EntityRecognizerEntityListArgs) ToEntityRecognizerEntityListOutputWithContext(ctx context.Context) EntityRecognizerEntityListOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EntityRecognizerEntityListOutput)
+}
+
+func (i EntityRecognizerEntityListArgs) ToEntityRecognizerEntityListPtrOutput() EntityRecognizerEntityListPtrOutput {
+	return i.ToEntityRecognizerEntityListPtrOutputWithContext(context.Background())
+}
+
+func (i EntityRecognizerEntityListArgs) ToEntityRecognizerEntityListPtrOutputWithContext(ctx context.Context) EntityRecognizerEntityListPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EntityRecognizerEntityListOutput).ToEntityRecognizerEntityListPtrOutputWithContext(ctx)
+}
+
+// EntityRecognizerEntityListPtrInput is an input type that accepts EntityRecognizerEntityListArgs, EntityRecognizerEntityListPtr and EntityRecognizerEntityListPtrOutput values.
+// You can construct a concrete instance of `EntityRecognizerEntityListPtrInput` via:
+//
+//	        EntityRecognizerEntityListArgs{...}
+//
+//	or:
+//
+//	        nil
+type EntityRecognizerEntityListPtrInput interface {
+	pulumi.Input
+
+	ToEntityRecognizerEntityListPtrOutput() EntityRecognizerEntityListPtrOutput
+	ToEntityRecognizerEntityListPtrOutputWithContext(context.Context) EntityRecognizerEntityListPtrOutput
+}
+
+type entityRecognizerEntityListPtrType EntityRecognizerEntityListArgs
+
+func EntityRecognizerEntityListPtr(v *EntityRecognizerEntityListArgs) EntityRecognizerEntityListPtrInput {
+	return (*entityRecognizerEntityListPtrType)(v)
+}
+
+func (*entityRecognizerEntityListPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EntityRecognizerEntityList)(nil)).Elem()
+}
+
+func (i *entityRecognizerEntityListPtrType) ToEntityRecognizerEntityListPtrOutput() EntityRecognizerEntityListPtrOutput {
+	return i.ToEntityRecognizerEntityListPtrOutputWithContext(context.Background())
+}
+
+func (i *entityRecognizerEntityListPtrType) ToEntityRecognizerEntityListPtrOutputWithContext(ctx context.Context) EntityRecognizerEntityListPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EntityRecognizerEntityListPtrOutput)
+}
+
+// Describes the entity list submitted with an entity recognizer.
+type EntityRecognizerEntityListOutput struct{ *pulumi.OutputState }
+
+func (EntityRecognizerEntityListOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EntityRecognizerEntityList)(nil)).Elem()
+}
+
+func (o EntityRecognizerEntityListOutput) ToEntityRecognizerEntityListOutput() EntityRecognizerEntityListOutput {
+	return o
+}
+
+func (o EntityRecognizerEntityListOutput) ToEntityRecognizerEntityListOutputWithContext(ctx context.Context) EntityRecognizerEntityListOutput {
+	return o
+}
+
+func (o EntityRecognizerEntityListOutput) ToEntityRecognizerEntityListPtrOutput() EntityRecognizerEntityListPtrOutput {
+	return o.ToEntityRecognizerEntityListPtrOutputWithContext(context.Background())
+}
+
+func (o EntityRecognizerEntityListOutput) ToEntityRecognizerEntityListPtrOutputWithContext(ctx context.Context) EntityRecognizerEntityListPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EntityRecognizerEntityList) *EntityRecognizerEntityList {
+		return &v
+	}).(EntityRecognizerEntityListPtrOutput)
+}
+
+// Specifies the Amazon S3 location where the entity list is located.
+func (o EntityRecognizerEntityListOutput) S3Uri() pulumi.StringOutput {
+	return o.ApplyT(func(v EntityRecognizerEntityList) string { return v.S3Uri }).(pulumi.StringOutput)
+}
+
+type EntityRecognizerEntityListPtrOutput struct{ *pulumi.OutputState }
+
+func (EntityRecognizerEntityListPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EntityRecognizerEntityList)(nil)).Elem()
+}
+
+func (o EntityRecognizerEntityListPtrOutput) ToEntityRecognizerEntityListPtrOutput() EntityRecognizerEntityListPtrOutput {
+	return o
+}
+
+func (o EntityRecognizerEntityListPtrOutput) ToEntityRecognizerEntityListPtrOutputWithContext(ctx context.Context) EntityRecognizerEntityListPtrOutput {
+	return o
+}
+
+func (o EntityRecognizerEntityListPtrOutput) Elem() EntityRecognizerEntityListOutput {
+	return o.ApplyT(func(v *EntityRecognizerEntityList) EntityRecognizerEntityList {
+		if v != nil {
+			return *v
+		}
+		var ret EntityRecognizerEntityList
+		return ret
+	}).(EntityRecognizerEntityListOutput)
+}
+
+// Specifies the Amazon S3 location where the entity list is located.
+func (o EntityRecognizerEntityListPtrOutput) S3Uri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EntityRecognizerEntityList) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.S3Uri
+	}).(pulumi.StringPtrOutput)
+}
+
+// An entity type within a labeled training dataset that Amazon Comprehend uses to train a custom entity recognizer.
+type EntityRecognizerEntityTypesListItem struct {
+	// An entity type within a labeled training dataset.
+	Type string `pulumi:"type"`
+}
+
+// EntityRecognizerEntityTypesListItemInput is an input type that accepts EntityRecognizerEntityTypesListItemArgs and EntityRecognizerEntityTypesListItemOutput values.
+// You can construct a concrete instance of `EntityRecognizerEntityTypesListItemInput` via:
+//
+//	EntityRecognizerEntityTypesListItemArgs{...}
+type EntityRecognizerEntityTypesListItemInput interface {
+	pulumi.Input
+
+	ToEntityRecognizerEntityTypesListItemOutput() EntityRecognizerEntityTypesListItemOutput
+	ToEntityRecognizerEntityTypesListItemOutputWithContext(context.Context) EntityRecognizerEntityTypesListItemOutput
+}
+
+// An entity type within a labeled training dataset that Amazon Comprehend uses to train a custom entity recognizer.
+type EntityRecognizerEntityTypesListItemArgs struct {
+	// An entity type within a labeled training dataset.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (EntityRecognizerEntityTypesListItemArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EntityRecognizerEntityTypesListItem)(nil)).Elem()
+}
+
+func (i EntityRecognizerEntityTypesListItemArgs) ToEntityRecognizerEntityTypesListItemOutput() EntityRecognizerEntityTypesListItemOutput {
+	return i.ToEntityRecognizerEntityTypesListItemOutputWithContext(context.Background())
+}
+
+func (i EntityRecognizerEntityTypesListItemArgs) ToEntityRecognizerEntityTypesListItemOutputWithContext(ctx context.Context) EntityRecognizerEntityTypesListItemOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EntityRecognizerEntityTypesListItemOutput)
+}
+
+// EntityRecognizerEntityTypesListItemArrayInput is an input type that accepts EntityRecognizerEntityTypesListItemArray and EntityRecognizerEntityTypesListItemArrayOutput values.
+// You can construct a concrete instance of `EntityRecognizerEntityTypesListItemArrayInput` via:
+//
+//	EntityRecognizerEntityTypesListItemArray{ EntityRecognizerEntityTypesListItemArgs{...} }
+type EntityRecognizerEntityTypesListItemArrayInput interface {
+	pulumi.Input
+
+	ToEntityRecognizerEntityTypesListItemArrayOutput() EntityRecognizerEntityTypesListItemArrayOutput
+	ToEntityRecognizerEntityTypesListItemArrayOutputWithContext(context.Context) EntityRecognizerEntityTypesListItemArrayOutput
+}
+
+type EntityRecognizerEntityTypesListItemArray []EntityRecognizerEntityTypesListItemInput
+
+func (EntityRecognizerEntityTypesListItemArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EntityRecognizerEntityTypesListItem)(nil)).Elem()
+}
+
+func (i EntityRecognizerEntityTypesListItemArray) ToEntityRecognizerEntityTypesListItemArrayOutput() EntityRecognizerEntityTypesListItemArrayOutput {
+	return i.ToEntityRecognizerEntityTypesListItemArrayOutputWithContext(context.Background())
+}
+
+func (i EntityRecognizerEntityTypesListItemArray) ToEntityRecognizerEntityTypesListItemArrayOutputWithContext(ctx context.Context) EntityRecognizerEntityTypesListItemArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EntityRecognizerEntityTypesListItemArrayOutput)
+}
+
+// An entity type within a labeled training dataset that Amazon Comprehend uses to train a custom entity recognizer.
+type EntityRecognizerEntityTypesListItemOutput struct{ *pulumi.OutputState }
+
+func (EntityRecognizerEntityTypesListItemOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EntityRecognizerEntityTypesListItem)(nil)).Elem()
+}
+
+func (o EntityRecognizerEntityTypesListItemOutput) ToEntityRecognizerEntityTypesListItemOutput() EntityRecognizerEntityTypesListItemOutput {
+	return o
+}
+
+func (o EntityRecognizerEntityTypesListItemOutput) ToEntityRecognizerEntityTypesListItemOutputWithContext(ctx context.Context) EntityRecognizerEntityTypesListItemOutput {
+	return o
+}
+
+// An entity type within a labeled training dataset.
+func (o EntityRecognizerEntityTypesListItemOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v EntityRecognizerEntityTypesListItem) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type EntityRecognizerEntityTypesListItemArrayOutput struct{ *pulumi.OutputState }
+
+func (EntityRecognizerEntityTypesListItemArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EntityRecognizerEntityTypesListItem)(nil)).Elem()
+}
+
+func (o EntityRecognizerEntityTypesListItemArrayOutput) ToEntityRecognizerEntityTypesListItemArrayOutput() EntityRecognizerEntityTypesListItemArrayOutput {
+	return o
+}
+
+func (o EntityRecognizerEntityTypesListItemArrayOutput) ToEntityRecognizerEntityTypesListItemArrayOutputWithContext(ctx context.Context) EntityRecognizerEntityTypesListItemArrayOutput {
+	return o
+}
+
+func (o EntityRecognizerEntityTypesListItemArrayOutput) Index(i pulumi.IntInput) EntityRecognizerEntityTypesListItemOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EntityRecognizerEntityTypesListItem {
+		return vs[0].([]EntityRecognizerEntityTypesListItem)[vs[1].(int)]
+	}).(EntityRecognizerEntityTypesListItemOutput)
+}
+
+// Specifies the format and location of the input data for an entity recognizer.
+type EntityRecognizerInputDataConfig struct {
+	// The S3 location of the CSV file that annotates your training documents.
+	Annotations *EntityRecognizerAnnotations `pulumi:"annotations"`
+	// A list of augmented manifest files that provide training data for a custom model.
+	AugmentedManifests []EntityRecognizerAugmentedManifestsListItem `pulumi:"augmentedManifests"`
+	// The format of your training data.
+	DataFormat *EntityRecognizerInputDataConfigDataFormat `pulumi:"dataFormat"`
+	// The S3 location of the folder that contains the training documents.
+	Documents *EntityRecognizerDocuments `pulumi:"documents"`
+	// The S3 location of the CSV file that has the entity list.
+	EntityList *EntityRecognizerEntityList `pulumi:"entityList"`
+	// The entity types in the labeled training data.
+	EntityTypes []EntityRecognizerEntityTypesListItem `pulumi:"entityTypes"`
+}
+
+// EntityRecognizerInputDataConfigInput is an input type that accepts EntityRecognizerInputDataConfigArgs and EntityRecognizerInputDataConfigOutput values.
+// You can construct a concrete instance of `EntityRecognizerInputDataConfigInput` via:
+//
+//	EntityRecognizerInputDataConfigArgs{...}
+type EntityRecognizerInputDataConfigInput interface {
+	pulumi.Input
+
+	ToEntityRecognizerInputDataConfigOutput() EntityRecognizerInputDataConfigOutput
+	ToEntityRecognizerInputDataConfigOutputWithContext(context.Context) EntityRecognizerInputDataConfigOutput
+}
+
+// Specifies the format and location of the input data for an entity recognizer.
+type EntityRecognizerInputDataConfigArgs struct {
+	// The S3 location of the CSV file that annotates your training documents.
+	Annotations EntityRecognizerAnnotationsPtrInput `pulumi:"annotations"`
+	// A list of augmented manifest files that provide training data for a custom model.
+	AugmentedManifests EntityRecognizerAugmentedManifestsListItemArrayInput `pulumi:"augmentedManifests"`
+	// The format of your training data.
+	DataFormat EntityRecognizerInputDataConfigDataFormatPtrInput `pulumi:"dataFormat"`
+	// The S3 location of the folder that contains the training documents.
+	Documents EntityRecognizerDocumentsPtrInput `pulumi:"documents"`
+	// The S3 location of the CSV file that has the entity list.
+	EntityList EntityRecognizerEntityListPtrInput `pulumi:"entityList"`
+	// The entity types in the labeled training data.
+	EntityTypes EntityRecognizerEntityTypesListItemArrayInput `pulumi:"entityTypes"`
+}
+
+func (EntityRecognizerInputDataConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EntityRecognizerInputDataConfig)(nil)).Elem()
+}
+
+func (i EntityRecognizerInputDataConfigArgs) ToEntityRecognizerInputDataConfigOutput() EntityRecognizerInputDataConfigOutput {
+	return i.ToEntityRecognizerInputDataConfigOutputWithContext(context.Background())
+}
+
+func (i EntityRecognizerInputDataConfigArgs) ToEntityRecognizerInputDataConfigOutputWithContext(ctx context.Context) EntityRecognizerInputDataConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EntityRecognizerInputDataConfigOutput)
+}
+
+// Specifies the format and location of the input data for an entity recognizer.
+type EntityRecognizerInputDataConfigOutput struct{ *pulumi.OutputState }
+
+func (EntityRecognizerInputDataConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EntityRecognizerInputDataConfig)(nil)).Elem()
+}
+
+func (o EntityRecognizerInputDataConfigOutput) ToEntityRecognizerInputDataConfigOutput() EntityRecognizerInputDataConfigOutput {
+	return o
+}
+
+func (o EntityRecognizerInputDataConfigOutput) ToEntityRecognizerInputDataConfigOutputWithContext(ctx context.Context) EntityRecognizerInputDataConfigOutput {
+	return o
+}
+
+// The S3 location of the CSV file that annotates your training documents.
+func (o EntityRecognizerInputDataConfigOutput) Annotations() EntityRecognizerAnnotationsPtrOutput {
+	return o.ApplyT(func(v EntityRecognizerInputDataConfig) *EntityRecognizerAnnotations { return v.Annotations }).(EntityRecognizerAnnotationsPtrOutput)
+}
+
+// A list of augmented manifest files that provide training data for a custom model.
+func (o EntityRecognizerInputDataConfigOutput) AugmentedManifests() EntityRecognizerAugmentedManifestsListItemArrayOutput {
+	return o.ApplyT(func(v EntityRecognizerInputDataConfig) []EntityRecognizerAugmentedManifestsListItem {
+		return v.AugmentedManifests
+	}).(EntityRecognizerAugmentedManifestsListItemArrayOutput)
+}
+
+// The format of your training data.
+func (o EntityRecognizerInputDataConfigOutput) DataFormat() EntityRecognizerInputDataConfigDataFormatPtrOutput {
+	return o.ApplyT(func(v EntityRecognizerInputDataConfig) *EntityRecognizerInputDataConfigDataFormat {
+		return v.DataFormat
+	}).(EntityRecognizerInputDataConfigDataFormatPtrOutput)
+}
+
+// The S3 location of the folder that contains the training documents.
+func (o EntityRecognizerInputDataConfigOutput) Documents() EntityRecognizerDocumentsPtrOutput {
+	return o.ApplyT(func(v EntityRecognizerInputDataConfig) *EntityRecognizerDocuments { return v.Documents }).(EntityRecognizerDocumentsPtrOutput)
+}
+
+// The S3 location of the CSV file that has the entity list.
+func (o EntityRecognizerInputDataConfigOutput) EntityList() EntityRecognizerEntityListPtrOutput {
+	return o.ApplyT(func(v EntityRecognizerInputDataConfig) *EntityRecognizerEntityList { return v.EntityList }).(EntityRecognizerEntityListPtrOutput)
+}
+
+// The entity types in the labeled training data.
+func (o EntityRecognizerInputDataConfigOutput) EntityTypes() EntityRecognizerEntityTypesListItemArrayOutput {
+	return o.ApplyT(func(v EntityRecognizerInputDataConfig) []EntityRecognizerEntityTypesListItem { return v.EntityTypes }).(EntityRecognizerEntityTypesListItemArrayOutput)
+}
+
+// A key-value pair that adds metadata to a resource.
+type EntityRecognizerTag struct {
+	// The key of the key-value pair that forms a tag.
+	Key string `pulumi:"key"`
+	// The value of the key-value pair that forms a tag.
+	Value string `pulumi:"value"`
+}
+
+// Configuration parameters for an optional private Virtual Private Cloud (VPC) containing the resources you are using for the job.
+type EntityRecognizerVpcConfig struct {
+	// The ID number for a security group on an instance of your private VPC.
+	SecurityGroupIds []string `pulumi:"securityGroupIds"`
+	// The ID for each subnet being used in your private VPC.
+	Subnets []string `pulumi:"subnets"`
+}
+
+// EntityRecognizerVpcConfigInput is an input type that accepts EntityRecognizerVpcConfigArgs and EntityRecognizerVpcConfigOutput values.
+// You can construct a concrete instance of `EntityRecognizerVpcConfigInput` via:
+//
+//	EntityRecognizerVpcConfigArgs{...}
+type EntityRecognizerVpcConfigInput interface {
+	pulumi.Input
+
+	ToEntityRecognizerVpcConfigOutput() EntityRecognizerVpcConfigOutput
+	ToEntityRecognizerVpcConfigOutputWithContext(context.Context) EntityRecognizerVpcConfigOutput
+}
+
+// Configuration parameters for an optional private Virtual Private Cloud (VPC) containing the resources you are using for the job.
+type EntityRecognizerVpcConfigArgs struct {
+	// The ID number for a security group on an instance of your private VPC.
+	SecurityGroupIds pulumi.StringArrayInput `pulumi:"securityGroupIds"`
+	// The ID for each subnet being used in your private VPC.
+	Subnets pulumi.StringArrayInput `pulumi:"subnets"`
+}
+
+func (EntityRecognizerVpcConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EntityRecognizerVpcConfig)(nil)).Elem()
+}
+
+func (i EntityRecognizerVpcConfigArgs) ToEntityRecognizerVpcConfigOutput() EntityRecognizerVpcConfigOutput {
+	return i.ToEntityRecognizerVpcConfigOutputWithContext(context.Background())
+}
+
+func (i EntityRecognizerVpcConfigArgs) ToEntityRecognizerVpcConfigOutputWithContext(ctx context.Context) EntityRecognizerVpcConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EntityRecognizerVpcConfigOutput)
+}
+
+func (i EntityRecognizerVpcConfigArgs) ToEntityRecognizerVpcConfigPtrOutput() EntityRecognizerVpcConfigPtrOutput {
+	return i.ToEntityRecognizerVpcConfigPtrOutputWithContext(context.Background())
+}
+
+func (i EntityRecognizerVpcConfigArgs) ToEntityRecognizerVpcConfigPtrOutputWithContext(ctx context.Context) EntityRecognizerVpcConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EntityRecognizerVpcConfigOutput).ToEntityRecognizerVpcConfigPtrOutputWithContext(ctx)
+}
+
+// EntityRecognizerVpcConfigPtrInput is an input type that accepts EntityRecognizerVpcConfigArgs, EntityRecognizerVpcConfigPtr and EntityRecognizerVpcConfigPtrOutput values.
+// You can construct a concrete instance of `EntityRecognizerVpcConfigPtrInput` via:
+//
+//	        EntityRecognizerVpcConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type EntityRecognizerVpcConfigPtrInput interface {
+	pulumi.Input
+
+	ToEntityRecognizerVpcConfigPtrOutput() EntityRecognizerVpcConfigPtrOutput
+	ToEntityRecognizerVpcConfigPtrOutputWithContext(context.Context) EntityRecognizerVpcConfigPtrOutput
+}
+
+type entityRecognizerVpcConfigPtrType EntityRecognizerVpcConfigArgs
+
+func EntityRecognizerVpcConfigPtr(v *EntityRecognizerVpcConfigArgs) EntityRecognizerVpcConfigPtrInput {
+	return (*entityRecognizerVpcConfigPtrType)(v)
+}
+
+func (*entityRecognizerVpcConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EntityRecognizerVpcConfig)(nil)).Elem()
+}
+
+func (i *entityRecognizerVpcConfigPtrType) ToEntityRecognizerVpcConfigPtrOutput() EntityRecognizerVpcConfigPtrOutput {
+	return i.ToEntityRecognizerVpcConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *entityRecognizerVpcConfigPtrType) ToEntityRecognizerVpcConfigPtrOutputWithContext(ctx context.Context) EntityRecognizerVpcConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EntityRecognizerVpcConfigPtrOutput)
+}
+
+// Configuration parameters for an optional private Virtual Private Cloud (VPC) containing the resources you are using for the job.
+type EntityRecognizerVpcConfigOutput struct{ *pulumi.OutputState }
+
+func (EntityRecognizerVpcConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EntityRecognizerVpcConfig)(nil)).Elem()
+}
+
+func (o EntityRecognizerVpcConfigOutput) ToEntityRecognizerVpcConfigOutput() EntityRecognizerVpcConfigOutput {
+	return o
+}
+
+func (o EntityRecognizerVpcConfigOutput) ToEntityRecognizerVpcConfigOutputWithContext(ctx context.Context) EntityRecognizerVpcConfigOutput {
+	return o
+}
+
+func (o EntityRecognizerVpcConfigOutput) ToEntityRecognizerVpcConfigPtrOutput() EntityRecognizerVpcConfigPtrOutput {
+	return o.ToEntityRecognizerVpcConfigPtrOutputWithContext(context.Background())
+}
+
+func (o EntityRecognizerVpcConfigOutput) ToEntityRecognizerVpcConfigPtrOutputWithContext(ctx context.Context) EntityRecognizerVpcConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EntityRecognizerVpcConfig) *EntityRecognizerVpcConfig {
+		return &v
+	}).(EntityRecognizerVpcConfigPtrOutput)
+}
+
+// The ID number for a security group on an instance of your private VPC.
+func (o EntityRecognizerVpcConfigOutput) SecurityGroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v EntityRecognizerVpcConfig) []string { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
+}
+
+// The ID for each subnet being used in your private VPC.
+func (o EntityRecognizerVpcConfigOutput) Subnets() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v EntityRecognizerVpcConfig) []string { return v.Subnets }).(pulumi.StringArrayOutput)
+}
+
+type EntityRecognizerVpcConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (EntityRecognizerVpcConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EntityRecognizerVpcConfig)(nil)).Elem()
+}
+
+func (o EntityRecognizerVpcConfigPtrOutput) ToEntityRecognizerVpcConfigPtrOutput() EntityRecognizerVpcConfigPtrOutput {
+	return o
+}
+
+func (o EntityRecognizerVpcConfigPtrOutput) ToEntityRecognizerVpcConfigPtrOutputWithContext(ctx context.Context) EntityRecognizerVpcConfigPtrOutput {
+	return o
+}
+
+func (o EntityRecognizerVpcConfigPtrOutput) Elem() EntityRecognizerVpcConfigOutput {
+	return o.ApplyT(func(v *EntityRecognizerVpcConfig) EntityRecognizerVpcConfig {
+		if v != nil {
+			return *v
+		}
+		var ret EntityRecognizerVpcConfig
+		return ret
+	}).(EntityRecognizerVpcConfigOutput)
+}
+
+// The ID number for a security group on an instance of your private VPC.
+func (o EntityRecognizerVpcConfigPtrOutput) SecurityGroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *EntityRecognizerVpcConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SecurityGroupIds
+	}).(pulumi.StringArrayOutput)
+}
+
+// The ID for each subnet being used in your private VPC.
+func (o EntityRecognizerVpcConfigPtrOutput) Subnets() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *EntityRecognizerVpcConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Subnets
+	}).(pulumi.StringArrayOutput)
+}
+
 type FlywheelDataSecurityConfig struct {
 	// ID for the AWS  key that Amazon Comprehend uses to encrypt the data in the data lake.
 	DataLakeKmsKeyId *string `pulumi:"dataLakeKmsKeyId"`
@@ -1994,6 +2991,19 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DocumentClassifierOutputDataConfigPtrInput)(nil)).Elem(), DocumentClassifierOutputDataConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DocumentClassifierVpcConfigInput)(nil)).Elem(), DocumentClassifierVpcConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DocumentClassifierVpcConfigPtrInput)(nil)).Elem(), DocumentClassifierVpcConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EntityRecognizerAnnotationsInput)(nil)).Elem(), EntityRecognizerAnnotationsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EntityRecognizerAnnotationsPtrInput)(nil)).Elem(), EntityRecognizerAnnotationsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EntityRecognizerAugmentedManifestsListItemInput)(nil)).Elem(), EntityRecognizerAugmentedManifestsListItemArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EntityRecognizerAugmentedManifestsListItemArrayInput)(nil)).Elem(), EntityRecognizerAugmentedManifestsListItemArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EntityRecognizerDocumentsInput)(nil)).Elem(), EntityRecognizerDocumentsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EntityRecognizerDocumentsPtrInput)(nil)).Elem(), EntityRecognizerDocumentsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EntityRecognizerEntityListInput)(nil)).Elem(), EntityRecognizerEntityListArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EntityRecognizerEntityListPtrInput)(nil)).Elem(), EntityRecognizerEntityListArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EntityRecognizerEntityTypesListItemInput)(nil)).Elem(), EntityRecognizerEntityTypesListItemArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EntityRecognizerEntityTypesListItemArrayInput)(nil)).Elem(), EntityRecognizerEntityTypesListItemArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EntityRecognizerInputDataConfigInput)(nil)).Elem(), EntityRecognizerInputDataConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EntityRecognizerVpcConfigInput)(nil)).Elem(), EntityRecognizerVpcConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EntityRecognizerVpcConfigPtrInput)(nil)).Elem(), EntityRecognizerVpcConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlywheelDataSecurityConfigInput)(nil)).Elem(), FlywheelDataSecurityConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlywheelDataSecurityConfigPtrInput)(nil)).Elem(), FlywheelDataSecurityConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlywheelDocumentClassificationConfigInput)(nil)).Elem(), FlywheelDocumentClassificationConfigArgs{})
@@ -2017,6 +3027,19 @@ func init() {
 	pulumi.RegisterOutputType(DocumentClassifierOutputDataConfigPtrOutput{})
 	pulumi.RegisterOutputType(DocumentClassifierVpcConfigOutput{})
 	pulumi.RegisterOutputType(DocumentClassifierVpcConfigPtrOutput{})
+	pulumi.RegisterOutputType(EntityRecognizerAnnotationsOutput{})
+	pulumi.RegisterOutputType(EntityRecognizerAnnotationsPtrOutput{})
+	pulumi.RegisterOutputType(EntityRecognizerAugmentedManifestsListItemOutput{})
+	pulumi.RegisterOutputType(EntityRecognizerAugmentedManifestsListItemArrayOutput{})
+	pulumi.RegisterOutputType(EntityRecognizerDocumentsOutput{})
+	pulumi.RegisterOutputType(EntityRecognizerDocumentsPtrOutput{})
+	pulumi.RegisterOutputType(EntityRecognizerEntityListOutput{})
+	pulumi.RegisterOutputType(EntityRecognizerEntityListPtrOutput{})
+	pulumi.RegisterOutputType(EntityRecognizerEntityTypesListItemOutput{})
+	pulumi.RegisterOutputType(EntityRecognizerEntityTypesListItemArrayOutput{})
+	pulumi.RegisterOutputType(EntityRecognizerInputDataConfigOutput{})
+	pulumi.RegisterOutputType(EntityRecognizerVpcConfigOutput{})
+	pulumi.RegisterOutputType(EntityRecognizerVpcConfigPtrOutput{})
 	pulumi.RegisterOutputType(FlywheelDataSecurityConfigOutput{})
 	pulumi.RegisterOutputType(FlywheelDataSecurityConfigPtrOutput{})
 	pulumi.RegisterOutputType(FlywheelDocumentClassificationConfigOutput{})

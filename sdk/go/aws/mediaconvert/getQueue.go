@@ -34,6 +34,8 @@ type LookupQueueResult struct {
 	ConcurrentJobs *int `pulumi:"concurrentJobs"`
 	// A description of the queue that you are creating.
 	Description *string `pulumi:"description"`
+	// Specify the maximum number of Elemental Inference feeds MediaConvert can process concurrently.
+	MaximumConcurrentFeeds *int `pulumi:"maximumConcurrentFeeds"`
 	// When you use CloudFormation, you can create only on-demand queues. Therefore, always set PricingPlan to the value ON_DEMAND when declaring an AWS::MediaConvert::Queue in your CloudFormation template. To create a reserved queue, use the AWS Elemental MediaConvert console at https://console.aws.amazon.com/mediaconvert to set up a contract. For more information, see Working with AWS Elemental MediaConvert Queues in the AWS Elemental MediaConvert User Guide.
 	PricingPlan *string `pulumi:"pricingPlan"`
 	// Initial state of the queue. Queues can be either ACTIVE or PAUSED. If you create a paused queue, then jobs that you send to that queue won't begin.
@@ -85,6 +87,11 @@ func (o LookupQueueResultOutput) ConcurrentJobs() pulumi.IntPtrOutput {
 // A description of the queue that you are creating.
 func (o LookupQueueResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupQueueResult) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Specify the maximum number of Elemental Inference feeds MediaConvert can process concurrently.
+func (o LookupQueueResultOutput) MaximumConcurrentFeeds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupQueueResult) *int { return v.MaximumConcurrentFeeds }).(pulumi.IntPtrOutput)
 }
 
 // When you use CloudFormation, you can create only on-demand queues. Therefore, always set PricingPlan to the value ON_DEMAND when declaring an AWS::MediaConvert::Queue in your CloudFormation template. To create a reserved queue, use the AWS Elemental MediaConvert console at https://console.aws.amazon.com/mediaconvert to set up a contract. For more information, see Working with AWS Elemental MediaConvert Queues in the AWS Elemental MediaConvert User Guide.

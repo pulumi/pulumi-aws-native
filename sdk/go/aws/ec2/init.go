@@ -53,10 +53,14 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &GatewayRouteTableAssociation{}
 	case "aws-native:ec2:Host":
 		r = &Host{}
+	case "aws-native:ec2:IPv4Pool":
+		r = &IPv4Pool{}
 	case "aws-native:ec2:Instance":
 		r = &Instance{}
 	case "aws-native:ec2:InstanceConnectEndpoint":
 		r = &InstanceConnectEndpoint{}
+	case "aws-native:ec2:InstanceEventWindow":
+		r = &InstanceEventWindow{}
 	case "aws-native:ec2:InternetGateway":
 		r = &InternetGateway{}
 	case "aws-native:ec2:IpPoolRouteTableAssociation":
@@ -151,6 +155,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Subnet{}
 	case "aws-native:ec2:SubnetCidrBlock":
 		r = &SubnetCidrBlock{}
+	case "aws-native:ec2:SubnetCidrReservation":
+		r = &SubnetCidrReservation{}
 	case "aws-native:ec2:SubnetNetworkAclAssociation":
 		r = &SubnetNetworkAclAssociation{}
 	case "aws-native:ec2:SubnetRouteTableAssociation":

@@ -10798,7 +10798,22 @@ export namespace batch {
         containerInsights?: enums.batch.ComputeEnvironmentEcsSettingsContainerInsights;
     }
 
+    /**
+     * The EKS access entry configuration for the compute environment. Controls whether AWS Batch manages the EKS access entry for the compute environment's service role, or inherits it from the cluster.
+     */
+    export interface ComputeEnvironmentEksAccessEntry {
+        /**
+         * The desired state of the EKS access entry managed by AWS Batch. When omitted, AWS Batch applies INHERIT_FROM_CLUSTER.
+         */
+        desiredState?: enums.batch.ComputeEnvironmentEksAccessEntryDesiredState;
+        /**
+         * The read-only status of the EKS access entry, returned by DescribeComputeEnvironments.
+         */
+        status?: enums.batch.ComputeEnvironmentEksAccessEntryStatus;
+    }
+
     export interface ComputeEnvironmentEksConfiguration {
+        accessEntry?: outputs.batch.ComputeEnvironmentEksAccessEntry;
         /**
          * The Amazon Resource Name (ARN) of the Amazon EKS cluster. An example is `arn: *aws* :eks: *us-east-1* : *123456789012* :cluster/ *ClusterForBatch*` .
          */
@@ -12416,6 +12431,84 @@ export namespace bcm {
         queryParameters: outputs.bcm.DashboardQueryParameters;
     }
 
+    /**
+     * An absolute or relative date range.
+     */
+    export interface ScheduledReportDateTimeRange {
+        /**
+         * The end of the range.
+         */
+        endTime: outputs.bcm.ScheduledReportDateTimeValue;
+        /**
+         * The start of the range.
+         */
+        startTime: outputs.bcm.ScheduledReportDateTimeValue;
+    }
+
+    /**
+     * A date expressed either as an absolute instant or as an offset from now.
+     */
+    export interface ScheduledReportDateTimeValue {
+        /**
+         * Whether Value is an absolute date or a duration relative to now.
+         */
+        type: enums.bcm.ScheduledReportDateTimeType;
+        /**
+         * The date, or an ISO 8601 duration when Type is RELATIVE.
+         */
+        value: string;
+    }
+
+    /**
+     * The health of the scheduled report as of its last refresh.
+     */
+    export interface ScheduledReportHealthStatus {
+        /**
+         * The time at which the health status was last refreshed.
+         */
+        lastRefreshedAt?: string;
+        /**
+         * Whether the scheduled report is healthy.
+         */
+        statusCode: enums.bcm.ScheduledReportHealthStatusCode;
+    }
+
+    /**
+     * Defines when and how often a scheduled report runs.
+     */
+    export interface ScheduledReportScheduleConfig {
+        /**
+         * The schedule expression that specifies when to trigger the scheduled report run. This value must be a cron expression consisting of six fields separated by white spaces: cron(minutes hours day_of_month month day_of_week year).
+         */
+        scheduleExpression?: string;
+        /**
+         * The time zone for the schedule expression, for example, UTC.
+         */
+        scheduleExpressionTimeZone?: string;
+        /**
+         * The time period during which the schedule is active.
+         */
+        schedulePeriod?: outputs.bcm.ScheduledReportSchedulePeriod;
+        /**
+         * The state of the schedule. ENABLED means the scheduled report runs according to its schedule expression. DISABLED means the scheduled report is paused and will not run until re-enabled.
+         */
+        state?: enums.bcm.ScheduledReportScheduleState;
+    }
+
+    /**
+     * The window during which the schedule is active. When omitted the service defaults it. EndTime must be within three years of the time of the request.
+     */
+    export interface ScheduledReportSchedulePeriod {
+        /**
+         * The time at which the schedule stops being active.
+         */
+        endTime?: string;
+        /**
+         * The time at which the schedule becomes active.
+         */
+        startTime?: string;
+    }
+
 }
 
 export namespace bcmdataexports {
@@ -13664,6 +13757,26 @@ export namespace bedrock {
     }
 
     /**
+     * A daily refresh. The run time is system-chosen (off-peak) and not customer-configurable.
+     */
+    export interface DataSourceDailySchedule {
+    }
+
+    /**
+     * Day of the month on which a monthly refresh runs. Exactly one variant is set: an explicit day number, or the last calendar day of the month.
+     */
+    export interface DataSourceDayOfMonth {
+        /**
+         * Specific day of the month, 1 through 28 (capped at 28 to avoid month-length ambiguity).
+         */
+        dayNumber?: number;
+        /**
+         * Run on the last calendar day of each month.
+         */
+        lastDayOfMonth?: any;
+    }
+
+    /**
      * Configuration for deletion protection.
      */
     export interface DataSourceDeletionProtectionConfiguration {
@@ -13749,6 +13862,7 @@ export namespace bedrock {
         connectorParameters?: any;
         deletionProtectionConfiguration?: outputs.bedrock.DataSourceDeletionProtectionConfiguration;
         mediaExtractionConfiguration?: outputs.bedrock.DataSourceMediaExtractionConfiguration;
+        syncSchedule?: outputs.bedrock.DataSourceSyncSchedule;
     }
 
     /**
@@ -13758,6 +13872,13 @@ export namespace bedrock {
         audioExtractionConfiguration?: outputs.bedrock.DataSourceAudioExtractionConfiguration;
         imageExtractionConfiguration?: outputs.bedrock.DataSourceImageExtractionConfiguration;
         videoExtractionConfiguration?: outputs.bedrock.DataSourceVideoExtractionConfiguration;
+    }
+
+    /**
+     * A monthly refresh on a specified day of the month.
+     */
+    export interface DataSourceMonthlySchedule {
+        dayOfMonth: outputs.bedrock.DataSourceDayOfMonth;
     }
 
     /**
@@ -13973,6 +14094,15 @@ export namespace bedrock {
     }
 
     /**
+     * Recurring schedule on which the connector automatically refreshes ingested content. Exactly one frequency variant is set.
+     */
+    export interface DataSourceSyncSchedule {
+        daily?: outputs.bedrock.DataSourceDailySchedule;
+        monthly?: outputs.bedrock.DataSourceMonthlySchedule;
+        weekly?: outputs.bedrock.DataSourceWeeklySchedule;
+    }
+
+    /**
      * A Lambda function that processes documents.
      */
     export interface DataSourceTransformation {
@@ -14113,6 +14243,13 @@ export namespace bedrock {
          * The configuration of the URL/URLs.
          */
         urlConfiguration: outputs.bedrock.DataSourceUrlConfiguration;
+    }
+
+    /**
+     * A weekly refresh on a specified day of the week.
+     */
+    export interface DataSourceWeeklySchedule {
+        dayOfWeek: enums.bedrock.DataSourceDayOfWeek;
     }
 
     /**
@@ -20436,6 +20573,27 @@ export namespace cases {
          * Defines the sections within a panel or tab. Contains field groups that organize related fields together.
          */
         sections?: outputs.cases.LayoutSectionProperties[];
+    }
+
+    /**
+     * Represents a comment.
+     */
+    export interface RelatedItemCommentContent {
+        /**
+         * Text in the body of a comment.
+         */
+        body: string;
+        /**
+         * Type of the text in the comment.
+         */
+        contentType: enums.cases.RelatedItemCommentContentContentType;
+    }
+
+    /**
+     * Represents the content of a related item.
+     */
+    export interface RelatedItemContent {
+        comment?: outputs.cases.RelatedItemCommentContent;
     }
 
     /**
@@ -27367,6 +27525,132 @@ export namespace comprehend {
         subnets: string[];
     }
 
+    /**
+     * Describes the annotations associated with an entity recognizer.
+     */
+    export interface EntityRecognizerAnnotations {
+        /**
+         * Specifies the Amazon S3 location where the annotations are located.
+         */
+        s3Uri: string;
+        /**
+         * Specifies the Amazon S3 location where the test annotations are located.
+         */
+        testS3Uri?: string;
+    }
+
+    /**
+     * An augmented manifest file that provides training data for your custom model.
+     */
+    export interface EntityRecognizerAugmentedManifestsListItem {
+        /**
+         * The S3 prefix to the annotation files that are referred in the augmented manifest file.
+         */
+        annotationDataS3Uri?: string;
+        /**
+         * The JSON attribute that contains the annotations for your training documents.
+         */
+        attributeNames: string[];
+        /**
+         * The type of augmented manifest.
+         */
+        documentType?: enums.comprehend.EntityRecognizerAugmentedManifestsListItemDocumentType;
+        /**
+         * The Amazon S3 location of the augmented manifest file.
+         */
+        s3Uri: string;
+        /**
+         * The S3 prefix to the source files (PDFs) that are referred to in the augmented manifest file.
+         */
+        sourceDocumentsS3Uri?: string;
+        /**
+         * The purpose of the data you've provided in the augmented manifest.
+         */
+        split?: enums.comprehend.EntityRecognizerAugmentedManifestsListItemSplit;
+    }
+
+    /**
+     * Describes the training documents submitted with an entity recognizer.
+     */
+    export interface EntityRecognizerDocuments {
+        /**
+         * Specifies how the text in an input file should be processed.
+         */
+        inputFormat?: enums.comprehend.EntityRecognizerDocumentsInputFormat;
+        /**
+         * Specifies the Amazon S3 location where the training documents are located.
+         */
+        s3Uri: string;
+        /**
+         * Specifies the Amazon S3 location where the test documents are located.
+         */
+        testS3Uri?: string;
+    }
+
+    /**
+     * Describes the entity list submitted with an entity recognizer.
+     */
+    export interface EntityRecognizerEntityList {
+        /**
+         * Specifies the Amazon S3 location where the entity list is located.
+         */
+        s3Uri: string;
+    }
+
+    /**
+     * An entity type within a labeled training dataset that Amazon Comprehend uses to train a custom entity recognizer.
+     */
+    export interface EntityRecognizerEntityTypesListItem {
+        /**
+         * An entity type within a labeled training dataset.
+         */
+        type: string;
+    }
+
+    /**
+     * Specifies the format and location of the input data for an entity recognizer.
+     */
+    export interface EntityRecognizerInputDataConfig {
+        /**
+         * The S3 location of the CSV file that annotates your training documents.
+         */
+        annotations?: outputs.comprehend.EntityRecognizerAnnotations;
+        /**
+         * A list of augmented manifest files that provide training data for a custom model.
+         */
+        augmentedManifests?: outputs.comprehend.EntityRecognizerAugmentedManifestsListItem[];
+        /**
+         * The format of your training data.
+         */
+        dataFormat?: enums.comprehend.EntityRecognizerInputDataConfigDataFormat;
+        /**
+         * The S3 location of the folder that contains the training documents.
+         */
+        documents?: outputs.comprehend.EntityRecognizerDocuments;
+        /**
+         * The S3 location of the CSV file that has the entity list.
+         */
+        entityList?: outputs.comprehend.EntityRecognizerEntityList;
+        /**
+         * The entity types in the labeled training data.
+         */
+        entityTypes: outputs.comprehend.EntityRecognizerEntityTypesListItem[];
+    }
+
+    /**
+     * Configuration parameters for an optional private Virtual Private Cloud (VPC) containing the resources you are using for the job.
+     */
+    export interface EntityRecognizerVpcConfig {
+        /**
+         * The ID number for a security group on an instance of your private VPC.
+         */
+        securityGroupIds: string[];
+        /**
+         * The ID for each subnet being used in your private VPC.
+         */
+        subnets: string[];
+    }
+
     export interface FlywheelDataSecurityConfig {
         /**
          * ID for the AWS  key that Amazon Comprehend uses to encrypt the data in the data lake.
@@ -27764,6 +28048,113 @@ export namespace configuration {
     }
 
     /**
+     * Specifies whether the configuration recorder excludes certain resource types from being recorded.
+     */
+    export interface ConfigurationRecorderExclusionByResourceTypes {
+        /**
+         * A comma-separated list of resource types to exclude from recording by the configuration recorder.
+         */
+        resourceTypes: string[];
+    }
+
+    /**
+     * Specifies which resource types AWS Config records for configuration changes.
+     */
+    export interface ConfigurationRecorderRecordingGroup {
+        /**
+         * Specifies whether AWS Config records configuration changes for all supported resource types, excluding the global IAM resource types.
+         */
+        allSupported?: boolean;
+        /**
+         * An object that specifies how AWS Config excludes resource types from being recorded by the configuration recorder.
+         */
+        exclusionByResourceTypes?: outputs.configuration.ConfigurationRecorderExclusionByResourceTypes;
+        /**
+         * This option is a bundle which only applies to the global IAM resource types: IAM users, groups, roles, and customer managed policies.
+         */
+        includeGlobalResourceTypes?: boolean;
+        /**
+         * An object that specifies the recording strategy for the configuration recorder.
+         */
+        recordingStrategy?: outputs.configuration.ConfigurationRecorderRecordingStrategy;
+        /**
+         * A comma-separated list that specifies which resource types AWS Config records.
+         */
+        resourceTypes?: string[];
+    }
+
+    /**
+     * Specifies the default recording frequency for the configuration recorder.
+     */
+    export interface ConfigurationRecorderRecordingMode {
+        /**
+         * The default recording frequency that AWS Config uses to record configuration changes.
+         */
+        recordingFrequency: string;
+        /**
+         * An array of 'RecordingModeOverride' objects for you to specify your overrides for the recording mode.
+         */
+        recordingModeOverrides?: outputs.configuration.ConfigurationRecorderRecordingModeOverride[];
+    }
+
+    /**
+     * Specifies your overrides for the recording mode
+     */
+    export interface ConfigurationRecorderRecordingModeOverride {
+        /**
+         * A description that you provide for the override.
+         */
+        description?: string;
+        /**
+         * The recording frequency that will be applied to all the resource types specified in the override.
+         */
+        recordingFrequency: string;
+        /**
+         * A comma-separated list that specifies which resource types AWS Config includes in the override.
+         */
+        resourceTypes: string[];
+    }
+
+    /**
+     * Specifies the recording strategy of the configuration recorder.
+     */
+    export interface ConfigurationRecorderRecordingStrategy {
+        /**
+         * The recording strategy for the configuration recorder.
+         *
+         * - If you set this option to `ALL_SUPPORTED_RESOURCE_TYPES` , AWS Config records configuration changes for all supported resource types, excluding the global IAM resource types. You also must set the `AllSupported` field of [RecordingGroup](https://docs.aws.amazon.com/config/latest/APIReference/API_RecordingGroup.html) to `true` . When AWS Config adds support for a new resource type, AWS Config automatically starts recording resources of that type. For a list of supported resource types, see [Supported Resource Types](https://docs.aws.amazon.com/config/latest/developerguide/resource-config-reference.html#supported-resources) in the *AWS Config developer guide* .
+         * - If you set this option to `INCLUSION_BY_RESOURCE_TYPES` , AWS Config records configuration changes for only the resource types that you specify in the `ResourceTypes` field of [RecordingGroup](https://docs.aws.amazon.com/config/latest/APIReference/API_RecordingGroup.html) .
+         * - If you set this option to `EXCLUSION_BY_RESOURCE_TYPES` , AWS Config records configuration changes for all supported resource types, except the resource types that you specify to exclude from being recorded in the `ResourceTypes` field of [ExclusionByResourceTypes](https://docs.aws.amazon.com/config/latest/APIReference/API_ExclusionByResourceTypes.html) .
+         *
+         * > *Required and optional fields*
+         * > 
+         * > The `recordingStrategy` field is optional when you set the `AllSupported` field of [RecordingGroup](https://docs.aws.amazon.com/config/latest/APIReference/API_RecordingGroup.html) to `true` .
+         * > 
+         * > The `recordingStrategy` field is optional when you list resource types in the `ResourceTypes` field of [RecordingGroup](https://docs.aws.amazon.com/config/latest/APIReference/API_RecordingGroup.html) .
+         * > 
+         * > The `recordingStrategy` field is required if you list resource types to exclude from recording in the `ResourceTypes` field of [ExclusionByResourceTypes](https://docs.aws.amazon.com/config/latest/APIReference/API_ExclusionByResourceTypes.html) . > *Overriding fields*
+         * > 
+         * > If you choose `EXCLUSION_BY_RESOURCE_TYPES` for the recording strategy, the `ExclusionByResourceTypes` field will override other properties in the request.
+         * > 
+         * > For example, even if you set `IncludeGlobalResourceTypes` to false, global IAM resource types will still be automatically recorded in this option unless those resource types are specifically listed as exclusions in the `ResourceTypes` field of `ExclusionByResourceTypes` . > *Global resource types and the exclusion recording strategy*
+         * > 
+         * > By default, if you choose the `EXCLUSION_BY_RESOURCE_TYPES` recording strategy, when AWS Config adds support for a new resource type in the Region where you set up the configuration recorder, including global resource types, AWS Config starts recording resources of that type automatically.
+         * > 
+         * > Unless specifically listed as exclusions, `AWS::RDS::GlobalCluster` will be recorded automatically in all supported AWS Config Regions were the configuration recorder is enabled.
+         * > 
+         * > IAM users, groups, roles, and customer managed policies will be recorded in the Region where you set up the configuration recorder if that is a Region where AWS Config was available before February 2022. You cannot be record the global IAM resouce types in Regions supported by AWS Config after February 2022. This list where you cannot record the global IAM resource types includes the following Regions:
+         * > - Asia Pacific (Hyderabad)
+         * > - Asia Pacific (Melbourne)
+         * > - Canada West (Calgary)
+         * > - Europe (Spain)
+         * > - Europe (Zurich)
+         * > - Israel (Tel Aviv)
+         * > - Middle East (UAE)
+         */
+        useOnly: string;
+    }
+
+    /**
      * Input parameters in the form of key-value pairs for the conformance pack.
      */
     export interface ConformancePackInputParameter {
@@ -28088,6 +28479,17 @@ export namespace connect {
         formLanguage?: enums.connect.EvaluationFormLanguageConfigurationFormLanguage;
     }
 
+    export interface EvaluationFormMetricConfiguration {
+        /**
+         * The name of the metric.
+         */
+        metricName: string;
+        /**
+         * The type of the metric.
+         */
+        metricType: enums.connect.EvaluationFormMetricConfigurationMetricType;
+    }
+
     /**
      * Automation configuration for multi-select questions.
      */
@@ -28267,6 +28669,7 @@ export namespace connect {
          *  *Length Constraints*: Minimum length of 0. Maximum length of 1024.
          */
         instructions?: string;
+        metricConfiguration?: outputs.connect.EvaluationFormMetricConfiguration;
         /**
          * The flag to enable not applicable answers to the question.
          */
@@ -31303,6 +31706,12 @@ export namespace customerprofiles {
          * List of event parameters with their value thresholds
          */
         eventParametersList: outputs.customerprofiles.RecommenderEventParameters[];
+    }
+
+    export interface RecommenderSchemaField {
+        contentType?: enums.customerprofiles.RecommenderSchemaFieldContentType;
+        featureType?: enums.customerprofiles.RecommenderSchemaFieldFeatureType;
+        targetFieldName: string;
     }
 
     export interface RecommenderTrainingMetrics {
@@ -34705,6 +35114,16 @@ export namespace devopsagent {
     }
 
     /**
+     * Preferences that configure behavior of this AgentSpace. This container fully owns the AgentSpace preferences: the properties supplied here replace the stored preferences in their entirety, and omitting the Preferences container reverts all preferences to their service defaults.
+     */
+    export interface AgentSpacePreferences {
+        /**
+         * Indicates whether elevated directed actions are permitted in this AgentSpace. Defaults to false when not set.
+         */
+        elevatedActionsEnabled?: boolean;
+    }
+
+    /**
      * A single file inside an Asset's bundle. Path is the diff key on update; Content is write-only and not repopulated by Read.
      */
     export interface AssetFile {
@@ -35366,7 +35785,7 @@ export namespace devopsagent {
          */
         region: string;
         /**
-         * Deprecated - use McpRoleArn instead. IAM role ARN to assume for SigV4 signing
+         * Deprecated - use McpRoleArn instead. IAM role ARN to assume for SigV4 signing. Set to an empty string to remove a previously configured role and make the server role-less (cross-account).
          */
         roleArn?: string;
         /**
@@ -37788,6 +38207,29 @@ export namespace drs {
         osByol?: boolean;
     }
 
+    export interface ReplicationConfigurationTemplatePitPolicyRule {
+        /**
+         * Whether this rule is enabled or not.
+         */
+        enabled?: boolean;
+        /**
+         * How often, in the chosen units, a snapshot should be taken.
+         */
+        interval: number;
+        /**
+         * The duration to retain a snapshot for, in the chosen units.
+         */
+        retentionDuration: number;
+        /**
+         * The ID of the rule.
+         */
+        ruleId?: number;
+        /**
+         * The units used to measure the interval and retentionDuration.
+         */
+        units: enums.drs.ReplicationConfigurationTemplatePitPolicyRuleUnits;
+    }
+
 }
 
 export namespace dsql {
@@ -39818,6 +40260,28 @@ export namespace ec2 {
          * Indicates whether UDP traffic uses ENA Express for your instance.
          */
         enaSrdUdpEnabled?: boolean;
+    }
+
+    /**
+     * A time range during which an AWS-initiated maintenance event may occur.
+     */
+    export interface InstanceEventWindowTimeRange {
+        /**
+         * The hour when the time range ends.
+         */
+        endHour?: number;
+        /**
+         * The day on which the time range ends.
+         */
+        endWeekDay?: enums.ec2.InstanceEventWindowTimeRangeEndWeekDay;
+        /**
+         * The hour when the time range begins.
+         */
+        startHour?: number;
+        /**
+         * The day on which the time range begins.
+         */
+        startWeekDay?: enums.ec2.InstanceEventWindowTimeRangeStartWeekDay;
     }
 
     export interface InstanceIpv6Address {
@@ -49285,6 +49749,9 @@ export namespace elasticloadbalancingv2 {
          *  The following attribute is supported by Network Load Balancers, and Gateway Load Balancers.
          *   +  ``tcp.idle_timeout.seconds`` - The tcp idle timeout value, in seconds. The valid range is 60-6000 seconds. The default is 350 seconds.
          *
+         *  The following attribute is only supported by Gateway Load Balancers:
+         *   +  ``send_tcp_reset.on_idle_timeout.enabled`` – Specifies whether the Gateway Load Balancer sends a TCP Reset to the sender of traffic when a TCP flow's idle timeout expires. This attribute also applies to non-SYN TCP packets received for flows that are not in the flow table. The value is ``true`` or ``false``. The default is ``false``.
+         *
          *  The following attributes are only supported by Application Load Balancers.
          *   +  ``routing.http.request.x_amzn_mtls_clientcert_serial_number.header_name`` - Enables you to modify the header name of the *X-Amzn-Mtls-Clientcert-Serial-Number* HTTP request header.
          *   +  ``routing.http.request.x_amzn_mtls_clientcert_issuer.header_name`` - Enables you to modify the header name of the *X-Amzn-Mtls-Clientcert-Issuer* HTTP request header.
@@ -50242,6 +50709,177 @@ export namespace elementalinference {
 }
 
 export namespace emr {
+    export interface InstanceGroupConfigAppConfiguration {
+        classification?: string;
+        configurationProperties?: {[key: string]: string};
+        configurations?: outputs.emr.InstanceGroupConfigAppConfiguration[];
+    }
+
+    export interface InstanceGroupConfigAutoScalingPolicy {
+        /**
+         * The upper and lower Amazon EC2 instance limits for an automatic scaling policy. Automatic scaling activity will not cause an instance group to grow above or below these limits.
+         */
+        constraints: outputs.emr.InstanceGroupConfigScalingConstraints;
+        /**
+         * The scale-in and scale-out rules that comprise the automatic scaling policy.
+         */
+        rules: outputs.emr.InstanceGroupConfigScalingRule[];
+    }
+
+    export interface InstanceGroupConfigCloudWatchAlarmDefinition {
+        /**
+         * Determines how the metric specified by `MetricName` is compared to the value specified by `Threshold` .
+         */
+        comparisonOperator: string;
+        /**
+         * A CloudWatch metric dimension.
+         */
+        dimensions?: outputs.emr.InstanceGroupConfigMetricDimension[];
+        /**
+         * The number of periods, in five-minute increments, during which the alarm condition must exist before the alarm triggers automatic scaling activity. The default value is `1` .
+         */
+        evaluationPeriods?: number;
+        /**
+         * The name of the CloudWatch metric that is watched to determine an alarm condition.
+         */
+        metricName: string;
+        /**
+         * The namespace for the CloudWatch metric. The default is `AWS/ElasticMapReduce` .
+         */
+        namespace?: string;
+        /**
+         * The period, in seconds, over which the statistic is applied. CloudWatch metrics for Amazon EMR are emitted every five minutes (300 seconds), so if you specify a CloudWatch metric, specify `300` .
+         */
+        period: number;
+        /**
+         * The statistic to apply to the metric associated with the alarm. The default is `AVERAGE` .
+         */
+        statistic?: string;
+        /**
+         * The value against which the specified statistic is compared.
+         */
+        threshold: number;
+        /**
+         * The unit of measure associated with the CloudWatch metric being watched. The value specified for `Unit` must correspond to the units specified in the CloudWatch metric.
+         */
+        unit?: string;
+    }
+
+    export interface InstanceGroupConfigEbsBlockDeviceConfig {
+        /**
+         * EBS volume specifications such as volume type, IOPS, size (GiB) and throughput (MiB/s) that are requested for the EBS volume attached to an Amazon EC2 instance in the cluster.
+         */
+        volumeSpecification: outputs.emr.InstanceGroupConfigVolumeSpecification;
+        /**
+         * Use of this property can confuse CloudFormation drift detection. The EbsBlockDeviceConfigs read from the system may return a list with one entry per volume, replacing any entry specified in the template with a VolumesPerInstance greater than one by that many entries containing only the VolumeSpecification. Thus to avoid false drift detection, it is recommended to supply repeated entries in EbsBlockDeviceConfigs for any VolumeSpecification which is intended to be repeated and not to use this property.
+         */
+        volumesPerInstance?: number;
+    }
+
+    export interface InstanceGroupConfigEbsConfiguration {
+        /**
+         * An array of Amazon EBS volume specifications attached to a cluster instance.
+         */
+        ebsBlockDeviceConfigs?: outputs.emr.InstanceGroupConfigEbsBlockDeviceConfig[];
+        /**
+         * Indicates whether an Amazon EBS volume is EBS-optimized. The default is false. You should explicitly set this value to true to enable the Amazon EBS-optimized setting for an EC2 instance.
+         */
+        ebsOptimized?: boolean;
+    }
+
+    export interface InstanceGroupConfigMetricDimension {
+        /**
+         * The dimension name.
+         */
+        key: string;
+        /**
+         * The dimension value.
+         */
+        value: string;
+    }
+
+    export interface InstanceGroupConfigScalingAction {
+        /**
+         * Not available for instance groups. Instance groups use the market type specified for the group.
+         */
+        market?: string;
+        /**
+         * The type of adjustment the automatic scaling activity makes when triggered, and the periodicity of the adjustment.
+         */
+        simpleScalingPolicyConfiguration: outputs.emr.InstanceGroupConfigSimpleScalingPolicyConfiguration;
+    }
+
+    export interface InstanceGroupConfigScalingConstraints {
+        /**
+         * The upper boundary of Amazon EC2 instances in an instance group beyond which scaling activities are not allowed to grow. Scale-out activities will not add instances beyond this boundary.
+         */
+        maxCapacity: number;
+        /**
+         * The lower boundary of Amazon EC2 instances in an instance group below which scaling activities are not allowed to shrink. Scale-in activities will not terminate instances below this boundary.
+         */
+        minCapacity: number;
+    }
+
+    export interface InstanceGroupConfigScalingRule {
+        /**
+         * The conditions that trigger an automatic scaling activity.
+         */
+        action: outputs.emr.InstanceGroupConfigScalingAction;
+        /**
+         * A friendly, more verbose description of the automatic scaling rule.
+         */
+        description?: string;
+        /**
+         * The name used to identify an automatic scaling rule. Rule names must be unique within a scaling policy.
+         */
+        name: string;
+        /**
+         * The CloudWatch alarm definition that determines when automatic scaling activity is triggered.
+         */
+        trigger: outputs.emr.InstanceGroupConfigScalingTrigger;
+    }
+
+    export interface InstanceGroupConfigScalingTrigger {
+        /**
+         * The definition of a CloudWatch metric alarm. When the defined alarm conditions are met along with other trigger parameters, scaling activity begins.
+         */
+        cloudWatchAlarmDefinition: outputs.emr.InstanceGroupConfigCloudWatchAlarmDefinition;
+    }
+
+    export interface InstanceGroupConfigSimpleScalingPolicyConfiguration {
+        /**
+         * The way in which Amazon EC2 instances are added (if `ScalingAdjustment` is a positive number) or terminated (if `ScalingAdjustment` is a negative number) each time the scaling activity is triggered. `CHANGE_IN_CAPACITY` is the default. `CHANGE_IN_CAPACITY` indicates that the Amazon EC2 instance count increments or decrements by `ScalingAdjustment` , which should be expressed as an integer. `PERCENT_CHANGE_IN_CAPACITY` indicates the instance count increments or decrements by the percentage specified by `ScalingAdjustment` , which should be expressed as an integer. For example, 20 indicates an increase in 20% increments of cluster capacity. `EXACT_CAPACITY` indicates the scaling activity results in an instance group with the number of Amazon EC2 instances specified by `ScalingAdjustment` , which should be expressed as a positive integer.
+         */
+        adjustmentType?: string;
+        /**
+         * The amount of time, in seconds, after a scaling activity completes before any further trigger-related scaling activities can start. The default value is 0.
+         */
+        coolDown?: number;
+        /**
+         * The amount by which to scale in or scale out, based on the specified `AdjustmentType` . A positive value adds to the instance group's Amazon EC2 instance count while a negative number removes instances. If `AdjustmentType` is set to `EXACT_CAPACITY` , the number should only be a positive integer. If `AdjustmentType` is set to `PERCENT_CHANGE_IN_CAPACITY` , the value should express the percentage as an integer. For example, -20 indicates a decrease in 20% increments of cluster capacity.
+         */
+        scalingAdjustment: number;
+    }
+
+    export interface InstanceGroupConfigVolumeSpecification {
+        /**
+         * The number of I/O operations per second (IOPS) that the volume supports.
+         */
+        iops?: number;
+        /**
+         * The volume size, in gibibytes (GiB). This can be a number from 1 - 1024. If the volume type is EBS-optimized, the minimum value is 10.
+         */
+        sizeInGb: number;
+        /**
+         * The throughput, in mebibyte per second (MiB/s). This optional parameter can be a number from 125 - 1000 and is valid only for gp3 volumes.
+         */
+        throughput?: number;
+        /**
+         * The volume type. Volume types supported are gp3, gp2, io1, st1, sc1, and standard.
+         */
+        volumeType: string;
+    }
+
     export interface StepHadoopJarStepConfig {
         /**
          * A list of command line arguments passed to the JAR file's main function when executed.
@@ -50310,6 +50948,128 @@ export namespace emrcontainers {
 
     export interface EndpointS3MonitoringConfiguration {
         logUri: string;
+    }
+
+    /**
+     * A configuration specification to be used when provisioning virtual clusters, which can include configurations for applications and software bundled with Amazon EMR on EKS.
+     */
+    export interface JobTemplateConfiguration {
+        /**
+         * The classification within a configuration.
+         */
+        classification: string;
+        configurations?: outputs.emrcontainers.JobTemplateConfiguration[];
+        /**
+         * A set of properties specified within a configuration classification.
+         */
+        properties?: {[key: string]: string};
+    }
+
+    /**
+     * The values of a StartJobRun API request used in job runs started using the job template.
+     */
+    export interface JobTemplateData {
+        configurationOverrides?: outputs.emrcontainers.JobTemplateParametricConfigurationOverrides;
+        /**
+         * The execution role ARN of the job run, or a template parameter reference.
+         */
+        executionRoleArn: string;
+        jobDriver: outputs.emrcontainers.JobTemplateJobDriver;
+        /**
+         * The tags assigned to jobs started using the job template.
+         */
+        jobTags?: {[key: string]: string};
+        /**
+         * The configuration of parameters existing in the job template.
+         */
+        parameterConfiguration?: {[key: string]: outputs.emrcontainers.JobTemplateTemplateParameterConfiguration};
+        /**
+         * The release version of Amazon EMR, or a template parameter reference.
+         */
+        releaseLabel: string;
+    }
+
+    /**
+     * Specify the driver that the job runs on. Exactly one of the two available job drivers is required, either SparkSqlJobDriver or SparkSubmitJobDriver.
+     */
+    export interface JobTemplateJobDriver {
+        sparkSqlJobDriver?: outputs.emrcontainers.JobTemplateSparkSqlJobDriver;
+        sparkSubmitJobDriver?: outputs.emrcontainers.JobTemplateSparkSubmitJobDriver;
+    }
+
+    /**
+     * A configuration for CloudWatch monitoring. This data type allows job template parameters to be specified within.
+     */
+    export interface JobTemplateParametricCloudWatchMonitoringConfiguration {
+        /**
+         * The name of the log group for log publishing, or a template parameter reference.
+         */
+        logGroupName?: string;
+        /**
+         * The specified name prefix for log streams.
+         */
+        logStreamNamePrefix?: string;
+    }
+
+    /**
+     * A configuration specification to be used to override existing configurations. This data type allows job template parameters to be specified within.
+     */
+    export interface JobTemplateParametricConfigurationOverrides {
+        applicationConfiguration?: outputs.emrcontainers.JobTemplateConfiguration[];
+        monitoringConfiguration?: outputs.emrcontainers.JobTemplateParametricMonitoringConfiguration;
+    }
+
+    /**
+     * Configuration setting for monitoring. This data type allows job template parameters to be specified within.
+     */
+    export interface JobTemplateParametricMonitoringConfiguration {
+        cloudWatchMonitoringConfiguration?: outputs.emrcontainers.JobTemplateParametricCloudWatchMonitoringConfiguration;
+        /**
+         * Monitoring configurations for the persistent application UI, or a template parameter reference.
+         */
+        persistentAppUi?: string;
+        s3MonitoringConfiguration?: outputs.emrcontainers.JobTemplateParametricS3MonitoringConfiguration;
+    }
+
+    /**
+     * Amazon S3 configuration for monitoring log publishing. This data type allows job template parameters to be specified within.
+     */
+    export interface JobTemplateParametricS3MonitoringConfiguration {
+        /**
+         * Amazon S3 destination URI for log publishing.
+         */
+        logUri?: string;
+    }
+
+    /**
+     * The job driver for job type.
+     */
+    export interface JobTemplateSparkSqlJobDriver {
+        entryPoint?: string;
+        sparkSqlParameters?: string;
+    }
+
+    /**
+     * The information about job driver for Spark submit.
+     */
+    export interface JobTemplateSparkSubmitJobDriver {
+        entryPoint: string;
+        entryPointArguments?: string[];
+        sparkSubmitParameters?: string;
+    }
+
+    /**
+     * The configuration of a job template parameter.
+     */
+    export interface JobTemplateTemplateParameterConfiguration {
+        /**
+         * The default value for the job template parameter.
+         */
+        defaultValue?: string;
+        /**
+         * The type of the job template parameter.
+         */
+        type?: enums.emrcontainers.JobTemplateTemplateParameterConfigurationType;
     }
 
     /**
@@ -51806,6 +52566,475 @@ export namespace events {
 }
 
 export namespace eventschemas {
+}
+
+export namespace eventsv2 {
+    /**
+     * Encryption configuration for an event bus.
+     */
+    export interface EventBusEncryptionConfiguration {
+        /**
+         * The identifier of the AWS KMS customer managed key that the event bus uses to encrypt events. You can specify the key ARN, key ID, alias name, or alias ARN. If you do not specify a key, EventBridge uses an AWS owned key.
+         */
+        kmsKeyIdentifier?: string;
+    }
+
+    /**
+     * Storage (retention) configuration for the event bus.
+     */
+    export interface EventBusStorageConfiguration {
+        /**
+         * The number of days events are retained on the event bus for replay, 1-365.
+         */
+        retentionPeriodInDays?: number;
+    }
+
+    /**
+     * Forward a single AWS service's events from the account's default event bus.
+     */
+    export interface EventSourceAwsServiceEventsConfiguration {
+        /**
+         * A single AWS service source identifier, for example aws.s3. Wildcards and lists are not allowed.
+         */
+        awsService: string;
+        /**
+         * The destination for events that could not be forwarded.
+         */
+        onFailureConfiguration?: outputs.eventsv2.EventSourceOnFailureConfiguration;
+        /**
+         * A filter pattern, as a JSON string, that defines which events from the specified AWS service are forwarded to the event bus. Do not include source, account, or region as top-level fields. If you do not specify a pattern, all events from the service are forwarded.
+         */
+        pattern?: string;
+    }
+
+    /**
+     * Event source configuration. Exactly one of the two variants must be set.
+     */
+    export interface EventSourceConfiguration {
+        /**
+         * Configuration for forwarding a single AWS service's events.
+         */
+        awsServiceEventsConfiguration?: outputs.eventsv2.EventSourceAwsServiceEventsConfiguration;
+        /**
+         * Configuration for forwarding a partner event source's events.
+         */
+        partnerEventsConfiguration?: outputs.eventsv2.EventSourcePartnerEventsConfiguration;
+    }
+
+    /**
+     * The destination for events that could not be forwarded by the managed forwarding target or, for partner event sources, the managed partner event bus. Arn is optional. An empty object removes a configured destination on update.
+     */
+    export interface EventSourceOnFailureConfiguration {
+        /**
+         * The ARN of the Amazon SQS standard queue that receives events that could not be forwarded. FIFO queues are not supported.
+         */
+        arn?: string;
+    }
+
+    /**
+     * Forward a partner event source's events through a managed partner event bus.
+     */
+    export interface EventSourcePartnerEventsConfiguration {
+        /**
+         * The destination for events that could not be forwarded, covering both the forwarding target and the managed partner event bus.
+         */
+        onFailureConfiguration?: outputs.eventsv2.EventSourceOnFailureConfiguration;
+        /**
+         * The identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt events on the managed partner event bus. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN. If you do not specify a customer managed key identifier, EventBridge uses an AWS owned key to encrypt events on the event bus.
+         */
+        partnerBusKmsKeyIdentifier?: string;
+        /**
+         * The ARN of the partner event source to forward. The partner owns the event source, so the ARN's account segment is empty. Changing this property replaces the event source. Because Name and EventBusArn together identify an event source, and the replacement is created before the old resource is deleted, change Name in the same update.
+         */
+        partnerEventSourceArn: string;
+        /**
+         * A filter pattern, as a JSON string, that defines which events from the specified partner event source are forwarded to the event bus. If you do not specify a pattern, all events from the partner event source are forwarded.
+         */
+        pattern?: string;
+    }
+
+    /**
+     * Configuration for batching events into a single delivery.
+     */
+    export interface SubscriberBatchConfiguration {
+        /**
+         * The maximum number of events in a single batch delivered to the target. The maximum depends on the target: 500 for Kinesis Data Streams and Amazon Data Firehose, 100 for Lambda, Step Functions, and AWS::EventsV2::EventBus targets, 10 for Amazon SQS, Amazon SNS, and AWS::Events::EventBus targets, and 1 for API Gateway, API destinations, and universal service integration targets. The service rejects a value above the target's maximum. Fewer events may be delivered when the batch window elapses. When omitted, the default is 10 for Lambda and Step Functions targets and the target's maximum for other targets. The resolved value applied by the service is returned on read.
+         */
+        maxBatchSize?: number;
+        /**
+         * The maximum time in seconds to wait for a batch to fill before delivering it, 0-300. The default is 0 (no wait). The resolved value applied by the service is returned on read.
+         */
+        maxBatchWindowInSeconds?: number;
+    }
+
+    /**
+     * Deduplication settings applied to the forwarded events on the downstream bus.
+     */
+    export interface SubscriberDeduplicationConfiguration {
+        /**
+         * How duplicate events are detected: CONTENT_BASED deduplicates by a hash of the event content. To deduplicate by a caller-supplied token instead, omit DeduplicationConfiguration and set SystemMetadata.DeduplicationId.
+         */
+        deduplicationType: enums.eventsv2.SubscriberDeduplicationConfigurationDeduplicationType;
+    }
+
+    /**
+     * Customer-controllable system metadata attached to each forwarded event.
+     */
+    export interface SubscriberEventBusV2SystemMetadata {
+        /**
+         * The deduplication ID for FIFO deduplication on the downstream event bus. Accepts a literal value or a JSONata expression.
+         */
+        deduplicationId?: string;
+        /**
+         * The event group ID for FIFO ordering on the downstream event bus. Accepts a literal value or a JSONata expression.
+         */
+        eventGroupId?: string;
+    }
+
+    /**
+     * A single filter entry: an event pattern and the scope of the event it is evaluated against.
+     */
+    export interface SubscriberFilter {
+        /**
+         * The event pattern, as a JSON string.
+         */
+        pattern: string;
+        /**
+         * Which part of the event the pattern is evaluated against: DATA (the event payload), METADATA (event metadata), or SYSTEM_METADATA (service-generated metadata).
+         */
+        scope: enums.eventsv2.SubscriberFilterScope;
+    }
+
+    /**
+     * Configuration for filtering which events are delivered to the target. An event must match every filter to be delivered.
+     */
+    export interface SubscriberFilterConfiguration {
+        /**
+         * The list of filters, 1-50 entries. An event must match every filter to be delivered.
+         */
+        filters: outputs.eventsv2.SubscriberFilter[];
+        /**
+         * The filter language. The default is EVENT_BRIDGE_PATTERN.
+         */
+        language?: enums.eventsv2.SubscriberFilterConfigurationLanguage;
+    }
+
+    /**
+     * Configuration for how the subscriber invokes its target. Specify the target ARN, the IAM role, and, optionally, the target-specific parameters object that matches the target type.
+     */
+    export interface SubscriberInvokeConfigurationProperties {
+        /**
+         * Parameters for forwarding events to another EventBridge event bus, used when TargetArn is an event bus ARN of the form arn:{partition}:events:{region}:{account}:event-busv2/{name}/{id}.
+         */
+        eventBusV2Parameters?: outputs.eventsv2.SubscriberInvokeConfigurationPropertiesEventBusV2ParametersProperties;
+        /**
+         * Parameters for invoking an HTTP endpoint target, such as an Amazon API Gateway endpoint or an EventBridge API destination.
+         */
+        httpParameters?: outputs.eventsv2.SubscriberInvokeConfigurationPropertiesHttpParametersProperties;
+        /**
+         * Parameters for writing events to an Amazon Kinesis Data Streams target.
+         */
+        kinesisParameters?: outputs.eventsv2.SubscriberInvokeConfigurationPropertiesKinesisParametersProperties;
+        /**
+         * Parameters for invoking an AWS Lambda function target.
+         */
+        lambdaParameters?: outputs.eventsv2.SubscriberInvokeConfigurationPropertiesLambdaParametersProperties;
+        /**
+         * The ARN of the IAM role the service assumes to invoke the target. The role must belong to the same account as the subscriber.
+         */
+        roleArn: string;
+        /**
+         * Parameters for publishing events to an Amazon SNS topic target.
+         */
+        snsParameters?: outputs.eventsv2.SubscriberInvokeConfigurationPropertiesSnsParametersProperties;
+        /**
+         * Parameters for sending events to an Amazon SQS queue target.
+         */
+        sqsParameters?: outputs.eventsv2.SubscriberInvokeConfigurationPropertiesSqsParametersProperties;
+        /**
+         * Parameters for starting an AWS Step Functions state machine execution target.
+         */
+        stepFunctionsParameters?: outputs.eventsv2.SubscriberInvokeConfigurationPropertiesStepFunctionsParametersProperties;
+        /**
+         * The Amazon Resource Name (ARN) of the target that the subscriber invokes. For universal service integration targets, use the form arn:{partition}:events:::aws-sdk:{service}:{apiAction}.
+         */
+        targetArn: string;
+        /**
+         * Parameters for invoking an AWS service API as a universal service integration target, used when TargetArn has the form arn:{partition}:events:::aws-sdk:{service}:{apiAction}.
+         */
+        universalTargetParameters?: outputs.eventsv2.SubscriberInvokeConfigurationPropertiesUniversalTargetParametersProperties;
+    }
+
+    /**
+     * Parameters for forwarding events to another EventBridge event bus, used when TargetArn is an event bus ARN of the form arn:{partition}:events:{region}:{account}:event-busv2/{name}/{id}.
+     */
+    export interface SubscriberInvokeConfigurationPropertiesEventBusV2ParametersProperties {
+        /**
+         * Deduplication settings applied to the forwarded events on the downstream event bus.
+         */
+        deduplicationConfiguration?: outputs.eventsv2.SubscriberDeduplicationConfiguration;
+        /**
+         * Metadata forwarded with each event, as key-value string pairs.
+         */
+        metadata?: {[key: string]: string};
+        /**
+         * System metadata attached to each forwarded event, controlling FIFO ordering and deduplication on the downstream event bus.
+         */
+        systemMetadata?: outputs.eventsv2.SubscriberEventBusV2SystemMetadata;
+    }
+
+    /**
+     * Parameters for invoking an HTTP endpoint target, such as an Amazon API Gateway endpoint or an EventBridge API destination.
+     */
+    export interface SubscriberInvokeConfigurationPropertiesHttpParametersProperties {
+        /**
+         * HTTP headers to add to the request.
+         */
+        headerParameters?: {[key: string]: string};
+        /**
+         * The timeout in seconds for each invocation of the target, written as a string. Accepts a literal value or a JSONata expression.
+         */
+        invocationTimeoutSeconds?: string;
+        /**
+         * Values for the path parameters (wildcards) in the target URL, in order.
+         */
+        pathParameterValues?: string[];
+        /**
+         * Query string parameters to add to the request.
+         */
+        queryStringParameters?: {[key: string]: string};
+    }
+
+    /**
+     * Parameters for writing events to an Amazon Kinesis Data Streams target.
+     */
+    export interface SubscriberInvokeConfigurationPropertiesKinesisParametersProperties {
+        /**
+         * An explicit hash key that overrides the partition key's shard assignment. Accepts a literal value or a JSONata expression.
+         */
+        explicitHashKey?: string;
+        /**
+         * The partition key that determines which shard each record is written to. Accepts a literal value or a JSONata expression.
+         */
+        partitionKey?: string;
+    }
+
+    /**
+     * Parameters for invoking an AWS Lambda function target.
+     */
+    export interface SubscriberInvokeConfigurationPropertiesLambdaParametersProperties {
+        /**
+         * A unique name for a durable function execution. Accepts a literal value or a JSONata expression.
+         */
+        durableExecutionName?: string;
+        /**
+         * The timeout in seconds for each invocation of the target, written as a string. Accepts a literal value or a JSONata expression.
+         */
+        invocationTimeoutSeconds?: string;
+        /**
+         * How the function is invoked: EVENT (asynchronous) or REQUEST_RESPONSE (synchronous).
+         */
+        invocationType?: string;
+        /**
+         * The version or alias of the Lambda function to invoke. Accepts a literal value or a JSONata expression.
+         */
+        qualifier?: string;
+        /**
+         * The tenant identifier for multi-tenant Lambda functions. Accepts a literal value or a JSONata expression.
+         */
+        tenantId?: string;
+    }
+
+    /**
+     * Parameters for publishing events to an Amazon SNS topic target.
+     */
+    export interface SubscriberInvokeConfigurationPropertiesSnsParametersProperties {
+        /**
+         * Custom message attributes to attach to each message; Amazon SNS subscription filter policies can match on them.
+         */
+        messageAttributes?: {[key: string]: outputs.eventsv2.SubscriberMessageAttributeValue};
+        /**
+         * The message deduplication ID to use when the target is a FIFO topic. Accepts a literal value or a JSONata expression.
+         */
+        messageDeduplicationId?: string;
+        /**
+         * The message group ID to use when the target is a FIFO topic. Accepts a literal value or a JSONata expression.
+         */
+        messageGroupId?: string;
+        /**
+         * Set to json to send a different message per delivery protocol. Accepts a literal value or a JSONata expression.
+         */
+        messageStructure?: string;
+        /**
+         * The subject line to use for email-protocol subscriptions. Accepts a literal value or a JSONata expression.
+         */
+        subject?: string;
+    }
+
+    /**
+     * Parameters for sending events to an Amazon SQS queue target.
+     */
+    export interface SubscriberInvokeConfigurationPropertiesSqsParametersProperties {
+        /**
+         * The delay in seconds for the message, written as a string. Accepts a literal value or a JSONata expression.
+         */
+        delaySeconds?: string;
+        /**
+         * Custom message attributes to attach to each message.
+         */
+        messageAttributes?: {[key: string]: outputs.eventsv2.SubscriberMessageAttributeValue};
+        /**
+         * The message deduplication ID to use when the target is a FIFO queue. Accepts a literal value or a JSONata expression.
+         */
+        messageDeduplicationId?: string;
+        /**
+         * The message group ID to use when the target is a FIFO queue. Accepts a literal value or a JSONata expression.
+         */
+        messageGroupId?: string;
+        /**
+         * Message system attributes to attach to each message, such as AWSTraceHeader.
+         */
+        messageSystemAttributes?: {[key: string]: outputs.eventsv2.SubscriberMessageAttributeValue};
+    }
+
+    /**
+     * Parameters for starting an AWS Step Functions state machine execution target.
+     */
+    export interface SubscriberInvokeConfigurationPropertiesStepFunctionsParametersProperties {
+        /**
+         * The timeout in seconds for each invocation of the target, written as a string. Accepts a literal value or a JSONata expression.
+         */
+        invocationTimeoutSeconds?: string;
+        /**
+         * How the execution is started: EVENT (StartExecution, asynchronous) or REQUEST_RESPONSE (StartSyncExecution, synchronous).
+         */
+        invocationType?: string;
+        /**
+         * A name for the execution. Must be unique for the account, Region, and state machine. Accepts a literal value or a JSONata expression.
+         */
+        name?: string;
+        /**
+         * The AWS X-Ray trace header for distributed tracing. Accepts a literal value or a JSONata expression.
+         */
+        traceHeader?: string;
+    }
+
+    /**
+     * Parameters for invoking an AWS service API as a universal service integration target, used when TargetArn has the form arn:{partition}:events:::aws-sdk:{service}:{apiAction}.
+     */
+    export interface SubscriberInvokeConfigurationPropertiesUniversalTargetParametersProperties {
+        /**
+         * JSON string or JSONata expression that produces the API request. Supports {% ... %} JSONata expressions for dynamic values from the event.
+         */
+        input: string;
+        /**
+         * Timeout in seconds for each invocation of the target (1-30, default 30). Must be a literal integer written as a string; JSONata expressions are not supported for this field.
+         */
+        invocationTimeoutSeconds?: string;
+    }
+
+    /**
+     * JSONata transform settings.
+     */
+    export interface SubscriberJsonataConfiguration {
+        /**
+         * The JSONata expression that transforms the event, enclosed in {% %} delimiters.
+         */
+        expression: string;
+    }
+
+    /**
+     * Delivery logging configuration.
+     */
+    export interface SubscriberLogConfiguration {
+        /**
+         * Whether the event payload is included in emitted log records: FULL includes it in every emitted record, and ON_ERROR_ONLY includes it only in error records. The default is ON_ERROR_ONLY.
+         */
+        includePayload?: enums.eventsv2.SubscriberLogConfigurationIncludePayload;
+        /**
+         * The minimum log level: OFF (no logging), ERROR, or INFO. Records below this level are not emitted. The default is OFF.
+         */
+        level?: enums.eventsv2.SubscriberLogConfigurationLevel;
+    }
+
+    /**
+     * A message attribute value and its data type, for Amazon SQS and Amazon SNS targets.
+     */
+    export interface SubscriberMessageAttributeValue {
+        /**
+         * The attribute value for the Binary data type, Base64-encoded.
+         */
+        binaryValue?: string;
+        /**
+         * The attribute data type. For Amazon SQS targets, specify String, Number, or Binary, optionally with a custom label suffix such as Number.float. For Amazon SNS targets, specify String, String.Array, Number, or Binary.
+         */
+        dataType: string;
+        /**
+         * The attribute value for the String and Number data types (and String.Array for Amazon SNS targets).
+         */
+        stringValue?: string;
+    }
+
+    /**
+     * The destination for events that could not be delivered.
+     */
+    export interface SubscriberOnFailureConfiguration {
+        /**
+         * The ARN of the destination that receives events that could not be delivered. An Amazon SQS queue is the supported destination.
+         */
+        arn?: string;
+    }
+
+    /**
+     * The point in time to start delivering events from, used when StartingPosition is POINT_IN_TIME.
+     */
+    export interface SubscriberPointInTimeConfiguration {
+        /**
+         * An optional time to stop delivering events at, in seconds since the Unix epoch.
+         */
+        endPoint?: number;
+        /**
+         * Where to start: HORIZON starts from the earliest available event; TIMESTAMP starts from the StartingPoint timestamp.
+         */
+        pointType: enums.eventsv2.SubscriberPointInTimeConfigurationPointType;
+        /**
+         * The time to start delivering events from, in seconds since the Unix epoch. Required when PointType is TIMESTAMP.
+         */
+        startingPoint?: number;
+    }
+
+    /**
+     * The retry policy for failed deliveries.
+     */
+    export interface SubscriberRetryPolicy {
+        /**
+         * The maximum age of an event in seconds, 60-86400 (24 hours). When an event reaches this age, retries stop; if OnFailureConfiguration is set, the event is delivered to that destination, otherwise it is dropped. The default is 300.
+         */
+        maxEventAgeInSeconds?: number;
+        /**
+         * The maximum number of retry attempts, 0-185. When the attempts are exhausted, retries stop; if OnFailureConfiguration is set, the event is delivered to that destination, otherwise it is dropped. The default is 5.
+         */
+        maxRetryAttempts?: number;
+        /**
+         * Which errors are retried. ALL retries all errors. The default is ALL.
+         */
+        retryStrategy?: enums.eventsv2.SubscriberRetryPolicyRetryStrategy;
+    }
+
+    /**
+     * Configuration for transforming events before delivery: the raw payload, the payload with its metadata envelope, or the output of a JSONata expression.
+     */
+    export interface SubscriberTransformer {
+        /**
+         * The JSONata expression configuration. Required when Type is JSONATA.
+         */
+        jsonataConfiguration?: outputs.eventsv2.SubscriberJsonataConfiguration;
+        /**
+         * The transform type: RAW delivers the event payload only; WITH_METADATA delivers the event with its metadata envelope; JSONATA delivers the output of the JSONata expression in JsonataConfiguration.
+         */
+        type?: enums.eventsv2.SubscriberTransformerType;
+    }
+
 }
 
 export namespace evidently {
@@ -55996,6 +57225,187 @@ export namespace glue {
          * The type of machine learning transform.
          */
         transformType: string;
+    }
+
+    /**
+     * A column in a Table.
+     */
+    export interface PartitionColumn {
+        /**
+         * A free-form text comment.
+         */
+        comment?: string;
+        /**
+         * The name of the Column.
+         */
+        name: string;
+        /**
+         * The data type of the Column.
+         */
+        type?: string;
+    }
+
+    /**
+     * The structure used to create and update a partition.
+     */
+    export interface PartitionInput {
+        /**
+         * Key-value pairs defining partition parameters.
+         */
+        parameters?: any;
+        /**
+         * Provides information about the physical location where the partition is stored.
+         */
+        storageDescriptor?: outputs.glue.PartitionStorageDescriptor;
+        /**
+         * The values of the partition. Although this parameter is not required by the SDK, you must specify this parameter for a valid input. The values for the keys for the new partition must be passed as an array of String objects that must be ordered in the same order as the partition keys appearing in the Amazon S3 prefix. Otherwise AWS Glue will add the values to the wrong keys.
+         */
+        values: string[];
+    }
+
+    /**
+     * Specifies the sort order of a sorted column.
+     */
+    export interface PartitionOrder {
+        /**
+         * The name of the column.
+         */
+        column: string;
+        /**
+         * Indicates that the column is sorted in ascending order (== 1), or in descending order (==0).
+         */
+        sortOrder?: number;
+    }
+
+    /**
+     * A structure that contains schema identity fields. Either this or the SchemaVersionId has to be provided.
+     */
+    export interface PartitionSchemaId {
+        /**
+         * The name of the schema registry that contains the schema.
+         */
+        registryName?: string;
+        /**
+         * The Amazon Resource Name (ARN) of the schema. One of SchemaArn or SchemaName has to be provided.
+         */
+        schemaArn?: string;
+        /**
+         * The name of the schema. One of SchemaArn or SchemaName has to be provided.
+         */
+        schemaName?: string;
+    }
+
+    /**
+     * An object that references a schema stored in the AWS Glue Schema Registry.
+     */
+    export interface PartitionSchemaReference {
+        /**
+         * A structure that contains schema identity fields. Either this or the `SchemaVersionId` has to be
+         * provided.
+         */
+        schemaId?: outputs.glue.PartitionSchemaId;
+        /**
+         * The unique ID assigned to a version of the schema. Either this or the SchemaId has to be provided.
+         */
+        schemaVersionId?: string;
+        /**
+         * The version number of the schema.
+         */
+        schemaVersionNumber?: number;
+    }
+
+    /**
+     * The serialization/deserialization (SerDe) information.
+     */
+    export interface PartitionSerdeInfo {
+        /**
+         * Name of the SerDe.
+         */
+        name?: string;
+        /**
+         * These key-value pairs define initialization parameters for the SerDe.
+         */
+        parameters?: any;
+        /**
+         * Usually the class that implements the SerDe. An example is org.apache.hadoop.hive.serde2.columnar.ColumnarSerDe.
+         */
+        serializationLibrary?: string;
+    }
+
+    /**
+     * The information about values that appear frequently in a column (skewed values).
+     */
+    export interface PartitionSkewedInfo {
+        /**
+         * A list of values that appear so frequently as to be considered skewed.
+         */
+        skewedColumnNames?: string[];
+        /**
+         * A mapping of skewed values to the columns that contain them.
+         */
+        skewedColumnValueLocationMaps?: any;
+        /**
+         * A list of names of columns that contain skewed values.
+         */
+        skewedColumnValues?: string[];
+    }
+
+    /**
+     * Provides information about the physical location where the partition is stored.
+     */
+    export interface PartitionStorageDescriptor {
+        /**
+         * A list of reducer grouping columns, clustering columns, and bucketing columns in the table.
+         */
+        bucketColumns?: string[];
+        /**
+         * A list of the Columns in the table.
+         */
+        columns?: outputs.glue.PartitionColumn[];
+        /**
+         * True if the data in the table is compressed, or False if not.
+         */
+        compressed?: boolean;
+        /**
+         * The input format: SequenceFileInputFormat (binary), or TextInputFormat, or a custom format.
+         */
+        inputFormat?: string;
+        /**
+         * The physical location of the table. By default, this takes the form of the warehouse location, followed by the database location in the warehouse, followed by the table name.
+         */
+        location?: string;
+        /**
+         * The number of buckets. You must specify this property if the partition contains any dimension columns.
+         */
+        numberOfBuckets?: number;
+        /**
+         * The output format: SequenceFileOutputFormat (binary), or IgnoreKeyTextOutputFormat, or a custom format.
+         */
+        outputFormat?: string;
+        /**
+         * The user-supplied properties in key-value form.
+         */
+        parameters?: any;
+        /**
+         * An object that references a schema stored in the AWS Glue Schema Registry.
+         */
+        schemaReference?: outputs.glue.PartitionSchemaReference;
+        /**
+         * The serialization/deserialization (SerDe) information.
+         */
+        serdeInfo?: outputs.glue.PartitionSerdeInfo;
+        /**
+         * The information about values that appear frequently in a column (skewed values).
+         */
+        skewedInfo?: outputs.glue.PartitionSkewedInfo;
+        /**
+         * A list specifying the sort order of each bucket in the table.
+         */
+        sortColumns?: outputs.glue.PartitionOrder[];
+        /**
+         * True if the table data is stored in subdirectories, or False if not.
+         */
+        storedAsSubDirectories?: boolean;
     }
 
     /**
@@ -63600,6 +65010,13 @@ export namespace iotsitewise {
         unit?: string;
     }
 
+    export interface DatasetConfig {
+        /**
+         * The session configuration for a SESSION dataset.
+         */
+        session?: outputs.iotsitewise.DatasetSessionConfig;
+    }
+
     export interface DatasetKendraSourceDetail {
         /**
          * The knowledgeBaseArn details for the Kendra dataset source.
@@ -63609,6 +65026,17 @@ export namespace iotsitewise {
          * The roleARN details for the Kendra dataset source.
          */
         roleArn: string;
+    }
+
+    export interface DatasetSessionConfig {
+        /**
+         * The end time of the session as an ISO 8601 UTC instant, for example 2024-12-31T23:59:59Z.
+         */
+        sessionEndTime: string;
+        /**
+         * The start time of the session as an ISO 8601 UTC instant, for example 2024-01-01T00:00:00Z.
+         */
+        sessionStartTime: string;
     }
 
     export interface DatasetSource {
@@ -68372,7 +69800,14 @@ export namespace lakeformation {
         filterExpression?: string;
     }
 
+    /**
+     * A structure for the catalog object.
+     *   This is an object with no properties that effectively behaves as a true or false. A valid input for this property type in both yaml or json is null or ``{}``.
+     */
     export interface PrincipalPermissionsCatalogResource {
+        /**
+         * An identifier for the catalog resource.
+         */
         id?: string;
     }
 
@@ -69008,7 +70443,7 @@ export namespace lambda {
      */
     export interface EventSourceMappingProvisionedPollerConfig {
         /**
-         * The maximum number of event pollers this event source can scale up to. For Amazon SQS events source mappings, default is 200, and minimum value allowed is 2. For Amazon MSK and self-managed Apache Kafka event source mappings, default is 200, and minimum value allowed is 1.
+         * The maximum number of event pollers this event source can scale up to. For Amazon SQS event source mappings, the accepted range is between 2 and 10,000, with a default of 200. For Amazon MSK and self-managed Apache Kafka event source mappings, the accepted range is between 1 and 2,000, with a default of 200.
          */
         maximumPollers?: number;
         /**
@@ -69101,6 +70536,7 @@ export namespace lambda {
          * The identifier for the Kafka consumer group to join. The consumer group ID must be unique among all your Kafka event sources. After creating a Kafka event source mapping with the consumer group ID specified, you cannot update this value. For more information, see [Customizable consumer group ID](https://docs.aws.amazon.com/lambda/latest/dg/with-kafka-process.html#services-smaa-topic-add).
          */
         consumerGroupId?: string;
+        consumptionMode?: enums.lambda.EventSourceMappingConsumptionMode;
         /**
          * Specific configuration settings for a Kafka schema registry.
          */
@@ -69230,7 +70666,7 @@ export namespace lambda {
     }
 
     /**
-     * Details about the connection between a Lambda function and an [Amazon EFS file system](https://docs.aws.amazon.com/lambda/latest/dg/configuration-filesystem.html) or an [Amazon S3 Files file system](https://docs.aws.amazon.com/lambda/latest/dg/configuration-filesystem.html).
+     * Details about the connection between a Lambda function and an [Amazon EFS file system](https://docs.aws.amazon.com/lambda/latest/dg/configuration-filesystem.html) or an [Amazon S3 file system](https://docs.aws.amazon.com/lambda/latest/dg/configuration-filesystem.html).
      */
     export interface FunctionFileSystemConfig {
         /**
@@ -69241,6 +70677,9 @@ export namespace lambda {
          * The path where the function can access the file system, starting with ``/mnt/``.
          */
         localMountPath: string;
+        /**
+         * The configuration for how your function accesses data on an Amazon S3 file system. Valid only when the file system access point ARN is an Amazon S3 Files access point. If you specify a different access point type (for example, Amazon Elastic File System), the operation returns an ``InvalidParameterException``.
+         */
         s3FilesConfig?: outputs.lambda.FunctionS3FilesConfig;
     }
 
@@ -69322,9 +70761,17 @@ export namespace lambda {
         updateRuntimeOn: enums.lambda.FunctionRuntimeManagementConfigUpdateRuntimeOn;
     }
 
+    /**
+     * Setting controls how your function accesses data from an Amazon S3 file system.
+     */
     export interface FunctionS3FilesConfig {
         /**
-         * Specifies if a function reads from the file system for the lowest latency, or through Amazon S3 Files feature "direct Amazon S3 bucket reads" for the highest throughput
+         * Specifies if a function reads from the file system for the lowest latency, or through Amazon S3 Files feature "direct Amazon S3 bucket reads" for the highest throughput. Valid values:
+         *   +  ``AUTO`` (default) – Direct reads are active for functions you configure with 512 MB or more of memory.
+         *   +  ``ENABLED`` – Enforces all reads are directly from the Amazon S3 bucket, regardless of available memory (less than 512 MB).
+         *   +  ``DISABLED`` – Routes all reads through the file system, regardless of memory configuration.
+         *
+         *  To use direct reads, you must grant the execution role the ``s3:GetObject`` and ``s3:GetObjectVersion`` permissions. If a direct read fails, Lambda automatically falls back to reading through the file system.
          */
         directS3Read?: enums.lambda.FunctionS3FilesConfigDirectS3Read;
     }
@@ -73004,6 +74451,51 @@ export namespace mediaconnect {
     }
 
     /**
+     * A set of parameters that define the media stream.
+     */
+    export interface FlowMediaStreamFmtp {
+        /**
+         * The format of the audio channel. Can only be specified for an audio media stream.
+         */
+        channelOrder?: string;
+        /**
+         * The format used for the representation of color.
+         */
+        colorimetry?: enums.mediaconnect.FlowMediaStreamFmtpColorimetry;
+        /**
+         * The frame rate for the video stream, in frames/second. For example: 60000/1001.
+         */
+        exactFramerate?: string;
+        /**
+         * The pixel aspect ratio (PAR) of the video.
+         */
+        par?: string;
+        /**
+         * The encoding range of the video.
+         */
+        range?: enums.mediaconnect.FlowMediaStreamFmtpRange;
+        /**
+         * The type of compression that was used to smooth the video's appearance.
+         */
+        scanMode?: enums.mediaconnect.FlowMediaStreamFmtpScanMode;
+        /**
+         * The transfer characteristic system (TCS) that is used in the video.
+         */
+        tcs?: enums.mediaconnect.FlowMediaStreamFmtpTcs;
+    }
+
+    /**
+     * Attributes that are related to the media stream.
+     */
+    export interface FlowMediaStreamMediaStreamAttributes {
+        fmtp?: outputs.mediaconnect.FlowMediaStreamFmtp;
+        /**
+         * The audio language, in a format that is recognized by the receiver. Can only be specified for an audio media stream.
+         */
+        lang?: string;
+    }
+
+    /**
      * The media stream that is associated with the source, and the parameters for that association.
      */
     export interface FlowMediaStreamSourceConfiguration {
@@ -74109,6 +75601,12 @@ export namespace mediaconnect {
     }
 
     /**
+     * The TLS encryption configuration for destinations that present a certificate from a publicly trusted certificate authority. This type does not require any additional settings.
+     */
+    export interface RouterOutputResourcePublicTlsEncryptionConfiguration {
+    }
+
+    /**
      * The configuration settings for a router output using the RIST (Reliable Internet Stream Transport) protocol, including the destination address and port.
      */
     export interface RouterOutputResourceRistRouterOutputConfiguration {
@@ -74169,6 +75667,36 @@ export namespace mediaconnect {
      */
     export interface RouterOutputResourceRouterOutputProtocolConfiguration3Properties {
         srtCaller: outputs.mediaconnect.RouterOutputResourceSrtCallerRouterOutputConfiguration;
+    }
+
+    /**
+     * The protocol configuration settings for a router output.
+     */
+    export interface RouterOutputResourceRouterOutputProtocolConfiguration4Properties {
+        rtmpPush: outputs.mediaconnect.RouterOutputResourceRtmpPushRouterOutputConfiguration;
+    }
+
+    /**
+     * The configuration settings for a router output that pushes a stream to a destination using the RTMP (Real-Time Messaging Protocol) protocol, or RTMPS (RTMP over TLS) when TLS encryption is specified. These settings include the destination address and port, the application and stream names, and optional TLS encryption configuration.
+     */
+    export interface RouterOutputResourceRtmpPushRouterOutputConfiguration {
+        /**
+         * The name of the RTMP application on the destination server. Together with the stream name, the application name forms the RTMP URL path, in the pattern rtmp://destinationAddress/applicationName/streamName.
+         */
+        applicationName: string;
+        /**
+         * The IP address or hostname of the destination RTMP server that the router output pushes the stream to. Provide only the server address; specify the application and stream names separately.
+         */
+        destinationAddress: string;
+        /**
+         * The TCP port on the destination RTMP server. For RTMP, valid values range from 1024 to 65535. For RTMPS (RTMP over TLS), valid values are 443 or 1024 to 65535. RTMP typically uses port 1935, and RTMPS typically uses port 443.
+         */
+        destinationPort: number;
+        /**
+         * The name of the RTMP stream that the output publishes to the destination application. The stream name forms the final segment of the RTMP URL path.
+         */
+        streamName: string;
+        tlsEncryption?: outputs.mediaconnect.RouterOutputResourceTlsEncryption;
     }
 
     /**
@@ -74254,7 +75782,47 @@ export namespace mediaconnect {
          */
         networkInterfaceArn: string;
         protocol?: enums.mediaconnect.RouterOutputResourceRouterOutputProtocol;
-        protocolConfiguration: outputs.mediaconnect.RouterOutputResourceRouterOutputProtocolConfiguration0Properties | outputs.mediaconnect.RouterOutputResourceRouterOutputProtocolConfiguration1Properties | outputs.mediaconnect.RouterOutputResourceRouterOutputProtocolConfiguration2Properties | outputs.mediaconnect.RouterOutputResourceRouterOutputProtocolConfiguration3Properties;
+        protocolConfiguration: outputs.mediaconnect.RouterOutputResourceRouterOutputProtocolConfiguration0Properties | outputs.mediaconnect.RouterOutputResourceRouterOutputProtocolConfiguration1Properties | outputs.mediaconnect.RouterOutputResourceRouterOutputProtocolConfiguration2Properties | outputs.mediaconnect.RouterOutputResourceRouterOutputProtocolConfiguration3Properties | outputs.mediaconnect.RouterOutputResourceRouterOutputProtocolConfiguration4Properties;
+    }
+
+    /**
+     * The Transport Layer Security (TLS) encryption settings used to establish a secure connection to a destination.
+     */
+    export interface RouterOutputResourceTlsEncryption {
+        encryptionConfiguration: outputs.mediaconnect.RouterOutputResourceTlsEncryptionConfigurationProperties;
+        encryptionType?: enums.mediaconnect.RouterOutputResourceTlsEncryptionType;
+    }
+
+    /**
+     * The configuration settings for TLS encryption.
+     */
+    export interface RouterOutputResourceTlsEncryptionConfigurationProperties {
+        public: outputs.mediaconnect.RouterOutputResourcePublicTlsEncryptionConfiguration;
+    }
+
+}
+
+export namespace mediaconvert {
+    export interface JobTemplateAccelerationSettings {
+        /**
+         * Specify the conditions when the service will run your job with accelerated transcoding.
+         */
+        mode: string;
+    }
+
+    export interface JobTemplateHopDestination {
+        /**
+         * Optional. A different relative priority for the job in the destination queue.
+         */
+        priority?: number;
+        /**
+         * Optional. The destination queue for queue hopping.
+         */
+        queue?: string;
+        /**
+         * Required for queue hopping. Minimum wait time in minutes until the job can hop to the destination queue.
+         */
+        waitMinutes?: number;
     }
 
 }
@@ -76685,6 +78253,116 @@ export namespace memorydb {
 
 export namespace mgn {
     /**
+     * SSM command configuration for the connector.
+     */
+    export interface ConnectorSsmCommandConfig {
+        /**
+         * The CloudWatch Logs group name for SSM command output.
+         */
+        cloudWatchLogGroupName?: string;
+        /**
+         * Whether SSM command output is sent to CloudWatch Logs.
+         */
+        cloudWatchOutputEnabled: boolean;
+        /**
+         * The S3 bucket name for SSM command output.
+         */
+        outputS3BucketName?: string;
+        /**
+         * Whether SSM command output is stored in S3.
+         */
+        s3OutputEnabled: boolean;
+    }
+
+    /**
+     * Launch template disk configuration.
+     */
+    export interface LaunchConfigurationTemplateLaunchTemplateDiskConf {
+        /**
+         * Launch template disk IOPS configuration.
+         */
+        iops?: number;
+        /**
+         * Launch template disk throughput configuration, in MiB/s.
+         */
+        throughput?: number;
+        /**
+         * Launch template disk volume type configuration.
+         */
+        volumeType?: enums.mgn.LaunchConfigurationTemplateLaunchTemplateDiskConfVolumeType;
+    }
+
+    /**
+     * Configuration of a machine's license.
+     */
+    export interface LaunchConfigurationTemplateLicensing {
+        /**
+         * Whether to configure BYOL OS licensing.
+         */
+        osByol?: boolean;
+    }
+
+    /**
+     * Post launch actions to execute on the Test or Cutover instance.
+     */
+    export interface LaunchConfigurationTemplatePostLaunchActions {
+        /**
+         * AWS Systems Manager Command's CloudWatch log group name.
+         */
+        cloudWatchLogGroupName?: string;
+        /**
+         * Deployment type in which AWS Systems Manager Documents will be executed.
+         */
+        deployment?: enums.mgn.LaunchConfigurationTemplatePostLaunchActionsDeployment;
+        /**
+         * AWS Systems Manager Command's logs S3 log bucket.
+         */
+        s3LogBucket?: string;
+        /**
+         * AWS Systems Manager Command's logs S3 output key prefix.
+         */
+        s3OutputKeyPrefix?: string;
+        /**
+         * AWS Systems Manager Documents to execute, in order.
+         */
+        ssmDocuments?: outputs.mgn.LaunchConfigurationTemplateSsmDocument[];
+    }
+
+    /**
+     * An AWS Systems Manager Document to execute as a post launch action.
+     */
+    export interface LaunchConfigurationTemplateSsmDocument {
+        /**
+         * User-friendly name for the AWS Systems Manager Document.
+         */
+        actionName: string;
+        externalParameters?: {[key: string]: outputs.mgn.LaunchConfigurationTemplateSsmExternalParameter};
+        /**
+         * Whether Cutover is blocked when the document has failed.
+         */
+        mustSucceedForCutover?: boolean;
+        parameters?: {[key: string]: any};
+        /**
+         * AWS Systems Manager Document name or full ARN.
+         */
+        ssmDocumentName: string;
+        /**
+         * AWS Systems Manager Document timeout, in seconds.
+         */
+        timeoutSeconds?: number;
+    }
+
+    /**
+     * An AWS Systems Manager Document external parameter.
+     */
+    export interface LaunchConfigurationTemplateSsmExternalParameter {
+        /**
+         * AWS Systems Manager Document external parameter dynamic path.
+         */
+        dynamicPath: string;
+    }
+
+    /**
      * Configuration for a migration source environment.
      */
     export interface NetworkMigrationDefinitionSourceConfiguration {
@@ -78761,6 +80439,38 @@ export namespace networkflowmonitor {
         type: enums.networkflowmonitor.MonitorRemoteResourceType;
     }
 
+    /**
+     * A target ID is an internally-generated identifier for a target.
+     */
+    export interface ScopeTargetId {
+        /**
+         * The account ID for the target.
+         */
+        accountId: string;
+    }
+
+    /**
+     * A target identifier is a pair of identifying information for a scope target.
+     */
+    export interface ScopeTargetIdentifier {
+        targetId: outputs.networkflowmonitor.ScopeTargetId;
+        /**
+         * The type of the target. Currently always ACCOUNT.
+         */
+        targetType: enums.networkflowmonitor.ScopeTargetIdentifierTargetType;
+    }
+
+    /**
+     * A target resource in a scope, identified by a Region and target identifier.
+     */
+    export interface ScopeTargetResource {
+        /**
+         * The AWS Region for the target resource.
+         */
+        region: string;
+        targetIdentifier: outputs.networkflowmonitor.ScopeTargetIdentifier;
+    }
+
 }
 
 export namespace networkmanager {
@@ -79220,6 +80930,9 @@ export namespace networkmanager {
 
 }
 
+export namespace networkmonitor {
+}
+
 export namespace nimblestudio {
     export interface LaunchProfileStreamConfiguration {
         automaticTerminationMode?: string;
@@ -79621,6 +81334,16 @@ export namespace observabilityadmin {
     }
 
     /**
+     * Configuration parameters for Amazon MSK cluster monitoring.
+     */
+    export interface OrganizationTelemetryRuleMskMonitoringParameters {
+        /**
+         * The level of enhanced monitoring for the MSK cluster.
+         */
+        enhancedMonitoring?: enums.observabilityadmin.OrganizationTelemetryRuleMskMonitoringParametersEnhancedMonitoring;
+    }
+
+    /**
      * Status of a telemetry rule in a specific region
      */
     export interface OrganizationTelemetryRuleRegionStatus {
@@ -79673,6 +81396,7 @@ export namespace observabilityadmin {
          * Parameters for log delivery configuration
          */
         logDeliveryParameters?: outputs.observabilityadmin.OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersProperties;
+        mskMonitoringParameters?: outputs.observabilityadmin.OrganizationTelemetryRuleMskMonitoringParameters;
         /**
          * The number of days to retain the telemetry data in the destination.
          */
@@ -80042,6 +81766,16 @@ export namespace observabilityadmin {
     }
 
     /**
+     * Configuration parameters for Amazon MSK cluster monitoring.
+     */
+    export interface TelemetryRuleMskMonitoringParameters {
+        /**
+         * The level of enhanced monitoring for the MSK cluster.
+         */
+        enhancedMonitoring?: enums.observabilityadmin.TelemetryRuleMskMonitoringParametersEnhancedMonitoring;
+    }
+
+    /**
      * Status of a telemetry rule in a specific region
      */
     export interface TelemetryRuleRegionStatus {
@@ -80094,6 +81828,7 @@ export namespace observabilityadmin {
          * Parameters for log delivery configuration
          */
         logDeliveryParameters?: outputs.observabilityadmin.TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersProperties;
+        mskMonitoringParameters?: outputs.observabilityadmin.TelemetryRuleMskMonitoringParameters;
         /**
          * The number of days to retain the telemetry data in the destination.
          */
@@ -82670,6 +84405,9 @@ export namespace personalize {
 
 }
 
+export namespace pi {
+}
+
 export namespace pinpoint {
     export interface InAppTemplateBodyConfig {
         /**
@@ -84929,6 +86667,7 @@ export namespace quicksight {
          * The options that determine if visual data labels are displayed.
          */
         dataLabels?: outputs.quicksight.AnalysisDataLabelOptions;
+        defaultSeriesSettings?: outputs.quicksight.AnalysisBarChartDefaultSeriesSettings;
         /**
          * The field wells of the visual.
          */
@@ -84952,6 +86691,7 @@ export namespace quicksight {
          * The reference line setup of the visual.
          */
         referenceLines?: outputs.quicksight.AnalysisReferenceLine[];
+        series?: outputs.quicksight.AnalysisBarSeriesItem[];
         /**
          * The small multiples setup for the visual.
          */
@@ -84976,6 +86716,11 @@ export namespace quicksight {
          * The palette (chart color) display setup of the visual.
          */
         visualPalette?: outputs.quicksight.AnalysisVisualPalette;
+    }
+
+    export interface AnalysisBarChartDefaultSeriesSettings {
+        borderSettings?: outputs.quicksight.AnalysisBorderSettings;
+        decalSettings?: outputs.quicksight.AnalysisDecalSettings;
     }
 
     export interface AnalysisBarChartFieldWells {
@@ -85041,6 +86786,9 @@ export namespace quicksight {
          * The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.
          */
         visualId: string;
+    }
+
+    export interface AnalysisBarSeriesItem {
     }
 
     export interface AnalysisBinCountOptions {
@@ -85143,6 +86891,15 @@ export namespace quicksight {
 
     export interface AnalysisBodySectionRepeatPageBreakConfiguration {
         after?: outputs.quicksight.AnalysisSectionAfterPageBreak;
+    }
+
+    export interface AnalysisBorderSettings {
+        borderColor?: string;
+        borderVisibility?: enums.quicksight.AnalysisVisibility;
+        /**
+         * String based length that is composed of value and unit in px
+         */
+        borderWidth?: string;
     }
 
     export interface AnalysisBoxPlotAggregatedFieldWells {
@@ -85279,7 +87036,7 @@ export namespace quicksight {
         /**
          * The data set that is used in this calculated field.
          */
-        dataSetIdentifier: string;
+        dataSetIdentifier?: string;
         /**
          * The expression of the calculated field.
          */
@@ -85288,6 +87045,7 @@ export namespace quicksight {
          * The name of the calculated field.
          */
         name: string;
+        topicIdentifier?: string;
     }
 
     export interface AnalysisCalculatedMeasureField {
@@ -85471,6 +87229,7 @@ export namespace quicksight {
          * The column.
          */
         column: outputs.quicksight.AnalysisColumnIdentifier;
+        decalSettingsConfiguration?: outputs.quicksight.AnalysisDecalSettingsConfiguration;
         /**
          * The format configuration of a column.
          */
@@ -85504,7 +87263,8 @@ export namespace quicksight {
         /**
          * The data set that the column belongs to.
          */
-        dataSetIdentifier: string;
+        dataSetIdentifier?: string;
+        topicIdentifier?: string;
     }
 
     export interface AnalysisColumnSort {
@@ -85588,6 +87348,7 @@ export namespace quicksight {
          * The label options (label text, label visibility, and sort icon visibility) of a combo chart's color field well.
          */
         colorLabelOptions?: outputs.quicksight.AnalysisChartAxisLabelOptions;
+        defaultSeriesSettings?: outputs.quicksight.AnalysisComboChartDefaultSeriesSettings;
         /**
          * The field wells of the visual.
          */
@@ -85626,6 +87387,7 @@ export namespace quicksight {
          * The label options (label text, label visibility, and sort icon visibility) of a combo chart's secondary y-axis(line) field well.
          */
         secondaryYAxisLabelOptions?: outputs.quicksight.AnalysisChartAxisLabelOptions;
+        series?: outputs.quicksight.AnalysisComboSeriesItem[];
         singleAxisOptions?: outputs.quicksight.AnalysisSingleAxisOptions;
         /**
          * The sort configuration of a `ComboChartVisual` .
@@ -85639,6 +87401,13 @@ export namespace quicksight {
          * The palette (chart color) display setup of the visual.
          */
         visualPalette?: outputs.quicksight.AnalysisVisualPalette;
+    }
+
+    export interface AnalysisComboChartDefaultSeriesSettings {
+        borderSettings?: outputs.quicksight.AnalysisBorderSettings;
+        decalSettings?: outputs.quicksight.AnalysisDecalSettings;
+        lineStyleSettings?: outputs.quicksight.AnalysisLineChartLineStyleSettings;
+        markerStyleSettings?: outputs.quicksight.AnalysisLineChartMarkerStyleSettings;
     }
 
     export interface AnalysisComboChartFieldWells {
@@ -85696,6 +87465,9 @@ export namespace quicksight {
          * The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.
          */
         visualId: string;
+    }
+
+    export interface AnalysisComboSeriesItem {
     }
 
     export interface AnalysisComparisonConfiguration {
@@ -86000,7 +87772,7 @@ export namespace quicksight {
         /**
          * The dataset that is used to create the custom content visual. You can't create a visual without a dataset.
          */
-        dataSetIdentifier: string;
+        dataSetIdentifier?: string;
         /**
          * The subtitle that is displayed on the visual.
          */
@@ -86009,6 +87781,7 @@ export namespace quicksight {
          * The title that is displayed on the visual.
          */
         title?: outputs.quicksight.AnalysisVisualTitleLabelOptions;
+        topicIdentifier?: string;
         /**
          * The alt text for the visual.
          */
@@ -86486,6 +88259,18 @@ export namespace quicksight {
         valueWhenUnsetOption?: enums.quicksight.AnalysisValueWhenUnsetOption;
     }
 
+    export interface AnalysisDecalSettings {
+        decalColor?: string;
+        decalPatternType?: enums.quicksight.AnalysisDecalPatternType;
+        decalStyleType?: enums.quicksight.AnalysisDecalStyleType;
+        decalVisibility?: enums.quicksight.AnalysisVisibility;
+        elementValue?: string;
+    }
+
+    export interface AnalysisDecalSettingsConfiguration {
+        customDecalSettings?: outputs.quicksight.AnalysisDecalSettings[];
+    }
+
     export interface AnalysisDecimalDefaultValues {
         /**
          * The dynamic value of the `DecimalDefaultValues` . Different defaults are displayed according to users, groups, and values mapping.
@@ -86806,9 +88591,10 @@ export namespace quicksight {
          */
         sheets?: outputs.quicksight.AnalysisSheetDefinition[];
         /**
-         * The static files for the definition.
+         * <p>The static files for the definition.</p>
          */
         staticFiles?: outputs.quicksight.AnalysisStaticFile[];
+        topicIdentifierDeclarations?: outputs.quicksight.AnalysisTopicIdentifierDeclaration[];
     }
 
     export interface AnalysisDestinationParameterValueConfiguration {
@@ -86925,7 +88711,8 @@ export namespace quicksight {
         /**
          * The data set that is used in the empty visual. Every visual requires a dataset to render.
          */
-        dataSetIdentifier: string;
+        dataSetIdentifier?: string;
+        topicIdentifier?: string;
         /**
          * The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.
          */
@@ -87593,7 +89380,7 @@ export namespace quicksight {
          */
         fontDecoration?: enums.quicksight.AnalysisFontDecoration;
         /**
-         * The font family that you want to use.
+         * <p>The font family that you want to use.</p>
          */
         fontFamily?: string;
         /**
@@ -87612,7 +89399,7 @@ export namespace quicksight {
 
     export interface AnalysisFontSize {
         /**
-         * String based length that is composed of value and unit in px
+         * <p>The font size that you want to use in px.</p>
          */
         absolute?: string;
         /**
@@ -87728,6 +89515,7 @@ export namespace quicksight {
          * The elements that are included in a free-form layout.
          */
         elements: outputs.quicksight.AnalysisFreeFormLayoutElement[];
+        groups?: outputs.quicksight.AnalysisSheetLayoutGroup[];
     }
 
     export interface AnalysisFreeFormLayoutElement {
@@ -87735,6 +89523,7 @@ export namespace quicksight {
          * The background style configuration of a free-form layout element.
          */
         backgroundStyle?: outputs.quicksight.AnalysisFreeFormLayoutElementBackgroundStyle;
+        borderRadius?: string;
         /**
          * The border style configuration of a free-form layout element.
          */
@@ -87755,6 +89544,7 @@ export namespace quicksight {
          * The loading animation configuration of a free-form layout element.
          */
         loadingAnimation?: outputs.quicksight.AnalysisLoadingAnimation;
+        padding?: string;
         /**
          * The rendering rules that determine when an element should be displayed within a free-form layout.
          */
@@ -87801,6 +89591,10 @@ export namespace quicksight {
          * The border visibility of a free-form layout element.
          */
         visibility?: enums.quicksight.AnalysisVisibility;
+        /**
+         * String to encapsulate the most generic way Width can be formatted with whatever units (px, em etc)
+         */
+        width?: string;
     }
 
     export interface AnalysisFreeFormLayoutScreenCanvasSizeOptions {
@@ -88635,6 +90429,9 @@ export namespace quicksight {
     }
 
     export interface AnalysisGridLayoutElement {
+        backgroundStyle?: outputs.quicksight.AnalysisGridLayoutElementBackgroundStyle;
+        borderRadius?: string;
+        borderStyle?: outputs.quicksight.AnalysisGridLayoutElementBorderStyle;
         /**
          * The column index for the upper left corner of an element.
          */
@@ -88651,6 +90448,8 @@ export namespace quicksight {
          * The type of element.
          */
         elementType: enums.quicksight.AnalysisLayoutElementType;
+        loadingAnimation?: outputs.quicksight.AnalysisLoadingAnimation;
+        padding?: string;
         /**
          * The row index for the upper left corner of an element.
          */
@@ -88659,6 +90458,21 @@ export namespace quicksight {
          * The height of a grid element expressed as a number of grid rows.
          */
         rowSpan: number;
+        selectedBorderStyle?: outputs.quicksight.AnalysisGridLayoutElementBorderStyle;
+    }
+
+    export interface AnalysisGridLayoutElementBackgroundStyle {
+        color?: string;
+        visibility?: enums.quicksight.AnalysisVisibility;
+    }
+
+    export interface AnalysisGridLayoutElementBorderStyle {
+        color?: string;
+        visibility?: enums.quicksight.AnalysisVisibility;
+        /**
+         * String to encapsulate the most generic way Width can be formatted with whatever units (px, em etc)
+         */
+        width?: string;
     }
 
     export interface AnalysisGridLayoutScreenCanvasSizeOptions {
@@ -89014,7 +90828,7 @@ export namespace quicksight {
         /**
          * The dataset that is used in the insight visual.
          */
-        dataSetIdentifier: string;
+        dataSetIdentifier?: string;
         /**
          * The configuration of an insight visual.
          */
@@ -89027,6 +90841,7 @@ export namespace quicksight {
          * The title that is displayed on the visual.
          */
         title?: outputs.quicksight.AnalysisVisualTitleLabelOptions;
+        topicIdentifier?: string;
         /**
          * The alt text for the visual.
          */
@@ -89384,9 +91199,10 @@ export namespace quicksight {
         /**
          * The dataset that is used to create the layer map visual. You can't create a visual without a dataset.
          */
-        dataSetIdentifier: string;
+        dataSetIdentifier?: string;
         subtitle?: outputs.quicksight.AnalysisVisualSubtitleLabelOptions;
         title?: outputs.quicksight.AnalysisVisualTitleLabelOptions;
+        topicIdentifier?: string;
         /**
          * The alt text for the visual.
          */
@@ -89556,6 +91372,7 @@ export namespace quicksight {
          * The axis to which you are binding all line series to.
          */
         axisBinding?: enums.quicksight.AnalysisAxisBinding;
+        decalSettings?: outputs.quicksight.AnalysisDecalSettings;
         /**
          * Line styles options for all line series in the visual.
          */
@@ -89626,6 +91443,7 @@ export namespace quicksight {
     }
 
     export interface AnalysisLineChartSeriesSettings {
+        decalSettings?: outputs.quicksight.AnalysisDecalSettings;
         /**
          * Line styles options for a line series in `LineChartVisual` .
          */
@@ -90426,7 +92244,7 @@ export namespace quicksight {
     }
 
     /**
-     * <p>A list of Amazon QuickSight parameters and the list's override values.</p>
+     * <p>A list of Quick parameters and the list's override values.</p>
      */
     export interface AnalysisParameters {
         /**
@@ -91535,10 +93353,10 @@ export namespace quicksight {
          *             following:</p>
          *          <ul>
          *             <li>
-         *                <p>The ARN of an Amazon QuickSight user or group associated with a data source or dataset. (This is common.)</p>
+         *                <p>The ARN of an Amazon Quick user or group associated with a data source or dataset. (This is common.)</p>
          *             </li>
          *             <li>
-         *                <p>The ARN of an Amazon QuickSight user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)</p>
+         *                <p>The ARN of an Amazon Quick user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)</p>
          *             </li>
          *             <li>
          *                <p>The ARN of an Amazon Web Services account root: This is an IAM ARN rather than a QuickSight
@@ -91952,14 +93770,14 @@ export namespace quicksight {
 
     /**
      * <p>A <i>sheet</i>, which is an object that contains a set of visuals that
-     *             are viewed together on one page in Amazon QuickSight. Every analysis and dashboard
+     *             are viewed together on one page in Amazon Quick. Every analysis and dashboard
      *             contains at least one sheet. Each sheet contains at least one visualization widget, for
      *             example a chart, pivot table, or narrative insight. Sheets can be associated with other
      *             components, such as controls, filters, and so on.</p>
      */
     export interface AnalysisSheet {
         /**
-         * <p>The name of a sheet. This name is displayed on the sheet's tab in the Amazon QuickSight
+         * <p>The name of a sheet. This name is displayed on the sheet's tab in the Quick
          *             console.</p>
          */
         name?: string;
@@ -92152,6 +93970,16 @@ export namespace quicksight {
         plainText?: string;
     }
 
+    export interface AnalysisSheetLayoutGroup {
+        id: string;
+        members: outputs.quicksight.AnalysisSheetLayoutGroupMember[];
+    }
+
+    export interface AnalysisSheetLayoutGroupMember {
+        id: string;
+        type: any;
+    }
+
     export interface AnalysisSheetTextBox {
         /**
          * The content that is displayed in the text box.
@@ -92277,6 +94105,7 @@ export namespace quicksight {
          * <p>The dataset references of the source template of an analysis.</p>
          */
         dataSetReferences: outputs.quicksight.AnalysisDataSetReference[];
+        topicReferences?: outputs.quicksight.AnalysisTopicReference[];
     }
 
     export interface AnalysisSpacing {
@@ -92296,6 +94125,18 @@ export namespace quicksight {
          * String based length that is composed of value and unit
          */
         top?: string;
+    }
+
+    export interface AnalysisSparklinesOptions {
+        allPointsMarker?: outputs.quicksight.AnalysisLineChartMarkerStyleSettings;
+        fieldId: string;
+        lineColor?: string;
+        lineInterpolation?: enums.quicksight.AnalysisLineInterpolation;
+        maxValueMarker?: outputs.quicksight.AnalysisLineChartMarkerStyleSettings;
+        minValueMarker?: outputs.quicksight.AnalysisLineChartMarkerStyleSettings;
+        visualType?: enums.quicksight.AnalysisSparklineVisualType;
+        xAxisField: outputs.quicksight.AnalysisDimensionField;
+        yAxisBehavior?: enums.quicksight.AnalysisSparklineAxisBehavior;
     }
 
     export interface AnalysisSpatialStaticFile {
@@ -92706,6 +94547,7 @@ export namespace quicksight {
          * The configuration of the inline visualization of the data bars within a chart.
          */
         dataBars?: outputs.quicksight.AnalysisDataBarsOptions;
+        sparklines?: outputs.quicksight.AnalysisSparklinesOptions;
     }
 
     export interface AnalysisTableOptions {
@@ -93180,6 +95022,16 @@ export namespace quicksight {
          * The value field that is used in a computation.
          */
         value?: outputs.quicksight.AnalysisMeasureField;
+    }
+
+    export interface AnalysisTopicIdentifierDeclaration {
+        identifier: string;
+        topicArn: string;
+    }
+
+    export interface AnalysisTopicReference {
+        topicArn: string;
+        topicPlaceholder: string;
     }
 
     export interface AnalysisTotalAggregationComputation {
@@ -94596,6 +96448,7 @@ export namespace quicksight {
          * The options that determine if visual data labels are displayed.
          */
         dataLabels?: outputs.quicksight.DashboardDataLabelOptions;
+        defaultSeriesSettings?: outputs.quicksight.DashboardBarChartDefaultSeriesSettings;
         /**
          * The field wells of the visual.
          */
@@ -94619,6 +96472,7 @@ export namespace quicksight {
          * The reference line setup of the visual.
          */
         referenceLines?: outputs.quicksight.DashboardReferenceLine[];
+        series?: outputs.quicksight.DashboardBarSeriesItem[];
         /**
          * The small multiples setup for the visual.
          */
@@ -94643,6 +96497,11 @@ export namespace quicksight {
          * The palette (chart color) display setup of the visual.
          */
         visualPalette?: outputs.quicksight.DashboardVisualPalette;
+    }
+
+    export interface DashboardBarChartDefaultSeriesSettings {
+        borderSettings?: outputs.quicksight.DashboardBorderSettings;
+        decalSettings?: outputs.quicksight.DashboardDecalSettings;
     }
 
     export interface DashboardBarChartFieldWells {
@@ -94708,6 +96567,9 @@ export namespace quicksight {
          * The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.
          */
         visualId: string;
+    }
+
+    export interface DashboardBarSeriesItem {
     }
 
     export interface DashboardBinCountOptions {
@@ -94810,6 +96672,15 @@ export namespace quicksight {
 
     export interface DashboardBodySectionRepeatPageBreakConfiguration {
         after?: outputs.quicksight.DashboardSectionAfterPageBreak;
+    }
+
+    export interface DashboardBorderSettings {
+        borderColor?: string;
+        borderVisibility?: enums.quicksight.DashboardVisibility;
+        /**
+         * String based length that is composed of value and unit in px
+         */
+        borderWidth?: string;
     }
 
     export interface DashboardBoxPlotAggregatedFieldWells {
@@ -94946,7 +96817,7 @@ export namespace quicksight {
         /**
          * The data set that is used in this calculated field.
          */
-        dataSetIdentifier: string;
+        dataSetIdentifier?: string;
         /**
          * The expression of the calculated field.
          */
@@ -94955,6 +96826,7 @@ export namespace quicksight {
          * The name of the calculated field.
          */
         name: string;
+        topicIdentifier?: string;
     }
 
     export interface DashboardCalculatedMeasureField {
@@ -95138,6 +97010,7 @@ export namespace quicksight {
          * The column.
          */
         column: outputs.quicksight.DashboardColumnIdentifier;
+        decalSettingsConfiguration?: outputs.quicksight.DashboardDecalSettingsConfiguration;
         /**
          * The format configuration of a column.
          */
@@ -95171,7 +97044,8 @@ export namespace quicksight {
         /**
          * The data set that the column belongs to.
          */
-        dataSetIdentifier: string;
+        dataSetIdentifier?: string;
+        topicIdentifier?: string;
     }
 
     export interface DashboardColumnSort {
@@ -95255,6 +97129,7 @@ export namespace quicksight {
          * The label options (label text, label visibility, and sort icon visibility) of a combo chart's color field well.
          */
         colorLabelOptions?: outputs.quicksight.DashboardChartAxisLabelOptions;
+        defaultSeriesSettings?: outputs.quicksight.DashboardComboChartDefaultSeriesSettings;
         /**
          * The field wells of the visual.
          */
@@ -95293,6 +97168,7 @@ export namespace quicksight {
          * The label options (label text, label visibility, and sort icon visibility) of a combo chart's secondary y-axis(line) field well.
          */
         secondaryYAxisLabelOptions?: outputs.quicksight.DashboardChartAxisLabelOptions;
+        series?: outputs.quicksight.DashboardComboSeriesItem[];
         singleAxisOptions?: outputs.quicksight.DashboardSingleAxisOptions;
         /**
          * The sort configuration of a `ComboChartVisual` .
@@ -95306,6 +97182,13 @@ export namespace quicksight {
          * The palette (chart color) display setup of the visual.
          */
         visualPalette?: outputs.quicksight.DashboardVisualPalette;
+    }
+
+    export interface DashboardComboChartDefaultSeriesSettings {
+        borderSettings?: outputs.quicksight.DashboardBorderSettings;
+        decalSettings?: outputs.quicksight.DashboardDecalSettings;
+        lineStyleSettings?: outputs.quicksight.DashboardLineChartLineStyleSettings;
+        markerStyleSettings?: outputs.quicksight.DashboardLineChartMarkerStyleSettings;
     }
 
     export interface DashboardComboChartFieldWells {
@@ -95363,6 +97246,9 @@ export namespace quicksight {
          * The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.
          */
         visualId: string;
+    }
+
+    export interface DashboardComboSeriesItem {
     }
 
     export interface DashboardComparisonConfiguration {
@@ -95667,7 +97553,7 @@ export namespace quicksight {
         /**
          * The dataset that is used to create the custom content visual. You can't create a visual without a dataset.
          */
-        dataSetIdentifier: string;
+        dataSetIdentifier?: string;
         /**
          * The subtitle that is displayed on the visual.
          */
@@ -95676,6 +97562,7 @@ export namespace quicksight {
          * The title that is displayed on the visual.
          */
         title?: outputs.quicksight.DashboardVisualTitleLabelOptions;
+        topicIdentifier?: string;
         /**
          * The alt text for the visual.
          */
@@ -95987,6 +97874,9 @@ export namespace quicksight {
         availabilityStatus?: enums.quicksight.DashboardBehavior;
     }
 
+    /**
+     * <p>Adds Q&A capabilities to a dashboard. If no topic is linked, Dashboard Q&A uses the data values that are rendered on the dashboard. End users can use Dashboard Q&A to ask for different slices of the data that they see on the dashboard. If a topic is linked, Topic Q&A is enabled.</p>
+     */
     export interface DashboardDataQaEnabledOption {
         /**
          * The status of the Data Q&A option on the dashboard.
@@ -96195,6 +98085,18 @@ export namespace quicksight {
          * - `NULL` : The `NULL` value.
          */
         valueWhenUnsetOption?: enums.quicksight.DashboardValueWhenUnsetOption;
+    }
+
+    export interface DashboardDecalSettings {
+        decalColor?: string;
+        decalPatternType?: enums.quicksight.DashboardDecalPatternType;
+        decalStyleType?: enums.quicksight.DashboardDecalStyleType;
+        decalVisibility?: enums.quicksight.DashboardVisibility;
+        elementValue?: string;
+    }
+
+    export interface DashboardDecalSettingsConfiguration {
+        customDecalSettings?: outputs.quicksight.DashboardDecalSettings[];
     }
 
     export interface DashboardDecimalDefaultValues {
@@ -96586,7 +98488,8 @@ export namespace quicksight {
         /**
          * The data set that is used in the empty visual. Every visual requires a dataset to render.
          */
-        dataSetIdentifier: string;
+        dataSetIdentifier?: string;
+        topicIdentifier?: string;
         /**
          * The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.
          */
@@ -97291,7 +99194,7 @@ export namespace quicksight {
          */
         fontDecoration?: enums.quicksight.DashboardFontDecoration;
         /**
-         * The font family that you want to use.
+         * <p>The font family that you want to use.</p>
          */
         fontFamily?: string;
         /**
@@ -97310,7 +99213,7 @@ export namespace quicksight {
 
     export interface DashboardFontSize {
         /**
-         * String based length that is composed of value and unit in px
+         * <p>The font size that you want to use in px.</p>
          */
         absolute?: string;
         /**
@@ -97426,6 +99329,7 @@ export namespace quicksight {
          * The elements that are included in a free-form layout.
          */
         elements: outputs.quicksight.DashboardFreeFormLayoutElement[];
+        groups?: outputs.quicksight.DashboardSheetLayoutGroup[];
     }
 
     export interface DashboardFreeFormLayoutElement {
@@ -98771,7 +100675,7 @@ export namespace quicksight {
         /**
          * The dataset that is used in the insight visual.
          */
-        dataSetIdentifier: string;
+        dataSetIdentifier?: string;
         /**
          * The configuration of an insight visual.
          */
@@ -98784,6 +100688,7 @@ export namespace quicksight {
          * The title that is displayed on the visual.
          */
         title?: outputs.quicksight.DashboardVisualTitleLabelOptions;
+        topicIdentifier?: string;
         /**
          * The alt text for the visual.
          */
@@ -99141,9 +101046,10 @@ export namespace quicksight {
         /**
          * The dataset that is used to create the layer map visual. You can't create a visual without a dataset.
          */
-        dataSetIdentifier: string;
+        dataSetIdentifier?: string;
         subtitle?: outputs.quicksight.DashboardVisualSubtitleLabelOptions;
         title?: outputs.quicksight.DashboardVisualTitleLabelOptions;
+        topicIdentifier?: string;
         /**
          * The alt text for the visual.
          */
@@ -99313,6 +101219,7 @@ export namespace quicksight {
          * The axis to which you are binding all line series to.
          */
         axisBinding?: enums.quicksight.DashboardAxisBinding;
+        decalSettings?: outputs.quicksight.DashboardDecalSettings;
         /**
          * Line styles options for all line series in the visual.
          */
@@ -99383,6 +101290,7 @@ export namespace quicksight {
     }
 
     export interface DashboardLineChartSeriesSettings {
+        decalSettings?: outputs.quicksight.DashboardDecalSettings;
         /**
          * Line styles options for a line series in `LineChartVisual` .
          */
@@ -100190,7 +102098,7 @@ export namespace quicksight {
     }
 
     /**
-     * <p>A list of Amazon QuickSight parameters and the list's override values.</p>
+     * <p>A list of Quick parameters and the list's override values.</p>
      */
     export interface DashboardParameters {
         /**
@@ -101365,10 +103273,10 @@ export namespace quicksight {
          *             following:</p>
          *          <ul>
          *             <li>
-         *                <p>The ARN of an Amazon QuickSight user or group associated with a data source or dataset. (This is common.)</p>
+         *                <p>The ARN of an Amazon Quick user or group associated with a data source or dataset. (This is common.)</p>
          *             </li>
          *             <li>
-         *                <p>The ARN of an Amazon QuickSight user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)</p>
+         *                <p>The ARN of an Amazon Quick user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)</p>
          *             </li>
          *             <li>
          *                <p>The ARN of an Amazon Web Services account root: This is an IAM ARN rather than a QuickSight
@@ -101782,14 +103690,14 @@ export namespace quicksight {
 
     /**
      * <p>A <i>sheet</i>, which is an object that contains a set of visuals that
-     *             are viewed together on one page in Amazon QuickSight. Every analysis and dashboard
+     *             are viewed together on one page in Amazon Quick. Every analysis and dashboard
      *             contains at least one sheet. Each sheet contains at least one visualization widget, for
      *             example a chart, pivot table, or narrative insight. Sheets can be associated with other
      *             components, such as controls, filters, and so on.</p>
      */
     export interface DashboardSheet {
         /**
-         * <p>The name of a sheet. This name is displayed on the sheet's tab in the Amazon QuickSight
+         * <p>The name of a sheet. This name is displayed on the sheet's tab in the Quick
          *             console.</p>
          */
         name?: string;
@@ -102002,6 +103910,16 @@ export namespace quicksight {
         availabilityStatus?: enums.quicksight.DashboardBehavior;
     }
 
+    export interface DashboardSheetLayoutGroup {
+        id: string;
+        members: outputs.quicksight.DashboardSheetLayoutGroupMember[];
+    }
+
+    export interface DashboardSheetLayoutGroupMember {
+        id: string;
+        type: any;
+    }
+
     export interface DashboardSheetTextBox {
         /**
          * The content that is displayed in the text box.
@@ -102127,6 +104045,7 @@ export namespace quicksight {
          * <p>Dataset references.</p>
          */
         dataSetReferences: outputs.quicksight.DashboardDataSetReference[];
+        topicReferences?: outputs.quicksight.DashboardTopicReference[];
     }
 
     export interface DashboardSpacing {
@@ -102146,6 +104065,18 @@ export namespace quicksight {
          * String based length that is composed of value and unit
          */
         top?: string;
+    }
+
+    export interface DashboardSparklinesOptions {
+        allPointsMarker?: outputs.quicksight.DashboardLineChartMarkerStyleSettings;
+        fieldId: string;
+        lineColor?: string;
+        lineInterpolation?: enums.quicksight.DashboardLineInterpolation;
+        maxValueMarker?: outputs.quicksight.DashboardLineChartMarkerStyleSettings;
+        minValueMarker?: outputs.quicksight.DashboardLineChartMarkerStyleSettings;
+        visualType?: enums.quicksight.DashboardSparklineVisualType;
+        xAxisField: outputs.quicksight.DashboardDimensionField;
+        yAxisBehavior?: enums.quicksight.DashboardSparklineAxisBehavior;
     }
 
     export interface DashboardSpatialStaticFile {
@@ -102556,6 +104487,7 @@ export namespace quicksight {
          * The configuration of the inline visualization of the data bars within a chart.
          */
         dataBars?: outputs.quicksight.DashboardDataBarsOptions;
+        sparklines?: outputs.quicksight.DashboardSparklinesOptions;
     }
 
     export interface DashboardTableOptions {
@@ -103032,6 +104964,16 @@ export namespace quicksight {
         value?: outputs.quicksight.DashboardMeasureField;
     }
 
+    export interface DashboardTopicIdentifierDeclaration {
+        identifier: string;
+        topicArn: string;
+    }
+
+    export interface DashboardTopicReference {
+        topicArn: string;
+        topicPlaceholder: string;
+    }
+
     export interface DashboardTotalAggregationComputation {
         /**
          * The ID for a computation.
@@ -103346,9 +105288,10 @@ export namespace quicksight {
          */
         sheets?: outputs.quicksight.DashboardSheetDefinition[];
         /**
-         * The static files for the definition.
+         * <p>The static files for the definition.</p>
          */
         staticFiles?: outputs.quicksight.DashboardStaticFile[];
+        topicIdentifierDeclarations?: outputs.quicksight.DashboardTopicIdentifierDeclaration[];
     }
 
     export interface DashboardVisibleRangeOptions {
@@ -105545,6 +107488,7 @@ export namespace quicksight {
      * <p>Parameters for Amazon Athena.</p>
      */
     export interface DataSourceAthenaParameters {
+        consumerAccountRoleArn?: string;
         /**
          * An optional parameter that configures IAM Identity Center authentication to grant Quick Sight access to your workgroup.
          *
@@ -106705,6 +108649,7 @@ export namespace quicksight {
          * The options that determine if visual data labels are displayed.
          */
         dataLabels?: outputs.quicksight.TemplateDataLabelOptions;
+        defaultSeriesSettings?: outputs.quicksight.TemplateBarChartDefaultSeriesSettings;
         /**
          * The field wells of the visual.
          */
@@ -106728,6 +108673,7 @@ export namespace quicksight {
          * The reference line setup of the visual.
          */
         referenceLines?: outputs.quicksight.TemplateReferenceLine[];
+        series?: outputs.quicksight.TemplateBarSeriesItem[];
         /**
          * The small multiples setup for the visual.
          */
@@ -106752,6 +108698,11 @@ export namespace quicksight {
          * The palette (chart color) display setup of the visual.
          */
         visualPalette?: outputs.quicksight.TemplateVisualPalette;
+    }
+
+    export interface TemplateBarChartDefaultSeriesSettings {
+        borderSettings?: outputs.quicksight.TemplateBorderSettings;
+        decalSettings?: outputs.quicksight.TemplateDecalSettings;
     }
 
     export interface TemplateBarChartFieldWells {
@@ -106817,6 +108768,9 @@ export namespace quicksight {
          * The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.
          */
         visualId: string;
+    }
+
+    export interface TemplateBarSeriesItem {
     }
 
     export interface TemplateBinCountOptions {
@@ -106919,6 +108873,15 @@ export namespace quicksight {
 
     export interface TemplateBodySectionRepeatPageBreakConfiguration {
         after?: outputs.quicksight.TemplateSectionAfterPageBreak;
+    }
+
+    export interface TemplateBorderSettings {
+        borderColor?: string;
+        borderVisibility?: enums.quicksight.TemplateVisibility;
+        /**
+         * String based length that is composed of value and unit in px
+         */
+        borderWidth?: string;
     }
 
     export interface TemplateBoxPlotAggregatedFieldWells {
@@ -107055,7 +109018,7 @@ export namespace quicksight {
         /**
          * The data set that is used in this calculated field.
          */
-        dataSetIdentifier: string;
+        dataSetIdentifier?: string;
         /**
          * The expression of the calculated field.
          */
@@ -107064,6 +109027,7 @@ export namespace quicksight {
          * The name of the calculated field.
          */
         name: string;
+        topicIdentifier?: string;
     }
 
     export interface TemplateCalculatedMeasureField {
@@ -107247,6 +109211,7 @@ export namespace quicksight {
          * The column.
          */
         column: outputs.quicksight.TemplateColumnIdentifier;
+        decalSettingsConfiguration?: outputs.quicksight.TemplateDecalSettingsConfiguration;
         /**
          * The format configuration of a column.
          */
@@ -107304,7 +109269,8 @@ export namespace quicksight {
         /**
          * The data set that the column belongs to.
          */
-        dataSetIdentifier: string;
+        dataSetIdentifier?: string;
+        topicIdentifier?: string;
     }
 
     /**
@@ -107406,6 +109372,7 @@ export namespace quicksight {
          * The label options (label text, label visibility, and sort icon visibility) of a combo chart's color field well.
          */
         colorLabelOptions?: outputs.quicksight.TemplateChartAxisLabelOptions;
+        defaultSeriesSettings?: outputs.quicksight.TemplateComboChartDefaultSeriesSettings;
         /**
          * The field wells of the visual.
          */
@@ -107444,6 +109411,7 @@ export namespace quicksight {
          * The label options (label text, label visibility, and sort icon visibility) of a combo chart's secondary y-axis(line) field well.
          */
         secondaryYAxisLabelOptions?: outputs.quicksight.TemplateChartAxisLabelOptions;
+        series?: outputs.quicksight.TemplateComboSeriesItem[];
         singleAxisOptions?: outputs.quicksight.TemplateSingleAxisOptions;
         /**
          * The sort configuration of a `ComboChartVisual` .
@@ -107457,6 +109425,13 @@ export namespace quicksight {
          * The palette (chart color) display setup of the visual.
          */
         visualPalette?: outputs.quicksight.TemplateVisualPalette;
+    }
+
+    export interface TemplateComboChartDefaultSeriesSettings {
+        borderSettings?: outputs.quicksight.TemplateBorderSettings;
+        decalSettings?: outputs.quicksight.TemplateDecalSettings;
+        lineStyleSettings?: outputs.quicksight.TemplateLineChartLineStyleSettings;
+        markerStyleSettings?: outputs.quicksight.TemplateLineChartMarkerStyleSettings;
     }
 
     export interface TemplateComboChartFieldWells {
@@ -107514,6 +109489,9 @@ export namespace quicksight {
          * The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.
          */
         visualId: string;
+    }
+
+    export interface TemplateComboSeriesItem {
     }
 
     export interface TemplateComparisonConfiguration {
@@ -107818,7 +109796,7 @@ export namespace quicksight {
         /**
          * The dataset that is used to create the custom content visual. You can't create a visual without a dataset.
          */
-        dataSetIdentifier: string;
+        dataSetIdentifier?: string;
         /**
          * The subtitle that is displayed on the visual.
          */
@@ -107827,6 +109805,7 @@ export namespace quicksight {
          * The title that is displayed on the visual.
          */
         title?: outputs.quicksight.TemplateVisualTitleLabelOptions;
+        topicIdentifier?: string;
         /**
          * The alt text for the visual.
          */
@@ -108307,6 +110286,18 @@ export namespace quicksight {
         valueWhenUnsetOption?: enums.quicksight.TemplateValueWhenUnsetOption;
     }
 
+    export interface TemplateDecalSettings {
+        decalColor?: string;
+        decalPatternType?: enums.quicksight.TemplateDecalPatternType;
+        decalStyleType?: enums.quicksight.TemplateDecalStyleType;
+        decalVisibility?: enums.quicksight.TemplateVisibility;
+        elementValue?: string;
+    }
+
+    export interface TemplateDecalSettingsConfiguration {
+        customDecalSettings?: outputs.quicksight.TemplateDecalSettings[];
+    }
+
     export interface TemplateDecimalDefaultValues {
         /**
          * The dynamic value of the `DecimalDefaultValues` . Different defaults are displayed according to users, groups, and values mapping.
@@ -108682,7 +110673,8 @@ export namespace quicksight {
         /**
          * The data set that is used in the empty visual. Every visual requires a dataset to render.
          */
-        dataSetIdentifier: string;
+        dataSetIdentifier?: string;
+        topicIdentifier?: string;
         /**
          * The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.
          */
@@ -109350,7 +111342,7 @@ export namespace quicksight {
          */
         fontDecoration?: enums.quicksight.TemplateFontDecoration;
         /**
-         * The font family that you want to use.
+         * <p>The font family that you want to use.</p>
          */
         fontFamily?: string;
         /**
@@ -109369,7 +111361,7 @@ export namespace quicksight {
 
     export interface TemplateFontSize {
         /**
-         * String based length that is composed of value and unit in px
+         * <p>The font size that you want to use in px.</p>
          */
         absolute?: string;
         /**
@@ -109485,6 +111477,7 @@ export namespace quicksight {
          * The elements that are included in a free-form layout.
          */
         elements: outputs.quicksight.TemplateFreeFormLayoutElement[];
+        groups?: outputs.quicksight.TemplateSheetLayoutGroup[];
     }
 
     export interface TemplateFreeFormLayoutElement {
@@ -109845,6 +111838,35 @@ export namespace quicksight {
         visualId: string;
     }
 
+    export interface TemplateGeospatialCategoricalColor {
+        categoryDataColors: outputs.quicksight.TemplateGeospatialCategoricalDataColor[];
+        defaultOpacity?: number;
+        nullDataSettings?: outputs.quicksight.TemplateGeospatialNullDataSettings;
+        nullDataVisibility?: enums.quicksight.TemplateVisibility;
+    }
+
+    export interface TemplateGeospatialCategoricalDataColor {
+        color: string;
+        dataValue: string;
+    }
+
+    export interface TemplateGeospatialCircleRadius {
+        radius?: number;
+    }
+
+    export interface TemplateGeospatialCircleSymbolStyle {
+        circleRadius?: outputs.quicksight.TemplateGeospatialCircleRadius;
+        fillColor?: outputs.quicksight.TemplateGeospatialColor;
+        strokeColor?: outputs.quicksight.TemplateGeospatialColor;
+        strokeWidth?: outputs.quicksight.TemplateGeospatialLineWidth;
+    }
+
+    export interface TemplateGeospatialColor {
+        categorical?: outputs.quicksight.TemplateGeospatialCategoricalColor;
+        gradient?: outputs.quicksight.TemplateGeospatialGradientColor;
+        solid?: outputs.quicksight.TemplateGeospatialSolidColor;
+    }
+
     export interface TemplateGeospatialCoordinateBounds {
         /**
          * The longitude of the east bound of the geospatial coordinate bounds.
@@ -109862,6 +111884,22 @@ export namespace quicksight {
          * The longitude of the west bound of the geospatial coordinate bounds.
          */
         west: number;
+    }
+
+    export interface TemplateGeospatialDataSourceItem {
+        staticFileDataSource?: outputs.quicksight.TemplateGeospatialStaticFileSource;
+    }
+
+    export interface TemplateGeospatialGradientColor {
+        defaultOpacity?: number;
+        nullDataSettings?: outputs.quicksight.TemplateGeospatialNullDataSettings;
+        nullDataVisibility?: enums.quicksight.TemplateVisibility;
+        stepColors: outputs.quicksight.TemplateGeospatialGradientStepColor[];
+    }
+
+    export interface TemplateGeospatialGradientStepColor {
+        color: string;
+        dataValue: number;
     }
 
     export interface TemplateGeospatialHeatmapColorScale {
@@ -109885,6 +111923,60 @@ export namespace quicksight {
         color: string;
     }
 
+    export interface TemplateGeospatialLayerColorField {
+        colorDimensionsFields?: outputs.quicksight.TemplateDimensionField[];
+        colorValuesFields?: outputs.quicksight.TemplateMeasureField[];
+    }
+
+    export interface TemplateGeospatialLayerDefinition {
+        lineLayer?: outputs.quicksight.TemplateGeospatialLineLayer;
+        pointLayer?: outputs.quicksight.TemplateGeospatialPointLayer;
+        polygonLayer?: outputs.quicksight.TemplateGeospatialPolygonLayer;
+    }
+
+    export interface TemplateGeospatialLayerItem {
+        actions?: outputs.quicksight.TemplateLayerCustomAction[];
+        dataSource?: outputs.quicksight.TemplateGeospatialDataSourceItem;
+        joinDefinition?: outputs.quicksight.TemplateGeospatialLayerJoinDefinition;
+        label?: string;
+        layerDefinition?: outputs.quicksight.TemplateGeospatialLayerDefinition;
+        layerId: string;
+        layerType?: enums.quicksight.TemplateGeospatialLayerType;
+        tooltip?: outputs.quicksight.TemplateTooltipOptions;
+        visibility?: enums.quicksight.TemplateVisibility;
+    }
+
+    export interface TemplateGeospatialLayerJoinDefinition {
+        colorField?: outputs.quicksight.TemplateGeospatialLayerColorField;
+        datasetKeyField?: outputs.quicksight.TemplateUnaggregatedField;
+        shapeKeyField?: string;
+    }
+
+    export interface TemplateGeospatialLayerMapConfiguration {
+        interactions?: outputs.quicksight.TemplateVisualInteractionOptions;
+        legend?: outputs.quicksight.TemplateLegendOptions;
+        mapLayers?: outputs.quicksight.TemplateGeospatialLayerItem[];
+        mapState?: outputs.quicksight.TemplateGeospatialMapState;
+        mapStyle?: outputs.quicksight.TemplateGeospatialMapStyle;
+    }
+
+    export interface TemplateGeospatialLineLayer {
+        style: outputs.quicksight.TemplateGeospatialLineStyle;
+    }
+
+    export interface TemplateGeospatialLineStyle {
+        lineSymbolStyle?: outputs.quicksight.TemplateGeospatialLineSymbolStyle;
+    }
+
+    export interface TemplateGeospatialLineSymbolStyle {
+        fillColor?: outputs.quicksight.TemplateGeospatialColor;
+        lineWidth?: outputs.quicksight.TemplateGeospatialLineWidth;
+    }
+
+    export interface TemplateGeospatialLineWidth {
+        lineWidth?: number;
+    }
+
     export interface TemplateGeospatialMapAggregatedFieldWells {
         /**
          * The color field wells of a geospatial map.
@@ -109905,6 +111997,7 @@ export namespace quicksight {
          * The field wells of the visual.
          */
         fieldWells?: outputs.quicksight.TemplateGeospatialMapFieldWells;
+        interactions?: outputs.quicksight.TemplateVisualInteractionOptions;
         /**
          * The legend display setup of the visual.
          */
@@ -109933,6 +112026,17 @@ export namespace quicksight {
          * The aggregated field well for a geospatial map.
          */
         geospatialMapAggregatedFieldWells?: outputs.quicksight.TemplateGeospatialMapAggregatedFieldWells;
+    }
+
+    export interface TemplateGeospatialMapState {
+        bounds?: outputs.quicksight.TemplateGeospatialCoordinateBounds;
+        mapNavigation?: enums.quicksight.TemplateGeospatialMapNavigation;
+    }
+
+    export interface TemplateGeospatialMapStyle {
+        backgroundColor?: string;
+        baseMapStyle?: enums.quicksight.TemplateBaseMapStyleType;
+        baseMapVisibility?: enums.quicksight.TemplateVisibility;
     }
 
     export interface TemplateGeospatialMapStyleOptions {
@@ -109973,6 +112077,24 @@ export namespace quicksight {
         visualId: string;
     }
 
+    export interface TemplateGeospatialNullDataSettings {
+        symbolStyle: outputs.quicksight.TemplateGeospatialNullSymbolStyle;
+    }
+
+    export interface TemplateGeospatialNullSymbolStyle {
+        fillColor?: string;
+        strokeColor?: string;
+        strokeWidth?: number;
+    }
+
+    export interface TemplateGeospatialPointLayer {
+        style: outputs.quicksight.TemplateGeospatialPointStyle;
+    }
+
+    export interface TemplateGeospatialPointStyle {
+        circleSymbolStyle?: outputs.quicksight.TemplateGeospatialCircleSymbolStyle;
+    }
+
     export interface TemplateGeospatialPointStyleOptions {
         /**
          * The cluster marker configuration of the geospatial point style.
@@ -109986,6 +112108,32 @@ export namespace quicksight {
          * The selected point styles (point, cluster) of the geospatial map.
          */
         selectedPointStyle?: enums.quicksight.TemplateGeospatialSelectedPointStyle;
+    }
+
+    export interface TemplateGeospatialPolygonLayer {
+        style: outputs.quicksight.TemplateGeospatialPolygonStyle;
+    }
+
+    export interface TemplateGeospatialPolygonStyle {
+        polygonSymbolStyle?: outputs.quicksight.TemplateGeospatialPolygonSymbolStyle;
+    }
+
+    export interface TemplateGeospatialPolygonSymbolStyle {
+        fillColor?: outputs.quicksight.TemplateGeospatialColor;
+        strokeColor?: outputs.quicksight.TemplateGeospatialColor;
+        strokeWidth?: outputs.quicksight.TemplateGeospatialLineWidth;
+    }
+
+    /**
+     * Describes the properties for a solid color
+     */
+    export interface TemplateGeospatialSolidColor {
+        color: string;
+        state?: enums.quicksight.TemplateGeospatialColorState;
+    }
+
+    export interface TemplateGeospatialStaticFileSource {
+        staticFileId: string;
     }
 
     export interface TemplateGeospatialWindowOptions {
@@ -110048,6 +112196,9 @@ export namespace quicksight {
     }
 
     export interface TemplateGridLayoutElement {
+        backgroundStyle?: outputs.quicksight.TemplateGridLayoutElementBackgroundStyle;
+        borderRadius?: string;
+        borderStyle?: outputs.quicksight.TemplateGridLayoutElementBorderStyle;
         /**
          * The column index for the upper left corner of an element.
          */
@@ -110064,6 +112215,8 @@ export namespace quicksight {
          * The type of element.
          */
         elementType: enums.quicksight.TemplateLayoutElementType;
+        loadingAnimation?: outputs.quicksight.TemplateLoadingAnimation;
+        padding?: string;
         /**
          * The row index for the upper left corner of an element.
          */
@@ -110072,6 +112225,21 @@ export namespace quicksight {
          * The height of a grid element expressed as a number of grid rows.
          */
         rowSpan: number;
+        selectedBorderStyle?: outputs.quicksight.TemplateGridLayoutElementBorderStyle;
+    }
+
+    export interface TemplateGridLayoutElementBackgroundStyle {
+        color?: string;
+        visibility?: enums.quicksight.TemplateVisibility;
+    }
+
+    export interface TemplateGridLayoutElementBorderStyle {
+        color?: string;
+        visibility?: enums.quicksight.TemplateVisibility;
+        /**
+         * String to encapsulate the most generic way Width can be formatted with whatever units (px, em etc)
+         */
+        width?: string;
     }
 
     export interface TemplateGridLayoutScreenCanvasSizeOptions {
@@ -110386,6 +112554,11 @@ export namespace quicksight {
         availabilityStatus?: enums.quicksight.TemplateDashboardBehavior;
     }
 
+    export interface TemplateImageStaticFile {
+        source?: outputs.quicksight.TemplateStaticFileSource;
+        staticFileId: string;
+    }
+
     export interface TemplateInnerFilter {
         /**
          * A `CategoryInnerFilter` filters text values for the `NestedFilter` .
@@ -110416,7 +112589,7 @@ export namespace quicksight {
         /**
          * The dataset that is used in the insight visual.
          */
-        dataSetIdentifier: string;
+        dataSetIdentifier?: string;
         /**
          * The configuration of an insight visual.
          */
@@ -110429,6 +112602,7 @@ export namespace quicksight {
          * The title that is displayed on the visual.
          */
         title?: outputs.quicksight.TemplateVisualTitleLabelOptions;
+        topicIdentifier?: string;
         /**
          * The alt text for the visual.
          */
@@ -110727,6 +112901,31 @@ export namespace quicksight {
         visibility?: enums.quicksight.TemplateVisibility;
     }
 
+    export interface TemplateLayerCustomAction {
+        actionOperations: outputs.quicksight.TemplateLayerCustomActionOperation[];
+        customActionId: string;
+        name: string;
+        status?: enums.quicksight.TemplateWidgetStatus;
+        trigger: enums.quicksight.TemplateLayerCustomActionTrigger;
+    }
+
+    export interface TemplateLayerCustomActionOperation {
+        filterOperation?: outputs.quicksight.TemplateCustomActionFilterOperation;
+        navigationOperation?: outputs.quicksight.TemplateCustomActionNavigationOperation;
+        setParametersOperation?: outputs.quicksight.TemplateCustomActionSetParametersOperation;
+        urlOperation?: outputs.quicksight.TemplateCustomActionUrlOperation;
+    }
+
+    export interface TemplateLayerMapVisual {
+        chartConfiguration?: outputs.quicksight.TemplateGeospatialLayerMapConfiguration;
+        dataSetIdentifier?: string;
+        subtitle?: outputs.quicksight.TemplateVisualSubtitleLabelOptions;
+        title?: outputs.quicksight.TemplateVisualTitleLabelOptions;
+        topicIdentifier?: string;
+        visualContentAltText?: string;
+        visualId: string;
+    }
+
     export interface TemplateLayout {
         /**
          * The configuration that determines what the type of layout for a sheet.
@@ -110886,6 +113085,7 @@ export namespace quicksight {
          * The axis to which you are binding all line series to.
          */
         axisBinding?: enums.quicksight.TemplateAxisBinding;
+        decalSettings?: outputs.quicksight.TemplateDecalSettings;
         /**
          * Line styles options for all line series in the visual.
          */
@@ -110956,6 +113156,7 @@ export namespace quicksight {
     }
 
     export interface TemplateLineChartSeriesSettings {
+        decalSettings?: outputs.quicksight.TemplateDecalSettings;
         /**
          * Line styles options for a line series in `LineChartVisual` .
          */
@@ -112843,10 +115044,10 @@ export namespace quicksight {
          *             following:</p>
          *          <ul>
          *             <li>
-         *                <p>The ARN of an Amazon QuickSight user or group associated with a data source or dataset. (This is common.)</p>
+         *                <p>The ARN of an Amazon Quick user or group associated with a data source or dataset. (This is common.)</p>
          *             </li>
          *             <li>
-         *                <p>The ARN of an Amazon QuickSight user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)</p>
+         *                <p>The ARN of an Amazon Quick user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)</p>
          *             </li>
          *             <li>
          *                <p>The ARN of an Amazon Web Services account root: This is an IAM ARN rather than a QuickSight
@@ -113260,14 +115461,14 @@ export namespace quicksight {
 
     /**
      * <p>A <i>sheet</i>, which is an object that contains a set of visuals that
-     *             are viewed together on one page in Amazon QuickSight. Every analysis and dashboard
+     *             are viewed together on one page in Amazon Quick. Every analysis and dashboard
      *             contains at least one sheet. Each sheet contains at least one visualization widget, for
      *             example a chart, pivot table, or narrative insight. Sheets can be associated with other
      *             components, such as controls, filters, and so on.</p>
      */
     export interface TemplateSheet {
         /**
-         * <p>The name of a sheet. This name is displayed on the sheet's tab in the Amazon QuickSight
+         * <p>The name of a sheet. This name is displayed on the sheet's tab in the Quick
          *             console.</p>
          */
         name?: string;
@@ -113460,6 +115661,16 @@ export namespace quicksight {
         plainText?: string;
     }
 
+    export interface TemplateSheetLayoutGroup {
+        id: string;
+        members: outputs.quicksight.TemplateSheetLayoutGroupMember[];
+    }
+
+    export interface TemplateSheetLayoutGroupMember {
+        id: string;
+        type: any;
+    }
+
     export interface TemplateSheetTextBox {
         /**
          * The content that is displayed in the text box.
@@ -113576,6 +115787,7 @@ export namespace quicksight {
          *             in the template.</p>
          */
         dataSetReferences: outputs.quicksight.TemplateDataSetReference[];
+        topicReferences?: outputs.quicksight.TemplateTopicReference[];
     }
 
     /**
@@ -113619,6 +115831,43 @@ export namespace quicksight {
          * String based length that is composed of value and unit
          */
         top?: string;
+    }
+
+    export interface TemplateSparklinesOptions {
+        allPointsMarker?: outputs.quicksight.TemplateLineChartMarkerStyleSettings;
+        fieldId: string;
+        lineColor?: string;
+        lineInterpolation?: enums.quicksight.TemplateLineInterpolation;
+        maxValueMarker?: outputs.quicksight.TemplateLineChartMarkerStyleSettings;
+        minValueMarker?: outputs.quicksight.TemplateLineChartMarkerStyleSettings;
+        visualType?: enums.quicksight.TemplateSparklineVisualType;
+        xAxisField: outputs.quicksight.TemplateDimensionField;
+        yAxisBehavior?: enums.quicksight.TemplateSparklineAxisBehavior;
+    }
+
+    export interface TemplateSpatialStaticFile {
+        source?: outputs.quicksight.TemplateStaticFileSource;
+        staticFileId: string;
+    }
+
+    export interface TemplateStaticFile {
+        imageStaticFile?: outputs.quicksight.TemplateImageStaticFile;
+        spatialStaticFile?: outputs.quicksight.TemplateSpatialStaticFile;
+    }
+
+    export interface TemplateStaticFileS3SourceOptions {
+        bucketName: string;
+        objectKey: string;
+        region: string;
+    }
+
+    export interface TemplateStaticFileSource {
+        s3Options?: outputs.quicksight.TemplateStaticFileS3SourceOptions;
+        urlOptions?: outputs.quicksight.TemplateStaticFileUrlSourceOptions;
+    }
+
+    export interface TemplateStaticFileUrlSourceOptions {
+        url: string;
     }
 
     export interface TemplateStringDefaultValues {
@@ -113960,6 +116209,7 @@ export namespace quicksight {
          * The configuration of the inline visualization of the data bars within a chart.
          */
         dataBars?: outputs.quicksight.TemplateDataBarsOptions;
+        sparklines?: outputs.quicksight.TemplateSparklinesOptions;
     }
 
     export interface TemplateTableOptions {
@@ -114436,6 +116686,17 @@ export namespace quicksight {
         value?: outputs.quicksight.TemplateMeasureField;
     }
 
+    export interface TemplateTopicConfiguration {
+        columnGroupSchemaList?: outputs.quicksight.TemplateColumnGroupSchema[];
+        dataSetSchema?: outputs.quicksight.TemplateDataSetSchema;
+        placeholder?: string;
+    }
+
+    export interface TemplateTopicReference {
+        topicArn: string;
+        topicPlaceholder: string;
+    }
+
     export interface TemplateTotalAggregationComputation {
         /**
          * The ID for a computation.
@@ -114758,6 +117019,11 @@ export namespace quicksight {
          * An array of sheet definitions for a template.
          */
         sheets?: outputs.quicksight.TemplateSheetDefinition[];
+        /**
+         * <p>The static files for the definition.</p>
+         */
+        staticFiles?: outputs.quicksight.TemplateStaticFile[];
+        topicConfigurations?: outputs.quicksight.TemplateTopicConfiguration[];
     }
 
     export interface TemplateVisibleRangeOptions {
@@ -114844,6 +117110,7 @@ export namespace quicksight {
          * For more information, see [Using KPIs](https://docs.aws.amazon.com/quicksight/latest/user/kpi.html) in the *Amazon Quick Suite User Guide* .
          */
         kpiVisual?: outputs.quicksight.TemplateKpiVisual;
+        layerMapVisual?: outputs.quicksight.TemplateLayerMapVisual;
         /**
          * A line chart.
          *
@@ -115304,9 +117571,17 @@ export namespace quicksight {
      */
     export interface ThemeBorderStyle {
         /**
+         * String to encapsulate the most generic way Color can be formatted (words, hexStrings etc)
+         */
+        color?: string;
+        /**
          * <p>The option to enable display of borders for visuals.</p>
          */
         show?: boolean;
+        /**
+         * String to encapsulate the most generic way Width can be formatted with whatever units (px, em etc)
+         */
+        width?: string;
     }
 
     /**
@@ -115374,6 +117649,29 @@ export namespace quicksight {
         fontFamily?: string;
     }
 
+    export interface ThemeFontConfiguration {
+        fontColor?: string;
+        fontDecoration?: enums.quicksight.ThemeFontDecoration;
+        /**
+         * <p>The font family that you want to use.</p>
+         */
+        fontFamily?: string;
+        fontSize?: outputs.quicksight.ThemeFontSize;
+        fontStyle?: enums.quicksight.ThemeFontStyle;
+        fontWeight?: outputs.quicksight.ThemeFontWeight;
+    }
+
+    export interface ThemeFontSize {
+        /**
+         * <p>The font size that you want to use in px.</p>
+         */
+        absolute?: string;
+    }
+
+    export interface ThemeFontWeight {
+        name?: enums.quicksight.ThemeFontWeightName;
+    }
+
     /**
      * <p>The display options for gutter spacing between tiles on a sheet.</p>
      */
@@ -115408,10 +117706,10 @@ export namespace quicksight {
          *             following:</p>
          *          <ul>
          *             <li>
-         *                <p>The ARN of an Amazon QuickSight user or group associated with a data source or dataset. (This is common.)</p>
+         *                <p>The ARN of an Amazon Quick user or group associated with a data source or dataset. (This is common.)</p>
          *             </li>
          *             <li>
-         *                <p>The ARN of an Amazon QuickSight user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)</p>
+         *                <p>The ARN of an Amazon Quick user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)</p>
          *             </li>
          *             <li>
          *                <p>The ARN of an Amazon Web Services account root: This is an IAM ARN rather than a QuickSight
@@ -115423,10 +117721,19 @@ export namespace quicksight {
         principal: string;
     }
 
+    export interface ThemeSheetBackgroundStyle {
+        /**
+         * String to encapsulate the most generic way Color can be formatted (words, hexStrings etc)
+         */
+        color?: string;
+        gradient?: string;
+    }
+
     /**
      * <p>The theme display options for sheets. </p>
      */
     export interface ThemeSheetStyle {
+        background?: outputs.quicksight.ThemeSheetBackgroundStyle;
         /**
          * The display options for tiles.
          */
@@ -115456,22 +117763,35 @@ export namespace quicksight {
      */
     export interface ThemeTileStyle {
         /**
+         * String to encapsulate the most generic way Color can be formatted (words, hexStrings etc)
+         */
+        backgroundColor?: string;
+        /**
          * The border around a tile.
          */
         border?: outputs.quicksight.ThemeBorderStyle;
+        borderRadius?: string;
+        padding?: string;
     }
 
     export interface ThemeTypography {
+        axisLabelFontConfiguration?: outputs.quicksight.ThemeFontConfiguration;
+        axisTitleFontConfiguration?: outputs.quicksight.ThemeFontConfiguration;
+        dataLabelFontConfiguration?: outputs.quicksight.ThemeFontConfiguration;
         /**
          * Determines the list of font families.
          */
         fontFamilies?: outputs.quicksight.ThemeFont[];
+        legendTitleFontConfiguration?: outputs.quicksight.ThemeFontConfiguration;
+        legendValueFontConfiguration?: outputs.quicksight.ThemeFontConfiguration;
+        visualSubtitleFontConfiguration?: outputs.quicksight.ThemeVisualSubtitleFontConfiguration;
+        visualTitleFontConfiguration?: outputs.quicksight.ThemeVisualTitleFontConfiguration;
     }
 
     /**
      * <p>The theme colors that apply to UI and to charts, excluding data colors. The colors
      *             description is a hexadecimal color code that consists of six alphanumerical characters,
-     *             prefixed with <code>#</code>, for example #37BFF5. For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/themes-in-quicksight.html">Using Themes in Amazon QuickSight</a> in the <i>Amazon QuickSight User
+     *             prefixed with <code>#</code>, for example #37BFF5. For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/themes-in-quicksight.html">Using Themes in Amazon Quick</a> in the <i>Amazon Quick User
      *                 Guide.</i>
      *          </p>
      */
@@ -115561,8 +117881,8 @@ export namespace quicksight {
          */
         arn?: string;
         /**
-         * <p>The Amazon QuickSight-defined ID of the theme that a custom theme inherits from. All
-         *             themes initially inherit from a default Amazon QuickSight theme.</p>
+         * <p>The Amazon Quick-defined ID of the theme that a custom theme inherits from. All
+         *             themes initially inherit from a default Quick theme.</p>
          */
         baseThemeId?: string;
         /**
@@ -115589,6 +117909,18 @@ export namespace quicksight {
          * <p>The version number of the theme.</p>
          */
         versionNumber?: number;
+    }
+
+    export interface ThemeVisualSubtitleFontConfiguration {
+        fontConfiguration?: outputs.quicksight.ThemeFontConfiguration;
+        textAlignment?: enums.quicksight.ThemeHorizontalTextAlignment;
+        textTransform?: enums.quicksight.ThemeTextTransform;
+    }
+
+    export interface ThemeVisualTitleFontConfiguration {
+        fontConfiguration?: outputs.quicksight.ThemeFontConfiguration;
+        textAlignment?: enums.quicksight.ThemeHorizontalTextAlignment;
+        textTransform?: enums.quicksight.ThemeTextTransform;
     }
 
     export interface TopicCalculatedField {
@@ -128198,6 +130530,58 @@ export namespace sagemaker {
         vpcId?: string;
     }
 
+    /**
+     * The Amazon Cognito user group that is part of the work team.
+     */
+    export interface WorkteamCognitoMemberDefinition {
+        /**
+         * An identifier for an application client. You must create the app client ID using Amazon Cognito.
+         */
+        cognitoClientId: string;
+        /**
+         * An identifier for a user group.
+         */
+        cognitoUserGroup: string;
+        /**
+         * An identifier for a user pool. The user pool must be in the same region as the service that you are calling.
+         */
+        cognitoUserPool: string;
+    }
+
+    /**
+     * Defines an Amazon Cognito or your own OIDC IdP user group that is part of a work team.
+     */
+    export interface WorkteamMemberDefinition {
+        /**
+         * The Amazon Cognito user group that is part of the work team
+         */
+        cognitoMemberDefinition?: outputs.sagemaker.WorkteamCognitoMemberDefinition;
+        /**
+         * A list user groups that exist in your OIDC Identity Provider (IdP).
+         */
+        oidcMemberDefinition?: outputs.sagemaker.WorkteamOidcMemberDefinition;
+    }
+
+    /**
+     * Configures SNS notifications of available or expiring work items for work teams.
+     */
+    export interface WorkteamNotificationConfiguration {
+        /**
+         * The Amazon Resource Name (ARN) of the Amazon SNS topic to which notifications should be published.
+         */
+        notificationTopicArn: string;
+    }
+
+    /**
+     * A list of user groups that exist in your OIDC Identity Provider (IdP).
+     */
+    export interface WorkteamOidcMemberDefinition {
+        /**
+         * A list of OIDC group names whose members will be part of this workteam
+         */
+        oidcGroups: string[];
+    }
+
 }
 
 export namespace scheduler {
@@ -134842,6 +137226,7 @@ export namespace transfer {
          * The `AUTO` and `0.0.0.0` are special values for the `PassiveIp` parameter. The value `PassiveIp=AUTO` is assigned by default to FTP and FTPS type servers. In this case, the server automatically responds with one of the endpoint IPs within the PASV response. `PassiveIp=0.0.0.0` has a more unique application for its usage. For example, if you have a High Availability (HA) Network Load Balancer (NLB) environment, where you have 3 subnets, you can only specify a single IP address using the `PassiveIp` parameter. This reduces the effectiveness of having High Availability. In this case, you can specify `PassiveIp=0.0.0.0` . This tells the client to use the same IP address as the Control connection and utilize all AZs for their connections. Note, however, that not all FTP clients support the `PassiveIp=0.0.0.0` response. FileZilla and WinSCP do support it. If you are using other clients, check to see if your client supports the `PassiveIp=0.0.0.0` response.
          */
         passiveIp?: string;
+        proxyConfig?: outputs.transfer.ServerProxyConfig;
         /**
          * Use the `SetStatOption` to ignore the error that is generated when the client attempts to use `SETSTAT` on a file you are uploading to an S3 bucket.
          *
@@ -134862,6 +137247,10 @@ export namespace transfer {
          * > Not all FTPS clients perform TLS session resumption. So, if you choose to enforce TLS session resumption, you prevent any connections from FTPS clients that don't perform the protocol negotiation. To determine whether or not you can use the `ENFORCED` value, you need to test your clients.
          */
         tlsSessionResumptionMode?: enums.transfer.ServerTlsSessionResumptionMode;
+    }
+
+    export interface ServerProxyConfig {
+        sftpMode?: enums.transfer.ServerProxyMode;
     }
 
     export interface ServerS3StorageOptions {
@@ -134916,6 +137305,10 @@ export namespace transfer {
          * Specifies the number of active connections that your connector can establish with the remote server at the same time.
          */
         maxConcurrentConnections?: number;
+        /**
+         * Specifies the order in which the connector attempts to use secret versions during authentication. This enables fallback to alternative credentials if the primary version fails.
+         */
+        orderedUserSecretVersionStages?: string[];
         /**
          * List of public host keys, for the external server to which you are connecting.
          */
@@ -139183,6 +141576,24 @@ export namespace wafv2 {
 }
 
 export namespace wellarchitected {
+    /**
+     * Defines an account, its in-scope regions, and the access role used to reach resources in that account.
+     */
+    export interface AgentProfileAggregationConfiguration {
+        /**
+         * The ARN of the IAM role used to access resources in this account.
+         */
+        accessRoleArn: string;
+        /**
+         * The target AWS account ID.
+         */
+        accountId: string;
+        /**
+         * The target regions in the account.
+         */
+        regions: string[];
+    }
+
     /**
      * Discovery configuration associated to the workload.
      */

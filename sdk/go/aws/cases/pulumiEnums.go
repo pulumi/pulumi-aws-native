@@ -369,6 +369,344 @@ func (in *fieldTypePtr) ToFieldTypePtrOutputWithContext(ctx context.Context) Fie
 	return pulumi.ToOutputWithContext(ctx, in).(FieldTypePtrOutput)
 }
 
+// Type of the text in the comment.
+type RelatedItemCommentContentContentType string
+
+const (
+	RelatedItemCommentContentContentTypeTextPlain = RelatedItemCommentContentContentType("Text/Plain")
+)
+
+func (RelatedItemCommentContentContentType) ElementType() reflect.Type {
+	return reflect.TypeOf((*RelatedItemCommentContentContentType)(nil)).Elem()
+}
+
+func (e RelatedItemCommentContentContentType) ToRelatedItemCommentContentContentTypeOutput() RelatedItemCommentContentContentTypeOutput {
+	return pulumi.ToOutput(e).(RelatedItemCommentContentContentTypeOutput)
+}
+
+func (e RelatedItemCommentContentContentType) ToRelatedItemCommentContentContentTypeOutputWithContext(ctx context.Context) RelatedItemCommentContentContentTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(RelatedItemCommentContentContentTypeOutput)
+}
+
+func (e RelatedItemCommentContentContentType) ToRelatedItemCommentContentContentTypePtrOutput() RelatedItemCommentContentContentTypePtrOutput {
+	return e.ToRelatedItemCommentContentContentTypePtrOutputWithContext(context.Background())
+}
+
+func (e RelatedItemCommentContentContentType) ToRelatedItemCommentContentContentTypePtrOutputWithContext(ctx context.Context) RelatedItemCommentContentContentTypePtrOutput {
+	return RelatedItemCommentContentContentType(e).ToRelatedItemCommentContentContentTypeOutputWithContext(ctx).ToRelatedItemCommentContentContentTypePtrOutputWithContext(ctx)
+}
+
+func (e RelatedItemCommentContentContentType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e RelatedItemCommentContentContentType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e RelatedItemCommentContentContentType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e RelatedItemCommentContentContentType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type RelatedItemCommentContentContentTypeOutput struct{ *pulumi.OutputState }
+
+func (RelatedItemCommentContentContentTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RelatedItemCommentContentContentType)(nil)).Elem()
+}
+
+func (o RelatedItemCommentContentContentTypeOutput) ToRelatedItemCommentContentContentTypeOutput() RelatedItemCommentContentContentTypeOutput {
+	return o
+}
+
+func (o RelatedItemCommentContentContentTypeOutput) ToRelatedItemCommentContentContentTypeOutputWithContext(ctx context.Context) RelatedItemCommentContentContentTypeOutput {
+	return o
+}
+
+func (o RelatedItemCommentContentContentTypeOutput) ToRelatedItemCommentContentContentTypePtrOutput() RelatedItemCommentContentContentTypePtrOutput {
+	return o.ToRelatedItemCommentContentContentTypePtrOutputWithContext(context.Background())
+}
+
+func (o RelatedItemCommentContentContentTypeOutput) ToRelatedItemCommentContentContentTypePtrOutputWithContext(ctx context.Context) RelatedItemCommentContentContentTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RelatedItemCommentContentContentType) *RelatedItemCommentContentContentType {
+		return &v
+	}).(RelatedItemCommentContentContentTypePtrOutput)
+}
+
+func (o RelatedItemCommentContentContentTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o RelatedItemCommentContentContentTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RelatedItemCommentContentContentType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o RelatedItemCommentContentContentTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RelatedItemCommentContentContentTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RelatedItemCommentContentContentType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type RelatedItemCommentContentContentTypePtrOutput struct{ *pulumi.OutputState }
+
+func (RelatedItemCommentContentContentTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RelatedItemCommentContentContentType)(nil)).Elem()
+}
+
+func (o RelatedItemCommentContentContentTypePtrOutput) ToRelatedItemCommentContentContentTypePtrOutput() RelatedItemCommentContentContentTypePtrOutput {
+	return o
+}
+
+func (o RelatedItemCommentContentContentTypePtrOutput) ToRelatedItemCommentContentContentTypePtrOutputWithContext(ctx context.Context) RelatedItemCommentContentContentTypePtrOutput {
+	return o
+}
+
+func (o RelatedItemCommentContentContentTypePtrOutput) Elem() RelatedItemCommentContentContentTypeOutput {
+	return o.ApplyT(func(v *RelatedItemCommentContentContentType) RelatedItemCommentContentContentType {
+		if v != nil {
+			return *v
+		}
+		var ret RelatedItemCommentContentContentType
+		return ret
+	}).(RelatedItemCommentContentContentTypeOutput)
+}
+
+func (o RelatedItemCommentContentContentTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RelatedItemCommentContentContentTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *RelatedItemCommentContentContentType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// RelatedItemCommentContentContentTypeInput is an input type that accepts values of the RelatedItemCommentContentContentType enum
+// A concrete instance of `RelatedItemCommentContentContentTypeInput` can be one of the following:
+//
+//	RelatedItemCommentContentContentTypeTextPlain
+type RelatedItemCommentContentContentTypeInput interface {
+	pulumi.Input
+
+	ToRelatedItemCommentContentContentTypeOutput() RelatedItemCommentContentContentTypeOutput
+	ToRelatedItemCommentContentContentTypeOutputWithContext(context.Context) RelatedItemCommentContentContentTypeOutput
+}
+
+var relatedItemCommentContentContentTypePtrType = reflect.TypeOf((**RelatedItemCommentContentContentType)(nil)).Elem()
+
+type RelatedItemCommentContentContentTypePtrInput interface {
+	pulumi.Input
+
+	ToRelatedItemCommentContentContentTypePtrOutput() RelatedItemCommentContentContentTypePtrOutput
+	ToRelatedItemCommentContentContentTypePtrOutputWithContext(context.Context) RelatedItemCommentContentContentTypePtrOutput
+}
+
+type relatedItemCommentContentContentTypePtr string
+
+func RelatedItemCommentContentContentTypePtr(v string) RelatedItemCommentContentContentTypePtrInput {
+	return (*relatedItemCommentContentContentTypePtr)(&v)
+}
+
+func (*relatedItemCommentContentContentTypePtr) ElementType() reflect.Type {
+	return relatedItemCommentContentContentTypePtrType
+}
+
+func (in *relatedItemCommentContentContentTypePtr) ToRelatedItemCommentContentContentTypePtrOutput() RelatedItemCommentContentContentTypePtrOutput {
+	return pulumi.ToOutput(in).(RelatedItemCommentContentContentTypePtrOutput)
+}
+
+func (in *relatedItemCommentContentContentTypePtr) ToRelatedItemCommentContentContentTypePtrOutputWithContext(ctx context.Context) RelatedItemCommentContentContentTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(RelatedItemCommentContentContentTypePtrOutput)
+}
+
+// The type of a related item.
+type RelatedItemType string
+
+const (
+	RelatedItemTypeContact     = RelatedItemType("Contact")
+	RelatedItemTypeComment     = RelatedItemType("Comment")
+	RelatedItemTypeFile        = RelatedItemType("File")
+	RelatedItemTypeSla         = RelatedItemType("Sla")
+	RelatedItemTypeConnectCase = RelatedItemType("ConnectCase")
+	RelatedItemTypeCustom      = RelatedItemType("Custom")
+)
+
+func (RelatedItemType) ElementType() reflect.Type {
+	return reflect.TypeOf((*RelatedItemType)(nil)).Elem()
+}
+
+func (e RelatedItemType) ToRelatedItemTypeOutput() RelatedItemTypeOutput {
+	return pulumi.ToOutput(e).(RelatedItemTypeOutput)
+}
+
+func (e RelatedItemType) ToRelatedItemTypeOutputWithContext(ctx context.Context) RelatedItemTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(RelatedItemTypeOutput)
+}
+
+func (e RelatedItemType) ToRelatedItemTypePtrOutput() RelatedItemTypePtrOutput {
+	return e.ToRelatedItemTypePtrOutputWithContext(context.Background())
+}
+
+func (e RelatedItemType) ToRelatedItemTypePtrOutputWithContext(ctx context.Context) RelatedItemTypePtrOutput {
+	return RelatedItemType(e).ToRelatedItemTypeOutputWithContext(ctx).ToRelatedItemTypePtrOutputWithContext(ctx)
+}
+
+func (e RelatedItemType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e RelatedItemType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e RelatedItemType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e RelatedItemType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type RelatedItemTypeOutput struct{ *pulumi.OutputState }
+
+func (RelatedItemTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RelatedItemType)(nil)).Elem()
+}
+
+func (o RelatedItemTypeOutput) ToRelatedItemTypeOutput() RelatedItemTypeOutput {
+	return o
+}
+
+func (o RelatedItemTypeOutput) ToRelatedItemTypeOutputWithContext(ctx context.Context) RelatedItemTypeOutput {
+	return o
+}
+
+func (o RelatedItemTypeOutput) ToRelatedItemTypePtrOutput() RelatedItemTypePtrOutput {
+	return o.ToRelatedItemTypePtrOutputWithContext(context.Background())
+}
+
+func (o RelatedItemTypeOutput) ToRelatedItemTypePtrOutputWithContext(ctx context.Context) RelatedItemTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RelatedItemType) *RelatedItemType {
+		return &v
+	}).(RelatedItemTypePtrOutput)
+}
+
+func (o RelatedItemTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o RelatedItemTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RelatedItemType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o RelatedItemTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RelatedItemTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RelatedItemType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type RelatedItemTypePtrOutput struct{ *pulumi.OutputState }
+
+func (RelatedItemTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RelatedItemType)(nil)).Elem()
+}
+
+func (o RelatedItemTypePtrOutput) ToRelatedItemTypePtrOutput() RelatedItemTypePtrOutput {
+	return o
+}
+
+func (o RelatedItemTypePtrOutput) ToRelatedItemTypePtrOutputWithContext(ctx context.Context) RelatedItemTypePtrOutput {
+	return o
+}
+
+func (o RelatedItemTypePtrOutput) Elem() RelatedItemTypeOutput {
+	return o.ApplyT(func(v *RelatedItemType) RelatedItemType {
+		if v != nil {
+			return *v
+		}
+		var ret RelatedItemType
+		return ret
+	}).(RelatedItemTypeOutput)
+}
+
+func (o RelatedItemTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RelatedItemTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *RelatedItemType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// RelatedItemTypeInput is an input type that accepts values of the RelatedItemType enum
+// A concrete instance of `RelatedItemTypeInput` can be one of the following:
+//
+//	RelatedItemTypeContact
+//	RelatedItemTypeComment
+//	RelatedItemTypeFile
+//	RelatedItemTypeSla
+//	RelatedItemTypeConnectCase
+//	RelatedItemTypeCustom
+type RelatedItemTypeInput interface {
+	pulumi.Input
+
+	ToRelatedItemTypeOutput() RelatedItemTypeOutput
+	ToRelatedItemTypeOutputWithContext(context.Context) RelatedItemTypeOutput
+}
+
+var relatedItemTypePtrType = reflect.TypeOf((**RelatedItemType)(nil)).Elem()
+
+type RelatedItemTypePtrInput interface {
+	pulumi.Input
+
+	ToRelatedItemTypePtrOutput() RelatedItemTypePtrOutput
+	ToRelatedItemTypePtrOutputWithContext(context.Context) RelatedItemTypePtrOutput
+}
+
+type relatedItemTypePtr string
+
+func RelatedItemTypePtr(v string) RelatedItemTypePtrInput {
+	return (*relatedItemTypePtr)(&v)
+}
+
+func (*relatedItemTypePtr) ElementType() reflect.Type {
+	return relatedItemTypePtrType
+}
+
+func (in *relatedItemTypePtr) ToRelatedItemTypePtrOutput() RelatedItemTypePtrOutput {
+	return pulumi.ToOutput(in).(RelatedItemTypePtrOutput)
+}
+
+func (in *relatedItemTypePtr) ToRelatedItemTypePtrOutputWithContext(ctx context.Context) RelatedItemTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(RelatedItemTypePtrOutput)
+}
+
 // The current status of the template. Active templates can be used to create new cases, while Inactive templates are disabled but preserved for existing cases.
 type TemplateStatus string
 
@@ -538,6 +876,10 @@ func (in *templateStatusPtr) ToTemplateStatusPtrOutputWithContext(ctx context.Co
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FieldTypeInput)(nil)).Elem(), FieldType("Text"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FieldTypePtrInput)(nil)).Elem(), FieldType("Text"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RelatedItemCommentContentContentTypeInput)(nil)).Elem(), RelatedItemCommentContentContentType("Text/Plain"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RelatedItemCommentContentContentTypePtrInput)(nil)).Elem(), RelatedItemCommentContentContentType("Text/Plain"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RelatedItemTypeInput)(nil)).Elem(), RelatedItemType("Contact"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RelatedItemTypePtrInput)(nil)).Elem(), RelatedItemType("Contact"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateStatusInput)(nil)).Elem(), TemplateStatus("Active"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateStatusPtrInput)(nil)).Elem(), TemplateStatus("Active"))
 	pulumi.RegisterOutputType(DomainStatusOutput{})
@@ -546,6 +888,10 @@ func init() {
 	pulumi.RegisterOutputType(FieldNamespacePtrOutput{})
 	pulumi.RegisterOutputType(FieldTypeOutput{})
 	pulumi.RegisterOutputType(FieldTypePtrOutput{})
+	pulumi.RegisterOutputType(RelatedItemCommentContentContentTypeOutput{})
+	pulumi.RegisterOutputType(RelatedItemCommentContentContentTypePtrOutput{})
+	pulumi.RegisterOutputType(RelatedItemTypeOutput{})
+	pulumi.RegisterOutputType(RelatedItemTypePtrOutput{})
 	pulumi.RegisterOutputType(TemplateStatusOutput{})
 	pulumi.RegisterOutputType(TemplateStatusPtrOutput{})
 }

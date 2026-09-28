@@ -14,6 +14,7 @@ __all__ = [
     'CapacityProviderScalingMode',
     'CapacityProviderState',
     'CodeSigningConfigCodeSigningPoliciesUntrustedArtifactOnDeployment',
+    'EventSourceMappingConsumptionMode',
     'EventSourceMappingDocumentDbEventSourceConfigFullDocument',
     'EventSourceMappingFunctionResponseTypesItem',
     'EventSourceMappingLoggingConfigSystemLogLevel',
@@ -117,6 +118,15 @@ class CodeSigningConfigCodeSigningPoliciesUntrustedArtifactOnDeployment(_builtin
     ENFORCE = "Enforce"
 
 
+@pulumi.type_token("aws-native:lambda:EventSourceMappingConsumptionMode")
+class EventSourceMappingConsumptionMode(_builtins.str, Enum):
+    """
+    The mode that determines how Lambda reads from a Kafka topic. Use Stream for ordered processing or Queue for higher throughput when ordering is not required.
+    """
+    STREAM = "Stream"
+    QUEUE = "Queue"
+
+
 @pulumi.type_token("aws-native:lambda:EventSourceMappingDocumentDbEventSourceConfigFullDocument")
 class EventSourceMappingDocumentDbEventSourceConfigFullDocument(_builtins.str, Enum):
     """
@@ -156,6 +166,7 @@ class EventSourceMappingSchemaRegistryAccessConfigType(_builtins.str, Enum):
     BASIC_AUTH = "BASIC_AUTH"
     CLIENT_CERTIFICATE_TLS_AUTH = "CLIENT_CERTIFICATE_TLS_AUTH"
     SERVER_ROOT_CA_CERTIFICATE = "SERVER_ROOT_CA_CERTIFICATE"
+    OAUTHBEARER_AUTH = "OAUTHBEARER_AUTH"
 
 
 @pulumi.type_token("aws-native:lambda:EventSourceMappingSchemaRegistryConfigEventRecordFormat")
@@ -200,6 +211,13 @@ class EventSourceMappingSourceAccessConfigurationType(_builtins.str, Enum):
     VIRTUAL_HOST = "VIRTUAL_HOST"
     CLIENT_CERTIFICATE_TLS_AUTH = "CLIENT_CERTIFICATE_TLS_AUTH"
     SERVER_ROOT_CA_CERTIFICATE = "SERVER_ROOT_CA_CERTIFICATE"
+    OAUTHBEARER_AUTH = "OAUTHBEARER_AUTH"
+    OAUTHBEARER_SCOPE = "OAUTHBEARER_SCOPE"
+    OAUTHBEARER_AUDIENCE = "OAUTHBEARER_AUDIENCE"
+    OAUTHBEARER_LOGICAL_CLUSTER = "OAUTHBEARER_LOGICAL_CLUSTER"
+    OAUTHBEARER_IDENTITY_POOL = "OAUTHBEARER_IDENTITY_POOL"
+    IAM_AUTH = "IAM_AUTH"
+    IAM_OAUTHBEARER_AUTH = "IAM_OAUTHBEARER_AUTH"
 
 
 @pulumi.type_token("aws-native:lambda:FunctionArchitecturesItem")
@@ -285,7 +303,12 @@ class FunctionRuntimeManagementConfigUpdateRuntimeOn(_builtins.str, Enum):
 @pulumi.type_token("aws-native:lambda:FunctionS3FilesConfigDirectS3Read")
 class FunctionS3FilesConfigDirectS3Read(_builtins.str, Enum):
     """
-    Specifies if a function reads from the file system for the lowest latency, or through Amazon S3 Files feature "direct Amazon S3 bucket reads" for the highest throughput
+    Specifies if a function reads from the file system for the lowest latency, or through Amazon S3 Files feature "direct Amazon S3 bucket reads" for the highest throughput. Valid values:
+      +  ``AUTO`` (default) – Direct reads are active for functions you configure with 512 MB or more of memory.
+      +  ``ENABLED`` – Enforces all reads are directly from the Amazon S3 bucket, regardless of available memory (less than 512 MB).
+      +  ``DISABLED`` – Routes all reads through the file system, regardless of memory configuration.
+
+     To use direct reads, you must grant the execution role the ``s3:GetObject`` and ``s3:GetObjectVersion`` permissions. If a direct read fails, Lambda automatically falls back to reading through the file system.
     """
     ENABLED = "ENABLED"
     DISABLED = "DISABLED"

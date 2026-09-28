@@ -21,15 +21,22 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// The border visibility of a free-form layout element.
         /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.AnalysisVisibility? Visibility;
+        /// <summary>
+        /// String to encapsulate the most generic way Width can be formatted with whatever units (px, em etc)
+        /// </summary>
+        public readonly string? Width;
 
         [OutputConstructor]
         private AnalysisFreeFormLayoutElementBorderStyle(
             string? color,
 
-            Pulumi.AwsNative.QuickSight.AnalysisVisibility? visibility)
+            Pulumi.AwsNative.QuickSight.AnalysisVisibility? visibility,
+
+            string? width)
         {
             Color = color;
             Visibility = visibility;
+            Width = width;
         }
     }
 }

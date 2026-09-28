@@ -30,6 +30,7 @@ __all__ = [
     'ServerIdentityProviderType',
     'ServerIpAddressType',
     'ServerProtocol',
+    'ServerProxyMode',
     'ServerSetStatOption',
     'ServerSftpAuthenticationMethods',
     'ServerState',
@@ -244,6 +245,12 @@ class ServerProtocol(_builtins.str, Enum):
     FTP = "FTP"
     FTPS = "FTPS"
     AS2 = "AS2"
+
+
+@pulumi.type_token("aws-native:transfer:ServerProxyMode")
+class ServerProxyMode(_builtins.str, Enum):
+    PROXY_PROTOCOL_V2_ENFORCED = "PROXY_PROTOCOL_V2_ENFORCED"
+    NONE = "NONE"
 
 
 @pulumi.type_token("aws-native:transfer:ServerSetStatOption")

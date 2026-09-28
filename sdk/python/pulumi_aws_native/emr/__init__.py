@@ -7,10 +7,12 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from ._enums import *
+from .get_instance_group_config import *
 from .get_step import *
 from .get_studio import *
 from .get_studio_session_mapping import *
 from .get_wal_workspace import *
+from .instance_group_config import *
 from .security_configuration import *
 from .step import *
 from .studio import *

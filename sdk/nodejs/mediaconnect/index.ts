@@ -30,6 +30,11 @@ export type FlowEntitlement = import("./flowEntitlement").FlowEntitlement;
 export const FlowEntitlement: typeof import("./flowEntitlement").FlowEntitlement = null as any;
 utilities.lazyLoad(exports, ["FlowEntitlement"], () => require("./flowEntitlement"));
 
+export { FlowMediaStreamArgs } from "./flowMediaStream";
+export type FlowMediaStream = import("./flowMediaStream").FlowMediaStream;
+export const FlowMediaStream: typeof import("./flowMediaStream").FlowMediaStream = null as any;
+utilities.lazyLoad(exports, ["FlowMediaStream"], () => require("./flowMediaStream"));
+
 export { FlowOutputArgs } from "./flowOutput";
 export type FlowOutput = import("./flowOutput").FlowOutput;
 export const FlowOutput: typeof import("./flowOutput").FlowOutput = null as any;
@@ -74,6 +79,11 @@ export { GetFlowEntitlementArgs, GetFlowEntitlementResult, GetFlowEntitlementOut
 export const getFlowEntitlement: typeof import("./getFlowEntitlement").getFlowEntitlement = null as any;
 export const getFlowEntitlementOutput: typeof import("./getFlowEntitlement").getFlowEntitlementOutput = null as any;
 utilities.lazyLoad(exports, ["getFlowEntitlement","getFlowEntitlementOutput"], () => require("./getFlowEntitlement"));
+
+export { GetFlowMediaStreamArgs, GetFlowMediaStreamResult, GetFlowMediaStreamOutputArgs } from "./getFlowMediaStream";
+export const getFlowMediaStream: typeof import("./getFlowMediaStream").getFlowMediaStream = null as any;
+export const getFlowMediaStreamOutput: typeof import("./getFlowMediaStream").getFlowMediaStreamOutput = null as any;
+utilities.lazyLoad(exports, ["getFlowMediaStream","getFlowMediaStreamOutput"], () => require("./getFlowMediaStream"));
 
 export { GetFlowSourceArgs, GetFlowSourceResult, GetFlowSourceOutputArgs } from "./getFlowSource";
 export const getFlowSource: typeof import("./getFlowSource").getFlowSource = null as any;
@@ -138,6 +148,8 @@ const _module = {
                 return new Flow(name, <any>undefined, { urn })
             case "aws-native:mediaconnect:FlowEntitlement":
                 return new FlowEntitlement(name, <any>undefined, { urn })
+            case "aws-native:mediaconnect:FlowMediaStream":
+                return new FlowMediaStream(name, <any>undefined, { urn })
             case "aws-native:mediaconnect:FlowOutput":
                 return new FlowOutput(name, <any>undefined, { urn })
             case "aws-native:mediaconnect:FlowSource":

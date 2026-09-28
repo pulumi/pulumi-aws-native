@@ -31,6 +31,7 @@ type AgentSpace struct {
 	// The name of the AgentSpace.
 	Name        pulumi.StringOutput            `pulumi:"name"`
 	OperatorApp AgentSpaceOperatorAppPtrOutput `pulumi:"operatorApp"`
+	Preferences AgentSpacePreferencesPtrOutput `pulumi:"preferences"`
 	// An array of key-value pairs to apply to this resource.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// The timestamp when the resource was last updated.
@@ -90,6 +91,7 @@ type agentSpaceArgs struct {
 	// The name of the AgentSpace.
 	Name        *string                `pulumi:"name"`
 	OperatorApp *AgentSpaceOperatorApp `pulumi:"operatorApp"`
+	Preferences *AgentSpacePreferences `pulumi:"preferences"`
 	// An array of key-value pairs to apply to this resource.
 	Tags []aws.Tag `pulumi:"tags"`
 }
@@ -105,6 +107,7 @@ type AgentSpaceArgs struct {
 	// The name of the AgentSpace.
 	Name        pulumi.StringPtrInput
 	OperatorApp AgentSpaceOperatorAppPtrInput
+	Preferences AgentSpacePreferencesPtrInput
 	// An array of key-value pairs to apply to this resource.
 	Tags aws.TagArrayInput
 }
@@ -183,6 +186,10 @@ func (o AgentSpaceOutput) Name() pulumi.StringOutput {
 
 func (o AgentSpaceOutput) OperatorApp() AgentSpaceOperatorAppPtrOutput {
 	return o.ApplyT(func(v *AgentSpace) AgentSpaceOperatorAppPtrOutput { return v.OperatorApp }).(AgentSpaceOperatorAppPtrOutput)
+}
+
+func (o AgentSpaceOutput) Preferences() AgentSpacePreferencesPtrOutput {
+	return o.ApplyT(func(v *AgentSpace) AgentSpacePreferencesPtrOutput { return v.Preferences }).(AgentSpacePreferencesPtrOutput)
 }
 
 // An array of key-value pairs to apply to this resource.

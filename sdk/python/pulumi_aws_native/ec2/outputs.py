@@ -81,6 +81,7 @@ __all__ = [
     'InstanceElasticInferenceAccelerator',
     'InstanceEnaSrdSpecification',
     'InstanceEnaSrdUdpSpecification',
+    'InstanceEventWindowTimeRange',
     'InstanceIpv6Address',
     'InstanceLaunchTemplateSpecification',
     'InstanceLicenseSpecification',
@@ -4561,6 +4562,89 @@ class InstanceEnaSrdUdpSpecification(dict):
         Indicates whether UDP traffic uses ENA Express for your instance.
         """
         return pulumi.get(self, "ena_srd_udp_enabled")
+
+
+@pulumi.output_type
+class InstanceEventWindowTimeRange(dict):
+    """
+    A time range during which an AWS-initiated maintenance event may occur.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "endHour":
+            suggest = "end_hour"
+        elif key == "endWeekDay":
+            suggest = "end_week_day"
+        elif key == "startHour":
+            suggest = "start_hour"
+        elif key == "startWeekDay":
+            suggest = "start_week_day"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InstanceEventWindowTimeRange. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InstanceEventWindowTimeRange.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InstanceEventWindowTimeRange.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 end_hour: Optional[_builtins.int] = None,
+                 end_week_day: Optional['InstanceEventWindowTimeRangeEndWeekDay'] = None,
+                 start_hour: Optional[_builtins.int] = None,
+                 start_week_day: Optional['InstanceEventWindowTimeRangeStartWeekDay'] = None):
+        """
+        A time range during which an AWS-initiated maintenance event may occur.
+
+        :param _builtins.int end_hour: The hour when the time range ends.
+        :param 'InstanceEventWindowTimeRangeEndWeekDay' end_week_day: The day on which the time range ends.
+        :param _builtins.int start_hour: The hour when the time range begins.
+        :param 'InstanceEventWindowTimeRangeStartWeekDay' start_week_day: The day on which the time range begins.
+        """
+        if end_hour is not None:
+            pulumi.set(__self__, "end_hour", end_hour)
+        if end_week_day is not None:
+            pulumi.set(__self__, "end_week_day", end_week_day)
+        if start_hour is not None:
+            pulumi.set(__self__, "start_hour", start_hour)
+        if start_week_day is not None:
+            pulumi.set(__self__, "start_week_day", start_week_day)
+
+    @_builtins.property
+    @pulumi.getter(name="endHour")
+    def end_hour(self) -> Optional[_builtins.int]:
+        """
+        The hour when the time range ends.
+        """
+        return pulumi.get(self, "end_hour")
+
+    @_builtins.property
+    @pulumi.getter(name="endWeekDay")
+    def end_week_day(self) -> Optional['InstanceEventWindowTimeRangeEndWeekDay']:
+        """
+        The day on which the time range ends.
+        """
+        return pulumi.get(self, "end_week_day")
+
+    @_builtins.property
+    @pulumi.getter(name="startHour")
+    def start_hour(self) -> Optional[_builtins.int]:
+        """
+        The hour when the time range begins.
+        """
+        return pulumi.get(self, "start_hour")
+
+    @_builtins.property
+    @pulumi.getter(name="startWeekDay")
+    def start_week_day(self) -> Optional['InstanceEventWindowTimeRangeStartWeekDay']:
+        """
+        The day on which the time range begins.
+        """
+        return pulumi.get(self, "start_week_day")
 
 
 @pulumi.output_type

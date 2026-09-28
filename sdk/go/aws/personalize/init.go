@@ -27,6 +27,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &DatasetGroup{}
 	case "aws-native:personalize:EventTracker":
 		r = &EventTracker{}
+	case "aws-native:personalize:Filter":
+		r = &Filter{}
 	case "aws-native:personalize:MetricAttribution":
 		r = &MetricAttribution{}
 	case "aws-native:personalize:Schema":

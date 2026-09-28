@@ -100,6 +100,66 @@ export const DocumentClassifierMode = {
  */
 export type DocumentClassifierMode = (typeof DocumentClassifierMode)[keyof typeof DocumentClassifierMode];
 
+export const EntityRecognizerAugmentedManifestsListItemDocumentType = {
+    PlainTextDocument: "PLAIN_TEXT_DOCUMENT",
+    SemiStructuredDocument: "SEMI_STRUCTURED_DOCUMENT",
+} as const;
+
+/**
+ * The type of augmented manifest.
+ */
+export type EntityRecognizerAugmentedManifestsListItemDocumentType = (typeof EntityRecognizerAugmentedManifestsListItemDocumentType)[keyof typeof EntityRecognizerAugmentedManifestsListItemDocumentType];
+
+export const EntityRecognizerAugmentedManifestsListItemSplit = {
+    Train: "TRAIN",
+    Test: "TEST",
+} as const;
+
+/**
+ * The purpose of the data you've provided in the augmented manifest.
+ */
+export type EntityRecognizerAugmentedManifestsListItemSplit = (typeof EntityRecognizerAugmentedManifestsListItemSplit)[keyof typeof EntityRecognizerAugmentedManifestsListItemSplit];
+
+export const EntityRecognizerDocumentsInputFormat = {
+    OneDocPerFile: "ONE_DOC_PER_FILE",
+    OneDocPerLine: "ONE_DOC_PER_LINE",
+} as const;
+
+/**
+ * Specifies how the text in an input file should be processed.
+ */
+export type EntityRecognizerDocumentsInputFormat = (typeof EntityRecognizerDocumentsInputFormat)[keyof typeof EntityRecognizerDocumentsInputFormat];
+
+export const EntityRecognizerInputDataConfigDataFormat = {
+    ComprehendCsv: "COMPREHEND_CSV",
+    AugmentedManifest: "AUGMENTED_MANIFEST",
+} as const;
+
+/**
+ * The format of your training data.
+ */
+export type EntityRecognizerInputDataConfigDataFormat = (typeof EntityRecognizerInputDataConfigDataFormat)[keyof typeof EntityRecognizerInputDataConfigDataFormat];
+
+export const EntityRecognizerLanguageCode = {
+    En: "en",
+    Es: "es",
+    Fr: "fr",
+    De: "de",
+    It: "it",
+    Pt: "pt",
+    Ar: "ar",
+    Hi: "hi",
+    Ja: "ja",
+    Ko: "ko",
+    Zh: "zh",
+    ZhTw: "zh-TW",
+} as const;
+
+/**
+ * The language of the input documents. All documents must be in the same language.
+ */
+export type EntityRecognizerLanguageCode = (typeof EntityRecognizerLanguageCode)[keyof typeof EntityRecognizerLanguageCode];
+
 export const FlywheelDocumentClassificationConfigMode = {
     MultiClass: "MULTI_CLASS",
     MultiLabel: "MULTI_LABEL",

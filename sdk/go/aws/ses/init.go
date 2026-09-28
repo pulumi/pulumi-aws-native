@@ -33,6 +33,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &DedicatedIpPool{}
 	case "aws-native:ses:EmailIdentity":
 		r = &EmailIdentity{}
+	case "aws-native:ses:EmailIdentityCertificate":
+		r = &EmailIdentityCertificate{}
 	case "aws-native:ses:MailManagerAddonInstance":
 		r = &MailManagerAddonInstance{}
 	case "aws-native:ses:MailManagerAddonSubscription":

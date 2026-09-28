@@ -108,4 +108,66 @@ namespace Pulumi.AwsNative.NetworkFlowMonitor
 
         public override string ToString() => _value;
     }
+
+    /// <summary>
+    /// The status of the scope.
+    /// </summary>
+    [EnumType]
+    public readonly struct ScopeStatus : IEquatable<ScopeStatus>
+    {
+        private readonly string _value;
+
+        private ScopeStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ScopeStatus Succeeded { get; } = new ScopeStatus("SUCCEEDED");
+        public static ScopeStatus InProgress { get; } = new ScopeStatus("IN_PROGRESS");
+        public static ScopeStatus Failed { get; } = new ScopeStatus("FAILED");
+
+        public static bool operator ==(ScopeStatus left, ScopeStatus right) => left.Equals(right);
+        public static bool operator !=(ScopeStatus left, ScopeStatus right) => !left.Equals(right);
+
+        public static explicit operator string(ScopeStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ScopeStatus other && Equals(other);
+        public bool Equals(ScopeStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The type of the target. Currently always ACCOUNT.
+    /// </summary>
+    [EnumType]
+    public readonly struct ScopeTargetIdentifierTargetType : IEquatable<ScopeTargetIdentifierTargetType>
+    {
+        private readonly string _value;
+
+        private ScopeTargetIdentifierTargetType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ScopeTargetIdentifierTargetType Account { get; } = new ScopeTargetIdentifierTargetType("ACCOUNT");
+
+        public static bool operator ==(ScopeTargetIdentifierTargetType left, ScopeTargetIdentifierTargetType right) => left.Equals(right);
+        public static bool operator !=(ScopeTargetIdentifierTargetType left, ScopeTargetIdentifierTargetType right) => !left.Equals(right);
+
+        public static explicit operator string(ScopeTargetIdentifierTargetType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ScopeTargetIdentifierTargetType other && Equals(other);
+        public bool Equals(ScopeTargetIdentifierTargetType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
 }

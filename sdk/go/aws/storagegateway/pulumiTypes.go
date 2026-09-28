@@ -24,5 +24,12 @@ type TapeTag struct {
 	Value string `pulumi:"value"`
 }
 
+type VolumeTag struct {
+	// The tag key.
+	Key string `pulumi:"key"`
+	// The tag value.
+	Value string `pulumi:"value"`
+}
+
 func init() {
 }

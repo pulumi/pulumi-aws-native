@@ -1501,7 +1501,7 @@
   },
   "handlers" : {
     "create" : {
-      "permissions" : [ "wafv2:CreateRuleGroup", "wafv2:GetRuleGroup", "wafv2:TagResource", "wafv2:UntagResource", "wafv2:ListTagsForResource" ]
+      "permissions" : [ "wafv2:CreateRuleGroup", "wafv2:GetRuleGroup", "wafv2:TagResource", "wafv2:UntagResource", "wafv2:ListTagsForResource", "payments:GetConnectedAccount" ]
     },
     "delete" : {
       "permissions" : [ "wafv2:DeleteRuleGroup", "wafv2:GetRuleGroup" ]
@@ -1510,7 +1510,7 @@
       "permissions" : [ "wafv2:GetRuleGroup", "wafv2:ListTagsForResource" ]
     },
     "update" : {
-      "permissions" : [ "wafv2:TagResource", "wafv2:UntagResource", "wafv2:UpdateRuleGroup", "wafv2:GetRuleGroup", "wafv2:ListTagsForResource" ]
+      "permissions" : [ "wafv2:TagResource", "wafv2:UntagResource", "wafv2:UpdateRuleGroup", "wafv2:GetRuleGroup", "wafv2:ListTagsForResource", "payments:GetConnectedAccount" ]
     },
     "list" : {
       "permissions" : [ "wafv2:listRuleGroups" ],

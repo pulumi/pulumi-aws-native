@@ -3577,7 +3577,7 @@ func (o EventSourceMappingOnFailurePtrOutput) Destination() pulumi.StringPtrOutp
 
 // The [provisioned mode](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventsourcemapping.html#invocation-eventsourcemapping-provisioned-mode) configuration for the event source. Use Provisioned Mode to customize the minimum and maximum number of event pollers for your event source.
 type EventSourceMappingProvisionedPollerConfig struct {
-	// The maximum number of event pollers this event source can scale up to. For Amazon SQS events source mappings, default is 200, and minimum value allowed is 2. For Amazon MSK and self-managed Apache Kafka event source mappings, default is 200, and minimum value allowed is 1.
+	// The maximum number of event pollers this event source can scale up to. For Amazon SQS event source mappings, the accepted range is between 2 and 10,000, with a default of 200. For Amazon MSK and self-managed Apache Kafka event source mappings, the accepted range is between 1 and 2,000, with a default of 200.
 	MaximumPollers *int `pulumi:"maximumPollers"`
 	// The minimum number of event pollers this event source can scale down to. For Amazon SQS events source mappings, default is 2, and minimum 2 required. For Amazon MSK and self-managed Apache Kafka event source mappings, default is 1.
 	MinimumPollers *int `pulumi:"minimumPollers"`
@@ -3598,7 +3598,7 @@ type EventSourceMappingProvisionedPollerConfigInput interface {
 
 // The [provisioned mode](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventsourcemapping.html#invocation-eventsourcemapping-provisioned-mode) configuration for the event source. Use Provisioned Mode to customize the minimum and maximum number of event pollers for your event source.
 type EventSourceMappingProvisionedPollerConfigArgs struct {
-	// The maximum number of event pollers this event source can scale up to. For Amazon SQS events source mappings, default is 200, and minimum value allowed is 2. For Amazon MSK and self-managed Apache Kafka event source mappings, default is 200, and minimum value allowed is 1.
+	// The maximum number of event pollers this event source can scale up to. For Amazon SQS event source mappings, the accepted range is between 2 and 10,000, with a default of 200. For Amazon MSK and self-managed Apache Kafka event source mappings, the accepted range is between 1 and 2,000, with a default of 200.
 	MaximumPollers pulumi.IntPtrInput `pulumi:"maximumPollers"`
 	// The minimum number of event pollers this event source can scale down to. For Amazon SQS events source mappings, default is 2, and minimum 2 required. For Amazon MSK and self-managed Apache Kafka event source mappings, default is 1.
 	MinimumPollers pulumi.IntPtrInput `pulumi:"minimumPollers"`
@@ -3684,7 +3684,7 @@ func (o EventSourceMappingProvisionedPollerConfigOutput) ToEventSourceMappingPro
 	}).(EventSourceMappingProvisionedPollerConfigPtrOutput)
 }
 
-// The maximum number of event pollers this event source can scale up to. For Amazon SQS events source mappings, default is 200, and minimum value allowed is 2. For Amazon MSK and self-managed Apache Kafka event source mappings, default is 200, and minimum value allowed is 1.
+// The maximum number of event pollers this event source can scale up to. For Amazon SQS event source mappings, the accepted range is between 2 and 10,000, with a default of 200. For Amazon MSK and self-managed Apache Kafka event source mappings, the accepted range is between 1 and 2,000, with a default of 200.
 func (o EventSourceMappingProvisionedPollerConfigOutput) MaximumPollers() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v EventSourceMappingProvisionedPollerConfig) *int { return v.MaximumPollers }).(pulumi.IntPtrOutput)
 }
@@ -3723,7 +3723,7 @@ func (o EventSourceMappingProvisionedPollerConfigPtrOutput) Elem() EventSourceMa
 	}).(EventSourceMappingProvisionedPollerConfigOutput)
 }
 
-// The maximum number of event pollers this event source can scale up to. For Amazon SQS events source mappings, default is 200, and minimum value allowed is 2. For Amazon MSK and self-managed Apache Kafka event source mappings, default is 200, and minimum value allowed is 1.
+// The maximum number of event pollers this event source can scale up to. For Amazon SQS event source mappings, the accepted range is between 2 and 10,000, with a default of 200. For Amazon MSK and self-managed Apache Kafka event source mappings, the accepted range is between 1 and 2,000, with a default of 200.
 func (o EventSourceMappingProvisionedPollerConfigPtrOutput) MaximumPollers() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *EventSourceMappingProvisionedPollerConfig) *int {
 		if v == nil {
@@ -4477,7 +4477,8 @@ func (o EventSourceMappingSelfManagedEventSourcePtrOutput) Endpoints() EventSour
 // Specific configuration settings for a self-managed Apache Kafka event source.
 type EventSourceMappingSelfManagedKafkaEventSourceConfig struct {
 	// The identifier for the Kafka consumer group to join. The consumer group ID must be unique among all your Kafka event sources. After creating a Kafka event source mapping with the consumer group ID specified, you cannot update this value. For more information, see [Customizable consumer group ID](https://docs.aws.amazon.com/lambda/latest/dg/with-kafka-process.html#services-smaa-topic-add).
-	ConsumerGroupId *string `pulumi:"consumerGroupId"`
+	ConsumerGroupId *string                            `pulumi:"consumerGroupId"`
+	ConsumptionMode *EventSourceMappingConsumptionMode `pulumi:"consumptionMode"`
 	// Specific configuration settings for a Kafka schema registry.
 	SchemaRegistryConfig *EventSourceMappingSchemaRegistryConfig `pulumi:"schemaRegistryConfig"`
 }
@@ -4496,7 +4497,8 @@ type EventSourceMappingSelfManagedKafkaEventSourceConfigInput interface {
 // Specific configuration settings for a self-managed Apache Kafka event source.
 type EventSourceMappingSelfManagedKafkaEventSourceConfigArgs struct {
 	// The identifier for the Kafka consumer group to join. The consumer group ID must be unique among all your Kafka event sources. After creating a Kafka event source mapping with the consumer group ID specified, you cannot update this value. For more information, see [Customizable consumer group ID](https://docs.aws.amazon.com/lambda/latest/dg/with-kafka-process.html#services-smaa-topic-add).
-	ConsumerGroupId pulumi.StringPtrInput `pulumi:"consumerGroupId"`
+	ConsumerGroupId pulumi.StringPtrInput                     `pulumi:"consumerGroupId"`
+	ConsumptionMode EventSourceMappingConsumptionModePtrInput `pulumi:"consumptionMode"`
 	// Specific configuration settings for a Kafka schema registry.
 	SchemaRegistryConfig EventSourceMappingSchemaRegistryConfigPtrInput `pulumi:"schemaRegistryConfig"`
 }
@@ -4584,6 +4586,12 @@ func (o EventSourceMappingSelfManagedKafkaEventSourceConfigOutput) ConsumerGroup
 	return o.ApplyT(func(v EventSourceMappingSelfManagedKafkaEventSourceConfig) *string { return v.ConsumerGroupId }).(pulumi.StringPtrOutput)
 }
 
+func (o EventSourceMappingSelfManagedKafkaEventSourceConfigOutput) ConsumptionMode() EventSourceMappingConsumptionModePtrOutput {
+	return o.ApplyT(func(v EventSourceMappingSelfManagedKafkaEventSourceConfig) *EventSourceMappingConsumptionMode {
+		return v.ConsumptionMode
+	}).(EventSourceMappingConsumptionModePtrOutput)
+}
+
 // Specific configuration settings for a Kafka schema registry.
 func (o EventSourceMappingSelfManagedKafkaEventSourceConfigOutput) SchemaRegistryConfig() EventSourceMappingSchemaRegistryConfigPtrOutput {
 	return o.ApplyT(func(v EventSourceMappingSelfManagedKafkaEventSourceConfig) *EventSourceMappingSchemaRegistryConfig {
@@ -4623,6 +4631,15 @@ func (o EventSourceMappingSelfManagedKafkaEventSourceConfigPtrOutput) ConsumerGr
 		}
 		return v.ConsumerGroupId
 	}).(pulumi.StringPtrOutput)
+}
+
+func (o EventSourceMappingSelfManagedKafkaEventSourceConfigPtrOutput) ConsumptionMode() EventSourceMappingConsumptionModePtrOutput {
+	return o.ApplyT(func(v *EventSourceMappingSelfManagedKafkaEventSourceConfig) *EventSourceMappingConsumptionMode {
+		if v == nil {
+			return nil
+		}
+		return v.ConsumptionMode
+	}).(EventSourceMappingConsumptionModePtrOutput)
 }
 
 // Specific configuration settings for a Kafka schema registry.
@@ -5757,13 +5774,14 @@ func (o FunctionEphemeralStoragePtrOutput) Size() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Details about the connection between a Lambda function and an [Amazon EFS file system](https://docs.aws.amazon.com/lambda/latest/dg/configuration-filesystem.html) or an [Amazon S3 Files file system](https://docs.aws.amazon.com/lambda/latest/dg/configuration-filesystem.html).
+// Details about the connection between a Lambda function and an [Amazon EFS file system](https://docs.aws.amazon.com/lambda/latest/dg/configuration-filesystem.html) or an [Amazon S3 file system](https://docs.aws.amazon.com/lambda/latest/dg/configuration-filesystem.html).
 type FunctionFileSystemConfig struct {
 	// The Amazon Resource Name (ARN) of the Amazon EFS or Amazon S3 Files access point that provides access to the file system.
 	Arn string `pulumi:"arn"`
 	// The path where the function can access the file system, starting with ``/mnt/``.
-	LocalMountPath string                 `pulumi:"localMountPath"`
-	S3FilesConfig  *FunctionS3FilesConfig `pulumi:"s3FilesConfig"`
+	LocalMountPath string `pulumi:"localMountPath"`
+	// The configuration for how your function accesses data on an Amazon S3 file system. Valid only when the file system access point ARN is an Amazon S3 Files access point. If you specify a different access point type (for example, Amazon Elastic File System), the operation returns an ``InvalidParameterException``.
+	S3FilesConfig *FunctionS3FilesConfig `pulumi:"s3FilesConfig"`
 }
 
 // FunctionFileSystemConfigInput is an input type that accepts FunctionFileSystemConfigArgs and FunctionFileSystemConfigOutput values.
@@ -5777,13 +5795,14 @@ type FunctionFileSystemConfigInput interface {
 	ToFunctionFileSystemConfigOutputWithContext(context.Context) FunctionFileSystemConfigOutput
 }
 
-// Details about the connection between a Lambda function and an [Amazon EFS file system](https://docs.aws.amazon.com/lambda/latest/dg/configuration-filesystem.html) or an [Amazon S3 Files file system](https://docs.aws.amazon.com/lambda/latest/dg/configuration-filesystem.html).
+// Details about the connection between a Lambda function and an [Amazon EFS file system](https://docs.aws.amazon.com/lambda/latest/dg/configuration-filesystem.html) or an [Amazon S3 file system](https://docs.aws.amazon.com/lambda/latest/dg/configuration-filesystem.html).
 type FunctionFileSystemConfigArgs struct {
 	// The Amazon Resource Name (ARN) of the Amazon EFS or Amazon S3 Files access point that provides access to the file system.
 	Arn pulumi.StringInput `pulumi:"arn"`
 	// The path where the function can access the file system, starting with ``/mnt/``.
-	LocalMountPath pulumi.StringInput            `pulumi:"localMountPath"`
-	S3FilesConfig  FunctionS3FilesConfigPtrInput `pulumi:"s3FilesConfig"`
+	LocalMountPath pulumi.StringInput `pulumi:"localMountPath"`
+	// The configuration for how your function accesses data on an Amazon S3 file system. Valid only when the file system access point ARN is an Amazon S3 Files access point. If you specify a different access point type (for example, Amazon Elastic File System), the operation returns an ``InvalidParameterException``.
+	S3FilesConfig FunctionS3FilesConfigPtrInput `pulumi:"s3FilesConfig"`
 }
 
 func (FunctionFileSystemConfigArgs) ElementType() reflect.Type {
@@ -5823,7 +5842,7 @@ func (i FunctionFileSystemConfigArray) ToFunctionFileSystemConfigArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(FunctionFileSystemConfigArrayOutput)
 }
 
-// Details about the connection between a Lambda function and an [Amazon EFS file system](https://docs.aws.amazon.com/lambda/latest/dg/configuration-filesystem.html) or an [Amazon S3 Files file system](https://docs.aws.amazon.com/lambda/latest/dg/configuration-filesystem.html).
+// Details about the connection between a Lambda function and an [Amazon EFS file system](https://docs.aws.amazon.com/lambda/latest/dg/configuration-filesystem.html) or an [Amazon S3 file system](https://docs.aws.amazon.com/lambda/latest/dg/configuration-filesystem.html).
 type FunctionFileSystemConfigOutput struct{ *pulumi.OutputState }
 
 func (FunctionFileSystemConfigOutput) ElementType() reflect.Type {
@@ -5848,6 +5867,7 @@ func (o FunctionFileSystemConfigOutput) LocalMountPath() pulumi.StringOutput {
 	return o.ApplyT(func(v FunctionFileSystemConfig) string { return v.LocalMountPath }).(pulumi.StringOutput)
 }
 
+// The configuration for how your function accesses data on an Amazon S3 file system. Valid only when the file system access point ARN is an Amazon S3 Files access point. If you specify a different access point type (for example, Amazon Elastic File System), the operation returns an “InvalidParameterException“.
 func (o FunctionFileSystemConfigOutput) S3FilesConfig() FunctionS3FilesConfigPtrOutput {
 	return o.ApplyT(func(v FunctionFileSystemConfig) *FunctionS3FilesConfig { return v.S3FilesConfig }).(FunctionS3FilesConfigPtrOutput)
 }
@@ -6622,8 +6642,14 @@ func (o FunctionRuntimeManagementConfigPtrOutput) UpdateRuntimeOn() FunctionRunt
 	}).(FunctionRuntimeManagementConfigUpdateRuntimeOnPtrOutput)
 }
 
+// Setting controls how your function accesses data from an Amazon S3 file system.
 type FunctionS3FilesConfig struct {
-	// Specifies if a function reads from the file system for the lowest latency, or through Amazon S3 Files feature "direct Amazon S3 bucket reads" for the highest throughput
+	// Specifies if a function reads from the file system for the lowest latency, or through Amazon S3 Files feature "direct Amazon S3 bucket reads" for the highest throughput. Valid values:
+	//   +  ``AUTO`` (default) – Direct reads are active for functions you configure with 512 MB or more of memory.
+	//   +  ``ENABLED`` – Enforces all reads are directly from the Amazon S3 bucket, regardless of available memory (less than 512 MB).
+	//   +  ``DISABLED`` – Routes all reads through the file system, regardless of memory configuration.
+	//
+	//  To use direct reads, you must grant the execution role the ``s3:GetObject`` and ``s3:GetObjectVersion`` permissions. If a direct read fails, Lambda automatically falls back to reading through the file system.
 	DirectS3Read *FunctionS3FilesConfigDirectS3Read `pulumi:"directS3Read"`
 }
 
@@ -6638,8 +6664,14 @@ type FunctionS3FilesConfigInput interface {
 	ToFunctionS3FilesConfigOutputWithContext(context.Context) FunctionS3FilesConfigOutput
 }
 
+// Setting controls how your function accesses data from an Amazon S3 file system.
 type FunctionS3FilesConfigArgs struct {
-	// Specifies if a function reads from the file system for the lowest latency, or through Amazon S3 Files feature "direct Amazon S3 bucket reads" for the highest throughput
+	// Specifies if a function reads from the file system for the lowest latency, or through Amazon S3 Files feature "direct Amazon S3 bucket reads" for the highest throughput. Valid values:
+	//   +  ``AUTO`` (default) – Direct reads are active for functions you configure with 512 MB or more of memory.
+	//   +  ``ENABLED`` – Enforces all reads are directly from the Amazon S3 bucket, regardless of available memory (less than 512 MB).
+	//   +  ``DISABLED`` – Routes all reads through the file system, regardless of memory configuration.
+	//
+	//  To use direct reads, you must grant the execution role the ``s3:GetObject`` and ``s3:GetObjectVersion`` permissions. If a direct read fails, Lambda automatically falls back to reading through the file system.
 	DirectS3Read FunctionS3FilesConfigDirectS3ReadPtrInput `pulumi:"directS3Read"`
 }
 
@@ -6696,6 +6728,7 @@ func (i *functionS3FilesConfigPtrType) ToFunctionS3FilesConfigPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(FunctionS3FilesConfigPtrOutput)
 }
 
+// Setting controls how your function accesses data from an Amazon S3 file system.
 type FunctionS3FilesConfigOutput struct{ *pulumi.OutputState }
 
 func (FunctionS3FilesConfigOutput) ElementType() reflect.Type {
@@ -6720,7 +6753,15 @@ func (o FunctionS3FilesConfigOutput) ToFunctionS3FilesConfigPtrOutputWithContext
 	}).(FunctionS3FilesConfigPtrOutput)
 }
 
-// Specifies if a function reads from the file system for the lowest latency, or through Amazon S3 Files feature "direct Amazon S3 bucket reads" for the highest throughput
+// Specifies if a function reads from the file system for the lowest latency, or through Amazon S3 Files feature "direct Amazon S3 bucket reads" for the highest throughput. Valid values:
+//
+//   - “AUTO“ (default) – Direct reads are active for functions you configure with 512 MB or more of memory.
+//
+//   - “ENABLED“ – Enforces all reads are directly from the Amazon S3 bucket, regardless of available memory (less than 512 MB).
+//
+//   - “DISABLED“ – Routes all reads through the file system, regardless of memory configuration.
+//
+//     To use direct reads, you must grant the execution role the “s3:GetObject“ and “s3:GetObjectVersion“ permissions. If a direct read fails, Lambda automatically falls back to reading through the file system.
 func (o FunctionS3FilesConfigOutput) DirectS3Read() FunctionS3FilesConfigDirectS3ReadPtrOutput {
 	return o.ApplyT(func(v FunctionS3FilesConfig) *FunctionS3FilesConfigDirectS3Read { return v.DirectS3Read }).(FunctionS3FilesConfigDirectS3ReadPtrOutput)
 }
@@ -6749,7 +6790,15 @@ func (o FunctionS3FilesConfigPtrOutput) Elem() FunctionS3FilesConfigOutput {
 	}).(FunctionS3FilesConfigOutput)
 }
 
-// Specifies if a function reads from the file system for the lowest latency, or through Amazon S3 Files feature "direct Amazon S3 bucket reads" for the highest throughput
+// Specifies if a function reads from the file system for the lowest latency, or through Amazon S3 Files feature "direct Amazon S3 bucket reads" for the highest throughput. Valid values:
+//
+//   - “AUTO“ (default) – Direct reads are active for functions you configure with 512 MB or more of memory.
+//
+//   - “ENABLED“ – Enforces all reads are directly from the Amazon S3 bucket, regardless of available memory (less than 512 MB).
+//
+//   - “DISABLED“ – Routes all reads through the file system, regardless of memory configuration.
+//
+//     To use direct reads, you must grant the execution role the “s3:GetObject“ and “s3:GetObjectVersion“ permissions. If a direct read fails, Lambda automatically falls back to reading through the file system.
 func (o FunctionS3FilesConfigPtrOutput) DirectS3Read() FunctionS3FilesConfigDirectS3ReadPtrOutput {
 	return o.ApplyT(func(v *FunctionS3FilesConfig) *FunctionS3FilesConfigDirectS3Read {
 		if v == nil {

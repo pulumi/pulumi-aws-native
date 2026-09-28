@@ -312,7 +312,11 @@ func (o DataCellsFilterRowFilterPtrOutput) FilterExpression() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
+// A structure for the catalog object.
+//
+//	This is an object with no properties that effectively behaves as a true or false. A valid input for this property type in both yaml or json is null or ``{}``.
 type PrincipalPermissionsCatalogResource struct {
+	// An identifier for the catalog resource.
 	Id *string `pulumi:"id"`
 }
 
@@ -327,7 +331,11 @@ type PrincipalPermissionsCatalogResourceInput interface {
 	ToPrincipalPermissionsCatalogResourceOutputWithContext(context.Context) PrincipalPermissionsCatalogResourceOutput
 }
 
+// A structure for the catalog object.
+//
+//	This is an object with no properties that effectively behaves as a true or false. A valid input for this property type in both yaml or json is null or ``{}``.
 type PrincipalPermissionsCatalogResourceArgs struct {
+	// An identifier for the catalog resource.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 }
 
@@ -384,6 +392,9 @@ func (i *principalPermissionsCatalogResourcePtrType) ToPrincipalPermissionsCatal
 	return pulumi.ToOutputWithContext(ctx, i).(PrincipalPermissionsCatalogResourcePtrOutput)
 }
 
+// A structure for the catalog object.
+//
+//	This is an object with no properties that effectively behaves as a true or false. A valid input for this property type in both yaml or json is null or ``{}``.
 type PrincipalPermissionsCatalogResourceOutput struct{ *pulumi.OutputState }
 
 func (PrincipalPermissionsCatalogResourceOutput) ElementType() reflect.Type {
@@ -408,6 +419,7 @@ func (o PrincipalPermissionsCatalogResourceOutput) ToPrincipalPermissionsCatalog
 	}).(PrincipalPermissionsCatalogResourcePtrOutput)
 }
 
+// An identifier for the catalog resource.
 func (o PrincipalPermissionsCatalogResourceOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrincipalPermissionsCatalogResource) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
@@ -436,6 +448,7 @@ func (o PrincipalPermissionsCatalogResourcePtrOutput) Elem() PrincipalPermission
 	}).(PrincipalPermissionsCatalogResourceOutput)
 }
 
+// An identifier for the catalog resource.
 func (o PrincipalPermissionsCatalogResourcePtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrincipalPermissionsCatalogResource) *string {
 		if v == nil {

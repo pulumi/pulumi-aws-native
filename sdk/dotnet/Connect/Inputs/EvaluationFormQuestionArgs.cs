@@ -28,6 +28,9 @@ namespace Pulumi.AwsNative.Connect.Inputs
         [Input("instructions")]
         public Input<string>? Instructions { get; set; }
 
+        [Input("metricConfiguration")]
+        public Input<Inputs.EvaluationFormMetricConfigurationArgs>? MetricConfiguration { get; set; }
+
         /// <summary>
         /// The flag to enable not applicable answers to the question.
         /// </summary>

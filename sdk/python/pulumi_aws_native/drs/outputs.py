@@ -17,6 +17,7 @@ from ._enums import *
 
 __all__ = [
     'LaunchConfigurationTemplateLicensing',
+    'ReplicationConfigurationTemplatePitPolicyRule',
 ]
 
 @pulumi.output_type
@@ -58,5 +59,88 @@ class LaunchConfigurationTemplateLicensing(dict):
         Whether to enable Bring your own license or not.
         """
         return pulumi.get(self, "os_byol")
+
+
+@pulumi.output_type
+class ReplicationConfigurationTemplatePitPolicyRule(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "retentionDuration":
+            suggest = "retention_duration"
+        elif key == "ruleId":
+            suggest = "rule_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ReplicationConfigurationTemplatePitPolicyRule. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ReplicationConfigurationTemplatePitPolicyRule.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ReplicationConfigurationTemplatePitPolicyRule.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 interval: _builtins.int,
+                 retention_duration: _builtins.int,
+                 units: 'ReplicationConfigurationTemplatePitPolicyRuleUnits',
+                 enabled: Optional[_builtins.bool] = None,
+                 rule_id: Optional[_builtins.int] = None):
+        """
+        :param _builtins.int interval: How often, in the chosen units, a snapshot should be taken.
+        :param _builtins.int retention_duration: The duration to retain a snapshot for, in the chosen units.
+        :param 'ReplicationConfigurationTemplatePitPolicyRuleUnits' units: The units used to measure the interval and retentionDuration.
+        :param _builtins.bool enabled: Whether this rule is enabled or not.
+        :param _builtins.int rule_id: The ID of the rule.
+        """
+        pulumi.set(__self__, "interval", interval)
+        pulumi.set(__self__, "retention_duration", retention_duration)
+        pulumi.set(__self__, "units", units)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if rule_id is not None:
+            pulumi.set(__self__, "rule_id", rule_id)
+
+    @_builtins.property
+    @pulumi.getter
+    def interval(self) -> _builtins.int:
+        """
+        How often, in the chosen units, a snapshot should be taken.
+        """
+        return pulumi.get(self, "interval")
+
+    @_builtins.property
+    @pulumi.getter(name="retentionDuration")
+    def retention_duration(self) -> _builtins.int:
+        """
+        The duration to retain a snapshot for, in the chosen units.
+        """
+        return pulumi.get(self, "retention_duration")
+
+    @_builtins.property
+    @pulumi.getter
+    def units(self) -> 'ReplicationConfigurationTemplatePitPolicyRuleUnits':
+        """
+        The units used to measure the interval and retentionDuration.
+        """
+        return pulumi.get(self, "units")
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> Optional[_builtins.bool]:
+        """
+        Whether this rule is enabled or not.
+        """
+        return pulumi.get(self, "enabled")
+
+    @_builtins.property
+    @pulumi.getter(name="ruleId")
+    def rule_id(self) -> Optional[_builtins.int]:
+        """
+        The ID of the rule.
+        """
+        return pulumi.get(self, "rule_id")
 
 

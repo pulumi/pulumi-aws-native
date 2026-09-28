@@ -69,4 +69,163 @@ namespace Pulumi.AwsNative.Drs
 
         public override string ToString() => _value;
     }
+
+    /// <summary>
+    /// The data plane routing mechanism that will be used for replication.
+    /// </summary>
+    [EnumType]
+    public readonly struct ReplicationConfigurationTemplateDataPlaneRouting : IEquatable<ReplicationConfigurationTemplateDataPlaneRouting>
+    {
+        private readonly string _value;
+
+        private ReplicationConfigurationTemplateDataPlaneRouting(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ReplicationConfigurationTemplateDataPlaneRouting PrivateIp { get; } = new ReplicationConfigurationTemplateDataPlaneRouting("PRIVATE_IP");
+        public static ReplicationConfigurationTemplateDataPlaneRouting PublicIp { get; } = new ReplicationConfigurationTemplateDataPlaneRouting("PUBLIC_IP");
+
+        public static bool operator ==(ReplicationConfigurationTemplateDataPlaneRouting left, ReplicationConfigurationTemplateDataPlaneRouting right) => left.Equals(right);
+        public static bool operator !=(ReplicationConfigurationTemplateDataPlaneRouting left, ReplicationConfigurationTemplateDataPlaneRouting right) => !left.Equals(right);
+
+        public static explicit operator string(ReplicationConfigurationTemplateDataPlaneRouting value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ReplicationConfigurationTemplateDataPlaneRouting other && Equals(other);
+        public bool Equals(ReplicationConfigurationTemplateDataPlaneRouting other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The Staging Disk EBS volume type to be used during replication.
+    /// </summary>
+    [EnumType]
+    public readonly struct ReplicationConfigurationTemplateDefaultLargeStagingDiskType : IEquatable<ReplicationConfigurationTemplateDefaultLargeStagingDiskType>
+    {
+        private readonly string _value;
+
+        private ReplicationConfigurationTemplateDefaultLargeStagingDiskType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ReplicationConfigurationTemplateDefaultLargeStagingDiskType Gp2 { get; } = new ReplicationConfigurationTemplateDefaultLargeStagingDiskType("GP2");
+        public static ReplicationConfigurationTemplateDefaultLargeStagingDiskType Gp3 { get; } = new ReplicationConfigurationTemplateDefaultLargeStagingDiskType("GP3");
+        public static ReplicationConfigurationTemplateDefaultLargeStagingDiskType St1 { get; } = new ReplicationConfigurationTemplateDefaultLargeStagingDiskType("ST1");
+        public static ReplicationConfigurationTemplateDefaultLargeStagingDiskType Auto { get; } = new ReplicationConfigurationTemplateDefaultLargeStagingDiskType("AUTO");
+
+        public static bool operator ==(ReplicationConfigurationTemplateDefaultLargeStagingDiskType left, ReplicationConfigurationTemplateDefaultLargeStagingDiskType right) => left.Equals(right);
+        public static bool operator !=(ReplicationConfigurationTemplateDefaultLargeStagingDiskType left, ReplicationConfigurationTemplateDefaultLargeStagingDiskType right) => !left.Equals(right);
+
+        public static explicit operator string(ReplicationConfigurationTemplateDefaultLargeStagingDiskType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ReplicationConfigurationTemplateDefaultLargeStagingDiskType other && Equals(other);
+        public bool Equals(ReplicationConfigurationTemplateDefaultLargeStagingDiskType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The type of EBS encryption to be used during replication.
+    /// </summary>
+    [EnumType]
+    public readonly struct ReplicationConfigurationTemplateEbsEncryption : IEquatable<ReplicationConfigurationTemplateEbsEncryption>
+    {
+        private readonly string _value;
+
+        private ReplicationConfigurationTemplateEbsEncryption(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ReplicationConfigurationTemplateEbsEncryption Default { get; } = new ReplicationConfigurationTemplateEbsEncryption("DEFAULT");
+        public static ReplicationConfigurationTemplateEbsEncryption Custom { get; } = new ReplicationConfigurationTemplateEbsEncryption("CUSTOM");
+        public static ReplicationConfigurationTemplateEbsEncryption None { get; } = new ReplicationConfigurationTemplateEbsEncryption("NONE");
+
+        public static bool operator ==(ReplicationConfigurationTemplateEbsEncryption left, ReplicationConfigurationTemplateEbsEncryption right) => left.Equals(right);
+        public static bool operator !=(ReplicationConfigurationTemplateEbsEncryption left, ReplicationConfigurationTemplateEbsEncryption right) => !left.Equals(right);
+
+        public static explicit operator string(ReplicationConfigurationTemplateEbsEncryption value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ReplicationConfigurationTemplateEbsEncryption other && Equals(other);
+        public bool Equals(ReplicationConfigurationTemplateEbsEncryption other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Which version of the Internet Protocol to use for replication of data.
+    /// </summary>
+    [EnumType]
+    public readonly struct ReplicationConfigurationTemplateInternetProtocol : IEquatable<ReplicationConfigurationTemplateInternetProtocol>
+    {
+        private readonly string _value;
+
+        private ReplicationConfigurationTemplateInternetProtocol(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ReplicationConfigurationTemplateInternetProtocol Ipv4 { get; } = new ReplicationConfigurationTemplateInternetProtocol("IPV4");
+        public static ReplicationConfigurationTemplateInternetProtocol Ipv6 { get; } = new ReplicationConfigurationTemplateInternetProtocol("IPV6");
+
+        public static bool operator ==(ReplicationConfigurationTemplateInternetProtocol left, ReplicationConfigurationTemplateInternetProtocol right) => left.Equals(right);
+        public static bool operator !=(ReplicationConfigurationTemplateInternetProtocol left, ReplicationConfigurationTemplateInternetProtocol right) => !left.Equals(right);
+
+        public static explicit operator string(ReplicationConfigurationTemplateInternetProtocol value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ReplicationConfigurationTemplateInternetProtocol other && Equals(other);
+        public bool Equals(ReplicationConfigurationTemplateInternetProtocol other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The units used to measure the interval and retentionDuration.
+    /// </summary>
+    [EnumType]
+    public readonly struct ReplicationConfigurationTemplatePitPolicyRuleUnits : IEquatable<ReplicationConfigurationTemplatePitPolicyRuleUnits>
+    {
+        private readonly string _value;
+
+        private ReplicationConfigurationTemplatePitPolicyRuleUnits(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ReplicationConfigurationTemplatePitPolicyRuleUnits Minute { get; } = new ReplicationConfigurationTemplatePitPolicyRuleUnits("MINUTE");
+        public static ReplicationConfigurationTemplatePitPolicyRuleUnits Hour { get; } = new ReplicationConfigurationTemplatePitPolicyRuleUnits("HOUR");
+        public static ReplicationConfigurationTemplatePitPolicyRuleUnits Day { get; } = new ReplicationConfigurationTemplatePitPolicyRuleUnits("DAY");
+
+        public static bool operator ==(ReplicationConfigurationTemplatePitPolicyRuleUnits left, ReplicationConfigurationTemplatePitPolicyRuleUnits right) => left.Equals(right);
+        public static bool operator !=(ReplicationConfigurationTemplatePitPolicyRuleUnits left, ReplicationConfigurationTemplatePitPolicyRuleUnits right) => !left.Equals(right);
+
+        public static explicit operator string(ReplicationConfigurationTemplatePitPolicyRuleUnits value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ReplicationConfigurationTemplatePitPolicyRuleUnits other && Equals(other);
+        public bool Equals(ReplicationConfigurationTemplatePitPolicyRuleUnits other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
 }

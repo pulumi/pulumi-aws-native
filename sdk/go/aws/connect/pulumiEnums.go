@@ -2542,6 +2542,170 @@ func (in *evaluationFormLanguageConfigurationFormLanguagePtr) ToEvaluationFormLa
 	return pulumi.ToOutputWithContext(ctx, in).(EvaluationFormLanguageConfigurationFormLanguagePtrOutput)
 }
 
+// The type of the metric.
+type EvaluationFormMetricConfigurationMetricType string
+
+const (
+	EvaluationFormMetricConfigurationMetricTypeBusinessOutcome = EvaluationFormMetricConfigurationMetricType("BUSINESS_OUTCOME")
+)
+
+func (EvaluationFormMetricConfigurationMetricType) ElementType() reflect.Type {
+	return reflect.TypeOf((*EvaluationFormMetricConfigurationMetricType)(nil)).Elem()
+}
+
+func (e EvaluationFormMetricConfigurationMetricType) ToEvaluationFormMetricConfigurationMetricTypeOutput() EvaluationFormMetricConfigurationMetricTypeOutput {
+	return pulumi.ToOutput(e).(EvaluationFormMetricConfigurationMetricTypeOutput)
+}
+
+func (e EvaluationFormMetricConfigurationMetricType) ToEvaluationFormMetricConfigurationMetricTypeOutputWithContext(ctx context.Context) EvaluationFormMetricConfigurationMetricTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(EvaluationFormMetricConfigurationMetricTypeOutput)
+}
+
+func (e EvaluationFormMetricConfigurationMetricType) ToEvaluationFormMetricConfigurationMetricTypePtrOutput() EvaluationFormMetricConfigurationMetricTypePtrOutput {
+	return e.ToEvaluationFormMetricConfigurationMetricTypePtrOutputWithContext(context.Background())
+}
+
+func (e EvaluationFormMetricConfigurationMetricType) ToEvaluationFormMetricConfigurationMetricTypePtrOutputWithContext(ctx context.Context) EvaluationFormMetricConfigurationMetricTypePtrOutput {
+	return EvaluationFormMetricConfigurationMetricType(e).ToEvaluationFormMetricConfigurationMetricTypeOutputWithContext(ctx).ToEvaluationFormMetricConfigurationMetricTypePtrOutputWithContext(ctx)
+}
+
+func (e EvaluationFormMetricConfigurationMetricType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e EvaluationFormMetricConfigurationMetricType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e EvaluationFormMetricConfigurationMetricType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e EvaluationFormMetricConfigurationMetricType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type EvaluationFormMetricConfigurationMetricTypeOutput struct{ *pulumi.OutputState }
+
+func (EvaluationFormMetricConfigurationMetricTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EvaluationFormMetricConfigurationMetricType)(nil)).Elem()
+}
+
+func (o EvaluationFormMetricConfigurationMetricTypeOutput) ToEvaluationFormMetricConfigurationMetricTypeOutput() EvaluationFormMetricConfigurationMetricTypeOutput {
+	return o
+}
+
+func (o EvaluationFormMetricConfigurationMetricTypeOutput) ToEvaluationFormMetricConfigurationMetricTypeOutputWithContext(ctx context.Context) EvaluationFormMetricConfigurationMetricTypeOutput {
+	return o
+}
+
+func (o EvaluationFormMetricConfigurationMetricTypeOutput) ToEvaluationFormMetricConfigurationMetricTypePtrOutput() EvaluationFormMetricConfigurationMetricTypePtrOutput {
+	return o.ToEvaluationFormMetricConfigurationMetricTypePtrOutputWithContext(context.Background())
+}
+
+func (o EvaluationFormMetricConfigurationMetricTypeOutput) ToEvaluationFormMetricConfigurationMetricTypePtrOutputWithContext(ctx context.Context) EvaluationFormMetricConfigurationMetricTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EvaluationFormMetricConfigurationMetricType) *EvaluationFormMetricConfigurationMetricType {
+		return &v
+	}).(EvaluationFormMetricConfigurationMetricTypePtrOutput)
+}
+
+func (o EvaluationFormMetricConfigurationMetricTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o EvaluationFormMetricConfigurationMetricTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e EvaluationFormMetricConfigurationMetricType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o EvaluationFormMetricConfigurationMetricTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o EvaluationFormMetricConfigurationMetricTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e EvaluationFormMetricConfigurationMetricType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type EvaluationFormMetricConfigurationMetricTypePtrOutput struct{ *pulumi.OutputState }
+
+func (EvaluationFormMetricConfigurationMetricTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EvaluationFormMetricConfigurationMetricType)(nil)).Elem()
+}
+
+func (o EvaluationFormMetricConfigurationMetricTypePtrOutput) ToEvaluationFormMetricConfigurationMetricTypePtrOutput() EvaluationFormMetricConfigurationMetricTypePtrOutput {
+	return o
+}
+
+func (o EvaluationFormMetricConfigurationMetricTypePtrOutput) ToEvaluationFormMetricConfigurationMetricTypePtrOutputWithContext(ctx context.Context) EvaluationFormMetricConfigurationMetricTypePtrOutput {
+	return o
+}
+
+func (o EvaluationFormMetricConfigurationMetricTypePtrOutput) Elem() EvaluationFormMetricConfigurationMetricTypeOutput {
+	return o.ApplyT(func(v *EvaluationFormMetricConfigurationMetricType) EvaluationFormMetricConfigurationMetricType {
+		if v != nil {
+			return *v
+		}
+		var ret EvaluationFormMetricConfigurationMetricType
+		return ret
+	}).(EvaluationFormMetricConfigurationMetricTypeOutput)
+}
+
+func (o EvaluationFormMetricConfigurationMetricTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o EvaluationFormMetricConfigurationMetricTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *EvaluationFormMetricConfigurationMetricType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// EvaluationFormMetricConfigurationMetricTypeInput is an input type that accepts values of the EvaluationFormMetricConfigurationMetricType enum
+// A concrete instance of `EvaluationFormMetricConfigurationMetricTypeInput` can be one of the following:
+//
+//	EvaluationFormMetricConfigurationMetricTypeBusinessOutcome
+type EvaluationFormMetricConfigurationMetricTypeInput interface {
+	pulumi.Input
+
+	ToEvaluationFormMetricConfigurationMetricTypeOutput() EvaluationFormMetricConfigurationMetricTypeOutput
+	ToEvaluationFormMetricConfigurationMetricTypeOutputWithContext(context.Context) EvaluationFormMetricConfigurationMetricTypeOutput
+}
+
+var evaluationFormMetricConfigurationMetricTypePtrType = reflect.TypeOf((**EvaluationFormMetricConfigurationMetricType)(nil)).Elem()
+
+type EvaluationFormMetricConfigurationMetricTypePtrInput interface {
+	pulumi.Input
+
+	ToEvaluationFormMetricConfigurationMetricTypePtrOutput() EvaluationFormMetricConfigurationMetricTypePtrOutput
+	ToEvaluationFormMetricConfigurationMetricTypePtrOutputWithContext(context.Context) EvaluationFormMetricConfigurationMetricTypePtrOutput
+}
+
+type evaluationFormMetricConfigurationMetricTypePtr string
+
+func EvaluationFormMetricConfigurationMetricTypePtr(v string) EvaluationFormMetricConfigurationMetricTypePtrInput {
+	return (*evaluationFormMetricConfigurationMetricTypePtr)(&v)
+}
+
+func (*evaluationFormMetricConfigurationMetricTypePtr) ElementType() reflect.Type {
+	return evaluationFormMetricConfigurationMetricTypePtrType
+}
+
+func (in *evaluationFormMetricConfigurationMetricTypePtr) ToEvaluationFormMetricConfigurationMetricTypePtrOutput() EvaluationFormMetricConfigurationMetricTypePtrOutput {
+	return pulumi.ToOutput(in).(EvaluationFormMetricConfigurationMetricTypePtrOutput)
+}
+
+func (in *evaluationFormMetricConfigurationMetricTypePtr) ToEvaluationFormMetricConfigurationMetricTypePtrOutputWithContext(ctx context.Context) EvaluationFormMetricConfigurationMetricTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(EvaluationFormMetricConfigurationMetricTypePtrOutput)
+}
+
 // Display format for the multi-select question.
 type EvaluationFormMultiSelectQuestionPropertiesDisplayAs string
 
@@ -11585,6 +11749,327 @@ func (in *userVoiceEnhancementModePtr) ToUserVoiceEnhancementModePtrOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, in).(UserVoiceEnhancementModePtrOutput)
 }
 
+// The language code of the vocabulary entries.
+type VocabularyLanguageCode string
+
+const (
+	VocabularyLanguageCodeArAe = VocabularyLanguageCode("ar-AE")
+	VocabularyLanguageCodeDeCh = VocabularyLanguageCode("de-CH")
+	VocabularyLanguageCodeDeDe = VocabularyLanguageCode("de-DE")
+	VocabularyLanguageCodeEnAb = VocabularyLanguageCode("en-AB")
+	VocabularyLanguageCodeEnAu = VocabularyLanguageCode("en-AU")
+	VocabularyLanguageCodeEnGb = VocabularyLanguageCode("en-GB")
+	VocabularyLanguageCodeEnIe = VocabularyLanguageCode("en-IE")
+	VocabularyLanguageCodeEnIn = VocabularyLanguageCode("en-IN")
+	VocabularyLanguageCodeEnUs = VocabularyLanguageCode("en-US")
+	VocabularyLanguageCodeEnWl = VocabularyLanguageCode("en-WL")
+	VocabularyLanguageCodeEsEs = VocabularyLanguageCode("es-ES")
+	VocabularyLanguageCodeEsUs = VocabularyLanguageCode("es-US")
+	VocabularyLanguageCodeFrCa = VocabularyLanguageCode("fr-CA")
+	VocabularyLanguageCodeFrFr = VocabularyLanguageCode("fr-FR")
+	VocabularyLanguageCodeHiIn = VocabularyLanguageCode("hi-IN")
+	VocabularyLanguageCodeItIt = VocabularyLanguageCode("it-IT")
+	VocabularyLanguageCodeJaJp = VocabularyLanguageCode("ja-JP")
+	VocabularyLanguageCodeKoKr = VocabularyLanguageCode("ko-KR")
+	VocabularyLanguageCodePtBr = VocabularyLanguageCode("pt-BR")
+	VocabularyLanguageCodePtPt = VocabularyLanguageCode("pt-PT")
+	VocabularyLanguageCodeZhCn = VocabularyLanguageCode("zh-CN")
+	VocabularyLanguageCodeEnNz = VocabularyLanguageCode("en-NZ")
+	VocabularyLanguageCodeEnZa = VocabularyLanguageCode("en-ZA")
+	VocabularyLanguageCodeCaEs = VocabularyLanguageCode("ca-ES")
+	VocabularyLanguageCodeDaDk = VocabularyLanguageCode("da-DK")
+	VocabularyLanguageCodeFiFi = VocabularyLanguageCode("fi-FI")
+	VocabularyLanguageCodeIdId = VocabularyLanguageCode("id-ID")
+	VocabularyLanguageCodeMsMy = VocabularyLanguageCode("ms-MY")
+	VocabularyLanguageCodeNlNl = VocabularyLanguageCode("nl-NL")
+	VocabularyLanguageCodeNoNo = VocabularyLanguageCode("no-NO")
+	VocabularyLanguageCodePlPl = VocabularyLanguageCode("pl-PL")
+	VocabularyLanguageCodeSvSe = VocabularyLanguageCode("sv-SE")
+	VocabularyLanguageCodeTlPh = VocabularyLanguageCode("tl-PH")
+)
+
+func (VocabularyLanguageCode) ElementType() reflect.Type {
+	return reflect.TypeOf((*VocabularyLanguageCode)(nil)).Elem()
+}
+
+func (e VocabularyLanguageCode) ToVocabularyLanguageCodeOutput() VocabularyLanguageCodeOutput {
+	return pulumi.ToOutput(e).(VocabularyLanguageCodeOutput)
+}
+
+func (e VocabularyLanguageCode) ToVocabularyLanguageCodeOutputWithContext(ctx context.Context) VocabularyLanguageCodeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(VocabularyLanguageCodeOutput)
+}
+
+func (e VocabularyLanguageCode) ToVocabularyLanguageCodePtrOutput() VocabularyLanguageCodePtrOutput {
+	return e.ToVocabularyLanguageCodePtrOutputWithContext(context.Background())
+}
+
+func (e VocabularyLanguageCode) ToVocabularyLanguageCodePtrOutputWithContext(ctx context.Context) VocabularyLanguageCodePtrOutput {
+	return VocabularyLanguageCode(e).ToVocabularyLanguageCodeOutputWithContext(ctx).ToVocabularyLanguageCodePtrOutputWithContext(ctx)
+}
+
+func (e VocabularyLanguageCode) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e VocabularyLanguageCode) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e VocabularyLanguageCode) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e VocabularyLanguageCode) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type VocabularyLanguageCodeOutput struct{ *pulumi.OutputState }
+
+func (VocabularyLanguageCodeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VocabularyLanguageCode)(nil)).Elem()
+}
+
+func (o VocabularyLanguageCodeOutput) ToVocabularyLanguageCodeOutput() VocabularyLanguageCodeOutput {
+	return o
+}
+
+func (o VocabularyLanguageCodeOutput) ToVocabularyLanguageCodeOutputWithContext(ctx context.Context) VocabularyLanguageCodeOutput {
+	return o
+}
+
+func (o VocabularyLanguageCodeOutput) ToVocabularyLanguageCodePtrOutput() VocabularyLanguageCodePtrOutput {
+	return o.ToVocabularyLanguageCodePtrOutputWithContext(context.Background())
+}
+
+func (o VocabularyLanguageCodeOutput) ToVocabularyLanguageCodePtrOutputWithContext(ctx context.Context) VocabularyLanguageCodePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VocabularyLanguageCode) *VocabularyLanguageCode {
+		return &v
+	}).(VocabularyLanguageCodePtrOutput)
+}
+
+func (o VocabularyLanguageCodeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o VocabularyLanguageCodeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e VocabularyLanguageCode) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o VocabularyLanguageCodeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o VocabularyLanguageCodeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e VocabularyLanguageCode) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type VocabularyLanguageCodePtrOutput struct{ *pulumi.OutputState }
+
+func (VocabularyLanguageCodePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VocabularyLanguageCode)(nil)).Elem()
+}
+
+func (o VocabularyLanguageCodePtrOutput) ToVocabularyLanguageCodePtrOutput() VocabularyLanguageCodePtrOutput {
+	return o
+}
+
+func (o VocabularyLanguageCodePtrOutput) ToVocabularyLanguageCodePtrOutputWithContext(ctx context.Context) VocabularyLanguageCodePtrOutput {
+	return o
+}
+
+func (o VocabularyLanguageCodePtrOutput) Elem() VocabularyLanguageCodeOutput {
+	return o.ApplyT(func(v *VocabularyLanguageCode) VocabularyLanguageCode {
+		if v != nil {
+			return *v
+		}
+		var ret VocabularyLanguageCode
+		return ret
+	}).(VocabularyLanguageCodeOutput)
+}
+
+func (o VocabularyLanguageCodePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o VocabularyLanguageCodePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *VocabularyLanguageCode) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// VocabularyLanguageCodeInput is an input type that accepts values of the VocabularyLanguageCode enum
+// A concrete instance of `VocabularyLanguageCodeInput` can be one of the following:
+//
+//	VocabularyLanguageCodeArAe
+//	VocabularyLanguageCodeDeCh
+//	VocabularyLanguageCodeDeDe
+//	VocabularyLanguageCodeEnAb
+//	VocabularyLanguageCodeEnAu
+//	VocabularyLanguageCodeEnGb
+//	VocabularyLanguageCodeEnIe
+//	VocabularyLanguageCodeEnIn
+//	VocabularyLanguageCodeEnUs
+//	VocabularyLanguageCodeEnWl
+//	VocabularyLanguageCodeEsEs
+//	VocabularyLanguageCodeEsUs
+//	VocabularyLanguageCodeFrCa
+//	VocabularyLanguageCodeFrFr
+//	VocabularyLanguageCodeHiIn
+//	VocabularyLanguageCodeItIt
+//	VocabularyLanguageCodeJaJp
+//	VocabularyLanguageCodeKoKr
+//	VocabularyLanguageCodePtBr
+//	VocabularyLanguageCodePtPt
+//	VocabularyLanguageCodeZhCn
+//	VocabularyLanguageCodeEnNz
+//	VocabularyLanguageCodeEnZa
+//	VocabularyLanguageCodeCaEs
+//	VocabularyLanguageCodeDaDk
+//	VocabularyLanguageCodeFiFi
+//	VocabularyLanguageCodeIdId
+//	VocabularyLanguageCodeMsMy
+//	VocabularyLanguageCodeNlNl
+//	VocabularyLanguageCodeNoNo
+//	VocabularyLanguageCodePlPl
+//	VocabularyLanguageCodeSvSe
+//	VocabularyLanguageCodeTlPh
+type VocabularyLanguageCodeInput interface {
+	pulumi.Input
+
+	ToVocabularyLanguageCodeOutput() VocabularyLanguageCodeOutput
+	ToVocabularyLanguageCodeOutputWithContext(context.Context) VocabularyLanguageCodeOutput
+}
+
+var vocabularyLanguageCodePtrType = reflect.TypeOf((**VocabularyLanguageCode)(nil)).Elem()
+
+type VocabularyLanguageCodePtrInput interface {
+	pulumi.Input
+
+	ToVocabularyLanguageCodePtrOutput() VocabularyLanguageCodePtrOutput
+	ToVocabularyLanguageCodePtrOutputWithContext(context.Context) VocabularyLanguageCodePtrOutput
+}
+
+type vocabularyLanguageCodePtr string
+
+func VocabularyLanguageCodePtr(v string) VocabularyLanguageCodePtrInput {
+	return (*vocabularyLanguageCodePtr)(&v)
+}
+
+func (*vocabularyLanguageCodePtr) ElementType() reflect.Type {
+	return vocabularyLanguageCodePtrType
+}
+
+func (in *vocabularyLanguageCodePtr) ToVocabularyLanguageCodePtrOutput() VocabularyLanguageCodePtrOutput {
+	return pulumi.ToOutput(in).(VocabularyLanguageCodePtrOutput)
+}
+
+func (in *vocabularyLanguageCodePtr) ToVocabularyLanguageCodePtrOutputWithContext(ctx context.Context) VocabularyLanguageCodePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(VocabularyLanguageCodePtrOutput)
+}
+
+// The current state of the custom vocabulary.
+type VocabularyStateEnum string
+
+const (
+	VocabularyStateEnumCreationInProgress = VocabularyStateEnum("CREATION_IN_PROGRESS")
+	VocabularyStateEnumActive             = VocabularyStateEnum("ACTIVE")
+	VocabularyStateEnumCreationFailed     = VocabularyStateEnum("CREATION_FAILED")
+	VocabularyStateEnumDeleteInProgress   = VocabularyStateEnum("DELETE_IN_PROGRESS")
+)
+
+type VocabularyStateEnumOutput struct{ *pulumi.OutputState }
+
+func (VocabularyStateEnumOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VocabularyStateEnum)(nil)).Elem()
+}
+
+func (o VocabularyStateEnumOutput) ToVocabularyStateEnumOutput() VocabularyStateEnumOutput {
+	return o
+}
+
+func (o VocabularyStateEnumOutput) ToVocabularyStateEnumOutputWithContext(ctx context.Context) VocabularyStateEnumOutput {
+	return o
+}
+
+func (o VocabularyStateEnumOutput) ToVocabularyStateEnumPtrOutput() VocabularyStateEnumPtrOutput {
+	return o.ToVocabularyStateEnumPtrOutputWithContext(context.Background())
+}
+
+func (o VocabularyStateEnumOutput) ToVocabularyStateEnumPtrOutputWithContext(ctx context.Context) VocabularyStateEnumPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VocabularyStateEnum) *VocabularyStateEnum {
+		return &v
+	}).(VocabularyStateEnumPtrOutput)
+}
+
+func (o VocabularyStateEnumOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o VocabularyStateEnumOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e VocabularyStateEnum) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o VocabularyStateEnumOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o VocabularyStateEnumOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e VocabularyStateEnum) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type VocabularyStateEnumPtrOutput struct{ *pulumi.OutputState }
+
+func (VocabularyStateEnumPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VocabularyStateEnum)(nil)).Elem()
+}
+
+func (o VocabularyStateEnumPtrOutput) ToVocabularyStateEnumPtrOutput() VocabularyStateEnumPtrOutput {
+	return o
+}
+
+func (o VocabularyStateEnumPtrOutput) ToVocabularyStateEnumPtrOutputWithContext(ctx context.Context) VocabularyStateEnumPtrOutput {
+	return o
+}
+
+func (o VocabularyStateEnumPtrOutput) Elem() VocabularyStateEnumOutput {
+	return o.ApplyT(func(v *VocabularyStateEnum) VocabularyStateEnum {
+		if v != nil {
+			return *v
+		}
+		var ret VocabularyStateEnum
+		return ret
+	}).(VocabularyStateEnumOutput)
+}
+
+func (o VocabularyStateEnumPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o VocabularyStateEnumPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *VocabularyStateEnum) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
 type WorkspaceFontFamily string
 
 const (
@@ -12127,6 +12612,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationFormItemEnablementSourceValueTypePtrInput)(nil)).Elem(), EvaluationFormItemEnablementSourceValueType("OPTION_REF_ID"))
 	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationFormLanguageConfigurationFormLanguageInput)(nil)).Elem(), EvaluationFormLanguageConfigurationFormLanguage("de-DE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationFormLanguageConfigurationFormLanguagePtrInput)(nil)).Elem(), EvaluationFormLanguageConfigurationFormLanguage("de-DE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationFormMetricConfigurationMetricTypeInput)(nil)).Elem(), EvaluationFormMetricConfigurationMetricType("BUSINESS_OUTCOME"))
+	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationFormMetricConfigurationMetricTypePtrInput)(nil)).Elem(), EvaluationFormMetricConfigurationMetricType("BUSINESS_OUTCOME"))
 	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationFormMultiSelectQuestionPropertiesDisplayAsInput)(nil)).Elem(), EvaluationFormMultiSelectQuestionPropertiesDisplayAs("DROPDOWN"))
 	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationFormMultiSelectQuestionPropertiesDisplayAsPtrInput)(nil)).Elem(), EvaluationFormMultiSelectQuestionPropertiesDisplayAs("DROPDOWN"))
 	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationFormMultiSelectQuestionRuleCategoryAutomationConditionInput)(nil)).Elem(), EvaluationFormMultiSelectQuestionRuleCategoryAutomationCondition("PRESENT"))
@@ -12227,6 +12714,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPhoneTypePtrInput)(nil)).Elem(), UserPhoneType("SOFT_PHONE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*UserVoiceEnhancementModeInput)(nil)).Elem(), UserVoiceEnhancementMode("NONE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*UserVoiceEnhancementModePtrInput)(nil)).Elem(), UserVoiceEnhancementMode("NONE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*VocabularyLanguageCodeInput)(nil)).Elem(), VocabularyLanguageCode("ar-AE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*VocabularyLanguageCodePtrInput)(nil)).Elem(), VocabularyLanguageCode("ar-AE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceFontFamilyInput)(nil)).Elem(), WorkspaceFontFamily("ARIAL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceFontFamilyPtrInput)(nil)).Elem(), WorkspaceFontFamily("ARIAL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceMediaTypeInput)(nil)).Elem(), WorkspaceMediaType("IMAGE_LOGO_LIGHT_FAVICON"))
@@ -12263,6 +12752,8 @@ func init() {
 	pulumi.RegisterOutputType(EvaluationFormItemEnablementSourceValueTypePtrOutput{})
 	pulumi.RegisterOutputType(EvaluationFormLanguageConfigurationFormLanguageOutput{})
 	pulumi.RegisterOutputType(EvaluationFormLanguageConfigurationFormLanguagePtrOutput{})
+	pulumi.RegisterOutputType(EvaluationFormMetricConfigurationMetricTypeOutput{})
+	pulumi.RegisterOutputType(EvaluationFormMetricConfigurationMetricTypePtrOutput{})
 	pulumi.RegisterOutputType(EvaluationFormMultiSelectQuestionPropertiesDisplayAsOutput{})
 	pulumi.RegisterOutputType(EvaluationFormMultiSelectQuestionPropertiesDisplayAsPtrOutput{})
 	pulumi.RegisterOutputType(EvaluationFormMultiSelectQuestionRuleCategoryAutomationConditionOutput{})
@@ -12375,6 +12866,10 @@ func init() {
 	pulumi.RegisterOutputType(UserPhoneTypePtrOutput{})
 	pulumi.RegisterOutputType(UserVoiceEnhancementModeOutput{})
 	pulumi.RegisterOutputType(UserVoiceEnhancementModePtrOutput{})
+	pulumi.RegisterOutputType(VocabularyLanguageCodeOutput{})
+	pulumi.RegisterOutputType(VocabularyLanguageCodePtrOutput{})
+	pulumi.RegisterOutputType(VocabularyStateEnumOutput{})
+	pulumi.RegisterOutputType(VocabularyStateEnumPtrOutput{})
 	pulumi.RegisterOutputType(WorkspaceFontFamilyOutput{})
 	pulumi.RegisterOutputType(WorkspaceFontFamilyPtrOutput{})
 	pulumi.RegisterOutputType(WorkspaceMediaTypeOutput{})

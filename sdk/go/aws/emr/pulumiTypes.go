@@ -13,6 +13,1316 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type InstanceGroupConfigAppConfiguration struct {
+	Classification          *string                               `pulumi:"classification"`
+	ConfigurationProperties map[string]string                     `pulumi:"configurationProperties"`
+	Configurations          []InstanceGroupConfigAppConfiguration `pulumi:"configurations"`
+}
+
+// InstanceGroupConfigAppConfigurationInput is an input type that accepts InstanceGroupConfigAppConfigurationArgs and InstanceGroupConfigAppConfigurationOutput values.
+// You can construct a concrete instance of `InstanceGroupConfigAppConfigurationInput` via:
+//
+//	InstanceGroupConfigAppConfigurationArgs{...}
+type InstanceGroupConfigAppConfigurationInput interface {
+	pulumi.Input
+
+	ToInstanceGroupConfigAppConfigurationOutput() InstanceGroupConfigAppConfigurationOutput
+	ToInstanceGroupConfigAppConfigurationOutputWithContext(context.Context) InstanceGroupConfigAppConfigurationOutput
+}
+
+type InstanceGroupConfigAppConfigurationArgs struct {
+	Classification          pulumi.StringPtrInput                         `pulumi:"classification"`
+	ConfigurationProperties pulumi.StringMapInput                         `pulumi:"configurationProperties"`
+	Configurations          InstanceGroupConfigAppConfigurationArrayInput `pulumi:"configurations"`
+}
+
+func (InstanceGroupConfigAppConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceGroupConfigAppConfiguration)(nil)).Elem()
+}
+
+func (i InstanceGroupConfigAppConfigurationArgs) ToInstanceGroupConfigAppConfigurationOutput() InstanceGroupConfigAppConfigurationOutput {
+	return i.ToInstanceGroupConfigAppConfigurationOutputWithContext(context.Background())
+}
+
+func (i InstanceGroupConfigAppConfigurationArgs) ToInstanceGroupConfigAppConfigurationOutputWithContext(ctx context.Context) InstanceGroupConfigAppConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceGroupConfigAppConfigurationOutput)
+}
+
+// InstanceGroupConfigAppConfigurationArrayInput is an input type that accepts InstanceGroupConfigAppConfigurationArray and InstanceGroupConfigAppConfigurationArrayOutput values.
+// You can construct a concrete instance of `InstanceGroupConfigAppConfigurationArrayInput` via:
+//
+//	InstanceGroupConfigAppConfigurationArray{ InstanceGroupConfigAppConfigurationArgs{...} }
+type InstanceGroupConfigAppConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToInstanceGroupConfigAppConfigurationArrayOutput() InstanceGroupConfigAppConfigurationArrayOutput
+	ToInstanceGroupConfigAppConfigurationArrayOutputWithContext(context.Context) InstanceGroupConfigAppConfigurationArrayOutput
+}
+
+type InstanceGroupConfigAppConfigurationArray []InstanceGroupConfigAppConfigurationInput
+
+func (InstanceGroupConfigAppConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InstanceGroupConfigAppConfiguration)(nil)).Elem()
+}
+
+func (i InstanceGroupConfigAppConfigurationArray) ToInstanceGroupConfigAppConfigurationArrayOutput() InstanceGroupConfigAppConfigurationArrayOutput {
+	return i.ToInstanceGroupConfigAppConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i InstanceGroupConfigAppConfigurationArray) ToInstanceGroupConfigAppConfigurationArrayOutputWithContext(ctx context.Context) InstanceGroupConfigAppConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceGroupConfigAppConfigurationArrayOutput)
+}
+
+type InstanceGroupConfigAppConfigurationOutput struct{ *pulumi.OutputState }
+
+func (InstanceGroupConfigAppConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceGroupConfigAppConfiguration)(nil)).Elem()
+}
+
+func (o InstanceGroupConfigAppConfigurationOutput) ToInstanceGroupConfigAppConfigurationOutput() InstanceGroupConfigAppConfigurationOutput {
+	return o
+}
+
+func (o InstanceGroupConfigAppConfigurationOutput) ToInstanceGroupConfigAppConfigurationOutputWithContext(ctx context.Context) InstanceGroupConfigAppConfigurationOutput {
+	return o
+}
+
+func (o InstanceGroupConfigAppConfigurationOutput) Classification() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InstanceGroupConfigAppConfiguration) *string { return v.Classification }).(pulumi.StringPtrOutput)
+}
+
+func (o InstanceGroupConfigAppConfigurationOutput) ConfigurationProperties() pulumi.StringMapOutput {
+	return o.ApplyT(func(v InstanceGroupConfigAppConfiguration) map[string]string { return v.ConfigurationProperties }).(pulumi.StringMapOutput)
+}
+
+func (o InstanceGroupConfigAppConfigurationOutput) Configurations() InstanceGroupConfigAppConfigurationArrayOutput {
+	return o.ApplyT(func(v InstanceGroupConfigAppConfiguration) []InstanceGroupConfigAppConfiguration {
+		return v.Configurations
+	}).(InstanceGroupConfigAppConfigurationArrayOutput)
+}
+
+type InstanceGroupConfigAppConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (InstanceGroupConfigAppConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InstanceGroupConfigAppConfiguration)(nil)).Elem()
+}
+
+func (o InstanceGroupConfigAppConfigurationArrayOutput) ToInstanceGroupConfigAppConfigurationArrayOutput() InstanceGroupConfigAppConfigurationArrayOutput {
+	return o
+}
+
+func (o InstanceGroupConfigAppConfigurationArrayOutput) ToInstanceGroupConfigAppConfigurationArrayOutputWithContext(ctx context.Context) InstanceGroupConfigAppConfigurationArrayOutput {
+	return o
+}
+
+func (o InstanceGroupConfigAppConfigurationArrayOutput) Index(i pulumi.IntInput) InstanceGroupConfigAppConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) InstanceGroupConfigAppConfiguration {
+		return vs[0].([]InstanceGroupConfigAppConfiguration)[vs[1].(int)]
+	}).(InstanceGroupConfigAppConfigurationOutput)
+}
+
+type InstanceGroupConfigAutoScalingPolicy struct {
+	// The upper and lower Amazon EC2 instance limits for an automatic scaling policy. Automatic scaling activity will not cause an instance group to grow above or below these limits.
+	Constraints InstanceGroupConfigScalingConstraints `pulumi:"constraints"`
+	// The scale-in and scale-out rules that comprise the automatic scaling policy.
+	Rules []InstanceGroupConfigScalingRule `pulumi:"rules"`
+}
+
+// InstanceGroupConfigAutoScalingPolicyInput is an input type that accepts InstanceGroupConfigAutoScalingPolicyArgs and InstanceGroupConfigAutoScalingPolicyOutput values.
+// You can construct a concrete instance of `InstanceGroupConfigAutoScalingPolicyInput` via:
+//
+//	InstanceGroupConfigAutoScalingPolicyArgs{...}
+type InstanceGroupConfigAutoScalingPolicyInput interface {
+	pulumi.Input
+
+	ToInstanceGroupConfigAutoScalingPolicyOutput() InstanceGroupConfigAutoScalingPolicyOutput
+	ToInstanceGroupConfigAutoScalingPolicyOutputWithContext(context.Context) InstanceGroupConfigAutoScalingPolicyOutput
+}
+
+type InstanceGroupConfigAutoScalingPolicyArgs struct {
+	// The upper and lower Amazon EC2 instance limits for an automatic scaling policy. Automatic scaling activity will not cause an instance group to grow above or below these limits.
+	Constraints InstanceGroupConfigScalingConstraintsInput `pulumi:"constraints"`
+	// The scale-in and scale-out rules that comprise the automatic scaling policy.
+	Rules InstanceGroupConfigScalingRuleArrayInput `pulumi:"rules"`
+}
+
+func (InstanceGroupConfigAutoScalingPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceGroupConfigAutoScalingPolicy)(nil)).Elem()
+}
+
+func (i InstanceGroupConfigAutoScalingPolicyArgs) ToInstanceGroupConfigAutoScalingPolicyOutput() InstanceGroupConfigAutoScalingPolicyOutput {
+	return i.ToInstanceGroupConfigAutoScalingPolicyOutputWithContext(context.Background())
+}
+
+func (i InstanceGroupConfigAutoScalingPolicyArgs) ToInstanceGroupConfigAutoScalingPolicyOutputWithContext(ctx context.Context) InstanceGroupConfigAutoScalingPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceGroupConfigAutoScalingPolicyOutput)
+}
+
+func (i InstanceGroupConfigAutoScalingPolicyArgs) ToInstanceGroupConfigAutoScalingPolicyPtrOutput() InstanceGroupConfigAutoScalingPolicyPtrOutput {
+	return i.ToInstanceGroupConfigAutoScalingPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i InstanceGroupConfigAutoScalingPolicyArgs) ToInstanceGroupConfigAutoScalingPolicyPtrOutputWithContext(ctx context.Context) InstanceGroupConfigAutoScalingPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceGroupConfigAutoScalingPolicyOutput).ToInstanceGroupConfigAutoScalingPolicyPtrOutputWithContext(ctx)
+}
+
+// InstanceGroupConfigAutoScalingPolicyPtrInput is an input type that accepts InstanceGroupConfigAutoScalingPolicyArgs, InstanceGroupConfigAutoScalingPolicyPtr and InstanceGroupConfigAutoScalingPolicyPtrOutput values.
+// You can construct a concrete instance of `InstanceGroupConfigAutoScalingPolicyPtrInput` via:
+//
+//	        InstanceGroupConfigAutoScalingPolicyArgs{...}
+//
+//	or:
+//
+//	        nil
+type InstanceGroupConfigAutoScalingPolicyPtrInput interface {
+	pulumi.Input
+
+	ToInstanceGroupConfigAutoScalingPolicyPtrOutput() InstanceGroupConfigAutoScalingPolicyPtrOutput
+	ToInstanceGroupConfigAutoScalingPolicyPtrOutputWithContext(context.Context) InstanceGroupConfigAutoScalingPolicyPtrOutput
+}
+
+type instanceGroupConfigAutoScalingPolicyPtrType InstanceGroupConfigAutoScalingPolicyArgs
+
+func InstanceGroupConfigAutoScalingPolicyPtr(v *InstanceGroupConfigAutoScalingPolicyArgs) InstanceGroupConfigAutoScalingPolicyPtrInput {
+	return (*instanceGroupConfigAutoScalingPolicyPtrType)(v)
+}
+
+func (*instanceGroupConfigAutoScalingPolicyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**InstanceGroupConfigAutoScalingPolicy)(nil)).Elem()
+}
+
+func (i *instanceGroupConfigAutoScalingPolicyPtrType) ToInstanceGroupConfigAutoScalingPolicyPtrOutput() InstanceGroupConfigAutoScalingPolicyPtrOutput {
+	return i.ToInstanceGroupConfigAutoScalingPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *instanceGroupConfigAutoScalingPolicyPtrType) ToInstanceGroupConfigAutoScalingPolicyPtrOutputWithContext(ctx context.Context) InstanceGroupConfigAutoScalingPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceGroupConfigAutoScalingPolicyPtrOutput)
+}
+
+type InstanceGroupConfigAutoScalingPolicyOutput struct{ *pulumi.OutputState }
+
+func (InstanceGroupConfigAutoScalingPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceGroupConfigAutoScalingPolicy)(nil)).Elem()
+}
+
+func (o InstanceGroupConfigAutoScalingPolicyOutput) ToInstanceGroupConfigAutoScalingPolicyOutput() InstanceGroupConfigAutoScalingPolicyOutput {
+	return o
+}
+
+func (o InstanceGroupConfigAutoScalingPolicyOutput) ToInstanceGroupConfigAutoScalingPolicyOutputWithContext(ctx context.Context) InstanceGroupConfigAutoScalingPolicyOutput {
+	return o
+}
+
+func (o InstanceGroupConfigAutoScalingPolicyOutput) ToInstanceGroupConfigAutoScalingPolicyPtrOutput() InstanceGroupConfigAutoScalingPolicyPtrOutput {
+	return o.ToInstanceGroupConfigAutoScalingPolicyPtrOutputWithContext(context.Background())
+}
+
+func (o InstanceGroupConfigAutoScalingPolicyOutput) ToInstanceGroupConfigAutoScalingPolicyPtrOutputWithContext(ctx context.Context) InstanceGroupConfigAutoScalingPolicyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InstanceGroupConfigAutoScalingPolicy) *InstanceGroupConfigAutoScalingPolicy {
+		return &v
+	}).(InstanceGroupConfigAutoScalingPolicyPtrOutput)
+}
+
+// The upper and lower Amazon EC2 instance limits for an automatic scaling policy. Automatic scaling activity will not cause an instance group to grow above or below these limits.
+func (o InstanceGroupConfigAutoScalingPolicyOutput) Constraints() InstanceGroupConfigScalingConstraintsOutput {
+	return o.ApplyT(func(v InstanceGroupConfigAutoScalingPolicy) InstanceGroupConfigScalingConstraints {
+		return v.Constraints
+	}).(InstanceGroupConfigScalingConstraintsOutput)
+}
+
+// The scale-in and scale-out rules that comprise the automatic scaling policy.
+func (o InstanceGroupConfigAutoScalingPolicyOutput) Rules() InstanceGroupConfigScalingRuleArrayOutput {
+	return o.ApplyT(func(v InstanceGroupConfigAutoScalingPolicy) []InstanceGroupConfigScalingRule { return v.Rules }).(InstanceGroupConfigScalingRuleArrayOutput)
+}
+
+type InstanceGroupConfigAutoScalingPolicyPtrOutput struct{ *pulumi.OutputState }
+
+func (InstanceGroupConfigAutoScalingPolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InstanceGroupConfigAutoScalingPolicy)(nil)).Elem()
+}
+
+func (o InstanceGroupConfigAutoScalingPolicyPtrOutput) ToInstanceGroupConfigAutoScalingPolicyPtrOutput() InstanceGroupConfigAutoScalingPolicyPtrOutput {
+	return o
+}
+
+func (o InstanceGroupConfigAutoScalingPolicyPtrOutput) ToInstanceGroupConfigAutoScalingPolicyPtrOutputWithContext(ctx context.Context) InstanceGroupConfigAutoScalingPolicyPtrOutput {
+	return o
+}
+
+func (o InstanceGroupConfigAutoScalingPolicyPtrOutput) Elem() InstanceGroupConfigAutoScalingPolicyOutput {
+	return o.ApplyT(func(v *InstanceGroupConfigAutoScalingPolicy) InstanceGroupConfigAutoScalingPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret InstanceGroupConfigAutoScalingPolicy
+		return ret
+	}).(InstanceGroupConfigAutoScalingPolicyOutput)
+}
+
+// The upper and lower Amazon EC2 instance limits for an automatic scaling policy. Automatic scaling activity will not cause an instance group to grow above or below these limits.
+func (o InstanceGroupConfigAutoScalingPolicyPtrOutput) Constraints() InstanceGroupConfigScalingConstraintsPtrOutput {
+	return o.ApplyT(func(v *InstanceGroupConfigAutoScalingPolicy) *InstanceGroupConfigScalingConstraints {
+		if v == nil {
+			return nil
+		}
+		return &v.Constraints
+	}).(InstanceGroupConfigScalingConstraintsPtrOutput)
+}
+
+// The scale-in and scale-out rules that comprise the automatic scaling policy.
+func (o InstanceGroupConfigAutoScalingPolicyPtrOutput) Rules() InstanceGroupConfigScalingRuleArrayOutput {
+	return o.ApplyT(func(v *InstanceGroupConfigAutoScalingPolicy) []InstanceGroupConfigScalingRule {
+		if v == nil {
+			return nil
+		}
+		return v.Rules
+	}).(InstanceGroupConfigScalingRuleArrayOutput)
+}
+
+type InstanceGroupConfigCloudWatchAlarmDefinition struct {
+	// Determines how the metric specified by `MetricName` is compared to the value specified by `Threshold` .
+	ComparisonOperator string `pulumi:"comparisonOperator"`
+	// A CloudWatch metric dimension.
+	Dimensions []InstanceGroupConfigMetricDimension `pulumi:"dimensions"`
+	// The number of periods, in five-minute increments, during which the alarm condition must exist before the alarm triggers automatic scaling activity. The default value is `1` .
+	EvaluationPeriods *int `pulumi:"evaluationPeriods"`
+	// The name of the CloudWatch metric that is watched to determine an alarm condition.
+	MetricName string `pulumi:"metricName"`
+	// The namespace for the CloudWatch metric. The default is `AWS/ElasticMapReduce` .
+	Namespace *string `pulumi:"namespace"`
+	// The period, in seconds, over which the statistic is applied. CloudWatch metrics for Amazon EMR are emitted every five minutes (300 seconds), so if you specify a CloudWatch metric, specify `300` .
+	Period int `pulumi:"period"`
+	// The statistic to apply to the metric associated with the alarm. The default is `AVERAGE` .
+	Statistic *string `pulumi:"statistic"`
+	// The value against which the specified statistic is compared.
+	Threshold float64 `pulumi:"threshold"`
+	// The unit of measure associated with the CloudWatch metric being watched. The value specified for `Unit` must correspond to the units specified in the CloudWatch metric.
+	Unit *string `pulumi:"unit"`
+}
+
+// InstanceGroupConfigCloudWatchAlarmDefinitionInput is an input type that accepts InstanceGroupConfigCloudWatchAlarmDefinitionArgs and InstanceGroupConfigCloudWatchAlarmDefinitionOutput values.
+// You can construct a concrete instance of `InstanceGroupConfigCloudWatchAlarmDefinitionInput` via:
+//
+//	InstanceGroupConfigCloudWatchAlarmDefinitionArgs{...}
+type InstanceGroupConfigCloudWatchAlarmDefinitionInput interface {
+	pulumi.Input
+
+	ToInstanceGroupConfigCloudWatchAlarmDefinitionOutput() InstanceGroupConfigCloudWatchAlarmDefinitionOutput
+	ToInstanceGroupConfigCloudWatchAlarmDefinitionOutputWithContext(context.Context) InstanceGroupConfigCloudWatchAlarmDefinitionOutput
+}
+
+type InstanceGroupConfigCloudWatchAlarmDefinitionArgs struct {
+	// Determines how the metric specified by `MetricName` is compared to the value specified by `Threshold` .
+	ComparisonOperator pulumi.StringInput `pulumi:"comparisonOperator"`
+	// A CloudWatch metric dimension.
+	Dimensions InstanceGroupConfigMetricDimensionArrayInput `pulumi:"dimensions"`
+	// The number of periods, in five-minute increments, during which the alarm condition must exist before the alarm triggers automatic scaling activity. The default value is `1` .
+	EvaluationPeriods pulumi.IntPtrInput `pulumi:"evaluationPeriods"`
+	// The name of the CloudWatch metric that is watched to determine an alarm condition.
+	MetricName pulumi.StringInput `pulumi:"metricName"`
+	// The namespace for the CloudWatch metric. The default is `AWS/ElasticMapReduce` .
+	Namespace pulumi.StringPtrInput `pulumi:"namespace"`
+	// The period, in seconds, over which the statistic is applied. CloudWatch metrics for Amazon EMR are emitted every five minutes (300 seconds), so if you specify a CloudWatch metric, specify `300` .
+	Period pulumi.IntInput `pulumi:"period"`
+	// The statistic to apply to the metric associated with the alarm. The default is `AVERAGE` .
+	Statistic pulumi.StringPtrInput `pulumi:"statistic"`
+	// The value against which the specified statistic is compared.
+	Threshold pulumi.Float64Input `pulumi:"threshold"`
+	// The unit of measure associated with the CloudWatch metric being watched. The value specified for `Unit` must correspond to the units specified in the CloudWatch metric.
+	Unit pulumi.StringPtrInput `pulumi:"unit"`
+}
+
+func (InstanceGroupConfigCloudWatchAlarmDefinitionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceGroupConfigCloudWatchAlarmDefinition)(nil)).Elem()
+}
+
+func (i InstanceGroupConfigCloudWatchAlarmDefinitionArgs) ToInstanceGroupConfigCloudWatchAlarmDefinitionOutput() InstanceGroupConfigCloudWatchAlarmDefinitionOutput {
+	return i.ToInstanceGroupConfigCloudWatchAlarmDefinitionOutputWithContext(context.Background())
+}
+
+func (i InstanceGroupConfigCloudWatchAlarmDefinitionArgs) ToInstanceGroupConfigCloudWatchAlarmDefinitionOutputWithContext(ctx context.Context) InstanceGroupConfigCloudWatchAlarmDefinitionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceGroupConfigCloudWatchAlarmDefinitionOutput)
+}
+
+type InstanceGroupConfigCloudWatchAlarmDefinitionOutput struct{ *pulumi.OutputState }
+
+func (InstanceGroupConfigCloudWatchAlarmDefinitionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceGroupConfigCloudWatchAlarmDefinition)(nil)).Elem()
+}
+
+func (o InstanceGroupConfigCloudWatchAlarmDefinitionOutput) ToInstanceGroupConfigCloudWatchAlarmDefinitionOutput() InstanceGroupConfigCloudWatchAlarmDefinitionOutput {
+	return o
+}
+
+func (o InstanceGroupConfigCloudWatchAlarmDefinitionOutput) ToInstanceGroupConfigCloudWatchAlarmDefinitionOutputWithContext(ctx context.Context) InstanceGroupConfigCloudWatchAlarmDefinitionOutput {
+	return o
+}
+
+// Determines how the metric specified by `MetricName` is compared to the value specified by `Threshold` .
+func (o InstanceGroupConfigCloudWatchAlarmDefinitionOutput) ComparisonOperator() pulumi.StringOutput {
+	return o.ApplyT(func(v InstanceGroupConfigCloudWatchAlarmDefinition) string { return v.ComparisonOperator }).(pulumi.StringOutput)
+}
+
+// A CloudWatch metric dimension.
+func (o InstanceGroupConfigCloudWatchAlarmDefinitionOutput) Dimensions() InstanceGroupConfigMetricDimensionArrayOutput {
+	return o.ApplyT(func(v InstanceGroupConfigCloudWatchAlarmDefinition) []InstanceGroupConfigMetricDimension {
+		return v.Dimensions
+	}).(InstanceGroupConfigMetricDimensionArrayOutput)
+}
+
+// The number of periods, in five-minute increments, during which the alarm condition must exist before the alarm triggers automatic scaling activity. The default value is `1` .
+func (o InstanceGroupConfigCloudWatchAlarmDefinitionOutput) EvaluationPeriods() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v InstanceGroupConfigCloudWatchAlarmDefinition) *int { return v.EvaluationPeriods }).(pulumi.IntPtrOutput)
+}
+
+// The name of the CloudWatch metric that is watched to determine an alarm condition.
+func (o InstanceGroupConfigCloudWatchAlarmDefinitionOutput) MetricName() pulumi.StringOutput {
+	return o.ApplyT(func(v InstanceGroupConfigCloudWatchAlarmDefinition) string { return v.MetricName }).(pulumi.StringOutput)
+}
+
+// The namespace for the CloudWatch metric. The default is `AWS/ElasticMapReduce` .
+func (o InstanceGroupConfigCloudWatchAlarmDefinitionOutput) Namespace() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InstanceGroupConfigCloudWatchAlarmDefinition) *string { return v.Namespace }).(pulumi.StringPtrOutput)
+}
+
+// The period, in seconds, over which the statistic is applied. CloudWatch metrics for Amazon EMR are emitted every five minutes (300 seconds), so if you specify a CloudWatch metric, specify `300` .
+func (o InstanceGroupConfigCloudWatchAlarmDefinitionOutput) Period() pulumi.IntOutput {
+	return o.ApplyT(func(v InstanceGroupConfigCloudWatchAlarmDefinition) int { return v.Period }).(pulumi.IntOutput)
+}
+
+// The statistic to apply to the metric associated with the alarm. The default is `AVERAGE` .
+func (o InstanceGroupConfigCloudWatchAlarmDefinitionOutput) Statistic() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InstanceGroupConfigCloudWatchAlarmDefinition) *string { return v.Statistic }).(pulumi.StringPtrOutput)
+}
+
+// The value against which the specified statistic is compared.
+func (o InstanceGroupConfigCloudWatchAlarmDefinitionOutput) Threshold() pulumi.Float64Output {
+	return o.ApplyT(func(v InstanceGroupConfigCloudWatchAlarmDefinition) float64 { return v.Threshold }).(pulumi.Float64Output)
+}
+
+// The unit of measure associated with the CloudWatch metric being watched. The value specified for `Unit` must correspond to the units specified in the CloudWatch metric.
+func (o InstanceGroupConfigCloudWatchAlarmDefinitionOutput) Unit() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InstanceGroupConfigCloudWatchAlarmDefinition) *string { return v.Unit }).(pulumi.StringPtrOutput)
+}
+
+type InstanceGroupConfigEbsBlockDeviceConfig struct {
+	// EBS volume specifications such as volume type, IOPS, size (GiB) and throughput (MiB/s) that are requested for the EBS volume attached to an Amazon EC2 instance in the cluster.
+	VolumeSpecification InstanceGroupConfigVolumeSpecification `pulumi:"volumeSpecification"`
+	// Use of this property can confuse CloudFormation drift detection. The EbsBlockDeviceConfigs read from the system may return a list with one entry per volume, replacing any entry specified in the template with a VolumesPerInstance greater than one by that many entries containing only the VolumeSpecification. Thus to avoid false drift detection, it is recommended to supply repeated entries in EbsBlockDeviceConfigs for any VolumeSpecification which is intended to be repeated and not to use this property.
+	VolumesPerInstance *int `pulumi:"volumesPerInstance"`
+}
+
+// InstanceGroupConfigEbsBlockDeviceConfigInput is an input type that accepts InstanceGroupConfigEbsBlockDeviceConfigArgs and InstanceGroupConfigEbsBlockDeviceConfigOutput values.
+// You can construct a concrete instance of `InstanceGroupConfigEbsBlockDeviceConfigInput` via:
+//
+//	InstanceGroupConfigEbsBlockDeviceConfigArgs{...}
+type InstanceGroupConfigEbsBlockDeviceConfigInput interface {
+	pulumi.Input
+
+	ToInstanceGroupConfigEbsBlockDeviceConfigOutput() InstanceGroupConfigEbsBlockDeviceConfigOutput
+	ToInstanceGroupConfigEbsBlockDeviceConfigOutputWithContext(context.Context) InstanceGroupConfigEbsBlockDeviceConfigOutput
+}
+
+type InstanceGroupConfigEbsBlockDeviceConfigArgs struct {
+	// EBS volume specifications such as volume type, IOPS, size (GiB) and throughput (MiB/s) that are requested for the EBS volume attached to an Amazon EC2 instance in the cluster.
+	VolumeSpecification InstanceGroupConfigVolumeSpecificationInput `pulumi:"volumeSpecification"`
+	// Use of this property can confuse CloudFormation drift detection. The EbsBlockDeviceConfigs read from the system may return a list with one entry per volume, replacing any entry specified in the template with a VolumesPerInstance greater than one by that many entries containing only the VolumeSpecification. Thus to avoid false drift detection, it is recommended to supply repeated entries in EbsBlockDeviceConfigs for any VolumeSpecification which is intended to be repeated and not to use this property.
+	VolumesPerInstance pulumi.IntPtrInput `pulumi:"volumesPerInstance"`
+}
+
+func (InstanceGroupConfigEbsBlockDeviceConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceGroupConfigEbsBlockDeviceConfig)(nil)).Elem()
+}
+
+func (i InstanceGroupConfigEbsBlockDeviceConfigArgs) ToInstanceGroupConfigEbsBlockDeviceConfigOutput() InstanceGroupConfigEbsBlockDeviceConfigOutput {
+	return i.ToInstanceGroupConfigEbsBlockDeviceConfigOutputWithContext(context.Background())
+}
+
+func (i InstanceGroupConfigEbsBlockDeviceConfigArgs) ToInstanceGroupConfigEbsBlockDeviceConfigOutputWithContext(ctx context.Context) InstanceGroupConfigEbsBlockDeviceConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceGroupConfigEbsBlockDeviceConfigOutput)
+}
+
+// InstanceGroupConfigEbsBlockDeviceConfigArrayInput is an input type that accepts InstanceGroupConfigEbsBlockDeviceConfigArray and InstanceGroupConfigEbsBlockDeviceConfigArrayOutput values.
+// You can construct a concrete instance of `InstanceGroupConfigEbsBlockDeviceConfigArrayInput` via:
+//
+//	InstanceGroupConfigEbsBlockDeviceConfigArray{ InstanceGroupConfigEbsBlockDeviceConfigArgs{...} }
+type InstanceGroupConfigEbsBlockDeviceConfigArrayInput interface {
+	pulumi.Input
+
+	ToInstanceGroupConfigEbsBlockDeviceConfigArrayOutput() InstanceGroupConfigEbsBlockDeviceConfigArrayOutput
+	ToInstanceGroupConfigEbsBlockDeviceConfigArrayOutputWithContext(context.Context) InstanceGroupConfigEbsBlockDeviceConfigArrayOutput
+}
+
+type InstanceGroupConfigEbsBlockDeviceConfigArray []InstanceGroupConfigEbsBlockDeviceConfigInput
+
+func (InstanceGroupConfigEbsBlockDeviceConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InstanceGroupConfigEbsBlockDeviceConfig)(nil)).Elem()
+}
+
+func (i InstanceGroupConfigEbsBlockDeviceConfigArray) ToInstanceGroupConfigEbsBlockDeviceConfigArrayOutput() InstanceGroupConfigEbsBlockDeviceConfigArrayOutput {
+	return i.ToInstanceGroupConfigEbsBlockDeviceConfigArrayOutputWithContext(context.Background())
+}
+
+func (i InstanceGroupConfigEbsBlockDeviceConfigArray) ToInstanceGroupConfigEbsBlockDeviceConfigArrayOutputWithContext(ctx context.Context) InstanceGroupConfigEbsBlockDeviceConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceGroupConfigEbsBlockDeviceConfigArrayOutput)
+}
+
+type InstanceGroupConfigEbsBlockDeviceConfigOutput struct{ *pulumi.OutputState }
+
+func (InstanceGroupConfigEbsBlockDeviceConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceGroupConfigEbsBlockDeviceConfig)(nil)).Elem()
+}
+
+func (o InstanceGroupConfigEbsBlockDeviceConfigOutput) ToInstanceGroupConfigEbsBlockDeviceConfigOutput() InstanceGroupConfigEbsBlockDeviceConfigOutput {
+	return o
+}
+
+func (o InstanceGroupConfigEbsBlockDeviceConfigOutput) ToInstanceGroupConfigEbsBlockDeviceConfigOutputWithContext(ctx context.Context) InstanceGroupConfigEbsBlockDeviceConfigOutput {
+	return o
+}
+
+// EBS volume specifications such as volume type, IOPS, size (GiB) and throughput (MiB/s) that are requested for the EBS volume attached to an Amazon EC2 instance in the cluster.
+func (o InstanceGroupConfigEbsBlockDeviceConfigOutput) VolumeSpecification() InstanceGroupConfigVolumeSpecificationOutput {
+	return o.ApplyT(func(v InstanceGroupConfigEbsBlockDeviceConfig) InstanceGroupConfigVolumeSpecification {
+		return v.VolumeSpecification
+	}).(InstanceGroupConfigVolumeSpecificationOutput)
+}
+
+// Use of this property can confuse CloudFormation drift detection. The EbsBlockDeviceConfigs read from the system may return a list with one entry per volume, replacing any entry specified in the template with a VolumesPerInstance greater than one by that many entries containing only the VolumeSpecification. Thus to avoid false drift detection, it is recommended to supply repeated entries in EbsBlockDeviceConfigs for any VolumeSpecification which is intended to be repeated and not to use this property.
+func (o InstanceGroupConfigEbsBlockDeviceConfigOutput) VolumesPerInstance() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v InstanceGroupConfigEbsBlockDeviceConfig) *int { return v.VolumesPerInstance }).(pulumi.IntPtrOutput)
+}
+
+type InstanceGroupConfigEbsBlockDeviceConfigArrayOutput struct{ *pulumi.OutputState }
+
+func (InstanceGroupConfigEbsBlockDeviceConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InstanceGroupConfigEbsBlockDeviceConfig)(nil)).Elem()
+}
+
+func (o InstanceGroupConfigEbsBlockDeviceConfigArrayOutput) ToInstanceGroupConfigEbsBlockDeviceConfigArrayOutput() InstanceGroupConfigEbsBlockDeviceConfigArrayOutput {
+	return o
+}
+
+func (o InstanceGroupConfigEbsBlockDeviceConfigArrayOutput) ToInstanceGroupConfigEbsBlockDeviceConfigArrayOutputWithContext(ctx context.Context) InstanceGroupConfigEbsBlockDeviceConfigArrayOutput {
+	return o
+}
+
+func (o InstanceGroupConfigEbsBlockDeviceConfigArrayOutput) Index(i pulumi.IntInput) InstanceGroupConfigEbsBlockDeviceConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) InstanceGroupConfigEbsBlockDeviceConfig {
+		return vs[0].([]InstanceGroupConfigEbsBlockDeviceConfig)[vs[1].(int)]
+	}).(InstanceGroupConfigEbsBlockDeviceConfigOutput)
+}
+
+type InstanceGroupConfigEbsConfiguration struct {
+	// An array of Amazon EBS volume specifications attached to a cluster instance.
+	EbsBlockDeviceConfigs []InstanceGroupConfigEbsBlockDeviceConfig `pulumi:"ebsBlockDeviceConfigs"`
+	// Indicates whether an Amazon EBS volume is EBS-optimized. The default is false. You should explicitly set this value to true to enable the Amazon EBS-optimized setting for an EC2 instance.
+	EbsOptimized *bool `pulumi:"ebsOptimized"`
+}
+
+// InstanceGroupConfigEbsConfigurationInput is an input type that accepts InstanceGroupConfigEbsConfigurationArgs and InstanceGroupConfigEbsConfigurationOutput values.
+// You can construct a concrete instance of `InstanceGroupConfigEbsConfigurationInput` via:
+//
+//	InstanceGroupConfigEbsConfigurationArgs{...}
+type InstanceGroupConfigEbsConfigurationInput interface {
+	pulumi.Input
+
+	ToInstanceGroupConfigEbsConfigurationOutput() InstanceGroupConfigEbsConfigurationOutput
+	ToInstanceGroupConfigEbsConfigurationOutputWithContext(context.Context) InstanceGroupConfigEbsConfigurationOutput
+}
+
+type InstanceGroupConfigEbsConfigurationArgs struct {
+	// An array of Amazon EBS volume specifications attached to a cluster instance.
+	EbsBlockDeviceConfigs InstanceGroupConfigEbsBlockDeviceConfigArrayInput `pulumi:"ebsBlockDeviceConfigs"`
+	// Indicates whether an Amazon EBS volume is EBS-optimized. The default is false. You should explicitly set this value to true to enable the Amazon EBS-optimized setting for an EC2 instance.
+	EbsOptimized pulumi.BoolPtrInput `pulumi:"ebsOptimized"`
+}
+
+func (InstanceGroupConfigEbsConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceGroupConfigEbsConfiguration)(nil)).Elem()
+}
+
+func (i InstanceGroupConfigEbsConfigurationArgs) ToInstanceGroupConfigEbsConfigurationOutput() InstanceGroupConfigEbsConfigurationOutput {
+	return i.ToInstanceGroupConfigEbsConfigurationOutputWithContext(context.Background())
+}
+
+func (i InstanceGroupConfigEbsConfigurationArgs) ToInstanceGroupConfigEbsConfigurationOutputWithContext(ctx context.Context) InstanceGroupConfigEbsConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceGroupConfigEbsConfigurationOutput)
+}
+
+func (i InstanceGroupConfigEbsConfigurationArgs) ToInstanceGroupConfigEbsConfigurationPtrOutput() InstanceGroupConfigEbsConfigurationPtrOutput {
+	return i.ToInstanceGroupConfigEbsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i InstanceGroupConfigEbsConfigurationArgs) ToInstanceGroupConfigEbsConfigurationPtrOutputWithContext(ctx context.Context) InstanceGroupConfigEbsConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceGroupConfigEbsConfigurationOutput).ToInstanceGroupConfigEbsConfigurationPtrOutputWithContext(ctx)
+}
+
+// InstanceGroupConfigEbsConfigurationPtrInput is an input type that accepts InstanceGroupConfigEbsConfigurationArgs, InstanceGroupConfigEbsConfigurationPtr and InstanceGroupConfigEbsConfigurationPtrOutput values.
+// You can construct a concrete instance of `InstanceGroupConfigEbsConfigurationPtrInput` via:
+//
+//	        InstanceGroupConfigEbsConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type InstanceGroupConfigEbsConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToInstanceGroupConfigEbsConfigurationPtrOutput() InstanceGroupConfigEbsConfigurationPtrOutput
+	ToInstanceGroupConfigEbsConfigurationPtrOutputWithContext(context.Context) InstanceGroupConfigEbsConfigurationPtrOutput
+}
+
+type instanceGroupConfigEbsConfigurationPtrType InstanceGroupConfigEbsConfigurationArgs
+
+func InstanceGroupConfigEbsConfigurationPtr(v *InstanceGroupConfigEbsConfigurationArgs) InstanceGroupConfigEbsConfigurationPtrInput {
+	return (*instanceGroupConfigEbsConfigurationPtrType)(v)
+}
+
+func (*instanceGroupConfigEbsConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**InstanceGroupConfigEbsConfiguration)(nil)).Elem()
+}
+
+func (i *instanceGroupConfigEbsConfigurationPtrType) ToInstanceGroupConfigEbsConfigurationPtrOutput() InstanceGroupConfigEbsConfigurationPtrOutput {
+	return i.ToInstanceGroupConfigEbsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *instanceGroupConfigEbsConfigurationPtrType) ToInstanceGroupConfigEbsConfigurationPtrOutputWithContext(ctx context.Context) InstanceGroupConfigEbsConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceGroupConfigEbsConfigurationPtrOutput)
+}
+
+type InstanceGroupConfigEbsConfigurationOutput struct{ *pulumi.OutputState }
+
+func (InstanceGroupConfigEbsConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceGroupConfigEbsConfiguration)(nil)).Elem()
+}
+
+func (o InstanceGroupConfigEbsConfigurationOutput) ToInstanceGroupConfigEbsConfigurationOutput() InstanceGroupConfigEbsConfigurationOutput {
+	return o
+}
+
+func (o InstanceGroupConfigEbsConfigurationOutput) ToInstanceGroupConfigEbsConfigurationOutputWithContext(ctx context.Context) InstanceGroupConfigEbsConfigurationOutput {
+	return o
+}
+
+func (o InstanceGroupConfigEbsConfigurationOutput) ToInstanceGroupConfigEbsConfigurationPtrOutput() InstanceGroupConfigEbsConfigurationPtrOutput {
+	return o.ToInstanceGroupConfigEbsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o InstanceGroupConfigEbsConfigurationOutput) ToInstanceGroupConfigEbsConfigurationPtrOutputWithContext(ctx context.Context) InstanceGroupConfigEbsConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InstanceGroupConfigEbsConfiguration) *InstanceGroupConfigEbsConfiguration {
+		return &v
+	}).(InstanceGroupConfigEbsConfigurationPtrOutput)
+}
+
+// An array of Amazon EBS volume specifications attached to a cluster instance.
+func (o InstanceGroupConfigEbsConfigurationOutput) EbsBlockDeviceConfigs() InstanceGroupConfigEbsBlockDeviceConfigArrayOutput {
+	return o.ApplyT(func(v InstanceGroupConfigEbsConfiguration) []InstanceGroupConfigEbsBlockDeviceConfig {
+		return v.EbsBlockDeviceConfigs
+	}).(InstanceGroupConfigEbsBlockDeviceConfigArrayOutput)
+}
+
+// Indicates whether an Amazon EBS volume is EBS-optimized. The default is false. You should explicitly set this value to true to enable the Amazon EBS-optimized setting for an EC2 instance.
+func (o InstanceGroupConfigEbsConfigurationOutput) EbsOptimized() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v InstanceGroupConfigEbsConfiguration) *bool { return v.EbsOptimized }).(pulumi.BoolPtrOutput)
+}
+
+type InstanceGroupConfigEbsConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (InstanceGroupConfigEbsConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InstanceGroupConfigEbsConfiguration)(nil)).Elem()
+}
+
+func (o InstanceGroupConfigEbsConfigurationPtrOutput) ToInstanceGroupConfigEbsConfigurationPtrOutput() InstanceGroupConfigEbsConfigurationPtrOutput {
+	return o
+}
+
+func (o InstanceGroupConfigEbsConfigurationPtrOutput) ToInstanceGroupConfigEbsConfigurationPtrOutputWithContext(ctx context.Context) InstanceGroupConfigEbsConfigurationPtrOutput {
+	return o
+}
+
+func (o InstanceGroupConfigEbsConfigurationPtrOutput) Elem() InstanceGroupConfigEbsConfigurationOutput {
+	return o.ApplyT(func(v *InstanceGroupConfigEbsConfiguration) InstanceGroupConfigEbsConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret InstanceGroupConfigEbsConfiguration
+		return ret
+	}).(InstanceGroupConfigEbsConfigurationOutput)
+}
+
+// An array of Amazon EBS volume specifications attached to a cluster instance.
+func (o InstanceGroupConfigEbsConfigurationPtrOutput) EbsBlockDeviceConfigs() InstanceGroupConfigEbsBlockDeviceConfigArrayOutput {
+	return o.ApplyT(func(v *InstanceGroupConfigEbsConfiguration) []InstanceGroupConfigEbsBlockDeviceConfig {
+		if v == nil {
+			return nil
+		}
+		return v.EbsBlockDeviceConfigs
+	}).(InstanceGroupConfigEbsBlockDeviceConfigArrayOutput)
+}
+
+// Indicates whether an Amazon EBS volume is EBS-optimized. The default is false. You should explicitly set this value to true to enable the Amazon EBS-optimized setting for an EC2 instance.
+func (o InstanceGroupConfigEbsConfigurationPtrOutput) EbsOptimized() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *InstanceGroupConfigEbsConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EbsOptimized
+	}).(pulumi.BoolPtrOutput)
+}
+
+type InstanceGroupConfigMetricDimension struct {
+	// The dimension name.
+	Key string `pulumi:"key"`
+	// The dimension value.
+	Value string `pulumi:"value"`
+}
+
+// InstanceGroupConfigMetricDimensionInput is an input type that accepts InstanceGroupConfigMetricDimensionArgs and InstanceGroupConfigMetricDimensionOutput values.
+// You can construct a concrete instance of `InstanceGroupConfigMetricDimensionInput` via:
+//
+//	InstanceGroupConfigMetricDimensionArgs{...}
+type InstanceGroupConfigMetricDimensionInput interface {
+	pulumi.Input
+
+	ToInstanceGroupConfigMetricDimensionOutput() InstanceGroupConfigMetricDimensionOutput
+	ToInstanceGroupConfigMetricDimensionOutputWithContext(context.Context) InstanceGroupConfigMetricDimensionOutput
+}
+
+type InstanceGroupConfigMetricDimensionArgs struct {
+	// The dimension name.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The dimension value.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (InstanceGroupConfigMetricDimensionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceGroupConfigMetricDimension)(nil)).Elem()
+}
+
+func (i InstanceGroupConfigMetricDimensionArgs) ToInstanceGroupConfigMetricDimensionOutput() InstanceGroupConfigMetricDimensionOutput {
+	return i.ToInstanceGroupConfigMetricDimensionOutputWithContext(context.Background())
+}
+
+func (i InstanceGroupConfigMetricDimensionArgs) ToInstanceGroupConfigMetricDimensionOutputWithContext(ctx context.Context) InstanceGroupConfigMetricDimensionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceGroupConfigMetricDimensionOutput)
+}
+
+// InstanceGroupConfigMetricDimensionArrayInput is an input type that accepts InstanceGroupConfigMetricDimensionArray and InstanceGroupConfigMetricDimensionArrayOutput values.
+// You can construct a concrete instance of `InstanceGroupConfigMetricDimensionArrayInput` via:
+//
+//	InstanceGroupConfigMetricDimensionArray{ InstanceGroupConfigMetricDimensionArgs{...} }
+type InstanceGroupConfigMetricDimensionArrayInput interface {
+	pulumi.Input
+
+	ToInstanceGroupConfigMetricDimensionArrayOutput() InstanceGroupConfigMetricDimensionArrayOutput
+	ToInstanceGroupConfigMetricDimensionArrayOutputWithContext(context.Context) InstanceGroupConfigMetricDimensionArrayOutput
+}
+
+type InstanceGroupConfigMetricDimensionArray []InstanceGroupConfigMetricDimensionInput
+
+func (InstanceGroupConfigMetricDimensionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InstanceGroupConfigMetricDimension)(nil)).Elem()
+}
+
+func (i InstanceGroupConfigMetricDimensionArray) ToInstanceGroupConfigMetricDimensionArrayOutput() InstanceGroupConfigMetricDimensionArrayOutput {
+	return i.ToInstanceGroupConfigMetricDimensionArrayOutputWithContext(context.Background())
+}
+
+func (i InstanceGroupConfigMetricDimensionArray) ToInstanceGroupConfigMetricDimensionArrayOutputWithContext(ctx context.Context) InstanceGroupConfigMetricDimensionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceGroupConfigMetricDimensionArrayOutput)
+}
+
+type InstanceGroupConfigMetricDimensionOutput struct{ *pulumi.OutputState }
+
+func (InstanceGroupConfigMetricDimensionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceGroupConfigMetricDimension)(nil)).Elem()
+}
+
+func (o InstanceGroupConfigMetricDimensionOutput) ToInstanceGroupConfigMetricDimensionOutput() InstanceGroupConfigMetricDimensionOutput {
+	return o
+}
+
+func (o InstanceGroupConfigMetricDimensionOutput) ToInstanceGroupConfigMetricDimensionOutputWithContext(ctx context.Context) InstanceGroupConfigMetricDimensionOutput {
+	return o
+}
+
+// The dimension name.
+func (o InstanceGroupConfigMetricDimensionOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v InstanceGroupConfigMetricDimension) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The dimension value.
+func (o InstanceGroupConfigMetricDimensionOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v InstanceGroupConfigMetricDimension) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type InstanceGroupConfigMetricDimensionArrayOutput struct{ *pulumi.OutputState }
+
+func (InstanceGroupConfigMetricDimensionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InstanceGroupConfigMetricDimension)(nil)).Elem()
+}
+
+func (o InstanceGroupConfigMetricDimensionArrayOutput) ToInstanceGroupConfigMetricDimensionArrayOutput() InstanceGroupConfigMetricDimensionArrayOutput {
+	return o
+}
+
+func (o InstanceGroupConfigMetricDimensionArrayOutput) ToInstanceGroupConfigMetricDimensionArrayOutputWithContext(ctx context.Context) InstanceGroupConfigMetricDimensionArrayOutput {
+	return o
+}
+
+func (o InstanceGroupConfigMetricDimensionArrayOutput) Index(i pulumi.IntInput) InstanceGroupConfigMetricDimensionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) InstanceGroupConfigMetricDimension {
+		return vs[0].([]InstanceGroupConfigMetricDimension)[vs[1].(int)]
+	}).(InstanceGroupConfigMetricDimensionOutput)
+}
+
+type InstanceGroupConfigScalingAction struct {
+	// Not available for instance groups. Instance groups use the market type specified for the group.
+	Market *string `pulumi:"market"`
+	// The type of adjustment the automatic scaling activity makes when triggered, and the periodicity of the adjustment.
+	SimpleScalingPolicyConfiguration InstanceGroupConfigSimpleScalingPolicyConfiguration `pulumi:"simpleScalingPolicyConfiguration"`
+}
+
+// InstanceGroupConfigScalingActionInput is an input type that accepts InstanceGroupConfigScalingActionArgs and InstanceGroupConfigScalingActionOutput values.
+// You can construct a concrete instance of `InstanceGroupConfigScalingActionInput` via:
+//
+//	InstanceGroupConfigScalingActionArgs{...}
+type InstanceGroupConfigScalingActionInput interface {
+	pulumi.Input
+
+	ToInstanceGroupConfigScalingActionOutput() InstanceGroupConfigScalingActionOutput
+	ToInstanceGroupConfigScalingActionOutputWithContext(context.Context) InstanceGroupConfigScalingActionOutput
+}
+
+type InstanceGroupConfigScalingActionArgs struct {
+	// Not available for instance groups. Instance groups use the market type specified for the group.
+	Market pulumi.StringPtrInput `pulumi:"market"`
+	// The type of adjustment the automatic scaling activity makes when triggered, and the periodicity of the adjustment.
+	SimpleScalingPolicyConfiguration InstanceGroupConfigSimpleScalingPolicyConfigurationInput `pulumi:"simpleScalingPolicyConfiguration"`
+}
+
+func (InstanceGroupConfigScalingActionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceGroupConfigScalingAction)(nil)).Elem()
+}
+
+func (i InstanceGroupConfigScalingActionArgs) ToInstanceGroupConfigScalingActionOutput() InstanceGroupConfigScalingActionOutput {
+	return i.ToInstanceGroupConfigScalingActionOutputWithContext(context.Background())
+}
+
+func (i InstanceGroupConfigScalingActionArgs) ToInstanceGroupConfigScalingActionOutputWithContext(ctx context.Context) InstanceGroupConfigScalingActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceGroupConfigScalingActionOutput)
+}
+
+type InstanceGroupConfigScalingActionOutput struct{ *pulumi.OutputState }
+
+func (InstanceGroupConfigScalingActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceGroupConfigScalingAction)(nil)).Elem()
+}
+
+func (o InstanceGroupConfigScalingActionOutput) ToInstanceGroupConfigScalingActionOutput() InstanceGroupConfigScalingActionOutput {
+	return o
+}
+
+func (o InstanceGroupConfigScalingActionOutput) ToInstanceGroupConfigScalingActionOutputWithContext(ctx context.Context) InstanceGroupConfigScalingActionOutput {
+	return o
+}
+
+// Not available for instance groups. Instance groups use the market type specified for the group.
+func (o InstanceGroupConfigScalingActionOutput) Market() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InstanceGroupConfigScalingAction) *string { return v.Market }).(pulumi.StringPtrOutput)
+}
+
+// The type of adjustment the automatic scaling activity makes when triggered, and the periodicity of the adjustment.
+func (o InstanceGroupConfigScalingActionOutput) SimpleScalingPolicyConfiguration() InstanceGroupConfigSimpleScalingPolicyConfigurationOutput {
+	return o.ApplyT(func(v InstanceGroupConfigScalingAction) InstanceGroupConfigSimpleScalingPolicyConfiguration {
+		return v.SimpleScalingPolicyConfiguration
+	}).(InstanceGroupConfigSimpleScalingPolicyConfigurationOutput)
+}
+
+type InstanceGroupConfigScalingConstraints struct {
+	// The upper boundary of Amazon EC2 instances in an instance group beyond which scaling activities are not allowed to grow. Scale-out activities will not add instances beyond this boundary.
+	MaxCapacity int `pulumi:"maxCapacity"`
+	// The lower boundary of Amazon EC2 instances in an instance group below which scaling activities are not allowed to shrink. Scale-in activities will not terminate instances below this boundary.
+	MinCapacity int `pulumi:"minCapacity"`
+}
+
+// InstanceGroupConfigScalingConstraintsInput is an input type that accepts InstanceGroupConfigScalingConstraintsArgs and InstanceGroupConfigScalingConstraintsOutput values.
+// You can construct a concrete instance of `InstanceGroupConfigScalingConstraintsInput` via:
+//
+//	InstanceGroupConfigScalingConstraintsArgs{...}
+type InstanceGroupConfigScalingConstraintsInput interface {
+	pulumi.Input
+
+	ToInstanceGroupConfigScalingConstraintsOutput() InstanceGroupConfigScalingConstraintsOutput
+	ToInstanceGroupConfigScalingConstraintsOutputWithContext(context.Context) InstanceGroupConfigScalingConstraintsOutput
+}
+
+type InstanceGroupConfigScalingConstraintsArgs struct {
+	// The upper boundary of Amazon EC2 instances in an instance group beyond which scaling activities are not allowed to grow. Scale-out activities will not add instances beyond this boundary.
+	MaxCapacity pulumi.IntInput `pulumi:"maxCapacity"`
+	// The lower boundary of Amazon EC2 instances in an instance group below which scaling activities are not allowed to shrink. Scale-in activities will not terminate instances below this boundary.
+	MinCapacity pulumi.IntInput `pulumi:"minCapacity"`
+}
+
+func (InstanceGroupConfigScalingConstraintsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceGroupConfigScalingConstraints)(nil)).Elem()
+}
+
+func (i InstanceGroupConfigScalingConstraintsArgs) ToInstanceGroupConfigScalingConstraintsOutput() InstanceGroupConfigScalingConstraintsOutput {
+	return i.ToInstanceGroupConfigScalingConstraintsOutputWithContext(context.Background())
+}
+
+func (i InstanceGroupConfigScalingConstraintsArgs) ToInstanceGroupConfigScalingConstraintsOutputWithContext(ctx context.Context) InstanceGroupConfigScalingConstraintsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceGroupConfigScalingConstraintsOutput)
+}
+
+func (i InstanceGroupConfigScalingConstraintsArgs) ToInstanceGroupConfigScalingConstraintsPtrOutput() InstanceGroupConfigScalingConstraintsPtrOutput {
+	return i.ToInstanceGroupConfigScalingConstraintsPtrOutputWithContext(context.Background())
+}
+
+func (i InstanceGroupConfigScalingConstraintsArgs) ToInstanceGroupConfigScalingConstraintsPtrOutputWithContext(ctx context.Context) InstanceGroupConfigScalingConstraintsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceGroupConfigScalingConstraintsOutput).ToInstanceGroupConfigScalingConstraintsPtrOutputWithContext(ctx)
+}
+
+// InstanceGroupConfigScalingConstraintsPtrInput is an input type that accepts InstanceGroupConfigScalingConstraintsArgs, InstanceGroupConfigScalingConstraintsPtr and InstanceGroupConfigScalingConstraintsPtrOutput values.
+// You can construct a concrete instance of `InstanceGroupConfigScalingConstraintsPtrInput` via:
+//
+//	        InstanceGroupConfigScalingConstraintsArgs{...}
+//
+//	or:
+//
+//	        nil
+type InstanceGroupConfigScalingConstraintsPtrInput interface {
+	pulumi.Input
+
+	ToInstanceGroupConfigScalingConstraintsPtrOutput() InstanceGroupConfigScalingConstraintsPtrOutput
+	ToInstanceGroupConfigScalingConstraintsPtrOutputWithContext(context.Context) InstanceGroupConfigScalingConstraintsPtrOutput
+}
+
+type instanceGroupConfigScalingConstraintsPtrType InstanceGroupConfigScalingConstraintsArgs
+
+func InstanceGroupConfigScalingConstraintsPtr(v *InstanceGroupConfigScalingConstraintsArgs) InstanceGroupConfigScalingConstraintsPtrInput {
+	return (*instanceGroupConfigScalingConstraintsPtrType)(v)
+}
+
+func (*instanceGroupConfigScalingConstraintsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**InstanceGroupConfigScalingConstraints)(nil)).Elem()
+}
+
+func (i *instanceGroupConfigScalingConstraintsPtrType) ToInstanceGroupConfigScalingConstraintsPtrOutput() InstanceGroupConfigScalingConstraintsPtrOutput {
+	return i.ToInstanceGroupConfigScalingConstraintsPtrOutputWithContext(context.Background())
+}
+
+func (i *instanceGroupConfigScalingConstraintsPtrType) ToInstanceGroupConfigScalingConstraintsPtrOutputWithContext(ctx context.Context) InstanceGroupConfigScalingConstraintsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceGroupConfigScalingConstraintsPtrOutput)
+}
+
+type InstanceGroupConfigScalingConstraintsOutput struct{ *pulumi.OutputState }
+
+func (InstanceGroupConfigScalingConstraintsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceGroupConfigScalingConstraints)(nil)).Elem()
+}
+
+func (o InstanceGroupConfigScalingConstraintsOutput) ToInstanceGroupConfigScalingConstraintsOutput() InstanceGroupConfigScalingConstraintsOutput {
+	return o
+}
+
+func (o InstanceGroupConfigScalingConstraintsOutput) ToInstanceGroupConfigScalingConstraintsOutputWithContext(ctx context.Context) InstanceGroupConfigScalingConstraintsOutput {
+	return o
+}
+
+func (o InstanceGroupConfigScalingConstraintsOutput) ToInstanceGroupConfigScalingConstraintsPtrOutput() InstanceGroupConfigScalingConstraintsPtrOutput {
+	return o.ToInstanceGroupConfigScalingConstraintsPtrOutputWithContext(context.Background())
+}
+
+func (o InstanceGroupConfigScalingConstraintsOutput) ToInstanceGroupConfigScalingConstraintsPtrOutputWithContext(ctx context.Context) InstanceGroupConfigScalingConstraintsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InstanceGroupConfigScalingConstraints) *InstanceGroupConfigScalingConstraints {
+		return &v
+	}).(InstanceGroupConfigScalingConstraintsPtrOutput)
+}
+
+// The upper boundary of Amazon EC2 instances in an instance group beyond which scaling activities are not allowed to grow. Scale-out activities will not add instances beyond this boundary.
+func (o InstanceGroupConfigScalingConstraintsOutput) MaxCapacity() pulumi.IntOutput {
+	return o.ApplyT(func(v InstanceGroupConfigScalingConstraints) int { return v.MaxCapacity }).(pulumi.IntOutput)
+}
+
+// The lower boundary of Amazon EC2 instances in an instance group below which scaling activities are not allowed to shrink. Scale-in activities will not terminate instances below this boundary.
+func (o InstanceGroupConfigScalingConstraintsOutput) MinCapacity() pulumi.IntOutput {
+	return o.ApplyT(func(v InstanceGroupConfigScalingConstraints) int { return v.MinCapacity }).(pulumi.IntOutput)
+}
+
+type InstanceGroupConfigScalingConstraintsPtrOutput struct{ *pulumi.OutputState }
+
+func (InstanceGroupConfigScalingConstraintsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InstanceGroupConfigScalingConstraints)(nil)).Elem()
+}
+
+func (o InstanceGroupConfigScalingConstraintsPtrOutput) ToInstanceGroupConfigScalingConstraintsPtrOutput() InstanceGroupConfigScalingConstraintsPtrOutput {
+	return o
+}
+
+func (o InstanceGroupConfigScalingConstraintsPtrOutput) ToInstanceGroupConfigScalingConstraintsPtrOutputWithContext(ctx context.Context) InstanceGroupConfigScalingConstraintsPtrOutput {
+	return o
+}
+
+func (o InstanceGroupConfigScalingConstraintsPtrOutput) Elem() InstanceGroupConfigScalingConstraintsOutput {
+	return o.ApplyT(func(v *InstanceGroupConfigScalingConstraints) InstanceGroupConfigScalingConstraints {
+		if v != nil {
+			return *v
+		}
+		var ret InstanceGroupConfigScalingConstraints
+		return ret
+	}).(InstanceGroupConfigScalingConstraintsOutput)
+}
+
+// The upper boundary of Amazon EC2 instances in an instance group beyond which scaling activities are not allowed to grow. Scale-out activities will not add instances beyond this boundary.
+func (o InstanceGroupConfigScalingConstraintsPtrOutput) MaxCapacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *InstanceGroupConfigScalingConstraints) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.MaxCapacity
+	}).(pulumi.IntPtrOutput)
+}
+
+// The lower boundary of Amazon EC2 instances in an instance group below which scaling activities are not allowed to shrink. Scale-in activities will not terminate instances below this boundary.
+func (o InstanceGroupConfigScalingConstraintsPtrOutput) MinCapacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *InstanceGroupConfigScalingConstraints) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.MinCapacity
+	}).(pulumi.IntPtrOutput)
+}
+
+type InstanceGroupConfigScalingRule struct {
+	// The conditions that trigger an automatic scaling activity.
+	Action InstanceGroupConfigScalingAction `pulumi:"action"`
+	// A friendly, more verbose description of the automatic scaling rule.
+	Description *string `pulumi:"description"`
+	// The name used to identify an automatic scaling rule. Rule names must be unique within a scaling policy.
+	Name string `pulumi:"name"`
+	// The CloudWatch alarm definition that determines when automatic scaling activity is triggered.
+	Trigger InstanceGroupConfigScalingTrigger `pulumi:"trigger"`
+}
+
+// InstanceGroupConfigScalingRuleInput is an input type that accepts InstanceGroupConfigScalingRuleArgs and InstanceGroupConfigScalingRuleOutput values.
+// You can construct a concrete instance of `InstanceGroupConfigScalingRuleInput` via:
+//
+//	InstanceGroupConfigScalingRuleArgs{...}
+type InstanceGroupConfigScalingRuleInput interface {
+	pulumi.Input
+
+	ToInstanceGroupConfigScalingRuleOutput() InstanceGroupConfigScalingRuleOutput
+	ToInstanceGroupConfigScalingRuleOutputWithContext(context.Context) InstanceGroupConfigScalingRuleOutput
+}
+
+type InstanceGroupConfigScalingRuleArgs struct {
+	// The conditions that trigger an automatic scaling activity.
+	Action InstanceGroupConfigScalingActionInput `pulumi:"action"`
+	// A friendly, more verbose description of the automatic scaling rule.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// The name used to identify an automatic scaling rule. Rule names must be unique within a scaling policy.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The CloudWatch alarm definition that determines when automatic scaling activity is triggered.
+	Trigger InstanceGroupConfigScalingTriggerInput `pulumi:"trigger"`
+}
+
+func (InstanceGroupConfigScalingRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceGroupConfigScalingRule)(nil)).Elem()
+}
+
+func (i InstanceGroupConfigScalingRuleArgs) ToInstanceGroupConfigScalingRuleOutput() InstanceGroupConfigScalingRuleOutput {
+	return i.ToInstanceGroupConfigScalingRuleOutputWithContext(context.Background())
+}
+
+func (i InstanceGroupConfigScalingRuleArgs) ToInstanceGroupConfigScalingRuleOutputWithContext(ctx context.Context) InstanceGroupConfigScalingRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceGroupConfigScalingRuleOutput)
+}
+
+// InstanceGroupConfigScalingRuleArrayInput is an input type that accepts InstanceGroupConfigScalingRuleArray and InstanceGroupConfigScalingRuleArrayOutput values.
+// You can construct a concrete instance of `InstanceGroupConfigScalingRuleArrayInput` via:
+//
+//	InstanceGroupConfigScalingRuleArray{ InstanceGroupConfigScalingRuleArgs{...} }
+type InstanceGroupConfigScalingRuleArrayInput interface {
+	pulumi.Input
+
+	ToInstanceGroupConfigScalingRuleArrayOutput() InstanceGroupConfigScalingRuleArrayOutput
+	ToInstanceGroupConfigScalingRuleArrayOutputWithContext(context.Context) InstanceGroupConfigScalingRuleArrayOutput
+}
+
+type InstanceGroupConfigScalingRuleArray []InstanceGroupConfigScalingRuleInput
+
+func (InstanceGroupConfigScalingRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InstanceGroupConfigScalingRule)(nil)).Elem()
+}
+
+func (i InstanceGroupConfigScalingRuleArray) ToInstanceGroupConfigScalingRuleArrayOutput() InstanceGroupConfigScalingRuleArrayOutput {
+	return i.ToInstanceGroupConfigScalingRuleArrayOutputWithContext(context.Background())
+}
+
+func (i InstanceGroupConfigScalingRuleArray) ToInstanceGroupConfigScalingRuleArrayOutputWithContext(ctx context.Context) InstanceGroupConfigScalingRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceGroupConfigScalingRuleArrayOutput)
+}
+
+type InstanceGroupConfigScalingRuleOutput struct{ *pulumi.OutputState }
+
+func (InstanceGroupConfigScalingRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceGroupConfigScalingRule)(nil)).Elem()
+}
+
+func (o InstanceGroupConfigScalingRuleOutput) ToInstanceGroupConfigScalingRuleOutput() InstanceGroupConfigScalingRuleOutput {
+	return o
+}
+
+func (o InstanceGroupConfigScalingRuleOutput) ToInstanceGroupConfigScalingRuleOutputWithContext(ctx context.Context) InstanceGroupConfigScalingRuleOutput {
+	return o
+}
+
+// The conditions that trigger an automatic scaling activity.
+func (o InstanceGroupConfigScalingRuleOutput) Action() InstanceGroupConfigScalingActionOutput {
+	return o.ApplyT(func(v InstanceGroupConfigScalingRule) InstanceGroupConfigScalingAction { return v.Action }).(InstanceGroupConfigScalingActionOutput)
+}
+
+// A friendly, more verbose description of the automatic scaling rule.
+func (o InstanceGroupConfigScalingRuleOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InstanceGroupConfigScalingRule) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The name used to identify an automatic scaling rule. Rule names must be unique within a scaling policy.
+func (o InstanceGroupConfigScalingRuleOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v InstanceGroupConfigScalingRule) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The CloudWatch alarm definition that determines when automatic scaling activity is triggered.
+func (o InstanceGroupConfigScalingRuleOutput) Trigger() InstanceGroupConfigScalingTriggerOutput {
+	return o.ApplyT(func(v InstanceGroupConfigScalingRule) InstanceGroupConfigScalingTrigger { return v.Trigger }).(InstanceGroupConfigScalingTriggerOutput)
+}
+
+type InstanceGroupConfigScalingRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (InstanceGroupConfigScalingRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InstanceGroupConfigScalingRule)(nil)).Elem()
+}
+
+func (o InstanceGroupConfigScalingRuleArrayOutput) ToInstanceGroupConfigScalingRuleArrayOutput() InstanceGroupConfigScalingRuleArrayOutput {
+	return o
+}
+
+func (o InstanceGroupConfigScalingRuleArrayOutput) ToInstanceGroupConfigScalingRuleArrayOutputWithContext(ctx context.Context) InstanceGroupConfigScalingRuleArrayOutput {
+	return o
+}
+
+func (o InstanceGroupConfigScalingRuleArrayOutput) Index(i pulumi.IntInput) InstanceGroupConfigScalingRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) InstanceGroupConfigScalingRule {
+		return vs[0].([]InstanceGroupConfigScalingRule)[vs[1].(int)]
+	}).(InstanceGroupConfigScalingRuleOutput)
+}
+
+type InstanceGroupConfigScalingTrigger struct {
+	// The definition of a CloudWatch metric alarm. When the defined alarm conditions are met along with other trigger parameters, scaling activity begins.
+	CloudWatchAlarmDefinition InstanceGroupConfigCloudWatchAlarmDefinition `pulumi:"cloudWatchAlarmDefinition"`
+}
+
+// InstanceGroupConfigScalingTriggerInput is an input type that accepts InstanceGroupConfigScalingTriggerArgs and InstanceGroupConfigScalingTriggerOutput values.
+// You can construct a concrete instance of `InstanceGroupConfigScalingTriggerInput` via:
+//
+//	InstanceGroupConfigScalingTriggerArgs{...}
+type InstanceGroupConfigScalingTriggerInput interface {
+	pulumi.Input
+
+	ToInstanceGroupConfigScalingTriggerOutput() InstanceGroupConfigScalingTriggerOutput
+	ToInstanceGroupConfigScalingTriggerOutputWithContext(context.Context) InstanceGroupConfigScalingTriggerOutput
+}
+
+type InstanceGroupConfigScalingTriggerArgs struct {
+	// The definition of a CloudWatch metric alarm. When the defined alarm conditions are met along with other trigger parameters, scaling activity begins.
+	CloudWatchAlarmDefinition InstanceGroupConfigCloudWatchAlarmDefinitionInput `pulumi:"cloudWatchAlarmDefinition"`
+}
+
+func (InstanceGroupConfigScalingTriggerArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceGroupConfigScalingTrigger)(nil)).Elem()
+}
+
+func (i InstanceGroupConfigScalingTriggerArgs) ToInstanceGroupConfigScalingTriggerOutput() InstanceGroupConfigScalingTriggerOutput {
+	return i.ToInstanceGroupConfigScalingTriggerOutputWithContext(context.Background())
+}
+
+func (i InstanceGroupConfigScalingTriggerArgs) ToInstanceGroupConfigScalingTriggerOutputWithContext(ctx context.Context) InstanceGroupConfigScalingTriggerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceGroupConfigScalingTriggerOutput)
+}
+
+type InstanceGroupConfigScalingTriggerOutput struct{ *pulumi.OutputState }
+
+func (InstanceGroupConfigScalingTriggerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceGroupConfigScalingTrigger)(nil)).Elem()
+}
+
+func (o InstanceGroupConfigScalingTriggerOutput) ToInstanceGroupConfigScalingTriggerOutput() InstanceGroupConfigScalingTriggerOutput {
+	return o
+}
+
+func (o InstanceGroupConfigScalingTriggerOutput) ToInstanceGroupConfigScalingTriggerOutputWithContext(ctx context.Context) InstanceGroupConfigScalingTriggerOutput {
+	return o
+}
+
+// The definition of a CloudWatch metric alarm. When the defined alarm conditions are met along with other trigger parameters, scaling activity begins.
+func (o InstanceGroupConfigScalingTriggerOutput) CloudWatchAlarmDefinition() InstanceGroupConfigCloudWatchAlarmDefinitionOutput {
+	return o.ApplyT(func(v InstanceGroupConfigScalingTrigger) InstanceGroupConfigCloudWatchAlarmDefinition {
+		return v.CloudWatchAlarmDefinition
+	}).(InstanceGroupConfigCloudWatchAlarmDefinitionOutput)
+}
+
+type InstanceGroupConfigSimpleScalingPolicyConfiguration struct {
+	// The way in which Amazon EC2 instances are added (if `ScalingAdjustment` is a positive number) or terminated (if `ScalingAdjustment` is a negative number) each time the scaling activity is triggered. `CHANGE_IN_CAPACITY` is the default. `CHANGE_IN_CAPACITY` indicates that the Amazon EC2 instance count increments or decrements by `ScalingAdjustment` , which should be expressed as an integer. `PERCENT_CHANGE_IN_CAPACITY` indicates the instance count increments or decrements by the percentage specified by `ScalingAdjustment` , which should be expressed as an integer. For example, 20 indicates an increase in 20% increments of cluster capacity. `EXACT_CAPACITY` indicates the scaling activity results in an instance group with the number of Amazon EC2 instances specified by `ScalingAdjustment` , which should be expressed as a positive integer.
+	AdjustmentType *string `pulumi:"adjustmentType"`
+	// The amount of time, in seconds, after a scaling activity completes before any further trigger-related scaling activities can start. The default value is 0.
+	CoolDown *int `pulumi:"coolDown"`
+	// The amount by which to scale in or scale out, based on the specified `AdjustmentType` . A positive value adds to the instance group's Amazon EC2 instance count while a negative number removes instances. If `AdjustmentType` is set to `EXACT_CAPACITY` , the number should only be a positive integer. If `AdjustmentType` is set to `PERCENT_CHANGE_IN_CAPACITY` , the value should express the percentage as an integer. For example, -20 indicates a decrease in 20% increments of cluster capacity.
+	ScalingAdjustment int `pulumi:"scalingAdjustment"`
+}
+
+// InstanceGroupConfigSimpleScalingPolicyConfigurationInput is an input type that accepts InstanceGroupConfigSimpleScalingPolicyConfigurationArgs and InstanceGroupConfigSimpleScalingPolicyConfigurationOutput values.
+// You can construct a concrete instance of `InstanceGroupConfigSimpleScalingPolicyConfigurationInput` via:
+//
+//	InstanceGroupConfigSimpleScalingPolicyConfigurationArgs{...}
+type InstanceGroupConfigSimpleScalingPolicyConfigurationInput interface {
+	pulumi.Input
+
+	ToInstanceGroupConfigSimpleScalingPolicyConfigurationOutput() InstanceGroupConfigSimpleScalingPolicyConfigurationOutput
+	ToInstanceGroupConfigSimpleScalingPolicyConfigurationOutputWithContext(context.Context) InstanceGroupConfigSimpleScalingPolicyConfigurationOutput
+}
+
+type InstanceGroupConfigSimpleScalingPolicyConfigurationArgs struct {
+	// The way in which Amazon EC2 instances are added (if `ScalingAdjustment` is a positive number) or terminated (if `ScalingAdjustment` is a negative number) each time the scaling activity is triggered. `CHANGE_IN_CAPACITY` is the default. `CHANGE_IN_CAPACITY` indicates that the Amazon EC2 instance count increments or decrements by `ScalingAdjustment` , which should be expressed as an integer. `PERCENT_CHANGE_IN_CAPACITY` indicates the instance count increments or decrements by the percentage specified by `ScalingAdjustment` , which should be expressed as an integer. For example, 20 indicates an increase in 20% increments of cluster capacity. `EXACT_CAPACITY` indicates the scaling activity results in an instance group with the number of Amazon EC2 instances specified by `ScalingAdjustment` , which should be expressed as a positive integer.
+	AdjustmentType pulumi.StringPtrInput `pulumi:"adjustmentType"`
+	// The amount of time, in seconds, after a scaling activity completes before any further trigger-related scaling activities can start. The default value is 0.
+	CoolDown pulumi.IntPtrInput `pulumi:"coolDown"`
+	// The amount by which to scale in or scale out, based on the specified `AdjustmentType` . A positive value adds to the instance group's Amazon EC2 instance count while a negative number removes instances. If `AdjustmentType` is set to `EXACT_CAPACITY` , the number should only be a positive integer. If `AdjustmentType` is set to `PERCENT_CHANGE_IN_CAPACITY` , the value should express the percentage as an integer. For example, -20 indicates a decrease in 20% increments of cluster capacity.
+	ScalingAdjustment pulumi.IntInput `pulumi:"scalingAdjustment"`
+}
+
+func (InstanceGroupConfigSimpleScalingPolicyConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceGroupConfigSimpleScalingPolicyConfiguration)(nil)).Elem()
+}
+
+func (i InstanceGroupConfigSimpleScalingPolicyConfigurationArgs) ToInstanceGroupConfigSimpleScalingPolicyConfigurationOutput() InstanceGroupConfigSimpleScalingPolicyConfigurationOutput {
+	return i.ToInstanceGroupConfigSimpleScalingPolicyConfigurationOutputWithContext(context.Background())
+}
+
+func (i InstanceGroupConfigSimpleScalingPolicyConfigurationArgs) ToInstanceGroupConfigSimpleScalingPolicyConfigurationOutputWithContext(ctx context.Context) InstanceGroupConfigSimpleScalingPolicyConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceGroupConfigSimpleScalingPolicyConfigurationOutput)
+}
+
+type InstanceGroupConfigSimpleScalingPolicyConfigurationOutput struct{ *pulumi.OutputState }
+
+func (InstanceGroupConfigSimpleScalingPolicyConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceGroupConfigSimpleScalingPolicyConfiguration)(nil)).Elem()
+}
+
+func (o InstanceGroupConfigSimpleScalingPolicyConfigurationOutput) ToInstanceGroupConfigSimpleScalingPolicyConfigurationOutput() InstanceGroupConfigSimpleScalingPolicyConfigurationOutput {
+	return o
+}
+
+func (o InstanceGroupConfigSimpleScalingPolicyConfigurationOutput) ToInstanceGroupConfigSimpleScalingPolicyConfigurationOutputWithContext(ctx context.Context) InstanceGroupConfigSimpleScalingPolicyConfigurationOutput {
+	return o
+}
+
+// The way in which Amazon EC2 instances are added (if `ScalingAdjustment` is a positive number) or terminated (if `ScalingAdjustment` is a negative number) each time the scaling activity is triggered. `CHANGE_IN_CAPACITY` is the default. `CHANGE_IN_CAPACITY` indicates that the Amazon EC2 instance count increments or decrements by `ScalingAdjustment` , which should be expressed as an integer. `PERCENT_CHANGE_IN_CAPACITY` indicates the instance count increments or decrements by the percentage specified by `ScalingAdjustment` , which should be expressed as an integer. For example, 20 indicates an increase in 20% increments of cluster capacity. `EXACT_CAPACITY` indicates the scaling activity results in an instance group with the number of Amazon EC2 instances specified by `ScalingAdjustment` , which should be expressed as a positive integer.
+func (o InstanceGroupConfigSimpleScalingPolicyConfigurationOutput) AdjustmentType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InstanceGroupConfigSimpleScalingPolicyConfiguration) *string { return v.AdjustmentType }).(pulumi.StringPtrOutput)
+}
+
+// The amount of time, in seconds, after a scaling activity completes before any further trigger-related scaling activities can start. The default value is 0.
+func (o InstanceGroupConfigSimpleScalingPolicyConfigurationOutput) CoolDown() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v InstanceGroupConfigSimpleScalingPolicyConfiguration) *int { return v.CoolDown }).(pulumi.IntPtrOutput)
+}
+
+// The amount by which to scale in or scale out, based on the specified `AdjustmentType` . A positive value adds to the instance group's Amazon EC2 instance count while a negative number removes instances. If `AdjustmentType` is set to `EXACT_CAPACITY` , the number should only be a positive integer. If `AdjustmentType` is set to `PERCENT_CHANGE_IN_CAPACITY` , the value should express the percentage as an integer. For example, -20 indicates a decrease in 20% increments of cluster capacity.
+func (o InstanceGroupConfigSimpleScalingPolicyConfigurationOutput) ScalingAdjustment() pulumi.IntOutput {
+	return o.ApplyT(func(v InstanceGroupConfigSimpleScalingPolicyConfiguration) int { return v.ScalingAdjustment }).(pulumi.IntOutput)
+}
+
+type InstanceGroupConfigVolumeSpecification struct {
+	// The number of I/O operations per second (IOPS) that the volume supports.
+	Iops *int `pulumi:"iops"`
+	// The volume size, in gibibytes (GiB). This can be a number from 1 - 1024. If the volume type is EBS-optimized, the minimum value is 10.
+	SizeInGb int `pulumi:"sizeInGb"`
+	// The throughput, in mebibyte per second (MiB/s). This optional parameter can be a number from 125 - 1000 and is valid only for gp3 volumes.
+	Throughput *int `pulumi:"throughput"`
+	// The volume type. Volume types supported are gp3, gp2, io1, st1, sc1, and standard.
+	VolumeType string `pulumi:"volumeType"`
+}
+
+// InstanceGroupConfigVolumeSpecificationInput is an input type that accepts InstanceGroupConfigVolumeSpecificationArgs and InstanceGroupConfigVolumeSpecificationOutput values.
+// You can construct a concrete instance of `InstanceGroupConfigVolumeSpecificationInput` via:
+//
+//	InstanceGroupConfigVolumeSpecificationArgs{...}
+type InstanceGroupConfigVolumeSpecificationInput interface {
+	pulumi.Input
+
+	ToInstanceGroupConfigVolumeSpecificationOutput() InstanceGroupConfigVolumeSpecificationOutput
+	ToInstanceGroupConfigVolumeSpecificationOutputWithContext(context.Context) InstanceGroupConfigVolumeSpecificationOutput
+}
+
+type InstanceGroupConfigVolumeSpecificationArgs struct {
+	// The number of I/O operations per second (IOPS) that the volume supports.
+	Iops pulumi.IntPtrInput `pulumi:"iops"`
+	// The volume size, in gibibytes (GiB). This can be a number from 1 - 1024. If the volume type is EBS-optimized, the minimum value is 10.
+	SizeInGb pulumi.IntInput `pulumi:"sizeInGb"`
+	// The throughput, in mebibyte per second (MiB/s). This optional parameter can be a number from 125 - 1000 and is valid only for gp3 volumes.
+	Throughput pulumi.IntPtrInput `pulumi:"throughput"`
+	// The volume type. Volume types supported are gp3, gp2, io1, st1, sc1, and standard.
+	VolumeType pulumi.StringInput `pulumi:"volumeType"`
+}
+
+func (InstanceGroupConfigVolumeSpecificationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceGroupConfigVolumeSpecification)(nil)).Elem()
+}
+
+func (i InstanceGroupConfigVolumeSpecificationArgs) ToInstanceGroupConfigVolumeSpecificationOutput() InstanceGroupConfigVolumeSpecificationOutput {
+	return i.ToInstanceGroupConfigVolumeSpecificationOutputWithContext(context.Background())
+}
+
+func (i InstanceGroupConfigVolumeSpecificationArgs) ToInstanceGroupConfigVolumeSpecificationOutputWithContext(ctx context.Context) InstanceGroupConfigVolumeSpecificationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceGroupConfigVolumeSpecificationOutput)
+}
+
+type InstanceGroupConfigVolumeSpecificationOutput struct{ *pulumi.OutputState }
+
+func (InstanceGroupConfigVolumeSpecificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceGroupConfigVolumeSpecification)(nil)).Elem()
+}
+
+func (o InstanceGroupConfigVolumeSpecificationOutput) ToInstanceGroupConfigVolumeSpecificationOutput() InstanceGroupConfigVolumeSpecificationOutput {
+	return o
+}
+
+func (o InstanceGroupConfigVolumeSpecificationOutput) ToInstanceGroupConfigVolumeSpecificationOutputWithContext(ctx context.Context) InstanceGroupConfigVolumeSpecificationOutput {
+	return o
+}
+
+// The number of I/O operations per second (IOPS) that the volume supports.
+func (o InstanceGroupConfigVolumeSpecificationOutput) Iops() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v InstanceGroupConfigVolumeSpecification) *int { return v.Iops }).(pulumi.IntPtrOutput)
+}
+
+// The volume size, in gibibytes (GiB). This can be a number from 1 - 1024. If the volume type is EBS-optimized, the minimum value is 10.
+func (o InstanceGroupConfigVolumeSpecificationOutput) SizeInGb() pulumi.IntOutput {
+	return o.ApplyT(func(v InstanceGroupConfigVolumeSpecification) int { return v.SizeInGb }).(pulumi.IntOutput)
+}
+
+// The throughput, in mebibyte per second (MiB/s). This optional parameter can be a number from 125 - 1000 and is valid only for gp3 volumes.
+func (o InstanceGroupConfigVolumeSpecificationOutput) Throughput() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v InstanceGroupConfigVolumeSpecification) *int { return v.Throughput }).(pulumi.IntPtrOutput)
+}
+
+// The volume type. Volume types supported are gp3, gp2, io1, st1, sc1, and standard.
+func (o InstanceGroupConfigVolumeSpecificationOutput) VolumeType() pulumi.StringOutput {
+	return o.ApplyT(func(v InstanceGroupConfigVolumeSpecification) string { return v.VolumeType }).(pulumi.StringOutput)
+}
+
 type StepHadoopJarStepConfig struct {
 	// A list of command line arguments passed to the JAR file's main function when executed.
 	Args []string `pulumi:"args"`
@@ -215,9 +1525,47 @@ type WalWorkspaceTag struct {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*InstanceGroupConfigAppConfigurationInput)(nil)).Elem(), InstanceGroupConfigAppConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InstanceGroupConfigAppConfigurationArrayInput)(nil)).Elem(), InstanceGroupConfigAppConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InstanceGroupConfigAutoScalingPolicyInput)(nil)).Elem(), InstanceGroupConfigAutoScalingPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InstanceGroupConfigAutoScalingPolicyPtrInput)(nil)).Elem(), InstanceGroupConfigAutoScalingPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InstanceGroupConfigCloudWatchAlarmDefinitionInput)(nil)).Elem(), InstanceGroupConfigCloudWatchAlarmDefinitionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InstanceGroupConfigEbsBlockDeviceConfigInput)(nil)).Elem(), InstanceGroupConfigEbsBlockDeviceConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InstanceGroupConfigEbsBlockDeviceConfigArrayInput)(nil)).Elem(), InstanceGroupConfigEbsBlockDeviceConfigArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InstanceGroupConfigEbsConfigurationInput)(nil)).Elem(), InstanceGroupConfigEbsConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InstanceGroupConfigEbsConfigurationPtrInput)(nil)).Elem(), InstanceGroupConfigEbsConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InstanceGroupConfigMetricDimensionInput)(nil)).Elem(), InstanceGroupConfigMetricDimensionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InstanceGroupConfigMetricDimensionArrayInput)(nil)).Elem(), InstanceGroupConfigMetricDimensionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InstanceGroupConfigScalingActionInput)(nil)).Elem(), InstanceGroupConfigScalingActionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InstanceGroupConfigScalingConstraintsInput)(nil)).Elem(), InstanceGroupConfigScalingConstraintsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InstanceGroupConfigScalingConstraintsPtrInput)(nil)).Elem(), InstanceGroupConfigScalingConstraintsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InstanceGroupConfigScalingRuleInput)(nil)).Elem(), InstanceGroupConfigScalingRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InstanceGroupConfigScalingRuleArrayInput)(nil)).Elem(), InstanceGroupConfigScalingRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InstanceGroupConfigScalingTriggerInput)(nil)).Elem(), InstanceGroupConfigScalingTriggerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InstanceGroupConfigSimpleScalingPolicyConfigurationInput)(nil)).Elem(), InstanceGroupConfigSimpleScalingPolicyConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InstanceGroupConfigVolumeSpecificationInput)(nil)).Elem(), InstanceGroupConfigVolumeSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StepHadoopJarStepConfigInput)(nil)).Elem(), StepHadoopJarStepConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StepKeyValueInput)(nil)).Elem(), StepKeyValueArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StepKeyValueArrayInput)(nil)).Elem(), StepKeyValueArray{})
+	pulumi.RegisterOutputType(InstanceGroupConfigAppConfigurationOutput{})
+	pulumi.RegisterOutputType(InstanceGroupConfigAppConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(InstanceGroupConfigAutoScalingPolicyOutput{})
+	pulumi.RegisterOutputType(InstanceGroupConfigAutoScalingPolicyPtrOutput{})
+	pulumi.RegisterOutputType(InstanceGroupConfigCloudWatchAlarmDefinitionOutput{})
+	pulumi.RegisterOutputType(InstanceGroupConfigEbsBlockDeviceConfigOutput{})
+	pulumi.RegisterOutputType(InstanceGroupConfigEbsBlockDeviceConfigArrayOutput{})
+	pulumi.RegisterOutputType(InstanceGroupConfigEbsConfigurationOutput{})
+	pulumi.RegisterOutputType(InstanceGroupConfigEbsConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(InstanceGroupConfigMetricDimensionOutput{})
+	pulumi.RegisterOutputType(InstanceGroupConfigMetricDimensionArrayOutput{})
+	pulumi.RegisterOutputType(InstanceGroupConfigScalingActionOutput{})
+	pulumi.RegisterOutputType(InstanceGroupConfigScalingConstraintsOutput{})
+	pulumi.RegisterOutputType(InstanceGroupConfigScalingConstraintsPtrOutput{})
+	pulumi.RegisterOutputType(InstanceGroupConfigScalingRuleOutput{})
+	pulumi.RegisterOutputType(InstanceGroupConfigScalingRuleArrayOutput{})
+	pulumi.RegisterOutputType(InstanceGroupConfigScalingTriggerOutput{})
+	pulumi.RegisterOutputType(InstanceGroupConfigSimpleScalingPolicyConfigurationOutput{})
+	pulumi.RegisterOutputType(InstanceGroupConfigVolumeSpecificationOutput{})
 	pulumi.RegisterOutputType(StepHadoopJarStepConfigOutput{})
 	pulumi.RegisterOutputType(StepKeyValueOutput{})
 	pulumi.RegisterOutputType(StepKeyValueArrayOutput{})

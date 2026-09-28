@@ -245,6 +245,11 @@ export const getViewVersion: typeof import("./getViewVersion").getViewVersion = 
 export const getViewVersionOutput: typeof import("./getViewVersion").getViewVersionOutput = null as any;
 utilities.lazyLoad(exports, ["getViewVersion","getViewVersionOutput"], () => require("./getViewVersion"));
 
+export { GetVocabularyArgs, GetVocabularyResult, GetVocabularyOutputArgs } from "./getVocabulary";
+export const getVocabulary: typeof import("./getVocabulary").getVocabulary = null as any;
+export const getVocabularyOutput: typeof import("./getVocabulary").getVocabularyOutput = null as any;
+utilities.lazyLoad(exports, ["getVocabulary","getVocabularyOutput"], () => require("./getVocabulary"));
+
 export { GetWorkspaceArgs, GetWorkspaceResult, GetWorkspaceOutputArgs } from "./getWorkspace";
 export const getWorkspace: typeof import("./getWorkspace").getWorkspace = null as any;
 export const getWorkspaceOutput: typeof import("./getWorkspace").getWorkspaceOutput = null as any;
@@ -365,6 +370,11 @@ export type ViewVersion = import("./viewVersion").ViewVersion;
 export const ViewVersion: typeof import("./viewVersion").ViewVersion = null as any;
 utilities.lazyLoad(exports, ["ViewVersion"], () => require("./viewVersion"));
 
+export { VocabularyArgs } from "./vocabulary";
+export type Vocabulary = import("./vocabulary").Vocabulary;
+export const Vocabulary: typeof import("./vocabulary").Vocabulary = null as any;
+utilities.lazyLoad(exports, ["Vocabulary"], () => require("./vocabulary"));
+
 export { WorkspaceArgs } from "./workspace";
 export type Workspace = import("./workspace").Workspace;
 export const Workspace: typeof import("./workspace").Workspace = null as any;
@@ -450,6 +460,8 @@ const _module = {
                 return new View(name, <any>undefined, { urn })
             case "aws-native:connect:ViewVersion":
                 return new ViewVersion(name, <any>undefined, { urn })
+            case "aws-native:connect:Vocabulary":
+                return new Vocabulary(name, <any>undefined, { urn })
             case "aws-native:connect:Workspace":
                 return new Workspace(name, <any>undefined, { urn })
             default:

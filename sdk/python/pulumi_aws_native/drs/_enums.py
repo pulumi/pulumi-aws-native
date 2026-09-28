@@ -9,6 +9,11 @@ from enum import Enum
 __all__ = [
     'LaunchConfigurationTemplateLaunchDisposition',
     'LaunchConfigurationTemplateTargetInstanceTypeRightSizingMethod',
+    'ReplicationConfigurationTemplateDataPlaneRouting',
+    'ReplicationConfigurationTemplateDefaultLargeStagingDiskType',
+    'ReplicationConfigurationTemplateEbsEncryption',
+    'ReplicationConfigurationTemplateInternetProtocol',
+    'ReplicationConfigurationTemplatePitPolicyRuleUnits',
 ]
 
 
@@ -29,3 +34,52 @@ class LaunchConfigurationTemplateTargetInstanceTypeRightSizingMethod(_builtins.s
     NONE = "NONE"
     BASIC = "BASIC"
     IN_AWS = "IN_AWS"
+
+
+@pulumi.type_token("aws-native:drs:ReplicationConfigurationTemplateDataPlaneRouting")
+class ReplicationConfigurationTemplateDataPlaneRouting(_builtins.str, Enum):
+    """
+    The data plane routing mechanism that will be used for replication.
+    """
+    PRIVATE_IP = "PRIVATE_IP"
+    PUBLIC_IP = "PUBLIC_IP"
+
+
+@pulumi.type_token("aws-native:drs:ReplicationConfigurationTemplateDefaultLargeStagingDiskType")
+class ReplicationConfigurationTemplateDefaultLargeStagingDiskType(_builtins.str, Enum):
+    """
+    The Staging Disk EBS volume type to be used during replication.
+    """
+    GP2 = "GP2"
+    GP3 = "GP3"
+    ST1 = "ST1"
+    AUTO = "AUTO"
+
+
+@pulumi.type_token("aws-native:drs:ReplicationConfigurationTemplateEbsEncryption")
+class ReplicationConfigurationTemplateEbsEncryption(_builtins.str, Enum):
+    """
+    The type of EBS encryption to be used during replication.
+    """
+    DEFAULT = "DEFAULT"
+    CUSTOM = "CUSTOM"
+    NONE = "NONE"
+
+
+@pulumi.type_token("aws-native:drs:ReplicationConfigurationTemplateInternetProtocol")
+class ReplicationConfigurationTemplateInternetProtocol(_builtins.str, Enum):
+    """
+    Which version of the Internet Protocol to use for replication of data.
+    """
+    IPV4 = "IPV4"
+    IPV6 = "IPV6"
+
+
+@pulumi.type_token("aws-native:drs:ReplicationConfigurationTemplatePitPolicyRuleUnits")
+class ReplicationConfigurationTemplatePitPolicyRuleUnits(_builtins.str, Enum):
+    """
+    The units used to measure the interval and retentionDuration.
+    """
+    MINUTE = "MINUTE"
+    HOUR = "HOUR"
+    DAY = "DAY"

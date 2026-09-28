@@ -35,6 +35,11 @@ export type EmailIdentity = import("./emailIdentity").EmailIdentity;
 export const EmailIdentity: typeof import("./emailIdentity").EmailIdentity = null as any;
 utilities.lazyLoad(exports, ["EmailIdentity"], () => require("./emailIdentity"));
 
+export { EmailIdentityCertificateArgs } from "./emailIdentityCertificate";
+export type EmailIdentityCertificate = import("./emailIdentityCertificate").EmailIdentityCertificate;
+export const EmailIdentityCertificate: typeof import("./emailIdentityCertificate").EmailIdentityCertificate = null as any;
+utilities.lazyLoad(exports, ["EmailIdentityCertificate"], () => require("./emailIdentityCertificate"));
+
 export { GetConfigurationSetArgs, GetConfigurationSetResult, GetConfigurationSetOutputArgs } from "./getConfigurationSet";
 export const getConfigurationSet: typeof import("./getConfigurationSet").getConfigurationSet = null as any;
 export const getConfigurationSetOutput: typeof import("./getConfigurationSet").getConfigurationSetOutput = null as any;
@@ -230,6 +235,8 @@ const _module = {
                 return new DedicatedIpPool(name, <any>undefined, { urn })
             case "aws-native:ses:EmailIdentity":
                 return new EmailIdentity(name, <any>undefined, { urn })
+            case "aws-native:ses:EmailIdentityCertificate":
+                return new EmailIdentityCertificate(name, <any>undefined, { urn })
             case "aws-native:ses:MailManagerAddonInstance":
                 return new MailManagerAddonInstance(name, <any>undefined, { urn })
             case "aws-native:ses:MailManagerAddonSubscription":

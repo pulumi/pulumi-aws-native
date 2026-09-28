@@ -7,12 +7,69 @@ import pulumi
 from enum import Enum
 
 __all__ = [
+    'AgentContextApplicationType',
+    'AgentContextContextType',
+    'AgentContextCriticality',
+    'AgentGoalPillar',
+    'AgentProfilePillar',
     'ReviewTemplateUpdateStatus',
     'WorkloadDiscoveryConfigPropertiesTrustedAdvisorIntegrationStatus',
     'WorkloadDiscoveryConfigPropertiesWorkloadResourceDefinitionItem',
     'WorkloadEnvironment',
     'WorkloadImprovementStatus',
 ]
+
+
+@pulumi.type_token("aws-native:wellarchitected:AgentContextApplicationType")
+class AgentContextApplicationType(_builtins.str, Enum):
+    """
+    Type of the application described by this context. Mirrors the value stored in `Content.applicationType` and is surfaced as a typed read-only attribute by the service for discoverability.
+    """
+    SAS = "SAS"
+    DESKTOP_APPLICATION = "DESKTOP_APPLICATION"
+    OTHER = "OTHER"
+
+
+@pulumi.type_token("aws-native:wellarchitected:AgentContextContextType")
+class AgentContextContextType(_builtins.str, Enum):
+    """
+    The type of the Agent Context.
+    """
+    APPLICATION = "APPLICATION"
+
+
+@pulumi.type_token("aws-native:wellarchitected:AgentContextCriticality")
+class AgentContextCriticality(_builtins.str, Enum):
+    """
+    Business criticality of the application described by this context. Mirrors the value stored in `Content.criticality` and is surfaced as a typed read-only attribute by the service for discoverability.
+    """
+    MISSION_CRITICAL = "MISSION_CRITICAL"
+    BUSINESS_CRITICAL = "BUSINESS_CRITICAL"
+    NON_CRITICAL = "NON_CRITICAL"
+    TEST_DEVELOPMENT = "TEST_DEVELOPMENT"
+
+
+@pulumi.type_token("aws-native:wellarchitected:AgentGoalPillar")
+class AgentGoalPillar(_builtins.str, Enum):
+    """
+    A Well-Architected pillar the Agent Goal targets.
+    """
+    COST_OPTIMIZATION = "COST_OPTIMIZATION"
+    SECURITY = "SECURITY"
+    RESILIENCE = "RESILIENCE"
+    PERFORMANCE = "PERFORMANCE"
+    OPERATIONAL_EXCELLENCE = "OPERATIONAL_EXCELLENCE"
+
+
+@pulumi.type_token("aws-native:wellarchitected:AgentProfilePillar")
+class AgentProfilePillar(_builtins.str, Enum):
+    """
+    A Well-Architected pillar the Agent Profile focuses on.
+    """
+    COST_OPTIMIZATION = "COST_OPTIMIZATION"
+    SECURITY = "SECURITY"
+    RESILIENCE = "RESILIENCE"
+    PERFORMANCE = "PERFORMANCE"
 
 
 @pulumi.type_token("aws-native:wellarchitected:ReviewTemplateUpdateStatus")

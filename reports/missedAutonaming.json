@@ -2191,6 +2191,34 @@
       }
     }
   },
+  "aws-native:cases:RelatedItem": {
+    "cfTypeName": "AWS::Cases::RelatedItem",
+    "properties": {
+      "caseId": {
+        "type": "string",
+        "description": "A unique identifier of the case."
+      },
+      "content": {
+        "$ref": "#/types/aws-native:cases:RelatedItemContent",
+        "description": "The content of a related item to be created."
+      },
+      "domainId": {
+        "type": "string",
+        "description": "The unique identifier of the Cases domain."
+      },
+      "tags": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:index:Tag"
+        },
+        "description": "A list of tags on the related item."
+      },
+      "type": {
+        "$ref": "#/types/aws-native:cases:RelatedItemType",
+        "description": "The type of a related item."
+      }
+    }
+  },
   "aws-native:certificatemanager:Account": {
     "cfTypeName": "AWS::CertificateManager::Account",
     "properties": {
@@ -3477,6 +3505,9 @@
   "aws-native:connect:EvaluationForm": {
     "cfTypeName": "AWS::Connect::EvaluationForm",
     "properties": {
+      "aiVersion": {
+        "type": "string"
+      },
       "autoEvaluationConfiguration": {
         "$ref": "#/types/aws-native:connect:EvaluationFormAutoEvaluationConfiguration",
         "description": "The automatic evaluation configuration of an evaluation form."
@@ -5666,6 +5697,87 @@
       }
     }
   },
+  "aws-native:drs:ReplicationConfigurationTemplate": {
+    "cfTypeName": "AWS::DRS::ReplicationConfigurationTemplate",
+    "properties": {
+      "associateDefaultSecurityGroup": {
+        "type": "boolean",
+        "description": "Whether to associate the default Elastic Disaster Recovery Security group with the Replication Configuration Template."
+      },
+      "autoReplicateNewDisks": {
+        "type": "boolean",
+        "description": "Whether to allow the AWS replication agent to automatically replicate newly added disks."
+      },
+      "bandwidthThrottling": {
+        "type": "integer",
+        "description": "Configure bandwidth throttling for the outbound data transfer rate of the Source Server in Mbps."
+      },
+      "createPublicIp": {
+        "type": "boolean",
+        "description": "Whether to create a Public IP for the Recovery Instance by default."
+      },
+      "dataPlaneRouting": {
+        "$ref": "#/types/aws-native:drs:ReplicationConfigurationTemplateDataPlaneRouting",
+        "description": "The data plane routing mechanism that will be used for replication."
+      },
+      "defaultLargeStagingDiskType": {
+        "$ref": "#/types/aws-native:drs:ReplicationConfigurationTemplateDefaultLargeStagingDiskType",
+        "description": "The Staging Disk EBS volume type to be used during replication."
+      },
+      "ebsEncryption": {
+        "$ref": "#/types/aws-native:drs:ReplicationConfigurationTemplateEbsEncryption",
+        "description": "The type of EBS encryption to be used during replication."
+      },
+      "ebsEncryptionKeyArn": {
+        "type": "string",
+        "description": "The ARN of the EBS encryption key to be used during replication."
+      },
+      "internetProtocol": {
+        "$ref": "#/types/aws-native:drs:ReplicationConfigurationTemplateInternetProtocol",
+        "description": "Which version of the Internet Protocol to use for replication of data."
+      },
+      "pitPolicy": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:drs:ReplicationConfigurationTemplatePitPolicyRule"
+        },
+        "description": "The Point in time (PIT) policy to manage snapshots taken during replication."
+      },
+      "replicationServerInstanceType": {
+        "type": "string",
+        "description": "The instance type to be used for the replication server."
+      },
+      "replicationServersSecurityGroupsIds": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "description": "The security group IDs that will be used by the replication server."
+      },
+      "stagingAreaSubnetId": {
+        "type": "string",
+        "description": "The subnet to be used by the replication staging area."
+      },
+      "stagingAreaTags": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "string"
+        },
+        "description": "A set of tags to be associated with all resources created in the replication staging area: EC2 replication server, EBS volumes, EBS snapshots, etc."
+      },
+      "tags": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:index:Tag"
+        },
+        "description": "A set of tags to be associated with the Replication Configuration Template resource."
+      },
+      "useDedicatedReplicationServer": {
+        "type": "boolean",
+        "description": "Whether to use a dedicated Replication Server in the replication staging area."
+      }
+    }
+  },
   "aws-native:drs:SourceNetwork": {
     "cfTypeName": "AWS::DRS::SourceNetwork",
     "properties": {
@@ -6301,6 +6413,18 @@
           "$ref": "#/types/aws-native:index:Tag"
         },
         "description": "Any tags assigned to the Host."
+      }
+    }
+  },
+  "aws-native:ec2:IPv4Pool": {
+    "cfTypeName": "AWS::EC2::IPv4Pool",
+    "properties": {
+      "tags": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:index:Tag"
+        },
+        "description": "Any tags assigned to the public IPv4 pool."
       }
     }
   },
@@ -7842,6 +7966,34 @@
       "subnetId": {
         "type": "string",
         "description": "The ID of the subnet"
+      }
+    }
+  },
+  "aws-native:ec2:SubnetCidrReservation": {
+    "cfTypeName": "AWS::EC2::SubnetCidrReservation",
+    "properties": {
+      "cidr": {
+        "type": "string",
+        "description": "The IPv4 or IPv6 CIDR range to reserve. Must lie inside the subnet's CIDR block and must not overlap an existing reservation. Supply an IPv6 range exactly as the service returns it: Amazon EC2 stores an IPv6 CIDR in RFC 5952 compressed form, and a noncanonical spelling of the same range is reported as drift because this property is create-only and read back."
+      },
+      "description": {
+        "type": "string",
+        "description": "The description of the subnet CIDR reservation."
+      },
+      "reservationType": {
+        "$ref": "#/types/aws-native:ec2:SubnetCidrReservationReservationType",
+        "description": "The type of reservation. A prefix reservation is used for an IPv6 prefix delegated to a network interface; an explicit reservation is used for a range that Amazon EC2 must not assign automatically."
+      },
+      "subnetId": {
+        "type": "string",
+        "description": "The identifier of the subnet the CIDR range is reserved in."
+      },
+      "tags": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:index:Tag"
+        },
+        "description": "The tags assigned to the subnet CIDR reservation."
       }
     }
   },
@@ -10585,6 +10737,19 @@
       }
     }
   },
+  "aws-native:eventsv2:ResourcePolicy": {
+    "cfTypeName": "AWS::EventsV2::ResourcePolicy",
+    "properties": {
+      "eventBusArn": {
+        "type": "string",
+        "description": "The Amazon Resource Name (ARN) of the event bus whose resource policy this is. The bus must already exist. This resource does not create it."
+      },
+      "policyDocument": {
+        "$ref": "pulumi.json#/Any",
+        "description": "The resource policy document, as a JSON object. The document can be up to 20 KB. This quota is adjustable. An empty object is not a valid policy. To remove the policy, delete this resource. The principals in the document must exist and be visible to the service when the policy is written. When you create a new IAM role or user, that principal might not be immediately visible to the service. You might need to enforce a delay before you include it in the document. For more information, see \"Changes that I make are not always immediately visible\" in the IAM User Guide. Declare Version. Write AWS account and role principals as ARNs rather than as account IDs. Write a single Action, Resource, or principal value as a scalar rather than as a one-element list. The service returns these forms as you wrote them. It normalizes other forms, and a normalized value can appear as drift. A stack update replaces the whole policy with this document, including any change made outside CloudFormation. For more information about event bus resource policies, see the Amazon EventBridge User Guide.\n\nSearch the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::EventsV2::ResourcePolicy` for more information about the expected schema for this property."
+      }
+    }
+  },
   "aws-native:fis:ExperimentTemplate": {
     "cfTypeName": "AWS::FIS::ExperimentTemplate",
     "properties": {
@@ -11198,6 +11363,27 @@
       "targetProcessingProperties": {
         "$ref": "#/types/aws-native:glue:TargetProcessingPropertiesProperties",
         "description": "The resource properties associated with the integration target."
+      }
+    }
+  },
+  "aws-native:glue:Partition": {
+    "cfTypeName": "AWS::Glue::Partition",
+    "properties": {
+      "catalogId": {
+        "type": "string",
+        "description": "The name of the catalog database in which to create the partition."
+      },
+      "databaseName": {
+        "type": "string",
+        "description": "The AWS account ID of the catalog in which the partion is to be created."
+      },
+      "partitionInput": {
+        "$ref": "#/types/aws-native:glue:PartitionInput",
+        "description": "The structure used to create and update a partition."
+      },
+      "tableName": {
+        "type": "string",
+        "description": "The name of the metadata table in which the partition is to be created."
       }
     }
   },
@@ -12241,6 +12427,23 @@
           "$ref": "#/types/aws-native:index:Tag"
         },
         "description": "Metadata which can be used to manage streams."
+      }
+    }
+  },
+  "aws-native:iot:ThingPrincipalAttachment": {
+    "cfTypeName": "AWS::IoT::ThingPrincipalAttachment",
+    "properties": {
+      "principal": {
+        "type": "string",
+        "description": "The principal, which can be a certificate ARN (as returned from the CreateCertificate operation) or an Amazon Cognito ID."
+      },
+      "thingName": {
+        "type": "string",
+        "description": "The name of the AWS IoT thing."
+      },
+      "thingPrincipalType": {
+        "type": "string",
+        "description": "The type of the relation you want to specify when you attach a principal to a thing."
       }
     }
   },
@@ -13658,6 +13861,74 @@
       }
     }
   },
+  "aws-native:mgn:LaunchConfigurationTemplate": {
+    "cfTypeName": "AWS::MGN::LaunchConfigurationTemplate",
+    "properties": {
+      "associatePublicIpAddress": {
+        "type": "boolean",
+        "description": "Whether to associate a public IP address with the launched instance."
+      },
+      "bootMode": {
+        "$ref": "#/types/aws-native:mgn:LaunchConfigurationTemplateBootMode",
+        "description": "Launch configuration template boot mode."
+      },
+      "copyPrivateIp": {
+        "type": "boolean",
+        "description": "Whether to copy the private IP of the source server."
+      },
+      "copyTags": {
+        "type": "boolean",
+        "description": "Whether to copy the tags of the source server."
+      },
+      "enableMapAutoTagging": {
+        "type": "boolean",
+        "description": "Whether to enable map auto tagging."
+      },
+      "enableParametersEncryption": {
+        "type": "boolean",
+        "description": "Whether to enable encryption of the AWS Systems Manager parameters used by post launch actions."
+      },
+      "largeVolumeConf": {
+        "$ref": "#/types/aws-native:mgn:LaunchConfigurationTemplateLaunchTemplateDiskConf"
+      },
+      "launchDisposition": {
+        "$ref": "#/types/aws-native:mgn:LaunchConfigurationTemplateLaunchDisposition",
+        "description": "Launch disposition."
+      },
+      "licensing": {
+        "$ref": "#/types/aws-native:mgn:LaunchConfigurationTemplateLicensing"
+      },
+      "mapAutoTaggingMpeId": {
+        "type": "string",
+        "description": "Launch configuration template map auto tagging MPE ID."
+      },
+      "parametersEncryptionKey": {
+        "type": "string",
+        "description": "ARN of the KMS key used to encrypt the AWS Systems Manager parameters used by post launch actions."
+      },
+      "postLaunchActions": {
+        "$ref": "#/types/aws-native:mgn:LaunchConfigurationTemplatePostLaunchActions"
+      },
+      "smallVolumeConf": {
+        "$ref": "#/types/aws-native:mgn:LaunchConfigurationTemplateLaunchTemplateDiskConf"
+      },
+      "smallVolumeMaxSize": {
+        "type": "integer",
+        "description": "Small volume maximum size, in GiB."
+      },
+      "tags": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:index:CreateOnlyTag"
+        },
+        "description": "A set of tags to be associated with the Launch Configuration Template."
+      },
+      "targetInstanceTypeRightSizingMethod": {
+        "$ref": "#/types/aws-native:mgn:LaunchConfigurationTemplateTargetInstanceTypeRightSizingMethod",
+        "description": "Target instance type right-sizing method."
+      }
+    }
+  },
   "aws-native:msk:BatchScramSecret": {
     "cfTypeName": "AWS::MSK::BatchScramSecret",
     "properties": {
@@ -14025,6 +14296,25 @@
       }
     }
   },
+  "aws-native:networkflowmonitor:Scope": {
+    "cfTypeName": "AWS::NetworkFlowMonitor::Scope",
+    "properties": {
+      "tags": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:index:Tag"
+        },
+        "description": "The tags for the scope."
+      },
+      "targets": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:networkflowmonitor:ScopeTargetResource"
+        },
+        "description": "The targets for the scope."
+      }
+    }
+  },
   "aws-native:networkmanager:ConnectAttachment": {
     "cfTypeName": "AWS::NetworkManager::ConnectAttachment",
     "properties": {
@@ -14097,6 +14387,42 @@
           "$ref": "#/types/aws-native:index:Tag"
         },
         "description": "An array of key-value pairs to apply to this resource."
+      }
+    }
+  },
+  "aws-native:networkmanager:Connection": {
+    "cfTypeName": "AWS::NetworkManager::Connection",
+    "properties": {
+      "connectedDeviceId": {
+        "type": "string",
+        "description": "The ID of the second device in the connection."
+      },
+      "connectedLinkId": {
+        "type": "string",
+        "description": "The ID of the link for the second device."
+      },
+      "description": {
+        "type": "string",
+        "description": "The description of the connection."
+      },
+      "deviceId": {
+        "type": "string",
+        "description": "The ID of the first device in the connection."
+      },
+      "globalNetworkId": {
+        "type": "string",
+        "description": "The ID of the global network that the connection belongs to."
+      },
+      "linkId": {
+        "type": "string",
+        "description": "The ID of the link for the first device."
+      },
+      "tags": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:index:Tag"
+        },
+        "description": "The tags for the connection."
       }
     }
   },
@@ -14995,6 +15321,34 @@
       },
       "vpcEndpointId": {
         "type": "string"
+      }
+    }
+  },
+  "aws-native:pi:PerfReports": {
+    "cfTypeName": "AWS::PI::PerfReports",
+    "properties": {
+      "endTime": {
+        "type": "string",
+        "description": "The end time defined for the analysis report in ISO 8601 format."
+      },
+      "identifier": {
+        "type": "string",
+        "description": "An immutable, AWS Region-unique identifier for a data source. Performance Insights gathers metrics from this data source. To use an Amazon RDS instance as a data source, specify its DbiResourceId value."
+      },
+      "serviceType": {
+        "$ref": "#/types/aws-native:pi:PerfReportsServiceType",
+        "description": "The AWS service for which Performance Insights returns metrics. Valid values are RDS and DOCDB."
+      },
+      "startTime": {
+        "type": "string",
+        "description": "The start time defined for the analysis report in ISO 8601 format."
+      },
+      "tags": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:index:CreateOnlyTag"
+        },
+        "description": "An array of key-value pairs to apply to this resource."
       }
     }
   },
@@ -16857,6 +17211,10 @@
       }
     }
   },
+  "aws-native:route53:DelegationSet": {
+    "cfTypeName": "AWS::Route53::DelegationSet",
+    "properties": {}
+  },
   "aws-native:route53:Dnssec": {
     "cfTypeName": "AWS::Route53::DNSSEC",
     "properties": {
@@ -18413,6 +18771,23 @@
       }
     }
   },
+  "aws-native:ses:EmailIdentityCertificate": {
+    "cfTypeName": "AWS::SES::EmailIdentityCertificate",
+    "properties": {
+      "certificateArn": {
+        "type": "string",
+        "description": "The ARN of the AWS Certificate Manager certificate to associate with the sender."
+      },
+      "emailIdentity": {
+        "type": "string",
+        "description": "The email identity that owns the sender the certificate is associated with."
+      },
+      "fromAddress": {
+        "type": "string",
+        "description": "The sender the certificate signs for. For an email address identity this is the identity itself."
+      }
+    }
+  },
   "aws-native:ses:MailManagerAddonInstance": {
     "cfTypeName": "AWS::SES::MailManagerAddonInstance",
     "properties": {
@@ -18737,6 +19112,26 @@
       }
     }
   },
+  "aws-native:smsvoice:RegistrationAttachment": {
+    "cfTypeName": "AWS::SMSVOICE::RegistrationAttachment",
+    "properties": {
+      "attachmentBody": {
+        "type": "string",
+        "description": "The registration file to upload. The maximum file size is 1500KB and valid file extensions are PDF, JPEG and PNG."
+      },
+      "attachmentUrl": {
+        "type": "string",
+        "description": "A URL to the required registration file. For example, the URL to an MMS/shortcode form."
+      },
+      "tags": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:index:Tag"
+        },
+        "description": "An array of tags (key and value pairs) to associate with the registration attachment."
+      }
+    }
+  },
   "aws-native:smsvoice:ResourcePolicy": {
     "cfTypeName": "AWS::SMSVOICE::ResourcePolicy",
     "properties": {
@@ -18769,6 +19164,22 @@
             "name": "SenderIdValue"
           }
         }
+      },
+      "tags": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:index:Tag"
+        },
+        "description": "An array of key-value pairs to apply to this resource."
+      }
+    }
+  },
+  "aws-native:smsvoice:VerifiedDestinationNumber": {
+    "cfTypeName": "AWS::SMSVOICE::VerifiedDestinationNumber",
+    "properties": {
+      "destinationPhoneNumber": {
+        "type": "string",
+        "description": "The verified destination phone number, in E.164 format."
       },
       "tags": {
         "type": "array",
@@ -19204,6 +19615,50 @@
       "worm": {
         "type": "boolean",
         "description": "Set to true to create a write-once-read-many (WORM) virtual tape."
+      }
+    }
+  },
+  "aws-native:storagegateway:Volume": {
+    "cfTypeName": "AWS::StorageGateway::Volume",
+    "properties": {
+      "gatewayArn": {
+        "type": "string",
+        "description": "The Amazon Resource Name (ARN) of the gateway on which to create the volume."
+      },
+      "kmsEncrypted": {
+        "type": "boolean",
+        "description": "Set to true to use Amazon S3 server-side encryption with your own KMS key, or false to use a key managed by Amazon S3."
+      },
+      "kmsKey": {
+        "type": "string",
+        "description": "The Amazon Resource Name (ARN) of a symmetric customer master key (CMK) used for Amazon S3 server-side encryption."
+      },
+      "networkInterfaceId": {
+        "type": "string",
+        "description": "The network interface of the gateway on which to expose the iSCSI target. Only IPv4 addresses are accepted."
+      },
+      "snapshotId": {
+        "type": "string",
+        "description": "The snapshot ID of the snapshot to restore as the new cached volume (e.g., snap-1122aabb)."
+      },
+      "sourceVolumeArn": {
+        "type": "string",
+        "description": "The ARN of an existing volume from which to create the new volume."
+      },
+      "tags": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:index:Tag"
+        },
+        "description": "A list of up to 50 tags to assign to the volume."
+      },
+      "targetName": {
+        "type": "string",
+        "description": "The name of the iSCSI target used by an initiator to connect to a volume and used as a suffix for the target ARN."
+      },
+      "volumeSizeInBytes": {
+        "type": "number",
+        "description": "The size of the volume in bytes."
       }
     }
   },
@@ -19930,6 +20385,50 @@
       "webAclArn": {
         "type": "string",
         "description": "The Amazon Resource Name (ARN) of the web ACL that you want to associate with the resource."
+      }
+    }
+  },
+  "aws-native:wellarchitected:AgentContext": {
+    "cfTypeName": "AWS::WellArchitected::AgentContext",
+    "properties": {
+      "content": {
+        "$ref": "pulumi.json#/Any",
+        "description": "The free-form content of the Agent Context, supplied as an arbitrary JSON object.\n\nSearch the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::WellArchitected::AgentContext` for more information about the expected schema for this property."
+      },
+      "contextType": {
+        "$ref": "#/types/aws-native:wellarchitected:AgentContextContextType"
+      },
+      "profileArn": {
+        "type": "string",
+        "description": "The Amazon Resource Name (ARN) of the parent Agent Profile that owns this context. Pass `!Ref` of the parent AWS::WellArchitected::AgentProfile to flow its ARN here."
+      },
+      "title": {
+        "type": "string",
+        "description": "The title of the Agent Context."
+      }
+    }
+  },
+  "aws-native:wellarchitected:AgentGoal": {
+    "cfTypeName": "AWS::WellArchitected::AgentGoal",
+    "properties": {
+      "description": {
+        "type": "string",
+        "description": "A description of the Agent Goal."
+      },
+      "pillars": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:wellarchitected:AgentGoalPillar"
+        },
+        "description": "The list of Well-Architected pillars this goal targets."
+      },
+      "profileArn": {
+        "type": "string",
+        "description": "The Amazon Resource Name (ARN) of the parent Agent Profile that owns this goal. Pass `!Ref` of the parent AWS::WellArchitected::AgentProfile to flow its ARN here."
+      },
+      "title": {
+        "type": "string",
+        "description": "The title of the Agent Goal."
       }
     }
   },

@@ -5431,6 +5431,376 @@ func (in *analysisDayOfTheWeekPtr) ToAnalysisDayOfTheWeekPtrOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, in).(AnalysisDayOfTheWeekPtrOutput)
 }
 
+type AnalysisDecalPatternType string
+
+const (
+	AnalysisDecalPatternTypeSolid                  = AnalysisDecalPatternType("SOLID")
+	AnalysisDecalPatternTypeDiagonalMedium         = AnalysisDecalPatternType("DIAGONAL_MEDIUM")
+	AnalysisDecalPatternTypeCircleMedium           = AnalysisDecalPatternType("CIRCLE_MEDIUM")
+	AnalysisDecalPatternTypeDiamondGridMedium      = AnalysisDecalPatternType("DIAMOND_GRID_MEDIUM")
+	AnalysisDecalPatternTypeCheckerboardMedium     = AnalysisDecalPatternType("CHECKERBOARD_MEDIUM")
+	AnalysisDecalPatternTypeTriangleMedium         = AnalysisDecalPatternType("TRIANGLE_MEDIUM")
+	AnalysisDecalPatternTypeDiagonalOppositeMedium = AnalysisDecalPatternType("DIAGONAL_OPPOSITE_MEDIUM")
+	AnalysisDecalPatternTypeDiamondMedium          = AnalysisDecalPatternType("DIAMOND_MEDIUM")
+	AnalysisDecalPatternTypeDiagonalLarge          = AnalysisDecalPatternType("DIAGONAL_LARGE")
+	AnalysisDecalPatternTypeCircleLarge            = AnalysisDecalPatternType("CIRCLE_LARGE")
+	AnalysisDecalPatternTypeDiamondGridLarge       = AnalysisDecalPatternType("DIAMOND_GRID_LARGE")
+	AnalysisDecalPatternTypeCheckerboardLarge      = AnalysisDecalPatternType("CHECKERBOARD_LARGE")
+	AnalysisDecalPatternTypeTriangleLarge          = AnalysisDecalPatternType("TRIANGLE_LARGE")
+	AnalysisDecalPatternTypeDiagonalOppositeLarge  = AnalysisDecalPatternType("DIAGONAL_OPPOSITE_LARGE")
+	AnalysisDecalPatternTypeDiamondLarge           = AnalysisDecalPatternType("DIAMOND_LARGE")
+	AnalysisDecalPatternTypeDiagonalSmall          = AnalysisDecalPatternType("DIAGONAL_SMALL")
+	AnalysisDecalPatternTypeCircleSmall            = AnalysisDecalPatternType("CIRCLE_SMALL")
+	AnalysisDecalPatternTypeDiamondGridSmall       = AnalysisDecalPatternType("DIAMOND_GRID_SMALL")
+	AnalysisDecalPatternTypeCheckerboardSmall      = AnalysisDecalPatternType("CHECKERBOARD_SMALL")
+	AnalysisDecalPatternTypeTriangleSmall          = AnalysisDecalPatternType("TRIANGLE_SMALL")
+	AnalysisDecalPatternTypeDiagonalOppositeSmall  = AnalysisDecalPatternType("DIAGONAL_OPPOSITE_SMALL")
+	AnalysisDecalPatternTypeDiamondSmall           = AnalysisDecalPatternType("DIAMOND_SMALL")
+)
+
+func (AnalysisDecalPatternType) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisDecalPatternType)(nil)).Elem()
+}
+
+func (e AnalysisDecalPatternType) ToAnalysisDecalPatternTypeOutput() AnalysisDecalPatternTypeOutput {
+	return pulumi.ToOutput(e).(AnalysisDecalPatternTypeOutput)
+}
+
+func (e AnalysisDecalPatternType) ToAnalysisDecalPatternTypeOutputWithContext(ctx context.Context) AnalysisDecalPatternTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(AnalysisDecalPatternTypeOutput)
+}
+
+func (e AnalysisDecalPatternType) ToAnalysisDecalPatternTypePtrOutput() AnalysisDecalPatternTypePtrOutput {
+	return e.ToAnalysisDecalPatternTypePtrOutputWithContext(context.Background())
+}
+
+func (e AnalysisDecalPatternType) ToAnalysisDecalPatternTypePtrOutputWithContext(ctx context.Context) AnalysisDecalPatternTypePtrOutput {
+	return AnalysisDecalPatternType(e).ToAnalysisDecalPatternTypeOutputWithContext(ctx).ToAnalysisDecalPatternTypePtrOutputWithContext(ctx)
+}
+
+func (e AnalysisDecalPatternType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AnalysisDecalPatternType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AnalysisDecalPatternType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e AnalysisDecalPatternType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type AnalysisDecalPatternTypeOutput struct{ *pulumi.OutputState }
+
+func (AnalysisDecalPatternTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisDecalPatternType)(nil)).Elem()
+}
+
+func (o AnalysisDecalPatternTypeOutput) ToAnalysisDecalPatternTypeOutput() AnalysisDecalPatternTypeOutput {
+	return o
+}
+
+func (o AnalysisDecalPatternTypeOutput) ToAnalysisDecalPatternTypeOutputWithContext(ctx context.Context) AnalysisDecalPatternTypeOutput {
+	return o
+}
+
+func (o AnalysisDecalPatternTypeOutput) ToAnalysisDecalPatternTypePtrOutput() AnalysisDecalPatternTypePtrOutput {
+	return o.ToAnalysisDecalPatternTypePtrOutputWithContext(context.Background())
+}
+
+func (o AnalysisDecalPatternTypeOutput) ToAnalysisDecalPatternTypePtrOutputWithContext(ctx context.Context) AnalysisDecalPatternTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnalysisDecalPatternType) *AnalysisDecalPatternType {
+		return &v
+	}).(AnalysisDecalPatternTypePtrOutput)
+}
+
+func (o AnalysisDecalPatternTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o AnalysisDecalPatternTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AnalysisDecalPatternType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o AnalysisDecalPatternTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AnalysisDecalPatternTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AnalysisDecalPatternType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type AnalysisDecalPatternTypePtrOutput struct{ *pulumi.OutputState }
+
+func (AnalysisDecalPatternTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnalysisDecalPatternType)(nil)).Elem()
+}
+
+func (o AnalysisDecalPatternTypePtrOutput) ToAnalysisDecalPatternTypePtrOutput() AnalysisDecalPatternTypePtrOutput {
+	return o
+}
+
+func (o AnalysisDecalPatternTypePtrOutput) ToAnalysisDecalPatternTypePtrOutputWithContext(ctx context.Context) AnalysisDecalPatternTypePtrOutput {
+	return o
+}
+
+func (o AnalysisDecalPatternTypePtrOutput) Elem() AnalysisDecalPatternTypeOutput {
+	return o.ApplyT(func(v *AnalysisDecalPatternType) AnalysisDecalPatternType {
+		if v != nil {
+			return *v
+		}
+		var ret AnalysisDecalPatternType
+		return ret
+	}).(AnalysisDecalPatternTypeOutput)
+}
+
+func (o AnalysisDecalPatternTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AnalysisDecalPatternTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AnalysisDecalPatternType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// AnalysisDecalPatternTypeInput is an input type that accepts values of the AnalysisDecalPatternType enum
+// A concrete instance of `AnalysisDecalPatternTypeInput` can be one of the following:
+//
+//	AnalysisDecalPatternTypeSolid
+//	AnalysisDecalPatternTypeDiagonalMedium
+//	AnalysisDecalPatternTypeCircleMedium
+//	AnalysisDecalPatternTypeDiamondGridMedium
+//	AnalysisDecalPatternTypeCheckerboardMedium
+//	AnalysisDecalPatternTypeTriangleMedium
+//	AnalysisDecalPatternTypeDiagonalOppositeMedium
+//	AnalysisDecalPatternTypeDiamondMedium
+//	AnalysisDecalPatternTypeDiagonalLarge
+//	AnalysisDecalPatternTypeCircleLarge
+//	AnalysisDecalPatternTypeDiamondGridLarge
+//	AnalysisDecalPatternTypeCheckerboardLarge
+//	AnalysisDecalPatternTypeTriangleLarge
+//	AnalysisDecalPatternTypeDiagonalOppositeLarge
+//	AnalysisDecalPatternTypeDiamondLarge
+//	AnalysisDecalPatternTypeDiagonalSmall
+//	AnalysisDecalPatternTypeCircleSmall
+//	AnalysisDecalPatternTypeDiamondGridSmall
+//	AnalysisDecalPatternTypeCheckerboardSmall
+//	AnalysisDecalPatternTypeTriangleSmall
+//	AnalysisDecalPatternTypeDiagonalOppositeSmall
+//	AnalysisDecalPatternTypeDiamondSmall
+type AnalysisDecalPatternTypeInput interface {
+	pulumi.Input
+
+	ToAnalysisDecalPatternTypeOutput() AnalysisDecalPatternTypeOutput
+	ToAnalysisDecalPatternTypeOutputWithContext(context.Context) AnalysisDecalPatternTypeOutput
+}
+
+var analysisDecalPatternTypePtrType = reflect.TypeOf((**AnalysisDecalPatternType)(nil)).Elem()
+
+type AnalysisDecalPatternTypePtrInput interface {
+	pulumi.Input
+
+	ToAnalysisDecalPatternTypePtrOutput() AnalysisDecalPatternTypePtrOutput
+	ToAnalysisDecalPatternTypePtrOutputWithContext(context.Context) AnalysisDecalPatternTypePtrOutput
+}
+
+type analysisDecalPatternTypePtr string
+
+func AnalysisDecalPatternTypePtr(v string) AnalysisDecalPatternTypePtrInput {
+	return (*analysisDecalPatternTypePtr)(&v)
+}
+
+func (*analysisDecalPatternTypePtr) ElementType() reflect.Type {
+	return analysisDecalPatternTypePtrType
+}
+
+func (in *analysisDecalPatternTypePtr) ToAnalysisDecalPatternTypePtrOutput() AnalysisDecalPatternTypePtrOutput {
+	return pulumi.ToOutput(in).(AnalysisDecalPatternTypePtrOutput)
+}
+
+func (in *analysisDecalPatternTypePtr) ToAnalysisDecalPatternTypePtrOutputWithContext(ctx context.Context) AnalysisDecalPatternTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(AnalysisDecalPatternTypePtrOutput)
+}
+
+type AnalysisDecalStyleType string
+
+const (
+	AnalysisDecalStyleTypeManual = AnalysisDecalStyleType("Manual")
+	AnalysisDecalStyleTypeAuto   = AnalysisDecalStyleType("Auto")
+)
+
+func (AnalysisDecalStyleType) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisDecalStyleType)(nil)).Elem()
+}
+
+func (e AnalysisDecalStyleType) ToAnalysisDecalStyleTypeOutput() AnalysisDecalStyleTypeOutput {
+	return pulumi.ToOutput(e).(AnalysisDecalStyleTypeOutput)
+}
+
+func (e AnalysisDecalStyleType) ToAnalysisDecalStyleTypeOutputWithContext(ctx context.Context) AnalysisDecalStyleTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(AnalysisDecalStyleTypeOutput)
+}
+
+func (e AnalysisDecalStyleType) ToAnalysisDecalStyleTypePtrOutput() AnalysisDecalStyleTypePtrOutput {
+	return e.ToAnalysisDecalStyleTypePtrOutputWithContext(context.Background())
+}
+
+func (e AnalysisDecalStyleType) ToAnalysisDecalStyleTypePtrOutputWithContext(ctx context.Context) AnalysisDecalStyleTypePtrOutput {
+	return AnalysisDecalStyleType(e).ToAnalysisDecalStyleTypeOutputWithContext(ctx).ToAnalysisDecalStyleTypePtrOutputWithContext(ctx)
+}
+
+func (e AnalysisDecalStyleType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AnalysisDecalStyleType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AnalysisDecalStyleType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e AnalysisDecalStyleType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type AnalysisDecalStyleTypeOutput struct{ *pulumi.OutputState }
+
+func (AnalysisDecalStyleTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisDecalStyleType)(nil)).Elem()
+}
+
+func (o AnalysisDecalStyleTypeOutput) ToAnalysisDecalStyleTypeOutput() AnalysisDecalStyleTypeOutput {
+	return o
+}
+
+func (o AnalysisDecalStyleTypeOutput) ToAnalysisDecalStyleTypeOutputWithContext(ctx context.Context) AnalysisDecalStyleTypeOutput {
+	return o
+}
+
+func (o AnalysisDecalStyleTypeOutput) ToAnalysisDecalStyleTypePtrOutput() AnalysisDecalStyleTypePtrOutput {
+	return o.ToAnalysisDecalStyleTypePtrOutputWithContext(context.Background())
+}
+
+func (o AnalysisDecalStyleTypeOutput) ToAnalysisDecalStyleTypePtrOutputWithContext(ctx context.Context) AnalysisDecalStyleTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnalysisDecalStyleType) *AnalysisDecalStyleType {
+		return &v
+	}).(AnalysisDecalStyleTypePtrOutput)
+}
+
+func (o AnalysisDecalStyleTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o AnalysisDecalStyleTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AnalysisDecalStyleType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o AnalysisDecalStyleTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AnalysisDecalStyleTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AnalysisDecalStyleType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type AnalysisDecalStyleTypePtrOutput struct{ *pulumi.OutputState }
+
+func (AnalysisDecalStyleTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnalysisDecalStyleType)(nil)).Elem()
+}
+
+func (o AnalysisDecalStyleTypePtrOutput) ToAnalysisDecalStyleTypePtrOutput() AnalysisDecalStyleTypePtrOutput {
+	return o
+}
+
+func (o AnalysisDecalStyleTypePtrOutput) ToAnalysisDecalStyleTypePtrOutputWithContext(ctx context.Context) AnalysisDecalStyleTypePtrOutput {
+	return o
+}
+
+func (o AnalysisDecalStyleTypePtrOutput) Elem() AnalysisDecalStyleTypeOutput {
+	return o.ApplyT(func(v *AnalysisDecalStyleType) AnalysisDecalStyleType {
+		if v != nil {
+			return *v
+		}
+		var ret AnalysisDecalStyleType
+		return ret
+	}).(AnalysisDecalStyleTypeOutput)
+}
+
+func (o AnalysisDecalStyleTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AnalysisDecalStyleTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AnalysisDecalStyleType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// AnalysisDecalStyleTypeInput is an input type that accepts values of the AnalysisDecalStyleType enum
+// A concrete instance of `AnalysisDecalStyleTypeInput` can be one of the following:
+//
+//	AnalysisDecalStyleTypeManual
+//	AnalysisDecalStyleTypeAuto
+type AnalysisDecalStyleTypeInput interface {
+	pulumi.Input
+
+	ToAnalysisDecalStyleTypeOutput() AnalysisDecalStyleTypeOutput
+	ToAnalysisDecalStyleTypeOutputWithContext(context.Context) AnalysisDecalStyleTypeOutput
+}
+
+var analysisDecalStyleTypePtrType = reflect.TypeOf((**AnalysisDecalStyleType)(nil)).Elem()
+
+type AnalysisDecalStyleTypePtrInput interface {
+	pulumi.Input
+
+	ToAnalysisDecalStyleTypePtrOutput() AnalysisDecalStyleTypePtrOutput
+	ToAnalysisDecalStyleTypePtrOutputWithContext(context.Context) AnalysisDecalStyleTypePtrOutput
+}
+
+type analysisDecalStyleTypePtr string
+
+func AnalysisDecalStyleTypePtr(v string) AnalysisDecalStyleTypePtrInput {
+	return (*analysisDecalStyleTypePtr)(&v)
+}
+
+func (*analysisDecalStyleTypePtr) ElementType() reflect.Type {
+	return analysisDecalStyleTypePtrType
+}
+
+func (in *analysisDecalStyleTypePtr) ToAnalysisDecalStyleTypePtrOutput() AnalysisDecalStyleTypePtrOutput {
+	return pulumi.ToOutput(in).(AnalysisDecalStyleTypePtrOutput)
+}
+
+func (in *analysisDecalStyleTypePtr) ToAnalysisDecalStyleTypePtrOutputWithContext(ctx context.Context) AnalysisDecalStyleTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(AnalysisDecalStyleTypePtrOutput)
+}
+
 type AnalysisDigitGroupingStyle string
 
 const (
@@ -15839,6 +16209,7 @@ type AnalysisSelectedTooltipType string
 const (
 	AnalysisSelectedTooltipTypeBasic    = AnalysisSelectedTooltipType("BASIC")
 	AnalysisSelectedTooltipTypeDetailed = AnalysisSelectedTooltipType("DETAILED")
+	AnalysisSelectedTooltipTypeSheet    = AnalysisSelectedTooltipType("SHEET")
 )
 
 func (AnalysisSelectedTooltipType) ElementType() reflect.Type {
@@ -15965,6 +16336,7 @@ func (o AnalysisSelectedTooltipTypePtrOutput) ToStringPtrOutputWithContext(ctx c
 //
 //	AnalysisSelectedTooltipTypeBasic
 //	AnalysisSelectedTooltipTypeDetailed
+//	AnalysisSelectedTooltipTypeSheet
 type AnalysisSelectedTooltipTypeInput interface {
 	pulumi.Input
 
@@ -18003,6 +18375,336 @@ func (in *analysisSortDirectionPtr) ToAnalysisSortDirectionPtrOutput() AnalysisS
 
 func (in *analysisSortDirectionPtr) ToAnalysisSortDirectionPtrOutputWithContext(ctx context.Context) AnalysisSortDirectionPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AnalysisSortDirectionPtrOutput)
+}
+
+type AnalysisSparklineAxisBehavior string
+
+const (
+	AnalysisSparklineAxisBehaviorShared      = AnalysisSparklineAxisBehavior("SHARED")
+	AnalysisSparklineAxisBehaviorIndependent = AnalysisSparklineAxisBehavior("INDEPENDENT")
+)
+
+func (AnalysisSparklineAxisBehavior) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisSparklineAxisBehavior)(nil)).Elem()
+}
+
+func (e AnalysisSparklineAxisBehavior) ToAnalysisSparklineAxisBehaviorOutput() AnalysisSparklineAxisBehaviorOutput {
+	return pulumi.ToOutput(e).(AnalysisSparklineAxisBehaviorOutput)
+}
+
+func (e AnalysisSparklineAxisBehavior) ToAnalysisSparklineAxisBehaviorOutputWithContext(ctx context.Context) AnalysisSparklineAxisBehaviorOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(AnalysisSparklineAxisBehaviorOutput)
+}
+
+func (e AnalysisSparklineAxisBehavior) ToAnalysisSparklineAxisBehaviorPtrOutput() AnalysisSparklineAxisBehaviorPtrOutput {
+	return e.ToAnalysisSparklineAxisBehaviorPtrOutputWithContext(context.Background())
+}
+
+func (e AnalysisSparklineAxisBehavior) ToAnalysisSparklineAxisBehaviorPtrOutputWithContext(ctx context.Context) AnalysisSparklineAxisBehaviorPtrOutput {
+	return AnalysisSparklineAxisBehavior(e).ToAnalysisSparklineAxisBehaviorOutputWithContext(ctx).ToAnalysisSparklineAxisBehaviorPtrOutputWithContext(ctx)
+}
+
+func (e AnalysisSparklineAxisBehavior) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AnalysisSparklineAxisBehavior) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AnalysisSparklineAxisBehavior) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e AnalysisSparklineAxisBehavior) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type AnalysisSparklineAxisBehaviorOutput struct{ *pulumi.OutputState }
+
+func (AnalysisSparklineAxisBehaviorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisSparklineAxisBehavior)(nil)).Elem()
+}
+
+func (o AnalysisSparklineAxisBehaviorOutput) ToAnalysisSparklineAxisBehaviorOutput() AnalysisSparklineAxisBehaviorOutput {
+	return o
+}
+
+func (o AnalysisSparklineAxisBehaviorOutput) ToAnalysisSparklineAxisBehaviorOutputWithContext(ctx context.Context) AnalysisSparklineAxisBehaviorOutput {
+	return o
+}
+
+func (o AnalysisSparklineAxisBehaviorOutput) ToAnalysisSparklineAxisBehaviorPtrOutput() AnalysisSparklineAxisBehaviorPtrOutput {
+	return o.ToAnalysisSparklineAxisBehaviorPtrOutputWithContext(context.Background())
+}
+
+func (o AnalysisSparklineAxisBehaviorOutput) ToAnalysisSparklineAxisBehaviorPtrOutputWithContext(ctx context.Context) AnalysisSparklineAxisBehaviorPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnalysisSparklineAxisBehavior) *AnalysisSparklineAxisBehavior {
+		return &v
+	}).(AnalysisSparklineAxisBehaviorPtrOutput)
+}
+
+func (o AnalysisSparklineAxisBehaviorOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o AnalysisSparklineAxisBehaviorOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AnalysisSparklineAxisBehavior) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o AnalysisSparklineAxisBehaviorOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AnalysisSparklineAxisBehaviorOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AnalysisSparklineAxisBehavior) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type AnalysisSparklineAxisBehaviorPtrOutput struct{ *pulumi.OutputState }
+
+func (AnalysisSparklineAxisBehaviorPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnalysisSparklineAxisBehavior)(nil)).Elem()
+}
+
+func (o AnalysisSparklineAxisBehaviorPtrOutput) ToAnalysisSparklineAxisBehaviorPtrOutput() AnalysisSparklineAxisBehaviorPtrOutput {
+	return o
+}
+
+func (o AnalysisSparklineAxisBehaviorPtrOutput) ToAnalysisSparklineAxisBehaviorPtrOutputWithContext(ctx context.Context) AnalysisSparklineAxisBehaviorPtrOutput {
+	return o
+}
+
+func (o AnalysisSparklineAxisBehaviorPtrOutput) Elem() AnalysisSparklineAxisBehaviorOutput {
+	return o.ApplyT(func(v *AnalysisSparklineAxisBehavior) AnalysisSparklineAxisBehavior {
+		if v != nil {
+			return *v
+		}
+		var ret AnalysisSparklineAxisBehavior
+		return ret
+	}).(AnalysisSparklineAxisBehaviorOutput)
+}
+
+func (o AnalysisSparklineAxisBehaviorPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AnalysisSparklineAxisBehaviorPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AnalysisSparklineAxisBehavior) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// AnalysisSparklineAxisBehaviorInput is an input type that accepts values of the AnalysisSparklineAxisBehavior enum
+// A concrete instance of `AnalysisSparklineAxisBehaviorInput` can be one of the following:
+//
+//	AnalysisSparklineAxisBehaviorShared
+//	AnalysisSparklineAxisBehaviorIndependent
+type AnalysisSparklineAxisBehaviorInput interface {
+	pulumi.Input
+
+	ToAnalysisSparklineAxisBehaviorOutput() AnalysisSparklineAxisBehaviorOutput
+	ToAnalysisSparklineAxisBehaviorOutputWithContext(context.Context) AnalysisSparklineAxisBehaviorOutput
+}
+
+var analysisSparklineAxisBehaviorPtrType = reflect.TypeOf((**AnalysisSparklineAxisBehavior)(nil)).Elem()
+
+type AnalysisSparklineAxisBehaviorPtrInput interface {
+	pulumi.Input
+
+	ToAnalysisSparklineAxisBehaviorPtrOutput() AnalysisSparklineAxisBehaviorPtrOutput
+	ToAnalysisSparklineAxisBehaviorPtrOutputWithContext(context.Context) AnalysisSparklineAxisBehaviorPtrOutput
+}
+
+type analysisSparklineAxisBehaviorPtr string
+
+func AnalysisSparklineAxisBehaviorPtr(v string) AnalysisSparklineAxisBehaviorPtrInput {
+	return (*analysisSparklineAxisBehaviorPtr)(&v)
+}
+
+func (*analysisSparklineAxisBehaviorPtr) ElementType() reflect.Type {
+	return analysisSparklineAxisBehaviorPtrType
+}
+
+func (in *analysisSparklineAxisBehaviorPtr) ToAnalysisSparklineAxisBehaviorPtrOutput() AnalysisSparklineAxisBehaviorPtrOutput {
+	return pulumi.ToOutput(in).(AnalysisSparklineAxisBehaviorPtrOutput)
+}
+
+func (in *analysisSparklineAxisBehaviorPtr) ToAnalysisSparklineAxisBehaviorPtrOutputWithContext(ctx context.Context) AnalysisSparklineAxisBehaviorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(AnalysisSparklineAxisBehaviorPtrOutput)
+}
+
+type AnalysisSparklineVisualType string
+
+const (
+	AnalysisSparklineVisualTypeLine     = AnalysisSparklineVisualType("LINE")
+	AnalysisSparklineVisualTypeAreaLine = AnalysisSparklineVisualType("AREA_LINE")
+)
+
+func (AnalysisSparklineVisualType) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisSparklineVisualType)(nil)).Elem()
+}
+
+func (e AnalysisSparklineVisualType) ToAnalysisSparklineVisualTypeOutput() AnalysisSparklineVisualTypeOutput {
+	return pulumi.ToOutput(e).(AnalysisSparklineVisualTypeOutput)
+}
+
+func (e AnalysisSparklineVisualType) ToAnalysisSparklineVisualTypeOutputWithContext(ctx context.Context) AnalysisSparklineVisualTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(AnalysisSparklineVisualTypeOutput)
+}
+
+func (e AnalysisSparklineVisualType) ToAnalysisSparklineVisualTypePtrOutput() AnalysisSparklineVisualTypePtrOutput {
+	return e.ToAnalysisSparklineVisualTypePtrOutputWithContext(context.Background())
+}
+
+func (e AnalysisSparklineVisualType) ToAnalysisSparklineVisualTypePtrOutputWithContext(ctx context.Context) AnalysisSparklineVisualTypePtrOutput {
+	return AnalysisSparklineVisualType(e).ToAnalysisSparklineVisualTypeOutputWithContext(ctx).ToAnalysisSparklineVisualTypePtrOutputWithContext(ctx)
+}
+
+func (e AnalysisSparklineVisualType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AnalysisSparklineVisualType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AnalysisSparklineVisualType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e AnalysisSparklineVisualType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type AnalysisSparklineVisualTypeOutput struct{ *pulumi.OutputState }
+
+func (AnalysisSparklineVisualTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisSparklineVisualType)(nil)).Elem()
+}
+
+func (o AnalysisSparklineVisualTypeOutput) ToAnalysisSparklineVisualTypeOutput() AnalysisSparklineVisualTypeOutput {
+	return o
+}
+
+func (o AnalysisSparklineVisualTypeOutput) ToAnalysisSparklineVisualTypeOutputWithContext(ctx context.Context) AnalysisSparklineVisualTypeOutput {
+	return o
+}
+
+func (o AnalysisSparklineVisualTypeOutput) ToAnalysisSparklineVisualTypePtrOutput() AnalysisSparklineVisualTypePtrOutput {
+	return o.ToAnalysisSparklineVisualTypePtrOutputWithContext(context.Background())
+}
+
+func (o AnalysisSparklineVisualTypeOutput) ToAnalysisSparklineVisualTypePtrOutputWithContext(ctx context.Context) AnalysisSparklineVisualTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnalysisSparklineVisualType) *AnalysisSparklineVisualType {
+		return &v
+	}).(AnalysisSparklineVisualTypePtrOutput)
+}
+
+func (o AnalysisSparklineVisualTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o AnalysisSparklineVisualTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AnalysisSparklineVisualType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o AnalysisSparklineVisualTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AnalysisSparklineVisualTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AnalysisSparklineVisualType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type AnalysisSparklineVisualTypePtrOutput struct{ *pulumi.OutputState }
+
+func (AnalysisSparklineVisualTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnalysisSparklineVisualType)(nil)).Elem()
+}
+
+func (o AnalysisSparklineVisualTypePtrOutput) ToAnalysisSparklineVisualTypePtrOutput() AnalysisSparklineVisualTypePtrOutput {
+	return o
+}
+
+func (o AnalysisSparklineVisualTypePtrOutput) ToAnalysisSparklineVisualTypePtrOutputWithContext(ctx context.Context) AnalysisSparklineVisualTypePtrOutput {
+	return o
+}
+
+func (o AnalysisSparklineVisualTypePtrOutput) Elem() AnalysisSparklineVisualTypeOutput {
+	return o.ApplyT(func(v *AnalysisSparklineVisualType) AnalysisSparklineVisualType {
+		if v != nil {
+			return *v
+		}
+		var ret AnalysisSparklineVisualType
+		return ret
+	}).(AnalysisSparklineVisualTypeOutput)
+}
+
+func (o AnalysisSparklineVisualTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AnalysisSparklineVisualTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AnalysisSparklineVisualType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// AnalysisSparklineVisualTypeInput is an input type that accepts values of the AnalysisSparklineVisualType enum
+// A concrete instance of `AnalysisSparklineVisualTypeInput` can be one of the following:
+//
+//	AnalysisSparklineVisualTypeLine
+//	AnalysisSparklineVisualTypeAreaLine
+type AnalysisSparklineVisualTypeInput interface {
+	pulumi.Input
+
+	ToAnalysisSparklineVisualTypeOutput() AnalysisSparklineVisualTypeOutput
+	ToAnalysisSparklineVisualTypeOutputWithContext(context.Context) AnalysisSparklineVisualTypeOutput
+}
+
+var analysisSparklineVisualTypePtrType = reflect.TypeOf((**AnalysisSparklineVisualType)(nil)).Elem()
+
+type AnalysisSparklineVisualTypePtrInput interface {
+	pulumi.Input
+
+	ToAnalysisSparklineVisualTypePtrOutput() AnalysisSparklineVisualTypePtrOutput
+	ToAnalysisSparklineVisualTypePtrOutputWithContext(context.Context) AnalysisSparklineVisualTypePtrOutput
+}
+
+type analysisSparklineVisualTypePtr string
+
+func AnalysisSparklineVisualTypePtr(v string) AnalysisSparklineVisualTypePtrInput {
+	return (*analysisSparklineVisualTypePtr)(&v)
+}
+
+func (*analysisSparklineVisualTypePtr) ElementType() reflect.Type {
+	return analysisSparklineVisualTypePtrType
+}
+
+func (in *analysisSparklineVisualTypePtr) ToAnalysisSparklineVisualTypePtrOutput() AnalysisSparklineVisualTypePtrOutput {
+	return pulumi.ToOutput(in).(AnalysisSparklineVisualTypePtrOutput)
+}
+
+func (in *analysisSparklineVisualTypePtr) ToAnalysisSparklineVisualTypePtrOutputWithContext(ctx context.Context) AnalysisSparklineVisualTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(AnalysisSparklineVisualTypePtrOutput)
 }
 
 type AnalysisSpecialValue string
@@ -27168,6 +27870,376 @@ func (in *dashboardDayOfTheWeekPtr) ToDashboardDayOfTheWeekPtrOutput() Dashboard
 
 func (in *dashboardDayOfTheWeekPtr) ToDashboardDayOfTheWeekPtrOutputWithContext(ctx context.Context) DashboardDayOfTheWeekPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DashboardDayOfTheWeekPtrOutput)
+}
+
+type DashboardDecalPatternType string
+
+const (
+	DashboardDecalPatternTypeSolid                  = DashboardDecalPatternType("SOLID")
+	DashboardDecalPatternTypeDiagonalMedium         = DashboardDecalPatternType("DIAGONAL_MEDIUM")
+	DashboardDecalPatternTypeCircleMedium           = DashboardDecalPatternType("CIRCLE_MEDIUM")
+	DashboardDecalPatternTypeDiamondGridMedium      = DashboardDecalPatternType("DIAMOND_GRID_MEDIUM")
+	DashboardDecalPatternTypeCheckerboardMedium     = DashboardDecalPatternType("CHECKERBOARD_MEDIUM")
+	DashboardDecalPatternTypeTriangleMedium         = DashboardDecalPatternType("TRIANGLE_MEDIUM")
+	DashboardDecalPatternTypeDiagonalOppositeMedium = DashboardDecalPatternType("DIAGONAL_OPPOSITE_MEDIUM")
+	DashboardDecalPatternTypeDiamondMedium          = DashboardDecalPatternType("DIAMOND_MEDIUM")
+	DashboardDecalPatternTypeDiagonalLarge          = DashboardDecalPatternType("DIAGONAL_LARGE")
+	DashboardDecalPatternTypeCircleLarge            = DashboardDecalPatternType("CIRCLE_LARGE")
+	DashboardDecalPatternTypeDiamondGridLarge       = DashboardDecalPatternType("DIAMOND_GRID_LARGE")
+	DashboardDecalPatternTypeCheckerboardLarge      = DashboardDecalPatternType("CHECKERBOARD_LARGE")
+	DashboardDecalPatternTypeTriangleLarge          = DashboardDecalPatternType("TRIANGLE_LARGE")
+	DashboardDecalPatternTypeDiagonalOppositeLarge  = DashboardDecalPatternType("DIAGONAL_OPPOSITE_LARGE")
+	DashboardDecalPatternTypeDiamondLarge           = DashboardDecalPatternType("DIAMOND_LARGE")
+	DashboardDecalPatternTypeDiagonalSmall          = DashboardDecalPatternType("DIAGONAL_SMALL")
+	DashboardDecalPatternTypeCircleSmall            = DashboardDecalPatternType("CIRCLE_SMALL")
+	DashboardDecalPatternTypeDiamondGridSmall       = DashboardDecalPatternType("DIAMOND_GRID_SMALL")
+	DashboardDecalPatternTypeCheckerboardSmall      = DashboardDecalPatternType("CHECKERBOARD_SMALL")
+	DashboardDecalPatternTypeTriangleSmall          = DashboardDecalPatternType("TRIANGLE_SMALL")
+	DashboardDecalPatternTypeDiagonalOppositeSmall  = DashboardDecalPatternType("DIAGONAL_OPPOSITE_SMALL")
+	DashboardDecalPatternTypeDiamondSmall           = DashboardDecalPatternType("DIAMOND_SMALL")
+)
+
+func (DashboardDecalPatternType) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardDecalPatternType)(nil)).Elem()
+}
+
+func (e DashboardDecalPatternType) ToDashboardDecalPatternTypeOutput() DashboardDecalPatternTypeOutput {
+	return pulumi.ToOutput(e).(DashboardDecalPatternTypeOutput)
+}
+
+func (e DashboardDecalPatternType) ToDashboardDecalPatternTypeOutputWithContext(ctx context.Context) DashboardDecalPatternTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DashboardDecalPatternTypeOutput)
+}
+
+func (e DashboardDecalPatternType) ToDashboardDecalPatternTypePtrOutput() DashboardDecalPatternTypePtrOutput {
+	return e.ToDashboardDecalPatternTypePtrOutputWithContext(context.Background())
+}
+
+func (e DashboardDecalPatternType) ToDashboardDecalPatternTypePtrOutputWithContext(ctx context.Context) DashboardDecalPatternTypePtrOutput {
+	return DashboardDecalPatternType(e).ToDashboardDecalPatternTypeOutputWithContext(ctx).ToDashboardDecalPatternTypePtrOutputWithContext(ctx)
+}
+
+func (e DashboardDecalPatternType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DashboardDecalPatternType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DashboardDecalPatternType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DashboardDecalPatternType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DashboardDecalPatternTypeOutput struct{ *pulumi.OutputState }
+
+func (DashboardDecalPatternTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardDecalPatternType)(nil)).Elem()
+}
+
+func (o DashboardDecalPatternTypeOutput) ToDashboardDecalPatternTypeOutput() DashboardDecalPatternTypeOutput {
+	return o
+}
+
+func (o DashboardDecalPatternTypeOutput) ToDashboardDecalPatternTypeOutputWithContext(ctx context.Context) DashboardDecalPatternTypeOutput {
+	return o
+}
+
+func (o DashboardDecalPatternTypeOutput) ToDashboardDecalPatternTypePtrOutput() DashboardDecalPatternTypePtrOutput {
+	return o.ToDashboardDecalPatternTypePtrOutputWithContext(context.Background())
+}
+
+func (o DashboardDecalPatternTypeOutput) ToDashboardDecalPatternTypePtrOutputWithContext(ctx context.Context) DashboardDecalPatternTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardDecalPatternType) *DashboardDecalPatternType {
+		return &v
+	}).(DashboardDecalPatternTypePtrOutput)
+}
+
+func (o DashboardDecalPatternTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DashboardDecalPatternTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DashboardDecalPatternType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DashboardDecalPatternTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DashboardDecalPatternTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DashboardDecalPatternType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DashboardDecalPatternTypePtrOutput struct{ *pulumi.OutputState }
+
+func (DashboardDecalPatternTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DashboardDecalPatternType)(nil)).Elem()
+}
+
+func (o DashboardDecalPatternTypePtrOutput) ToDashboardDecalPatternTypePtrOutput() DashboardDecalPatternTypePtrOutput {
+	return o
+}
+
+func (o DashboardDecalPatternTypePtrOutput) ToDashboardDecalPatternTypePtrOutputWithContext(ctx context.Context) DashboardDecalPatternTypePtrOutput {
+	return o
+}
+
+func (o DashboardDecalPatternTypePtrOutput) Elem() DashboardDecalPatternTypeOutput {
+	return o.ApplyT(func(v *DashboardDecalPatternType) DashboardDecalPatternType {
+		if v != nil {
+			return *v
+		}
+		var ret DashboardDecalPatternType
+		return ret
+	}).(DashboardDecalPatternTypeOutput)
+}
+
+func (o DashboardDecalPatternTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DashboardDecalPatternTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DashboardDecalPatternType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DashboardDecalPatternTypeInput is an input type that accepts values of the DashboardDecalPatternType enum
+// A concrete instance of `DashboardDecalPatternTypeInput` can be one of the following:
+//
+//	DashboardDecalPatternTypeSolid
+//	DashboardDecalPatternTypeDiagonalMedium
+//	DashboardDecalPatternTypeCircleMedium
+//	DashboardDecalPatternTypeDiamondGridMedium
+//	DashboardDecalPatternTypeCheckerboardMedium
+//	DashboardDecalPatternTypeTriangleMedium
+//	DashboardDecalPatternTypeDiagonalOppositeMedium
+//	DashboardDecalPatternTypeDiamondMedium
+//	DashboardDecalPatternTypeDiagonalLarge
+//	DashboardDecalPatternTypeCircleLarge
+//	DashboardDecalPatternTypeDiamondGridLarge
+//	DashboardDecalPatternTypeCheckerboardLarge
+//	DashboardDecalPatternTypeTriangleLarge
+//	DashboardDecalPatternTypeDiagonalOppositeLarge
+//	DashboardDecalPatternTypeDiamondLarge
+//	DashboardDecalPatternTypeDiagonalSmall
+//	DashboardDecalPatternTypeCircleSmall
+//	DashboardDecalPatternTypeDiamondGridSmall
+//	DashboardDecalPatternTypeCheckerboardSmall
+//	DashboardDecalPatternTypeTriangleSmall
+//	DashboardDecalPatternTypeDiagonalOppositeSmall
+//	DashboardDecalPatternTypeDiamondSmall
+type DashboardDecalPatternTypeInput interface {
+	pulumi.Input
+
+	ToDashboardDecalPatternTypeOutput() DashboardDecalPatternTypeOutput
+	ToDashboardDecalPatternTypeOutputWithContext(context.Context) DashboardDecalPatternTypeOutput
+}
+
+var dashboardDecalPatternTypePtrType = reflect.TypeOf((**DashboardDecalPatternType)(nil)).Elem()
+
+type DashboardDecalPatternTypePtrInput interface {
+	pulumi.Input
+
+	ToDashboardDecalPatternTypePtrOutput() DashboardDecalPatternTypePtrOutput
+	ToDashboardDecalPatternTypePtrOutputWithContext(context.Context) DashboardDecalPatternTypePtrOutput
+}
+
+type dashboardDecalPatternTypePtr string
+
+func DashboardDecalPatternTypePtr(v string) DashboardDecalPatternTypePtrInput {
+	return (*dashboardDecalPatternTypePtr)(&v)
+}
+
+func (*dashboardDecalPatternTypePtr) ElementType() reflect.Type {
+	return dashboardDecalPatternTypePtrType
+}
+
+func (in *dashboardDecalPatternTypePtr) ToDashboardDecalPatternTypePtrOutput() DashboardDecalPatternTypePtrOutput {
+	return pulumi.ToOutput(in).(DashboardDecalPatternTypePtrOutput)
+}
+
+func (in *dashboardDecalPatternTypePtr) ToDashboardDecalPatternTypePtrOutputWithContext(ctx context.Context) DashboardDecalPatternTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DashboardDecalPatternTypePtrOutput)
+}
+
+type DashboardDecalStyleType string
+
+const (
+	DashboardDecalStyleTypeManual = DashboardDecalStyleType("Manual")
+	DashboardDecalStyleTypeAuto   = DashboardDecalStyleType("Auto")
+)
+
+func (DashboardDecalStyleType) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardDecalStyleType)(nil)).Elem()
+}
+
+func (e DashboardDecalStyleType) ToDashboardDecalStyleTypeOutput() DashboardDecalStyleTypeOutput {
+	return pulumi.ToOutput(e).(DashboardDecalStyleTypeOutput)
+}
+
+func (e DashboardDecalStyleType) ToDashboardDecalStyleTypeOutputWithContext(ctx context.Context) DashboardDecalStyleTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DashboardDecalStyleTypeOutput)
+}
+
+func (e DashboardDecalStyleType) ToDashboardDecalStyleTypePtrOutput() DashboardDecalStyleTypePtrOutput {
+	return e.ToDashboardDecalStyleTypePtrOutputWithContext(context.Background())
+}
+
+func (e DashboardDecalStyleType) ToDashboardDecalStyleTypePtrOutputWithContext(ctx context.Context) DashboardDecalStyleTypePtrOutput {
+	return DashboardDecalStyleType(e).ToDashboardDecalStyleTypeOutputWithContext(ctx).ToDashboardDecalStyleTypePtrOutputWithContext(ctx)
+}
+
+func (e DashboardDecalStyleType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DashboardDecalStyleType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DashboardDecalStyleType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DashboardDecalStyleType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DashboardDecalStyleTypeOutput struct{ *pulumi.OutputState }
+
+func (DashboardDecalStyleTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardDecalStyleType)(nil)).Elem()
+}
+
+func (o DashboardDecalStyleTypeOutput) ToDashboardDecalStyleTypeOutput() DashboardDecalStyleTypeOutput {
+	return o
+}
+
+func (o DashboardDecalStyleTypeOutput) ToDashboardDecalStyleTypeOutputWithContext(ctx context.Context) DashboardDecalStyleTypeOutput {
+	return o
+}
+
+func (o DashboardDecalStyleTypeOutput) ToDashboardDecalStyleTypePtrOutput() DashboardDecalStyleTypePtrOutput {
+	return o.ToDashboardDecalStyleTypePtrOutputWithContext(context.Background())
+}
+
+func (o DashboardDecalStyleTypeOutput) ToDashboardDecalStyleTypePtrOutputWithContext(ctx context.Context) DashboardDecalStyleTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardDecalStyleType) *DashboardDecalStyleType {
+		return &v
+	}).(DashboardDecalStyleTypePtrOutput)
+}
+
+func (o DashboardDecalStyleTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DashboardDecalStyleTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DashboardDecalStyleType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DashboardDecalStyleTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DashboardDecalStyleTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DashboardDecalStyleType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DashboardDecalStyleTypePtrOutput struct{ *pulumi.OutputState }
+
+func (DashboardDecalStyleTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DashboardDecalStyleType)(nil)).Elem()
+}
+
+func (o DashboardDecalStyleTypePtrOutput) ToDashboardDecalStyleTypePtrOutput() DashboardDecalStyleTypePtrOutput {
+	return o
+}
+
+func (o DashboardDecalStyleTypePtrOutput) ToDashboardDecalStyleTypePtrOutputWithContext(ctx context.Context) DashboardDecalStyleTypePtrOutput {
+	return o
+}
+
+func (o DashboardDecalStyleTypePtrOutput) Elem() DashboardDecalStyleTypeOutput {
+	return o.ApplyT(func(v *DashboardDecalStyleType) DashboardDecalStyleType {
+		if v != nil {
+			return *v
+		}
+		var ret DashboardDecalStyleType
+		return ret
+	}).(DashboardDecalStyleTypeOutput)
+}
+
+func (o DashboardDecalStyleTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DashboardDecalStyleTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DashboardDecalStyleType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DashboardDecalStyleTypeInput is an input type that accepts values of the DashboardDecalStyleType enum
+// A concrete instance of `DashboardDecalStyleTypeInput` can be one of the following:
+//
+//	DashboardDecalStyleTypeManual
+//	DashboardDecalStyleTypeAuto
+type DashboardDecalStyleTypeInput interface {
+	pulumi.Input
+
+	ToDashboardDecalStyleTypeOutput() DashboardDecalStyleTypeOutput
+	ToDashboardDecalStyleTypeOutputWithContext(context.Context) DashboardDecalStyleTypeOutput
+}
+
+var dashboardDecalStyleTypePtrType = reflect.TypeOf((**DashboardDecalStyleType)(nil)).Elem()
+
+type DashboardDecalStyleTypePtrInput interface {
+	pulumi.Input
+
+	ToDashboardDecalStyleTypePtrOutput() DashboardDecalStyleTypePtrOutput
+	ToDashboardDecalStyleTypePtrOutputWithContext(context.Context) DashboardDecalStyleTypePtrOutput
+}
+
+type dashboardDecalStyleTypePtr string
+
+func DashboardDecalStyleTypePtr(v string) DashboardDecalStyleTypePtrInput {
+	return (*dashboardDecalStyleTypePtr)(&v)
+}
+
+func (*dashboardDecalStyleTypePtr) ElementType() reflect.Type {
+	return dashboardDecalStyleTypePtrType
+}
+
+func (in *dashboardDecalStyleTypePtr) ToDashboardDecalStyleTypePtrOutput() DashboardDecalStyleTypePtrOutput {
+	return pulumi.ToOutput(in).(DashboardDecalStyleTypePtrOutput)
+}
+
+func (in *dashboardDecalStyleTypePtr) ToDashboardDecalStyleTypePtrOutputWithContext(ctx context.Context) DashboardDecalStyleTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DashboardDecalStyleTypePtrOutput)
 }
 
 type DashboardDigitGroupingStyle string
@@ -37414,6 +38486,7 @@ type DashboardSelectedTooltipType string
 const (
 	DashboardSelectedTooltipTypeBasic    = DashboardSelectedTooltipType("BASIC")
 	DashboardSelectedTooltipTypeDetailed = DashboardSelectedTooltipType("DETAILED")
+	DashboardSelectedTooltipTypeSheet    = DashboardSelectedTooltipType("SHEET")
 )
 
 func (DashboardSelectedTooltipType) ElementType() reflect.Type {
@@ -37540,6 +38613,7 @@ func (o DashboardSelectedTooltipTypePtrOutput) ToStringPtrOutputWithContext(ctx 
 //
 //	DashboardSelectedTooltipTypeBasic
 //	DashboardSelectedTooltipTypeDetailed
+//	DashboardSelectedTooltipTypeSheet
 type DashboardSelectedTooltipTypeInput interface {
 	pulumi.Input
 
@@ -39578,6 +40652,336 @@ func (in *dashboardSortDirectionPtr) ToDashboardSortDirectionPtrOutput() Dashboa
 
 func (in *dashboardSortDirectionPtr) ToDashboardSortDirectionPtrOutputWithContext(ctx context.Context) DashboardSortDirectionPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DashboardSortDirectionPtrOutput)
+}
+
+type DashboardSparklineAxisBehavior string
+
+const (
+	DashboardSparklineAxisBehaviorShared      = DashboardSparklineAxisBehavior("SHARED")
+	DashboardSparklineAxisBehaviorIndependent = DashboardSparklineAxisBehavior("INDEPENDENT")
+)
+
+func (DashboardSparklineAxisBehavior) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardSparklineAxisBehavior)(nil)).Elem()
+}
+
+func (e DashboardSparklineAxisBehavior) ToDashboardSparklineAxisBehaviorOutput() DashboardSparklineAxisBehaviorOutput {
+	return pulumi.ToOutput(e).(DashboardSparklineAxisBehaviorOutput)
+}
+
+func (e DashboardSparklineAxisBehavior) ToDashboardSparklineAxisBehaviorOutputWithContext(ctx context.Context) DashboardSparklineAxisBehaviorOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DashboardSparklineAxisBehaviorOutput)
+}
+
+func (e DashboardSparklineAxisBehavior) ToDashboardSparklineAxisBehaviorPtrOutput() DashboardSparklineAxisBehaviorPtrOutput {
+	return e.ToDashboardSparklineAxisBehaviorPtrOutputWithContext(context.Background())
+}
+
+func (e DashboardSparklineAxisBehavior) ToDashboardSparklineAxisBehaviorPtrOutputWithContext(ctx context.Context) DashboardSparklineAxisBehaviorPtrOutput {
+	return DashboardSparklineAxisBehavior(e).ToDashboardSparklineAxisBehaviorOutputWithContext(ctx).ToDashboardSparklineAxisBehaviorPtrOutputWithContext(ctx)
+}
+
+func (e DashboardSparklineAxisBehavior) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DashboardSparklineAxisBehavior) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DashboardSparklineAxisBehavior) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DashboardSparklineAxisBehavior) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DashboardSparklineAxisBehaviorOutput struct{ *pulumi.OutputState }
+
+func (DashboardSparklineAxisBehaviorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardSparklineAxisBehavior)(nil)).Elem()
+}
+
+func (o DashboardSparklineAxisBehaviorOutput) ToDashboardSparklineAxisBehaviorOutput() DashboardSparklineAxisBehaviorOutput {
+	return o
+}
+
+func (o DashboardSparklineAxisBehaviorOutput) ToDashboardSparklineAxisBehaviorOutputWithContext(ctx context.Context) DashboardSparklineAxisBehaviorOutput {
+	return o
+}
+
+func (o DashboardSparklineAxisBehaviorOutput) ToDashboardSparklineAxisBehaviorPtrOutput() DashboardSparklineAxisBehaviorPtrOutput {
+	return o.ToDashboardSparklineAxisBehaviorPtrOutputWithContext(context.Background())
+}
+
+func (o DashboardSparklineAxisBehaviorOutput) ToDashboardSparklineAxisBehaviorPtrOutputWithContext(ctx context.Context) DashboardSparklineAxisBehaviorPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardSparklineAxisBehavior) *DashboardSparklineAxisBehavior {
+		return &v
+	}).(DashboardSparklineAxisBehaviorPtrOutput)
+}
+
+func (o DashboardSparklineAxisBehaviorOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DashboardSparklineAxisBehaviorOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DashboardSparklineAxisBehavior) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DashboardSparklineAxisBehaviorOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DashboardSparklineAxisBehaviorOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DashboardSparklineAxisBehavior) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DashboardSparklineAxisBehaviorPtrOutput struct{ *pulumi.OutputState }
+
+func (DashboardSparklineAxisBehaviorPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DashboardSparklineAxisBehavior)(nil)).Elem()
+}
+
+func (o DashboardSparklineAxisBehaviorPtrOutput) ToDashboardSparklineAxisBehaviorPtrOutput() DashboardSparklineAxisBehaviorPtrOutput {
+	return o
+}
+
+func (o DashboardSparklineAxisBehaviorPtrOutput) ToDashboardSparklineAxisBehaviorPtrOutputWithContext(ctx context.Context) DashboardSparklineAxisBehaviorPtrOutput {
+	return o
+}
+
+func (o DashboardSparklineAxisBehaviorPtrOutput) Elem() DashboardSparklineAxisBehaviorOutput {
+	return o.ApplyT(func(v *DashboardSparklineAxisBehavior) DashboardSparklineAxisBehavior {
+		if v != nil {
+			return *v
+		}
+		var ret DashboardSparklineAxisBehavior
+		return ret
+	}).(DashboardSparklineAxisBehaviorOutput)
+}
+
+func (o DashboardSparklineAxisBehaviorPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DashboardSparklineAxisBehaviorPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DashboardSparklineAxisBehavior) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DashboardSparklineAxisBehaviorInput is an input type that accepts values of the DashboardSparklineAxisBehavior enum
+// A concrete instance of `DashboardSparklineAxisBehaviorInput` can be one of the following:
+//
+//	DashboardSparklineAxisBehaviorShared
+//	DashboardSparklineAxisBehaviorIndependent
+type DashboardSparklineAxisBehaviorInput interface {
+	pulumi.Input
+
+	ToDashboardSparklineAxisBehaviorOutput() DashboardSparklineAxisBehaviorOutput
+	ToDashboardSparklineAxisBehaviorOutputWithContext(context.Context) DashboardSparklineAxisBehaviorOutput
+}
+
+var dashboardSparklineAxisBehaviorPtrType = reflect.TypeOf((**DashboardSparklineAxisBehavior)(nil)).Elem()
+
+type DashboardSparklineAxisBehaviorPtrInput interface {
+	pulumi.Input
+
+	ToDashboardSparklineAxisBehaviorPtrOutput() DashboardSparklineAxisBehaviorPtrOutput
+	ToDashboardSparklineAxisBehaviorPtrOutputWithContext(context.Context) DashboardSparklineAxisBehaviorPtrOutput
+}
+
+type dashboardSparklineAxisBehaviorPtr string
+
+func DashboardSparklineAxisBehaviorPtr(v string) DashboardSparklineAxisBehaviorPtrInput {
+	return (*dashboardSparklineAxisBehaviorPtr)(&v)
+}
+
+func (*dashboardSparklineAxisBehaviorPtr) ElementType() reflect.Type {
+	return dashboardSparklineAxisBehaviorPtrType
+}
+
+func (in *dashboardSparklineAxisBehaviorPtr) ToDashboardSparklineAxisBehaviorPtrOutput() DashboardSparklineAxisBehaviorPtrOutput {
+	return pulumi.ToOutput(in).(DashboardSparklineAxisBehaviorPtrOutput)
+}
+
+func (in *dashboardSparklineAxisBehaviorPtr) ToDashboardSparklineAxisBehaviorPtrOutputWithContext(ctx context.Context) DashboardSparklineAxisBehaviorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DashboardSparklineAxisBehaviorPtrOutput)
+}
+
+type DashboardSparklineVisualType string
+
+const (
+	DashboardSparklineVisualTypeLine     = DashboardSparklineVisualType("LINE")
+	DashboardSparklineVisualTypeAreaLine = DashboardSparklineVisualType("AREA_LINE")
+)
+
+func (DashboardSparklineVisualType) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardSparklineVisualType)(nil)).Elem()
+}
+
+func (e DashboardSparklineVisualType) ToDashboardSparklineVisualTypeOutput() DashboardSparklineVisualTypeOutput {
+	return pulumi.ToOutput(e).(DashboardSparklineVisualTypeOutput)
+}
+
+func (e DashboardSparklineVisualType) ToDashboardSparklineVisualTypeOutputWithContext(ctx context.Context) DashboardSparklineVisualTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DashboardSparklineVisualTypeOutput)
+}
+
+func (e DashboardSparklineVisualType) ToDashboardSparklineVisualTypePtrOutput() DashboardSparklineVisualTypePtrOutput {
+	return e.ToDashboardSparklineVisualTypePtrOutputWithContext(context.Background())
+}
+
+func (e DashboardSparklineVisualType) ToDashboardSparklineVisualTypePtrOutputWithContext(ctx context.Context) DashboardSparklineVisualTypePtrOutput {
+	return DashboardSparklineVisualType(e).ToDashboardSparklineVisualTypeOutputWithContext(ctx).ToDashboardSparklineVisualTypePtrOutputWithContext(ctx)
+}
+
+func (e DashboardSparklineVisualType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DashboardSparklineVisualType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DashboardSparklineVisualType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DashboardSparklineVisualType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DashboardSparklineVisualTypeOutput struct{ *pulumi.OutputState }
+
+func (DashboardSparklineVisualTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardSparklineVisualType)(nil)).Elem()
+}
+
+func (o DashboardSparklineVisualTypeOutput) ToDashboardSparklineVisualTypeOutput() DashboardSparklineVisualTypeOutput {
+	return o
+}
+
+func (o DashboardSparklineVisualTypeOutput) ToDashboardSparklineVisualTypeOutputWithContext(ctx context.Context) DashboardSparklineVisualTypeOutput {
+	return o
+}
+
+func (o DashboardSparklineVisualTypeOutput) ToDashboardSparklineVisualTypePtrOutput() DashboardSparklineVisualTypePtrOutput {
+	return o.ToDashboardSparklineVisualTypePtrOutputWithContext(context.Background())
+}
+
+func (o DashboardSparklineVisualTypeOutput) ToDashboardSparklineVisualTypePtrOutputWithContext(ctx context.Context) DashboardSparklineVisualTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardSparklineVisualType) *DashboardSparklineVisualType {
+		return &v
+	}).(DashboardSparklineVisualTypePtrOutput)
+}
+
+func (o DashboardSparklineVisualTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DashboardSparklineVisualTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DashboardSparklineVisualType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DashboardSparklineVisualTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DashboardSparklineVisualTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DashboardSparklineVisualType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DashboardSparklineVisualTypePtrOutput struct{ *pulumi.OutputState }
+
+func (DashboardSparklineVisualTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DashboardSparklineVisualType)(nil)).Elem()
+}
+
+func (o DashboardSparklineVisualTypePtrOutput) ToDashboardSparklineVisualTypePtrOutput() DashboardSparklineVisualTypePtrOutput {
+	return o
+}
+
+func (o DashboardSparklineVisualTypePtrOutput) ToDashboardSparklineVisualTypePtrOutputWithContext(ctx context.Context) DashboardSparklineVisualTypePtrOutput {
+	return o
+}
+
+func (o DashboardSparklineVisualTypePtrOutput) Elem() DashboardSparklineVisualTypeOutput {
+	return o.ApplyT(func(v *DashboardSparklineVisualType) DashboardSparklineVisualType {
+		if v != nil {
+			return *v
+		}
+		var ret DashboardSparklineVisualType
+		return ret
+	}).(DashboardSparklineVisualTypeOutput)
+}
+
+func (o DashboardSparklineVisualTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DashboardSparklineVisualTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DashboardSparklineVisualType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DashboardSparklineVisualTypeInput is an input type that accepts values of the DashboardSparklineVisualType enum
+// A concrete instance of `DashboardSparklineVisualTypeInput` can be one of the following:
+//
+//	DashboardSparklineVisualTypeLine
+//	DashboardSparklineVisualTypeAreaLine
+type DashboardSparklineVisualTypeInput interface {
+	pulumi.Input
+
+	ToDashboardSparklineVisualTypeOutput() DashboardSparklineVisualTypeOutput
+	ToDashboardSparklineVisualTypeOutputWithContext(context.Context) DashboardSparklineVisualTypeOutput
+}
+
+var dashboardSparklineVisualTypePtrType = reflect.TypeOf((**DashboardSparklineVisualType)(nil)).Elem()
+
+type DashboardSparklineVisualTypePtrInput interface {
+	pulumi.Input
+
+	ToDashboardSparklineVisualTypePtrOutput() DashboardSparklineVisualTypePtrOutput
+	ToDashboardSparklineVisualTypePtrOutputWithContext(context.Context) DashboardSparklineVisualTypePtrOutput
+}
+
+type dashboardSparklineVisualTypePtr string
+
+func DashboardSparklineVisualTypePtr(v string) DashboardSparklineVisualTypePtrInput {
+	return (*dashboardSparklineVisualTypePtr)(&v)
+}
+
+func (*dashboardSparklineVisualTypePtr) ElementType() reflect.Type {
+	return dashboardSparklineVisualTypePtrType
+}
+
+func (in *dashboardSparklineVisualTypePtr) ToDashboardSparklineVisualTypePtrOutput() DashboardSparklineVisualTypePtrOutput {
+	return pulumi.ToOutput(in).(DashboardSparklineVisualTypePtrOutput)
+}
+
+func (in *dashboardSparklineVisualTypePtr) ToDashboardSparklineVisualTypePtrOutputWithContext(ctx context.Context) DashboardSparklineVisualTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DashboardSparklineVisualTypePtrOutput)
 }
 
 type DashboardSpecialValue string
@@ -56586,6 +57990,376 @@ func (in *templateDayOfTheWeekPtr) ToTemplateDayOfTheWeekPtrOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, in).(TemplateDayOfTheWeekPtrOutput)
 }
 
+type TemplateDecalPatternType string
+
+const (
+	TemplateDecalPatternTypeSolid                  = TemplateDecalPatternType("SOLID")
+	TemplateDecalPatternTypeDiagonalMedium         = TemplateDecalPatternType("DIAGONAL_MEDIUM")
+	TemplateDecalPatternTypeCircleMedium           = TemplateDecalPatternType("CIRCLE_MEDIUM")
+	TemplateDecalPatternTypeDiamondGridMedium      = TemplateDecalPatternType("DIAMOND_GRID_MEDIUM")
+	TemplateDecalPatternTypeCheckerboardMedium     = TemplateDecalPatternType("CHECKERBOARD_MEDIUM")
+	TemplateDecalPatternTypeTriangleMedium         = TemplateDecalPatternType("TRIANGLE_MEDIUM")
+	TemplateDecalPatternTypeDiagonalOppositeMedium = TemplateDecalPatternType("DIAGONAL_OPPOSITE_MEDIUM")
+	TemplateDecalPatternTypeDiamondMedium          = TemplateDecalPatternType("DIAMOND_MEDIUM")
+	TemplateDecalPatternTypeDiagonalLarge          = TemplateDecalPatternType("DIAGONAL_LARGE")
+	TemplateDecalPatternTypeCircleLarge            = TemplateDecalPatternType("CIRCLE_LARGE")
+	TemplateDecalPatternTypeDiamondGridLarge       = TemplateDecalPatternType("DIAMOND_GRID_LARGE")
+	TemplateDecalPatternTypeCheckerboardLarge      = TemplateDecalPatternType("CHECKERBOARD_LARGE")
+	TemplateDecalPatternTypeTriangleLarge          = TemplateDecalPatternType("TRIANGLE_LARGE")
+	TemplateDecalPatternTypeDiagonalOppositeLarge  = TemplateDecalPatternType("DIAGONAL_OPPOSITE_LARGE")
+	TemplateDecalPatternTypeDiamondLarge           = TemplateDecalPatternType("DIAMOND_LARGE")
+	TemplateDecalPatternTypeDiagonalSmall          = TemplateDecalPatternType("DIAGONAL_SMALL")
+	TemplateDecalPatternTypeCircleSmall            = TemplateDecalPatternType("CIRCLE_SMALL")
+	TemplateDecalPatternTypeDiamondGridSmall       = TemplateDecalPatternType("DIAMOND_GRID_SMALL")
+	TemplateDecalPatternTypeCheckerboardSmall      = TemplateDecalPatternType("CHECKERBOARD_SMALL")
+	TemplateDecalPatternTypeTriangleSmall          = TemplateDecalPatternType("TRIANGLE_SMALL")
+	TemplateDecalPatternTypeDiagonalOppositeSmall  = TemplateDecalPatternType("DIAGONAL_OPPOSITE_SMALL")
+	TemplateDecalPatternTypeDiamondSmall           = TemplateDecalPatternType("DIAMOND_SMALL")
+)
+
+func (TemplateDecalPatternType) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateDecalPatternType)(nil)).Elem()
+}
+
+func (e TemplateDecalPatternType) ToTemplateDecalPatternTypeOutput() TemplateDecalPatternTypeOutput {
+	return pulumi.ToOutput(e).(TemplateDecalPatternTypeOutput)
+}
+
+func (e TemplateDecalPatternType) ToTemplateDecalPatternTypeOutputWithContext(ctx context.Context) TemplateDecalPatternTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(TemplateDecalPatternTypeOutput)
+}
+
+func (e TemplateDecalPatternType) ToTemplateDecalPatternTypePtrOutput() TemplateDecalPatternTypePtrOutput {
+	return e.ToTemplateDecalPatternTypePtrOutputWithContext(context.Background())
+}
+
+func (e TemplateDecalPatternType) ToTemplateDecalPatternTypePtrOutputWithContext(ctx context.Context) TemplateDecalPatternTypePtrOutput {
+	return TemplateDecalPatternType(e).ToTemplateDecalPatternTypeOutputWithContext(ctx).ToTemplateDecalPatternTypePtrOutputWithContext(ctx)
+}
+
+func (e TemplateDecalPatternType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TemplateDecalPatternType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TemplateDecalPatternType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e TemplateDecalPatternType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type TemplateDecalPatternTypeOutput struct{ *pulumi.OutputState }
+
+func (TemplateDecalPatternTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateDecalPatternType)(nil)).Elem()
+}
+
+func (o TemplateDecalPatternTypeOutput) ToTemplateDecalPatternTypeOutput() TemplateDecalPatternTypeOutput {
+	return o
+}
+
+func (o TemplateDecalPatternTypeOutput) ToTemplateDecalPatternTypeOutputWithContext(ctx context.Context) TemplateDecalPatternTypeOutput {
+	return o
+}
+
+func (o TemplateDecalPatternTypeOutput) ToTemplateDecalPatternTypePtrOutput() TemplateDecalPatternTypePtrOutput {
+	return o.ToTemplateDecalPatternTypePtrOutputWithContext(context.Background())
+}
+
+func (o TemplateDecalPatternTypeOutput) ToTemplateDecalPatternTypePtrOutputWithContext(ctx context.Context) TemplateDecalPatternTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateDecalPatternType) *TemplateDecalPatternType {
+		return &v
+	}).(TemplateDecalPatternTypePtrOutput)
+}
+
+func (o TemplateDecalPatternTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o TemplateDecalPatternTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TemplateDecalPatternType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o TemplateDecalPatternTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TemplateDecalPatternTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TemplateDecalPatternType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type TemplateDecalPatternTypePtrOutput struct{ *pulumi.OutputState }
+
+func (TemplateDecalPatternTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateDecalPatternType)(nil)).Elem()
+}
+
+func (o TemplateDecalPatternTypePtrOutput) ToTemplateDecalPatternTypePtrOutput() TemplateDecalPatternTypePtrOutput {
+	return o
+}
+
+func (o TemplateDecalPatternTypePtrOutput) ToTemplateDecalPatternTypePtrOutputWithContext(ctx context.Context) TemplateDecalPatternTypePtrOutput {
+	return o
+}
+
+func (o TemplateDecalPatternTypePtrOutput) Elem() TemplateDecalPatternTypeOutput {
+	return o.ApplyT(func(v *TemplateDecalPatternType) TemplateDecalPatternType {
+		if v != nil {
+			return *v
+		}
+		var ret TemplateDecalPatternType
+		return ret
+	}).(TemplateDecalPatternTypeOutput)
+}
+
+func (o TemplateDecalPatternTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TemplateDecalPatternTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *TemplateDecalPatternType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// TemplateDecalPatternTypeInput is an input type that accepts values of the TemplateDecalPatternType enum
+// A concrete instance of `TemplateDecalPatternTypeInput` can be one of the following:
+//
+//	TemplateDecalPatternTypeSolid
+//	TemplateDecalPatternTypeDiagonalMedium
+//	TemplateDecalPatternTypeCircleMedium
+//	TemplateDecalPatternTypeDiamondGridMedium
+//	TemplateDecalPatternTypeCheckerboardMedium
+//	TemplateDecalPatternTypeTriangleMedium
+//	TemplateDecalPatternTypeDiagonalOppositeMedium
+//	TemplateDecalPatternTypeDiamondMedium
+//	TemplateDecalPatternTypeDiagonalLarge
+//	TemplateDecalPatternTypeCircleLarge
+//	TemplateDecalPatternTypeDiamondGridLarge
+//	TemplateDecalPatternTypeCheckerboardLarge
+//	TemplateDecalPatternTypeTriangleLarge
+//	TemplateDecalPatternTypeDiagonalOppositeLarge
+//	TemplateDecalPatternTypeDiamondLarge
+//	TemplateDecalPatternTypeDiagonalSmall
+//	TemplateDecalPatternTypeCircleSmall
+//	TemplateDecalPatternTypeDiamondGridSmall
+//	TemplateDecalPatternTypeCheckerboardSmall
+//	TemplateDecalPatternTypeTriangleSmall
+//	TemplateDecalPatternTypeDiagonalOppositeSmall
+//	TemplateDecalPatternTypeDiamondSmall
+type TemplateDecalPatternTypeInput interface {
+	pulumi.Input
+
+	ToTemplateDecalPatternTypeOutput() TemplateDecalPatternTypeOutput
+	ToTemplateDecalPatternTypeOutputWithContext(context.Context) TemplateDecalPatternTypeOutput
+}
+
+var templateDecalPatternTypePtrType = reflect.TypeOf((**TemplateDecalPatternType)(nil)).Elem()
+
+type TemplateDecalPatternTypePtrInput interface {
+	pulumi.Input
+
+	ToTemplateDecalPatternTypePtrOutput() TemplateDecalPatternTypePtrOutput
+	ToTemplateDecalPatternTypePtrOutputWithContext(context.Context) TemplateDecalPatternTypePtrOutput
+}
+
+type templateDecalPatternTypePtr string
+
+func TemplateDecalPatternTypePtr(v string) TemplateDecalPatternTypePtrInput {
+	return (*templateDecalPatternTypePtr)(&v)
+}
+
+func (*templateDecalPatternTypePtr) ElementType() reflect.Type {
+	return templateDecalPatternTypePtrType
+}
+
+func (in *templateDecalPatternTypePtr) ToTemplateDecalPatternTypePtrOutput() TemplateDecalPatternTypePtrOutput {
+	return pulumi.ToOutput(in).(TemplateDecalPatternTypePtrOutput)
+}
+
+func (in *templateDecalPatternTypePtr) ToTemplateDecalPatternTypePtrOutputWithContext(ctx context.Context) TemplateDecalPatternTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(TemplateDecalPatternTypePtrOutput)
+}
+
+type TemplateDecalStyleType string
+
+const (
+	TemplateDecalStyleTypeManual = TemplateDecalStyleType("Manual")
+	TemplateDecalStyleTypeAuto   = TemplateDecalStyleType("Auto")
+)
+
+func (TemplateDecalStyleType) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateDecalStyleType)(nil)).Elem()
+}
+
+func (e TemplateDecalStyleType) ToTemplateDecalStyleTypeOutput() TemplateDecalStyleTypeOutput {
+	return pulumi.ToOutput(e).(TemplateDecalStyleTypeOutput)
+}
+
+func (e TemplateDecalStyleType) ToTemplateDecalStyleTypeOutputWithContext(ctx context.Context) TemplateDecalStyleTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(TemplateDecalStyleTypeOutput)
+}
+
+func (e TemplateDecalStyleType) ToTemplateDecalStyleTypePtrOutput() TemplateDecalStyleTypePtrOutput {
+	return e.ToTemplateDecalStyleTypePtrOutputWithContext(context.Background())
+}
+
+func (e TemplateDecalStyleType) ToTemplateDecalStyleTypePtrOutputWithContext(ctx context.Context) TemplateDecalStyleTypePtrOutput {
+	return TemplateDecalStyleType(e).ToTemplateDecalStyleTypeOutputWithContext(ctx).ToTemplateDecalStyleTypePtrOutputWithContext(ctx)
+}
+
+func (e TemplateDecalStyleType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TemplateDecalStyleType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TemplateDecalStyleType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e TemplateDecalStyleType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type TemplateDecalStyleTypeOutput struct{ *pulumi.OutputState }
+
+func (TemplateDecalStyleTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateDecalStyleType)(nil)).Elem()
+}
+
+func (o TemplateDecalStyleTypeOutput) ToTemplateDecalStyleTypeOutput() TemplateDecalStyleTypeOutput {
+	return o
+}
+
+func (o TemplateDecalStyleTypeOutput) ToTemplateDecalStyleTypeOutputWithContext(ctx context.Context) TemplateDecalStyleTypeOutput {
+	return o
+}
+
+func (o TemplateDecalStyleTypeOutput) ToTemplateDecalStyleTypePtrOutput() TemplateDecalStyleTypePtrOutput {
+	return o.ToTemplateDecalStyleTypePtrOutputWithContext(context.Background())
+}
+
+func (o TemplateDecalStyleTypeOutput) ToTemplateDecalStyleTypePtrOutputWithContext(ctx context.Context) TemplateDecalStyleTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateDecalStyleType) *TemplateDecalStyleType {
+		return &v
+	}).(TemplateDecalStyleTypePtrOutput)
+}
+
+func (o TemplateDecalStyleTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o TemplateDecalStyleTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TemplateDecalStyleType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o TemplateDecalStyleTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TemplateDecalStyleTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TemplateDecalStyleType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type TemplateDecalStyleTypePtrOutput struct{ *pulumi.OutputState }
+
+func (TemplateDecalStyleTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateDecalStyleType)(nil)).Elem()
+}
+
+func (o TemplateDecalStyleTypePtrOutput) ToTemplateDecalStyleTypePtrOutput() TemplateDecalStyleTypePtrOutput {
+	return o
+}
+
+func (o TemplateDecalStyleTypePtrOutput) ToTemplateDecalStyleTypePtrOutputWithContext(ctx context.Context) TemplateDecalStyleTypePtrOutput {
+	return o
+}
+
+func (o TemplateDecalStyleTypePtrOutput) Elem() TemplateDecalStyleTypeOutput {
+	return o.ApplyT(func(v *TemplateDecalStyleType) TemplateDecalStyleType {
+		if v != nil {
+			return *v
+		}
+		var ret TemplateDecalStyleType
+		return ret
+	}).(TemplateDecalStyleTypeOutput)
+}
+
+func (o TemplateDecalStyleTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TemplateDecalStyleTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *TemplateDecalStyleType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// TemplateDecalStyleTypeInput is an input type that accepts values of the TemplateDecalStyleType enum
+// A concrete instance of `TemplateDecalStyleTypeInput` can be one of the following:
+//
+//	TemplateDecalStyleTypeManual
+//	TemplateDecalStyleTypeAuto
+type TemplateDecalStyleTypeInput interface {
+	pulumi.Input
+
+	ToTemplateDecalStyleTypeOutput() TemplateDecalStyleTypeOutput
+	ToTemplateDecalStyleTypeOutputWithContext(context.Context) TemplateDecalStyleTypeOutput
+}
+
+var templateDecalStyleTypePtrType = reflect.TypeOf((**TemplateDecalStyleType)(nil)).Elem()
+
+type TemplateDecalStyleTypePtrInput interface {
+	pulumi.Input
+
+	ToTemplateDecalStyleTypePtrOutput() TemplateDecalStyleTypePtrOutput
+	ToTemplateDecalStyleTypePtrOutputWithContext(context.Context) TemplateDecalStyleTypePtrOutput
+}
+
+type templateDecalStyleTypePtr string
+
+func TemplateDecalStyleTypePtr(v string) TemplateDecalStyleTypePtrInput {
+	return (*templateDecalStyleTypePtr)(&v)
+}
+
+func (*templateDecalStyleTypePtr) ElementType() reflect.Type {
+	return templateDecalStyleTypePtrType
+}
+
+func (in *templateDecalStyleTypePtr) ToTemplateDecalStyleTypePtrOutput() TemplateDecalStyleTypePtrOutput {
+	return pulumi.ToOutput(in).(TemplateDecalStyleTypePtrOutput)
+}
+
+func (in *templateDecalStyleTypePtr) ToTemplateDecalStyleTypePtrOutputWithContext(ctx context.Context) TemplateDecalStyleTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(TemplateDecalStyleTypePtrOutput)
+}
+
 type TemplateDigitGroupingStyle string
 
 const (
@@ -58006,6 +59780,504 @@ func (in *templateFunnelChartMeasureDataLabelStylePtr) ToTemplateFunnelChartMeas
 	return pulumi.ToOutputWithContext(ctx, in).(TemplateFunnelChartMeasureDataLabelStylePtrOutput)
 }
 
+// Defines view state of the color
+type TemplateGeospatialColorState string
+
+const (
+	TemplateGeospatialColorStateEnabled  = TemplateGeospatialColorState("ENABLED")
+	TemplateGeospatialColorStateDisabled = TemplateGeospatialColorState("DISABLED")
+)
+
+func (TemplateGeospatialColorState) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateGeospatialColorState)(nil)).Elem()
+}
+
+func (e TemplateGeospatialColorState) ToTemplateGeospatialColorStateOutput() TemplateGeospatialColorStateOutput {
+	return pulumi.ToOutput(e).(TemplateGeospatialColorStateOutput)
+}
+
+func (e TemplateGeospatialColorState) ToTemplateGeospatialColorStateOutputWithContext(ctx context.Context) TemplateGeospatialColorStateOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(TemplateGeospatialColorStateOutput)
+}
+
+func (e TemplateGeospatialColorState) ToTemplateGeospatialColorStatePtrOutput() TemplateGeospatialColorStatePtrOutput {
+	return e.ToTemplateGeospatialColorStatePtrOutputWithContext(context.Background())
+}
+
+func (e TemplateGeospatialColorState) ToTemplateGeospatialColorStatePtrOutputWithContext(ctx context.Context) TemplateGeospatialColorStatePtrOutput {
+	return TemplateGeospatialColorState(e).ToTemplateGeospatialColorStateOutputWithContext(ctx).ToTemplateGeospatialColorStatePtrOutputWithContext(ctx)
+}
+
+func (e TemplateGeospatialColorState) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TemplateGeospatialColorState) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TemplateGeospatialColorState) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e TemplateGeospatialColorState) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type TemplateGeospatialColorStateOutput struct{ *pulumi.OutputState }
+
+func (TemplateGeospatialColorStateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateGeospatialColorState)(nil)).Elem()
+}
+
+func (o TemplateGeospatialColorStateOutput) ToTemplateGeospatialColorStateOutput() TemplateGeospatialColorStateOutput {
+	return o
+}
+
+func (o TemplateGeospatialColorStateOutput) ToTemplateGeospatialColorStateOutputWithContext(ctx context.Context) TemplateGeospatialColorStateOutput {
+	return o
+}
+
+func (o TemplateGeospatialColorStateOutput) ToTemplateGeospatialColorStatePtrOutput() TemplateGeospatialColorStatePtrOutput {
+	return o.ToTemplateGeospatialColorStatePtrOutputWithContext(context.Background())
+}
+
+func (o TemplateGeospatialColorStateOutput) ToTemplateGeospatialColorStatePtrOutputWithContext(ctx context.Context) TemplateGeospatialColorStatePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateGeospatialColorState) *TemplateGeospatialColorState {
+		return &v
+	}).(TemplateGeospatialColorStatePtrOutput)
+}
+
+func (o TemplateGeospatialColorStateOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o TemplateGeospatialColorStateOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TemplateGeospatialColorState) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o TemplateGeospatialColorStateOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TemplateGeospatialColorStateOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TemplateGeospatialColorState) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type TemplateGeospatialColorStatePtrOutput struct{ *pulumi.OutputState }
+
+func (TemplateGeospatialColorStatePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateGeospatialColorState)(nil)).Elem()
+}
+
+func (o TemplateGeospatialColorStatePtrOutput) ToTemplateGeospatialColorStatePtrOutput() TemplateGeospatialColorStatePtrOutput {
+	return o
+}
+
+func (o TemplateGeospatialColorStatePtrOutput) ToTemplateGeospatialColorStatePtrOutputWithContext(ctx context.Context) TemplateGeospatialColorStatePtrOutput {
+	return o
+}
+
+func (o TemplateGeospatialColorStatePtrOutput) Elem() TemplateGeospatialColorStateOutput {
+	return o.ApplyT(func(v *TemplateGeospatialColorState) TemplateGeospatialColorState {
+		if v != nil {
+			return *v
+		}
+		var ret TemplateGeospatialColorState
+		return ret
+	}).(TemplateGeospatialColorStateOutput)
+}
+
+func (o TemplateGeospatialColorStatePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TemplateGeospatialColorStatePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *TemplateGeospatialColorState) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// TemplateGeospatialColorStateInput is an input type that accepts values of the TemplateGeospatialColorState enum
+// A concrete instance of `TemplateGeospatialColorStateInput` can be one of the following:
+//
+//	TemplateGeospatialColorStateEnabled
+//	TemplateGeospatialColorStateDisabled
+type TemplateGeospatialColorStateInput interface {
+	pulumi.Input
+
+	ToTemplateGeospatialColorStateOutput() TemplateGeospatialColorStateOutput
+	ToTemplateGeospatialColorStateOutputWithContext(context.Context) TemplateGeospatialColorStateOutput
+}
+
+var templateGeospatialColorStatePtrType = reflect.TypeOf((**TemplateGeospatialColorState)(nil)).Elem()
+
+type TemplateGeospatialColorStatePtrInput interface {
+	pulumi.Input
+
+	ToTemplateGeospatialColorStatePtrOutput() TemplateGeospatialColorStatePtrOutput
+	ToTemplateGeospatialColorStatePtrOutputWithContext(context.Context) TemplateGeospatialColorStatePtrOutput
+}
+
+type templateGeospatialColorStatePtr string
+
+func TemplateGeospatialColorStatePtr(v string) TemplateGeospatialColorStatePtrInput {
+	return (*templateGeospatialColorStatePtr)(&v)
+}
+
+func (*templateGeospatialColorStatePtr) ElementType() reflect.Type {
+	return templateGeospatialColorStatePtrType
+}
+
+func (in *templateGeospatialColorStatePtr) ToTemplateGeospatialColorStatePtrOutput() TemplateGeospatialColorStatePtrOutput {
+	return pulumi.ToOutput(in).(TemplateGeospatialColorStatePtrOutput)
+}
+
+func (in *templateGeospatialColorStatePtr) ToTemplateGeospatialColorStatePtrOutputWithContext(ctx context.Context) TemplateGeospatialColorStatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(TemplateGeospatialColorStatePtrOutput)
+}
+
+type TemplateGeospatialLayerType string
+
+const (
+	TemplateGeospatialLayerTypePoint   = TemplateGeospatialLayerType("POINT")
+	TemplateGeospatialLayerTypeLine    = TemplateGeospatialLayerType("LINE")
+	TemplateGeospatialLayerTypePolygon = TemplateGeospatialLayerType("POLYGON")
+)
+
+func (TemplateGeospatialLayerType) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateGeospatialLayerType)(nil)).Elem()
+}
+
+func (e TemplateGeospatialLayerType) ToTemplateGeospatialLayerTypeOutput() TemplateGeospatialLayerTypeOutput {
+	return pulumi.ToOutput(e).(TemplateGeospatialLayerTypeOutput)
+}
+
+func (e TemplateGeospatialLayerType) ToTemplateGeospatialLayerTypeOutputWithContext(ctx context.Context) TemplateGeospatialLayerTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(TemplateGeospatialLayerTypeOutput)
+}
+
+func (e TemplateGeospatialLayerType) ToTemplateGeospatialLayerTypePtrOutput() TemplateGeospatialLayerTypePtrOutput {
+	return e.ToTemplateGeospatialLayerTypePtrOutputWithContext(context.Background())
+}
+
+func (e TemplateGeospatialLayerType) ToTemplateGeospatialLayerTypePtrOutputWithContext(ctx context.Context) TemplateGeospatialLayerTypePtrOutput {
+	return TemplateGeospatialLayerType(e).ToTemplateGeospatialLayerTypeOutputWithContext(ctx).ToTemplateGeospatialLayerTypePtrOutputWithContext(ctx)
+}
+
+func (e TemplateGeospatialLayerType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TemplateGeospatialLayerType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TemplateGeospatialLayerType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e TemplateGeospatialLayerType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type TemplateGeospatialLayerTypeOutput struct{ *pulumi.OutputState }
+
+func (TemplateGeospatialLayerTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateGeospatialLayerType)(nil)).Elem()
+}
+
+func (o TemplateGeospatialLayerTypeOutput) ToTemplateGeospatialLayerTypeOutput() TemplateGeospatialLayerTypeOutput {
+	return o
+}
+
+func (o TemplateGeospatialLayerTypeOutput) ToTemplateGeospatialLayerTypeOutputWithContext(ctx context.Context) TemplateGeospatialLayerTypeOutput {
+	return o
+}
+
+func (o TemplateGeospatialLayerTypeOutput) ToTemplateGeospatialLayerTypePtrOutput() TemplateGeospatialLayerTypePtrOutput {
+	return o.ToTemplateGeospatialLayerTypePtrOutputWithContext(context.Background())
+}
+
+func (o TemplateGeospatialLayerTypeOutput) ToTemplateGeospatialLayerTypePtrOutputWithContext(ctx context.Context) TemplateGeospatialLayerTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateGeospatialLayerType) *TemplateGeospatialLayerType {
+		return &v
+	}).(TemplateGeospatialLayerTypePtrOutput)
+}
+
+func (o TemplateGeospatialLayerTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o TemplateGeospatialLayerTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TemplateGeospatialLayerType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o TemplateGeospatialLayerTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TemplateGeospatialLayerTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TemplateGeospatialLayerType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type TemplateGeospatialLayerTypePtrOutput struct{ *pulumi.OutputState }
+
+func (TemplateGeospatialLayerTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateGeospatialLayerType)(nil)).Elem()
+}
+
+func (o TemplateGeospatialLayerTypePtrOutput) ToTemplateGeospatialLayerTypePtrOutput() TemplateGeospatialLayerTypePtrOutput {
+	return o
+}
+
+func (o TemplateGeospatialLayerTypePtrOutput) ToTemplateGeospatialLayerTypePtrOutputWithContext(ctx context.Context) TemplateGeospatialLayerTypePtrOutput {
+	return o
+}
+
+func (o TemplateGeospatialLayerTypePtrOutput) Elem() TemplateGeospatialLayerTypeOutput {
+	return o.ApplyT(func(v *TemplateGeospatialLayerType) TemplateGeospatialLayerType {
+		if v != nil {
+			return *v
+		}
+		var ret TemplateGeospatialLayerType
+		return ret
+	}).(TemplateGeospatialLayerTypeOutput)
+}
+
+func (o TemplateGeospatialLayerTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TemplateGeospatialLayerTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *TemplateGeospatialLayerType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// TemplateGeospatialLayerTypeInput is an input type that accepts values of the TemplateGeospatialLayerType enum
+// A concrete instance of `TemplateGeospatialLayerTypeInput` can be one of the following:
+//
+//	TemplateGeospatialLayerTypePoint
+//	TemplateGeospatialLayerTypeLine
+//	TemplateGeospatialLayerTypePolygon
+type TemplateGeospatialLayerTypeInput interface {
+	pulumi.Input
+
+	ToTemplateGeospatialLayerTypeOutput() TemplateGeospatialLayerTypeOutput
+	ToTemplateGeospatialLayerTypeOutputWithContext(context.Context) TemplateGeospatialLayerTypeOutput
+}
+
+var templateGeospatialLayerTypePtrType = reflect.TypeOf((**TemplateGeospatialLayerType)(nil)).Elem()
+
+type TemplateGeospatialLayerTypePtrInput interface {
+	pulumi.Input
+
+	ToTemplateGeospatialLayerTypePtrOutput() TemplateGeospatialLayerTypePtrOutput
+	ToTemplateGeospatialLayerTypePtrOutputWithContext(context.Context) TemplateGeospatialLayerTypePtrOutput
+}
+
+type templateGeospatialLayerTypePtr string
+
+func TemplateGeospatialLayerTypePtr(v string) TemplateGeospatialLayerTypePtrInput {
+	return (*templateGeospatialLayerTypePtr)(&v)
+}
+
+func (*templateGeospatialLayerTypePtr) ElementType() reflect.Type {
+	return templateGeospatialLayerTypePtrType
+}
+
+func (in *templateGeospatialLayerTypePtr) ToTemplateGeospatialLayerTypePtrOutput() TemplateGeospatialLayerTypePtrOutput {
+	return pulumi.ToOutput(in).(TemplateGeospatialLayerTypePtrOutput)
+}
+
+func (in *templateGeospatialLayerTypePtr) ToTemplateGeospatialLayerTypePtrOutputWithContext(ctx context.Context) TemplateGeospatialLayerTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(TemplateGeospatialLayerTypePtrOutput)
+}
+
+type TemplateGeospatialMapNavigation string
+
+const (
+	TemplateGeospatialMapNavigationEnabled  = TemplateGeospatialMapNavigation("ENABLED")
+	TemplateGeospatialMapNavigationDisabled = TemplateGeospatialMapNavigation("DISABLED")
+)
+
+func (TemplateGeospatialMapNavigation) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateGeospatialMapNavigation)(nil)).Elem()
+}
+
+func (e TemplateGeospatialMapNavigation) ToTemplateGeospatialMapNavigationOutput() TemplateGeospatialMapNavigationOutput {
+	return pulumi.ToOutput(e).(TemplateGeospatialMapNavigationOutput)
+}
+
+func (e TemplateGeospatialMapNavigation) ToTemplateGeospatialMapNavigationOutputWithContext(ctx context.Context) TemplateGeospatialMapNavigationOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(TemplateGeospatialMapNavigationOutput)
+}
+
+func (e TemplateGeospatialMapNavigation) ToTemplateGeospatialMapNavigationPtrOutput() TemplateGeospatialMapNavigationPtrOutput {
+	return e.ToTemplateGeospatialMapNavigationPtrOutputWithContext(context.Background())
+}
+
+func (e TemplateGeospatialMapNavigation) ToTemplateGeospatialMapNavigationPtrOutputWithContext(ctx context.Context) TemplateGeospatialMapNavigationPtrOutput {
+	return TemplateGeospatialMapNavigation(e).ToTemplateGeospatialMapNavigationOutputWithContext(ctx).ToTemplateGeospatialMapNavigationPtrOutputWithContext(ctx)
+}
+
+func (e TemplateGeospatialMapNavigation) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TemplateGeospatialMapNavigation) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TemplateGeospatialMapNavigation) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e TemplateGeospatialMapNavigation) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type TemplateGeospatialMapNavigationOutput struct{ *pulumi.OutputState }
+
+func (TemplateGeospatialMapNavigationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateGeospatialMapNavigation)(nil)).Elem()
+}
+
+func (o TemplateGeospatialMapNavigationOutput) ToTemplateGeospatialMapNavigationOutput() TemplateGeospatialMapNavigationOutput {
+	return o
+}
+
+func (o TemplateGeospatialMapNavigationOutput) ToTemplateGeospatialMapNavigationOutputWithContext(ctx context.Context) TemplateGeospatialMapNavigationOutput {
+	return o
+}
+
+func (o TemplateGeospatialMapNavigationOutput) ToTemplateGeospatialMapNavigationPtrOutput() TemplateGeospatialMapNavigationPtrOutput {
+	return o.ToTemplateGeospatialMapNavigationPtrOutputWithContext(context.Background())
+}
+
+func (o TemplateGeospatialMapNavigationOutput) ToTemplateGeospatialMapNavigationPtrOutputWithContext(ctx context.Context) TemplateGeospatialMapNavigationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateGeospatialMapNavigation) *TemplateGeospatialMapNavigation {
+		return &v
+	}).(TemplateGeospatialMapNavigationPtrOutput)
+}
+
+func (o TemplateGeospatialMapNavigationOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o TemplateGeospatialMapNavigationOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TemplateGeospatialMapNavigation) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o TemplateGeospatialMapNavigationOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TemplateGeospatialMapNavigationOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TemplateGeospatialMapNavigation) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type TemplateGeospatialMapNavigationPtrOutput struct{ *pulumi.OutputState }
+
+func (TemplateGeospatialMapNavigationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateGeospatialMapNavigation)(nil)).Elem()
+}
+
+func (o TemplateGeospatialMapNavigationPtrOutput) ToTemplateGeospatialMapNavigationPtrOutput() TemplateGeospatialMapNavigationPtrOutput {
+	return o
+}
+
+func (o TemplateGeospatialMapNavigationPtrOutput) ToTemplateGeospatialMapNavigationPtrOutputWithContext(ctx context.Context) TemplateGeospatialMapNavigationPtrOutput {
+	return o
+}
+
+func (o TemplateGeospatialMapNavigationPtrOutput) Elem() TemplateGeospatialMapNavigationOutput {
+	return o.ApplyT(func(v *TemplateGeospatialMapNavigation) TemplateGeospatialMapNavigation {
+		if v != nil {
+			return *v
+		}
+		var ret TemplateGeospatialMapNavigation
+		return ret
+	}).(TemplateGeospatialMapNavigationOutput)
+}
+
+func (o TemplateGeospatialMapNavigationPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TemplateGeospatialMapNavigationPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *TemplateGeospatialMapNavigation) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// TemplateGeospatialMapNavigationInput is an input type that accepts values of the TemplateGeospatialMapNavigation enum
+// A concrete instance of `TemplateGeospatialMapNavigationInput` can be one of the following:
+//
+//	TemplateGeospatialMapNavigationEnabled
+//	TemplateGeospatialMapNavigationDisabled
+type TemplateGeospatialMapNavigationInput interface {
+	pulumi.Input
+
+	ToTemplateGeospatialMapNavigationOutput() TemplateGeospatialMapNavigationOutput
+	ToTemplateGeospatialMapNavigationOutputWithContext(context.Context) TemplateGeospatialMapNavigationOutput
+}
+
+var templateGeospatialMapNavigationPtrType = reflect.TypeOf((**TemplateGeospatialMapNavigation)(nil)).Elem()
+
+type TemplateGeospatialMapNavigationPtrInput interface {
+	pulumi.Input
+
+	ToTemplateGeospatialMapNavigationPtrOutput() TemplateGeospatialMapNavigationPtrOutput
+	ToTemplateGeospatialMapNavigationPtrOutputWithContext(context.Context) TemplateGeospatialMapNavigationPtrOutput
+}
+
+type templateGeospatialMapNavigationPtr string
+
+func TemplateGeospatialMapNavigationPtr(v string) TemplateGeospatialMapNavigationPtrInput {
+	return (*templateGeospatialMapNavigationPtr)(&v)
+}
+
+func (*templateGeospatialMapNavigationPtr) ElementType() reflect.Type {
+	return templateGeospatialMapNavigationPtrType
+}
+
+func (in *templateGeospatialMapNavigationPtr) ToTemplateGeospatialMapNavigationPtrOutput() TemplateGeospatialMapNavigationPtrOutput {
+	return pulumi.ToOutput(in).(TemplateGeospatialMapNavigationPtrOutput)
+}
+
+func (in *templateGeospatialMapNavigationPtr) ToTemplateGeospatialMapNavigationPtrOutputWithContext(ctx context.Context) TemplateGeospatialMapNavigationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(TemplateGeospatialMapNavigationPtrOutput)
+}
+
 type TemplateGeospatialSelectedPointStyle string
 
 const (
@@ -59213,6 +61485,171 @@ func (in *templateKpiVisualStandardLayoutTypePtr) ToTemplateKpiVisualStandardLay
 
 func (in *templateKpiVisualStandardLayoutTypePtr) ToTemplateKpiVisualStandardLayoutTypePtrOutputWithContext(ctx context.Context) TemplateKpiVisualStandardLayoutTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TemplateKpiVisualStandardLayoutTypePtrOutput)
+}
+
+type TemplateLayerCustomActionTrigger string
+
+const (
+	TemplateLayerCustomActionTriggerDataPointClick = TemplateLayerCustomActionTrigger("DATA_POINT_CLICK")
+	TemplateLayerCustomActionTriggerDataPointMenu  = TemplateLayerCustomActionTrigger("DATA_POINT_MENU")
+)
+
+func (TemplateLayerCustomActionTrigger) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateLayerCustomActionTrigger)(nil)).Elem()
+}
+
+func (e TemplateLayerCustomActionTrigger) ToTemplateLayerCustomActionTriggerOutput() TemplateLayerCustomActionTriggerOutput {
+	return pulumi.ToOutput(e).(TemplateLayerCustomActionTriggerOutput)
+}
+
+func (e TemplateLayerCustomActionTrigger) ToTemplateLayerCustomActionTriggerOutputWithContext(ctx context.Context) TemplateLayerCustomActionTriggerOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(TemplateLayerCustomActionTriggerOutput)
+}
+
+func (e TemplateLayerCustomActionTrigger) ToTemplateLayerCustomActionTriggerPtrOutput() TemplateLayerCustomActionTriggerPtrOutput {
+	return e.ToTemplateLayerCustomActionTriggerPtrOutputWithContext(context.Background())
+}
+
+func (e TemplateLayerCustomActionTrigger) ToTemplateLayerCustomActionTriggerPtrOutputWithContext(ctx context.Context) TemplateLayerCustomActionTriggerPtrOutput {
+	return TemplateLayerCustomActionTrigger(e).ToTemplateLayerCustomActionTriggerOutputWithContext(ctx).ToTemplateLayerCustomActionTriggerPtrOutputWithContext(ctx)
+}
+
+func (e TemplateLayerCustomActionTrigger) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TemplateLayerCustomActionTrigger) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TemplateLayerCustomActionTrigger) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e TemplateLayerCustomActionTrigger) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type TemplateLayerCustomActionTriggerOutput struct{ *pulumi.OutputState }
+
+func (TemplateLayerCustomActionTriggerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateLayerCustomActionTrigger)(nil)).Elem()
+}
+
+func (o TemplateLayerCustomActionTriggerOutput) ToTemplateLayerCustomActionTriggerOutput() TemplateLayerCustomActionTriggerOutput {
+	return o
+}
+
+func (o TemplateLayerCustomActionTriggerOutput) ToTemplateLayerCustomActionTriggerOutputWithContext(ctx context.Context) TemplateLayerCustomActionTriggerOutput {
+	return o
+}
+
+func (o TemplateLayerCustomActionTriggerOutput) ToTemplateLayerCustomActionTriggerPtrOutput() TemplateLayerCustomActionTriggerPtrOutput {
+	return o.ToTemplateLayerCustomActionTriggerPtrOutputWithContext(context.Background())
+}
+
+func (o TemplateLayerCustomActionTriggerOutput) ToTemplateLayerCustomActionTriggerPtrOutputWithContext(ctx context.Context) TemplateLayerCustomActionTriggerPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateLayerCustomActionTrigger) *TemplateLayerCustomActionTrigger {
+		return &v
+	}).(TemplateLayerCustomActionTriggerPtrOutput)
+}
+
+func (o TemplateLayerCustomActionTriggerOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o TemplateLayerCustomActionTriggerOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TemplateLayerCustomActionTrigger) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o TemplateLayerCustomActionTriggerOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TemplateLayerCustomActionTriggerOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TemplateLayerCustomActionTrigger) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type TemplateLayerCustomActionTriggerPtrOutput struct{ *pulumi.OutputState }
+
+func (TemplateLayerCustomActionTriggerPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateLayerCustomActionTrigger)(nil)).Elem()
+}
+
+func (o TemplateLayerCustomActionTriggerPtrOutput) ToTemplateLayerCustomActionTriggerPtrOutput() TemplateLayerCustomActionTriggerPtrOutput {
+	return o
+}
+
+func (o TemplateLayerCustomActionTriggerPtrOutput) ToTemplateLayerCustomActionTriggerPtrOutputWithContext(ctx context.Context) TemplateLayerCustomActionTriggerPtrOutput {
+	return o
+}
+
+func (o TemplateLayerCustomActionTriggerPtrOutput) Elem() TemplateLayerCustomActionTriggerOutput {
+	return o.ApplyT(func(v *TemplateLayerCustomActionTrigger) TemplateLayerCustomActionTrigger {
+		if v != nil {
+			return *v
+		}
+		var ret TemplateLayerCustomActionTrigger
+		return ret
+	}).(TemplateLayerCustomActionTriggerOutput)
+}
+
+func (o TemplateLayerCustomActionTriggerPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TemplateLayerCustomActionTriggerPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *TemplateLayerCustomActionTrigger) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// TemplateLayerCustomActionTriggerInput is an input type that accepts values of the TemplateLayerCustomActionTrigger enum
+// A concrete instance of `TemplateLayerCustomActionTriggerInput` can be one of the following:
+//
+//	TemplateLayerCustomActionTriggerDataPointClick
+//	TemplateLayerCustomActionTriggerDataPointMenu
+type TemplateLayerCustomActionTriggerInput interface {
+	pulumi.Input
+
+	ToTemplateLayerCustomActionTriggerOutput() TemplateLayerCustomActionTriggerOutput
+	ToTemplateLayerCustomActionTriggerOutputWithContext(context.Context) TemplateLayerCustomActionTriggerOutput
+}
+
+var templateLayerCustomActionTriggerPtrType = reflect.TypeOf((**TemplateLayerCustomActionTrigger)(nil)).Elem()
+
+type TemplateLayerCustomActionTriggerPtrInput interface {
+	pulumi.Input
+
+	ToTemplateLayerCustomActionTriggerPtrOutput() TemplateLayerCustomActionTriggerPtrOutput
+	ToTemplateLayerCustomActionTriggerPtrOutputWithContext(context.Context) TemplateLayerCustomActionTriggerPtrOutput
+}
+
+type templateLayerCustomActionTriggerPtr string
+
+func TemplateLayerCustomActionTriggerPtr(v string) TemplateLayerCustomActionTriggerPtrInput {
+	return (*templateLayerCustomActionTriggerPtr)(&v)
+}
+
+func (*templateLayerCustomActionTriggerPtr) ElementType() reflect.Type {
+	return templateLayerCustomActionTriggerPtrType
+}
+
+func (in *templateLayerCustomActionTriggerPtr) ToTemplateLayerCustomActionTriggerPtrOutput() TemplateLayerCustomActionTriggerPtrOutput {
+	return pulumi.ToOutput(in).(TemplateLayerCustomActionTriggerPtrOutput)
+}
+
+func (in *templateLayerCustomActionTriggerPtr) ToTemplateLayerCustomActionTriggerPtrOutputWithContext(ctx context.Context) TemplateLayerCustomActionTriggerPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(TemplateLayerCustomActionTriggerPtrOutput)
 }
 
 type TemplateLayoutElementType string
@@ -66161,6 +68598,7 @@ type TemplateSelectedTooltipType string
 const (
 	TemplateSelectedTooltipTypeBasic    = TemplateSelectedTooltipType("BASIC")
 	TemplateSelectedTooltipTypeDetailed = TemplateSelectedTooltipType("DETAILED")
+	TemplateSelectedTooltipTypeSheet    = TemplateSelectedTooltipType("SHEET")
 )
 
 func (TemplateSelectedTooltipType) ElementType() reflect.Type {
@@ -66287,6 +68725,7 @@ func (o TemplateSelectedTooltipTypePtrOutput) ToStringPtrOutputWithContext(ctx c
 //
 //	TemplateSelectedTooltipTypeBasic
 //	TemplateSelectedTooltipTypeDetailed
+//	TemplateSelectedTooltipTypeSheet
 type TemplateSelectedTooltipTypeInput interface {
 	pulumi.Input
 
@@ -68325,6 +70764,336 @@ func (in *templateSortDirectionPtr) ToTemplateSortDirectionPtrOutput() TemplateS
 
 func (in *templateSortDirectionPtr) ToTemplateSortDirectionPtrOutputWithContext(ctx context.Context) TemplateSortDirectionPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TemplateSortDirectionPtrOutput)
+}
+
+type TemplateSparklineAxisBehavior string
+
+const (
+	TemplateSparklineAxisBehaviorShared      = TemplateSparklineAxisBehavior("SHARED")
+	TemplateSparklineAxisBehaviorIndependent = TemplateSparklineAxisBehavior("INDEPENDENT")
+)
+
+func (TemplateSparklineAxisBehavior) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateSparklineAxisBehavior)(nil)).Elem()
+}
+
+func (e TemplateSparklineAxisBehavior) ToTemplateSparklineAxisBehaviorOutput() TemplateSparklineAxisBehaviorOutput {
+	return pulumi.ToOutput(e).(TemplateSparklineAxisBehaviorOutput)
+}
+
+func (e TemplateSparklineAxisBehavior) ToTemplateSparklineAxisBehaviorOutputWithContext(ctx context.Context) TemplateSparklineAxisBehaviorOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(TemplateSparklineAxisBehaviorOutput)
+}
+
+func (e TemplateSparklineAxisBehavior) ToTemplateSparklineAxisBehaviorPtrOutput() TemplateSparklineAxisBehaviorPtrOutput {
+	return e.ToTemplateSparklineAxisBehaviorPtrOutputWithContext(context.Background())
+}
+
+func (e TemplateSparklineAxisBehavior) ToTemplateSparklineAxisBehaviorPtrOutputWithContext(ctx context.Context) TemplateSparklineAxisBehaviorPtrOutput {
+	return TemplateSparklineAxisBehavior(e).ToTemplateSparklineAxisBehaviorOutputWithContext(ctx).ToTemplateSparklineAxisBehaviorPtrOutputWithContext(ctx)
+}
+
+func (e TemplateSparklineAxisBehavior) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TemplateSparklineAxisBehavior) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TemplateSparklineAxisBehavior) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e TemplateSparklineAxisBehavior) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type TemplateSparklineAxisBehaviorOutput struct{ *pulumi.OutputState }
+
+func (TemplateSparklineAxisBehaviorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateSparklineAxisBehavior)(nil)).Elem()
+}
+
+func (o TemplateSparklineAxisBehaviorOutput) ToTemplateSparklineAxisBehaviorOutput() TemplateSparklineAxisBehaviorOutput {
+	return o
+}
+
+func (o TemplateSparklineAxisBehaviorOutput) ToTemplateSparklineAxisBehaviorOutputWithContext(ctx context.Context) TemplateSparklineAxisBehaviorOutput {
+	return o
+}
+
+func (o TemplateSparklineAxisBehaviorOutput) ToTemplateSparklineAxisBehaviorPtrOutput() TemplateSparklineAxisBehaviorPtrOutput {
+	return o.ToTemplateSparklineAxisBehaviorPtrOutputWithContext(context.Background())
+}
+
+func (o TemplateSparklineAxisBehaviorOutput) ToTemplateSparklineAxisBehaviorPtrOutputWithContext(ctx context.Context) TemplateSparklineAxisBehaviorPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateSparklineAxisBehavior) *TemplateSparklineAxisBehavior {
+		return &v
+	}).(TemplateSparklineAxisBehaviorPtrOutput)
+}
+
+func (o TemplateSparklineAxisBehaviorOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o TemplateSparklineAxisBehaviorOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TemplateSparklineAxisBehavior) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o TemplateSparklineAxisBehaviorOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TemplateSparklineAxisBehaviorOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TemplateSparklineAxisBehavior) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type TemplateSparklineAxisBehaviorPtrOutput struct{ *pulumi.OutputState }
+
+func (TemplateSparklineAxisBehaviorPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateSparklineAxisBehavior)(nil)).Elem()
+}
+
+func (o TemplateSparklineAxisBehaviorPtrOutput) ToTemplateSparklineAxisBehaviorPtrOutput() TemplateSparklineAxisBehaviorPtrOutput {
+	return o
+}
+
+func (o TemplateSparklineAxisBehaviorPtrOutput) ToTemplateSparklineAxisBehaviorPtrOutputWithContext(ctx context.Context) TemplateSparklineAxisBehaviorPtrOutput {
+	return o
+}
+
+func (o TemplateSparklineAxisBehaviorPtrOutput) Elem() TemplateSparklineAxisBehaviorOutput {
+	return o.ApplyT(func(v *TemplateSparklineAxisBehavior) TemplateSparklineAxisBehavior {
+		if v != nil {
+			return *v
+		}
+		var ret TemplateSparklineAxisBehavior
+		return ret
+	}).(TemplateSparklineAxisBehaviorOutput)
+}
+
+func (o TemplateSparklineAxisBehaviorPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TemplateSparklineAxisBehaviorPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *TemplateSparklineAxisBehavior) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// TemplateSparklineAxisBehaviorInput is an input type that accepts values of the TemplateSparklineAxisBehavior enum
+// A concrete instance of `TemplateSparklineAxisBehaviorInput` can be one of the following:
+//
+//	TemplateSparklineAxisBehaviorShared
+//	TemplateSparklineAxisBehaviorIndependent
+type TemplateSparklineAxisBehaviorInput interface {
+	pulumi.Input
+
+	ToTemplateSparklineAxisBehaviorOutput() TemplateSparklineAxisBehaviorOutput
+	ToTemplateSparklineAxisBehaviorOutputWithContext(context.Context) TemplateSparklineAxisBehaviorOutput
+}
+
+var templateSparklineAxisBehaviorPtrType = reflect.TypeOf((**TemplateSparklineAxisBehavior)(nil)).Elem()
+
+type TemplateSparklineAxisBehaviorPtrInput interface {
+	pulumi.Input
+
+	ToTemplateSparklineAxisBehaviorPtrOutput() TemplateSparklineAxisBehaviorPtrOutput
+	ToTemplateSparklineAxisBehaviorPtrOutputWithContext(context.Context) TemplateSparklineAxisBehaviorPtrOutput
+}
+
+type templateSparklineAxisBehaviorPtr string
+
+func TemplateSparklineAxisBehaviorPtr(v string) TemplateSparklineAxisBehaviorPtrInput {
+	return (*templateSparklineAxisBehaviorPtr)(&v)
+}
+
+func (*templateSparklineAxisBehaviorPtr) ElementType() reflect.Type {
+	return templateSparklineAxisBehaviorPtrType
+}
+
+func (in *templateSparklineAxisBehaviorPtr) ToTemplateSparklineAxisBehaviorPtrOutput() TemplateSparklineAxisBehaviorPtrOutput {
+	return pulumi.ToOutput(in).(TemplateSparklineAxisBehaviorPtrOutput)
+}
+
+func (in *templateSparklineAxisBehaviorPtr) ToTemplateSparklineAxisBehaviorPtrOutputWithContext(ctx context.Context) TemplateSparklineAxisBehaviorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(TemplateSparklineAxisBehaviorPtrOutput)
+}
+
+type TemplateSparklineVisualType string
+
+const (
+	TemplateSparklineVisualTypeLine     = TemplateSparklineVisualType("LINE")
+	TemplateSparklineVisualTypeAreaLine = TemplateSparklineVisualType("AREA_LINE")
+)
+
+func (TemplateSparklineVisualType) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateSparklineVisualType)(nil)).Elem()
+}
+
+func (e TemplateSparklineVisualType) ToTemplateSparklineVisualTypeOutput() TemplateSparklineVisualTypeOutput {
+	return pulumi.ToOutput(e).(TemplateSparklineVisualTypeOutput)
+}
+
+func (e TemplateSparklineVisualType) ToTemplateSparklineVisualTypeOutputWithContext(ctx context.Context) TemplateSparklineVisualTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(TemplateSparklineVisualTypeOutput)
+}
+
+func (e TemplateSparklineVisualType) ToTemplateSparklineVisualTypePtrOutput() TemplateSparklineVisualTypePtrOutput {
+	return e.ToTemplateSparklineVisualTypePtrOutputWithContext(context.Background())
+}
+
+func (e TemplateSparklineVisualType) ToTemplateSparklineVisualTypePtrOutputWithContext(ctx context.Context) TemplateSparklineVisualTypePtrOutput {
+	return TemplateSparklineVisualType(e).ToTemplateSparklineVisualTypeOutputWithContext(ctx).ToTemplateSparklineVisualTypePtrOutputWithContext(ctx)
+}
+
+func (e TemplateSparklineVisualType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TemplateSparklineVisualType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TemplateSparklineVisualType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e TemplateSparklineVisualType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type TemplateSparklineVisualTypeOutput struct{ *pulumi.OutputState }
+
+func (TemplateSparklineVisualTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateSparklineVisualType)(nil)).Elem()
+}
+
+func (o TemplateSparklineVisualTypeOutput) ToTemplateSparklineVisualTypeOutput() TemplateSparklineVisualTypeOutput {
+	return o
+}
+
+func (o TemplateSparklineVisualTypeOutput) ToTemplateSparklineVisualTypeOutputWithContext(ctx context.Context) TemplateSparklineVisualTypeOutput {
+	return o
+}
+
+func (o TemplateSparklineVisualTypeOutput) ToTemplateSparklineVisualTypePtrOutput() TemplateSparklineVisualTypePtrOutput {
+	return o.ToTemplateSparklineVisualTypePtrOutputWithContext(context.Background())
+}
+
+func (o TemplateSparklineVisualTypeOutput) ToTemplateSparklineVisualTypePtrOutputWithContext(ctx context.Context) TemplateSparklineVisualTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateSparklineVisualType) *TemplateSparklineVisualType {
+		return &v
+	}).(TemplateSparklineVisualTypePtrOutput)
+}
+
+func (o TemplateSparklineVisualTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o TemplateSparklineVisualTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TemplateSparklineVisualType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o TemplateSparklineVisualTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TemplateSparklineVisualTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TemplateSparklineVisualType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type TemplateSparklineVisualTypePtrOutput struct{ *pulumi.OutputState }
+
+func (TemplateSparklineVisualTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateSparklineVisualType)(nil)).Elem()
+}
+
+func (o TemplateSparklineVisualTypePtrOutput) ToTemplateSparklineVisualTypePtrOutput() TemplateSparklineVisualTypePtrOutput {
+	return o
+}
+
+func (o TemplateSparklineVisualTypePtrOutput) ToTemplateSparklineVisualTypePtrOutputWithContext(ctx context.Context) TemplateSparklineVisualTypePtrOutput {
+	return o
+}
+
+func (o TemplateSparklineVisualTypePtrOutput) Elem() TemplateSparklineVisualTypeOutput {
+	return o.ApplyT(func(v *TemplateSparklineVisualType) TemplateSparklineVisualType {
+		if v != nil {
+			return *v
+		}
+		var ret TemplateSparklineVisualType
+		return ret
+	}).(TemplateSparklineVisualTypeOutput)
+}
+
+func (o TemplateSparklineVisualTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TemplateSparklineVisualTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *TemplateSparklineVisualType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// TemplateSparklineVisualTypeInput is an input type that accepts values of the TemplateSparklineVisualType enum
+// A concrete instance of `TemplateSparklineVisualTypeInput` can be one of the following:
+//
+//	TemplateSparklineVisualTypeLine
+//	TemplateSparklineVisualTypeAreaLine
+type TemplateSparklineVisualTypeInput interface {
+	pulumi.Input
+
+	ToTemplateSparklineVisualTypeOutput() TemplateSparklineVisualTypeOutput
+	ToTemplateSparklineVisualTypeOutputWithContext(context.Context) TemplateSparklineVisualTypeOutput
+}
+
+var templateSparklineVisualTypePtrType = reflect.TypeOf((**TemplateSparklineVisualType)(nil)).Elem()
+
+type TemplateSparklineVisualTypePtrInput interface {
+	pulumi.Input
+
+	ToTemplateSparklineVisualTypePtrOutput() TemplateSparklineVisualTypePtrOutput
+	ToTemplateSparklineVisualTypePtrOutputWithContext(context.Context) TemplateSparklineVisualTypePtrOutput
+}
+
+type templateSparklineVisualTypePtr string
+
+func TemplateSparklineVisualTypePtr(v string) TemplateSparklineVisualTypePtrInput {
+	return (*templateSparklineVisualTypePtr)(&v)
+}
+
+func (*templateSparklineVisualTypePtr) ElementType() reflect.Type {
+	return templateSparklineVisualTypePtrType
+}
+
+func (in *templateSparklineVisualTypePtr) ToTemplateSparklineVisualTypePtrOutput() TemplateSparklineVisualTypePtrOutput {
+	return pulumi.ToOutput(in).(TemplateSparklineVisualTypePtrOutput)
+}
+
+func (in *templateSparklineVisualTypePtr) ToTemplateSparklineVisualTypePtrOutputWithContext(ctx context.Context) TemplateSparklineVisualTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(TemplateSparklineVisualTypePtrOutput)
 }
 
 type TemplateSpecialValue string
@@ -73066,6 +75835,670 @@ func (o ThemeErrorTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Contex
 	}).(pulumi.StringPtrOutput)
 }
 
+type ThemeFontDecoration string
+
+const (
+	ThemeFontDecorationUnderline = ThemeFontDecoration("UNDERLINE")
+	ThemeFontDecorationNone      = ThemeFontDecoration("NONE")
+)
+
+func (ThemeFontDecoration) ElementType() reflect.Type {
+	return reflect.TypeOf((*ThemeFontDecoration)(nil)).Elem()
+}
+
+func (e ThemeFontDecoration) ToThemeFontDecorationOutput() ThemeFontDecorationOutput {
+	return pulumi.ToOutput(e).(ThemeFontDecorationOutput)
+}
+
+func (e ThemeFontDecoration) ToThemeFontDecorationOutputWithContext(ctx context.Context) ThemeFontDecorationOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ThemeFontDecorationOutput)
+}
+
+func (e ThemeFontDecoration) ToThemeFontDecorationPtrOutput() ThemeFontDecorationPtrOutput {
+	return e.ToThemeFontDecorationPtrOutputWithContext(context.Background())
+}
+
+func (e ThemeFontDecoration) ToThemeFontDecorationPtrOutputWithContext(ctx context.Context) ThemeFontDecorationPtrOutput {
+	return ThemeFontDecoration(e).ToThemeFontDecorationOutputWithContext(ctx).ToThemeFontDecorationPtrOutputWithContext(ctx)
+}
+
+func (e ThemeFontDecoration) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ThemeFontDecoration) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ThemeFontDecoration) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ThemeFontDecoration) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ThemeFontDecorationOutput struct{ *pulumi.OutputState }
+
+func (ThemeFontDecorationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ThemeFontDecoration)(nil)).Elem()
+}
+
+func (o ThemeFontDecorationOutput) ToThemeFontDecorationOutput() ThemeFontDecorationOutput {
+	return o
+}
+
+func (o ThemeFontDecorationOutput) ToThemeFontDecorationOutputWithContext(ctx context.Context) ThemeFontDecorationOutput {
+	return o
+}
+
+func (o ThemeFontDecorationOutput) ToThemeFontDecorationPtrOutput() ThemeFontDecorationPtrOutput {
+	return o.ToThemeFontDecorationPtrOutputWithContext(context.Background())
+}
+
+func (o ThemeFontDecorationOutput) ToThemeFontDecorationPtrOutputWithContext(ctx context.Context) ThemeFontDecorationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ThemeFontDecoration) *ThemeFontDecoration {
+		return &v
+	}).(ThemeFontDecorationPtrOutput)
+}
+
+func (o ThemeFontDecorationOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ThemeFontDecorationOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ThemeFontDecoration) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ThemeFontDecorationOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ThemeFontDecorationOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ThemeFontDecoration) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ThemeFontDecorationPtrOutput struct{ *pulumi.OutputState }
+
+func (ThemeFontDecorationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ThemeFontDecoration)(nil)).Elem()
+}
+
+func (o ThemeFontDecorationPtrOutput) ToThemeFontDecorationPtrOutput() ThemeFontDecorationPtrOutput {
+	return o
+}
+
+func (o ThemeFontDecorationPtrOutput) ToThemeFontDecorationPtrOutputWithContext(ctx context.Context) ThemeFontDecorationPtrOutput {
+	return o
+}
+
+func (o ThemeFontDecorationPtrOutput) Elem() ThemeFontDecorationOutput {
+	return o.ApplyT(func(v *ThemeFontDecoration) ThemeFontDecoration {
+		if v != nil {
+			return *v
+		}
+		var ret ThemeFontDecoration
+		return ret
+	}).(ThemeFontDecorationOutput)
+}
+
+func (o ThemeFontDecorationPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ThemeFontDecorationPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ThemeFontDecoration) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ThemeFontDecorationInput is an input type that accepts values of the ThemeFontDecoration enum
+// A concrete instance of `ThemeFontDecorationInput` can be one of the following:
+//
+//	ThemeFontDecorationUnderline
+//	ThemeFontDecorationNone
+type ThemeFontDecorationInput interface {
+	pulumi.Input
+
+	ToThemeFontDecorationOutput() ThemeFontDecorationOutput
+	ToThemeFontDecorationOutputWithContext(context.Context) ThemeFontDecorationOutput
+}
+
+var themeFontDecorationPtrType = reflect.TypeOf((**ThemeFontDecoration)(nil)).Elem()
+
+type ThemeFontDecorationPtrInput interface {
+	pulumi.Input
+
+	ToThemeFontDecorationPtrOutput() ThemeFontDecorationPtrOutput
+	ToThemeFontDecorationPtrOutputWithContext(context.Context) ThemeFontDecorationPtrOutput
+}
+
+type themeFontDecorationPtr string
+
+func ThemeFontDecorationPtr(v string) ThemeFontDecorationPtrInput {
+	return (*themeFontDecorationPtr)(&v)
+}
+
+func (*themeFontDecorationPtr) ElementType() reflect.Type {
+	return themeFontDecorationPtrType
+}
+
+func (in *themeFontDecorationPtr) ToThemeFontDecorationPtrOutput() ThemeFontDecorationPtrOutput {
+	return pulumi.ToOutput(in).(ThemeFontDecorationPtrOutput)
+}
+
+func (in *themeFontDecorationPtr) ToThemeFontDecorationPtrOutputWithContext(ctx context.Context) ThemeFontDecorationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ThemeFontDecorationPtrOutput)
+}
+
+type ThemeFontStyle string
+
+const (
+	ThemeFontStyleNormal = ThemeFontStyle("NORMAL")
+	ThemeFontStyleItalic = ThemeFontStyle("ITALIC")
+)
+
+func (ThemeFontStyle) ElementType() reflect.Type {
+	return reflect.TypeOf((*ThemeFontStyle)(nil)).Elem()
+}
+
+func (e ThemeFontStyle) ToThemeFontStyleOutput() ThemeFontStyleOutput {
+	return pulumi.ToOutput(e).(ThemeFontStyleOutput)
+}
+
+func (e ThemeFontStyle) ToThemeFontStyleOutputWithContext(ctx context.Context) ThemeFontStyleOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ThemeFontStyleOutput)
+}
+
+func (e ThemeFontStyle) ToThemeFontStylePtrOutput() ThemeFontStylePtrOutput {
+	return e.ToThemeFontStylePtrOutputWithContext(context.Background())
+}
+
+func (e ThemeFontStyle) ToThemeFontStylePtrOutputWithContext(ctx context.Context) ThemeFontStylePtrOutput {
+	return ThemeFontStyle(e).ToThemeFontStyleOutputWithContext(ctx).ToThemeFontStylePtrOutputWithContext(ctx)
+}
+
+func (e ThemeFontStyle) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ThemeFontStyle) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ThemeFontStyle) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ThemeFontStyle) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ThemeFontStyleOutput struct{ *pulumi.OutputState }
+
+func (ThemeFontStyleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ThemeFontStyle)(nil)).Elem()
+}
+
+func (o ThemeFontStyleOutput) ToThemeFontStyleOutput() ThemeFontStyleOutput {
+	return o
+}
+
+func (o ThemeFontStyleOutput) ToThemeFontStyleOutputWithContext(ctx context.Context) ThemeFontStyleOutput {
+	return o
+}
+
+func (o ThemeFontStyleOutput) ToThemeFontStylePtrOutput() ThemeFontStylePtrOutput {
+	return o.ToThemeFontStylePtrOutputWithContext(context.Background())
+}
+
+func (o ThemeFontStyleOutput) ToThemeFontStylePtrOutputWithContext(ctx context.Context) ThemeFontStylePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ThemeFontStyle) *ThemeFontStyle {
+		return &v
+	}).(ThemeFontStylePtrOutput)
+}
+
+func (o ThemeFontStyleOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ThemeFontStyleOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ThemeFontStyle) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ThemeFontStyleOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ThemeFontStyleOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ThemeFontStyle) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ThemeFontStylePtrOutput struct{ *pulumi.OutputState }
+
+func (ThemeFontStylePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ThemeFontStyle)(nil)).Elem()
+}
+
+func (o ThemeFontStylePtrOutput) ToThemeFontStylePtrOutput() ThemeFontStylePtrOutput {
+	return o
+}
+
+func (o ThemeFontStylePtrOutput) ToThemeFontStylePtrOutputWithContext(ctx context.Context) ThemeFontStylePtrOutput {
+	return o
+}
+
+func (o ThemeFontStylePtrOutput) Elem() ThemeFontStyleOutput {
+	return o.ApplyT(func(v *ThemeFontStyle) ThemeFontStyle {
+		if v != nil {
+			return *v
+		}
+		var ret ThemeFontStyle
+		return ret
+	}).(ThemeFontStyleOutput)
+}
+
+func (o ThemeFontStylePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ThemeFontStylePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ThemeFontStyle) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ThemeFontStyleInput is an input type that accepts values of the ThemeFontStyle enum
+// A concrete instance of `ThemeFontStyleInput` can be one of the following:
+//
+//	ThemeFontStyleNormal
+//	ThemeFontStyleItalic
+type ThemeFontStyleInput interface {
+	pulumi.Input
+
+	ToThemeFontStyleOutput() ThemeFontStyleOutput
+	ToThemeFontStyleOutputWithContext(context.Context) ThemeFontStyleOutput
+}
+
+var themeFontStylePtrType = reflect.TypeOf((**ThemeFontStyle)(nil)).Elem()
+
+type ThemeFontStylePtrInput interface {
+	pulumi.Input
+
+	ToThemeFontStylePtrOutput() ThemeFontStylePtrOutput
+	ToThemeFontStylePtrOutputWithContext(context.Context) ThemeFontStylePtrOutput
+}
+
+type themeFontStylePtr string
+
+func ThemeFontStylePtr(v string) ThemeFontStylePtrInput {
+	return (*themeFontStylePtr)(&v)
+}
+
+func (*themeFontStylePtr) ElementType() reflect.Type {
+	return themeFontStylePtrType
+}
+
+func (in *themeFontStylePtr) ToThemeFontStylePtrOutput() ThemeFontStylePtrOutput {
+	return pulumi.ToOutput(in).(ThemeFontStylePtrOutput)
+}
+
+func (in *themeFontStylePtr) ToThemeFontStylePtrOutputWithContext(ctx context.Context) ThemeFontStylePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ThemeFontStylePtrOutput)
+}
+
+type ThemeFontWeightName string
+
+const (
+	ThemeFontWeightNameNormal = ThemeFontWeightName("NORMAL")
+	ThemeFontWeightNameBold   = ThemeFontWeightName("BOLD")
+)
+
+func (ThemeFontWeightName) ElementType() reflect.Type {
+	return reflect.TypeOf((*ThemeFontWeightName)(nil)).Elem()
+}
+
+func (e ThemeFontWeightName) ToThemeFontWeightNameOutput() ThemeFontWeightNameOutput {
+	return pulumi.ToOutput(e).(ThemeFontWeightNameOutput)
+}
+
+func (e ThemeFontWeightName) ToThemeFontWeightNameOutputWithContext(ctx context.Context) ThemeFontWeightNameOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ThemeFontWeightNameOutput)
+}
+
+func (e ThemeFontWeightName) ToThemeFontWeightNamePtrOutput() ThemeFontWeightNamePtrOutput {
+	return e.ToThemeFontWeightNamePtrOutputWithContext(context.Background())
+}
+
+func (e ThemeFontWeightName) ToThemeFontWeightNamePtrOutputWithContext(ctx context.Context) ThemeFontWeightNamePtrOutput {
+	return ThemeFontWeightName(e).ToThemeFontWeightNameOutputWithContext(ctx).ToThemeFontWeightNamePtrOutputWithContext(ctx)
+}
+
+func (e ThemeFontWeightName) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ThemeFontWeightName) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ThemeFontWeightName) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ThemeFontWeightName) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ThemeFontWeightNameOutput struct{ *pulumi.OutputState }
+
+func (ThemeFontWeightNameOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ThemeFontWeightName)(nil)).Elem()
+}
+
+func (o ThemeFontWeightNameOutput) ToThemeFontWeightNameOutput() ThemeFontWeightNameOutput {
+	return o
+}
+
+func (o ThemeFontWeightNameOutput) ToThemeFontWeightNameOutputWithContext(ctx context.Context) ThemeFontWeightNameOutput {
+	return o
+}
+
+func (o ThemeFontWeightNameOutput) ToThemeFontWeightNamePtrOutput() ThemeFontWeightNamePtrOutput {
+	return o.ToThemeFontWeightNamePtrOutputWithContext(context.Background())
+}
+
+func (o ThemeFontWeightNameOutput) ToThemeFontWeightNamePtrOutputWithContext(ctx context.Context) ThemeFontWeightNamePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ThemeFontWeightName) *ThemeFontWeightName {
+		return &v
+	}).(ThemeFontWeightNamePtrOutput)
+}
+
+func (o ThemeFontWeightNameOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ThemeFontWeightNameOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ThemeFontWeightName) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ThemeFontWeightNameOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ThemeFontWeightNameOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ThemeFontWeightName) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ThemeFontWeightNamePtrOutput struct{ *pulumi.OutputState }
+
+func (ThemeFontWeightNamePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ThemeFontWeightName)(nil)).Elem()
+}
+
+func (o ThemeFontWeightNamePtrOutput) ToThemeFontWeightNamePtrOutput() ThemeFontWeightNamePtrOutput {
+	return o
+}
+
+func (o ThemeFontWeightNamePtrOutput) ToThemeFontWeightNamePtrOutputWithContext(ctx context.Context) ThemeFontWeightNamePtrOutput {
+	return o
+}
+
+func (o ThemeFontWeightNamePtrOutput) Elem() ThemeFontWeightNameOutput {
+	return o.ApplyT(func(v *ThemeFontWeightName) ThemeFontWeightName {
+		if v != nil {
+			return *v
+		}
+		var ret ThemeFontWeightName
+		return ret
+	}).(ThemeFontWeightNameOutput)
+}
+
+func (o ThemeFontWeightNamePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ThemeFontWeightNamePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ThemeFontWeightName) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ThemeFontWeightNameInput is an input type that accepts values of the ThemeFontWeightName enum
+// A concrete instance of `ThemeFontWeightNameInput` can be one of the following:
+//
+//	ThemeFontWeightNameNormal
+//	ThemeFontWeightNameBold
+type ThemeFontWeightNameInput interface {
+	pulumi.Input
+
+	ToThemeFontWeightNameOutput() ThemeFontWeightNameOutput
+	ToThemeFontWeightNameOutputWithContext(context.Context) ThemeFontWeightNameOutput
+}
+
+var themeFontWeightNamePtrType = reflect.TypeOf((**ThemeFontWeightName)(nil)).Elem()
+
+type ThemeFontWeightNamePtrInput interface {
+	pulumi.Input
+
+	ToThemeFontWeightNamePtrOutput() ThemeFontWeightNamePtrOutput
+	ToThemeFontWeightNamePtrOutputWithContext(context.Context) ThemeFontWeightNamePtrOutput
+}
+
+type themeFontWeightNamePtr string
+
+func ThemeFontWeightNamePtr(v string) ThemeFontWeightNamePtrInput {
+	return (*themeFontWeightNamePtr)(&v)
+}
+
+func (*themeFontWeightNamePtr) ElementType() reflect.Type {
+	return themeFontWeightNamePtrType
+}
+
+func (in *themeFontWeightNamePtr) ToThemeFontWeightNamePtrOutput() ThemeFontWeightNamePtrOutput {
+	return pulumi.ToOutput(in).(ThemeFontWeightNamePtrOutput)
+}
+
+func (in *themeFontWeightNamePtr) ToThemeFontWeightNamePtrOutputWithContext(ctx context.Context) ThemeFontWeightNamePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ThemeFontWeightNamePtrOutput)
+}
+
+type ThemeHorizontalTextAlignment string
+
+const (
+	ThemeHorizontalTextAlignmentLeft   = ThemeHorizontalTextAlignment("LEFT")
+	ThemeHorizontalTextAlignmentCenter = ThemeHorizontalTextAlignment("CENTER")
+	ThemeHorizontalTextAlignmentRight  = ThemeHorizontalTextAlignment("RIGHT")
+	ThemeHorizontalTextAlignmentAuto   = ThemeHorizontalTextAlignment("AUTO")
+)
+
+func (ThemeHorizontalTextAlignment) ElementType() reflect.Type {
+	return reflect.TypeOf((*ThemeHorizontalTextAlignment)(nil)).Elem()
+}
+
+func (e ThemeHorizontalTextAlignment) ToThemeHorizontalTextAlignmentOutput() ThemeHorizontalTextAlignmentOutput {
+	return pulumi.ToOutput(e).(ThemeHorizontalTextAlignmentOutput)
+}
+
+func (e ThemeHorizontalTextAlignment) ToThemeHorizontalTextAlignmentOutputWithContext(ctx context.Context) ThemeHorizontalTextAlignmentOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ThemeHorizontalTextAlignmentOutput)
+}
+
+func (e ThemeHorizontalTextAlignment) ToThemeHorizontalTextAlignmentPtrOutput() ThemeHorizontalTextAlignmentPtrOutput {
+	return e.ToThemeHorizontalTextAlignmentPtrOutputWithContext(context.Background())
+}
+
+func (e ThemeHorizontalTextAlignment) ToThemeHorizontalTextAlignmentPtrOutputWithContext(ctx context.Context) ThemeHorizontalTextAlignmentPtrOutput {
+	return ThemeHorizontalTextAlignment(e).ToThemeHorizontalTextAlignmentOutputWithContext(ctx).ToThemeHorizontalTextAlignmentPtrOutputWithContext(ctx)
+}
+
+func (e ThemeHorizontalTextAlignment) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ThemeHorizontalTextAlignment) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ThemeHorizontalTextAlignment) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ThemeHorizontalTextAlignment) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ThemeHorizontalTextAlignmentOutput struct{ *pulumi.OutputState }
+
+func (ThemeHorizontalTextAlignmentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ThemeHorizontalTextAlignment)(nil)).Elem()
+}
+
+func (o ThemeHorizontalTextAlignmentOutput) ToThemeHorizontalTextAlignmentOutput() ThemeHorizontalTextAlignmentOutput {
+	return o
+}
+
+func (o ThemeHorizontalTextAlignmentOutput) ToThemeHorizontalTextAlignmentOutputWithContext(ctx context.Context) ThemeHorizontalTextAlignmentOutput {
+	return o
+}
+
+func (o ThemeHorizontalTextAlignmentOutput) ToThemeHorizontalTextAlignmentPtrOutput() ThemeHorizontalTextAlignmentPtrOutput {
+	return o.ToThemeHorizontalTextAlignmentPtrOutputWithContext(context.Background())
+}
+
+func (o ThemeHorizontalTextAlignmentOutput) ToThemeHorizontalTextAlignmentPtrOutputWithContext(ctx context.Context) ThemeHorizontalTextAlignmentPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ThemeHorizontalTextAlignment) *ThemeHorizontalTextAlignment {
+		return &v
+	}).(ThemeHorizontalTextAlignmentPtrOutput)
+}
+
+func (o ThemeHorizontalTextAlignmentOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ThemeHorizontalTextAlignmentOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ThemeHorizontalTextAlignment) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ThemeHorizontalTextAlignmentOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ThemeHorizontalTextAlignmentOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ThemeHorizontalTextAlignment) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ThemeHorizontalTextAlignmentPtrOutput struct{ *pulumi.OutputState }
+
+func (ThemeHorizontalTextAlignmentPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ThemeHorizontalTextAlignment)(nil)).Elem()
+}
+
+func (o ThemeHorizontalTextAlignmentPtrOutput) ToThemeHorizontalTextAlignmentPtrOutput() ThemeHorizontalTextAlignmentPtrOutput {
+	return o
+}
+
+func (o ThemeHorizontalTextAlignmentPtrOutput) ToThemeHorizontalTextAlignmentPtrOutputWithContext(ctx context.Context) ThemeHorizontalTextAlignmentPtrOutput {
+	return o
+}
+
+func (o ThemeHorizontalTextAlignmentPtrOutput) Elem() ThemeHorizontalTextAlignmentOutput {
+	return o.ApplyT(func(v *ThemeHorizontalTextAlignment) ThemeHorizontalTextAlignment {
+		if v != nil {
+			return *v
+		}
+		var ret ThemeHorizontalTextAlignment
+		return ret
+	}).(ThemeHorizontalTextAlignmentOutput)
+}
+
+func (o ThemeHorizontalTextAlignmentPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ThemeHorizontalTextAlignmentPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ThemeHorizontalTextAlignment) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ThemeHorizontalTextAlignmentInput is an input type that accepts values of the ThemeHorizontalTextAlignment enum
+// A concrete instance of `ThemeHorizontalTextAlignmentInput` can be one of the following:
+//
+//	ThemeHorizontalTextAlignmentLeft
+//	ThemeHorizontalTextAlignmentCenter
+//	ThemeHorizontalTextAlignmentRight
+//	ThemeHorizontalTextAlignmentAuto
+type ThemeHorizontalTextAlignmentInput interface {
+	pulumi.Input
+
+	ToThemeHorizontalTextAlignmentOutput() ThemeHorizontalTextAlignmentOutput
+	ToThemeHorizontalTextAlignmentOutputWithContext(context.Context) ThemeHorizontalTextAlignmentOutput
+}
+
+var themeHorizontalTextAlignmentPtrType = reflect.TypeOf((**ThemeHorizontalTextAlignment)(nil)).Elem()
+
+type ThemeHorizontalTextAlignmentPtrInput interface {
+	pulumi.Input
+
+	ToThemeHorizontalTextAlignmentPtrOutput() ThemeHorizontalTextAlignmentPtrOutput
+	ToThemeHorizontalTextAlignmentPtrOutputWithContext(context.Context) ThemeHorizontalTextAlignmentPtrOutput
+}
+
+type themeHorizontalTextAlignmentPtr string
+
+func ThemeHorizontalTextAlignmentPtr(v string) ThemeHorizontalTextAlignmentPtrInput {
+	return (*themeHorizontalTextAlignmentPtr)(&v)
+}
+
+func (*themeHorizontalTextAlignmentPtr) ElementType() reflect.Type {
+	return themeHorizontalTextAlignmentPtrType
+}
+
+func (in *themeHorizontalTextAlignmentPtr) ToThemeHorizontalTextAlignmentPtrOutput() ThemeHorizontalTextAlignmentPtrOutput {
+	return pulumi.ToOutput(in).(ThemeHorizontalTextAlignmentPtrOutput)
+}
+
+func (in *themeHorizontalTextAlignmentPtr) ToThemeHorizontalTextAlignmentPtrOutputWithContext(ctx context.Context) ThemeHorizontalTextAlignmentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ThemeHorizontalTextAlignmentPtrOutput)
+}
+
 type ThemeResourceStatus string
 
 const (
@@ -73160,6 +76593,169 @@ func (o ThemeResourceStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.C
 		v := string(*e)
 		return &v
 	}).(pulumi.StringPtrOutput)
+}
+
+type ThemeTextTransform string
+
+const (
+	ThemeTextTransformCapitalize = ThemeTextTransform("CAPITALIZE")
+)
+
+func (ThemeTextTransform) ElementType() reflect.Type {
+	return reflect.TypeOf((*ThemeTextTransform)(nil)).Elem()
+}
+
+func (e ThemeTextTransform) ToThemeTextTransformOutput() ThemeTextTransformOutput {
+	return pulumi.ToOutput(e).(ThemeTextTransformOutput)
+}
+
+func (e ThemeTextTransform) ToThemeTextTransformOutputWithContext(ctx context.Context) ThemeTextTransformOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ThemeTextTransformOutput)
+}
+
+func (e ThemeTextTransform) ToThemeTextTransformPtrOutput() ThemeTextTransformPtrOutput {
+	return e.ToThemeTextTransformPtrOutputWithContext(context.Background())
+}
+
+func (e ThemeTextTransform) ToThemeTextTransformPtrOutputWithContext(ctx context.Context) ThemeTextTransformPtrOutput {
+	return ThemeTextTransform(e).ToThemeTextTransformOutputWithContext(ctx).ToThemeTextTransformPtrOutputWithContext(ctx)
+}
+
+func (e ThemeTextTransform) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ThemeTextTransform) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ThemeTextTransform) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ThemeTextTransform) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ThemeTextTransformOutput struct{ *pulumi.OutputState }
+
+func (ThemeTextTransformOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ThemeTextTransform)(nil)).Elem()
+}
+
+func (o ThemeTextTransformOutput) ToThemeTextTransformOutput() ThemeTextTransformOutput {
+	return o
+}
+
+func (o ThemeTextTransformOutput) ToThemeTextTransformOutputWithContext(ctx context.Context) ThemeTextTransformOutput {
+	return o
+}
+
+func (o ThemeTextTransformOutput) ToThemeTextTransformPtrOutput() ThemeTextTransformPtrOutput {
+	return o.ToThemeTextTransformPtrOutputWithContext(context.Background())
+}
+
+func (o ThemeTextTransformOutput) ToThemeTextTransformPtrOutputWithContext(ctx context.Context) ThemeTextTransformPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ThemeTextTransform) *ThemeTextTransform {
+		return &v
+	}).(ThemeTextTransformPtrOutput)
+}
+
+func (o ThemeTextTransformOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ThemeTextTransformOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ThemeTextTransform) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ThemeTextTransformOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ThemeTextTransformOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ThemeTextTransform) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ThemeTextTransformPtrOutput struct{ *pulumi.OutputState }
+
+func (ThemeTextTransformPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ThemeTextTransform)(nil)).Elem()
+}
+
+func (o ThemeTextTransformPtrOutput) ToThemeTextTransformPtrOutput() ThemeTextTransformPtrOutput {
+	return o
+}
+
+func (o ThemeTextTransformPtrOutput) ToThemeTextTransformPtrOutputWithContext(ctx context.Context) ThemeTextTransformPtrOutput {
+	return o
+}
+
+func (o ThemeTextTransformPtrOutput) Elem() ThemeTextTransformOutput {
+	return o.ApplyT(func(v *ThemeTextTransform) ThemeTextTransform {
+		if v != nil {
+			return *v
+		}
+		var ret ThemeTextTransform
+		return ret
+	}).(ThemeTextTransformOutput)
+}
+
+func (o ThemeTextTransformPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ThemeTextTransformPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ThemeTextTransform) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ThemeTextTransformInput is an input type that accepts values of the ThemeTextTransform enum
+// A concrete instance of `ThemeTextTransformInput` can be one of the following:
+//
+//	ThemeTextTransformCapitalize
+type ThemeTextTransformInput interface {
+	pulumi.Input
+
+	ToThemeTextTransformOutput() ThemeTextTransformOutput
+	ToThemeTextTransformOutputWithContext(context.Context) ThemeTextTransformOutput
+}
+
+var themeTextTransformPtrType = reflect.TypeOf((**ThemeTextTransform)(nil)).Elem()
+
+type ThemeTextTransformPtrInput interface {
+	pulumi.Input
+
+	ToThemeTextTransformPtrOutput() ThemeTextTransformPtrOutput
+	ToThemeTextTransformPtrOutputWithContext(context.Context) ThemeTextTransformPtrOutput
+}
+
+type themeTextTransformPtr string
+
+func ThemeTextTransformPtr(v string) ThemeTextTransformPtrInput {
+	return (*themeTextTransformPtr)(&v)
+}
+
+func (*themeTextTransformPtr) ElementType() reflect.Type {
+	return themeTextTransformPtrType
+}
+
+func (in *themeTextTransformPtr) ToThemeTextTransformPtrOutput() ThemeTextTransformPtrOutput {
+	return pulumi.ToOutput(in).(ThemeTextTransformPtrOutput)
+}
+
+func (in *themeTextTransformPtr) ToThemeTextTransformPtrOutputWithContext(ctx context.Context) ThemeTextTransformPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ThemeTextTransformPtrOutput)
 }
 
 type ThemeType string
@@ -77161,6 +80757,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisDateAggregationFunctionPtrInput)(nil)).Elem(), AnalysisDateAggregationFunction("COUNT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisDayOfTheWeekInput)(nil)).Elem(), AnalysisDayOfTheWeek("SUNDAY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisDayOfTheWeekPtrInput)(nil)).Elem(), AnalysisDayOfTheWeek("SUNDAY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisDecalPatternTypeInput)(nil)).Elem(), AnalysisDecalPatternType("SOLID"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisDecalPatternTypePtrInput)(nil)).Elem(), AnalysisDecalPatternType("SOLID"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisDecalStyleTypeInput)(nil)).Elem(), AnalysisDecalStyleType("Manual"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisDecalStyleTypePtrInput)(nil)).Elem(), AnalysisDecalStyleType("Manual"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisDigitGroupingStyleInput)(nil)).Elem(), AnalysisDigitGroupingStyle("DEFAULT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisDigitGroupingStylePtrInput)(nil)).Elem(), AnalysisDigitGroupingStyle("DEFAULT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisErrorTypeInput)(nil)).Elem(), AnalysisErrorType("ACCESS_DENIED"))
@@ -77311,6 +80911,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisSmallMultiplesAxisScalePtrInput)(nil)).Elem(), AnalysisSmallMultiplesAxisScale("SHARED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisSortDirectionInput)(nil)).Elem(), AnalysisSortDirection("ASC"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisSortDirectionPtrInput)(nil)).Elem(), AnalysisSortDirection("ASC"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisSparklineAxisBehaviorInput)(nil)).Elem(), AnalysisSparklineAxisBehavior("SHARED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisSparklineAxisBehaviorPtrInput)(nil)).Elem(), AnalysisSparklineAxisBehavior("SHARED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisSparklineVisualTypeInput)(nil)).Elem(), AnalysisSparklineVisualType("LINE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisSparklineVisualTypePtrInput)(nil)).Elem(), AnalysisSparklineVisualType("LINE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisSpecialValueInput)(nil)).Elem(), AnalysisSpecialValue("EMPTY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisSpecialValuePtrInput)(nil)).Elem(), AnalysisSpecialValue("EMPTY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisStyledCellTypeInput)(nil)).Elem(), AnalysisStyledCellType("TOTAL"))
@@ -77421,6 +81025,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardDateAggregationFunctionPtrInput)(nil)).Elem(), DashboardDateAggregationFunction("COUNT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardDayOfTheWeekInput)(nil)).Elem(), DashboardDayOfTheWeek("SUNDAY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardDayOfTheWeekPtrInput)(nil)).Elem(), DashboardDayOfTheWeek("SUNDAY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardDecalPatternTypeInput)(nil)).Elem(), DashboardDecalPatternType("SOLID"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardDecalPatternTypePtrInput)(nil)).Elem(), DashboardDecalPatternType("SOLID"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardDecalStyleTypeInput)(nil)).Elem(), DashboardDecalStyleType("Manual"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardDecalStyleTypePtrInput)(nil)).Elem(), DashboardDecalStyleType("Manual"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardDigitGroupingStyleInput)(nil)).Elem(), DashboardDigitGroupingStyle("DEFAULT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardDigitGroupingStylePtrInput)(nil)).Elem(), DashboardDigitGroupingStyle("DEFAULT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardFilterNullOptionInput)(nil)).Elem(), DashboardFilterNullOption("ALL_VALUES"))
@@ -77567,6 +81175,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardSmallMultiplesAxisScalePtrInput)(nil)).Elem(), DashboardSmallMultiplesAxisScale("SHARED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardSortDirectionInput)(nil)).Elem(), DashboardSortDirection("ASC"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardSortDirectionPtrInput)(nil)).Elem(), DashboardSortDirection("ASC"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardSparklineAxisBehaviorInput)(nil)).Elem(), DashboardSparklineAxisBehavior("SHARED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardSparklineAxisBehaviorPtrInput)(nil)).Elem(), DashboardSparklineAxisBehavior("SHARED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardSparklineVisualTypeInput)(nil)).Elem(), DashboardSparklineVisualType("LINE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardSparklineVisualTypePtrInput)(nil)).Elem(), DashboardSparklineVisualType("LINE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardSpecialValueInput)(nil)).Elem(), DashboardSpecialValue("EMPTY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardSpecialValuePtrInput)(nil)).Elem(), DashboardSpecialValue("EMPTY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardStyledCellTypeInput)(nil)).Elem(), DashboardStyledCellType("TOTAL"))
@@ -77764,6 +81376,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateDateAggregationFunctionPtrInput)(nil)).Elem(), TemplateDateAggregationFunction("COUNT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateDayOfTheWeekInput)(nil)).Elem(), TemplateDayOfTheWeek("SUNDAY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateDayOfTheWeekPtrInput)(nil)).Elem(), TemplateDayOfTheWeek("SUNDAY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateDecalPatternTypeInput)(nil)).Elem(), TemplateDecalPatternType("SOLID"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateDecalPatternTypePtrInput)(nil)).Elem(), TemplateDecalPatternType("SOLID"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateDecalStyleTypeInput)(nil)).Elem(), TemplateDecalStyleType("Manual"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateDecalStyleTypePtrInput)(nil)).Elem(), TemplateDecalStyleType("Manual"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateDigitGroupingStyleInput)(nil)).Elem(), TemplateDigitGroupingStyle("DEFAULT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateDigitGroupingStylePtrInput)(nil)).Elem(), TemplateDigitGroupingStyle("DEFAULT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateFilterNullOptionInput)(nil)).Elem(), TemplateFilterNullOption("ALL_VALUES"))
@@ -77780,6 +81396,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateForecastComputationSeasonalityPtrInput)(nil)).Elem(), TemplateForecastComputationSeasonality("AUTOMATIC"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateFunnelChartMeasureDataLabelStyleInput)(nil)).Elem(), TemplateFunnelChartMeasureDataLabelStyle("VALUE_ONLY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateFunnelChartMeasureDataLabelStylePtrInput)(nil)).Elem(), TemplateFunnelChartMeasureDataLabelStyle("VALUE_ONLY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateGeospatialColorStateInput)(nil)).Elem(), TemplateGeospatialColorState("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateGeospatialColorStatePtrInput)(nil)).Elem(), TemplateGeospatialColorState("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateGeospatialLayerTypeInput)(nil)).Elem(), TemplateGeospatialLayerType("POINT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateGeospatialLayerTypePtrInput)(nil)).Elem(), TemplateGeospatialLayerType("POINT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateGeospatialMapNavigationInput)(nil)).Elem(), TemplateGeospatialMapNavigation("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateGeospatialMapNavigationPtrInput)(nil)).Elem(), TemplateGeospatialMapNavigation("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateGeospatialSelectedPointStyleInput)(nil)).Elem(), TemplateGeospatialSelectedPointStyle("POINT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateGeospatialSelectedPointStylePtrInput)(nil)).Elem(), TemplateGeospatialSelectedPointStyle("POINT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateHistogramBinTypeInput)(nil)).Elem(), TemplateHistogramBinType("BIN_COUNT"))
@@ -77794,6 +81416,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateKpiSparklineTypePtrInput)(nil)).Elem(), TemplateKpiSparklineType("LINE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateKpiVisualStandardLayoutTypeInput)(nil)).Elem(), TemplateKpiVisualStandardLayoutType("CLASSIC"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateKpiVisualStandardLayoutTypePtrInput)(nil)).Elem(), TemplateKpiVisualStandardLayoutType("CLASSIC"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateLayerCustomActionTriggerInput)(nil)).Elem(), TemplateLayerCustomActionTrigger("DATA_POINT_CLICK"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateLayerCustomActionTriggerPtrInput)(nil)).Elem(), TemplateLayerCustomActionTrigger("DATA_POINT_CLICK"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateLayoutElementTypeInput)(nil)).Elem(), TemplateLayoutElementType("VISUAL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateLayoutElementTypePtrInput)(nil)).Elem(), TemplateLayoutElementType("VISUAL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateLegendPositionInput)(nil)).Elem(), TemplateLegendPosition("AUTO"))
@@ -77902,6 +81526,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateSmallMultiplesAxisScalePtrInput)(nil)).Elem(), TemplateSmallMultiplesAxisScale("SHARED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateSortDirectionInput)(nil)).Elem(), TemplateSortDirection("ASC"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateSortDirectionPtrInput)(nil)).Elem(), TemplateSortDirection("ASC"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateSparklineAxisBehaviorInput)(nil)).Elem(), TemplateSparklineAxisBehavior("SHARED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateSparklineAxisBehaviorPtrInput)(nil)).Elem(), TemplateSparklineAxisBehavior("SHARED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateSparklineVisualTypeInput)(nil)).Elem(), TemplateSparklineVisualType("LINE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateSparklineVisualTypePtrInput)(nil)).Elem(), TemplateSparklineVisualType("LINE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateSpecialValueInput)(nil)).Elem(), TemplateSpecialValue("EMPTY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateSpecialValuePtrInput)(nil)).Elem(), TemplateSpecialValue("EMPTY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateStyledCellTypeInput)(nil)).Elem(), TemplateStyledCellType("TOTAL"))
@@ -77958,6 +81586,16 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateWordCloudWordPaddingPtrInput)(nil)).Elem(), TemplateWordCloudWordPadding("NONE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateWordCloudWordScalingInput)(nil)).Elem(), TemplateWordCloudWordScaling("EMPHASIZE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateWordCloudWordScalingPtrInput)(nil)).Elem(), TemplateWordCloudWordScaling("EMPHASIZE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ThemeFontDecorationInput)(nil)).Elem(), ThemeFontDecoration("UNDERLINE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ThemeFontDecorationPtrInput)(nil)).Elem(), ThemeFontDecoration("UNDERLINE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ThemeFontStyleInput)(nil)).Elem(), ThemeFontStyle("NORMAL"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ThemeFontStylePtrInput)(nil)).Elem(), ThemeFontStyle("NORMAL"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ThemeFontWeightNameInput)(nil)).Elem(), ThemeFontWeightName("NORMAL"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ThemeFontWeightNamePtrInput)(nil)).Elem(), ThemeFontWeightName("NORMAL"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ThemeHorizontalTextAlignmentInput)(nil)).Elem(), ThemeHorizontalTextAlignment("LEFT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ThemeHorizontalTextAlignmentPtrInput)(nil)).Elem(), ThemeHorizontalTextAlignment("LEFT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ThemeTextTransformInput)(nil)).Elem(), ThemeTextTransform("CAPITALIZE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ThemeTextTransformPtrInput)(nil)).Elem(), ThemeTextTransform("CAPITALIZE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicAuthorSpecifiedAggregationInput)(nil)).Elem(), TopicAuthorSpecifiedAggregation("COUNT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicAuthorSpecifiedAggregationPtrInput)(nil)).Elem(), TopicAuthorSpecifiedAggregation("COUNT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicAuthorSpecifiedAggregationArrayInput)(nil)).Elem(), TopicAuthorSpecifiedAggregationArray{})
@@ -78067,6 +81705,10 @@ func init() {
 	pulumi.RegisterOutputType(AnalysisDateAggregationFunctionPtrOutput{})
 	pulumi.RegisterOutputType(AnalysisDayOfTheWeekOutput{})
 	pulumi.RegisterOutputType(AnalysisDayOfTheWeekPtrOutput{})
+	pulumi.RegisterOutputType(AnalysisDecalPatternTypeOutput{})
+	pulumi.RegisterOutputType(AnalysisDecalPatternTypePtrOutput{})
+	pulumi.RegisterOutputType(AnalysisDecalStyleTypeOutput{})
+	pulumi.RegisterOutputType(AnalysisDecalStyleTypePtrOutput{})
 	pulumi.RegisterOutputType(AnalysisDigitGroupingStyleOutput{})
 	pulumi.RegisterOutputType(AnalysisDigitGroupingStylePtrOutput{})
 	pulumi.RegisterOutputType(AnalysisErrorTypeOutput{})
@@ -78217,6 +81859,10 @@ func init() {
 	pulumi.RegisterOutputType(AnalysisSmallMultiplesAxisScalePtrOutput{})
 	pulumi.RegisterOutputType(AnalysisSortDirectionOutput{})
 	pulumi.RegisterOutputType(AnalysisSortDirectionPtrOutput{})
+	pulumi.RegisterOutputType(AnalysisSparklineAxisBehaviorOutput{})
+	pulumi.RegisterOutputType(AnalysisSparklineAxisBehaviorPtrOutput{})
+	pulumi.RegisterOutputType(AnalysisSparklineVisualTypeOutput{})
+	pulumi.RegisterOutputType(AnalysisSparklineVisualTypePtrOutput{})
 	pulumi.RegisterOutputType(AnalysisSpecialValueOutput{})
 	pulumi.RegisterOutputType(AnalysisSpecialValuePtrOutput{})
 	pulumi.RegisterOutputType(AnalysisStyledCellTypeOutput{})
@@ -78327,6 +81973,10 @@ func init() {
 	pulumi.RegisterOutputType(DashboardDateAggregationFunctionPtrOutput{})
 	pulumi.RegisterOutputType(DashboardDayOfTheWeekOutput{})
 	pulumi.RegisterOutputType(DashboardDayOfTheWeekPtrOutput{})
+	pulumi.RegisterOutputType(DashboardDecalPatternTypeOutput{})
+	pulumi.RegisterOutputType(DashboardDecalPatternTypePtrOutput{})
+	pulumi.RegisterOutputType(DashboardDecalStyleTypeOutput{})
+	pulumi.RegisterOutputType(DashboardDecalStyleTypePtrOutput{})
 	pulumi.RegisterOutputType(DashboardDigitGroupingStyleOutput{})
 	pulumi.RegisterOutputType(DashboardDigitGroupingStylePtrOutput{})
 	pulumi.RegisterOutputType(DashboardErrorTypeOutput{})
@@ -78477,6 +82127,10 @@ func init() {
 	pulumi.RegisterOutputType(DashboardSmallMultiplesAxisScalePtrOutput{})
 	pulumi.RegisterOutputType(DashboardSortDirectionOutput{})
 	pulumi.RegisterOutputType(DashboardSortDirectionPtrOutput{})
+	pulumi.RegisterOutputType(DashboardSparklineAxisBehaviorOutput{})
+	pulumi.RegisterOutputType(DashboardSparklineAxisBehaviorPtrOutput{})
+	pulumi.RegisterOutputType(DashboardSparklineVisualTypeOutput{})
+	pulumi.RegisterOutputType(DashboardSparklineVisualTypePtrOutput{})
 	pulumi.RegisterOutputType(DashboardSpecialValueOutput{})
 	pulumi.RegisterOutputType(DashboardSpecialValuePtrOutput{})
 	pulumi.RegisterOutputType(DashboardStyledCellTypeOutput{})
@@ -78682,6 +82336,10 @@ func init() {
 	pulumi.RegisterOutputType(TemplateDateAggregationFunctionPtrOutput{})
 	pulumi.RegisterOutputType(TemplateDayOfTheWeekOutput{})
 	pulumi.RegisterOutputType(TemplateDayOfTheWeekPtrOutput{})
+	pulumi.RegisterOutputType(TemplateDecalPatternTypeOutput{})
+	pulumi.RegisterOutputType(TemplateDecalPatternTypePtrOutput{})
+	pulumi.RegisterOutputType(TemplateDecalStyleTypeOutput{})
+	pulumi.RegisterOutputType(TemplateDecalStyleTypePtrOutput{})
 	pulumi.RegisterOutputType(TemplateDigitGroupingStyleOutput{})
 	pulumi.RegisterOutputType(TemplateDigitGroupingStylePtrOutput{})
 	pulumi.RegisterOutputType(TemplateErrorTypeOutput{})
@@ -78700,6 +82358,12 @@ func init() {
 	pulumi.RegisterOutputType(TemplateForecastComputationSeasonalityPtrOutput{})
 	pulumi.RegisterOutputType(TemplateFunnelChartMeasureDataLabelStyleOutput{})
 	pulumi.RegisterOutputType(TemplateFunnelChartMeasureDataLabelStylePtrOutput{})
+	pulumi.RegisterOutputType(TemplateGeospatialColorStateOutput{})
+	pulumi.RegisterOutputType(TemplateGeospatialColorStatePtrOutput{})
+	pulumi.RegisterOutputType(TemplateGeospatialLayerTypeOutput{})
+	pulumi.RegisterOutputType(TemplateGeospatialLayerTypePtrOutput{})
+	pulumi.RegisterOutputType(TemplateGeospatialMapNavigationOutput{})
+	pulumi.RegisterOutputType(TemplateGeospatialMapNavigationPtrOutput{})
 	pulumi.RegisterOutputType(TemplateGeospatialSelectedPointStyleOutput{})
 	pulumi.RegisterOutputType(TemplateGeospatialSelectedPointStylePtrOutput{})
 	pulumi.RegisterOutputType(TemplateHistogramBinTypeOutput{})
@@ -78714,6 +82378,8 @@ func init() {
 	pulumi.RegisterOutputType(TemplateKpiSparklineTypePtrOutput{})
 	pulumi.RegisterOutputType(TemplateKpiVisualStandardLayoutTypeOutput{})
 	pulumi.RegisterOutputType(TemplateKpiVisualStandardLayoutTypePtrOutput{})
+	pulumi.RegisterOutputType(TemplateLayerCustomActionTriggerOutput{})
+	pulumi.RegisterOutputType(TemplateLayerCustomActionTriggerPtrOutput{})
 	pulumi.RegisterOutputType(TemplateLayoutElementTypeOutput{})
 	pulumi.RegisterOutputType(TemplateLayoutElementTypePtrOutput{})
 	pulumi.RegisterOutputType(TemplateLegendPositionOutput{})
@@ -78824,6 +82490,10 @@ func init() {
 	pulumi.RegisterOutputType(TemplateSmallMultiplesAxisScalePtrOutput{})
 	pulumi.RegisterOutputType(TemplateSortDirectionOutput{})
 	pulumi.RegisterOutputType(TemplateSortDirectionPtrOutput{})
+	pulumi.RegisterOutputType(TemplateSparklineAxisBehaviorOutput{})
+	pulumi.RegisterOutputType(TemplateSparklineAxisBehaviorPtrOutput{})
+	pulumi.RegisterOutputType(TemplateSparklineVisualTypeOutput{})
+	pulumi.RegisterOutputType(TemplateSparklineVisualTypePtrOutput{})
 	pulumi.RegisterOutputType(TemplateSpecialValueOutput{})
 	pulumi.RegisterOutputType(TemplateSpecialValuePtrOutput{})
 	pulumi.RegisterOutputType(TemplateStyledCellTypeOutput{})
@@ -78882,8 +82552,18 @@ func init() {
 	pulumi.RegisterOutputType(TemplateWordCloudWordScalingPtrOutput{})
 	pulumi.RegisterOutputType(ThemeErrorTypeOutput{})
 	pulumi.RegisterOutputType(ThemeErrorTypePtrOutput{})
+	pulumi.RegisterOutputType(ThemeFontDecorationOutput{})
+	pulumi.RegisterOutputType(ThemeFontDecorationPtrOutput{})
+	pulumi.RegisterOutputType(ThemeFontStyleOutput{})
+	pulumi.RegisterOutputType(ThemeFontStylePtrOutput{})
+	pulumi.RegisterOutputType(ThemeFontWeightNameOutput{})
+	pulumi.RegisterOutputType(ThemeFontWeightNamePtrOutput{})
+	pulumi.RegisterOutputType(ThemeHorizontalTextAlignmentOutput{})
+	pulumi.RegisterOutputType(ThemeHorizontalTextAlignmentPtrOutput{})
 	pulumi.RegisterOutputType(ThemeResourceStatusOutput{})
 	pulumi.RegisterOutputType(ThemeResourceStatusPtrOutput{})
+	pulumi.RegisterOutputType(ThemeTextTransformOutput{})
+	pulumi.RegisterOutputType(ThemeTextTransformPtrOutput{})
 	pulumi.RegisterOutputType(ThemeTypeOutput{})
 	pulumi.RegisterOutputType(ThemeTypePtrOutput{})
 	pulumi.RegisterOutputType(TopicAuthorSpecifiedAggregationOutput{})

@@ -20,6 +20,11 @@ export type EventTracker = import("./eventTracker").EventTracker;
 export const EventTracker: typeof import("./eventTracker").EventTracker = null as any;
 utilities.lazyLoad(exports, ["EventTracker"], () => require("./eventTracker"));
 
+export { FilterArgs } from "./filter";
+export type Filter = import("./filter").Filter;
+export const Filter: typeof import("./filter").Filter = null as any;
+utilities.lazyLoad(exports, ["Filter"], () => require("./filter"));
+
 export { GetDatasetArgs, GetDatasetResult, GetDatasetOutputArgs } from "./getDataset";
 export const getDataset: typeof import("./getDataset").getDataset = null as any;
 export const getDatasetOutput: typeof import("./getDataset").getDatasetOutput = null as any;
@@ -34,6 +39,11 @@ export { GetEventTrackerArgs, GetEventTrackerResult, GetEventTrackerOutputArgs }
 export const getEventTracker: typeof import("./getEventTracker").getEventTracker = null as any;
 export const getEventTrackerOutput: typeof import("./getEventTracker").getEventTrackerOutput = null as any;
 utilities.lazyLoad(exports, ["getEventTracker","getEventTrackerOutput"], () => require("./getEventTracker"));
+
+export { GetFilterArgs, GetFilterResult, GetFilterOutputArgs } from "./getFilter";
+export const getFilter: typeof import("./getFilter").getFilter = null as any;
+export const getFilterOutput: typeof import("./getFilter").getFilterOutput = null as any;
+utilities.lazyLoad(exports, ["getFilter","getFilterOutput"], () => require("./getFilter"));
 
 export { GetMetricAttributionArgs, GetMetricAttributionResult, GetMetricAttributionOutputArgs } from "./getMetricAttribution";
 export const getMetricAttribution: typeof import("./getMetricAttribution").getMetricAttribution = null as any;
@@ -79,6 +89,8 @@ const _module = {
                 return new DatasetGroup(name, <any>undefined, { urn })
             case "aws-native:personalize:EventTracker":
                 return new EventTracker(name, <any>undefined, { urn })
+            case "aws-native:personalize:Filter":
+                return new Filter(name, <any>undefined, { urn })
             case "aws-native:personalize:MetricAttribution":
                 return new MetricAttribution(name, <any>undefined, { urn })
             case "aws-native:personalize:Schema":

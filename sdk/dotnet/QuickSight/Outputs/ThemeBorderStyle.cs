@@ -17,14 +17,29 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     public sealed class ThemeBorderStyle
     {
         /// <summary>
+        /// String to encapsulate the most generic way Color can be formatted (words, hexStrings etc)
+        /// </summary>
+        public readonly string? Color;
+        /// <summary>
         /// &lt;p&gt;The option to enable display of borders for visuals.&lt;/p&gt;
         /// </summary>
         public readonly bool? Show;
+        /// <summary>
+        /// String to encapsulate the most generic way Width can be formatted with whatever units (px, em etc)
+        /// </summary>
+        public readonly string? Width;
 
         [OutputConstructor]
-        private ThemeBorderStyle(bool? show)
+        private ThemeBorderStyle(
+            string? color,
+
+            bool? show,
+
+            string? width)
         {
+            Color = color;
             Show = show;
+            Width = width;
         }
     }
 }

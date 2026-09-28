@@ -21,6 +21,12 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "aws-native:wellarchitected:AgentContext":
+		r = &AgentContext{}
+	case "aws-native:wellarchitected:AgentGoal":
+		r = &AgentGoal{}
+	case "aws-native:wellarchitected:AgentProfile":
+		r = &AgentProfile{}
 	case "aws-native:wellarchitected:Lens":
 		r = &Lens{}
 	case "aws-native:wellarchitected:Profile":

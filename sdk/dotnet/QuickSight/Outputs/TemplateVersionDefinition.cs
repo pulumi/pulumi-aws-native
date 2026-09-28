@@ -49,6 +49,11 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// An array of sheet definitions for a template.
         /// </summary>
         public readonly ImmutableArray<Outputs.TemplateSheetDefinition> Sheets;
+        /// <summary>
+        /// &lt;p&gt;The static files for the definition.&lt;/p&gt;
+        /// </summary>
+        public readonly ImmutableArray<Outputs.TemplateStaticFile> StaticFiles;
+        public readonly ImmutableArray<Outputs.TemplateTopicConfiguration> TopicConfigurations;
 
         [OutputConstructor]
         private TemplateVersionDefinition(
@@ -68,7 +73,11 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 
             Outputs.TemplateQueryExecutionOptions? queryExecutionOptions,
 
-            ImmutableArray<Outputs.TemplateSheetDefinition> sheets)
+            ImmutableArray<Outputs.TemplateSheetDefinition> sheets,
+
+            ImmutableArray<Outputs.TemplateStaticFile> staticFiles,
+
+            ImmutableArray<Outputs.TemplateTopicConfiguration> topicConfigurations)
         {
             AnalysisDefaults = analysisDefaults;
             CalculatedFields = calculatedFields;
@@ -79,6 +88,8 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
             ParameterDeclarations = parameterDeclarations;
             QueryExecutionOptions = queryExecutionOptions;
             Sheets = sheets;
+            StaticFiles = staticFiles;
+            TopicConfigurations = topicConfigurations;
         }
     }
 }

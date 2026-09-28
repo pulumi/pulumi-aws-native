@@ -22,6 +22,7 @@ __all__ = [
     'EvaluationFormItemEnablementSourceType',
     'EvaluationFormItemEnablementSourceValueType',
     'EvaluationFormLanguageConfigurationFormLanguage',
+    'EvaluationFormMetricConfigurationMetricType',
     'EvaluationFormMultiSelectQuestionPropertiesDisplayAs',
     'EvaluationFormMultiSelectQuestionRuleCategoryAutomationCondition',
     'EvaluationFormNumericQuestionPropertyValueAutomationLabel',
@@ -78,6 +79,8 @@ __all__ = [
     'UserChannel',
     'UserPhoneType',
     'UserVoiceEnhancementMode',
+    'VocabularyLanguageCode',
+    'VocabularyState',
     'WorkspaceFontFamily',
     'WorkspaceMediaType',
     'WorkspaceVisibility',
@@ -238,6 +241,14 @@ class EvaluationFormLanguageConfigurationFormLanguage(_builtins.str, Enum):
     KO_KR = "ko-KR"
     ZH_CN = "zh-CN"
     MS_MY = "ms-MY"
+
+
+@pulumi.type_token("aws-native:connect:EvaluationFormMetricConfigurationMetricType")
+class EvaluationFormMetricConfigurationMetricType(_builtins.str, Enum):
+    """
+    The type of the metric.
+    """
+    BUSINESS_OUTCOME = "BUSINESS_OUTCOME"
 
 
 @pulumi.type_token("aws-native:connect:EvaluationFormMultiSelectQuestionPropertiesDisplayAs")
@@ -831,6 +842,57 @@ class UserVoiceEnhancementMode(_builtins.str, Enum):
     NONE = "NONE"
     VOICE_ISOLATION = "VOICE_ISOLATION"
     NOISE_SUPPRESSION = "NOISE_SUPPRESSION"
+
+
+@pulumi.type_token("aws-native:connect:VocabularyLanguageCode")
+class VocabularyLanguageCode(_builtins.str, Enum):
+    """
+    The language code of the vocabulary entries.
+    """
+    AR_AE = "ar-AE"
+    DE_CH = "de-CH"
+    DE_DE = "de-DE"
+    EN_AB = "en-AB"
+    EN_AU = "en-AU"
+    EN_GB = "en-GB"
+    EN_IE = "en-IE"
+    EN_IN = "en-IN"
+    EN_US = "en-US"
+    EN_WL = "en-WL"
+    ES_ES = "es-ES"
+    ES_US = "es-US"
+    FR_CA = "fr-CA"
+    FR_FR = "fr-FR"
+    HI_IN = "hi-IN"
+    IT_IT = "it-IT"
+    JA_JP = "ja-JP"
+    KO_KR = "ko-KR"
+    PT_BR = "pt-BR"
+    PT_PT = "pt-PT"
+    ZH_CN = "zh-CN"
+    EN_NZ = "en-NZ"
+    EN_ZA = "en-ZA"
+    CA_ES = "ca-ES"
+    DA_DK = "da-DK"
+    FI_FI = "fi-FI"
+    ID_ID = "id-ID"
+    MS_MY = "ms-MY"
+    NL_NL = "nl-NL"
+    NO_NO = "no-NO"
+    PL_PL = "pl-PL"
+    SV_SE = "sv-SE"
+    TL_PH = "tl-PH"
+
+
+@pulumi.type_token("aws-native:connect:VocabularyState")
+class VocabularyState(_builtins.str, Enum):
+    """
+    The current state of the custom vocabulary.
+    """
+    CREATION_IN_PROGRESS = "CREATION_IN_PROGRESS"
+    ACTIVE = "ACTIVE"
+    CREATION_FAILED = "CREATION_FAILED"
+    DELETE_IN_PROGRESS = "DELETE_IN_PROGRESS"
 
 
 @pulumi.type_token("aws-native:connect:WorkspaceFontFamily")

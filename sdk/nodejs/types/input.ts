@@ -10864,7 +10864,22 @@ export namespace batch {
         containerInsights?: pulumi.Input<enums.batch.ComputeEnvironmentEcsSettingsContainerInsights | undefined>;
     }
 
+    /**
+     * The EKS access entry configuration for the compute environment. Controls whether AWS Batch manages the EKS access entry for the compute environment's service role, or inherits it from the cluster.
+     */
+    export interface ComputeEnvironmentEksAccessEntryArgs {
+        /**
+         * The desired state of the EKS access entry managed by AWS Batch. When omitted, AWS Batch applies INHERIT_FROM_CLUSTER.
+         */
+        desiredState?: pulumi.Input<enums.batch.ComputeEnvironmentEksAccessEntryDesiredState | undefined>;
+        /**
+         * The read-only status of the EKS access entry, returned by DescribeComputeEnvironments.
+         */
+        status?: pulumi.Input<enums.batch.ComputeEnvironmentEksAccessEntryStatus | undefined>;
+    }
+
     export interface ComputeEnvironmentEksConfigurationArgs {
+        accessEntry?: pulumi.Input<inputs.batch.ComputeEnvironmentEksAccessEntryArgs | undefined>;
         /**
          * The Amazon Resource Name (ARN) of the Amazon EKS cluster. An example is `arn: *aws* :eks: *us-east-1* : *123456789012* :cluster/ *ClusterForBatch*` .
          */
@@ -12480,6 +12495,71 @@ export namespace bcm {
         displayConfig: pulumi.Input<inputs.bcm.DashboardDisplayConfigArgs>;
         queryParameters: pulumi.Input<inputs.bcm.DashboardQueryParametersArgs>;
     }
+
+    /**
+     * An absolute or relative date range.
+     */
+    export interface ScheduledReportDateTimeRangeArgs {
+        /**
+         * The end of the range.
+         */
+        endTime: pulumi.Input<inputs.bcm.ScheduledReportDateTimeValueArgs>;
+        /**
+         * The start of the range.
+         */
+        startTime: pulumi.Input<inputs.bcm.ScheduledReportDateTimeValueArgs>;
+    }
+
+    /**
+     * A date expressed either as an absolute instant or as an offset from now.
+     */
+    export interface ScheduledReportDateTimeValueArgs {
+        /**
+         * Whether Value is an absolute date or a duration relative to now.
+         */
+        type: pulumi.Input<enums.bcm.ScheduledReportDateTimeType>;
+        /**
+         * The date, or an ISO 8601 duration when Type is RELATIVE.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    /**
+     * Defines when and how often a scheduled report runs.
+     */
+    export interface ScheduledReportScheduleConfigArgs {
+        /**
+         * The schedule expression that specifies when to trigger the scheduled report run. This value must be a cron expression consisting of six fields separated by white spaces: cron(minutes hours day_of_month month day_of_week year).
+         */
+        scheduleExpression?: pulumi.Input<string | undefined>;
+        /**
+         * The time zone for the schedule expression, for example, UTC.
+         */
+        scheduleExpressionTimeZone?: pulumi.Input<string | undefined>;
+        /**
+         * The time period during which the schedule is active.
+         */
+        schedulePeriod?: pulumi.Input<inputs.bcm.ScheduledReportSchedulePeriodArgs | undefined>;
+        /**
+         * The state of the schedule. ENABLED means the scheduled report runs according to its schedule expression. DISABLED means the scheduled report is paused and will not run until re-enabled.
+         */
+        state?: pulumi.Input<enums.bcm.ScheduledReportScheduleState | undefined>;
+    }
+
+    /**
+     * The window during which the schedule is active. When omitted the service defaults it. EndTime must be within three years of the time of the request.
+     */
+    export interface ScheduledReportSchedulePeriodArgs {
+        /**
+         * The time at which the schedule stops being active.
+         */
+        endTime?: pulumi.Input<string | undefined>;
+        /**
+         * The time at which the schedule becomes active.
+         */
+        startTime?: pulumi.Input<string | undefined>;
+    }
+
 }
 
 export namespace bcmdataexports {
@@ -13683,6 +13763,26 @@ export namespace bedrock {
     }
 
     /**
+     * A daily refresh. The run time is system-chosen (off-peak) and not customer-configurable.
+     */
+    export interface DataSourceDailyScheduleArgs {
+    }
+
+    /**
+     * Day of the month on which a monthly refresh runs. Exactly one variant is set: an explicit day number, or the last calendar day of the month.
+     */
+    export interface DataSourceDayOfMonthArgs {
+        /**
+         * Specific day of the month, 1 through 28 (capped at 28 to avoid month-length ambiguity).
+         */
+        dayNumber?: pulumi.Input<number | undefined>;
+        /**
+         * Run on the last calendar day of each month.
+         */
+        lastDayOfMonth?: any | undefined;
+    }
+
+    /**
      * Configuration for deletion protection.
      */
     export interface DataSourceDeletionProtectionConfigurationArgs {
@@ -13768,6 +13868,7 @@ export namespace bedrock {
         connectorParameters?: any | undefined;
         deletionProtectionConfiguration?: pulumi.Input<inputs.bedrock.DataSourceDeletionProtectionConfigurationArgs | undefined>;
         mediaExtractionConfiguration?: pulumi.Input<inputs.bedrock.DataSourceMediaExtractionConfigurationArgs | undefined>;
+        syncSchedule?: pulumi.Input<inputs.bedrock.DataSourceSyncScheduleArgs | undefined>;
     }
 
     /**
@@ -13777,6 +13878,13 @@ export namespace bedrock {
         audioExtractionConfiguration?: pulumi.Input<inputs.bedrock.DataSourceAudioExtractionConfigurationArgs | undefined>;
         imageExtractionConfiguration?: pulumi.Input<inputs.bedrock.DataSourceImageExtractionConfigurationArgs | undefined>;
         videoExtractionConfiguration?: pulumi.Input<inputs.bedrock.DataSourceVideoExtractionConfigurationArgs | undefined>;
+    }
+
+    /**
+     * A monthly refresh on a specified day of the month.
+     */
+    export interface DataSourceMonthlyScheduleArgs {
+        dayOfMonth: pulumi.Input<inputs.bedrock.DataSourceDayOfMonthArgs>;
     }
 
     /**
@@ -13992,6 +14100,15 @@ export namespace bedrock {
     }
 
     /**
+     * Recurring schedule on which the connector automatically refreshes ingested content. Exactly one frequency variant is set.
+     */
+    export interface DataSourceSyncScheduleArgs {
+        daily?: pulumi.Input<inputs.bedrock.DataSourceDailyScheduleArgs | undefined>;
+        monthly?: pulumi.Input<inputs.bedrock.DataSourceMonthlyScheduleArgs | undefined>;
+        weekly?: pulumi.Input<inputs.bedrock.DataSourceWeeklyScheduleArgs | undefined>;
+    }
+
+    /**
      * A Lambda function that processes documents.
      */
     export interface DataSourceTransformationArgs {
@@ -14132,6 +14249,13 @@ export namespace bedrock {
          * The configuration of the URL/URLs.
          */
         urlConfiguration: pulumi.Input<inputs.bedrock.DataSourceUrlConfigurationArgs>;
+    }
+
+    /**
+     * A weekly refresh on a specified day of the week.
+     */
+    export interface DataSourceWeeklyScheduleArgs {
+        dayOfWeek: pulumi.Input<enums.bedrock.DataSourceDayOfWeek>;
     }
 
     /**
@@ -19345,6 +19469,27 @@ export namespace cases {
          * Defines the sections within a panel or tab. Contains field groups that organize related fields together.
          */
         sections?: pulumi.Input<pulumi.Input<inputs.cases.LayoutSectionPropertiesArgs>[] | undefined>;
+    }
+
+    /**
+     * Represents a comment.
+     */
+    export interface RelatedItemCommentContentArgs {
+        /**
+         * Text in the body of a comment.
+         */
+        body: pulumi.Input<string>;
+        /**
+         * Type of the text in the comment.
+         */
+        contentType: pulumi.Input<enums.cases.RelatedItemCommentContentContentType>;
+    }
+
+    /**
+     * Represents the content of a related item.
+     */
+    export interface RelatedItemContentArgs {
+        comment?: pulumi.Input<inputs.cases.RelatedItemCommentContentArgs | undefined>;
     }
 
     /**
@@ -26181,6 +26326,132 @@ export namespace comprehend {
         subnets: pulumi.Input<pulumi.Input<string>[]>;
     }
 
+    /**
+     * Describes the annotations associated with an entity recognizer.
+     */
+    export interface EntityRecognizerAnnotationsArgs {
+        /**
+         * Specifies the Amazon S3 location where the annotations are located.
+         */
+        s3Uri: pulumi.Input<string>;
+        /**
+         * Specifies the Amazon S3 location where the test annotations are located.
+         */
+        testS3Uri?: pulumi.Input<string | undefined>;
+    }
+
+    /**
+     * An augmented manifest file that provides training data for your custom model.
+     */
+    export interface EntityRecognizerAugmentedManifestsListItemArgs {
+        /**
+         * The S3 prefix to the annotation files that are referred in the augmented manifest file.
+         */
+        annotationDataS3Uri?: pulumi.Input<string | undefined>;
+        /**
+         * The JSON attribute that contains the annotations for your training documents.
+         */
+        attributeNames: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The type of augmented manifest.
+         */
+        documentType?: pulumi.Input<enums.comprehend.EntityRecognizerAugmentedManifestsListItemDocumentType | undefined>;
+        /**
+         * The Amazon S3 location of the augmented manifest file.
+         */
+        s3Uri: pulumi.Input<string>;
+        /**
+         * The S3 prefix to the source files (PDFs) that are referred to in the augmented manifest file.
+         */
+        sourceDocumentsS3Uri?: pulumi.Input<string | undefined>;
+        /**
+         * The purpose of the data you've provided in the augmented manifest.
+         */
+        split?: pulumi.Input<enums.comprehend.EntityRecognizerAugmentedManifestsListItemSplit | undefined>;
+    }
+
+    /**
+     * Describes the training documents submitted with an entity recognizer.
+     */
+    export interface EntityRecognizerDocumentsArgs {
+        /**
+         * Specifies how the text in an input file should be processed.
+         */
+        inputFormat?: pulumi.Input<enums.comprehend.EntityRecognizerDocumentsInputFormat | undefined>;
+        /**
+         * Specifies the Amazon S3 location where the training documents are located.
+         */
+        s3Uri: pulumi.Input<string>;
+        /**
+         * Specifies the Amazon S3 location where the test documents are located.
+         */
+        testS3Uri?: pulumi.Input<string | undefined>;
+    }
+
+    /**
+     * Describes the entity list submitted with an entity recognizer.
+     */
+    export interface EntityRecognizerEntityListArgs {
+        /**
+         * Specifies the Amazon S3 location where the entity list is located.
+         */
+        s3Uri: pulumi.Input<string>;
+    }
+
+    /**
+     * An entity type within a labeled training dataset that Amazon Comprehend uses to train a custom entity recognizer.
+     */
+    export interface EntityRecognizerEntityTypesListItemArgs {
+        /**
+         * An entity type within a labeled training dataset.
+         */
+        type: pulumi.Input<string>;
+    }
+
+    /**
+     * Specifies the format and location of the input data for an entity recognizer.
+     */
+    export interface EntityRecognizerInputDataConfigArgs {
+        /**
+         * The S3 location of the CSV file that annotates your training documents.
+         */
+        annotations?: pulumi.Input<inputs.comprehend.EntityRecognizerAnnotationsArgs | undefined>;
+        /**
+         * A list of augmented manifest files that provide training data for a custom model.
+         */
+        augmentedManifests?: pulumi.Input<pulumi.Input<inputs.comprehend.EntityRecognizerAugmentedManifestsListItemArgs>[] | undefined>;
+        /**
+         * The format of your training data.
+         */
+        dataFormat?: pulumi.Input<enums.comprehend.EntityRecognizerInputDataConfigDataFormat | undefined>;
+        /**
+         * The S3 location of the folder that contains the training documents.
+         */
+        documents?: pulumi.Input<inputs.comprehend.EntityRecognizerDocumentsArgs | undefined>;
+        /**
+         * The S3 location of the CSV file that has the entity list.
+         */
+        entityList?: pulumi.Input<inputs.comprehend.EntityRecognizerEntityListArgs | undefined>;
+        /**
+         * The entity types in the labeled training data.
+         */
+        entityTypes: pulumi.Input<pulumi.Input<inputs.comprehend.EntityRecognizerEntityTypesListItemArgs>[]>;
+    }
+
+    /**
+     * Configuration parameters for an optional private Virtual Private Cloud (VPC) containing the resources you are using for the job.
+     */
+    export interface EntityRecognizerVpcConfigArgs {
+        /**
+         * The ID number for a security group on an instance of your private VPC.
+         */
+        securityGroupIds: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The ID for each subnet being used in your private VPC.
+         */
+        subnets: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
     export interface FlywheelDataSecurityConfigArgs {
         /**
          * ID for the AWS  key that Amazon Comprehend uses to encrypt the data in the data lake.
@@ -26463,6 +26734,113 @@ export namespace configuration {
          * ARN of the IAM role used to retrieve AWS Organizations details associated with the aggregator account.
          */
         roleArn: pulumi.Input<string>;
+    }
+
+    /**
+     * Specifies whether the configuration recorder excludes certain resource types from being recorded.
+     */
+    export interface ConfigurationRecorderExclusionByResourceTypesArgs {
+        /**
+         * A comma-separated list of resource types to exclude from recording by the configuration recorder.
+         */
+        resourceTypes: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    /**
+     * Specifies which resource types AWS Config records for configuration changes.
+     */
+    export interface ConfigurationRecorderRecordingGroupArgs {
+        /**
+         * Specifies whether AWS Config records configuration changes for all supported resource types, excluding the global IAM resource types.
+         */
+        allSupported?: pulumi.Input<boolean | undefined>;
+        /**
+         * An object that specifies how AWS Config excludes resource types from being recorded by the configuration recorder.
+         */
+        exclusionByResourceTypes?: pulumi.Input<inputs.configuration.ConfigurationRecorderExclusionByResourceTypesArgs | undefined>;
+        /**
+         * This option is a bundle which only applies to the global IAM resource types: IAM users, groups, roles, and customer managed policies.
+         */
+        includeGlobalResourceTypes?: pulumi.Input<boolean | undefined>;
+        /**
+         * An object that specifies the recording strategy for the configuration recorder.
+         */
+        recordingStrategy?: pulumi.Input<inputs.configuration.ConfigurationRecorderRecordingStrategyArgs | undefined>;
+        /**
+         * A comma-separated list that specifies which resource types AWS Config records.
+         */
+        resourceTypes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    }
+
+    /**
+     * Specifies the default recording frequency for the configuration recorder.
+     */
+    export interface ConfigurationRecorderRecordingModeArgs {
+        /**
+         * The default recording frequency that AWS Config uses to record configuration changes.
+         */
+        recordingFrequency: pulumi.Input<string>;
+        /**
+         * An array of 'RecordingModeOverride' objects for you to specify your overrides for the recording mode.
+         */
+        recordingModeOverrides?: pulumi.Input<pulumi.Input<inputs.configuration.ConfigurationRecorderRecordingModeOverrideArgs>[] | undefined>;
+    }
+
+    /**
+     * Specifies your overrides for the recording mode
+     */
+    export interface ConfigurationRecorderRecordingModeOverrideArgs {
+        /**
+         * A description that you provide for the override.
+         */
+        description?: pulumi.Input<string | undefined>;
+        /**
+         * The recording frequency that will be applied to all the resource types specified in the override.
+         */
+        recordingFrequency: pulumi.Input<string>;
+        /**
+         * A comma-separated list that specifies which resource types AWS Config includes in the override.
+         */
+        resourceTypes: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    /**
+     * Specifies the recording strategy of the configuration recorder.
+     */
+    export interface ConfigurationRecorderRecordingStrategyArgs {
+        /**
+         * The recording strategy for the configuration recorder.
+         *
+         * - If you set this option to `ALL_SUPPORTED_RESOURCE_TYPES` , AWS Config records configuration changes for all supported resource types, excluding the global IAM resource types. You also must set the `AllSupported` field of [RecordingGroup](https://docs.aws.amazon.com/config/latest/APIReference/API_RecordingGroup.html) to `true` . When AWS Config adds support for a new resource type, AWS Config automatically starts recording resources of that type. For a list of supported resource types, see [Supported Resource Types](https://docs.aws.amazon.com/config/latest/developerguide/resource-config-reference.html#supported-resources) in the *AWS Config developer guide* .
+         * - If you set this option to `INCLUSION_BY_RESOURCE_TYPES` , AWS Config records configuration changes for only the resource types that you specify in the `ResourceTypes` field of [RecordingGroup](https://docs.aws.amazon.com/config/latest/APIReference/API_RecordingGroup.html) .
+         * - If you set this option to `EXCLUSION_BY_RESOURCE_TYPES` , AWS Config records configuration changes for all supported resource types, except the resource types that you specify to exclude from being recorded in the `ResourceTypes` field of [ExclusionByResourceTypes](https://docs.aws.amazon.com/config/latest/APIReference/API_ExclusionByResourceTypes.html) .
+         *
+         * > *Required and optional fields*
+         * > 
+         * > The `recordingStrategy` field is optional when you set the `AllSupported` field of [RecordingGroup](https://docs.aws.amazon.com/config/latest/APIReference/API_RecordingGroup.html) to `true` .
+         * > 
+         * > The `recordingStrategy` field is optional when you list resource types in the `ResourceTypes` field of [RecordingGroup](https://docs.aws.amazon.com/config/latest/APIReference/API_RecordingGroup.html) .
+         * > 
+         * > The `recordingStrategy` field is required if you list resource types to exclude from recording in the `ResourceTypes` field of [ExclusionByResourceTypes](https://docs.aws.amazon.com/config/latest/APIReference/API_ExclusionByResourceTypes.html) . > *Overriding fields*
+         * > 
+         * > If you choose `EXCLUSION_BY_RESOURCE_TYPES` for the recording strategy, the `ExclusionByResourceTypes` field will override other properties in the request.
+         * > 
+         * > For example, even if you set `IncludeGlobalResourceTypes` to false, global IAM resource types will still be automatically recorded in this option unless those resource types are specifically listed as exclusions in the `ResourceTypes` field of `ExclusionByResourceTypes` . > *Global resource types and the exclusion recording strategy*
+         * > 
+         * > By default, if you choose the `EXCLUSION_BY_RESOURCE_TYPES` recording strategy, when AWS Config adds support for a new resource type in the Region where you set up the configuration recorder, including global resource types, AWS Config starts recording resources of that type automatically.
+         * > 
+         * > Unless specifically listed as exclusions, `AWS::RDS::GlobalCluster` will be recorded automatically in all supported AWS Config Regions were the configuration recorder is enabled.
+         * > 
+         * > IAM users, groups, roles, and customer managed policies will be recorded in the Region where you set up the configuration recorder if that is a Region where AWS Config was available before February 2022. You cannot be record the global IAM resouce types in Regions supported by AWS Config after February 2022. This list where you cannot record the global IAM resource types includes the following Regions:
+         * > - Asia Pacific (Hyderabad)
+         * > - Asia Pacific (Melbourne)
+         * > - Canada West (Calgary)
+         * > - Europe (Spain)
+         * > - Europe (Zurich)
+         * > - Israel (Tel Aviv)
+         * > - Middle East (UAE)
+         */
+        useOnly: pulumi.Input<string>;
     }
 
     /**
@@ -26789,6 +27167,17 @@ export namespace connect {
         formLanguage?: pulumi.Input<enums.connect.EvaluationFormLanguageConfigurationFormLanguage | undefined>;
     }
 
+    export interface EvaluationFormMetricConfigurationArgs {
+        /**
+         * The name of the metric.
+         */
+        metricName: pulumi.Input<string>;
+        /**
+         * The type of the metric.
+         */
+        metricType: pulumi.Input<enums.connect.EvaluationFormMetricConfigurationMetricType>;
+    }
+
     /**
      * Automation configuration for multi-select questions.
      */
@@ -26968,6 +27357,7 @@ export namespace connect {
          *  *Length Constraints*: Minimum length of 0. Maximum length of 1024.
          */
         instructions?: pulumi.Input<string | undefined>;
+        metricConfiguration?: pulumi.Input<inputs.connect.EvaluationFormMetricConfigurationArgs | undefined>;
         /**
          * The flag to enable not applicable answers to the question.
          */
@@ -29931,6 +30321,12 @@ export namespace customerprofiles {
          * List of event parameters with their value thresholds
          */
         eventParametersList: pulumi.Input<pulumi.Input<inputs.customerprofiles.RecommenderEventParametersArgs>[]>;
+    }
+
+    export interface RecommenderSchemaFieldArgs {
+        contentType?: pulumi.Input<enums.customerprofiles.RecommenderSchemaFieldContentType | undefined>;
+        featureType?: pulumi.Input<enums.customerprofiles.RecommenderSchemaFieldFeatureType | undefined>;
+        targetFieldName: pulumi.Input<string>;
     }
 
     /**
@@ -33184,6 +33580,16 @@ export namespace devopsagent {
     }
 
     /**
+     * Preferences that configure behavior of this AgentSpace. This container fully owns the AgentSpace preferences: the properties supplied here replace the stored preferences in their entirety, and omitting the Preferences container reverts all preferences to their service defaults.
+     */
+    export interface AgentSpacePreferencesArgs {
+        /**
+         * Indicates whether elevated directed actions are permitted in this AgentSpace. Defaults to false when not set.
+         */
+        elevatedActionsEnabled?: pulumi.Input<boolean | undefined>;
+    }
+
+    /**
      * A single file inside an Asset's bundle. Path is the diff key on update; Content is write-only and not repopulated by Read.
      */
     export interface AssetFileArgs {
@@ -33829,7 +34235,7 @@ export namespace devopsagent {
          */
         region: pulumi.Input<string>;
         /**
-         * Deprecated - use McpRoleArn instead. IAM role ARN to assume for SigV4 signing
+         * Deprecated - use McpRoleArn instead. IAM role ARN to assume for SigV4 signing. Set to an empty string to remove a previously configured role and make the server role-less (cross-account).
          */
         roleArn?: pulumi.Input<string | undefined>;
         /**
@@ -36072,6 +36478,29 @@ export namespace drs {
         osByol?: pulumi.Input<boolean | undefined>;
     }
 
+    export interface ReplicationConfigurationTemplatePitPolicyRuleArgs {
+        /**
+         * Whether this rule is enabled or not.
+         */
+        enabled?: pulumi.Input<boolean | undefined>;
+        /**
+         * How often, in the chosen units, a snapshot should be taken.
+         */
+        interval: pulumi.Input<number>;
+        /**
+         * The duration to retain a snapshot for, in the chosen units.
+         */
+        retentionDuration: pulumi.Input<number>;
+        /**
+         * The ID of the rule.
+         */
+        ruleId?: pulumi.Input<number | undefined>;
+        /**
+         * The units used to measure the interval and retentionDuration.
+         */
+        units: pulumi.Input<enums.drs.ReplicationConfigurationTemplatePitPolicyRuleUnits>;
+    }
+
 }
 
 export namespace dsql {
@@ -38025,6 +38454,28 @@ export namespace ec2 {
          * Indicates whether UDP traffic uses ENA Express for your instance.
          */
         enaSrdUdpEnabled?: pulumi.Input<boolean | undefined>;
+    }
+
+    /**
+     * A time range during which an AWS-initiated maintenance event may occur.
+     */
+    export interface InstanceEventWindowTimeRangeArgs {
+        /**
+         * The hour when the time range ends.
+         */
+        endHour?: pulumi.Input<number | undefined>;
+        /**
+         * The day on which the time range ends.
+         */
+        endWeekDay?: pulumi.Input<enums.ec2.InstanceEventWindowTimeRangeEndWeekDay | undefined>;
+        /**
+         * The hour when the time range begins.
+         */
+        startHour?: pulumi.Input<number | undefined>;
+        /**
+         * The day on which the time range begins.
+         */
+        startWeekDay?: pulumi.Input<enums.ec2.InstanceEventWindowTimeRangeStartWeekDay | undefined>;
     }
 
     export interface InstanceIpv6AddressArgs {
@@ -46699,6 +47150,9 @@ export namespace elasticloadbalancingv2 {
          *  The following attribute is supported by Network Load Balancers, and Gateway Load Balancers.
          *   +  ``tcp.idle_timeout.seconds`` - The tcp idle timeout value, in seconds. The valid range is 60-6000 seconds. The default is 350 seconds.
          *
+         *  The following attribute is only supported by Gateway Load Balancers:
+         *   +  ``send_tcp_reset.on_idle_timeout.enabled`` – Specifies whether the Gateway Load Balancer sends a TCP Reset to the sender of traffic when a TCP flow's idle timeout expires. This attribute also applies to non-SYN TCP packets received for flows that are not in the flow table. The value is ``true`` or ``false``. The default is ``false``.
+         *
          *  The following attributes are only supported by Application Load Balancers.
          *   +  ``routing.http.request.x_amzn_mtls_clientcert_serial_number.header_name`` - Enables you to modify the header name of the *X-Amzn-Mtls-Clientcert-Serial-Number* HTTP request header.
          *   +  ``routing.http.request.x_amzn_mtls_clientcert_issuer.header_name`` - Enables you to modify the header name of the *X-Amzn-Mtls-Clientcert-Issuer* HTTP request header.
@@ -47636,6 +48090,177 @@ export namespace elementalinference {
 }
 
 export namespace emr {
+    export interface InstanceGroupConfigAppConfigurationArgs {
+        classification?: pulumi.Input<string | undefined>;
+        configurationProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+        configurations?: pulumi.Input<pulumi.Input<inputs.emr.InstanceGroupConfigAppConfigurationArgs>[] | undefined>;
+    }
+
+    export interface InstanceGroupConfigAutoScalingPolicyArgs {
+        /**
+         * The upper and lower Amazon EC2 instance limits for an automatic scaling policy. Automatic scaling activity will not cause an instance group to grow above or below these limits.
+         */
+        constraints: pulumi.Input<inputs.emr.InstanceGroupConfigScalingConstraintsArgs>;
+        /**
+         * The scale-in and scale-out rules that comprise the automatic scaling policy.
+         */
+        rules: pulumi.Input<pulumi.Input<inputs.emr.InstanceGroupConfigScalingRuleArgs>[]>;
+    }
+
+    export interface InstanceGroupConfigCloudWatchAlarmDefinitionArgs {
+        /**
+         * Determines how the metric specified by `MetricName` is compared to the value specified by `Threshold` .
+         */
+        comparisonOperator: pulumi.Input<string>;
+        /**
+         * A CloudWatch metric dimension.
+         */
+        dimensions?: pulumi.Input<pulumi.Input<inputs.emr.InstanceGroupConfigMetricDimensionArgs>[] | undefined>;
+        /**
+         * The number of periods, in five-minute increments, during which the alarm condition must exist before the alarm triggers automatic scaling activity. The default value is `1` .
+         */
+        evaluationPeriods?: pulumi.Input<number | undefined>;
+        /**
+         * The name of the CloudWatch metric that is watched to determine an alarm condition.
+         */
+        metricName: pulumi.Input<string>;
+        /**
+         * The namespace for the CloudWatch metric. The default is `AWS/ElasticMapReduce` .
+         */
+        namespace?: pulumi.Input<string | undefined>;
+        /**
+         * The period, in seconds, over which the statistic is applied. CloudWatch metrics for Amazon EMR are emitted every five minutes (300 seconds), so if you specify a CloudWatch metric, specify `300` .
+         */
+        period: pulumi.Input<number>;
+        /**
+         * The statistic to apply to the metric associated with the alarm. The default is `AVERAGE` .
+         */
+        statistic?: pulumi.Input<string | undefined>;
+        /**
+         * The value against which the specified statistic is compared.
+         */
+        threshold: pulumi.Input<number>;
+        /**
+         * The unit of measure associated with the CloudWatch metric being watched. The value specified for `Unit` must correspond to the units specified in the CloudWatch metric.
+         */
+        unit?: pulumi.Input<string | undefined>;
+    }
+
+    export interface InstanceGroupConfigEbsBlockDeviceConfigArgs {
+        /**
+         * EBS volume specifications such as volume type, IOPS, size (GiB) and throughput (MiB/s) that are requested for the EBS volume attached to an Amazon EC2 instance in the cluster.
+         */
+        volumeSpecification: pulumi.Input<inputs.emr.InstanceGroupConfigVolumeSpecificationArgs>;
+        /**
+         * Use of this property can confuse CloudFormation drift detection. The EbsBlockDeviceConfigs read from the system may return a list with one entry per volume, replacing any entry specified in the template with a VolumesPerInstance greater than one by that many entries containing only the VolumeSpecification. Thus to avoid false drift detection, it is recommended to supply repeated entries in EbsBlockDeviceConfigs for any VolumeSpecification which is intended to be repeated and not to use this property.
+         */
+        volumesPerInstance?: pulumi.Input<number | undefined>;
+    }
+
+    export interface InstanceGroupConfigEbsConfigurationArgs {
+        /**
+         * An array of Amazon EBS volume specifications attached to a cluster instance.
+         */
+        ebsBlockDeviceConfigs?: pulumi.Input<pulumi.Input<inputs.emr.InstanceGroupConfigEbsBlockDeviceConfigArgs>[] | undefined>;
+        /**
+         * Indicates whether an Amazon EBS volume is EBS-optimized. The default is false. You should explicitly set this value to true to enable the Amazon EBS-optimized setting for an EC2 instance.
+         */
+        ebsOptimized?: pulumi.Input<boolean | undefined>;
+    }
+
+    export interface InstanceGroupConfigMetricDimensionArgs {
+        /**
+         * The dimension name.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * The dimension value.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    export interface InstanceGroupConfigScalingActionArgs {
+        /**
+         * Not available for instance groups. Instance groups use the market type specified for the group.
+         */
+        market?: pulumi.Input<string | undefined>;
+        /**
+         * The type of adjustment the automatic scaling activity makes when triggered, and the periodicity of the adjustment.
+         */
+        simpleScalingPolicyConfiguration: pulumi.Input<inputs.emr.InstanceGroupConfigSimpleScalingPolicyConfigurationArgs>;
+    }
+
+    export interface InstanceGroupConfigScalingConstraintsArgs {
+        /**
+         * The upper boundary of Amazon EC2 instances in an instance group beyond which scaling activities are not allowed to grow. Scale-out activities will not add instances beyond this boundary.
+         */
+        maxCapacity: pulumi.Input<number>;
+        /**
+         * The lower boundary of Amazon EC2 instances in an instance group below which scaling activities are not allowed to shrink. Scale-in activities will not terminate instances below this boundary.
+         */
+        minCapacity: pulumi.Input<number>;
+    }
+
+    export interface InstanceGroupConfigScalingRuleArgs {
+        /**
+         * The conditions that trigger an automatic scaling activity.
+         */
+        action: pulumi.Input<inputs.emr.InstanceGroupConfigScalingActionArgs>;
+        /**
+         * A friendly, more verbose description of the automatic scaling rule.
+         */
+        description?: pulumi.Input<string | undefined>;
+        /**
+         * The name used to identify an automatic scaling rule. Rule names must be unique within a scaling policy.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The CloudWatch alarm definition that determines when automatic scaling activity is triggered.
+         */
+        trigger: pulumi.Input<inputs.emr.InstanceGroupConfigScalingTriggerArgs>;
+    }
+
+    export interface InstanceGroupConfigScalingTriggerArgs {
+        /**
+         * The definition of a CloudWatch metric alarm. When the defined alarm conditions are met along with other trigger parameters, scaling activity begins.
+         */
+        cloudWatchAlarmDefinition: pulumi.Input<inputs.emr.InstanceGroupConfigCloudWatchAlarmDefinitionArgs>;
+    }
+
+    export interface InstanceGroupConfigSimpleScalingPolicyConfigurationArgs {
+        /**
+         * The way in which Amazon EC2 instances are added (if `ScalingAdjustment` is a positive number) or terminated (if `ScalingAdjustment` is a negative number) each time the scaling activity is triggered. `CHANGE_IN_CAPACITY` is the default. `CHANGE_IN_CAPACITY` indicates that the Amazon EC2 instance count increments or decrements by `ScalingAdjustment` , which should be expressed as an integer. `PERCENT_CHANGE_IN_CAPACITY` indicates the instance count increments or decrements by the percentage specified by `ScalingAdjustment` , which should be expressed as an integer. For example, 20 indicates an increase in 20% increments of cluster capacity. `EXACT_CAPACITY` indicates the scaling activity results in an instance group with the number of Amazon EC2 instances specified by `ScalingAdjustment` , which should be expressed as a positive integer.
+         */
+        adjustmentType?: pulumi.Input<string | undefined>;
+        /**
+         * The amount of time, in seconds, after a scaling activity completes before any further trigger-related scaling activities can start. The default value is 0.
+         */
+        coolDown?: pulumi.Input<number | undefined>;
+        /**
+         * The amount by which to scale in or scale out, based on the specified `AdjustmentType` . A positive value adds to the instance group's Amazon EC2 instance count while a negative number removes instances. If `AdjustmentType` is set to `EXACT_CAPACITY` , the number should only be a positive integer. If `AdjustmentType` is set to `PERCENT_CHANGE_IN_CAPACITY` , the value should express the percentage as an integer. For example, -20 indicates a decrease in 20% increments of cluster capacity.
+         */
+        scalingAdjustment: pulumi.Input<number>;
+    }
+
+    export interface InstanceGroupConfigVolumeSpecificationArgs {
+        /**
+         * The number of I/O operations per second (IOPS) that the volume supports.
+         */
+        iops?: pulumi.Input<number | undefined>;
+        /**
+         * The volume size, in gibibytes (GiB). This can be a number from 1 - 1024. If the volume type is EBS-optimized, the minimum value is 10.
+         */
+        sizeInGb: pulumi.Input<number>;
+        /**
+         * The throughput, in mebibyte per second (MiB/s). This optional parameter can be a number from 125 - 1000 and is valid only for gp3 volumes.
+         */
+        throughput?: pulumi.Input<number | undefined>;
+        /**
+         * The volume type. Volume types supported are gp3, gp2, io1, st1, sc1, and standard.
+         */
+        volumeType: pulumi.Input<string>;
+    }
+
     export interface StepHadoopJarStepConfigArgs {
         /**
          * A list of command line arguments passed to the JAR file's main function when executed.
@@ -47699,6 +48324,128 @@ export namespace emrcontainers {
 
     export interface EndpointS3MonitoringConfigurationArgs {
         logUri: pulumi.Input<string>;
+    }
+
+    /**
+     * A configuration specification to be used when provisioning virtual clusters, which can include configurations for applications and software bundled with Amazon EMR on EKS.
+     */
+    export interface JobTemplateConfigurationArgs {
+        /**
+         * The classification within a configuration.
+         */
+        classification: pulumi.Input<string>;
+        configurations?: pulumi.Input<pulumi.Input<inputs.emrcontainers.JobTemplateConfigurationArgs>[] | undefined>;
+        /**
+         * A set of properties specified within a configuration classification.
+         */
+        properties?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    }
+
+    /**
+     * The values of a StartJobRun API request used in job runs started using the job template.
+     */
+    export interface JobTemplateDataArgs {
+        configurationOverrides?: pulumi.Input<inputs.emrcontainers.JobTemplateParametricConfigurationOverridesArgs | undefined>;
+        /**
+         * The execution role ARN of the job run, or a template parameter reference.
+         */
+        executionRoleArn: pulumi.Input<string>;
+        jobDriver: pulumi.Input<inputs.emrcontainers.JobTemplateJobDriverArgs>;
+        /**
+         * The tags assigned to jobs started using the job template.
+         */
+        jobTags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+        /**
+         * The configuration of parameters existing in the job template.
+         */
+        parameterConfiguration?: pulumi.Input<{[key: string]: pulumi.Input<inputs.emrcontainers.JobTemplateTemplateParameterConfigurationArgs>} | undefined>;
+        /**
+         * The release version of Amazon EMR, or a template parameter reference.
+         */
+        releaseLabel: pulumi.Input<string>;
+    }
+
+    /**
+     * Specify the driver that the job runs on. Exactly one of the two available job drivers is required, either SparkSqlJobDriver or SparkSubmitJobDriver.
+     */
+    export interface JobTemplateJobDriverArgs {
+        sparkSqlJobDriver?: pulumi.Input<inputs.emrcontainers.JobTemplateSparkSqlJobDriverArgs | undefined>;
+        sparkSubmitJobDriver?: pulumi.Input<inputs.emrcontainers.JobTemplateSparkSubmitJobDriverArgs | undefined>;
+    }
+
+    /**
+     * A configuration for CloudWatch monitoring. This data type allows job template parameters to be specified within.
+     */
+    export interface JobTemplateParametricCloudWatchMonitoringConfigurationArgs {
+        /**
+         * The name of the log group for log publishing, or a template parameter reference.
+         */
+        logGroupName?: pulumi.Input<string | undefined>;
+        /**
+         * The specified name prefix for log streams.
+         */
+        logStreamNamePrefix?: pulumi.Input<string | undefined>;
+    }
+
+    /**
+     * A configuration specification to be used to override existing configurations. This data type allows job template parameters to be specified within.
+     */
+    export interface JobTemplateParametricConfigurationOverridesArgs {
+        applicationConfiguration?: pulumi.Input<pulumi.Input<inputs.emrcontainers.JobTemplateConfigurationArgs>[] | undefined>;
+        monitoringConfiguration?: pulumi.Input<inputs.emrcontainers.JobTemplateParametricMonitoringConfigurationArgs | undefined>;
+    }
+
+    /**
+     * Configuration setting for monitoring. This data type allows job template parameters to be specified within.
+     */
+    export interface JobTemplateParametricMonitoringConfigurationArgs {
+        cloudWatchMonitoringConfiguration?: pulumi.Input<inputs.emrcontainers.JobTemplateParametricCloudWatchMonitoringConfigurationArgs | undefined>;
+        /**
+         * Monitoring configurations for the persistent application UI, or a template parameter reference.
+         */
+        persistentAppUi?: pulumi.Input<string | undefined>;
+        s3MonitoringConfiguration?: pulumi.Input<inputs.emrcontainers.JobTemplateParametricS3MonitoringConfigurationArgs | undefined>;
+    }
+
+    /**
+     * Amazon S3 configuration for monitoring log publishing. This data type allows job template parameters to be specified within.
+     */
+    export interface JobTemplateParametricS3MonitoringConfigurationArgs {
+        /**
+         * Amazon S3 destination URI for log publishing.
+         */
+        logUri?: pulumi.Input<string | undefined>;
+    }
+
+    /**
+     * The job driver for job type.
+     */
+    export interface JobTemplateSparkSqlJobDriverArgs {
+        entryPoint?: pulumi.Input<string | undefined>;
+        sparkSqlParameters?: pulumi.Input<string | undefined>;
+    }
+
+    /**
+     * The information about job driver for Spark submit.
+     */
+    export interface JobTemplateSparkSubmitJobDriverArgs {
+        entryPoint: pulumi.Input<string>;
+        entryPointArguments?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+        sparkSubmitParameters?: pulumi.Input<string | undefined>;
+    }
+
+    /**
+     * The configuration of a job template parameter.
+     */
+    export interface JobTemplateTemplateParameterConfigurationArgs {
+        /**
+         * The default value for the job template parameter.
+         */
+        defaultValue?: pulumi.Input<string | undefined>;
+        /**
+         * The type of the job template parameter.
+         */
+        type?: pulumi.Input<enums.emrcontainers.JobTemplateTemplateParameterConfigurationType | undefined>;
     }
 
     /**
@@ -49193,6 +49940,474 @@ export namespace events {
 }
 
 export namespace eventschemas {
+}
+
+export namespace eventsv2 {
+    /**
+     * Encryption configuration for an event bus.
+     */
+    export interface EventBusEncryptionConfigurationArgs {
+        /**
+         * The identifier of the AWS KMS customer managed key that the event bus uses to encrypt events. You can specify the key ARN, key ID, alias name, or alias ARN. If you do not specify a key, EventBridge uses an AWS owned key.
+         */
+        kmsKeyIdentifier?: pulumi.Input<string | undefined>;
+    }
+
+    /**
+     * Storage (retention) configuration for the event bus.
+     */
+    export interface EventBusStorageConfigurationArgs {
+        /**
+         * The number of days events are retained on the event bus for replay, 1-365.
+         */
+        retentionPeriodInDays?: pulumi.Input<number | undefined>;
+    }
+
+    /**
+     * Forward a single AWS service's events from the account's default event bus.
+     */
+    export interface EventSourceAwsServiceEventsConfigurationArgs {
+        /**
+         * A single AWS service source identifier, for example aws.s3. Wildcards and lists are not allowed.
+         */
+        awsService: pulumi.Input<string>;
+        /**
+         * The destination for events that could not be forwarded.
+         */
+        onFailureConfiguration?: pulumi.Input<inputs.eventsv2.EventSourceOnFailureConfigurationArgs | undefined>;
+        /**
+         * A filter pattern, as a JSON string, that defines which events from the specified AWS service are forwarded to the event bus. Do not include source, account, or region as top-level fields. If you do not specify a pattern, all events from the service are forwarded.
+         */
+        pattern?: pulumi.Input<string | undefined>;
+    }
+
+    /**
+     * Event source configuration. Exactly one of the two variants must be set.
+     */
+    export interface EventSourceConfigurationArgs {
+        /**
+         * Configuration for forwarding a single AWS service's events.
+         */
+        awsServiceEventsConfiguration?: pulumi.Input<inputs.eventsv2.EventSourceAwsServiceEventsConfigurationArgs | undefined>;
+        /**
+         * Configuration for forwarding a partner event source's events.
+         */
+        partnerEventsConfiguration?: pulumi.Input<inputs.eventsv2.EventSourcePartnerEventsConfigurationArgs | undefined>;
+    }
+
+    /**
+     * The destination for events that could not be forwarded by the managed forwarding target or, for partner event sources, the managed partner event bus. Arn is optional. An empty object removes a configured destination on update.
+     */
+    export interface EventSourceOnFailureConfigurationArgs {
+        /**
+         * The ARN of the Amazon SQS standard queue that receives events that could not be forwarded. FIFO queues are not supported.
+         */
+        arn?: pulumi.Input<string | undefined>;
+    }
+
+    /**
+     * Forward a partner event source's events through a managed partner event bus.
+     */
+    export interface EventSourcePartnerEventsConfigurationArgs {
+        /**
+         * The destination for events that could not be forwarded, covering both the forwarding target and the managed partner event bus.
+         */
+        onFailureConfiguration?: pulumi.Input<inputs.eventsv2.EventSourceOnFailureConfigurationArgs | undefined>;
+        /**
+         * The identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt events on the managed partner event bus. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN. If you do not specify a customer managed key identifier, EventBridge uses an AWS owned key to encrypt events on the event bus.
+         */
+        partnerBusKmsKeyIdentifier?: pulumi.Input<string | undefined>;
+        /**
+         * The ARN of the partner event source to forward. The partner owns the event source, so the ARN's account segment is empty. Changing this property replaces the event source. Because Name and EventBusArn together identify an event source, and the replacement is created before the old resource is deleted, change Name in the same update.
+         */
+        partnerEventSourceArn: pulumi.Input<string>;
+        /**
+         * A filter pattern, as a JSON string, that defines which events from the specified partner event source are forwarded to the event bus. If you do not specify a pattern, all events from the partner event source are forwarded.
+         */
+        pattern?: pulumi.Input<string | undefined>;
+    }
+
+    /**
+     * Configuration for batching events into a single delivery.
+     */
+    export interface SubscriberBatchConfigurationArgs {
+        /**
+         * The maximum number of events in a single batch delivered to the target. The maximum depends on the target: 500 for Kinesis Data Streams and Amazon Data Firehose, 100 for Lambda, Step Functions, and AWS::EventsV2::EventBus targets, 10 for Amazon SQS, Amazon SNS, and AWS::Events::EventBus targets, and 1 for API Gateway, API destinations, and universal service integration targets. The service rejects a value above the target's maximum. Fewer events may be delivered when the batch window elapses. When omitted, the default is 10 for Lambda and Step Functions targets and the target's maximum for other targets. The resolved value applied by the service is returned on read.
+         */
+        maxBatchSize?: pulumi.Input<number | undefined>;
+        /**
+         * The maximum time in seconds to wait for a batch to fill before delivering it, 0-300. The default is 0 (no wait). The resolved value applied by the service is returned on read.
+         */
+        maxBatchWindowInSeconds?: pulumi.Input<number | undefined>;
+    }
+
+    /**
+     * Deduplication settings applied to the forwarded events on the downstream bus.
+     */
+    export interface SubscriberDeduplicationConfigurationArgs {
+        /**
+         * How duplicate events are detected: CONTENT_BASED deduplicates by a hash of the event content. To deduplicate by a caller-supplied token instead, omit DeduplicationConfiguration and set SystemMetadata.DeduplicationId.
+         */
+        deduplicationType: pulumi.Input<enums.eventsv2.SubscriberDeduplicationConfigurationDeduplicationType>;
+    }
+
+    /**
+     * Customer-controllable system metadata attached to each forwarded event.
+     */
+    export interface SubscriberEventBusV2SystemMetadataArgs {
+        /**
+         * The deduplication ID for FIFO deduplication on the downstream event bus. Accepts a literal value or a JSONata expression.
+         */
+        deduplicationId?: pulumi.Input<string | undefined>;
+        /**
+         * The event group ID for FIFO ordering on the downstream event bus. Accepts a literal value or a JSONata expression.
+         */
+        eventGroupId?: pulumi.Input<string | undefined>;
+    }
+
+    /**
+     * A single filter entry: an event pattern and the scope of the event it is evaluated against.
+     */
+    export interface SubscriberFilterArgs {
+        /**
+         * The event pattern, as a JSON string.
+         */
+        pattern: pulumi.Input<string>;
+        /**
+         * Which part of the event the pattern is evaluated against: DATA (the event payload), METADATA (event metadata), or SYSTEM_METADATA (service-generated metadata).
+         */
+        scope: pulumi.Input<enums.eventsv2.SubscriberFilterScope>;
+    }
+
+    /**
+     * Configuration for filtering which events are delivered to the target. An event must match every filter to be delivered.
+     */
+    export interface SubscriberFilterConfigurationArgs {
+        /**
+         * The list of filters, 1-50 entries. An event must match every filter to be delivered.
+         */
+        filters: pulumi.Input<pulumi.Input<inputs.eventsv2.SubscriberFilterArgs>[]>;
+        /**
+         * The filter language. The default is EVENT_BRIDGE_PATTERN.
+         */
+        language?: pulumi.Input<enums.eventsv2.SubscriberFilterConfigurationLanguage | undefined>;
+    }
+
+    /**
+     * Configuration for how the subscriber invokes its target. Specify the target ARN, the IAM role, and, optionally, the target-specific parameters object that matches the target type.
+     */
+    export interface SubscriberInvokeConfigurationPropertiesArgs {
+        /**
+         * Parameters for forwarding events to another EventBridge event bus, used when TargetArn is an event bus ARN of the form arn:{partition}:events:{region}:{account}:event-busv2/{name}/{id}.
+         */
+        eventBusV2Parameters?: pulumi.Input<inputs.eventsv2.SubscriberInvokeConfigurationPropertiesEventBusV2ParametersPropertiesArgs | undefined>;
+        /**
+         * Parameters for invoking an HTTP endpoint target, such as an Amazon API Gateway endpoint or an EventBridge API destination.
+         */
+        httpParameters?: pulumi.Input<inputs.eventsv2.SubscriberInvokeConfigurationPropertiesHttpParametersPropertiesArgs | undefined>;
+        /**
+         * Parameters for writing events to an Amazon Kinesis Data Streams target.
+         */
+        kinesisParameters?: pulumi.Input<inputs.eventsv2.SubscriberInvokeConfigurationPropertiesKinesisParametersPropertiesArgs | undefined>;
+        /**
+         * Parameters for invoking an AWS Lambda function target.
+         */
+        lambdaParameters?: pulumi.Input<inputs.eventsv2.SubscriberInvokeConfigurationPropertiesLambdaParametersPropertiesArgs | undefined>;
+        /**
+         * The ARN of the IAM role the service assumes to invoke the target. The role must belong to the same account as the subscriber.
+         */
+        roleArn: pulumi.Input<string>;
+        /**
+         * Parameters for publishing events to an Amazon SNS topic target.
+         */
+        snsParameters?: pulumi.Input<inputs.eventsv2.SubscriberInvokeConfigurationPropertiesSnsParametersPropertiesArgs | undefined>;
+        /**
+         * Parameters for sending events to an Amazon SQS queue target.
+         */
+        sqsParameters?: pulumi.Input<inputs.eventsv2.SubscriberInvokeConfigurationPropertiesSqsParametersPropertiesArgs | undefined>;
+        /**
+         * Parameters for starting an AWS Step Functions state machine execution target.
+         */
+        stepFunctionsParameters?: pulumi.Input<inputs.eventsv2.SubscriberInvokeConfigurationPropertiesStepFunctionsParametersPropertiesArgs | undefined>;
+        /**
+         * The Amazon Resource Name (ARN) of the target that the subscriber invokes. For universal service integration targets, use the form arn:{partition}:events:::aws-sdk:{service}:{apiAction}.
+         */
+        targetArn: pulumi.Input<string>;
+        /**
+         * Parameters for invoking an AWS service API as a universal service integration target, used when TargetArn has the form arn:{partition}:events:::aws-sdk:{service}:{apiAction}.
+         */
+        universalTargetParameters?: pulumi.Input<inputs.eventsv2.SubscriberInvokeConfigurationPropertiesUniversalTargetParametersPropertiesArgs | undefined>;
+    }
+
+    /**
+     * Parameters for forwarding events to another EventBridge event bus, used when TargetArn is an event bus ARN of the form arn:{partition}:events:{region}:{account}:event-busv2/{name}/{id}.
+     */
+    export interface SubscriberInvokeConfigurationPropertiesEventBusV2ParametersPropertiesArgs {
+        /**
+         * Deduplication settings applied to the forwarded events on the downstream event bus.
+         */
+        deduplicationConfiguration?: pulumi.Input<inputs.eventsv2.SubscriberDeduplicationConfigurationArgs | undefined>;
+        /**
+         * Metadata forwarded with each event, as key-value string pairs.
+         */
+        metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+        /**
+         * System metadata attached to each forwarded event, controlling FIFO ordering and deduplication on the downstream event bus.
+         */
+        systemMetadata?: pulumi.Input<inputs.eventsv2.SubscriberEventBusV2SystemMetadataArgs | undefined>;
+    }
+
+    /**
+     * Parameters for invoking an HTTP endpoint target, such as an Amazon API Gateway endpoint or an EventBridge API destination.
+     */
+    export interface SubscriberInvokeConfigurationPropertiesHttpParametersPropertiesArgs {
+        /**
+         * HTTP headers to add to the request.
+         */
+        headerParameters?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+        /**
+         * The timeout in seconds for each invocation of the target, written as a string. Accepts a literal value or a JSONata expression.
+         */
+        invocationTimeoutSeconds?: pulumi.Input<string | undefined>;
+        /**
+         * Values for the path parameters (wildcards) in the target URL, in order.
+         */
+        pathParameterValues?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+        /**
+         * Query string parameters to add to the request.
+         */
+        queryStringParameters?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    }
+
+    /**
+     * Parameters for writing events to an Amazon Kinesis Data Streams target.
+     */
+    export interface SubscriberInvokeConfigurationPropertiesKinesisParametersPropertiesArgs {
+        /**
+         * An explicit hash key that overrides the partition key's shard assignment. Accepts a literal value or a JSONata expression.
+         */
+        explicitHashKey?: pulumi.Input<string | undefined>;
+        /**
+         * The partition key that determines which shard each record is written to. Accepts a literal value or a JSONata expression.
+         */
+        partitionKey?: pulumi.Input<string | undefined>;
+    }
+
+    /**
+     * Parameters for invoking an AWS Lambda function target.
+     */
+    export interface SubscriberInvokeConfigurationPropertiesLambdaParametersPropertiesArgs {
+        /**
+         * A unique name for a durable function execution. Accepts a literal value or a JSONata expression.
+         */
+        durableExecutionName?: pulumi.Input<string | undefined>;
+        /**
+         * The timeout in seconds for each invocation of the target, written as a string. Accepts a literal value or a JSONata expression.
+         */
+        invocationTimeoutSeconds?: pulumi.Input<string | undefined>;
+        /**
+         * How the function is invoked: EVENT (asynchronous) or REQUEST_RESPONSE (synchronous).
+         */
+        invocationType?: pulumi.Input<string | undefined>;
+        /**
+         * The version or alias of the Lambda function to invoke. Accepts a literal value or a JSONata expression.
+         */
+        qualifier?: pulumi.Input<string | undefined>;
+        /**
+         * The tenant identifier for multi-tenant Lambda functions. Accepts a literal value or a JSONata expression.
+         */
+        tenantId?: pulumi.Input<string | undefined>;
+    }
+
+    /**
+     * Parameters for publishing events to an Amazon SNS topic target.
+     */
+    export interface SubscriberInvokeConfigurationPropertiesSnsParametersPropertiesArgs {
+        /**
+         * Custom message attributes to attach to each message; Amazon SNS subscription filter policies can match on them.
+         */
+        messageAttributes?: pulumi.Input<{[key: string]: pulumi.Input<inputs.eventsv2.SubscriberMessageAttributeValueArgs>} | undefined>;
+        /**
+         * The message deduplication ID to use when the target is a FIFO topic. Accepts a literal value or a JSONata expression.
+         */
+        messageDeduplicationId?: pulumi.Input<string | undefined>;
+        /**
+         * The message group ID to use when the target is a FIFO topic. Accepts a literal value or a JSONata expression.
+         */
+        messageGroupId?: pulumi.Input<string | undefined>;
+        /**
+         * Set to json to send a different message per delivery protocol. Accepts a literal value or a JSONata expression.
+         */
+        messageStructure?: pulumi.Input<string | undefined>;
+        /**
+         * The subject line to use for email-protocol subscriptions. Accepts a literal value or a JSONata expression.
+         */
+        subject?: pulumi.Input<string | undefined>;
+    }
+
+    /**
+     * Parameters for sending events to an Amazon SQS queue target.
+     */
+    export interface SubscriberInvokeConfigurationPropertiesSqsParametersPropertiesArgs {
+        /**
+         * The delay in seconds for the message, written as a string. Accepts a literal value or a JSONata expression.
+         */
+        delaySeconds?: pulumi.Input<string | undefined>;
+        /**
+         * Custom message attributes to attach to each message.
+         */
+        messageAttributes?: pulumi.Input<{[key: string]: pulumi.Input<inputs.eventsv2.SubscriberMessageAttributeValueArgs>} | undefined>;
+        /**
+         * The message deduplication ID to use when the target is a FIFO queue. Accepts a literal value or a JSONata expression.
+         */
+        messageDeduplicationId?: pulumi.Input<string | undefined>;
+        /**
+         * The message group ID to use when the target is a FIFO queue. Accepts a literal value or a JSONata expression.
+         */
+        messageGroupId?: pulumi.Input<string | undefined>;
+        /**
+         * Message system attributes to attach to each message, such as AWSTraceHeader.
+         */
+        messageSystemAttributes?: pulumi.Input<{[key: string]: pulumi.Input<inputs.eventsv2.SubscriberMessageAttributeValueArgs>} | undefined>;
+    }
+
+    /**
+     * Parameters for starting an AWS Step Functions state machine execution target.
+     */
+    export interface SubscriberInvokeConfigurationPropertiesStepFunctionsParametersPropertiesArgs {
+        /**
+         * The timeout in seconds for each invocation of the target, written as a string. Accepts a literal value or a JSONata expression.
+         */
+        invocationTimeoutSeconds?: pulumi.Input<string | undefined>;
+        /**
+         * How the execution is started: EVENT (StartExecution, asynchronous) or REQUEST_RESPONSE (StartSyncExecution, synchronous).
+         */
+        invocationType?: pulumi.Input<string | undefined>;
+        /**
+         * A name for the execution. Must be unique for the account, Region, and state machine. Accepts a literal value or a JSONata expression.
+         */
+        name?: pulumi.Input<string | undefined>;
+        /**
+         * The AWS X-Ray trace header for distributed tracing. Accepts a literal value or a JSONata expression.
+         */
+        traceHeader?: pulumi.Input<string | undefined>;
+    }
+
+    /**
+     * Parameters for invoking an AWS service API as a universal service integration target, used when TargetArn has the form arn:{partition}:events:::aws-sdk:{service}:{apiAction}.
+     */
+    export interface SubscriberInvokeConfigurationPropertiesUniversalTargetParametersPropertiesArgs {
+        /**
+         * JSON string or JSONata expression that produces the API request. Supports {% ... %} JSONata expressions for dynamic values from the event.
+         */
+        input: pulumi.Input<string>;
+        /**
+         * Timeout in seconds for each invocation of the target (1-30, default 30). Must be a literal integer written as a string; JSONata expressions are not supported for this field.
+         */
+        invocationTimeoutSeconds?: pulumi.Input<string | undefined>;
+    }
+
+    /**
+     * JSONata transform settings.
+     */
+    export interface SubscriberJsonataConfigurationArgs {
+        /**
+         * The JSONata expression that transforms the event, enclosed in {% %} delimiters.
+         */
+        expression: pulumi.Input<string>;
+    }
+
+    /**
+     * Delivery logging configuration.
+     */
+    export interface SubscriberLogConfigurationArgs {
+        /**
+         * Whether the event payload is included in emitted log records: FULL includes it in every emitted record, and ON_ERROR_ONLY includes it only in error records. The default is ON_ERROR_ONLY.
+         */
+        includePayload?: pulumi.Input<enums.eventsv2.SubscriberLogConfigurationIncludePayload | undefined>;
+        /**
+         * The minimum log level: OFF (no logging), ERROR, or INFO. Records below this level are not emitted. The default is OFF.
+         */
+        level?: pulumi.Input<enums.eventsv2.SubscriberLogConfigurationLevel | undefined>;
+    }
+
+    /**
+     * A message attribute value and its data type, for Amazon SQS and Amazon SNS targets.
+     */
+    export interface SubscriberMessageAttributeValueArgs {
+        /**
+         * The attribute value for the Binary data type, Base64-encoded.
+         */
+        binaryValue?: pulumi.Input<string | undefined>;
+        /**
+         * The attribute data type. For Amazon SQS targets, specify String, Number, or Binary, optionally with a custom label suffix such as Number.float. For Amazon SNS targets, specify String, String.Array, Number, or Binary.
+         */
+        dataType: pulumi.Input<string>;
+        /**
+         * The attribute value for the String and Number data types (and String.Array for Amazon SNS targets).
+         */
+        stringValue?: pulumi.Input<string | undefined>;
+    }
+
+    /**
+     * The destination for events that could not be delivered.
+     */
+    export interface SubscriberOnFailureConfigurationArgs {
+        /**
+         * The ARN of the destination that receives events that could not be delivered. An Amazon SQS queue is the supported destination.
+         */
+        arn?: pulumi.Input<string | undefined>;
+    }
+
+    /**
+     * The point in time to start delivering events from, used when StartingPosition is POINT_IN_TIME.
+     */
+    export interface SubscriberPointInTimeConfigurationArgs {
+        /**
+         * An optional time to stop delivering events at, in seconds since the Unix epoch.
+         */
+        endPoint?: pulumi.Input<number | undefined>;
+        /**
+         * Where to start: HORIZON starts from the earliest available event; TIMESTAMP starts from the StartingPoint timestamp.
+         */
+        pointType: pulumi.Input<enums.eventsv2.SubscriberPointInTimeConfigurationPointType>;
+        /**
+         * The time to start delivering events from, in seconds since the Unix epoch. Required when PointType is TIMESTAMP.
+         */
+        startingPoint?: pulumi.Input<number | undefined>;
+    }
+
+    /**
+     * The retry policy for failed deliveries.
+     */
+    export interface SubscriberRetryPolicyArgs {
+        /**
+         * The maximum age of an event in seconds, 60-86400 (24 hours). When an event reaches this age, retries stop; if OnFailureConfiguration is set, the event is delivered to that destination, otherwise it is dropped. The default is 300.
+         */
+        maxEventAgeInSeconds?: pulumi.Input<number | undefined>;
+        /**
+         * The maximum number of retry attempts, 0-185. When the attempts are exhausted, retries stop; if OnFailureConfiguration is set, the event is delivered to that destination, otherwise it is dropped. The default is 5.
+         */
+        maxRetryAttempts?: pulumi.Input<number | undefined>;
+        /**
+         * Which errors are retried. ALL retries all errors. The default is ALL.
+         */
+        retryStrategy?: pulumi.Input<enums.eventsv2.SubscriberRetryPolicyRetryStrategy | undefined>;
+    }
+
+    /**
+     * Configuration for transforming events before delivery: the raw payload, the payload with its metadata envelope, or the output of a JSONata expression.
+     */
+    export interface SubscriberTransformerArgs {
+        /**
+         * The JSONata expression configuration. Required when Type is JSONATA.
+         */
+        jsonataConfiguration?: pulumi.Input<inputs.eventsv2.SubscriberJsonataConfigurationArgs | undefined>;
+        /**
+         * The transform type: RAW delivers the event payload only; WITH_METADATA delivers the event with its metadata envelope; JSONATA delivers the output of the JSONata expression in JsonataConfiguration.
+         */
+        type?: pulumi.Input<enums.eventsv2.SubscriberTransformerType | undefined>;
+    }
 }
 
 export namespace evidently {
@@ -53339,6 +54554,187 @@ export namespace glue {
          * The type of machine learning transform.
          */
         transformType: pulumi.Input<string>;
+    }
+
+    /**
+     * A column in a Table.
+     */
+    export interface PartitionColumnArgs {
+        /**
+         * A free-form text comment.
+         */
+        comment?: pulumi.Input<string | undefined>;
+        /**
+         * The name of the Column.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The data type of the Column.
+         */
+        type?: pulumi.Input<string | undefined>;
+    }
+
+    /**
+     * The structure used to create and update a partition.
+     */
+    export interface PartitionInputArgs {
+        /**
+         * Key-value pairs defining partition parameters.
+         */
+        parameters?: any | undefined;
+        /**
+         * Provides information about the physical location where the partition is stored.
+         */
+        storageDescriptor?: pulumi.Input<inputs.glue.PartitionStorageDescriptorArgs | undefined>;
+        /**
+         * The values of the partition. Although this parameter is not required by the SDK, you must specify this parameter for a valid input. The values for the keys for the new partition must be passed as an array of String objects that must be ordered in the same order as the partition keys appearing in the Amazon S3 prefix. Otherwise AWS Glue will add the values to the wrong keys.
+         */
+        values: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    /**
+     * Specifies the sort order of a sorted column.
+     */
+    export interface PartitionOrderArgs {
+        /**
+         * The name of the column.
+         */
+        column: pulumi.Input<string>;
+        /**
+         * Indicates that the column is sorted in ascending order (== 1), or in descending order (==0).
+         */
+        sortOrder?: pulumi.Input<number | undefined>;
+    }
+
+    /**
+     * A structure that contains schema identity fields. Either this or the SchemaVersionId has to be provided.
+     */
+    export interface PartitionSchemaIdArgs {
+        /**
+         * The name of the schema registry that contains the schema.
+         */
+        registryName?: pulumi.Input<string | undefined>;
+        /**
+         * The Amazon Resource Name (ARN) of the schema. One of SchemaArn or SchemaName has to be provided.
+         */
+        schemaArn?: pulumi.Input<string | undefined>;
+        /**
+         * The name of the schema. One of SchemaArn or SchemaName has to be provided.
+         */
+        schemaName?: pulumi.Input<string | undefined>;
+    }
+
+    /**
+     * An object that references a schema stored in the AWS Glue Schema Registry.
+     */
+    export interface PartitionSchemaReferenceArgs {
+        /**
+         * A structure that contains schema identity fields. Either this or the `SchemaVersionId` has to be
+         * provided.
+         */
+        schemaId?: pulumi.Input<inputs.glue.PartitionSchemaIdArgs | undefined>;
+        /**
+         * The unique ID assigned to a version of the schema. Either this or the SchemaId has to be provided.
+         */
+        schemaVersionId?: pulumi.Input<string | undefined>;
+        /**
+         * The version number of the schema.
+         */
+        schemaVersionNumber?: pulumi.Input<number | undefined>;
+    }
+
+    /**
+     * The serialization/deserialization (SerDe) information.
+     */
+    export interface PartitionSerdeInfoArgs {
+        /**
+         * Name of the SerDe.
+         */
+        name?: pulumi.Input<string | undefined>;
+        /**
+         * These key-value pairs define initialization parameters for the SerDe.
+         */
+        parameters?: any | undefined;
+        /**
+         * Usually the class that implements the SerDe. An example is org.apache.hadoop.hive.serde2.columnar.ColumnarSerDe.
+         */
+        serializationLibrary?: pulumi.Input<string | undefined>;
+    }
+
+    /**
+     * The information about values that appear frequently in a column (skewed values).
+     */
+    export interface PartitionSkewedInfoArgs {
+        /**
+         * A list of values that appear so frequently as to be considered skewed.
+         */
+        skewedColumnNames?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+        /**
+         * A mapping of skewed values to the columns that contain them.
+         */
+        skewedColumnValueLocationMaps?: any | undefined;
+        /**
+         * A list of names of columns that contain skewed values.
+         */
+        skewedColumnValues?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    }
+
+    /**
+     * Provides information about the physical location where the partition is stored.
+     */
+    export interface PartitionStorageDescriptorArgs {
+        /**
+         * A list of reducer grouping columns, clustering columns, and bucketing columns in the table.
+         */
+        bucketColumns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+        /**
+         * A list of the Columns in the table.
+         */
+        columns?: pulumi.Input<pulumi.Input<inputs.glue.PartitionColumnArgs>[] | undefined>;
+        /**
+         * True if the data in the table is compressed, or False if not.
+         */
+        compressed?: pulumi.Input<boolean | undefined>;
+        /**
+         * The input format: SequenceFileInputFormat (binary), or TextInputFormat, or a custom format.
+         */
+        inputFormat?: pulumi.Input<string | undefined>;
+        /**
+         * The physical location of the table. By default, this takes the form of the warehouse location, followed by the database location in the warehouse, followed by the table name.
+         */
+        location?: pulumi.Input<string | undefined>;
+        /**
+         * The number of buckets. You must specify this property if the partition contains any dimension columns.
+         */
+        numberOfBuckets?: pulumi.Input<number | undefined>;
+        /**
+         * The output format: SequenceFileOutputFormat (binary), or IgnoreKeyTextOutputFormat, or a custom format.
+         */
+        outputFormat?: pulumi.Input<string | undefined>;
+        /**
+         * The user-supplied properties in key-value form.
+         */
+        parameters?: any | undefined;
+        /**
+         * An object that references a schema stored in the AWS Glue Schema Registry.
+         */
+        schemaReference?: pulumi.Input<inputs.glue.PartitionSchemaReferenceArgs | undefined>;
+        /**
+         * The serialization/deserialization (SerDe) information.
+         */
+        serdeInfo?: pulumi.Input<inputs.glue.PartitionSerdeInfoArgs | undefined>;
+        /**
+         * The information about values that appear frequently in a column (skewed values).
+         */
+        skewedInfo?: pulumi.Input<inputs.glue.PartitionSkewedInfoArgs | undefined>;
+        /**
+         * A list specifying the sort order of each bucket in the table.
+         */
+        sortColumns?: pulumi.Input<pulumi.Input<inputs.glue.PartitionOrderArgs>[] | undefined>;
+        /**
+         * True if the table data is stored in subdirectories, or False if not.
+         */
+        storedAsSubDirectories?: pulumi.Input<boolean | undefined>;
     }
 
     /**
@@ -60683,6 +62079,13 @@ export namespace iotsitewise {
         unit?: pulumi.Input<string | undefined>;
     }
 
+    export interface DatasetConfigArgs {
+        /**
+         * The session configuration for a SESSION dataset.
+         */
+        session?: pulumi.Input<inputs.iotsitewise.DatasetSessionConfigArgs | undefined>;
+    }
+
     export interface DatasetKendraSourceDetailArgs {
         /**
          * The knowledgeBaseArn details for the Kendra dataset source.
@@ -60692,6 +62095,17 @@ export namespace iotsitewise {
          * The roleARN details for the Kendra dataset source.
          */
         roleArn: pulumi.Input<string>;
+    }
+
+    export interface DatasetSessionConfigArgs {
+        /**
+         * The end time of the session as an ISO 8601 UTC instant, for example 2024-12-31T23:59:59Z.
+         */
+        sessionEndTime: pulumi.Input<string>;
+        /**
+         * The start time of the session as an ISO 8601 UTC instant, for example 2024-01-01T00:00:00Z.
+         */
+        sessionStartTime: pulumi.Input<string>;
     }
 
     export interface DatasetSourceArgs {
@@ -65404,7 +66818,14 @@ export namespace lakeformation {
         filterExpression?: pulumi.Input<string | undefined>;
     }
 
+    /**
+     * A structure for the catalog object.
+     *   This is an object with no properties that effectively behaves as a true or false. A valid input for this property type in both yaml or json is null or ``{}``.
+     */
     export interface PrincipalPermissionsCatalogResourceArgs {
+        /**
+         * An identifier for the catalog resource.
+         */
         id?: pulumi.Input<string | undefined>;
     }
 
@@ -66039,7 +67460,7 @@ export namespace lambda {
      */
     export interface EventSourceMappingProvisionedPollerConfigArgs {
         /**
-         * The maximum number of event pollers this event source can scale up to. For Amazon SQS events source mappings, default is 200, and minimum value allowed is 2. For Amazon MSK and self-managed Apache Kafka event source mappings, default is 200, and minimum value allowed is 1.
+         * The maximum number of event pollers this event source can scale up to. For Amazon SQS event source mappings, the accepted range is between 2 and 10,000, with a default of 200. For Amazon MSK and self-managed Apache Kafka event source mappings, the accepted range is between 1 and 2,000, with a default of 200.
          */
         maximumPollers?: pulumi.Input<number | undefined>;
         /**
@@ -66132,6 +67553,7 @@ export namespace lambda {
          * The identifier for the Kafka consumer group to join. The consumer group ID must be unique among all your Kafka event sources. After creating a Kafka event source mapping with the consumer group ID specified, you cannot update this value. For more information, see [Customizable consumer group ID](https://docs.aws.amazon.com/lambda/latest/dg/with-kafka-process.html#services-smaa-topic-add).
          */
         consumerGroupId?: pulumi.Input<string | undefined>;
+        consumptionMode?: pulumi.Input<enums.lambda.EventSourceMappingConsumptionMode | undefined>;
         /**
          * Specific configuration settings for a Kafka schema registry.
          */
@@ -66261,7 +67683,7 @@ export namespace lambda {
     }
 
     /**
-     * Details about the connection between a Lambda function and an [Amazon EFS file system](https://docs.aws.amazon.com/lambda/latest/dg/configuration-filesystem.html) or an [Amazon S3 Files file system](https://docs.aws.amazon.com/lambda/latest/dg/configuration-filesystem.html).
+     * Details about the connection between a Lambda function and an [Amazon EFS file system](https://docs.aws.amazon.com/lambda/latest/dg/configuration-filesystem.html) or an [Amazon S3 file system](https://docs.aws.amazon.com/lambda/latest/dg/configuration-filesystem.html).
      */
     export interface FunctionFileSystemConfigArgs {
         /**
@@ -66272,6 +67694,9 @@ export namespace lambda {
          * The path where the function can access the file system, starting with ``/mnt/``.
          */
         localMountPath: pulumi.Input<string>;
+        /**
+         * The configuration for how your function accesses data on an Amazon S3 file system. Valid only when the file system access point ARN is an Amazon S3 Files access point. If you specify a different access point type (for example, Amazon Elastic File System), the operation returns an ``InvalidParameterException``.
+         */
         s3FilesConfig?: pulumi.Input<inputs.lambda.FunctionS3FilesConfigArgs | undefined>;
     }
 
@@ -66353,9 +67778,17 @@ export namespace lambda {
         updateRuntimeOn: pulumi.Input<enums.lambda.FunctionRuntimeManagementConfigUpdateRuntimeOn>;
     }
 
+    /**
+     * Setting controls how your function accesses data from an Amazon S3 file system.
+     */
     export interface FunctionS3FilesConfigArgs {
         /**
-         * Specifies if a function reads from the file system for the lowest latency, or through Amazon S3 Files feature "direct Amazon S3 bucket reads" for the highest throughput
+         * Specifies if a function reads from the file system for the lowest latency, or through Amazon S3 Files feature "direct Amazon S3 bucket reads" for the highest throughput. Valid values:
+         *   +  ``AUTO`` (default) – Direct reads are active for functions you configure with 512 MB or more of memory.
+         *   +  ``ENABLED`` – Enforces all reads are directly from the Amazon S3 bucket, regardless of available memory (less than 512 MB).
+         *   +  ``DISABLED`` – Routes all reads through the file system, regardless of memory configuration.
+         *
+         *  To use direct reads, you must grant the execution role the ``s3:GetObject`` and ``s3:GetObjectVersion`` permissions. If a direct read fails, Lambda automatically falls back to reading through the file system.
          */
         directS3Read?: pulumi.Input<enums.lambda.FunctionS3FilesConfigDirectS3Read | undefined>;
     }
@@ -69977,6 +71410,51 @@ export namespace mediaconnect {
     }
 
     /**
+     * A set of parameters that define the media stream.
+     */
+    export interface FlowMediaStreamFmtpArgs {
+        /**
+         * The format of the audio channel. Can only be specified for an audio media stream.
+         */
+        channelOrder?: pulumi.Input<string | undefined>;
+        /**
+         * The format used for the representation of color.
+         */
+        colorimetry?: pulumi.Input<enums.mediaconnect.FlowMediaStreamFmtpColorimetry | undefined>;
+        /**
+         * The frame rate for the video stream, in frames/second. For example: 60000/1001.
+         */
+        exactFramerate?: pulumi.Input<string | undefined>;
+        /**
+         * The pixel aspect ratio (PAR) of the video.
+         */
+        par?: pulumi.Input<string | undefined>;
+        /**
+         * The encoding range of the video.
+         */
+        range?: pulumi.Input<enums.mediaconnect.FlowMediaStreamFmtpRange | undefined>;
+        /**
+         * The type of compression that was used to smooth the video's appearance.
+         */
+        scanMode?: pulumi.Input<enums.mediaconnect.FlowMediaStreamFmtpScanMode | undefined>;
+        /**
+         * The transfer characteristic system (TCS) that is used in the video.
+         */
+        tcs?: pulumi.Input<enums.mediaconnect.FlowMediaStreamFmtpTcs | undefined>;
+    }
+
+    /**
+     * Attributes that are related to the media stream.
+     */
+    export interface FlowMediaStreamMediaStreamAttributesArgs {
+        fmtp?: pulumi.Input<inputs.mediaconnect.FlowMediaStreamFmtpArgs | undefined>;
+        /**
+         * The audio language, in a format that is recognized by the receiver. Can only be specified for an audio media stream.
+         */
+        lang?: pulumi.Input<string | undefined>;
+    }
+
+    /**
      * The media stream that is associated with the source, and the parameters for that association.
      */
     export interface FlowMediaStreamSourceConfigurationArgs {
@@ -71082,6 +72560,12 @@ export namespace mediaconnect {
     }
 
     /**
+     * The TLS encryption configuration for destinations that present a certificate from a publicly trusted certificate authority. This type does not require any additional settings.
+     */
+    export interface RouterOutputResourcePublicTlsEncryptionConfigurationArgs {
+    }
+
+    /**
      * The configuration settings for a router output using the RIST (Reliable Internet Stream Transport) protocol, including the destination address and port.
      */
     export interface RouterOutputResourceRistRouterOutputConfigurationArgs {
@@ -71142,6 +72626,36 @@ export namespace mediaconnect {
      */
     export interface RouterOutputResourceRouterOutputProtocolConfiguration3PropertiesArgs {
         srtCaller: pulumi.Input<inputs.mediaconnect.RouterOutputResourceSrtCallerRouterOutputConfigurationArgs>;
+    }
+
+    /**
+     * The protocol configuration settings for a router output.
+     */
+    export interface RouterOutputResourceRouterOutputProtocolConfiguration4PropertiesArgs {
+        rtmpPush: pulumi.Input<inputs.mediaconnect.RouterOutputResourceRtmpPushRouterOutputConfigurationArgs>;
+    }
+
+    /**
+     * The configuration settings for a router output that pushes a stream to a destination using the RTMP (Real-Time Messaging Protocol) protocol, or RTMPS (RTMP over TLS) when TLS encryption is specified. These settings include the destination address and port, the application and stream names, and optional TLS encryption configuration.
+     */
+    export interface RouterOutputResourceRtmpPushRouterOutputConfigurationArgs {
+        /**
+         * The name of the RTMP application on the destination server. Together with the stream name, the application name forms the RTMP URL path, in the pattern rtmp://destinationAddress/applicationName/streamName.
+         */
+        applicationName: pulumi.Input<string>;
+        /**
+         * The IP address or hostname of the destination RTMP server that the router output pushes the stream to. Provide only the server address; specify the application and stream names separately.
+         */
+        destinationAddress: pulumi.Input<string>;
+        /**
+         * The TCP port on the destination RTMP server. For RTMP, valid values range from 1024 to 65535. For RTMPS (RTMP over TLS), valid values are 443 or 1024 to 65535. RTMP typically uses port 1935, and RTMPS typically uses port 443.
+         */
+        destinationPort: pulumi.Input<number>;
+        /**
+         * The name of the RTMP stream that the output publishes to the destination application. The stream name forms the final segment of the RTMP URL path.
+         */
+        streamName: pulumi.Input<string>;
+        tlsEncryption?: pulumi.Input<inputs.mediaconnect.RouterOutputResourceTlsEncryptionArgs | undefined>;
     }
 
     /**
@@ -71227,9 +72741,47 @@ export namespace mediaconnect {
          */
         networkInterfaceArn: pulumi.Input<string>;
         protocol?: pulumi.Input<enums.mediaconnect.RouterOutputResourceRouterOutputProtocol | undefined>;
-        protocolConfiguration: pulumi.Input<inputs.mediaconnect.RouterOutputResourceRouterOutputProtocolConfiguration0PropertiesArgs | inputs.mediaconnect.RouterOutputResourceRouterOutputProtocolConfiguration1PropertiesArgs | inputs.mediaconnect.RouterOutputResourceRouterOutputProtocolConfiguration2PropertiesArgs | inputs.mediaconnect.RouterOutputResourceRouterOutputProtocolConfiguration3PropertiesArgs>;
+        protocolConfiguration: pulumi.Input<inputs.mediaconnect.RouterOutputResourceRouterOutputProtocolConfiguration0PropertiesArgs | inputs.mediaconnect.RouterOutputResourceRouterOutputProtocolConfiguration1PropertiesArgs | inputs.mediaconnect.RouterOutputResourceRouterOutputProtocolConfiguration2PropertiesArgs | inputs.mediaconnect.RouterOutputResourceRouterOutputProtocolConfiguration3PropertiesArgs | inputs.mediaconnect.RouterOutputResourceRouterOutputProtocolConfiguration4PropertiesArgs>;
     }
 
+    /**
+     * The Transport Layer Security (TLS) encryption settings used to establish a secure connection to a destination.
+     */
+    export interface RouterOutputResourceTlsEncryptionArgs {
+        encryptionConfiguration: pulumi.Input<inputs.mediaconnect.RouterOutputResourceTlsEncryptionConfigurationPropertiesArgs>;
+        encryptionType?: pulumi.Input<enums.mediaconnect.RouterOutputResourceTlsEncryptionType | undefined>;
+    }
+
+    /**
+     * The configuration settings for TLS encryption.
+     */
+    export interface RouterOutputResourceTlsEncryptionConfigurationPropertiesArgs {
+        public: pulumi.Input<inputs.mediaconnect.RouterOutputResourcePublicTlsEncryptionConfigurationArgs>;
+    }
+}
+
+export namespace mediaconvert {
+    export interface JobTemplateAccelerationSettingsArgs {
+        /**
+         * Specify the conditions when the service will run your job with accelerated transcoding.
+         */
+        mode: pulumi.Input<string>;
+    }
+
+    export interface JobTemplateHopDestinationArgs {
+        /**
+         * Optional. A different relative priority for the job in the destination queue.
+         */
+        priority?: pulumi.Input<number | undefined>;
+        /**
+         * Optional. The destination queue for queue hopping.
+         */
+        queue?: pulumi.Input<string | undefined>;
+        /**
+         * Required for queue hopping. Minimum wait time in minutes until the job can hop to the destination queue.
+         */
+        waitMinutes?: pulumi.Input<number | undefined>;
+    }
 }
 
 export namespace medialive {
@@ -73521,6 +75073,116 @@ export namespace memorydb {
 
 export namespace mgn {
     /**
+     * SSM command configuration for the connector.
+     */
+    export interface ConnectorSsmCommandConfigArgs {
+        /**
+         * The CloudWatch Logs group name for SSM command output.
+         */
+        cloudWatchLogGroupName?: pulumi.Input<string | undefined>;
+        /**
+         * Whether SSM command output is sent to CloudWatch Logs.
+         */
+        cloudWatchOutputEnabled: pulumi.Input<boolean>;
+        /**
+         * The S3 bucket name for SSM command output.
+         */
+        outputS3BucketName?: pulumi.Input<string | undefined>;
+        /**
+         * Whether SSM command output is stored in S3.
+         */
+        s3OutputEnabled: pulumi.Input<boolean>;
+    }
+
+    /**
+     * Launch template disk configuration.
+     */
+    export interface LaunchConfigurationTemplateLaunchTemplateDiskConfArgs {
+        /**
+         * Launch template disk IOPS configuration.
+         */
+        iops?: pulumi.Input<number | undefined>;
+        /**
+         * Launch template disk throughput configuration, in MiB/s.
+         */
+        throughput?: pulumi.Input<number | undefined>;
+        /**
+         * Launch template disk volume type configuration.
+         */
+        volumeType?: pulumi.Input<enums.mgn.LaunchConfigurationTemplateLaunchTemplateDiskConfVolumeType | undefined>;
+    }
+
+    /**
+     * Configuration of a machine's license.
+     */
+    export interface LaunchConfigurationTemplateLicensingArgs {
+        /**
+         * Whether to configure BYOL OS licensing.
+         */
+        osByol?: pulumi.Input<boolean | undefined>;
+    }
+
+    /**
+     * Post launch actions to execute on the Test or Cutover instance.
+     */
+    export interface LaunchConfigurationTemplatePostLaunchActionsArgs {
+        /**
+         * AWS Systems Manager Command's CloudWatch log group name.
+         */
+        cloudWatchLogGroupName?: pulumi.Input<string | undefined>;
+        /**
+         * Deployment type in which AWS Systems Manager Documents will be executed.
+         */
+        deployment?: pulumi.Input<enums.mgn.LaunchConfigurationTemplatePostLaunchActionsDeployment | undefined>;
+        /**
+         * AWS Systems Manager Command's logs S3 log bucket.
+         */
+        s3LogBucket?: pulumi.Input<string | undefined>;
+        /**
+         * AWS Systems Manager Command's logs S3 output key prefix.
+         */
+        s3OutputKeyPrefix?: pulumi.Input<string | undefined>;
+        /**
+         * AWS Systems Manager Documents to execute, in order.
+         */
+        ssmDocuments?: pulumi.Input<pulumi.Input<inputs.mgn.LaunchConfigurationTemplateSsmDocumentArgs>[] | undefined>;
+    }
+
+    /**
+     * An AWS Systems Manager Document to execute as a post launch action.
+     */
+    export interface LaunchConfigurationTemplateSsmDocumentArgs {
+        /**
+         * User-friendly name for the AWS Systems Manager Document.
+         */
+        actionName: pulumi.Input<string>;
+        externalParameters?: pulumi.Input<{[key: string]: pulumi.Input<inputs.mgn.LaunchConfigurationTemplateSsmExternalParameterArgs>} | undefined>;
+        /**
+         * Whether Cutover is blocked when the document has failed.
+         */
+        mustSucceedForCutover?: pulumi.Input<boolean | undefined>;
+        parameters?: pulumi.Input<{[key: string]: any} | undefined>;
+        /**
+         * AWS Systems Manager Document name or full ARN.
+         */
+        ssmDocumentName: pulumi.Input<string>;
+        /**
+         * AWS Systems Manager Document timeout, in seconds.
+         */
+        timeoutSeconds?: pulumi.Input<number | undefined>;
+    }
+
+    /**
+     * An AWS Systems Manager Document external parameter.
+     */
+    export interface LaunchConfigurationTemplateSsmExternalParameterArgs {
+        /**
+         * AWS Systems Manager Document external parameter dynamic path.
+         */
+        dynamicPath: pulumi.Input<string>;
+    }
+
+    /**
      * Configuration for a migration source environment.
      */
     export interface NetworkMigrationDefinitionSourceConfigurationArgs {
@@ -75575,6 +77237,37 @@ export namespace networkflowmonitor {
         type: pulumi.Input<enums.networkflowmonitor.MonitorRemoteResourceType>;
     }
 
+    /**
+     * A target ID is an internally-generated identifier for a target.
+     */
+    export interface ScopeTargetIdArgs {
+        /**
+         * The account ID for the target.
+         */
+        accountId: pulumi.Input<string>;
+    }
+
+    /**
+     * A target identifier is a pair of identifying information for a scope target.
+     */
+    export interface ScopeTargetIdentifierArgs {
+        targetId: pulumi.Input<inputs.networkflowmonitor.ScopeTargetIdArgs>;
+        /**
+         * The type of the target. Currently always ACCOUNT.
+         */
+        targetType: pulumi.Input<enums.networkflowmonitor.ScopeTargetIdentifierTargetType>;
+    }
+
+    /**
+     * A target resource in a scope, identified by a Region and target identifier.
+     */
+    export interface ScopeTargetResourceArgs {
+        /**
+         * The AWS Region for the target resource.
+         */
+        region: pulumi.Input<string>;
+        targetIdentifier: pulumi.Input<inputs.networkflowmonitor.ScopeTargetIdentifierArgs>;
+    }
 }
 
 export namespace networkmanager {
@@ -75683,6 +77376,9 @@ export namespace networkmanager {
          */
         securityGroupReferencingSupport?: pulumi.Input<boolean | undefined>;
     }
+}
+
+export namespace networkmonitor {
 }
 
 export namespace nimblestudio {
@@ -76079,6 +77775,16 @@ export namespace observabilityadmin {
     }
 
     /**
+     * Configuration parameters for Amazon MSK cluster monitoring.
+     */
+    export interface OrganizationTelemetryRuleMskMonitoringParametersArgs {
+        /**
+         * The level of enhanced monitoring for the MSK cluster.
+         */
+        enhancedMonitoring?: pulumi.Input<enums.observabilityadmin.OrganizationTelemetryRuleMskMonitoringParametersEnhancedMonitoring | undefined>;
+    }
+
+    /**
      * Header for the field to match.
      */
     export interface OrganizationTelemetryRuleSingleHeaderArgs {
@@ -76113,6 +77819,7 @@ export namespace observabilityadmin {
          * Parameters for log delivery configuration
          */
         logDeliveryParameters?: pulumi.Input<inputs.observabilityadmin.OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesArgs | undefined>;
+        mskMonitoringParameters?: pulumi.Input<inputs.observabilityadmin.OrganizationTelemetryRuleMskMonitoringParametersArgs | undefined>;
         /**
          * The number of days to retain the telemetry data in the destination.
          */
@@ -76426,6 +78133,16 @@ export namespace observabilityadmin {
     }
 
     /**
+     * Configuration parameters for Amazon MSK cluster monitoring.
+     */
+    export interface TelemetryRuleMskMonitoringParametersArgs {
+        /**
+         * The level of enhanced monitoring for the MSK cluster.
+         */
+        enhancedMonitoring?: pulumi.Input<enums.observabilityadmin.TelemetryRuleMskMonitoringParametersEnhancedMonitoring | undefined>;
+    }
+
+    /**
      * Header for the field to match.
      */
     export interface TelemetryRuleSingleHeaderArgs {
@@ -76460,6 +78177,7 @@ export namespace observabilityadmin {
          * Parameters for log delivery configuration
          */
         logDeliveryParameters?: pulumi.Input<inputs.observabilityadmin.TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesArgs | undefined>;
+        mskMonitoringParameters?: pulumi.Input<inputs.observabilityadmin.TelemetryRuleMskMonitoringParametersArgs | undefined>;
         /**
          * The number of days to retain the telemetry data in the destination.
          */
@@ -78700,6 +80418,9 @@ export namespace personalize {
 
 }
 
+export namespace pi {
+}
+
 export namespace pinpoint {
     export interface InAppTemplateBodyConfigArgs {
         /**
@@ -80897,6 +82618,7 @@ export namespace quicksight {
          * The options that determine if visual data labels are displayed.
          */
         dataLabels?: pulumi.Input<inputs.quicksight.AnalysisDataLabelOptionsArgs | undefined>;
+        defaultSeriesSettings?: pulumi.Input<inputs.quicksight.AnalysisBarChartDefaultSeriesSettingsArgs | undefined>;
         /**
          * The field wells of the visual.
          */
@@ -80920,6 +82642,7 @@ export namespace quicksight {
          * The reference line setup of the visual.
          */
         referenceLines?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisReferenceLineArgs>[] | undefined>;
+        series?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisBarSeriesItemArgs>[] | undefined>;
         /**
          * The small multiples setup for the visual.
          */
@@ -80944,6 +82667,11 @@ export namespace quicksight {
          * The palette (chart color) display setup of the visual.
          */
         visualPalette?: pulumi.Input<inputs.quicksight.AnalysisVisualPaletteArgs | undefined>;
+    }
+
+    export interface AnalysisBarChartDefaultSeriesSettingsArgs {
+        borderSettings?: pulumi.Input<inputs.quicksight.AnalysisBorderSettingsArgs | undefined>;
+        decalSettings?: pulumi.Input<inputs.quicksight.AnalysisDecalSettingsArgs | undefined>;
     }
 
     export interface AnalysisBarChartFieldWellsArgs {
@@ -81009,6 +82737,9 @@ export namespace quicksight {
          * The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.
          */
         visualId: pulumi.Input<string>;
+    }
+
+    export interface AnalysisBarSeriesItemArgs {
     }
 
     export interface AnalysisBinCountOptionsArgs {
@@ -81111,6 +82842,15 @@ export namespace quicksight {
 
     export interface AnalysisBodySectionRepeatPageBreakConfigurationArgs {
         after?: pulumi.Input<inputs.quicksight.AnalysisSectionAfterPageBreakArgs | undefined>;
+    }
+
+    export interface AnalysisBorderSettingsArgs {
+        borderColor?: pulumi.Input<string | undefined>;
+        borderVisibility?: pulumi.Input<enums.quicksight.AnalysisVisibility | undefined>;
+        /**
+         * String based length that is composed of value and unit in px
+         */
+        borderWidth?: pulumi.Input<string | undefined>;
     }
 
     export interface AnalysisBoxPlotAggregatedFieldWellsArgs {
@@ -81247,7 +82987,7 @@ export namespace quicksight {
         /**
          * The data set that is used in this calculated field.
          */
-        dataSetIdentifier: pulumi.Input<string>;
+        dataSetIdentifier?: pulumi.Input<string | undefined>;
         /**
          * The expression of the calculated field.
          */
@@ -81256,6 +82996,7 @@ export namespace quicksight {
          * The name of the calculated field.
          */
         name: pulumi.Input<string>;
+        topicIdentifier?: pulumi.Input<string | undefined>;
     }
 
     export interface AnalysisCalculatedMeasureFieldArgs {
@@ -81439,6 +83180,7 @@ export namespace quicksight {
          * The column.
          */
         column: pulumi.Input<inputs.quicksight.AnalysisColumnIdentifierArgs>;
+        decalSettingsConfiguration?: pulumi.Input<inputs.quicksight.AnalysisDecalSettingsConfigurationArgs | undefined>;
         /**
          * The format configuration of a column.
          */
@@ -81472,7 +83214,8 @@ export namespace quicksight {
         /**
          * The data set that the column belongs to.
          */
-        dataSetIdentifier: pulumi.Input<string>;
+        dataSetIdentifier?: pulumi.Input<string | undefined>;
+        topicIdentifier?: pulumi.Input<string | undefined>;
     }
 
     export interface AnalysisColumnSortArgs {
@@ -81556,6 +83299,7 @@ export namespace quicksight {
          * The label options (label text, label visibility, and sort icon visibility) of a combo chart's color field well.
          */
         colorLabelOptions?: pulumi.Input<inputs.quicksight.AnalysisChartAxisLabelOptionsArgs | undefined>;
+        defaultSeriesSettings?: pulumi.Input<inputs.quicksight.AnalysisComboChartDefaultSeriesSettingsArgs | undefined>;
         /**
          * The field wells of the visual.
          */
@@ -81594,6 +83338,7 @@ export namespace quicksight {
          * The label options (label text, label visibility, and sort icon visibility) of a combo chart's secondary y-axis(line) field well.
          */
         secondaryYAxisLabelOptions?: pulumi.Input<inputs.quicksight.AnalysisChartAxisLabelOptionsArgs | undefined>;
+        series?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisComboSeriesItemArgs>[] | undefined>;
         singleAxisOptions?: pulumi.Input<inputs.quicksight.AnalysisSingleAxisOptionsArgs | undefined>;
         /**
          * The sort configuration of a `ComboChartVisual` .
@@ -81607,6 +83352,13 @@ export namespace quicksight {
          * The palette (chart color) display setup of the visual.
          */
         visualPalette?: pulumi.Input<inputs.quicksight.AnalysisVisualPaletteArgs | undefined>;
+    }
+
+    export interface AnalysisComboChartDefaultSeriesSettingsArgs {
+        borderSettings?: pulumi.Input<inputs.quicksight.AnalysisBorderSettingsArgs | undefined>;
+        decalSettings?: pulumi.Input<inputs.quicksight.AnalysisDecalSettingsArgs | undefined>;
+        lineStyleSettings?: pulumi.Input<inputs.quicksight.AnalysisLineChartLineStyleSettingsArgs | undefined>;
+        markerStyleSettings?: pulumi.Input<inputs.quicksight.AnalysisLineChartMarkerStyleSettingsArgs | undefined>;
     }
 
     export interface AnalysisComboChartFieldWellsArgs {
@@ -81664,6 +83416,9 @@ export namespace quicksight {
          * The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.
          */
         visualId: pulumi.Input<string>;
+    }
+
+    export interface AnalysisComboSeriesItemArgs {
     }
 
     export interface AnalysisComparisonConfigurationArgs {
@@ -81968,7 +83723,7 @@ export namespace quicksight {
         /**
          * The dataset that is used to create the custom content visual. You can't create a visual without a dataset.
          */
-        dataSetIdentifier: pulumi.Input<string>;
+        dataSetIdentifier?: pulumi.Input<string | undefined>;
         /**
          * The subtitle that is displayed on the visual.
          */
@@ -81977,6 +83732,7 @@ export namespace quicksight {
          * The title that is displayed on the visual.
          */
         title?: pulumi.Input<inputs.quicksight.AnalysisVisualTitleLabelOptionsArgs | undefined>;
+        topicIdentifier?: pulumi.Input<string | undefined>;
         /**
          * The alt text for the visual.
          */
@@ -82454,6 +84210,18 @@ export namespace quicksight {
         valueWhenUnsetOption?: pulumi.Input<enums.quicksight.AnalysisValueWhenUnsetOption | undefined>;
     }
 
+    export interface AnalysisDecalSettingsArgs {
+        decalColor?: pulumi.Input<string | undefined>;
+        decalPatternType?: pulumi.Input<enums.quicksight.AnalysisDecalPatternType | undefined>;
+        decalStyleType?: pulumi.Input<enums.quicksight.AnalysisDecalStyleType | undefined>;
+        decalVisibility?: pulumi.Input<enums.quicksight.AnalysisVisibility | undefined>;
+        elementValue?: pulumi.Input<string | undefined>;
+    }
+
+    export interface AnalysisDecalSettingsConfigurationArgs {
+        customDecalSettings?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisDecalSettingsArgs>[] | undefined>;
+    }
+
     export interface AnalysisDecimalDefaultValuesArgs {
         /**
          * The dynamic value of the `DecimalDefaultValues` . Different defaults are displayed according to users, groups, and values mapping.
@@ -82774,9 +84542,10 @@ export namespace quicksight {
          */
         sheets?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisSheetDefinitionArgs>[] | undefined>;
         /**
-         * The static files for the definition.
+         * <p>The static files for the definition.</p>
          */
         staticFiles?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisStaticFileArgs>[] | undefined>;
+        topicIdentifierDeclarations?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisTopicIdentifierDeclarationArgs>[] | undefined>;
     }
 
     export interface AnalysisDestinationParameterValueConfigurationArgs {
@@ -82893,7 +84662,8 @@ export namespace quicksight {
         /**
          * The data set that is used in the empty visual. Every visual requires a dataset to render.
          */
-        dataSetIdentifier: pulumi.Input<string>;
+        dataSetIdentifier?: pulumi.Input<string | undefined>;
+        topicIdentifier?: pulumi.Input<string | undefined>;
         /**
          * The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.
          */
@@ -83561,7 +85331,7 @@ export namespace quicksight {
          */
         fontDecoration?: pulumi.Input<enums.quicksight.AnalysisFontDecoration | undefined>;
         /**
-         * The font family that you want to use.
+         * <p>The font family that you want to use.</p>
          */
         fontFamily?: pulumi.Input<string | undefined>;
         /**
@@ -83580,7 +85350,7 @@ export namespace quicksight {
 
     export interface AnalysisFontSizeArgs {
         /**
-         * String based length that is composed of value and unit in px
+         * <p>The font size that you want to use in px.</p>
          */
         absolute?: pulumi.Input<string | undefined>;
         /**
@@ -83696,6 +85466,7 @@ export namespace quicksight {
          * The elements that are included in a free-form layout.
          */
         elements: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisFreeFormLayoutElementArgs>[]>;
+        groups?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisSheetLayoutGroupArgs>[] | undefined>;
     }
 
     export interface AnalysisFreeFormLayoutElementArgs {
@@ -83703,6 +85474,7 @@ export namespace quicksight {
          * The background style configuration of a free-form layout element.
          */
         backgroundStyle?: pulumi.Input<inputs.quicksight.AnalysisFreeFormLayoutElementBackgroundStyleArgs | undefined>;
+        borderRadius?: pulumi.Input<string | undefined>;
         /**
          * The border style configuration of a free-form layout element.
          */
@@ -83723,6 +85495,7 @@ export namespace quicksight {
          * The loading animation configuration of a free-form layout element.
          */
         loadingAnimation?: pulumi.Input<inputs.quicksight.AnalysisLoadingAnimationArgs | undefined>;
+        padding?: pulumi.Input<string | undefined>;
         /**
          * The rendering rules that determine when an element should be displayed within a free-form layout.
          */
@@ -83769,6 +85542,10 @@ export namespace quicksight {
          * The border visibility of a free-form layout element.
          */
         visibility?: pulumi.Input<enums.quicksight.AnalysisVisibility | undefined>;
+        /**
+         * String to encapsulate the most generic way Width can be formatted with whatever units (px, em etc)
+         */
+        width?: pulumi.Input<string | undefined>;
     }
 
     export interface AnalysisFreeFormLayoutScreenCanvasSizeOptionsArgs {
@@ -84603,6 +86380,9 @@ export namespace quicksight {
     }
 
     export interface AnalysisGridLayoutElementArgs {
+        backgroundStyle?: pulumi.Input<inputs.quicksight.AnalysisGridLayoutElementBackgroundStyleArgs | undefined>;
+        borderRadius?: pulumi.Input<string | undefined>;
+        borderStyle?: pulumi.Input<inputs.quicksight.AnalysisGridLayoutElementBorderStyleArgs | undefined>;
         /**
          * The column index for the upper left corner of an element.
          */
@@ -84619,6 +86399,8 @@ export namespace quicksight {
          * The type of element.
          */
         elementType: pulumi.Input<enums.quicksight.AnalysisLayoutElementType>;
+        loadingAnimation?: pulumi.Input<inputs.quicksight.AnalysisLoadingAnimationArgs | undefined>;
+        padding?: pulumi.Input<string | undefined>;
         /**
          * The row index for the upper left corner of an element.
          */
@@ -84627,6 +86409,21 @@ export namespace quicksight {
          * The height of a grid element expressed as a number of grid rows.
          */
         rowSpan: pulumi.Input<number>;
+        selectedBorderStyle?: pulumi.Input<inputs.quicksight.AnalysisGridLayoutElementBorderStyleArgs | undefined>;
+    }
+
+    export interface AnalysisGridLayoutElementBackgroundStyleArgs {
+        color?: pulumi.Input<string | undefined>;
+        visibility?: pulumi.Input<enums.quicksight.AnalysisVisibility | undefined>;
+    }
+
+    export interface AnalysisGridLayoutElementBorderStyleArgs {
+        color?: pulumi.Input<string | undefined>;
+        visibility?: pulumi.Input<enums.quicksight.AnalysisVisibility | undefined>;
+        /**
+         * String to encapsulate the most generic way Width can be formatted with whatever units (px, em etc)
+         */
+        width?: pulumi.Input<string | undefined>;
     }
 
     export interface AnalysisGridLayoutScreenCanvasSizeOptionsArgs {
@@ -84982,7 +86779,7 @@ export namespace quicksight {
         /**
          * The dataset that is used in the insight visual.
          */
-        dataSetIdentifier: pulumi.Input<string>;
+        dataSetIdentifier?: pulumi.Input<string | undefined>;
         /**
          * The configuration of an insight visual.
          */
@@ -84995,6 +86792,7 @@ export namespace quicksight {
          * The title that is displayed on the visual.
          */
         title?: pulumi.Input<inputs.quicksight.AnalysisVisualTitleLabelOptionsArgs | undefined>;
+        topicIdentifier?: pulumi.Input<string | undefined>;
         /**
          * The alt text for the visual.
          */
@@ -85352,9 +87150,10 @@ export namespace quicksight {
         /**
          * The dataset that is used to create the layer map visual. You can't create a visual without a dataset.
          */
-        dataSetIdentifier: pulumi.Input<string>;
+        dataSetIdentifier?: pulumi.Input<string | undefined>;
         subtitle?: pulumi.Input<inputs.quicksight.AnalysisVisualSubtitleLabelOptionsArgs | undefined>;
         title?: pulumi.Input<inputs.quicksight.AnalysisVisualTitleLabelOptionsArgs | undefined>;
+        topicIdentifier?: pulumi.Input<string | undefined>;
         /**
          * The alt text for the visual.
          */
@@ -85524,6 +87323,7 @@ export namespace quicksight {
          * The axis to which you are binding all line series to.
          */
         axisBinding?: pulumi.Input<enums.quicksight.AnalysisAxisBinding | undefined>;
+        decalSettings?: pulumi.Input<inputs.quicksight.AnalysisDecalSettingsArgs | undefined>;
         /**
          * Line styles options for all line series in the visual.
          */
@@ -85594,6 +87394,7 @@ export namespace quicksight {
     }
 
     export interface AnalysisLineChartSeriesSettingsArgs {
+        decalSettings?: pulumi.Input<inputs.quicksight.AnalysisDecalSettingsArgs | undefined>;
         /**
          * Line styles options for a line series in `LineChartVisual` .
          */
@@ -86394,7 +88195,7 @@ export namespace quicksight {
     }
 
     /**
-     * <p>A list of Amazon QuickSight parameters and the list's override values.</p>
+     * <p>A list of Quick parameters and the list's override values.</p>
      */
     export interface AnalysisParametersArgs {
         /**
@@ -87503,10 +89304,10 @@ export namespace quicksight {
          *             following:</p>
          *          <ul>
          *             <li>
-         *                <p>The ARN of an Amazon QuickSight user or group associated with a data source or dataset. (This is common.)</p>
+         *                <p>The ARN of an Amazon Quick user or group associated with a data source or dataset. (This is common.)</p>
          *             </li>
          *             <li>
-         *                <p>The ARN of an Amazon QuickSight user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)</p>
+         *                <p>The ARN of an Amazon Quick user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)</p>
          *             </li>
          *             <li>
          *                <p>The ARN of an Amazon Web Services account root: This is an IAM ARN rather than a QuickSight
@@ -87920,14 +89721,14 @@ export namespace quicksight {
 
     /**
      * <p>A <i>sheet</i>, which is an object that contains a set of visuals that
-     *             are viewed together on one page in Amazon QuickSight. Every analysis and dashboard
+     *             are viewed together on one page in Amazon Quick. Every analysis and dashboard
      *             contains at least one sheet. Each sheet contains at least one visualization widget, for
      *             example a chart, pivot table, or narrative insight. Sheets can be associated with other
      *             components, such as controls, filters, and so on.</p>
      */
     export interface AnalysisSheetArgs {
         /**
-         * <p>The name of a sheet. This name is displayed on the sheet's tab in the Amazon QuickSight
+         * <p>The name of a sheet. This name is displayed on the sheet's tab in the Quick
          *             console.</p>
          */
         name?: pulumi.Input<string | undefined>;
@@ -88120,6 +89921,16 @@ export namespace quicksight {
         plainText?: pulumi.Input<string | undefined>;
     }
 
+    export interface AnalysisSheetLayoutGroupArgs {
+        id: pulumi.Input<string>;
+        members: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisSheetLayoutGroupMemberArgs>[]>;
+    }
+
+    export interface AnalysisSheetLayoutGroupMemberArgs {
+        id: pulumi.Input<string>;
+        type: any;
+    }
+
     export interface AnalysisSheetTextBoxArgs {
         /**
          * The content that is displayed in the text box.
@@ -88245,6 +90056,7 @@ export namespace quicksight {
          * <p>The dataset references of the source template of an analysis.</p>
          */
         dataSetReferences: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisDataSetReferenceArgs>[]>;
+        topicReferences?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisTopicReferenceArgs>[] | undefined>;
     }
 
     export interface AnalysisSpacingArgs {
@@ -88264,6 +90076,18 @@ export namespace quicksight {
          * String based length that is composed of value and unit
          */
         top?: pulumi.Input<string | undefined>;
+    }
+
+    export interface AnalysisSparklinesOptionsArgs {
+        allPointsMarker?: pulumi.Input<inputs.quicksight.AnalysisLineChartMarkerStyleSettingsArgs | undefined>;
+        fieldId: pulumi.Input<string>;
+        lineColor?: pulumi.Input<string | undefined>;
+        lineInterpolation?: pulumi.Input<enums.quicksight.AnalysisLineInterpolation | undefined>;
+        maxValueMarker?: pulumi.Input<inputs.quicksight.AnalysisLineChartMarkerStyleSettingsArgs | undefined>;
+        minValueMarker?: pulumi.Input<inputs.quicksight.AnalysisLineChartMarkerStyleSettingsArgs | undefined>;
+        visualType?: pulumi.Input<enums.quicksight.AnalysisSparklineVisualType | undefined>;
+        xAxisField: pulumi.Input<inputs.quicksight.AnalysisDimensionFieldArgs>;
+        yAxisBehavior?: pulumi.Input<enums.quicksight.AnalysisSparklineAxisBehavior | undefined>;
     }
 
     export interface AnalysisSpatialStaticFileArgs {
@@ -88674,6 +90498,7 @@ export namespace quicksight {
          * The configuration of the inline visualization of the data bars within a chart.
          */
         dataBars?: pulumi.Input<inputs.quicksight.AnalysisDataBarsOptionsArgs | undefined>;
+        sparklines?: pulumi.Input<inputs.quicksight.AnalysisSparklinesOptionsArgs | undefined>;
     }
 
     export interface AnalysisTableOptionsArgs {
@@ -89148,6 +90973,16 @@ export namespace quicksight {
          * The value field that is used in a computation.
          */
         value?: pulumi.Input<inputs.quicksight.AnalysisMeasureFieldArgs | undefined>;
+    }
+
+    export interface AnalysisTopicIdentifierDeclarationArgs {
+        identifier: pulumi.Input<string>;
+        topicArn: pulumi.Input<string>;
+    }
+
+    export interface AnalysisTopicReferenceArgs {
+        topicArn: pulumi.Input<string>;
+        topicPlaceholder: pulumi.Input<string>;
     }
 
     export interface AnalysisTotalAggregationComputationArgs {
@@ -90564,6 +92399,7 @@ export namespace quicksight {
          * The options that determine if visual data labels are displayed.
          */
         dataLabels?: pulumi.Input<inputs.quicksight.DashboardDataLabelOptionsArgs | undefined>;
+        defaultSeriesSettings?: pulumi.Input<inputs.quicksight.DashboardBarChartDefaultSeriesSettingsArgs | undefined>;
         /**
          * The field wells of the visual.
          */
@@ -90587,6 +92423,7 @@ export namespace quicksight {
          * The reference line setup of the visual.
          */
         referenceLines?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardReferenceLineArgs>[] | undefined>;
+        series?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardBarSeriesItemArgs>[] | undefined>;
         /**
          * The small multiples setup for the visual.
          */
@@ -90611,6 +92448,11 @@ export namespace quicksight {
          * The palette (chart color) display setup of the visual.
          */
         visualPalette?: pulumi.Input<inputs.quicksight.DashboardVisualPaletteArgs | undefined>;
+    }
+
+    export interface DashboardBarChartDefaultSeriesSettingsArgs {
+        borderSettings?: pulumi.Input<inputs.quicksight.DashboardBorderSettingsArgs | undefined>;
+        decalSettings?: pulumi.Input<inputs.quicksight.DashboardDecalSettingsArgs | undefined>;
     }
 
     export interface DashboardBarChartFieldWellsArgs {
@@ -90676,6 +92518,9 @@ export namespace quicksight {
          * The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.
          */
         visualId: pulumi.Input<string>;
+    }
+
+    export interface DashboardBarSeriesItemArgs {
     }
 
     export interface DashboardBinCountOptionsArgs {
@@ -90778,6 +92623,15 @@ export namespace quicksight {
 
     export interface DashboardBodySectionRepeatPageBreakConfigurationArgs {
         after?: pulumi.Input<inputs.quicksight.DashboardSectionAfterPageBreakArgs | undefined>;
+    }
+
+    export interface DashboardBorderSettingsArgs {
+        borderColor?: pulumi.Input<string | undefined>;
+        borderVisibility?: pulumi.Input<enums.quicksight.DashboardVisibility | undefined>;
+        /**
+         * String based length that is composed of value and unit in px
+         */
+        borderWidth?: pulumi.Input<string | undefined>;
     }
 
     export interface DashboardBoxPlotAggregatedFieldWellsArgs {
@@ -90914,7 +92768,7 @@ export namespace quicksight {
         /**
          * The data set that is used in this calculated field.
          */
-        dataSetIdentifier: pulumi.Input<string>;
+        dataSetIdentifier?: pulumi.Input<string | undefined>;
         /**
          * The expression of the calculated field.
          */
@@ -90923,6 +92777,7 @@ export namespace quicksight {
          * The name of the calculated field.
          */
         name: pulumi.Input<string>;
+        topicIdentifier?: pulumi.Input<string | undefined>;
     }
 
     export interface DashboardCalculatedMeasureFieldArgs {
@@ -91106,6 +92961,7 @@ export namespace quicksight {
          * The column.
          */
         column: pulumi.Input<inputs.quicksight.DashboardColumnIdentifierArgs>;
+        decalSettingsConfiguration?: pulumi.Input<inputs.quicksight.DashboardDecalSettingsConfigurationArgs | undefined>;
         /**
          * The format configuration of a column.
          */
@@ -91139,7 +92995,8 @@ export namespace quicksight {
         /**
          * The data set that the column belongs to.
          */
-        dataSetIdentifier: pulumi.Input<string>;
+        dataSetIdentifier?: pulumi.Input<string | undefined>;
+        topicIdentifier?: pulumi.Input<string | undefined>;
     }
 
     export interface DashboardColumnSortArgs {
@@ -91223,6 +93080,7 @@ export namespace quicksight {
          * The label options (label text, label visibility, and sort icon visibility) of a combo chart's color field well.
          */
         colorLabelOptions?: pulumi.Input<inputs.quicksight.DashboardChartAxisLabelOptionsArgs | undefined>;
+        defaultSeriesSettings?: pulumi.Input<inputs.quicksight.DashboardComboChartDefaultSeriesSettingsArgs | undefined>;
         /**
          * The field wells of the visual.
          */
@@ -91261,6 +93119,7 @@ export namespace quicksight {
          * The label options (label text, label visibility, and sort icon visibility) of a combo chart's secondary y-axis(line) field well.
          */
         secondaryYAxisLabelOptions?: pulumi.Input<inputs.quicksight.DashboardChartAxisLabelOptionsArgs | undefined>;
+        series?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardComboSeriesItemArgs>[] | undefined>;
         singleAxisOptions?: pulumi.Input<inputs.quicksight.DashboardSingleAxisOptionsArgs | undefined>;
         /**
          * The sort configuration of a `ComboChartVisual` .
@@ -91274,6 +93133,13 @@ export namespace quicksight {
          * The palette (chart color) display setup of the visual.
          */
         visualPalette?: pulumi.Input<inputs.quicksight.DashboardVisualPaletteArgs | undefined>;
+    }
+
+    export interface DashboardComboChartDefaultSeriesSettingsArgs {
+        borderSettings?: pulumi.Input<inputs.quicksight.DashboardBorderSettingsArgs | undefined>;
+        decalSettings?: pulumi.Input<inputs.quicksight.DashboardDecalSettingsArgs | undefined>;
+        lineStyleSettings?: pulumi.Input<inputs.quicksight.DashboardLineChartLineStyleSettingsArgs | undefined>;
+        markerStyleSettings?: pulumi.Input<inputs.quicksight.DashboardLineChartMarkerStyleSettingsArgs | undefined>;
     }
 
     export interface DashboardComboChartFieldWellsArgs {
@@ -91331,6 +93197,9 @@ export namespace quicksight {
          * The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.
          */
         visualId: pulumi.Input<string>;
+    }
+
+    export interface DashboardComboSeriesItemArgs {
     }
 
     export interface DashboardComparisonConfigurationArgs {
@@ -91635,7 +93504,7 @@ export namespace quicksight {
         /**
          * The dataset that is used to create the custom content visual. You can't create a visual without a dataset.
          */
-        dataSetIdentifier: pulumi.Input<string>;
+        dataSetIdentifier?: pulumi.Input<string | undefined>;
         /**
          * The subtitle that is displayed on the visual.
          */
@@ -91644,6 +93513,7 @@ export namespace quicksight {
          * The title that is displayed on the visual.
          */
         title?: pulumi.Input<inputs.quicksight.DashboardVisualTitleLabelOptionsArgs | undefined>;
+        topicIdentifier?: pulumi.Input<string | undefined>;
         /**
          * The alt text for the visual.
          */
@@ -91955,6 +93825,9 @@ export namespace quicksight {
         availabilityStatus?: pulumi.Input<enums.quicksight.DashboardBehavior | undefined>;
     }
 
+    /**
+     * <p>Adds Q&A capabilities to a dashboard. If no topic is linked, Dashboard Q&A uses the data values that are rendered on the dashboard. End users can use Dashboard Q&A to ask for different slices of the data that they see on the dashboard. If a topic is linked, Topic Q&A is enabled.</p>
+     */
     export interface DashboardDataQaEnabledOptionArgs {
         /**
          * The status of the Data Q&A option on the dashboard.
@@ -92163,6 +94036,18 @@ export namespace quicksight {
          * - `NULL` : The `NULL` value.
          */
         valueWhenUnsetOption?: pulumi.Input<enums.quicksight.DashboardValueWhenUnsetOption | undefined>;
+    }
+
+    export interface DashboardDecalSettingsArgs {
+        decalColor?: pulumi.Input<string | undefined>;
+        decalPatternType?: pulumi.Input<enums.quicksight.DashboardDecalPatternType | undefined>;
+        decalStyleType?: pulumi.Input<enums.quicksight.DashboardDecalStyleType | undefined>;
+        decalVisibility?: pulumi.Input<enums.quicksight.DashboardVisibility | undefined>;
+        elementValue?: pulumi.Input<string | undefined>;
+    }
+
+    export interface DashboardDecalSettingsConfigurationArgs {
+        customDecalSettings?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardDecalSettingsArgs>[] | undefined>;
     }
 
     export interface DashboardDecimalDefaultValuesArgs {
@@ -92554,7 +94439,8 @@ export namespace quicksight {
         /**
          * The data set that is used in the empty visual. Every visual requires a dataset to render.
          */
-        dataSetIdentifier: pulumi.Input<string>;
+        dataSetIdentifier?: pulumi.Input<string | undefined>;
+        topicIdentifier?: pulumi.Input<string | undefined>;
         /**
          * The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.
          */
@@ -93234,7 +95120,7 @@ export namespace quicksight {
          */
         fontDecoration?: pulumi.Input<enums.quicksight.DashboardFontDecoration | undefined>;
         /**
-         * The font family that you want to use.
+         * <p>The font family that you want to use.</p>
          */
         fontFamily?: pulumi.Input<string | undefined>;
         /**
@@ -93253,7 +95139,7 @@ export namespace quicksight {
 
     export interface DashboardFontSizeArgs {
         /**
-         * String based length that is composed of value and unit in px
+         * <p>The font size that you want to use in px.</p>
          */
         absolute?: pulumi.Input<string | undefined>;
         /**
@@ -93369,6 +95255,7 @@ export namespace quicksight {
          * The elements that are included in a free-form layout.
          */
         elements: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardFreeFormLayoutElementArgs>[]>;
+        groups?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardSheetLayoutGroupArgs>[] | undefined>;
     }
 
     export interface DashboardFreeFormLayoutElementArgs {
@@ -94714,7 +96601,7 @@ export namespace quicksight {
         /**
          * The dataset that is used in the insight visual.
          */
-        dataSetIdentifier: pulumi.Input<string>;
+        dataSetIdentifier?: pulumi.Input<string | undefined>;
         /**
          * The configuration of an insight visual.
          */
@@ -94727,6 +96614,7 @@ export namespace quicksight {
          * The title that is displayed on the visual.
          */
         title?: pulumi.Input<inputs.quicksight.DashboardVisualTitleLabelOptionsArgs | undefined>;
+        topicIdentifier?: pulumi.Input<string | undefined>;
         /**
          * The alt text for the visual.
          */
@@ -95084,9 +96972,10 @@ export namespace quicksight {
         /**
          * The dataset that is used to create the layer map visual. You can't create a visual without a dataset.
          */
-        dataSetIdentifier: pulumi.Input<string>;
+        dataSetIdentifier?: pulumi.Input<string | undefined>;
         subtitle?: pulumi.Input<inputs.quicksight.DashboardVisualSubtitleLabelOptionsArgs | undefined>;
         title?: pulumi.Input<inputs.quicksight.DashboardVisualTitleLabelOptionsArgs | undefined>;
+        topicIdentifier?: pulumi.Input<string | undefined>;
         /**
          * The alt text for the visual.
          */
@@ -95256,6 +97145,7 @@ export namespace quicksight {
          * The axis to which you are binding all line series to.
          */
         axisBinding?: pulumi.Input<enums.quicksight.DashboardAxisBinding | undefined>;
+        decalSettings?: pulumi.Input<inputs.quicksight.DashboardDecalSettingsArgs | undefined>;
         /**
          * Line styles options for all line series in the visual.
          */
@@ -95326,6 +97216,7 @@ export namespace quicksight {
     }
 
     export interface DashboardLineChartSeriesSettingsArgs {
+        decalSettings?: pulumi.Input<inputs.quicksight.DashboardDecalSettingsArgs | undefined>;
         /**
          * Line styles options for a line series in `LineChartVisual` .
          */
@@ -96133,7 +98024,7 @@ export namespace quicksight {
     }
 
     /**
-     * <p>A list of Amazon QuickSight parameters and the list's override values.</p>
+     * <p>A list of Quick parameters and the list's override values.</p>
      */
     export interface DashboardParametersArgs {
         /**
@@ -97308,10 +99199,10 @@ export namespace quicksight {
          *             following:</p>
          *          <ul>
          *             <li>
-         *                <p>The ARN of an Amazon QuickSight user or group associated with a data source or dataset. (This is common.)</p>
+         *                <p>The ARN of an Amazon Quick user or group associated with a data source or dataset. (This is common.)</p>
          *             </li>
          *             <li>
-         *                <p>The ARN of an Amazon QuickSight user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)</p>
+         *                <p>The ARN of an Amazon Quick user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)</p>
          *             </li>
          *             <li>
          *                <p>The ARN of an Amazon Web Services account root: This is an IAM ARN rather than a QuickSight
@@ -97926,6 +99817,16 @@ export namespace quicksight {
         availabilityStatus?: pulumi.Input<enums.quicksight.DashboardBehavior | undefined>;
     }
 
+    export interface DashboardSheetLayoutGroupArgs {
+        id: pulumi.Input<string>;
+        members: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardSheetLayoutGroupMemberArgs>[]>;
+    }
+
+    export interface DashboardSheetLayoutGroupMemberArgs {
+        id: pulumi.Input<string>;
+        type: any;
+    }
+
     export interface DashboardSheetTextBoxArgs {
         /**
          * The content that is displayed in the text box.
@@ -98051,6 +99952,7 @@ export namespace quicksight {
          * <p>Dataset references.</p>
          */
         dataSetReferences: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardDataSetReferenceArgs>[]>;
+        topicReferences?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardTopicReferenceArgs>[] | undefined>;
     }
 
     export interface DashboardSpacingArgs {
@@ -98070,6 +99972,18 @@ export namespace quicksight {
          * String based length that is composed of value and unit
          */
         top?: pulumi.Input<string | undefined>;
+    }
+
+    export interface DashboardSparklinesOptionsArgs {
+        allPointsMarker?: pulumi.Input<inputs.quicksight.DashboardLineChartMarkerStyleSettingsArgs | undefined>;
+        fieldId: pulumi.Input<string>;
+        lineColor?: pulumi.Input<string | undefined>;
+        lineInterpolation?: pulumi.Input<enums.quicksight.DashboardLineInterpolation | undefined>;
+        maxValueMarker?: pulumi.Input<inputs.quicksight.DashboardLineChartMarkerStyleSettingsArgs | undefined>;
+        minValueMarker?: pulumi.Input<inputs.quicksight.DashboardLineChartMarkerStyleSettingsArgs | undefined>;
+        visualType?: pulumi.Input<enums.quicksight.DashboardSparklineVisualType | undefined>;
+        xAxisField: pulumi.Input<inputs.quicksight.DashboardDimensionFieldArgs>;
+        yAxisBehavior?: pulumi.Input<enums.quicksight.DashboardSparklineAxisBehavior | undefined>;
     }
 
     export interface DashboardSpatialStaticFileArgs {
@@ -98480,6 +100394,7 @@ export namespace quicksight {
          * The configuration of the inline visualization of the data bars within a chart.
          */
         dataBars?: pulumi.Input<inputs.quicksight.DashboardDataBarsOptionsArgs | undefined>;
+        sparklines?: pulumi.Input<inputs.quicksight.DashboardSparklinesOptionsArgs | undefined>;
     }
 
     export interface DashboardTableOptionsArgs {
@@ -98956,6 +100871,16 @@ export namespace quicksight {
         value?: pulumi.Input<inputs.quicksight.DashboardMeasureFieldArgs | undefined>;
     }
 
+    export interface DashboardTopicIdentifierDeclarationArgs {
+        identifier: pulumi.Input<string>;
+        topicArn: pulumi.Input<string>;
+    }
+
+    export interface DashboardTopicReferenceArgs {
+        topicArn: pulumi.Input<string>;
+        topicPlaceholder: pulumi.Input<string>;
+    }
+
     export interface DashboardTotalAggregationComputationArgs {
         /**
          * The ID for a computation.
@@ -99223,9 +101148,10 @@ export namespace quicksight {
          */
         sheets?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardSheetDefinitionArgs>[] | undefined>;
         /**
-         * The static files for the definition.
+         * <p>The static files for the definition.</p>
          */
         staticFiles?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardStaticFileArgs>[] | undefined>;
+        topicIdentifierDeclarations?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardTopicIdentifierDeclarationArgs>[] | undefined>;
     }
 
     export interface DashboardVisibleRangeOptionsArgs {
@@ -101396,6 +103322,7 @@ export namespace quicksight {
      * <p>Parameters for Amazon Athena.</p>
      */
     export interface DataSourceAthenaParametersArgs {
+        consumerAccountRoleArn?: pulumi.Input<string | undefined>;
         /**
          * An optional parameter that configures IAM Identity Center authentication to grant Quick Sight access to your workgroup.
          *
@@ -102551,6 +104478,7 @@ export namespace quicksight {
          * The options that determine if visual data labels are displayed.
          */
         dataLabels?: pulumi.Input<inputs.quicksight.TemplateDataLabelOptionsArgs | undefined>;
+        defaultSeriesSettings?: pulumi.Input<inputs.quicksight.TemplateBarChartDefaultSeriesSettingsArgs | undefined>;
         /**
          * The field wells of the visual.
          */
@@ -102574,6 +104502,7 @@ export namespace quicksight {
          * The reference line setup of the visual.
          */
         referenceLines?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateReferenceLineArgs>[] | undefined>;
+        series?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateBarSeriesItemArgs>[] | undefined>;
         /**
          * The small multiples setup for the visual.
          */
@@ -102598,6 +104527,11 @@ export namespace quicksight {
          * The palette (chart color) display setup of the visual.
          */
         visualPalette?: pulumi.Input<inputs.quicksight.TemplateVisualPaletteArgs | undefined>;
+    }
+
+    export interface TemplateBarChartDefaultSeriesSettingsArgs {
+        borderSettings?: pulumi.Input<inputs.quicksight.TemplateBorderSettingsArgs | undefined>;
+        decalSettings?: pulumi.Input<inputs.quicksight.TemplateDecalSettingsArgs | undefined>;
     }
 
     export interface TemplateBarChartFieldWellsArgs {
@@ -102663,6 +104597,9 @@ export namespace quicksight {
          * The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.
          */
         visualId: pulumi.Input<string>;
+    }
+
+    export interface TemplateBarSeriesItemArgs {
     }
 
     export interface TemplateBinCountOptionsArgs {
@@ -102765,6 +104702,15 @@ export namespace quicksight {
 
     export interface TemplateBodySectionRepeatPageBreakConfigurationArgs {
         after?: pulumi.Input<inputs.quicksight.TemplateSectionAfterPageBreakArgs | undefined>;
+    }
+
+    export interface TemplateBorderSettingsArgs {
+        borderColor?: pulumi.Input<string | undefined>;
+        borderVisibility?: pulumi.Input<enums.quicksight.TemplateVisibility | undefined>;
+        /**
+         * String based length that is composed of value and unit in px
+         */
+        borderWidth?: pulumi.Input<string | undefined>;
     }
 
     export interface TemplateBoxPlotAggregatedFieldWellsArgs {
@@ -102901,7 +104847,7 @@ export namespace quicksight {
         /**
          * The data set that is used in this calculated field.
          */
-        dataSetIdentifier: pulumi.Input<string>;
+        dataSetIdentifier?: pulumi.Input<string | undefined>;
         /**
          * The expression of the calculated field.
          */
@@ -102910,6 +104856,7 @@ export namespace quicksight {
          * The name of the calculated field.
          */
         name: pulumi.Input<string>;
+        topicIdentifier?: pulumi.Input<string | undefined>;
     }
 
     export interface TemplateCalculatedMeasureFieldArgs {
@@ -103093,6 +105040,7 @@ export namespace quicksight {
          * The column.
          */
         column: pulumi.Input<inputs.quicksight.TemplateColumnIdentifierArgs>;
+        decalSettingsConfiguration?: pulumi.Input<inputs.quicksight.TemplateDecalSettingsConfigurationArgs | undefined>;
         /**
          * The format configuration of a column.
          */
@@ -103150,7 +105098,8 @@ export namespace quicksight {
         /**
          * The data set that the column belongs to.
          */
-        dataSetIdentifier: pulumi.Input<string>;
+        dataSetIdentifier?: pulumi.Input<string | undefined>;
+        topicIdentifier?: pulumi.Input<string | undefined>;
     }
 
     /**
@@ -103252,6 +105201,7 @@ export namespace quicksight {
          * The label options (label text, label visibility, and sort icon visibility) of a combo chart's color field well.
          */
         colorLabelOptions?: pulumi.Input<inputs.quicksight.TemplateChartAxisLabelOptionsArgs | undefined>;
+        defaultSeriesSettings?: pulumi.Input<inputs.quicksight.TemplateComboChartDefaultSeriesSettingsArgs | undefined>;
         /**
          * The field wells of the visual.
          */
@@ -103290,6 +105240,7 @@ export namespace quicksight {
          * The label options (label text, label visibility, and sort icon visibility) of a combo chart's secondary y-axis(line) field well.
          */
         secondaryYAxisLabelOptions?: pulumi.Input<inputs.quicksight.TemplateChartAxisLabelOptionsArgs | undefined>;
+        series?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateComboSeriesItemArgs>[] | undefined>;
         singleAxisOptions?: pulumi.Input<inputs.quicksight.TemplateSingleAxisOptionsArgs | undefined>;
         /**
          * The sort configuration of a `ComboChartVisual` .
@@ -103303,6 +105254,13 @@ export namespace quicksight {
          * The palette (chart color) display setup of the visual.
          */
         visualPalette?: pulumi.Input<inputs.quicksight.TemplateVisualPaletteArgs | undefined>;
+    }
+
+    export interface TemplateComboChartDefaultSeriesSettingsArgs {
+        borderSettings?: pulumi.Input<inputs.quicksight.TemplateBorderSettingsArgs | undefined>;
+        decalSettings?: pulumi.Input<inputs.quicksight.TemplateDecalSettingsArgs | undefined>;
+        lineStyleSettings?: pulumi.Input<inputs.quicksight.TemplateLineChartLineStyleSettingsArgs | undefined>;
+        markerStyleSettings?: pulumi.Input<inputs.quicksight.TemplateLineChartMarkerStyleSettingsArgs | undefined>;
     }
 
     export interface TemplateComboChartFieldWellsArgs {
@@ -103360,6 +105318,9 @@ export namespace quicksight {
          * The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.
          */
         visualId: pulumi.Input<string>;
+    }
+
+    export interface TemplateComboSeriesItemArgs {
     }
 
     export interface TemplateComparisonConfigurationArgs {
@@ -103664,7 +105625,7 @@ export namespace quicksight {
         /**
          * The dataset that is used to create the custom content visual. You can't create a visual without a dataset.
          */
-        dataSetIdentifier: pulumi.Input<string>;
+        dataSetIdentifier?: pulumi.Input<string | undefined>;
         /**
          * The subtitle that is displayed on the visual.
          */
@@ -103673,6 +105634,7 @@ export namespace quicksight {
          * The title that is displayed on the visual.
          */
         title?: pulumi.Input<inputs.quicksight.TemplateVisualTitleLabelOptionsArgs | undefined>;
+        topicIdentifier?: pulumi.Input<string | undefined>;
         /**
          * The alt text for the visual.
          */
@@ -104153,6 +106115,18 @@ export namespace quicksight {
         valueWhenUnsetOption?: pulumi.Input<enums.quicksight.TemplateValueWhenUnsetOption | undefined>;
     }
 
+    export interface TemplateDecalSettingsArgs {
+        decalColor?: pulumi.Input<string | undefined>;
+        decalPatternType?: pulumi.Input<enums.quicksight.TemplateDecalPatternType | undefined>;
+        decalStyleType?: pulumi.Input<enums.quicksight.TemplateDecalStyleType | undefined>;
+        decalVisibility?: pulumi.Input<enums.quicksight.TemplateVisibility | undefined>;
+        elementValue?: pulumi.Input<string | undefined>;
+    }
+
+    export interface TemplateDecalSettingsConfigurationArgs {
+        customDecalSettings?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateDecalSettingsArgs>[] | undefined>;
+    }
+
     export interface TemplateDecimalDefaultValuesArgs {
         /**
          * The dynamic value of the `DecimalDefaultValues` . Different defaults are displayed according to users, groups, and values mapping.
@@ -104528,7 +106502,8 @@ export namespace quicksight {
         /**
          * The data set that is used in the empty visual. Every visual requires a dataset to render.
          */
-        dataSetIdentifier: pulumi.Input<string>;
+        dataSetIdentifier?: pulumi.Input<string | undefined>;
+        topicIdentifier?: pulumi.Input<string | undefined>;
         /**
          * The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.
          */
@@ -105171,7 +107146,7 @@ export namespace quicksight {
          */
         fontDecoration?: pulumi.Input<enums.quicksight.TemplateFontDecoration | undefined>;
         /**
-         * The font family that you want to use.
+         * <p>The font family that you want to use.</p>
          */
         fontFamily?: pulumi.Input<string | undefined>;
         /**
@@ -105190,7 +107165,7 @@ export namespace quicksight {
 
     export interface TemplateFontSizeArgs {
         /**
-         * String based length that is composed of value and unit in px
+         * <p>The font size that you want to use in px.</p>
          */
         absolute?: pulumi.Input<string | undefined>;
         /**
@@ -105306,6 +107281,7 @@ export namespace quicksight {
          * The elements that are included in a free-form layout.
          */
         elements: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateFreeFormLayoutElementArgs>[]>;
+        groups?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateSheetLayoutGroupArgs>[] | undefined>;
     }
 
     export interface TemplateFreeFormLayoutElementArgs {
@@ -105666,6 +107642,35 @@ export namespace quicksight {
         visualId: pulumi.Input<string>;
     }
 
+    export interface TemplateGeospatialCategoricalColorArgs {
+        categoryDataColors: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateGeospatialCategoricalDataColorArgs>[]>;
+        defaultOpacity?: pulumi.Input<number | undefined>;
+        nullDataSettings?: pulumi.Input<inputs.quicksight.TemplateGeospatialNullDataSettingsArgs | undefined>;
+        nullDataVisibility?: pulumi.Input<enums.quicksight.TemplateVisibility | undefined>;
+    }
+
+    export interface TemplateGeospatialCategoricalDataColorArgs {
+        color: pulumi.Input<string>;
+        dataValue: pulumi.Input<string>;
+    }
+
+    export interface TemplateGeospatialCircleRadiusArgs {
+        radius?: pulumi.Input<number | undefined>;
+    }
+
+    export interface TemplateGeospatialCircleSymbolStyleArgs {
+        circleRadius?: pulumi.Input<inputs.quicksight.TemplateGeospatialCircleRadiusArgs | undefined>;
+        fillColor?: pulumi.Input<inputs.quicksight.TemplateGeospatialColorArgs | undefined>;
+        strokeColor?: pulumi.Input<inputs.quicksight.TemplateGeospatialColorArgs | undefined>;
+        strokeWidth?: pulumi.Input<inputs.quicksight.TemplateGeospatialLineWidthArgs | undefined>;
+    }
+
+    export interface TemplateGeospatialColorArgs {
+        categorical?: pulumi.Input<inputs.quicksight.TemplateGeospatialCategoricalColorArgs | undefined>;
+        gradient?: pulumi.Input<inputs.quicksight.TemplateGeospatialGradientColorArgs | undefined>;
+        solid?: pulumi.Input<inputs.quicksight.TemplateGeospatialSolidColorArgs | undefined>;
+    }
+
     export interface TemplateGeospatialCoordinateBoundsArgs {
         /**
          * The longitude of the east bound of the geospatial coordinate bounds.
@@ -105683,6 +107688,22 @@ export namespace quicksight {
          * The longitude of the west bound of the geospatial coordinate bounds.
          */
         west: pulumi.Input<number>;
+    }
+
+    export interface TemplateGeospatialDataSourceItemArgs {
+        staticFileDataSource?: pulumi.Input<inputs.quicksight.TemplateGeospatialStaticFileSourceArgs | undefined>;
+    }
+
+    export interface TemplateGeospatialGradientColorArgs {
+        defaultOpacity?: pulumi.Input<number | undefined>;
+        nullDataSettings?: pulumi.Input<inputs.quicksight.TemplateGeospatialNullDataSettingsArgs | undefined>;
+        nullDataVisibility?: pulumi.Input<enums.quicksight.TemplateVisibility | undefined>;
+        stepColors: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateGeospatialGradientStepColorArgs>[]>;
+    }
+
+    export interface TemplateGeospatialGradientStepColorArgs {
+        color: pulumi.Input<string>;
+        dataValue: pulumi.Input<number>;
     }
 
     export interface TemplateGeospatialHeatmapColorScaleArgs {
@@ -105706,6 +107727,60 @@ export namespace quicksight {
         color: pulumi.Input<string>;
     }
 
+    export interface TemplateGeospatialLayerColorFieldArgs {
+        colorDimensionsFields?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateDimensionFieldArgs>[] | undefined>;
+        colorValuesFields?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateMeasureFieldArgs>[] | undefined>;
+    }
+
+    export interface TemplateGeospatialLayerDefinitionArgs {
+        lineLayer?: pulumi.Input<inputs.quicksight.TemplateGeospatialLineLayerArgs | undefined>;
+        pointLayer?: pulumi.Input<inputs.quicksight.TemplateGeospatialPointLayerArgs | undefined>;
+        polygonLayer?: pulumi.Input<inputs.quicksight.TemplateGeospatialPolygonLayerArgs | undefined>;
+    }
+
+    export interface TemplateGeospatialLayerItemArgs {
+        actions?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateLayerCustomActionArgs>[] | undefined>;
+        dataSource?: pulumi.Input<inputs.quicksight.TemplateGeospatialDataSourceItemArgs | undefined>;
+        joinDefinition?: pulumi.Input<inputs.quicksight.TemplateGeospatialLayerJoinDefinitionArgs | undefined>;
+        label?: pulumi.Input<string | undefined>;
+        layerDefinition?: pulumi.Input<inputs.quicksight.TemplateGeospatialLayerDefinitionArgs | undefined>;
+        layerId: pulumi.Input<string>;
+        layerType?: pulumi.Input<enums.quicksight.TemplateGeospatialLayerType | undefined>;
+        tooltip?: pulumi.Input<inputs.quicksight.TemplateTooltipOptionsArgs | undefined>;
+        visibility?: pulumi.Input<enums.quicksight.TemplateVisibility | undefined>;
+    }
+
+    export interface TemplateGeospatialLayerJoinDefinitionArgs {
+        colorField?: pulumi.Input<inputs.quicksight.TemplateGeospatialLayerColorFieldArgs | undefined>;
+        datasetKeyField?: pulumi.Input<inputs.quicksight.TemplateUnaggregatedFieldArgs | undefined>;
+        shapeKeyField?: pulumi.Input<string | undefined>;
+    }
+
+    export interface TemplateGeospatialLayerMapConfigurationArgs {
+        interactions?: pulumi.Input<inputs.quicksight.TemplateVisualInteractionOptionsArgs | undefined>;
+        legend?: pulumi.Input<inputs.quicksight.TemplateLegendOptionsArgs | undefined>;
+        mapLayers?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateGeospatialLayerItemArgs>[] | undefined>;
+        mapState?: pulumi.Input<inputs.quicksight.TemplateGeospatialMapStateArgs | undefined>;
+        mapStyle?: pulumi.Input<inputs.quicksight.TemplateGeospatialMapStyleArgs | undefined>;
+    }
+
+    export interface TemplateGeospatialLineLayerArgs {
+        style: pulumi.Input<inputs.quicksight.TemplateGeospatialLineStyleArgs>;
+    }
+
+    export interface TemplateGeospatialLineStyleArgs {
+        lineSymbolStyle?: pulumi.Input<inputs.quicksight.TemplateGeospatialLineSymbolStyleArgs | undefined>;
+    }
+
+    export interface TemplateGeospatialLineSymbolStyleArgs {
+        fillColor?: pulumi.Input<inputs.quicksight.TemplateGeospatialColorArgs | undefined>;
+        lineWidth?: pulumi.Input<inputs.quicksight.TemplateGeospatialLineWidthArgs | undefined>;
+    }
+
+    export interface TemplateGeospatialLineWidthArgs {
+        lineWidth?: pulumi.Input<number | undefined>;
+    }
+
     export interface TemplateGeospatialMapAggregatedFieldWellsArgs {
         /**
          * The color field wells of a geospatial map.
@@ -105726,6 +107801,7 @@ export namespace quicksight {
          * The field wells of the visual.
          */
         fieldWells?: pulumi.Input<inputs.quicksight.TemplateGeospatialMapFieldWellsArgs | undefined>;
+        interactions?: pulumi.Input<inputs.quicksight.TemplateVisualInteractionOptionsArgs | undefined>;
         /**
          * The legend display setup of the visual.
          */
@@ -105754,6 +107830,17 @@ export namespace quicksight {
          * The aggregated field well for a geospatial map.
          */
         geospatialMapAggregatedFieldWells?: pulumi.Input<inputs.quicksight.TemplateGeospatialMapAggregatedFieldWellsArgs | undefined>;
+    }
+
+    export interface TemplateGeospatialMapStateArgs {
+        bounds?: pulumi.Input<inputs.quicksight.TemplateGeospatialCoordinateBoundsArgs | undefined>;
+        mapNavigation?: pulumi.Input<enums.quicksight.TemplateGeospatialMapNavigation | undefined>;
+    }
+
+    export interface TemplateGeospatialMapStyleArgs {
+        backgroundColor?: pulumi.Input<string | undefined>;
+        baseMapStyle?: pulumi.Input<enums.quicksight.TemplateBaseMapStyleType | undefined>;
+        baseMapVisibility?: pulumi.Input<enums.quicksight.TemplateVisibility | undefined>;
     }
 
     export interface TemplateGeospatialMapStyleOptionsArgs {
@@ -105794,6 +107881,24 @@ export namespace quicksight {
         visualId: pulumi.Input<string>;
     }
 
+    export interface TemplateGeospatialNullDataSettingsArgs {
+        symbolStyle: pulumi.Input<inputs.quicksight.TemplateGeospatialNullSymbolStyleArgs>;
+    }
+
+    export interface TemplateGeospatialNullSymbolStyleArgs {
+        fillColor?: pulumi.Input<string | undefined>;
+        strokeColor?: pulumi.Input<string | undefined>;
+        strokeWidth?: pulumi.Input<number | undefined>;
+    }
+
+    export interface TemplateGeospatialPointLayerArgs {
+        style: pulumi.Input<inputs.quicksight.TemplateGeospatialPointStyleArgs>;
+    }
+
+    export interface TemplateGeospatialPointStyleArgs {
+        circleSymbolStyle?: pulumi.Input<inputs.quicksight.TemplateGeospatialCircleSymbolStyleArgs | undefined>;
+    }
+
     export interface TemplateGeospatialPointStyleOptionsArgs {
         /**
          * The cluster marker configuration of the geospatial point style.
@@ -105807,6 +107912,32 @@ export namespace quicksight {
          * The selected point styles (point, cluster) of the geospatial map.
          */
         selectedPointStyle?: pulumi.Input<enums.quicksight.TemplateGeospatialSelectedPointStyle | undefined>;
+    }
+
+    export interface TemplateGeospatialPolygonLayerArgs {
+        style: pulumi.Input<inputs.quicksight.TemplateGeospatialPolygonStyleArgs>;
+    }
+
+    export interface TemplateGeospatialPolygonStyleArgs {
+        polygonSymbolStyle?: pulumi.Input<inputs.quicksight.TemplateGeospatialPolygonSymbolStyleArgs | undefined>;
+    }
+
+    export interface TemplateGeospatialPolygonSymbolStyleArgs {
+        fillColor?: pulumi.Input<inputs.quicksight.TemplateGeospatialColorArgs | undefined>;
+        strokeColor?: pulumi.Input<inputs.quicksight.TemplateGeospatialColorArgs | undefined>;
+        strokeWidth?: pulumi.Input<inputs.quicksight.TemplateGeospatialLineWidthArgs | undefined>;
+    }
+
+    /**
+     * Describes the properties for a solid color
+     */
+    export interface TemplateGeospatialSolidColorArgs {
+        color: pulumi.Input<string>;
+        state?: pulumi.Input<enums.quicksight.TemplateGeospatialColorState | undefined>;
+    }
+
+    export interface TemplateGeospatialStaticFileSourceArgs {
+        staticFileId: pulumi.Input<string>;
     }
 
     export interface TemplateGeospatialWindowOptionsArgs {
@@ -105869,6 +108000,9 @@ export namespace quicksight {
     }
 
     export interface TemplateGridLayoutElementArgs {
+        backgroundStyle?: pulumi.Input<inputs.quicksight.TemplateGridLayoutElementBackgroundStyleArgs | undefined>;
+        borderRadius?: pulumi.Input<string | undefined>;
+        borderStyle?: pulumi.Input<inputs.quicksight.TemplateGridLayoutElementBorderStyleArgs | undefined>;
         /**
          * The column index for the upper left corner of an element.
          */
@@ -105885,6 +108019,8 @@ export namespace quicksight {
          * The type of element.
          */
         elementType: pulumi.Input<enums.quicksight.TemplateLayoutElementType>;
+        loadingAnimation?: pulumi.Input<inputs.quicksight.TemplateLoadingAnimationArgs | undefined>;
+        padding?: pulumi.Input<string | undefined>;
         /**
          * The row index for the upper left corner of an element.
          */
@@ -105893,6 +108029,21 @@ export namespace quicksight {
          * The height of a grid element expressed as a number of grid rows.
          */
         rowSpan: pulumi.Input<number>;
+        selectedBorderStyle?: pulumi.Input<inputs.quicksight.TemplateGridLayoutElementBorderStyleArgs | undefined>;
+    }
+
+    export interface TemplateGridLayoutElementBackgroundStyleArgs {
+        color?: pulumi.Input<string | undefined>;
+        visibility?: pulumi.Input<enums.quicksight.TemplateVisibility | undefined>;
+    }
+
+    export interface TemplateGridLayoutElementBorderStyleArgs {
+        color?: pulumi.Input<string | undefined>;
+        visibility?: pulumi.Input<enums.quicksight.TemplateVisibility | undefined>;
+        /**
+         * String to encapsulate the most generic way Width can be formatted with whatever units (px, em etc)
+         */
+        width?: pulumi.Input<string | undefined>;
     }
 
     export interface TemplateGridLayoutScreenCanvasSizeOptionsArgs {
@@ -106207,6 +108358,11 @@ export namespace quicksight {
         availabilityStatus?: pulumi.Input<enums.quicksight.TemplateDashboardBehavior | undefined>;
     }
 
+    export interface TemplateImageStaticFileArgs {
+        source?: pulumi.Input<inputs.quicksight.TemplateStaticFileSourceArgs | undefined>;
+        staticFileId: pulumi.Input<string>;
+    }
+
     export interface TemplateInnerFilterArgs {
         /**
          * A `CategoryInnerFilter` filters text values for the `NestedFilter` .
@@ -106237,7 +108393,7 @@ export namespace quicksight {
         /**
          * The dataset that is used in the insight visual.
          */
-        dataSetIdentifier: pulumi.Input<string>;
+        dataSetIdentifier?: pulumi.Input<string | undefined>;
         /**
          * The configuration of an insight visual.
          */
@@ -106250,6 +108406,7 @@ export namespace quicksight {
          * The title that is displayed on the visual.
          */
         title?: pulumi.Input<inputs.quicksight.TemplateVisualTitleLabelOptionsArgs | undefined>;
+        topicIdentifier?: pulumi.Input<string | undefined>;
         /**
          * The alt text for the visual.
          */
@@ -106548,6 +108705,31 @@ export namespace quicksight {
         visibility?: pulumi.Input<enums.quicksight.TemplateVisibility | undefined>;
     }
 
+    export interface TemplateLayerCustomActionArgs {
+        actionOperations: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateLayerCustomActionOperationArgs>[]>;
+        customActionId: pulumi.Input<string>;
+        name: pulumi.Input<string>;
+        status?: pulumi.Input<enums.quicksight.TemplateWidgetStatus | undefined>;
+        trigger: pulumi.Input<enums.quicksight.TemplateLayerCustomActionTrigger>;
+    }
+
+    export interface TemplateLayerCustomActionOperationArgs {
+        filterOperation?: pulumi.Input<inputs.quicksight.TemplateCustomActionFilterOperationArgs | undefined>;
+        navigationOperation?: pulumi.Input<inputs.quicksight.TemplateCustomActionNavigationOperationArgs | undefined>;
+        setParametersOperation?: pulumi.Input<inputs.quicksight.TemplateCustomActionSetParametersOperationArgs | undefined>;
+        urlOperation?: pulumi.Input<inputs.quicksight.TemplateCustomActionUrlOperationArgs | undefined>;
+    }
+
+    export interface TemplateLayerMapVisualArgs {
+        chartConfiguration?: pulumi.Input<inputs.quicksight.TemplateGeospatialLayerMapConfigurationArgs | undefined>;
+        dataSetIdentifier?: pulumi.Input<string | undefined>;
+        subtitle?: pulumi.Input<inputs.quicksight.TemplateVisualSubtitleLabelOptionsArgs | undefined>;
+        title?: pulumi.Input<inputs.quicksight.TemplateVisualTitleLabelOptionsArgs | undefined>;
+        topicIdentifier?: pulumi.Input<string | undefined>;
+        visualContentAltText?: pulumi.Input<string | undefined>;
+        visualId: pulumi.Input<string>;
+    }
+
     export interface TemplateLayoutArgs {
         /**
          * The configuration that determines what the type of layout for a sheet.
@@ -106707,6 +108889,7 @@ export namespace quicksight {
          * The axis to which you are binding all line series to.
          */
         axisBinding?: pulumi.Input<enums.quicksight.TemplateAxisBinding | undefined>;
+        decalSettings?: pulumi.Input<inputs.quicksight.TemplateDecalSettingsArgs | undefined>;
         /**
          * Line styles options for all line series in the visual.
          */
@@ -106777,6 +108960,7 @@ export namespace quicksight {
     }
 
     export interface TemplateLineChartSeriesSettingsArgs {
+        decalSettings?: pulumi.Input<inputs.quicksight.TemplateDecalSettingsArgs | undefined>;
         /**
          * Line styles options for a line series in `LineChartVisual` .
          */
@@ -108664,10 +110848,10 @@ export namespace quicksight {
          *             following:</p>
          *          <ul>
          *             <li>
-         *                <p>The ARN of an Amazon QuickSight user or group associated with a data source or dataset. (This is common.)</p>
+         *                <p>The ARN of an Amazon Quick user or group associated with a data source or dataset. (This is common.)</p>
          *             </li>
          *             <li>
-         *                <p>The ARN of an Amazon QuickSight user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)</p>
+         *                <p>The ARN of an Amazon Quick user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)</p>
          *             </li>
          *             <li>
          *                <p>The ARN of an Amazon Web Services account root: This is an IAM ARN rather than a QuickSight
@@ -109262,6 +111446,16 @@ export namespace quicksight {
         plainText?: pulumi.Input<string | undefined>;
     }
 
+    export interface TemplateSheetLayoutGroupArgs {
+        id: pulumi.Input<string>;
+        members: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateSheetLayoutGroupMemberArgs>[]>;
+    }
+
+    export interface TemplateSheetLayoutGroupMemberArgs {
+        id: pulumi.Input<string>;
+        type: any;
+    }
+
     export interface TemplateSheetTextBoxArgs {
         /**
          * The content that is displayed in the text box.
@@ -109378,6 +111572,7 @@ export namespace quicksight {
          *             in the template.</p>
          */
         dataSetReferences: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateDataSetReferenceArgs>[]>;
+        topicReferences?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateTopicReferenceArgs>[] | undefined>;
     }
 
     /**
@@ -109421,6 +111616,43 @@ export namespace quicksight {
          * String based length that is composed of value and unit
          */
         top?: pulumi.Input<string | undefined>;
+    }
+
+    export interface TemplateSparklinesOptionsArgs {
+        allPointsMarker?: pulumi.Input<inputs.quicksight.TemplateLineChartMarkerStyleSettingsArgs | undefined>;
+        fieldId: pulumi.Input<string>;
+        lineColor?: pulumi.Input<string | undefined>;
+        lineInterpolation?: pulumi.Input<enums.quicksight.TemplateLineInterpolation | undefined>;
+        maxValueMarker?: pulumi.Input<inputs.quicksight.TemplateLineChartMarkerStyleSettingsArgs | undefined>;
+        minValueMarker?: pulumi.Input<inputs.quicksight.TemplateLineChartMarkerStyleSettingsArgs | undefined>;
+        visualType?: pulumi.Input<enums.quicksight.TemplateSparklineVisualType | undefined>;
+        xAxisField: pulumi.Input<inputs.quicksight.TemplateDimensionFieldArgs>;
+        yAxisBehavior?: pulumi.Input<enums.quicksight.TemplateSparklineAxisBehavior | undefined>;
+    }
+
+    export interface TemplateSpatialStaticFileArgs {
+        source?: pulumi.Input<inputs.quicksight.TemplateStaticFileSourceArgs | undefined>;
+        staticFileId: pulumi.Input<string>;
+    }
+
+    export interface TemplateStaticFileArgs {
+        imageStaticFile?: pulumi.Input<inputs.quicksight.TemplateImageStaticFileArgs | undefined>;
+        spatialStaticFile?: pulumi.Input<inputs.quicksight.TemplateSpatialStaticFileArgs | undefined>;
+    }
+
+    export interface TemplateStaticFileS3SourceOptionsArgs {
+        bucketName: pulumi.Input<string>;
+        objectKey: pulumi.Input<string>;
+        region: pulumi.Input<string>;
+    }
+
+    export interface TemplateStaticFileSourceArgs {
+        s3Options?: pulumi.Input<inputs.quicksight.TemplateStaticFileS3SourceOptionsArgs | undefined>;
+        urlOptions?: pulumi.Input<inputs.quicksight.TemplateStaticFileUrlSourceOptionsArgs | undefined>;
+    }
+
+    export interface TemplateStaticFileUrlSourceOptionsArgs {
+        url: pulumi.Input<string>;
     }
 
     export interface TemplateStringDefaultValuesArgs {
@@ -109762,6 +111994,7 @@ export namespace quicksight {
          * The configuration of the inline visualization of the data bars within a chart.
          */
         dataBars?: pulumi.Input<inputs.quicksight.TemplateDataBarsOptionsArgs | undefined>;
+        sparklines?: pulumi.Input<inputs.quicksight.TemplateSparklinesOptionsArgs | undefined>;
     }
 
     export interface TemplateTableOptionsArgs {
@@ -110238,6 +112471,17 @@ export namespace quicksight {
         value?: pulumi.Input<inputs.quicksight.TemplateMeasureFieldArgs | undefined>;
     }
 
+    export interface TemplateTopicConfigurationArgs {
+        columnGroupSchemaList?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateColumnGroupSchemaArgs>[] | undefined>;
+        dataSetSchema?: pulumi.Input<inputs.quicksight.TemplateDataSetSchemaArgs | undefined>;
+        placeholder?: pulumi.Input<string | undefined>;
+    }
+
+    export interface TemplateTopicReferenceArgs {
+        topicArn: pulumi.Input<string>;
+        topicPlaceholder: pulumi.Input<string>;
+    }
+
     export interface TemplateTotalAggregationComputationArgs {
         /**
          * The ID for a computation.
@@ -110507,6 +112751,11 @@ export namespace quicksight {
          * An array of sheet definitions for a template.
          */
         sheets?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateSheetDefinitionArgs>[] | undefined>;
+        /**
+         * <p>The static files for the definition.</p>
+         */
+        staticFiles?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateStaticFileArgs>[] | undefined>;
+        topicConfigurations?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateTopicConfigurationArgs>[] | undefined>;
     }
 
     export interface TemplateVisibleRangeOptionsArgs {
@@ -110593,6 +112842,7 @@ export namespace quicksight {
          * For more information, see [Using KPIs](https://docs.aws.amazon.com/quicksight/latest/user/kpi.html) in the *Amazon Quick Suite User Guide* .
          */
         kpiVisual?: pulumi.Input<inputs.quicksight.TemplateKpiVisualArgs | undefined>;
+        layerMapVisual?: pulumi.Input<inputs.quicksight.TemplateLayerMapVisualArgs | undefined>;
         /**
          * A line chart.
          *
@@ -111053,9 +113303,17 @@ export namespace quicksight {
      */
     export interface ThemeBorderStyleArgs {
         /**
+         * String to encapsulate the most generic way Color can be formatted (words, hexStrings etc)
+         */
+        color?: pulumi.Input<string | undefined>;
+        /**
          * <p>The option to enable display of borders for visuals.</p>
          */
         show?: pulumi.Input<boolean | undefined>;
+        /**
+         * String to encapsulate the most generic way Width can be formatted with whatever units (px, em etc)
+         */
+        width?: pulumi.Input<string | undefined>;
     }
 
     /**
@@ -111109,6 +113367,29 @@ export namespace quicksight {
         fontFamily?: pulumi.Input<string | undefined>;
     }
 
+    export interface ThemeFontConfigurationArgs {
+        fontColor?: pulumi.Input<string | undefined>;
+        fontDecoration?: pulumi.Input<enums.quicksight.ThemeFontDecoration | undefined>;
+        /**
+         * <p>The font family that you want to use.</p>
+         */
+        fontFamily?: pulumi.Input<string | undefined>;
+        fontSize?: pulumi.Input<inputs.quicksight.ThemeFontSizeArgs | undefined>;
+        fontStyle?: pulumi.Input<enums.quicksight.ThemeFontStyle | undefined>;
+        fontWeight?: pulumi.Input<inputs.quicksight.ThemeFontWeightArgs | undefined>;
+    }
+
+    export interface ThemeFontSizeArgs {
+        /**
+         * <p>The font size that you want to use in px.</p>
+         */
+        absolute?: pulumi.Input<string | undefined>;
+    }
+
+    export interface ThemeFontWeightArgs {
+        name?: pulumi.Input<enums.quicksight.ThemeFontWeightName | undefined>;
+    }
+
     /**
      * <p>The display options for gutter spacing between tiles on a sheet.</p>
      */
@@ -111143,10 +113424,10 @@ export namespace quicksight {
          *             following:</p>
          *          <ul>
          *             <li>
-         *                <p>The ARN of an Amazon QuickSight user or group associated with a data source or dataset. (This is common.)</p>
+         *                <p>The ARN of an Amazon Quick user or group associated with a data source or dataset. (This is common.)</p>
          *             </li>
          *             <li>
-         *                <p>The ARN of an Amazon QuickSight user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)</p>
+         *                <p>The ARN of an Amazon Quick user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)</p>
          *             </li>
          *             <li>
          *                <p>The ARN of an Amazon Web Services account root: This is an IAM ARN rather than a QuickSight
@@ -111158,10 +113439,19 @@ export namespace quicksight {
         principal: pulumi.Input<string>;
     }
 
+    export interface ThemeSheetBackgroundStyleArgs {
+        /**
+         * String to encapsulate the most generic way Color can be formatted (words, hexStrings etc)
+         */
+        color?: pulumi.Input<string | undefined>;
+        gradient?: pulumi.Input<string | undefined>;
+    }
+
     /**
      * <p>The theme display options for sheets. </p>
      */
     export interface ThemeSheetStyleArgs {
+        background?: pulumi.Input<inputs.quicksight.ThemeSheetBackgroundStyleArgs | undefined>;
         /**
          * The display options for tiles.
          */
@@ -111191,22 +113481,35 @@ export namespace quicksight {
      */
     export interface ThemeTileStyleArgs {
         /**
+         * String to encapsulate the most generic way Color can be formatted (words, hexStrings etc)
+         */
+        backgroundColor?: pulumi.Input<string | undefined>;
+        /**
          * The border around a tile.
          */
         border?: pulumi.Input<inputs.quicksight.ThemeBorderStyleArgs | undefined>;
+        borderRadius?: pulumi.Input<string | undefined>;
+        padding?: pulumi.Input<string | undefined>;
     }
 
     export interface ThemeTypographyArgs {
+        axisLabelFontConfiguration?: pulumi.Input<inputs.quicksight.ThemeFontConfigurationArgs | undefined>;
+        axisTitleFontConfiguration?: pulumi.Input<inputs.quicksight.ThemeFontConfigurationArgs | undefined>;
+        dataLabelFontConfiguration?: pulumi.Input<inputs.quicksight.ThemeFontConfigurationArgs | undefined>;
         /**
          * Determines the list of font families.
          */
         fontFamilies?: pulumi.Input<pulumi.Input<inputs.quicksight.ThemeFontArgs>[] | undefined>;
+        legendTitleFontConfiguration?: pulumi.Input<inputs.quicksight.ThemeFontConfigurationArgs | undefined>;
+        legendValueFontConfiguration?: pulumi.Input<inputs.quicksight.ThemeFontConfigurationArgs | undefined>;
+        visualSubtitleFontConfiguration?: pulumi.Input<inputs.quicksight.ThemeVisualSubtitleFontConfigurationArgs | undefined>;
+        visualTitleFontConfiguration?: pulumi.Input<inputs.quicksight.ThemeVisualTitleFontConfigurationArgs | undefined>;
     }
 
     /**
      * <p>The theme colors that apply to UI and to charts, excluding data colors. The colors
      *             description is a hexadecimal color code that consists of six alphanumerical characters,
-     *             prefixed with <code>#</code>, for example #37BFF5. For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/themes-in-quicksight.html">Using Themes in Amazon QuickSight</a> in the <i>Amazon QuickSight User
+     *             prefixed with <code>#</code>, for example #37BFF5. For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/themes-in-quicksight.html">Using Themes in Amazon Quick</a> in the <i>Amazon Quick User
      *                 Guide.</i>
      *          </p>
      */
@@ -111285,6 +113588,18 @@ export namespace quicksight {
          *             warning color.</p>
          */
         warningForeground?: pulumi.Input<string | undefined>;
+    }
+
+    export interface ThemeVisualSubtitleFontConfigurationArgs {
+        fontConfiguration?: pulumi.Input<inputs.quicksight.ThemeFontConfigurationArgs | undefined>;
+        textAlignment?: pulumi.Input<enums.quicksight.ThemeHorizontalTextAlignment | undefined>;
+        textTransform?: pulumi.Input<enums.quicksight.ThemeTextTransform | undefined>;
+    }
+
+    export interface ThemeVisualTitleFontConfigurationArgs {
+        fontConfiguration?: pulumi.Input<inputs.quicksight.ThemeFontConfigurationArgs | undefined>;
+        textAlignment?: pulumi.Input<enums.quicksight.ThemeHorizontalTextAlignment | undefined>;
+        textTransform?: pulumi.Input<enums.quicksight.ThemeTextTransform | undefined>;
     }
 
     export interface TopicCalculatedFieldArgs {
@@ -123490,6 +125805,59 @@ export namespace sagemaker {
          */
         vpcId?: pulumi.Input<string | undefined>;
     }
+
+    /**
+     * The Amazon Cognito user group that is part of the work team.
+     */
+    export interface WorkteamCognitoMemberDefinitionArgs {
+        /**
+         * An identifier for an application client. You must create the app client ID using Amazon Cognito.
+         */
+        cognitoClientId: pulumi.Input<string>;
+        /**
+         * An identifier for a user group.
+         */
+        cognitoUserGroup: pulumi.Input<string>;
+        /**
+         * An identifier for a user pool. The user pool must be in the same region as the service that you are calling.
+         */
+        cognitoUserPool: pulumi.Input<string>;
+    }
+
+    /**
+     * Defines an Amazon Cognito or your own OIDC IdP user group that is part of a work team.
+     */
+    export interface WorkteamMemberDefinitionArgs {
+        /**
+         * The Amazon Cognito user group that is part of the work team
+         */
+        cognitoMemberDefinition?: pulumi.Input<inputs.sagemaker.WorkteamCognitoMemberDefinitionArgs | undefined>;
+        /**
+         * A list user groups that exist in your OIDC Identity Provider (IdP).
+         */
+        oidcMemberDefinition?: pulumi.Input<inputs.sagemaker.WorkteamOidcMemberDefinitionArgs | undefined>;
+    }
+
+    /**
+     * Configures SNS notifications of available or expiring work items for work teams.
+     */
+    export interface WorkteamNotificationConfigurationArgs {
+        /**
+         * The Amazon Resource Name (ARN) of the Amazon SNS topic to which notifications should be published.
+         */
+        notificationTopicArn: pulumi.Input<string>;
+    }
+
+    /**
+     * A list of user groups that exist in your OIDC Identity Provider (IdP).
+     */
+    export interface WorkteamOidcMemberDefinitionArgs {
+        /**
+         * A list of OIDC group names whose members will be part of this workteam
+         */
+        oidcGroups: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
 }
 
 export namespace scheduler {
@@ -127660,6 +130028,7 @@ export namespace smsvoice {
          */
         enabled: pulumi.Input<boolean>;
     }
+
 }
 
 export namespace sns {
@@ -130028,6 +132397,7 @@ export namespace transfer {
          * The `AUTO` and `0.0.0.0` are special values for the `PassiveIp` parameter. The value `PassiveIp=AUTO` is assigned by default to FTP and FTPS type servers. In this case, the server automatically responds with one of the endpoint IPs within the PASV response. `PassiveIp=0.0.0.0` has a more unique application for its usage. For example, if you have a High Availability (HA) Network Load Balancer (NLB) environment, where you have 3 subnets, you can only specify a single IP address using the `PassiveIp` parameter. This reduces the effectiveness of having High Availability. In this case, you can specify `PassiveIp=0.0.0.0` . This tells the client to use the same IP address as the Control connection and utilize all AZs for their connections. Note, however, that not all FTP clients support the `PassiveIp=0.0.0.0` response. FileZilla and WinSCP do support it. If you are using other clients, check to see if your client supports the `PassiveIp=0.0.0.0` response.
          */
         passiveIp?: pulumi.Input<string | undefined>;
+        proxyConfig?: pulumi.Input<inputs.transfer.ServerProxyConfigArgs | undefined>;
         /**
          * Use the `SetStatOption` to ignore the error that is generated when the client attempts to use `SETSTAT` on a file you are uploading to an S3 bucket.
          *
@@ -130048,6 +132418,10 @@ export namespace transfer {
          * > Not all FTPS clients perform TLS session resumption. So, if you choose to enforce TLS session resumption, you prevent any connections from FTPS clients that don't perform the protocol negotiation. To determine whether or not you can use the `ENFORCED` value, you need to test your clients.
          */
         tlsSessionResumptionMode?: pulumi.Input<enums.transfer.ServerTlsSessionResumptionMode | undefined>;
+    }
+
+    export interface ServerProxyConfigArgs {
+        sftpMode?: pulumi.Input<enums.transfer.ServerProxyMode | undefined>;
     }
 
     export interface ServerS3StorageOptionsArgs {
@@ -130102,6 +132476,10 @@ export namespace transfer {
          * Specifies the number of active connections that your connector can establish with the remote server at the same time.
          */
         maxConcurrentConnections?: pulumi.Input<number | undefined>;
+        /**
+         * Specifies the order in which the connector attempts to use secret versions during authentication. This enables fallback to alternative credentials if the primary version fails.
+         */
+        orderedUserSecretVersionStages?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
          * List of public host keys, for the external server to which you are connecting.
          */
@@ -134336,6 +136714,24 @@ export namespace wafv2 {
 }
 
 export namespace wellarchitected {
+    /**
+     * Defines an account, its in-scope regions, and the access role used to reach resources in that account.
+     */
+    export interface AgentProfileAggregationConfigurationArgs {
+        /**
+         * The ARN of the IAM role used to access resources in this account.
+         */
+        accessRoleArn: pulumi.Input<string>;
+        /**
+         * The target AWS account ID.
+         */
+        accountId: pulumi.Input<string>;
+        /**
+         * The target regions in the account.
+         */
+        regions: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
     /**
      * Discovery configuration associated to the workload.
      */

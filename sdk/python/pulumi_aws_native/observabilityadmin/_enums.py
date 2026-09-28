@@ -17,6 +17,7 @@ __all__ = [
     'OrganizationTelemetryRuleElbLoadBalancerLoggingParametersOutputFormat',
     'OrganizationTelemetryRuleFilterBehavior',
     'OrganizationTelemetryRuleFilterRequirement',
+    'OrganizationTelemetryRuleMskMonitoringParametersEnhancedMonitoring',
     'OrganizationTelemetryRuleResourceType',
     'OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItem',
     'OrganizationTelemetryRuleTelemetrySourceType',
@@ -31,6 +32,7 @@ __all__ = [
     'TelemetryRuleElbLoadBalancerLoggingParametersOutputFormat',
     'TelemetryRuleFilterBehavior',
     'TelemetryRuleFilterRequirement',
+    'TelemetryRuleMskMonitoringParametersEnhancedMonitoring',
     'TelemetryRuleResourceType',
     'TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItem',
     'TelemetryRuleTelemetrySourceType',
@@ -130,6 +132,17 @@ class OrganizationTelemetryRuleFilterRequirement(_builtins.str, Enum):
     MEETS_ANY = "MEETS_ANY"
 
 
+@pulumi.type_token("aws-native:observabilityadmin:OrganizationTelemetryRuleMskMonitoringParametersEnhancedMonitoring")
+class OrganizationTelemetryRuleMskMonitoringParametersEnhancedMonitoring(_builtins.str, Enum):
+    """
+    The level of enhanced monitoring for the MSK cluster.
+    """
+    DEFAULT = "DEFAULT"
+    PER_BROKER = "PER_BROKER"
+    PER_TOPIC_PER_BROKER = "PER_TOPIC_PER_BROKER"
+    PER_TOPIC_PER_PARTITION = "PER_TOPIC_PER_PARTITION"
+
+
 @pulumi.type_token("aws-native:observabilityadmin:OrganizationTelemetryRuleResourceType")
 class OrganizationTelemetryRuleResourceType(_builtins.str, Enum):
     """
@@ -142,11 +155,19 @@ class OrganizationTelemetryRuleResourceType(_builtins.str, Enum):
     AWS_ELASTIC_LOAD_BALANCING_V2_LOAD_BALANCER = "AWS::ElasticLoadBalancingV2::LoadBalancer"
     AWSEC2_INSTANCE = "AWS::EC2::Instance"
     AWS_SECURITY_HUB_HUB = "AWS::SecurityHub::Hub"
+    AWS_SECURITY_HUB_HUB_V2 = "AWS::SecurityHub::HubV2"
+    AWSS3_BUCKET = "AWS::S3::Bucket"
+    AWSMSK_CLUSTER = "AWS::MSK::Cluster"
+    AWS_CLOUD_FRONT_DISTRIBUTION = "AWS::CloudFront::Distribution"
+    AWS_CLOUD_WATCH_O_TEL_ENRICHMENT = "AWS::CloudWatch::OTelEnrichment"
 
 
 @pulumi.type_token("aws-native:observabilityadmin:OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItem")
 class OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItem(_builtins.str, Enum):
     SECURITY_FINDING_LOGS = "SECURITY_FINDING_LOGS"
+    S3_SERVER_ACCESS_LOGS = "S3_SERVER_ACCESS_LOGS"
+    ACCESS_LOGS = "ACCESS_LOGS"
+    CONNECTION_LOGS = "CONNECTION_LOGS"
     ALB_ACCESS_LOGS = "ALB_ACCESS_LOGS"
     ALB_CONNECTION_LOGS = "ALB_CONNECTION_LOGS"
     ALB_HEALTH_CHECK_LOGS = "ALB_HEALTH_CHECK_LOGS"
@@ -268,6 +289,17 @@ class TelemetryRuleFilterRequirement(_builtins.str, Enum):
     MEETS_ANY = "MEETS_ANY"
 
 
+@pulumi.type_token("aws-native:observabilityadmin:TelemetryRuleMskMonitoringParametersEnhancedMonitoring")
+class TelemetryRuleMskMonitoringParametersEnhancedMonitoring(_builtins.str, Enum):
+    """
+    The level of enhanced monitoring for the MSK cluster.
+    """
+    DEFAULT = "DEFAULT"
+    PER_BROKER = "PER_BROKER"
+    PER_TOPIC_PER_BROKER = "PER_TOPIC_PER_BROKER"
+    PER_TOPIC_PER_PARTITION = "PER_TOPIC_PER_PARTITION"
+
+
 @pulumi.type_token("aws-native:observabilityadmin:TelemetryRuleResourceType")
 class TelemetryRuleResourceType(_builtins.str, Enum):
     """
@@ -283,6 +315,15 @@ class TelemetryRuleResourceType(_builtins.str, Enum):
     AWS_BEDROCK_AGENT_CORE_BROWSER = "AWS::BedrockAgentCore::Browser"
     AWS_BEDROCK_AGENT_CORE_CODE_INTERPRETER = "AWS::BedrockAgentCore::CodeInterpreter"
     AWS_SECURITY_HUB_HUB = "AWS::SecurityHub::Hub"
+    AWS_SECURITY_HUB_HUB_V2 = "AWS::SecurityHub::HubV2"
+    AWSS3_BUCKET = "AWS::S3::Bucket"
+    AWSMSK_CLUSTER = "AWS::MSK::Cluster"
+    AWS_CLOUD_FRONT_DISTRIBUTION = "AWS::CloudFront::Distribution"
+    AWS_CLOUD_WATCH_O_TEL_ENRICHMENT = "AWS::CloudWatch::OTelEnrichment"
+    AWS_BEDROCK_KNOWLEDGE_BASE = "AWS::Bedrock::KnowledgeBase"
+    AWS_BEDROCK_AGENT_CORE_MEMORY = "AWS::BedrockAgentCore::Memory"
+    AWS_BEDROCK_AGENT_CORE_GATEWAY = "AWS::BedrockAgentCore::Gateway"
+    AWS_BEDROCK_AGENT_CORE_WORKLOAD_IDENTITY = "AWS::BedrockAgentCore::WorkloadIdentity"
 
 
 @pulumi.type_token("aws-native:observabilityadmin:TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItem")
@@ -290,6 +331,9 @@ class TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropert
     APPLICATION_LOGS = "APPLICATION_LOGS"
     USAGE_LOGS = "USAGE_LOGS"
     SECURITY_FINDING_LOGS = "SECURITY_FINDING_LOGS"
+    S3_SERVER_ACCESS_LOGS = "S3_SERVER_ACCESS_LOGS"
+    ACCESS_LOGS = "ACCESS_LOGS"
+    CONNECTION_LOGS = "CONNECTION_LOGS"
     ALB_ACCESS_LOGS = "ALB_ACCESS_LOGS"
     ALB_CONNECTION_LOGS = "ALB_CONNECTION_LOGS"
     ALB_HEALTH_CHECK_LOGS = "ALB_HEALTH_CHECK_LOGS"

@@ -17,7 +17,7 @@ namespace Pulumi.AwsNative.Lambda.Outputs
     public sealed class EventSourceMappingProvisionedPollerConfig
     {
         /// <summary>
-        /// The maximum number of event pollers this event source can scale up to. For Amazon SQS events source mappings, default is 200, and minimum value allowed is 2. For Amazon MSK and self-managed Apache Kafka event source mappings, default is 200, and minimum value allowed is 1.
+        /// The maximum number of event pollers this event source can scale up to. For Amazon SQS event source mappings, the accepted range is between 2 and 10,000, with a default of 200. For Amazon MSK and self-managed Apache Kafka event source mappings, the accepted range is between 1 and 2,000, with a default of 200.
         /// </summary>
         public readonly int? MaximumPollers;
         /// <summary>

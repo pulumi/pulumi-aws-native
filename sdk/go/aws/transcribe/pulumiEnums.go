@@ -1048,6 +1048,246 @@ func (in *callAnalyticsCategoryTranscriptFilterTranscriptFilterTypePtr) ToCallAn
 	return pulumi.ToOutputWithContext(ctx, in).(CallAnalyticsCategoryTranscriptFilterTranscriptFilterTypePtrOutput)
 }
 
+// The language code of the vocabulary entries.
+type MedicalVocabularyLanguageCode string
+
+const (
+	MedicalVocabularyLanguageCodeAfZa = MedicalVocabularyLanguageCode("af-ZA")
+	MedicalVocabularyLanguageCodeArAe = MedicalVocabularyLanguageCode("ar-AE")
+	MedicalVocabularyLanguageCodeArSa = MedicalVocabularyLanguageCode("ar-SA")
+	MedicalVocabularyLanguageCodeDaDk = MedicalVocabularyLanguageCode("da-DK")
+	MedicalVocabularyLanguageCodeDeCh = MedicalVocabularyLanguageCode("de-CH")
+	MedicalVocabularyLanguageCodeDeDe = MedicalVocabularyLanguageCode("de-DE")
+	MedicalVocabularyLanguageCodeEnAb = MedicalVocabularyLanguageCode("en-AB")
+	MedicalVocabularyLanguageCodeEnAu = MedicalVocabularyLanguageCode("en-AU")
+	MedicalVocabularyLanguageCodeEnGb = MedicalVocabularyLanguageCode("en-GB")
+	MedicalVocabularyLanguageCodeEnIe = MedicalVocabularyLanguageCode("en-IE")
+	MedicalVocabularyLanguageCodeEnIn = MedicalVocabularyLanguageCode("en-IN")
+	MedicalVocabularyLanguageCodeEnUs = MedicalVocabularyLanguageCode("en-US")
+	MedicalVocabularyLanguageCodeEnWl = MedicalVocabularyLanguageCode("en-WL")
+	MedicalVocabularyLanguageCodeEsEs = MedicalVocabularyLanguageCode("es-ES")
+	MedicalVocabularyLanguageCodeEsUs = MedicalVocabularyLanguageCode("es-US")
+	MedicalVocabularyLanguageCodeFaIr = MedicalVocabularyLanguageCode("fa-IR")
+	MedicalVocabularyLanguageCodeFrCa = MedicalVocabularyLanguageCode("fr-CA")
+	MedicalVocabularyLanguageCodeFrFr = MedicalVocabularyLanguageCode("fr-FR")
+	MedicalVocabularyLanguageCodeHeIl = MedicalVocabularyLanguageCode("he-IL")
+	MedicalVocabularyLanguageCodeHiIn = MedicalVocabularyLanguageCode("hi-IN")
+	MedicalVocabularyLanguageCodeIdId = MedicalVocabularyLanguageCode("id-ID")
+	MedicalVocabularyLanguageCodeItIt = MedicalVocabularyLanguageCode("it-IT")
+	MedicalVocabularyLanguageCodeJaJp = MedicalVocabularyLanguageCode("ja-JP")
+	MedicalVocabularyLanguageCodeKoKr = MedicalVocabularyLanguageCode("ko-KR")
+	MedicalVocabularyLanguageCodeMsMy = MedicalVocabularyLanguageCode("ms-MY")
+	MedicalVocabularyLanguageCodeNlNl = MedicalVocabularyLanguageCode("nl-NL")
+	MedicalVocabularyLanguageCodePtBr = MedicalVocabularyLanguageCode("pt-BR")
+	MedicalVocabularyLanguageCodePtPt = MedicalVocabularyLanguageCode("pt-PT")
+	MedicalVocabularyLanguageCodeRuRu = MedicalVocabularyLanguageCode("ru-RU")
+	MedicalVocabularyLanguageCodeTaIn = MedicalVocabularyLanguageCode("ta-IN")
+	MedicalVocabularyLanguageCodeTeIn = MedicalVocabularyLanguageCode("te-IN")
+	MedicalVocabularyLanguageCodeTrTr = MedicalVocabularyLanguageCode("tr-TR")
+	MedicalVocabularyLanguageCodeZhCn = MedicalVocabularyLanguageCode("zh-CN")
+	MedicalVocabularyLanguageCodeZhTw = MedicalVocabularyLanguageCode("zh-TW")
+	MedicalVocabularyLanguageCodeThTh = MedicalVocabularyLanguageCode("th-TH")
+	MedicalVocabularyLanguageCodeEnZa = MedicalVocabularyLanguageCode("en-ZA")
+	MedicalVocabularyLanguageCodeEnNz = MedicalVocabularyLanguageCode("en-NZ")
+	MedicalVocabularyLanguageCodeViVn = MedicalVocabularyLanguageCode("vi-VN")
+	MedicalVocabularyLanguageCodeSvSe = MedicalVocabularyLanguageCode("sv-SE")
+)
+
+func (MedicalVocabularyLanguageCode) ElementType() reflect.Type {
+	return reflect.TypeOf((*MedicalVocabularyLanguageCode)(nil)).Elem()
+}
+
+func (e MedicalVocabularyLanguageCode) ToMedicalVocabularyLanguageCodeOutput() MedicalVocabularyLanguageCodeOutput {
+	return pulumi.ToOutput(e).(MedicalVocabularyLanguageCodeOutput)
+}
+
+func (e MedicalVocabularyLanguageCode) ToMedicalVocabularyLanguageCodeOutputWithContext(ctx context.Context) MedicalVocabularyLanguageCodeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(MedicalVocabularyLanguageCodeOutput)
+}
+
+func (e MedicalVocabularyLanguageCode) ToMedicalVocabularyLanguageCodePtrOutput() MedicalVocabularyLanguageCodePtrOutput {
+	return e.ToMedicalVocabularyLanguageCodePtrOutputWithContext(context.Background())
+}
+
+func (e MedicalVocabularyLanguageCode) ToMedicalVocabularyLanguageCodePtrOutputWithContext(ctx context.Context) MedicalVocabularyLanguageCodePtrOutput {
+	return MedicalVocabularyLanguageCode(e).ToMedicalVocabularyLanguageCodeOutputWithContext(ctx).ToMedicalVocabularyLanguageCodePtrOutputWithContext(ctx)
+}
+
+func (e MedicalVocabularyLanguageCode) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e MedicalVocabularyLanguageCode) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e MedicalVocabularyLanguageCode) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e MedicalVocabularyLanguageCode) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type MedicalVocabularyLanguageCodeOutput struct{ *pulumi.OutputState }
+
+func (MedicalVocabularyLanguageCodeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MedicalVocabularyLanguageCode)(nil)).Elem()
+}
+
+func (o MedicalVocabularyLanguageCodeOutput) ToMedicalVocabularyLanguageCodeOutput() MedicalVocabularyLanguageCodeOutput {
+	return o
+}
+
+func (o MedicalVocabularyLanguageCodeOutput) ToMedicalVocabularyLanguageCodeOutputWithContext(ctx context.Context) MedicalVocabularyLanguageCodeOutput {
+	return o
+}
+
+func (o MedicalVocabularyLanguageCodeOutput) ToMedicalVocabularyLanguageCodePtrOutput() MedicalVocabularyLanguageCodePtrOutput {
+	return o.ToMedicalVocabularyLanguageCodePtrOutputWithContext(context.Background())
+}
+
+func (o MedicalVocabularyLanguageCodeOutput) ToMedicalVocabularyLanguageCodePtrOutputWithContext(ctx context.Context) MedicalVocabularyLanguageCodePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MedicalVocabularyLanguageCode) *MedicalVocabularyLanguageCode {
+		return &v
+	}).(MedicalVocabularyLanguageCodePtrOutput)
+}
+
+func (o MedicalVocabularyLanguageCodeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o MedicalVocabularyLanguageCodeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e MedicalVocabularyLanguageCode) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o MedicalVocabularyLanguageCodeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o MedicalVocabularyLanguageCodeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e MedicalVocabularyLanguageCode) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type MedicalVocabularyLanguageCodePtrOutput struct{ *pulumi.OutputState }
+
+func (MedicalVocabularyLanguageCodePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MedicalVocabularyLanguageCode)(nil)).Elem()
+}
+
+func (o MedicalVocabularyLanguageCodePtrOutput) ToMedicalVocabularyLanguageCodePtrOutput() MedicalVocabularyLanguageCodePtrOutput {
+	return o
+}
+
+func (o MedicalVocabularyLanguageCodePtrOutput) ToMedicalVocabularyLanguageCodePtrOutputWithContext(ctx context.Context) MedicalVocabularyLanguageCodePtrOutput {
+	return o
+}
+
+func (o MedicalVocabularyLanguageCodePtrOutput) Elem() MedicalVocabularyLanguageCodeOutput {
+	return o.ApplyT(func(v *MedicalVocabularyLanguageCode) MedicalVocabularyLanguageCode {
+		if v != nil {
+			return *v
+		}
+		var ret MedicalVocabularyLanguageCode
+		return ret
+	}).(MedicalVocabularyLanguageCodeOutput)
+}
+
+func (o MedicalVocabularyLanguageCodePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o MedicalVocabularyLanguageCodePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *MedicalVocabularyLanguageCode) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// MedicalVocabularyLanguageCodeInput is an input type that accepts values of the MedicalVocabularyLanguageCode enum
+// A concrete instance of `MedicalVocabularyLanguageCodeInput` can be one of the following:
+//
+//	MedicalVocabularyLanguageCodeAfZa
+//	MedicalVocabularyLanguageCodeArAe
+//	MedicalVocabularyLanguageCodeArSa
+//	MedicalVocabularyLanguageCodeDaDk
+//	MedicalVocabularyLanguageCodeDeCh
+//	MedicalVocabularyLanguageCodeDeDe
+//	MedicalVocabularyLanguageCodeEnAb
+//	MedicalVocabularyLanguageCodeEnAu
+//	MedicalVocabularyLanguageCodeEnGb
+//	MedicalVocabularyLanguageCodeEnIe
+//	MedicalVocabularyLanguageCodeEnIn
+//	MedicalVocabularyLanguageCodeEnUs
+//	MedicalVocabularyLanguageCodeEnWl
+//	MedicalVocabularyLanguageCodeEsEs
+//	MedicalVocabularyLanguageCodeEsUs
+//	MedicalVocabularyLanguageCodeFaIr
+//	MedicalVocabularyLanguageCodeFrCa
+//	MedicalVocabularyLanguageCodeFrFr
+//	MedicalVocabularyLanguageCodeHeIl
+//	MedicalVocabularyLanguageCodeHiIn
+//	MedicalVocabularyLanguageCodeIdId
+//	MedicalVocabularyLanguageCodeItIt
+//	MedicalVocabularyLanguageCodeJaJp
+//	MedicalVocabularyLanguageCodeKoKr
+//	MedicalVocabularyLanguageCodeMsMy
+//	MedicalVocabularyLanguageCodeNlNl
+//	MedicalVocabularyLanguageCodePtBr
+//	MedicalVocabularyLanguageCodePtPt
+//	MedicalVocabularyLanguageCodeRuRu
+//	MedicalVocabularyLanguageCodeTaIn
+//	MedicalVocabularyLanguageCodeTeIn
+//	MedicalVocabularyLanguageCodeTrTr
+//	MedicalVocabularyLanguageCodeZhCn
+//	MedicalVocabularyLanguageCodeZhTw
+//	MedicalVocabularyLanguageCodeThTh
+//	MedicalVocabularyLanguageCodeEnZa
+//	MedicalVocabularyLanguageCodeEnNz
+//	MedicalVocabularyLanguageCodeViVn
+//	MedicalVocabularyLanguageCodeSvSe
+type MedicalVocabularyLanguageCodeInput interface {
+	pulumi.Input
+
+	ToMedicalVocabularyLanguageCodeOutput() MedicalVocabularyLanguageCodeOutput
+	ToMedicalVocabularyLanguageCodeOutputWithContext(context.Context) MedicalVocabularyLanguageCodeOutput
+}
+
+var medicalVocabularyLanguageCodePtrType = reflect.TypeOf((**MedicalVocabularyLanguageCode)(nil)).Elem()
+
+type MedicalVocabularyLanguageCodePtrInput interface {
+	pulumi.Input
+
+	ToMedicalVocabularyLanguageCodePtrOutput() MedicalVocabularyLanguageCodePtrOutput
+	ToMedicalVocabularyLanguageCodePtrOutputWithContext(context.Context) MedicalVocabularyLanguageCodePtrOutput
+}
+
+type medicalVocabularyLanguageCodePtr string
+
+func MedicalVocabularyLanguageCodePtr(v string) MedicalVocabularyLanguageCodePtrInput {
+	return (*medicalVocabularyLanguageCodePtr)(&v)
+}
+
+func (*medicalVocabularyLanguageCodePtr) ElementType() reflect.Type {
+	return medicalVocabularyLanguageCodePtrType
+}
+
+func (in *medicalVocabularyLanguageCodePtr) ToMedicalVocabularyLanguageCodePtrOutput() MedicalVocabularyLanguageCodePtrOutput {
+	return pulumi.ToOutput(in).(MedicalVocabularyLanguageCodePtrOutput)
+}
+
+func (in *medicalVocabularyLanguageCodePtr) ToMedicalVocabularyLanguageCodePtrOutputWithContext(ctx context.Context) MedicalVocabularyLanguageCodePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(MedicalVocabularyLanguageCodePtrOutput)
+}
+
 // The processing state of your custom vocabulary. If the state is READY, you can use the custom vocabulary in a StartTranscriptionJob request.
 type VocabularyStateEnum string
 
@@ -1154,6 +1394,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CallAnalyticsCategoryTranscriptFilterParticipantRolePtrInput)(nil)).Elem(), CallAnalyticsCategoryTranscriptFilterParticipantRole("AGENT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*CallAnalyticsCategoryTranscriptFilterTranscriptFilterTypeInput)(nil)).Elem(), CallAnalyticsCategoryTranscriptFilterTranscriptFilterType("EXACT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*CallAnalyticsCategoryTranscriptFilterTranscriptFilterTypePtrInput)(nil)).Elem(), CallAnalyticsCategoryTranscriptFilterTranscriptFilterType("EXACT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*MedicalVocabularyLanguageCodeInput)(nil)).Elem(), MedicalVocabularyLanguageCode("af-ZA"))
+	pulumi.RegisterInputType(reflect.TypeOf((*MedicalVocabularyLanguageCodePtrInput)(nil)).Elem(), MedicalVocabularyLanguageCode("af-ZA"))
 	pulumi.RegisterOutputType(CallAnalyticsCategoryInputTypeOutput{})
 	pulumi.RegisterOutputType(CallAnalyticsCategoryInputTypePtrOutput{})
 	pulumi.RegisterOutputType(CallAnalyticsCategoryInterruptionFilterParticipantRoleOutput{})
@@ -1167,6 +1409,8 @@ func init() {
 	pulumi.RegisterOutputType(CallAnalyticsCategoryTranscriptFilterParticipantRolePtrOutput{})
 	pulumi.RegisterOutputType(CallAnalyticsCategoryTranscriptFilterTranscriptFilterTypeOutput{})
 	pulumi.RegisterOutputType(CallAnalyticsCategoryTranscriptFilterTranscriptFilterTypePtrOutput{})
+	pulumi.RegisterOutputType(MedicalVocabularyLanguageCodeOutput{})
+	pulumi.RegisterOutputType(MedicalVocabularyLanguageCodePtrOutput{})
 	pulumi.RegisterOutputType(VocabularyStateEnumOutput{})
 	pulumi.RegisterOutputType(VocabularyStateEnumPtrOutput{})
 }

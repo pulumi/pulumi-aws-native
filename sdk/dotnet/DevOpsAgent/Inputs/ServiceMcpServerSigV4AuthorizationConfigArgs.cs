@@ -40,7 +40,7 @@ namespace Pulumi.AwsNative.DevOpsAgent.Inputs
         public Input<string> Region { get; set; } = null!;
 
         /// <summary>
-        /// Deprecated - use McpRoleArn instead. IAM role ARN to assume for SigV4 signing
+        /// Deprecated - use McpRoleArn instead. IAM role ARN to assume for SigV4 signing. Set to an empty string to remove a previously configured role and make the server role-less (cross-account).
         /// </summary>
         [Input("roleArn")]
         public Input<string>? RoleArn { get; set; }

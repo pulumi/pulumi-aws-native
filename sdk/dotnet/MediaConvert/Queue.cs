@@ -34,6 +34,12 @@ namespace Pulumi.AwsNative.MediaConvert
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
+        /// Specify the maximum number of Elemental Inference feeds MediaConvert can process concurrently.
+        /// </summary>
+        [Output("maximumConcurrentFeeds")]
+        public Output<int?> MaximumConcurrentFeeds { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the queue that you are creating.
         /// </summary>
         [Output("name")]
@@ -119,6 +125,12 @@ namespace Pulumi.AwsNative.MediaConvert
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
+
+        /// <summary>
+        /// Specify the maximum number of Elemental Inference feeds MediaConvert can process concurrently.
+        /// </summary>
+        [Input("maximumConcurrentFeeds")]
+        public Input<int>? MaximumConcurrentFeeds { get; set; }
 
         /// <summary>
         /// The name of the queue that you are creating.

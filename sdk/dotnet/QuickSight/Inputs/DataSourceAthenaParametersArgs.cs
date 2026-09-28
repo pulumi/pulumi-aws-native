@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     /// </summary>
     public sealed class DataSourceAthenaParametersArgs : global::Pulumi.ResourceArgs
     {
+        [Input("consumerAccountRoleArn")]
+        public Input<string>? ConsumerAccountRoleArn { get; set; }
+
         /// <summary>
         /// An optional parameter that configures IAM Identity Center authentication to grant Quick Sight access to your workgroup.
         /// 

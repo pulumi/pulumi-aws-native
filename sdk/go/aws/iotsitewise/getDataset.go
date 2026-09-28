@@ -24,16 +24,18 @@ func LookupDataset(ctx *pulumi.Context, args *LookupDatasetArgs, opts ...pulumi.
 }
 
 type LookupDatasetArgs struct {
-	// The ID of the dataset.
+	// The ID of the dataset. For workspace-scoped datasets this is the workspace name and dataset ID joined by a slash, for example my-workspace/123e4567-e89b-42d3-a456-426614174000.
 	DatasetId string `pulumi:"datasetId"`
 }
 
 type LookupDatasetResult struct {
 	// The ARN of the dataset.
 	DatasetArn *string `pulumi:"datasetArn"`
+	// The configuration for the dataset.
+	DatasetConfig *DatasetConfig `pulumi:"datasetConfig"`
 	// A description about the dataset, and its functionality.
 	DatasetDescription *string `pulumi:"datasetDescription"`
-	// The ID of the dataset.
+	// The ID of the dataset. For workspace-scoped datasets this is the workspace name and dataset ID joined by a slash, for example my-workspace/123e4567-e89b-42d3-a456-426614174000.
 	DatasetId *string `pulumi:"datasetId"`
 	// The name of the dataset.
 	DatasetName *string `pulumi:"datasetName"`
@@ -49,7 +51,7 @@ func LookupDatasetOutput(ctx *pulumi.Context, args LookupDatasetOutputArgs, opts
 }
 
 type LookupDatasetOutputArgs struct {
-	// The ID of the dataset.
+	// The ID of the dataset. For workspace-scoped datasets this is the workspace name and dataset ID joined by a slash, for example my-workspace/123e4567-e89b-42d3-a456-426614174000.
 	DatasetId pulumi.StringInput `pulumi:"datasetId"`
 }
 
@@ -76,12 +78,17 @@ func (o LookupDatasetResultOutput) DatasetArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDatasetResult) *string { return v.DatasetArn }).(pulumi.StringPtrOutput)
 }
 
+// The configuration for the dataset.
+func (o LookupDatasetResultOutput) DatasetConfig() DatasetConfigPtrOutput {
+	return o.ApplyT(func(v LookupDatasetResult) *DatasetConfig { return v.DatasetConfig }).(DatasetConfigPtrOutput)
+}
+
 // A description about the dataset, and its functionality.
 func (o LookupDatasetResultOutput) DatasetDescription() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDatasetResult) *string { return v.DatasetDescription }).(pulumi.StringPtrOutput)
 }
 
-// The ID of the dataset.
+// The ID of the dataset. For workspace-scoped datasets this is the workspace name and dataset ID joined by a slash, for example my-workspace/123e4567-e89b-42d3-a456-426614174000.
 func (o LookupDatasetResultOutput) DatasetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDatasetResult) *string { return v.DatasetId }).(pulumi.StringPtrOutput)
 }

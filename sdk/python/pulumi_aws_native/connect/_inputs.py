@@ -54,6 +54,8 @@ __all__ = [
     'EvaluationFormItemEnablementSourceValueArgsDict',
     'EvaluationFormLanguageConfigurationArgs',
     'EvaluationFormLanguageConfigurationArgsDict',
+    'EvaluationFormMetricConfigurationArgs',
+    'EvaluationFormMetricConfigurationArgsDict',
     'EvaluationFormMultiSelectQuestionAutomationArgs',
     'EvaluationFormMultiSelectQuestionAutomationArgsDict',
     'EvaluationFormMultiSelectQuestionAutomationOptionArgs',
@@ -1185,6 +1187,53 @@ class EvaluationFormLanguageConfigurationArgs:
         pulumi.set(self, "form_language", value)
 
 
+class EvaluationFormMetricConfigurationArgsDict(TypedDict):
+    metric_name: pulumi.Input[_builtins.str]
+    """
+    The name of the metric.
+    """
+    metric_type: pulumi.Input['EvaluationFormMetricConfigurationMetricType']
+    """
+    The type of the metric.
+    """
+
+@pulumi.input_type
+class EvaluationFormMetricConfigurationArgs:
+    def __init__(__self__, *,
+                 metric_name: pulumi.Input[_builtins.str],
+                 metric_type: pulumi.Input['EvaluationFormMetricConfigurationMetricType']):
+        """
+        :param pulumi.Input[_builtins.str] metric_name: The name of the metric.
+        :param pulumi.Input['EvaluationFormMetricConfigurationMetricType'] metric_type: The type of the metric.
+        """
+        pulumi.set(__self__, "metric_name", metric_name)
+        pulumi.set(__self__, "metric_type", metric_type)
+
+    @_builtins.property
+    @pulumi.getter(name="metricName")
+    def metric_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the metric.
+        """
+        return pulumi.get(self, "metric_name")
+
+    @metric_name.setter
+    def metric_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "metric_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="metricType")
+    def metric_type(self) -> pulumi.Input['EvaluationFormMetricConfigurationMetricType']:
+        """
+        The type of the metric.
+        """
+        return pulumi.get(self, "metric_type")
+
+    @metric_type.setter
+    def metric_type(self, value: pulumi.Input['EvaluationFormMetricConfigurationMetricType']):
+        pulumi.set(self, "metric_type", value)
+
+
 class EvaluationFormMultiSelectQuestionAutomationArgsDict(TypedDict):
     """
     Automation configuration for multi-select questions.
@@ -1899,6 +1948,7 @@ class EvaluationFormQuestionArgsDict(TypedDict):
     The instructions of the section.
      *Length Constraints*: Minimum length of 0. Maximum length of 1024.
     """
+    metric_configuration: NotRequired[pulumi.Input[Optional['EvaluationFormMetricConfigurationArgsDict']]]
     not_applicable_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     The flag to enable not applicable answers to the question.
@@ -1926,6 +1976,7 @@ class EvaluationFormQuestionArgs:
                  title: pulumi.Input[_builtins.str],
                  enablement: pulumi.Input[Optional['EvaluationFormItemEnablementConfigurationArgs']] = None,
                  instructions: pulumi.Input[Optional[_builtins.str]] = None,
+                 metric_configuration: pulumi.Input[Optional['EvaluationFormMetricConfigurationArgs']] = None,
                  not_applicable_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  question_type_properties: pulumi.Input[Optional['EvaluationFormQuestionTypePropertiesArgs']] = None,
                  scoring_configuration: pulumi.Input[Optional['EvaluationFormQuestionScoringConfigurationArgs']] = None,
@@ -1956,6 +2007,8 @@ class EvaluationFormQuestionArgs:
             pulumi.set(__self__, "enablement", enablement)
         if instructions is not None:
             pulumi.set(__self__, "instructions", instructions)
+        if metric_configuration is not None:
+            pulumi.set(__self__, "metric_configuration", metric_configuration)
         if not_applicable_enabled is not None:
             pulumi.set(__self__, "not_applicable_enabled", not_applicable_enabled)
         if question_type_properties is not None:
@@ -2028,6 +2081,15 @@ class EvaluationFormQuestionArgs:
     @instructions.setter
     def instructions(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "instructions", value)
+
+    @_builtins.property
+    @pulumi.getter(name="metricConfiguration")
+    def metric_configuration(self) -> pulumi.Input[Optional['EvaluationFormMetricConfigurationArgs']]:
+        return pulumi.get(self, "metric_configuration")
+
+    @metric_configuration.setter
+    def metric_configuration(self, value: pulumi.Input[Optional['EvaluationFormMetricConfigurationArgs']]):
+        pulumi.set(self, "metric_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="notApplicableEnabled")

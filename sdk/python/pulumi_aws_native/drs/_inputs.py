@@ -18,6 +18,8 @@ from ._enums import *
 __all__ = [
     'LaunchConfigurationTemplateLicensingArgs',
     'LaunchConfigurationTemplateLicensingArgsDict',
+    'ReplicationConfigurationTemplatePitPolicyRuleArgs',
+    'ReplicationConfigurationTemplatePitPolicyRuleArgsDict',
 ]
 
 class LaunchConfigurationTemplateLicensingArgsDict(TypedDict):
@@ -52,5 +54,111 @@ class LaunchConfigurationTemplateLicensingArgs:
     @os_byol.setter
     def os_byol(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "os_byol", value)
+
+
+class ReplicationConfigurationTemplatePitPolicyRuleArgsDict(TypedDict):
+    interval: pulumi.Input[_builtins.int]
+    """
+    How often, in the chosen units, a snapshot should be taken.
+    """
+    retention_duration: pulumi.Input[_builtins.int]
+    """
+    The duration to retain a snapshot for, in the chosen units.
+    """
+    units: pulumi.Input['ReplicationConfigurationTemplatePitPolicyRuleUnits']
+    """
+    The units used to measure the interval and retentionDuration.
+    """
+    enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    Whether this rule is enabled or not.
+    """
+    rule_id: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    The ID of the rule.
+    """
+
+@pulumi.input_type
+class ReplicationConfigurationTemplatePitPolicyRuleArgs:
+    def __init__(__self__, *,
+                 interval: pulumi.Input[_builtins.int],
+                 retention_duration: pulumi.Input[_builtins.int],
+                 units: pulumi.Input['ReplicationConfigurationTemplatePitPolicyRuleUnits'],
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 rule_id: pulumi.Input[Optional[_builtins.int]] = None):
+        """
+        :param pulumi.Input[_builtins.int] interval: How often, in the chosen units, a snapshot should be taken.
+        :param pulumi.Input[_builtins.int] retention_duration: The duration to retain a snapshot for, in the chosen units.
+        :param pulumi.Input['ReplicationConfigurationTemplatePitPolicyRuleUnits'] units: The units used to measure the interval and retentionDuration.
+        :param pulumi.Input[_builtins.bool] enabled: Whether this rule is enabled or not.
+        :param pulumi.Input[_builtins.int] rule_id: The ID of the rule.
+        """
+        pulumi.set(__self__, "interval", interval)
+        pulumi.set(__self__, "retention_duration", retention_duration)
+        pulumi.set(__self__, "units", units)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if rule_id is not None:
+            pulumi.set(__self__, "rule_id", rule_id)
+
+    @_builtins.property
+    @pulumi.getter
+    def interval(self) -> pulumi.Input[_builtins.int]:
+        """
+        How often, in the chosen units, a snapshot should be taken.
+        """
+        return pulumi.get(self, "interval")
+
+    @interval.setter
+    def interval(self, value: pulumi.Input[_builtins.int]):
+        pulumi.set(self, "interval", value)
+
+    @_builtins.property
+    @pulumi.getter(name="retentionDuration")
+    def retention_duration(self) -> pulumi.Input[_builtins.int]:
+        """
+        The duration to retain a snapshot for, in the chosen units.
+        """
+        return pulumi.get(self, "retention_duration")
+
+    @retention_duration.setter
+    def retention_duration(self, value: pulumi.Input[_builtins.int]):
+        pulumi.set(self, "retention_duration", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def units(self) -> pulumi.Input['ReplicationConfigurationTemplatePitPolicyRuleUnits']:
+        """
+        The units used to measure the interval and retentionDuration.
+        """
+        return pulumi.get(self, "units")
+
+    @units.setter
+    def units(self, value: pulumi.Input['ReplicationConfigurationTemplatePitPolicyRuleUnits']):
+        pulumi.set(self, "units", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Whether this rule is enabled or not.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "enabled", value)
+
+    @_builtins.property
+    @pulumi.getter(name="ruleId")
+    def rule_id(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        The ID of the rule.
+        """
+        return pulumi.get(self, "rule_id")
+
+    @rule_id.setter
+    def rule_id(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "rule_id", value)
 
 

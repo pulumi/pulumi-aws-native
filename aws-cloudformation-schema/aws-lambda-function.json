@@ -292,12 +292,12 @@
       }
     },
     "S3FilesConfig" : {
-      "description" : "",
+      "description" : "Setting controls how your function accesses data from an Amazon S3 file system.",
       "additionalProperties" : false,
       "type" : "object",
       "properties" : {
         "DirectS3Read" : {
-          "description" : "Specifies if a function reads from the file system for the lowest latency, or through Amazon S3 Files feature \"direct Amazon S3 bucket reads\" for the highest throughput",
+          "description" : "Specifies if a function reads from the file system for the lowest latency, or through Amazon S3 Files feature \"direct Amazon S3 bucket reads\" for the highest throughput. Valid values:\n  +  ``AUTO`` (default) – Direct reads are active for functions you configure with 512 MB or more of memory.\n  +  ``ENABLED`` – Enforces all reads are directly from the Amazon S3 bucket, regardless of available memory (less than 512 MB).\n  +  ``DISABLED`` – Routes all reads through the file system, regardless of memory configuration.\n  \n To use direct reads, you must grant the execution role the ``s3:GetObject`` and ``s3:GetObjectVersion`` permissions. If a direct read fails, Lambda automatically falls back to reading through the file system.",
           "type" : "string",
           "enum" : [ "ENABLED", "DISABLED", "AUTO" ]
         }
@@ -355,12 +355,12 @@
       }
     },
     "FileSystemConfig" : {
-      "description" : "Details about the connection between a Lambda function and an [Amazon EFS file system](https://docs.aws.amazon.com/lambda/latest/dg/configuration-filesystem.html) or an [Amazon S3 Files file system](https://docs.aws.amazon.com/lambda/latest/dg/configuration-filesystem.html).",
+      "description" : "Details about the connection between a Lambda function and an [Amazon EFS file system](https://docs.aws.amazon.com/lambda/latest/dg/configuration-filesystem.html) or an [Amazon S3 file system](https://docs.aws.amazon.com/lambda/latest/dg/configuration-filesystem.html).",
       "additionalProperties" : false,
       "type" : "object",
       "properties" : {
         "S3FilesConfig" : {
-          "description" : "",
+          "description" : "The configuration for how your function accesses data on an Amazon S3 file system. Valid only when the file system access point ARN is an Amazon S3 Files access point. If you specify a different access point type (for example, Amazon Elastic File System), the operation returns an ``InvalidParameterException``.",
           "$ref" : "#/definitions/S3FilesConfig"
         },
         "Arn" : {

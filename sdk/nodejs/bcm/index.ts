@@ -15,6 +15,16 @@ export const getDashboard: typeof import("./getDashboard").getDashboard = null a
 export const getDashboardOutput: typeof import("./getDashboard").getDashboardOutput = null as any;
 utilities.lazyLoad(exports, ["getDashboard","getDashboardOutput"], () => require("./getDashboard"));
 
+export { GetScheduledReportArgs, GetScheduledReportResult, GetScheduledReportOutputArgs } from "./getScheduledReport";
+export const getScheduledReport: typeof import("./getScheduledReport").getScheduledReport = null as any;
+export const getScheduledReportOutput: typeof import("./getScheduledReport").getScheduledReportOutput = null as any;
+utilities.lazyLoad(exports, ["getScheduledReport","getScheduledReportOutput"], () => require("./getScheduledReport"));
+
+export { ScheduledReportArgs } from "./scheduledReport";
+export type ScheduledReport = import("./scheduledReport").ScheduledReport;
+export const ScheduledReport: typeof import("./scheduledReport").ScheduledReport = null as any;
+utilities.lazyLoad(exports, ["ScheduledReport"], () => require("./scheduledReport"));
+
 
 // Export enums:
 export * from "../types/enums/bcm";
@@ -25,6 +35,8 @@ const _module = {
         switch (type) {
             case "aws-native:bcm:Dashboard":
                 return new Dashboard(name, <any>undefined, { urn })
+            case "aws-native:bcm:ScheduledReport":
+                return new ScheduledReport(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

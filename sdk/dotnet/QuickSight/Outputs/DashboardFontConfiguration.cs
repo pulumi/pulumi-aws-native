@@ -22,7 +22,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.DashboardFontDecoration? FontDecoration;
         /// <summary>
-        /// The font family that you want to use.
+        /// &lt;p&gt;The font family that you want to use.&lt;/p&gt;
         /// </summary>
         public readonly string? FontFamily;
         /// <summary>

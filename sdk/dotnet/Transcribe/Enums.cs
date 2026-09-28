@@ -180,6 +180,74 @@ namespace Pulumi.AwsNative.Transcribe
     }
 
     /// <summary>
+    /// The language code of the vocabulary entries.
+    /// </summary>
+    [EnumType]
+    public readonly struct MedicalVocabularyLanguageCode : IEquatable<MedicalVocabularyLanguageCode>
+    {
+        private readonly string _value;
+
+        private MedicalVocabularyLanguageCode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static MedicalVocabularyLanguageCode AfZa { get; } = new MedicalVocabularyLanguageCode("af-ZA");
+        public static MedicalVocabularyLanguageCode ArAe { get; } = new MedicalVocabularyLanguageCode("ar-AE");
+        public static MedicalVocabularyLanguageCode ArSa { get; } = new MedicalVocabularyLanguageCode("ar-SA");
+        public static MedicalVocabularyLanguageCode DaDk { get; } = new MedicalVocabularyLanguageCode("da-DK");
+        public static MedicalVocabularyLanguageCode DeCh { get; } = new MedicalVocabularyLanguageCode("de-CH");
+        public static MedicalVocabularyLanguageCode DeDe { get; } = new MedicalVocabularyLanguageCode("de-DE");
+        public static MedicalVocabularyLanguageCode EnAb { get; } = new MedicalVocabularyLanguageCode("en-AB");
+        public static MedicalVocabularyLanguageCode EnAu { get; } = new MedicalVocabularyLanguageCode("en-AU");
+        public static MedicalVocabularyLanguageCode EnGb { get; } = new MedicalVocabularyLanguageCode("en-GB");
+        public static MedicalVocabularyLanguageCode EnIe { get; } = new MedicalVocabularyLanguageCode("en-IE");
+        public static MedicalVocabularyLanguageCode EnIn { get; } = new MedicalVocabularyLanguageCode("en-IN");
+        public static MedicalVocabularyLanguageCode EnUs { get; } = new MedicalVocabularyLanguageCode("en-US");
+        public static MedicalVocabularyLanguageCode EnWl { get; } = new MedicalVocabularyLanguageCode("en-WL");
+        public static MedicalVocabularyLanguageCode EsEs { get; } = new MedicalVocabularyLanguageCode("es-ES");
+        public static MedicalVocabularyLanguageCode EsUs { get; } = new MedicalVocabularyLanguageCode("es-US");
+        public static MedicalVocabularyLanguageCode FaIr { get; } = new MedicalVocabularyLanguageCode("fa-IR");
+        public static MedicalVocabularyLanguageCode FrCa { get; } = new MedicalVocabularyLanguageCode("fr-CA");
+        public static MedicalVocabularyLanguageCode FrFr { get; } = new MedicalVocabularyLanguageCode("fr-FR");
+        public static MedicalVocabularyLanguageCode HeIl { get; } = new MedicalVocabularyLanguageCode("he-IL");
+        public static MedicalVocabularyLanguageCode HiIn { get; } = new MedicalVocabularyLanguageCode("hi-IN");
+        public static MedicalVocabularyLanguageCode IdId { get; } = new MedicalVocabularyLanguageCode("id-ID");
+        public static MedicalVocabularyLanguageCode ItIt { get; } = new MedicalVocabularyLanguageCode("it-IT");
+        public static MedicalVocabularyLanguageCode JaJp { get; } = new MedicalVocabularyLanguageCode("ja-JP");
+        public static MedicalVocabularyLanguageCode KoKr { get; } = new MedicalVocabularyLanguageCode("ko-KR");
+        public static MedicalVocabularyLanguageCode MsMy { get; } = new MedicalVocabularyLanguageCode("ms-MY");
+        public static MedicalVocabularyLanguageCode NlNl { get; } = new MedicalVocabularyLanguageCode("nl-NL");
+        public static MedicalVocabularyLanguageCode PtBr { get; } = new MedicalVocabularyLanguageCode("pt-BR");
+        public static MedicalVocabularyLanguageCode PtPt { get; } = new MedicalVocabularyLanguageCode("pt-PT");
+        public static MedicalVocabularyLanguageCode RuRu { get; } = new MedicalVocabularyLanguageCode("ru-RU");
+        public static MedicalVocabularyLanguageCode TaIn { get; } = new MedicalVocabularyLanguageCode("ta-IN");
+        public static MedicalVocabularyLanguageCode TeIn { get; } = new MedicalVocabularyLanguageCode("te-IN");
+        public static MedicalVocabularyLanguageCode TrTr { get; } = new MedicalVocabularyLanguageCode("tr-TR");
+        public static MedicalVocabularyLanguageCode ZhCn { get; } = new MedicalVocabularyLanguageCode("zh-CN");
+        public static MedicalVocabularyLanguageCode ZhTw { get; } = new MedicalVocabularyLanguageCode("zh-TW");
+        public static MedicalVocabularyLanguageCode ThTh { get; } = new MedicalVocabularyLanguageCode("th-TH");
+        public static MedicalVocabularyLanguageCode EnZa { get; } = new MedicalVocabularyLanguageCode("en-ZA");
+        public static MedicalVocabularyLanguageCode EnNz { get; } = new MedicalVocabularyLanguageCode("en-NZ");
+        public static MedicalVocabularyLanguageCode ViVn { get; } = new MedicalVocabularyLanguageCode("vi-VN");
+        public static MedicalVocabularyLanguageCode SvSe { get; } = new MedicalVocabularyLanguageCode("sv-SE");
+
+        public static bool operator ==(MedicalVocabularyLanguageCode left, MedicalVocabularyLanguageCode right) => left.Equals(right);
+        public static bool operator !=(MedicalVocabularyLanguageCode left, MedicalVocabularyLanguageCode right) => !left.Equals(right);
+
+        public static explicit operator string(MedicalVocabularyLanguageCode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is MedicalVocabularyLanguageCode other && Equals(other);
+        public bool Equals(MedicalVocabularyLanguageCode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The processing state of your custom vocabulary. If the state is READY, you can use the custom vocabulary in a StartTranscriptionJob request.
     /// </summary>
     [EnumType]

@@ -31,6 +31,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Field{}
 	case "aws-native:cases:Layout":
 		r = &Layout{}
+	case "aws-native:cases:RelatedItem":
+		r = &RelatedItem{}
 	case "aws-native:cases:Template":
 		r = &Template{}
 	default:

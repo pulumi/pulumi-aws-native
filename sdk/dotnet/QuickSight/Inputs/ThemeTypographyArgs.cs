@@ -12,6 +12,15 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class ThemeTypographyArgs : global::Pulumi.ResourceArgs
     {
+        [Input("axisLabelFontConfiguration")]
+        public Input<Inputs.ThemeFontConfigurationArgs>? AxisLabelFontConfiguration { get; set; }
+
+        [Input("axisTitleFontConfiguration")]
+        public Input<Inputs.ThemeFontConfigurationArgs>? AxisTitleFontConfiguration { get; set; }
+
+        [Input("dataLabelFontConfiguration")]
+        public Input<Inputs.ThemeFontConfigurationArgs>? DataLabelFontConfiguration { get; set; }
+
         [Input("fontFamilies")]
         private InputList<Inputs.ThemeFontArgs>? _fontFamilies;
 
@@ -23,6 +32,18 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
             get => _fontFamilies ?? (_fontFamilies = new InputList<Inputs.ThemeFontArgs>());
             set => _fontFamilies = value;
         }
+
+        [Input("legendTitleFontConfiguration")]
+        public Input<Inputs.ThemeFontConfigurationArgs>? LegendTitleFontConfiguration { get; set; }
+
+        [Input("legendValueFontConfiguration")]
+        public Input<Inputs.ThemeFontConfigurationArgs>? LegendValueFontConfiguration { get; set; }
+
+        [Input("visualSubtitleFontConfiguration")]
+        public Input<Inputs.ThemeVisualSubtitleFontConfigurationArgs>? VisualSubtitleFontConfiguration { get; set; }
+
+        [Input("visualTitleFontConfiguration")]
+        public Input<Inputs.ThemeVisualTitleFontConfigurationArgs>? VisualTitleFontConfiguration { get; set; }
 
         public ThemeTypographyArgs()
         {

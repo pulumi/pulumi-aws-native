@@ -36,6 +36,37 @@ namespace Pulumi.AwsNative.EmrContainers
     }
 
     /// <summary>
+    /// The type of the job template parameter.
+    /// </summary>
+    [EnumType]
+    public readonly struct JobTemplateTemplateParameterConfigurationType : IEquatable<JobTemplateTemplateParameterConfigurationType>
+    {
+        private readonly string _value;
+
+        private JobTemplateTemplateParameterConfigurationType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static JobTemplateTemplateParameterConfigurationType Number { get; } = new JobTemplateTemplateParameterConfigurationType("NUMBER");
+        public static JobTemplateTemplateParameterConfigurationType String { get; } = new JobTemplateTemplateParameterConfigurationType("STRING");
+
+        public static bool operator ==(JobTemplateTemplateParameterConfigurationType left, JobTemplateTemplateParameterConfigurationType right) => left.Equals(right);
+        public static bool operator !=(JobTemplateTemplateParameterConfigurationType left, JobTemplateTemplateParameterConfigurationType right) => !left.Equals(right);
+
+        public static explicit operator string(JobTemplateTemplateParameterConfigurationType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is JobTemplateTemplateParameterConfigurationType other && Equals(other);
+        public bool Equals(JobTemplateTemplateParameterConfigurationType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The container provider type.
     /// </summary>
     [EnumType]

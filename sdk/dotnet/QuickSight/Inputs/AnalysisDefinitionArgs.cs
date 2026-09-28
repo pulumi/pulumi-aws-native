@@ -106,12 +106,20 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         private InputList<Inputs.AnalysisStaticFileArgs>? _staticFiles;
 
         /// <summary>
-        /// The static files for the definition.
+        /// &lt;p&gt;The static files for the definition.&lt;/p&gt;
         /// </summary>
         public InputList<Inputs.AnalysisStaticFileArgs> StaticFiles
         {
             get => _staticFiles ?? (_staticFiles = new InputList<Inputs.AnalysisStaticFileArgs>());
             set => _staticFiles = value;
+        }
+
+        [Input("topicIdentifierDeclarations")]
+        private InputList<Inputs.AnalysisTopicIdentifierDeclarationArgs>? _topicIdentifierDeclarations;
+        public InputList<Inputs.AnalysisTopicIdentifierDeclarationArgs> TopicIdentifierDeclarations
+        {
+            get => _topicIdentifierDeclarations ?? (_topicIdentifierDeclarations = new InputList<Inputs.AnalysisTopicIdentifierDeclarationArgs>());
+            set => _topicIdentifierDeclarations = value;
         }
 
         public AnalysisDefinitionArgs()

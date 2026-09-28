@@ -24,15 +24,19 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// &lt;p&gt;Dataset references.&lt;/p&gt;
         /// </summary>
         public readonly ImmutableArray<Outputs.DashboardDataSetReference> DataSetReferences;
+        public readonly ImmutableArray<Outputs.DashboardTopicReference> TopicReferences;
 
         [OutputConstructor]
         private DashboardSourceTemplate(
             string arn,
 
-            ImmutableArray<Outputs.DashboardDataSetReference> dataSetReferences)
+            ImmutableArray<Outputs.DashboardDataSetReference> dataSetReferences,
+
+            ImmutableArray<Outputs.DashboardTopicReference> topicReferences)
         {
             Arn = arn;
             DataSetReferences = dataSetReferences;
+            TopicReferences = topicReferences;
         }
     }
 }

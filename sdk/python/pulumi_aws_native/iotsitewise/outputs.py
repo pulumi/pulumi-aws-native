@@ -41,7 +41,9 @@ __all__ = [
     'AssetModelTumblingWindow',
     'AssetModelVariableValue',
     'AssetProperty',
+    'DatasetConfig',
     'DatasetKendraSourceDetail',
+    'DatasetSessionConfig',
     'DatasetSource',
     'DatasetSourceDetail',
     'GatewayCapabilitySummary',
@@ -1466,6 +1468,25 @@ class AssetProperty(dict):
 
 
 @pulumi.output_type
+class DatasetConfig(dict):
+    def __init__(__self__, *,
+                 session: Optional['outputs.DatasetSessionConfig'] = None):
+        """
+        :param 'DatasetSessionConfig' session: The session configuration for a SESSION dataset.
+        """
+        if session is not None:
+            pulumi.set(__self__, "session", session)
+
+    @_builtins.property
+    @pulumi.getter
+    def session(self) -> Optional['outputs.DatasetSessionConfig']:
+        """
+        The session configuration for a SESSION dataset.
+        """
+        return pulumi.get(self, "session")
+
+
+@pulumi.output_type
 class DatasetKendraSourceDetail(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -1511,6 +1532,54 @@ class DatasetKendraSourceDetail(dict):
         The roleARN details for the Kendra dataset source.
         """
         return pulumi.get(self, "role_arn")
+
+
+@pulumi.output_type
+class DatasetSessionConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sessionEndTime":
+            suggest = "session_end_time"
+        elif key == "sessionStartTime":
+            suggest = "session_start_time"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DatasetSessionConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DatasetSessionConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DatasetSessionConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 session_end_time: _builtins.str,
+                 session_start_time: _builtins.str):
+        """
+        :param _builtins.str session_end_time: The end time of the session as an ISO 8601 UTC instant, for example 2024-12-31T23:59:59Z.
+        :param _builtins.str session_start_time: The start time of the session as an ISO 8601 UTC instant, for example 2024-01-01T00:00:00Z.
+        """
+        pulumi.set(__self__, "session_end_time", session_end_time)
+        pulumi.set(__self__, "session_start_time", session_start_time)
+
+    @_builtins.property
+    @pulumi.getter(name="sessionEndTime")
+    def session_end_time(self) -> _builtins.str:
+        """
+        The end time of the session as an ISO 8601 UTC instant, for example 2024-12-31T23:59:59Z.
+        """
+        return pulumi.get(self, "session_end_time")
+
+    @_builtins.property
+    @pulumi.getter(name="sessionStartTime")
+    def session_start_time(self) -> _builtins.str:
+        """
+        The start time of the session as an ISO 8601 UTC instant, for example 2024-01-01T00:00:00Z.
+        """
+        return pulumi.get(self, "session_start_time")
 
 
 @pulumi.output_type

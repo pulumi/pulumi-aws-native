@@ -21,8 +21,8 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// </summary>
         public readonly string? Arn;
         /// <summary>
-        /// &lt;p&gt;The Amazon QuickSight-defined ID of the theme that a custom theme inherits from. All
-        ///             themes initially inherit from a default Amazon QuickSight theme.&lt;/p&gt;
+        /// &lt;p&gt;The Amazon Quick-defined ID of the theme that a custom theme inherits from. All
+        ///             themes initially inherit from a default Quick theme.&lt;/p&gt;
         /// </summary>
         public readonly string? BaseThemeId;
         /// <summary>

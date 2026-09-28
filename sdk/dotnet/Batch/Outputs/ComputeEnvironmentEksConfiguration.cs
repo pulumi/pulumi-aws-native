@@ -13,6 +13,7 @@ namespace Pulumi.AwsNative.Batch.Outputs
     [OutputType]
     public sealed class ComputeEnvironmentEksConfiguration
     {
+        public readonly Outputs.ComputeEnvironmentEksAccessEntry? AccessEntry;
         /// <summary>
         /// The Amazon Resource Name (ARN) of the Amazon EKS cluster. An example is `arn: *aws* :eks: *us-east-1* : *123456789012* :cluster/ *ClusterForBatch*` .
         /// </summary>
@@ -24,10 +25,13 @@ namespace Pulumi.AwsNative.Batch.Outputs
 
         [OutputConstructor]
         private ComputeEnvironmentEksConfiguration(
+            Outputs.ComputeEnvironmentEksAccessEntry? accessEntry,
+
             string eksClusterArn,
 
             string kubernetesNamespace)
         {
+            AccessEntry = accessEntry;
             EksClusterArn = eksClusterArn;
             KubernetesNamespace = kubernetesNamespace;
         }

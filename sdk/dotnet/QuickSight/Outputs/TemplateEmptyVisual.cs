@@ -20,7 +20,8 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// <summary>
         /// The data set that is used in the empty visual. Every visual requires a dataset to render.
         /// </summary>
-        public readonly string DataSetIdentifier;
+        public readonly string? DataSetIdentifier;
+        public readonly string? TopicIdentifier;
         /// <summary>
         /// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.
         /// </summary>
@@ -30,12 +31,15 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         private TemplateEmptyVisual(
             ImmutableArray<Outputs.TemplateVisualCustomAction> actions,
 
-            string dataSetIdentifier,
+            string? dataSetIdentifier,
+
+            string? topicIdentifier,
 
             string visualId)
         {
             Actions = actions;
             DataSetIdentifier = dataSetIdentifier;
+            TopicIdentifier = topicIdentifier;
             VisualId = visualId;
         }
     }

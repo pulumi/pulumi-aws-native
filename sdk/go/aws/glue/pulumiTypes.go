@@ -12891,6 +12891,1444 @@ func (o MlTransformTransformParametersPtrOutput) TransformType() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
+// A column in a Table.
+type PartitionColumn struct {
+	// A free-form text comment.
+	Comment *string `pulumi:"comment"`
+	// The name of the Column.
+	Name string `pulumi:"name"`
+	// The data type of the Column.
+	Type *string `pulumi:"type"`
+}
+
+// PartitionColumnInput is an input type that accepts PartitionColumnArgs and PartitionColumnOutput values.
+// You can construct a concrete instance of `PartitionColumnInput` via:
+//
+//	PartitionColumnArgs{...}
+type PartitionColumnInput interface {
+	pulumi.Input
+
+	ToPartitionColumnOutput() PartitionColumnOutput
+	ToPartitionColumnOutputWithContext(context.Context) PartitionColumnOutput
+}
+
+// A column in a Table.
+type PartitionColumnArgs struct {
+	// A free-form text comment.
+	Comment pulumi.StringPtrInput `pulumi:"comment"`
+	// The name of the Column.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The data type of the Column.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (PartitionColumnArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PartitionColumn)(nil)).Elem()
+}
+
+func (i PartitionColumnArgs) ToPartitionColumnOutput() PartitionColumnOutput {
+	return i.ToPartitionColumnOutputWithContext(context.Background())
+}
+
+func (i PartitionColumnArgs) ToPartitionColumnOutputWithContext(ctx context.Context) PartitionColumnOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PartitionColumnOutput)
+}
+
+// PartitionColumnArrayInput is an input type that accepts PartitionColumnArray and PartitionColumnArrayOutput values.
+// You can construct a concrete instance of `PartitionColumnArrayInput` via:
+//
+//	PartitionColumnArray{ PartitionColumnArgs{...} }
+type PartitionColumnArrayInput interface {
+	pulumi.Input
+
+	ToPartitionColumnArrayOutput() PartitionColumnArrayOutput
+	ToPartitionColumnArrayOutputWithContext(context.Context) PartitionColumnArrayOutput
+}
+
+type PartitionColumnArray []PartitionColumnInput
+
+func (PartitionColumnArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PartitionColumn)(nil)).Elem()
+}
+
+func (i PartitionColumnArray) ToPartitionColumnArrayOutput() PartitionColumnArrayOutput {
+	return i.ToPartitionColumnArrayOutputWithContext(context.Background())
+}
+
+func (i PartitionColumnArray) ToPartitionColumnArrayOutputWithContext(ctx context.Context) PartitionColumnArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PartitionColumnArrayOutput)
+}
+
+// A column in a Table.
+type PartitionColumnOutput struct{ *pulumi.OutputState }
+
+func (PartitionColumnOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PartitionColumn)(nil)).Elem()
+}
+
+func (o PartitionColumnOutput) ToPartitionColumnOutput() PartitionColumnOutput {
+	return o
+}
+
+func (o PartitionColumnOutput) ToPartitionColumnOutputWithContext(ctx context.Context) PartitionColumnOutput {
+	return o
+}
+
+// A free-form text comment.
+func (o PartitionColumnOutput) Comment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PartitionColumn) *string { return v.Comment }).(pulumi.StringPtrOutput)
+}
+
+// The name of the Column.
+func (o PartitionColumnOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v PartitionColumn) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The data type of the Column.
+func (o PartitionColumnOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PartitionColumn) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type PartitionColumnArrayOutput struct{ *pulumi.OutputState }
+
+func (PartitionColumnArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PartitionColumn)(nil)).Elem()
+}
+
+func (o PartitionColumnArrayOutput) ToPartitionColumnArrayOutput() PartitionColumnArrayOutput {
+	return o
+}
+
+func (o PartitionColumnArrayOutput) ToPartitionColumnArrayOutputWithContext(ctx context.Context) PartitionColumnArrayOutput {
+	return o
+}
+
+func (o PartitionColumnArrayOutput) Index(i pulumi.IntInput) PartitionColumnOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PartitionColumn {
+		return vs[0].([]PartitionColumn)[vs[1].(int)]
+	}).(PartitionColumnOutput)
+}
+
+// The structure used to create and update a partition.
+type PartitionInputType struct {
+	// Key-value pairs defining partition parameters.
+	Parameters interface{} `pulumi:"parameters"`
+	// Provides information about the physical location where the partition is stored.
+	StorageDescriptor *PartitionStorageDescriptor `pulumi:"storageDescriptor"`
+	// The values of the partition. Although this parameter is not required by the SDK, you must specify this parameter for a valid input. The values for the keys for the new partition must be passed as an array of String objects that must be ordered in the same order as the partition keys appearing in the Amazon S3 prefix. Otherwise AWS Glue will add the values to the wrong keys.
+	Values []string `pulumi:"values"`
+}
+
+// PartitionInputTypeInput is an input type that accepts PartitionInputTypeArgs and PartitionInputTypeOutput values.
+// You can construct a concrete instance of `PartitionInputTypeInput` via:
+//
+//	PartitionInputTypeArgs{...}
+type PartitionInputTypeInput interface {
+	pulumi.Input
+
+	ToPartitionInputTypeOutput() PartitionInputTypeOutput
+	ToPartitionInputTypeOutputWithContext(context.Context) PartitionInputTypeOutput
+}
+
+// The structure used to create and update a partition.
+type PartitionInputTypeArgs struct {
+	// Key-value pairs defining partition parameters.
+	Parameters pulumi.Input `pulumi:"parameters"`
+	// Provides information about the physical location where the partition is stored.
+	StorageDescriptor PartitionStorageDescriptorPtrInput `pulumi:"storageDescriptor"`
+	// The values of the partition. Although this parameter is not required by the SDK, you must specify this parameter for a valid input. The values for the keys for the new partition must be passed as an array of String objects that must be ordered in the same order as the partition keys appearing in the Amazon S3 prefix. Otherwise AWS Glue will add the values to the wrong keys.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (PartitionInputTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PartitionInputType)(nil)).Elem()
+}
+
+func (i PartitionInputTypeArgs) ToPartitionInputTypeOutput() PartitionInputTypeOutput {
+	return i.ToPartitionInputTypeOutputWithContext(context.Background())
+}
+
+func (i PartitionInputTypeArgs) ToPartitionInputTypeOutputWithContext(ctx context.Context) PartitionInputTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PartitionInputTypeOutput)
+}
+
+// The structure used to create and update a partition.
+type PartitionInputTypeOutput struct{ *pulumi.OutputState }
+
+func (PartitionInputTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PartitionInputType)(nil)).Elem()
+}
+
+func (o PartitionInputTypeOutput) ToPartitionInputTypeOutput() PartitionInputTypeOutput {
+	return o
+}
+
+func (o PartitionInputTypeOutput) ToPartitionInputTypeOutputWithContext(ctx context.Context) PartitionInputTypeOutput {
+	return o
+}
+
+// Key-value pairs defining partition parameters.
+func (o PartitionInputTypeOutput) Parameters() pulumi.AnyOutput {
+	return o.ApplyT(func(v PartitionInputType) interface{} { return v.Parameters }).(pulumi.AnyOutput)
+}
+
+// Provides information about the physical location where the partition is stored.
+func (o PartitionInputTypeOutput) StorageDescriptor() PartitionStorageDescriptorPtrOutput {
+	return o.ApplyT(func(v PartitionInputType) *PartitionStorageDescriptor { return v.StorageDescriptor }).(PartitionStorageDescriptorPtrOutput)
+}
+
+// The values of the partition. Although this parameter is not required by the SDK, you must specify this parameter for a valid input. The values for the keys for the new partition must be passed as an array of String objects that must be ordered in the same order as the partition keys appearing in the Amazon S3 prefix. Otherwise AWS Glue will add the values to the wrong keys.
+func (o PartitionInputTypeOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v PartitionInputType) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type PartitionInputTypePtrOutput struct{ *pulumi.OutputState }
+
+func (PartitionInputTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PartitionInputType)(nil)).Elem()
+}
+
+func (o PartitionInputTypePtrOutput) ToPartitionInputTypePtrOutput() PartitionInputTypePtrOutput {
+	return o
+}
+
+func (o PartitionInputTypePtrOutput) ToPartitionInputTypePtrOutputWithContext(ctx context.Context) PartitionInputTypePtrOutput {
+	return o
+}
+
+func (o PartitionInputTypePtrOutput) Elem() PartitionInputTypeOutput {
+	return o.ApplyT(func(v *PartitionInputType) PartitionInputType {
+		if v != nil {
+			return *v
+		}
+		var ret PartitionInputType
+		return ret
+	}).(PartitionInputTypeOutput)
+}
+
+// Key-value pairs defining partition parameters.
+func (o PartitionInputTypePtrOutput) Parameters() pulumi.AnyOutput {
+	return o.ApplyT(func(v *PartitionInputType) interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.Parameters
+	}).(pulumi.AnyOutput)
+}
+
+// Provides information about the physical location where the partition is stored.
+func (o PartitionInputTypePtrOutput) StorageDescriptor() PartitionStorageDescriptorPtrOutput {
+	return o.ApplyT(func(v *PartitionInputType) *PartitionStorageDescriptor {
+		if v == nil {
+			return nil
+		}
+		return v.StorageDescriptor
+	}).(PartitionStorageDescriptorPtrOutput)
+}
+
+// The values of the partition. Although this parameter is not required by the SDK, you must specify this parameter for a valid input. The values for the keys for the new partition must be passed as an array of String objects that must be ordered in the same order as the partition keys appearing in the Amazon S3 prefix. Otherwise AWS Glue will add the values to the wrong keys.
+func (o PartitionInputTypePtrOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *PartitionInputType) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Values
+	}).(pulumi.StringArrayOutput)
+}
+
+// Specifies the sort order of a sorted column.
+type PartitionOrder struct {
+	// The name of the column.
+	Column string `pulumi:"column"`
+	// Indicates that the column is sorted in ascending order (== 1), or in descending order (==0).
+	SortOrder *int `pulumi:"sortOrder"`
+}
+
+// PartitionOrderInput is an input type that accepts PartitionOrderArgs and PartitionOrderOutput values.
+// You can construct a concrete instance of `PartitionOrderInput` via:
+//
+//	PartitionOrderArgs{...}
+type PartitionOrderInput interface {
+	pulumi.Input
+
+	ToPartitionOrderOutput() PartitionOrderOutput
+	ToPartitionOrderOutputWithContext(context.Context) PartitionOrderOutput
+}
+
+// Specifies the sort order of a sorted column.
+type PartitionOrderArgs struct {
+	// The name of the column.
+	Column pulumi.StringInput `pulumi:"column"`
+	// Indicates that the column is sorted in ascending order (== 1), or in descending order (==0).
+	SortOrder pulumi.IntPtrInput `pulumi:"sortOrder"`
+}
+
+func (PartitionOrderArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PartitionOrder)(nil)).Elem()
+}
+
+func (i PartitionOrderArgs) ToPartitionOrderOutput() PartitionOrderOutput {
+	return i.ToPartitionOrderOutputWithContext(context.Background())
+}
+
+func (i PartitionOrderArgs) ToPartitionOrderOutputWithContext(ctx context.Context) PartitionOrderOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PartitionOrderOutput)
+}
+
+// PartitionOrderArrayInput is an input type that accepts PartitionOrderArray and PartitionOrderArrayOutput values.
+// You can construct a concrete instance of `PartitionOrderArrayInput` via:
+//
+//	PartitionOrderArray{ PartitionOrderArgs{...} }
+type PartitionOrderArrayInput interface {
+	pulumi.Input
+
+	ToPartitionOrderArrayOutput() PartitionOrderArrayOutput
+	ToPartitionOrderArrayOutputWithContext(context.Context) PartitionOrderArrayOutput
+}
+
+type PartitionOrderArray []PartitionOrderInput
+
+func (PartitionOrderArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PartitionOrder)(nil)).Elem()
+}
+
+func (i PartitionOrderArray) ToPartitionOrderArrayOutput() PartitionOrderArrayOutput {
+	return i.ToPartitionOrderArrayOutputWithContext(context.Background())
+}
+
+func (i PartitionOrderArray) ToPartitionOrderArrayOutputWithContext(ctx context.Context) PartitionOrderArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PartitionOrderArrayOutput)
+}
+
+// Specifies the sort order of a sorted column.
+type PartitionOrderOutput struct{ *pulumi.OutputState }
+
+func (PartitionOrderOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PartitionOrder)(nil)).Elem()
+}
+
+func (o PartitionOrderOutput) ToPartitionOrderOutput() PartitionOrderOutput {
+	return o
+}
+
+func (o PartitionOrderOutput) ToPartitionOrderOutputWithContext(ctx context.Context) PartitionOrderOutput {
+	return o
+}
+
+// The name of the column.
+func (o PartitionOrderOutput) Column() pulumi.StringOutput {
+	return o.ApplyT(func(v PartitionOrder) string { return v.Column }).(pulumi.StringOutput)
+}
+
+// Indicates that the column is sorted in ascending order (== 1), or in descending order (==0).
+func (o PartitionOrderOutput) SortOrder() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v PartitionOrder) *int { return v.SortOrder }).(pulumi.IntPtrOutput)
+}
+
+type PartitionOrderArrayOutput struct{ *pulumi.OutputState }
+
+func (PartitionOrderArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PartitionOrder)(nil)).Elem()
+}
+
+func (o PartitionOrderArrayOutput) ToPartitionOrderArrayOutput() PartitionOrderArrayOutput {
+	return o
+}
+
+func (o PartitionOrderArrayOutput) ToPartitionOrderArrayOutputWithContext(ctx context.Context) PartitionOrderArrayOutput {
+	return o
+}
+
+func (o PartitionOrderArrayOutput) Index(i pulumi.IntInput) PartitionOrderOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PartitionOrder {
+		return vs[0].([]PartitionOrder)[vs[1].(int)]
+	}).(PartitionOrderOutput)
+}
+
+// A structure that contains schema identity fields. Either this or the SchemaVersionId has to be provided.
+type PartitionSchemaId struct {
+	// The name of the schema registry that contains the schema.
+	RegistryName *string `pulumi:"registryName"`
+	// The Amazon Resource Name (ARN) of the schema. One of SchemaArn or SchemaName has to be provided.
+	SchemaArn *string `pulumi:"schemaArn"`
+	// The name of the schema. One of SchemaArn or SchemaName has to be provided.
+	SchemaName *string `pulumi:"schemaName"`
+}
+
+// PartitionSchemaIdInput is an input type that accepts PartitionSchemaIdArgs and PartitionSchemaIdOutput values.
+// You can construct a concrete instance of `PartitionSchemaIdInput` via:
+//
+//	PartitionSchemaIdArgs{...}
+type PartitionSchemaIdInput interface {
+	pulumi.Input
+
+	ToPartitionSchemaIdOutput() PartitionSchemaIdOutput
+	ToPartitionSchemaIdOutputWithContext(context.Context) PartitionSchemaIdOutput
+}
+
+// A structure that contains schema identity fields. Either this or the SchemaVersionId has to be provided.
+type PartitionSchemaIdArgs struct {
+	// The name of the schema registry that contains the schema.
+	RegistryName pulumi.StringPtrInput `pulumi:"registryName"`
+	// The Amazon Resource Name (ARN) of the schema. One of SchemaArn or SchemaName has to be provided.
+	SchemaArn pulumi.StringPtrInput `pulumi:"schemaArn"`
+	// The name of the schema. One of SchemaArn or SchemaName has to be provided.
+	SchemaName pulumi.StringPtrInput `pulumi:"schemaName"`
+}
+
+func (PartitionSchemaIdArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PartitionSchemaId)(nil)).Elem()
+}
+
+func (i PartitionSchemaIdArgs) ToPartitionSchemaIdOutput() PartitionSchemaIdOutput {
+	return i.ToPartitionSchemaIdOutputWithContext(context.Background())
+}
+
+func (i PartitionSchemaIdArgs) ToPartitionSchemaIdOutputWithContext(ctx context.Context) PartitionSchemaIdOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PartitionSchemaIdOutput)
+}
+
+func (i PartitionSchemaIdArgs) ToPartitionSchemaIdPtrOutput() PartitionSchemaIdPtrOutput {
+	return i.ToPartitionSchemaIdPtrOutputWithContext(context.Background())
+}
+
+func (i PartitionSchemaIdArgs) ToPartitionSchemaIdPtrOutputWithContext(ctx context.Context) PartitionSchemaIdPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PartitionSchemaIdOutput).ToPartitionSchemaIdPtrOutputWithContext(ctx)
+}
+
+// PartitionSchemaIdPtrInput is an input type that accepts PartitionSchemaIdArgs, PartitionSchemaIdPtr and PartitionSchemaIdPtrOutput values.
+// You can construct a concrete instance of `PartitionSchemaIdPtrInput` via:
+//
+//	        PartitionSchemaIdArgs{...}
+//
+//	or:
+//
+//	        nil
+type PartitionSchemaIdPtrInput interface {
+	pulumi.Input
+
+	ToPartitionSchemaIdPtrOutput() PartitionSchemaIdPtrOutput
+	ToPartitionSchemaIdPtrOutputWithContext(context.Context) PartitionSchemaIdPtrOutput
+}
+
+type partitionSchemaIdPtrType PartitionSchemaIdArgs
+
+func PartitionSchemaIdPtr(v *PartitionSchemaIdArgs) PartitionSchemaIdPtrInput {
+	return (*partitionSchemaIdPtrType)(v)
+}
+
+func (*partitionSchemaIdPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PartitionSchemaId)(nil)).Elem()
+}
+
+func (i *partitionSchemaIdPtrType) ToPartitionSchemaIdPtrOutput() PartitionSchemaIdPtrOutput {
+	return i.ToPartitionSchemaIdPtrOutputWithContext(context.Background())
+}
+
+func (i *partitionSchemaIdPtrType) ToPartitionSchemaIdPtrOutputWithContext(ctx context.Context) PartitionSchemaIdPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PartitionSchemaIdPtrOutput)
+}
+
+// A structure that contains schema identity fields. Either this or the SchemaVersionId has to be provided.
+type PartitionSchemaIdOutput struct{ *pulumi.OutputState }
+
+func (PartitionSchemaIdOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PartitionSchemaId)(nil)).Elem()
+}
+
+func (o PartitionSchemaIdOutput) ToPartitionSchemaIdOutput() PartitionSchemaIdOutput {
+	return o
+}
+
+func (o PartitionSchemaIdOutput) ToPartitionSchemaIdOutputWithContext(ctx context.Context) PartitionSchemaIdOutput {
+	return o
+}
+
+func (o PartitionSchemaIdOutput) ToPartitionSchemaIdPtrOutput() PartitionSchemaIdPtrOutput {
+	return o.ToPartitionSchemaIdPtrOutputWithContext(context.Background())
+}
+
+func (o PartitionSchemaIdOutput) ToPartitionSchemaIdPtrOutputWithContext(ctx context.Context) PartitionSchemaIdPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PartitionSchemaId) *PartitionSchemaId {
+		return &v
+	}).(PartitionSchemaIdPtrOutput)
+}
+
+// The name of the schema registry that contains the schema.
+func (o PartitionSchemaIdOutput) RegistryName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PartitionSchemaId) *string { return v.RegistryName }).(pulumi.StringPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the schema. One of SchemaArn or SchemaName has to be provided.
+func (o PartitionSchemaIdOutput) SchemaArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PartitionSchemaId) *string { return v.SchemaArn }).(pulumi.StringPtrOutput)
+}
+
+// The name of the schema. One of SchemaArn or SchemaName has to be provided.
+func (o PartitionSchemaIdOutput) SchemaName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PartitionSchemaId) *string { return v.SchemaName }).(pulumi.StringPtrOutput)
+}
+
+type PartitionSchemaIdPtrOutput struct{ *pulumi.OutputState }
+
+func (PartitionSchemaIdPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PartitionSchemaId)(nil)).Elem()
+}
+
+func (o PartitionSchemaIdPtrOutput) ToPartitionSchemaIdPtrOutput() PartitionSchemaIdPtrOutput {
+	return o
+}
+
+func (o PartitionSchemaIdPtrOutput) ToPartitionSchemaIdPtrOutputWithContext(ctx context.Context) PartitionSchemaIdPtrOutput {
+	return o
+}
+
+func (o PartitionSchemaIdPtrOutput) Elem() PartitionSchemaIdOutput {
+	return o.ApplyT(func(v *PartitionSchemaId) PartitionSchemaId {
+		if v != nil {
+			return *v
+		}
+		var ret PartitionSchemaId
+		return ret
+	}).(PartitionSchemaIdOutput)
+}
+
+// The name of the schema registry that contains the schema.
+func (o PartitionSchemaIdPtrOutput) RegistryName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PartitionSchemaId) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RegistryName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the schema. One of SchemaArn or SchemaName has to be provided.
+func (o PartitionSchemaIdPtrOutput) SchemaArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PartitionSchemaId) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SchemaArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the schema. One of SchemaArn or SchemaName has to be provided.
+func (o PartitionSchemaIdPtrOutput) SchemaName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PartitionSchemaId) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SchemaName
+	}).(pulumi.StringPtrOutput)
+}
+
+// An object that references a schema stored in the AWS Glue Schema Registry.
+type PartitionSchemaReference struct {
+	// A structure that contains schema identity fields. Either this or the `SchemaVersionId` has to be
+	// provided.
+	SchemaId *PartitionSchemaId `pulumi:"schemaId"`
+	// The unique ID assigned to a version of the schema. Either this or the SchemaId has to be provided.
+	SchemaVersionId *string `pulumi:"schemaVersionId"`
+	// The version number of the schema.
+	SchemaVersionNumber *int `pulumi:"schemaVersionNumber"`
+}
+
+// PartitionSchemaReferenceInput is an input type that accepts PartitionSchemaReferenceArgs and PartitionSchemaReferenceOutput values.
+// You can construct a concrete instance of `PartitionSchemaReferenceInput` via:
+//
+//	PartitionSchemaReferenceArgs{...}
+type PartitionSchemaReferenceInput interface {
+	pulumi.Input
+
+	ToPartitionSchemaReferenceOutput() PartitionSchemaReferenceOutput
+	ToPartitionSchemaReferenceOutputWithContext(context.Context) PartitionSchemaReferenceOutput
+}
+
+// An object that references a schema stored in the AWS Glue Schema Registry.
+type PartitionSchemaReferenceArgs struct {
+	// A structure that contains schema identity fields. Either this or the `SchemaVersionId` has to be
+	// provided.
+	SchemaId PartitionSchemaIdPtrInput `pulumi:"schemaId"`
+	// The unique ID assigned to a version of the schema. Either this or the SchemaId has to be provided.
+	SchemaVersionId pulumi.StringPtrInput `pulumi:"schemaVersionId"`
+	// The version number of the schema.
+	SchemaVersionNumber pulumi.IntPtrInput `pulumi:"schemaVersionNumber"`
+}
+
+func (PartitionSchemaReferenceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PartitionSchemaReference)(nil)).Elem()
+}
+
+func (i PartitionSchemaReferenceArgs) ToPartitionSchemaReferenceOutput() PartitionSchemaReferenceOutput {
+	return i.ToPartitionSchemaReferenceOutputWithContext(context.Background())
+}
+
+func (i PartitionSchemaReferenceArgs) ToPartitionSchemaReferenceOutputWithContext(ctx context.Context) PartitionSchemaReferenceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PartitionSchemaReferenceOutput)
+}
+
+func (i PartitionSchemaReferenceArgs) ToPartitionSchemaReferencePtrOutput() PartitionSchemaReferencePtrOutput {
+	return i.ToPartitionSchemaReferencePtrOutputWithContext(context.Background())
+}
+
+func (i PartitionSchemaReferenceArgs) ToPartitionSchemaReferencePtrOutputWithContext(ctx context.Context) PartitionSchemaReferencePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PartitionSchemaReferenceOutput).ToPartitionSchemaReferencePtrOutputWithContext(ctx)
+}
+
+// PartitionSchemaReferencePtrInput is an input type that accepts PartitionSchemaReferenceArgs, PartitionSchemaReferencePtr and PartitionSchemaReferencePtrOutput values.
+// You can construct a concrete instance of `PartitionSchemaReferencePtrInput` via:
+//
+//	        PartitionSchemaReferenceArgs{...}
+//
+//	or:
+//
+//	        nil
+type PartitionSchemaReferencePtrInput interface {
+	pulumi.Input
+
+	ToPartitionSchemaReferencePtrOutput() PartitionSchemaReferencePtrOutput
+	ToPartitionSchemaReferencePtrOutputWithContext(context.Context) PartitionSchemaReferencePtrOutput
+}
+
+type partitionSchemaReferencePtrType PartitionSchemaReferenceArgs
+
+func PartitionSchemaReferencePtr(v *PartitionSchemaReferenceArgs) PartitionSchemaReferencePtrInput {
+	return (*partitionSchemaReferencePtrType)(v)
+}
+
+func (*partitionSchemaReferencePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PartitionSchemaReference)(nil)).Elem()
+}
+
+func (i *partitionSchemaReferencePtrType) ToPartitionSchemaReferencePtrOutput() PartitionSchemaReferencePtrOutput {
+	return i.ToPartitionSchemaReferencePtrOutputWithContext(context.Background())
+}
+
+func (i *partitionSchemaReferencePtrType) ToPartitionSchemaReferencePtrOutputWithContext(ctx context.Context) PartitionSchemaReferencePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PartitionSchemaReferencePtrOutput)
+}
+
+// An object that references a schema stored in the AWS Glue Schema Registry.
+type PartitionSchemaReferenceOutput struct{ *pulumi.OutputState }
+
+func (PartitionSchemaReferenceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PartitionSchemaReference)(nil)).Elem()
+}
+
+func (o PartitionSchemaReferenceOutput) ToPartitionSchemaReferenceOutput() PartitionSchemaReferenceOutput {
+	return o
+}
+
+func (o PartitionSchemaReferenceOutput) ToPartitionSchemaReferenceOutputWithContext(ctx context.Context) PartitionSchemaReferenceOutput {
+	return o
+}
+
+func (o PartitionSchemaReferenceOutput) ToPartitionSchemaReferencePtrOutput() PartitionSchemaReferencePtrOutput {
+	return o.ToPartitionSchemaReferencePtrOutputWithContext(context.Background())
+}
+
+func (o PartitionSchemaReferenceOutput) ToPartitionSchemaReferencePtrOutputWithContext(ctx context.Context) PartitionSchemaReferencePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PartitionSchemaReference) *PartitionSchemaReference {
+		return &v
+	}).(PartitionSchemaReferencePtrOutput)
+}
+
+// A structure that contains schema identity fields. Either this or the `SchemaVersionId` has to be
+// provided.
+func (o PartitionSchemaReferenceOutput) SchemaId() PartitionSchemaIdPtrOutput {
+	return o.ApplyT(func(v PartitionSchemaReference) *PartitionSchemaId { return v.SchemaId }).(PartitionSchemaIdPtrOutput)
+}
+
+// The unique ID assigned to a version of the schema. Either this or the SchemaId has to be provided.
+func (o PartitionSchemaReferenceOutput) SchemaVersionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PartitionSchemaReference) *string { return v.SchemaVersionId }).(pulumi.StringPtrOutput)
+}
+
+// The version number of the schema.
+func (o PartitionSchemaReferenceOutput) SchemaVersionNumber() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v PartitionSchemaReference) *int { return v.SchemaVersionNumber }).(pulumi.IntPtrOutput)
+}
+
+type PartitionSchemaReferencePtrOutput struct{ *pulumi.OutputState }
+
+func (PartitionSchemaReferencePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PartitionSchemaReference)(nil)).Elem()
+}
+
+func (o PartitionSchemaReferencePtrOutput) ToPartitionSchemaReferencePtrOutput() PartitionSchemaReferencePtrOutput {
+	return o
+}
+
+func (o PartitionSchemaReferencePtrOutput) ToPartitionSchemaReferencePtrOutputWithContext(ctx context.Context) PartitionSchemaReferencePtrOutput {
+	return o
+}
+
+func (o PartitionSchemaReferencePtrOutput) Elem() PartitionSchemaReferenceOutput {
+	return o.ApplyT(func(v *PartitionSchemaReference) PartitionSchemaReference {
+		if v != nil {
+			return *v
+		}
+		var ret PartitionSchemaReference
+		return ret
+	}).(PartitionSchemaReferenceOutput)
+}
+
+// A structure that contains schema identity fields. Either this or the `SchemaVersionId` has to be
+// provided.
+func (o PartitionSchemaReferencePtrOutput) SchemaId() PartitionSchemaIdPtrOutput {
+	return o.ApplyT(func(v *PartitionSchemaReference) *PartitionSchemaId {
+		if v == nil {
+			return nil
+		}
+		return v.SchemaId
+	}).(PartitionSchemaIdPtrOutput)
+}
+
+// The unique ID assigned to a version of the schema. Either this or the SchemaId has to be provided.
+func (o PartitionSchemaReferencePtrOutput) SchemaVersionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PartitionSchemaReference) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SchemaVersionId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The version number of the schema.
+func (o PartitionSchemaReferencePtrOutput) SchemaVersionNumber() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *PartitionSchemaReference) *int {
+		if v == nil {
+			return nil
+		}
+		return v.SchemaVersionNumber
+	}).(pulumi.IntPtrOutput)
+}
+
+// The serialization/deserialization (SerDe) information.
+type PartitionSerdeInfo struct {
+	// Name of the SerDe.
+	Name *string `pulumi:"name"`
+	// These key-value pairs define initialization parameters for the SerDe.
+	Parameters interface{} `pulumi:"parameters"`
+	// Usually the class that implements the SerDe. An example is org.apache.hadoop.hive.serde2.columnar.ColumnarSerDe.
+	SerializationLibrary *string `pulumi:"serializationLibrary"`
+}
+
+// PartitionSerdeInfoInput is an input type that accepts PartitionSerdeInfoArgs and PartitionSerdeInfoOutput values.
+// You can construct a concrete instance of `PartitionSerdeInfoInput` via:
+//
+//	PartitionSerdeInfoArgs{...}
+type PartitionSerdeInfoInput interface {
+	pulumi.Input
+
+	ToPartitionSerdeInfoOutput() PartitionSerdeInfoOutput
+	ToPartitionSerdeInfoOutputWithContext(context.Context) PartitionSerdeInfoOutput
+}
+
+// The serialization/deserialization (SerDe) information.
+type PartitionSerdeInfoArgs struct {
+	// Name of the SerDe.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// These key-value pairs define initialization parameters for the SerDe.
+	Parameters pulumi.Input `pulumi:"parameters"`
+	// Usually the class that implements the SerDe. An example is org.apache.hadoop.hive.serde2.columnar.ColumnarSerDe.
+	SerializationLibrary pulumi.StringPtrInput `pulumi:"serializationLibrary"`
+}
+
+func (PartitionSerdeInfoArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PartitionSerdeInfo)(nil)).Elem()
+}
+
+func (i PartitionSerdeInfoArgs) ToPartitionSerdeInfoOutput() PartitionSerdeInfoOutput {
+	return i.ToPartitionSerdeInfoOutputWithContext(context.Background())
+}
+
+func (i PartitionSerdeInfoArgs) ToPartitionSerdeInfoOutputWithContext(ctx context.Context) PartitionSerdeInfoOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PartitionSerdeInfoOutput)
+}
+
+func (i PartitionSerdeInfoArgs) ToPartitionSerdeInfoPtrOutput() PartitionSerdeInfoPtrOutput {
+	return i.ToPartitionSerdeInfoPtrOutputWithContext(context.Background())
+}
+
+func (i PartitionSerdeInfoArgs) ToPartitionSerdeInfoPtrOutputWithContext(ctx context.Context) PartitionSerdeInfoPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PartitionSerdeInfoOutput).ToPartitionSerdeInfoPtrOutputWithContext(ctx)
+}
+
+// PartitionSerdeInfoPtrInput is an input type that accepts PartitionSerdeInfoArgs, PartitionSerdeInfoPtr and PartitionSerdeInfoPtrOutput values.
+// You can construct a concrete instance of `PartitionSerdeInfoPtrInput` via:
+//
+//	        PartitionSerdeInfoArgs{...}
+//
+//	or:
+//
+//	        nil
+type PartitionSerdeInfoPtrInput interface {
+	pulumi.Input
+
+	ToPartitionSerdeInfoPtrOutput() PartitionSerdeInfoPtrOutput
+	ToPartitionSerdeInfoPtrOutputWithContext(context.Context) PartitionSerdeInfoPtrOutput
+}
+
+type partitionSerdeInfoPtrType PartitionSerdeInfoArgs
+
+func PartitionSerdeInfoPtr(v *PartitionSerdeInfoArgs) PartitionSerdeInfoPtrInput {
+	return (*partitionSerdeInfoPtrType)(v)
+}
+
+func (*partitionSerdeInfoPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PartitionSerdeInfo)(nil)).Elem()
+}
+
+func (i *partitionSerdeInfoPtrType) ToPartitionSerdeInfoPtrOutput() PartitionSerdeInfoPtrOutput {
+	return i.ToPartitionSerdeInfoPtrOutputWithContext(context.Background())
+}
+
+func (i *partitionSerdeInfoPtrType) ToPartitionSerdeInfoPtrOutputWithContext(ctx context.Context) PartitionSerdeInfoPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PartitionSerdeInfoPtrOutput)
+}
+
+// The serialization/deserialization (SerDe) information.
+type PartitionSerdeInfoOutput struct{ *pulumi.OutputState }
+
+func (PartitionSerdeInfoOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PartitionSerdeInfo)(nil)).Elem()
+}
+
+func (o PartitionSerdeInfoOutput) ToPartitionSerdeInfoOutput() PartitionSerdeInfoOutput {
+	return o
+}
+
+func (o PartitionSerdeInfoOutput) ToPartitionSerdeInfoOutputWithContext(ctx context.Context) PartitionSerdeInfoOutput {
+	return o
+}
+
+func (o PartitionSerdeInfoOutput) ToPartitionSerdeInfoPtrOutput() PartitionSerdeInfoPtrOutput {
+	return o.ToPartitionSerdeInfoPtrOutputWithContext(context.Background())
+}
+
+func (o PartitionSerdeInfoOutput) ToPartitionSerdeInfoPtrOutputWithContext(ctx context.Context) PartitionSerdeInfoPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PartitionSerdeInfo) *PartitionSerdeInfo {
+		return &v
+	}).(PartitionSerdeInfoPtrOutput)
+}
+
+// Name of the SerDe.
+func (o PartitionSerdeInfoOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PartitionSerdeInfo) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// These key-value pairs define initialization parameters for the SerDe.
+func (o PartitionSerdeInfoOutput) Parameters() pulumi.AnyOutput {
+	return o.ApplyT(func(v PartitionSerdeInfo) interface{} { return v.Parameters }).(pulumi.AnyOutput)
+}
+
+// Usually the class that implements the SerDe. An example is org.apache.hadoop.hive.serde2.columnar.ColumnarSerDe.
+func (o PartitionSerdeInfoOutput) SerializationLibrary() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PartitionSerdeInfo) *string { return v.SerializationLibrary }).(pulumi.StringPtrOutput)
+}
+
+type PartitionSerdeInfoPtrOutput struct{ *pulumi.OutputState }
+
+func (PartitionSerdeInfoPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PartitionSerdeInfo)(nil)).Elem()
+}
+
+func (o PartitionSerdeInfoPtrOutput) ToPartitionSerdeInfoPtrOutput() PartitionSerdeInfoPtrOutput {
+	return o
+}
+
+func (o PartitionSerdeInfoPtrOutput) ToPartitionSerdeInfoPtrOutputWithContext(ctx context.Context) PartitionSerdeInfoPtrOutput {
+	return o
+}
+
+func (o PartitionSerdeInfoPtrOutput) Elem() PartitionSerdeInfoOutput {
+	return o.ApplyT(func(v *PartitionSerdeInfo) PartitionSerdeInfo {
+		if v != nil {
+			return *v
+		}
+		var ret PartitionSerdeInfo
+		return ret
+	}).(PartitionSerdeInfoOutput)
+}
+
+// Name of the SerDe.
+func (o PartitionSerdeInfoPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PartitionSerdeInfo) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// These key-value pairs define initialization parameters for the SerDe.
+func (o PartitionSerdeInfoPtrOutput) Parameters() pulumi.AnyOutput {
+	return o.ApplyT(func(v *PartitionSerdeInfo) interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.Parameters
+	}).(pulumi.AnyOutput)
+}
+
+// Usually the class that implements the SerDe. An example is org.apache.hadoop.hive.serde2.columnar.ColumnarSerDe.
+func (o PartitionSerdeInfoPtrOutput) SerializationLibrary() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PartitionSerdeInfo) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SerializationLibrary
+	}).(pulumi.StringPtrOutput)
+}
+
+// The information about values that appear frequently in a column (skewed values).
+type PartitionSkewedInfo struct {
+	// A list of values that appear so frequently as to be considered skewed.
+	SkewedColumnNames []string `pulumi:"skewedColumnNames"`
+	// A mapping of skewed values to the columns that contain them.
+	SkewedColumnValueLocationMaps interface{} `pulumi:"skewedColumnValueLocationMaps"`
+	// A list of names of columns that contain skewed values.
+	SkewedColumnValues []string `pulumi:"skewedColumnValues"`
+}
+
+// PartitionSkewedInfoInput is an input type that accepts PartitionSkewedInfoArgs and PartitionSkewedInfoOutput values.
+// You can construct a concrete instance of `PartitionSkewedInfoInput` via:
+//
+//	PartitionSkewedInfoArgs{...}
+type PartitionSkewedInfoInput interface {
+	pulumi.Input
+
+	ToPartitionSkewedInfoOutput() PartitionSkewedInfoOutput
+	ToPartitionSkewedInfoOutputWithContext(context.Context) PartitionSkewedInfoOutput
+}
+
+// The information about values that appear frequently in a column (skewed values).
+type PartitionSkewedInfoArgs struct {
+	// A list of values that appear so frequently as to be considered skewed.
+	SkewedColumnNames pulumi.StringArrayInput `pulumi:"skewedColumnNames"`
+	// A mapping of skewed values to the columns that contain them.
+	SkewedColumnValueLocationMaps pulumi.Input `pulumi:"skewedColumnValueLocationMaps"`
+	// A list of names of columns that contain skewed values.
+	SkewedColumnValues pulumi.StringArrayInput `pulumi:"skewedColumnValues"`
+}
+
+func (PartitionSkewedInfoArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PartitionSkewedInfo)(nil)).Elem()
+}
+
+func (i PartitionSkewedInfoArgs) ToPartitionSkewedInfoOutput() PartitionSkewedInfoOutput {
+	return i.ToPartitionSkewedInfoOutputWithContext(context.Background())
+}
+
+func (i PartitionSkewedInfoArgs) ToPartitionSkewedInfoOutputWithContext(ctx context.Context) PartitionSkewedInfoOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PartitionSkewedInfoOutput)
+}
+
+func (i PartitionSkewedInfoArgs) ToPartitionSkewedInfoPtrOutput() PartitionSkewedInfoPtrOutput {
+	return i.ToPartitionSkewedInfoPtrOutputWithContext(context.Background())
+}
+
+func (i PartitionSkewedInfoArgs) ToPartitionSkewedInfoPtrOutputWithContext(ctx context.Context) PartitionSkewedInfoPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PartitionSkewedInfoOutput).ToPartitionSkewedInfoPtrOutputWithContext(ctx)
+}
+
+// PartitionSkewedInfoPtrInput is an input type that accepts PartitionSkewedInfoArgs, PartitionSkewedInfoPtr and PartitionSkewedInfoPtrOutput values.
+// You can construct a concrete instance of `PartitionSkewedInfoPtrInput` via:
+//
+//	        PartitionSkewedInfoArgs{...}
+//
+//	or:
+//
+//	        nil
+type PartitionSkewedInfoPtrInput interface {
+	pulumi.Input
+
+	ToPartitionSkewedInfoPtrOutput() PartitionSkewedInfoPtrOutput
+	ToPartitionSkewedInfoPtrOutputWithContext(context.Context) PartitionSkewedInfoPtrOutput
+}
+
+type partitionSkewedInfoPtrType PartitionSkewedInfoArgs
+
+func PartitionSkewedInfoPtr(v *PartitionSkewedInfoArgs) PartitionSkewedInfoPtrInput {
+	return (*partitionSkewedInfoPtrType)(v)
+}
+
+func (*partitionSkewedInfoPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PartitionSkewedInfo)(nil)).Elem()
+}
+
+func (i *partitionSkewedInfoPtrType) ToPartitionSkewedInfoPtrOutput() PartitionSkewedInfoPtrOutput {
+	return i.ToPartitionSkewedInfoPtrOutputWithContext(context.Background())
+}
+
+func (i *partitionSkewedInfoPtrType) ToPartitionSkewedInfoPtrOutputWithContext(ctx context.Context) PartitionSkewedInfoPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PartitionSkewedInfoPtrOutput)
+}
+
+// The information about values that appear frequently in a column (skewed values).
+type PartitionSkewedInfoOutput struct{ *pulumi.OutputState }
+
+func (PartitionSkewedInfoOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PartitionSkewedInfo)(nil)).Elem()
+}
+
+func (o PartitionSkewedInfoOutput) ToPartitionSkewedInfoOutput() PartitionSkewedInfoOutput {
+	return o
+}
+
+func (o PartitionSkewedInfoOutput) ToPartitionSkewedInfoOutputWithContext(ctx context.Context) PartitionSkewedInfoOutput {
+	return o
+}
+
+func (o PartitionSkewedInfoOutput) ToPartitionSkewedInfoPtrOutput() PartitionSkewedInfoPtrOutput {
+	return o.ToPartitionSkewedInfoPtrOutputWithContext(context.Background())
+}
+
+func (o PartitionSkewedInfoOutput) ToPartitionSkewedInfoPtrOutputWithContext(ctx context.Context) PartitionSkewedInfoPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PartitionSkewedInfo) *PartitionSkewedInfo {
+		return &v
+	}).(PartitionSkewedInfoPtrOutput)
+}
+
+// A list of values that appear so frequently as to be considered skewed.
+func (o PartitionSkewedInfoOutput) SkewedColumnNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v PartitionSkewedInfo) []string { return v.SkewedColumnNames }).(pulumi.StringArrayOutput)
+}
+
+// A mapping of skewed values to the columns that contain them.
+func (o PartitionSkewedInfoOutput) SkewedColumnValueLocationMaps() pulumi.AnyOutput {
+	return o.ApplyT(func(v PartitionSkewedInfo) interface{} { return v.SkewedColumnValueLocationMaps }).(pulumi.AnyOutput)
+}
+
+// A list of names of columns that contain skewed values.
+func (o PartitionSkewedInfoOutput) SkewedColumnValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v PartitionSkewedInfo) []string { return v.SkewedColumnValues }).(pulumi.StringArrayOutput)
+}
+
+type PartitionSkewedInfoPtrOutput struct{ *pulumi.OutputState }
+
+func (PartitionSkewedInfoPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PartitionSkewedInfo)(nil)).Elem()
+}
+
+func (o PartitionSkewedInfoPtrOutput) ToPartitionSkewedInfoPtrOutput() PartitionSkewedInfoPtrOutput {
+	return o
+}
+
+func (o PartitionSkewedInfoPtrOutput) ToPartitionSkewedInfoPtrOutputWithContext(ctx context.Context) PartitionSkewedInfoPtrOutput {
+	return o
+}
+
+func (o PartitionSkewedInfoPtrOutput) Elem() PartitionSkewedInfoOutput {
+	return o.ApplyT(func(v *PartitionSkewedInfo) PartitionSkewedInfo {
+		if v != nil {
+			return *v
+		}
+		var ret PartitionSkewedInfo
+		return ret
+	}).(PartitionSkewedInfoOutput)
+}
+
+// A list of values that appear so frequently as to be considered skewed.
+func (o PartitionSkewedInfoPtrOutput) SkewedColumnNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *PartitionSkewedInfo) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SkewedColumnNames
+	}).(pulumi.StringArrayOutput)
+}
+
+// A mapping of skewed values to the columns that contain them.
+func (o PartitionSkewedInfoPtrOutput) SkewedColumnValueLocationMaps() pulumi.AnyOutput {
+	return o.ApplyT(func(v *PartitionSkewedInfo) interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.SkewedColumnValueLocationMaps
+	}).(pulumi.AnyOutput)
+}
+
+// A list of names of columns that contain skewed values.
+func (o PartitionSkewedInfoPtrOutput) SkewedColumnValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *PartitionSkewedInfo) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SkewedColumnValues
+	}).(pulumi.StringArrayOutput)
+}
+
+// Provides information about the physical location where the partition is stored.
+type PartitionStorageDescriptor struct {
+	// A list of reducer grouping columns, clustering columns, and bucketing columns in the table.
+	BucketColumns []string `pulumi:"bucketColumns"`
+	// A list of the Columns in the table.
+	Columns []PartitionColumn `pulumi:"columns"`
+	// True if the data in the table is compressed, or False if not.
+	Compressed *bool `pulumi:"compressed"`
+	// The input format: SequenceFileInputFormat (binary), or TextInputFormat, or a custom format.
+	InputFormat *string `pulumi:"inputFormat"`
+	// The physical location of the table. By default, this takes the form of the warehouse location, followed by the database location in the warehouse, followed by the table name.
+	Location *string `pulumi:"location"`
+	// The number of buckets. You must specify this property if the partition contains any dimension columns.
+	NumberOfBuckets *int `pulumi:"numberOfBuckets"`
+	// The output format: SequenceFileOutputFormat (binary), or IgnoreKeyTextOutputFormat, or a custom format.
+	OutputFormat *string `pulumi:"outputFormat"`
+	// The user-supplied properties in key-value form.
+	Parameters interface{} `pulumi:"parameters"`
+	// An object that references a schema stored in the AWS Glue Schema Registry.
+	SchemaReference *PartitionSchemaReference `pulumi:"schemaReference"`
+	// The serialization/deserialization (SerDe) information.
+	SerdeInfo *PartitionSerdeInfo `pulumi:"serdeInfo"`
+	// The information about values that appear frequently in a column (skewed values).
+	SkewedInfo *PartitionSkewedInfo `pulumi:"skewedInfo"`
+	// A list specifying the sort order of each bucket in the table.
+	SortColumns []PartitionOrder `pulumi:"sortColumns"`
+	// True if the table data is stored in subdirectories, or False if not.
+	StoredAsSubDirectories *bool `pulumi:"storedAsSubDirectories"`
+}
+
+// PartitionStorageDescriptorInput is an input type that accepts PartitionStorageDescriptorArgs and PartitionStorageDescriptorOutput values.
+// You can construct a concrete instance of `PartitionStorageDescriptorInput` via:
+//
+//	PartitionStorageDescriptorArgs{...}
+type PartitionStorageDescriptorInput interface {
+	pulumi.Input
+
+	ToPartitionStorageDescriptorOutput() PartitionStorageDescriptorOutput
+	ToPartitionStorageDescriptorOutputWithContext(context.Context) PartitionStorageDescriptorOutput
+}
+
+// Provides information about the physical location where the partition is stored.
+type PartitionStorageDescriptorArgs struct {
+	// A list of reducer grouping columns, clustering columns, and bucketing columns in the table.
+	BucketColumns pulumi.StringArrayInput `pulumi:"bucketColumns"`
+	// A list of the Columns in the table.
+	Columns PartitionColumnArrayInput `pulumi:"columns"`
+	// True if the data in the table is compressed, or False if not.
+	Compressed pulumi.BoolPtrInput `pulumi:"compressed"`
+	// The input format: SequenceFileInputFormat (binary), or TextInputFormat, or a custom format.
+	InputFormat pulumi.StringPtrInput `pulumi:"inputFormat"`
+	// The physical location of the table. By default, this takes the form of the warehouse location, followed by the database location in the warehouse, followed by the table name.
+	Location pulumi.StringPtrInput `pulumi:"location"`
+	// The number of buckets. You must specify this property if the partition contains any dimension columns.
+	NumberOfBuckets pulumi.IntPtrInput `pulumi:"numberOfBuckets"`
+	// The output format: SequenceFileOutputFormat (binary), or IgnoreKeyTextOutputFormat, or a custom format.
+	OutputFormat pulumi.StringPtrInput `pulumi:"outputFormat"`
+	// The user-supplied properties in key-value form.
+	Parameters pulumi.Input `pulumi:"parameters"`
+	// An object that references a schema stored in the AWS Glue Schema Registry.
+	SchemaReference PartitionSchemaReferencePtrInput `pulumi:"schemaReference"`
+	// The serialization/deserialization (SerDe) information.
+	SerdeInfo PartitionSerdeInfoPtrInput `pulumi:"serdeInfo"`
+	// The information about values that appear frequently in a column (skewed values).
+	SkewedInfo PartitionSkewedInfoPtrInput `pulumi:"skewedInfo"`
+	// A list specifying the sort order of each bucket in the table.
+	SortColumns PartitionOrderArrayInput `pulumi:"sortColumns"`
+	// True if the table data is stored in subdirectories, or False if not.
+	StoredAsSubDirectories pulumi.BoolPtrInput `pulumi:"storedAsSubDirectories"`
+}
+
+func (PartitionStorageDescriptorArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PartitionStorageDescriptor)(nil)).Elem()
+}
+
+func (i PartitionStorageDescriptorArgs) ToPartitionStorageDescriptorOutput() PartitionStorageDescriptorOutput {
+	return i.ToPartitionStorageDescriptorOutputWithContext(context.Background())
+}
+
+func (i PartitionStorageDescriptorArgs) ToPartitionStorageDescriptorOutputWithContext(ctx context.Context) PartitionStorageDescriptorOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PartitionStorageDescriptorOutput)
+}
+
+func (i PartitionStorageDescriptorArgs) ToPartitionStorageDescriptorPtrOutput() PartitionStorageDescriptorPtrOutput {
+	return i.ToPartitionStorageDescriptorPtrOutputWithContext(context.Background())
+}
+
+func (i PartitionStorageDescriptorArgs) ToPartitionStorageDescriptorPtrOutputWithContext(ctx context.Context) PartitionStorageDescriptorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PartitionStorageDescriptorOutput).ToPartitionStorageDescriptorPtrOutputWithContext(ctx)
+}
+
+// PartitionStorageDescriptorPtrInput is an input type that accepts PartitionStorageDescriptorArgs, PartitionStorageDescriptorPtr and PartitionStorageDescriptorPtrOutput values.
+// You can construct a concrete instance of `PartitionStorageDescriptorPtrInput` via:
+//
+//	        PartitionStorageDescriptorArgs{...}
+//
+//	or:
+//
+//	        nil
+type PartitionStorageDescriptorPtrInput interface {
+	pulumi.Input
+
+	ToPartitionStorageDescriptorPtrOutput() PartitionStorageDescriptorPtrOutput
+	ToPartitionStorageDescriptorPtrOutputWithContext(context.Context) PartitionStorageDescriptorPtrOutput
+}
+
+type partitionStorageDescriptorPtrType PartitionStorageDescriptorArgs
+
+func PartitionStorageDescriptorPtr(v *PartitionStorageDescriptorArgs) PartitionStorageDescriptorPtrInput {
+	return (*partitionStorageDescriptorPtrType)(v)
+}
+
+func (*partitionStorageDescriptorPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PartitionStorageDescriptor)(nil)).Elem()
+}
+
+func (i *partitionStorageDescriptorPtrType) ToPartitionStorageDescriptorPtrOutput() PartitionStorageDescriptorPtrOutput {
+	return i.ToPartitionStorageDescriptorPtrOutputWithContext(context.Background())
+}
+
+func (i *partitionStorageDescriptorPtrType) ToPartitionStorageDescriptorPtrOutputWithContext(ctx context.Context) PartitionStorageDescriptorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PartitionStorageDescriptorPtrOutput)
+}
+
+// Provides information about the physical location where the partition is stored.
+type PartitionStorageDescriptorOutput struct{ *pulumi.OutputState }
+
+func (PartitionStorageDescriptorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PartitionStorageDescriptor)(nil)).Elem()
+}
+
+func (o PartitionStorageDescriptorOutput) ToPartitionStorageDescriptorOutput() PartitionStorageDescriptorOutput {
+	return o
+}
+
+func (o PartitionStorageDescriptorOutput) ToPartitionStorageDescriptorOutputWithContext(ctx context.Context) PartitionStorageDescriptorOutput {
+	return o
+}
+
+func (o PartitionStorageDescriptorOutput) ToPartitionStorageDescriptorPtrOutput() PartitionStorageDescriptorPtrOutput {
+	return o.ToPartitionStorageDescriptorPtrOutputWithContext(context.Background())
+}
+
+func (o PartitionStorageDescriptorOutput) ToPartitionStorageDescriptorPtrOutputWithContext(ctx context.Context) PartitionStorageDescriptorPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PartitionStorageDescriptor) *PartitionStorageDescriptor {
+		return &v
+	}).(PartitionStorageDescriptorPtrOutput)
+}
+
+// A list of reducer grouping columns, clustering columns, and bucketing columns in the table.
+func (o PartitionStorageDescriptorOutput) BucketColumns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v PartitionStorageDescriptor) []string { return v.BucketColumns }).(pulumi.StringArrayOutput)
+}
+
+// A list of the Columns in the table.
+func (o PartitionStorageDescriptorOutput) Columns() PartitionColumnArrayOutput {
+	return o.ApplyT(func(v PartitionStorageDescriptor) []PartitionColumn { return v.Columns }).(PartitionColumnArrayOutput)
+}
+
+// True if the data in the table is compressed, or False if not.
+func (o PartitionStorageDescriptorOutput) Compressed() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v PartitionStorageDescriptor) *bool { return v.Compressed }).(pulumi.BoolPtrOutput)
+}
+
+// The input format: SequenceFileInputFormat (binary), or TextInputFormat, or a custom format.
+func (o PartitionStorageDescriptorOutput) InputFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PartitionStorageDescriptor) *string { return v.InputFormat }).(pulumi.StringPtrOutput)
+}
+
+// The physical location of the table. By default, this takes the form of the warehouse location, followed by the database location in the warehouse, followed by the table name.
+func (o PartitionStorageDescriptorOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PartitionStorageDescriptor) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The number of buckets. You must specify this property if the partition contains any dimension columns.
+func (o PartitionStorageDescriptorOutput) NumberOfBuckets() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v PartitionStorageDescriptor) *int { return v.NumberOfBuckets }).(pulumi.IntPtrOutput)
+}
+
+// The output format: SequenceFileOutputFormat (binary), or IgnoreKeyTextOutputFormat, or a custom format.
+func (o PartitionStorageDescriptorOutput) OutputFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PartitionStorageDescriptor) *string { return v.OutputFormat }).(pulumi.StringPtrOutput)
+}
+
+// The user-supplied properties in key-value form.
+func (o PartitionStorageDescriptorOutput) Parameters() pulumi.AnyOutput {
+	return o.ApplyT(func(v PartitionStorageDescriptor) interface{} { return v.Parameters }).(pulumi.AnyOutput)
+}
+
+// An object that references a schema stored in the AWS Glue Schema Registry.
+func (o PartitionStorageDescriptorOutput) SchemaReference() PartitionSchemaReferencePtrOutput {
+	return o.ApplyT(func(v PartitionStorageDescriptor) *PartitionSchemaReference { return v.SchemaReference }).(PartitionSchemaReferencePtrOutput)
+}
+
+// The serialization/deserialization (SerDe) information.
+func (o PartitionStorageDescriptorOutput) SerdeInfo() PartitionSerdeInfoPtrOutput {
+	return o.ApplyT(func(v PartitionStorageDescriptor) *PartitionSerdeInfo { return v.SerdeInfo }).(PartitionSerdeInfoPtrOutput)
+}
+
+// The information about values that appear frequently in a column (skewed values).
+func (o PartitionStorageDescriptorOutput) SkewedInfo() PartitionSkewedInfoPtrOutput {
+	return o.ApplyT(func(v PartitionStorageDescriptor) *PartitionSkewedInfo { return v.SkewedInfo }).(PartitionSkewedInfoPtrOutput)
+}
+
+// A list specifying the sort order of each bucket in the table.
+func (o PartitionStorageDescriptorOutput) SortColumns() PartitionOrderArrayOutput {
+	return o.ApplyT(func(v PartitionStorageDescriptor) []PartitionOrder { return v.SortColumns }).(PartitionOrderArrayOutput)
+}
+
+// True if the table data is stored in subdirectories, or False if not.
+func (o PartitionStorageDescriptorOutput) StoredAsSubDirectories() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v PartitionStorageDescriptor) *bool { return v.StoredAsSubDirectories }).(pulumi.BoolPtrOutput)
+}
+
+type PartitionStorageDescriptorPtrOutput struct{ *pulumi.OutputState }
+
+func (PartitionStorageDescriptorPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PartitionStorageDescriptor)(nil)).Elem()
+}
+
+func (o PartitionStorageDescriptorPtrOutput) ToPartitionStorageDescriptorPtrOutput() PartitionStorageDescriptorPtrOutput {
+	return o
+}
+
+func (o PartitionStorageDescriptorPtrOutput) ToPartitionStorageDescriptorPtrOutputWithContext(ctx context.Context) PartitionStorageDescriptorPtrOutput {
+	return o
+}
+
+func (o PartitionStorageDescriptorPtrOutput) Elem() PartitionStorageDescriptorOutput {
+	return o.ApplyT(func(v *PartitionStorageDescriptor) PartitionStorageDescriptor {
+		if v != nil {
+			return *v
+		}
+		var ret PartitionStorageDescriptor
+		return ret
+	}).(PartitionStorageDescriptorOutput)
+}
+
+// A list of reducer grouping columns, clustering columns, and bucketing columns in the table.
+func (o PartitionStorageDescriptorPtrOutput) BucketColumns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *PartitionStorageDescriptor) []string {
+		if v == nil {
+			return nil
+		}
+		return v.BucketColumns
+	}).(pulumi.StringArrayOutput)
+}
+
+// A list of the Columns in the table.
+func (o PartitionStorageDescriptorPtrOutput) Columns() PartitionColumnArrayOutput {
+	return o.ApplyT(func(v *PartitionStorageDescriptor) []PartitionColumn {
+		if v == nil {
+			return nil
+		}
+		return v.Columns
+	}).(PartitionColumnArrayOutput)
+}
+
+// True if the data in the table is compressed, or False if not.
+func (o PartitionStorageDescriptorPtrOutput) Compressed() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *PartitionStorageDescriptor) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Compressed
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The input format: SequenceFileInputFormat (binary), or TextInputFormat, or a custom format.
+func (o PartitionStorageDescriptorPtrOutput) InputFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PartitionStorageDescriptor) *string {
+		if v == nil {
+			return nil
+		}
+		return v.InputFormat
+	}).(pulumi.StringPtrOutput)
+}
+
+// The physical location of the table. By default, this takes the form of the warehouse location, followed by the database location in the warehouse, followed by the table name.
+func (o PartitionStorageDescriptorPtrOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PartitionStorageDescriptor) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Location
+	}).(pulumi.StringPtrOutput)
+}
+
+// The number of buckets. You must specify this property if the partition contains any dimension columns.
+func (o PartitionStorageDescriptorPtrOutput) NumberOfBuckets() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *PartitionStorageDescriptor) *int {
+		if v == nil {
+			return nil
+		}
+		return v.NumberOfBuckets
+	}).(pulumi.IntPtrOutput)
+}
+
+// The output format: SequenceFileOutputFormat (binary), or IgnoreKeyTextOutputFormat, or a custom format.
+func (o PartitionStorageDescriptorPtrOutput) OutputFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PartitionStorageDescriptor) *string {
+		if v == nil {
+			return nil
+		}
+		return v.OutputFormat
+	}).(pulumi.StringPtrOutput)
+}
+
+// The user-supplied properties in key-value form.
+func (o PartitionStorageDescriptorPtrOutput) Parameters() pulumi.AnyOutput {
+	return o.ApplyT(func(v *PartitionStorageDescriptor) interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.Parameters
+	}).(pulumi.AnyOutput)
+}
+
+// An object that references a schema stored in the AWS Glue Schema Registry.
+func (o PartitionStorageDescriptorPtrOutput) SchemaReference() PartitionSchemaReferencePtrOutput {
+	return o.ApplyT(func(v *PartitionStorageDescriptor) *PartitionSchemaReference {
+		if v == nil {
+			return nil
+		}
+		return v.SchemaReference
+	}).(PartitionSchemaReferencePtrOutput)
+}
+
+// The serialization/deserialization (SerDe) information.
+func (o PartitionStorageDescriptorPtrOutput) SerdeInfo() PartitionSerdeInfoPtrOutput {
+	return o.ApplyT(func(v *PartitionStorageDescriptor) *PartitionSerdeInfo {
+		if v == nil {
+			return nil
+		}
+		return v.SerdeInfo
+	}).(PartitionSerdeInfoPtrOutput)
+}
+
+// The information about values that appear frequently in a column (skewed values).
+func (o PartitionStorageDescriptorPtrOutput) SkewedInfo() PartitionSkewedInfoPtrOutput {
+	return o.ApplyT(func(v *PartitionStorageDescriptor) *PartitionSkewedInfo {
+		if v == nil {
+			return nil
+		}
+		return v.SkewedInfo
+	}).(PartitionSkewedInfoPtrOutput)
+}
+
+// A list specifying the sort order of each bucket in the table.
+func (o PartitionStorageDescriptorPtrOutput) SortColumns() PartitionOrderArrayOutput {
+	return o.ApplyT(func(v *PartitionStorageDescriptor) []PartitionOrder {
+		if v == nil {
+			return nil
+		}
+		return v.SortColumns
+	}).(PartitionOrderArrayOutput)
+}
+
+// True if the table data is stored in subdirectories, or False if not.
+func (o PartitionStorageDescriptorPtrOutput) StoredAsSubDirectories() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *PartitionStorageDescriptor) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.StoredAsSubDirectories
+	}).(pulumi.BoolPtrOutput)
+}
+
 type RegistryTag struct {
 	// A key to identify the tag.
 	Key string `pulumi:"key"`
@@ -16908,6 +18346,21 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*MlTransformTransformEncryptionInput)(nil)).Elem(), MlTransformTransformEncryptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MlTransformTransformEncryptionPtrInput)(nil)).Elem(), MlTransformTransformEncryptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MlTransformTransformParametersInput)(nil)).Elem(), MlTransformTransformParametersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PartitionColumnInput)(nil)).Elem(), PartitionColumnArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PartitionColumnArrayInput)(nil)).Elem(), PartitionColumnArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PartitionInputTypeInput)(nil)).Elem(), PartitionInputTypeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PartitionOrderInput)(nil)).Elem(), PartitionOrderArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PartitionOrderArrayInput)(nil)).Elem(), PartitionOrderArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PartitionSchemaIdInput)(nil)).Elem(), PartitionSchemaIdArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PartitionSchemaIdPtrInput)(nil)).Elem(), PartitionSchemaIdArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PartitionSchemaReferenceInput)(nil)).Elem(), PartitionSchemaReferenceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PartitionSchemaReferencePtrInput)(nil)).Elem(), PartitionSchemaReferenceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PartitionSerdeInfoInput)(nil)).Elem(), PartitionSerdeInfoArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PartitionSerdeInfoPtrInput)(nil)).Elem(), PartitionSerdeInfoArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PartitionSkewedInfoInput)(nil)).Elem(), PartitionSkewedInfoArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PartitionSkewedInfoPtrInput)(nil)).Elem(), PartitionSkewedInfoArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PartitionStorageDescriptorInput)(nil)).Elem(), PartitionStorageDescriptorArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PartitionStorageDescriptorPtrInput)(nil)).Elem(), PartitionStorageDescriptorArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SchemaRegistryInput)(nil)).Elem(), SchemaRegistryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SchemaRegistryPtrInput)(nil)).Elem(), SchemaRegistryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SchemaVersionTypeInput)(nil)).Elem(), SchemaVersionTypeArgs{})
@@ -17110,6 +18563,22 @@ func init() {
 	pulumi.RegisterOutputType(MlTransformTransformEncryptionPtrOutput{})
 	pulumi.RegisterOutputType(MlTransformTransformParametersOutput{})
 	pulumi.RegisterOutputType(MlTransformTransformParametersPtrOutput{})
+	pulumi.RegisterOutputType(PartitionColumnOutput{})
+	pulumi.RegisterOutputType(PartitionColumnArrayOutput{})
+	pulumi.RegisterOutputType(PartitionInputTypeOutput{})
+	pulumi.RegisterOutputType(PartitionInputTypePtrOutput{})
+	pulumi.RegisterOutputType(PartitionOrderOutput{})
+	pulumi.RegisterOutputType(PartitionOrderArrayOutput{})
+	pulumi.RegisterOutputType(PartitionSchemaIdOutput{})
+	pulumi.RegisterOutputType(PartitionSchemaIdPtrOutput{})
+	pulumi.RegisterOutputType(PartitionSchemaReferenceOutput{})
+	pulumi.RegisterOutputType(PartitionSchemaReferencePtrOutput{})
+	pulumi.RegisterOutputType(PartitionSerdeInfoOutput{})
+	pulumi.RegisterOutputType(PartitionSerdeInfoPtrOutput{})
+	pulumi.RegisterOutputType(PartitionSkewedInfoOutput{})
+	pulumi.RegisterOutputType(PartitionSkewedInfoPtrOutput{})
+	pulumi.RegisterOutputType(PartitionStorageDescriptorOutput{})
+	pulumi.RegisterOutputType(PartitionStorageDescriptorPtrOutput{})
 	pulumi.RegisterOutputType(SchemaRegistryOutput{})
 	pulumi.RegisterOutputType(SchemaRegistryPtrOutput{})
 	pulumi.RegisterOutputType(SchemaVersionTypeOutput{})

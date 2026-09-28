@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 
     /// <summary>
     /// &lt;p&gt;A &lt;i&gt;sheet&lt;/i&gt;, which is an object that contains a set of visuals that
-    ///             are viewed together on one page in Amazon QuickSight. Every analysis and dashboard
+    ///             are viewed together on one page in Amazon Quick. Every analysis and dashboard
     ///             contains at least one sheet. Each sheet contains at least one visualization widget, for
     ///             example a chart, pivot table, or narrative insight. Sheets can be associated with other
     ///             components, such as controls, filters, and so on.&lt;/p&gt;
@@ -21,7 +21,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     public sealed class DashboardSheet
     {
         /// <summary>
-        /// &lt;p&gt;The name of a sheet. This name is displayed on the sheet's tab in the Amazon QuickSight
+        /// &lt;p&gt;The name of a sheet. This name is displayed on the sheet's tab in the Quick
         ///             console.&lt;/p&gt;
         /// </summary>
         public readonly string? Name;

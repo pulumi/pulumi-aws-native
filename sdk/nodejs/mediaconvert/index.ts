@@ -5,6 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { GetJobTemplateArgs, GetJobTemplateResult, GetJobTemplateOutputArgs } from "./getJobTemplate";
+export const getJobTemplate: typeof import("./getJobTemplate").getJobTemplate = null as any;
+export const getJobTemplateOutput: typeof import("./getJobTemplate").getJobTemplateOutput = null as any;
+utilities.lazyLoad(exports, ["getJobTemplate","getJobTemplateOutput"], () => require("./getJobTemplate"));
+
 export { GetPresetArgs, GetPresetResult, GetPresetOutputArgs } from "./getPreset";
 export const getPreset: typeof import("./getPreset").getPreset = null as any;
 export const getPresetOutput: typeof import("./getPreset").getPresetOutput = null as any;
@@ -14,6 +19,11 @@ export { GetQueueArgs, GetQueueResult, GetQueueOutputArgs } from "./getQueue";
 export const getQueue: typeof import("./getQueue").getQueue = null as any;
 export const getQueueOutput: typeof import("./getQueue").getQueueOutput = null as any;
 utilities.lazyLoad(exports, ["getQueue","getQueueOutput"], () => require("./getQueue"));
+
+export { JobTemplateArgs } from "./jobTemplate";
+export type JobTemplate = import("./jobTemplate").JobTemplate;
+export const JobTemplate: typeof import("./jobTemplate").JobTemplate = null as any;
+utilities.lazyLoad(exports, ["JobTemplate"], () => require("./jobTemplate"));
 
 export { PresetArgs } from "./preset";
 export type Preset = import("./preset").Preset;
@@ -30,6 +40,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws-native:mediaconvert:JobTemplate":
+                return new JobTemplate(name, <any>undefined, { urn })
             case "aws-native:mediaconvert:Preset":
                 return new Preset(name, <any>undefined, { urn })
             case "aws-native:mediaconvert:Queue":

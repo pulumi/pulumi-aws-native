@@ -25,6 +25,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Tape{}
 	case "aws-native:storagegateway:TapePool":
 		r = &TapePool{}
+	case "aws-native:storagegateway:Volume":
+		r = &Volume{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}

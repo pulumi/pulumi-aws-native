@@ -715,6 +715,34 @@ namespace Pulumi.AwsNative.Transfer
     }
 
     [EnumType]
+    public readonly struct ServerProxyMode : IEquatable<ServerProxyMode>
+    {
+        private readonly string _value;
+
+        private ServerProxyMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ServerProxyMode ProxyProtocolV2Enforced { get; } = new ServerProxyMode("PROXY_PROTOCOL_V2_ENFORCED");
+        public static ServerProxyMode None { get; } = new ServerProxyMode("NONE");
+
+        public static bool operator ==(ServerProxyMode left, ServerProxyMode right) => left.Equals(right);
+        public static bool operator !=(ServerProxyMode left, ServerProxyMode right) => !left.Equals(right);
+
+        public static explicit operator string(ServerProxyMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ServerProxyMode other && Equals(other);
+        public bool Equals(ServerProxyMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct ServerSetStatOption : IEquatable<ServerSetStatOption>
     {
         private readonly string _value;

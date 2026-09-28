@@ -650,6 +650,14 @@ type ConnectPeerTag struct {
 	Value string `pulumi:"value"`
 }
 
+// A key-value pair to associate with the connection.
+type ConnectionTag struct {
+	// The tag key. Printable ASCII with at least one non-space character and no leading or trailing space, at most 128 characters, and cannot be prefixed with aws:.
+	Key string `pulumi:"key"`
+	// The tag value. Printable ASCII with at least one non-space character and no leading or trailing space, at most 256 characters, and cannot be prefixed with aws:.
+	Value string `pulumi:"value"`
+}
+
 type CoreNetworkEdge struct {
 	// The ASN of a core network edge.
 	Asn *float64 `pulumi:"asn"`

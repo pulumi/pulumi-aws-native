@@ -10,10 +10,20 @@ export const getMonitor: typeof import("./getMonitor").getMonitor = null as any;
 export const getMonitorOutput: typeof import("./getMonitor").getMonitorOutput = null as any;
 utilities.lazyLoad(exports, ["getMonitor","getMonitorOutput"], () => require("./getMonitor"));
 
+export { GetScopeArgs, GetScopeResult, GetScopeOutputArgs } from "./getScope";
+export const getScope: typeof import("./getScope").getScope = null as any;
+export const getScopeOutput: typeof import("./getScope").getScopeOutput = null as any;
+utilities.lazyLoad(exports, ["getScope","getScopeOutput"], () => require("./getScope"));
+
 export { MonitorArgs } from "./monitor";
 export type Monitor = import("./monitor").Monitor;
 export const Monitor: typeof import("./monitor").Monitor = null as any;
 utilities.lazyLoad(exports, ["Monitor"], () => require("./monitor"));
+
+export { ScopeArgs } from "./scope";
+export type Scope = import("./scope").Scope;
+export const Scope: typeof import("./scope").Scope = null as any;
+utilities.lazyLoad(exports, ["Scope"], () => require("./scope"));
 
 
 // Export enums:
@@ -25,6 +35,8 @@ const _module = {
         switch (type) {
             case "aws-native:networkflowmonitor:Monitor":
                 return new Monitor(name, <any>undefined, { urn })
+            case "aws-native:networkflowmonitor:Scope":
+                return new Scope(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

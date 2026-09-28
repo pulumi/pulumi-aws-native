@@ -228,6 +228,37 @@ namespace Pulumi.AwsNative.Lambda
     }
 
     /// <summary>
+    /// The mode that determines how Lambda reads from a Kafka topic. Use Stream for ordered processing or Queue for higher throughput when ordering is not required.
+    /// </summary>
+    [EnumType]
+    public readonly struct EventSourceMappingConsumptionMode : IEquatable<EventSourceMappingConsumptionMode>
+    {
+        private readonly string _value;
+
+        private EventSourceMappingConsumptionMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static EventSourceMappingConsumptionMode Stream { get; } = new EventSourceMappingConsumptionMode("Stream");
+        public static EventSourceMappingConsumptionMode Queue { get; } = new EventSourceMappingConsumptionMode("Queue");
+
+        public static bool operator ==(EventSourceMappingConsumptionMode left, EventSourceMappingConsumptionMode right) => left.Equals(right);
+        public static bool operator !=(EventSourceMappingConsumptionMode left, EventSourceMappingConsumptionMode right) => !left.Equals(right);
+
+        public static explicit operator string(EventSourceMappingConsumptionMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is EventSourceMappingConsumptionMode other && Equals(other);
+        public bool Equals(EventSourceMappingConsumptionMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Determines what DocumentDB sends to your event stream during document update operations. If set to UpdateLookup, DocumentDB sends a delta describing the changes, along with a copy of the entire document. Otherwise, DocumentDB sends only a partial document that contains the changes.
     /// </summary>
     [EnumType]
@@ -362,6 +393,7 @@ namespace Pulumi.AwsNative.Lambda
         public static EventSourceMappingSchemaRegistryAccessConfigType BasicAuth { get; } = new EventSourceMappingSchemaRegistryAccessConfigType("BASIC_AUTH");
         public static EventSourceMappingSchemaRegistryAccessConfigType ClientCertificateTlsAuth { get; } = new EventSourceMappingSchemaRegistryAccessConfigType("CLIENT_CERTIFICATE_TLS_AUTH");
         public static EventSourceMappingSchemaRegistryAccessConfigType ServerRootCaCertificate { get; } = new EventSourceMappingSchemaRegistryAccessConfigType("SERVER_ROOT_CA_CERTIFICATE");
+        public static EventSourceMappingSchemaRegistryAccessConfigType OauthbearerAuth { get; } = new EventSourceMappingSchemaRegistryAccessConfigType("OAUTHBEARER_AUTH");
 
         public static bool operator ==(EventSourceMappingSchemaRegistryAccessConfigType left, EventSourceMappingSchemaRegistryAccessConfigType right) => left.Equals(right);
         public static bool operator !=(EventSourceMappingSchemaRegistryAccessConfigType left, EventSourceMappingSchemaRegistryAccessConfigType right) => !left.Equals(right);
@@ -472,6 +504,13 @@ namespace Pulumi.AwsNative.Lambda
         public static EventSourceMappingSourceAccessConfigurationType VirtualHost { get; } = new EventSourceMappingSourceAccessConfigurationType("VIRTUAL_HOST");
         public static EventSourceMappingSourceAccessConfigurationType ClientCertificateTlsAuth { get; } = new EventSourceMappingSourceAccessConfigurationType("CLIENT_CERTIFICATE_TLS_AUTH");
         public static EventSourceMappingSourceAccessConfigurationType ServerRootCaCertificate { get; } = new EventSourceMappingSourceAccessConfigurationType("SERVER_ROOT_CA_CERTIFICATE");
+        public static EventSourceMappingSourceAccessConfigurationType OauthbearerAuth { get; } = new EventSourceMappingSourceAccessConfigurationType("OAUTHBEARER_AUTH");
+        public static EventSourceMappingSourceAccessConfigurationType OauthbearerScope { get; } = new EventSourceMappingSourceAccessConfigurationType("OAUTHBEARER_SCOPE");
+        public static EventSourceMappingSourceAccessConfigurationType OauthbearerAudience { get; } = new EventSourceMappingSourceAccessConfigurationType("OAUTHBEARER_AUDIENCE");
+        public static EventSourceMappingSourceAccessConfigurationType OauthbearerLogicalCluster { get; } = new EventSourceMappingSourceAccessConfigurationType("OAUTHBEARER_LOGICAL_CLUSTER");
+        public static EventSourceMappingSourceAccessConfigurationType OauthbearerIdentityPool { get; } = new EventSourceMappingSourceAccessConfigurationType("OAUTHBEARER_IDENTITY_POOL");
+        public static EventSourceMappingSourceAccessConfigurationType IamAuth { get; } = new EventSourceMappingSourceAccessConfigurationType("IAM_AUTH");
+        public static EventSourceMappingSourceAccessConfigurationType IamOauthbearerAuth { get; } = new EventSourceMappingSourceAccessConfigurationType("IAM_OAUTHBEARER_AUTH");
 
         public static bool operator ==(EventSourceMappingSourceAccessConfigurationType left, EventSourceMappingSourceAccessConfigurationType right) => left.Equals(right);
         public static bool operator !=(EventSourceMappingSourceAccessConfigurationType left, EventSourceMappingSourceAccessConfigurationType right) => !left.Equals(right);
@@ -745,7 +784,12 @@ namespace Pulumi.AwsNative.Lambda
     }
 
     /// <summary>
-    /// Specifies if a function reads from the file system for the lowest latency, or through Amazon S3 Files feature "direct Amazon S3 bucket reads" for the highest throughput
+    /// Specifies if a function reads from the file system for the lowest latency, or through Amazon S3 Files feature "direct Amazon S3 bucket reads" for the highest throughput. Valid values:
+    ///   +  ``AUTO`` (default) – Direct reads are active for functions you configure with 512 MB or more of memory.
+    ///   +  ``ENABLED`` – Enforces all reads are directly from the Amazon S3 bucket, regardless of available memory (less than 512 MB).
+    ///   +  ``DISABLED`` – Routes all reads through the file system, regardless of memory configuration.
+    ///   
+    ///  To use direct reads, you must grant the execution role the ``s3:GetObject`` and ``s3:GetObjectVersion`` permissions. If a direct read fails, Lambda automatically falls back to reading through the file system.
     /// </summary>
     [EnumType]
     public readonly struct FunctionS3FilesConfigDirectS3Read : IEquatable<FunctionS3FilesConfigDirectS3Read>

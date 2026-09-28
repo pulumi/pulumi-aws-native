@@ -93,6 +93,14 @@ __all__ = [
     'MlTransformMlUserDataEncryption',
     'MlTransformTransformEncryption',
     'MlTransformTransformParameters',
+    'PartitionColumn',
+    'PartitionInput',
+    'PartitionOrder',
+    'PartitionSchemaId',
+    'PartitionSchemaReference',
+    'PartitionSerdeInfo',
+    'PartitionSkewedInfo',
+    'PartitionStorageDescriptor',
     'SchemaRegistry',
     'SchemaVersion',
     'SchemaVersionSchema',
@@ -5414,6 +5422,644 @@ class MlTransformTransformParameters(dict):
         The parameters for the find matches algorithm.
         """
         return pulumi.get(self, "find_matches_parameters")
+
+
+@pulumi.output_type
+class PartitionColumn(dict):
+    """
+    A column in a Table.
+    """
+    def __init__(__self__, *,
+                 name: _builtins.str,
+                 comment: Optional[_builtins.str] = None,
+                 type: Optional[_builtins.str] = None):
+        """
+        A column in a Table.
+
+        :param _builtins.str name: The name of the Column.
+        :param _builtins.str comment: A free-form text comment.
+        :param _builtins.str type: The data type of the Column.
+        """
+        pulumi.set(__self__, "name", name)
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        The name of the Column.
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def comment(self) -> Optional[_builtins.str]:
+        """
+        A free-form text comment.
+        """
+        return pulumi.get(self, "comment")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> Optional[_builtins.str]:
+        """
+        The data type of the Column.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class PartitionInput(dict):
+    """
+    The structure used to create and update a partition.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "storageDescriptor":
+            suggest = "storage_descriptor"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PartitionInput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PartitionInput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PartitionInput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 values: Sequence[_builtins.str],
+                 parameters: Optional[Any] = None,
+                 storage_descriptor: Optional['outputs.PartitionStorageDescriptor'] = None):
+        """
+        The structure used to create and update a partition.
+
+        :param Sequence[_builtins.str] values: The values of the partition. Although this parameter is not required by the SDK, you must specify this parameter for a valid input. The values for the keys for the new partition must be passed as an array of String objects that must be ordered in the same order as the partition keys appearing in the Amazon S3 prefix. Otherwise AWS Glue will add the values to the wrong keys.
+        :param Any parameters: Key-value pairs defining partition parameters.
+        :param 'PartitionStorageDescriptor' storage_descriptor: Provides information about the physical location where the partition is stored.
+        """
+        pulumi.set(__self__, "values", values)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+        if storage_descriptor is not None:
+            pulumi.set(__self__, "storage_descriptor", storage_descriptor)
+
+    @_builtins.property
+    @pulumi.getter
+    def values(self) -> Sequence[_builtins.str]:
+        """
+        The values of the partition. Although this parameter is not required by the SDK, you must specify this parameter for a valid input. The values for the keys for the new partition must be passed as an array of String objects that must be ordered in the same order as the partition keys appearing in the Amazon S3 prefix. Otherwise AWS Glue will add the values to the wrong keys.
+        """
+        return pulumi.get(self, "values")
+
+    @_builtins.property
+    @pulumi.getter
+    def parameters(self) -> Optional[Any]:
+        """
+        Key-value pairs defining partition parameters.
+        """
+        return pulumi.get(self, "parameters")
+
+    @_builtins.property
+    @pulumi.getter(name="storageDescriptor")
+    def storage_descriptor(self) -> Optional['outputs.PartitionStorageDescriptor']:
+        """
+        Provides information about the physical location where the partition is stored.
+        """
+        return pulumi.get(self, "storage_descriptor")
+
+
+@pulumi.output_type
+class PartitionOrder(dict):
+    """
+    Specifies the sort order of a sorted column.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sortOrder":
+            suggest = "sort_order"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PartitionOrder. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PartitionOrder.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PartitionOrder.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 column: _builtins.str,
+                 sort_order: Optional[_builtins.int] = None):
+        """
+        Specifies the sort order of a sorted column.
+
+        :param _builtins.str column: The name of the column.
+        :param _builtins.int sort_order: Indicates that the column is sorted in ascending order (== 1), or in descending order (==0).
+        """
+        pulumi.set(__self__, "column", column)
+        if sort_order is not None:
+            pulumi.set(__self__, "sort_order", sort_order)
+
+    @_builtins.property
+    @pulumi.getter
+    def column(self) -> _builtins.str:
+        """
+        The name of the column.
+        """
+        return pulumi.get(self, "column")
+
+    @_builtins.property
+    @pulumi.getter(name="sortOrder")
+    def sort_order(self) -> Optional[_builtins.int]:
+        """
+        Indicates that the column is sorted in ascending order (== 1), or in descending order (==0).
+        """
+        return pulumi.get(self, "sort_order")
+
+
+@pulumi.output_type
+class PartitionSchemaId(dict):
+    """
+    A structure that contains schema identity fields. Either this or the SchemaVersionId has to be provided.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "registryName":
+            suggest = "registry_name"
+        elif key == "schemaArn":
+            suggest = "schema_arn"
+        elif key == "schemaName":
+            suggest = "schema_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PartitionSchemaId. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PartitionSchemaId.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PartitionSchemaId.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 registry_name: Optional[_builtins.str] = None,
+                 schema_arn: Optional[_builtins.str] = None,
+                 schema_name: Optional[_builtins.str] = None):
+        """
+        A structure that contains schema identity fields. Either this or the SchemaVersionId has to be provided.
+
+        :param _builtins.str registry_name: The name of the schema registry that contains the schema.
+        :param _builtins.str schema_arn: The Amazon Resource Name (ARN) of the schema. One of SchemaArn or SchemaName has to be provided.
+        :param _builtins.str schema_name: The name of the schema. One of SchemaArn or SchemaName has to be provided.
+        """
+        if registry_name is not None:
+            pulumi.set(__self__, "registry_name", registry_name)
+        if schema_arn is not None:
+            pulumi.set(__self__, "schema_arn", schema_arn)
+        if schema_name is not None:
+            pulumi.set(__self__, "schema_name", schema_name)
+
+    @_builtins.property
+    @pulumi.getter(name="registryName")
+    def registry_name(self) -> Optional[_builtins.str]:
+        """
+        The name of the schema registry that contains the schema.
+        """
+        return pulumi.get(self, "registry_name")
+
+    @_builtins.property
+    @pulumi.getter(name="schemaArn")
+    def schema_arn(self) -> Optional[_builtins.str]:
+        """
+        The Amazon Resource Name (ARN) of the schema. One of SchemaArn or SchemaName has to be provided.
+        """
+        return pulumi.get(self, "schema_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="schemaName")
+    def schema_name(self) -> Optional[_builtins.str]:
+        """
+        The name of the schema. One of SchemaArn or SchemaName has to be provided.
+        """
+        return pulumi.get(self, "schema_name")
+
+
+@pulumi.output_type
+class PartitionSchemaReference(dict):
+    """
+    An object that references a schema stored in the AWS Glue Schema Registry.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "schemaId":
+            suggest = "schema_id"
+        elif key == "schemaVersionId":
+            suggest = "schema_version_id"
+        elif key == "schemaVersionNumber":
+            suggest = "schema_version_number"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PartitionSchemaReference. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PartitionSchemaReference.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PartitionSchemaReference.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 schema_id: Optional['outputs.PartitionSchemaId'] = None,
+                 schema_version_id: Optional[_builtins.str] = None,
+                 schema_version_number: Optional[_builtins.int] = None):
+        """
+        An object that references a schema stored in the AWS Glue Schema Registry.
+
+        :param 'PartitionSchemaId' schema_id: A structure that contains schema identity fields. Either this or the `SchemaVersionId` has to be
+               provided.
+        :param _builtins.str schema_version_id: The unique ID assigned to a version of the schema. Either this or the SchemaId has to be provided.
+        :param _builtins.int schema_version_number: The version number of the schema.
+        """
+        if schema_id is not None:
+            pulumi.set(__self__, "schema_id", schema_id)
+        if schema_version_id is not None:
+            pulumi.set(__self__, "schema_version_id", schema_version_id)
+        if schema_version_number is not None:
+            pulumi.set(__self__, "schema_version_number", schema_version_number)
+
+    @_builtins.property
+    @pulumi.getter(name="schemaId")
+    def schema_id(self) -> Optional['outputs.PartitionSchemaId']:
+        """
+        A structure that contains schema identity fields. Either this or the `SchemaVersionId` has to be
+        provided.
+        """
+        return pulumi.get(self, "schema_id")
+
+    @_builtins.property
+    @pulumi.getter(name="schemaVersionId")
+    def schema_version_id(self) -> Optional[_builtins.str]:
+        """
+        The unique ID assigned to a version of the schema. Either this or the SchemaId has to be provided.
+        """
+        return pulumi.get(self, "schema_version_id")
+
+    @_builtins.property
+    @pulumi.getter(name="schemaVersionNumber")
+    def schema_version_number(self) -> Optional[_builtins.int]:
+        """
+        The version number of the schema.
+        """
+        return pulumi.get(self, "schema_version_number")
+
+
+@pulumi.output_type
+class PartitionSerdeInfo(dict):
+    """
+    The serialization/deserialization (SerDe) information.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "serializationLibrary":
+            suggest = "serialization_library"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PartitionSerdeInfo. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PartitionSerdeInfo.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PartitionSerdeInfo.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: Optional[_builtins.str] = None,
+                 parameters: Optional[Any] = None,
+                 serialization_library: Optional[_builtins.str] = None):
+        """
+        The serialization/deserialization (SerDe) information.
+
+        :param _builtins.str name: Name of the SerDe.
+        :param Any parameters: These key-value pairs define initialization parameters for the SerDe.
+        :param _builtins.str serialization_library: Usually the class that implements the SerDe. An example is org.apache.hadoop.hive.serde2.columnar.ColumnarSerDe.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+        if serialization_library is not None:
+            pulumi.set(__self__, "serialization_library", serialization_library)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> Optional[_builtins.str]:
+        """
+        Name of the SerDe.
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def parameters(self) -> Optional[Any]:
+        """
+        These key-value pairs define initialization parameters for the SerDe.
+        """
+        return pulumi.get(self, "parameters")
+
+    @_builtins.property
+    @pulumi.getter(name="serializationLibrary")
+    def serialization_library(self) -> Optional[_builtins.str]:
+        """
+        Usually the class that implements the SerDe. An example is org.apache.hadoop.hive.serde2.columnar.ColumnarSerDe.
+        """
+        return pulumi.get(self, "serialization_library")
+
+
+@pulumi.output_type
+class PartitionSkewedInfo(dict):
+    """
+    The information about values that appear frequently in a column (skewed values).
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "skewedColumnNames":
+            suggest = "skewed_column_names"
+        elif key == "skewedColumnValueLocationMaps":
+            suggest = "skewed_column_value_location_maps"
+        elif key == "skewedColumnValues":
+            suggest = "skewed_column_values"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PartitionSkewedInfo. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PartitionSkewedInfo.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PartitionSkewedInfo.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 skewed_column_names: Optional[Sequence[_builtins.str]] = None,
+                 skewed_column_value_location_maps: Optional[Any] = None,
+                 skewed_column_values: Optional[Sequence[_builtins.str]] = None):
+        """
+        The information about values that appear frequently in a column (skewed values).
+
+        :param Sequence[_builtins.str] skewed_column_names: A list of values that appear so frequently as to be considered skewed.
+        :param Any skewed_column_value_location_maps: A mapping of skewed values to the columns that contain them.
+        :param Sequence[_builtins.str] skewed_column_values: A list of names of columns that contain skewed values.
+        """
+        if skewed_column_names is not None:
+            pulumi.set(__self__, "skewed_column_names", skewed_column_names)
+        if skewed_column_value_location_maps is not None:
+            pulumi.set(__self__, "skewed_column_value_location_maps", skewed_column_value_location_maps)
+        if skewed_column_values is not None:
+            pulumi.set(__self__, "skewed_column_values", skewed_column_values)
+
+    @_builtins.property
+    @pulumi.getter(name="skewedColumnNames")
+    def skewed_column_names(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        A list of values that appear so frequently as to be considered skewed.
+        """
+        return pulumi.get(self, "skewed_column_names")
+
+    @_builtins.property
+    @pulumi.getter(name="skewedColumnValueLocationMaps")
+    def skewed_column_value_location_maps(self) -> Optional[Any]:
+        """
+        A mapping of skewed values to the columns that contain them.
+        """
+        return pulumi.get(self, "skewed_column_value_location_maps")
+
+    @_builtins.property
+    @pulumi.getter(name="skewedColumnValues")
+    def skewed_column_values(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        A list of names of columns that contain skewed values.
+        """
+        return pulumi.get(self, "skewed_column_values")
+
+
+@pulumi.output_type
+class PartitionStorageDescriptor(dict):
+    """
+    Provides information about the physical location where the partition is stored.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "bucketColumns":
+            suggest = "bucket_columns"
+        elif key == "inputFormat":
+            suggest = "input_format"
+        elif key == "numberOfBuckets":
+            suggest = "number_of_buckets"
+        elif key == "outputFormat":
+            suggest = "output_format"
+        elif key == "schemaReference":
+            suggest = "schema_reference"
+        elif key == "serdeInfo":
+            suggest = "serde_info"
+        elif key == "skewedInfo":
+            suggest = "skewed_info"
+        elif key == "sortColumns":
+            suggest = "sort_columns"
+        elif key == "storedAsSubDirectories":
+            suggest = "stored_as_sub_directories"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PartitionStorageDescriptor. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PartitionStorageDescriptor.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PartitionStorageDescriptor.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 bucket_columns: Optional[Sequence[_builtins.str]] = None,
+                 columns: Optional[Sequence['outputs.PartitionColumn']] = None,
+                 compressed: Optional[_builtins.bool] = None,
+                 input_format: Optional[_builtins.str] = None,
+                 location: Optional[_builtins.str] = None,
+                 number_of_buckets: Optional[_builtins.int] = None,
+                 output_format: Optional[_builtins.str] = None,
+                 parameters: Optional[Any] = None,
+                 schema_reference: Optional['outputs.PartitionSchemaReference'] = None,
+                 serde_info: Optional['outputs.PartitionSerdeInfo'] = None,
+                 skewed_info: Optional['outputs.PartitionSkewedInfo'] = None,
+                 sort_columns: Optional[Sequence['outputs.PartitionOrder']] = None,
+                 stored_as_sub_directories: Optional[_builtins.bool] = None):
+        """
+        Provides information about the physical location where the partition is stored.
+
+        :param Sequence[_builtins.str] bucket_columns: A list of reducer grouping columns, clustering columns, and bucketing columns in the table.
+        :param Sequence['PartitionColumn'] columns: A list of the Columns in the table.
+        :param _builtins.bool compressed: True if the data in the table is compressed, or False if not.
+        :param _builtins.str input_format: The input format: SequenceFileInputFormat (binary), or TextInputFormat, or a custom format.
+        :param _builtins.str location: The physical location of the table. By default, this takes the form of the warehouse location, followed by the database location in the warehouse, followed by the table name.
+        :param _builtins.int number_of_buckets: The number of buckets. You must specify this property if the partition contains any dimension columns.
+        :param _builtins.str output_format: The output format: SequenceFileOutputFormat (binary), or IgnoreKeyTextOutputFormat, or a custom format.
+        :param Any parameters: The user-supplied properties in key-value form.
+        :param 'PartitionSchemaReference' schema_reference: An object that references a schema stored in the AWS Glue Schema Registry.
+        :param 'PartitionSerdeInfo' serde_info: The serialization/deserialization (SerDe) information.
+        :param 'PartitionSkewedInfo' skewed_info: The information about values that appear frequently in a column (skewed values).
+        :param Sequence['PartitionOrder'] sort_columns: A list specifying the sort order of each bucket in the table.
+        :param _builtins.bool stored_as_sub_directories: True if the table data is stored in subdirectories, or False if not.
+        """
+        if bucket_columns is not None:
+            pulumi.set(__self__, "bucket_columns", bucket_columns)
+        if columns is not None:
+            pulumi.set(__self__, "columns", columns)
+        if compressed is not None:
+            pulumi.set(__self__, "compressed", compressed)
+        if input_format is not None:
+            pulumi.set(__self__, "input_format", input_format)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if number_of_buckets is not None:
+            pulumi.set(__self__, "number_of_buckets", number_of_buckets)
+        if output_format is not None:
+            pulumi.set(__self__, "output_format", output_format)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+        if schema_reference is not None:
+            pulumi.set(__self__, "schema_reference", schema_reference)
+        if serde_info is not None:
+            pulumi.set(__self__, "serde_info", serde_info)
+        if skewed_info is not None:
+            pulumi.set(__self__, "skewed_info", skewed_info)
+        if sort_columns is not None:
+            pulumi.set(__self__, "sort_columns", sort_columns)
+        if stored_as_sub_directories is not None:
+            pulumi.set(__self__, "stored_as_sub_directories", stored_as_sub_directories)
+
+    @_builtins.property
+    @pulumi.getter(name="bucketColumns")
+    def bucket_columns(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        A list of reducer grouping columns, clustering columns, and bucketing columns in the table.
+        """
+        return pulumi.get(self, "bucket_columns")
+
+    @_builtins.property
+    @pulumi.getter
+    def columns(self) -> Optional[Sequence['outputs.PartitionColumn']]:
+        """
+        A list of the Columns in the table.
+        """
+        return pulumi.get(self, "columns")
+
+    @_builtins.property
+    @pulumi.getter
+    def compressed(self) -> Optional[_builtins.bool]:
+        """
+        True if the data in the table is compressed, or False if not.
+        """
+        return pulumi.get(self, "compressed")
+
+    @_builtins.property
+    @pulumi.getter(name="inputFormat")
+    def input_format(self) -> Optional[_builtins.str]:
+        """
+        The input format: SequenceFileInputFormat (binary), or TextInputFormat, or a custom format.
+        """
+        return pulumi.get(self, "input_format")
+
+    @_builtins.property
+    @pulumi.getter
+    def location(self) -> Optional[_builtins.str]:
+        """
+        The physical location of the table. By default, this takes the form of the warehouse location, followed by the database location in the warehouse, followed by the table name.
+        """
+        return pulumi.get(self, "location")
+
+    @_builtins.property
+    @pulumi.getter(name="numberOfBuckets")
+    def number_of_buckets(self) -> Optional[_builtins.int]:
+        """
+        The number of buckets. You must specify this property if the partition contains any dimension columns.
+        """
+        return pulumi.get(self, "number_of_buckets")
+
+    @_builtins.property
+    @pulumi.getter(name="outputFormat")
+    def output_format(self) -> Optional[_builtins.str]:
+        """
+        The output format: SequenceFileOutputFormat (binary), or IgnoreKeyTextOutputFormat, or a custom format.
+        """
+        return pulumi.get(self, "output_format")
+
+    @_builtins.property
+    @pulumi.getter
+    def parameters(self) -> Optional[Any]:
+        """
+        The user-supplied properties in key-value form.
+        """
+        return pulumi.get(self, "parameters")
+
+    @_builtins.property
+    @pulumi.getter(name="schemaReference")
+    def schema_reference(self) -> Optional['outputs.PartitionSchemaReference']:
+        """
+        An object that references a schema stored in the AWS Glue Schema Registry.
+        """
+        return pulumi.get(self, "schema_reference")
+
+    @_builtins.property
+    @pulumi.getter(name="serdeInfo")
+    def serde_info(self) -> Optional['outputs.PartitionSerdeInfo']:
+        """
+        The serialization/deserialization (SerDe) information.
+        """
+        return pulumi.get(self, "serde_info")
+
+    @_builtins.property
+    @pulumi.getter(name="skewedInfo")
+    def skewed_info(self) -> Optional['outputs.PartitionSkewedInfo']:
+        """
+        The information about values that appear frequently in a column (skewed values).
+        """
+        return pulumi.get(self, "skewed_info")
+
+    @_builtins.property
+    @pulumi.getter(name="sortColumns")
+    def sort_columns(self) -> Optional[Sequence['outputs.PartitionOrder']]:
+        """
+        A list specifying the sort order of each bucket in the table.
+        """
+        return pulumi.get(self, "sort_columns")
+
+    @_builtins.property
+    @pulumi.getter(name="storedAsSubDirectories")
+    def stored_as_sub_directories(self) -> Optional[_builtins.bool]:
+        """
+        True if the table data is stored in subdirectories, or False if not.
+        """
+        return pulumi.get(self, "stored_as_sub_directories")
 
 
 @pulumi.output_type

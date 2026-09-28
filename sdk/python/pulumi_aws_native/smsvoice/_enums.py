@@ -12,7 +12,9 @@ __all__ = [
     'PhoneNumberOptionalKeywordAction',
     'PoolOptionalKeywordAction',
     'ProtectConfigurationCountryRuleProtectStatus',
+    'RegistrationAttachmentAttachmentStatus',
     'RegistrationStatus',
+    'VerifiedDestinationNumberStatus',
 ]
 
 
@@ -65,6 +67,17 @@ class ProtectConfigurationCountryRuleProtectStatus(_builtins.str, Enum):
     FILTER = "FILTER"
 
 
+@pulumi.type_token("aws-native:smsvoice:RegistrationAttachmentAttachmentStatus")
+class RegistrationAttachmentAttachmentStatus(_builtins.str, Enum):
+    """
+    The status of the registration attachment.
+    """
+    UPLOAD_IN_PROGRESS = "UPLOAD_IN_PROGRESS"
+    UPLOAD_COMPLETE = "UPLOAD_COMPLETE"
+    UPLOAD_FAILED = "UPLOAD_FAILED"
+    DELETED = "DELETED"
+
+
 @pulumi.type_token("aws-native:smsvoice:RegistrationStatus")
 class RegistrationStatus(_builtins.str, Enum):
     """
@@ -80,3 +93,13 @@ class RegistrationStatus(_builtins.str, Enum):
     REQUIRES_UPDATES = "REQUIRES_UPDATES"
     CLOSED = "CLOSED"
     DELETED = "DELETED"
+
+
+@pulumi.type_token("aws-native:smsvoice:VerifiedDestinationNumberStatus")
+class VerifiedDestinationNumberStatus(_builtins.str, Enum):
+    """
+    The status of the verified destination phone number. PENDING means the phone number has not been verified yet; VERIFIED means it is verified and can receive messages.
+    """
+    PENDING = "PENDING"
+    VERIFIED = "VERIFIED"
+    UNSUPPORTED = "UNSUPPORTED"

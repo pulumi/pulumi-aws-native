@@ -66,6 +66,7 @@ export class AgentSpace extends pulumi.CustomResource {
      */
     declare public readonly name: pulumi.Output<string>;
     declare public readonly operatorApp: pulumi.Output<outputs.devopsagent.AgentSpaceOperatorApp | undefined>;
+    declare public readonly preferences: pulumi.Output<outputs.devopsagent.AgentSpacePreferences | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
@@ -91,6 +92,7 @@ export class AgentSpace extends pulumi.CustomResource {
             resourceInputs["locale"] = args?.locale;
             resourceInputs["name"] = args?.name;
             resourceInputs["operatorApp"] = args?.operatorApp;
+            resourceInputs["preferences"] = args?.preferences;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["agentSpaceId"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;
@@ -105,6 +107,7 @@ export class AgentSpace extends pulumi.CustomResource {
             resourceInputs["locale"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["operatorApp"] = undefined /*out*/;
+            resourceInputs["preferences"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["updatedAt"] = undefined /*out*/;
         }
@@ -136,6 +139,7 @@ export interface AgentSpaceArgs {
      */
     name?: pulumi.Input<string | undefined>;
     operatorApp?: pulumi.Input<inputs.devopsagent.AgentSpaceOperatorAppArgs | undefined>;
+    preferences?: pulumi.Input<inputs.devopsagent.AgentSpacePreferencesArgs | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */

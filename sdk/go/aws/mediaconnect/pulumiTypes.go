@@ -4941,7 +4941,7 @@ func (o FlowMaintenancePtrOutput) MaintenanceStartHour() pulumi.StringPtrOutput 
 }
 
 // A single track or stream of media that contains video, audio, or ancillary data. After you add a media stream to a flow, you can associate it with sources and outputs on that flow, as long as they use the CDI protocol or the ST 2110 JPEG XS protocol. Each source or output can consist of one or many media streams.
-type FlowMediaStream struct {
+type FlowMediaStreamType struct {
 	// Attributes that are related to the media stream.
 	Attributes *FlowMediaStreamAttributes `pulumi:"attributes"`
 	// The sample rate for the stream. This value in measured in kHz.
@@ -4962,19 +4962,19 @@ type FlowMediaStream struct {
 	VideoFormat *FlowMediaStreamVideoFormat `pulumi:"videoFormat"`
 }
 
-// FlowMediaStreamInput is an input type that accepts FlowMediaStreamArgs and FlowMediaStreamOutput values.
-// You can construct a concrete instance of `FlowMediaStreamInput` via:
+// FlowMediaStreamTypeInput is an input type that accepts FlowMediaStreamTypeArgs and FlowMediaStreamTypeOutput values.
+// You can construct a concrete instance of `FlowMediaStreamTypeInput` via:
 //
-//	FlowMediaStreamArgs{...}
-type FlowMediaStreamInput interface {
+//	FlowMediaStreamTypeArgs{...}
+type FlowMediaStreamTypeInput interface {
 	pulumi.Input
 
-	ToFlowMediaStreamOutput() FlowMediaStreamOutput
-	ToFlowMediaStreamOutputWithContext(context.Context) FlowMediaStreamOutput
+	ToFlowMediaStreamTypeOutput() FlowMediaStreamTypeOutput
+	ToFlowMediaStreamTypeOutputWithContext(context.Context) FlowMediaStreamTypeOutput
 }
 
 // A single track or stream of media that contains video, audio, or ancillary data. After you add a media stream to a flow, you can associate it with sources and outputs on that flow, as long as they use the CDI protocol or the ST 2110 JPEG XS protocol. Each source or output can consist of one or many media streams.
-type FlowMediaStreamArgs struct {
+type FlowMediaStreamTypeArgs struct {
 	// Attributes that are related to the media stream.
 	Attributes FlowMediaStreamAttributesPtrInput `pulumi:"attributes"`
 	// The sample rate for the stream. This value in measured in kHz.
@@ -4995,121 +4995,121 @@ type FlowMediaStreamArgs struct {
 	VideoFormat FlowMediaStreamVideoFormatPtrInput `pulumi:"videoFormat"`
 }
 
-func (FlowMediaStreamArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*FlowMediaStream)(nil)).Elem()
+func (FlowMediaStreamTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowMediaStreamType)(nil)).Elem()
 }
 
-func (i FlowMediaStreamArgs) ToFlowMediaStreamOutput() FlowMediaStreamOutput {
-	return i.ToFlowMediaStreamOutputWithContext(context.Background())
+func (i FlowMediaStreamTypeArgs) ToFlowMediaStreamTypeOutput() FlowMediaStreamTypeOutput {
+	return i.ToFlowMediaStreamTypeOutputWithContext(context.Background())
 }
 
-func (i FlowMediaStreamArgs) ToFlowMediaStreamOutputWithContext(ctx context.Context) FlowMediaStreamOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FlowMediaStreamOutput)
+func (i FlowMediaStreamTypeArgs) ToFlowMediaStreamTypeOutputWithContext(ctx context.Context) FlowMediaStreamTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowMediaStreamTypeOutput)
 }
 
-// FlowMediaStreamArrayInput is an input type that accepts FlowMediaStreamArray and FlowMediaStreamArrayOutput values.
-// You can construct a concrete instance of `FlowMediaStreamArrayInput` via:
+// FlowMediaStreamTypeArrayInput is an input type that accepts FlowMediaStreamTypeArray and FlowMediaStreamTypeArrayOutput values.
+// You can construct a concrete instance of `FlowMediaStreamTypeArrayInput` via:
 //
-//	FlowMediaStreamArray{ FlowMediaStreamArgs{...} }
-type FlowMediaStreamArrayInput interface {
+//	FlowMediaStreamTypeArray{ FlowMediaStreamTypeArgs{...} }
+type FlowMediaStreamTypeArrayInput interface {
 	pulumi.Input
 
-	ToFlowMediaStreamArrayOutput() FlowMediaStreamArrayOutput
-	ToFlowMediaStreamArrayOutputWithContext(context.Context) FlowMediaStreamArrayOutput
+	ToFlowMediaStreamTypeArrayOutput() FlowMediaStreamTypeArrayOutput
+	ToFlowMediaStreamTypeArrayOutputWithContext(context.Context) FlowMediaStreamTypeArrayOutput
 }
 
-type FlowMediaStreamArray []FlowMediaStreamInput
+type FlowMediaStreamTypeArray []FlowMediaStreamTypeInput
 
-func (FlowMediaStreamArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]FlowMediaStream)(nil)).Elem()
+func (FlowMediaStreamTypeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FlowMediaStreamType)(nil)).Elem()
 }
 
-func (i FlowMediaStreamArray) ToFlowMediaStreamArrayOutput() FlowMediaStreamArrayOutput {
-	return i.ToFlowMediaStreamArrayOutputWithContext(context.Background())
+func (i FlowMediaStreamTypeArray) ToFlowMediaStreamTypeArrayOutput() FlowMediaStreamTypeArrayOutput {
+	return i.ToFlowMediaStreamTypeArrayOutputWithContext(context.Background())
 }
 
-func (i FlowMediaStreamArray) ToFlowMediaStreamArrayOutputWithContext(ctx context.Context) FlowMediaStreamArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FlowMediaStreamArrayOutput)
+func (i FlowMediaStreamTypeArray) ToFlowMediaStreamTypeArrayOutputWithContext(ctx context.Context) FlowMediaStreamTypeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowMediaStreamTypeArrayOutput)
 }
 
 // A single track or stream of media that contains video, audio, or ancillary data. After you add a media stream to a flow, you can associate it with sources and outputs on that flow, as long as they use the CDI protocol or the ST 2110 JPEG XS protocol. Each source or output can consist of one or many media streams.
-type FlowMediaStreamOutput struct{ *pulumi.OutputState }
+type FlowMediaStreamTypeOutput struct{ *pulumi.OutputState }
 
-func (FlowMediaStreamOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FlowMediaStream)(nil)).Elem()
+func (FlowMediaStreamTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowMediaStreamType)(nil)).Elem()
 }
 
-func (o FlowMediaStreamOutput) ToFlowMediaStreamOutput() FlowMediaStreamOutput {
+func (o FlowMediaStreamTypeOutput) ToFlowMediaStreamTypeOutput() FlowMediaStreamTypeOutput {
 	return o
 }
 
-func (o FlowMediaStreamOutput) ToFlowMediaStreamOutputWithContext(ctx context.Context) FlowMediaStreamOutput {
+func (o FlowMediaStreamTypeOutput) ToFlowMediaStreamTypeOutputWithContext(ctx context.Context) FlowMediaStreamTypeOutput {
 	return o
 }
 
 // Attributes that are related to the media stream.
-func (o FlowMediaStreamOutput) Attributes() FlowMediaStreamAttributesPtrOutput {
-	return o.ApplyT(func(v FlowMediaStream) *FlowMediaStreamAttributes { return v.Attributes }).(FlowMediaStreamAttributesPtrOutput)
+func (o FlowMediaStreamTypeOutput) Attributes() FlowMediaStreamAttributesPtrOutput {
+	return o.ApplyT(func(v FlowMediaStreamType) *FlowMediaStreamAttributes { return v.Attributes }).(FlowMediaStreamAttributesPtrOutput)
 }
 
 // The sample rate for the stream. This value in measured in kHz.
-func (o FlowMediaStreamOutput) ClockRate() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v FlowMediaStream) *int { return v.ClockRate }).(pulumi.IntPtrOutput)
+func (o FlowMediaStreamTypeOutput) ClockRate() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FlowMediaStreamType) *int { return v.ClockRate }).(pulumi.IntPtrOutput)
 }
 
 // A description that can help you quickly identify what your media stream is used for.
-func (o FlowMediaStreamOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v FlowMediaStream) *string { return v.Description }).(pulumi.StringPtrOutput)
+func (o FlowMediaStreamTypeOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FlowMediaStreamType) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
 // The format type number (sometimes referred to as RTP payload type) of the media stream. MediaConnect assigns this value to the media stream. For ST 2110 JPEG XS outputs, you need to provide this value to the receiver.
-func (o FlowMediaStreamOutput) Fmt() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v FlowMediaStream) *int { return v.Fmt }).(pulumi.IntPtrOutput)
+func (o FlowMediaStreamTypeOutput) Fmt() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FlowMediaStreamType) *int { return v.Fmt }).(pulumi.IntPtrOutput)
 }
 
 // A unique identifier for the media stream.
-func (o FlowMediaStreamOutput) MediaStreamId() pulumi.IntOutput {
-	return o.ApplyT(func(v FlowMediaStream) int { return v.MediaStreamId }).(pulumi.IntOutput)
+func (o FlowMediaStreamTypeOutput) MediaStreamId() pulumi.IntOutput {
+	return o.ApplyT(func(v FlowMediaStreamType) int { return v.MediaStreamId }).(pulumi.IntOutput)
 }
 
 // A name that helps you distinguish one media stream from another.
-func (o FlowMediaStreamOutput) MediaStreamName() pulumi.StringOutput {
-	return o.ApplyT(func(v FlowMediaStream) string { return v.MediaStreamName }).(pulumi.StringOutput)
+func (o FlowMediaStreamTypeOutput) MediaStreamName() pulumi.StringOutput {
+	return o.ApplyT(func(v FlowMediaStreamType) string { return v.MediaStreamName }).(pulumi.StringOutput)
 }
 
 // The type of media stream.
-func (o FlowMediaStreamOutput) MediaStreamType() FlowMediaStreamMediaStreamTypeOutput {
-	return o.ApplyT(func(v FlowMediaStream) FlowMediaStreamMediaStreamType { return v.MediaStreamType }).(FlowMediaStreamMediaStreamTypeOutput)
+func (o FlowMediaStreamTypeOutput) MediaStreamType() FlowMediaStreamMediaStreamTypeOutput {
+	return o.ApplyT(func(v FlowMediaStreamType) FlowMediaStreamMediaStreamType { return v.MediaStreamType }).(FlowMediaStreamMediaStreamTypeOutput)
 }
 
 // Key-value pairs that can be used to tag this media stream.
-func (o FlowMediaStreamOutput) Tags() FlowTagArrayOutput {
-	return o.ApplyT(func(v FlowMediaStream) []FlowTag { return v.Tags }).(FlowTagArrayOutput)
+func (o FlowMediaStreamTypeOutput) Tags() FlowTagArrayOutput {
+	return o.ApplyT(func(v FlowMediaStreamType) []FlowTag { return v.Tags }).(FlowTagArrayOutput)
 }
 
 // The resolution of the video.
-func (o FlowMediaStreamOutput) VideoFormat() FlowMediaStreamVideoFormatPtrOutput {
-	return o.ApplyT(func(v FlowMediaStream) *FlowMediaStreamVideoFormat { return v.VideoFormat }).(FlowMediaStreamVideoFormatPtrOutput)
+func (o FlowMediaStreamTypeOutput) VideoFormat() FlowMediaStreamVideoFormatPtrOutput {
+	return o.ApplyT(func(v FlowMediaStreamType) *FlowMediaStreamVideoFormat { return v.VideoFormat }).(FlowMediaStreamVideoFormatPtrOutput)
 }
 
-type FlowMediaStreamArrayOutput struct{ *pulumi.OutputState }
+type FlowMediaStreamTypeArrayOutput struct{ *pulumi.OutputState }
 
-func (FlowMediaStreamArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]FlowMediaStream)(nil)).Elem()
+func (FlowMediaStreamTypeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FlowMediaStreamType)(nil)).Elem()
 }
 
-func (o FlowMediaStreamArrayOutput) ToFlowMediaStreamArrayOutput() FlowMediaStreamArrayOutput {
+func (o FlowMediaStreamTypeArrayOutput) ToFlowMediaStreamTypeArrayOutput() FlowMediaStreamTypeArrayOutput {
 	return o
 }
 
-func (o FlowMediaStreamArrayOutput) ToFlowMediaStreamArrayOutputWithContext(ctx context.Context) FlowMediaStreamArrayOutput {
+func (o FlowMediaStreamTypeArrayOutput) ToFlowMediaStreamTypeArrayOutputWithContext(ctx context.Context) FlowMediaStreamTypeArrayOutput {
 	return o
 }
 
-func (o FlowMediaStreamArrayOutput) Index(i pulumi.IntInput) FlowMediaStreamOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FlowMediaStream {
-		return vs[0].([]FlowMediaStream)[vs[1].(int)]
-	}).(FlowMediaStreamOutput)
+func (o FlowMediaStreamTypeArrayOutput) Index(i pulumi.IntInput) FlowMediaStreamTypeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FlowMediaStreamType {
+		return vs[0].([]FlowMediaStreamType)[vs[1].(int)]
+	}).(FlowMediaStreamTypeOutput)
 }
 
 // Attributes that are related to the media stream.
@@ -5271,6 +5271,415 @@ func (o FlowMediaStreamAttributesPtrOutput) Lang() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// A set of parameters that define the media stream.
+type FlowMediaStreamFmtp struct {
+	// The format of the audio channel. Can only be specified for an audio media stream.
+	ChannelOrder *string `pulumi:"channelOrder"`
+	// The format used for the representation of color.
+	Colorimetry *FlowMediaStreamFmtpColorimetry `pulumi:"colorimetry"`
+	// The frame rate for the video stream, in frames/second. For example: 60000/1001.
+	ExactFramerate *string `pulumi:"exactFramerate"`
+	// The pixel aspect ratio (PAR) of the video.
+	Par *string `pulumi:"par"`
+	// The encoding range of the video.
+	Range *FlowMediaStreamFmtpRange `pulumi:"range"`
+	// The type of compression that was used to smooth the video's appearance.
+	ScanMode *FlowMediaStreamFmtpScanMode `pulumi:"scanMode"`
+	// The transfer characteristic system (TCS) that is used in the video.
+	Tcs *FlowMediaStreamFmtpTcs `pulumi:"tcs"`
+}
+
+// FlowMediaStreamFmtpInput is an input type that accepts FlowMediaStreamFmtpArgs and FlowMediaStreamFmtpOutput values.
+// You can construct a concrete instance of `FlowMediaStreamFmtpInput` via:
+//
+//	FlowMediaStreamFmtpArgs{...}
+type FlowMediaStreamFmtpInput interface {
+	pulumi.Input
+
+	ToFlowMediaStreamFmtpOutput() FlowMediaStreamFmtpOutput
+	ToFlowMediaStreamFmtpOutputWithContext(context.Context) FlowMediaStreamFmtpOutput
+}
+
+// A set of parameters that define the media stream.
+type FlowMediaStreamFmtpArgs struct {
+	// The format of the audio channel. Can only be specified for an audio media stream.
+	ChannelOrder pulumi.StringPtrInput `pulumi:"channelOrder"`
+	// The format used for the representation of color.
+	Colorimetry FlowMediaStreamFmtpColorimetryPtrInput `pulumi:"colorimetry"`
+	// The frame rate for the video stream, in frames/second. For example: 60000/1001.
+	ExactFramerate pulumi.StringPtrInput `pulumi:"exactFramerate"`
+	// The pixel aspect ratio (PAR) of the video.
+	Par pulumi.StringPtrInput `pulumi:"par"`
+	// The encoding range of the video.
+	Range FlowMediaStreamFmtpRangePtrInput `pulumi:"range"`
+	// The type of compression that was used to smooth the video's appearance.
+	ScanMode FlowMediaStreamFmtpScanModePtrInput `pulumi:"scanMode"`
+	// The transfer characteristic system (TCS) that is used in the video.
+	Tcs FlowMediaStreamFmtpTcsPtrInput `pulumi:"tcs"`
+}
+
+func (FlowMediaStreamFmtpArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowMediaStreamFmtp)(nil)).Elem()
+}
+
+func (i FlowMediaStreamFmtpArgs) ToFlowMediaStreamFmtpOutput() FlowMediaStreamFmtpOutput {
+	return i.ToFlowMediaStreamFmtpOutputWithContext(context.Background())
+}
+
+func (i FlowMediaStreamFmtpArgs) ToFlowMediaStreamFmtpOutputWithContext(ctx context.Context) FlowMediaStreamFmtpOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowMediaStreamFmtpOutput)
+}
+
+func (i FlowMediaStreamFmtpArgs) ToFlowMediaStreamFmtpPtrOutput() FlowMediaStreamFmtpPtrOutput {
+	return i.ToFlowMediaStreamFmtpPtrOutputWithContext(context.Background())
+}
+
+func (i FlowMediaStreamFmtpArgs) ToFlowMediaStreamFmtpPtrOutputWithContext(ctx context.Context) FlowMediaStreamFmtpPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowMediaStreamFmtpOutput).ToFlowMediaStreamFmtpPtrOutputWithContext(ctx)
+}
+
+// FlowMediaStreamFmtpPtrInput is an input type that accepts FlowMediaStreamFmtpArgs, FlowMediaStreamFmtpPtr and FlowMediaStreamFmtpPtrOutput values.
+// You can construct a concrete instance of `FlowMediaStreamFmtpPtrInput` via:
+//
+//	        FlowMediaStreamFmtpArgs{...}
+//
+//	or:
+//
+//	        nil
+type FlowMediaStreamFmtpPtrInput interface {
+	pulumi.Input
+
+	ToFlowMediaStreamFmtpPtrOutput() FlowMediaStreamFmtpPtrOutput
+	ToFlowMediaStreamFmtpPtrOutputWithContext(context.Context) FlowMediaStreamFmtpPtrOutput
+}
+
+type flowMediaStreamFmtpPtrType FlowMediaStreamFmtpArgs
+
+func FlowMediaStreamFmtpPtr(v *FlowMediaStreamFmtpArgs) FlowMediaStreamFmtpPtrInput {
+	return (*flowMediaStreamFmtpPtrType)(v)
+}
+
+func (*flowMediaStreamFmtpPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowMediaStreamFmtp)(nil)).Elem()
+}
+
+func (i *flowMediaStreamFmtpPtrType) ToFlowMediaStreamFmtpPtrOutput() FlowMediaStreamFmtpPtrOutput {
+	return i.ToFlowMediaStreamFmtpPtrOutputWithContext(context.Background())
+}
+
+func (i *flowMediaStreamFmtpPtrType) ToFlowMediaStreamFmtpPtrOutputWithContext(ctx context.Context) FlowMediaStreamFmtpPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowMediaStreamFmtpPtrOutput)
+}
+
+// A set of parameters that define the media stream.
+type FlowMediaStreamFmtpOutput struct{ *pulumi.OutputState }
+
+func (FlowMediaStreamFmtpOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowMediaStreamFmtp)(nil)).Elem()
+}
+
+func (o FlowMediaStreamFmtpOutput) ToFlowMediaStreamFmtpOutput() FlowMediaStreamFmtpOutput {
+	return o
+}
+
+func (o FlowMediaStreamFmtpOutput) ToFlowMediaStreamFmtpOutputWithContext(ctx context.Context) FlowMediaStreamFmtpOutput {
+	return o
+}
+
+func (o FlowMediaStreamFmtpOutput) ToFlowMediaStreamFmtpPtrOutput() FlowMediaStreamFmtpPtrOutput {
+	return o.ToFlowMediaStreamFmtpPtrOutputWithContext(context.Background())
+}
+
+func (o FlowMediaStreamFmtpOutput) ToFlowMediaStreamFmtpPtrOutputWithContext(ctx context.Context) FlowMediaStreamFmtpPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowMediaStreamFmtp) *FlowMediaStreamFmtp {
+		return &v
+	}).(FlowMediaStreamFmtpPtrOutput)
+}
+
+// The format of the audio channel. Can only be specified for an audio media stream.
+func (o FlowMediaStreamFmtpOutput) ChannelOrder() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FlowMediaStreamFmtp) *string { return v.ChannelOrder }).(pulumi.StringPtrOutput)
+}
+
+// The format used for the representation of color.
+func (o FlowMediaStreamFmtpOutput) Colorimetry() FlowMediaStreamFmtpColorimetryPtrOutput {
+	return o.ApplyT(func(v FlowMediaStreamFmtp) *FlowMediaStreamFmtpColorimetry { return v.Colorimetry }).(FlowMediaStreamFmtpColorimetryPtrOutput)
+}
+
+// The frame rate for the video stream, in frames/second. For example: 60000/1001.
+func (o FlowMediaStreamFmtpOutput) ExactFramerate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FlowMediaStreamFmtp) *string { return v.ExactFramerate }).(pulumi.StringPtrOutput)
+}
+
+// The pixel aspect ratio (PAR) of the video.
+func (o FlowMediaStreamFmtpOutput) Par() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FlowMediaStreamFmtp) *string { return v.Par }).(pulumi.StringPtrOutput)
+}
+
+// The encoding range of the video.
+func (o FlowMediaStreamFmtpOutput) Range() FlowMediaStreamFmtpRangePtrOutput {
+	return o.ApplyT(func(v FlowMediaStreamFmtp) *FlowMediaStreamFmtpRange { return v.Range }).(FlowMediaStreamFmtpRangePtrOutput)
+}
+
+// The type of compression that was used to smooth the video's appearance.
+func (o FlowMediaStreamFmtpOutput) ScanMode() FlowMediaStreamFmtpScanModePtrOutput {
+	return o.ApplyT(func(v FlowMediaStreamFmtp) *FlowMediaStreamFmtpScanMode { return v.ScanMode }).(FlowMediaStreamFmtpScanModePtrOutput)
+}
+
+// The transfer characteristic system (TCS) that is used in the video.
+func (o FlowMediaStreamFmtpOutput) Tcs() FlowMediaStreamFmtpTcsPtrOutput {
+	return o.ApplyT(func(v FlowMediaStreamFmtp) *FlowMediaStreamFmtpTcs { return v.Tcs }).(FlowMediaStreamFmtpTcsPtrOutput)
+}
+
+type FlowMediaStreamFmtpPtrOutput struct{ *pulumi.OutputState }
+
+func (FlowMediaStreamFmtpPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowMediaStreamFmtp)(nil)).Elem()
+}
+
+func (o FlowMediaStreamFmtpPtrOutput) ToFlowMediaStreamFmtpPtrOutput() FlowMediaStreamFmtpPtrOutput {
+	return o
+}
+
+func (o FlowMediaStreamFmtpPtrOutput) ToFlowMediaStreamFmtpPtrOutputWithContext(ctx context.Context) FlowMediaStreamFmtpPtrOutput {
+	return o
+}
+
+func (o FlowMediaStreamFmtpPtrOutput) Elem() FlowMediaStreamFmtpOutput {
+	return o.ApplyT(func(v *FlowMediaStreamFmtp) FlowMediaStreamFmtp {
+		if v != nil {
+			return *v
+		}
+		var ret FlowMediaStreamFmtp
+		return ret
+	}).(FlowMediaStreamFmtpOutput)
+}
+
+// The format of the audio channel. Can only be specified for an audio media stream.
+func (o FlowMediaStreamFmtpPtrOutput) ChannelOrder() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FlowMediaStreamFmtp) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ChannelOrder
+	}).(pulumi.StringPtrOutput)
+}
+
+// The format used for the representation of color.
+func (o FlowMediaStreamFmtpPtrOutput) Colorimetry() FlowMediaStreamFmtpColorimetryPtrOutput {
+	return o.ApplyT(func(v *FlowMediaStreamFmtp) *FlowMediaStreamFmtpColorimetry {
+		if v == nil {
+			return nil
+		}
+		return v.Colorimetry
+	}).(FlowMediaStreamFmtpColorimetryPtrOutput)
+}
+
+// The frame rate for the video stream, in frames/second. For example: 60000/1001.
+func (o FlowMediaStreamFmtpPtrOutput) ExactFramerate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FlowMediaStreamFmtp) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ExactFramerate
+	}).(pulumi.StringPtrOutput)
+}
+
+// The pixel aspect ratio (PAR) of the video.
+func (o FlowMediaStreamFmtpPtrOutput) Par() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FlowMediaStreamFmtp) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Par
+	}).(pulumi.StringPtrOutput)
+}
+
+// The encoding range of the video.
+func (o FlowMediaStreamFmtpPtrOutput) Range() FlowMediaStreamFmtpRangePtrOutput {
+	return o.ApplyT(func(v *FlowMediaStreamFmtp) *FlowMediaStreamFmtpRange {
+		if v == nil {
+			return nil
+		}
+		return v.Range
+	}).(FlowMediaStreamFmtpRangePtrOutput)
+}
+
+// The type of compression that was used to smooth the video's appearance.
+func (o FlowMediaStreamFmtpPtrOutput) ScanMode() FlowMediaStreamFmtpScanModePtrOutput {
+	return o.ApplyT(func(v *FlowMediaStreamFmtp) *FlowMediaStreamFmtpScanMode {
+		if v == nil {
+			return nil
+		}
+		return v.ScanMode
+	}).(FlowMediaStreamFmtpScanModePtrOutput)
+}
+
+// The transfer characteristic system (TCS) that is used in the video.
+func (o FlowMediaStreamFmtpPtrOutput) Tcs() FlowMediaStreamFmtpTcsPtrOutput {
+	return o.ApplyT(func(v *FlowMediaStreamFmtp) *FlowMediaStreamFmtpTcs {
+		if v == nil {
+			return nil
+		}
+		return v.Tcs
+	}).(FlowMediaStreamFmtpTcsPtrOutput)
+}
+
+// Attributes that are related to the media stream.
+type FlowMediaStreamMediaStreamAttributes struct {
+	Fmtp *FlowMediaStreamFmtp `pulumi:"fmtp"`
+	// The audio language, in a format that is recognized by the receiver. Can only be specified for an audio media stream.
+	Lang *string `pulumi:"lang"`
+}
+
+// FlowMediaStreamMediaStreamAttributesInput is an input type that accepts FlowMediaStreamMediaStreamAttributesArgs and FlowMediaStreamMediaStreamAttributesOutput values.
+// You can construct a concrete instance of `FlowMediaStreamMediaStreamAttributesInput` via:
+//
+//	FlowMediaStreamMediaStreamAttributesArgs{...}
+type FlowMediaStreamMediaStreamAttributesInput interface {
+	pulumi.Input
+
+	ToFlowMediaStreamMediaStreamAttributesOutput() FlowMediaStreamMediaStreamAttributesOutput
+	ToFlowMediaStreamMediaStreamAttributesOutputWithContext(context.Context) FlowMediaStreamMediaStreamAttributesOutput
+}
+
+// Attributes that are related to the media stream.
+type FlowMediaStreamMediaStreamAttributesArgs struct {
+	Fmtp FlowMediaStreamFmtpPtrInput `pulumi:"fmtp"`
+	// The audio language, in a format that is recognized by the receiver. Can only be specified for an audio media stream.
+	Lang pulumi.StringPtrInput `pulumi:"lang"`
+}
+
+func (FlowMediaStreamMediaStreamAttributesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowMediaStreamMediaStreamAttributes)(nil)).Elem()
+}
+
+func (i FlowMediaStreamMediaStreamAttributesArgs) ToFlowMediaStreamMediaStreamAttributesOutput() FlowMediaStreamMediaStreamAttributesOutput {
+	return i.ToFlowMediaStreamMediaStreamAttributesOutputWithContext(context.Background())
+}
+
+func (i FlowMediaStreamMediaStreamAttributesArgs) ToFlowMediaStreamMediaStreamAttributesOutputWithContext(ctx context.Context) FlowMediaStreamMediaStreamAttributesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowMediaStreamMediaStreamAttributesOutput)
+}
+
+func (i FlowMediaStreamMediaStreamAttributesArgs) ToFlowMediaStreamMediaStreamAttributesPtrOutput() FlowMediaStreamMediaStreamAttributesPtrOutput {
+	return i.ToFlowMediaStreamMediaStreamAttributesPtrOutputWithContext(context.Background())
+}
+
+func (i FlowMediaStreamMediaStreamAttributesArgs) ToFlowMediaStreamMediaStreamAttributesPtrOutputWithContext(ctx context.Context) FlowMediaStreamMediaStreamAttributesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowMediaStreamMediaStreamAttributesOutput).ToFlowMediaStreamMediaStreamAttributesPtrOutputWithContext(ctx)
+}
+
+// FlowMediaStreamMediaStreamAttributesPtrInput is an input type that accepts FlowMediaStreamMediaStreamAttributesArgs, FlowMediaStreamMediaStreamAttributesPtr and FlowMediaStreamMediaStreamAttributesPtrOutput values.
+// You can construct a concrete instance of `FlowMediaStreamMediaStreamAttributesPtrInput` via:
+//
+//	        FlowMediaStreamMediaStreamAttributesArgs{...}
+//
+//	or:
+//
+//	        nil
+type FlowMediaStreamMediaStreamAttributesPtrInput interface {
+	pulumi.Input
+
+	ToFlowMediaStreamMediaStreamAttributesPtrOutput() FlowMediaStreamMediaStreamAttributesPtrOutput
+	ToFlowMediaStreamMediaStreamAttributesPtrOutputWithContext(context.Context) FlowMediaStreamMediaStreamAttributesPtrOutput
+}
+
+type flowMediaStreamMediaStreamAttributesPtrType FlowMediaStreamMediaStreamAttributesArgs
+
+func FlowMediaStreamMediaStreamAttributesPtr(v *FlowMediaStreamMediaStreamAttributesArgs) FlowMediaStreamMediaStreamAttributesPtrInput {
+	return (*flowMediaStreamMediaStreamAttributesPtrType)(v)
+}
+
+func (*flowMediaStreamMediaStreamAttributesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowMediaStreamMediaStreamAttributes)(nil)).Elem()
+}
+
+func (i *flowMediaStreamMediaStreamAttributesPtrType) ToFlowMediaStreamMediaStreamAttributesPtrOutput() FlowMediaStreamMediaStreamAttributesPtrOutput {
+	return i.ToFlowMediaStreamMediaStreamAttributesPtrOutputWithContext(context.Background())
+}
+
+func (i *flowMediaStreamMediaStreamAttributesPtrType) ToFlowMediaStreamMediaStreamAttributesPtrOutputWithContext(ctx context.Context) FlowMediaStreamMediaStreamAttributesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowMediaStreamMediaStreamAttributesPtrOutput)
+}
+
+// Attributes that are related to the media stream.
+type FlowMediaStreamMediaStreamAttributesOutput struct{ *pulumi.OutputState }
+
+func (FlowMediaStreamMediaStreamAttributesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowMediaStreamMediaStreamAttributes)(nil)).Elem()
+}
+
+func (o FlowMediaStreamMediaStreamAttributesOutput) ToFlowMediaStreamMediaStreamAttributesOutput() FlowMediaStreamMediaStreamAttributesOutput {
+	return o
+}
+
+func (o FlowMediaStreamMediaStreamAttributesOutput) ToFlowMediaStreamMediaStreamAttributesOutputWithContext(ctx context.Context) FlowMediaStreamMediaStreamAttributesOutput {
+	return o
+}
+
+func (o FlowMediaStreamMediaStreamAttributesOutput) ToFlowMediaStreamMediaStreamAttributesPtrOutput() FlowMediaStreamMediaStreamAttributesPtrOutput {
+	return o.ToFlowMediaStreamMediaStreamAttributesPtrOutputWithContext(context.Background())
+}
+
+func (o FlowMediaStreamMediaStreamAttributesOutput) ToFlowMediaStreamMediaStreamAttributesPtrOutputWithContext(ctx context.Context) FlowMediaStreamMediaStreamAttributesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowMediaStreamMediaStreamAttributes) *FlowMediaStreamMediaStreamAttributes {
+		return &v
+	}).(FlowMediaStreamMediaStreamAttributesPtrOutput)
+}
+
+func (o FlowMediaStreamMediaStreamAttributesOutput) Fmtp() FlowMediaStreamFmtpPtrOutput {
+	return o.ApplyT(func(v FlowMediaStreamMediaStreamAttributes) *FlowMediaStreamFmtp { return v.Fmtp }).(FlowMediaStreamFmtpPtrOutput)
+}
+
+// The audio language, in a format that is recognized by the receiver. Can only be specified for an audio media stream.
+func (o FlowMediaStreamMediaStreamAttributesOutput) Lang() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FlowMediaStreamMediaStreamAttributes) *string { return v.Lang }).(pulumi.StringPtrOutput)
+}
+
+type FlowMediaStreamMediaStreamAttributesPtrOutput struct{ *pulumi.OutputState }
+
+func (FlowMediaStreamMediaStreamAttributesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowMediaStreamMediaStreamAttributes)(nil)).Elem()
+}
+
+func (o FlowMediaStreamMediaStreamAttributesPtrOutput) ToFlowMediaStreamMediaStreamAttributesPtrOutput() FlowMediaStreamMediaStreamAttributesPtrOutput {
+	return o
+}
+
+func (o FlowMediaStreamMediaStreamAttributesPtrOutput) ToFlowMediaStreamMediaStreamAttributesPtrOutputWithContext(ctx context.Context) FlowMediaStreamMediaStreamAttributesPtrOutput {
+	return o
+}
+
+func (o FlowMediaStreamMediaStreamAttributesPtrOutput) Elem() FlowMediaStreamMediaStreamAttributesOutput {
+	return o.ApplyT(func(v *FlowMediaStreamMediaStreamAttributes) FlowMediaStreamMediaStreamAttributes {
+		if v != nil {
+			return *v
+		}
+		var ret FlowMediaStreamMediaStreamAttributes
+		return ret
+	}).(FlowMediaStreamMediaStreamAttributesOutput)
+}
+
+func (o FlowMediaStreamMediaStreamAttributesPtrOutput) Fmtp() FlowMediaStreamFmtpPtrOutput {
+	return o.ApplyT(func(v *FlowMediaStreamMediaStreamAttributes) *FlowMediaStreamFmtp {
+		if v == nil {
+			return nil
+		}
+		return v.Fmtp
+	}).(FlowMediaStreamFmtpPtrOutput)
+}
+
+// The audio language, in a format that is recognized by the receiver. Can only be specified for an audio media stream.
+func (o FlowMediaStreamMediaStreamAttributesPtrOutput) Lang() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FlowMediaStreamMediaStreamAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Lang
+	}).(pulumi.StringPtrOutput)
+}
+
 // The media stream that is associated with the source, and the parameters for that association.
 type FlowMediaStreamSourceConfiguration struct {
 	// The format that was used to encode the data. For ancillary data streams, set the encoding name to smpte291. For audio streams, set the encoding name to pcm. For video, 2110 streams, set the encoding name to raw. For video, JPEG XS streams, set the encoding name to jxsv.
@@ -5389,6 +5798,14 @@ func (o FlowMediaStreamSourceConfigurationArrayOutput) Index(i pulumi.IntInput) 
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FlowMediaStreamSourceConfiguration {
 		return vs[0].([]FlowMediaStreamSourceConfiguration)[vs[1].(int)]
 	}).(FlowMediaStreamSourceConfigurationOutput)
+}
+
+// A key-value pair to associate with a resource.
+type FlowMediaStreamTag struct {
+	// The key name of the tag.
+	Key string `pulumi:"key"`
+	// The value for the tag.
+	Value string `pulumi:"value"`
 }
 
 // Specifies the configuration settings for NDI sources and outputs. Required when the flow includes NDI sources or outputs.
@@ -17107,6 +17524,127 @@ func (o RouterOutputResourcePreferredDayTimeMaintenanceConfigurationPtrOutput) T
 	}).(pulumi.StringPtrOutput)
 }
 
+// The TLS encryption configuration for destinations that present a certificate from a publicly trusted certificate authority. This type does not require any additional settings.
+type RouterOutputResourcePublicTlsEncryptionConfiguration struct {
+}
+
+// RouterOutputResourcePublicTlsEncryptionConfigurationInput is an input type that accepts RouterOutputResourcePublicTlsEncryptionConfigurationArgs and RouterOutputResourcePublicTlsEncryptionConfigurationOutput values.
+// You can construct a concrete instance of `RouterOutputResourcePublicTlsEncryptionConfigurationInput` via:
+//
+//	RouterOutputResourcePublicTlsEncryptionConfigurationArgs{...}
+type RouterOutputResourcePublicTlsEncryptionConfigurationInput interface {
+	pulumi.Input
+
+	ToRouterOutputResourcePublicTlsEncryptionConfigurationOutput() RouterOutputResourcePublicTlsEncryptionConfigurationOutput
+	ToRouterOutputResourcePublicTlsEncryptionConfigurationOutputWithContext(context.Context) RouterOutputResourcePublicTlsEncryptionConfigurationOutput
+}
+
+// The TLS encryption configuration for destinations that present a certificate from a publicly trusted certificate authority. This type does not require any additional settings.
+type RouterOutputResourcePublicTlsEncryptionConfigurationArgs struct {
+}
+
+func (RouterOutputResourcePublicTlsEncryptionConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouterOutputResourcePublicTlsEncryptionConfiguration)(nil)).Elem()
+}
+
+func (i RouterOutputResourcePublicTlsEncryptionConfigurationArgs) ToRouterOutputResourcePublicTlsEncryptionConfigurationOutput() RouterOutputResourcePublicTlsEncryptionConfigurationOutput {
+	return i.ToRouterOutputResourcePublicTlsEncryptionConfigurationOutputWithContext(context.Background())
+}
+
+func (i RouterOutputResourcePublicTlsEncryptionConfigurationArgs) ToRouterOutputResourcePublicTlsEncryptionConfigurationOutputWithContext(ctx context.Context) RouterOutputResourcePublicTlsEncryptionConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouterOutputResourcePublicTlsEncryptionConfigurationOutput)
+}
+
+func (i RouterOutputResourcePublicTlsEncryptionConfigurationArgs) ToRouterOutputResourcePublicTlsEncryptionConfigurationPtrOutput() RouterOutputResourcePublicTlsEncryptionConfigurationPtrOutput {
+	return i.ToRouterOutputResourcePublicTlsEncryptionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i RouterOutputResourcePublicTlsEncryptionConfigurationArgs) ToRouterOutputResourcePublicTlsEncryptionConfigurationPtrOutputWithContext(ctx context.Context) RouterOutputResourcePublicTlsEncryptionConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouterOutputResourcePublicTlsEncryptionConfigurationOutput).ToRouterOutputResourcePublicTlsEncryptionConfigurationPtrOutputWithContext(ctx)
+}
+
+// RouterOutputResourcePublicTlsEncryptionConfigurationPtrInput is an input type that accepts RouterOutputResourcePublicTlsEncryptionConfigurationArgs, RouterOutputResourcePublicTlsEncryptionConfigurationPtr and RouterOutputResourcePublicTlsEncryptionConfigurationPtrOutput values.
+// You can construct a concrete instance of `RouterOutputResourcePublicTlsEncryptionConfigurationPtrInput` via:
+//
+//	        RouterOutputResourcePublicTlsEncryptionConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type RouterOutputResourcePublicTlsEncryptionConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToRouterOutputResourcePublicTlsEncryptionConfigurationPtrOutput() RouterOutputResourcePublicTlsEncryptionConfigurationPtrOutput
+	ToRouterOutputResourcePublicTlsEncryptionConfigurationPtrOutputWithContext(context.Context) RouterOutputResourcePublicTlsEncryptionConfigurationPtrOutput
+}
+
+type routerOutputResourcePublicTlsEncryptionConfigurationPtrType RouterOutputResourcePublicTlsEncryptionConfigurationArgs
+
+func RouterOutputResourcePublicTlsEncryptionConfigurationPtr(v *RouterOutputResourcePublicTlsEncryptionConfigurationArgs) RouterOutputResourcePublicTlsEncryptionConfigurationPtrInput {
+	return (*routerOutputResourcePublicTlsEncryptionConfigurationPtrType)(v)
+}
+
+func (*routerOutputResourcePublicTlsEncryptionConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RouterOutputResourcePublicTlsEncryptionConfiguration)(nil)).Elem()
+}
+
+func (i *routerOutputResourcePublicTlsEncryptionConfigurationPtrType) ToRouterOutputResourcePublicTlsEncryptionConfigurationPtrOutput() RouterOutputResourcePublicTlsEncryptionConfigurationPtrOutput {
+	return i.ToRouterOutputResourcePublicTlsEncryptionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *routerOutputResourcePublicTlsEncryptionConfigurationPtrType) ToRouterOutputResourcePublicTlsEncryptionConfigurationPtrOutputWithContext(ctx context.Context) RouterOutputResourcePublicTlsEncryptionConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouterOutputResourcePublicTlsEncryptionConfigurationPtrOutput)
+}
+
+// The TLS encryption configuration for destinations that present a certificate from a publicly trusted certificate authority. This type does not require any additional settings.
+type RouterOutputResourcePublicTlsEncryptionConfigurationOutput struct{ *pulumi.OutputState }
+
+func (RouterOutputResourcePublicTlsEncryptionConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouterOutputResourcePublicTlsEncryptionConfiguration)(nil)).Elem()
+}
+
+func (o RouterOutputResourcePublicTlsEncryptionConfigurationOutput) ToRouterOutputResourcePublicTlsEncryptionConfigurationOutput() RouterOutputResourcePublicTlsEncryptionConfigurationOutput {
+	return o
+}
+
+func (o RouterOutputResourcePublicTlsEncryptionConfigurationOutput) ToRouterOutputResourcePublicTlsEncryptionConfigurationOutputWithContext(ctx context.Context) RouterOutputResourcePublicTlsEncryptionConfigurationOutput {
+	return o
+}
+
+func (o RouterOutputResourcePublicTlsEncryptionConfigurationOutput) ToRouterOutputResourcePublicTlsEncryptionConfigurationPtrOutput() RouterOutputResourcePublicTlsEncryptionConfigurationPtrOutput {
+	return o.ToRouterOutputResourcePublicTlsEncryptionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o RouterOutputResourcePublicTlsEncryptionConfigurationOutput) ToRouterOutputResourcePublicTlsEncryptionConfigurationPtrOutputWithContext(ctx context.Context) RouterOutputResourcePublicTlsEncryptionConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RouterOutputResourcePublicTlsEncryptionConfiguration) *RouterOutputResourcePublicTlsEncryptionConfiguration {
+		return &v
+	}).(RouterOutputResourcePublicTlsEncryptionConfigurationPtrOutput)
+}
+
+type RouterOutputResourcePublicTlsEncryptionConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (RouterOutputResourcePublicTlsEncryptionConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RouterOutputResourcePublicTlsEncryptionConfiguration)(nil)).Elem()
+}
+
+func (o RouterOutputResourcePublicTlsEncryptionConfigurationPtrOutput) ToRouterOutputResourcePublicTlsEncryptionConfigurationPtrOutput() RouterOutputResourcePublicTlsEncryptionConfigurationPtrOutput {
+	return o
+}
+
+func (o RouterOutputResourcePublicTlsEncryptionConfigurationPtrOutput) ToRouterOutputResourcePublicTlsEncryptionConfigurationPtrOutputWithContext(ctx context.Context) RouterOutputResourcePublicTlsEncryptionConfigurationPtrOutput {
+	return o
+}
+
+func (o RouterOutputResourcePublicTlsEncryptionConfigurationPtrOutput) Elem() RouterOutputResourcePublicTlsEncryptionConfigurationOutput {
+	return o.ApplyT(func(v *RouterOutputResourcePublicTlsEncryptionConfiguration) RouterOutputResourcePublicTlsEncryptionConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret RouterOutputResourcePublicTlsEncryptionConfiguration
+		return ret
+	}).(RouterOutputResourcePublicTlsEncryptionConfigurationOutput)
+}
+
 // The configuration settings for a router output using the RIST (Reliable Internet Stream Transport) protocol, including the destination address and port.
 type RouterOutputResourceRistRouterOutputConfiguration struct {
 	// The destination IP address for the RIST protocol in the router output configuration.
@@ -17822,6 +18360,256 @@ func (o RouterOutputResourceRouterOutputProtocolConfiguration3PropertiesPtrOutpu
 		}
 		return &v.SrtCaller
 	}).(RouterOutputResourceSrtCallerRouterOutputConfigurationPtrOutput)
+}
+
+// The protocol configuration settings for a router output.
+type RouterOutputResourceRouterOutputProtocolConfiguration4Properties struct {
+	RtmpPush RouterOutputResourceRtmpPushRouterOutputConfiguration `pulumi:"rtmpPush"`
+}
+
+// RouterOutputResourceRouterOutputProtocolConfiguration4PropertiesInput is an input type that accepts RouterOutputResourceRouterOutputProtocolConfiguration4PropertiesArgs and RouterOutputResourceRouterOutputProtocolConfiguration4PropertiesOutput values.
+// You can construct a concrete instance of `RouterOutputResourceRouterOutputProtocolConfiguration4PropertiesInput` via:
+//
+//	RouterOutputResourceRouterOutputProtocolConfiguration4PropertiesArgs{...}
+type RouterOutputResourceRouterOutputProtocolConfiguration4PropertiesInput interface {
+	pulumi.Input
+
+	ToRouterOutputResourceRouterOutputProtocolConfiguration4PropertiesOutput() RouterOutputResourceRouterOutputProtocolConfiguration4PropertiesOutput
+	ToRouterOutputResourceRouterOutputProtocolConfiguration4PropertiesOutputWithContext(context.Context) RouterOutputResourceRouterOutputProtocolConfiguration4PropertiesOutput
+}
+
+// The protocol configuration settings for a router output.
+type RouterOutputResourceRouterOutputProtocolConfiguration4PropertiesArgs struct {
+	RtmpPush RouterOutputResourceRtmpPushRouterOutputConfigurationInput `pulumi:"rtmpPush"`
+}
+
+func (RouterOutputResourceRouterOutputProtocolConfiguration4PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouterOutputResourceRouterOutputProtocolConfiguration4Properties)(nil)).Elem()
+}
+
+func (i RouterOutputResourceRouterOutputProtocolConfiguration4PropertiesArgs) ToRouterOutputResourceRouterOutputProtocolConfiguration4PropertiesOutput() RouterOutputResourceRouterOutputProtocolConfiguration4PropertiesOutput {
+	return i.ToRouterOutputResourceRouterOutputProtocolConfiguration4PropertiesOutputWithContext(context.Background())
+}
+
+func (i RouterOutputResourceRouterOutputProtocolConfiguration4PropertiesArgs) ToRouterOutputResourceRouterOutputProtocolConfiguration4PropertiesOutputWithContext(ctx context.Context) RouterOutputResourceRouterOutputProtocolConfiguration4PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouterOutputResourceRouterOutputProtocolConfiguration4PropertiesOutput)
+}
+
+// The protocol configuration settings for a router output.
+type RouterOutputResourceRouterOutputProtocolConfiguration4PropertiesOutput struct{ *pulumi.OutputState }
+
+func (RouterOutputResourceRouterOutputProtocolConfiguration4PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouterOutputResourceRouterOutputProtocolConfiguration4Properties)(nil)).Elem()
+}
+
+func (o RouterOutputResourceRouterOutputProtocolConfiguration4PropertiesOutput) ToRouterOutputResourceRouterOutputProtocolConfiguration4PropertiesOutput() RouterOutputResourceRouterOutputProtocolConfiguration4PropertiesOutput {
+	return o
+}
+
+func (o RouterOutputResourceRouterOutputProtocolConfiguration4PropertiesOutput) ToRouterOutputResourceRouterOutputProtocolConfiguration4PropertiesOutputWithContext(ctx context.Context) RouterOutputResourceRouterOutputProtocolConfiguration4PropertiesOutput {
+	return o
+}
+
+func (o RouterOutputResourceRouterOutputProtocolConfiguration4PropertiesOutput) RtmpPush() RouterOutputResourceRtmpPushRouterOutputConfigurationOutput {
+	return o.ApplyT(func(v RouterOutputResourceRouterOutputProtocolConfiguration4Properties) RouterOutputResourceRtmpPushRouterOutputConfiguration {
+		return v.RtmpPush
+	}).(RouterOutputResourceRtmpPushRouterOutputConfigurationOutput)
+}
+
+type RouterOutputResourceRouterOutputProtocolConfiguration4PropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (RouterOutputResourceRouterOutputProtocolConfiguration4PropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RouterOutputResourceRouterOutputProtocolConfiguration4Properties)(nil)).Elem()
+}
+
+func (o RouterOutputResourceRouterOutputProtocolConfiguration4PropertiesPtrOutput) ToRouterOutputResourceRouterOutputProtocolConfiguration4PropertiesPtrOutput() RouterOutputResourceRouterOutputProtocolConfiguration4PropertiesPtrOutput {
+	return o
+}
+
+func (o RouterOutputResourceRouterOutputProtocolConfiguration4PropertiesPtrOutput) ToRouterOutputResourceRouterOutputProtocolConfiguration4PropertiesPtrOutputWithContext(ctx context.Context) RouterOutputResourceRouterOutputProtocolConfiguration4PropertiesPtrOutput {
+	return o
+}
+
+func (o RouterOutputResourceRouterOutputProtocolConfiguration4PropertiesPtrOutput) Elem() RouterOutputResourceRouterOutputProtocolConfiguration4PropertiesOutput {
+	return o.ApplyT(func(v *RouterOutputResourceRouterOutputProtocolConfiguration4Properties) RouterOutputResourceRouterOutputProtocolConfiguration4Properties {
+		if v != nil {
+			return *v
+		}
+		var ret RouterOutputResourceRouterOutputProtocolConfiguration4Properties
+		return ret
+	}).(RouterOutputResourceRouterOutputProtocolConfiguration4PropertiesOutput)
+}
+
+func (o RouterOutputResourceRouterOutputProtocolConfiguration4PropertiesPtrOutput) RtmpPush() RouterOutputResourceRtmpPushRouterOutputConfigurationPtrOutput {
+	return o.ApplyT(func(v *RouterOutputResourceRouterOutputProtocolConfiguration4Properties) *RouterOutputResourceRtmpPushRouterOutputConfiguration {
+		if v == nil {
+			return nil
+		}
+		return &v.RtmpPush
+	}).(RouterOutputResourceRtmpPushRouterOutputConfigurationPtrOutput)
+}
+
+// The configuration settings for a router output that pushes a stream to a destination using the RTMP (Real-Time Messaging Protocol) protocol, or RTMPS (RTMP over TLS) when TLS encryption is specified. These settings include the destination address and port, the application and stream names, and optional TLS encryption configuration.
+type RouterOutputResourceRtmpPushRouterOutputConfiguration struct {
+	// The name of the RTMP application on the destination server. Together with the stream name, the application name forms the RTMP URL path, in the pattern rtmp://destinationAddress/applicationName/streamName.
+	ApplicationName string `pulumi:"applicationName"`
+	// The IP address or hostname of the destination RTMP server that the router output pushes the stream to. Provide only the server address; specify the application and stream names separately.
+	DestinationAddress string `pulumi:"destinationAddress"`
+	// The TCP port on the destination RTMP server. For RTMP, valid values range from 1024 to 65535. For RTMPS (RTMP over TLS), valid values are 443 or 1024 to 65535. RTMP typically uses port 1935, and RTMPS typically uses port 443.
+	DestinationPort int `pulumi:"destinationPort"`
+	// The name of the RTMP stream that the output publishes to the destination application. The stream name forms the final segment of the RTMP URL path.
+	StreamName    string                             `pulumi:"streamName"`
+	TlsEncryption *RouterOutputResourceTlsEncryption `pulumi:"tlsEncryption"`
+}
+
+// RouterOutputResourceRtmpPushRouterOutputConfigurationInput is an input type that accepts RouterOutputResourceRtmpPushRouterOutputConfigurationArgs and RouterOutputResourceRtmpPushRouterOutputConfigurationOutput values.
+// You can construct a concrete instance of `RouterOutputResourceRtmpPushRouterOutputConfigurationInput` via:
+//
+//	RouterOutputResourceRtmpPushRouterOutputConfigurationArgs{...}
+type RouterOutputResourceRtmpPushRouterOutputConfigurationInput interface {
+	pulumi.Input
+
+	ToRouterOutputResourceRtmpPushRouterOutputConfigurationOutput() RouterOutputResourceRtmpPushRouterOutputConfigurationOutput
+	ToRouterOutputResourceRtmpPushRouterOutputConfigurationOutputWithContext(context.Context) RouterOutputResourceRtmpPushRouterOutputConfigurationOutput
+}
+
+// The configuration settings for a router output that pushes a stream to a destination using the RTMP (Real-Time Messaging Protocol) protocol, or RTMPS (RTMP over TLS) when TLS encryption is specified. These settings include the destination address and port, the application and stream names, and optional TLS encryption configuration.
+type RouterOutputResourceRtmpPushRouterOutputConfigurationArgs struct {
+	// The name of the RTMP application on the destination server. Together with the stream name, the application name forms the RTMP URL path, in the pattern rtmp://destinationAddress/applicationName/streamName.
+	ApplicationName pulumi.StringInput `pulumi:"applicationName"`
+	// The IP address or hostname of the destination RTMP server that the router output pushes the stream to. Provide only the server address; specify the application and stream names separately.
+	DestinationAddress pulumi.StringInput `pulumi:"destinationAddress"`
+	// The TCP port on the destination RTMP server. For RTMP, valid values range from 1024 to 65535. For RTMPS (RTMP over TLS), valid values are 443 or 1024 to 65535. RTMP typically uses port 1935, and RTMPS typically uses port 443.
+	DestinationPort pulumi.IntInput `pulumi:"destinationPort"`
+	// The name of the RTMP stream that the output publishes to the destination application. The stream name forms the final segment of the RTMP URL path.
+	StreamName    pulumi.StringInput                        `pulumi:"streamName"`
+	TlsEncryption RouterOutputResourceTlsEncryptionPtrInput `pulumi:"tlsEncryption"`
+}
+
+func (RouterOutputResourceRtmpPushRouterOutputConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouterOutputResourceRtmpPushRouterOutputConfiguration)(nil)).Elem()
+}
+
+func (i RouterOutputResourceRtmpPushRouterOutputConfigurationArgs) ToRouterOutputResourceRtmpPushRouterOutputConfigurationOutput() RouterOutputResourceRtmpPushRouterOutputConfigurationOutput {
+	return i.ToRouterOutputResourceRtmpPushRouterOutputConfigurationOutputWithContext(context.Background())
+}
+
+func (i RouterOutputResourceRtmpPushRouterOutputConfigurationArgs) ToRouterOutputResourceRtmpPushRouterOutputConfigurationOutputWithContext(ctx context.Context) RouterOutputResourceRtmpPushRouterOutputConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouterOutputResourceRtmpPushRouterOutputConfigurationOutput)
+}
+
+// The configuration settings for a router output that pushes a stream to a destination using the RTMP (Real-Time Messaging Protocol) protocol, or RTMPS (RTMP over TLS) when TLS encryption is specified. These settings include the destination address and port, the application and stream names, and optional TLS encryption configuration.
+type RouterOutputResourceRtmpPushRouterOutputConfigurationOutput struct{ *pulumi.OutputState }
+
+func (RouterOutputResourceRtmpPushRouterOutputConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouterOutputResourceRtmpPushRouterOutputConfiguration)(nil)).Elem()
+}
+
+func (o RouterOutputResourceRtmpPushRouterOutputConfigurationOutput) ToRouterOutputResourceRtmpPushRouterOutputConfigurationOutput() RouterOutputResourceRtmpPushRouterOutputConfigurationOutput {
+	return o
+}
+
+func (o RouterOutputResourceRtmpPushRouterOutputConfigurationOutput) ToRouterOutputResourceRtmpPushRouterOutputConfigurationOutputWithContext(ctx context.Context) RouterOutputResourceRtmpPushRouterOutputConfigurationOutput {
+	return o
+}
+
+// The name of the RTMP application on the destination server. Together with the stream name, the application name forms the RTMP URL path, in the pattern rtmp://destinationAddress/applicationName/streamName.
+func (o RouterOutputResourceRtmpPushRouterOutputConfigurationOutput) ApplicationName() pulumi.StringOutput {
+	return o.ApplyT(func(v RouterOutputResourceRtmpPushRouterOutputConfiguration) string { return v.ApplicationName }).(pulumi.StringOutput)
+}
+
+// The IP address or hostname of the destination RTMP server that the router output pushes the stream to. Provide only the server address; specify the application and stream names separately.
+func (o RouterOutputResourceRtmpPushRouterOutputConfigurationOutput) DestinationAddress() pulumi.StringOutput {
+	return o.ApplyT(func(v RouterOutputResourceRtmpPushRouterOutputConfiguration) string { return v.DestinationAddress }).(pulumi.StringOutput)
+}
+
+// The TCP port on the destination RTMP server. For RTMP, valid values range from 1024 to 65535. For RTMPS (RTMP over TLS), valid values are 443 or 1024 to 65535. RTMP typically uses port 1935, and RTMPS typically uses port 443.
+func (o RouterOutputResourceRtmpPushRouterOutputConfigurationOutput) DestinationPort() pulumi.IntOutput {
+	return o.ApplyT(func(v RouterOutputResourceRtmpPushRouterOutputConfiguration) int { return v.DestinationPort }).(pulumi.IntOutput)
+}
+
+// The name of the RTMP stream that the output publishes to the destination application. The stream name forms the final segment of the RTMP URL path.
+func (o RouterOutputResourceRtmpPushRouterOutputConfigurationOutput) StreamName() pulumi.StringOutput {
+	return o.ApplyT(func(v RouterOutputResourceRtmpPushRouterOutputConfiguration) string { return v.StreamName }).(pulumi.StringOutput)
+}
+
+func (o RouterOutputResourceRtmpPushRouterOutputConfigurationOutput) TlsEncryption() RouterOutputResourceTlsEncryptionPtrOutput {
+	return o.ApplyT(func(v RouterOutputResourceRtmpPushRouterOutputConfiguration) *RouterOutputResourceTlsEncryption {
+		return v.TlsEncryption
+	}).(RouterOutputResourceTlsEncryptionPtrOutput)
+}
+
+type RouterOutputResourceRtmpPushRouterOutputConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (RouterOutputResourceRtmpPushRouterOutputConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RouterOutputResourceRtmpPushRouterOutputConfiguration)(nil)).Elem()
+}
+
+func (o RouterOutputResourceRtmpPushRouterOutputConfigurationPtrOutput) ToRouterOutputResourceRtmpPushRouterOutputConfigurationPtrOutput() RouterOutputResourceRtmpPushRouterOutputConfigurationPtrOutput {
+	return o
+}
+
+func (o RouterOutputResourceRtmpPushRouterOutputConfigurationPtrOutput) ToRouterOutputResourceRtmpPushRouterOutputConfigurationPtrOutputWithContext(ctx context.Context) RouterOutputResourceRtmpPushRouterOutputConfigurationPtrOutput {
+	return o
+}
+
+func (o RouterOutputResourceRtmpPushRouterOutputConfigurationPtrOutput) Elem() RouterOutputResourceRtmpPushRouterOutputConfigurationOutput {
+	return o.ApplyT(func(v *RouterOutputResourceRtmpPushRouterOutputConfiguration) RouterOutputResourceRtmpPushRouterOutputConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret RouterOutputResourceRtmpPushRouterOutputConfiguration
+		return ret
+	}).(RouterOutputResourceRtmpPushRouterOutputConfigurationOutput)
+}
+
+// The name of the RTMP application on the destination server. Together with the stream name, the application name forms the RTMP URL path, in the pattern rtmp://destinationAddress/applicationName/streamName.
+func (o RouterOutputResourceRtmpPushRouterOutputConfigurationPtrOutput) ApplicationName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RouterOutputResourceRtmpPushRouterOutputConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ApplicationName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The IP address or hostname of the destination RTMP server that the router output pushes the stream to. Provide only the server address; specify the application and stream names separately.
+func (o RouterOutputResourceRtmpPushRouterOutputConfigurationPtrOutput) DestinationAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RouterOutputResourceRtmpPushRouterOutputConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DestinationAddress
+	}).(pulumi.StringPtrOutput)
+}
+
+// The TCP port on the destination RTMP server. For RTMP, valid values range from 1024 to 65535. For RTMPS (RTMP over TLS), valid values are 443 or 1024 to 65535. RTMP typically uses port 1935, and RTMPS typically uses port 443.
+func (o RouterOutputResourceRtmpPushRouterOutputConfigurationPtrOutput) DestinationPort() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *RouterOutputResourceRtmpPushRouterOutputConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.DestinationPort
+	}).(pulumi.IntPtrOutput)
+}
+
+// The name of the RTMP stream that the output publishes to the destination application. The stream name forms the final segment of the RTMP URL path.
+func (o RouterOutputResourceRtmpPushRouterOutputConfigurationPtrOutput) StreamName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RouterOutputResourceRtmpPushRouterOutputConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.StreamName
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o RouterOutputResourceRtmpPushRouterOutputConfigurationPtrOutput) TlsEncryption() RouterOutputResourceTlsEncryptionPtrOutput {
+	return o.ApplyT(func(v *RouterOutputResourceRtmpPushRouterOutputConfiguration) *RouterOutputResourceTlsEncryption {
+		if v == nil {
+			return nil
+		}
+		return v.TlsEncryption
+	}).(RouterOutputResourceTlsEncryptionPtrOutput)
 }
 
 // The configuration settings for a router output using the RTP (Real-Time Transport Protocol) protocol, including the destination address and port, and forward error correction state.
@@ -18666,6 +19454,304 @@ type RouterOutputResourceTag struct {
 	Value string `pulumi:"value"`
 }
 
+// The Transport Layer Security (TLS) encryption settings used to establish a secure connection to a destination.
+type RouterOutputResourceTlsEncryption struct {
+	EncryptionConfiguration RouterOutputResourceTlsEncryptionConfigurationProperties `pulumi:"encryptionConfiguration"`
+	EncryptionType          *RouterOutputResourceTlsEncryptionType                   `pulumi:"encryptionType"`
+}
+
+// RouterOutputResourceTlsEncryptionInput is an input type that accepts RouterOutputResourceTlsEncryptionArgs and RouterOutputResourceTlsEncryptionOutput values.
+// You can construct a concrete instance of `RouterOutputResourceTlsEncryptionInput` via:
+//
+//	RouterOutputResourceTlsEncryptionArgs{...}
+type RouterOutputResourceTlsEncryptionInput interface {
+	pulumi.Input
+
+	ToRouterOutputResourceTlsEncryptionOutput() RouterOutputResourceTlsEncryptionOutput
+	ToRouterOutputResourceTlsEncryptionOutputWithContext(context.Context) RouterOutputResourceTlsEncryptionOutput
+}
+
+// The Transport Layer Security (TLS) encryption settings used to establish a secure connection to a destination.
+type RouterOutputResourceTlsEncryptionArgs struct {
+	EncryptionConfiguration RouterOutputResourceTlsEncryptionConfigurationPropertiesInput `pulumi:"encryptionConfiguration"`
+	EncryptionType          RouterOutputResourceTlsEncryptionTypePtrInput                 `pulumi:"encryptionType"`
+}
+
+func (RouterOutputResourceTlsEncryptionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouterOutputResourceTlsEncryption)(nil)).Elem()
+}
+
+func (i RouterOutputResourceTlsEncryptionArgs) ToRouterOutputResourceTlsEncryptionOutput() RouterOutputResourceTlsEncryptionOutput {
+	return i.ToRouterOutputResourceTlsEncryptionOutputWithContext(context.Background())
+}
+
+func (i RouterOutputResourceTlsEncryptionArgs) ToRouterOutputResourceTlsEncryptionOutputWithContext(ctx context.Context) RouterOutputResourceTlsEncryptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouterOutputResourceTlsEncryptionOutput)
+}
+
+func (i RouterOutputResourceTlsEncryptionArgs) ToRouterOutputResourceTlsEncryptionPtrOutput() RouterOutputResourceTlsEncryptionPtrOutput {
+	return i.ToRouterOutputResourceTlsEncryptionPtrOutputWithContext(context.Background())
+}
+
+func (i RouterOutputResourceTlsEncryptionArgs) ToRouterOutputResourceTlsEncryptionPtrOutputWithContext(ctx context.Context) RouterOutputResourceTlsEncryptionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouterOutputResourceTlsEncryptionOutput).ToRouterOutputResourceTlsEncryptionPtrOutputWithContext(ctx)
+}
+
+// RouterOutputResourceTlsEncryptionPtrInput is an input type that accepts RouterOutputResourceTlsEncryptionArgs, RouterOutputResourceTlsEncryptionPtr and RouterOutputResourceTlsEncryptionPtrOutput values.
+// You can construct a concrete instance of `RouterOutputResourceTlsEncryptionPtrInput` via:
+//
+//	        RouterOutputResourceTlsEncryptionArgs{...}
+//
+//	or:
+//
+//	        nil
+type RouterOutputResourceTlsEncryptionPtrInput interface {
+	pulumi.Input
+
+	ToRouterOutputResourceTlsEncryptionPtrOutput() RouterOutputResourceTlsEncryptionPtrOutput
+	ToRouterOutputResourceTlsEncryptionPtrOutputWithContext(context.Context) RouterOutputResourceTlsEncryptionPtrOutput
+}
+
+type routerOutputResourceTlsEncryptionPtrType RouterOutputResourceTlsEncryptionArgs
+
+func RouterOutputResourceTlsEncryptionPtr(v *RouterOutputResourceTlsEncryptionArgs) RouterOutputResourceTlsEncryptionPtrInput {
+	return (*routerOutputResourceTlsEncryptionPtrType)(v)
+}
+
+func (*routerOutputResourceTlsEncryptionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RouterOutputResourceTlsEncryption)(nil)).Elem()
+}
+
+func (i *routerOutputResourceTlsEncryptionPtrType) ToRouterOutputResourceTlsEncryptionPtrOutput() RouterOutputResourceTlsEncryptionPtrOutput {
+	return i.ToRouterOutputResourceTlsEncryptionPtrOutputWithContext(context.Background())
+}
+
+func (i *routerOutputResourceTlsEncryptionPtrType) ToRouterOutputResourceTlsEncryptionPtrOutputWithContext(ctx context.Context) RouterOutputResourceTlsEncryptionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouterOutputResourceTlsEncryptionPtrOutput)
+}
+
+// The Transport Layer Security (TLS) encryption settings used to establish a secure connection to a destination.
+type RouterOutputResourceTlsEncryptionOutput struct{ *pulumi.OutputState }
+
+func (RouterOutputResourceTlsEncryptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouterOutputResourceTlsEncryption)(nil)).Elem()
+}
+
+func (o RouterOutputResourceTlsEncryptionOutput) ToRouterOutputResourceTlsEncryptionOutput() RouterOutputResourceTlsEncryptionOutput {
+	return o
+}
+
+func (o RouterOutputResourceTlsEncryptionOutput) ToRouterOutputResourceTlsEncryptionOutputWithContext(ctx context.Context) RouterOutputResourceTlsEncryptionOutput {
+	return o
+}
+
+func (o RouterOutputResourceTlsEncryptionOutput) ToRouterOutputResourceTlsEncryptionPtrOutput() RouterOutputResourceTlsEncryptionPtrOutput {
+	return o.ToRouterOutputResourceTlsEncryptionPtrOutputWithContext(context.Background())
+}
+
+func (o RouterOutputResourceTlsEncryptionOutput) ToRouterOutputResourceTlsEncryptionPtrOutputWithContext(ctx context.Context) RouterOutputResourceTlsEncryptionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RouterOutputResourceTlsEncryption) *RouterOutputResourceTlsEncryption {
+		return &v
+	}).(RouterOutputResourceTlsEncryptionPtrOutput)
+}
+
+func (o RouterOutputResourceTlsEncryptionOutput) EncryptionConfiguration() RouterOutputResourceTlsEncryptionConfigurationPropertiesOutput {
+	return o.ApplyT(func(v RouterOutputResourceTlsEncryption) RouterOutputResourceTlsEncryptionConfigurationProperties {
+		return v.EncryptionConfiguration
+	}).(RouterOutputResourceTlsEncryptionConfigurationPropertiesOutput)
+}
+
+func (o RouterOutputResourceTlsEncryptionOutput) EncryptionType() RouterOutputResourceTlsEncryptionTypePtrOutput {
+	return o.ApplyT(func(v RouterOutputResourceTlsEncryption) *RouterOutputResourceTlsEncryptionType {
+		return v.EncryptionType
+	}).(RouterOutputResourceTlsEncryptionTypePtrOutput)
+}
+
+type RouterOutputResourceTlsEncryptionPtrOutput struct{ *pulumi.OutputState }
+
+func (RouterOutputResourceTlsEncryptionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RouterOutputResourceTlsEncryption)(nil)).Elem()
+}
+
+func (o RouterOutputResourceTlsEncryptionPtrOutput) ToRouterOutputResourceTlsEncryptionPtrOutput() RouterOutputResourceTlsEncryptionPtrOutput {
+	return o
+}
+
+func (o RouterOutputResourceTlsEncryptionPtrOutput) ToRouterOutputResourceTlsEncryptionPtrOutputWithContext(ctx context.Context) RouterOutputResourceTlsEncryptionPtrOutput {
+	return o
+}
+
+func (o RouterOutputResourceTlsEncryptionPtrOutput) Elem() RouterOutputResourceTlsEncryptionOutput {
+	return o.ApplyT(func(v *RouterOutputResourceTlsEncryption) RouterOutputResourceTlsEncryption {
+		if v != nil {
+			return *v
+		}
+		var ret RouterOutputResourceTlsEncryption
+		return ret
+	}).(RouterOutputResourceTlsEncryptionOutput)
+}
+
+func (o RouterOutputResourceTlsEncryptionPtrOutput) EncryptionConfiguration() RouterOutputResourceTlsEncryptionConfigurationPropertiesPtrOutput {
+	return o.ApplyT(func(v *RouterOutputResourceTlsEncryption) *RouterOutputResourceTlsEncryptionConfigurationProperties {
+		if v == nil {
+			return nil
+		}
+		return &v.EncryptionConfiguration
+	}).(RouterOutputResourceTlsEncryptionConfigurationPropertiesPtrOutput)
+}
+
+func (o RouterOutputResourceTlsEncryptionPtrOutput) EncryptionType() RouterOutputResourceTlsEncryptionTypePtrOutput {
+	return o.ApplyT(func(v *RouterOutputResourceTlsEncryption) *RouterOutputResourceTlsEncryptionType {
+		if v == nil {
+			return nil
+		}
+		return v.EncryptionType
+	}).(RouterOutputResourceTlsEncryptionTypePtrOutput)
+}
+
+// The configuration settings for TLS encryption.
+type RouterOutputResourceTlsEncryptionConfiguration0Properties struct {
+	Public RouterOutputResourcePublicTlsEncryptionConfiguration `pulumi:"public"`
+}
+
+// The configuration settings for TLS encryption.
+type RouterOutputResourceTlsEncryptionConfigurationProperties struct {
+	Public RouterOutputResourcePublicTlsEncryptionConfiguration `pulumi:"public"`
+}
+
+// RouterOutputResourceTlsEncryptionConfigurationPropertiesInput is an input type that accepts RouterOutputResourceTlsEncryptionConfigurationPropertiesArgs and RouterOutputResourceTlsEncryptionConfigurationPropertiesOutput values.
+// You can construct a concrete instance of `RouterOutputResourceTlsEncryptionConfigurationPropertiesInput` via:
+//
+//	RouterOutputResourceTlsEncryptionConfigurationPropertiesArgs{...}
+type RouterOutputResourceTlsEncryptionConfigurationPropertiesInput interface {
+	pulumi.Input
+
+	ToRouterOutputResourceTlsEncryptionConfigurationPropertiesOutput() RouterOutputResourceTlsEncryptionConfigurationPropertiesOutput
+	ToRouterOutputResourceTlsEncryptionConfigurationPropertiesOutputWithContext(context.Context) RouterOutputResourceTlsEncryptionConfigurationPropertiesOutput
+}
+
+// The configuration settings for TLS encryption.
+type RouterOutputResourceTlsEncryptionConfigurationPropertiesArgs struct {
+	Public RouterOutputResourcePublicTlsEncryptionConfigurationInput `pulumi:"public"`
+}
+
+func (RouterOutputResourceTlsEncryptionConfigurationPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouterOutputResourceTlsEncryptionConfigurationProperties)(nil)).Elem()
+}
+
+func (i RouterOutputResourceTlsEncryptionConfigurationPropertiesArgs) ToRouterOutputResourceTlsEncryptionConfigurationPropertiesOutput() RouterOutputResourceTlsEncryptionConfigurationPropertiesOutput {
+	return i.ToRouterOutputResourceTlsEncryptionConfigurationPropertiesOutputWithContext(context.Background())
+}
+
+func (i RouterOutputResourceTlsEncryptionConfigurationPropertiesArgs) ToRouterOutputResourceTlsEncryptionConfigurationPropertiesOutputWithContext(ctx context.Context) RouterOutputResourceTlsEncryptionConfigurationPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouterOutputResourceTlsEncryptionConfigurationPropertiesOutput)
+}
+
+func (i RouterOutputResourceTlsEncryptionConfigurationPropertiesArgs) ToRouterOutputResourceTlsEncryptionConfigurationPropertiesPtrOutput() RouterOutputResourceTlsEncryptionConfigurationPropertiesPtrOutput {
+	return i.ToRouterOutputResourceTlsEncryptionConfigurationPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i RouterOutputResourceTlsEncryptionConfigurationPropertiesArgs) ToRouterOutputResourceTlsEncryptionConfigurationPropertiesPtrOutputWithContext(ctx context.Context) RouterOutputResourceTlsEncryptionConfigurationPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouterOutputResourceTlsEncryptionConfigurationPropertiesOutput).ToRouterOutputResourceTlsEncryptionConfigurationPropertiesPtrOutputWithContext(ctx)
+}
+
+// RouterOutputResourceTlsEncryptionConfigurationPropertiesPtrInput is an input type that accepts RouterOutputResourceTlsEncryptionConfigurationPropertiesArgs, RouterOutputResourceTlsEncryptionConfigurationPropertiesPtr and RouterOutputResourceTlsEncryptionConfigurationPropertiesPtrOutput values.
+// You can construct a concrete instance of `RouterOutputResourceTlsEncryptionConfigurationPropertiesPtrInput` via:
+//
+//	        RouterOutputResourceTlsEncryptionConfigurationPropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type RouterOutputResourceTlsEncryptionConfigurationPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToRouterOutputResourceTlsEncryptionConfigurationPropertiesPtrOutput() RouterOutputResourceTlsEncryptionConfigurationPropertiesPtrOutput
+	ToRouterOutputResourceTlsEncryptionConfigurationPropertiesPtrOutputWithContext(context.Context) RouterOutputResourceTlsEncryptionConfigurationPropertiesPtrOutput
+}
+
+type routerOutputResourceTlsEncryptionConfigurationPropertiesPtrType RouterOutputResourceTlsEncryptionConfigurationPropertiesArgs
+
+func RouterOutputResourceTlsEncryptionConfigurationPropertiesPtr(v *RouterOutputResourceTlsEncryptionConfigurationPropertiesArgs) RouterOutputResourceTlsEncryptionConfigurationPropertiesPtrInput {
+	return (*routerOutputResourceTlsEncryptionConfigurationPropertiesPtrType)(v)
+}
+
+func (*routerOutputResourceTlsEncryptionConfigurationPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RouterOutputResourceTlsEncryptionConfigurationProperties)(nil)).Elem()
+}
+
+func (i *routerOutputResourceTlsEncryptionConfigurationPropertiesPtrType) ToRouterOutputResourceTlsEncryptionConfigurationPropertiesPtrOutput() RouterOutputResourceTlsEncryptionConfigurationPropertiesPtrOutput {
+	return i.ToRouterOutputResourceTlsEncryptionConfigurationPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *routerOutputResourceTlsEncryptionConfigurationPropertiesPtrType) ToRouterOutputResourceTlsEncryptionConfigurationPropertiesPtrOutputWithContext(ctx context.Context) RouterOutputResourceTlsEncryptionConfigurationPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouterOutputResourceTlsEncryptionConfigurationPropertiesPtrOutput)
+}
+
+// The configuration settings for TLS encryption.
+type RouterOutputResourceTlsEncryptionConfigurationPropertiesOutput struct{ *pulumi.OutputState }
+
+func (RouterOutputResourceTlsEncryptionConfigurationPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouterOutputResourceTlsEncryptionConfigurationProperties)(nil)).Elem()
+}
+
+func (o RouterOutputResourceTlsEncryptionConfigurationPropertiesOutput) ToRouterOutputResourceTlsEncryptionConfigurationPropertiesOutput() RouterOutputResourceTlsEncryptionConfigurationPropertiesOutput {
+	return o
+}
+
+func (o RouterOutputResourceTlsEncryptionConfigurationPropertiesOutput) ToRouterOutputResourceTlsEncryptionConfigurationPropertiesOutputWithContext(ctx context.Context) RouterOutputResourceTlsEncryptionConfigurationPropertiesOutput {
+	return o
+}
+
+func (o RouterOutputResourceTlsEncryptionConfigurationPropertiesOutput) ToRouterOutputResourceTlsEncryptionConfigurationPropertiesPtrOutput() RouterOutputResourceTlsEncryptionConfigurationPropertiesPtrOutput {
+	return o.ToRouterOutputResourceTlsEncryptionConfigurationPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o RouterOutputResourceTlsEncryptionConfigurationPropertiesOutput) ToRouterOutputResourceTlsEncryptionConfigurationPropertiesPtrOutputWithContext(ctx context.Context) RouterOutputResourceTlsEncryptionConfigurationPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RouterOutputResourceTlsEncryptionConfigurationProperties) *RouterOutputResourceTlsEncryptionConfigurationProperties {
+		return &v
+	}).(RouterOutputResourceTlsEncryptionConfigurationPropertiesPtrOutput)
+}
+
+func (o RouterOutputResourceTlsEncryptionConfigurationPropertiesOutput) Public() RouterOutputResourcePublicTlsEncryptionConfigurationOutput {
+	return o.ApplyT(func(v RouterOutputResourceTlsEncryptionConfigurationProperties) RouterOutputResourcePublicTlsEncryptionConfiguration {
+		return v.Public
+	}).(RouterOutputResourcePublicTlsEncryptionConfigurationOutput)
+}
+
+type RouterOutputResourceTlsEncryptionConfigurationPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (RouterOutputResourceTlsEncryptionConfigurationPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RouterOutputResourceTlsEncryptionConfigurationProperties)(nil)).Elem()
+}
+
+func (o RouterOutputResourceTlsEncryptionConfigurationPropertiesPtrOutput) ToRouterOutputResourceTlsEncryptionConfigurationPropertiesPtrOutput() RouterOutputResourceTlsEncryptionConfigurationPropertiesPtrOutput {
+	return o
+}
+
+func (o RouterOutputResourceTlsEncryptionConfigurationPropertiesPtrOutput) ToRouterOutputResourceTlsEncryptionConfigurationPropertiesPtrOutputWithContext(ctx context.Context) RouterOutputResourceTlsEncryptionConfigurationPropertiesPtrOutput {
+	return o
+}
+
+func (o RouterOutputResourceTlsEncryptionConfigurationPropertiesPtrOutput) Elem() RouterOutputResourceTlsEncryptionConfigurationPropertiesOutput {
+	return o.ApplyT(func(v *RouterOutputResourceTlsEncryptionConfigurationProperties) RouterOutputResourceTlsEncryptionConfigurationProperties {
+		if v != nil {
+			return *v
+		}
+		var ret RouterOutputResourceTlsEncryptionConfigurationProperties
+		return ret
+	}).(RouterOutputResourceTlsEncryptionConfigurationPropertiesOutput)
+}
+
+func (o RouterOutputResourceTlsEncryptionConfigurationPropertiesPtrOutput) Public() RouterOutputResourcePublicTlsEncryptionConfigurationPtrOutput {
+	return o.ApplyT(func(v *RouterOutputResourceTlsEncryptionConfigurationProperties) *RouterOutputResourcePublicTlsEncryptionConfiguration {
+		if v == nil {
+			return nil
+		}
+		return &v.Public
+	}).(RouterOutputResourcePublicTlsEncryptionConfigurationPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BridgeEgressGatewayBridgeInput)(nil)).Elem(), BridgeEgressGatewayBridgeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BridgeEgressGatewayBridgePtrInput)(nil)).Elem(), BridgeEgressGatewayBridgeArgs{})
@@ -18725,10 +19811,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowInterfaceInput)(nil)).Elem(), FlowInterfaceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowMaintenanceInput)(nil)).Elem(), FlowMaintenanceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowMaintenancePtrInput)(nil)).Elem(), FlowMaintenanceArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*FlowMediaStreamInput)(nil)).Elem(), FlowMediaStreamArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*FlowMediaStreamArrayInput)(nil)).Elem(), FlowMediaStreamArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowMediaStreamTypeInput)(nil)).Elem(), FlowMediaStreamTypeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowMediaStreamTypeArrayInput)(nil)).Elem(), FlowMediaStreamTypeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowMediaStreamAttributesInput)(nil)).Elem(), FlowMediaStreamAttributesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowMediaStreamAttributesPtrInput)(nil)).Elem(), FlowMediaStreamAttributesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowMediaStreamFmtpInput)(nil)).Elem(), FlowMediaStreamFmtpArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowMediaStreamFmtpPtrInput)(nil)).Elem(), FlowMediaStreamFmtpArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowMediaStreamMediaStreamAttributesInput)(nil)).Elem(), FlowMediaStreamMediaStreamAttributesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowMediaStreamMediaStreamAttributesPtrInput)(nil)).Elem(), FlowMediaStreamMediaStreamAttributesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowMediaStreamSourceConfigurationInput)(nil)).Elem(), FlowMediaStreamSourceConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowMediaStreamSourceConfigurationArrayInput)(nil)).Elem(), FlowMediaStreamSourceConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowNdiConfigInput)(nil)).Elem(), FlowNdiConfigArgs{})
@@ -18872,6 +19962,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RouterOutputResourceMediaLiveTransitEncryptionKeyConfiguration1PropertiesInput)(nil)).Elem(), RouterOutputResourceMediaLiveTransitEncryptionKeyConfiguration1PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RouterOutputResourcePreferredDayTimeMaintenanceConfigurationInput)(nil)).Elem(), RouterOutputResourcePreferredDayTimeMaintenanceConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RouterOutputResourcePreferredDayTimeMaintenanceConfigurationPtrInput)(nil)).Elem(), RouterOutputResourcePreferredDayTimeMaintenanceConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RouterOutputResourcePublicTlsEncryptionConfigurationInput)(nil)).Elem(), RouterOutputResourcePublicTlsEncryptionConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RouterOutputResourcePublicTlsEncryptionConfigurationPtrInput)(nil)).Elem(), RouterOutputResourcePublicTlsEncryptionConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RouterOutputResourceRistRouterOutputConfigurationInput)(nil)).Elem(), RouterOutputResourceRistRouterOutputConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RouterOutputResourceRouterOutputConfiguration0PropertiesInput)(nil)).Elem(), RouterOutputResourceRouterOutputConfiguration0PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RouterOutputResourceRouterOutputConfiguration1PropertiesInput)(nil)).Elem(), RouterOutputResourceRouterOutputConfiguration1PropertiesArgs{})
@@ -18880,6 +19972,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RouterOutputResourceRouterOutputProtocolConfiguration1PropertiesInput)(nil)).Elem(), RouterOutputResourceRouterOutputProtocolConfiguration1PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RouterOutputResourceRouterOutputProtocolConfiguration2PropertiesInput)(nil)).Elem(), RouterOutputResourceRouterOutputProtocolConfiguration2PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RouterOutputResourceRouterOutputProtocolConfiguration3PropertiesInput)(nil)).Elem(), RouterOutputResourceRouterOutputProtocolConfiguration3PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RouterOutputResourceRouterOutputProtocolConfiguration4PropertiesInput)(nil)).Elem(), RouterOutputResourceRouterOutputProtocolConfiguration4PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RouterOutputResourceRtmpPushRouterOutputConfigurationInput)(nil)).Elem(), RouterOutputResourceRtmpPushRouterOutputConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RouterOutputResourceRtpRouterOutputConfigurationInput)(nil)).Elem(), RouterOutputResourceRtpRouterOutputConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RouterOutputResourceSecretsManagerEncryptionKeyConfigurationInput)(nil)).Elem(), RouterOutputResourceSecretsManagerEncryptionKeyConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RouterOutputResourceSecretsManagerEncryptionKeyConfigurationPtrInput)(nil)).Elem(), RouterOutputResourceSecretsManagerEncryptionKeyConfigurationArgs{})
@@ -18888,6 +19982,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RouterOutputResourceSrtEncryptionConfigurationPtrInput)(nil)).Elem(), RouterOutputResourceSrtEncryptionConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RouterOutputResourceSrtListenerRouterOutputConfigurationInput)(nil)).Elem(), RouterOutputResourceSrtListenerRouterOutputConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RouterOutputResourceStandardRouterOutputConfigurationInput)(nil)).Elem(), RouterOutputResourceStandardRouterOutputConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RouterOutputResourceTlsEncryptionInput)(nil)).Elem(), RouterOutputResourceTlsEncryptionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RouterOutputResourceTlsEncryptionPtrInput)(nil)).Elem(), RouterOutputResourceTlsEncryptionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RouterOutputResourceTlsEncryptionConfigurationPropertiesInput)(nil)).Elem(), RouterOutputResourceTlsEncryptionConfigurationPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RouterOutputResourceTlsEncryptionConfigurationPropertiesPtrInput)(nil)).Elem(), RouterOutputResourceTlsEncryptionConfigurationPropertiesArgs{})
 	pulumi.RegisterOutputType(BridgeEgressGatewayBridgeOutput{})
 	pulumi.RegisterOutputType(BridgeEgressGatewayBridgePtrOutput{})
 	pulumi.RegisterOutputType(BridgeFailoverConfigOutput{})
@@ -18947,10 +20045,14 @@ func init() {
 	pulumi.RegisterOutputType(FlowInterfaceOutput{})
 	pulumi.RegisterOutputType(FlowMaintenanceOutput{})
 	pulumi.RegisterOutputType(FlowMaintenancePtrOutput{})
-	pulumi.RegisterOutputType(FlowMediaStreamOutput{})
-	pulumi.RegisterOutputType(FlowMediaStreamArrayOutput{})
+	pulumi.RegisterOutputType(FlowMediaStreamTypeOutput{})
+	pulumi.RegisterOutputType(FlowMediaStreamTypeArrayOutput{})
 	pulumi.RegisterOutputType(FlowMediaStreamAttributesOutput{})
 	pulumi.RegisterOutputType(FlowMediaStreamAttributesPtrOutput{})
+	pulumi.RegisterOutputType(FlowMediaStreamFmtpOutput{})
+	pulumi.RegisterOutputType(FlowMediaStreamFmtpPtrOutput{})
+	pulumi.RegisterOutputType(FlowMediaStreamMediaStreamAttributesOutput{})
+	pulumi.RegisterOutputType(FlowMediaStreamMediaStreamAttributesPtrOutput{})
 	pulumi.RegisterOutputType(FlowMediaStreamSourceConfigurationOutput{})
 	pulumi.RegisterOutputType(FlowMediaStreamSourceConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(FlowNdiConfigOutput{})
@@ -19132,6 +20234,8 @@ func init() {
 	pulumi.RegisterOutputType(RouterOutputResourceMediaLiveTransitEncryptionKeyConfiguration1PropertiesPtrOutput{})
 	pulumi.RegisterOutputType(RouterOutputResourcePreferredDayTimeMaintenanceConfigurationOutput{})
 	pulumi.RegisterOutputType(RouterOutputResourcePreferredDayTimeMaintenanceConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(RouterOutputResourcePublicTlsEncryptionConfigurationOutput{})
+	pulumi.RegisterOutputType(RouterOutputResourcePublicTlsEncryptionConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(RouterOutputResourceRistRouterOutputConfigurationOutput{})
 	pulumi.RegisterOutputType(RouterOutputResourceRistRouterOutputConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(RouterOutputResourceRouterOutputConfiguration0PropertiesOutput{})
@@ -19148,6 +20252,10 @@ func init() {
 	pulumi.RegisterOutputType(RouterOutputResourceRouterOutputProtocolConfiguration2PropertiesPtrOutput{})
 	pulumi.RegisterOutputType(RouterOutputResourceRouterOutputProtocolConfiguration3PropertiesOutput{})
 	pulumi.RegisterOutputType(RouterOutputResourceRouterOutputProtocolConfiguration3PropertiesPtrOutput{})
+	pulumi.RegisterOutputType(RouterOutputResourceRouterOutputProtocolConfiguration4PropertiesOutput{})
+	pulumi.RegisterOutputType(RouterOutputResourceRouterOutputProtocolConfiguration4PropertiesPtrOutput{})
+	pulumi.RegisterOutputType(RouterOutputResourceRtmpPushRouterOutputConfigurationOutput{})
+	pulumi.RegisterOutputType(RouterOutputResourceRtmpPushRouterOutputConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(RouterOutputResourceRtpRouterOutputConfigurationOutput{})
 	pulumi.RegisterOutputType(RouterOutputResourceRtpRouterOutputConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(RouterOutputResourceSecretsManagerEncryptionKeyConfigurationOutput{})
@@ -19160,4 +20268,8 @@ func init() {
 	pulumi.RegisterOutputType(RouterOutputResourceSrtListenerRouterOutputConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(RouterOutputResourceStandardRouterOutputConfigurationOutput{})
 	pulumi.RegisterOutputType(RouterOutputResourceStandardRouterOutputConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(RouterOutputResourceTlsEncryptionOutput{})
+	pulumi.RegisterOutputType(RouterOutputResourceTlsEncryptionPtrOutput{})
+	pulumi.RegisterOutputType(RouterOutputResourceTlsEncryptionConfigurationPropertiesOutput{})
+	pulumi.RegisterOutputType(RouterOutputResourceTlsEncryptionConfigurationPropertiesPtrOutput{})
 }

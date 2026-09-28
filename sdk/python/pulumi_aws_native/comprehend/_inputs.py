@@ -28,6 +28,20 @@ __all__ = [
     'DocumentClassifierOutputDataConfigArgsDict',
     'DocumentClassifierVpcConfigArgs',
     'DocumentClassifierVpcConfigArgsDict',
+    'EntityRecognizerAnnotationsArgs',
+    'EntityRecognizerAnnotationsArgsDict',
+    'EntityRecognizerAugmentedManifestsListItemArgs',
+    'EntityRecognizerAugmentedManifestsListItemArgsDict',
+    'EntityRecognizerDocumentsArgs',
+    'EntityRecognizerDocumentsArgsDict',
+    'EntityRecognizerEntityListArgs',
+    'EntityRecognizerEntityListArgsDict',
+    'EntityRecognizerEntityTypesListItemArgs',
+    'EntityRecognizerEntityTypesListItemArgsDict',
+    'EntityRecognizerInputDataConfigArgs',
+    'EntityRecognizerInputDataConfigArgsDict',
+    'EntityRecognizerVpcConfigArgs',
+    'EntityRecognizerVpcConfigArgsDict',
     'FlywheelDataSecurityConfigArgs',
     'FlywheelDataSecurityConfigArgsDict',
     'FlywheelDocumentClassificationConfigArgs',
@@ -586,6 +600,515 @@ class DocumentClassifierVpcConfigArgs:
     def subnets(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
         """
         The ID for each subnet being used in your private VPC. This subnet is a subset of the a range of IPv4 addresses used by the VPC and is specific to a given availability zone in the VPC’s Region. This ID number is preceded by "subnet-", for instance: "subnet-04ccf456919e69055". For more information, see [VPCs and Subnets](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html) .
+        """
+        return pulumi.get(self, "subnets")
+
+    @subnets.setter
+    def subnets(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "subnets", value)
+
+
+class EntityRecognizerAnnotationsArgsDict(TypedDict):
+    """
+    Describes the annotations associated with an entity recognizer.
+    """
+    s3_uri: pulumi.Input[_builtins.str]
+    """
+    Specifies the Amazon S3 location where the annotations are located.
+    """
+    test_s3_uri: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Specifies the Amazon S3 location where the test annotations are located.
+    """
+
+@pulumi.input_type
+class EntityRecognizerAnnotationsArgs:
+    def __init__(__self__, *,
+                 s3_uri: pulumi.Input[_builtins.str],
+                 test_s3_uri: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        Describes the annotations associated with an entity recognizer.
+
+        :param pulumi.Input[_builtins.str] s3_uri: Specifies the Amazon S3 location where the annotations are located.
+        :param pulumi.Input[_builtins.str] test_s3_uri: Specifies the Amazon S3 location where the test annotations are located.
+        """
+        pulumi.set(__self__, "s3_uri", s3_uri)
+        if test_s3_uri is not None:
+            pulumi.set(__self__, "test_s3_uri", test_s3_uri)
+
+    @_builtins.property
+    @pulumi.getter(name="s3Uri")
+    def s3_uri(self) -> pulumi.Input[_builtins.str]:
+        """
+        Specifies the Amazon S3 location where the annotations are located.
+        """
+        return pulumi.get(self, "s3_uri")
+
+    @s3_uri.setter
+    def s3_uri(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "s3_uri", value)
+
+    @_builtins.property
+    @pulumi.getter(name="testS3Uri")
+    def test_s3_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Specifies the Amazon S3 location where the test annotations are located.
+        """
+        return pulumi.get(self, "test_s3_uri")
+
+    @test_s3_uri.setter
+    def test_s3_uri(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "test_s3_uri", value)
+
+
+class EntityRecognizerAugmentedManifestsListItemArgsDict(TypedDict):
+    """
+    An augmented manifest file that provides training data for your custom model.
+    """
+    attribute_names: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    The JSON attribute that contains the annotations for your training documents.
+    """
+    s3_uri: pulumi.Input[_builtins.str]
+    """
+    The Amazon S3 location of the augmented manifest file.
+    """
+    annotation_data_s3_uri: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The S3 prefix to the annotation files that are referred in the augmented manifest file.
+    """
+    document_type: NotRequired[pulumi.Input[Optional['EntityRecognizerAugmentedManifestsListItemDocumentType']]]
+    """
+    The type of augmented manifest.
+    """
+    source_documents_s3_uri: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The S3 prefix to the source files (PDFs) that are referred to in the augmented manifest file.
+    """
+    split: NotRequired[pulumi.Input[Optional['EntityRecognizerAugmentedManifestsListItemSplit']]]
+    """
+    The purpose of the data you've provided in the augmented manifest.
+    """
+
+@pulumi.input_type
+class EntityRecognizerAugmentedManifestsListItemArgs:
+    def __init__(__self__, *,
+                 attribute_names: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
+                 s3_uri: pulumi.Input[_builtins.str],
+                 annotation_data_s3_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 document_type: pulumi.Input[Optional['EntityRecognizerAugmentedManifestsListItemDocumentType']] = None,
+                 source_documents_s3_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 split: pulumi.Input[Optional['EntityRecognizerAugmentedManifestsListItemSplit']] = None):
+        """
+        An augmented manifest file that provides training data for your custom model.
+
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] attribute_names: The JSON attribute that contains the annotations for your training documents.
+        :param pulumi.Input[_builtins.str] s3_uri: The Amazon S3 location of the augmented manifest file.
+        :param pulumi.Input[_builtins.str] annotation_data_s3_uri: The S3 prefix to the annotation files that are referred in the augmented manifest file.
+        :param pulumi.Input['EntityRecognizerAugmentedManifestsListItemDocumentType'] document_type: The type of augmented manifest.
+        :param pulumi.Input[_builtins.str] source_documents_s3_uri: The S3 prefix to the source files (PDFs) that are referred to in the augmented manifest file.
+        :param pulumi.Input['EntityRecognizerAugmentedManifestsListItemSplit'] split: The purpose of the data you've provided in the augmented manifest.
+        """
+        pulumi.set(__self__, "attribute_names", attribute_names)
+        pulumi.set(__self__, "s3_uri", s3_uri)
+        if annotation_data_s3_uri is not None:
+            pulumi.set(__self__, "annotation_data_s3_uri", annotation_data_s3_uri)
+        if document_type is not None:
+            pulumi.set(__self__, "document_type", document_type)
+        if source_documents_s3_uri is not None:
+            pulumi.set(__self__, "source_documents_s3_uri", source_documents_s3_uri)
+        if split is not None:
+            pulumi.set(__self__, "split", split)
+
+    @_builtins.property
+    @pulumi.getter(name="attributeNames")
+    def attribute_names(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        """
+        The JSON attribute that contains the annotations for your training documents.
+        """
+        return pulumi.get(self, "attribute_names")
+
+    @attribute_names.setter
+    def attribute_names(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "attribute_names", value)
+
+    @_builtins.property
+    @pulumi.getter(name="s3Uri")
+    def s3_uri(self) -> pulumi.Input[_builtins.str]:
+        """
+        The Amazon S3 location of the augmented manifest file.
+        """
+        return pulumi.get(self, "s3_uri")
+
+    @s3_uri.setter
+    def s3_uri(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "s3_uri", value)
+
+    @_builtins.property
+    @pulumi.getter(name="annotationDataS3Uri")
+    def annotation_data_s3_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The S3 prefix to the annotation files that are referred in the augmented manifest file.
+        """
+        return pulumi.get(self, "annotation_data_s3_uri")
+
+    @annotation_data_s3_uri.setter
+    def annotation_data_s3_uri(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "annotation_data_s3_uri", value)
+
+    @_builtins.property
+    @pulumi.getter(name="documentType")
+    def document_type(self) -> pulumi.Input[Optional['EntityRecognizerAugmentedManifestsListItemDocumentType']]:
+        """
+        The type of augmented manifest.
+        """
+        return pulumi.get(self, "document_type")
+
+    @document_type.setter
+    def document_type(self, value: pulumi.Input[Optional['EntityRecognizerAugmentedManifestsListItemDocumentType']]):
+        pulumi.set(self, "document_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="sourceDocumentsS3Uri")
+    def source_documents_s3_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The S3 prefix to the source files (PDFs) that are referred to in the augmented manifest file.
+        """
+        return pulumi.get(self, "source_documents_s3_uri")
+
+    @source_documents_s3_uri.setter
+    def source_documents_s3_uri(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "source_documents_s3_uri", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def split(self) -> pulumi.Input[Optional['EntityRecognizerAugmentedManifestsListItemSplit']]:
+        """
+        The purpose of the data you've provided in the augmented manifest.
+        """
+        return pulumi.get(self, "split")
+
+    @split.setter
+    def split(self, value: pulumi.Input[Optional['EntityRecognizerAugmentedManifestsListItemSplit']]):
+        pulumi.set(self, "split", value)
+
+
+class EntityRecognizerDocumentsArgsDict(TypedDict):
+    """
+    Describes the training documents submitted with an entity recognizer.
+    """
+    s3_uri: pulumi.Input[_builtins.str]
+    """
+    Specifies the Amazon S3 location where the training documents are located.
+    """
+    input_format: NotRequired[pulumi.Input[Optional['EntityRecognizerDocumentsInputFormat']]]
+    """
+    Specifies how the text in an input file should be processed.
+    """
+    test_s3_uri: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Specifies the Amazon S3 location where the test documents are located.
+    """
+
+@pulumi.input_type
+class EntityRecognizerDocumentsArgs:
+    def __init__(__self__, *,
+                 s3_uri: pulumi.Input[_builtins.str],
+                 input_format: pulumi.Input[Optional['EntityRecognizerDocumentsInputFormat']] = None,
+                 test_s3_uri: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        Describes the training documents submitted with an entity recognizer.
+
+        :param pulumi.Input[_builtins.str] s3_uri: Specifies the Amazon S3 location where the training documents are located.
+        :param pulumi.Input['EntityRecognizerDocumentsInputFormat'] input_format: Specifies how the text in an input file should be processed.
+        :param pulumi.Input[_builtins.str] test_s3_uri: Specifies the Amazon S3 location where the test documents are located.
+        """
+        pulumi.set(__self__, "s3_uri", s3_uri)
+        if input_format is not None:
+            pulumi.set(__self__, "input_format", input_format)
+        if test_s3_uri is not None:
+            pulumi.set(__self__, "test_s3_uri", test_s3_uri)
+
+    @_builtins.property
+    @pulumi.getter(name="s3Uri")
+    def s3_uri(self) -> pulumi.Input[_builtins.str]:
+        """
+        Specifies the Amazon S3 location where the training documents are located.
+        """
+        return pulumi.get(self, "s3_uri")
+
+    @s3_uri.setter
+    def s3_uri(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "s3_uri", value)
+
+    @_builtins.property
+    @pulumi.getter(name="inputFormat")
+    def input_format(self) -> pulumi.Input[Optional['EntityRecognizerDocumentsInputFormat']]:
+        """
+        Specifies how the text in an input file should be processed.
+        """
+        return pulumi.get(self, "input_format")
+
+    @input_format.setter
+    def input_format(self, value: pulumi.Input[Optional['EntityRecognizerDocumentsInputFormat']]):
+        pulumi.set(self, "input_format", value)
+
+    @_builtins.property
+    @pulumi.getter(name="testS3Uri")
+    def test_s3_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Specifies the Amazon S3 location where the test documents are located.
+        """
+        return pulumi.get(self, "test_s3_uri")
+
+    @test_s3_uri.setter
+    def test_s3_uri(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "test_s3_uri", value)
+
+
+class EntityRecognizerEntityListArgsDict(TypedDict):
+    """
+    Describes the entity list submitted with an entity recognizer.
+    """
+    s3_uri: pulumi.Input[_builtins.str]
+    """
+    Specifies the Amazon S3 location where the entity list is located.
+    """
+
+@pulumi.input_type
+class EntityRecognizerEntityListArgs:
+    def __init__(__self__, *,
+                 s3_uri: pulumi.Input[_builtins.str]):
+        """
+        Describes the entity list submitted with an entity recognizer.
+
+        :param pulumi.Input[_builtins.str] s3_uri: Specifies the Amazon S3 location where the entity list is located.
+        """
+        pulumi.set(__self__, "s3_uri", s3_uri)
+
+    @_builtins.property
+    @pulumi.getter(name="s3Uri")
+    def s3_uri(self) -> pulumi.Input[_builtins.str]:
+        """
+        Specifies the Amazon S3 location where the entity list is located.
+        """
+        return pulumi.get(self, "s3_uri")
+
+    @s3_uri.setter
+    def s3_uri(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "s3_uri", value)
+
+
+class EntityRecognizerEntityTypesListItemArgsDict(TypedDict):
+    """
+    An entity type within a labeled training dataset that Amazon Comprehend uses to train a custom entity recognizer.
+    """
+    type: pulumi.Input[_builtins.str]
+    """
+    An entity type within a labeled training dataset.
+    """
+
+@pulumi.input_type
+class EntityRecognizerEntityTypesListItemArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[_builtins.str]):
+        """
+        An entity type within a labeled training dataset that Amazon Comprehend uses to train a custom entity recognizer.
+
+        :param pulumi.Input[_builtins.str] type: An entity type within a labeled training dataset.
+        """
+        pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[_builtins.str]:
+        """
+        An entity type within a labeled training dataset.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "type", value)
+
+
+class EntityRecognizerInputDataConfigArgsDict(TypedDict):
+    """
+    Specifies the format and location of the input data for an entity recognizer.
+    """
+    entity_types: pulumi.Input[Sequence[pulumi.Input['EntityRecognizerEntityTypesListItemArgsDict']]]
+    """
+    The entity types in the labeled training data.
+    """
+    annotations: NotRequired[pulumi.Input[Optional['EntityRecognizerAnnotationsArgsDict']]]
+    """
+    The S3 location of the CSV file that annotates your training documents.
+    """
+    augmented_manifests: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EntityRecognizerAugmentedManifestsListItemArgsDict']]]]]
+    """
+    A list of augmented manifest files that provide training data for a custom model.
+    """
+    data_format: NotRequired[pulumi.Input[Optional['EntityRecognizerInputDataConfigDataFormat']]]
+    """
+    The format of your training data.
+    """
+    documents: NotRequired[pulumi.Input[Optional['EntityRecognizerDocumentsArgsDict']]]
+    """
+    The S3 location of the folder that contains the training documents.
+    """
+    entity_list: NotRequired[pulumi.Input[Optional['EntityRecognizerEntityListArgsDict']]]
+    """
+    The S3 location of the CSV file that has the entity list.
+    """
+
+@pulumi.input_type
+class EntityRecognizerInputDataConfigArgs:
+    def __init__(__self__, *,
+                 entity_types: pulumi.Input[Sequence[pulumi.Input['EntityRecognizerEntityTypesListItemArgs']]],
+                 annotations: pulumi.Input[Optional['EntityRecognizerAnnotationsArgs']] = None,
+                 augmented_manifests: pulumi.Input[Optional[Sequence[pulumi.Input['EntityRecognizerAugmentedManifestsListItemArgs']]]] = None,
+                 data_format: pulumi.Input[Optional['EntityRecognizerInputDataConfigDataFormat']] = None,
+                 documents: pulumi.Input[Optional['EntityRecognizerDocumentsArgs']] = None,
+                 entity_list: pulumi.Input[Optional['EntityRecognizerEntityListArgs']] = None):
+        """
+        Specifies the format and location of the input data for an entity recognizer.
+
+        :param pulumi.Input[Sequence[pulumi.Input['EntityRecognizerEntityTypesListItemArgs']]] entity_types: The entity types in the labeled training data.
+        :param pulumi.Input['EntityRecognizerAnnotationsArgs'] annotations: The S3 location of the CSV file that annotates your training documents.
+        :param pulumi.Input[Sequence[pulumi.Input['EntityRecognizerAugmentedManifestsListItemArgs']]] augmented_manifests: A list of augmented manifest files that provide training data for a custom model.
+        :param pulumi.Input['EntityRecognizerInputDataConfigDataFormat'] data_format: The format of your training data.
+        :param pulumi.Input['EntityRecognizerDocumentsArgs'] documents: The S3 location of the folder that contains the training documents.
+        :param pulumi.Input['EntityRecognizerEntityListArgs'] entity_list: The S3 location of the CSV file that has the entity list.
+        """
+        pulumi.set(__self__, "entity_types", entity_types)
+        if annotations is not None:
+            pulumi.set(__self__, "annotations", annotations)
+        if augmented_manifests is not None:
+            pulumi.set(__self__, "augmented_manifests", augmented_manifests)
+        if data_format is not None:
+            pulumi.set(__self__, "data_format", data_format)
+        if documents is not None:
+            pulumi.set(__self__, "documents", documents)
+        if entity_list is not None:
+            pulumi.set(__self__, "entity_list", entity_list)
+
+    @_builtins.property
+    @pulumi.getter(name="entityTypes")
+    def entity_types(self) -> pulumi.Input[Sequence[pulumi.Input['EntityRecognizerEntityTypesListItemArgs']]]:
+        """
+        The entity types in the labeled training data.
+        """
+        return pulumi.get(self, "entity_types")
+
+    @entity_types.setter
+    def entity_types(self, value: pulumi.Input[Sequence[pulumi.Input['EntityRecognizerEntityTypesListItemArgs']]]):
+        pulumi.set(self, "entity_types", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def annotations(self) -> pulumi.Input[Optional['EntityRecognizerAnnotationsArgs']]:
+        """
+        The S3 location of the CSV file that annotates your training documents.
+        """
+        return pulumi.get(self, "annotations")
+
+    @annotations.setter
+    def annotations(self, value: pulumi.Input[Optional['EntityRecognizerAnnotationsArgs']]):
+        pulumi.set(self, "annotations", value)
+
+    @_builtins.property
+    @pulumi.getter(name="augmentedManifests")
+    def augmented_manifests(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['EntityRecognizerAugmentedManifestsListItemArgs']]]]:
+        """
+        A list of augmented manifest files that provide training data for a custom model.
+        """
+        return pulumi.get(self, "augmented_manifests")
+
+    @augmented_manifests.setter
+    def augmented_manifests(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['EntityRecognizerAugmentedManifestsListItemArgs']]]]):
+        pulumi.set(self, "augmented_manifests", value)
+
+    @_builtins.property
+    @pulumi.getter(name="dataFormat")
+    def data_format(self) -> pulumi.Input[Optional['EntityRecognizerInputDataConfigDataFormat']]:
+        """
+        The format of your training data.
+        """
+        return pulumi.get(self, "data_format")
+
+    @data_format.setter
+    def data_format(self, value: pulumi.Input[Optional['EntityRecognizerInputDataConfigDataFormat']]):
+        pulumi.set(self, "data_format", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def documents(self) -> pulumi.Input[Optional['EntityRecognizerDocumentsArgs']]:
+        """
+        The S3 location of the folder that contains the training documents.
+        """
+        return pulumi.get(self, "documents")
+
+    @documents.setter
+    def documents(self, value: pulumi.Input[Optional['EntityRecognizerDocumentsArgs']]):
+        pulumi.set(self, "documents", value)
+
+    @_builtins.property
+    @pulumi.getter(name="entityList")
+    def entity_list(self) -> pulumi.Input[Optional['EntityRecognizerEntityListArgs']]:
+        """
+        The S3 location of the CSV file that has the entity list.
+        """
+        return pulumi.get(self, "entity_list")
+
+    @entity_list.setter
+    def entity_list(self, value: pulumi.Input[Optional['EntityRecognizerEntityListArgs']]):
+        pulumi.set(self, "entity_list", value)
+
+
+class EntityRecognizerVpcConfigArgsDict(TypedDict):
+    """
+    Configuration parameters for an optional private Virtual Private Cloud (VPC) containing the resources you are using for the job.
+    """
+    security_group_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    The ID number for a security group on an instance of your private VPC.
+    """
+    subnets: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    The ID for each subnet being used in your private VPC.
+    """
+
+@pulumi.input_type
+class EntityRecognizerVpcConfigArgs:
+    def __init__(__self__, *,
+                 security_group_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
+                 subnets: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        """
+        Configuration parameters for an optional private Virtual Private Cloud (VPC) containing the resources you are using for the job.
+
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: The ID number for a security group on an instance of your private VPC.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnets: The ID for each subnet being used in your private VPC.
+        """
+        pulumi.set(__self__, "security_group_ids", security_group_ids)
+        pulumi.set(__self__, "subnets", subnets)
+
+    @_builtins.property
+    @pulumi.getter(name="securityGroupIds")
+    def security_group_ids(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        """
+        The ID number for a security group on an instance of your private VPC.
+        """
+        return pulumi.get(self, "security_group_ids")
+
+    @security_group_ids.setter
+    def security_group_ids(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "security_group_ids", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def subnets(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        """
+        The ID for each subnet being used in your private VPC.
         """
         return pulumi.get(self, "subnets")
 

@@ -32,6 +32,8 @@ __all__ = [
     'ServerIdentityProviderDetailsArgsDict',
     'ServerProtocolDetailsArgs',
     'ServerProtocolDetailsArgsDict',
+    'ServerProxyConfigArgs',
+    'ServerProxyConfigArgsDict',
     'ServerS3StorageOptionsArgs',
     'ServerS3StorageOptionsArgsDict',
     'ServerWorkflowDetailArgs',
@@ -866,6 +868,7 @@ class ServerProtocolDetailsArgsDict(TypedDict):
 
     The `AUTO` and `0.0.0.0` are special values for the `PassiveIp` parameter. The value `PassiveIp=AUTO` is assigned by default to FTP and FTPS type servers. In this case, the server automatically responds with one of the endpoint IPs within the PASV response. `PassiveIp=0.0.0.0` has a more unique application for its usage. For example, if you have a High Availability (HA) Network Load Balancer (NLB) environment, where you have 3 subnets, you can only specify a single IP address using the `PassiveIp` parameter. This reduces the effectiveness of having High Availability. In this case, you can specify `PassiveIp=0.0.0.0` . This tells the client to use the same IP address as the Control connection and utilize all AZs for their connections. Note, however, that not all FTP clients support the `PassiveIp=0.0.0.0` response. FileZilla and WinSCP do support it. If you are using other clients, check to see if your client supports the `PassiveIp=0.0.0.0` response.
     """
+    proxy_config: NotRequired[pulumi.Input[Optional['ServerProxyConfigArgsDict']]]
     set_stat_option: NotRequired[pulumi.Input[Optional['ServerSetStatOption']]]
     """
     Use the `SetStatOption` to ignore the error that is generated when the client attempts to use `SETSTAT` on a file you are uploading to an S3 bucket.
@@ -892,6 +895,7 @@ class ServerProtocolDetailsArgs:
     def __init__(__self__, *,
                  as2_transports: pulumi.Input[Optional[Sequence[pulumi.Input['ServerAs2Transport']]]] = None,
                  passive_ip: pulumi.Input[Optional[_builtins.str]] = None,
+                 proxy_config: pulumi.Input[Optional['ServerProxyConfigArgs']] = None,
                  set_stat_option: pulumi.Input[Optional['ServerSetStatOption']] = None,
                  tls_session_resumption_mode: pulumi.Input[Optional['ServerTlsSessionResumptionMode']] = None):
         """
@@ -928,6 +932,8 @@ class ServerProtocolDetailsArgs:
             pulumi.set(__self__, "as2_transports", as2_transports)
         if passive_ip is not None:
             pulumi.set(__self__, "passive_ip", passive_ip)
+        if proxy_config is not None:
+            pulumi.set(__self__, "proxy_config", proxy_config)
         if set_stat_option is not None:
             pulumi.set(__self__, "set_stat_option", set_stat_option)
         if tls_session_resumption_mode is not None:
@@ -970,6 +976,15 @@ class ServerProtocolDetailsArgs:
         pulumi.set(self, "passive_ip", value)
 
     @_builtins.property
+    @pulumi.getter(name="proxyConfig")
+    def proxy_config(self) -> pulumi.Input[Optional['ServerProxyConfigArgs']]:
+        return pulumi.get(self, "proxy_config")
+
+    @proxy_config.setter
+    def proxy_config(self, value: pulumi.Input[Optional['ServerProxyConfigArgs']]):
+        pulumi.set(self, "proxy_config", value)
+
+    @_builtins.property
     @pulumi.getter(name="setStatOption")
     def set_stat_option(self) -> pulumi.Input[Optional['ServerSetStatOption']]:
         """
@@ -1004,6 +1019,26 @@ class ServerProtocolDetailsArgs:
     @tls_session_resumption_mode.setter
     def tls_session_resumption_mode(self, value: pulumi.Input[Optional['ServerTlsSessionResumptionMode']]):
         pulumi.set(self, "tls_session_resumption_mode", value)
+
+
+class ServerProxyConfigArgsDict(TypedDict):
+    sftp_mode: NotRequired[pulumi.Input[Optional['ServerProxyMode']]]
+
+@pulumi.input_type
+class ServerProxyConfigArgs:
+    def __init__(__self__, *,
+                 sftp_mode: pulumi.Input[Optional['ServerProxyMode']] = None):
+        if sftp_mode is not None:
+            pulumi.set(__self__, "sftp_mode", sftp_mode)
+
+    @_builtins.property
+    @pulumi.getter(name="sftpMode")
+    def sftp_mode(self) -> pulumi.Input[Optional['ServerProxyMode']]:
+        return pulumi.get(self, "sftp_mode")
+
+    @sftp_mode.setter
+    def sftp_mode(self, value: pulumi.Input[Optional['ServerProxyMode']]):
+        pulumi.set(self, "sftp_mode", value)
 
 
 class ServerS3StorageOptionsArgsDict(TypedDict):
@@ -1184,6 +1219,10 @@ class SftpConfigPropertiesArgsDict(TypedDict):
     """
     Specifies the number of active connections that your connector can establish with the remote server at the same time.
     """
+    ordered_user_secret_version_stages: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    Specifies the order in which the connector attempts to use secret versions during authentication. This enables fallback to alternative credentials if the primary version fails.
+    """
     trusted_host_keys: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     List of public host keys, for the external server to which you are connecting.
@@ -1197,17 +1236,21 @@ class SftpConfigPropertiesArgsDict(TypedDict):
 class SftpConfigPropertiesArgs:
     def __init__(__self__, *,
                  max_concurrent_connections: pulumi.Input[Optional[_builtins.int]] = None,
+                 ordered_user_secret_version_stages: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  trusted_host_keys: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  user_secret_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Configuration for an SFTP connector.
 
         :param pulumi.Input[_builtins.int] max_concurrent_connections: Specifies the number of active connections that your connector can establish with the remote server at the same time.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ordered_user_secret_version_stages: Specifies the order in which the connector attempts to use secret versions during authentication. This enables fallback to alternative credentials if the primary version fails.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] trusted_host_keys: List of public host keys, for the external server to which you are connecting.
         :param pulumi.Input[_builtins.str] user_secret_id: ARN or name of the secret in AWS Secrets Manager which contains the SFTP user's private keys or passwords.
         """
         if max_concurrent_connections is not None:
             pulumi.set(__self__, "max_concurrent_connections", max_concurrent_connections)
+        if ordered_user_secret_version_stages is not None:
+            pulumi.set(__self__, "ordered_user_secret_version_stages", ordered_user_secret_version_stages)
         if trusted_host_keys is not None:
             pulumi.set(__self__, "trusted_host_keys", trusted_host_keys)
         if user_secret_id is not None:
@@ -1224,6 +1267,18 @@ class SftpConfigPropertiesArgs:
     @max_concurrent_connections.setter
     def max_concurrent_connections(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_concurrent_connections", value)
+
+    @_builtins.property
+    @pulumi.getter(name="orderedUserSecretVersionStages")
+    def ordered_user_secret_version_stages(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Specifies the order in which the connector attempts to use secret versions during authentication. This enables fallback to alternative credentials if the primary version fails.
+        """
+        return pulumi.get(self, "ordered_user_secret_version_stages")
+
+    @ordered_user_secret_version_stages.setter
+    def ordered_user_secret_version_stages(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "ordered_user_secret_version_stages", value)
 
     @_builtins.property
     @pulumi.getter(name="trustedHostKeys")

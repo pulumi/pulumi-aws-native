@@ -44,7 +44,7 @@ type LookupFlowResult struct {
 	// The maintenance settings you want to use for the flow.
 	Maintenance *FlowMaintenance `pulumi:"maintenance"`
 	// The media streams associated with the flow. You can associate any of these media streams with sources and outputs on the flow.
-	MediaStreams []FlowMediaStream `pulumi:"mediaStreams"`
+	MediaStreams []FlowMediaStreamType `pulumi:"mediaStreams"`
 	// Specifies the configuration settings for NDI sources and outputs. Required when the flow includes NDI sources or outputs.
 	NdiConfig *FlowNdiConfig `pulumi:"ndiConfig"`
 	// The source of the flow.
@@ -123,8 +123,8 @@ func (o LookupFlowResultOutput) Maintenance() FlowMaintenancePtrOutput {
 }
 
 // The media streams associated with the flow. You can associate any of these media streams with sources and outputs on the flow.
-func (o LookupFlowResultOutput) MediaStreams() FlowMediaStreamArrayOutput {
-	return o.ApplyT(func(v LookupFlowResult) []FlowMediaStream { return v.MediaStreams }).(FlowMediaStreamArrayOutput)
+func (o LookupFlowResultOutput) MediaStreams() FlowMediaStreamTypeArrayOutput {
+	return o.ApplyT(func(v LookupFlowResult) []FlowMediaStreamType { return v.MediaStreams }).(FlowMediaStreamTypeArrayOutput)
 }
 
 // Specifies the configuration settings for NDI sources and outputs. Required when the flow includes NDI sources or outputs.

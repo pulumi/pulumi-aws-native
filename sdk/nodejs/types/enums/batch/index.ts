@@ -13,6 +13,27 @@ export const ComputeEnvironmentEcsSettingsContainerInsights = {
  */
 export type ComputeEnvironmentEcsSettingsContainerInsights = (typeof ComputeEnvironmentEcsSettingsContainerInsights)[keyof typeof ComputeEnvironmentEcsSettingsContainerInsights];
 
+export const ComputeEnvironmentEksAccessEntryDesiredState = {
+    Enabled: "ENABLED",
+    Disabled: "DISABLED",
+    InheritFromCluster: "INHERIT_FROM_CLUSTER",
+} as const;
+
+/**
+ * The desired state of the EKS access entry managed by AWS Batch. When omitted, AWS Batch applies INHERIT_FROM_CLUSTER.
+ */
+export type ComputeEnvironmentEksAccessEntryDesiredState = (typeof ComputeEnvironmentEksAccessEntryDesiredState)[keyof typeof ComputeEnvironmentEksAccessEntryDesiredState];
+
+export const ComputeEnvironmentEksAccessEntryStatus = {
+    Active: "ACTIVE",
+    Inactive: "INACTIVE",
+} as const;
+
+/**
+ * The read-only status of the EKS access entry, returned by DescribeComputeEnvironments.
+ */
+export type ComputeEnvironmentEksAccessEntryStatus = (typeof ComputeEnvironmentEksAccessEntryStatus)[keyof typeof ComputeEnvironmentEksAccessEntryStatus];
+
 export const ComputeEnvironmentInstanceLaunchTemplateCapacityOptionType = {
     OnDemand: "ON_DEMAND",
     Spot: "SPOT",

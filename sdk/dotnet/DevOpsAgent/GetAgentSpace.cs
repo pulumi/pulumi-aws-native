@@ -88,6 +88,7 @@ namespace Pulumi.AwsNative.DevOpsAgent
         /// </summary>
         public readonly string? Name;
         public readonly Outputs.AgentSpaceOperatorApp? OperatorApp;
+        public readonly Outputs.AgentSpacePreferences? Preferences;
         /// <summary>
         /// An array of key-value pairs to apply to this resource.
         /// </summary>
@@ -113,6 +114,8 @@ namespace Pulumi.AwsNative.DevOpsAgent
 
             Outputs.AgentSpaceOperatorApp? operatorApp,
 
+            Outputs.AgentSpacePreferences? preferences,
+
             ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
             string? updatedAt)
@@ -124,6 +127,7 @@ namespace Pulumi.AwsNative.DevOpsAgent
             Locale = locale;
             Name = name;
             OperatorApp = operatorApp;
+            Preferences = preferences;
             Tags = tags;
             UpdatedAt = updatedAt;
         }

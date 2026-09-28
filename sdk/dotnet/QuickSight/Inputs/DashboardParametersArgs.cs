@@ -11,7 +11,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 {
 
     /// <summary>
-    /// &lt;p&gt;A list of Amazon QuickSight parameters and the list's override values.&lt;/p&gt;
+    /// &lt;p&gt;A list of Quick parameters and the list's override values.&lt;/p&gt;
     /// </summary>
     public sealed class DashboardParametersArgs : global::Pulumi.ResourceArgs
     {

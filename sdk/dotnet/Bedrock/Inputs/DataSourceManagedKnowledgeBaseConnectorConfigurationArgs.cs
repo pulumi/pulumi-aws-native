@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.Bedrock.Inputs
         [Input("mediaExtractionConfiguration")]
         public Input<Inputs.DataSourceMediaExtractionConfigurationArgs>? MediaExtractionConfiguration { get; set; }
 
+        [Input("syncSchedule")]
+        public Input<Inputs.DataSourceSyncScheduleArgs>? SyncSchedule { get; set; }
+
         public DataSourceManagedKnowledgeBaseConnectorConfigurationArgs()
         {
         }

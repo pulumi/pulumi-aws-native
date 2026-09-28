@@ -33,10 +33,14 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ProtectConfiguration{}
 	case "aws-native:smsvoice:Registration":
 		r = &Registration{}
+	case "aws-native:smsvoice:RegistrationAttachment":
+		r = &RegistrationAttachment{}
 	case "aws-native:smsvoice:ResourcePolicy":
 		r = &ResourcePolicy{}
 	case "aws-native:smsvoice:SenderId":
 		r = &SenderId{}
+	case "aws-native:smsvoice:VerifiedDestinationNumber":
+		r = &VerifiedDestinationNumber{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}

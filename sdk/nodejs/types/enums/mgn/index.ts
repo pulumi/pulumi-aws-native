@@ -2,6 +2,73 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const LaunchConfigurationTemplateBootMode = {
+    LegacyBios: "LEGACY_BIOS",
+    Uefi: "UEFI",
+    UseSource: "USE_SOURCE",
+} as const;
+
+/**
+ * Launch configuration template boot mode.
+ */
+export type LaunchConfigurationTemplateBootMode = (typeof LaunchConfigurationTemplateBootMode)[keyof typeof LaunchConfigurationTemplateBootMode];
+
+export const LaunchConfigurationTemplateLaunchDisposition = {
+    Stopped: "STOPPED",
+    Started: "STARTED",
+} as const;
+
+/**
+ * Launch disposition.
+ */
+export type LaunchConfigurationTemplateLaunchDisposition = (typeof LaunchConfigurationTemplateLaunchDisposition)[keyof typeof LaunchConfigurationTemplateLaunchDisposition];
+
+export const LaunchConfigurationTemplateLaunchTemplateDiskConfVolumeType = {
+    Io1: "io1",
+    Io2: "io2",
+    Gp3: "gp3",
+    Gp2: "gp2",
+    St1: "st1",
+    Sc1: "sc1",
+    Standard: "standard",
+} as const;
+
+/**
+ * Launch template disk volume type configuration.
+ */
+export type LaunchConfigurationTemplateLaunchTemplateDiskConfVolumeType = (typeof LaunchConfigurationTemplateLaunchTemplateDiskConfVolumeType)[keyof typeof LaunchConfigurationTemplateLaunchTemplateDiskConfVolumeType];
+
+export const LaunchConfigurationTemplatePostLaunchActionsDeployment = {
+    TestAndCutover: "TEST_AND_CUTOVER",
+    CutoverOnly: "CUTOVER_ONLY",
+    TestOnly: "TEST_ONLY",
+} as const;
+
+/**
+ * Deployment type in which AWS Systems Manager Documents will be executed.
+ */
+export type LaunchConfigurationTemplatePostLaunchActionsDeployment = (typeof LaunchConfigurationTemplatePostLaunchActionsDeployment)[keyof typeof LaunchConfigurationTemplatePostLaunchActionsDeployment];
+
+export const LaunchConfigurationTemplateSsmParameterStoreParameterParameterType = {
+    String: "STRING",
+    SecureString: "SECURE_STRING",
+} as const;
+
+/**
+ * AWS Systems Manager Parameter Store parameter type.
+ */
+export type LaunchConfigurationTemplateSsmParameterStoreParameterParameterType = (typeof LaunchConfigurationTemplateSsmParameterStoreParameterParameterType)[keyof typeof LaunchConfigurationTemplateSsmParameterStoreParameterParameterType];
+
+export const LaunchConfigurationTemplateTargetInstanceTypeRightSizingMethod = {
+    None: "NONE",
+    Basic: "BASIC",
+} as const;
+
+/**
+ * Target instance type right-sizing method.
+ */
+export type LaunchConfigurationTemplateTargetInstanceTypeRightSizingMethod = (typeof LaunchConfigurationTemplateTargetInstanceTypeRightSizingMethod)[keyof typeof LaunchConfigurationTemplateTargetInstanceTypeRightSizingMethod];
+
 export const NetworkMigrationDefinitionSourceConfigurationSourceEnvironment = {
     Nsx: "NSX",
     Vsphere: "VSPHERE",

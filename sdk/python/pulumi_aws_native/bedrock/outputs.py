@@ -101,6 +101,8 @@ __all__ = [
     'DataSourceContextEnrichmentConfiguration',
     'DataSourceCrawlFilterConfiguration',
     'DataSourceCustomTransformationConfiguration',
+    'DataSourceDailySchedule',
+    'DataSourceDayOfMonth',
     'DataSourceDeletionProtectionConfiguration',
     'DataSourceEnrichmentStrategyConfiguration',
     'DataSourceFixedSizeChunkingConfiguration',
@@ -110,6 +112,7 @@ __all__ = [
     'DataSourceIntermediateStorage',
     'DataSourceManagedKnowledgeBaseConnectorConfiguration',
     'DataSourceMediaExtractionConfiguration',
+    'DataSourceMonthlySchedule',
     'DataSourceParsingConfiguration',
     'DataSourceParsingPrompt',
     'DataSourcePatternObjectFilter',
@@ -125,6 +128,7 @@ __all__ = [
     'DataSourceSharePointCrawlerConfiguration',
     'DataSourceSharePointDataSourceConfiguration',
     'DataSourceSharePointSourceConfiguration',
+    'DataSourceSyncSchedule',
     'DataSourceTransformation',
     'DataSourceTransformationFunction',
     'DataSourceTransformationLambdaConfiguration',
@@ -135,6 +139,7 @@ __all__ = [
     'DataSourceWebCrawlerLimits',
     'DataSourceWebDataSourceConfiguration',
     'DataSourceWebSourceConfiguration',
+    'DataSourceWeeklySchedule',
     'EnforcedGuardrailConfigurationModelEnforcement',
     'EnforcedGuardrailConfigurationSelectiveContentGuarding',
     'FlowAdditionalModelRequestFields',
@@ -4442,6 +4447,73 @@ class DataSourceCustomTransformationConfiguration(dict):
 
 
 @pulumi.output_type
+class DataSourceDailySchedule(dict):
+    """
+    A daily refresh. The run time is system-chosen (off-peak) and not customer-configurable.
+    """
+    def __init__(__self__):
+        """
+        A daily refresh. The run time is system-chosen (off-peak) and not customer-configurable.
+        """
+        pass
+
+
+@pulumi.output_type
+class DataSourceDayOfMonth(dict):
+    """
+    Day of the month on which a monthly refresh runs. Exactly one variant is set: an explicit day number, or the last calendar day of the month.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dayNumber":
+            suggest = "day_number"
+        elif key == "lastDayOfMonth":
+            suggest = "last_day_of_month"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataSourceDayOfMonth. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataSourceDayOfMonth.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataSourceDayOfMonth.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 day_number: Optional[_builtins.int] = None,
+                 last_day_of_month: Optional[Any] = None):
+        """
+        Day of the month on which a monthly refresh runs. Exactly one variant is set: an explicit day number, or the last calendar day of the month.
+
+        :param _builtins.int day_number: Specific day of the month, 1 through 28 (capped at 28 to avoid month-length ambiguity).
+        :param Any last_day_of_month: Run on the last calendar day of each month.
+        """
+        if day_number is not None:
+            pulumi.set(__self__, "day_number", day_number)
+        if last_day_of_month is not None:
+            pulumi.set(__self__, "last_day_of_month", last_day_of_month)
+
+    @_builtins.property
+    @pulumi.getter(name="dayNumber")
+    def day_number(self) -> Optional[_builtins.int]:
+        """
+        Specific day of the month, 1 through 28 (capped at 28 to avoid month-length ambiguity).
+        """
+        return pulumi.get(self, "day_number")
+
+    @_builtins.property
+    @pulumi.getter(name="lastDayOfMonth")
+    def last_day_of_month(self) -> Optional[Any]:
+        """
+        Run on the last calendar day of each month.
+        """
+        return pulumi.get(self, "last_day_of_month")
+
+
+@pulumi.output_type
 class DataSourceDeletionProtectionConfiguration(dict):
     """
     Configuration for deletion protection.
@@ -4749,6 +4821,8 @@ class DataSourceManagedKnowledgeBaseConnectorConfiguration(dict):
             suggest = "deletion_protection_configuration"
         elif key == "mediaExtractionConfiguration":
             suggest = "media_extraction_configuration"
+        elif key == "syncSchedule":
+            suggest = "sync_schedule"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in DataSourceManagedKnowledgeBaseConnectorConfiguration. Access the value via the '{suggest}' property getter instead.")
@@ -4764,7 +4838,8 @@ class DataSourceManagedKnowledgeBaseConnectorConfiguration(dict):
     def __init__(__self__, *,
                  connector_parameters: Optional[Any] = None,
                  deletion_protection_configuration: Optional['outputs.DataSourceDeletionProtectionConfiguration'] = None,
-                 media_extraction_configuration: Optional['outputs.DataSourceMediaExtractionConfiguration'] = None):
+                 media_extraction_configuration: Optional['outputs.DataSourceMediaExtractionConfiguration'] = None,
+                 sync_schedule: Optional['outputs.DataSourceSyncSchedule'] = None):
         """
         Configuration for managed knowledge base connector data sources.
 
@@ -4776,6 +4851,8 @@ class DataSourceManagedKnowledgeBaseConnectorConfiguration(dict):
             pulumi.set(__self__, "deletion_protection_configuration", deletion_protection_configuration)
         if media_extraction_configuration is not None:
             pulumi.set(__self__, "media_extraction_configuration", media_extraction_configuration)
+        if sync_schedule is not None:
+            pulumi.set(__self__, "sync_schedule", sync_schedule)
 
     @_builtins.property
     @pulumi.getter(name="connectorParameters")
@@ -4794,6 +4871,11 @@ class DataSourceManagedKnowledgeBaseConnectorConfiguration(dict):
     @pulumi.getter(name="mediaExtractionConfiguration")
     def media_extraction_configuration(self) -> Optional['outputs.DataSourceMediaExtractionConfiguration']:
         return pulumi.get(self, "media_extraction_configuration")
+
+    @_builtins.property
+    @pulumi.getter(name="syncSchedule")
+    def sync_schedule(self) -> Optional['outputs.DataSourceSyncSchedule']:
+        return pulumi.get(self, "sync_schedule")
 
 
 @pulumi.output_type
@@ -4850,6 +4932,41 @@ class DataSourceMediaExtractionConfiguration(dict):
     @pulumi.getter(name="videoExtractionConfiguration")
     def video_extraction_configuration(self) -> Optional['outputs.DataSourceVideoExtractionConfiguration']:
         return pulumi.get(self, "video_extraction_configuration")
+
+
+@pulumi.output_type
+class DataSourceMonthlySchedule(dict):
+    """
+    A monthly refresh on a specified day of the month.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dayOfMonth":
+            suggest = "day_of_month"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataSourceMonthlySchedule. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataSourceMonthlySchedule.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataSourceMonthlySchedule.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 day_of_month: 'outputs.DataSourceDayOfMonth'):
+        """
+        A monthly refresh on a specified day of the month.
+        """
+        pulumi.set(__self__, "day_of_month", day_of_month)
+
+    @_builtins.property
+    @pulumi.getter(name="dayOfMonth")
+    def day_of_month(self) -> 'outputs.DataSourceDayOfMonth':
+        return pulumi.get(self, "day_of_month")
 
 
 @pulumi.output_type
@@ -5625,6 +5742,41 @@ class DataSourceSharePointSourceConfiguration(dict):
 
 
 @pulumi.output_type
+class DataSourceSyncSchedule(dict):
+    """
+    Recurring schedule on which the connector automatically refreshes ingested content. Exactly one frequency variant is set.
+    """
+    def __init__(__self__, *,
+                 daily: Optional['outputs.DataSourceDailySchedule'] = None,
+                 monthly: Optional['outputs.DataSourceMonthlySchedule'] = None,
+                 weekly: Optional['outputs.DataSourceWeeklySchedule'] = None):
+        """
+        Recurring schedule on which the connector automatically refreshes ingested content. Exactly one frequency variant is set.
+        """
+        if daily is not None:
+            pulumi.set(__self__, "daily", daily)
+        if monthly is not None:
+            pulumi.set(__self__, "monthly", monthly)
+        if weekly is not None:
+            pulumi.set(__self__, "weekly", weekly)
+
+    @_builtins.property
+    @pulumi.getter
+    def daily(self) -> Optional['outputs.DataSourceDailySchedule']:
+        return pulumi.get(self, "daily")
+
+    @_builtins.property
+    @pulumi.getter
+    def monthly(self) -> Optional['outputs.DataSourceMonthlySchedule']:
+        return pulumi.get(self, "monthly")
+
+    @_builtins.property
+    @pulumi.getter
+    def weekly(self) -> Optional['outputs.DataSourceWeeklySchedule']:
+        return pulumi.get(self, "weekly")
+
+
+@pulumi.output_type
 class DataSourceTransformation(dict):
     """
     A Lambda function that processes documents.
@@ -6175,6 +6327,41 @@ class DataSourceWebSourceConfiguration(dict):
         The configuration of the URL/URLs.
         """
         return pulumi.get(self, "url_configuration")
+
+
+@pulumi.output_type
+class DataSourceWeeklySchedule(dict):
+    """
+    A weekly refresh on a specified day of the week.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dayOfWeek":
+            suggest = "day_of_week"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataSourceWeeklySchedule. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataSourceWeeklySchedule.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataSourceWeeklySchedule.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 day_of_week: 'DataSourceDayOfWeek'):
+        """
+        A weekly refresh on a specified day of the week.
+        """
+        pulumi.set(__self__, "day_of_week", day_of_week)
+
+    @_builtins.property
+    @pulumi.getter(name="dayOfWeek")
+    def day_of_week(self) -> 'DataSourceDayOfWeek':
+        return pulumi.get(self, "day_of_week")
 
 
 @pulumi.output_type

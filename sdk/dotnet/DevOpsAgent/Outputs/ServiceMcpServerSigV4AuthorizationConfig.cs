@@ -29,7 +29,7 @@ namespace Pulumi.AwsNative.DevOpsAgent.Outputs
         /// </summary>
         public readonly string Region;
         /// <summary>
-        /// Deprecated - use McpRoleArn instead. IAM role ARN to assume for SigV4 signing
+        /// Deprecated - use McpRoleArn instead. IAM role ARN to assume for SigV4 signing. Set to an empty string to remove a previously configured role and make the server role-less (cross-account).
         /// </summary>
         public readonly string? RoleArn;
         /// <summary>

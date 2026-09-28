@@ -9,8 +9,10 @@ import typing
 from ._enums import *
 from .call_analytics_category import *
 from .get_call_analytics_category import *
+from .get_medical_vocabulary import *
 from .get_vocabulary import *
 from .get_vocabulary_filter import *
+from .medical_vocabulary import *
 from .vocabulary import *
 from .vocabulary_filter import *
 from ._inputs import *

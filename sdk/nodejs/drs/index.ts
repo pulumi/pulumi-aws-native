@@ -10,6 +10,11 @@ export const getLaunchConfigurationTemplate: typeof import("./getLaunchConfigura
 export const getLaunchConfigurationTemplateOutput: typeof import("./getLaunchConfigurationTemplate").getLaunchConfigurationTemplateOutput = null as any;
 utilities.lazyLoad(exports, ["getLaunchConfigurationTemplate","getLaunchConfigurationTemplateOutput"], () => require("./getLaunchConfigurationTemplate"));
 
+export { GetReplicationConfigurationTemplateArgs, GetReplicationConfigurationTemplateResult, GetReplicationConfigurationTemplateOutputArgs } from "./getReplicationConfigurationTemplate";
+export const getReplicationConfigurationTemplate: typeof import("./getReplicationConfigurationTemplate").getReplicationConfigurationTemplate = null as any;
+export const getReplicationConfigurationTemplateOutput: typeof import("./getReplicationConfigurationTemplate").getReplicationConfigurationTemplateOutput = null as any;
+utilities.lazyLoad(exports, ["getReplicationConfigurationTemplate","getReplicationConfigurationTemplateOutput"], () => require("./getReplicationConfigurationTemplate"));
+
 export { GetSourceNetworkArgs, GetSourceNetworkResult, GetSourceNetworkOutputArgs } from "./getSourceNetwork";
 export const getSourceNetwork: typeof import("./getSourceNetwork").getSourceNetwork = null as any;
 export const getSourceNetworkOutput: typeof import("./getSourceNetwork").getSourceNetworkOutput = null as any;
@@ -19,6 +24,11 @@ export { LaunchConfigurationTemplateArgs } from "./launchConfigurationTemplate";
 export type LaunchConfigurationTemplate = import("./launchConfigurationTemplate").LaunchConfigurationTemplate;
 export const LaunchConfigurationTemplate: typeof import("./launchConfigurationTemplate").LaunchConfigurationTemplate = null as any;
 utilities.lazyLoad(exports, ["LaunchConfigurationTemplate"], () => require("./launchConfigurationTemplate"));
+
+export { ReplicationConfigurationTemplateArgs } from "./replicationConfigurationTemplate";
+export type ReplicationConfigurationTemplate = import("./replicationConfigurationTemplate").ReplicationConfigurationTemplate;
+export const ReplicationConfigurationTemplate: typeof import("./replicationConfigurationTemplate").ReplicationConfigurationTemplate = null as any;
+utilities.lazyLoad(exports, ["ReplicationConfigurationTemplate"], () => require("./replicationConfigurationTemplate"));
 
 export { SourceNetworkArgs } from "./sourceNetwork";
 export type SourceNetwork = import("./sourceNetwork").SourceNetwork;
@@ -35,6 +45,8 @@ const _module = {
         switch (type) {
             case "aws-native:drs:LaunchConfigurationTemplate":
                 return new LaunchConfigurationTemplate(name, <any>undefined, { urn })
+            case "aws-native:drs:ReplicationConfigurationTemplate":
+                return new ReplicationConfigurationTemplate(name, <any>undefined, { urn })
             case "aws-native:drs:SourceNetwork":
                 return new SourceNetwork(name, <any>undefined, { urn })
             default:

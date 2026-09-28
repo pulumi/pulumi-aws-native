@@ -33,6 +33,14 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
             set => _dataSetReferences = value;
         }
 
+        [Input("topicReferences")]
+        private InputList<Inputs.AnalysisTopicReferenceArgs>? _topicReferences;
+        public InputList<Inputs.AnalysisTopicReferenceArgs> TopicReferences
+        {
+            get => _topicReferences ?? (_topicReferences = new InputList<Inputs.AnalysisTopicReferenceArgs>());
+            set => _topicReferences = value;
+        }
+
         public AnalysisSourceTemplateArgs()
         {
         }

@@ -22,13 +22,19 @@ namespace Pulumi.AwsNative.IoTSiteWise
         public Output<string> DatasetArn { get; private set; } = null!;
 
         /// <summary>
+        /// The configuration for the dataset.
+        /// </summary>
+        [Output("datasetConfig")]
+        public Output<Outputs.DatasetConfig?> DatasetConfig { get; private set; } = null!;
+
+        /// <summary>
         /// A description about the dataset, and its functionality.
         /// </summary>
         [Output("datasetDescription")]
         public Output<string?> DatasetDescription { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the dataset.
+        /// The ID of the dataset. For workspace-scoped datasets this is the workspace name and dataset ID joined by a slash, for example my-workspace/123e4567-e89b-42d3-a456-426614174000.
         /// </summary>
         [Output("datasetId")]
         public Output<string> DatasetId { get; private set; } = null!;
@@ -43,13 +49,25 @@ namespace Pulumi.AwsNative.IoTSiteWise
         /// The data source for the dataset.
         /// </summary>
         [Output("datasetSource")]
-        public Output<Outputs.DatasetSource> DatasetSource { get; private set; } = null!;
+        public Output<Outputs.DatasetSource?> DatasetSource { get; private set; } = null!;
+
+        /// <summary>
+        /// The type of the dataset.
+        /// </summary>
+        [Output("datasetType")]
+        public Output<Pulumi.AwsNative.IoTSiteWise.DatasetType?> DatasetType { get; private set; } = null!;
 
         /// <summary>
         /// An array of key-value pairs to apply to this resource.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
+
+        /// <summary>
+        /// The name of the workspace associated with the dataset.
+        /// </summary>
+        [Output("workspaceName")]
+        public Output<string?> WorkspaceName { get; private set; } = null!;
 
 
         /// <summary>
@@ -59,7 +77,7 @@ namespace Pulumi.AwsNative.IoTSiteWise
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public Dataset(string name, DatasetArgs args, CustomResourceOptions? options = null)
+        public Dataset(string name, DatasetArgs? args = null, CustomResourceOptions? options = null)
             : base("aws-native:iotsitewise:Dataset", name, args ?? new DatasetArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -74,6 +92,11 @@ namespace Pulumi.AwsNative.IoTSiteWise
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                ReplaceOnChanges =
+                {
+                    "datasetType",
+                    "workspaceName",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -97,6 +120,12 @@ namespace Pulumi.AwsNative.IoTSiteWise
     public sealed class DatasetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The configuration for the dataset.
+        /// </summary>
+        [Input("datasetConfig")]
+        public Input<Inputs.DatasetConfigArgs>? DatasetConfig { get; set; }
+
+        /// <summary>
         /// A description about the dataset, and its functionality.
         /// </summary>
         [Input("datasetDescription")]
@@ -111,8 +140,14 @@ namespace Pulumi.AwsNative.IoTSiteWise
         /// <summary>
         /// The data source for the dataset.
         /// </summary>
-        [Input("datasetSource", required: true)]
-        public Input<Inputs.DatasetSourceArgs> DatasetSource { get; set; } = null!;
+        [Input("datasetSource")]
+        public Input<Inputs.DatasetSourceArgs>? DatasetSource { get; set; }
+
+        /// <summary>
+        /// The type of the dataset.
+        /// </summary>
+        [Input("datasetType")]
+        public Input<Pulumi.AwsNative.IoTSiteWise.DatasetType>? DatasetType { get; set; }
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
@@ -125,6 +160,12 @@ namespace Pulumi.AwsNative.IoTSiteWise
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// The name of the workspace associated with the dataset.
+        /// </summary>
+        [Input("workspaceName")]
+        public Input<string>? WorkspaceName { get; set; }
 
         public DatasetArgs()
         {

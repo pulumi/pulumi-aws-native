@@ -16,8 +16,10 @@ from .get_case_rule import *
 from .get_domain import *
 from .get_field import *
 from .get_layout import *
+from .get_related_item import *
 from .get_template import *
 from .layout import *
+from .related_item import *
 from .template import *
 from ._inputs import *
 from . import outputs

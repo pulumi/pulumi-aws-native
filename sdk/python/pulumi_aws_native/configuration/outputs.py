@@ -25,6 +25,11 @@ __all__ = [
     'ConfigRuleSourceDetail',
     'ConfigurationAggregatorAccountAggregationSource',
     'ConfigurationAggregatorOrganizationAggregationSource',
+    'ConfigurationRecorderExclusionByResourceTypes',
+    'ConfigurationRecorderRecordingGroup',
+    'ConfigurationRecorderRecordingMode',
+    'ConfigurationRecorderRecordingModeOverride',
+    'ConfigurationRecorderRecordingStrategy',
     'ConformancePackInputParameter',
     'ConnectorAzureConnectorConfiguration',
     'ConnectorConfiguration',
@@ -532,6 +537,360 @@ class ConfigurationAggregatorOrganizationAggregationSource(dict):
         The source regions being aggregated.
         """
         return pulumi.get(self, "aws_regions")
+
+
+@pulumi.output_type
+class ConfigurationRecorderExclusionByResourceTypes(dict):
+    """
+    Specifies whether the configuration recorder excludes certain resource types from being recorded.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "resourceTypes":
+            suggest = "resource_types"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConfigurationRecorderExclusionByResourceTypes. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConfigurationRecorderExclusionByResourceTypes.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConfigurationRecorderExclusionByResourceTypes.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 resource_types: Sequence[_builtins.str]):
+        """
+        Specifies whether the configuration recorder excludes certain resource types from being recorded.
+
+        :param Sequence[_builtins.str] resource_types: A comma-separated list of resource types to exclude from recording by the configuration recorder.
+        """
+        pulumi.set(__self__, "resource_types", resource_types)
+
+    @_builtins.property
+    @pulumi.getter(name="resourceTypes")
+    def resource_types(self) -> Sequence[_builtins.str]:
+        """
+        A comma-separated list of resource types to exclude from recording by the configuration recorder.
+        """
+        return pulumi.get(self, "resource_types")
+
+
+@pulumi.output_type
+class ConfigurationRecorderRecordingGroup(dict):
+    """
+    Specifies which resource types AWS Config records for configuration changes.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allSupported":
+            suggest = "all_supported"
+        elif key == "exclusionByResourceTypes":
+            suggest = "exclusion_by_resource_types"
+        elif key == "includeGlobalResourceTypes":
+            suggest = "include_global_resource_types"
+        elif key == "recordingStrategy":
+            suggest = "recording_strategy"
+        elif key == "resourceTypes":
+            suggest = "resource_types"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConfigurationRecorderRecordingGroup. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConfigurationRecorderRecordingGroup.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConfigurationRecorderRecordingGroup.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 all_supported: Optional[_builtins.bool] = None,
+                 exclusion_by_resource_types: Optional['outputs.ConfigurationRecorderExclusionByResourceTypes'] = None,
+                 include_global_resource_types: Optional[_builtins.bool] = None,
+                 recording_strategy: Optional['outputs.ConfigurationRecorderRecordingStrategy'] = None,
+                 resource_types: Optional[Sequence[_builtins.str]] = None):
+        """
+        Specifies which resource types AWS Config records for configuration changes.
+
+        :param _builtins.bool all_supported: Specifies whether AWS Config records configuration changes for all supported resource types, excluding the global IAM resource types.
+        :param 'ConfigurationRecorderExclusionByResourceTypes' exclusion_by_resource_types: An object that specifies how AWS Config excludes resource types from being recorded by the configuration recorder.
+        :param _builtins.bool include_global_resource_types: This option is a bundle which only applies to the global IAM resource types: IAM users, groups, roles, and customer managed policies.
+        :param 'ConfigurationRecorderRecordingStrategy' recording_strategy: An object that specifies the recording strategy for the configuration recorder.
+        :param Sequence[_builtins.str] resource_types: A comma-separated list that specifies which resource types AWS Config records.
+        """
+        if all_supported is not None:
+            pulumi.set(__self__, "all_supported", all_supported)
+        if exclusion_by_resource_types is not None:
+            pulumi.set(__self__, "exclusion_by_resource_types", exclusion_by_resource_types)
+        if include_global_resource_types is not None:
+            pulumi.set(__self__, "include_global_resource_types", include_global_resource_types)
+        if recording_strategy is not None:
+            pulumi.set(__self__, "recording_strategy", recording_strategy)
+        if resource_types is not None:
+            pulumi.set(__self__, "resource_types", resource_types)
+
+    @_builtins.property
+    @pulumi.getter(name="allSupported")
+    def all_supported(self) -> Optional[_builtins.bool]:
+        """
+        Specifies whether AWS Config records configuration changes for all supported resource types, excluding the global IAM resource types.
+        """
+        return pulumi.get(self, "all_supported")
+
+    @_builtins.property
+    @pulumi.getter(name="exclusionByResourceTypes")
+    def exclusion_by_resource_types(self) -> Optional['outputs.ConfigurationRecorderExclusionByResourceTypes']:
+        """
+        An object that specifies how AWS Config excludes resource types from being recorded by the configuration recorder.
+        """
+        return pulumi.get(self, "exclusion_by_resource_types")
+
+    @_builtins.property
+    @pulumi.getter(name="includeGlobalResourceTypes")
+    def include_global_resource_types(self) -> Optional[_builtins.bool]:
+        """
+        This option is a bundle which only applies to the global IAM resource types: IAM users, groups, roles, and customer managed policies.
+        """
+        return pulumi.get(self, "include_global_resource_types")
+
+    @_builtins.property
+    @pulumi.getter(name="recordingStrategy")
+    def recording_strategy(self) -> Optional['outputs.ConfigurationRecorderRecordingStrategy']:
+        """
+        An object that specifies the recording strategy for the configuration recorder.
+        """
+        return pulumi.get(self, "recording_strategy")
+
+    @_builtins.property
+    @pulumi.getter(name="resourceTypes")
+    def resource_types(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        A comma-separated list that specifies which resource types AWS Config records.
+        """
+        return pulumi.get(self, "resource_types")
+
+
+@pulumi.output_type
+class ConfigurationRecorderRecordingMode(dict):
+    """
+    Specifies the default recording frequency for the configuration recorder.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "recordingFrequency":
+            suggest = "recording_frequency"
+        elif key == "recordingModeOverrides":
+            suggest = "recording_mode_overrides"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConfigurationRecorderRecordingMode. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConfigurationRecorderRecordingMode.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConfigurationRecorderRecordingMode.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 recording_frequency: _builtins.str,
+                 recording_mode_overrides: Optional[Sequence['outputs.ConfigurationRecorderRecordingModeOverride']] = None):
+        """
+        Specifies the default recording frequency for the configuration recorder.
+
+        :param _builtins.str recording_frequency: The default recording frequency that AWS Config uses to record configuration changes.
+        :param Sequence['ConfigurationRecorderRecordingModeOverride'] recording_mode_overrides: An array of 'RecordingModeOverride' objects for you to specify your overrides for the recording mode.
+        """
+        pulumi.set(__self__, "recording_frequency", recording_frequency)
+        if recording_mode_overrides is not None:
+            pulumi.set(__self__, "recording_mode_overrides", recording_mode_overrides)
+
+    @_builtins.property
+    @pulumi.getter(name="recordingFrequency")
+    def recording_frequency(self) -> _builtins.str:
+        """
+        The default recording frequency that AWS Config uses to record configuration changes.
+        """
+        return pulumi.get(self, "recording_frequency")
+
+    @_builtins.property
+    @pulumi.getter(name="recordingModeOverrides")
+    def recording_mode_overrides(self) -> Optional[Sequence['outputs.ConfigurationRecorderRecordingModeOverride']]:
+        """
+        An array of 'RecordingModeOverride' objects for you to specify your overrides for the recording mode.
+        """
+        return pulumi.get(self, "recording_mode_overrides")
+
+
+@pulumi.output_type
+class ConfigurationRecorderRecordingModeOverride(dict):
+    """
+    Specifies your overrides for the recording mode
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "recordingFrequency":
+            suggest = "recording_frequency"
+        elif key == "resourceTypes":
+            suggest = "resource_types"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConfigurationRecorderRecordingModeOverride. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConfigurationRecorderRecordingModeOverride.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConfigurationRecorderRecordingModeOverride.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 recording_frequency: _builtins.str,
+                 resource_types: Sequence[_builtins.str],
+                 description: Optional[_builtins.str] = None):
+        """
+        Specifies your overrides for the recording mode
+
+        :param _builtins.str recording_frequency: The recording frequency that will be applied to all the resource types specified in the override.
+        :param Sequence[_builtins.str] resource_types: A comma-separated list that specifies which resource types AWS Config includes in the override.
+        :param _builtins.str description: A description that you provide for the override.
+        """
+        pulumi.set(__self__, "recording_frequency", recording_frequency)
+        pulumi.set(__self__, "resource_types", resource_types)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+
+    @_builtins.property
+    @pulumi.getter(name="recordingFrequency")
+    def recording_frequency(self) -> _builtins.str:
+        """
+        The recording frequency that will be applied to all the resource types specified in the override.
+        """
+        return pulumi.get(self, "recording_frequency")
+
+    @_builtins.property
+    @pulumi.getter(name="resourceTypes")
+    def resource_types(self) -> Sequence[_builtins.str]:
+        """
+        A comma-separated list that specifies which resource types AWS Config includes in the override.
+        """
+        return pulumi.get(self, "resource_types")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> Optional[_builtins.str]:
+        """
+        A description that you provide for the override.
+        """
+        return pulumi.get(self, "description")
+
+
+@pulumi.output_type
+class ConfigurationRecorderRecordingStrategy(dict):
+    """
+    Specifies the recording strategy of the configuration recorder.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "useOnly":
+            suggest = "use_only"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConfigurationRecorderRecordingStrategy. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConfigurationRecorderRecordingStrategy.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConfigurationRecorderRecordingStrategy.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 use_only: _builtins.str):
+        """
+        Specifies the recording strategy of the configuration recorder.
+
+        :param _builtins.str use_only: The recording strategy for the configuration recorder.
+               
+               - If you set this option to `ALL_SUPPORTED_RESOURCE_TYPES` , AWS Config records configuration changes for all supported resource types, excluding the global IAM resource types. You also must set the `AllSupported` field of [RecordingGroup](https://docs.aws.amazon.com/config/latest/APIReference/API_RecordingGroup.html) to `true` . When AWS Config adds support for a new resource type, AWS Config automatically starts recording resources of that type. For a list of supported resource types, see [Supported Resource Types](https://docs.aws.amazon.com/config/latest/developerguide/resource-config-reference.html#supported-resources) in the *AWS Config developer guide* .
+               - If you set this option to `INCLUSION_BY_RESOURCE_TYPES` , AWS Config records configuration changes for only the resource types that you specify in the `ResourceTypes` field of [RecordingGroup](https://docs.aws.amazon.com/config/latest/APIReference/API_RecordingGroup.html) .
+               - If you set this option to `EXCLUSION_BY_RESOURCE_TYPES` , AWS Config records configuration changes for all supported resource types, except the resource types that you specify to exclude from being recorded in the `ResourceTypes` field of [ExclusionByResourceTypes](https://docs.aws.amazon.com/config/latest/APIReference/API_ExclusionByResourceTypes.html) .
+               
+               > *Required and optional fields*
+               > 
+               > The `recordingStrategy` field is optional when you set the `AllSupported` field of [RecordingGroup](https://docs.aws.amazon.com/config/latest/APIReference/API_RecordingGroup.html) to `true` .
+               > 
+               > The `recordingStrategy` field is optional when you list resource types in the `ResourceTypes` field of [RecordingGroup](https://docs.aws.amazon.com/config/latest/APIReference/API_RecordingGroup.html) .
+               > 
+               > The `recordingStrategy` field is required if you list resource types to exclude from recording in the `ResourceTypes` field of [ExclusionByResourceTypes](https://docs.aws.amazon.com/config/latest/APIReference/API_ExclusionByResourceTypes.html) . > *Overriding fields*
+               > 
+               > If you choose `EXCLUSION_BY_RESOURCE_TYPES` for the recording strategy, the `ExclusionByResourceTypes` field will override other properties in the request.
+               > 
+               > For example, even if you set `IncludeGlobalResourceTypes` to false, global IAM resource types will still be automatically recorded in this option unless those resource types are specifically listed as exclusions in the `ResourceTypes` field of `ExclusionByResourceTypes` . > *Global resource types and the exclusion recording strategy*
+               > 
+               > By default, if you choose the `EXCLUSION_BY_RESOURCE_TYPES` recording strategy, when AWS Config adds support for a new resource type in the Region where you set up the configuration recorder, including global resource types, AWS Config starts recording resources of that type automatically.
+               > 
+               > Unless specifically listed as exclusions, `AWS::RDS::GlobalCluster` will be recorded automatically in all supported AWS Config Regions were the configuration recorder is enabled.
+               > 
+               > IAM users, groups, roles, and customer managed policies will be recorded in the Region where you set up the configuration recorder if that is a Region where AWS Config was available before February 2022. You cannot be record the global IAM resouce types in Regions supported by AWS Config after February 2022. This list where you cannot record the global IAM resource types includes the following Regions:
+               > - Asia Pacific (Hyderabad)
+               > - Asia Pacific (Melbourne)
+               > - Canada West (Calgary)
+               > - Europe (Spain)
+               > - Europe (Zurich)
+               > - Israel (Tel Aviv)
+               > - Middle East (UAE)
+        """
+        pulumi.set(__self__, "use_only", use_only)
+
+    @_builtins.property
+    @pulumi.getter(name="useOnly")
+    def use_only(self) -> _builtins.str:
+        """
+        The recording strategy for the configuration recorder.
+
+        - If you set this option to `ALL_SUPPORTED_RESOURCE_TYPES` , AWS Config records configuration changes for all supported resource types, excluding the global IAM resource types. You also must set the `AllSupported` field of [RecordingGroup](https://docs.aws.amazon.com/config/latest/APIReference/API_RecordingGroup.html) to `true` . When AWS Config adds support for a new resource type, AWS Config automatically starts recording resources of that type. For a list of supported resource types, see [Supported Resource Types](https://docs.aws.amazon.com/config/latest/developerguide/resource-config-reference.html#supported-resources) in the *AWS Config developer guide* .
+        - If you set this option to `INCLUSION_BY_RESOURCE_TYPES` , AWS Config records configuration changes for only the resource types that you specify in the `ResourceTypes` field of [RecordingGroup](https://docs.aws.amazon.com/config/latest/APIReference/API_RecordingGroup.html) .
+        - If you set this option to `EXCLUSION_BY_RESOURCE_TYPES` , AWS Config records configuration changes for all supported resource types, except the resource types that you specify to exclude from being recorded in the `ResourceTypes` field of [ExclusionByResourceTypes](https://docs.aws.amazon.com/config/latest/APIReference/API_ExclusionByResourceTypes.html) .
+
+        > *Required and optional fields*
+        > 
+        > The `recordingStrategy` field is optional when you set the `AllSupported` field of [RecordingGroup](https://docs.aws.amazon.com/config/latest/APIReference/API_RecordingGroup.html) to `true` .
+        > 
+        > The `recordingStrategy` field is optional when you list resource types in the `ResourceTypes` field of [RecordingGroup](https://docs.aws.amazon.com/config/latest/APIReference/API_RecordingGroup.html) .
+        > 
+        > The `recordingStrategy` field is required if you list resource types to exclude from recording in the `ResourceTypes` field of [ExclusionByResourceTypes](https://docs.aws.amazon.com/config/latest/APIReference/API_ExclusionByResourceTypes.html) . > *Overriding fields*
+        > 
+        > If you choose `EXCLUSION_BY_RESOURCE_TYPES` for the recording strategy, the `ExclusionByResourceTypes` field will override other properties in the request.
+        > 
+        > For example, even if you set `IncludeGlobalResourceTypes` to false, global IAM resource types will still be automatically recorded in this option unless those resource types are specifically listed as exclusions in the `ResourceTypes` field of `ExclusionByResourceTypes` . > *Global resource types and the exclusion recording strategy*
+        > 
+        > By default, if you choose the `EXCLUSION_BY_RESOURCE_TYPES` recording strategy, when AWS Config adds support for a new resource type in the Region where you set up the configuration recorder, including global resource types, AWS Config starts recording resources of that type automatically.
+        > 
+        > Unless specifically listed as exclusions, `AWS::RDS::GlobalCluster` will be recorded automatically in all supported AWS Config Regions were the configuration recorder is enabled.
+        > 
+        > IAM users, groups, roles, and customer managed policies will be recorded in the Region where you set up the configuration recorder if that is a Region where AWS Config was available before February 2022. You cannot be record the global IAM resouce types in Regions supported by AWS Config after February 2022. This list where you cannot record the global IAM resource types includes the following Regions:
+        > - Asia Pacific (Hyderabad)
+        > - Asia Pacific (Melbourne)
+        > - Canada West (Calgary)
+        > - Europe (Spain)
+        > - Europe (Zurich)
+        > - Israel (Tel Aviv)
+        > - Middle East (UAE)
+        """
+        return pulumi.get(self, "use_only")
 
 
 @pulumi.output_type

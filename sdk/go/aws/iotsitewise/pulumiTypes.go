@@ -3378,6 +3378,143 @@ type DashboardTag struct {
 	Value string `pulumi:"value"`
 }
 
+type DatasetConfig struct {
+	// The session configuration for a SESSION dataset.
+	Session *DatasetSessionConfig `pulumi:"session"`
+}
+
+// DatasetConfigInput is an input type that accepts DatasetConfigArgs and DatasetConfigOutput values.
+// You can construct a concrete instance of `DatasetConfigInput` via:
+//
+//	DatasetConfigArgs{...}
+type DatasetConfigInput interface {
+	pulumi.Input
+
+	ToDatasetConfigOutput() DatasetConfigOutput
+	ToDatasetConfigOutputWithContext(context.Context) DatasetConfigOutput
+}
+
+type DatasetConfigArgs struct {
+	// The session configuration for a SESSION dataset.
+	Session DatasetSessionConfigPtrInput `pulumi:"session"`
+}
+
+func (DatasetConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatasetConfig)(nil)).Elem()
+}
+
+func (i DatasetConfigArgs) ToDatasetConfigOutput() DatasetConfigOutput {
+	return i.ToDatasetConfigOutputWithContext(context.Background())
+}
+
+func (i DatasetConfigArgs) ToDatasetConfigOutputWithContext(ctx context.Context) DatasetConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasetConfigOutput)
+}
+
+func (i DatasetConfigArgs) ToDatasetConfigPtrOutput() DatasetConfigPtrOutput {
+	return i.ToDatasetConfigPtrOutputWithContext(context.Background())
+}
+
+func (i DatasetConfigArgs) ToDatasetConfigPtrOutputWithContext(ctx context.Context) DatasetConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasetConfigOutput).ToDatasetConfigPtrOutputWithContext(ctx)
+}
+
+// DatasetConfigPtrInput is an input type that accepts DatasetConfigArgs, DatasetConfigPtr and DatasetConfigPtrOutput values.
+// You can construct a concrete instance of `DatasetConfigPtrInput` via:
+//
+//	        DatasetConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type DatasetConfigPtrInput interface {
+	pulumi.Input
+
+	ToDatasetConfigPtrOutput() DatasetConfigPtrOutput
+	ToDatasetConfigPtrOutputWithContext(context.Context) DatasetConfigPtrOutput
+}
+
+type datasetConfigPtrType DatasetConfigArgs
+
+func DatasetConfigPtr(v *DatasetConfigArgs) DatasetConfigPtrInput {
+	return (*datasetConfigPtrType)(v)
+}
+
+func (*datasetConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DatasetConfig)(nil)).Elem()
+}
+
+func (i *datasetConfigPtrType) ToDatasetConfigPtrOutput() DatasetConfigPtrOutput {
+	return i.ToDatasetConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *datasetConfigPtrType) ToDatasetConfigPtrOutputWithContext(ctx context.Context) DatasetConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasetConfigPtrOutput)
+}
+
+type DatasetConfigOutput struct{ *pulumi.OutputState }
+
+func (DatasetConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatasetConfig)(nil)).Elem()
+}
+
+func (o DatasetConfigOutput) ToDatasetConfigOutput() DatasetConfigOutput {
+	return o
+}
+
+func (o DatasetConfigOutput) ToDatasetConfigOutputWithContext(ctx context.Context) DatasetConfigOutput {
+	return o
+}
+
+func (o DatasetConfigOutput) ToDatasetConfigPtrOutput() DatasetConfigPtrOutput {
+	return o.ToDatasetConfigPtrOutputWithContext(context.Background())
+}
+
+func (o DatasetConfigOutput) ToDatasetConfigPtrOutputWithContext(ctx context.Context) DatasetConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DatasetConfig) *DatasetConfig {
+		return &v
+	}).(DatasetConfigPtrOutput)
+}
+
+// The session configuration for a SESSION dataset.
+func (o DatasetConfigOutput) Session() DatasetSessionConfigPtrOutput {
+	return o.ApplyT(func(v DatasetConfig) *DatasetSessionConfig { return v.Session }).(DatasetSessionConfigPtrOutput)
+}
+
+type DatasetConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (DatasetConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DatasetConfig)(nil)).Elem()
+}
+
+func (o DatasetConfigPtrOutput) ToDatasetConfigPtrOutput() DatasetConfigPtrOutput {
+	return o
+}
+
+func (o DatasetConfigPtrOutput) ToDatasetConfigPtrOutputWithContext(ctx context.Context) DatasetConfigPtrOutput {
+	return o
+}
+
+func (o DatasetConfigPtrOutput) Elem() DatasetConfigOutput {
+	return o.ApplyT(func(v *DatasetConfig) DatasetConfig {
+		if v != nil {
+			return *v
+		}
+		var ret DatasetConfig
+		return ret
+	}).(DatasetConfigOutput)
+}
+
+// The session configuration for a SESSION dataset.
+func (o DatasetConfigPtrOutput) Session() DatasetSessionConfigPtrOutput {
+	return o.ApplyT(func(v *DatasetConfig) *DatasetSessionConfig {
+		if v == nil {
+			return nil
+		}
+		return v.Session
+	}).(DatasetSessionConfigPtrOutput)
+}
+
 type DatasetKendraSourceDetail struct {
 	// The knowledgeBaseArn details for the Kendra dataset source.
 	KnowledgeBaseArn string `pulumi:"knowledgeBaseArn"`
@@ -3534,6 +3671,162 @@ func (o DatasetKendraSourceDetailPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type DatasetSessionConfig struct {
+	// The end time of the session as an ISO 8601 UTC instant, for example 2024-12-31T23:59:59Z.
+	SessionEndTime string `pulumi:"sessionEndTime"`
+	// The start time of the session as an ISO 8601 UTC instant, for example 2024-01-01T00:00:00Z.
+	SessionStartTime string `pulumi:"sessionStartTime"`
+}
+
+// DatasetSessionConfigInput is an input type that accepts DatasetSessionConfigArgs and DatasetSessionConfigOutput values.
+// You can construct a concrete instance of `DatasetSessionConfigInput` via:
+//
+//	DatasetSessionConfigArgs{...}
+type DatasetSessionConfigInput interface {
+	pulumi.Input
+
+	ToDatasetSessionConfigOutput() DatasetSessionConfigOutput
+	ToDatasetSessionConfigOutputWithContext(context.Context) DatasetSessionConfigOutput
+}
+
+type DatasetSessionConfigArgs struct {
+	// The end time of the session as an ISO 8601 UTC instant, for example 2024-12-31T23:59:59Z.
+	SessionEndTime pulumi.StringInput `pulumi:"sessionEndTime"`
+	// The start time of the session as an ISO 8601 UTC instant, for example 2024-01-01T00:00:00Z.
+	SessionStartTime pulumi.StringInput `pulumi:"sessionStartTime"`
+}
+
+func (DatasetSessionConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatasetSessionConfig)(nil)).Elem()
+}
+
+func (i DatasetSessionConfigArgs) ToDatasetSessionConfigOutput() DatasetSessionConfigOutput {
+	return i.ToDatasetSessionConfigOutputWithContext(context.Background())
+}
+
+func (i DatasetSessionConfigArgs) ToDatasetSessionConfigOutputWithContext(ctx context.Context) DatasetSessionConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasetSessionConfigOutput)
+}
+
+func (i DatasetSessionConfigArgs) ToDatasetSessionConfigPtrOutput() DatasetSessionConfigPtrOutput {
+	return i.ToDatasetSessionConfigPtrOutputWithContext(context.Background())
+}
+
+func (i DatasetSessionConfigArgs) ToDatasetSessionConfigPtrOutputWithContext(ctx context.Context) DatasetSessionConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasetSessionConfigOutput).ToDatasetSessionConfigPtrOutputWithContext(ctx)
+}
+
+// DatasetSessionConfigPtrInput is an input type that accepts DatasetSessionConfigArgs, DatasetSessionConfigPtr and DatasetSessionConfigPtrOutput values.
+// You can construct a concrete instance of `DatasetSessionConfigPtrInput` via:
+//
+//	        DatasetSessionConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type DatasetSessionConfigPtrInput interface {
+	pulumi.Input
+
+	ToDatasetSessionConfigPtrOutput() DatasetSessionConfigPtrOutput
+	ToDatasetSessionConfigPtrOutputWithContext(context.Context) DatasetSessionConfigPtrOutput
+}
+
+type datasetSessionConfigPtrType DatasetSessionConfigArgs
+
+func DatasetSessionConfigPtr(v *DatasetSessionConfigArgs) DatasetSessionConfigPtrInput {
+	return (*datasetSessionConfigPtrType)(v)
+}
+
+func (*datasetSessionConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DatasetSessionConfig)(nil)).Elem()
+}
+
+func (i *datasetSessionConfigPtrType) ToDatasetSessionConfigPtrOutput() DatasetSessionConfigPtrOutput {
+	return i.ToDatasetSessionConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *datasetSessionConfigPtrType) ToDatasetSessionConfigPtrOutputWithContext(ctx context.Context) DatasetSessionConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasetSessionConfigPtrOutput)
+}
+
+type DatasetSessionConfigOutput struct{ *pulumi.OutputState }
+
+func (DatasetSessionConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatasetSessionConfig)(nil)).Elem()
+}
+
+func (o DatasetSessionConfigOutput) ToDatasetSessionConfigOutput() DatasetSessionConfigOutput {
+	return o
+}
+
+func (o DatasetSessionConfigOutput) ToDatasetSessionConfigOutputWithContext(ctx context.Context) DatasetSessionConfigOutput {
+	return o
+}
+
+func (o DatasetSessionConfigOutput) ToDatasetSessionConfigPtrOutput() DatasetSessionConfigPtrOutput {
+	return o.ToDatasetSessionConfigPtrOutputWithContext(context.Background())
+}
+
+func (o DatasetSessionConfigOutput) ToDatasetSessionConfigPtrOutputWithContext(ctx context.Context) DatasetSessionConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DatasetSessionConfig) *DatasetSessionConfig {
+		return &v
+	}).(DatasetSessionConfigPtrOutput)
+}
+
+// The end time of the session as an ISO 8601 UTC instant, for example 2024-12-31T23:59:59Z.
+func (o DatasetSessionConfigOutput) SessionEndTime() pulumi.StringOutput {
+	return o.ApplyT(func(v DatasetSessionConfig) string { return v.SessionEndTime }).(pulumi.StringOutput)
+}
+
+// The start time of the session as an ISO 8601 UTC instant, for example 2024-01-01T00:00:00Z.
+func (o DatasetSessionConfigOutput) SessionStartTime() pulumi.StringOutput {
+	return o.ApplyT(func(v DatasetSessionConfig) string { return v.SessionStartTime }).(pulumi.StringOutput)
+}
+
+type DatasetSessionConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (DatasetSessionConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DatasetSessionConfig)(nil)).Elem()
+}
+
+func (o DatasetSessionConfigPtrOutput) ToDatasetSessionConfigPtrOutput() DatasetSessionConfigPtrOutput {
+	return o
+}
+
+func (o DatasetSessionConfigPtrOutput) ToDatasetSessionConfigPtrOutputWithContext(ctx context.Context) DatasetSessionConfigPtrOutput {
+	return o
+}
+
+func (o DatasetSessionConfigPtrOutput) Elem() DatasetSessionConfigOutput {
+	return o.ApplyT(func(v *DatasetSessionConfig) DatasetSessionConfig {
+		if v != nil {
+			return *v
+		}
+		var ret DatasetSessionConfig
+		return ret
+	}).(DatasetSessionConfigOutput)
+}
+
+// The end time of the session as an ISO 8601 UTC instant, for example 2024-12-31T23:59:59Z.
+func (o DatasetSessionConfigPtrOutput) SessionEndTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatasetSessionConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SessionEndTime
+	}).(pulumi.StringPtrOutput)
+}
+
+// The start time of the session as an ISO 8601 UTC instant, for example 2024-01-01T00:00:00Z.
+func (o DatasetSessionConfigPtrOutput) SessionStartTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatasetSessionConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SessionStartTime
+	}).(pulumi.StringPtrOutput)
+}
+
 type DatasetSource struct {
 	// The details of the dataset source associated with the dataset.
 	SourceDetail *DatasetSourceDetail `pulumi:"sourceDetail"`
@@ -3575,6 +3868,47 @@ func (i DatasetSourceArgs) ToDatasetSourceOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(DatasetSourceOutput)
 }
 
+func (i DatasetSourceArgs) ToDatasetSourcePtrOutput() DatasetSourcePtrOutput {
+	return i.ToDatasetSourcePtrOutputWithContext(context.Background())
+}
+
+func (i DatasetSourceArgs) ToDatasetSourcePtrOutputWithContext(ctx context.Context) DatasetSourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasetSourceOutput).ToDatasetSourcePtrOutputWithContext(ctx)
+}
+
+// DatasetSourcePtrInput is an input type that accepts DatasetSourceArgs, DatasetSourcePtr and DatasetSourcePtrOutput values.
+// You can construct a concrete instance of `DatasetSourcePtrInput` via:
+//
+//	        DatasetSourceArgs{...}
+//
+//	or:
+//
+//	        nil
+type DatasetSourcePtrInput interface {
+	pulumi.Input
+
+	ToDatasetSourcePtrOutput() DatasetSourcePtrOutput
+	ToDatasetSourcePtrOutputWithContext(context.Context) DatasetSourcePtrOutput
+}
+
+type datasetSourcePtrType DatasetSourceArgs
+
+func DatasetSourcePtr(v *DatasetSourceArgs) DatasetSourcePtrInput {
+	return (*datasetSourcePtrType)(v)
+}
+
+func (*datasetSourcePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DatasetSource)(nil)).Elem()
+}
+
+func (i *datasetSourcePtrType) ToDatasetSourcePtrOutput() DatasetSourcePtrOutput {
+	return i.ToDatasetSourcePtrOutputWithContext(context.Background())
+}
+
+func (i *datasetSourcePtrType) ToDatasetSourcePtrOutputWithContext(ctx context.Context) DatasetSourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasetSourcePtrOutput)
+}
+
 type DatasetSourceOutput struct{ *pulumi.OutputState }
 
 func (DatasetSourceOutput) ElementType() reflect.Type {
@@ -3587,6 +3921,16 @@ func (o DatasetSourceOutput) ToDatasetSourceOutput() DatasetSourceOutput {
 
 func (o DatasetSourceOutput) ToDatasetSourceOutputWithContext(ctx context.Context) DatasetSourceOutput {
 	return o
+}
+
+func (o DatasetSourceOutput) ToDatasetSourcePtrOutput() DatasetSourcePtrOutput {
+	return o.ToDatasetSourcePtrOutputWithContext(context.Background())
+}
+
+func (o DatasetSourceOutput) ToDatasetSourcePtrOutputWithContext(ctx context.Context) DatasetSourcePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DatasetSource) *DatasetSource {
+		return &v
+	}).(DatasetSourcePtrOutput)
 }
 
 // The details of the dataset source associated with the dataset.
@@ -4445,9 +4789,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AssetModelVariableValueInput)(nil)).Elem(), AssetModelVariableValueArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AssetPropertyInput)(nil)).Elem(), AssetPropertyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AssetPropertyArrayInput)(nil)).Elem(), AssetPropertyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DatasetConfigInput)(nil)).Elem(), DatasetConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DatasetConfigPtrInput)(nil)).Elem(), DatasetConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DatasetKendraSourceDetailInput)(nil)).Elem(), DatasetKendraSourceDetailArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DatasetKendraSourceDetailPtrInput)(nil)).Elem(), DatasetKendraSourceDetailArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DatasetSessionConfigInput)(nil)).Elem(), DatasetSessionConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DatasetSessionConfigPtrInput)(nil)).Elem(), DatasetSessionConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DatasetSourceInput)(nil)).Elem(), DatasetSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DatasetSourcePtrInput)(nil)).Elem(), DatasetSourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DatasetSourceDetailInput)(nil)).Elem(), DatasetSourceDetailArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DatasetSourceDetailPtrInput)(nil)).Elem(), DatasetSourceDetailArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayCapabilitySummaryInput)(nil)).Elem(), GatewayCapabilitySummaryArgs{})
@@ -4505,8 +4854,12 @@ func init() {
 	pulumi.RegisterOutputType(AssetModelVariableValueOutput{})
 	pulumi.RegisterOutputType(AssetPropertyOutput{})
 	pulumi.RegisterOutputType(AssetPropertyArrayOutput{})
+	pulumi.RegisterOutputType(DatasetConfigOutput{})
+	pulumi.RegisterOutputType(DatasetConfigPtrOutput{})
 	pulumi.RegisterOutputType(DatasetKendraSourceDetailOutput{})
 	pulumi.RegisterOutputType(DatasetKendraSourceDetailPtrOutput{})
+	pulumi.RegisterOutputType(DatasetSessionConfigOutput{})
+	pulumi.RegisterOutputType(DatasetSessionConfigPtrOutput{})
 	pulumi.RegisterOutputType(DatasetSourceOutput{})
 	pulumi.RegisterOutputType(DatasetSourcePtrOutput{})
 	pulumi.RegisterOutputType(DatasetSourceDetailOutput{})

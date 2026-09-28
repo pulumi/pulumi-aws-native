@@ -7,6 +7,12 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from ._enums import *
+from .agent_context import *
+from .agent_goal import *
+from .agent_profile import *
+from .get_agent_context import *
+from .get_agent_goal import *
+from .get_agent_profile import *
 from .get_lens import *
 from .get_profile import *
 from .get_review_template import *

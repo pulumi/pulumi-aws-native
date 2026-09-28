@@ -20,10 +20,12 @@ from .get_event_trigger import *
 from .get_integration import *
 from .get_object_type import *
 from .get_recommender import *
+from .get_recommender_schema import *
 from .get_segment_definition import *
 from .integration import *
 from .object_type import *
 from .recommender import *
+from .recommender_schema import *
 from .segment_definition import *
 from ._inputs import *
 from . import outputs

@@ -18,6 +18,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         [Input("backgroundStyle")]
         public Input<Inputs.AnalysisFreeFormLayoutElementBackgroundStyleArgs>? BackgroundStyle { get; set; }
 
+        [Input("borderRadius")]
+        public Input<string>? BorderRadius { get; set; }
+
         /// <summary>
         /// The border style configuration of a free-form layout element.
         /// </summary>
@@ -47,6 +50,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         /// </summary>
         [Input("loadingAnimation")]
         public Input<Inputs.AnalysisLoadingAnimationArgs>? LoadingAnimation { get; set; }
+
+        [Input("padding")]
+        public Input<string>? Padding { get; set; }
 
         [Input("renderingRules")]
         private InputList<Inputs.AnalysisSheetElementRenderingRuleArgs>? _renderingRules;

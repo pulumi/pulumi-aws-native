@@ -28,6 +28,7 @@ class AgentSpaceArgs:
                  locale: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  operator_app: pulumi.Input[Optional['AgentSpaceOperatorAppArgs']] = None,
+                 preferences: pulumi.Input[Optional['AgentSpacePreferencesArgs']] = None,
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a AgentSpace resource.
@@ -48,6 +49,8 @@ class AgentSpaceArgs:
             pulumi.set(__self__, "name", name)
         if operator_app is not None:
             pulumi.set(__self__, "operator_app", operator_app)
+        if preferences is not None:
+            pulumi.set(__self__, "preferences", preferences)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -110,6 +113,15 @@ class AgentSpaceArgs:
 
     @_builtins.property
     @pulumi.getter
+    def preferences(self) -> pulumi.Input[Optional['AgentSpacePreferencesArgs']]:
+        return pulumi.get(self, "preferences")
+
+    @preferences.setter
+    def preferences(self, value: pulumi.Input[Optional['AgentSpacePreferencesArgs']]):
+        pulumi.set(self, "preferences", value)
+
+    @_builtins.property
+    @pulumi.getter
     def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         An array of key-value pairs to apply to this resource.
@@ -132,6 +144,7 @@ class AgentSpace(pulumi.CustomResource):
                  locale: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  operator_app: pulumi.Input[Optional[Union['AgentSpaceOperatorAppArgs', 'AgentSpaceOperatorAppArgsDict']]] = None,
+                 preferences: pulumi.Input[Optional[Union['AgentSpacePreferencesArgs', 'AgentSpacePreferencesArgsDict']]] = None,
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
@@ -174,6 +187,7 @@ class AgentSpace(pulumi.CustomResource):
                  locale: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  operator_app: pulumi.Input[Optional[Union['AgentSpaceOperatorAppArgs', 'AgentSpaceOperatorAppArgsDict']]] = None,
+                 preferences: pulumi.Input[Optional[Union['AgentSpacePreferencesArgs', 'AgentSpacePreferencesArgsDict']]] = None,
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -189,6 +203,7 @@ class AgentSpace(pulumi.CustomResource):
             __props__.__dict__["locale"] = locale
             __props__.__dict__["name"] = name
             __props__.__dict__["operator_app"] = operator_app
+            __props__.__dict__["preferences"] = preferences
             __props__.__dict__["tags"] = tags
             __props__.__dict__["agent_space_id"] = None
             __props__.__dict__["arn"] = None
@@ -226,6 +241,7 @@ class AgentSpace(pulumi.CustomResource):
         __props__.__dict__["locale"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["operator_app"] = None
+        __props__.__dict__["preferences"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["updated_at"] = None
         return AgentSpace(resource_name, opts=opts, __props__=__props__)
@@ -290,6 +306,11 @@ class AgentSpace(pulumi.CustomResource):
     @pulumi.getter(name="operatorApp")
     def operator_app(self) -> pulumi.Output[Optional['outputs.AgentSpaceOperatorApp']]:
         return pulumi.get(self, "operator_app")
+
+    @_builtins.property
+    @pulumi.getter
+    def preferences(self) -> pulumi.Output[Optional['outputs.AgentSpacePreferences']]:
+        return pulumi.get(self, "preferences")
 
     @_builtins.property
     @pulumi.getter

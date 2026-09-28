@@ -9,6 +9,16 @@ export const EndpointMonitoringConfigurationPersistentAppUi = {
 
 export type EndpointMonitoringConfigurationPersistentAppUi = (typeof EndpointMonitoringConfigurationPersistentAppUi)[keyof typeof EndpointMonitoringConfigurationPersistentAppUi];
 
+export const JobTemplateTemplateParameterConfigurationType = {
+    Number: "NUMBER",
+    String: "STRING",
+} as const;
+
+/**
+ * The type of the job template parameter.
+ */
+export type JobTemplateTemplateParameterConfigurationType = (typeof JobTemplateTemplateParameterConfigurationType)[keyof typeof JobTemplateTemplateParameterConfigurationType];
+
 export const SecurityConfigurationContainerProviderType = {
     Eks: "EKS",
 } as const;

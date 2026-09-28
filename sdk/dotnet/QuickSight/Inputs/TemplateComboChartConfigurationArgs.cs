@@ -48,6 +48,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         [Input("colorLabelOptions")]
         public Input<Inputs.TemplateChartAxisLabelOptionsArgs>? ColorLabelOptions { get; set; }
 
+        [Input("defaultSeriesSettings")]
+        public Input<Inputs.TemplateComboChartDefaultSeriesSettingsArgs>? DefaultSeriesSettings { get; set; }
+
         /// <summary>
         /// The field wells of the visual.
         /// </summary>
@@ -109,6 +112,14 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         /// </summary>
         [Input("secondaryYAxisLabelOptions")]
         public Input<Inputs.TemplateChartAxisLabelOptionsArgs>? SecondaryYAxisLabelOptions { get; set; }
+
+        [Input("series")]
+        private InputList<Inputs.TemplateComboSeriesItemArgs>? _series;
+        public InputList<Inputs.TemplateComboSeriesItemArgs> Series
+        {
+            get => _series ?? (_series = new InputList<Inputs.TemplateComboSeriesItemArgs>());
+            set => _series = value;
+        }
 
         [Input("singleAxisOptions")]
         public Input<Inputs.TemplateSingleAxisOptionsArgs>? SingleAxisOptions { get; set; }

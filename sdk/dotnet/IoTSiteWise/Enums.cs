@@ -140,6 +140,7 @@ namespace Pulumi.AwsNative.IoTSiteWise
         }
 
         public static DatasetSourceSourceFormat KnowledgeBase { get; } = new DatasetSourceSourceFormat("KNOWLEDGE_BASE");
+        public static DatasetSourceSourceFormat Timeseries { get; } = new DatasetSourceSourceFormat("TIMESERIES");
 
         public static bool operator ==(DatasetSourceSourceFormat left, DatasetSourceSourceFormat right) => left.Equals(right);
         public static bool operator !=(DatasetSourceSourceFormat left, DatasetSourceSourceFormat right) => !left.Equals(right);
@@ -170,6 +171,7 @@ namespace Pulumi.AwsNative.IoTSiteWise
         }
 
         public static DatasetSourceSourceType Kendra { get; } = new DatasetSourceSourceType("KENDRA");
+        public static DatasetSourceSourceType Sitewise { get; } = new DatasetSourceSourceType("SITEWISE");
 
         public static bool operator ==(DatasetSourceSourceType left, DatasetSourceSourceType right) => left.Equals(right);
         public static bool operator !=(DatasetSourceSourceType left, DatasetSourceSourceType right) => !left.Equals(right);
@@ -179,6 +181,38 @@ namespace Pulumi.AwsNative.IoTSiteWise
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is DatasetSourceSourceType other && Equals(other);
         public bool Equals(DatasetSourceSourceType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The type of the dataset.
+    /// </summary>
+    [EnumType]
+    public readonly struct DatasetType : IEquatable<DatasetType>
+    {
+        private readonly string _value;
+
+        private DatasetType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DatasetType Session { get; } = new DatasetType("SESSION");
+        public static DatasetType Curated { get; } = new DatasetType("CURATED");
+        public static DatasetType External { get; } = new DatasetType("EXTERNAL");
+
+        public static bool operator ==(DatasetType left, DatasetType right) => left.Equals(right);
+        public static bool operator !=(DatasetType left, DatasetType right) => !left.Equals(right);
+
+        public static explicit operator string(DatasetType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DatasetType other && Equals(other);
+        public bool Equals(DatasetType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

@@ -11,7 +11,7 @@ namespace Pulumi.AwsNative.Lambda.Outputs
 {
 
     /// <summary>
-    /// Details about the connection between a Lambda function and an [Amazon EFS file system](https://docs.aws.amazon.com/lambda/latest/dg/configuration-filesystem.html) or an [Amazon S3 Files file system](https://docs.aws.amazon.com/lambda/latest/dg/configuration-filesystem.html).
+    /// Details about the connection between a Lambda function and an [Amazon EFS file system](https://docs.aws.amazon.com/lambda/latest/dg/configuration-filesystem.html) or an [Amazon S3 file system](https://docs.aws.amazon.com/lambda/latest/dg/configuration-filesystem.html).
     /// </summary>
     [OutputType]
     public sealed class FunctionFileSystemConfig
@@ -24,6 +24,9 @@ namespace Pulumi.AwsNative.Lambda.Outputs
         /// The path where the function can access the file system, starting with ``/mnt/``.
         /// </summary>
         public readonly string LocalMountPath;
+        /// <summary>
+        /// The configuration for how your function accesses data on an Amazon S3 file system. Valid only when the file system access point ARN is an Amazon S3 Files access point. If you specify a different access point type (for example, Amazon Elastic File System), the operation returns an ``InvalidParameterException``.
+        /// </summary>
         public readonly Outputs.FunctionS3FilesConfig? S3FilesConfig;
 
         [OutputConstructor]

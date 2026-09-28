@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     public sealed class DashboardFontSize
     {
         /// <summary>
-        /// String based length that is composed of value and unit in px
+        /// &lt;p&gt;The font size that you want to use in px.&lt;/p&gt;
         /// </summary>
         public readonly string? Absolute;
         /// <summary>

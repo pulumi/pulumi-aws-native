@@ -13,11 +13,15 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
 from ._enums import *
 
 __all__ = [
     'MonitorLocalResource',
     'MonitorRemoteResource',
+    'ScopeTargetId',
+    'ScopeTargetIdentifier',
+    'ScopeTargetResource',
 ]
 
 @pulumi.output_type
@@ -86,5 +90,141 @@ class MonitorRemoteResource(dict):
         The type of the remote resource.
         """
         return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class ScopeTargetId(dict):
+    """
+    A target ID is an internally-generated identifier for a target.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "accountId":
+            suggest = "account_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ScopeTargetId. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ScopeTargetId.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ScopeTargetId.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 account_id: _builtins.str):
+        """
+        A target ID is an internally-generated identifier for a target.
+
+        :param _builtins.str account_id: The account ID for the target.
+        """
+        pulumi.set(__self__, "account_id", account_id)
+
+    @_builtins.property
+    @pulumi.getter(name="accountId")
+    def account_id(self) -> _builtins.str:
+        """
+        The account ID for the target.
+        """
+        return pulumi.get(self, "account_id")
+
+
+@pulumi.output_type
+class ScopeTargetIdentifier(dict):
+    """
+    A target identifier is a pair of identifying information for a scope target.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "targetId":
+            suggest = "target_id"
+        elif key == "targetType":
+            suggest = "target_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ScopeTargetIdentifier. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ScopeTargetIdentifier.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ScopeTargetIdentifier.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 target_id: 'outputs.ScopeTargetId',
+                 target_type: 'ScopeTargetIdentifierTargetType'):
+        """
+        A target identifier is a pair of identifying information for a scope target.
+
+        :param 'ScopeTargetIdentifierTargetType' target_type: The type of the target. Currently always ACCOUNT.
+        """
+        pulumi.set(__self__, "target_id", target_id)
+        pulumi.set(__self__, "target_type", target_type)
+
+    @_builtins.property
+    @pulumi.getter(name="targetId")
+    def target_id(self) -> 'outputs.ScopeTargetId':
+        return pulumi.get(self, "target_id")
+
+    @_builtins.property
+    @pulumi.getter(name="targetType")
+    def target_type(self) -> 'ScopeTargetIdentifierTargetType':
+        """
+        The type of the target. Currently always ACCOUNT.
+        """
+        return pulumi.get(self, "target_type")
+
+
+@pulumi.output_type
+class ScopeTargetResource(dict):
+    """
+    A target resource in a scope, identified by a Region and target identifier.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "targetIdentifier":
+            suggest = "target_identifier"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ScopeTargetResource. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ScopeTargetResource.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ScopeTargetResource.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 region: _builtins.str,
+                 target_identifier: 'outputs.ScopeTargetIdentifier'):
+        """
+        A target resource in a scope, identified by a Region and target identifier.
+
+        :param _builtins.str region: The AWS Region for the target resource.
+        """
+        pulumi.set(__self__, "region", region)
+        pulumi.set(__self__, "target_identifier", target_identifier)
+
+    @_builtins.property
+    @pulumi.getter
+    def region(self) -> _builtins.str:
+        """
+        The AWS Region for the target resource.
+        """
+        return pulumi.get(self, "region")
+
+    @_builtins.property
+    @pulumi.getter(name="targetIdentifier")
+    def target_identifier(self) -> 'outputs.ScopeTargetIdentifier':
+        return pulumi.get(self, "target_identifier")
 
 

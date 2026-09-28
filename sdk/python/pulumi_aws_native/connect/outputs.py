@@ -36,6 +36,7 @@ __all__ = [
     'EvaluationFormItemEnablementSource',
     'EvaluationFormItemEnablementSourceValue',
     'EvaluationFormLanguageConfiguration',
+    'EvaluationFormMetricConfiguration',
     'EvaluationFormMultiSelectQuestionAutomation',
     'EvaluationFormMultiSelectQuestionAutomationOption',
     'EvaluationFormMultiSelectQuestionOption',
@@ -967,6 +968,54 @@ class EvaluationFormLanguageConfiguration(dict):
 
 
 @pulumi.output_type
+class EvaluationFormMetricConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "metricName":
+            suggest = "metric_name"
+        elif key == "metricType":
+            suggest = "metric_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EvaluationFormMetricConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EvaluationFormMetricConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EvaluationFormMetricConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 metric_name: _builtins.str,
+                 metric_type: 'EvaluationFormMetricConfigurationMetricType'):
+        """
+        :param _builtins.str metric_name: The name of the metric.
+        :param 'EvaluationFormMetricConfigurationMetricType' metric_type: The type of the metric.
+        """
+        pulumi.set(__self__, "metric_name", metric_name)
+        pulumi.set(__self__, "metric_type", metric_type)
+
+    @_builtins.property
+    @pulumi.getter(name="metricName")
+    def metric_name(self) -> _builtins.str:
+        """
+        The name of the metric.
+        """
+        return pulumi.get(self, "metric_name")
+
+    @_builtins.property
+    @pulumi.getter(name="metricType")
+    def metric_type(self) -> 'EvaluationFormMetricConfigurationMetricType':
+        """
+        The type of the metric.
+        """
+        return pulumi.get(self, "metric_type")
+
+
+@pulumi.output_type
 class EvaluationFormMultiSelectQuestionAutomation(dict):
     """
     Automation configuration for multi-select questions.
@@ -1574,6 +1623,8 @@ class EvaluationFormQuestion(dict):
             suggest = "question_type"
         elif key == "refId":
             suggest = "ref_id"
+        elif key == "metricConfiguration":
+            suggest = "metric_configuration"
         elif key == "notApplicableEnabled":
             suggest = "not_applicable_enabled"
         elif key == "questionTypeProperties":
@@ -1598,6 +1649,7 @@ class EvaluationFormQuestion(dict):
                  title: _builtins.str,
                  enablement: Optional['outputs.EvaluationFormItemEnablementConfiguration'] = None,
                  instructions: Optional[_builtins.str] = None,
+                 metric_configuration: Optional['outputs.EvaluationFormMetricConfiguration'] = None,
                  not_applicable_enabled: Optional[_builtins.bool] = None,
                  question_type_properties: Optional['outputs.EvaluationFormQuestionTypeProperties'] = None,
                  scoring_configuration: Optional['outputs.EvaluationFormQuestionScoringConfiguration'] = None,
@@ -1628,6 +1680,8 @@ class EvaluationFormQuestion(dict):
             pulumi.set(__self__, "enablement", enablement)
         if instructions is not None:
             pulumi.set(__self__, "instructions", instructions)
+        if metric_configuration is not None:
+            pulumi.set(__self__, "metric_configuration", metric_configuration)
         if not_applicable_enabled is not None:
             pulumi.set(__self__, "not_applicable_enabled", not_applicable_enabled)
         if question_type_properties is not None:
@@ -1680,6 +1734,11 @@ class EvaluationFormQuestion(dict):
          *Length Constraints*: Minimum length of 0. Maximum length of 1024.
         """
         return pulumi.get(self, "instructions")
+
+    @_builtins.property
+    @pulumi.getter(name="metricConfiguration")
+    def metric_configuration(self) -> Optional['outputs.EvaluationFormMetricConfiguration']:
+        return pulumi.get(self, "metric_configuration")
 
     @_builtins.property
     @pulumi.getter(name="notApplicableEnabled")

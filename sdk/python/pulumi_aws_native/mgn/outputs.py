@@ -17,11 +17,438 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'ConnectorSsmCommandConfig',
+    'LaunchConfigurationTemplateLaunchTemplateDiskConf',
+    'LaunchConfigurationTemplateLicensing',
+    'LaunchConfigurationTemplatePostLaunchActions',
+    'LaunchConfigurationTemplateSsmDocument',
+    'LaunchConfigurationTemplateSsmExternalParameter',
     'NetworkMigrationDefinitionSourceConfiguration',
     'NetworkMigrationDefinitionSourceS3Configuration',
     'NetworkMigrationDefinitionTargetNetwork',
     'NetworkMigrationDefinitionTargetS3Configuration',
 ]
+
+@pulumi.output_type
+class ConnectorSsmCommandConfig(dict):
+    """
+    SSM command configuration for the connector.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cloudWatchOutputEnabled":
+            suggest = "cloud_watch_output_enabled"
+        elif key == "s3OutputEnabled":
+            suggest = "s3_output_enabled"
+        elif key == "cloudWatchLogGroupName":
+            suggest = "cloud_watch_log_group_name"
+        elif key == "outputS3BucketName":
+            suggest = "output_s3_bucket_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConnectorSsmCommandConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConnectorSsmCommandConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConnectorSsmCommandConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 cloud_watch_output_enabled: _builtins.bool,
+                 s3_output_enabled: _builtins.bool,
+                 cloud_watch_log_group_name: Optional[_builtins.str] = None,
+                 output_s3_bucket_name: Optional[_builtins.str] = None):
+        """
+        SSM command configuration for the connector.
+
+        :param _builtins.bool cloud_watch_output_enabled: Whether SSM command output is sent to CloudWatch Logs.
+        :param _builtins.bool s3_output_enabled: Whether SSM command output is stored in S3.
+        :param _builtins.str cloud_watch_log_group_name: The CloudWatch Logs group name for SSM command output.
+        :param _builtins.str output_s3_bucket_name: The S3 bucket name for SSM command output.
+        """
+        pulumi.set(__self__, "cloud_watch_output_enabled", cloud_watch_output_enabled)
+        pulumi.set(__self__, "s3_output_enabled", s3_output_enabled)
+        if cloud_watch_log_group_name is not None:
+            pulumi.set(__self__, "cloud_watch_log_group_name", cloud_watch_log_group_name)
+        if output_s3_bucket_name is not None:
+            pulumi.set(__self__, "output_s3_bucket_name", output_s3_bucket_name)
+
+    @_builtins.property
+    @pulumi.getter(name="cloudWatchOutputEnabled")
+    def cloud_watch_output_enabled(self) -> _builtins.bool:
+        """
+        Whether SSM command output is sent to CloudWatch Logs.
+        """
+        return pulumi.get(self, "cloud_watch_output_enabled")
+
+    @_builtins.property
+    @pulumi.getter(name="s3OutputEnabled")
+    def s3_output_enabled(self) -> _builtins.bool:
+        """
+        Whether SSM command output is stored in S3.
+        """
+        return pulumi.get(self, "s3_output_enabled")
+
+    @_builtins.property
+    @pulumi.getter(name="cloudWatchLogGroupName")
+    def cloud_watch_log_group_name(self) -> Optional[_builtins.str]:
+        """
+        The CloudWatch Logs group name for SSM command output.
+        """
+        return pulumi.get(self, "cloud_watch_log_group_name")
+
+    @_builtins.property
+    @pulumi.getter(name="outputS3BucketName")
+    def output_s3_bucket_name(self) -> Optional[_builtins.str]:
+        """
+        The S3 bucket name for SSM command output.
+        """
+        return pulumi.get(self, "output_s3_bucket_name")
+
+
+@pulumi.output_type
+class LaunchConfigurationTemplateLaunchTemplateDiskConf(dict):
+    """
+    Launch template disk configuration.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "volumeType":
+            suggest = "volume_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LaunchConfigurationTemplateLaunchTemplateDiskConf. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LaunchConfigurationTemplateLaunchTemplateDiskConf.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LaunchConfigurationTemplateLaunchTemplateDiskConf.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 iops: Optional[_builtins.int] = None,
+                 throughput: Optional[_builtins.int] = None,
+                 volume_type: Optional['LaunchConfigurationTemplateLaunchTemplateDiskConfVolumeType'] = None):
+        """
+        Launch template disk configuration.
+
+        :param _builtins.int iops: Launch template disk IOPS configuration.
+        :param _builtins.int throughput: Launch template disk throughput configuration, in MiB/s.
+        :param 'LaunchConfigurationTemplateLaunchTemplateDiskConfVolumeType' volume_type: Launch template disk volume type configuration.
+        """
+        if iops is not None:
+            pulumi.set(__self__, "iops", iops)
+        if throughput is not None:
+            pulumi.set(__self__, "throughput", throughput)
+        if volume_type is not None:
+            pulumi.set(__self__, "volume_type", volume_type)
+
+    @_builtins.property
+    @pulumi.getter
+    def iops(self) -> Optional[_builtins.int]:
+        """
+        Launch template disk IOPS configuration.
+        """
+        return pulumi.get(self, "iops")
+
+    @_builtins.property
+    @pulumi.getter
+    def throughput(self) -> Optional[_builtins.int]:
+        """
+        Launch template disk throughput configuration, in MiB/s.
+        """
+        return pulumi.get(self, "throughput")
+
+    @_builtins.property
+    @pulumi.getter(name="volumeType")
+    def volume_type(self) -> Optional['LaunchConfigurationTemplateLaunchTemplateDiskConfVolumeType']:
+        """
+        Launch template disk volume type configuration.
+        """
+        return pulumi.get(self, "volume_type")
+
+
+@pulumi.output_type
+class LaunchConfigurationTemplateLicensing(dict):
+    """
+    Configuration of a machine's license.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "osByol":
+            suggest = "os_byol"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LaunchConfigurationTemplateLicensing. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LaunchConfigurationTemplateLicensing.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LaunchConfigurationTemplateLicensing.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 os_byol: Optional[_builtins.bool] = None):
+        """
+        Configuration of a machine's license.
+
+        :param _builtins.bool os_byol: Whether to configure BYOL OS licensing.
+        """
+        if os_byol is not None:
+            pulumi.set(__self__, "os_byol", os_byol)
+
+    @_builtins.property
+    @pulumi.getter(name="osByol")
+    def os_byol(self) -> Optional[_builtins.bool]:
+        """
+        Whether to configure BYOL OS licensing.
+        """
+        return pulumi.get(self, "os_byol")
+
+
+@pulumi.output_type
+class LaunchConfigurationTemplatePostLaunchActions(dict):
+    """
+    Post launch actions to execute on the Test or Cutover instance.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cloudWatchLogGroupName":
+            suggest = "cloud_watch_log_group_name"
+        elif key == "s3LogBucket":
+            suggest = "s3_log_bucket"
+        elif key == "s3OutputKeyPrefix":
+            suggest = "s3_output_key_prefix"
+        elif key == "ssmDocuments":
+            suggest = "ssm_documents"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LaunchConfigurationTemplatePostLaunchActions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LaunchConfigurationTemplatePostLaunchActions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LaunchConfigurationTemplatePostLaunchActions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 cloud_watch_log_group_name: Optional[_builtins.str] = None,
+                 deployment: Optional['LaunchConfigurationTemplatePostLaunchActionsDeployment'] = None,
+                 s3_log_bucket: Optional[_builtins.str] = None,
+                 s3_output_key_prefix: Optional[_builtins.str] = None,
+                 ssm_documents: Optional[Sequence['outputs.LaunchConfigurationTemplateSsmDocument']] = None):
+        """
+        Post launch actions to execute on the Test or Cutover instance.
+
+        :param _builtins.str cloud_watch_log_group_name: AWS Systems Manager Command's CloudWatch log group name.
+        :param 'LaunchConfigurationTemplatePostLaunchActionsDeployment' deployment: Deployment type in which AWS Systems Manager Documents will be executed.
+        :param _builtins.str s3_log_bucket: AWS Systems Manager Command's logs S3 log bucket.
+        :param _builtins.str s3_output_key_prefix: AWS Systems Manager Command's logs S3 output key prefix.
+        :param Sequence['LaunchConfigurationTemplateSsmDocument'] ssm_documents: AWS Systems Manager Documents to execute, in order.
+        """
+        if cloud_watch_log_group_name is not None:
+            pulumi.set(__self__, "cloud_watch_log_group_name", cloud_watch_log_group_name)
+        if deployment is not None:
+            pulumi.set(__self__, "deployment", deployment)
+        if s3_log_bucket is not None:
+            pulumi.set(__self__, "s3_log_bucket", s3_log_bucket)
+        if s3_output_key_prefix is not None:
+            pulumi.set(__self__, "s3_output_key_prefix", s3_output_key_prefix)
+        if ssm_documents is not None:
+            pulumi.set(__self__, "ssm_documents", ssm_documents)
+
+    @_builtins.property
+    @pulumi.getter(name="cloudWatchLogGroupName")
+    def cloud_watch_log_group_name(self) -> Optional[_builtins.str]:
+        """
+        AWS Systems Manager Command's CloudWatch log group name.
+        """
+        return pulumi.get(self, "cloud_watch_log_group_name")
+
+    @_builtins.property
+    @pulumi.getter
+    def deployment(self) -> Optional['LaunchConfigurationTemplatePostLaunchActionsDeployment']:
+        """
+        Deployment type in which AWS Systems Manager Documents will be executed.
+        """
+        return pulumi.get(self, "deployment")
+
+    @_builtins.property
+    @pulumi.getter(name="s3LogBucket")
+    def s3_log_bucket(self) -> Optional[_builtins.str]:
+        """
+        AWS Systems Manager Command's logs S3 log bucket.
+        """
+        return pulumi.get(self, "s3_log_bucket")
+
+    @_builtins.property
+    @pulumi.getter(name="s3OutputKeyPrefix")
+    def s3_output_key_prefix(self) -> Optional[_builtins.str]:
+        """
+        AWS Systems Manager Command's logs S3 output key prefix.
+        """
+        return pulumi.get(self, "s3_output_key_prefix")
+
+    @_builtins.property
+    @pulumi.getter(name="ssmDocuments")
+    def ssm_documents(self) -> Optional[Sequence['outputs.LaunchConfigurationTemplateSsmDocument']]:
+        """
+        AWS Systems Manager Documents to execute, in order.
+        """
+        return pulumi.get(self, "ssm_documents")
+
+
+@pulumi.output_type
+class LaunchConfigurationTemplateSsmDocument(dict):
+    """
+    An AWS Systems Manager Document to execute as a post launch action.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "actionName":
+            suggest = "action_name"
+        elif key == "ssmDocumentName":
+            suggest = "ssm_document_name"
+        elif key == "externalParameters":
+            suggest = "external_parameters"
+        elif key == "mustSucceedForCutover":
+            suggest = "must_succeed_for_cutover"
+        elif key == "timeoutSeconds":
+            suggest = "timeout_seconds"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LaunchConfigurationTemplateSsmDocument. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LaunchConfigurationTemplateSsmDocument.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LaunchConfigurationTemplateSsmDocument.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 action_name: _builtins.str,
+                 ssm_document_name: _builtins.str,
+                 external_parameters: Optional[Mapping[str, 'outputs.LaunchConfigurationTemplateSsmExternalParameter']] = None,
+                 must_succeed_for_cutover: Optional[_builtins.bool] = None,
+                 parameters: Optional[Mapping[str, Any]] = None,
+                 timeout_seconds: Optional[_builtins.int] = None):
+        """
+        An AWS Systems Manager Document to execute as a post launch action.
+
+        :param _builtins.str action_name: User-friendly name for the AWS Systems Manager Document.
+        :param _builtins.str ssm_document_name: AWS Systems Manager Document name or full ARN.
+        :param _builtins.bool must_succeed_for_cutover: Whether Cutover is blocked when the document has failed.
+        :param _builtins.int timeout_seconds: AWS Systems Manager Document timeout, in seconds.
+        """
+        pulumi.set(__self__, "action_name", action_name)
+        pulumi.set(__self__, "ssm_document_name", ssm_document_name)
+        if external_parameters is not None:
+            pulumi.set(__self__, "external_parameters", external_parameters)
+        if must_succeed_for_cutover is not None:
+            pulumi.set(__self__, "must_succeed_for_cutover", must_succeed_for_cutover)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+        if timeout_seconds is not None:
+            pulumi.set(__self__, "timeout_seconds", timeout_seconds)
+
+    @_builtins.property
+    @pulumi.getter(name="actionName")
+    def action_name(self) -> _builtins.str:
+        """
+        User-friendly name for the AWS Systems Manager Document.
+        """
+        return pulumi.get(self, "action_name")
+
+    @_builtins.property
+    @pulumi.getter(name="ssmDocumentName")
+    def ssm_document_name(self) -> _builtins.str:
+        """
+        AWS Systems Manager Document name or full ARN.
+        """
+        return pulumi.get(self, "ssm_document_name")
+
+    @_builtins.property
+    @pulumi.getter(name="externalParameters")
+    def external_parameters(self) -> Optional[Mapping[str, 'outputs.LaunchConfigurationTemplateSsmExternalParameter']]:
+        return pulumi.get(self, "external_parameters")
+
+    @_builtins.property
+    @pulumi.getter(name="mustSucceedForCutover")
+    def must_succeed_for_cutover(self) -> Optional[_builtins.bool]:
+        """
+        Whether Cutover is blocked when the document has failed.
+        """
+        return pulumi.get(self, "must_succeed_for_cutover")
+
+    @_builtins.property
+    @pulumi.getter
+    def parameters(self) -> Optional[Mapping[str, Any]]:
+        return pulumi.get(self, "parameters")
+
+    @_builtins.property
+    @pulumi.getter(name="timeoutSeconds")
+    def timeout_seconds(self) -> Optional[_builtins.int]:
+        """
+        AWS Systems Manager Document timeout, in seconds.
+        """
+        return pulumi.get(self, "timeout_seconds")
+
+
+@pulumi.output_type
+class LaunchConfigurationTemplateSsmExternalParameter(dict):
+    """
+    An AWS Systems Manager Document external parameter.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dynamicPath":
+            suggest = "dynamic_path"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LaunchConfigurationTemplateSsmExternalParameter. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LaunchConfigurationTemplateSsmExternalParameter.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LaunchConfigurationTemplateSsmExternalParameter.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 dynamic_path: _builtins.str):
+        """
+        An AWS Systems Manager Document external parameter.
+
+        :param _builtins.str dynamic_path: AWS Systems Manager Document external parameter dynamic path.
+        """
+        pulumi.set(__self__, "dynamic_path", dynamic_path)
+
+    @_builtins.property
+    @pulumi.getter(name="dynamicPath")
+    def dynamic_path(self) -> _builtins.str:
+        """
+        AWS Systems Manager Document external parameter dynamic path.
+        """
+        return pulumi.get(self, "dynamic_path")
+
 
 @pulumi.output_type
 class NetworkMigrationDefinitionSourceConfiguration(dict):

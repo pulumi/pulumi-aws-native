@@ -13,6 +13,7 @@ __all__ = [
     'AssetPropertyNotificationState',
     'DatasetSourceSourceFormat',
     'DatasetSourceSourceType',
+    'DatasetType',
     'GatewayGreengrassV2CoreDeviceOperatingSystem',
     'PortalType',
 ]
@@ -55,6 +56,7 @@ class DatasetSourceSourceFormat(_builtins.str, Enum):
     The format of the dataset source associated with the dataset.
     """
     KNOWLEDGE_BASE = "KNOWLEDGE_BASE"
+    TIMESERIES = "TIMESERIES"
 
 
 @pulumi.type_token("aws-native:iotsitewise:DatasetSourceSourceType")
@@ -63,6 +65,17 @@ class DatasetSourceSourceType(_builtins.str, Enum):
     The type of data source for the dataset.
     """
     KENDRA = "KENDRA"
+    SITEWISE = "SITEWISE"
+
+
+@pulumi.type_token("aws-native:iotsitewise:DatasetType")
+class DatasetType(_builtins.str, Enum):
+    """
+    The type of the dataset.
+    """
+    SESSION = "SESSION"
+    CURATED = "CURATED"
+    EXTERNAL = "EXTERNAL"
 
 
 @pulumi.type_token("aws-native:iotsitewise:GatewayGreengrassV2CoreDeviceOperatingSystem")

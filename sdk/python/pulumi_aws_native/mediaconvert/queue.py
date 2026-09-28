@@ -21,6 +21,7 @@ class QueueArgs:
     def __init__(__self__, *,
                  concurrent_jobs: pulumi.Input[Optional[_builtins.int]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
+                 maximum_concurrent_feeds: pulumi.Input[Optional[_builtins.int]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  pricing_plan: pulumi.Input[Optional[_builtins.str]] = None,
                  status: pulumi.Input[Optional[_builtins.str]] = None,
@@ -30,6 +31,7 @@ class QueueArgs:
 
         :param pulumi.Input[_builtins.int] concurrent_jobs: Specify the maximum number of jobs your queue can process concurrently. For on-demand queues, the value you enter is constrained by your service quotas for Maximum concurrent jobs, per on-demand queue and Maximum concurrent jobs, per account. For reserved queues, specify the number of jobs you can process concurrently in your reservation plan instead.
         :param pulumi.Input[_builtins.str] description: A description of the queue that you are creating.
+        :param pulumi.Input[_builtins.int] maximum_concurrent_feeds: Specify the maximum number of Elemental Inference feeds MediaConvert can process concurrently.
         :param pulumi.Input[_builtins.str] name: The name of the queue that you are creating.
         :param pulumi.Input[_builtins.str] pricing_plan: When you use CloudFormation, you can create only on-demand queues. Therefore, always set PricingPlan to the value ON_DEMAND when declaring an AWS::MediaConvert::Queue in your CloudFormation template. To create a reserved queue, use the AWS Elemental MediaConvert console at https://console.aws.amazon.com/mediaconvert to set up a contract. For more information, see Working with AWS Elemental MediaConvert Queues in the AWS Elemental MediaConvert User Guide.
         :param pulumi.Input[_builtins.str] status: Initial state of the queue. Queues can be either ACTIVE or PAUSED. If you create a paused queue, then jobs that you send to that queue won't begin.
@@ -41,6 +43,8 @@ class QueueArgs:
             pulumi.set(__self__, "concurrent_jobs", concurrent_jobs)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if maximum_concurrent_feeds is not None:
+            pulumi.set(__self__, "maximum_concurrent_feeds", maximum_concurrent_feeds)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if pricing_plan is not None:
@@ -73,6 +77,18 @@ class QueueArgs:
     @description.setter
     def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
+
+    @_builtins.property
+    @pulumi.getter(name="maximumConcurrentFeeds")
+    def maximum_concurrent_feeds(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Specify the maximum number of Elemental Inference feeds MediaConvert can process concurrently.
+        """
+        return pulumi.get(self, "maximum_concurrent_feeds")
+
+    @maximum_concurrent_feeds.setter
+    def maximum_concurrent_feeds(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "maximum_concurrent_feeds", value)
 
     @_builtins.property
     @pulumi.getter
@@ -133,6 +149,7 @@ class Queue(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  concurrent_jobs: pulumi.Input[Optional[_builtins.int]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
+                 maximum_concurrent_feeds: pulumi.Input[Optional[_builtins.int]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  pricing_plan: pulumi.Input[Optional[_builtins.str]] = None,
                  status: pulumi.Input[Optional[_builtins.str]] = None,
@@ -145,6 +162,7 @@ class Queue(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.int] concurrent_jobs: Specify the maximum number of jobs your queue can process concurrently. For on-demand queues, the value you enter is constrained by your service quotas for Maximum concurrent jobs, per on-demand queue and Maximum concurrent jobs, per account. For reserved queues, specify the number of jobs you can process concurrently in your reservation plan instead.
         :param pulumi.Input[_builtins.str] description: A description of the queue that you are creating.
+        :param pulumi.Input[_builtins.int] maximum_concurrent_feeds: Specify the maximum number of Elemental Inference feeds MediaConvert can process concurrently.
         :param pulumi.Input[_builtins.str] name: The name of the queue that you are creating.
         :param pulumi.Input[_builtins.str] pricing_plan: When you use CloudFormation, you can create only on-demand queues. Therefore, always set PricingPlan to the value ON_DEMAND when declaring an AWS::MediaConvert::Queue in your CloudFormation template. To create a reserved queue, use the AWS Elemental MediaConvert console at https://console.aws.amazon.com/mediaconvert to set up a contract. For more information, see Working with AWS Elemental MediaConvert Queues in the AWS Elemental MediaConvert User Guide.
         :param pulumi.Input[_builtins.str] status: Initial state of the queue. Queues can be either ACTIVE or PAUSED. If you create a paused queue, then jobs that you send to that queue won't begin.
@@ -178,6 +196,7 @@ class Queue(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  concurrent_jobs: pulumi.Input[Optional[_builtins.int]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
+                 maximum_concurrent_feeds: pulumi.Input[Optional[_builtins.int]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  pricing_plan: pulumi.Input[Optional[_builtins.str]] = None,
                  status: pulumi.Input[Optional[_builtins.str]] = None,
@@ -193,6 +212,7 @@ class Queue(pulumi.CustomResource):
 
             __props__.__dict__["concurrent_jobs"] = concurrent_jobs
             __props__.__dict__["description"] = description
+            __props__.__dict__["maximum_concurrent_feeds"] = maximum_concurrent_feeds
             __props__.__dict__["name"] = name
             __props__.__dict__["pricing_plan"] = pricing_plan
             __props__.__dict__["status"] = status
@@ -225,6 +245,7 @@ class Queue(pulumi.CustomResource):
         __props__.__dict__["arn"] = None
         __props__.__dict__["concurrent_jobs"] = None
         __props__.__dict__["description"] = None
+        __props__.__dict__["maximum_concurrent_feeds"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["pricing_plan"] = None
         __props__.__dict__["status"] = None
@@ -254,6 +275,14 @@ class Queue(pulumi.CustomResource):
         A description of the queue that you are creating.
         """
         return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter(name="maximumConcurrentFeeds")
+    def maximum_concurrent_feeds(self) -> pulumi.Output[Optional[_builtins.int]]:
+        """
+        Specify the maximum number of Elemental Inference feeds MediaConvert can process concurrently.
+        """
+        return pulumi.get(self, "maximum_concurrent_feeds")
 
     @_builtins.property
     @pulumi.getter

@@ -47,9 +47,10 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.DashboardSheetDefinition> Sheets;
         /// <summary>
-        /// The static files for the definition.
+        /// &lt;p&gt;The static files for the definition.&lt;/p&gt;
         /// </summary>
         public readonly ImmutableArray<Outputs.DashboardStaticFile> StaticFiles;
+        public readonly ImmutableArray<Outputs.DashboardTopicIdentifierDeclaration> TopicIdentifierDeclarations;
 
         [OutputConstructor]
         private DashboardVersionDefinition(
@@ -69,7 +70,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 
             ImmutableArray<Outputs.DashboardSheetDefinition> sheets,
 
-            ImmutableArray<Outputs.DashboardStaticFile> staticFiles)
+            ImmutableArray<Outputs.DashboardStaticFile> staticFiles,
+
+            ImmutableArray<Outputs.DashboardTopicIdentifierDeclaration> topicIdentifierDeclarations)
         {
             AnalysisDefaults = analysisDefaults;
             CalculatedFields = calculatedFields;
@@ -80,6 +83,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
             ParameterDeclarations = parameterDeclarations;
             Sheets = sheets;
             StaticFiles = staticFiles;
+            TopicIdentifierDeclarations = topicIdentifierDeclarations;
         }
     }
 }

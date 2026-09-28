@@ -1484,7 +1484,169 @@ func (o ComputeEnvironmentEcsSettingsPtrOutput) ContainerInsights() ComputeEnvir
 	}).(ComputeEnvironmentEcsSettingsContainerInsightsPtrOutput)
 }
 
+// The EKS access entry configuration for the compute environment. Controls whether AWS Batch manages the EKS access entry for the compute environment's service role, or inherits it from the cluster.
+type ComputeEnvironmentEksAccessEntry struct {
+	// The desired state of the EKS access entry managed by AWS Batch. When omitted, AWS Batch applies INHERIT_FROM_CLUSTER.
+	DesiredState *ComputeEnvironmentEksAccessEntryDesiredState `pulumi:"desiredState"`
+	// The read-only status of the EKS access entry, returned by DescribeComputeEnvironments.
+	Status *ComputeEnvironmentEksAccessEntryStatus `pulumi:"status"`
+}
+
+// ComputeEnvironmentEksAccessEntryInput is an input type that accepts ComputeEnvironmentEksAccessEntryArgs and ComputeEnvironmentEksAccessEntryOutput values.
+// You can construct a concrete instance of `ComputeEnvironmentEksAccessEntryInput` via:
+//
+//	ComputeEnvironmentEksAccessEntryArgs{...}
+type ComputeEnvironmentEksAccessEntryInput interface {
+	pulumi.Input
+
+	ToComputeEnvironmentEksAccessEntryOutput() ComputeEnvironmentEksAccessEntryOutput
+	ToComputeEnvironmentEksAccessEntryOutputWithContext(context.Context) ComputeEnvironmentEksAccessEntryOutput
+}
+
+// The EKS access entry configuration for the compute environment. Controls whether AWS Batch manages the EKS access entry for the compute environment's service role, or inherits it from the cluster.
+type ComputeEnvironmentEksAccessEntryArgs struct {
+	// The desired state of the EKS access entry managed by AWS Batch. When omitted, AWS Batch applies INHERIT_FROM_CLUSTER.
+	DesiredState ComputeEnvironmentEksAccessEntryDesiredStatePtrInput `pulumi:"desiredState"`
+	// The read-only status of the EKS access entry, returned by DescribeComputeEnvironments.
+	Status ComputeEnvironmentEksAccessEntryStatusPtrInput `pulumi:"status"`
+}
+
+func (ComputeEnvironmentEksAccessEntryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ComputeEnvironmentEksAccessEntry)(nil)).Elem()
+}
+
+func (i ComputeEnvironmentEksAccessEntryArgs) ToComputeEnvironmentEksAccessEntryOutput() ComputeEnvironmentEksAccessEntryOutput {
+	return i.ToComputeEnvironmentEksAccessEntryOutputWithContext(context.Background())
+}
+
+func (i ComputeEnvironmentEksAccessEntryArgs) ToComputeEnvironmentEksAccessEntryOutputWithContext(ctx context.Context) ComputeEnvironmentEksAccessEntryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ComputeEnvironmentEksAccessEntryOutput)
+}
+
+func (i ComputeEnvironmentEksAccessEntryArgs) ToComputeEnvironmentEksAccessEntryPtrOutput() ComputeEnvironmentEksAccessEntryPtrOutput {
+	return i.ToComputeEnvironmentEksAccessEntryPtrOutputWithContext(context.Background())
+}
+
+func (i ComputeEnvironmentEksAccessEntryArgs) ToComputeEnvironmentEksAccessEntryPtrOutputWithContext(ctx context.Context) ComputeEnvironmentEksAccessEntryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ComputeEnvironmentEksAccessEntryOutput).ToComputeEnvironmentEksAccessEntryPtrOutputWithContext(ctx)
+}
+
+// ComputeEnvironmentEksAccessEntryPtrInput is an input type that accepts ComputeEnvironmentEksAccessEntryArgs, ComputeEnvironmentEksAccessEntryPtr and ComputeEnvironmentEksAccessEntryPtrOutput values.
+// You can construct a concrete instance of `ComputeEnvironmentEksAccessEntryPtrInput` via:
+//
+//	        ComputeEnvironmentEksAccessEntryArgs{...}
+//
+//	or:
+//
+//	        nil
+type ComputeEnvironmentEksAccessEntryPtrInput interface {
+	pulumi.Input
+
+	ToComputeEnvironmentEksAccessEntryPtrOutput() ComputeEnvironmentEksAccessEntryPtrOutput
+	ToComputeEnvironmentEksAccessEntryPtrOutputWithContext(context.Context) ComputeEnvironmentEksAccessEntryPtrOutput
+}
+
+type computeEnvironmentEksAccessEntryPtrType ComputeEnvironmentEksAccessEntryArgs
+
+func ComputeEnvironmentEksAccessEntryPtr(v *ComputeEnvironmentEksAccessEntryArgs) ComputeEnvironmentEksAccessEntryPtrInput {
+	return (*computeEnvironmentEksAccessEntryPtrType)(v)
+}
+
+func (*computeEnvironmentEksAccessEntryPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ComputeEnvironmentEksAccessEntry)(nil)).Elem()
+}
+
+func (i *computeEnvironmentEksAccessEntryPtrType) ToComputeEnvironmentEksAccessEntryPtrOutput() ComputeEnvironmentEksAccessEntryPtrOutput {
+	return i.ToComputeEnvironmentEksAccessEntryPtrOutputWithContext(context.Background())
+}
+
+func (i *computeEnvironmentEksAccessEntryPtrType) ToComputeEnvironmentEksAccessEntryPtrOutputWithContext(ctx context.Context) ComputeEnvironmentEksAccessEntryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ComputeEnvironmentEksAccessEntryPtrOutput)
+}
+
+// The EKS access entry configuration for the compute environment. Controls whether AWS Batch manages the EKS access entry for the compute environment's service role, or inherits it from the cluster.
+type ComputeEnvironmentEksAccessEntryOutput struct{ *pulumi.OutputState }
+
+func (ComputeEnvironmentEksAccessEntryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ComputeEnvironmentEksAccessEntry)(nil)).Elem()
+}
+
+func (o ComputeEnvironmentEksAccessEntryOutput) ToComputeEnvironmentEksAccessEntryOutput() ComputeEnvironmentEksAccessEntryOutput {
+	return o
+}
+
+func (o ComputeEnvironmentEksAccessEntryOutput) ToComputeEnvironmentEksAccessEntryOutputWithContext(ctx context.Context) ComputeEnvironmentEksAccessEntryOutput {
+	return o
+}
+
+func (o ComputeEnvironmentEksAccessEntryOutput) ToComputeEnvironmentEksAccessEntryPtrOutput() ComputeEnvironmentEksAccessEntryPtrOutput {
+	return o.ToComputeEnvironmentEksAccessEntryPtrOutputWithContext(context.Background())
+}
+
+func (o ComputeEnvironmentEksAccessEntryOutput) ToComputeEnvironmentEksAccessEntryPtrOutputWithContext(ctx context.Context) ComputeEnvironmentEksAccessEntryPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ComputeEnvironmentEksAccessEntry) *ComputeEnvironmentEksAccessEntry {
+		return &v
+	}).(ComputeEnvironmentEksAccessEntryPtrOutput)
+}
+
+// The desired state of the EKS access entry managed by AWS Batch. When omitted, AWS Batch applies INHERIT_FROM_CLUSTER.
+func (o ComputeEnvironmentEksAccessEntryOutput) DesiredState() ComputeEnvironmentEksAccessEntryDesiredStatePtrOutput {
+	return o.ApplyT(func(v ComputeEnvironmentEksAccessEntry) *ComputeEnvironmentEksAccessEntryDesiredState {
+		return v.DesiredState
+	}).(ComputeEnvironmentEksAccessEntryDesiredStatePtrOutput)
+}
+
+// The read-only status of the EKS access entry, returned by DescribeComputeEnvironments.
+func (o ComputeEnvironmentEksAccessEntryOutput) Status() ComputeEnvironmentEksAccessEntryStatusPtrOutput {
+	return o.ApplyT(func(v ComputeEnvironmentEksAccessEntry) *ComputeEnvironmentEksAccessEntryStatus { return v.Status }).(ComputeEnvironmentEksAccessEntryStatusPtrOutput)
+}
+
+type ComputeEnvironmentEksAccessEntryPtrOutput struct{ *pulumi.OutputState }
+
+func (ComputeEnvironmentEksAccessEntryPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ComputeEnvironmentEksAccessEntry)(nil)).Elem()
+}
+
+func (o ComputeEnvironmentEksAccessEntryPtrOutput) ToComputeEnvironmentEksAccessEntryPtrOutput() ComputeEnvironmentEksAccessEntryPtrOutput {
+	return o
+}
+
+func (o ComputeEnvironmentEksAccessEntryPtrOutput) ToComputeEnvironmentEksAccessEntryPtrOutputWithContext(ctx context.Context) ComputeEnvironmentEksAccessEntryPtrOutput {
+	return o
+}
+
+func (o ComputeEnvironmentEksAccessEntryPtrOutput) Elem() ComputeEnvironmentEksAccessEntryOutput {
+	return o.ApplyT(func(v *ComputeEnvironmentEksAccessEntry) ComputeEnvironmentEksAccessEntry {
+		if v != nil {
+			return *v
+		}
+		var ret ComputeEnvironmentEksAccessEntry
+		return ret
+	}).(ComputeEnvironmentEksAccessEntryOutput)
+}
+
+// The desired state of the EKS access entry managed by AWS Batch. When omitted, AWS Batch applies INHERIT_FROM_CLUSTER.
+func (o ComputeEnvironmentEksAccessEntryPtrOutput) DesiredState() ComputeEnvironmentEksAccessEntryDesiredStatePtrOutput {
+	return o.ApplyT(func(v *ComputeEnvironmentEksAccessEntry) *ComputeEnvironmentEksAccessEntryDesiredState {
+		if v == nil {
+			return nil
+		}
+		return v.DesiredState
+	}).(ComputeEnvironmentEksAccessEntryDesiredStatePtrOutput)
+}
+
+// The read-only status of the EKS access entry, returned by DescribeComputeEnvironments.
+func (o ComputeEnvironmentEksAccessEntryPtrOutput) Status() ComputeEnvironmentEksAccessEntryStatusPtrOutput {
+	return o.ApplyT(func(v *ComputeEnvironmentEksAccessEntry) *ComputeEnvironmentEksAccessEntryStatus {
+		if v == nil {
+			return nil
+		}
+		return v.Status
+	}).(ComputeEnvironmentEksAccessEntryStatusPtrOutput)
+}
+
 type ComputeEnvironmentEksConfiguration struct {
+	AccessEntry *ComputeEnvironmentEksAccessEntry `pulumi:"accessEntry"`
 	// The Amazon Resource Name (ARN) of the Amazon EKS cluster. An example is `arn: *aws* :eks: *us-east-1* : *123456789012* :cluster/ *ClusterForBatch*` .
 	EksClusterArn string `pulumi:"eksClusterArn"`
 	// The namespace of the Amazon EKS cluster. AWS Batch manages pods in this namespace. The value can't left empty or null. It must be fewer than 64 characters long, can't be set to `default` , can't start with " `kube-` ," and must match this regular expression: `^[a-z0-9]([-a-z0-9]*[a-z0-9])?$` . For more information, see [Namespaces](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/) in the Kubernetes documentation.
@@ -1503,6 +1665,7 @@ type ComputeEnvironmentEksConfigurationInput interface {
 }
 
 type ComputeEnvironmentEksConfigurationArgs struct {
+	AccessEntry ComputeEnvironmentEksAccessEntryPtrInput `pulumi:"accessEntry"`
 	// The Amazon Resource Name (ARN) of the Amazon EKS cluster. An example is `arn: *aws* :eks: *us-east-1* : *123456789012* :cluster/ *ClusterForBatch*` .
 	EksClusterArn pulumi.StringInput `pulumi:"eksClusterArn"`
 	// The namespace of the Amazon EKS cluster. AWS Batch manages pods in this namespace. The value can't left empty or null. It must be fewer than 64 characters long, can't be set to `default` , can't start with " `kube-` ," and must match this regular expression: `^[a-z0-9]([-a-z0-9]*[a-z0-9])?$` . For more information, see [Namespaces](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/) in the Kubernetes documentation.
@@ -1586,6 +1749,10 @@ func (o ComputeEnvironmentEksConfigurationOutput) ToComputeEnvironmentEksConfigu
 	}).(ComputeEnvironmentEksConfigurationPtrOutput)
 }
 
+func (o ComputeEnvironmentEksConfigurationOutput) AccessEntry() ComputeEnvironmentEksAccessEntryPtrOutput {
+	return o.ApplyT(func(v ComputeEnvironmentEksConfiguration) *ComputeEnvironmentEksAccessEntry { return v.AccessEntry }).(ComputeEnvironmentEksAccessEntryPtrOutput)
+}
+
 // The Amazon Resource Name (ARN) of the Amazon EKS cluster. An example is `arn: *aws* :eks: *us-east-1* : *123456789012* :cluster/ *ClusterForBatch*` .
 func (o ComputeEnvironmentEksConfigurationOutput) EksClusterArn() pulumi.StringOutput {
 	return o.ApplyT(func(v ComputeEnvironmentEksConfiguration) string { return v.EksClusterArn }).(pulumi.StringOutput)
@@ -1618,6 +1785,15 @@ func (o ComputeEnvironmentEksConfigurationPtrOutput) Elem() ComputeEnvironmentEk
 		var ret ComputeEnvironmentEksConfiguration
 		return ret
 	}).(ComputeEnvironmentEksConfigurationOutput)
+}
+
+func (o ComputeEnvironmentEksConfigurationPtrOutput) AccessEntry() ComputeEnvironmentEksAccessEntryPtrOutput {
+	return o.ApplyT(func(v *ComputeEnvironmentEksConfiguration) *ComputeEnvironmentEksAccessEntry {
+		if v == nil {
+			return nil
+		}
+		return v.AccessEntry
+	}).(ComputeEnvironmentEksAccessEntryPtrOutput)
 }
 
 // The Amazon Resource Name (ARN) of the Amazon EKS cluster. An example is `arn: *aws* :eks: *us-east-1* : *123456789012* :cluster/ *ClusterForBatch*` .
@@ -13890,6 +14066,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ComputeEnvironmentEc2ConfigurationObjectArrayInput)(nil)).Elem(), ComputeEnvironmentEc2ConfigurationObjectArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ComputeEnvironmentEcsSettingsInput)(nil)).Elem(), ComputeEnvironmentEcsSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ComputeEnvironmentEcsSettingsPtrInput)(nil)).Elem(), ComputeEnvironmentEcsSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ComputeEnvironmentEksAccessEntryInput)(nil)).Elem(), ComputeEnvironmentEksAccessEntryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ComputeEnvironmentEksAccessEntryPtrInput)(nil)).Elem(), ComputeEnvironmentEksAccessEntryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ComputeEnvironmentEksConfigurationInput)(nil)).Elem(), ComputeEnvironmentEksConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ComputeEnvironmentEksConfigurationPtrInput)(nil)).Elem(), ComputeEnvironmentEksConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ComputeEnvironmentInfrastructureOptimizationInput)(nil)).Elem(), ComputeEnvironmentInfrastructureOptimizationArgs{})
@@ -14040,6 +14218,8 @@ func init() {
 	pulumi.RegisterOutputType(ComputeEnvironmentEc2ConfigurationObjectArrayOutput{})
 	pulumi.RegisterOutputType(ComputeEnvironmentEcsSettingsOutput{})
 	pulumi.RegisterOutputType(ComputeEnvironmentEcsSettingsPtrOutput{})
+	pulumi.RegisterOutputType(ComputeEnvironmentEksAccessEntryOutput{})
+	pulumi.RegisterOutputType(ComputeEnvironmentEksAccessEntryPtrOutput{})
 	pulumi.RegisterOutputType(ComputeEnvironmentEksConfigurationOutput{})
 	pulumi.RegisterOutputType(ComputeEnvironmentEksConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ComputeEnvironmentInfrastructureOptimizationOutput{})

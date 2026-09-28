@@ -13,15 +13,44 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class ThemeTypography
     {
+        public readonly Outputs.ThemeFontConfiguration? AxisLabelFontConfiguration;
+        public readonly Outputs.ThemeFontConfiguration? AxisTitleFontConfiguration;
+        public readonly Outputs.ThemeFontConfiguration? DataLabelFontConfiguration;
         /// <summary>
         /// Determines the list of font families.
         /// </summary>
         public readonly ImmutableArray<Outputs.ThemeFont> FontFamilies;
+        public readonly Outputs.ThemeFontConfiguration? LegendTitleFontConfiguration;
+        public readonly Outputs.ThemeFontConfiguration? LegendValueFontConfiguration;
+        public readonly Outputs.ThemeVisualSubtitleFontConfiguration? VisualSubtitleFontConfiguration;
+        public readonly Outputs.ThemeVisualTitleFontConfiguration? VisualTitleFontConfiguration;
 
         [OutputConstructor]
-        private ThemeTypography(ImmutableArray<Outputs.ThemeFont> fontFamilies)
+        private ThemeTypography(
+            Outputs.ThemeFontConfiguration? axisLabelFontConfiguration,
+
+            Outputs.ThemeFontConfiguration? axisTitleFontConfiguration,
+
+            Outputs.ThemeFontConfiguration? dataLabelFontConfiguration,
+
+            ImmutableArray<Outputs.ThemeFont> fontFamilies,
+
+            Outputs.ThemeFontConfiguration? legendTitleFontConfiguration,
+
+            Outputs.ThemeFontConfiguration? legendValueFontConfiguration,
+
+            Outputs.ThemeVisualSubtitleFontConfiguration? visualSubtitleFontConfiguration,
+
+            Outputs.ThemeVisualTitleFontConfiguration? visualTitleFontConfiguration)
         {
+            AxisLabelFontConfiguration = axisLabelFontConfiguration;
+            AxisTitleFontConfiguration = axisTitleFontConfiguration;
+            DataLabelFontConfiguration = dataLabelFontConfiguration;
             FontFamilies = fontFamilies;
+            LegendTitleFontConfiguration = legendTitleFontConfiguration;
+            LegendValueFontConfiguration = legendValueFontConfiguration;
+            VisualSubtitleFontConfiguration = visualSubtitleFontConfiguration;
+            VisualTitleFontConfiguration = visualTitleFontConfiguration;
         }
     }
 }

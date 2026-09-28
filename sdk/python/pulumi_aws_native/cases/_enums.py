@@ -10,6 +10,8 @@ __all__ = [
     'DomainStatus',
     'FieldNamespace',
     'FieldType',
+    'RelatedItemCommentContentContentType',
+    'RelatedItemType',
     'TemplateStatus',
 ]
 
@@ -45,6 +47,27 @@ class FieldType(_builtins.str, Enum):
     SINGLE_SELECT = "SingleSelect"
     URL = "Url"
     USER = "User"
+
+
+@pulumi.type_token("aws-native:cases:RelatedItemCommentContentContentType")
+class RelatedItemCommentContentContentType(_builtins.str, Enum):
+    """
+    Type of the text in the comment.
+    """
+    TEXT_PLAIN = "Text/Plain"
+
+
+@pulumi.type_token("aws-native:cases:RelatedItemType")
+class RelatedItemType(_builtins.str, Enum):
+    """
+    The type of a related item.
+    """
+    CONTACT = "Contact"
+    COMMENT = "Comment"
+    FILE = "File"
+    SLA = "Sla"
+    CONNECT_CASE = "ConnectCase"
+    CUSTOM = "Custom"
 
 
 @pulumi.type_token("aws-native:cases:TemplateStatus")

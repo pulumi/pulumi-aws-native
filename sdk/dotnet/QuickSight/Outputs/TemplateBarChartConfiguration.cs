@@ -37,6 +37,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// The options that determine if visual data labels are displayed.
         /// </summary>
         public readonly Outputs.TemplateDataLabelOptions? DataLabels;
+        public readonly Outputs.TemplateBarChartDefaultSeriesSettings? DefaultSeriesSettings;
         /// <summary>
         /// The field wells of the visual.
         /// </summary>
@@ -60,6 +61,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// The reference line setup of the visual.
         /// </summary>
         public readonly ImmutableArray<Outputs.TemplateReferenceLine> ReferenceLines;
+        public readonly ImmutableArray<Outputs.TemplateBarSeriesItem> Series;
         /// <summary>
         /// The small multiples setup for the visual.
         /// </summary>
@@ -99,6 +101,8 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 
             Outputs.TemplateDataLabelOptions? dataLabels,
 
+            Outputs.TemplateBarChartDefaultSeriesSettings? defaultSeriesSettings,
+
             Outputs.TemplateBarChartFieldWells? fieldWells,
 
             Outputs.TemplateVisualInteractionOptions? interactions,
@@ -108,6 +112,8 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
             Pulumi.AwsNative.QuickSight.TemplateBarChartOrientation? orientation,
 
             ImmutableArray<Outputs.TemplateReferenceLine> referenceLines,
+
+            ImmutableArray<Outputs.TemplateBarSeriesItem> series,
 
             Outputs.TemplateSmallMultiplesOptions? smallMultiplesOptions,
 
@@ -127,11 +133,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
             ColorLabelOptions = colorLabelOptions;
             ContributionAnalysisDefaults = contributionAnalysisDefaults;
             DataLabels = dataLabels;
+            DefaultSeriesSettings = defaultSeriesSettings;
             FieldWells = fieldWells;
             Interactions = interactions;
             Legend = legend;
             Orientation = orientation;
             ReferenceLines = referenceLines;
+            Series = series;
             SmallMultiplesOptions = smallMultiplesOptions;
             SortConfiguration = sortConfiguration;
             Tooltip = tooltip;

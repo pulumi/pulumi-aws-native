@@ -21,6 +21,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// The column.
         /// </summary>
         public readonly Outputs.AnalysisColumnIdentifier Column;
+        public readonly Outputs.AnalysisDecalSettingsConfiguration? DecalSettingsConfiguration;
         /// <summary>
         /// The format configuration of a column.
         /// </summary>
@@ -36,12 +37,15 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 
             Outputs.AnalysisColumnIdentifier column,
 
+            Outputs.AnalysisDecalSettingsConfiguration? decalSettingsConfiguration,
+
             Outputs.AnalysisFormatConfiguration? formatConfiguration,
 
             Pulumi.AwsNative.QuickSight.AnalysisColumnRole? role)
         {
             ColorsConfiguration = colorsConfiguration;
             Column = column;
+            DecalSettingsConfiguration = decalSettingsConfiguration;
             FormatConfiguration = formatConfiguration;
             Role = role;
         }

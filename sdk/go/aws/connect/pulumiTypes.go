@@ -2544,6 +2544,164 @@ func (o EvaluationFormLanguageConfigurationPtrOutput) FormLanguage() EvaluationF
 	}).(EvaluationFormLanguageConfigurationFormLanguagePtrOutput)
 }
 
+type EvaluationFormMetricConfiguration struct {
+	// The name of the metric.
+	MetricName string `pulumi:"metricName"`
+	// The type of the metric.
+	MetricType EvaluationFormMetricConfigurationMetricType `pulumi:"metricType"`
+}
+
+// EvaluationFormMetricConfigurationInput is an input type that accepts EvaluationFormMetricConfigurationArgs and EvaluationFormMetricConfigurationOutput values.
+// You can construct a concrete instance of `EvaluationFormMetricConfigurationInput` via:
+//
+//	EvaluationFormMetricConfigurationArgs{...}
+type EvaluationFormMetricConfigurationInput interface {
+	pulumi.Input
+
+	ToEvaluationFormMetricConfigurationOutput() EvaluationFormMetricConfigurationOutput
+	ToEvaluationFormMetricConfigurationOutputWithContext(context.Context) EvaluationFormMetricConfigurationOutput
+}
+
+type EvaluationFormMetricConfigurationArgs struct {
+	// The name of the metric.
+	MetricName pulumi.StringInput `pulumi:"metricName"`
+	// The type of the metric.
+	MetricType EvaluationFormMetricConfigurationMetricTypeInput `pulumi:"metricType"`
+}
+
+func (EvaluationFormMetricConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EvaluationFormMetricConfiguration)(nil)).Elem()
+}
+
+func (i EvaluationFormMetricConfigurationArgs) ToEvaluationFormMetricConfigurationOutput() EvaluationFormMetricConfigurationOutput {
+	return i.ToEvaluationFormMetricConfigurationOutputWithContext(context.Background())
+}
+
+func (i EvaluationFormMetricConfigurationArgs) ToEvaluationFormMetricConfigurationOutputWithContext(ctx context.Context) EvaluationFormMetricConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EvaluationFormMetricConfigurationOutput)
+}
+
+func (i EvaluationFormMetricConfigurationArgs) ToEvaluationFormMetricConfigurationPtrOutput() EvaluationFormMetricConfigurationPtrOutput {
+	return i.ToEvaluationFormMetricConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i EvaluationFormMetricConfigurationArgs) ToEvaluationFormMetricConfigurationPtrOutputWithContext(ctx context.Context) EvaluationFormMetricConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EvaluationFormMetricConfigurationOutput).ToEvaluationFormMetricConfigurationPtrOutputWithContext(ctx)
+}
+
+// EvaluationFormMetricConfigurationPtrInput is an input type that accepts EvaluationFormMetricConfigurationArgs, EvaluationFormMetricConfigurationPtr and EvaluationFormMetricConfigurationPtrOutput values.
+// You can construct a concrete instance of `EvaluationFormMetricConfigurationPtrInput` via:
+//
+//	        EvaluationFormMetricConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type EvaluationFormMetricConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToEvaluationFormMetricConfigurationPtrOutput() EvaluationFormMetricConfigurationPtrOutput
+	ToEvaluationFormMetricConfigurationPtrOutputWithContext(context.Context) EvaluationFormMetricConfigurationPtrOutput
+}
+
+type evaluationFormMetricConfigurationPtrType EvaluationFormMetricConfigurationArgs
+
+func EvaluationFormMetricConfigurationPtr(v *EvaluationFormMetricConfigurationArgs) EvaluationFormMetricConfigurationPtrInput {
+	return (*evaluationFormMetricConfigurationPtrType)(v)
+}
+
+func (*evaluationFormMetricConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EvaluationFormMetricConfiguration)(nil)).Elem()
+}
+
+func (i *evaluationFormMetricConfigurationPtrType) ToEvaluationFormMetricConfigurationPtrOutput() EvaluationFormMetricConfigurationPtrOutput {
+	return i.ToEvaluationFormMetricConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *evaluationFormMetricConfigurationPtrType) ToEvaluationFormMetricConfigurationPtrOutputWithContext(ctx context.Context) EvaluationFormMetricConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EvaluationFormMetricConfigurationPtrOutput)
+}
+
+type EvaluationFormMetricConfigurationOutput struct{ *pulumi.OutputState }
+
+func (EvaluationFormMetricConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EvaluationFormMetricConfiguration)(nil)).Elem()
+}
+
+func (o EvaluationFormMetricConfigurationOutput) ToEvaluationFormMetricConfigurationOutput() EvaluationFormMetricConfigurationOutput {
+	return o
+}
+
+func (o EvaluationFormMetricConfigurationOutput) ToEvaluationFormMetricConfigurationOutputWithContext(ctx context.Context) EvaluationFormMetricConfigurationOutput {
+	return o
+}
+
+func (o EvaluationFormMetricConfigurationOutput) ToEvaluationFormMetricConfigurationPtrOutput() EvaluationFormMetricConfigurationPtrOutput {
+	return o.ToEvaluationFormMetricConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o EvaluationFormMetricConfigurationOutput) ToEvaluationFormMetricConfigurationPtrOutputWithContext(ctx context.Context) EvaluationFormMetricConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EvaluationFormMetricConfiguration) *EvaluationFormMetricConfiguration {
+		return &v
+	}).(EvaluationFormMetricConfigurationPtrOutput)
+}
+
+// The name of the metric.
+func (o EvaluationFormMetricConfigurationOutput) MetricName() pulumi.StringOutput {
+	return o.ApplyT(func(v EvaluationFormMetricConfiguration) string { return v.MetricName }).(pulumi.StringOutput)
+}
+
+// The type of the metric.
+func (o EvaluationFormMetricConfigurationOutput) MetricType() EvaluationFormMetricConfigurationMetricTypeOutput {
+	return o.ApplyT(func(v EvaluationFormMetricConfiguration) EvaluationFormMetricConfigurationMetricType {
+		return v.MetricType
+	}).(EvaluationFormMetricConfigurationMetricTypeOutput)
+}
+
+type EvaluationFormMetricConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (EvaluationFormMetricConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EvaluationFormMetricConfiguration)(nil)).Elem()
+}
+
+func (o EvaluationFormMetricConfigurationPtrOutput) ToEvaluationFormMetricConfigurationPtrOutput() EvaluationFormMetricConfigurationPtrOutput {
+	return o
+}
+
+func (o EvaluationFormMetricConfigurationPtrOutput) ToEvaluationFormMetricConfigurationPtrOutputWithContext(ctx context.Context) EvaluationFormMetricConfigurationPtrOutput {
+	return o
+}
+
+func (o EvaluationFormMetricConfigurationPtrOutput) Elem() EvaluationFormMetricConfigurationOutput {
+	return o.ApplyT(func(v *EvaluationFormMetricConfiguration) EvaluationFormMetricConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret EvaluationFormMetricConfiguration
+		return ret
+	}).(EvaluationFormMetricConfigurationOutput)
+}
+
+// The name of the metric.
+func (o EvaluationFormMetricConfigurationPtrOutput) MetricName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EvaluationFormMetricConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.MetricName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of the metric.
+func (o EvaluationFormMetricConfigurationPtrOutput) MetricType() EvaluationFormMetricConfigurationMetricTypePtrOutput {
+	return o.ApplyT(func(v *EvaluationFormMetricConfiguration) *EvaluationFormMetricConfigurationMetricType {
+		if v == nil {
+			return nil
+		}
+		return &v.MetricType
+	}).(EvaluationFormMetricConfigurationMetricTypePtrOutput)
+}
+
 // Automation configuration for multi-select questions.
 type EvaluationFormMultiSelectQuestionAutomation struct {
 	AnswerSource *EvaluationFormQuestionAutomationAnswerSource `pulumi:"answerSource"`
@@ -3897,7 +4055,8 @@ type EvaluationFormQuestion struct {
 	Enablement *EvaluationFormItemEnablementConfiguration `pulumi:"enablement"`
 	// The instructions of the section.
 	//  *Length Constraints*: Minimum length of 0. Maximum length of 1024.
-	Instructions *string `pulumi:"instructions"`
+	Instructions        *string                            `pulumi:"instructions"`
+	MetricConfiguration *EvaluationFormMetricConfiguration `pulumi:"metricConfiguration"`
 	// The flag to enable not applicable answers to the question.
 	NotApplicableEnabled *bool `pulumi:"notApplicableEnabled"`
 	// The type of the question.
@@ -3936,7 +4095,8 @@ type EvaluationFormQuestionArgs struct {
 	Enablement EvaluationFormItemEnablementConfigurationPtrInput `pulumi:"enablement"`
 	// The instructions of the section.
 	//  *Length Constraints*: Minimum length of 0. Maximum length of 1024.
-	Instructions pulumi.StringPtrInput `pulumi:"instructions"`
+	Instructions        pulumi.StringPtrInput                     `pulumi:"instructions"`
+	MetricConfiguration EvaluationFormMetricConfigurationPtrInput `pulumi:"metricConfiguration"`
 	// The flag to enable not applicable answers to the question.
 	NotApplicableEnabled pulumi.BoolPtrInput `pulumi:"notApplicableEnabled"`
 	// The type of the question.
@@ -4048,6 +4208,10 @@ func (o EvaluationFormQuestionOutput) Instructions() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EvaluationFormQuestion) *string { return v.Instructions }).(pulumi.StringPtrOutput)
 }
 
+func (o EvaluationFormQuestionOutput) MetricConfiguration() EvaluationFormMetricConfigurationPtrOutput {
+	return o.ApplyT(func(v EvaluationFormQuestion) *EvaluationFormMetricConfiguration { return v.MetricConfiguration }).(EvaluationFormMetricConfigurationPtrOutput)
+}
+
 // The flag to enable not applicable answers to the question.
 func (o EvaluationFormQuestionOutput) NotApplicableEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v EvaluationFormQuestion) *bool { return v.NotApplicableEnabled }).(pulumi.BoolPtrOutput)
@@ -4138,6 +4302,15 @@ func (o EvaluationFormQuestionPtrOutput) Instructions() pulumi.StringPtrOutput {
 		}
 		return v.Instructions
 	}).(pulumi.StringPtrOutput)
+}
+
+func (o EvaluationFormQuestionPtrOutput) MetricConfiguration() EvaluationFormMetricConfigurationPtrOutput {
+	return o.ApplyT(func(v *EvaluationFormQuestion) *EvaluationFormMetricConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.MetricConfiguration
+	}).(EvaluationFormMetricConfigurationPtrOutput)
 }
 
 // The flag to enable not applicable answers to the question.
@@ -19027,6 +19200,13 @@ type ViewTag struct {
 	Value string `pulumi:"value"`
 }
 
+type VocabularyTag struct {
+	// The key name of the tag.
+	Key string `pulumi:"key"`
+	// The value for the tag.
+	Value string `pulumi:"value"`
+}
+
 type WorkspaceMediaItem struct {
 	// The source URL or data for the media asset.
 	Source *string `pulumi:"source"`
@@ -20743,6 +20923,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationFormItemEnablementSourceValueArrayInput)(nil)).Elem(), EvaluationFormItemEnablementSourceValueArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationFormLanguageConfigurationInput)(nil)).Elem(), EvaluationFormLanguageConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationFormLanguageConfigurationPtrInput)(nil)).Elem(), EvaluationFormLanguageConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationFormMetricConfigurationInput)(nil)).Elem(), EvaluationFormMetricConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationFormMetricConfigurationPtrInput)(nil)).Elem(), EvaluationFormMetricConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationFormMultiSelectQuestionAutomationInput)(nil)).Elem(), EvaluationFormMultiSelectQuestionAutomationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationFormMultiSelectQuestionAutomationPtrInput)(nil)).Elem(), EvaluationFormMultiSelectQuestionAutomationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationFormMultiSelectQuestionAutomationOptionInput)(nil)).Elem(), EvaluationFormMultiSelectQuestionAutomationOptionArgs{})
@@ -21012,6 +21194,8 @@ func init() {
 	pulumi.RegisterOutputType(EvaluationFormItemEnablementSourceValueArrayOutput{})
 	pulumi.RegisterOutputType(EvaluationFormLanguageConfigurationOutput{})
 	pulumi.RegisterOutputType(EvaluationFormLanguageConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(EvaluationFormMetricConfigurationOutput{})
+	pulumi.RegisterOutputType(EvaluationFormMetricConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(EvaluationFormMultiSelectQuestionAutomationOutput{})
 	pulumi.RegisterOutputType(EvaluationFormMultiSelectQuestionAutomationPtrOutput{})
 	pulumi.RegisterOutputType(EvaluationFormMultiSelectQuestionAutomationOptionOutput{})

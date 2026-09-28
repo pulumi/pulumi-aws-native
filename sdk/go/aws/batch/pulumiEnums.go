@@ -178,6 +178,340 @@ func (in *computeEnvironmentEcsSettingsContainerInsightsPtr) ToComputeEnvironmen
 	return pulumi.ToOutputWithContext(ctx, in).(ComputeEnvironmentEcsSettingsContainerInsightsPtrOutput)
 }
 
+// The desired state of the EKS access entry managed by AWS Batch. When omitted, AWS Batch applies INHERIT_FROM_CLUSTER.
+type ComputeEnvironmentEksAccessEntryDesiredState string
+
+const (
+	ComputeEnvironmentEksAccessEntryDesiredStateEnabled            = ComputeEnvironmentEksAccessEntryDesiredState("ENABLED")
+	ComputeEnvironmentEksAccessEntryDesiredStateDisabled           = ComputeEnvironmentEksAccessEntryDesiredState("DISABLED")
+	ComputeEnvironmentEksAccessEntryDesiredStateInheritFromCluster = ComputeEnvironmentEksAccessEntryDesiredState("INHERIT_FROM_CLUSTER")
+)
+
+func (ComputeEnvironmentEksAccessEntryDesiredState) ElementType() reflect.Type {
+	return reflect.TypeOf((*ComputeEnvironmentEksAccessEntryDesiredState)(nil)).Elem()
+}
+
+func (e ComputeEnvironmentEksAccessEntryDesiredState) ToComputeEnvironmentEksAccessEntryDesiredStateOutput() ComputeEnvironmentEksAccessEntryDesiredStateOutput {
+	return pulumi.ToOutput(e).(ComputeEnvironmentEksAccessEntryDesiredStateOutput)
+}
+
+func (e ComputeEnvironmentEksAccessEntryDesiredState) ToComputeEnvironmentEksAccessEntryDesiredStateOutputWithContext(ctx context.Context) ComputeEnvironmentEksAccessEntryDesiredStateOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ComputeEnvironmentEksAccessEntryDesiredStateOutput)
+}
+
+func (e ComputeEnvironmentEksAccessEntryDesiredState) ToComputeEnvironmentEksAccessEntryDesiredStatePtrOutput() ComputeEnvironmentEksAccessEntryDesiredStatePtrOutput {
+	return e.ToComputeEnvironmentEksAccessEntryDesiredStatePtrOutputWithContext(context.Background())
+}
+
+func (e ComputeEnvironmentEksAccessEntryDesiredState) ToComputeEnvironmentEksAccessEntryDesiredStatePtrOutputWithContext(ctx context.Context) ComputeEnvironmentEksAccessEntryDesiredStatePtrOutput {
+	return ComputeEnvironmentEksAccessEntryDesiredState(e).ToComputeEnvironmentEksAccessEntryDesiredStateOutputWithContext(ctx).ToComputeEnvironmentEksAccessEntryDesiredStatePtrOutputWithContext(ctx)
+}
+
+func (e ComputeEnvironmentEksAccessEntryDesiredState) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ComputeEnvironmentEksAccessEntryDesiredState) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ComputeEnvironmentEksAccessEntryDesiredState) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ComputeEnvironmentEksAccessEntryDesiredState) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ComputeEnvironmentEksAccessEntryDesiredStateOutput struct{ *pulumi.OutputState }
+
+func (ComputeEnvironmentEksAccessEntryDesiredStateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ComputeEnvironmentEksAccessEntryDesiredState)(nil)).Elem()
+}
+
+func (o ComputeEnvironmentEksAccessEntryDesiredStateOutput) ToComputeEnvironmentEksAccessEntryDesiredStateOutput() ComputeEnvironmentEksAccessEntryDesiredStateOutput {
+	return o
+}
+
+func (o ComputeEnvironmentEksAccessEntryDesiredStateOutput) ToComputeEnvironmentEksAccessEntryDesiredStateOutputWithContext(ctx context.Context) ComputeEnvironmentEksAccessEntryDesiredStateOutput {
+	return o
+}
+
+func (o ComputeEnvironmentEksAccessEntryDesiredStateOutput) ToComputeEnvironmentEksAccessEntryDesiredStatePtrOutput() ComputeEnvironmentEksAccessEntryDesiredStatePtrOutput {
+	return o.ToComputeEnvironmentEksAccessEntryDesiredStatePtrOutputWithContext(context.Background())
+}
+
+func (o ComputeEnvironmentEksAccessEntryDesiredStateOutput) ToComputeEnvironmentEksAccessEntryDesiredStatePtrOutputWithContext(ctx context.Context) ComputeEnvironmentEksAccessEntryDesiredStatePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ComputeEnvironmentEksAccessEntryDesiredState) *ComputeEnvironmentEksAccessEntryDesiredState {
+		return &v
+	}).(ComputeEnvironmentEksAccessEntryDesiredStatePtrOutput)
+}
+
+func (o ComputeEnvironmentEksAccessEntryDesiredStateOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ComputeEnvironmentEksAccessEntryDesiredStateOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ComputeEnvironmentEksAccessEntryDesiredState) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ComputeEnvironmentEksAccessEntryDesiredStateOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ComputeEnvironmentEksAccessEntryDesiredStateOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ComputeEnvironmentEksAccessEntryDesiredState) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ComputeEnvironmentEksAccessEntryDesiredStatePtrOutput struct{ *pulumi.OutputState }
+
+func (ComputeEnvironmentEksAccessEntryDesiredStatePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ComputeEnvironmentEksAccessEntryDesiredState)(nil)).Elem()
+}
+
+func (o ComputeEnvironmentEksAccessEntryDesiredStatePtrOutput) ToComputeEnvironmentEksAccessEntryDesiredStatePtrOutput() ComputeEnvironmentEksAccessEntryDesiredStatePtrOutput {
+	return o
+}
+
+func (o ComputeEnvironmentEksAccessEntryDesiredStatePtrOutput) ToComputeEnvironmentEksAccessEntryDesiredStatePtrOutputWithContext(ctx context.Context) ComputeEnvironmentEksAccessEntryDesiredStatePtrOutput {
+	return o
+}
+
+func (o ComputeEnvironmentEksAccessEntryDesiredStatePtrOutput) Elem() ComputeEnvironmentEksAccessEntryDesiredStateOutput {
+	return o.ApplyT(func(v *ComputeEnvironmentEksAccessEntryDesiredState) ComputeEnvironmentEksAccessEntryDesiredState {
+		if v != nil {
+			return *v
+		}
+		var ret ComputeEnvironmentEksAccessEntryDesiredState
+		return ret
+	}).(ComputeEnvironmentEksAccessEntryDesiredStateOutput)
+}
+
+func (o ComputeEnvironmentEksAccessEntryDesiredStatePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ComputeEnvironmentEksAccessEntryDesiredStatePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ComputeEnvironmentEksAccessEntryDesiredState) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ComputeEnvironmentEksAccessEntryDesiredStateInput is an input type that accepts values of the ComputeEnvironmentEksAccessEntryDesiredState enum
+// A concrete instance of `ComputeEnvironmentEksAccessEntryDesiredStateInput` can be one of the following:
+//
+//	ComputeEnvironmentEksAccessEntryDesiredStateEnabled
+//	ComputeEnvironmentEksAccessEntryDesiredStateDisabled
+//	ComputeEnvironmentEksAccessEntryDesiredStateInheritFromCluster
+type ComputeEnvironmentEksAccessEntryDesiredStateInput interface {
+	pulumi.Input
+
+	ToComputeEnvironmentEksAccessEntryDesiredStateOutput() ComputeEnvironmentEksAccessEntryDesiredStateOutput
+	ToComputeEnvironmentEksAccessEntryDesiredStateOutputWithContext(context.Context) ComputeEnvironmentEksAccessEntryDesiredStateOutput
+}
+
+var computeEnvironmentEksAccessEntryDesiredStatePtrType = reflect.TypeOf((**ComputeEnvironmentEksAccessEntryDesiredState)(nil)).Elem()
+
+type ComputeEnvironmentEksAccessEntryDesiredStatePtrInput interface {
+	pulumi.Input
+
+	ToComputeEnvironmentEksAccessEntryDesiredStatePtrOutput() ComputeEnvironmentEksAccessEntryDesiredStatePtrOutput
+	ToComputeEnvironmentEksAccessEntryDesiredStatePtrOutputWithContext(context.Context) ComputeEnvironmentEksAccessEntryDesiredStatePtrOutput
+}
+
+type computeEnvironmentEksAccessEntryDesiredStatePtr string
+
+func ComputeEnvironmentEksAccessEntryDesiredStatePtr(v string) ComputeEnvironmentEksAccessEntryDesiredStatePtrInput {
+	return (*computeEnvironmentEksAccessEntryDesiredStatePtr)(&v)
+}
+
+func (*computeEnvironmentEksAccessEntryDesiredStatePtr) ElementType() reflect.Type {
+	return computeEnvironmentEksAccessEntryDesiredStatePtrType
+}
+
+func (in *computeEnvironmentEksAccessEntryDesiredStatePtr) ToComputeEnvironmentEksAccessEntryDesiredStatePtrOutput() ComputeEnvironmentEksAccessEntryDesiredStatePtrOutput {
+	return pulumi.ToOutput(in).(ComputeEnvironmentEksAccessEntryDesiredStatePtrOutput)
+}
+
+func (in *computeEnvironmentEksAccessEntryDesiredStatePtr) ToComputeEnvironmentEksAccessEntryDesiredStatePtrOutputWithContext(ctx context.Context) ComputeEnvironmentEksAccessEntryDesiredStatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ComputeEnvironmentEksAccessEntryDesiredStatePtrOutput)
+}
+
+// The read-only status of the EKS access entry, returned by DescribeComputeEnvironments.
+type ComputeEnvironmentEksAccessEntryStatus string
+
+const (
+	ComputeEnvironmentEksAccessEntryStatusActive   = ComputeEnvironmentEksAccessEntryStatus("ACTIVE")
+	ComputeEnvironmentEksAccessEntryStatusInactive = ComputeEnvironmentEksAccessEntryStatus("INACTIVE")
+)
+
+func (ComputeEnvironmentEksAccessEntryStatus) ElementType() reflect.Type {
+	return reflect.TypeOf((*ComputeEnvironmentEksAccessEntryStatus)(nil)).Elem()
+}
+
+func (e ComputeEnvironmentEksAccessEntryStatus) ToComputeEnvironmentEksAccessEntryStatusOutput() ComputeEnvironmentEksAccessEntryStatusOutput {
+	return pulumi.ToOutput(e).(ComputeEnvironmentEksAccessEntryStatusOutput)
+}
+
+func (e ComputeEnvironmentEksAccessEntryStatus) ToComputeEnvironmentEksAccessEntryStatusOutputWithContext(ctx context.Context) ComputeEnvironmentEksAccessEntryStatusOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ComputeEnvironmentEksAccessEntryStatusOutput)
+}
+
+func (e ComputeEnvironmentEksAccessEntryStatus) ToComputeEnvironmentEksAccessEntryStatusPtrOutput() ComputeEnvironmentEksAccessEntryStatusPtrOutput {
+	return e.ToComputeEnvironmentEksAccessEntryStatusPtrOutputWithContext(context.Background())
+}
+
+func (e ComputeEnvironmentEksAccessEntryStatus) ToComputeEnvironmentEksAccessEntryStatusPtrOutputWithContext(ctx context.Context) ComputeEnvironmentEksAccessEntryStatusPtrOutput {
+	return ComputeEnvironmentEksAccessEntryStatus(e).ToComputeEnvironmentEksAccessEntryStatusOutputWithContext(ctx).ToComputeEnvironmentEksAccessEntryStatusPtrOutputWithContext(ctx)
+}
+
+func (e ComputeEnvironmentEksAccessEntryStatus) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ComputeEnvironmentEksAccessEntryStatus) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ComputeEnvironmentEksAccessEntryStatus) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ComputeEnvironmentEksAccessEntryStatus) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ComputeEnvironmentEksAccessEntryStatusOutput struct{ *pulumi.OutputState }
+
+func (ComputeEnvironmentEksAccessEntryStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ComputeEnvironmentEksAccessEntryStatus)(nil)).Elem()
+}
+
+func (o ComputeEnvironmentEksAccessEntryStatusOutput) ToComputeEnvironmentEksAccessEntryStatusOutput() ComputeEnvironmentEksAccessEntryStatusOutput {
+	return o
+}
+
+func (o ComputeEnvironmentEksAccessEntryStatusOutput) ToComputeEnvironmentEksAccessEntryStatusOutputWithContext(ctx context.Context) ComputeEnvironmentEksAccessEntryStatusOutput {
+	return o
+}
+
+func (o ComputeEnvironmentEksAccessEntryStatusOutput) ToComputeEnvironmentEksAccessEntryStatusPtrOutput() ComputeEnvironmentEksAccessEntryStatusPtrOutput {
+	return o.ToComputeEnvironmentEksAccessEntryStatusPtrOutputWithContext(context.Background())
+}
+
+func (o ComputeEnvironmentEksAccessEntryStatusOutput) ToComputeEnvironmentEksAccessEntryStatusPtrOutputWithContext(ctx context.Context) ComputeEnvironmentEksAccessEntryStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ComputeEnvironmentEksAccessEntryStatus) *ComputeEnvironmentEksAccessEntryStatus {
+		return &v
+	}).(ComputeEnvironmentEksAccessEntryStatusPtrOutput)
+}
+
+func (o ComputeEnvironmentEksAccessEntryStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ComputeEnvironmentEksAccessEntryStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ComputeEnvironmentEksAccessEntryStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ComputeEnvironmentEksAccessEntryStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ComputeEnvironmentEksAccessEntryStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ComputeEnvironmentEksAccessEntryStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ComputeEnvironmentEksAccessEntryStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (ComputeEnvironmentEksAccessEntryStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ComputeEnvironmentEksAccessEntryStatus)(nil)).Elem()
+}
+
+func (o ComputeEnvironmentEksAccessEntryStatusPtrOutput) ToComputeEnvironmentEksAccessEntryStatusPtrOutput() ComputeEnvironmentEksAccessEntryStatusPtrOutput {
+	return o
+}
+
+func (o ComputeEnvironmentEksAccessEntryStatusPtrOutput) ToComputeEnvironmentEksAccessEntryStatusPtrOutputWithContext(ctx context.Context) ComputeEnvironmentEksAccessEntryStatusPtrOutput {
+	return o
+}
+
+func (o ComputeEnvironmentEksAccessEntryStatusPtrOutput) Elem() ComputeEnvironmentEksAccessEntryStatusOutput {
+	return o.ApplyT(func(v *ComputeEnvironmentEksAccessEntryStatus) ComputeEnvironmentEksAccessEntryStatus {
+		if v != nil {
+			return *v
+		}
+		var ret ComputeEnvironmentEksAccessEntryStatus
+		return ret
+	}).(ComputeEnvironmentEksAccessEntryStatusOutput)
+}
+
+func (o ComputeEnvironmentEksAccessEntryStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ComputeEnvironmentEksAccessEntryStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ComputeEnvironmentEksAccessEntryStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ComputeEnvironmentEksAccessEntryStatusInput is an input type that accepts values of the ComputeEnvironmentEksAccessEntryStatus enum
+// A concrete instance of `ComputeEnvironmentEksAccessEntryStatusInput` can be one of the following:
+//
+//	ComputeEnvironmentEksAccessEntryStatusActive
+//	ComputeEnvironmentEksAccessEntryStatusInactive
+type ComputeEnvironmentEksAccessEntryStatusInput interface {
+	pulumi.Input
+
+	ToComputeEnvironmentEksAccessEntryStatusOutput() ComputeEnvironmentEksAccessEntryStatusOutput
+	ToComputeEnvironmentEksAccessEntryStatusOutputWithContext(context.Context) ComputeEnvironmentEksAccessEntryStatusOutput
+}
+
+var computeEnvironmentEksAccessEntryStatusPtrType = reflect.TypeOf((**ComputeEnvironmentEksAccessEntryStatus)(nil)).Elem()
+
+type ComputeEnvironmentEksAccessEntryStatusPtrInput interface {
+	pulumi.Input
+
+	ToComputeEnvironmentEksAccessEntryStatusPtrOutput() ComputeEnvironmentEksAccessEntryStatusPtrOutput
+	ToComputeEnvironmentEksAccessEntryStatusPtrOutputWithContext(context.Context) ComputeEnvironmentEksAccessEntryStatusPtrOutput
+}
+
+type computeEnvironmentEksAccessEntryStatusPtr string
+
+func ComputeEnvironmentEksAccessEntryStatusPtr(v string) ComputeEnvironmentEksAccessEntryStatusPtrInput {
+	return (*computeEnvironmentEksAccessEntryStatusPtr)(&v)
+}
+
+func (*computeEnvironmentEksAccessEntryStatusPtr) ElementType() reflect.Type {
+	return computeEnvironmentEksAccessEntryStatusPtrType
+}
+
+func (in *computeEnvironmentEksAccessEntryStatusPtr) ToComputeEnvironmentEksAccessEntryStatusPtrOutput() ComputeEnvironmentEksAccessEntryStatusPtrOutput {
+	return pulumi.ToOutput(in).(ComputeEnvironmentEksAccessEntryStatusPtrOutput)
+}
+
+func (in *computeEnvironmentEksAccessEntryStatusPtr) ToComputeEnvironmentEksAccessEntryStatusPtrOutputWithContext(ctx context.Context) ComputeEnvironmentEksAccessEntryStatusPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ComputeEnvironmentEksAccessEntryStatusPtrOutput)
+}
+
 type ComputeEnvironmentInstanceLaunchTemplateCapacityOptionType string
 
 const (
@@ -2170,6 +2504,10 @@ func (in *schedulingPolicyQuotaSharePolicyIdleResourceAssignmentStrategyPtr) ToS
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ComputeEnvironmentEcsSettingsContainerInsightsInput)(nil)).Elem(), ComputeEnvironmentEcsSettingsContainerInsights("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ComputeEnvironmentEcsSettingsContainerInsightsPtrInput)(nil)).Elem(), ComputeEnvironmentEcsSettingsContainerInsights("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ComputeEnvironmentEksAccessEntryDesiredStateInput)(nil)).Elem(), ComputeEnvironmentEksAccessEntryDesiredState("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ComputeEnvironmentEksAccessEntryDesiredStatePtrInput)(nil)).Elem(), ComputeEnvironmentEksAccessEntryDesiredState("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ComputeEnvironmentEksAccessEntryStatusInput)(nil)).Elem(), ComputeEnvironmentEksAccessEntryStatus("ACTIVE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ComputeEnvironmentEksAccessEntryStatusPtrInput)(nil)).Elem(), ComputeEnvironmentEksAccessEntryStatus("ACTIVE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ComputeEnvironmentInstanceLaunchTemplateCapacityOptionTypeInput)(nil)).Elem(), ComputeEnvironmentInstanceLaunchTemplateCapacityOptionType("ON_DEMAND"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ComputeEnvironmentInstanceLaunchTemplateCapacityOptionTypePtrInput)(nil)).Elem(), ComputeEnvironmentInstanceLaunchTemplateCapacityOptionType("ON_DEMAND"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ComputeEnvironmentLaunchTemplateSpecificationOverrideUserdataTypeInput)(nil)).Elem(), ComputeEnvironmentLaunchTemplateSpecificationOverrideUserdataType("EKS_BOOTSTRAP_SH"))
@@ -2196,6 +2534,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SchedulingPolicyQuotaSharePolicyIdleResourceAssignmentStrategyPtrInput)(nil)).Elem(), SchedulingPolicyQuotaSharePolicyIdleResourceAssignmentStrategy("FIFO"))
 	pulumi.RegisterOutputType(ComputeEnvironmentEcsSettingsContainerInsightsOutput{})
 	pulumi.RegisterOutputType(ComputeEnvironmentEcsSettingsContainerInsightsPtrOutput{})
+	pulumi.RegisterOutputType(ComputeEnvironmentEksAccessEntryDesiredStateOutput{})
+	pulumi.RegisterOutputType(ComputeEnvironmentEksAccessEntryDesiredStatePtrOutput{})
+	pulumi.RegisterOutputType(ComputeEnvironmentEksAccessEntryStatusOutput{})
+	pulumi.RegisterOutputType(ComputeEnvironmentEksAccessEntryStatusPtrOutput{})
 	pulumi.RegisterOutputType(ComputeEnvironmentInstanceLaunchTemplateCapacityOptionTypeOutput{})
 	pulumi.RegisterOutputType(ComputeEnvironmentInstanceLaunchTemplateCapacityOptionTypePtrOutput{})
 	pulumi.RegisterOutputType(ComputeEnvironmentLaunchTemplateSpecificationOverrideUserdataTypeOutput{})

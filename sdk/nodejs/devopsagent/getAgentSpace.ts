@@ -50,6 +50,7 @@ export interface GetAgentSpaceResult {
      */
     readonly name?: string;
     readonly operatorApp?: outputs.devopsagent.AgentSpaceOperatorApp;
+    readonly preferences?: outputs.devopsagent.AgentSpacePreferences;
     /**
      * An array of key-value pairs to apply to this resource.
      */

@@ -11,7 +11,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 {
 
     /// <summary>
-    /// &lt;p&gt;A list of Amazon QuickSight parameters and the list's override values.&lt;/p&gt;
+    /// &lt;p&gt;A list of Quick parameters and the list's override values.&lt;/p&gt;
     /// </summary>
     [OutputType]
     public sealed class AnalysisParameters

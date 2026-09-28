@@ -40,6 +40,8 @@ __all__ = [
     'AnalysisDataLabelPosition',
     'AnalysisDateAggregationFunction',
     'AnalysisDayOfTheWeek',
+    'AnalysisDecalPatternType',
+    'AnalysisDecalStyleType',
     'AnalysisDigitGroupingStyle',
     'AnalysisErrorType',
     'AnalysisFilterNullOption',
@@ -115,6 +117,8 @@ __all__ = [
     'AnalysisSmallMultiplesAxisPlacement',
     'AnalysisSmallMultiplesAxisScale',
     'AnalysisSortDirection',
+    'AnalysisSparklineAxisBehavior',
+    'AnalysisSparklineVisualType',
     'AnalysisSpecialValue',
     'AnalysisStyledCellType',
     'AnalysisTableBorderStyle',
@@ -170,6 +174,8 @@ __all__ = [
     'DashboardDataLabelPosition',
     'DashboardDateAggregationFunction',
     'DashboardDayOfTheWeek',
+    'DashboardDecalPatternType',
+    'DashboardDecalStyleType',
     'DashboardDigitGroupingStyle',
     'DashboardErrorType',
     'DashboardFilterNullOption',
@@ -245,6 +251,8 @@ __all__ = [
     'DashboardSmallMultiplesAxisPlacement',
     'DashboardSmallMultiplesAxisScale',
     'DashboardSortDirection',
+    'DashboardSparklineAxisBehavior',
+    'DashboardSparklineVisualType',
     'DashboardSpecialValue',
     'DashboardStyledCellType',
     'DashboardTableBorderStyle',
@@ -347,6 +355,8 @@ __all__ = [
     'TemplateDataLabelPosition',
     'TemplateDateAggregationFunction',
     'TemplateDayOfTheWeek',
+    'TemplateDecalPatternType',
+    'TemplateDecalStyleType',
     'TemplateDigitGroupingStyle',
     'TemplateErrorType',
     'TemplateFilterNullOption',
@@ -356,6 +366,9 @@ __all__ = [
     'TemplateFontWeightName',
     'TemplateForecastComputationSeasonality',
     'TemplateFunnelChartMeasureDataLabelStyle',
+    'TemplateGeospatialColorState',
+    'TemplateGeospatialLayerType',
+    'TemplateGeospatialMapNavigation',
     'TemplateGeospatialSelectedPointStyle',
     'TemplateHistogramBinType',
     'TemplateHorizontalTextAlignment',
@@ -363,6 +376,7 @@ __all__ = [
     'TemplateImageCustomActionTrigger',
     'TemplateKpiSparklineType',
     'TemplateKpiVisualStandardLayoutType',
+    'TemplateLayerCustomActionTrigger',
     'TemplateLayoutElementType',
     'TemplateLegendPosition',
     'TemplateLineChartLineStyle',
@@ -418,6 +432,8 @@ __all__ = [
     'TemplateSmallMultiplesAxisPlacement',
     'TemplateSmallMultiplesAxisScale',
     'TemplateSortDirection',
+    'TemplateSparklineAxisBehavior',
+    'TemplateSparklineVisualType',
     'TemplateSpecialValue',
     'TemplateStyledCellType',
     'TemplateTableBorderStyle',
@@ -447,7 +463,12 @@ __all__ = [
     'TemplateWordCloudWordPadding',
     'TemplateWordCloudWordScaling',
     'ThemeErrorType',
+    'ThemeFontDecoration',
+    'ThemeFontStyle',
+    'ThemeFontWeightName',
+    'ThemeHorizontalTextAlignment',
     'ThemeResourceStatus',
+    'ThemeTextTransform',
     'ThemeType',
     'TopicAuthorSpecifiedAggregation',
     'TopicCategoryFilterFunction',
@@ -743,6 +764,38 @@ class AnalysisDayOfTheWeek(_builtins.str, Enum):
     THURSDAY = "THURSDAY"
     FRIDAY = "FRIDAY"
     SATURDAY = "SATURDAY"
+
+
+@pulumi.type_token("aws-native:quicksight:AnalysisDecalPatternType")
+class AnalysisDecalPatternType(_builtins.str, Enum):
+    SOLID = "SOLID"
+    DIAGONAL_MEDIUM = "DIAGONAL_MEDIUM"
+    CIRCLE_MEDIUM = "CIRCLE_MEDIUM"
+    DIAMOND_GRID_MEDIUM = "DIAMOND_GRID_MEDIUM"
+    CHECKERBOARD_MEDIUM = "CHECKERBOARD_MEDIUM"
+    TRIANGLE_MEDIUM = "TRIANGLE_MEDIUM"
+    DIAGONAL_OPPOSITE_MEDIUM = "DIAGONAL_OPPOSITE_MEDIUM"
+    DIAMOND_MEDIUM = "DIAMOND_MEDIUM"
+    DIAGONAL_LARGE = "DIAGONAL_LARGE"
+    CIRCLE_LARGE = "CIRCLE_LARGE"
+    DIAMOND_GRID_LARGE = "DIAMOND_GRID_LARGE"
+    CHECKERBOARD_LARGE = "CHECKERBOARD_LARGE"
+    TRIANGLE_LARGE = "TRIANGLE_LARGE"
+    DIAGONAL_OPPOSITE_LARGE = "DIAGONAL_OPPOSITE_LARGE"
+    DIAMOND_LARGE = "DIAMOND_LARGE"
+    DIAGONAL_SMALL = "DIAGONAL_SMALL"
+    CIRCLE_SMALL = "CIRCLE_SMALL"
+    DIAMOND_GRID_SMALL = "DIAMOND_GRID_SMALL"
+    CHECKERBOARD_SMALL = "CHECKERBOARD_SMALL"
+    TRIANGLE_SMALL = "TRIANGLE_SMALL"
+    DIAGONAL_OPPOSITE_SMALL = "DIAGONAL_OPPOSITE_SMALL"
+    DIAMOND_SMALL = "DIAMOND_SMALL"
+
+
+@pulumi.type_token("aws-native:quicksight:AnalysisDecalStyleType")
+class AnalysisDecalStyleType(_builtins.str, Enum):
+    MANUAL = "Manual"
+    AUTO = "Auto"
 
 
 @pulumi.type_token("aws-native:quicksight:AnalysisDigitGroupingStyle")
@@ -1210,6 +1263,7 @@ class AnalysisSelectedFieldOptions(_builtins.str, Enum):
 class AnalysisSelectedTooltipType(_builtins.str, Enum):
     BASIC = "BASIC"
     DETAILED = "DETAILED"
+    SHEET = "SHEET"
 
 
 @pulumi.type_token("aws-native:quicksight:AnalysisSheetContentType")
@@ -1295,6 +1349,18 @@ class AnalysisSmallMultiplesAxisScale(_builtins.str, Enum):
 class AnalysisSortDirection(_builtins.str, Enum):
     ASC = "ASC"
     DESC = "DESC"
+
+
+@pulumi.type_token("aws-native:quicksight:AnalysisSparklineAxisBehavior")
+class AnalysisSparklineAxisBehavior(_builtins.str, Enum):
+    SHARED = "SHARED"
+    INDEPENDENT = "INDEPENDENT"
+
+
+@pulumi.type_token("aws-native:quicksight:AnalysisSparklineVisualType")
+class AnalysisSparklineVisualType(_builtins.str, Enum):
+    LINE = "LINE"
+    AREA_LINE = "AREA_LINE"
 
 
 @pulumi.type_token("aws-native:quicksight:AnalysisSpecialValue")
@@ -1670,6 +1736,38 @@ class DashboardDayOfTheWeek(_builtins.str, Enum):
     THURSDAY = "THURSDAY"
     FRIDAY = "FRIDAY"
     SATURDAY = "SATURDAY"
+
+
+@pulumi.type_token("aws-native:quicksight:DashboardDecalPatternType")
+class DashboardDecalPatternType(_builtins.str, Enum):
+    SOLID = "SOLID"
+    DIAGONAL_MEDIUM = "DIAGONAL_MEDIUM"
+    CIRCLE_MEDIUM = "CIRCLE_MEDIUM"
+    DIAMOND_GRID_MEDIUM = "DIAMOND_GRID_MEDIUM"
+    CHECKERBOARD_MEDIUM = "CHECKERBOARD_MEDIUM"
+    TRIANGLE_MEDIUM = "TRIANGLE_MEDIUM"
+    DIAGONAL_OPPOSITE_MEDIUM = "DIAGONAL_OPPOSITE_MEDIUM"
+    DIAMOND_MEDIUM = "DIAMOND_MEDIUM"
+    DIAGONAL_LARGE = "DIAGONAL_LARGE"
+    CIRCLE_LARGE = "CIRCLE_LARGE"
+    DIAMOND_GRID_LARGE = "DIAMOND_GRID_LARGE"
+    CHECKERBOARD_LARGE = "CHECKERBOARD_LARGE"
+    TRIANGLE_LARGE = "TRIANGLE_LARGE"
+    DIAGONAL_OPPOSITE_LARGE = "DIAGONAL_OPPOSITE_LARGE"
+    DIAMOND_LARGE = "DIAMOND_LARGE"
+    DIAGONAL_SMALL = "DIAGONAL_SMALL"
+    CIRCLE_SMALL = "CIRCLE_SMALL"
+    DIAMOND_GRID_SMALL = "DIAMOND_GRID_SMALL"
+    CHECKERBOARD_SMALL = "CHECKERBOARD_SMALL"
+    TRIANGLE_SMALL = "TRIANGLE_SMALL"
+    DIAGONAL_OPPOSITE_SMALL = "DIAGONAL_OPPOSITE_SMALL"
+    DIAMOND_SMALL = "DIAMOND_SMALL"
+
+
+@pulumi.type_token("aws-native:quicksight:DashboardDecalStyleType")
+class DashboardDecalStyleType(_builtins.str, Enum):
+    MANUAL = "Manual"
+    AUTO = "Auto"
 
 
 @pulumi.type_token("aws-native:quicksight:DashboardDigitGroupingStyle")
@@ -2137,6 +2235,7 @@ class DashboardSelectedFieldOptions(_builtins.str, Enum):
 class DashboardSelectedTooltipType(_builtins.str, Enum):
     BASIC = "BASIC"
     DETAILED = "DETAILED"
+    SHEET = "SHEET"
 
 
 @pulumi.type_token("aws-native:quicksight:DashboardSheetContentType")
@@ -2222,6 +2321,18 @@ class DashboardSmallMultiplesAxisScale(_builtins.str, Enum):
 class DashboardSortDirection(_builtins.str, Enum):
     ASC = "ASC"
     DESC = "DESC"
+
+
+@pulumi.type_token("aws-native:quicksight:DashboardSparklineAxisBehavior")
+class DashboardSparklineAxisBehavior(_builtins.str, Enum):
+    SHARED = "SHARED"
+    INDEPENDENT = "INDEPENDENT"
+
+
+@pulumi.type_token("aws-native:quicksight:DashboardSparklineVisualType")
+class DashboardSparklineVisualType(_builtins.str, Enum):
+    LINE = "LINE"
+    AREA_LINE = "AREA_LINE"
 
 
 @pulumi.type_token("aws-native:quicksight:DashboardSpecialValue")
@@ -3064,6 +3175,38 @@ class TemplateDayOfTheWeek(_builtins.str, Enum):
     SATURDAY = "SATURDAY"
 
 
+@pulumi.type_token("aws-native:quicksight:TemplateDecalPatternType")
+class TemplateDecalPatternType(_builtins.str, Enum):
+    SOLID = "SOLID"
+    DIAGONAL_MEDIUM = "DIAGONAL_MEDIUM"
+    CIRCLE_MEDIUM = "CIRCLE_MEDIUM"
+    DIAMOND_GRID_MEDIUM = "DIAMOND_GRID_MEDIUM"
+    CHECKERBOARD_MEDIUM = "CHECKERBOARD_MEDIUM"
+    TRIANGLE_MEDIUM = "TRIANGLE_MEDIUM"
+    DIAGONAL_OPPOSITE_MEDIUM = "DIAGONAL_OPPOSITE_MEDIUM"
+    DIAMOND_MEDIUM = "DIAMOND_MEDIUM"
+    DIAGONAL_LARGE = "DIAGONAL_LARGE"
+    CIRCLE_LARGE = "CIRCLE_LARGE"
+    DIAMOND_GRID_LARGE = "DIAMOND_GRID_LARGE"
+    CHECKERBOARD_LARGE = "CHECKERBOARD_LARGE"
+    TRIANGLE_LARGE = "TRIANGLE_LARGE"
+    DIAGONAL_OPPOSITE_LARGE = "DIAGONAL_OPPOSITE_LARGE"
+    DIAMOND_LARGE = "DIAMOND_LARGE"
+    DIAGONAL_SMALL = "DIAGONAL_SMALL"
+    CIRCLE_SMALL = "CIRCLE_SMALL"
+    DIAMOND_GRID_SMALL = "DIAMOND_GRID_SMALL"
+    CHECKERBOARD_SMALL = "CHECKERBOARD_SMALL"
+    TRIANGLE_SMALL = "TRIANGLE_SMALL"
+    DIAGONAL_OPPOSITE_SMALL = "DIAGONAL_OPPOSITE_SMALL"
+    DIAMOND_SMALL = "DIAMOND_SMALL"
+
+
+@pulumi.type_token("aws-native:quicksight:TemplateDecalStyleType")
+class TemplateDecalStyleType(_builtins.str, Enum):
+    MANUAL = "Manual"
+    AUTO = "Auto"
+
+
 @pulumi.type_token("aws-native:quicksight:TemplateDigitGroupingStyle")
 class TemplateDigitGroupingStyle(_builtins.str, Enum):
     DEFAULT = "DEFAULT"
@@ -3122,6 +3265,28 @@ class TemplateFunnelChartMeasureDataLabelStyle(_builtins.str, Enum):
     PERCENTAGE_BY_PREVIOUS_STAGE = "PERCENTAGE_BY_PREVIOUS_STAGE"
     VALUE_AND_PERCENTAGE_BY_FIRST_STAGE = "VALUE_AND_PERCENTAGE_BY_FIRST_STAGE"
     VALUE_AND_PERCENTAGE_BY_PREVIOUS_STAGE = "VALUE_AND_PERCENTAGE_BY_PREVIOUS_STAGE"
+
+
+@pulumi.type_token("aws-native:quicksight:TemplateGeospatialColorState")
+class TemplateGeospatialColorState(_builtins.str, Enum):
+    """
+    Defines view state of the color
+    """
+    ENABLED = "ENABLED"
+    DISABLED = "DISABLED"
+
+
+@pulumi.type_token("aws-native:quicksight:TemplateGeospatialLayerType")
+class TemplateGeospatialLayerType(_builtins.str, Enum):
+    POINT = "POINT"
+    LINE = "LINE"
+    POLYGON = "POLYGON"
+
+
+@pulumi.type_token("aws-native:quicksight:TemplateGeospatialMapNavigation")
+class TemplateGeospatialMapNavigation(_builtins.str, Enum):
+    ENABLED = "ENABLED"
+    DISABLED = "DISABLED"
 
 
 @pulumi.type_token("aws-native:quicksight:TemplateGeospatialSelectedPointStyle")
@@ -3191,6 +3356,12 @@ class TemplateKpiSparklineType(_builtins.str, Enum):
 class TemplateKpiVisualStandardLayoutType(_builtins.str, Enum):
     CLASSIC = "CLASSIC"
     VERTICAL = "VERTICAL"
+
+
+@pulumi.type_token("aws-native:quicksight:TemplateLayerCustomActionTrigger")
+class TemplateLayerCustomActionTrigger(_builtins.str, Enum):
+    DATA_POINT_CLICK = "DATA_POINT_CLICK"
+    DATA_POINT_MENU = "DATA_POINT_MENU"
 
 
 @pulumi.type_token("aws-native:quicksight:TemplateLayoutElementType")
@@ -3495,6 +3666,7 @@ class TemplateSelectedFieldOptions(_builtins.str, Enum):
 class TemplateSelectedTooltipType(_builtins.str, Enum):
     BASIC = "BASIC"
     DETAILED = "DETAILED"
+    SHEET = "SHEET"
 
 
 @pulumi.type_token("aws-native:quicksight:TemplateSheetContentType")
@@ -3580,6 +3752,18 @@ class TemplateSmallMultiplesAxisScale(_builtins.str, Enum):
 class TemplateSortDirection(_builtins.str, Enum):
     ASC = "ASC"
     DESC = "DESC"
+
+
+@pulumi.type_token("aws-native:quicksight:TemplateSparklineAxisBehavior")
+class TemplateSparklineAxisBehavior(_builtins.str, Enum):
+    SHARED = "SHARED"
+    INDEPENDENT = "INDEPENDENT"
+
+
+@pulumi.type_token("aws-native:quicksight:TemplateSparklineVisualType")
+class TemplateSparklineVisualType(_builtins.str, Enum):
+    LINE = "LINE"
+    AREA_LINE = "AREA_LINE"
 
 
 @pulumi.type_token("aws-native:quicksight:TemplateSpecialValue")
@@ -3770,6 +3954,32 @@ class ThemeErrorType(_builtins.str, Enum):
     INTERNAL_FAILURE = "INTERNAL_FAILURE"
 
 
+@pulumi.type_token("aws-native:quicksight:ThemeFontDecoration")
+class ThemeFontDecoration(_builtins.str, Enum):
+    UNDERLINE = "UNDERLINE"
+    NONE = "NONE"
+
+
+@pulumi.type_token("aws-native:quicksight:ThemeFontStyle")
+class ThemeFontStyle(_builtins.str, Enum):
+    NORMAL = "NORMAL"
+    ITALIC = "ITALIC"
+
+
+@pulumi.type_token("aws-native:quicksight:ThemeFontWeightName")
+class ThemeFontWeightName(_builtins.str, Enum):
+    NORMAL = "NORMAL"
+    BOLD = "BOLD"
+
+
+@pulumi.type_token("aws-native:quicksight:ThemeHorizontalTextAlignment")
+class ThemeHorizontalTextAlignment(_builtins.str, Enum):
+    LEFT = "LEFT"
+    CENTER = "CENTER"
+    RIGHT = "RIGHT"
+    AUTO = "AUTO"
+
+
 @pulumi.type_token("aws-native:quicksight:ThemeResourceStatus")
 class ThemeResourceStatus(_builtins.str, Enum):
     CREATION_IN_PROGRESS = "CREATION_IN_PROGRESS"
@@ -3780,6 +3990,11 @@ class ThemeResourceStatus(_builtins.str, Enum):
     UPDATE_FAILED = "UPDATE_FAILED"
     PENDING_UPDATE = "PENDING_UPDATE"
     DELETED = "DELETED"
+
+
+@pulumi.type_token("aws-native:quicksight:ThemeTextTransform")
+class ThemeTextTransform(_builtins.str, Enum):
+    CAPITALIZE = "CAPITALIZE"
 
 
 @pulumi.type_token("aws-native:quicksight:ThemeType")

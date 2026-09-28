@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.Batch.Inputs
 
     public sealed class ComputeEnvironmentEksConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        [Input("accessEntry")]
+        public Input<Inputs.ComputeEnvironmentEksAccessEntryArgs>? AccessEntry { get; set; }
+
         /// <summary>
         /// The Amazon Resource Name (ARN) of the Amazon EKS cluster. An example is `arn: *aws* :eks: *us-east-1* : *123456789012* :cluster/ *ClusterForBatch*` .
         /// </summary>

@@ -13,6 +13,1008 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+// SSM command configuration for the connector.
+type ConnectorSsmCommandConfig struct {
+	// The CloudWatch Logs group name for SSM command output.
+	CloudWatchLogGroupName *string `pulumi:"cloudWatchLogGroupName"`
+	// Whether SSM command output is sent to CloudWatch Logs.
+	CloudWatchOutputEnabled bool `pulumi:"cloudWatchOutputEnabled"`
+	// The S3 bucket name for SSM command output.
+	OutputS3BucketName *string `pulumi:"outputS3BucketName"`
+	// Whether SSM command output is stored in S3.
+	S3OutputEnabled bool `pulumi:"s3OutputEnabled"`
+}
+
+// ConnectorSsmCommandConfigInput is an input type that accepts ConnectorSsmCommandConfigArgs and ConnectorSsmCommandConfigOutput values.
+// You can construct a concrete instance of `ConnectorSsmCommandConfigInput` via:
+//
+//	ConnectorSsmCommandConfigArgs{...}
+type ConnectorSsmCommandConfigInput interface {
+	pulumi.Input
+
+	ToConnectorSsmCommandConfigOutput() ConnectorSsmCommandConfigOutput
+	ToConnectorSsmCommandConfigOutputWithContext(context.Context) ConnectorSsmCommandConfigOutput
+}
+
+// SSM command configuration for the connector.
+type ConnectorSsmCommandConfigArgs struct {
+	// The CloudWatch Logs group name for SSM command output.
+	CloudWatchLogGroupName pulumi.StringPtrInput `pulumi:"cloudWatchLogGroupName"`
+	// Whether SSM command output is sent to CloudWatch Logs.
+	CloudWatchOutputEnabled pulumi.BoolInput `pulumi:"cloudWatchOutputEnabled"`
+	// The S3 bucket name for SSM command output.
+	OutputS3BucketName pulumi.StringPtrInput `pulumi:"outputS3BucketName"`
+	// Whether SSM command output is stored in S3.
+	S3OutputEnabled pulumi.BoolInput `pulumi:"s3OutputEnabled"`
+}
+
+func (ConnectorSsmCommandConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectorSsmCommandConfig)(nil)).Elem()
+}
+
+func (i ConnectorSsmCommandConfigArgs) ToConnectorSsmCommandConfigOutput() ConnectorSsmCommandConfigOutput {
+	return i.ToConnectorSsmCommandConfigOutputWithContext(context.Background())
+}
+
+func (i ConnectorSsmCommandConfigArgs) ToConnectorSsmCommandConfigOutputWithContext(ctx context.Context) ConnectorSsmCommandConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectorSsmCommandConfigOutput)
+}
+
+func (i ConnectorSsmCommandConfigArgs) ToConnectorSsmCommandConfigPtrOutput() ConnectorSsmCommandConfigPtrOutput {
+	return i.ToConnectorSsmCommandConfigPtrOutputWithContext(context.Background())
+}
+
+func (i ConnectorSsmCommandConfigArgs) ToConnectorSsmCommandConfigPtrOutputWithContext(ctx context.Context) ConnectorSsmCommandConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectorSsmCommandConfigOutput).ToConnectorSsmCommandConfigPtrOutputWithContext(ctx)
+}
+
+// ConnectorSsmCommandConfigPtrInput is an input type that accepts ConnectorSsmCommandConfigArgs, ConnectorSsmCommandConfigPtr and ConnectorSsmCommandConfigPtrOutput values.
+// You can construct a concrete instance of `ConnectorSsmCommandConfigPtrInput` via:
+//
+//	        ConnectorSsmCommandConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type ConnectorSsmCommandConfigPtrInput interface {
+	pulumi.Input
+
+	ToConnectorSsmCommandConfigPtrOutput() ConnectorSsmCommandConfigPtrOutput
+	ToConnectorSsmCommandConfigPtrOutputWithContext(context.Context) ConnectorSsmCommandConfigPtrOutput
+}
+
+type connectorSsmCommandConfigPtrType ConnectorSsmCommandConfigArgs
+
+func ConnectorSsmCommandConfigPtr(v *ConnectorSsmCommandConfigArgs) ConnectorSsmCommandConfigPtrInput {
+	return (*connectorSsmCommandConfigPtrType)(v)
+}
+
+func (*connectorSsmCommandConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectorSsmCommandConfig)(nil)).Elem()
+}
+
+func (i *connectorSsmCommandConfigPtrType) ToConnectorSsmCommandConfigPtrOutput() ConnectorSsmCommandConfigPtrOutput {
+	return i.ToConnectorSsmCommandConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *connectorSsmCommandConfigPtrType) ToConnectorSsmCommandConfigPtrOutputWithContext(ctx context.Context) ConnectorSsmCommandConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectorSsmCommandConfigPtrOutput)
+}
+
+// SSM command configuration for the connector.
+type ConnectorSsmCommandConfigOutput struct{ *pulumi.OutputState }
+
+func (ConnectorSsmCommandConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectorSsmCommandConfig)(nil)).Elem()
+}
+
+func (o ConnectorSsmCommandConfigOutput) ToConnectorSsmCommandConfigOutput() ConnectorSsmCommandConfigOutput {
+	return o
+}
+
+func (o ConnectorSsmCommandConfigOutput) ToConnectorSsmCommandConfigOutputWithContext(ctx context.Context) ConnectorSsmCommandConfigOutput {
+	return o
+}
+
+func (o ConnectorSsmCommandConfigOutput) ToConnectorSsmCommandConfigPtrOutput() ConnectorSsmCommandConfigPtrOutput {
+	return o.ToConnectorSsmCommandConfigPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectorSsmCommandConfigOutput) ToConnectorSsmCommandConfigPtrOutputWithContext(ctx context.Context) ConnectorSsmCommandConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectorSsmCommandConfig) *ConnectorSsmCommandConfig {
+		return &v
+	}).(ConnectorSsmCommandConfigPtrOutput)
+}
+
+// The CloudWatch Logs group name for SSM command output.
+func (o ConnectorSsmCommandConfigOutput) CloudWatchLogGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectorSsmCommandConfig) *string { return v.CloudWatchLogGroupName }).(pulumi.StringPtrOutput)
+}
+
+// Whether SSM command output is sent to CloudWatch Logs.
+func (o ConnectorSsmCommandConfigOutput) CloudWatchOutputEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v ConnectorSsmCommandConfig) bool { return v.CloudWatchOutputEnabled }).(pulumi.BoolOutput)
+}
+
+// The S3 bucket name for SSM command output.
+func (o ConnectorSsmCommandConfigOutput) OutputS3BucketName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectorSsmCommandConfig) *string { return v.OutputS3BucketName }).(pulumi.StringPtrOutput)
+}
+
+// Whether SSM command output is stored in S3.
+func (o ConnectorSsmCommandConfigOutput) S3OutputEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v ConnectorSsmCommandConfig) bool { return v.S3OutputEnabled }).(pulumi.BoolOutput)
+}
+
+type ConnectorSsmCommandConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ConnectorSsmCommandConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectorSsmCommandConfig)(nil)).Elem()
+}
+
+func (o ConnectorSsmCommandConfigPtrOutput) ToConnectorSsmCommandConfigPtrOutput() ConnectorSsmCommandConfigPtrOutput {
+	return o
+}
+
+func (o ConnectorSsmCommandConfigPtrOutput) ToConnectorSsmCommandConfigPtrOutputWithContext(ctx context.Context) ConnectorSsmCommandConfigPtrOutput {
+	return o
+}
+
+func (o ConnectorSsmCommandConfigPtrOutput) Elem() ConnectorSsmCommandConfigOutput {
+	return o.ApplyT(func(v *ConnectorSsmCommandConfig) ConnectorSsmCommandConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectorSsmCommandConfig
+		return ret
+	}).(ConnectorSsmCommandConfigOutput)
+}
+
+// The CloudWatch Logs group name for SSM command output.
+func (o ConnectorSsmCommandConfigPtrOutput) CloudWatchLogGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectorSsmCommandConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CloudWatchLogGroupName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Whether SSM command output is sent to CloudWatch Logs.
+func (o ConnectorSsmCommandConfigPtrOutput) CloudWatchOutputEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ConnectorSsmCommandConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.CloudWatchOutputEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The S3 bucket name for SSM command output.
+func (o ConnectorSsmCommandConfigPtrOutput) OutputS3BucketName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectorSsmCommandConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.OutputS3BucketName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Whether SSM command output is stored in S3.
+func (o ConnectorSsmCommandConfigPtrOutput) S3OutputEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ConnectorSsmCommandConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.S3OutputEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// A key-value pair to associate with a resource.
+type ConnectorTag struct {
+	// The key name of the tag.
+	Key string `pulumi:"key"`
+	// The value for the tag.
+	Value string `pulumi:"value"`
+}
+
+// Launch template disk configuration.
+type LaunchConfigurationTemplateLaunchTemplateDiskConf struct {
+	// Launch template disk IOPS configuration.
+	Iops *int `pulumi:"iops"`
+	// Launch template disk throughput configuration, in MiB/s.
+	Throughput *int `pulumi:"throughput"`
+	// Launch template disk volume type configuration.
+	VolumeType *LaunchConfigurationTemplateLaunchTemplateDiskConfVolumeType `pulumi:"volumeType"`
+}
+
+// LaunchConfigurationTemplateLaunchTemplateDiskConfInput is an input type that accepts LaunchConfigurationTemplateLaunchTemplateDiskConfArgs and LaunchConfigurationTemplateLaunchTemplateDiskConfOutput values.
+// You can construct a concrete instance of `LaunchConfigurationTemplateLaunchTemplateDiskConfInput` via:
+//
+//	LaunchConfigurationTemplateLaunchTemplateDiskConfArgs{...}
+type LaunchConfigurationTemplateLaunchTemplateDiskConfInput interface {
+	pulumi.Input
+
+	ToLaunchConfigurationTemplateLaunchTemplateDiskConfOutput() LaunchConfigurationTemplateLaunchTemplateDiskConfOutput
+	ToLaunchConfigurationTemplateLaunchTemplateDiskConfOutputWithContext(context.Context) LaunchConfigurationTemplateLaunchTemplateDiskConfOutput
+}
+
+// Launch template disk configuration.
+type LaunchConfigurationTemplateLaunchTemplateDiskConfArgs struct {
+	// Launch template disk IOPS configuration.
+	Iops pulumi.IntPtrInput `pulumi:"iops"`
+	// Launch template disk throughput configuration, in MiB/s.
+	Throughput pulumi.IntPtrInput `pulumi:"throughput"`
+	// Launch template disk volume type configuration.
+	VolumeType LaunchConfigurationTemplateLaunchTemplateDiskConfVolumeTypePtrInput `pulumi:"volumeType"`
+}
+
+func (LaunchConfigurationTemplateLaunchTemplateDiskConfArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchConfigurationTemplateLaunchTemplateDiskConf)(nil)).Elem()
+}
+
+func (i LaunchConfigurationTemplateLaunchTemplateDiskConfArgs) ToLaunchConfigurationTemplateLaunchTemplateDiskConfOutput() LaunchConfigurationTemplateLaunchTemplateDiskConfOutput {
+	return i.ToLaunchConfigurationTemplateLaunchTemplateDiskConfOutputWithContext(context.Background())
+}
+
+func (i LaunchConfigurationTemplateLaunchTemplateDiskConfArgs) ToLaunchConfigurationTemplateLaunchTemplateDiskConfOutputWithContext(ctx context.Context) LaunchConfigurationTemplateLaunchTemplateDiskConfOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchConfigurationTemplateLaunchTemplateDiskConfOutput)
+}
+
+func (i LaunchConfigurationTemplateLaunchTemplateDiskConfArgs) ToLaunchConfigurationTemplateLaunchTemplateDiskConfPtrOutput() LaunchConfigurationTemplateLaunchTemplateDiskConfPtrOutput {
+	return i.ToLaunchConfigurationTemplateLaunchTemplateDiskConfPtrOutputWithContext(context.Background())
+}
+
+func (i LaunchConfigurationTemplateLaunchTemplateDiskConfArgs) ToLaunchConfigurationTemplateLaunchTemplateDiskConfPtrOutputWithContext(ctx context.Context) LaunchConfigurationTemplateLaunchTemplateDiskConfPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchConfigurationTemplateLaunchTemplateDiskConfOutput).ToLaunchConfigurationTemplateLaunchTemplateDiskConfPtrOutputWithContext(ctx)
+}
+
+// LaunchConfigurationTemplateLaunchTemplateDiskConfPtrInput is an input type that accepts LaunchConfigurationTemplateLaunchTemplateDiskConfArgs, LaunchConfigurationTemplateLaunchTemplateDiskConfPtr and LaunchConfigurationTemplateLaunchTemplateDiskConfPtrOutput values.
+// You can construct a concrete instance of `LaunchConfigurationTemplateLaunchTemplateDiskConfPtrInput` via:
+//
+//	        LaunchConfigurationTemplateLaunchTemplateDiskConfArgs{...}
+//
+//	or:
+//
+//	        nil
+type LaunchConfigurationTemplateLaunchTemplateDiskConfPtrInput interface {
+	pulumi.Input
+
+	ToLaunchConfigurationTemplateLaunchTemplateDiskConfPtrOutput() LaunchConfigurationTemplateLaunchTemplateDiskConfPtrOutput
+	ToLaunchConfigurationTemplateLaunchTemplateDiskConfPtrOutputWithContext(context.Context) LaunchConfigurationTemplateLaunchTemplateDiskConfPtrOutput
+}
+
+type launchConfigurationTemplateLaunchTemplateDiskConfPtrType LaunchConfigurationTemplateLaunchTemplateDiskConfArgs
+
+func LaunchConfigurationTemplateLaunchTemplateDiskConfPtr(v *LaunchConfigurationTemplateLaunchTemplateDiskConfArgs) LaunchConfigurationTemplateLaunchTemplateDiskConfPtrInput {
+	return (*launchConfigurationTemplateLaunchTemplateDiskConfPtrType)(v)
+}
+
+func (*launchConfigurationTemplateLaunchTemplateDiskConfPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LaunchConfigurationTemplateLaunchTemplateDiskConf)(nil)).Elem()
+}
+
+func (i *launchConfigurationTemplateLaunchTemplateDiskConfPtrType) ToLaunchConfigurationTemplateLaunchTemplateDiskConfPtrOutput() LaunchConfigurationTemplateLaunchTemplateDiskConfPtrOutput {
+	return i.ToLaunchConfigurationTemplateLaunchTemplateDiskConfPtrOutputWithContext(context.Background())
+}
+
+func (i *launchConfigurationTemplateLaunchTemplateDiskConfPtrType) ToLaunchConfigurationTemplateLaunchTemplateDiskConfPtrOutputWithContext(ctx context.Context) LaunchConfigurationTemplateLaunchTemplateDiskConfPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchConfigurationTemplateLaunchTemplateDiskConfPtrOutput)
+}
+
+// Launch template disk configuration.
+type LaunchConfigurationTemplateLaunchTemplateDiskConfOutput struct{ *pulumi.OutputState }
+
+func (LaunchConfigurationTemplateLaunchTemplateDiskConfOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchConfigurationTemplateLaunchTemplateDiskConf)(nil)).Elem()
+}
+
+func (o LaunchConfigurationTemplateLaunchTemplateDiskConfOutput) ToLaunchConfigurationTemplateLaunchTemplateDiskConfOutput() LaunchConfigurationTemplateLaunchTemplateDiskConfOutput {
+	return o
+}
+
+func (o LaunchConfigurationTemplateLaunchTemplateDiskConfOutput) ToLaunchConfigurationTemplateLaunchTemplateDiskConfOutputWithContext(ctx context.Context) LaunchConfigurationTemplateLaunchTemplateDiskConfOutput {
+	return o
+}
+
+func (o LaunchConfigurationTemplateLaunchTemplateDiskConfOutput) ToLaunchConfigurationTemplateLaunchTemplateDiskConfPtrOutput() LaunchConfigurationTemplateLaunchTemplateDiskConfPtrOutput {
+	return o.ToLaunchConfigurationTemplateLaunchTemplateDiskConfPtrOutputWithContext(context.Background())
+}
+
+func (o LaunchConfigurationTemplateLaunchTemplateDiskConfOutput) ToLaunchConfigurationTemplateLaunchTemplateDiskConfPtrOutputWithContext(ctx context.Context) LaunchConfigurationTemplateLaunchTemplateDiskConfPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LaunchConfigurationTemplateLaunchTemplateDiskConf) *LaunchConfigurationTemplateLaunchTemplateDiskConf {
+		return &v
+	}).(LaunchConfigurationTemplateLaunchTemplateDiskConfPtrOutput)
+}
+
+// Launch template disk IOPS configuration.
+func (o LaunchConfigurationTemplateLaunchTemplateDiskConfOutput) Iops() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LaunchConfigurationTemplateLaunchTemplateDiskConf) *int { return v.Iops }).(pulumi.IntPtrOutput)
+}
+
+// Launch template disk throughput configuration, in MiB/s.
+func (o LaunchConfigurationTemplateLaunchTemplateDiskConfOutput) Throughput() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LaunchConfigurationTemplateLaunchTemplateDiskConf) *int { return v.Throughput }).(pulumi.IntPtrOutput)
+}
+
+// Launch template disk volume type configuration.
+func (o LaunchConfigurationTemplateLaunchTemplateDiskConfOutput) VolumeType() LaunchConfigurationTemplateLaunchTemplateDiskConfVolumeTypePtrOutput {
+	return o.ApplyT(func(v LaunchConfigurationTemplateLaunchTemplateDiskConf) *LaunchConfigurationTemplateLaunchTemplateDiskConfVolumeType {
+		return v.VolumeType
+	}).(LaunchConfigurationTemplateLaunchTemplateDiskConfVolumeTypePtrOutput)
+}
+
+type LaunchConfigurationTemplateLaunchTemplateDiskConfPtrOutput struct{ *pulumi.OutputState }
+
+func (LaunchConfigurationTemplateLaunchTemplateDiskConfPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LaunchConfigurationTemplateLaunchTemplateDiskConf)(nil)).Elem()
+}
+
+func (o LaunchConfigurationTemplateLaunchTemplateDiskConfPtrOutput) ToLaunchConfigurationTemplateLaunchTemplateDiskConfPtrOutput() LaunchConfigurationTemplateLaunchTemplateDiskConfPtrOutput {
+	return o
+}
+
+func (o LaunchConfigurationTemplateLaunchTemplateDiskConfPtrOutput) ToLaunchConfigurationTemplateLaunchTemplateDiskConfPtrOutputWithContext(ctx context.Context) LaunchConfigurationTemplateLaunchTemplateDiskConfPtrOutput {
+	return o
+}
+
+func (o LaunchConfigurationTemplateLaunchTemplateDiskConfPtrOutput) Elem() LaunchConfigurationTemplateLaunchTemplateDiskConfOutput {
+	return o.ApplyT(func(v *LaunchConfigurationTemplateLaunchTemplateDiskConf) LaunchConfigurationTemplateLaunchTemplateDiskConf {
+		if v != nil {
+			return *v
+		}
+		var ret LaunchConfigurationTemplateLaunchTemplateDiskConf
+		return ret
+	}).(LaunchConfigurationTemplateLaunchTemplateDiskConfOutput)
+}
+
+// Launch template disk IOPS configuration.
+func (o LaunchConfigurationTemplateLaunchTemplateDiskConfPtrOutput) Iops() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *LaunchConfigurationTemplateLaunchTemplateDiskConf) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Iops
+	}).(pulumi.IntPtrOutput)
+}
+
+// Launch template disk throughput configuration, in MiB/s.
+func (o LaunchConfigurationTemplateLaunchTemplateDiskConfPtrOutput) Throughput() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *LaunchConfigurationTemplateLaunchTemplateDiskConf) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Throughput
+	}).(pulumi.IntPtrOutput)
+}
+
+// Launch template disk volume type configuration.
+func (o LaunchConfigurationTemplateLaunchTemplateDiskConfPtrOutput) VolumeType() LaunchConfigurationTemplateLaunchTemplateDiskConfVolumeTypePtrOutput {
+	return o.ApplyT(func(v *LaunchConfigurationTemplateLaunchTemplateDiskConf) *LaunchConfigurationTemplateLaunchTemplateDiskConfVolumeType {
+		if v == nil {
+			return nil
+		}
+		return v.VolumeType
+	}).(LaunchConfigurationTemplateLaunchTemplateDiskConfVolumeTypePtrOutput)
+}
+
+// Configuration of a machine's license.
+type LaunchConfigurationTemplateLicensing struct {
+	// Whether to configure BYOL OS licensing.
+	OsByol *bool `pulumi:"osByol"`
+}
+
+// LaunchConfigurationTemplateLicensingInput is an input type that accepts LaunchConfigurationTemplateLicensingArgs and LaunchConfigurationTemplateLicensingOutput values.
+// You can construct a concrete instance of `LaunchConfigurationTemplateLicensingInput` via:
+//
+//	LaunchConfigurationTemplateLicensingArgs{...}
+type LaunchConfigurationTemplateLicensingInput interface {
+	pulumi.Input
+
+	ToLaunchConfigurationTemplateLicensingOutput() LaunchConfigurationTemplateLicensingOutput
+	ToLaunchConfigurationTemplateLicensingOutputWithContext(context.Context) LaunchConfigurationTemplateLicensingOutput
+}
+
+// Configuration of a machine's license.
+type LaunchConfigurationTemplateLicensingArgs struct {
+	// Whether to configure BYOL OS licensing.
+	OsByol pulumi.BoolPtrInput `pulumi:"osByol"`
+}
+
+func (LaunchConfigurationTemplateLicensingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchConfigurationTemplateLicensing)(nil)).Elem()
+}
+
+func (i LaunchConfigurationTemplateLicensingArgs) ToLaunchConfigurationTemplateLicensingOutput() LaunchConfigurationTemplateLicensingOutput {
+	return i.ToLaunchConfigurationTemplateLicensingOutputWithContext(context.Background())
+}
+
+func (i LaunchConfigurationTemplateLicensingArgs) ToLaunchConfigurationTemplateLicensingOutputWithContext(ctx context.Context) LaunchConfigurationTemplateLicensingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchConfigurationTemplateLicensingOutput)
+}
+
+func (i LaunchConfigurationTemplateLicensingArgs) ToLaunchConfigurationTemplateLicensingPtrOutput() LaunchConfigurationTemplateLicensingPtrOutput {
+	return i.ToLaunchConfigurationTemplateLicensingPtrOutputWithContext(context.Background())
+}
+
+func (i LaunchConfigurationTemplateLicensingArgs) ToLaunchConfigurationTemplateLicensingPtrOutputWithContext(ctx context.Context) LaunchConfigurationTemplateLicensingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchConfigurationTemplateLicensingOutput).ToLaunchConfigurationTemplateLicensingPtrOutputWithContext(ctx)
+}
+
+// LaunchConfigurationTemplateLicensingPtrInput is an input type that accepts LaunchConfigurationTemplateLicensingArgs, LaunchConfigurationTemplateLicensingPtr and LaunchConfigurationTemplateLicensingPtrOutput values.
+// You can construct a concrete instance of `LaunchConfigurationTemplateLicensingPtrInput` via:
+//
+//	        LaunchConfigurationTemplateLicensingArgs{...}
+//
+//	or:
+//
+//	        nil
+type LaunchConfigurationTemplateLicensingPtrInput interface {
+	pulumi.Input
+
+	ToLaunchConfigurationTemplateLicensingPtrOutput() LaunchConfigurationTemplateLicensingPtrOutput
+	ToLaunchConfigurationTemplateLicensingPtrOutputWithContext(context.Context) LaunchConfigurationTemplateLicensingPtrOutput
+}
+
+type launchConfigurationTemplateLicensingPtrType LaunchConfigurationTemplateLicensingArgs
+
+func LaunchConfigurationTemplateLicensingPtr(v *LaunchConfigurationTemplateLicensingArgs) LaunchConfigurationTemplateLicensingPtrInput {
+	return (*launchConfigurationTemplateLicensingPtrType)(v)
+}
+
+func (*launchConfigurationTemplateLicensingPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LaunchConfigurationTemplateLicensing)(nil)).Elem()
+}
+
+func (i *launchConfigurationTemplateLicensingPtrType) ToLaunchConfigurationTemplateLicensingPtrOutput() LaunchConfigurationTemplateLicensingPtrOutput {
+	return i.ToLaunchConfigurationTemplateLicensingPtrOutputWithContext(context.Background())
+}
+
+func (i *launchConfigurationTemplateLicensingPtrType) ToLaunchConfigurationTemplateLicensingPtrOutputWithContext(ctx context.Context) LaunchConfigurationTemplateLicensingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchConfigurationTemplateLicensingPtrOutput)
+}
+
+// Configuration of a machine's license.
+type LaunchConfigurationTemplateLicensingOutput struct{ *pulumi.OutputState }
+
+func (LaunchConfigurationTemplateLicensingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchConfigurationTemplateLicensing)(nil)).Elem()
+}
+
+func (o LaunchConfigurationTemplateLicensingOutput) ToLaunchConfigurationTemplateLicensingOutput() LaunchConfigurationTemplateLicensingOutput {
+	return o
+}
+
+func (o LaunchConfigurationTemplateLicensingOutput) ToLaunchConfigurationTemplateLicensingOutputWithContext(ctx context.Context) LaunchConfigurationTemplateLicensingOutput {
+	return o
+}
+
+func (o LaunchConfigurationTemplateLicensingOutput) ToLaunchConfigurationTemplateLicensingPtrOutput() LaunchConfigurationTemplateLicensingPtrOutput {
+	return o.ToLaunchConfigurationTemplateLicensingPtrOutputWithContext(context.Background())
+}
+
+func (o LaunchConfigurationTemplateLicensingOutput) ToLaunchConfigurationTemplateLicensingPtrOutputWithContext(ctx context.Context) LaunchConfigurationTemplateLicensingPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LaunchConfigurationTemplateLicensing) *LaunchConfigurationTemplateLicensing {
+		return &v
+	}).(LaunchConfigurationTemplateLicensingPtrOutput)
+}
+
+// Whether to configure BYOL OS licensing.
+func (o LaunchConfigurationTemplateLicensingOutput) OsByol() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LaunchConfigurationTemplateLicensing) *bool { return v.OsByol }).(pulumi.BoolPtrOutput)
+}
+
+type LaunchConfigurationTemplateLicensingPtrOutput struct{ *pulumi.OutputState }
+
+func (LaunchConfigurationTemplateLicensingPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LaunchConfigurationTemplateLicensing)(nil)).Elem()
+}
+
+func (o LaunchConfigurationTemplateLicensingPtrOutput) ToLaunchConfigurationTemplateLicensingPtrOutput() LaunchConfigurationTemplateLicensingPtrOutput {
+	return o
+}
+
+func (o LaunchConfigurationTemplateLicensingPtrOutput) ToLaunchConfigurationTemplateLicensingPtrOutputWithContext(ctx context.Context) LaunchConfigurationTemplateLicensingPtrOutput {
+	return o
+}
+
+func (o LaunchConfigurationTemplateLicensingPtrOutput) Elem() LaunchConfigurationTemplateLicensingOutput {
+	return o.ApplyT(func(v *LaunchConfigurationTemplateLicensing) LaunchConfigurationTemplateLicensing {
+		if v != nil {
+			return *v
+		}
+		var ret LaunchConfigurationTemplateLicensing
+		return ret
+	}).(LaunchConfigurationTemplateLicensingOutput)
+}
+
+// Whether to configure BYOL OS licensing.
+func (o LaunchConfigurationTemplateLicensingPtrOutput) OsByol() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *LaunchConfigurationTemplateLicensing) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.OsByol
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Post launch actions to execute on the Test or Cutover instance.
+type LaunchConfigurationTemplatePostLaunchActions struct {
+	// AWS Systems Manager Command's CloudWatch log group name.
+	CloudWatchLogGroupName *string `pulumi:"cloudWatchLogGroupName"`
+	// Deployment type in which AWS Systems Manager Documents will be executed.
+	Deployment *LaunchConfigurationTemplatePostLaunchActionsDeployment `pulumi:"deployment"`
+	// AWS Systems Manager Command's logs S3 log bucket.
+	S3LogBucket *string `pulumi:"s3LogBucket"`
+	// AWS Systems Manager Command's logs S3 output key prefix.
+	S3OutputKeyPrefix *string `pulumi:"s3OutputKeyPrefix"`
+	// AWS Systems Manager Documents to execute, in order.
+	SsmDocuments []LaunchConfigurationTemplateSsmDocument `pulumi:"ssmDocuments"`
+}
+
+// LaunchConfigurationTemplatePostLaunchActionsInput is an input type that accepts LaunchConfigurationTemplatePostLaunchActionsArgs and LaunchConfigurationTemplatePostLaunchActionsOutput values.
+// You can construct a concrete instance of `LaunchConfigurationTemplatePostLaunchActionsInput` via:
+//
+//	LaunchConfigurationTemplatePostLaunchActionsArgs{...}
+type LaunchConfigurationTemplatePostLaunchActionsInput interface {
+	pulumi.Input
+
+	ToLaunchConfigurationTemplatePostLaunchActionsOutput() LaunchConfigurationTemplatePostLaunchActionsOutput
+	ToLaunchConfigurationTemplatePostLaunchActionsOutputWithContext(context.Context) LaunchConfigurationTemplatePostLaunchActionsOutput
+}
+
+// Post launch actions to execute on the Test or Cutover instance.
+type LaunchConfigurationTemplatePostLaunchActionsArgs struct {
+	// AWS Systems Manager Command's CloudWatch log group name.
+	CloudWatchLogGroupName pulumi.StringPtrInput `pulumi:"cloudWatchLogGroupName"`
+	// Deployment type in which AWS Systems Manager Documents will be executed.
+	Deployment LaunchConfigurationTemplatePostLaunchActionsDeploymentPtrInput `pulumi:"deployment"`
+	// AWS Systems Manager Command's logs S3 log bucket.
+	S3LogBucket pulumi.StringPtrInput `pulumi:"s3LogBucket"`
+	// AWS Systems Manager Command's logs S3 output key prefix.
+	S3OutputKeyPrefix pulumi.StringPtrInput `pulumi:"s3OutputKeyPrefix"`
+	// AWS Systems Manager Documents to execute, in order.
+	SsmDocuments LaunchConfigurationTemplateSsmDocumentArrayInput `pulumi:"ssmDocuments"`
+}
+
+func (LaunchConfigurationTemplatePostLaunchActionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchConfigurationTemplatePostLaunchActions)(nil)).Elem()
+}
+
+func (i LaunchConfigurationTemplatePostLaunchActionsArgs) ToLaunchConfigurationTemplatePostLaunchActionsOutput() LaunchConfigurationTemplatePostLaunchActionsOutput {
+	return i.ToLaunchConfigurationTemplatePostLaunchActionsOutputWithContext(context.Background())
+}
+
+func (i LaunchConfigurationTemplatePostLaunchActionsArgs) ToLaunchConfigurationTemplatePostLaunchActionsOutputWithContext(ctx context.Context) LaunchConfigurationTemplatePostLaunchActionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchConfigurationTemplatePostLaunchActionsOutput)
+}
+
+func (i LaunchConfigurationTemplatePostLaunchActionsArgs) ToLaunchConfigurationTemplatePostLaunchActionsPtrOutput() LaunchConfigurationTemplatePostLaunchActionsPtrOutput {
+	return i.ToLaunchConfigurationTemplatePostLaunchActionsPtrOutputWithContext(context.Background())
+}
+
+func (i LaunchConfigurationTemplatePostLaunchActionsArgs) ToLaunchConfigurationTemplatePostLaunchActionsPtrOutputWithContext(ctx context.Context) LaunchConfigurationTemplatePostLaunchActionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchConfigurationTemplatePostLaunchActionsOutput).ToLaunchConfigurationTemplatePostLaunchActionsPtrOutputWithContext(ctx)
+}
+
+// LaunchConfigurationTemplatePostLaunchActionsPtrInput is an input type that accepts LaunchConfigurationTemplatePostLaunchActionsArgs, LaunchConfigurationTemplatePostLaunchActionsPtr and LaunchConfigurationTemplatePostLaunchActionsPtrOutput values.
+// You can construct a concrete instance of `LaunchConfigurationTemplatePostLaunchActionsPtrInput` via:
+//
+//	        LaunchConfigurationTemplatePostLaunchActionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type LaunchConfigurationTemplatePostLaunchActionsPtrInput interface {
+	pulumi.Input
+
+	ToLaunchConfigurationTemplatePostLaunchActionsPtrOutput() LaunchConfigurationTemplatePostLaunchActionsPtrOutput
+	ToLaunchConfigurationTemplatePostLaunchActionsPtrOutputWithContext(context.Context) LaunchConfigurationTemplatePostLaunchActionsPtrOutput
+}
+
+type launchConfigurationTemplatePostLaunchActionsPtrType LaunchConfigurationTemplatePostLaunchActionsArgs
+
+func LaunchConfigurationTemplatePostLaunchActionsPtr(v *LaunchConfigurationTemplatePostLaunchActionsArgs) LaunchConfigurationTemplatePostLaunchActionsPtrInput {
+	return (*launchConfigurationTemplatePostLaunchActionsPtrType)(v)
+}
+
+func (*launchConfigurationTemplatePostLaunchActionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LaunchConfigurationTemplatePostLaunchActions)(nil)).Elem()
+}
+
+func (i *launchConfigurationTemplatePostLaunchActionsPtrType) ToLaunchConfigurationTemplatePostLaunchActionsPtrOutput() LaunchConfigurationTemplatePostLaunchActionsPtrOutput {
+	return i.ToLaunchConfigurationTemplatePostLaunchActionsPtrOutputWithContext(context.Background())
+}
+
+func (i *launchConfigurationTemplatePostLaunchActionsPtrType) ToLaunchConfigurationTemplatePostLaunchActionsPtrOutputWithContext(ctx context.Context) LaunchConfigurationTemplatePostLaunchActionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchConfigurationTemplatePostLaunchActionsPtrOutput)
+}
+
+// Post launch actions to execute on the Test or Cutover instance.
+type LaunchConfigurationTemplatePostLaunchActionsOutput struct{ *pulumi.OutputState }
+
+func (LaunchConfigurationTemplatePostLaunchActionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchConfigurationTemplatePostLaunchActions)(nil)).Elem()
+}
+
+func (o LaunchConfigurationTemplatePostLaunchActionsOutput) ToLaunchConfigurationTemplatePostLaunchActionsOutput() LaunchConfigurationTemplatePostLaunchActionsOutput {
+	return o
+}
+
+func (o LaunchConfigurationTemplatePostLaunchActionsOutput) ToLaunchConfigurationTemplatePostLaunchActionsOutputWithContext(ctx context.Context) LaunchConfigurationTemplatePostLaunchActionsOutput {
+	return o
+}
+
+func (o LaunchConfigurationTemplatePostLaunchActionsOutput) ToLaunchConfigurationTemplatePostLaunchActionsPtrOutput() LaunchConfigurationTemplatePostLaunchActionsPtrOutput {
+	return o.ToLaunchConfigurationTemplatePostLaunchActionsPtrOutputWithContext(context.Background())
+}
+
+func (o LaunchConfigurationTemplatePostLaunchActionsOutput) ToLaunchConfigurationTemplatePostLaunchActionsPtrOutputWithContext(ctx context.Context) LaunchConfigurationTemplatePostLaunchActionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LaunchConfigurationTemplatePostLaunchActions) *LaunchConfigurationTemplatePostLaunchActions {
+		return &v
+	}).(LaunchConfigurationTemplatePostLaunchActionsPtrOutput)
+}
+
+// AWS Systems Manager Command's CloudWatch log group name.
+func (o LaunchConfigurationTemplatePostLaunchActionsOutput) CloudWatchLogGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LaunchConfigurationTemplatePostLaunchActions) *string { return v.CloudWatchLogGroupName }).(pulumi.StringPtrOutput)
+}
+
+// Deployment type in which AWS Systems Manager Documents will be executed.
+func (o LaunchConfigurationTemplatePostLaunchActionsOutput) Deployment() LaunchConfigurationTemplatePostLaunchActionsDeploymentPtrOutput {
+	return o.ApplyT(func(v LaunchConfigurationTemplatePostLaunchActions) *LaunchConfigurationTemplatePostLaunchActionsDeployment {
+		return v.Deployment
+	}).(LaunchConfigurationTemplatePostLaunchActionsDeploymentPtrOutput)
+}
+
+// AWS Systems Manager Command's logs S3 log bucket.
+func (o LaunchConfigurationTemplatePostLaunchActionsOutput) S3LogBucket() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LaunchConfigurationTemplatePostLaunchActions) *string { return v.S3LogBucket }).(pulumi.StringPtrOutput)
+}
+
+// AWS Systems Manager Command's logs S3 output key prefix.
+func (o LaunchConfigurationTemplatePostLaunchActionsOutput) S3OutputKeyPrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LaunchConfigurationTemplatePostLaunchActions) *string { return v.S3OutputKeyPrefix }).(pulumi.StringPtrOutput)
+}
+
+// AWS Systems Manager Documents to execute, in order.
+func (o LaunchConfigurationTemplatePostLaunchActionsOutput) SsmDocuments() LaunchConfigurationTemplateSsmDocumentArrayOutput {
+	return o.ApplyT(func(v LaunchConfigurationTemplatePostLaunchActions) []LaunchConfigurationTemplateSsmDocument {
+		return v.SsmDocuments
+	}).(LaunchConfigurationTemplateSsmDocumentArrayOutput)
+}
+
+type LaunchConfigurationTemplatePostLaunchActionsPtrOutput struct{ *pulumi.OutputState }
+
+func (LaunchConfigurationTemplatePostLaunchActionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LaunchConfigurationTemplatePostLaunchActions)(nil)).Elem()
+}
+
+func (o LaunchConfigurationTemplatePostLaunchActionsPtrOutput) ToLaunchConfigurationTemplatePostLaunchActionsPtrOutput() LaunchConfigurationTemplatePostLaunchActionsPtrOutput {
+	return o
+}
+
+func (o LaunchConfigurationTemplatePostLaunchActionsPtrOutput) ToLaunchConfigurationTemplatePostLaunchActionsPtrOutputWithContext(ctx context.Context) LaunchConfigurationTemplatePostLaunchActionsPtrOutput {
+	return o
+}
+
+func (o LaunchConfigurationTemplatePostLaunchActionsPtrOutput) Elem() LaunchConfigurationTemplatePostLaunchActionsOutput {
+	return o.ApplyT(func(v *LaunchConfigurationTemplatePostLaunchActions) LaunchConfigurationTemplatePostLaunchActions {
+		if v != nil {
+			return *v
+		}
+		var ret LaunchConfigurationTemplatePostLaunchActions
+		return ret
+	}).(LaunchConfigurationTemplatePostLaunchActionsOutput)
+}
+
+// AWS Systems Manager Command's CloudWatch log group name.
+func (o LaunchConfigurationTemplatePostLaunchActionsPtrOutput) CloudWatchLogGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LaunchConfigurationTemplatePostLaunchActions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CloudWatchLogGroupName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Deployment type in which AWS Systems Manager Documents will be executed.
+func (o LaunchConfigurationTemplatePostLaunchActionsPtrOutput) Deployment() LaunchConfigurationTemplatePostLaunchActionsDeploymentPtrOutput {
+	return o.ApplyT(func(v *LaunchConfigurationTemplatePostLaunchActions) *LaunchConfigurationTemplatePostLaunchActionsDeployment {
+		if v == nil {
+			return nil
+		}
+		return v.Deployment
+	}).(LaunchConfigurationTemplatePostLaunchActionsDeploymentPtrOutput)
+}
+
+// AWS Systems Manager Command's logs S3 log bucket.
+func (o LaunchConfigurationTemplatePostLaunchActionsPtrOutput) S3LogBucket() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LaunchConfigurationTemplatePostLaunchActions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.S3LogBucket
+	}).(pulumi.StringPtrOutput)
+}
+
+// AWS Systems Manager Command's logs S3 output key prefix.
+func (o LaunchConfigurationTemplatePostLaunchActionsPtrOutput) S3OutputKeyPrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LaunchConfigurationTemplatePostLaunchActions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.S3OutputKeyPrefix
+	}).(pulumi.StringPtrOutput)
+}
+
+// AWS Systems Manager Documents to execute, in order.
+func (o LaunchConfigurationTemplatePostLaunchActionsPtrOutput) SsmDocuments() LaunchConfigurationTemplateSsmDocumentArrayOutput {
+	return o.ApplyT(func(v *LaunchConfigurationTemplatePostLaunchActions) []LaunchConfigurationTemplateSsmDocument {
+		if v == nil {
+			return nil
+		}
+		return v.SsmDocuments
+	}).(LaunchConfigurationTemplateSsmDocumentArrayOutput)
+}
+
+// An AWS Systems Manager Document to execute as a post launch action.
+type LaunchConfigurationTemplateSsmDocument struct {
+	// User-friendly name for the AWS Systems Manager Document.
+	ActionName         string                                                     `pulumi:"actionName"`
+	ExternalParameters map[string]LaunchConfigurationTemplateSsmExternalParameter `pulumi:"externalParameters"`
+	// Whether Cutover is blocked when the document has failed.
+	MustSucceedForCutover *bool                  `pulumi:"mustSucceedForCutover"`
+	Parameters            map[string]interface{} `pulumi:"parameters"`
+	// AWS Systems Manager Document name or full ARN.
+	SsmDocumentName string `pulumi:"ssmDocumentName"`
+	// AWS Systems Manager Document timeout, in seconds.
+	TimeoutSeconds *int `pulumi:"timeoutSeconds"`
+}
+
+// LaunchConfigurationTemplateSsmDocumentInput is an input type that accepts LaunchConfigurationTemplateSsmDocumentArgs and LaunchConfigurationTemplateSsmDocumentOutput values.
+// You can construct a concrete instance of `LaunchConfigurationTemplateSsmDocumentInput` via:
+//
+//	LaunchConfigurationTemplateSsmDocumentArgs{...}
+type LaunchConfigurationTemplateSsmDocumentInput interface {
+	pulumi.Input
+
+	ToLaunchConfigurationTemplateSsmDocumentOutput() LaunchConfigurationTemplateSsmDocumentOutput
+	ToLaunchConfigurationTemplateSsmDocumentOutputWithContext(context.Context) LaunchConfigurationTemplateSsmDocumentOutput
+}
+
+// An AWS Systems Manager Document to execute as a post launch action.
+type LaunchConfigurationTemplateSsmDocumentArgs struct {
+	// User-friendly name for the AWS Systems Manager Document.
+	ActionName         pulumi.StringInput                                      `pulumi:"actionName"`
+	ExternalParameters LaunchConfigurationTemplateSsmExternalParameterMapInput `pulumi:"externalParameters"`
+	// Whether Cutover is blocked when the document has failed.
+	MustSucceedForCutover pulumi.BoolPtrInput `pulumi:"mustSucceedForCutover"`
+	Parameters            pulumi.MapInput     `pulumi:"parameters"`
+	// AWS Systems Manager Document name or full ARN.
+	SsmDocumentName pulumi.StringInput `pulumi:"ssmDocumentName"`
+	// AWS Systems Manager Document timeout, in seconds.
+	TimeoutSeconds pulumi.IntPtrInput `pulumi:"timeoutSeconds"`
+}
+
+func (LaunchConfigurationTemplateSsmDocumentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchConfigurationTemplateSsmDocument)(nil)).Elem()
+}
+
+func (i LaunchConfigurationTemplateSsmDocumentArgs) ToLaunchConfigurationTemplateSsmDocumentOutput() LaunchConfigurationTemplateSsmDocumentOutput {
+	return i.ToLaunchConfigurationTemplateSsmDocumentOutputWithContext(context.Background())
+}
+
+func (i LaunchConfigurationTemplateSsmDocumentArgs) ToLaunchConfigurationTemplateSsmDocumentOutputWithContext(ctx context.Context) LaunchConfigurationTemplateSsmDocumentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchConfigurationTemplateSsmDocumentOutput)
+}
+
+// LaunchConfigurationTemplateSsmDocumentArrayInput is an input type that accepts LaunchConfigurationTemplateSsmDocumentArray and LaunchConfigurationTemplateSsmDocumentArrayOutput values.
+// You can construct a concrete instance of `LaunchConfigurationTemplateSsmDocumentArrayInput` via:
+//
+//	LaunchConfigurationTemplateSsmDocumentArray{ LaunchConfigurationTemplateSsmDocumentArgs{...} }
+type LaunchConfigurationTemplateSsmDocumentArrayInput interface {
+	pulumi.Input
+
+	ToLaunchConfigurationTemplateSsmDocumentArrayOutput() LaunchConfigurationTemplateSsmDocumentArrayOutput
+	ToLaunchConfigurationTemplateSsmDocumentArrayOutputWithContext(context.Context) LaunchConfigurationTemplateSsmDocumentArrayOutput
+}
+
+type LaunchConfigurationTemplateSsmDocumentArray []LaunchConfigurationTemplateSsmDocumentInput
+
+func (LaunchConfigurationTemplateSsmDocumentArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LaunchConfigurationTemplateSsmDocument)(nil)).Elem()
+}
+
+func (i LaunchConfigurationTemplateSsmDocumentArray) ToLaunchConfigurationTemplateSsmDocumentArrayOutput() LaunchConfigurationTemplateSsmDocumentArrayOutput {
+	return i.ToLaunchConfigurationTemplateSsmDocumentArrayOutputWithContext(context.Background())
+}
+
+func (i LaunchConfigurationTemplateSsmDocumentArray) ToLaunchConfigurationTemplateSsmDocumentArrayOutputWithContext(ctx context.Context) LaunchConfigurationTemplateSsmDocumentArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchConfigurationTemplateSsmDocumentArrayOutput)
+}
+
+// An AWS Systems Manager Document to execute as a post launch action.
+type LaunchConfigurationTemplateSsmDocumentOutput struct{ *pulumi.OutputState }
+
+func (LaunchConfigurationTemplateSsmDocumentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchConfigurationTemplateSsmDocument)(nil)).Elem()
+}
+
+func (o LaunchConfigurationTemplateSsmDocumentOutput) ToLaunchConfigurationTemplateSsmDocumentOutput() LaunchConfigurationTemplateSsmDocumentOutput {
+	return o
+}
+
+func (o LaunchConfigurationTemplateSsmDocumentOutput) ToLaunchConfigurationTemplateSsmDocumentOutputWithContext(ctx context.Context) LaunchConfigurationTemplateSsmDocumentOutput {
+	return o
+}
+
+// User-friendly name for the AWS Systems Manager Document.
+func (o LaunchConfigurationTemplateSsmDocumentOutput) ActionName() pulumi.StringOutput {
+	return o.ApplyT(func(v LaunchConfigurationTemplateSsmDocument) string { return v.ActionName }).(pulumi.StringOutput)
+}
+
+func (o LaunchConfigurationTemplateSsmDocumentOutput) ExternalParameters() LaunchConfigurationTemplateSsmExternalParameterMapOutput {
+	return o.ApplyT(func(v LaunchConfigurationTemplateSsmDocument) map[string]LaunchConfigurationTemplateSsmExternalParameter {
+		return v.ExternalParameters
+	}).(LaunchConfigurationTemplateSsmExternalParameterMapOutput)
+}
+
+// Whether Cutover is blocked when the document has failed.
+func (o LaunchConfigurationTemplateSsmDocumentOutput) MustSucceedForCutover() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LaunchConfigurationTemplateSsmDocument) *bool { return v.MustSucceedForCutover }).(pulumi.BoolPtrOutput)
+}
+
+func (o LaunchConfigurationTemplateSsmDocumentOutput) Parameters() pulumi.MapOutput {
+	return o.ApplyT(func(v LaunchConfigurationTemplateSsmDocument) map[string]interface{} { return v.Parameters }).(pulumi.MapOutput)
+}
+
+// AWS Systems Manager Document name or full ARN.
+func (o LaunchConfigurationTemplateSsmDocumentOutput) SsmDocumentName() pulumi.StringOutput {
+	return o.ApplyT(func(v LaunchConfigurationTemplateSsmDocument) string { return v.SsmDocumentName }).(pulumi.StringOutput)
+}
+
+// AWS Systems Manager Document timeout, in seconds.
+func (o LaunchConfigurationTemplateSsmDocumentOutput) TimeoutSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LaunchConfigurationTemplateSsmDocument) *int { return v.TimeoutSeconds }).(pulumi.IntPtrOutput)
+}
+
+type LaunchConfigurationTemplateSsmDocumentArrayOutput struct{ *pulumi.OutputState }
+
+func (LaunchConfigurationTemplateSsmDocumentArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LaunchConfigurationTemplateSsmDocument)(nil)).Elem()
+}
+
+func (o LaunchConfigurationTemplateSsmDocumentArrayOutput) ToLaunchConfigurationTemplateSsmDocumentArrayOutput() LaunchConfigurationTemplateSsmDocumentArrayOutput {
+	return o
+}
+
+func (o LaunchConfigurationTemplateSsmDocumentArrayOutput) ToLaunchConfigurationTemplateSsmDocumentArrayOutputWithContext(ctx context.Context) LaunchConfigurationTemplateSsmDocumentArrayOutput {
+	return o
+}
+
+func (o LaunchConfigurationTemplateSsmDocumentArrayOutput) Index(i pulumi.IntInput) LaunchConfigurationTemplateSsmDocumentOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LaunchConfigurationTemplateSsmDocument {
+		return vs[0].([]LaunchConfigurationTemplateSsmDocument)[vs[1].(int)]
+	}).(LaunchConfigurationTemplateSsmDocumentOutput)
+}
+
+// An AWS Systems Manager Document external parameter.
+type LaunchConfigurationTemplateSsmExternalParameter struct {
+	// AWS Systems Manager Document external parameter dynamic path.
+	DynamicPath string `pulumi:"dynamicPath"`
+}
+
+// LaunchConfigurationTemplateSsmExternalParameterInput is an input type that accepts LaunchConfigurationTemplateSsmExternalParameterArgs and LaunchConfigurationTemplateSsmExternalParameterOutput values.
+// You can construct a concrete instance of `LaunchConfigurationTemplateSsmExternalParameterInput` via:
+//
+//	LaunchConfigurationTemplateSsmExternalParameterArgs{...}
+type LaunchConfigurationTemplateSsmExternalParameterInput interface {
+	pulumi.Input
+
+	ToLaunchConfigurationTemplateSsmExternalParameterOutput() LaunchConfigurationTemplateSsmExternalParameterOutput
+	ToLaunchConfigurationTemplateSsmExternalParameterOutputWithContext(context.Context) LaunchConfigurationTemplateSsmExternalParameterOutput
+}
+
+// An AWS Systems Manager Document external parameter.
+type LaunchConfigurationTemplateSsmExternalParameterArgs struct {
+	// AWS Systems Manager Document external parameter dynamic path.
+	DynamicPath pulumi.StringInput `pulumi:"dynamicPath"`
+}
+
+func (LaunchConfigurationTemplateSsmExternalParameterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchConfigurationTemplateSsmExternalParameter)(nil)).Elem()
+}
+
+func (i LaunchConfigurationTemplateSsmExternalParameterArgs) ToLaunchConfigurationTemplateSsmExternalParameterOutput() LaunchConfigurationTemplateSsmExternalParameterOutput {
+	return i.ToLaunchConfigurationTemplateSsmExternalParameterOutputWithContext(context.Background())
+}
+
+func (i LaunchConfigurationTemplateSsmExternalParameterArgs) ToLaunchConfigurationTemplateSsmExternalParameterOutputWithContext(ctx context.Context) LaunchConfigurationTemplateSsmExternalParameterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchConfigurationTemplateSsmExternalParameterOutput)
+}
+
+// LaunchConfigurationTemplateSsmExternalParameterMapInput is an input type that accepts LaunchConfigurationTemplateSsmExternalParameterMap and LaunchConfigurationTemplateSsmExternalParameterMapOutput values.
+// You can construct a concrete instance of `LaunchConfigurationTemplateSsmExternalParameterMapInput` via:
+//
+//	LaunchConfigurationTemplateSsmExternalParameterMap{ "key": LaunchConfigurationTemplateSsmExternalParameterArgs{...} }
+type LaunchConfigurationTemplateSsmExternalParameterMapInput interface {
+	pulumi.Input
+
+	ToLaunchConfigurationTemplateSsmExternalParameterMapOutput() LaunchConfigurationTemplateSsmExternalParameterMapOutput
+	ToLaunchConfigurationTemplateSsmExternalParameterMapOutputWithContext(context.Context) LaunchConfigurationTemplateSsmExternalParameterMapOutput
+}
+
+type LaunchConfigurationTemplateSsmExternalParameterMap map[string]LaunchConfigurationTemplateSsmExternalParameterInput
+
+func (LaunchConfigurationTemplateSsmExternalParameterMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]LaunchConfigurationTemplateSsmExternalParameter)(nil)).Elem()
+}
+
+func (i LaunchConfigurationTemplateSsmExternalParameterMap) ToLaunchConfigurationTemplateSsmExternalParameterMapOutput() LaunchConfigurationTemplateSsmExternalParameterMapOutput {
+	return i.ToLaunchConfigurationTemplateSsmExternalParameterMapOutputWithContext(context.Background())
+}
+
+func (i LaunchConfigurationTemplateSsmExternalParameterMap) ToLaunchConfigurationTemplateSsmExternalParameterMapOutputWithContext(ctx context.Context) LaunchConfigurationTemplateSsmExternalParameterMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchConfigurationTemplateSsmExternalParameterMapOutput)
+}
+
+// An AWS Systems Manager Document external parameter.
+type LaunchConfigurationTemplateSsmExternalParameterOutput struct{ *pulumi.OutputState }
+
+func (LaunchConfigurationTemplateSsmExternalParameterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchConfigurationTemplateSsmExternalParameter)(nil)).Elem()
+}
+
+func (o LaunchConfigurationTemplateSsmExternalParameterOutput) ToLaunchConfigurationTemplateSsmExternalParameterOutput() LaunchConfigurationTemplateSsmExternalParameterOutput {
+	return o
+}
+
+func (o LaunchConfigurationTemplateSsmExternalParameterOutput) ToLaunchConfigurationTemplateSsmExternalParameterOutputWithContext(ctx context.Context) LaunchConfigurationTemplateSsmExternalParameterOutput {
+	return o
+}
+
+// AWS Systems Manager Document external parameter dynamic path.
+func (o LaunchConfigurationTemplateSsmExternalParameterOutput) DynamicPath() pulumi.StringOutput {
+	return o.ApplyT(func(v LaunchConfigurationTemplateSsmExternalParameter) string { return v.DynamicPath }).(pulumi.StringOutput)
+}
+
+type LaunchConfigurationTemplateSsmExternalParameterMapOutput struct{ *pulumi.OutputState }
+
+func (LaunchConfigurationTemplateSsmExternalParameterMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]LaunchConfigurationTemplateSsmExternalParameter)(nil)).Elem()
+}
+
+func (o LaunchConfigurationTemplateSsmExternalParameterMapOutput) ToLaunchConfigurationTemplateSsmExternalParameterMapOutput() LaunchConfigurationTemplateSsmExternalParameterMapOutput {
+	return o
+}
+
+func (o LaunchConfigurationTemplateSsmExternalParameterMapOutput) ToLaunchConfigurationTemplateSsmExternalParameterMapOutputWithContext(ctx context.Context) LaunchConfigurationTemplateSsmExternalParameterMapOutput {
+	return o
+}
+
+func (o LaunchConfigurationTemplateSsmExternalParameterMapOutput) MapIndex(k pulumi.StringInput) LaunchConfigurationTemplateSsmExternalParameterOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) LaunchConfigurationTemplateSsmExternalParameter {
+		return vs[0].(map[string]LaunchConfigurationTemplateSsmExternalParameter)[vs[1].(string)]
+	}).(LaunchConfigurationTemplateSsmExternalParameterOutput)
+}
+
+// An AWS Systems Manager Parameter Store parameter.
+type LaunchConfigurationTemplateSsmParameterStoreParameter struct {
+	// AWS Systems Manager Parameter Store parameter name.
+	ParameterName string `pulumi:"parameterName"`
+	// AWS Systems Manager Parameter Store parameter type.
+	ParameterType LaunchConfigurationTemplateSsmParameterStoreParameterParameterType `pulumi:"parameterType"`
+}
+
+// A key-value pair to associate with the Launch Configuration Template.
+type LaunchConfigurationTemplateTag struct {
+	// The key name of the tag.
+	Key string `pulumi:"key"`
+	// The value for the tag.
+	Value string `pulumi:"value"`
+}
+
 // Configuration for a migration source environment.
 type NetworkMigrationDefinitionSourceConfiguration struct {
 	// The source environment type.
@@ -461,11 +1463,35 @@ func (o NetworkMigrationDefinitionTargetS3ConfigurationPtrOutput) S3BucketOwner(
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorSsmCommandConfigInput)(nil)).Elem(), ConnectorSsmCommandConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorSsmCommandConfigPtrInput)(nil)).Elem(), ConnectorSsmCommandConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LaunchConfigurationTemplateLaunchTemplateDiskConfInput)(nil)).Elem(), LaunchConfigurationTemplateLaunchTemplateDiskConfArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LaunchConfigurationTemplateLaunchTemplateDiskConfPtrInput)(nil)).Elem(), LaunchConfigurationTemplateLaunchTemplateDiskConfArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LaunchConfigurationTemplateLicensingInput)(nil)).Elem(), LaunchConfigurationTemplateLicensingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LaunchConfigurationTemplateLicensingPtrInput)(nil)).Elem(), LaunchConfigurationTemplateLicensingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LaunchConfigurationTemplatePostLaunchActionsInput)(nil)).Elem(), LaunchConfigurationTemplatePostLaunchActionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LaunchConfigurationTemplatePostLaunchActionsPtrInput)(nil)).Elem(), LaunchConfigurationTemplatePostLaunchActionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LaunchConfigurationTemplateSsmDocumentInput)(nil)).Elem(), LaunchConfigurationTemplateSsmDocumentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LaunchConfigurationTemplateSsmDocumentArrayInput)(nil)).Elem(), LaunchConfigurationTemplateSsmDocumentArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LaunchConfigurationTemplateSsmExternalParameterInput)(nil)).Elem(), LaunchConfigurationTemplateSsmExternalParameterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LaunchConfigurationTemplateSsmExternalParameterMapInput)(nil)).Elem(), LaunchConfigurationTemplateSsmExternalParameterMap{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkMigrationDefinitionSourceConfigurationInput)(nil)).Elem(), NetworkMigrationDefinitionSourceConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkMigrationDefinitionSourceConfigurationArrayInput)(nil)).Elem(), NetworkMigrationDefinitionSourceConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkMigrationDefinitionSourceS3ConfigurationInput)(nil)).Elem(), NetworkMigrationDefinitionSourceS3ConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkMigrationDefinitionTargetNetworkInput)(nil)).Elem(), NetworkMigrationDefinitionTargetNetworkArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkMigrationDefinitionTargetS3ConfigurationInput)(nil)).Elem(), NetworkMigrationDefinitionTargetS3ConfigurationArgs{})
+	pulumi.RegisterOutputType(ConnectorSsmCommandConfigOutput{})
+	pulumi.RegisterOutputType(ConnectorSsmCommandConfigPtrOutput{})
+	pulumi.RegisterOutputType(LaunchConfigurationTemplateLaunchTemplateDiskConfOutput{})
+	pulumi.RegisterOutputType(LaunchConfigurationTemplateLaunchTemplateDiskConfPtrOutput{})
+	pulumi.RegisterOutputType(LaunchConfigurationTemplateLicensingOutput{})
+	pulumi.RegisterOutputType(LaunchConfigurationTemplateLicensingPtrOutput{})
+	pulumi.RegisterOutputType(LaunchConfigurationTemplatePostLaunchActionsOutput{})
+	pulumi.RegisterOutputType(LaunchConfigurationTemplatePostLaunchActionsPtrOutput{})
+	pulumi.RegisterOutputType(LaunchConfigurationTemplateSsmDocumentOutput{})
+	pulumi.RegisterOutputType(LaunchConfigurationTemplateSsmDocumentArrayOutput{})
+	pulumi.RegisterOutputType(LaunchConfigurationTemplateSsmExternalParameterOutput{})
+	pulumi.RegisterOutputType(LaunchConfigurationTemplateSsmExternalParameterMapOutput{})
 	pulumi.RegisterOutputType(NetworkMigrationDefinitionSourceConfigurationOutput{})
 	pulumi.RegisterOutputType(NetworkMigrationDefinitionSourceConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(NetworkMigrationDefinitionSourceS3ConfigurationOutput{})

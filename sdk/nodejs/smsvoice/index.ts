@@ -40,6 +40,11 @@ export const getRegistration: typeof import("./getRegistration").getRegistration
 export const getRegistrationOutput: typeof import("./getRegistration").getRegistrationOutput = null as any;
 utilities.lazyLoad(exports, ["getRegistration","getRegistrationOutput"], () => require("./getRegistration"));
 
+export { GetRegistrationAttachmentArgs, GetRegistrationAttachmentResult, GetRegistrationAttachmentOutputArgs } from "./getRegistrationAttachment";
+export const getRegistrationAttachment: typeof import("./getRegistrationAttachment").getRegistrationAttachment = null as any;
+export const getRegistrationAttachmentOutput: typeof import("./getRegistrationAttachment").getRegistrationAttachmentOutput = null as any;
+utilities.lazyLoad(exports, ["getRegistrationAttachment","getRegistrationAttachmentOutput"], () => require("./getRegistrationAttachment"));
+
 export { GetResourcePolicyArgs, GetResourcePolicyResult, GetResourcePolicyOutputArgs } from "./getResourcePolicy";
 export const getResourcePolicy: typeof import("./getResourcePolicy").getResourcePolicy = null as any;
 export const getResourcePolicyOutput: typeof import("./getResourcePolicy").getResourcePolicyOutput = null as any;
@@ -49,6 +54,11 @@ export { GetSenderIdArgs, GetSenderIdResult, GetSenderIdOutputArgs } from "./get
 export const getSenderId: typeof import("./getSenderId").getSenderId = null as any;
 export const getSenderIdOutput: typeof import("./getSenderId").getSenderIdOutput = null as any;
 utilities.lazyLoad(exports, ["getSenderId","getSenderIdOutput"], () => require("./getSenderId"));
+
+export { GetVerifiedDestinationNumberArgs, GetVerifiedDestinationNumberResult, GetVerifiedDestinationNumberOutputArgs } from "./getVerifiedDestinationNumber";
+export const getVerifiedDestinationNumber: typeof import("./getVerifiedDestinationNumber").getVerifiedDestinationNumber = null as any;
+export const getVerifiedDestinationNumberOutput: typeof import("./getVerifiedDestinationNumber").getVerifiedDestinationNumberOutput = null as any;
+utilities.lazyLoad(exports, ["getVerifiedDestinationNumber","getVerifiedDestinationNumberOutput"], () => require("./getVerifiedDestinationNumber"));
 
 export { OptOutListArgs } from "./optOutList";
 export type OptOutList = import("./optOutList").OptOutList;
@@ -75,6 +85,11 @@ export type Registration = import("./registration").Registration;
 export const Registration: typeof import("./registration").Registration = null as any;
 utilities.lazyLoad(exports, ["Registration"], () => require("./registration"));
 
+export { RegistrationAttachmentArgs } from "./registrationAttachment";
+export type RegistrationAttachment = import("./registrationAttachment").RegistrationAttachment;
+export const RegistrationAttachment: typeof import("./registrationAttachment").RegistrationAttachment = null as any;
+utilities.lazyLoad(exports, ["RegistrationAttachment"], () => require("./registrationAttachment"));
+
 export { ResourcePolicyArgs } from "./resourcePolicy";
 export type ResourcePolicy = import("./resourcePolicy").ResourcePolicy;
 export const ResourcePolicy: typeof import("./resourcePolicy").ResourcePolicy = null as any;
@@ -84,6 +99,11 @@ export { SenderIdArgs } from "./senderId";
 export type SenderId = import("./senderId").SenderId;
 export const SenderId: typeof import("./senderId").SenderId = null as any;
 utilities.lazyLoad(exports, ["SenderId"], () => require("./senderId"));
+
+export { VerifiedDestinationNumberArgs } from "./verifiedDestinationNumber";
+export type VerifiedDestinationNumber = import("./verifiedDestinationNumber").VerifiedDestinationNumber;
+export const VerifiedDestinationNumber: typeof import("./verifiedDestinationNumber").VerifiedDestinationNumber = null as any;
+utilities.lazyLoad(exports, ["VerifiedDestinationNumber"], () => require("./verifiedDestinationNumber"));
 
 
 // Export enums:
@@ -105,10 +125,14 @@ const _module = {
                 return new ProtectConfiguration(name, <any>undefined, { urn })
             case "aws-native:smsvoice:Registration":
                 return new Registration(name, <any>undefined, { urn })
+            case "aws-native:smsvoice:RegistrationAttachment":
+                return new RegistrationAttachment(name, <any>undefined, { urn })
             case "aws-native:smsvoice:ResourcePolicy":
                 return new ResourcePolicy(name, <any>undefined, { urn })
             case "aws-native:smsvoice:SenderId":
                 return new SenderId(name, <any>undefined, { urn })
+            case "aws-native:smsvoice:VerifiedDestinationNumber":
+                return new VerifiedDestinationNumber(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

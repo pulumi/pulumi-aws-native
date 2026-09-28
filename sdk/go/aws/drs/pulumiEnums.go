@@ -344,13 +344,871 @@ func (in *launchConfigurationTemplateTargetInstanceTypeRightSizingMethodPtr) ToL
 	return pulumi.ToOutputWithContext(ctx, in).(LaunchConfigurationTemplateTargetInstanceTypeRightSizingMethodPtrOutput)
 }
 
+// The data plane routing mechanism that will be used for replication.
+type ReplicationConfigurationTemplateDataPlaneRouting string
+
+const (
+	ReplicationConfigurationTemplateDataPlaneRoutingPrivateIp = ReplicationConfigurationTemplateDataPlaneRouting("PRIVATE_IP")
+	ReplicationConfigurationTemplateDataPlaneRoutingPublicIp  = ReplicationConfigurationTemplateDataPlaneRouting("PUBLIC_IP")
+)
+
+func (ReplicationConfigurationTemplateDataPlaneRouting) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicationConfigurationTemplateDataPlaneRouting)(nil)).Elem()
+}
+
+func (e ReplicationConfigurationTemplateDataPlaneRouting) ToReplicationConfigurationTemplateDataPlaneRoutingOutput() ReplicationConfigurationTemplateDataPlaneRoutingOutput {
+	return pulumi.ToOutput(e).(ReplicationConfigurationTemplateDataPlaneRoutingOutput)
+}
+
+func (e ReplicationConfigurationTemplateDataPlaneRouting) ToReplicationConfigurationTemplateDataPlaneRoutingOutputWithContext(ctx context.Context) ReplicationConfigurationTemplateDataPlaneRoutingOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ReplicationConfigurationTemplateDataPlaneRoutingOutput)
+}
+
+func (e ReplicationConfigurationTemplateDataPlaneRouting) ToReplicationConfigurationTemplateDataPlaneRoutingPtrOutput() ReplicationConfigurationTemplateDataPlaneRoutingPtrOutput {
+	return e.ToReplicationConfigurationTemplateDataPlaneRoutingPtrOutputWithContext(context.Background())
+}
+
+func (e ReplicationConfigurationTemplateDataPlaneRouting) ToReplicationConfigurationTemplateDataPlaneRoutingPtrOutputWithContext(ctx context.Context) ReplicationConfigurationTemplateDataPlaneRoutingPtrOutput {
+	return ReplicationConfigurationTemplateDataPlaneRouting(e).ToReplicationConfigurationTemplateDataPlaneRoutingOutputWithContext(ctx).ToReplicationConfigurationTemplateDataPlaneRoutingPtrOutputWithContext(ctx)
+}
+
+func (e ReplicationConfigurationTemplateDataPlaneRouting) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ReplicationConfigurationTemplateDataPlaneRouting) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ReplicationConfigurationTemplateDataPlaneRouting) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ReplicationConfigurationTemplateDataPlaneRouting) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ReplicationConfigurationTemplateDataPlaneRoutingOutput struct{ *pulumi.OutputState }
+
+func (ReplicationConfigurationTemplateDataPlaneRoutingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicationConfigurationTemplateDataPlaneRouting)(nil)).Elem()
+}
+
+func (o ReplicationConfigurationTemplateDataPlaneRoutingOutput) ToReplicationConfigurationTemplateDataPlaneRoutingOutput() ReplicationConfigurationTemplateDataPlaneRoutingOutput {
+	return o
+}
+
+func (o ReplicationConfigurationTemplateDataPlaneRoutingOutput) ToReplicationConfigurationTemplateDataPlaneRoutingOutputWithContext(ctx context.Context) ReplicationConfigurationTemplateDataPlaneRoutingOutput {
+	return o
+}
+
+func (o ReplicationConfigurationTemplateDataPlaneRoutingOutput) ToReplicationConfigurationTemplateDataPlaneRoutingPtrOutput() ReplicationConfigurationTemplateDataPlaneRoutingPtrOutput {
+	return o.ToReplicationConfigurationTemplateDataPlaneRoutingPtrOutputWithContext(context.Background())
+}
+
+func (o ReplicationConfigurationTemplateDataPlaneRoutingOutput) ToReplicationConfigurationTemplateDataPlaneRoutingPtrOutputWithContext(ctx context.Context) ReplicationConfigurationTemplateDataPlaneRoutingPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReplicationConfigurationTemplateDataPlaneRouting) *ReplicationConfigurationTemplateDataPlaneRouting {
+		return &v
+	}).(ReplicationConfigurationTemplateDataPlaneRoutingPtrOutput)
+}
+
+func (o ReplicationConfigurationTemplateDataPlaneRoutingOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ReplicationConfigurationTemplateDataPlaneRoutingOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ReplicationConfigurationTemplateDataPlaneRouting) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ReplicationConfigurationTemplateDataPlaneRoutingOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ReplicationConfigurationTemplateDataPlaneRoutingOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ReplicationConfigurationTemplateDataPlaneRouting) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ReplicationConfigurationTemplateDataPlaneRoutingPtrOutput struct{ *pulumi.OutputState }
+
+func (ReplicationConfigurationTemplateDataPlaneRoutingPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReplicationConfigurationTemplateDataPlaneRouting)(nil)).Elem()
+}
+
+func (o ReplicationConfigurationTemplateDataPlaneRoutingPtrOutput) ToReplicationConfigurationTemplateDataPlaneRoutingPtrOutput() ReplicationConfigurationTemplateDataPlaneRoutingPtrOutput {
+	return o
+}
+
+func (o ReplicationConfigurationTemplateDataPlaneRoutingPtrOutput) ToReplicationConfigurationTemplateDataPlaneRoutingPtrOutputWithContext(ctx context.Context) ReplicationConfigurationTemplateDataPlaneRoutingPtrOutput {
+	return o
+}
+
+func (o ReplicationConfigurationTemplateDataPlaneRoutingPtrOutput) Elem() ReplicationConfigurationTemplateDataPlaneRoutingOutput {
+	return o.ApplyT(func(v *ReplicationConfigurationTemplateDataPlaneRouting) ReplicationConfigurationTemplateDataPlaneRouting {
+		if v != nil {
+			return *v
+		}
+		var ret ReplicationConfigurationTemplateDataPlaneRouting
+		return ret
+	}).(ReplicationConfigurationTemplateDataPlaneRoutingOutput)
+}
+
+func (o ReplicationConfigurationTemplateDataPlaneRoutingPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ReplicationConfigurationTemplateDataPlaneRoutingPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ReplicationConfigurationTemplateDataPlaneRouting) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ReplicationConfigurationTemplateDataPlaneRoutingInput is an input type that accepts values of the ReplicationConfigurationTemplateDataPlaneRouting enum
+// A concrete instance of `ReplicationConfigurationTemplateDataPlaneRoutingInput` can be one of the following:
+//
+//	ReplicationConfigurationTemplateDataPlaneRoutingPrivateIp
+//	ReplicationConfigurationTemplateDataPlaneRoutingPublicIp
+type ReplicationConfigurationTemplateDataPlaneRoutingInput interface {
+	pulumi.Input
+
+	ToReplicationConfigurationTemplateDataPlaneRoutingOutput() ReplicationConfigurationTemplateDataPlaneRoutingOutput
+	ToReplicationConfigurationTemplateDataPlaneRoutingOutputWithContext(context.Context) ReplicationConfigurationTemplateDataPlaneRoutingOutput
+}
+
+var replicationConfigurationTemplateDataPlaneRoutingPtrType = reflect.TypeOf((**ReplicationConfigurationTemplateDataPlaneRouting)(nil)).Elem()
+
+type ReplicationConfigurationTemplateDataPlaneRoutingPtrInput interface {
+	pulumi.Input
+
+	ToReplicationConfigurationTemplateDataPlaneRoutingPtrOutput() ReplicationConfigurationTemplateDataPlaneRoutingPtrOutput
+	ToReplicationConfigurationTemplateDataPlaneRoutingPtrOutputWithContext(context.Context) ReplicationConfigurationTemplateDataPlaneRoutingPtrOutput
+}
+
+type replicationConfigurationTemplateDataPlaneRoutingPtr string
+
+func ReplicationConfigurationTemplateDataPlaneRoutingPtr(v string) ReplicationConfigurationTemplateDataPlaneRoutingPtrInput {
+	return (*replicationConfigurationTemplateDataPlaneRoutingPtr)(&v)
+}
+
+func (*replicationConfigurationTemplateDataPlaneRoutingPtr) ElementType() reflect.Type {
+	return replicationConfigurationTemplateDataPlaneRoutingPtrType
+}
+
+func (in *replicationConfigurationTemplateDataPlaneRoutingPtr) ToReplicationConfigurationTemplateDataPlaneRoutingPtrOutput() ReplicationConfigurationTemplateDataPlaneRoutingPtrOutput {
+	return pulumi.ToOutput(in).(ReplicationConfigurationTemplateDataPlaneRoutingPtrOutput)
+}
+
+func (in *replicationConfigurationTemplateDataPlaneRoutingPtr) ToReplicationConfigurationTemplateDataPlaneRoutingPtrOutputWithContext(ctx context.Context) ReplicationConfigurationTemplateDataPlaneRoutingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ReplicationConfigurationTemplateDataPlaneRoutingPtrOutput)
+}
+
+// The Staging Disk EBS volume type to be used during replication.
+type ReplicationConfigurationTemplateDefaultLargeStagingDiskType string
+
+const (
+	ReplicationConfigurationTemplateDefaultLargeStagingDiskTypeGp2  = ReplicationConfigurationTemplateDefaultLargeStagingDiskType("GP2")
+	ReplicationConfigurationTemplateDefaultLargeStagingDiskTypeGp3  = ReplicationConfigurationTemplateDefaultLargeStagingDiskType("GP3")
+	ReplicationConfigurationTemplateDefaultLargeStagingDiskTypeSt1  = ReplicationConfigurationTemplateDefaultLargeStagingDiskType("ST1")
+	ReplicationConfigurationTemplateDefaultLargeStagingDiskTypeAuto = ReplicationConfigurationTemplateDefaultLargeStagingDiskType("AUTO")
+)
+
+func (ReplicationConfigurationTemplateDefaultLargeStagingDiskType) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicationConfigurationTemplateDefaultLargeStagingDiskType)(nil)).Elem()
+}
+
+func (e ReplicationConfigurationTemplateDefaultLargeStagingDiskType) ToReplicationConfigurationTemplateDefaultLargeStagingDiskTypeOutput() ReplicationConfigurationTemplateDefaultLargeStagingDiskTypeOutput {
+	return pulumi.ToOutput(e).(ReplicationConfigurationTemplateDefaultLargeStagingDiskTypeOutput)
+}
+
+func (e ReplicationConfigurationTemplateDefaultLargeStagingDiskType) ToReplicationConfigurationTemplateDefaultLargeStagingDiskTypeOutputWithContext(ctx context.Context) ReplicationConfigurationTemplateDefaultLargeStagingDiskTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ReplicationConfigurationTemplateDefaultLargeStagingDiskTypeOutput)
+}
+
+func (e ReplicationConfigurationTemplateDefaultLargeStagingDiskType) ToReplicationConfigurationTemplateDefaultLargeStagingDiskTypePtrOutput() ReplicationConfigurationTemplateDefaultLargeStagingDiskTypePtrOutput {
+	return e.ToReplicationConfigurationTemplateDefaultLargeStagingDiskTypePtrOutputWithContext(context.Background())
+}
+
+func (e ReplicationConfigurationTemplateDefaultLargeStagingDiskType) ToReplicationConfigurationTemplateDefaultLargeStagingDiskTypePtrOutputWithContext(ctx context.Context) ReplicationConfigurationTemplateDefaultLargeStagingDiskTypePtrOutput {
+	return ReplicationConfigurationTemplateDefaultLargeStagingDiskType(e).ToReplicationConfigurationTemplateDefaultLargeStagingDiskTypeOutputWithContext(ctx).ToReplicationConfigurationTemplateDefaultLargeStagingDiskTypePtrOutputWithContext(ctx)
+}
+
+func (e ReplicationConfigurationTemplateDefaultLargeStagingDiskType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ReplicationConfigurationTemplateDefaultLargeStagingDiskType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ReplicationConfigurationTemplateDefaultLargeStagingDiskType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ReplicationConfigurationTemplateDefaultLargeStagingDiskType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ReplicationConfigurationTemplateDefaultLargeStagingDiskTypeOutput struct{ *pulumi.OutputState }
+
+func (ReplicationConfigurationTemplateDefaultLargeStagingDiskTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicationConfigurationTemplateDefaultLargeStagingDiskType)(nil)).Elem()
+}
+
+func (o ReplicationConfigurationTemplateDefaultLargeStagingDiskTypeOutput) ToReplicationConfigurationTemplateDefaultLargeStagingDiskTypeOutput() ReplicationConfigurationTemplateDefaultLargeStagingDiskTypeOutput {
+	return o
+}
+
+func (o ReplicationConfigurationTemplateDefaultLargeStagingDiskTypeOutput) ToReplicationConfigurationTemplateDefaultLargeStagingDiskTypeOutputWithContext(ctx context.Context) ReplicationConfigurationTemplateDefaultLargeStagingDiskTypeOutput {
+	return o
+}
+
+func (o ReplicationConfigurationTemplateDefaultLargeStagingDiskTypeOutput) ToReplicationConfigurationTemplateDefaultLargeStagingDiskTypePtrOutput() ReplicationConfigurationTemplateDefaultLargeStagingDiskTypePtrOutput {
+	return o.ToReplicationConfigurationTemplateDefaultLargeStagingDiskTypePtrOutputWithContext(context.Background())
+}
+
+func (o ReplicationConfigurationTemplateDefaultLargeStagingDiskTypeOutput) ToReplicationConfigurationTemplateDefaultLargeStagingDiskTypePtrOutputWithContext(ctx context.Context) ReplicationConfigurationTemplateDefaultLargeStagingDiskTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReplicationConfigurationTemplateDefaultLargeStagingDiskType) *ReplicationConfigurationTemplateDefaultLargeStagingDiskType {
+		return &v
+	}).(ReplicationConfigurationTemplateDefaultLargeStagingDiskTypePtrOutput)
+}
+
+func (o ReplicationConfigurationTemplateDefaultLargeStagingDiskTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ReplicationConfigurationTemplateDefaultLargeStagingDiskTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ReplicationConfigurationTemplateDefaultLargeStagingDiskType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ReplicationConfigurationTemplateDefaultLargeStagingDiskTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ReplicationConfigurationTemplateDefaultLargeStagingDiskTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ReplicationConfigurationTemplateDefaultLargeStagingDiskType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ReplicationConfigurationTemplateDefaultLargeStagingDiskTypePtrOutput struct{ *pulumi.OutputState }
+
+func (ReplicationConfigurationTemplateDefaultLargeStagingDiskTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReplicationConfigurationTemplateDefaultLargeStagingDiskType)(nil)).Elem()
+}
+
+func (o ReplicationConfigurationTemplateDefaultLargeStagingDiskTypePtrOutput) ToReplicationConfigurationTemplateDefaultLargeStagingDiskTypePtrOutput() ReplicationConfigurationTemplateDefaultLargeStagingDiskTypePtrOutput {
+	return o
+}
+
+func (o ReplicationConfigurationTemplateDefaultLargeStagingDiskTypePtrOutput) ToReplicationConfigurationTemplateDefaultLargeStagingDiskTypePtrOutputWithContext(ctx context.Context) ReplicationConfigurationTemplateDefaultLargeStagingDiskTypePtrOutput {
+	return o
+}
+
+func (o ReplicationConfigurationTemplateDefaultLargeStagingDiskTypePtrOutput) Elem() ReplicationConfigurationTemplateDefaultLargeStagingDiskTypeOutput {
+	return o.ApplyT(func(v *ReplicationConfigurationTemplateDefaultLargeStagingDiskType) ReplicationConfigurationTemplateDefaultLargeStagingDiskType {
+		if v != nil {
+			return *v
+		}
+		var ret ReplicationConfigurationTemplateDefaultLargeStagingDiskType
+		return ret
+	}).(ReplicationConfigurationTemplateDefaultLargeStagingDiskTypeOutput)
+}
+
+func (o ReplicationConfigurationTemplateDefaultLargeStagingDiskTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ReplicationConfigurationTemplateDefaultLargeStagingDiskTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ReplicationConfigurationTemplateDefaultLargeStagingDiskType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ReplicationConfigurationTemplateDefaultLargeStagingDiskTypeInput is an input type that accepts values of the ReplicationConfigurationTemplateDefaultLargeStagingDiskType enum
+// A concrete instance of `ReplicationConfigurationTemplateDefaultLargeStagingDiskTypeInput` can be one of the following:
+//
+//	ReplicationConfigurationTemplateDefaultLargeStagingDiskTypeGp2
+//	ReplicationConfigurationTemplateDefaultLargeStagingDiskTypeGp3
+//	ReplicationConfigurationTemplateDefaultLargeStagingDiskTypeSt1
+//	ReplicationConfigurationTemplateDefaultLargeStagingDiskTypeAuto
+type ReplicationConfigurationTemplateDefaultLargeStagingDiskTypeInput interface {
+	pulumi.Input
+
+	ToReplicationConfigurationTemplateDefaultLargeStagingDiskTypeOutput() ReplicationConfigurationTemplateDefaultLargeStagingDiskTypeOutput
+	ToReplicationConfigurationTemplateDefaultLargeStagingDiskTypeOutputWithContext(context.Context) ReplicationConfigurationTemplateDefaultLargeStagingDiskTypeOutput
+}
+
+var replicationConfigurationTemplateDefaultLargeStagingDiskTypePtrType = reflect.TypeOf((**ReplicationConfigurationTemplateDefaultLargeStagingDiskType)(nil)).Elem()
+
+type ReplicationConfigurationTemplateDefaultLargeStagingDiskTypePtrInput interface {
+	pulumi.Input
+
+	ToReplicationConfigurationTemplateDefaultLargeStagingDiskTypePtrOutput() ReplicationConfigurationTemplateDefaultLargeStagingDiskTypePtrOutput
+	ToReplicationConfigurationTemplateDefaultLargeStagingDiskTypePtrOutputWithContext(context.Context) ReplicationConfigurationTemplateDefaultLargeStagingDiskTypePtrOutput
+}
+
+type replicationConfigurationTemplateDefaultLargeStagingDiskTypePtr string
+
+func ReplicationConfigurationTemplateDefaultLargeStagingDiskTypePtr(v string) ReplicationConfigurationTemplateDefaultLargeStagingDiskTypePtrInput {
+	return (*replicationConfigurationTemplateDefaultLargeStagingDiskTypePtr)(&v)
+}
+
+func (*replicationConfigurationTemplateDefaultLargeStagingDiskTypePtr) ElementType() reflect.Type {
+	return replicationConfigurationTemplateDefaultLargeStagingDiskTypePtrType
+}
+
+func (in *replicationConfigurationTemplateDefaultLargeStagingDiskTypePtr) ToReplicationConfigurationTemplateDefaultLargeStagingDiskTypePtrOutput() ReplicationConfigurationTemplateDefaultLargeStagingDiskTypePtrOutput {
+	return pulumi.ToOutput(in).(ReplicationConfigurationTemplateDefaultLargeStagingDiskTypePtrOutput)
+}
+
+func (in *replicationConfigurationTemplateDefaultLargeStagingDiskTypePtr) ToReplicationConfigurationTemplateDefaultLargeStagingDiskTypePtrOutputWithContext(ctx context.Context) ReplicationConfigurationTemplateDefaultLargeStagingDiskTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ReplicationConfigurationTemplateDefaultLargeStagingDiskTypePtrOutput)
+}
+
+// The type of EBS encryption to be used during replication.
+type ReplicationConfigurationTemplateEbsEncryption string
+
+const (
+	ReplicationConfigurationTemplateEbsEncryptionDefault = ReplicationConfigurationTemplateEbsEncryption("DEFAULT")
+	ReplicationConfigurationTemplateEbsEncryptionCustom  = ReplicationConfigurationTemplateEbsEncryption("CUSTOM")
+	ReplicationConfigurationTemplateEbsEncryptionNone    = ReplicationConfigurationTemplateEbsEncryption("NONE")
+)
+
+func (ReplicationConfigurationTemplateEbsEncryption) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicationConfigurationTemplateEbsEncryption)(nil)).Elem()
+}
+
+func (e ReplicationConfigurationTemplateEbsEncryption) ToReplicationConfigurationTemplateEbsEncryptionOutput() ReplicationConfigurationTemplateEbsEncryptionOutput {
+	return pulumi.ToOutput(e).(ReplicationConfigurationTemplateEbsEncryptionOutput)
+}
+
+func (e ReplicationConfigurationTemplateEbsEncryption) ToReplicationConfigurationTemplateEbsEncryptionOutputWithContext(ctx context.Context) ReplicationConfigurationTemplateEbsEncryptionOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ReplicationConfigurationTemplateEbsEncryptionOutput)
+}
+
+func (e ReplicationConfigurationTemplateEbsEncryption) ToReplicationConfigurationTemplateEbsEncryptionPtrOutput() ReplicationConfigurationTemplateEbsEncryptionPtrOutput {
+	return e.ToReplicationConfigurationTemplateEbsEncryptionPtrOutputWithContext(context.Background())
+}
+
+func (e ReplicationConfigurationTemplateEbsEncryption) ToReplicationConfigurationTemplateEbsEncryptionPtrOutputWithContext(ctx context.Context) ReplicationConfigurationTemplateEbsEncryptionPtrOutput {
+	return ReplicationConfigurationTemplateEbsEncryption(e).ToReplicationConfigurationTemplateEbsEncryptionOutputWithContext(ctx).ToReplicationConfigurationTemplateEbsEncryptionPtrOutputWithContext(ctx)
+}
+
+func (e ReplicationConfigurationTemplateEbsEncryption) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ReplicationConfigurationTemplateEbsEncryption) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ReplicationConfigurationTemplateEbsEncryption) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ReplicationConfigurationTemplateEbsEncryption) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ReplicationConfigurationTemplateEbsEncryptionOutput struct{ *pulumi.OutputState }
+
+func (ReplicationConfigurationTemplateEbsEncryptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicationConfigurationTemplateEbsEncryption)(nil)).Elem()
+}
+
+func (o ReplicationConfigurationTemplateEbsEncryptionOutput) ToReplicationConfigurationTemplateEbsEncryptionOutput() ReplicationConfigurationTemplateEbsEncryptionOutput {
+	return o
+}
+
+func (o ReplicationConfigurationTemplateEbsEncryptionOutput) ToReplicationConfigurationTemplateEbsEncryptionOutputWithContext(ctx context.Context) ReplicationConfigurationTemplateEbsEncryptionOutput {
+	return o
+}
+
+func (o ReplicationConfigurationTemplateEbsEncryptionOutput) ToReplicationConfigurationTemplateEbsEncryptionPtrOutput() ReplicationConfigurationTemplateEbsEncryptionPtrOutput {
+	return o.ToReplicationConfigurationTemplateEbsEncryptionPtrOutputWithContext(context.Background())
+}
+
+func (o ReplicationConfigurationTemplateEbsEncryptionOutput) ToReplicationConfigurationTemplateEbsEncryptionPtrOutputWithContext(ctx context.Context) ReplicationConfigurationTemplateEbsEncryptionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReplicationConfigurationTemplateEbsEncryption) *ReplicationConfigurationTemplateEbsEncryption {
+		return &v
+	}).(ReplicationConfigurationTemplateEbsEncryptionPtrOutput)
+}
+
+func (o ReplicationConfigurationTemplateEbsEncryptionOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ReplicationConfigurationTemplateEbsEncryptionOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ReplicationConfigurationTemplateEbsEncryption) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ReplicationConfigurationTemplateEbsEncryptionOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ReplicationConfigurationTemplateEbsEncryptionOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ReplicationConfigurationTemplateEbsEncryption) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ReplicationConfigurationTemplateEbsEncryptionPtrOutput struct{ *pulumi.OutputState }
+
+func (ReplicationConfigurationTemplateEbsEncryptionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReplicationConfigurationTemplateEbsEncryption)(nil)).Elem()
+}
+
+func (o ReplicationConfigurationTemplateEbsEncryptionPtrOutput) ToReplicationConfigurationTemplateEbsEncryptionPtrOutput() ReplicationConfigurationTemplateEbsEncryptionPtrOutput {
+	return o
+}
+
+func (o ReplicationConfigurationTemplateEbsEncryptionPtrOutput) ToReplicationConfigurationTemplateEbsEncryptionPtrOutputWithContext(ctx context.Context) ReplicationConfigurationTemplateEbsEncryptionPtrOutput {
+	return o
+}
+
+func (o ReplicationConfigurationTemplateEbsEncryptionPtrOutput) Elem() ReplicationConfigurationTemplateEbsEncryptionOutput {
+	return o.ApplyT(func(v *ReplicationConfigurationTemplateEbsEncryption) ReplicationConfigurationTemplateEbsEncryption {
+		if v != nil {
+			return *v
+		}
+		var ret ReplicationConfigurationTemplateEbsEncryption
+		return ret
+	}).(ReplicationConfigurationTemplateEbsEncryptionOutput)
+}
+
+func (o ReplicationConfigurationTemplateEbsEncryptionPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ReplicationConfigurationTemplateEbsEncryptionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ReplicationConfigurationTemplateEbsEncryption) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ReplicationConfigurationTemplateEbsEncryptionInput is an input type that accepts values of the ReplicationConfigurationTemplateEbsEncryption enum
+// A concrete instance of `ReplicationConfigurationTemplateEbsEncryptionInput` can be one of the following:
+//
+//	ReplicationConfigurationTemplateEbsEncryptionDefault
+//	ReplicationConfigurationTemplateEbsEncryptionCustom
+//	ReplicationConfigurationTemplateEbsEncryptionNone
+type ReplicationConfigurationTemplateEbsEncryptionInput interface {
+	pulumi.Input
+
+	ToReplicationConfigurationTemplateEbsEncryptionOutput() ReplicationConfigurationTemplateEbsEncryptionOutput
+	ToReplicationConfigurationTemplateEbsEncryptionOutputWithContext(context.Context) ReplicationConfigurationTemplateEbsEncryptionOutput
+}
+
+var replicationConfigurationTemplateEbsEncryptionPtrType = reflect.TypeOf((**ReplicationConfigurationTemplateEbsEncryption)(nil)).Elem()
+
+type ReplicationConfigurationTemplateEbsEncryptionPtrInput interface {
+	pulumi.Input
+
+	ToReplicationConfigurationTemplateEbsEncryptionPtrOutput() ReplicationConfigurationTemplateEbsEncryptionPtrOutput
+	ToReplicationConfigurationTemplateEbsEncryptionPtrOutputWithContext(context.Context) ReplicationConfigurationTemplateEbsEncryptionPtrOutput
+}
+
+type replicationConfigurationTemplateEbsEncryptionPtr string
+
+func ReplicationConfigurationTemplateEbsEncryptionPtr(v string) ReplicationConfigurationTemplateEbsEncryptionPtrInput {
+	return (*replicationConfigurationTemplateEbsEncryptionPtr)(&v)
+}
+
+func (*replicationConfigurationTemplateEbsEncryptionPtr) ElementType() reflect.Type {
+	return replicationConfigurationTemplateEbsEncryptionPtrType
+}
+
+func (in *replicationConfigurationTemplateEbsEncryptionPtr) ToReplicationConfigurationTemplateEbsEncryptionPtrOutput() ReplicationConfigurationTemplateEbsEncryptionPtrOutput {
+	return pulumi.ToOutput(in).(ReplicationConfigurationTemplateEbsEncryptionPtrOutput)
+}
+
+func (in *replicationConfigurationTemplateEbsEncryptionPtr) ToReplicationConfigurationTemplateEbsEncryptionPtrOutputWithContext(ctx context.Context) ReplicationConfigurationTemplateEbsEncryptionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ReplicationConfigurationTemplateEbsEncryptionPtrOutput)
+}
+
+// Which version of the Internet Protocol to use for replication of data.
+type ReplicationConfigurationTemplateInternetProtocol string
+
+const (
+	ReplicationConfigurationTemplateInternetProtocolIpv4 = ReplicationConfigurationTemplateInternetProtocol("IPV4")
+	ReplicationConfigurationTemplateInternetProtocolIpv6 = ReplicationConfigurationTemplateInternetProtocol("IPV6")
+)
+
+func (ReplicationConfigurationTemplateInternetProtocol) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicationConfigurationTemplateInternetProtocol)(nil)).Elem()
+}
+
+func (e ReplicationConfigurationTemplateInternetProtocol) ToReplicationConfigurationTemplateInternetProtocolOutput() ReplicationConfigurationTemplateInternetProtocolOutput {
+	return pulumi.ToOutput(e).(ReplicationConfigurationTemplateInternetProtocolOutput)
+}
+
+func (e ReplicationConfigurationTemplateInternetProtocol) ToReplicationConfigurationTemplateInternetProtocolOutputWithContext(ctx context.Context) ReplicationConfigurationTemplateInternetProtocolOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ReplicationConfigurationTemplateInternetProtocolOutput)
+}
+
+func (e ReplicationConfigurationTemplateInternetProtocol) ToReplicationConfigurationTemplateInternetProtocolPtrOutput() ReplicationConfigurationTemplateInternetProtocolPtrOutput {
+	return e.ToReplicationConfigurationTemplateInternetProtocolPtrOutputWithContext(context.Background())
+}
+
+func (e ReplicationConfigurationTemplateInternetProtocol) ToReplicationConfigurationTemplateInternetProtocolPtrOutputWithContext(ctx context.Context) ReplicationConfigurationTemplateInternetProtocolPtrOutput {
+	return ReplicationConfigurationTemplateInternetProtocol(e).ToReplicationConfigurationTemplateInternetProtocolOutputWithContext(ctx).ToReplicationConfigurationTemplateInternetProtocolPtrOutputWithContext(ctx)
+}
+
+func (e ReplicationConfigurationTemplateInternetProtocol) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ReplicationConfigurationTemplateInternetProtocol) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ReplicationConfigurationTemplateInternetProtocol) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ReplicationConfigurationTemplateInternetProtocol) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ReplicationConfigurationTemplateInternetProtocolOutput struct{ *pulumi.OutputState }
+
+func (ReplicationConfigurationTemplateInternetProtocolOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicationConfigurationTemplateInternetProtocol)(nil)).Elem()
+}
+
+func (o ReplicationConfigurationTemplateInternetProtocolOutput) ToReplicationConfigurationTemplateInternetProtocolOutput() ReplicationConfigurationTemplateInternetProtocolOutput {
+	return o
+}
+
+func (o ReplicationConfigurationTemplateInternetProtocolOutput) ToReplicationConfigurationTemplateInternetProtocolOutputWithContext(ctx context.Context) ReplicationConfigurationTemplateInternetProtocolOutput {
+	return o
+}
+
+func (o ReplicationConfigurationTemplateInternetProtocolOutput) ToReplicationConfigurationTemplateInternetProtocolPtrOutput() ReplicationConfigurationTemplateInternetProtocolPtrOutput {
+	return o.ToReplicationConfigurationTemplateInternetProtocolPtrOutputWithContext(context.Background())
+}
+
+func (o ReplicationConfigurationTemplateInternetProtocolOutput) ToReplicationConfigurationTemplateInternetProtocolPtrOutputWithContext(ctx context.Context) ReplicationConfigurationTemplateInternetProtocolPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReplicationConfigurationTemplateInternetProtocol) *ReplicationConfigurationTemplateInternetProtocol {
+		return &v
+	}).(ReplicationConfigurationTemplateInternetProtocolPtrOutput)
+}
+
+func (o ReplicationConfigurationTemplateInternetProtocolOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ReplicationConfigurationTemplateInternetProtocolOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ReplicationConfigurationTemplateInternetProtocol) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ReplicationConfigurationTemplateInternetProtocolOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ReplicationConfigurationTemplateInternetProtocolOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ReplicationConfigurationTemplateInternetProtocol) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ReplicationConfigurationTemplateInternetProtocolPtrOutput struct{ *pulumi.OutputState }
+
+func (ReplicationConfigurationTemplateInternetProtocolPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReplicationConfigurationTemplateInternetProtocol)(nil)).Elem()
+}
+
+func (o ReplicationConfigurationTemplateInternetProtocolPtrOutput) ToReplicationConfigurationTemplateInternetProtocolPtrOutput() ReplicationConfigurationTemplateInternetProtocolPtrOutput {
+	return o
+}
+
+func (o ReplicationConfigurationTemplateInternetProtocolPtrOutput) ToReplicationConfigurationTemplateInternetProtocolPtrOutputWithContext(ctx context.Context) ReplicationConfigurationTemplateInternetProtocolPtrOutput {
+	return o
+}
+
+func (o ReplicationConfigurationTemplateInternetProtocolPtrOutput) Elem() ReplicationConfigurationTemplateInternetProtocolOutput {
+	return o.ApplyT(func(v *ReplicationConfigurationTemplateInternetProtocol) ReplicationConfigurationTemplateInternetProtocol {
+		if v != nil {
+			return *v
+		}
+		var ret ReplicationConfigurationTemplateInternetProtocol
+		return ret
+	}).(ReplicationConfigurationTemplateInternetProtocolOutput)
+}
+
+func (o ReplicationConfigurationTemplateInternetProtocolPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ReplicationConfigurationTemplateInternetProtocolPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ReplicationConfigurationTemplateInternetProtocol) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ReplicationConfigurationTemplateInternetProtocolInput is an input type that accepts values of the ReplicationConfigurationTemplateInternetProtocol enum
+// A concrete instance of `ReplicationConfigurationTemplateInternetProtocolInput` can be one of the following:
+//
+//	ReplicationConfigurationTemplateInternetProtocolIpv4
+//	ReplicationConfigurationTemplateInternetProtocolIpv6
+type ReplicationConfigurationTemplateInternetProtocolInput interface {
+	pulumi.Input
+
+	ToReplicationConfigurationTemplateInternetProtocolOutput() ReplicationConfigurationTemplateInternetProtocolOutput
+	ToReplicationConfigurationTemplateInternetProtocolOutputWithContext(context.Context) ReplicationConfigurationTemplateInternetProtocolOutput
+}
+
+var replicationConfigurationTemplateInternetProtocolPtrType = reflect.TypeOf((**ReplicationConfigurationTemplateInternetProtocol)(nil)).Elem()
+
+type ReplicationConfigurationTemplateInternetProtocolPtrInput interface {
+	pulumi.Input
+
+	ToReplicationConfigurationTemplateInternetProtocolPtrOutput() ReplicationConfigurationTemplateInternetProtocolPtrOutput
+	ToReplicationConfigurationTemplateInternetProtocolPtrOutputWithContext(context.Context) ReplicationConfigurationTemplateInternetProtocolPtrOutput
+}
+
+type replicationConfigurationTemplateInternetProtocolPtr string
+
+func ReplicationConfigurationTemplateInternetProtocolPtr(v string) ReplicationConfigurationTemplateInternetProtocolPtrInput {
+	return (*replicationConfigurationTemplateInternetProtocolPtr)(&v)
+}
+
+func (*replicationConfigurationTemplateInternetProtocolPtr) ElementType() reflect.Type {
+	return replicationConfigurationTemplateInternetProtocolPtrType
+}
+
+func (in *replicationConfigurationTemplateInternetProtocolPtr) ToReplicationConfigurationTemplateInternetProtocolPtrOutput() ReplicationConfigurationTemplateInternetProtocolPtrOutput {
+	return pulumi.ToOutput(in).(ReplicationConfigurationTemplateInternetProtocolPtrOutput)
+}
+
+func (in *replicationConfigurationTemplateInternetProtocolPtr) ToReplicationConfigurationTemplateInternetProtocolPtrOutputWithContext(ctx context.Context) ReplicationConfigurationTemplateInternetProtocolPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ReplicationConfigurationTemplateInternetProtocolPtrOutput)
+}
+
+// The units used to measure the interval and retentionDuration.
+type ReplicationConfigurationTemplatePitPolicyRuleUnits string
+
+const (
+	ReplicationConfigurationTemplatePitPolicyRuleUnitsMinute = ReplicationConfigurationTemplatePitPolicyRuleUnits("MINUTE")
+	ReplicationConfigurationTemplatePitPolicyRuleUnitsHour   = ReplicationConfigurationTemplatePitPolicyRuleUnits("HOUR")
+	ReplicationConfigurationTemplatePitPolicyRuleUnitsDay    = ReplicationConfigurationTemplatePitPolicyRuleUnits("DAY")
+)
+
+func (ReplicationConfigurationTemplatePitPolicyRuleUnits) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicationConfigurationTemplatePitPolicyRuleUnits)(nil)).Elem()
+}
+
+func (e ReplicationConfigurationTemplatePitPolicyRuleUnits) ToReplicationConfigurationTemplatePitPolicyRuleUnitsOutput() ReplicationConfigurationTemplatePitPolicyRuleUnitsOutput {
+	return pulumi.ToOutput(e).(ReplicationConfigurationTemplatePitPolicyRuleUnitsOutput)
+}
+
+func (e ReplicationConfigurationTemplatePitPolicyRuleUnits) ToReplicationConfigurationTemplatePitPolicyRuleUnitsOutputWithContext(ctx context.Context) ReplicationConfigurationTemplatePitPolicyRuleUnitsOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ReplicationConfigurationTemplatePitPolicyRuleUnitsOutput)
+}
+
+func (e ReplicationConfigurationTemplatePitPolicyRuleUnits) ToReplicationConfigurationTemplatePitPolicyRuleUnitsPtrOutput() ReplicationConfigurationTemplatePitPolicyRuleUnitsPtrOutput {
+	return e.ToReplicationConfigurationTemplatePitPolicyRuleUnitsPtrOutputWithContext(context.Background())
+}
+
+func (e ReplicationConfigurationTemplatePitPolicyRuleUnits) ToReplicationConfigurationTemplatePitPolicyRuleUnitsPtrOutputWithContext(ctx context.Context) ReplicationConfigurationTemplatePitPolicyRuleUnitsPtrOutput {
+	return ReplicationConfigurationTemplatePitPolicyRuleUnits(e).ToReplicationConfigurationTemplatePitPolicyRuleUnitsOutputWithContext(ctx).ToReplicationConfigurationTemplatePitPolicyRuleUnitsPtrOutputWithContext(ctx)
+}
+
+func (e ReplicationConfigurationTemplatePitPolicyRuleUnits) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ReplicationConfigurationTemplatePitPolicyRuleUnits) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ReplicationConfigurationTemplatePitPolicyRuleUnits) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ReplicationConfigurationTemplatePitPolicyRuleUnits) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ReplicationConfigurationTemplatePitPolicyRuleUnitsOutput struct{ *pulumi.OutputState }
+
+func (ReplicationConfigurationTemplatePitPolicyRuleUnitsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicationConfigurationTemplatePitPolicyRuleUnits)(nil)).Elem()
+}
+
+func (o ReplicationConfigurationTemplatePitPolicyRuleUnitsOutput) ToReplicationConfigurationTemplatePitPolicyRuleUnitsOutput() ReplicationConfigurationTemplatePitPolicyRuleUnitsOutput {
+	return o
+}
+
+func (o ReplicationConfigurationTemplatePitPolicyRuleUnitsOutput) ToReplicationConfigurationTemplatePitPolicyRuleUnitsOutputWithContext(ctx context.Context) ReplicationConfigurationTemplatePitPolicyRuleUnitsOutput {
+	return o
+}
+
+func (o ReplicationConfigurationTemplatePitPolicyRuleUnitsOutput) ToReplicationConfigurationTemplatePitPolicyRuleUnitsPtrOutput() ReplicationConfigurationTemplatePitPolicyRuleUnitsPtrOutput {
+	return o.ToReplicationConfigurationTemplatePitPolicyRuleUnitsPtrOutputWithContext(context.Background())
+}
+
+func (o ReplicationConfigurationTemplatePitPolicyRuleUnitsOutput) ToReplicationConfigurationTemplatePitPolicyRuleUnitsPtrOutputWithContext(ctx context.Context) ReplicationConfigurationTemplatePitPolicyRuleUnitsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReplicationConfigurationTemplatePitPolicyRuleUnits) *ReplicationConfigurationTemplatePitPolicyRuleUnits {
+		return &v
+	}).(ReplicationConfigurationTemplatePitPolicyRuleUnitsPtrOutput)
+}
+
+func (o ReplicationConfigurationTemplatePitPolicyRuleUnitsOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ReplicationConfigurationTemplatePitPolicyRuleUnitsOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ReplicationConfigurationTemplatePitPolicyRuleUnits) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ReplicationConfigurationTemplatePitPolicyRuleUnitsOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ReplicationConfigurationTemplatePitPolicyRuleUnitsOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ReplicationConfigurationTemplatePitPolicyRuleUnits) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ReplicationConfigurationTemplatePitPolicyRuleUnitsPtrOutput struct{ *pulumi.OutputState }
+
+func (ReplicationConfigurationTemplatePitPolicyRuleUnitsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReplicationConfigurationTemplatePitPolicyRuleUnits)(nil)).Elem()
+}
+
+func (o ReplicationConfigurationTemplatePitPolicyRuleUnitsPtrOutput) ToReplicationConfigurationTemplatePitPolicyRuleUnitsPtrOutput() ReplicationConfigurationTemplatePitPolicyRuleUnitsPtrOutput {
+	return o
+}
+
+func (o ReplicationConfigurationTemplatePitPolicyRuleUnitsPtrOutput) ToReplicationConfigurationTemplatePitPolicyRuleUnitsPtrOutputWithContext(ctx context.Context) ReplicationConfigurationTemplatePitPolicyRuleUnitsPtrOutput {
+	return o
+}
+
+func (o ReplicationConfigurationTemplatePitPolicyRuleUnitsPtrOutput) Elem() ReplicationConfigurationTemplatePitPolicyRuleUnitsOutput {
+	return o.ApplyT(func(v *ReplicationConfigurationTemplatePitPolicyRuleUnits) ReplicationConfigurationTemplatePitPolicyRuleUnits {
+		if v != nil {
+			return *v
+		}
+		var ret ReplicationConfigurationTemplatePitPolicyRuleUnits
+		return ret
+	}).(ReplicationConfigurationTemplatePitPolicyRuleUnitsOutput)
+}
+
+func (o ReplicationConfigurationTemplatePitPolicyRuleUnitsPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ReplicationConfigurationTemplatePitPolicyRuleUnitsPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ReplicationConfigurationTemplatePitPolicyRuleUnits) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ReplicationConfigurationTemplatePitPolicyRuleUnitsInput is an input type that accepts values of the ReplicationConfigurationTemplatePitPolicyRuleUnits enum
+// A concrete instance of `ReplicationConfigurationTemplatePitPolicyRuleUnitsInput` can be one of the following:
+//
+//	ReplicationConfigurationTemplatePitPolicyRuleUnitsMinute
+//	ReplicationConfigurationTemplatePitPolicyRuleUnitsHour
+//	ReplicationConfigurationTemplatePitPolicyRuleUnitsDay
+type ReplicationConfigurationTemplatePitPolicyRuleUnitsInput interface {
+	pulumi.Input
+
+	ToReplicationConfigurationTemplatePitPolicyRuleUnitsOutput() ReplicationConfigurationTemplatePitPolicyRuleUnitsOutput
+	ToReplicationConfigurationTemplatePitPolicyRuleUnitsOutputWithContext(context.Context) ReplicationConfigurationTemplatePitPolicyRuleUnitsOutput
+}
+
+var replicationConfigurationTemplatePitPolicyRuleUnitsPtrType = reflect.TypeOf((**ReplicationConfigurationTemplatePitPolicyRuleUnits)(nil)).Elem()
+
+type ReplicationConfigurationTemplatePitPolicyRuleUnitsPtrInput interface {
+	pulumi.Input
+
+	ToReplicationConfigurationTemplatePitPolicyRuleUnitsPtrOutput() ReplicationConfigurationTemplatePitPolicyRuleUnitsPtrOutput
+	ToReplicationConfigurationTemplatePitPolicyRuleUnitsPtrOutputWithContext(context.Context) ReplicationConfigurationTemplatePitPolicyRuleUnitsPtrOutput
+}
+
+type replicationConfigurationTemplatePitPolicyRuleUnitsPtr string
+
+func ReplicationConfigurationTemplatePitPolicyRuleUnitsPtr(v string) ReplicationConfigurationTemplatePitPolicyRuleUnitsPtrInput {
+	return (*replicationConfigurationTemplatePitPolicyRuleUnitsPtr)(&v)
+}
+
+func (*replicationConfigurationTemplatePitPolicyRuleUnitsPtr) ElementType() reflect.Type {
+	return replicationConfigurationTemplatePitPolicyRuleUnitsPtrType
+}
+
+func (in *replicationConfigurationTemplatePitPolicyRuleUnitsPtr) ToReplicationConfigurationTemplatePitPolicyRuleUnitsPtrOutput() ReplicationConfigurationTemplatePitPolicyRuleUnitsPtrOutput {
+	return pulumi.ToOutput(in).(ReplicationConfigurationTemplatePitPolicyRuleUnitsPtrOutput)
+}
+
+func (in *replicationConfigurationTemplatePitPolicyRuleUnitsPtr) ToReplicationConfigurationTemplatePitPolicyRuleUnitsPtrOutputWithContext(ctx context.Context) ReplicationConfigurationTemplatePitPolicyRuleUnitsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ReplicationConfigurationTemplatePitPolicyRuleUnitsPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchConfigurationTemplateLaunchDispositionInput)(nil)).Elem(), LaunchConfigurationTemplateLaunchDisposition("STOPPED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchConfigurationTemplateLaunchDispositionPtrInput)(nil)).Elem(), LaunchConfigurationTemplateLaunchDisposition("STOPPED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchConfigurationTemplateTargetInstanceTypeRightSizingMethodInput)(nil)).Elem(), LaunchConfigurationTemplateTargetInstanceTypeRightSizingMethod("NONE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchConfigurationTemplateTargetInstanceTypeRightSizingMethodPtrInput)(nil)).Elem(), LaunchConfigurationTemplateTargetInstanceTypeRightSizingMethod("NONE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationConfigurationTemplateDataPlaneRoutingInput)(nil)).Elem(), ReplicationConfigurationTemplateDataPlaneRouting("PRIVATE_IP"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationConfigurationTemplateDataPlaneRoutingPtrInput)(nil)).Elem(), ReplicationConfigurationTemplateDataPlaneRouting("PRIVATE_IP"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationConfigurationTemplateDefaultLargeStagingDiskTypeInput)(nil)).Elem(), ReplicationConfigurationTemplateDefaultLargeStagingDiskType("GP2"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationConfigurationTemplateDefaultLargeStagingDiskTypePtrInput)(nil)).Elem(), ReplicationConfigurationTemplateDefaultLargeStagingDiskType("GP2"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationConfigurationTemplateEbsEncryptionInput)(nil)).Elem(), ReplicationConfigurationTemplateEbsEncryption("DEFAULT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationConfigurationTemplateEbsEncryptionPtrInput)(nil)).Elem(), ReplicationConfigurationTemplateEbsEncryption("DEFAULT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationConfigurationTemplateInternetProtocolInput)(nil)).Elem(), ReplicationConfigurationTemplateInternetProtocol("IPV4"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationConfigurationTemplateInternetProtocolPtrInput)(nil)).Elem(), ReplicationConfigurationTemplateInternetProtocol("IPV4"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationConfigurationTemplatePitPolicyRuleUnitsInput)(nil)).Elem(), ReplicationConfigurationTemplatePitPolicyRuleUnits("MINUTE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationConfigurationTemplatePitPolicyRuleUnitsPtrInput)(nil)).Elem(), ReplicationConfigurationTemplatePitPolicyRuleUnits("MINUTE"))
 	pulumi.RegisterOutputType(LaunchConfigurationTemplateLaunchDispositionOutput{})
 	pulumi.RegisterOutputType(LaunchConfigurationTemplateLaunchDispositionPtrOutput{})
 	pulumi.RegisterOutputType(LaunchConfigurationTemplateTargetInstanceTypeRightSizingMethodOutput{})
 	pulumi.RegisterOutputType(LaunchConfigurationTemplateTargetInstanceTypeRightSizingMethodPtrOutput{})
+	pulumi.RegisterOutputType(ReplicationConfigurationTemplateDataPlaneRoutingOutput{})
+	pulumi.RegisterOutputType(ReplicationConfigurationTemplateDataPlaneRoutingPtrOutput{})
+	pulumi.RegisterOutputType(ReplicationConfigurationTemplateDefaultLargeStagingDiskTypeOutput{})
+	pulumi.RegisterOutputType(ReplicationConfigurationTemplateDefaultLargeStagingDiskTypePtrOutput{})
+	pulumi.RegisterOutputType(ReplicationConfigurationTemplateEbsEncryptionOutput{})
+	pulumi.RegisterOutputType(ReplicationConfigurationTemplateEbsEncryptionPtrOutput{})
+	pulumi.RegisterOutputType(ReplicationConfigurationTemplateInternetProtocolOutput{})
+	pulumi.RegisterOutputType(ReplicationConfigurationTemplateInternetProtocolPtrOutput{})
+	pulumi.RegisterOutputType(ReplicationConfigurationTemplatePitPolicyRuleUnitsOutput{})
+	pulumi.RegisterOutputType(ReplicationConfigurationTemplatePitPolicyRuleUnitsPtrOutput{})
 }

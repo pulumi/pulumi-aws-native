@@ -12,6 +12,7 @@ from .bridge_output_resource import *
 from .bridge_source import *
 from .flow import *
 from .flow_entitlement import *
+from .flow_media_stream import *
 from .flow_output import *
 from .flow_source import *
 from .flow_vpc_interface import *
@@ -21,6 +22,7 @@ from .get_bridge_output_resource import *
 from .get_bridge_source import *
 from .get_flow import *
 from .get_flow_entitlement import *
+from .get_flow_media_stream import *
 from .get_flow_source import *
 from .get_flow_vpc_interface import *
 from .get_gateway import *

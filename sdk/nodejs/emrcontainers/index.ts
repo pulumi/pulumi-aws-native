@@ -15,6 +15,11 @@ export const getEndpoint: typeof import("./getEndpoint").getEndpoint = null as a
 export const getEndpointOutput: typeof import("./getEndpoint").getEndpointOutput = null as any;
 utilities.lazyLoad(exports, ["getEndpoint","getEndpointOutput"], () => require("./getEndpoint"));
 
+export { GetJobTemplateArgs, GetJobTemplateResult, GetJobTemplateOutputArgs } from "./getJobTemplate";
+export const getJobTemplate: typeof import("./getJobTemplate").getJobTemplate = null as any;
+export const getJobTemplateOutput: typeof import("./getJobTemplate").getJobTemplateOutput = null as any;
+utilities.lazyLoad(exports, ["getJobTemplate","getJobTemplateOutput"], () => require("./getJobTemplate"));
+
 export { GetSecurityConfigurationArgs, GetSecurityConfigurationResult, GetSecurityConfigurationOutputArgs } from "./getSecurityConfiguration";
 export const getSecurityConfiguration: typeof import("./getSecurityConfiguration").getSecurityConfiguration = null as any;
 export const getSecurityConfigurationOutput: typeof import("./getSecurityConfiguration").getSecurityConfigurationOutput = null as any;
@@ -24,6 +29,11 @@ export { GetVirtualClusterArgs, GetVirtualClusterResult, GetVirtualClusterOutput
 export const getVirtualCluster: typeof import("./getVirtualCluster").getVirtualCluster = null as any;
 export const getVirtualClusterOutput: typeof import("./getVirtualCluster").getVirtualClusterOutput = null as any;
 utilities.lazyLoad(exports, ["getVirtualCluster","getVirtualClusterOutput"], () => require("./getVirtualCluster"));
+
+export { JobTemplateArgs } from "./jobTemplate";
+export type JobTemplate = import("./jobTemplate").JobTemplate;
+export const JobTemplate: typeof import("./jobTemplate").JobTemplate = null as any;
+utilities.lazyLoad(exports, ["JobTemplate"], () => require("./jobTemplate"));
 
 export { SecurityConfigurationArgs } from "./securityConfiguration";
 export type SecurityConfiguration = import("./securityConfiguration").SecurityConfiguration;
@@ -45,6 +55,8 @@ const _module = {
         switch (type) {
             case "aws-native:emrcontainers:Endpoint":
                 return new Endpoint(name, <any>undefined, { urn })
+            case "aws-native:emrcontainers:JobTemplate":
+                return new JobTemplate(name, <any>undefined, { urn })
             case "aws-native:emrcontainers:SecurityConfiguration":
                 return new SecurityConfiguration(name, <any>undefined, { urn })
             case "aws-native:emrcontainers:VirtualCluster":

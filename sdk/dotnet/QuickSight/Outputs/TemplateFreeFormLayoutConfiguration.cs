@@ -18,15 +18,19 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// The elements that are included in a free-form layout.
         /// </summary>
         public readonly ImmutableArray<Outputs.TemplateFreeFormLayoutElement> Elements;
+        public readonly ImmutableArray<Outputs.TemplateSheetLayoutGroup> Groups;
 
         [OutputConstructor]
         private TemplateFreeFormLayoutConfiguration(
             Outputs.TemplateFreeFormLayoutCanvasSizeOptions? canvasSizeOptions,
 
-            ImmutableArray<Outputs.TemplateFreeFormLayoutElement> elements)
+            ImmutableArray<Outputs.TemplateFreeFormLayoutElement> elements,
+
+            ImmutableArray<Outputs.TemplateSheetLayoutGroup> groups)
         {
             CanvasSizeOptions = canvasSizeOptions;
             Elements = elements;
+            Groups = groups;
         }
     }
 }

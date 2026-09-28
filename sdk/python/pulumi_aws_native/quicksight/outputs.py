@@ -62,9 +62,11 @@ __all__ = [
     'AnalysisAxisTickLabelOptions',
     'AnalysisBarChartAggregatedFieldWells',
     'AnalysisBarChartConfiguration',
+    'AnalysisBarChartDefaultSeriesSettings',
     'AnalysisBarChartFieldWells',
     'AnalysisBarChartSortConfiguration',
     'AnalysisBarChartVisual',
+    'AnalysisBarSeriesItem',
     'AnalysisBinCountOptions',
     'AnalysisBinWidthOptions',
     'AnalysisBodySectionConfiguration',
@@ -74,6 +76,7 @@ __all__ = [
     'AnalysisBodySectionRepeatConfiguration',
     'AnalysisBodySectionRepeatDimensionConfiguration',
     'AnalysisBodySectionRepeatPageBreakConfiguration',
+    'AnalysisBorderSettings',
     'AnalysisBoxPlotAggregatedFieldWells',
     'AnalysisBoxPlotChartConfiguration',
     'AnalysisBoxPlotFieldWells',
@@ -103,9 +106,11 @@ __all__ = [
     'AnalysisColumnTooltipItem',
     'AnalysisComboChartAggregatedFieldWells',
     'AnalysisComboChartConfiguration',
+    'AnalysisComboChartDefaultSeriesSettings',
     'AnalysisComboChartFieldWells',
     'AnalysisComboChartSortConfiguration',
     'AnalysisComboChartVisual',
+    'AnalysisComboSeriesItem',
     'AnalysisComparisonConfiguration',
     'AnalysisComparisonFormatConfiguration',
     'AnalysisComputation',
@@ -154,6 +159,8 @@ __all__ = [
     'AnalysisDateTimeParameterDeclaration',
     'AnalysisDateTimePickerControlDisplayOptions',
     'AnalysisDateTimeValueWhenUnsetConfiguration',
+    'AnalysisDecalSettings',
+    'AnalysisDecalSettingsConfiguration',
     'AnalysisDecimalDefaultValues',
     'AnalysisDecimalParameter',
     'AnalysisDecimalParameterDeclaration',
@@ -292,6 +299,8 @@ __all__ = [
     'AnalysisGridLayoutCanvasSizeOptions',
     'AnalysisGridLayoutConfiguration',
     'AnalysisGridLayoutElement',
+    'AnalysisGridLayoutElementBackgroundStyle',
+    'AnalysisGridLayoutElementBorderStyle',
     'AnalysisGridLayoutScreenCanvasSizeOptions',
     'AnalysisGrowthRateComputation',
     'AnalysisHeaderFooterSectionConfiguration',
@@ -492,6 +501,8 @@ __all__ = [
     'AnalysisSheetImageStaticFileSource',
     'AnalysisSheetImageTooltipConfiguration',
     'AnalysisSheetImageTooltipText',
+    'AnalysisSheetLayoutGroup',
+    'AnalysisSheetLayoutGroupMember',
     'AnalysisSheetTextBox',
     'AnalysisSheetVisualScopingConfiguration',
     'AnalysisShortFormatText',
@@ -503,6 +514,7 @@ __all__ = [
     'AnalysisSourceEntity',
     'AnalysisSourceTemplate',
     'AnalysisSpacing',
+    'AnalysisSparklinesOptions',
     'AnalysisSpatialStaticFile',
     'AnalysisStaticFile',
     'AnalysisStaticFileS3SourceOptions',
@@ -556,6 +568,8 @@ __all__ = [
     'AnalysisTopBottomFilter',
     'AnalysisTopBottomMoversComputation',
     'AnalysisTopBottomRankedComputation',
+    'AnalysisTopicIdentifierDeclaration',
+    'AnalysisTopicReference',
     'AnalysisTotalAggregationComputation',
     'AnalysisTotalAggregationFunction',
     'AnalysisTotalAggregationOption',
@@ -623,9 +637,11 @@ __all__ = [
     'DashboardAxisTickLabelOptions',
     'DashboardBarChartAggregatedFieldWells',
     'DashboardBarChartConfiguration',
+    'DashboardBarChartDefaultSeriesSettings',
     'DashboardBarChartFieldWells',
     'DashboardBarChartSortConfiguration',
     'DashboardBarChartVisual',
+    'DashboardBarSeriesItem',
     'DashboardBinCountOptions',
     'DashboardBinWidthOptions',
     'DashboardBodySectionConfiguration',
@@ -635,6 +651,7 @@ __all__ = [
     'DashboardBodySectionRepeatConfiguration',
     'DashboardBodySectionRepeatDimensionConfiguration',
     'DashboardBodySectionRepeatPageBreakConfiguration',
+    'DashboardBorderSettings',
     'DashboardBoxPlotAggregatedFieldWells',
     'DashboardBoxPlotChartConfiguration',
     'DashboardBoxPlotFieldWells',
@@ -664,9 +681,11 @@ __all__ = [
     'DashboardColumnTooltipItem',
     'DashboardComboChartAggregatedFieldWells',
     'DashboardComboChartConfiguration',
+    'DashboardComboChartDefaultSeriesSettings',
     'DashboardComboChartFieldWells',
     'DashboardComboChartSortConfiguration',
     'DashboardComboChartVisual',
+    'DashboardComboSeriesItem',
     'DashboardComparisonConfiguration',
     'DashboardComparisonFormatConfiguration',
     'DashboardComputation',
@@ -720,6 +739,8 @@ __all__ = [
     'DashboardDateTimeParameterDeclaration',
     'DashboardDateTimePickerControlDisplayOptions',
     'DashboardDateTimeValueWhenUnsetConfiguration',
+    'DashboardDecalSettings',
+    'DashboardDecalSettingsConfiguration',
     'DashboardDecimalDefaultValues',
     'DashboardDecimalParameter',
     'DashboardDecimalParameterDeclaration',
@@ -1066,6 +1087,8 @@ __all__ = [
     'DashboardSheetImageTooltipConfiguration',
     'DashboardSheetImageTooltipText',
     'DashboardSheetLayoutElementMaximizationOption',
+    'DashboardSheetLayoutGroup',
+    'DashboardSheetLayoutGroupMember',
     'DashboardSheetTextBox',
     'DashboardSheetVisualScopingConfiguration',
     'DashboardShortFormatText',
@@ -1077,6 +1100,7 @@ __all__ = [
     'DashboardSourceEntity',
     'DashboardSourceTemplate',
     'DashboardSpacing',
+    'DashboardSparklinesOptions',
     'DashboardSpatialStaticFile',
     'DashboardStaticFile',
     'DashboardStaticFileS3SourceOptions',
@@ -1130,6 +1154,8 @@ __all__ = [
     'DashboardTopBottomFilter',
     'DashboardTopBottomMoversComputation',
     'DashboardTopBottomRankedComputation',
+    'DashboardTopicIdentifierDeclaration',
+    'DashboardTopicReference',
     'DashboardTotalAggregationComputation',
     'DashboardTotalAggregationFunction',
     'DashboardTotalAggregationOption',
@@ -1362,9 +1388,11 @@ __all__ = [
     'TemplateAxisTickLabelOptions',
     'TemplateBarChartAggregatedFieldWells',
     'TemplateBarChartConfiguration',
+    'TemplateBarChartDefaultSeriesSettings',
     'TemplateBarChartFieldWells',
     'TemplateBarChartSortConfiguration',
     'TemplateBarChartVisual',
+    'TemplateBarSeriesItem',
     'TemplateBinCountOptions',
     'TemplateBinWidthOptions',
     'TemplateBodySectionConfiguration',
@@ -1374,6 +1402,7 @@ __all__ = [
     'TemplateBodySectionRepeatConfiguration',
     'TemplateBodySectionRepeatDimensionConfiguration',
     'TemplateBodySectionRepeatPageBreakConfiguration',
+    'TemplateBorderSettings',
     'TemplateBoxPlotAggregatedFieldWells',
     'TemplateBoxPlotChartConfiguration',
     'TemplateBoxPlotFieldWells',
@@ -1406,9 +1435,11 @@ __all__ = [
     'TemplateColumnTooltipItem',
     'TemplateComboChartAggregatedFieldWells',
     'TemplateComboChartConfiguration',
+    'TemplateComboChartDefaultSeriesSettings',
     'TemplateComboChartFieldWells',
     'TemplateComboChartSortConfiguration',
     'TemplateComboChartVisual',
+    'TemplateComboSeriesItem',
     'TemplateComparisonConfiguration',
     'TemplateComparisonFormatConfiguration',
     'TemplateComputation',
@@ -1457,6 +1488,8 @@ __all__ = [
     'TemplateDateTimeParameterDeclaration',
     'TemplateDateTimePickerControlDisplayOptions',
     'TemplateDateTimeValueWhenUnsetConfiguration',
+    'TemplateDecalSettings',
+    'TemplateDecalSettingsConfiguration',
     'TemplateDecimalDefaultValues',
     'TemplateDecimalParameterDeclaration',
     'TemplateDecimalPlacesConfiguration',
@@ -1547,16 +1580,44 @@ __all__ = [
     'TemplateGaugeChartOptions',
     'TemplateGaugeChartPrimaryValueConditionalFormatting',
     'TemplateGaugeChartVisual',
+    'TemplateGeospatialCategoricalColor',
+    'TemplateGeospatialCategoricalDataColor',
+    'TemplateGeospatialCircleRadius',
+    'TemplateGeospatialCircleSymbolStyle',
+    'TemplateGeospatialColor',
     'TemplateGeospatialCoordinateBounds',
+    'TemplateGeospatialDataSourceItem',
+    'TemplateGeospatialGradientColor',
+    'TemplateGeospatialGradientStepColor',
     'TemplateGeospatialHeatmapColorScale',
     'TemplateGeospatialHeatmapConfiguration',
     'TemplateGeospatialHeatmapDataColor',
+    'TemplateGeospatialLayerColorField',
+    'TemplateGeospatialLayerDefinition',
+    'TemplateGeospatialLayerItem',
+    'TemplateGeospatialLayerJoinDefinition',
+    'TemplateGeospatialLayerMapConfiguration',
+    'TemplateGeospatialLineLayer',
+    'TemplateGeospatialLineStyle',
+    'TemplateGeospatialLineSymbolStyle',
+    'TemplateGeospatialLineWidth',
     'TemplateGeospatialMapAggregatedFieldWells',
     'TemplateGeospatialMapConfiguration',
     'TemplateGeospatialMapFieldWells',
+    'TemplateGeospatialMapState',
+    'TemplateGeospatialMapStyle',
     'TemplateGeospatialMapStyleOptions',
     'TemplateGeospatialMapVisual',
+    'TemplateGeospatialNullDataSettings',
+    'TemplateGeospatialNullSymbolStyle',
+    'TemplateGeospatialPointLayer',
+    'TemplateGeospatialPointStyle',
     'TemplateGeospatialPointStyleOptions',
+    'TemplateGeospatialPolygonLayer',
+    'TemplateGeospatialPolygonStyle',
+    'TemplateGeospatialPolygonSymbolStyle',
+    'TemplateGeospatialSolidColor',
+    'TemplateGeospatialStaticFileSource',
     'TemplateGeospatialWindowOptions',
     'TemplateGlobalTableBorderOptions',
     'TemplateGradientColor',
@@ -1564,6 +1625,8 @@ __all__ = [
     'TemplateGridLayoutCanvasSizeOptions',
     'TemplateGridLayoutConfiguration',
     'TemplateGridLayoutElement',
+    'TemplateGridLayoutElementBackgroundStyle',
+    'TemplateGridLayoutElementBorderStyle',
     'TemplateGridLayoutScreenCanvasSizeOptions',
     'TemplateGrowthRateComputation',
     'TemplateHeaderFooterSectionConfiguration',
@@ -1581,6 +1644,7 @@ __all__ = [
     'TemplateImageCustomActionOperation',
     'TemplateImageInteractionOptions',
     'TemplateImageMenuOption',
+    'TemplateImageStaticFile',
     'TemplateInnerFilter',
     'TemplateInsightConfiguration',
     'TemplateInsightVisual',
@@ -1603,6 +1667,9 @@ __all__ = [
     'TemplateKpiVisualLayoutOptions',
     'TemplateKpiVisualStandardLayout',
     'TemplateLabelOptions',
+    'TemplateLayerCustomAction',
+    'TemplateLayerCustomActionOperation',
+    'TemplateLayerMapVisual',
     'TemplateLayout',
     'TemplateLayoutConfiguration',
     'TemplateLegendOptions',
@@ -1758,6 +1825,8 @@ __all__ = [
     'TemplateSheetImageStaticFileSource',
     'TemplateSheetImageTooltipConfiguration',
     'TemplateSheetImageTooltipText',
+    'TemplateSheetLayoutGroup',
+    'TemplateSheetLayoutGroupMember',
     'TemplateSheetTextBox',
     'TemplateSheetVisualScopingConfiguration',
     'TemplateShortFormatText',
@@ -1770,6 +1839,12 @@ __all__ = [
     'TemplateSourceEntity',
     'TemplateSourceTemplate',
     'TemplateSpacing',
+    'TemplateSparklinesOptions',
+    'TemplateSpatialStaticFile',
+    'TemplateStaticFile',
+    'TemplateStaticFileS3SourceOptions',
+    'TemplateStaticFileSource',
+    'TemplateStaticFileUrlSourceOptions',
     'TemplateStringDefaultValues',
     'TemplateStringFormatConfiguration',
     'TemplateStringParameterDeclaration',
@@ -1817,6 +1892,8 @@ __all__ = [
     'TemplateTopBottomFilter',
     'TemplateTopBottomMoversComputation',
     'TemplateTopBottomRankedComputation',
+    'TemplateTopicConfiguration',
+    'TemplateTopicReference',
     'TemplateTotalAggregationComputation',
     'TemplateTotalAggregationFunction',
     'TemplateTotalAggregationOption',
@@ -1864,15 +1941,21 @@ __all__ = [
     'ThemeDataColorPalette',
     'ThemeError',
     'ThemeFont',
+    'ThemeFontConfiguration',
+    'ThemeFontSize',
+    'ThemeFontWeight',
     'ThemeGutterStyle',
     'ThemeMarginStyle',
     'ThemeResourcePermission',
+    'ThemeSheetBackgroundStyle',
     'ThemeSheetStyle',
     'ThemeTileLayoutStyle',
     'ThemeTileStyle',
     'ThemeTypography',
     'ThemeUiColorPalette',
     'ThemeVersion',
+    'ThemeVisualSubtitleFontConfiguration',
+    'ThemeVisualTitleFontConfiguration',
     'TopicCalculatedField',
     'TopicCategoryFilter',
     'TopicCategoryFilterConstant',
@@ -4030,6 +4113,8 @@ class AnalysisBarChartConfiguration(dict):
             suggest = "contribution_analysis_defaults"
         elif key == "dataLabels":
             suggest = "data_labels"
+        elif key == "defaultSeriesSettings":
+            suggest = "default_series_settings"
         elif key == "fieldWells":
             suggest = "field_wells"
         elif key == "referenceLines":
@@ -4063,11 +4148,13 @@ class AnalysisBarChartConfiguration(dict):
                  color_label_options: Optional['outputs.AnalysisChartAxisLabelOptions'] = None,
                  contribution_analysis_defaults: Optional[Sequence['outputs.AnalysisContributionAnalysisDefault']] = None,
                  data_labels: Optional['outputs.AnalysisDataLabelOptions'] = None,
+                 default_series_settings: Optional['outputs.AnalysisBarChartDefaultSeriesSettings'] = None,
                  field_wells: Optional['outputs.AnalysisBarChartFieldWells'] = None,
                  interactions: Optional['outputs.AnalysisVisualInteractionOptions'] = None,
                  legend: Optional['outputs.AnalysisLegendOptions'] = None,
                  orientation: Optional['AnalysisBarChartOrientation'] = None,
                  reference_lines: Optional[Sequence['outputs.AnalysisReferenceLine']] = None,
+                 series: Optional[Sequence['outputs.AnalysisBarSeriesItem']] = None,
                  small_multiples_options: Optional['outputs.AnalysisSmallMultiplesOptions'] = None,
                  sort_configuration: Optional['outputs.AnalysisBarChartSortConfiguration'] = None,
                  tooltip: Optional['outputs.AnalysisTooltipOptions'] = None,
@@ -4108,6 +4195,8 @@ class AnalysisBarChartConfiguration(dict):
             pulumi.set(__self__, "contribution_analysis_defaults", contribution_analysis_defaults)
         if data_labels is not None:
             pulumi.set(__self__, "data_labels", data_labels)
+        if default_series_settings is not None:
+            pulumi.set(__self__, "default_series_settings", default_series_settings)
         if field_wells is not None:
             pulumi.set(__self__, "field_wells", field_wells)
         if interactions is not None:
@@ -4118,6 +4207,8 @@ class AnalysisBarChartConfiguration(dict):
             pulumi.set(__self__, "orientation", orientation)
         if reference_lines is not None:
             pulumi.set(__self__, "reference_lines", reference_lines)
+        if series is not None:
+            pulumi.set(__self__, "series", series)
         if small_multiples_options is not None:
             pulumi.set(__self__, "small_multiples_options", small_multiples_options)
         if sort_configuration is not None:
@@ -4180,6 +4271,11 @@ class AnalysisBarChartConfiguration(dict):
         return pulumi.get(self, "data_labels")
 
     @_builtins.property
+    @pulumi.getter(name="defaultSeriesSettings")
+    def default_series_settings(self) -> Optional['outputs.AnalysisBarChartDefaultSeriesSettings']:
+        return pulumi.get(self, "default_series_settings")
+
+    @_builtins.property
     @pulumi.getter(name="fieldWells")
     def field_wells(self) -> Optional['outputs.AnalysisBarChartFieldWells']:
         """
@@ -4221,6 +4317,11 @@ class AnalysisBarChartConfiguration(dict):
         The reference line setup of the visual.
         """
         return pulumi.get(self, "reference_lines")
+
+    @_builtins.property
+    @pulumi.getter
+    def series(self) -> Optional[Sequence['outputs.AnalysisBarSeriesItem']]:
+        return pulumi.get(self, "series")
 
     @_builtins.property
     @pulumi.getter(name="smallMultiplesOptions")
@@ -4269,6 +4370,46 @@ class AnalysisBarChartConfiguration(dict):
         The palette (chart color) display setup of the visual.
         """
         return pulumi.get(self, "visual_palette")
+
+
+@pulumi.output_type
+class AnalysisBarChartDefaultSeriesSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "borderSettings":
+            suggest = "border_settings"
+        elif key == "decalSettings":
+            suggest = "decal_settings"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AnalysisBarChartDefaultSeriesSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AnalysisBarChartDefaultSeriesSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AnalysisBarChartDefaultSeriesSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 border_settings: Optional['outputs.AnalysisBorderSettings'] = None,
+                 decal_settings: Optional['outputs.AnalysisDecalSettings'] = None):
+        if border_settings is not None:
+            pulumi.set(__self__, "border_settings", border_settings)
+        if decal_settings is not None:
+            pulumi.set(__self__, "decal_settings", decal_settings)
+
+    @_builtins.property
+    @pulumi.getter(name="borderSettings")
+    def border_settings(self) -> Optional['outputs.AnalysisBorderSettings']:
+        return pulumi.get(self, "border_settings")
+
+    @_builtins.property
+    @pulumi.getter(name="decalSettings")
+    def decal_settings(self) -> Optional['outputs.AnalysisDecalSettings']:
+        return pulumi.get(self, "decal_settings")
 
 
 @pulumi.output_type
@@ -4524,6 +4665,12 @@ class AnalysisBarChartVisual(dict):
         The alt text for the visual.
         """
         return pulumi.get(self, "visual_content_alt_text")
+
+
+@pulumi.output_type
+class AnalysisBarSeriesItem(dict):
+    def __init__(__self__):
+        pass
 
 
 @pulumi.output_type
@@ -4933,6 +5080,62 @@ class AnalysisBodySectionRepeatPageBreakConfiguration(dict):
     @pulumi.getter
     def after(self) -> Optional['outputs.AnalysisSectionAfterPageBreak']:
         return pulumi.get(self, "after")
+
+
+@pulumi.output_type
+class AnalysisBorderSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "borderColor":
+            suggest = "border_color"
+        elif key == "borderVisibility":
+            suggest = "border_visibility"
+        elif key == "borderWidth":
+            suggest = "border_width"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AnalysisBorderSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AnalysisBorderSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AnalysisBorderSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 border_color: Optional[_builtins.str] = None,
+                 border_visibility: Optional['AnalysisVisibility'] = None,
+                 border_width: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str border_width: String based length that is composed of value and unit in px
+        """
+        if border_color is not None:
+            pulumi.set(__self__, "border_color", border_color)
+        if border_visibility is not None:
+            pulumi.set(__self__, "border_visibility", border_visibility)
+        if border_width is not None:
+            pulumi.set(__self__, "border_width", border_width)
+
+    @_builtins.property
+    @pulumi.getter(name="borderColor")
+    def border_color(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "border_color")
+
+    @_builtins.property
+    @pulumi.getter(name="borderVisibility")
+    def border_visibility(self) -> Optional['AnalysisVisibility']:
+        return pulumi.get(self, "border_visibility")
+
+    @_builtins.property
+    @pulumi.getter(name="borderWidth")
+    def border_width(self) -> Optional[_builtins.str]:
+        """
+        String based length that is composed of value and unit in px
+        """
+        return pulumi.get(self, "border_width")
 
 
 @pulumi.output_type
@@ -5469,6 +5672,8 @@ class AnalysisCalculatedField(dict):
         suggest = None
         if key == "dataSetIdentifier":
             suggest = "data_set_identifier"
+        elif key == "topicIdentifier":
+            suggest = "topic_identifier"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in AnalysisCalculatedField. Access the value via the '{suggest}' property getter instead.")
@@ -5482,25 +5687,21 @@ class AnalysisCalculatedField(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 data_set_identifier: _builtins.str,
                  expression: _builtins.str,
-                 name: _builtins.str):
+                 name: _builtins.str,
+                 data_set_identifier: Optional[_builtins.str] = None,
+                 topic_identifier: Optional[_builtins.str] = None):
         """
-        :param _builtins.str data_set_identifier: The data set that is used in this calculated field.
         :param _builtins.str expression: The expression of the calculated field.
         :param _builtins.str name: The name of the calculated field.
+        :param _builtins.str data_set_identifier: The data set that is used in this calculated field.
         """
-        pulumi.set(__self__, "data_set_identifier", data_set_identifier)
         pulumi.set(__self__, "expression", expression)
         pulumi.set(__self__, "name", name)
-
-    @_builtins.property
-    @pulumi.getter(name="dataSetIdentifier")
-    def data_set_identifier(self) -> _builtins.str:
-        """
-        The data set that is used in this calculated field.
-        """
-        return pulumi.get(self, "data_set_identifier")
+        if data_set_identifier is not None:
+            pulumi.set(__self__, "data_set_identifier", data_set_identifier)
+        if topic_identifier is not None:
+            pulumi.set(__self__, "topic_identifier", topic_identifier)
 
     @_builtins.property
     @pulumi.getter
@@ -5517,6 +5718,19 @@ class AnalysisCalculatedField(dict):
         The name of the calculated field.
         """
         return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="dataSetIdentifier")
+    def data_set_identifier(self) -> Optional[_builtins.str]:
+        """
+        The data set that is used in this calculated field.
+        """
+        return pulumi.get(self, "data_set_identifier")
+
+    @_builtins.property
+    @pulumi.getter(name="topicIdentifier")
+    def topic_identifier(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "topic_identifier")
 
 
 @pulumi.output_type
@@ -6267,6 +6481,8 @@ class AnalysisColumnConfiguration(dict):
         suggest = None
         if key == "colorsConfiguration":
             suggest = "colors_configuration"
+        elif key == "decalSettingsConfiguration":
+            suggest = "decal_settings_configuration"
         elif key == "formatConfiguration":
             suggest = "format_configuration"
 
@@ -6284,6 +6500,7 @@ class AnalysisColumnConfiguration(dict):
     def __init__(__self__, *,
                  column: 'outputs.AnalysisColumnIdentifier',
                  colors_configuration: Optional['outputs.AnalysisColorsConfiguration'] = None,
+                 decal_settings_configuration: Optional['outputs.AnalysisDecalSettingsConfiguration'] = None,
                  format_configuration: Optional['outputs.AnalysisFormatConfiguration'] = None,
                  role: Optional['AnalysisColumnRole'] = None):
         """
@@ -6295,6 +6512,8 @@ class AnalysisColumnConfiguration(dict):
         pulumi.set(__self__, "column", column)
         if colors_configuration is not None:
             pulumi.set(__self__, "colors_configuration", colors_configuration)
+        if decal_settings_configuration is not None:
+            pulumi.set(__self__, "decal_settings_configuration", decal_settings_configuration)
         if format_configuration is not None:
             pulumi.set(__self__, "format_configuration", format_configuration)
         if role is not None:
@@ -6315,6 +6534,11 @@ class AnalysisColumnConfiguration(dict):
         The color configurations of the column.
         """
         return pulumi.get(self, "colors_configuration")
+
+    @_builtins.property
+    @pulumi.getter(name="decalSettingsConfiguration")
+    def decal_settings_configuration(self) -> Optional['outputs.AnalysisDecalSettingsConfiguration']:
+        return pulumi.get(self, "decal_settings_configuration")
 
     @_builtins.property
     @pulumi.getter(name="formatConfiguration")
@@ -6406,6 +6630,8 @@ class AnalysisColumnIdentifier(dict):
             suggest = "column_name"
         elif key == "dataSetIdentifier":
             suggest = "data_set_identifier"
+        elif key == "topicIdentifier":
+            suggest = "topic_identifier"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in AnalysisColumnIdentifier. Access the value via the '{suggest}' property getter instead.")
@@ -6420,13 +6646,17 @@ class AnalysisColumnIdentifier(dict):
 
     def __init__(__self__, *,
                  column_name: _builtins.str,
-                 data_set_identifier: _builtins.str):
+                 data_set_identifier: Optional[_builtins.str] = None,
+                 topic_identifier: Optional[_builtins.str] = None):
         """
         :param _builtins.str column_name: The name of the column.
         :param _builtins.str data_set_identifier: The data set that the column belongs to.
         """
         pulumi.set(__self__, "column_name", column_name)
-        pulumi.set(__self__, "data_set_identifier", data_set_identifier)
+        if data_set_identifier is not None:
+            pulumi.set(__self__, "data_set_identifier", data_set_identifier)
+        if topic_identifier is not None:
+            pulumi.set(__self__, "topic_identifier", topic_identifier)
 
     @_builtins.property
     @pulumi.getter(name="columnName")
@@ -6438,11 +6668,16 @@ class AnalysisColumnIdentifier(dict):
 
     @_builtins.property
     @pulumi.getter(name="dataSetIdentifier")
-    def data_set_identifier(self) -> _builtins.str:
+    def data_set_identifier(self) -> Optional[_builtins.str]:
         """
         The data set that the column belongs to.
         """
         return pulumi.get(self, "data_set_identifier")
+
+    @_builtins.property
+    @pulumi.getter(name="topicIdentifier")
+    def topic_identifier(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "topic_identifier")
 
 
 @pulumi.output_type
@@ -6673,6 +6908,8 @@ class AnalysisComboChartConfiguration(dict):
             suggest = "category_label_options"
         elif key == "colorLabelOptions":
             suggest = "color_label_options"
+        elif key == "defaultSeriesSettings":
+            suggest = "default_series_settings"
         elif key == "fieldWells":
             suggest = "field_wells"
         elif key == "lineDataLabels":
@@ -6711,6 +6948,7 @@ class AnalysisComboChartConfiguration(dict):
                  category_axis: Optional['outputs.AnalysisAxisDisplayOptions'] = None,
                  category_label_options: Optional['outputs.AnalysisChartAxisLabelOptions'] = None,
                  color_label_options: Optional['outputs.AnalysisChartAxisLabelOptions'] = None,
+                 default_series_settings: Optional['outputs.AnalysisComboChartDefaultSeriesSettings'] = None,
                  field_wells: Optional['outputs.AnalysisComboChartFieldWells'] = None,
                  interactions: Optional['outputs.AnalysisVisualInteractionOptions'] = None,
                  legend: Optional['outputs.AnalysisLegendOptions'] = None,
@@ -6720,6 +6958,7 @@ class AnalysisComboChartConfiguration(dict):
                  reference_lines: Optional[Sequence['outputs.AnalysisReferenceLine']] = None,
                  secondary_y_axis_display_options: Optional['outputs.AnalysisAxisDisplayOptions'] = None,
                  secondary_y_axis_label_options: Optional['outputs.AnalysisChartAxisLabelOptions'] = None,
+                 series: Optional[Sequence['outputs.AnalysisComboSeriesItem']] = None,
                  single_axis_options: Optional['outputs.AnalysisSingleAxisOptions'] = None,
                  sort_configuration: Optional['outputs.AnalysisComboChartSortConfiguration'] = None,
                  tooltip: Optional['outputs.AnalysisTooltipOptions'] = None,
@@ -6761,6 +7000,8 @@ class AnalysisComboChartConfiguration(dict):
             pulumi.set(__self__, "category_label_options", category_label_options)
         if color_label_options is not None:
             pulumi.set(__self__, "color_label_options", color_label_options)
+        if default_series_settings is not None:
+            pulumi.set(__self__, "default_series_settings", default_series_settings)
         if field_wells is not None:
             pulumi.set(__self__, "field_wells", field_wells)
         if interactions is not None:
@@ -6779,6 +7020,8 @@ class AnalysisComboChartConfiguration(dict):
             pulumi.set(__self__, "secondary_y_axis_display_options", secondary_y_axis_display_options)
         if secondary_y_axis_label_options is not None:
             pulumi.set(__self__, "secondary_y_axis_label_options", secondary_y_axis_label_options)
+        if series is not None:
+            pulumi.set(__self__, "series", series)
         if single_axis_options is not None:
             pulumi.set(__self__, "single_axis_options", single_axis_options)
         if sort_configuration is not None:
@@ -6833,6 +7076,11 @@ class AnalysisComboChartConfiguration(dict):
         The label options (label text, label visibility, and sort icon visibility) of a combo chart's color field well.
         """
         return pulumi.get(self, "color_label_options")
+
+    @_builtins.property
+    @pulumi.getter(name="defaultSeriesSettings")
+    def default_series_settings(self) -> Optional['outputs.AnalysisComboChartDefaultSeriesSettings']:
+        return pulumi.get(self, "default_series_settings")
 
     @_builtins.property
     @pulumi.getter(name="fieldWells")
@@ -6909,6 +7157,11 @@ class AnalysisComboChartConfiguration(dict):
         return pulumi.get(self, "secondary_y_axis_label_options")
 
     @_builtins.property
+    @pulumi.getter
+    def series(self) -> Optional[Sequence['outputs.AnalysisComboSeriesItem']]:
+        return pulumi.get(self, "series")
+
+    @_builtins.property
     @pulumi.getter(name="singleAxisOptions")
     def single_axis_options(self) -> Optional['outputs.AnalysisSingleAxisOptions']:
         return pulumi.get(self, "single_axis_options")
@@ -6936,6 +7189,66 @@ class AnalysisComboChartConfiguration(dict):
         The palette (chart color) display setup of the visual.
         """
         return pulumi.get(self, "visual_palette")
+
+
+@pulumi.output_type
+class AnalysisComboChartDefaultSeriesSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "borderSettings":
+            suggest = "border_settings"
+        elif key == "decalSettings":
+            suggest = "decal_settings"
+        elif key == "lineStyleSettings":
+            suggest = "line_style_settings"
+        elif key == "markerStyleSettings":
+            suggest = "marker_style_settings"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AnalysisComboChartDefaultSeriesSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AnalysisComboChartDefaultSeriesSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AnalysisComboChartDefaultSeriesSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 border_settings: Optional['outputs.AnalysisBorderSettings'] = None,
+                 decal_settings: Optional['outputs.AnalysisDecalSettings'] = None,
+                 line_style_settings: Optional['outputs.AnalysisLineChartLineStyleSettings'] = None,
+                 marker_style_settings: Optional['outputs.AnalysisLineChartMarkerStyleSettings'] = None):
+        if border_settings is not None:
+            pulumi.set(__self__, "border_settings", border_settings)
+        if decal_settings is not None:
+            pulumi.set(__self__, "decal_settings", decal_settings)
+        if line_style_settings is not None:
+            pulumi.set(__self__, "line_style_settings", line_style_settings)
+        if marker_style_settings is not None:
+            pulumi.set(__self__, "marker_style_settings", marker_style_settings)
+
+    @_builtins.property
+    @pulumi.getter(name="borderSettings")
+    def border_settings(self) -> Optional['outputs.AnalysisBorderSettings']:
+        return pulumi.get(self, "border_settings")
+
+    @_builtins.property
+    @pulumi.getter(name="decalSettings")
+    def decal_settings(self) -> Optional['outputs.AnalysisDecalSettings']:
+        return pulumi.get(self, "decal_settings")
+
+    @_builtins.property
+    @pulumi.getter(name="lineStyleSettings")
+    def line_style_settings(self) -> Optional['outputs.AnalysisLineChartLineStyleSettings']:
+        return pulumi.get(self, "line_style_settings")
+
+    @_builtins.property
+    @pulumi.getter(name="markerStyleSettings")
+    def marker_style_settings(self) -> Optional['outputs.AnalysisLineChartMarkerStyleSettings']:
+        return pulumi.get(self, "marker_style_settings")
 
 
 @pulumi.output_type
@@ -7163,6 +7476,12 @@ class AnalysisComboChartVisual(dict):
         The alt text for the visual.
         """
         return pulumi.get(self, "visual_content_alt_text")
+
+
+@pulumi.output_type
+class AnalysisComboSeriesItem(dict):
+    def __init__(__self__):
+        pass
 
 
 @pulumi.output_type
@@ -8309,12 +8628,14 @@ class AnalysisCustomContentVisual(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "dataSetIdentifier":
-            suggest = "data_set_identifier"
-        elif key == "visualId":
+        if key == "visualId":
             suggest = "visual_id"
         elif key == "chartConfiguration":
             suggest = "chart_configuration"
+        elif key == "dataSetIdentifier":
+            suggest = "data_set_identifier"
+        elif key == "topicIdentifier":
+            suggest = "topic_identifier"
         elif key == "visualContentAltText":
             suggest = "visual_content_alt_text"
 
@@ -8330,42 +8651,38 @@ class AnalysisCustomContentVisual(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 data_set_identifier: _builtins.str,
                  visual_id: _builtins.str,
                  actions: Optional[Sequence['outputs.AnalysisVisualCustomAction']] = None,
                  chart_configuration: Optional['outputs.AnalysisCustomContentConfiguration'] = None,
+                 data_set_identifier: Optional[_builtins.str] = None,
                  subtitle: Optional['outputs.AnalysisVisualSubtitleLabelOptions'] = None,
                  title: Optional['outputs.AnalysisVisualTitleLabelOptions'] = None,
+                 topic_identifier: Optional[_builtins.str] = None,
                  visual_content_alt_text: Optional[_builtins.str] = None):
         """
-        :param _builtins.str data_set_identifier: The dataset that is used to create the custom content visual. You can't create a visual without a dataset.
         :param _builtins.str visual_id: The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.
         :param Sequence['AnalysisVisualCustomAction'] actions: The list of custom actions that are configured for a visual.
         :param 'AnalysisCustomContentConfiguration' chart_configuration: The configuration of a `CustomContentVisual` .
+        :param _builtins.str data_set_identifier: The dataset that is used to create the custom content visual. You can't create a visual without a dataset.
         :param 'AnalysisVisualSubtitleLabelOptions' subtitle: The subtitle that is displayed on the visual.
         :param 'AnalysisVisualTitleLabelOptions' title: The title that is displayed on the visual.
         :param _builtins.str visual_content_alt_text: The alt text for the visual.
         """
-        pulumi.set(__self__, "data_set_identifier", data_set_identifier)
         pulumi.set(__self__, "visual_id", visual_id)
         if actions is not None:
             pulumi.set(__self__, "actions", actions)
         if chart_configuration is not None:
             pulumi.set(__self__, "chart_configuration", chart_configuration)
+        if data_set_identifier is not None:
+            pulumi.set(__self__, "data_set_identifier", data_set_identifier)
         if subtitle is not None:
             pulumi.set(__self__, "subtitle", subtitle)
         if title is not None:
             pulumi.set(__self__, "title", title)
+        if topic_identifier is not None:
+            pulumi.set(__self__, "topic_identifier", topic_identifier)
         if visual_content_alt_text is not None:
             pulumi.set(__self__, "visual_content_alt_text", visual_content_alt_text)
-
-    @_builtins.property
-    @pulumi.getter(name="dataSetIdentifier")
-    def data_set_identifier(self) -> _builtins.str:
-        """
-        The dataset that is used to create the custom content visual. You can't create a visual without a dataset.
-        """
-        return pulumi.get(self, "data_set_identifier")
 
     @_builtins.property
     @pulumi.getter(name="visualId")
@@ -8392,6 +8709,14 @@ class AnalysisCustomContentVisual(dict):
         return pulumi.get(self, "chart_configuration")
 
     @_builtins.property
+    @pulumi.getter(name="dataSetIdentifier")
+    def data_set_identifier(self) -> Optional[_builtins.str]:
+        """
+        The dataset that is used to create the custom content visual. You can't create a visual without a dataset.
+        """
+        return pulumi.get(self, "data_set_identifier")
+
+    @_builtins.property
     @pulumi.getter
     def subtitle(self) -> Optional['outputs.AnalysisVisualSubtitleLabelOptions']:
         """
@@ -8406,6 +8731,11 @@ class AnalysisCustomContentVisual(dict):
         The title that is displayed on the visual.
         """
         return pulumi.get(self, "title")
+
+    @_builtins.property
+    @pulumi.getter(name="topicIdentifier")
+    def topic_identifier(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "topic_identifier")
 
     @_builtins.property
     @pulumi.getter(name="visualContentAltText")
@@ -10226,6 +10556,106 @@ class AnalysisDateTimeValueWhenUnsetConfiguration(dict):
 
 
 @pulumi.output_type
+class AnalysisDecalSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "decalColor":
+            suggest = "decal_color"
+        elif key == "decalPatternType":
+            suggest = "decal_pattern_type"
+        elif key == "decalStyleType":
+            suggest = "decal_style_type"
+        elif key == "decalVisibility":
+            suggest = "decal_visibility"
+        elif key == "elementValue":
+            suggest = "element_value"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AnalysisDecalSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AnalysisDecalSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AnalysisDecalSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 decal_color: Optional[_builtins.str] = None,
+                 decal_pattern_type: Optional['AnalysisDecalPatternType'] = None,
+                 decal_style_type: Optional['AnalysisDecalStyleType'] = None,
+                 decal_visibility: Optional['AnalysisVisibility'] = None,
+                 element_value: Optional[_builtins.str] = None):
+        if decal_color is not None:
+            pulumi.set(__self__, "decal_color", decal_color)
+        if decal_pattern_type is not None:
+            pulumi.set(__self__, "decal_pattern_type", decal_pattern_type)
+        if decal_style_type is not None:
+            pulumi.set(__self__, "decal_style_type", decal_style_type)
+        if decal_visibility is not None:
+            pulumi.set(__self__, "decal_visibility", decal_visibility)
+        if element_value is not None:
+            pulumi.set(__self__, "element_value", element_value)
+
+    @_builtins.property
+    @pulumi.getter(name="decalColor")
+    def decal_color(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "decal_color")
+
+    @_builtins.property
+    @pulumi.getter(name="decalPatternType")
+    def decal_pattern_type(self) -> Optional['AnalysisDecalPatternType']:
+        return pulumi.get(self, "decal_pattern_type")
+
+    @_builtins.property
+    @pulumi.getter(name="decalStyleType")
+    def decal_style_type(self) -> Optional['AnalysisDecalStyleType']:
+        return pulumi.get(self, "decal_style_type")
+
+    @_builtins.property
+    @pulumi.getter(name="decalVisibility")
+    def decal_visibility(self) -> Optional['AnalysisVisibility']:
+        return pulumi.get(self, "decal_visibility")
+
+    @_builtins.property
+    @pulumi.getter(name="elementValue")
+    def element_value(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "element_value")
+
+
+@pulumi.output_type
+class AnalysisDecalSettingsConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "customDecalSettings":
+            suggest = "custom_decal_settings"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AnalysisDecalSettingsConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AnalysisDecalSettingsConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AnalysisDecalSettingsConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 custom_decal_settings: Optional[Sequence['outputs.AnalysisDecalSettings']] = None):
+        if custom_decal_settings is not None:
+            pulumi.set(__self__, "custom_decal_settings", custom_decal_settings)
+
+    @_builtins.property
+    @pulumi.getter(name="customDecalSettings")
+    def custom_decal_settings(self) -> Optional[Sequence['outputs.AnalysisDecalSettings']]:
+        return pulumi.get(self, "custom_decal_settings")
+
+
+@pulumi.output_type
 class AnalysisDecimalDefaultValues(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -11404,6 +11834,8 @@ class AnalysisDefinition(dict):
             suggest = "query_execution_options"
         elif key == "staticFiles":
             suggest = "static_files"
+        elif key == "topicIdentifierDeclarations":
+            suggest = "topic_identifier_declarations"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in AnalysisDefinition. Access the value via the '{suggest}' property getter instead.")
@@ -11426,7 +11858,8 @@ class AnalysisDefinition(dict):
                  parameter_declarations: Optional[Sequence['outputs.AnalysisParameterDeclaration']] = None,
                  query_execution_options: Optional['outputs.AnalysisQueryExecutionOptions'] = None,
                  sheets: Optional[Sequence['outputs.AnalysisSheetDefinition']] = None,
-                 static_files: Optional[Sequence['outputs.AnalysisStaticFile']] = None):
+                 static_files: Optional[Sequence['outputs.AnalysisStaticFile']] = None,
+                 topic_identifier_declarations: Optional[Sequence['outputs.AnalysisTopicIdentifierDeclaration']] = None):
         """
         :param Sequence['AnalysisDataSetIdentifierDeclaration'] data_set_identifier_declarations: An array of dataset identifier declarations. This mapping allows the usage of dataset identifiers instead of dataset ARNs throughout analysis sub-structures.
         :param Sequence['AnalysisCalculatedField'] calculated_fields: An array of calculated field definitions for the analysis.
@@ -11441,7 +11874,7 @@ class AnalysisDefinition(dict):
                
                For more information, see [Parameters in Amazon Quick Sight](https://docs.aws.amazon.com/quicksight/latest/user/parameters-in-quicksight.html) in the *Amazon Quick Suite User Guide* .
         :param Sequence['AnalysisSheetDefinition'] sheets: An array of sheet definitions for an analysis. Each `SheetDefinition` provides detailed information about a sheet within this analysis.
-        :param Sequence['AnalysisStaticFile'] static_files: The static files for the definition.
+        :param Sequence['AnalysisStaticFile'] static_files: <p>The static files for the definition.</p>
         """
         pulumi.set(__self__, "data_set_identifier_declarations", data_set_identifier_declarations)
         if analysis_defaults is not None:
@@ -11462,6 +11895,8 @@ class AnalysisDefinition(dict):
             pulumi.set(__self__, "sheets", sheets)
         if static_files is not None:
             pulumi.set(__self__, "static_files", static_files)
+        if topic_identifier_declarations is not None:
+            pulumi.set(__self__, "topic_identifier_declarations", topic_identifier_declarations)
 
     @_builtins.property
     @pulumi.getter(name="dataSetIdentifierDeclarations")
@@ -11539,9 +11974,14 @@ class AnalysisDefinition(dict):
     @pulumi.getter(name="staticFiles")
     def static_files(self) -> Optional[Sequence['outputs.AnalysisStaticFile']]:
         """
-        The static files for the definition.
+        <p>The static files for the definition.</p>
         """
         return pulumi.get(self, "static_files")
+
+    @_builtins.property
+    @pulumi.getter(name="topicIdentifierDeclarations")
+    def topic_identifier_declarations(self) -> Optional[Sequence['outputs.AnalysisTopicIdentifierDeclaration']]:
+        return pulumi.get(self, "topic_identifier_declarations")
 
 
 @pulumi.output_type
@@ -11992,10 +12432,12 @@ class AnalysisEmptyVisual(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "dataSetIdentifier":
-            suggest = "data_set_identifier"
-        elif key == "visualId":
+        if key == "visualId":
             suggest = "visual_id"
+        elif key == "dataSetIdentifier":
+            suggest = "data_set_identifier"
+        elif key == "topicIdentifier":
+            suggest = "topic_identifier"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in AnalysisEmptyVisual. Access the value via the '{suggest}' property getter instead.")
@@ -12009,26 +12451,22 @@ class AnalysisEmptyVisual(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 data_set_identifier: _builtins.str,
                  visual_id: _builtins.str,
-                 actions: Optional[Sequence['outputs.AnalysisVisualCustomAction']] = None):
+                 actions: Optional[Sequence['outputs.AnalysisVisualCustomAction']] = None,
+                 data_set_identifier: Optional[_builtins.str] = None,
+                 topic_identifier: Optional[_builtins.str] = None):
         """
-        :param _builtins.str data_set_identifier: The data set that is used in the empty visual. Every visual requires a dataset to render.
         :param _builtins.str visual_id: The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.
         :param Sequence['AnalysisVisualCustomAction'] actions: The list of custom actions that are configured for a visual.
+        :param _builtins.str data_set_identifier: The data set that is used in the empty visual. Every visual requires a dataset to render.
         """
-        pulumi.set(__self__, "data_set_identifier", data_set_identifier)
         pulumi.set(__self__, "visual_id", visual_id)
         if actions is not None:
             pulumi.set(__self__, "actions", actions)
-
-    @_builtins.property
-    @pulumi.getter(name="dataSetIdentifier")
-    def data_set_identifier(self) -> _builtins.str:
-        """
-        The data set that is used in the empty visual. Every visual requires a dataset to render.
-        """
-        return pulumi.get(self, "data_set_identifier")
+        if data_set_identifier is not None:
+            pulumi.set(__self__, "data_set_identifier", data_set_identifier)
+        if topic_identifier is not None:
+            pulumi.set(__self__, "topic_identifier", topic_identifier)
 
     @_builtins.property
     @pulumi.getter(name="visualId")
@@ -12045,6 +12483,19 @@ class AnalysisEmptyVisual(dict):
         The list of custom actions that are configured for a visual.
         """
         return pulumi.get(self, "actions")
+
+    @_builtins.property
+    @pulumi.getter(name="dataSetIdentifier")
+    def data_set_identifier(self) -> Optional[_builtins.str]:
+        """
+        The data set that is used in the empty visual. Every visual requires a dataset to render.
+        """
+        return pulumi.get(self, "data_set_identifier")
+
+    @_builtins.property
+    @pulumi.getter(name="topicIdentifier")
+    def topic_identifier(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "topic_identifier")
 
 
 @pulumi.output_type
@@ -14494,7 +14945,7 @@ class AnalysisFontConfiguration(dict):
         """
         :param _builtins.str font_color: Determines the color of the text.
         :param 'AnalysisFontDecoration' font_decoration: Determines the appearance of decorative lines on the text.
-        :param _builtins.str font_family: The font family that you want to use.
+        :param _builtins.str font_family: <p>The font family that you want to use.</p>
         :param 'AnalysisFontSize' font_size: The option that determines the text display size.
         :param 'AnalysisFontStyle' font_style: Determines the text display face that is inherited by the given font family.
         :param 'AnalysisFontWeight' font_weight: The option that determines the text display weight, or boldness.
@@ -14532,7 +14983,7 @@ class AnalysisFontConfiguration(dict):
     @pulumi.getter(name="fontFamily")
     def font_family(self) -> Optional[_builtins.str]:
         """
-        The font family that you want to use.
+        <p>The font family that you want to use.</p>
         """
         return pulumi.get(self, "font_family")
 
@@ -14567,7 +15018,7 @@ class AnalysisFontSize(dict):
                  absolute: Optional[_builtins.str] = None,
                  relative: Optional['AnalysisRelativeFontSize'] = None):
         """
-        :param _builtins.str absolute: String based length that is composed of value and unit in px
+        :param _builtins.str absolute: <p>The font size that you want to use in px.</p>
         :param 'AnalysisRelativeFontSize' relative: The lexical name for the text size, proportional to its surrounding context.
         """
         if absolute is not None:
@@ -14579,7 +15030,7 @@ class AnalysisFontSize(dict):
     @pulumi.getter
     def absolute(self) -> Optional[_builtins.str]:
         """
-        String based length that is composed of value and unit in px
+        <p>The font size that you want to use in px.</p>
         """
         return pulumi.get(self, "absolute")
 
@@ -15003,13 +15454,16 @@ class AnalysisFreeFormLayoutConfiguration(dict):
 
     def __init__(__self__, *,
                  elements: Sequence['outputs.AnalysisFreeFormLayoutElement'],
-                 canvas_size_options: Optional['outputs.AnalysisFreeFormLayoutCanvasSizeOptions'] = None):
+                 canvas_size_options: Optional['outputs.AnalysisFreeFormLayoutCanvasSizeOptions'] = None,
+                 groups: Optional[Sequence['outputs.AnalysisSheetLayoutGroup']] = None):
         """
         :param Sequence['AnalysisFreeFormLayoutElement'] elements: The elements that are included in a free-form layout.
         """
         pulumi.set(__self__, "elements", elements)
         if canvas_size_options is not None:
             pulumi.set(__self__, "canvas_size_options", canvas_size_options)
+        if groups is not None:
+            pulumi.set(__self__, "groups", groups)
 
     @_builtins.property
     @pulumi.getter
@@ -15023,6 +15477,11 @@ class AnalysisFreeFormLayoutConfiguration(dict):
     @pulumi.getter(name="canvasSizeOptions")
     def canvas_size_options(self) -> Optional['outputs.AnalysisFreeFormLayoutCanvasSizeOptions']:
         return pulumi.get(self, "canvas_size_options")
+
+    @_builtins.property
+    @pulumi.getter
+    def groups(self) -> Optional[Sequence['outputs.AnalysisSheetLayoutGroup']]:
+        return pulumi.get(self, "groups")
 
 
 @pulumi.output_type
@@ -15040,6 +15499,8 @@ class AnalysisFreeFormLayoutElement(dict):
             suggest = "y_axis_location"
         elif key == "backgroundStyle":
             suggest = "background_style"
+        elif key == "borderRadius":
+            suggest = "border_radius"
         elif key == "borderStyle":
             suggest = "border_style"
         elif key == "loadingAnimation":
@@ -15068,8 +15529,10 @@ class AnalysisFreeFormLayoutElement(dict):
                  x_axis_location: _builtins.str,
                  y_axis_location: _builtins.str,
                  background_style: Optional['outputs.AnalysisFreeFormLayoutElementBackgroundStyle'] = None,
+                 border_radius: Optional[_builtins.str] = None,
                  border_style: Optional['outputs.AnalysisFreeFormLayoutElementBorderStyle'] = None,
                  loading_animation: Optional['outputs.AnalysisLoadingAnimation'] = None,
+                 padding: Optional[_builtins.str] = None,
                  rendering_rules: Optional[Sequence['outputs.AnalysisSheetElementRenderingRule']] = None,
                  selected_border_style: Optional['outputs.AnalysisFreeFormLayoutElementBorderStyle'] = None,
                  visibility: Optional['AnalysisVisibility'] = None):
@@ -15095,10 +15558,14 @@ class AnalysisFreeFormLayoutElement(dict):
         pulumi.set(__self__, "y_axis_location", y_axis_location)
         if background_style is not None:
             pulumi.set(__self__, "background_style", background_style)
+        if border_radius is not None:
+            pulumi.set(__self__, "border_radius", border_radius)
         if border_style is not None:
             pulumi.set(__self__, "border_style", border_style)
         if loading_animation is not None:
             pulumi.set(__self__, "loading_animation", loading_animation)
+        if padding is not None:
+            pulumi.set(__self__, "padding", padding)
         if rendering_rules is not None:
             pulumi.set(__self__, "rendering_rules", rendering_rules)
         if selected_border_style is not None:
@@ -15163,6 +15630,11 @@ class AnalysisFreeFormLayoutElement(dict):
         return pulumi.get(self, "background_style")
 
     @_builtins.property
+    @pulumi.getter(name="borderRadius")
+    def border_radius(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "border_radius")
+
+    @_builtins.property
     @pulumi.getter(name="borderStyle")
     def border_style(self) -> Optional['outputs.AnalysisFreeFormLayoutElementBorderStyle']:
         """
@@ -15177,6 +15649,11 @@ class AnalysisFreeFormLayoutElement(dict):
         The loading animation configuration of a free-form layout element.
         """
         return pulumi.get(self, "loading_animation")
+
+    @_builtins.property
+    @pulumi.getter
+    def padding(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "padding")
 
     @_builtins.property
     @pulumi.getter(name="renderingRules")
@@ -15238,15 +15715,19 @@ class AnalysisFreeFormLayoutElementBackgroundStyle(dict):
 class AnalysisFreeFormLayoutElementBorderStyle(dict):
     def __init__(__self__, *,
                  color: Optional[_builtins.str] = None,
-                 visibility: Optional['AnalysisVisibility'] = None):
+                 visibility: Optional['AnalysisVisibility'] = None,
+                 width: Optional[_builtins.str] = None):
         """
         :param _builtins.str color: The border color of a free-form layout element.
         :param 'AnalysisVisibility' visibility: The border visibility of a free-form layout element.
+        :param _builtins.str width: String to encapsulate the most generic way Width can be formatted with whatever units (px, em etc)
         """
         if color is not None:
             pulumi.set(__self__, "color", color)
         if visibility is not None:
             pulumi.set(__self__, "visibility", visibility)
+        if width is not None:
+            pulumi.set(__self__, "width", width)
 
     @_builtins.property
     @pulumi.getter
@@ -15263,6 +15744,14 @@ class AnalysisFreeFormLayoutElementBorderStyle(dict):
         The border visibility of a free-form layout element.
         """
         return pulumi.get(self, "visibility")
+
+    @_builtins.property
+    @pulumi.getter
+    def width(self) -> Optional[_builtins.str]:
+        """
+        String to encapsulate the most generic way Width can be formatted with whatever units (px, em etc)
+        """
+        return pulumi.get(self, "width")
 
 
 @pulumi.output_type
@@ -18593,10 +19082,20 @@ class AnalysisGridLayoutElement(dict):
             suggest = "element_type"
         elif key == "rowSpan":
             suggest = "row_span"
+        elif key == "backgroundStyle":
+            suggest = "background_style"
+        elif key == "borderRadius":
+            suggest = "border_radius"
+        elif key == "borderStyle":
+            suggest = "border_style"
         elif key == "columnIndex":
             suggest = "column_index"
+        elif key == "loadingAnimation":
+            suggest = "loading_animation"
         elif key == "rowIndex":
             suggest = "row_index"
+        elif key == "selectedBorderStyle":
+            suggest = "selected_border_style"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in AnalysisGridLayoutElement. Access the value via the '{suggest}' property getter instead.")
@@ -18614,8 +19113,14 @@ class AnalysisGridLayoutElement(dict):
                  element_id: _builtins.str,
                  element_type: 'AnalysisLayoutElementType',
                  row_span: _builtins.float,
+                 background_style: Optional['outputs.AnalysisGridLayoutElementBackgroundStyle'] = None,
+                 border_radius: Optional[_builtins.str] = None,
+                 border_style: Optional['outputs.AnalysisGridLayoutElementBorderStyle'] = None,
                  column_index: Optional[_builtins.float] = None,
-                 row_index: Optional[_builtins.float] = None):
+                 loading_animation: Optional['outputs.AnalysisLoadingAnimation'] = None,
+                 padding: Optional[_builtins.str] = None,
+                 row_index: Optional[_builtins.float] = None,
+                 selected_border_style: Optional['outputs.AnalysisGridLayoutElementBorderStyle'] = None):
         """
         :param _builtins.float column_span: The width of a grid element expressed as a number of grid columns.
         :param _builtins.str element_id: A unique identifier for an element within a grid layout.
@@ -18628,10 +19133,22 @@ class AnalysisGridLayoutElement(dict):
         pulumi.set(__self__, "element_id", element_id)
         pulumi.set(__self__, "element_type", element_type)
         pulumi.set(__self__, "row_span", row_span)
+        if background_style is not None:
+            pulumi.set(__self__, "background_style", background_style)
+        if border_radius is not None:
+            pulumi.set(__self__, "border_radius", border_radius)
+        if border_style is not None:
+            pulumi.set(__self__, "border_style", border_style)
         if column_index is not None:
             pulumi.set(__self__, "column_index", column_index)
+        if loading_animation is not None:
+            pulumi.set(__self__, "loading_animation", loading_animation)
+        if padding is not None:
+            pulumi.set(__self__, "padding", padding)
         if row_index is not None:
             pulumi.set(__self__, "row_index", row_index)
+        if selected_border_style is not None:
+            pulumi.set(__self__, "selected_border_style", selected_border_style)
 
     @_builtins.property
     @pulumi.getter(name="columnSpan")
@@ -18666,6 +19183,21 @@ class AnalysisGridLayoutElement(dict):
         return pulumi.get(self, "row_span")
 
     @_builtins.property
+    @pulumi.getter(name="backgroundStyle")
+    def background_style(self) -> Optional['outputs.AnalysisGridLayoutElementBackgroundStyle']:
+        return pulumi.get(self, "background_style")
+
+    @_builtins.property
+    @pulumi.getter(name="borderRadius")
+    def border_radius(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "border_radius")
+
+    @_builtins.property
+    @pulumi.getter(name="borderStyle")
+    def border_style(self) -> Optional['outputs.AnalysisGridLayoutElementBorderStyle']:
+        return pulumi.get(self, "border_style")
+
+    @_builtins.property
     @pulumi.getter(name="columnIndex")
     def column_index(self) -> Optional[_builtins.float]:
         """
@@ -18674,12 +19206,83 @@ class AnalysisGridLayoutElement(dict):
         return pulumi.get(self, "column_index")
 
     @_builtins.property
+    @pulumi.getter(name="loadingAnimation")
+    def loading_animation(self) -> Optional['outputs.AnalysisLoadingAnimation']:
+        return pulumi.get(self, "loading_animation")
+
+    @_builtins.property
+    @pulumi.getter
+    def padding(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "padding")
+
+    @_builtins.property
     @pulumi.getter(name="rowIndex")
     def row_index(self) -> Optional[_builtins.float]:
         """
         The row index for the upper left corner of an element.
         """
         return pulumi.get(self, "row_index")
+
+    @_builtins.property
+    @pulumi.getter(name="selectedBorderStyle")
+    def selected_border_style(self) -> Optional['outputs.AnalysisGridLayoutElementBorderStyle']:
+        return pulumi.get(self, "selected_border_style")
+
+
+@pulumi.output_type
+class AnalysisGridLayoutElementBackgroundStyle(dict):
+    def __init__(__self__, *,
+                 color: Optional[_builtins.str] = None,
+                 visibility: Optional['AnalysisVisibility'] = None):
+        if color is not None:
+            pulumi.set(__self__, "color", color)
+        if visibility is not None:
+            pulumi.set(__self__, "visibility", visibility)
+
+    @_builtins.property
+    @pulumi.getter
+    def color(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "color")
+
+    @_builtins.property
+    @pulumi.getter
+    def visibility(self) -> Optional['AnalysisVisibility']:
+        return pulumi.get(self, "visibility")
+
+
+@pulumi.output_type
+class AnalysisGridLayoutElementBorderStyle(dict):
+    def __init__(__self__, *,
+                 color: Optional[_builtins.str] = None,
+                 visibility: Optional['AnalysisVisibility'] = None,
+                 width: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str width: String to encapsulate the most generic way Width can be formatted with whatever units (px, em etc)
+        """
+        if color is not None:
+            pulumi.set(__self__, "color", color)
+        if visibility is not None:
+            pulumi.set(__self__, "visibility", visibility)
+        if width is not None:
+            pulumi.set(__self__, "width", width)
+
+    @_builtins.property
+    @pulumi.getter
+    def color(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "color")
+
+    @_builtins.property
+    @pulumi.getter
+    def visibility(self) -> Optional['AnalysisVisibility']:
+        return pulumi.get(self, "visibility")
+
+    @_builtins.property
+    @pulumi.getter
+    def width(self) -> Optional[_builtins.str]:
+        """
+        String to encapsulate the most generic way Width can be formatted with whatever units (px, em etc)
+        """
+        return pulumi.get(self, "width")
 
 
 @pulumi.output_type
@@ -20034,12 +20637,14 @@ class AnalysisInsightVisual(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "dataSetIdentifier":
-            suggest = "data_set_identifier"
-        elif key == "visualId":
+        if key == "visualId":
             suggest = "visual_id"
+        elif key == "dataSetIdentifier":
+            suggest = "data_set_identifier"
         elif key == "insightConfiguration":
             suggest = "insight_configuration"
+        elif key == "topicIdentifier":
+            suggest = "topic_identifier"
         elif key == "visualContentAltText":
             suggest = "visual_content_alt_text"
 
@@ -20055,42 +20660,38 @@ class AnalysisInsightVisual(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 data_set_identifier: _builtins.str,
                  visual_id: _builtins.str,
                  actions: Optional[Sequence['outputs.AnalysisVisualCustomAction']] = None,
+                 data_set_identifier: Optional[_builtins.str] = None,
                  insight_configuration: Optional['outputs.AnalysisInsightConfiguration'] = None,
                  subtitle: Optional['outputs.AnalysisVisualSubtitleLabelOptions'] = None,
                  title: Optional['outputs.AnalysisVisualTitleLabelOptions'] = None,
+                 topic_identifier: Optional[_builtins.str] = None,
                  visual_content_alt_text: Optional[_builtins.str] = None):
         """
-        :param _builtins.str data_set_identifier: The dataset that is used in the insight visual.
         :param _builtins.str visual_id: The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.
         :param Sequence['AnalysisVisualCustomAction'] actions: The list of custom actions that are configured for a visual.
+        :param _builtins.str data_set_identifier: The dataset that is used in the insight visual.
         :param 'AnalysisInsightConfiguration' insight_configuration: The configuration of an insight visual.
         :param 'AnalysisVisualSubtitleLabelOptions' subtitle: The subtitle that is displayed on the visual.
         :param 'AnalysisVisualTitleLabelOptions' title: The title that is displayed on the visual.
         :param _builtins.str visual_content_alt_text: The alt text for the visual.
         """
-        pulumi.set(__self__, "data_set_identifier", data_set_identifier)
         pulumi.set(__self__, "visual_id", visual_id)
         if actions is not None:
             pulumi.set(__self__, "actions", actions)
+        if data_set_identifier is not None:
+            pulumi.set(__self__, "data_set_identifier", data_set_identifier)
         if insight_configuration is not None:
             pulumi.set(__self__, "insight_configuration", insight_configuration)
         if subtitle is not None:
             pulumi.set(__self__, "subtitle", subtitle)
         if title is not None:
             pulumi.set(__self__, "title", title)
+        if topic_identifier is not None:
+            pulumi.set(__self__, "topic_identifier", topic_identifier)
         if visual_content_alt_text is not None:
             pulumi.set(__self__, "visual_content_alt_text", visual_content_alt_text)
-
-    @_builtins.property
-    @pulumi.getter(name="dataSetIdentifier")
-    def data_set_identifier(self) -> _builtins.str:
-        """
-        The dataset that is used in the insight visual.
-        """
-        return pulumi.get(self, "data_set_identifier")
 
     @_builtins.property
     @pulumi.getter(name="visualId")
@@ -20107,6 +20708,14 @@ class AnalysisInsightVisual(dict):
         The list of custom actions that are configured for a visual.
         """
         return pulumi.get(self, "actions")
+
+    @_builtins.property
+    @pulumi.getter(name="dataSetIdentifier")
+    def data_set_identifier(self) -> Optional[_builtins.str]:
+        """
+        The dataset that is used in the insight visual.
+        """
+        return pulumi.get(self, "data_set_identifier")
 
     @_builtins.property
     @pulumi.getter(name="insightConfiguration")
@@ -20131,6 +20740,11 @@ class AnalysisInsightVisual(dict):
         The title that is displayed on the visual.
         """
         return pulumi.get(self, "title")
+
+    @_builtins.property
+    @pulumi.getter(name="topicIdentifier")
+    def topic_identifier(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "topic_identifier")
 
     @_builtins.property
     @pulumi.getter(name="visualContentAltText")
@@ -21508,12 +22122,14 @@ class AnalysisLayerMapVisual(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "dataSetIdentifier":
-            suggest = "data_set_identifier"
-        elif key == "visualId":
+        if key == "visualId":
             suggest = "visual_id"
         elif key == "chartConfiguration":
             suggest = "chart_configuration"
+        elif key == "dataSetIdentifier":
+            suggest = "data_set_identifier"
+        elif key == "topicIdentifier":
+            suggest = "topic_identifier"
         elif key == "visualContentAltText":
             suggest = "visual_content_alt_text"
 
@@ -21529,36 +22145,32 @@ class AnalysisLayerMapVisual(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 data_set_identifier: _builtins.str,
                  visual_id: _builtins.str,
                  chart_configuration: Optional['outputs.AnalysisGeospatialLayerMapConfiguration'] = None,
+                 data_set_identifier: Optional[_builtins.str] = None,
                  subtitle: Optional['outputs.AnalysisVisualSubtitleLabelOptions'] = None,
                  title: Optional['outputs.AnalysisVisualTitleLabelOptions'] = None,
+                 topic_identifier: Optional[_builtins.str] = None,
                  visual_content_alt_text: Optional[_builtins.str] = None):
         """
-        :param _builtins.str data_set_identifier: The dataset that is used to create the layer map visual. You can't create a visual without a dataset.
         :param _builtins.str visual_id: The ID of the visual.
         :param 'AnalysisGeospatialLayerMapConfiguration' chart_configuration: The configuration settings of the visual.
+        :param _builtins.str data_set_identifier: The dataset that is used to create the layer map visual. You can't create a visual without a dataset.
         :param _builtins.str visual_content_alt_text: The alt text for the visual.
         """
-        pulumi.set(__self__, "data_set_identifier", data_set_identifier)
         pulumi.set(__self__, "visual_id", visual_id)
         if chart_configuration is not None:
             pulumi.set(__self__, "chart_configuration", chart_configuration)
+        if data_set_identifier is not None:
+            pulumi.set(__self__, "data_set_identifier", data_set_identifier)
         if subtitle is not None:
             pulumi.set(__self__, "subtitle", subtitle)
         if title is not None:
             pulumi.set(__self__, "title", title)
+        if topic_identifier is not None:
+            pulumi.set(__self__, "topic_identifier", topic_identifier)
         if visual_content_alt_text is not None:
             pulumi.set(__self__, "visual_content_alt_text", visual_content_alt_text)
-
-    @_builtins.property
-    @pulumi.getter(name="dataSetIdentifier")
-    def data_set_identifier(self) -> _builtins.str:
-        """
-        The dataset that is used to create the layer map visual. You can't create a visual without a dataset.
-        """
-        return pulumi.get(self, "data_set_identifier")
 
     @_builtins.property
     @pulumi.getter(name="visualId")
@@ -21577,6 +22189,14 @@ class AnalysisLayerMapVisual(dict):
         return pulumi.get(self, "chart_configuration")
 
     @_builtins.property
+    @pulumi.getter(name="dataSetIdentifier")
+    def data_set_identifier(self) -> Optional[_builtins.str]:
+        """
+        The dataset that is used to create the layer map visual. You can't create a visual without a dataset.
+        """
+        return pulumi.get(self, "data_set_identifier")
+
+    @_builtins.property
     @pulumi.getter
     def subtitle(self) -> Optional['outputs.AnalysisVisualSubtitleLabelOptions']:
         return pulumi.get(self, "subtitle")
@@ -21585,6 +22205,11 @@ class AnalysisLayerMapVisual(dict):
     @pulumi.getter
     def title(self) -> Optional['outputs.AnalysisVisualTitleLabelOptions']:
         return pulumi.get(self, "title")
+
+    @_builtins.property
+    @pulumi.getter(name="topicIdentifier")
+    def topic_identifier(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "topic_identifier")
 
     @_builtins.property
     @pulumi.getter(name="visualContentAltText")
@@ -22160,6 +22785,8 @@ class AnalysisLineChartDefaultSeriesSettings(dict):
         suggest = None
         if key == "axisBinding":
             suggest = "axis_binding"
+        elif key == "decalSettings":
+            suggest = "decal_settings"
         elif key == "lineStyleSettings":
             suggest = "line_style_settings"
         elif key == "markerStyleSettings":
@@ -22178,6 +22805,7 @@ class AnalysisLineChartDefaultSeriesSettings(dict):
 
     def __init__(__self__, *,
                  axis_binding: Optional['AnalysisAxisBinding'] = None,
+                 decal_settings: Optional['outputs.AnalysisDecalSettings'] = None,
                  line_style_settings: Optional['outputs.AnalysisLineChartLineStyleSettings'] = None,
                  marker_style_settings: Optional['outputs.AnalysisLineChartMarkerStyleSettings'] = None):
         """
@@ -22187,6 +22815,8 @@ class AnalysisLineChartDefaultSeriesSettings(dict):
         """
         if axis_binding is not None:
             pulumi.set(__self__, "axis_binding", axis_binding)
+        if decal_settings is not None:
+            pulumi.set(__self__, "decal_settings", decal_settings)
         if line_style_settings is not None:
             pulumi.set(__self__, "line_style_settings", line_style_settings)
         if marker_style_settings is not None:
@@ -22199,6 +22829,11 @@ class AnalysisLineChartDefaultSeriesSettings(dict):
         The axis to which you are binding all line series to.
         """
         return pulumi.get(self, "axis_binding")
+
+    @_builtins.property
+    @pulumi.getter(name="decalSettings")
+    def decal_settings(self) -> Optional['outputs.AnalysisDecalSettings']:
+        return pulumi.get(self, "decal_settings")
 
     @_builtins.property
     @pulumi.getter(name="lineStyleSettings")
@@ -22442,7 +23077,9 @@ class AnalysisLineChartSeriesSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "lineStyleSettings":
+        if key == "decalSettings":
+            suggest = "decal_settings"
+        elif key == "lineStyleSettings":
             suggest = "line_style_settings"
         elif key == "markerStyleSettings":
             suggest = "marker_style_settings"
@@ -22459,16 +23096,24 @@ class AnalysisLineChartSeriesSettings(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 decal_settings: Optional['outputs.AnalysisDecalSettings'] = None,
                  line_style_settings: Optional['outputs.AnalysisLineChartLineStyleSettings'] = None,
                  marker_style_settings: Optional['outputs.AnalysisLineChartMarkerStyleSettings'] = None):
         """
         :param 'AnalysisLineChartLineStyleSettings' line_style_settings: Line styles options for a line series in `LineChartVisual` .
         :param 'AnalysisLineChartMarkerStyleSettings' marker_style_settings: Marker styles options for a line series in `LineChartVisual` .
         """
+        if decal_settings is not None:
+            pulumi.set(__self__, "decal_settings", decal_settings)
         if line_style_settings is not None:
             pulumi.set(__self__, "line_style_settings", line_style_settings)
         if marker_style_settings is not None:
             pulumi.set(__self__, "marker_style_settings", marker_style_settings)
+
+    @_builtins.property
+    @pulumi.getter(name="decalSettings")
+    def decal_settings(self) -> Optional['outputs.AnalysisDecalSettings']:
+        return pulumi.get(self, "decal_settings")
 
     @_builtins.property
     @pulumi.getter(name="lineStyleSettings")
@@ -25468,7 +26113,7 @@ class AnalysisParameterTextFieldControl(dict):
 @pulumi.output_type
 class AnalysisParameters(dict):
     """
-    <p>A list of Amazon QuickSight parameters and the list's override values.</p>
+    <p>A list of Quick parameters and the list's override values.</p>
     """
     @staticmethod
     def __key_warning(key: str):
@@ -25499,7 +26144,7 @@ class AnalysisParameters(dict):
                  integer_parameters: Optional[Sequence['outputs.AnalysisIntegerParameter']] = None,
                  string_parameters: Optional[Sequence['outputs.AnalysisStringParameter']] = None):
         """
-        <p>A list of Amazon QuickSight parameters and the list's override values.</p>
+        <p>A list of Quick parameters and the list's override values.</p>
 
         :param Sequence['AnalysisDateTimeParameter'] date_time_parameters: <p>The parameters that have a data type of date-time.</p>
         :param Sequence['AnalysisDecimalParameter'] decimal_parameters: <p>The parameters that have a data type of decimal.</p>
@@ -29661,10 +30306,10 @@ class AnalysisResourcePermission(dict):
                            following:</p>
                         <ul>
                            <li>
-                              <p>The ARN of an Amazon QuickSight user or group associated with a data source or dataset. (This is common.)</p>
+                              <p>The ARN of an Amazon Quick user or group associated with a data source or dataset. (This is common.)</p>
                            </li>
                            <li>
-                              <p>The ARN of an Amazon QuickSight user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)</p>
+                              <p>The ARN of an Amazon Quick user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)</p>
                            </li>
                            <li>
                               <p>The ARN of an Amazon Web Services account root: This is an IAM ARN rather than a QuickSight
@@ -29692,10 +30337,10 @@ class AnalysisResourcePermission(dict):
                     following:</p>
                  <ul>
                     <li>
-                       <p>The ARN of an Amazon QuickSight user or group associated with a data source or dataset. (This is common.)</p>
+                       <p>The ARN of an Amazon Quick user or group associated with a data source or dataset. (This is common.)</p>
                     </li>
                     <li>
-                       <p>The ARN of an Amazon QuickSight user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)</p>
+                       <p>The ARN of an Amazon Quick user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)</p>
                     </li>
                     <li>
                        <p>The ARN of an Amazon Web Services account root: This is an IAM ARN rather than a QuickSight
@@ -31265,7 +31910,7 @@ class AnalysisShapeConditionalFormat(dict):
 class AnalysisSheet(dict):
     """
     <p>A <i>sheet</i>, which is an object that contains a set of visuals that
-                are viewed together on one page in Amazon QuickSight. Every analysis and dashboard
+                are viewed together on one page in Amazon Quick. Every analysis and dashboard
                 contains at least one sheet. Each sheet contains at least one visualization widget, for
                 example a chart, pivot table, or narrative insight. Sheets can be associated with other
                 components, such as controls, filters, and so on.</p>
@@ -31292,12 +31937,12 @@ class AnalysisSheet(dict):
                  sheet_id: Optional[_builtins.str] = None):
         """
         <p>A <i>sheet</i>, which is an object that contains a set of visuals that
-                    are viewed together on one page in Amazon QuickSight. Every analysis and dashboard
+                    are viewed together on one page in Amazon Quick. Every analysis and dashboard
                     contains at least one sheet. Each sheet contains at least one visualization widget, for
                     example a chart, pivot table, or narrative insight. Sheets can be associated with other
                     components, such as controls, filters, and so on.</p>
 
-        :param _builtins.str name: <p>The name of a sheet. This name is displayed on the sheet's tab in the Amazon QuickSight
+        :param _builtins.str name: <p>The name of a sheet. This name is displayed on the sheet's tab in the Quick
                            console.</p>
         :param _builtins.str sheet_id: <p>The unique identifier associated with a sheet.</p>
         """
@@ -31310,7 +31955,7 @@ class AnalysisSheet(dict):
     @pulumi.getter
     def name(self) -> Optional[_builtins.str]:
         """
-        <p>The name of a sheet. This name is displayed on the sheet's tab in the Amazon QuickSight
+        <p>The name of a sheet. This name is displayed on the sheet's tab in the Quick
                     console.</p>
         """
         return pulumi.get(self, "name")
@@ -32006,6 +32651,44 @@ class AnalysisSheetImageTooltipText(dict):
 
 
 @pulumi.output_type
+class AnalysisSheetLayoutGroup(dict):
+    def __init__(__self__, *,
+                 id: _builtins.str,
+                 members: Sequence['outputs.AnalysisSheetLayoutGroupMember']):
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "members", members)
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> _builtins.str:
+        return pulumi.get(self, "id")
+
+    @_builtins.property
+    @pulumi.getter
+    def members(self) -> Sequence['outputs.AnalysisSheetLayoutGroupMember']:
+        return pulumi.get(self, "members")
+
+
+@pulumi.output_type
+class AnalysisSheetLayoutGroupMember(dict):
+    def __init__(__self__, *,
+                 id: _builtins.str,
+                 type: Any):
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> _builtins.str:
+        return pulumi.get(self, "id")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> Any:
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
 class AnalysisSheetTextBox(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -32455,6 +33138,8 @@ class AnalysisSourceTemplate(dict):
         suggest = None
         if key == "dataSetReferences":
             suggest = "data_set_references"
+        elif key == "topicReferences":
+            suggest = "topic_references"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in AnalysisSourceTemplate. Access the value via the '{suggest}' property getter instead.")
@@ -32469,7 +33154,8 @@ class AnalysisSourceTemplate(dict):
 
     def __init__(__self__, *,
                  arn: _builtins.str,
-                 data_set_references: Sequence['outputs.AnalysisDataSetReference']):
+                 data_set_references: Sequence['outputs.AnalysisDataSetReference'],
+                 topic_references: Optional[Sequence['outputs.AnalysisTopicReference']] = None):
         """
         <p>The source template of an analysis.</p>
 
@@ -32478,6 +33164,8 @@ class AnalysisSourceTemplate(dict):
         """
         pulumi.set(__self__, "arn", arn)
         pulumi.set(__self__, "data_set_references", data_set_references)
+        if topic_references is not None:
+            pulumi.set(__self__, "topic_references", topic_references)
 
     @_builtins.property
     @pulumi.getter
@@ -32494,6 +33182,11 @@ class AnalysisSourceTemplate(dict):
         <p>The dataset references of the source template of an analysis.</p>
         """
         return pulumi.get(self, "data_set_references")
+
+    @_builtins.property
+    @pulumi.getter(name="topicReferences")
+    def topic_references(self) -> Optional[Sequence['outputs.AnalysisTopicReference']]:
+        return pulumi.get(self, "topic_references")
 
 
 @pulumi.output_type
@@ -32549,6 +33242,114 @@ class AnalysisSpacing(dict):
         String based length that is composed of value and unit
         """
         return pulumi.get(self, "top")
+
+
+@pulumi.output_type
+class AnalysisSparklinesOptions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fieldId":
+            suggest = "field_id"
+        elif key == "xAxisField":
+            suggest = "x_axis_field"
+        elif key == "allPointsMarker":
+            suggest = "all_points_marker"
+        elif key == "lineColor":
+            suggest = "line_color"
+        elif key == "lineInterpolation":
+            suggest = "line_interpolation"
+        elif key == "maxValueMarker":
+            suggest = "max_value_marker"
+        elif key == "minValueMarker":
+            suggest = "min_value_marker"
+        elif key == "visualType":
+            suggest = "visual_type"
+        elif key == "yAxisBehavior":
+            suggest = "y_axis_behavior"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AnalysisSparklinesOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AnalysisSparklinesOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AnalysisSparklinesOptions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 field_id: _builtins.str,
+                 x_axis_field: 'outputs.AnalysisDimensionField',
+                 all_points_marker: Optional['outputs.AnalysisLineChartMarkerStyleSettings'] = None,
+                 line_color: Optional[_builtins.str] = None,
+                 line_interpolation: Optional['AnalysisLineInterpolation'] = None,
+                 max_value_marker: Optional['outputs.AnalysisLineChartMarkerStyleSettings'] = None,
+                 min_value_marker: Optional['outputs.AnalysisLineChartMarkerStyleSettings'] = None,
+                 visual_type: Optional['AnalysisSparklineVisualType'] = None,
+                 y_axis_behavior: Optional['AnalysisSparklineAxisBehavior'] = None):
+        pulumi.set(__self__, "field_id", field_id)
+        pulumi.set(__self__, "x_axis_field", x_axis_field)
+        if all_points_marker is not None:
+            pulumi.set(__self__, "all_points_marker", all_points_marker)
+        if line_color is not None:
+            pulumi.set(__self__, "line_color", line_color)
+        if line_interpolation is not None:
+            pulumi.set(__self__, "line_interpolation", line_interpolation)
+        if max_value_marker is not None:
+            pulumi.set(__self__, "max_value_marker", max_value_marker)
+        if min_value_marker is not None:
+            pulumi.set(__self__, "min_value_marker", min_value_marker)
+        if visual_type is not None:
+            pulumi.set(__self__, "visual_type", visual_type)
+        if y_axis_behavior is not None:
+            pulumi.set(__self__, "y_axis_behavior", y_axis_behavior)
+
+    @_builtins.property
+    @pulumi.getter(name="fieldId")
+    def field_id(self) -> _builtins.str:
+        return pulumi.get(self, "field_id")
+
+    @_builtins.property
+    @pulumi.getter(name="xAxisField")
+    def x_axis_field(self) -> 'outputs.AnalysisDimensionField':
+        return pulumi.get(self, "x_axis_field")
+
+    @_builtins.property
+    @pulumi.getter(name="allPointsMarker")
+    def all_points_marker(self) -> Optional['outputs.AnalysisLineChartMarkerStyleSettings']:
+        return pulumi.get(self, "all_points_marker")
+
+    @_builtins.property
+    @pulumi.getter(name="lineColor")
+    def line_color(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "line_color")
+
+    @_builtins.property
+    @pulumi.getter(name="lineInterpolation")
+    def line_interpolation(self) -> Optional['AnalysisLineInterpolation']:
+        return pulumi.get(self, "line_interpolation")
+
+    @_builtins.property
+    @pulumi.getter(name="maxValueMarker")
+    def max_value_marker(self) -> Optional['outputs.AnalysisLineChartMarkerStyleSettings']:
+        return pulumi.get(self, "max_value_marker")
+
+    @_builtins.property
+    @pulumi.getter(name="minValueMarker")
+    def min_value_marker(self) -> Optional['outputs.AnalysisLineChartMarkerStyleSettings']:
+        return pulumi.get(self, "min_value_marker")
+
+    @_builtins.property
+    @pulumi.getter(name="visualType")
+    def visual_type(self) -> Optional['AnalysisSparklineVisualType']:
+        return pulumi.get(self, "visual_type")
+
+    @_builtins.property
+    @pulumi.getter(name="yAxisBehavior")
+    def y_axis_behavior(self) -> Optional['AnalysisSparklineAxisBehavior']:
+        return pulumi.get(self, "y_axis_behavior")
 
 
 @pulumi.output_type
@@ -34150,12 +34951,15 @@ class AnalysisTableInlineVisualization(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 data_bars: Optional['outputs.AnalysisDataBarsOptions'] = None):
+                 data_bars: Optional['outputs.AnalysisDataBarsOptions'] = None,
+                 sparklines: Optional['outputs.AnalysisSparklinesOptions'] = None):
         """
         :param 'AnalysisDataBarsOptions' data_bars: The configuration of the inline visualization of the data bars within a chart.
         """
         if data_bars is not None:
             pulumi.set(__self__, "data_bars", data_bars)
+        if sparklines is not None:
+            pulumi.set(__self__, "sparklines", sparklines)
 
     @_builtins.property
     @pulumi.getter(name="dataBars")
@@ -34164,6 +34968,11 @@ class AnalysisTableInlineVisualization(dict):
         The configuration of the inline visualization of the data bars within a chart.
         """
         return pulumi.get(self, "data_bars")
+
+    @_builtins.property
+    @pulumi.getter
+    def sparklines(self) -> Optional['outputs.AnalysisSparklinesOptions']:
+        return pulumi.get(self, "sparklines")
 
 
 @pulumi.output_type
@@ -35958,6 +36767,80 @@ class AnalysisTopBottomRankedComputation(dict):
         The value field that is used in a computation.
         """
         return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class AnalysisTopicIdentifierDeclaration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "topicArn":
+            suggest = "topic_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AnalysisTopicIdentifierDeclaration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AnalysisTopicIdentifierDeclaration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AnalysisTopicIdentifierDeclaration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 identifier: _builtins.str,
+                 topic_arn: _builtins.str):
+        pulumi.set(__self__, "identifier", identifier)
+        pulumi.set(__self__, "topic_arn", topic_arn)
+
+    @_builtins.property
+    @pulumi.getter
+    def identifier(self) -> _builtins.str:
+        return pulumi.get(self, "identifier")
+
+    @_builtins.property
+    @pulumi.getter(name="topicArn")
+    def topic_arn(self) -> _builtins.str:
+        return pulumi.get(self, "topic_arn")
+
+
+@pulumi.output_type
+class AnalysisTopicReference(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "topicArn":
+            suggest = "topic_arn"
+        elif key == "topicPlaceholder":
+            suggest = "topic_placeholder"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AnalysisTopicReference. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AnalysisTopicReference.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AnalysisTopicReference.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 topic_arn: _builtins.str,
+                 topic_placeholder: _builtins.str):
+        pulumi.set(__self__, "topic_arn", topic_arn)
+        pulumi.set(__self__, "topic_placeholder", topic_placeholder)
+
+    @_builtins.property
+    @pulumi.getter(name="topicArn")
+    def topic_arn(self) -> _builtins.str:
+        return pulumi.get(self, "topic_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="topicPlaceholder")
+    def topic_placeholder(self) -> _builtins.str:
+        return pulumi.get(self, "topic_placeholder")
 
 
 @pulumi.output_type
@@ -42466,6 +43349,8 @@ class DashboardBarChartConfiguration(dict):
             suggest = "contribution_analysis_defaults"
         elif key == "dataLabels":
             suggest = "data_labels"
+        elif key == "defaultSeriesSettings":
+            suggest = "default_series_settings"
         elif key == "fieldWells":
             suggest = "field_wells"
         elif key == "referenceLines":
@@ -42499,11 +43384,13 @@ class DashboardBarChartConfiguration(dict):
                  color_label_options: Optional['outputs.DashboardChartAxisLabelOptions'] = None,
                  contribution_analysis_defaults: Optional[Sequence['outputs.DashboardContributionAnalysisDefault']] = None,
                  data_labels: Optional['outputs.DashboardDataLabelOptions'] = None,
+                 default_series_settings: Optional['outputs.DashboardBarChartDefaultSeriesSettings'] = None,
                  field_wells: Optional['outputs.DashboardBarChartFieldWells'] = None,
                  interactions: Optional['outputs.DashboardVisualInteractionOptions'] = None,
                  legend: Optional['outputs.DashboardLegendOptions'] = None,
                  orientation: Optional['DashboardBarChartOrientation'] = None,
                  reference_lines: Optional[Sequence['outputs.DashboardReferenceLine']] = None,
+                 series: Optional[Sequence['outputs.DashboardBarSeriesItem']] = None,
                  small_multiples_options: Optional['outputs.DashboardSmallMultiplesOptions'] = None,
                  sort_configuration: Optional['outputs.DashboardBarChartSortConfiguration'] = None,
                  tooltip: Optional['outputs.DashboardTooltipOptions'] = None,
@@ -42544,6 +43431,8 @@ class DashboardBarChartConfiguration(dict):
             pulumi.set(__self__, "contribution_analysis_defaults", contribution_analysis_defaults)
         if data_labels is not None:
             pulumi.set(__self__, "data_labels", data_labels)
+        if default_series_settings is not None:
+            pulumi.set(__self__, "default_series_settings", default_series_settings)
         if field_wells is not None:
             pulumi.set(__self__, "field_wells", field_wells)
         if interactions is not None:
@@ -42554,6 +43443,8 @@ class DashboardBarChartConfiguration(dict):
             pulumi.set(__self__, "orientation", orientation)
         if reference_lines is not None:
             pulumi.set(__self__, "reference_lines", reference_lines)
+        if series is not None:
+            pulumi.set(__self__, "series", series)
         if small_multiples_options is not None:
             pulumi.set(__self__, "small_multiples_options", small_multiples_options)
         if sort_configuration is not None:
@@ -42616,6 +43507,11 @@ class DashboardBarChartConfiguration(dict):
         return pulumi.get(self, "data_labels")
 
     @_builtins.property
+    @pulumi.getter(name="defaultSeriesSettings")
+    def default_series_settings(self) -> Optional['outputs.DashboardBarChartDefaultSeriesSettings']:
+        return pulumi.get(self, "default_series_settings")
+
+    @_builtins.property
     @pulumi.getter(name="fieldWells")
     def field_wells(self) -> Optional['outputs.DashboardBarChartFieldWells']:
         """
@@ -42657,6 +43553,11 @@ class DashboardBarChartConfiguration(dict):
         The reference line setup of the visual.
         """
         return pulumi.get(self, "reference_lines")
+
+    @_builtins.property
+    @pulumi.getter
+    def series(self) -> Optional[Sequence['outputs.DashboardBarSeriesItem']]:
+        return pulumi.get(self, "series")
 
     @_builtins.property
     @pulumi.getter(name="smallMultiplesOptions")
@@ -42705,6 +43606,46 @@ class DashboardBarChartConfiguration(dict):
         The palette (chart color) display setup of the visual.
         """
         return pulumi.get(self, "visual_palette")
+
+
+@pulumi.output_type
+class DashboardBarChartDefaultSeriesSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "borderSettings":
+            suggest = "border_settings"
+        elif key == "decalSettings":
+            suggest = "decal_settings"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardBarChartDefaultSeriesSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardBarChartDefaultSeriesSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardBarChartDefaultSeriesSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 border_settings: Optional['outputs.DashboardBorderSettings'] = None,
+                 decal_settings: Optional['outputs.DashboardDecalSettings'] = None):
+        if border_settings is not None:
+            pulumi.set(__self__, "border_settings", border_settings)
+        if decal_settings is not None:
+            pulumi.set(__self__, "decal_settings", decal_settings)
+
+    @_builtins.property
+    @pulumi.getter(name="borderSettings")
+    def border_settings(self) -> Optional['outputs.DashboardBorderSettings']:
+        return pulumi.get(self, "border_settings")
+
+    @_builtins.property
+    @pulumi.getter(name="decalSettings")
+    def decal_settings(self) -> Optional['outputs.DashboardDecalSettings']:
+        return pulumi.get(self, "decal_settings")
 
 
 @pulumi.output_type
@@ -42960,6 +43901,12 @@ class DashboardBarChartVisual(dict):
         The alt text for the visual.
         """
         return pulumi.get(self, "visual_content_alt_text")
+
+
+@pulumi.output_type
+class DashboardBarSeriesItem(dict):
+    def __init__(__self__):
+        pass
 
 
 @pulumi.output_type
@@ -43369,6 +44316,62 @@ class DashboardBodySectionRepeatPageBreakConfiguration(dict):
     @pulumi.getter
     def after(self) -> Optional['outputs.DashboardSectionAfterPageBreak']:
         return pulumi.get(self, "after")
+
+
+@pulumi.output_type
+class DashboardBorderSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "borderColor":
+            suggest = "border_color"
+        elif key == "borderVisibility":
+            suggest = "border_visibility"
+        elif key == "borderWidth":
+            suggest = "border_width"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardBorderSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardBorderSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardBorderSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 border_color: Optional[_builtins.str] = None,
+                 border_visibility: Optional['DashboardVisibility'] = None,
+                 border_width: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str border_width: String based length that is composed of value and unit in px
+        """
+        if border_color is not None:
+            pulumi.set(__self__, "border_color", border_color)
+        if border_visibility is not None:
+            pulumi.set(__self__, "border_visibility", border_visibility)
+        if border_width is not None:
+            pulumi.set(__self__, "border_width", border_width)
+
+    @_builtins.property
+    @pulumi.getter(name="borderColor")
+    def border_color(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "border_color")
+
+    @_builtins.property
+    @pulumi.getter(name="borderVisibility")
+    def border_visibility(self) -> Optional['DashboardVisibility']:
+        return pulumi.get(self, "border_visibility")
+
+    @_builtins.property
+    @pulumi.getter(name="borderWidth")
+    def border_width(self) -> Optional[_builtins.str]:
+        """
+        String based length that is composed of value and unit in px
+        """
+        return pulumi.get(self, "border_width")
 
 
 @pulumi.output_type
@@ -43905,6 +44908,8 @@ class DashboardCalculatedField(dict):
         suggest = None
         if key == "dataSetIdentifier":
             suggest = "data_set_identifier"
+        elif key == "topicIdentifier":
+            suggest = "topic_identifier"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in DashboardCalculatedField. Access the value via the '{suggest}' property getter instead.")
@@ -43918,25 +44923,21 @@ class DashboardCalculatedField(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 data_set_identifier: _builtins.str,
                  expression: _builtins.str,
-                 name: _builtins.str):
+                 name: _builtins.str,
+                 data_set_identifier: Optional[_builtins.str] = None,
+                 topic_identifier: Optional[_builtins.str] = None):
         """
-        :param _builtins.str data_set_identifier: The data set that is used in this calculated field.
         :param _builtins.str expression: The expression of the calculated field.
         :param _builtins.str name: The name of the calculated field.
+        :param _builtins.str data_set_identifier: The data set that is used in this calculated field.
         """
-        pulumi.set(__self__, "data_set_identifier", data_set_identifier)
         pulumi.set(__self__, "expression", expression)
         pulumi.set(__self__, "name", name)
-
-    @_builtins.property
-    @pulumi.getter(name="dataSetIdentifier")
-    def data_set_identifier(self) -> _builtins.str:
-        """
-        The data set that is used in this calculated field.
-        """
-        return pulumi.get(self, "data_set_identifier")
+        if data_set_identifier is not None:
+            pulumi.set(__self__, "data_set_identifier", data_set_identifier)
+        if topic_identifier is not None:
+            pulumi.set(__self__, "topic_identifier", topic_identifier)
 
     @_builtins.property
     @pulumi.getter
@@ -43953,6 +44954,19 @@ class DashboardCalculatedField(dict):
         The name of the calculated field.
         """
         return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="dataSetIdentifier")
+    def data_set_identifier(self) -> Optional[_builtins.str]:
+        """
+        The data set that is used in this calculated field.
+        """
+        return pulumi.get(self, "data_set_identifier")
+
+    @_builtins.property
+    @pulumi.getter(name="topicIdentifier")
+    def topic_identifier(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "topic_identifier")
 
 
 @pulumi.output_type
@@ -44703,6 +45717,8 @@ class DashboardColumnConfiguration(dict):
         suggest = None
         if key == "colorsConfiguration":
             suggest = "colors_configuration"
+        elif key == "decalSettingsConfiguration":
+            suggest = "decal_settings_configuration"
         elif key == "formatConfiguration":
             suggest = "format_configuration"
 
@@ -44720,6 +45736,7 @@ class DashboardColumnConfiguration(dict):
     def __init__(__self__, *,
                  column: 'outputs.DashboardColumnIdentifier',
                  colors_configuration: Optional['outputs.DashboardColorsConfiguration'] = None,
+                 decal_settings_configuration: Optional['outputs.DashboardDecalSettingsConfiguration'] = None,
                  format_configuration: Optional['outputs.DashboardFormatConfiguration'] = None,
                  role: Optional['DashboardColumnRole'] = None):
         """
@@ -44731,6 +45748,8 @@ class DashboardColumnConfiguration(dict):
         pulumi.set(__self__, "column", column)
         if colors_configuration is not None:
             pulumi.set(__self__, "colors_configuration", colors_configuration)
+        if decal_settings_configuration is not None:
+            pulumi.set(__self__, "decal_settings_configuration", decal_settings_configuration)
         if format_configuration is not None:
             pulumi.set(__self__, "format_configuration", format_configuration)
         if role is not None:
@@ -44751,6 +45770,11 @@ class DashboardColumnConfiguration(dict):
         The color configurations of the column.
         """
         return pulumi.get(self, "colors_configuration")
+
+    @_builtins.property
+    @pulumi.getter(name="decalSettingsConfiguration")
+    def decal_settings_configuration(self) -> Optional['outputs.DashboardDecalSettingsConfiguration']:
+        return pulumi.get(self, "decal_settings_configuration")
 
     @_builtins.property
     @pulumi.getter(name="formatConfiguration")
@@ -44842,6 +45866,8 @@ class DashboardColumnIdentifier(dict):
             suggest = "column_name"
         elif key == "dataSetIdentifier":
             suggest = "data_set_identifier"
+        elif key == "topicIdentifier":
+            suggest = "topic_identifier"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in DashboardColumnIdentifier. Access the value via the '{suggest}' property getter instead.")
@@ -44856,13 +45882,17 @@ class DashboardColumnIdentifier(dict):
 
     def __init__(__self__, *,
                  column_name: _builtins.str,
-                 data_set_identifier: _builtins.str):
+                 data_set_identifier: Optional[_builtins.str] = None,
+                 topic_identifier: Optional[_builtins.str] = None):
         """
         :param _builtins.str column_name: The name of the column.
         :param _builtins.str data_set_identifier: The data set that the column belongs to.
         """
         pulumi.set(__self__, "column_name", column_name)
-        pulumi.set(__self__, "data_set_identifier", data_set_identifier)
+        if data_set_identifier is not None:
+            pulumi.set(__self__, "data_set_identifier", data_set_identifier)
+        if topic_identifier is not None:
+            pulumi.set(__self__, "topic_identifier", topic_identifier)
 
     @_builtins.property
     @pulumi.getter(name="columnName")
@@ -44874,11 +45904,16 @@ class DashboardColumnIdentifier(dict):
 
     @_builtins.property
     @pulumi.getter(name="dataSetIdentifier")
-    def data_set_identifier(self) -> _builtins.str:
+    def data_set_identifier(self) -> Optional[_builtins.str]:
         """
         The data set that the column belongs to.
         """
         return pulumi.get(self, "data_set_identifier")
+
+    @_builtins.property
+    @pulumi.getter(name="topicIdentifier")
+    def topic_identifier(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "topic_identifier")
 
 
 @pulumi.output_type
@@ -45109,6 +46144,8 @@ class DashboardComboChartConfiguration(dict):
             suggest = "category_label_options"
         elif key == "colorLabelOptions":
             suggest = "color_label_options"
+        elif key == "defaultSeriesSettings":
+            suggest = "default_series_settings"
         elif key == "fieldWells":
             suggest = "field_wells"
         elif key == "lineDataLabels":
@@ -45147,6 +46184,7 @@ class DashboardComboChartConfiguration(dict):
                  category_axis: Optional['outputs.DashboardAxisDisplayOptions'] = None,
                  category_label_options: Optional['outputs.DashboardChartAxisLabelOptions'] = None,
                  color_label_options: Optional['outputs.DashboardChartAxisLabelOptions'] = None,
+                 default_series_settings: Optional['outputs.DashboardComboChartDefaultSeriesSettings'] = None,
                  field_wells: Optional['outputs.DashboardComboChartFieldWells'] = None,
                  interactions: Optional['outputs.DashboardVisualInteractionOptions'] = None,
                  legend: Optional['outputs.DashboardLegendOptions'] = None,
@@ -45156,6 +46194,7 @@ class DashboardComboChartConfiguration(dict):
                  reference_lines: Optional[Sequence['outputs.DashboardReferenceLine']] = None,
                  secondary_y_axis_display_options: Optional['outputs.DashboardAxisDisplayOptions'] = None,
                  secondary_y_axis_label_options: Optional['outputs.DashboardChartAxisLabelOptions'] = None,
+                 series: Optional[Sequence['outputs.DashboardComboSeriesItem']] = None,
                  single_axis_options: Optional['outputs.DashboardSingleAxisOptions'] = None,
                  sort_configuration: Optional['outputs.DashboardComboChartSortConfiguration'] = None,
                  tooltip: Optional['outputs.DashboardTooltipOptions'] = None,
@@ -45197,6 +46236,8 @@ class DashboardComboChartConfiguration(dict):
             pulumi.set(__self__, "category_label_options", category_label_options)
         if color_label_options is not None:
             pulumi.set(__self__, "color_label_options", color_label_options)
+        if default_series_settings is not None:
+            pulumi.set(__self__, "default_series_settings", default_series_settings)
         if field_wells is not None:
             pulumi.set(__self__, "field_wells", field_wells)
         if interactions is not None:
@@ -45215,6 +46256,8 @@ class DashboardComboChartConfiguration(dict):
             pulumi.set(__self__, "secondary_y_axis_display_options", secondary_y_axis_display_options)
         if secondary_y_axis_label_options is not None:
             pulumi.set(__self__, "secondary_y_axis_label_options", secondary_y_axis_label_options)
+        if series is not None:
+            pulumi.set(__self__, "series", series)
         if single_axis_options is not None:
             pulumi.set(__self__, "single_axis_options", single_axis_options)
         if sort_configuration is not None:
@@ -45269,6 +46312,11 @@ class DashboardComboChartConfiguration(dict):
         The label options (label text, label visibility, and sort icon visibility) of a combo chart's color field well.
         """
         return pulumi.get(self, "color_label_options")
+
+    @_builtins.property
+    @pulumi.getter(name="defaultSeriesSettings")
+    def default_series_settings(self) -> Optional['outputs.DashboardComboChartDefaultSeriesSettings']:
+        return pulumi.get(self, "default_series_settings")
 
     @_builtins.property
     @pulumi.getter(name="fieldWells")
@@ -45345,6 +46393,11 @@ class DashboardComboChartConfiguration(dict):
         return pulumi.get(self, "secondary_y_axis_label_options")
 
     @_builtins.property
+    @pulumi.getter
+    def series(self) -> Optional[Sequence['outputs.DashboardComboSeriesItem']]:
+        return pulumi.get(self, "series")
+
+    @_builtins.property
     @pulumi.getter(name="singleAxisOptions")
     def single_axis_options(self) -> Optional['outputs.DashboardSingleAxisOptions']:
         return pulumi.get(self, "single_axis_options")
@@ -45372,6 +46425,66 @@ class DashboardComboChartConfiguration(dict):
         The palette (chart color) display setup of the visual.
         """
         return pulumi.get(self, "visual_palette")
+
+
+@pulumi.output_type
+class DashboardComboChartDefaultSeriesSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "borderSettings":
+            suggest = "border_settings"
+        elif key == "decalSettings":
+            suggest = "decal_settings"
+        elif key == "lineStyleSettings":
+            suggest = "line_style_settings"
+        elif key == "markerStyleSettings":
+            suggest = "marker_style_settings"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardComboChartDefaultSeriesSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardComboChartDefaultSeriesSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardComboChartDefaultSeriesSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 border_settings: Optional['outputs.DashboardBorderSettings'] = None,
+                 decal_settings: Optional['outputs.DashboardDecalSettings'] = None,
+                 line_style_settings: Optional['outputs.DashboardLineChartLineStyleSettings'] = None,
+                 marker_style_settings: Optional['outputs.DashboardLineChartMarkerStyleSettings'] = None):
+        if border_settings is not None:
+            pulumi.set(__self__, "border_settings", border_settings)
+        if decal_settings is not None:
+            pulumi.set(__self__, "decal_settings", decal_settings)
+        if line_style_settings is not None:
+            pulumi.set(__self__, "line_style_settings", line_style_settings)
+        if marker_style_settings is not None:
+            pulumi.set(__self__, "marker_style_settings", marker_style_settings)
+
+    @_builtins.property
+    @pulumi.getter(name="borderSettings")
+    def border_settings(self) -> Optional['outputs.DashboardBorderSettings']:
+        return pulumi.get(self, "border_settings")
+
+    @_builtins.property
+    @pulumi.getter(name="decalSettings")
+    def decal_settings(self) -> Optional['outputs.DashboardDecalSettings']:
+        return pulumi.get(self, "decal_settings")
+
+    @_builtins.property
+    @pulumi.getter(name="lineStyleSettings")
+    def line_style_settings(self) -> Optional['outputs.DashboardLineChartLineStyleSettings']:
+        return pulumi.get(self, "line_style_settings")
+
+    @_builtins.property
+    @pulumi.getter(name="markerStyleSettings")
+    def marker_style_settings(self) -> Optional['outputs.DashboardLineChartMarkerStyleSettings']:
+        return pulumi.get(self, "marker_style_settings")
 
 
 @pulumi.output_type
@@ -45599,6 +46712,12 @@ class DashboardComboChartVisual(dict):
         The alt text for the visual.
         """
         return pulumi.get(self, "visual_content_alt_text")
+
+
+@pulumi.output_type
+class DashboardComboSeriesItem(dict):
+    def __init__(__self__):
+        pass
 
 
 @pulumi.output_type
@@ -46745,12 +47864,14 @@ class DashboardCustomContentVisual(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "dataSetIdentifier":
-            suggest = "data_set_identifier"
-        elif key == "visualId":
+        if key == "visualId":
             suggest = "visual_id"
         elif key == "chartConfiguration":
             suggest = "chart_configuration"
+        elif key == "dataSetIdentifier":
+            suggest = "data_set_identifier"
+        elif key == "topicIdentifier":
+            suggest = "topic_identifier"
         elif key == "visualContentAltText":
             suggest = "visual_content_alt_text"
 
@@ -46766,42 +47887,38 @@ class DashboardCustomContentVisual(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 data_set_identifier: _builtins.str,
                  visual_id: _builtins.str,
                  actions: Optional[Sequence['outputs.DashboardVisualCustomAction']] = None,
                  chart_configuration: Optional['outputs.DashboardCustomContentConfiguration'] = None,
+                 data_set_identifier: Optional[_builtins.str] = None,
                  subtitle: Optional['outputs.DashboardVisualSubtitleLabelOptions'] = None,
                  title: Optional['outputs.DashboardVisualTitleLabelOptions'] = None,
+                 topic_identifier: Optional[_builtins.str] = None,
                  visual_content_alt_text: Optional[_builtins.str] = None):
         """
-        :param _builtins.str data_set_identifier: The dataset that is used to create the custom content visual. You can't create a visual without a dataset.
         :param _builtins.str visual_id: The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.
         :param Sequence['DashboardVisualCustomAction'] actions: The list of custom actions that are configured for a visual.
         :param 'DashboardCustomContentConfiguration' chart_configuration: The configuration of a `CustomContentVisual` .
+        :param _builtins.str data_set_identifier: The dataset that is used to create the custom content visual. You can't create a visual without a dataset.
         :param 'DashboardVisualSubtitleLabelOptions' subtitle: The subtitle that is displayed on the visual.
         :param 'DashboardVisualTitleLabelOptions' title: The title that is displayed on the visual.
         :param _builtins.str visual_content_alt_text: The alt text for the visual.
         """
-        pulumi.set(__self__, "data_set_identifier", data_set_identifier)
         pulumi.set(__self__, "visual_id", visual_id)
         if actions is not None:
             pulumi.set(__self__, "actions", actions)
         if chart_configuration is not None:
             pulumi.set(__self__, "chart_configuration", chart_configuration)
+        if data_set_identifier is not None:
+            pulumi.set(__self__, "data_set_identifier", data_set_identifier)
         if subtitle is not None:
             pulumi.set(__self__, "subtitle", subtitle)
         if title is not None:
             pulumi.set(__self__, "title", title)
+        if topic_identifier is not None:
+            pulumi.set(__self__, "topic_identifier", topic_identifier)
         if visual_content_alt_text is not None:
             pulumi.set(__self__, "visual_content_alt_text", visual_content_alt_text)
-
-    @_builtins.property
-    @pulumi.getter(name="dataSetIdentifier")
-    def data_set_identifier(self) -> _builtins.str:
-        """
-        The dataset that is used to create the custom content visual. You can't create a visual without a dataset.
-        """
-        return pulumi.get(self, "data_set_identifier")
 
     @_builtins.property
     @pulumi.getter(name="visualId")
@@ -46828,6 +47945,14 @@ class DashboardCustomContentVisual(dict):
         return pulumi.get(self, "chart_configuration")
 
     @_builtins.property
+    @pulumi.getter(name="dataSetIdentifier")
+    def data_set_identifier(self) -> Optional[_builtins.str]:
+        """
+        The dataset that is used to create the custom content visual. You can't create a visual without a dataset.
+        """
+        return pulumi.get(self, "data_set_identifier")
+
+    @_builtins.property
     @pulumi.getter
     def subtitle(self) -> Optional['outputs.DashboardVisualSubtitleLabelOptions']:
         """
@@ -46842,6 +47967,11 @@ class DashboardCustomContentVisual(dict):
         The title that is displayed on the visual.
         """
         return pulumi.get(self, "title")
+
+    @_builtins.property
+    @pulumi.getter(name="topicIdentifier")
+    def topic_identifier(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "topic_identifier")
 
     @_builtins.property
     @pulumi.getter(name="visualContentAltText")
@@ -48025,6 +49155,9 @@ class DashboardDataPointTooltipOption(dict):
 
 @pulumi.output_type
 class DashboardDataQaEnabledOption(dict):
+    """
+    <p>Adds Q&A capabilities to a dashboard. If no topic is linked, Dashboard Q&A uses the data values that are rendered on the dashboard. End users can use Dashboard Q&A to ask for different slices of the data that they see on the dashboard. If a topic is linked, Topic Q&A is enabled.</p>
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -48045,6 +49178,8 @@ class DashboardDataQaEnabledOption(dict):
     def __init__(__self__, *,
                  availability_status: Optional['DashboardBehavior'] = None):
         """
+        <p>Adds Q&A capabilities to a dashboard. If no topic is linked, Dashboard Q&A uses the data values that are rendered on the dashboard. End users can use Dashboard Q&A to ask for different slices of the data that they see on the dashboard. If a topic is linked, Topic Q&A is enabled.</p>
+
         :param 'DashboardBehavior' availability_status: The status of the Data Q&A option on the dashboard.
         """
         if availability_status is not None:
@@ -48854,6 +49989,106 @@ class DashboardDateTimeValueWhenUnsetConfiguration(dict):
         - `NULL` : The `NULL` value.
         """
         return pulumi.get(self, "value_when_unset_option")
+
+
+@pulumi.output_type
+class DashboardDecalSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "decalColor":
+            suggest = "decal_color"
+        elif key == "decalPatternType":
+            suggest = "decal_pattern_type"
+        elif key == "decalStyleType":
+            suggest = "decal_style_type"
+        elif key == "decalVisibility":
+            suggest = "decal_visibility"
+        elif key == "elementValue":
+            suggest = "element_value"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardDecalSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardDecalSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardDecalSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 decal_color: Optional[_builtins.str] = None,
+                 decal_pattern_type: Optional['DashboardDecalPatternType'] = None,
+                 decal_style_type: Optional['DashboardDecalStyleType'] = None,
+                 decal_visibility: Optional['DashboardVisibility'] = None,
+                 element_value: Optional[_builtins.str] = None):
+        if decal_color is not None:
+            pulumi.set(__self__, "decal_color", decal_color)
+        if decal_pattern_type is not None:
+            pulumi.set(__self__, "decal_pattern_type", decal_pattern_type)
+        if decal_style_type is not None:
+            pulumi.set(__self__, "decal_style_type", decal_style_type)
+        if decal_visibility is not None:
+            pulumi.set(__self__, "decal_visibility", decal_visibility)
+        if element_value is not None:
+            pulumi.set(__self__, "element_value", element_value)
+
+    @_builtins.property
+    @pulumi.getter(name="decalColor")
+    def decal_color(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "decal_color")
+
+    @_builtins.property
+    @pulumi.getter(name="decalPatternType")
+    def decal_pattern_type(self) -> Optional['DashboardDecalPatternType']:
+        return pulumi.get(self, "decal_pattern_type")
+
+    @_builtins.property
+    @pulumi.getter(name="decalStyleType")
+    def decal_style_type(self) -> Optional['DashboardDecalStyleType']:
+        return pulumi.get(self, "decal_style_type")
+
+    @_builtins.property
+    @pulumi.getter(name="decalVisibility")
+    def decal_visibility(self) -> Optional['DashboardVisibility']:
+        return pulumi.get(self, "decal_visibility")
+
+    @_builtins.property
+    @pulumi.getter(name="elementValue")
+    def element_value(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "element_value")
+
+
+@pulumi.output_type
+class DashboardDecalSettingsConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "customDecalSettings":
+            suggest = "custom_decal_settings"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardDecalSettingsConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardDecalSettingsConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardDecalSettingsConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 custom_decal_settings: Optional[Sequence['outputs.DashboardDecalSettings']] = None):
+        if custom_decal_settings is not None:
+            pulumi.set(__self__, "custom_decal_settings", custom_decal_settings)
+
+    @_builtins.property
+    @pulumi.getter(name="customDecalSettings")
+    def custom_decal_settings(self) -> Optional[Sequence['outputs.DashboardDecalSettings']]:
+        return pulumi.get(self, "custom_decal_settings")
 
 
 @pulumi.output_type
@@ -50427,10 +51662,12 @@ class DashboardEmptyVisual(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "dataSetIdentifier":
-            suggest = "data_set_identifier"
-        elif key == "visualId":
+        if key == "visualId":
             suggest = "visual_id"
+        elif key == "dataSetIdentifier":
+            suggest = "data_set_identifier"
+        elif key == "topicIdentifier":
+            suggest = "topic_identifier"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in DashboardEmptyVisual. Access the value via the '{suggest}' property getter instead.")
@@ -50444,26 +51681,22 @@ class DashboardEmptyVisual(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 data_set_identifier: _builtins.str,
                  visual_id: _builtins.str,
-                 actions: Optional[Sequence['outputs.DashboardVisualCustomAction']] = None):
+                 actions: Optional[Sequence['outputs.DashboardVisualCustomAction']] = None,
+                 data_set_identifier: Optional[_builtins.str] = None,
+                 topic_identifier: Optional[_builtins.str] = None):
         """
-        :param _builtins.str data_set_identifier: The data set that is used in the empty visual. Every visual requires a dataset to render.
         :param _builtins.str visual_id: The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.
         :param Sequence['DashboardVisualCustomAction'] actions: The list of custom actions that are configured for a visual.
+        :param _builtins.str data_set_identifier: The data set that is used in the empty visual. Every visual requires a dataset to render.
         """
-        pulumi.set(__self__, "data_set_identifier", data_set_identifier)
         pulumi.set(__self__, "visual_id", visual_id)
         if actions is not None:
             pulumi.set(__self__, "actions", actions)
-
-    @_builtins.property
-    @pulumi.getter(name="dataSetIdentifier")
-    def data_set_identifier(self) -> _builtins.str:
-        """
-        The data set that is used in the empty visual. Every visual requires a dataset to render.
-        """
-        return pulumi.get(self, "data_set_identifier")
+        if data_set_identifier is not None:
+            pulumi.set(__self__, "data_set_identifier", data_set_identifier)
+        if topic_identifier is not None:
+            pulumi.set(__self__, "topic_identifier", topic_identifier)
 
     @_builtins.property
     @pulumi.getter(name="visualId")
@@ -50480,6 +51713,19 @@ class DashboardEmptyVisual(dict):
         The list of custom actions that are configured for a visual.
         """
         return pulumi.get(self, "actions")
+
+    @_builtins.property
+    @pulumi.getter(name="dataSetIdentifier")
+    def data_set_identifier(self) -> Optional[_builtins.str]:
+        """
+        The data set that is used in the empty visual. Every visual requires a dataset to render.
+        """
+        return pulumi.get(self, "data_set_identifier")
+
+    @_builtins.property
+    @pulumi.getter(name="topicIdentifier")
+    def topic_identifier(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "topic_identifier")
 
 
 @pulumi.output_type
@@ -53088,7 +54334,7 @@ class DashboardFontConfiguration(dict):
         """
         :param _builtins.str font_color: Determines the color of the text.
         :param 'DashboardFontDecoration' font_decoration: Determines the appearance of decorative lines on the text.
-        :param _builtins.str font_family: The font family that you want to use.
+        :param _builtins.str font_family: <p>The font family that you want to use.</p>
         :param 'DashboardFontSize' font_size: The option that determines the text display size.
         :param 'DashboardFontStyle' font_style: Determines the text display face that is inherited by the given font family.
         :param 'DashboardFontWeight' font_weight: The option that determines the text display weight, or boldness.
@@ -53126,7 +54372,7 @@ class DashboardFontConfiguration(dict):
     @pulumi.getter(name="fontFamily")
     def font_family(self) -> Optional[_builtins.str]:
         """
-        The font family that you want to use.
+        <p>The font family that you want to use.</p>
         """
         return pulumi.get(self, "font_family")
 
@@ -53161,7 +54407,7 @@ class DashboardFontSize(dict):
                  absolute: Optional[_builtins.str] = None,
                  relative: Optional['DashboardRelativeFontSize'] = None):
         """
-        :param _builtins.str absolute: String based length that is composed of value and unit in px
+        :param _builtins.str absolute: <p>The font size that you want to use in px.</p>
         :param 'DashboardRelativeFontSize' relative: The lexical name for the text size, proportional to its surrounding context.
         """
         if absolute is not None:
@@ -53173,7 +54419,7 @@ class DashboardFontSize(dict):
     @pulumi.getter
     def absolute(self) -> Optional[_builtins.str]:
         """
-        String based length that is composed of value and unit in px
+        <p>The font size that you want to use in px.</p>
         """
         return pulumi.get(self, "absolute")
 
@@ -53597,13 +54843,16 @@ class DashboardFreeFormLayoutConfiguration(dict):
 
     def __init__(__self__, *,
                  elements: Sequence['outputs.DashboardFreeFormLayoutElement'],
-                 canvas_size_options: Optional['outputs.DashboardFreeFormLayoutCanvasSizeOptions'] = None):
+                 canvas_size_options: Optional['outputs.DashboardFreeFormLayoutCanvasSizeOptions'] = None,
+                 groups: Optional[Sequence['outputs.DashboardSheetLayoutGroup']] = None):
         """
         :param Sequence['DashboardFreeFormLayoutElement'] elements: The elements that are included in a free-form layout.
         """
         pulumi.set(__self__, "elements", elements)
         if canvas_size_options is not None:
             pulumi.set(__self__, "canvas_size_options", canvas_size_options)
+        if groups is not None:
+            pulumi.set(__self__, "groups", groups)
 
     @_builtins.property
     @pulumi.getter
@@ -53617,6 +54866,11 @@ class DashboardFreeFormLayoutConfiguration(dict):
     @pulumi.getter(name="canvasSizeOptions")
     def canvas_size_options(self) -> Optional['outputs.DashboardFreeFormLayoutCanvasSizeOptions']:
         return pulumi.get(self, "canvas_size_options")
+
+    @_builtins.property
+    @pulumi.getter
+    def groups(self) -> Optional[Sequence['outputs.DashboardSheetLayoutGroup']]:
+        return pulumi.get(self, "groups")
 
 
 @pulumi.output_type
@@ -58818,12 +60072,14 @@ class DashboardInsightVisual(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "dataSetIdentifier":
-            suggest = "data_set_identifier"
-        elif key == "visualId":
+        if key == "visualId":
             suggest = "visual_id"
+        elif key == "dataSetIdentifier":
+            suggest = "data_set_identifier"
         elif key == "insightConfiguration":
             suggest = "insight_configuration"
+        elif key == "topicIdentifier":
+            suggest = "topic_identifier"
         elif key == "visualContentAltText":
             suggest = "visual_content_alt_text"
 
@@ -58839,42 +60095,38 @@ class DashboardInsightVisual(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 data_set_identifier: _builtins.str,
                  visual_id: _builtins.str,
                  actions: Optional[Sequence['outputs.DashboardVisualCustomAction']] = None,
+                 data_set_identifier: Optional[_builtins.str] = None,
                  insight_configuration: Optional['outputs.DashboardInsightConfiguration'] = None,
                  subtitle: Optional['outputs.DashboardVisualSubtitleLabelOptions'] = None,
                  title: Optional['outputs.DashboardVisualTitleLabelOptions'] = None,
+                 topic_identifier: Optional[_builtins.str] = None,
                  visual_content_alt_text: Optional[_builtins.str] = None):
         """
-        :param _builtins.str data_set_identifier: The dataset that is used in the insight visual.
         :param _builtins.str visual_id: The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.
         :param Sequence['DashboardVisualCustomAction'] actions: The list of custom actions that are configured for a visual.
+        :param _builtins.str data_set_identifier: The dataset that is used in the insight visual.
         :param 'DashboardInsightConfiguration' insight_configuration: The configuration of an insight visual.
         :param 'DashboardVisualSubtitleLabelOptions' subtitle: The subtitle that is displayed on the visual.
         :param 'DashboardVisualTitleLabelOptions' title: The title that is displayed on the visual.
         :param _builtins.str visual_content_alt_text: The alt text for the visual.
         """
-        pulumi.set(__self__, "data_set_identifier", data_set_identifier)
         pulumi.set(__self__, "visual_id", visual_id)
         if actions is not None:
             pulumi.set(__self__, "actions", actions)
+        if data_set_identifier is not None:
+            pulumi.set(__self__, "data_set_identifier", data_set_identifier)
         if insight_configuration is not None:
             pulumi.set(__self__, "insight_configuration", insight_configuration)
         if subtitle is not None:
             pulumi.set(__self__, "subtitle", subtitle)
         if title is not None:
             pulumi.set(__self__, "title", title)
+        if topic_identifier is not None:
+            pulumi.set(__self__, "topic_identifier", topic_identifier)
         if visual_content_alt_text is not None:
             pulumi.set(__self__, "visual_content_alt_text", visual_content_alt_text)
-
-    @_builtins.property
-    @pulumi.getter(name="dataSetIdentifier")
-    def data_set_identifier(self) -> _builtins.str:
-        """
-        The dataset that is used in the insight visual.
-        """
-        return pulumi.get(self, "data_set_identifier")
 
     @_builtins.property
     @pulumi.getter(name="visualId")
@@ -58891,6 +60143,14 @@ class DashboardInsightVisual(dict):
         The list of custom actions that are configured for a visual.
         """
         return pulumi.get(self, "actions")
+
+    @_builtins.property
+    @pulumi.getter(name="dataSetIdentifier")
+    def data_set_identifier(self) -> Optional[_builtins.str]:
+        """
+        The dataset that is used in the insight visual.
+        """
+        return pulumi.get(self, "data_set_identifier")
 
     @_builtins.property
     @pulumi.getter(name="insightConfiguration")
@@ -58915,6 +60175,11 @@ class DashboardInsightVisual(dict):
         The title that is displayed on the visual.
         """
         return pulumi.get(self, "title")
+
+    @_builtins.property
+    @pulumi.getter(name="topicIdentifier")
+    def topic_identifier(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "topic_identifier")
 
     @_builtins.property
     @pulumi.getter(name="visualContentAltText")
@@ -60292,12 +61557,14 @@ class DashboardLayerMapVisual(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "dataSetIdentifier":
-            suggest = "data_set_identifier"
-        elif key == "visualId":
+        if key == "visualId":
             suggest = "visual_id"
         elif key == "chartConfiguration":
             suggest = "chart_configuration"
+        elif key == "dataSetIdentifier":
+            suggest = "data_set_identifier"
+        elif key == "topicIdentifier":
+            suggest = "topic_identifier"
         elif key == "visualContentAltText":
             suggest = "visual_content_alt_text"
 
@@ -60313,36 +61580,32 @@ class DashboardLayerMapVisual(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 data_set_identifier: _builtins.str,
                  visual_id: _builtins.str,
                  chart_configuration: Optional['outputs.DashboardGeospatialLayerMapConfiguration'] = None,
+                 data_set_identifier: Optional[_builtins.str] = None,
                  subtitle: Optional['outputs.DashboardVisualSubtitleLabelOptions'] = None,
                  title: Optional['outputs.DashboardVisualTitleLabelOptions'] = None,
+                 topic_identifier: Optional[_builtins.str] = None,
                  visual_content_alt_text: Optional[_builtins.str] = None):
         """
-        :param _builtins.str data_set_identifier: The dataset that is used to create the layer map visual. You can't create a visual without a dataset.
         :param _builtins.str visual_id: The ID of the visual.
         :param 'DashboardGeospatialLayerMapConfiguration' chart_configuration: The configuration settings of the visual.
+        :param _builtins.str data_set_identifier: The dataset that is used to create the layer map visual. You can't create a visual without a dataset.
         :param _builtins.str visual_content_alt_text: The alt text for the visual.
         """
-        pulumi.set(__self__, "data_set_identifier", data_set_identifier)
         pulumi.set(__self__, "visual_id", visual_id)
         if chart_configuration is not None:
             pulumi.set(__self__, "chart_configuration", chart_configuration)
+        if data_set_identifier is not None:
+            pulumi.set(__self__, "data_set_identifier", data_set_identifier)
         if subtitle is not None:
             pulumi.set(__self__, "subtitle", subtitle)
         if title is not None:
             pulumi.set(__self__, "title", title)
+        if topic_identifier is not None:
+            pulumi.set(__self__, "topic_identifier", topic_identifier)
         if visual_content_alt_text is not None:
             pulumi.set(__self__, "visual_content_alt_text", visual_content_alt_text)
-
-    @_builtins.property
-    @pulumi.getter(name="dataSetIdentifier")
-    def data_set_identifier(self) -> _builtins.str:
-        """
-        The dataset that is used to create the layer map visual. You can't create a visual without a dataset.
-        """
-        return pulumi.get(self, "data_set_identifier")
 
     @_builtins.property
     @pulumi.getter(name="visualId")
@@ -60361,6 +61624,14 @@ class DashboardLayerMapVisual(dict):
         return pulumi.get(self, "chart_configuration")
 
     @_builtins.property
+    @pulumi.getter(name="dataSetIdentifier")
+    def data_set_identifier(self) -> Optional[_builtins.str]:
+        """
+        The dataset that is used to create the layer map visual. You can't create a visual without a dataset.
+        """
+        return pulumi.get(self, "data_set_identifier")
+
+    @_builtins.property
     @pulumi.getter
     def subtitle(self) -> Optional['outputs.DashboardVisualSubtitleLabelOptions']:
         return pulumi.get(self, "subtitle")
@@ -60369,6 +61640,11 @@ class DashboardLayerMapVisual(dict):
     @pulumi.getter
     def title(self) -> Optional['outputs.DashboardVisualTitleLabelOptions']:
         return pulumi.get(self, "title")
+
+    @_builtins.property
+    @pulumi.getter(name="topicIdentifier")
+    def topic_identifier(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "topic_identifier")
 
     @_builtins.property
     @pulumi.getter(name="visualContentAltText")
@@ -60944,6 +62220,8 @@ class DashboardLineChartDefaultSeriesSettings(dict):
         suggest = None
         if key == "axisBinding":
             suggest = "axis_binding"
+        elif key == "decalSettings":
+            suggest = "decal_settings"
         elif key == "lineStyleSettings":
             suggest = "line_style_settings"
         elif key == "markerStyleSettings":
@@ -60962,6 +62240,7 @@ class DashboardLineChartDefaultSeriesSettings(dict):
 
     def __init__(__self__, *,
                  axis_binding: Optional['DashboardAxisBinding'] = None,
+                 decal_settings: Optional['outputs.DashboardDecalSettings'] = None,
                  line_style_settings: Optional['outputs.DashboardLineChartLineStyleSettings'] = None,
                  marker_style_settings: Optional['outputs.DashboardLineChartMarkerStyleSettings'] = None):
         """
@@ -60971,6 +62250,8 @@ class DashboardLineChartDefaultSeriesSettings(dict):
         """
         if axis_binding is not None:
             pulumi.set(__self__, "axis_binding", axis_binding)
+        if decal_settings is not None:
+            pulumi.set(__self__, "decal_settings", decal_settings)
         if line_style_settings is not None:
             pulumi.set(__self__, "line_style_settings", line_style_settings)
         if marker_style_settings is not None:
@@ -60983,6 +62264,11 @@ class DashboardLineChartDefaultSeriesSettings(dict):
         The axis to which you are binding all line series to.
         """
         return pulumi.get(self, "axis_binding")
+
+    @_builtins.property
+    @pulumi.getter(name="decalSettings")
+    def decal_settings(self) -> Optional['outputs.DashboardDecalSettings']:
+        return pulumi.get(self, "decal_settings")
 
     @_builtins.property
     @pulumi.getter(name="lineStyleSettings")
@@ -61226,7 +62512,9 @@ class DashboardLineChartSeriesSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "lineStyleSettings":
+        if key == "decalSettings":
+            suggest = "decal_settings"
+        elif key == "lineStyleSettings":
             suggest = "line_style_settings"
         elif key == "markerStyleSettings":
             suggest = "marker_style_settings"
@@ -61243,16 +62531,24 @@ class DashboardLineChartSeriesSettings(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 decal_settings: Optional['outputs.DashboardDecalSettings'] = None,
                  line_style_settings: Optional['outputs.DashboardLineChartLineStyleSettings'] = None,
                  marker_style_settings: Optional['outputs.DashboardLineChartMarkerStyleSettings'] = None):
         """
         :param 'DashboardLineChartLineStyleSettings' line_style_settings: Line styles options for a line series in `LineChartVisual` .
         :param 'DashboardLineChartMarkerStyleSettings' marker_style_settings: Marker styles options for a line series in `LineChartVisual` .
         """
+        if decal_settings is not None:
+            pulumi.set(__self__, "decal_settings", decal_settings)
         if line_style_settings is not None:
             pulumi.set(__self__, "line_style_settings", line_style_settings)
         if marker_style_settings is not None:
             pulumi.set(__self__, "marker_style_settings", marker_style_settings)
+
+    @_builtins.property
+    @pulumi.getter(name="decalSettings")
+    def decal_settings(self) -> Optional['outputs.DashboardDecalSettings']:
+        return pulumi.get(self, "decal_settings")
 
     @_builtins.property
     @pulumi.getter(name="lineStyleSettings")
@@ -64271,7 +65567,7 @@ class DashboardParameterTextFieldControl(dict):
 @pulumi.output_type
 class DashboardParameters(dict):
     """
-    <p>A list of Amazon QuickSight parameters and the list's override values.</p>
+    <p>A list of Quick parameters and the list's override values.</p>
     """
     @staticmethod
     def __key_warning(key: str):
@@ -64302,7 +65598,7 @@ class DashboardParameters(dict):
                  integer_parameters: Optional[Sequence['outputs.DashboardIntegerParameter']] = None,
                  string_parameters: Optional[Sequence['outputs.DashboardStringParameter']] = None):
         """
-        <p>A list of Amazon QuickSight parameters and the list's override values.</p>
+        <p>A list of Quick parameters and the list's override values.</p>
 
         :param Sequence['DashboardDateTimeParameter'] date_time_parameters: <p>The parameters that have a data type of date-time.</p>
         :param Sequence['DashboardDecimalParameter'] decimal_parameters: <p>The parameters that have a data type of decimal.</p>
@@ -68701,10 +69997,10 @@ class DashboardResourcePermission(dict):
                            following:</p>
                         <ul>
                            <li>
-                              <p>The ARN of an Amazon QuickSight user or group associated with a data source or dataset. (This is common.)</p>
+                              <p>The ARN of an Amazon Quick user or group associated with a data source or dataset. (This is common.)</p>
                            </li>
                            <li>
-                              <p>The ARN of an Amazon QuickSight user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)</p>
+                              <p>The ARN of an Amazon Quick user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)</p>
                            </li>
                            <li>
                               <p>The ARN of an Amazon Web Services account root: This is an IAM ARN rather than a QuickSight
@@ -68732,10 +70028,10 @@ class DashboardResourcePermission(dict):
                     following:</p>
                  <ul>
                     <li>
-                       <p>The ARN of an Amazon QuickSight user or group associated with a data source or dataset. (This is common.)</p>
+                       <p>The ARN of an Amazon Quick user or group associated with a data source or dataset. (This is common.)</p>
                     </li>
                     <li>
-                       <p>The ARN of an Amazon QuickSight user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)</p>
+                       <p>The ARN of an Amazon Quick user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)</p>
                     </li>
                     <li>
                        <p>The ARN of an Amazon Web Services account root: This is an IAM ARN rather than a QuickSight
@@ -70305,7 +71601,7 @@ class DashboardShapeConditionalFormat(dict):
 class DashboardSheet(dict):
     """
     <p>A <i>sheet</i>, which is an object that contains a set of visuals that
-                are viewed together on one page in Amazon QuickSight. Every analysis and dashboard
+                are viewed together on one page in Amazon Quick. Every analysis and dashboard
                 contains at least one sheet. Each sheet contains at least one visualization widget, for
                 example a chart, pivot table, or narrative insight. Sheets can be associated with other
                 components, such as controls, filters, and so on.</p>
@@ -70332,12 +71628,12 @@ class DashboardSheet(dict):
                  sheet_id: Optional[_builtins.str] = None):
         """
         <p>A <i>sheet</i>, which is an object that contains a set of visuals that
-                    are viewed together on one page in Amazon QuickSight. Every analysis and dashboard
+                    are viewed together on one page in Amazon Quick. Every analysis and dashboard
                     contains at least one sheet. Each sheet contains at least one visualization widget, for
                     example a chart, pivot table, or narrative insight. Sheets can be associated with other
                     components, such as controls, filters, and so on.</p>
 
-        :param _builtins.str name: <p>The name of a sheet. This name is displayed on the sheet's tab in the Amazon QuickSight
+        :param _builtins.str name: <p>The name of a sheet. This name is displayed on the sheet's tab in the Quick
                            console.</p>
         :param _builtins.str sheet_id: <p>The unique identifier associated with a sheet.</p>
         """
@@ -70350,7 +71646,7 @@ class DashboardSheet(dict):
     @pulumi.getter
     def name(self) -> Optional[_builtins.str]:
         """
-        <p>The name of a sheet. This name is displayed on the sheet's tab in the Amazon QuickSight
+        <p>The name of a sheet. This name is displayed on the sheet's tab in the Quick
                     console.</p>
         """
         return pulumi.get(self, "name")
@@ -71128,6 +72424,44 @@ class DashboardSheetLayoutElementMaximizationOption(dict):
 
 
 @pulumi.output_type
+class DashboardSheetLayoutGroup(dict):
+    def __init__(__self__, *,
+                 id: _builtins.str,
+                 members: Sequence['outputs.DashboardSheetLayoutGroupMember']):
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "members", members)
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> _builtins.str:
+        return pulumi.get(self, "id")
+
+    @_builtins.property
+    @pulumi.getter
+    def members(self) -> Sequence['outputs.DashboardSheetLayoutGroupMember']:
+        return pulumi.get(self, "members")
+
+
+@pulumi.output_type
+class DashboardSheetLayoutGroupMember(dict):
+    def __init__(__self__, *,
+                 id: _builtins.str,
+                 type: Any):
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> _builtins.str:
+        return pulumi.get(self, "id")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> Any:
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
 class DashboardSheetTextBox(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -71577,6 +72911,8 @@ class DashboardSourceTemplate(dict):
         suggest = None
         if key == "dataSetReferences":
             suggest = "data_set_references"
+        elif key == "topicReferences":
+            suggest = "topic_references"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in DashboardSourceTemplate. Access the value via the '{suggest}' property getter instead.")
@@ -71591,7 +72927,8 @@ class DashboardSourceTemplate(dict):
 
     def __init__(__self__, *,
                  arn: _builtins.str,
-                 data_set_references: Sequence['outputs.DashboardDataSetReference']):
+                 data_set_references: Sequence['outputs.DashboardDataSetReference'],
+                 topic_references: Optional[Sequence['outputs.DashboardTopicReference']] = None):
         """
         <p>Dashboard source template.</p>
 
@@ -71600,6 +72937,8 @@ class DashboardSourceTemplate(dict):
         """
         pulumi.set(__self__, "arn", arn)
         pulumi.set(__self__, "data_set_references", data_set_references)
+        if topic_references is not None:
+            pulumi.set(__self__, "topic_references", topic_references)
 
     @_builtins.property
     @pulumi.getter
@@ -71616,6 +72955,11 @@ class DashboardSourceTemplate(dict):
         <p>Dataset references.</p>
         """
         return pulumi.get(self, "data_set_references")
+
+    @_builtins.property
+    @pulumi.getter(name="topicReferences")
+    def topic_references(self) -> Optional[Sequence['outputs.DashboardTopicReference']]:
+        return pulumi.get(self, "topic_references")
 
 
 @pulumi.output_type
@@ -71671,6 +73015,114 @@ class DashboardSpacing(dict):
         String based length that is composed of value and unit
         """
         return pulumi.get(self, "top")
+
+
+@pulumi.output_type
+class DashboardSparklinesOptions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fieldId":
+            suggest = "field_id"
+        elif key == "xAxisField":
+            suggest = "x_axis_field"
+        elif key == "allPointsMarker":
+            suggest = "all_points_marker"
+        elif key == "lineColor":
+            suggest = "line_color"
+        elif key == "lineInterpolation":
+            suggest = "line_interpolation"
+        elif key == "maxValueMarker":
+            suggest = "max_value_marker"
+        elif key == "minValueMarker":
+            suggest = "min_value_marker"
+        elif key == "visualType":
+            suggest = "visual_type"
+        elif key == "yAxisBehavior":
+            suggest = "y_axis_behavior"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardSparklinesOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardSparklinesOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardSparklinesOptions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 field_id: _builtins.str,
+                 x_axis_field: 'outputs.DashboardDimensionField',
+                 all_points_marker: Optional['outputs.DashboardLineChartMarkerStyleSettings'] = None,
+                 line_color: Optional[_builtins.str] = None,
+                 line_interpolation: Optional['DashboardLineInterpolation'] = None,
+                 max_value_marker: Optional['outputs.DashboardLineChartMarkerStyleSettings'] = None,
+                 min_value_marker: Optional['outputs.DashboardLineChartMarkerStyleSettings'] = None,
+                 visual_type: Optional['DashboardSparklineVisualType'] = None,
+                 y_axis_behavior: Optional['DashboardSparklineAxisBehavior'] = None):
+        pulumi.set(__self__, "field_id", field_id)
+        pulumi.set(__self__, "x_axis_field", x_axis_field)
+        if all_points_marker is not None:
+            pulumi.set(__self__, "all_points_marker", all_points_marker)
+        if line_color is not None:
+            pulumi.set(__self__, "line_color", line_color)
+        if line_interpolation is not None:
+            pulumi.set(__self__, "line_interpolation", line_interpolation)
+        if max_value_marker is not None:
+            pulumi.set(__self__, "max_value_marker", max_value_marker)
+        if min_value_marker is not None:
+            pulumi.set(__self__, "min_value_marker", min_value_marker)
+        if visual_type is not None:
+            pulumi.set(__self__, "visual_type", visual_type)
+        if y_axis_behavior is not None:
+            pulumi.set(__self__, "y_axis_behavior", y_axis_behavior)
+
+    @_builtins.property
+    @pulumi.getter(name="fieldId")
+    def field_id(self) -> _builtins.str:
+        return pulumi.get(self, "field_id")
+
+    @_builtins.property
+    @pulumi.getter(name="xAxisField")
+    def x_axis_field(self) -> 'outputs.DashboardDimensionField':
+        return pulumi.get(self, "x_axis_field")
+
+    @_builtins.property
+    @pulumi.getter(name="allPointsMarker")
+    def all_points_marker(self) -> Optional['outputs.DashboardLineChartMarkerStyleSettings']:
+        return pulumi.get(self, "all_points_marker")
+
+    @_builtins.property
+    @pulumi.getter(name="lineColor")
+    def line_color(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "line_color")
+
+    @_builtins.property
+    @pulumi.getter(name="lineInterpolation")
+    def line_interpolation(self) -> Optional['DashboardLineInterpolation']:
+        return pulumi.get(self, "line_interpolation")
+
+    @_builtins.property
+    @pulumi.getter(name="maxValueMarker")
+    def max_value_marker(self) -> Optional['outputs.DashboardLineChartMarkerStyleSettings']:
+        return pulumi.get(self, "max_value_marker")
+
+    @_builtins.property
+    @pulumi.getter(name="minValueMarker")
+    def min_value_marker(self) -> Optional['outputs.DashboardLineChartMarkerStyleSettings']:
+        return pulumi.get(self, "min_value_marker")
+
+    @_builtins.property
+    @pulumi.getter(name="visualType")
+    def visual_type(self) -> Optional['DashboardSparklineVisualType']:
+        return pulumi.get(self, "visual_type")
+
+    @_builtins.property
+    @pulumi.getter(name="yAxisBehavior")
+    def y_axis_behavior(self) -> Optional['DashboardSparklineAxisBehavior']:
+        return pulumi.get(self, "y_axis_behavior")
 
 
 @pulumi.output_type
@@ -73272,12 +74724,15 @@ class DashboardTableInlineVisualization(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 data_bars: Optional['outputs.DashboardDataBarsOptions'] = None):
+                 data_bars: Optional['outputs.DashboardDataBarsOptions'] = None,
+                 sparklines: Optional['outputs.DashboardSparklinesOptions'] = None):
         """
         :param 'DashboardDataBarsOptions' data_bars: The configuration of the inline visualization of the data bars within a chart.
         """
         if data_bars is not None:
             pulumi.set(__self__, "data_bars", data_bars)
+        if sparklines is not None:
+            pulumi.set(__self__, "sparklines", sparklines)
 
     @_builtins.property
     @pulumi.getter(name="dataBars")
@@ -73286,6 +74741,11 @@ class DashboardTableInlineVisualization(dict):
         The configuration of the inline visualization of the data bars within a chart.
         """
         return pulumi.get(self, "data_bars")
+
+    @_builtins.property
+    @pulumi.getter
+    def sparklines(self) -> Optional['outputs.DashboardSparklinesOptions']:
+        return pulumi.get(self, "sparklines")
 
 
 @pulumi.output_type
@@ -75083,6 +76543,80 @@ class DashboardTopBottomRankedComputation(dict):
 
 
 @pulumi.output_type
+class DashboardTopicIdentifierDeclaration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "topicArn":
+            suggest = "topic_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardTopicIdentifierDeclaration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardTopicIdentifierDeclaration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardTopicIdentifierDeclaration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 identifier: _builtins.str,
+                 topic_arn: _builtins.str):
+        pulumi.set(__self__, "identifier", identifier)
+        pulumi.set(__self__, "topic_arn", topic_arn)
+
+    @_builtins.property
+    @pulumi.getter
+    def identifier(self) -> _builtins.str:
+        return pulumi.get(self, "identifier")
+
+    @_builtins.property
+    @pulumi.getter(name="topicArn")
+    def topic_arn(self) -> _builtins.str:
+        return pulumi.get(self, "topic_arn")
+
+
+@pulumi.output_type
+class DashboardTopicReference(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "topicArn":
+            suggest = "topic_arn"
+        elif key == "topicPlaceholder":
+            suggest = "topic_placeholder"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardTopicReference. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardTopicReference.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardTopicReference.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 topic_arn: _builtins.str,
+                 topic_placeholder: _builtins.str):
+        pulumi.set(__self__, "topic_arn", topic_arn)
+        pulumi.set(__self__, "topic_placeholder", topic_placeholder)
+
+    @_builtins.property
+    @pulumi.getter(name="topicArn")
+    def topic_arn(self) -> _builtins.str:
+        return pulumi.get(self, "topic_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="topicPlaceholder")
+    def topic_placeholder(self) -> _builtins.str:
+        return pulumi.get(self, "topic_placeholder")
+
+
+@pulumi.output_type
 class DashboardTotalAggregationComputation(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -76135,6 +77669,8 @@ class DashboardVersionDefinition(dict):
             suggest = "parameter_declarations"
         elif key == "staticFiles":
             suggest = "static_files"
+        elif key == "topicIdentifierDeclarations":
+            suggest = "topic_identifier_declarations"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in DashboardVersionDefinition. Access the value via the '{suggest}' property getter instead.")
@@ -76156,7 +77692,8 @@ class DashboardVersionDefinition(dict):
                  options: Optional['outputs.DashboardAssetOptions'] = None,
                  parameter_declarations: Optional[Sequence['outputs.DashboardParameterDeclaration']] = None,
                  sheets: Optional[Sequence['outputs.DashboardSheetDefinition']] = None,
-                 static_files: Optional[Sequence['outputs.DashboardStaticFile']] = None):
+                 static_files: Optional[Sequence['outputs.DashboardStaticFile']] = None,
+                 topic_identifier_declarations: Optional[Sequence['outputs.DashboardTopicIdentifierDeclaration']] = None):
         """
         :param Sequence['DashboardDataSetIdentifierDeclaration'] data_set_identifier_declarations: An array of dataset identifier declarations. With this mapping,you can use dataset identifiers instead of dataset Amazon Resource Names (ARNs) throughout the dashboard's sub-structures.
         :param Sequence['DashboardCalculatedField'] calculated_fields: An array of calculated field definitions for the dashboard.
@@ -76169,7 +77706,7 @@ class DashboardVersionDefinition(dict):
                
                For more information, see [Parameters in Amazon Quick Sight](https://docs.aws.amazon.com/quicksight/latest/user/parameters-in-quicksight.html) in the *Amazon Quick Suite User Guide* .
         :param Sequence['DashboardSheetDefinition'] sheets: An array of sheet definitions for a dashboard.
-        :param Sequence['DashboardStaticFile'] static_files: The static files for the definition.
+        :param Sequence['DashboardStaticFile'] static_files: <p>The static files for the definition.</p>
         """
         pulumi.set(__self__, "data_set_identifier_declarations", data_set_identifier_declarations)
         if analysis_defaults is not None:
@@ -76188,6 +77725,8 @@ class DashboardVersionDefinition(dict):
             pulumi.set(__self__, "sheets", sheets)
         if static_files is not None:
             pulumi.set(__self__, "static_files", static_files)
+        if topic_identifier_declarations is not None:
+            pulumi.set(__self__, "topic_identifier_declarations", topic_identifier_declarations)
 
     @_builtins.property
     @pulumi.getter(name="dataSetIdentifierDeclarations")
@@ -76258,9 +77797,14 @@ class DashboardVersionDefinition(dict):
     @pulumi.getter(name="staticFiles")
     def static_files(self) -> Optional[Sequence['outputs.DashboardStaticFile']]:
         """
-        The static files for the definition.
+        <p>The static files for the definition.</p>
         """
         return pulumi.get(self, "static_files")
+
+    @_builtins.property
+    @pulumi.getter(name="topicIdentifierDeclarations")
+    def topic_identifier_declarations(self) -> Optional[Sequence['outputs.DashboardTopicIdentifierDeclaration']]:
+        return pulumi.get(self, "topic_identifier_declarations")
 
 
 @pulumi.output_type
@@ -84635,7 +86179,9 @@ class DataSourceAthenaParameters(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "identityCenterConfiguration":
+        if key == "consumerAccountRoleArn":
+            suggest = "consumer_account_role_arn"
+        elif key == "identityCenterConfiguration":
             suggest = "identity_center_configuration"
         elif key == "roleArn":
             suggest = "role_arn"
@@ -84654,6 +86200,7 @@ class DataSourceAthenaParameters(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 consumer_account_role_arn: Optional[_builtins.str] = None,
                  identity_center_configuration: Optional['outputs.DataSourceIdentityCenterConfiguration'] = None,
                  role_arn: Optional[_builtins.str] = None,
                  work_group: Optional[_builtins.str] = None):
@@ -84666,12 +86213,19 @@ class DataSourceAthenaParameters(dict):
         :param _builtins.str role_arn: <p>Use the <code>RoleArn</code> structure to override an account-wide role for a specific Athena data source. For example, say an account administrator has turned off all Athena access with an account-wide role. The administrator can then use <code>RoleArn</code> to bypass the account-wide role and allow Athena access for the single Athena data source that is specified in the structure, even if the account-wide role forbidding Athena access is still active.</p>
         :param _builtins.str work_group: <p>The workgroup that Amazon Athena uses.</p>
         """
+        if consumer_account_role_arn is not None:
+            pulumi.set(__self__, "consumer_account_role_arn", consumer_account_role_arn)
         if identity_center_configuration is not None:
             pulumi.set(__self__, "identity_center_configuration", identity_center_configuration)
         if role_arn is not None:
             pulumi.set(__self__, "role_arn", role_arn)
         if work_group is not None:
             pulumi.set(__self__, "work_group", work_group)
+
+    @_builtins.property
+    @pulumi.getter(name="consumerAccountRoleArn")
+    def consumer_account_role_arn(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "consumer_account_role_arn")
 
     @_builtins.property
     @pulumi.getter(name="identityCenterConfiguration")
@@ -88755,6 +90309,8 @@ class TemplateBarChartConfiguration(dict):
             suggest = "contribution_analysis_defaults"
         elif key == "dataLabels":
             suggest = "data_labels"
+        elif key == "defaultSeriesSettings":
+            suggest = "default_series_settings"
         elif key == "fieldWells":
             suggest = "field_wells"
         elif key == "referenceLines":
@@ -88788,11 +90344,13 @@ class TemplateBarChartConfiguration(dict):
                  color_label_options: Optional['outputs.TemplateChartAxisLabelOptions'] = None,
                  contribution_analysis_defaults: Optional[Sequence['outputs.TemplateContributionAnalysisDefault']] = None,
                  data_labels: Optional['outputs.TemplateDataLabelOptions'] = None,
+                 default_series_settings: Optional['outputs.TemplateBarChartDefaultSeriesSettings'] = None,
                  field_wells: Optional['outputs.TemplateBarChartFieldWells'] = None,
                  interactions: Optional['outputs.TemplateVisualInteractionOptions'] = None,
                  legend: Optional['outputs.TemplateLegendOptions'] = None,
                  orientation: Optional['TemplateBarChartOrientation'] = None,
                  reference_lines: Optional[Sequence['outputs.TemplateReferenceLine']] = None,
+                 series: Optional[Sequence['outputs.TemplateBarSeriesItem']] = None,
                  small_multiples_options: Optional['outputs.TemplateSmallMultiplesOptions'] = None,
                  sort_configuration: Optional['outputs.TemplateBarChartSortConfiguration'] = None,
                  tooltip: Optional['outputs.TemplateTooltipOptions'] = None,
@@ -88833,6 +90391,8 @@ class TemplateBarChartConfiguration(dict):
             pulumi.set(__self__, "contribution_analysis_defaults", contribution_analysis_defaults)
         if data_labels is not None:
             pulumi.set(__self__, "data_labels", data_labels)
+        if default_series_settings is not None:
+            pulumi.set(__self__, "default_series_settings", default_series_settings)
         if field_wells is not None:
             pulumi.set(__self__, "field_wells", field_wells)
         if interactions is not None:
@@ -88843,6 +90403,8 @@ class TemplateBarChartConfiguration(dict):
             pulumi.set(__self__, "orientation", orientation)
         if reference_lines is not None:
             pulumi.set(__self__, "reference_lines", reference_lines)
+        if series is not None:
+            pulumi.set(__self__, "series", series)
         if small_multiples_options is not None:
             pulumi.set(__self__, "small_multiples_options", small_multiples_options)
         if sort_configuration is not None:
@@ -88905,6 +90467,11 @@ class TemplateBarChartConfiguration(dict):
         return pulumi.get(self, "data_labels")
 
     @_builtins.property
+    @pulumi.getter(name="defaultSeriesSettings")
+    def default_series_settings(self) -> Optional['outputs.TemplateBarChartDefaultSeriesSettings']:
+        return pulumi.get(self, "default_series_settings")
+
+    @_builtins.property
     @pulumi.getter(name="fieldWells")
     def field_wells(self) -> Optional['outputs.TemplateBarChartFieldWells']:
         """
@@ -88946,6 +90513,11 @@ class TemplateBarChartConfiguration(dict):
         The reference line setup of the visual.
         """
         return pulumi.get(self, "reference_lines")
+
+    @_builtins.property
+    @pulumi.getter
+    def series(self) -> Optional[Sequence['outputs.TemplateBarSeriesItem']]:
+        return pulumi.get(self, "series")
 
     @_builtins.property
     @pulumi.getter(name="smallMultiplesOptions")
@@ -88994,6 +90566,46 @@ class TemplateBarChartConfiguration(dict):
         The palette (chart color) display setup of the visual.
         """
         return pulumi.get(self, "visual_palette")
+
+
+@pulumi.output_type
+class TemplateBarChartDefaultSeriesSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "borderSettings":
+            suggest = "border_settings"
+        elif key == "decalSettings":
+            suggest = "decal_settings"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TemplateBarChartDefaultSeriesSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TemplateBarChartDefaultSeriesSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TemplateBarChartDefaultSeriesSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 border_settings: Optional['outputs.TemplateBorderSettings'] = None,
+                 decal_settings: Optional['outputs.TemplateDecalSettings'] = None):
+        if border_settings is not None:
+            pulumi.set(__self__, "border_settings", border_settings)
+        if decal_settings is not None:
+            pulumi.set(__self__, "decal_settings", decal_settings)
+
+    @_builtins.property
+    @pulumi.getter(name="borderSettings")
+    def border_settings(self) -> Optional['outputs.TemplateBorderSettings']:
+        return pulumi.get(self, "border_settings")
+
+    @_builtins.property
+    @pulumi.getter(name="decalSettings")
+    def decal_settings(self) -> Optional['outputs.TemplateDecalSettings']:
+        return pulumi.get(self, "decal_settings")
 
 
 @pulumi.output_type
@@ -89249,6 +90861,12 @@ class TemplateBarChartVisual(dict):
         The alt text for the visual.
         """
         return pulumi.get(self, "visual_content_alt_text")
+
+
+@pulumi.output_type
+class TemplateBarSeriesItem(dict):
+    def __init__(__self__):
+        pass
 
 
 @pulumi.output_type
@@ -89658,6 +91276,62 @@ class TemplateBodySectionRepeatPageBreakConfiguration(dict):
     @pulumi.getter
     def after(self) -> Optional['outputs.TemplateSectionAfterPageBreak']:
         return pulumi.get(self, "after")
+
+
+@pulumi.output_type
+class TemplateBorderSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "borderColor":
+            suggest = "border_color"
+        elif key == "borderVisibility":
+            suggest = "border_visibility"
+        elif key == "borderWidth":
+            suggest = "border_width"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TemplateBorderSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TemplateBorderSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TemplateBorderSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 border_color: Optional[_builtins.str] = None,
+                 border_visibility: Optional['TemplateVisibility'] = None,
+                 border_width: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str border_width: String based length that is composed of value and unit in px
+        """
+        if border_color is not None:
+            pulumi.set(__self__, "border_color", border_color)
+        if border_visibility is not None:
+            pulumi.set(__self__, "border_visibility", border_visibility)
+        if border_width is not None:
+            pulumi.set(__self__, "border_width", border_width)
+
+    @_builtins.property
+    @pulumi.getter(name="borderColor")
+    def border_color(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "border_color")
+
+    @_builtins.property
+    @pulumi.getter(name="borderVisibility")
+    def border_visibility(self) -> Optional['TemplateVisibility']:
+        return pulumi.get(self, "border_visibility")
+
+    @_builtins.property
+    @pulumi.getter(name="borderWidth")
+    def border_width(self) -> Optional[_builtins.str]:
+        """
+        String based length that is composed of value and unit in px
+        """
+        return pulumi.get(self, "border_width")
 
 
 @pulumi.output_type
@@ -90194,6 +91868,8 @@ class TemplateCalculatedField(dict):
         suggest = None
         if key == "dataSetIdentifier":
             suggest = "data_set_identifier"
+        elif key == "topicIdentifier":
+            suggest = "topic_identifier"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in TemplateCalculatedField. Access the value via the '{suggest}' property getter instead.")
@@ -90207,25 +91883,21 @@ class TemplateCalculatedField(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 data_set_identifier: _builtins.str,
                  expression: _builtins.str,
-                 name: _builtins.str):
+                 name: _builtins.str,
+                 data_set_identifier: Optional[_builtins.str] = None,
+                 topic_identifier: Optional[_builtins.str] = None):
         """
-        :param _builtins.str data_set_identifier: The data set that is used in this calculated field.
         :param _builtins.str expression: The expression of the calculated field.
         :param _builtins.str name: The name of the calculated field.
+        :param _builtins.str data_set_identifier: The data set that is used in this calculated field.
         """
-        pulumi.set(__self__, "data_set_identifier", data_set_identifier)
         pulumi.set(__self__, "expression", expression)
         pulumi.set(__self__, "name", name)
-
-    @_builtins.property
-    @pulumi.getter(name="dataSetIdentifier")
-    def data_set_identifier(self) -> _builtins.str:
-        """
-        The data set that is used in this calculated field.
-        """
-        return pulumi.get(self, "data_set_identifier")
+        if data_set_identifier is not None:
+            pulumi.set(__self__, "data_set_identifier", data_set_identifier)
+        if topic_identifier is not None:
+            pulumi.set(__self__, "topic_identifier", topic_identifier)
 
     @_builtins.property
     @pulumi.getter
@@ -90242,6 +91914,19 @@ class TemplateCalculatedField(dict):
         The name of the calculated field.
         """
         return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="dataSetIdentifier")
+    def data_set_identifier(self) -> Optional[_builtins.str]:
+        """
+        The data set that is used in this calculated field.
+        """
+        return pulumi.get(self, "data_set_identifier")
+
+    @_builtins.property
+    @pulumi.getter(name="topicIdentifier")
+    def topic_identifier(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "topic_identifier")
 
 
 @pulumi.output_type
@@ -90992,6 +92677,8 @@ class TemplateColumnConfiguration(dict):
         suggest = None
         if key == "colorsConfiguration":
             suggest = "colors_configuration"
+        elif key == "decalSettingsConfiguration":
+            suggest = "decal_settings_configuration"
         elif key == "formatConfiguration":
             suggest = "format_configuration"
 
@@ -91009,6 +92696,7 @@ class TemplateColumnConfiguration(dict):
     def __init__(__self__, *,
                  column: 'outputs.TemplateColumnIdentifier',
                  colors_configuration: Optional['outputs.TemplateColorsConfiguration'] = None,
+                 decal_settings_configuration: Optional['outputs.TemplateDecalSettingsConfiguration'] = None,
                  format_configuration: Optional['outputs.TemplateFormatConfiguration'] = None,
                  role: Optional['TemplateColumnRole'] = None):
         """
@@ -91020,6 +92708,8 @@ class TemplateColumnConfiguration(dict):
         pulumi.set(__self__, "column", column)
         if colors_configuration is not None:
             pulumi.set(__self__, "colors_configuration", colors_configuration)
+        if decal_settings_configuration is not None:
+            pulumi.set(__self__, "decal_settings_configuration", decal_settings_configuration)
         if format_configuration is not None:
             pulumi.set(__self__, "format_configuration", format_configuration)
         if role is not None:
@@ -91040,6 +92730,11 @@ class TemplateColumnConfiguration(dict):
         The color configurations of the column.
         """
         return pulumi.get(self, "colors_configuration")
+
+    @_builtins.property
+    @pulumi.getter(name="decalSettingsConfiguration")
+    def decal_settings_configuration(self) -> Optional['outputs.TemplateDecalSettingsConfiguration']:
+        return pulumi.get(self, "decal_settings_configuration")
 
     @_builtins.property
     @pulumi.getter(name="formatConfiguration")
@@ -91208,6 +92903,8 @@ class TemplateColumnIdentifier(dict):
             suggest = "column_name"
         elif key == "dataSetIdentifier":
             suggest = "data_set_identifier"
+        elif key == "topicIdentifier":
+            suggest = "topic_identifier"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in TemplateColumnIdentifier. Access the value via the '{suggest}' property getter instead.")
@@ -91222,13 +92919,17 @@ class TemplateColumnIdentifier(dict):
 
     def __init__(__self__, *,
                  column_name: _builtins.str,
-                 data_set_identifier: _builtins.str):
+                 data_set_identifier: Optional[_builtins.str] = None,
+                 topic_identifier: Optional[_builtins.str] = None):
         """
         :param _builtins.str column_name: The name of the column.
         :param _builtins.str data_set_identifier: The data set that the column belongs to.
         """
         pulumi.set(__self__, "column_name", column_name)
-        pulumi.set(__self__, "data_set_identifier", data_set_identifier)
+        if data_set_identifier is not None:
+            pulumi.set(__self__, "data_set_identifier", data_set_identifier)
+        if topic_identifier is not None:
+            pulumi.set(__self__, "topic_identifier", topic_identifier)
 
     @_builtins.property
     @pulumi.getter(name="columnName")
@@ -91240,11 +92941,16 @@ class TemplateColumnIdentifier(dict):
 
     @_builtins.property
     @pulumi.getter(name="dataSetIdentifier")
-    def data_set_identifier(self) -> _builtins.str:
+    def data_set_identifier(self) -> Optional[_builtins.str]:
         """
         The data set that the column belongs to.
         """
         return pulumi.get(self, "data_set_identifier")
+
+    @_builtins.property
+    @pulumi.getter(name="topicIdentifier")
+    def topic_identifier(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "topic_identifier")
 
 
 @pulumi.output_type
@@ -91542,6 +93248,8 @@ class TemplateComboChartConfiguration(dict):
             suggest = "category_label_options"
         elif key == "colorLabelOptions":
             suggest = "color_label_options"
+        elif key == "defaultSeriesSettings":
+            suggest = "default_series_settings"
         elif key == "fieldWells":
             suggest = "field_wells"
         elif key == "lineDataLabels":
@@ -91580,6 +93288,7 @@ class TemplateComboChartConfiguration(dict):
                  category_axis: Optional['outputs.TemplateAxisDisplayOptions'] = None,
                  category_label_options: Optional['outputs.TemplateChartAxisLabelOptions'] = None,
                  color_label_options: Optional['outputs.TemplateChartAxisLabelOptions'] = None,
+                 default_series_settings: Optional['outputs.TemplateComboChartDefaultSeriesSettings'] = None,
                  field_wells: Optional['outputs.TemplateComboChartFieldWells'] = None,
                  interactions: Optional['outputs.TemplateVisualInteractionOptions'] = None,
                  legend: Optional['outputs.TemplateLegendOptions'] = None,
@@ -91589,6 +93298,7 @@ class TemplateComboChartConfiguration(dict):
                  reference_lines: Optional[Sequence['outputs.TemplateReferenceLine']] = None,
                  secondary_y_axis_display_options: Optional['outputs.TemplateAxisDisplayOptions'] = None,
                  secondary_y_axis_label_options: Optional['outputs.TemplateChartAxisLabelOptions'] = None,
+                 series: Optional[Sequence['outputs.TemplateComboSeriesItem']] = None,
                  single_axis_options: Optional['outputs.TemplateSingleAxisOptions'] = None,
                  sort_configuration: Optional['outputs.TemplateComboChartSortConfiguration'] = None,
                  tooltip: Optional['outputs.TemplateTooltipOptions'] = None,
@@ -91630,6 +93340,8 @@ class TemplateComboChartConfiguration(dict):
             pulumi.set(__self__, "category_label_options", category_label_options)
         if color_label_options is not None:
             pulumi.set(__self__, "color_label_options", color_label_options)
+        if default_series_settings is not None:
+            pulumi.set(__self__, "default_series_settings", default_series_settings)
         if field_wells is not None:
             pulumi.set(__self__, "field_wells", field_wells)
         if interactions is not None:
@@ -91648,6 +93360,8 @@ class TemplateComboChartConfiguration(dict):
             pulumi.set(__self__, "secondary_y_axis_display_options", secondary_y_axis_display_options)
         if secondary_y_axis_label_options is not None:
             pulumi.set(__self__, "secondary_y_axis_label_options", secondary_y_axis_label_options)
+        if series is not None:
+            pulumi.set(__self__, "series", series)
         if single_axis_options is not None:
             pulumi.set(__self__, "single_axis_options", single_axis_options)
         if sort_configuration is not None:
@@ -91702,6 +93416,11 @@ class TemplateComboChartConfiguration(dict):
         The label options (label text, label visibility, and sort icon visibility) of a combo chart's color field well.
         """
         return pulumi.get(self, "color_label_options")
+
+    @_builtins.property
+    @pulumi.getter(name="defaultSeriesSettings")
+    def default_series_settings(self) -> Optional['outputs.TemplateComboChartDefaultSeriesSettings']:
+        return pulumi.get(self, "default_series_settings")
 
     @_builtins.property
     @pulumi.getter(name="fieldWells")
@@ -91778,6 +93497,11 @@ class TemplateComboChartConfiguration(dict):
         return pulumi.get(self, "secondary_y_axis_label_options")
 
     @_builtins.property
+    @pulumi.getter
+    def series(self) -> Optional[Sequence['outputs.TemplateComboSeriesItem']]:
+        return pulumi.get(self, "series")
+
+    @_builtins.property
     @pulumi.getter(name="singleAxisOptions")
     def single_axis_options(self) -> Optional['outputs.TemplateSingleAxisOptions']:
         return pulumi.get(self, "single_axis_options")
@@ -91805,6 +93529,66 @@ class TemplateComboChartConfiguration(dict):
         The palette (chart color) display setup of the visual.
         """
         return pulumi.get(self, "visual_palette")
+
+
+@pulumi.output_type
+class TemplateComboChartDefaultSeriesSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "borderSettings":
+            suggest = "border_settings"
+        elif key == "decalSettings":
+            suggest = "decal_settings"
+        elif key == "lineStyleSettings":
+            suggest = "line_style_settings"
+        elif key == "markerStyleSettings":
+            suggest = "marker_style_settings"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TemplateComboChartDefaultSeriesSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TemplateComboChartDefaultSeriesSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TemplateComboChartDefaultSeriesSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 border_settings: Optional['outputs.TemplateBorderSettings'] = None,
+                 decal_settings: Optional['outputs.TemplateDecalSettings'] = None,
+                 line_style_settings: Optional['outputs.TemplateLineChartLineStyleSettings'] = None,
+                 marker_style_settings: Optional['outputs.TemplateLineChartMarkerStyleSettings'] = None):
+        if border_settings is not None:
+            pulumi.set(__self__, "border_settings", border_settings)
+        if decal_settings is not None:
+            pulumi.set(__self__, "decal_settings", decal_settings)
+        if line_style_settings is not None:
+            pulumi.set(__self__, "line_style_settings", line_style_settings)
+        if marker_style_settings is not None:
+            pulumi.set(__self__, "marker_style_settings", marker_style_settings)
+
+    @_builtins.property
+    @pulumi.getter(name="borderSettings")
+    def border_settings(self) -> Optional['outputs.TemplateBorderSettings']:
+        return pulumi.get(self, "border_settings")
+
+    @_builtins.property
+    @pulumi.getter(name="decalSettings")
+    def decal_settings(self) -> Optional['outputs.TemplateDecalSettings']:
+        return pulumi.get(self, "decal_settings")
+
+    @_builtins.property
+    @pulumi.getter(name="lineStyleSettings")
+    def line_style_settings(self) -> Optional['outputs.TemplateLineChartLineStyleSettings']:
+        return pulumi.get(self, "line_style_settings")
+
+    @_builtins.property
+    @pulumi.getter(name="markerStyleSettings")
+    def marker_style_settings(self) -> Optional['outputs.TemplateLineChartMarkerStyleSettings']:
+        return pulumi.get(self, "marker_style_settings")
 
 
 @pulumi.output_type
@@ -92032,6 +93816,12 @@ class TemplateComboChartVisual(dict):
         The alt text for the visual.
         """
         return pulumi.get(self, "visual_content_alt_text")
+
+
+@pulumi.output_type
+class TemplateComboSeriesItem(dict):
+    def __init__(__self__):
+        pass
 
 
 @pulumi.output_type
@@ -93178,12 +94968,14 @@ class TemplateCustomContentVisual(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "dataSetIdentifier":
-            suggest = "data_set_identifier"
-        elif key == "visualId":
+        if key == "visualId":
             suggest = "visual_id"
         elif key == "chartConfiguration":
             suggest = "chart_configuration"
+        elif key == "dataSetIdentifier":
+            suggest = "data_set_identifier"
+        elif key == "topicIdentifier":
+            suggest = "topic_identifier"
         elif key == "visualContentAltText":
             suggest = "visual_content_alt_text"
 
@@ -93199,42 +94991,38 @@ class TemplateCustomContentVisual(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 data_set_identifier: _builtins.str,
                  visual_id: _builtins.str,
                  actions: Optional[Sequence['outputs.TemplateVisualCustomAction']] = None,
                  chart_configuration: Optional['outputs.TemplateCustomContentConfiguration'] = None,
+                 data_set_identifier: Optional[_builtins.str] = None,
                  subtitle: Optional['outputs.TemplateVisualSubtitleLabelOptions'] = None,
                  title: Optional['outputs.TemplateVisualTitleLabelOptions'] = None,
+                 topic_identifier: Optional[_builtins.str] = None,
                  visual_content_alt_text: Optional[_builtins.str] = None):
         """
-        :param _builtins.str data_set_identifier: The dataset that is used to create the custom content visual. You can't create a visual without a dataset.
         :param _builtins.str visual_id: The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.
         :param Sequence['TemplateVisualCustomAction'] actions: The list of custom actions that are configured for a visual.
         :param 'TemplateCustomContentConfiguration' chart_configuration: The configuration of a `CustomContentVisual` .
+        :param _builtins.str data_set_identifier: The dataset that is used to create the custom content visual. You can't create a visual without a dataset.
         :param 'TemplateVisualSubtitleLabelOptions' subtitle: The subtitle that is displayed on the visual.
         :param 'TemplateVisualTitleLabelOptions' title: The title that is displayed on the visual.
         :param _builtins.str visual_content_alt_text: The alt text for the visual.
         """
-        pulumi.set(__self__, "data_set_identifier", data_set_identifier)
         pulumi.set(__self__, "visual_id", visual_id)
         if actions is not None:
             pulumi.set(__self__, "actions", actions)
         if chart_configuration is not None:
             pulumi.set(__self__, "chart_configuration", chart_configuration)
+        if data_set_identifier is not None:
+            pulumi.set(__self__, "data_set_identifier", data_set_identifier)
         if subtitle is not None:
             pulumi.set(__self__, "subtitle", subtitle)
         if title is not None:
             pulumi.set(__self__, "title", title)
+        if topic_identifier is not None:
+            pulumi.set(__self__, "topic_identifier", topic_identifier)
         if visual_content_alt_text is not None:
             pulumi.set(__self__, "visual_content_alt_text", visual_content_alt_text)
-
-    @_builtins.property
-    @pulumi.getter(name="dataSetIdentifier")
-    def data_set_identifier(self) -> _builtins.str:
-        """
-        The dataset that is used to create the custom content visual. You can't create a visual without a dataset.
-        """
-        return pulumi.get(self, "data_set_identifier")
 
     @_builtins.property
     @pulumi.getter(name="visualId")
@@ -93261,6 +95049,14 @@ class TemplateCustomContentVisual(dict):
         return pulumi.get(self, "chart_configuration")
 
     @_builtins.property
+    @pulumi.getter(name="dataSetIdentifier")
+    def data_set_identifier(self) -> Optional[_builtins.str]:
+        """
+        The dataset that is used to create the custom content visual. You can't create a visual without a dataset.
+        """
+        return pulumi.get(self, "data_set_identifier")
+
+    @_builtins.property
     @pulumi.getter
     def subtitle(self) -> Optional['outputs.TemplateVisualSubtitleLabelOptions']:
         """
@@ -93275,6 +95071,11 @@ class TemplateCustomContentVisual(dict):
         The title that is displayed on the visual.
         """
         return pulumi.get(self, "title")
+
+    @_builtins.property
+    @pulumi.getter(name="topicIdentifier")
+    def topic_identifier(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "topic_identifier")
 
     @_builtins.property
     @pulumi.getter(name="visualContentAltText")
@@ -95123,6 +96924,106 @@ class TemplateDateTimeValueWhenUnsetConfiguration(dict):
 
 
 @pulumi.output_type
+class TemplateDecalSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "decalColor":
+            suggest = "decal_color"
+        elif key == "decalPatternType":
+            suggest = "decal_pattern_type"
+        elif key == "decalStyleType":
+            suggest = "decal_style_type"
+        elif key == "decalVisibility":
+            suggest = "decal_visibility"
+        elif key == "elementValue":
+            suggest = "element_value"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TemplateDecalSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TemplateDecalSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TemplateDecalSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 decal_color: Optional[_builtins.str] = None,
+                 decal_pattern_type: Optional['TemplateDecalPatternType'] = None,
+                 decal_style_type: Optional['TemplateDecalStyleType'] = None,
+                 decal_visibility: Optional['TemplateVisibility'] = None,
+                 element_value: Optional[_builtins.str] = None):
+        if decal_color is not None:
+            pulumi.set(__self__, "decal_color", decal_color)
+        if decal_pattern_type is not None:
+            pulumi.set(__self__, "decal_pattern_type", decal_pattern_type)
+        if decal_style_type is not None:
+            pulumi.set(__self__, "decal_style_type", decal_style_type)
+        if decal_visibility is not None:
+            pulumi.set(__self__, "decal_visibility", decal_visibility)
+        if element_value is not None:
+            pulumi.set(__self__, "element_value", element_value)
+
+    @_builtins.property
+    @pulumi.getter(name="decalColor")
+    def decal_color(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "decal_color")
+
+    @_builtins.property
+    @pulumi.getter(name="decalPatternType")
+    def decal_pattern_type(self) -> Optional['TemplateDecalPatternType']:
+        return pulumi.get(self, "decal_pattern_type")
+
+    @_builtins.property
+    @pulumi.getter(name="decalStyleType")
+    def decal_style_type(self) -> Optional['TemplateDecalStyleType']:
+        return pulumi.get(self, "decal_style_type")
+
+    @_builtins.property
+    @pulumi.getter(name="decalVisibility")
+    def decal_visibility(self) -> Optional['TemplateVisibility']:
+        return pulumi.get(self, "decal_visibility")
+
+    @_builtins.property
+    @pulumi.getter(name="elementValue")
+    def element_value(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "element_value")
+
+
+@pulumi.output_type
+class TemplateDecalSettingsConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "customDecalSettings":
+            suggest = "custom_decal_settings"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TemplateDecalSettingsConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TemplateDecalSettingsConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TemplateDecalSettingsConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 custom_decal_settings: Optional[Sequence['outputs.TemplateDecalSettings']] = None):
+        if custom_decal_settings is not None:
+            pulumi.set(__self__, "custom_decal_settings", custom_decal_settings)
+
+    @_builtins.property
+    @pulumi.getter(name="customDecalSettings")
+    def custom_decal_settings(self) -> Optional[Sequence['outputs.TemplateDecalSettings']]:
+        return pulumi.get(self, "custom_decal_settings")
+
+
+@pulumi.output_type
 class TemplateDecimalDefaultValues(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -96659,10 +98560,12 @@ class TemplateEmptyVisual(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "dataSetIdentifier":
-            suggest = "data_set_identifier"
-        elif key == "visualId":
+        if key == "visualId":
             suggest = "visual_id"
+        elif key == "dataSetIdentifier":
+            suggest = "data_set_identifier"
+        elif key == "topicIdentifier":
+            suggest = "topic_identifier"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in TemplateEmptyVisual. Access the value via the '{suggest}' property getter instead.")
@@ -96676,26 +98579,22 @@ class TemplateEmptyVisual(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 data_set_identifier: _builtins.str,
                  visual_id: _builtins.str,
-                 actions: Optional[Sequence['outputs.TemplateVisualCustomAction']] = None):
+                 actions: Optional[Sequence['outputs.TemplateVisualCustomAction']] = None,
+                 data_set_identifier: Optional[_builtins.str] = None,
+                 topic_identifier: Optional[_builtins.str] = None):
         """
-        :param _builtins.str data_set_identifier: The data set that is used in the empty visual. Every visual requires a dataset to render.
         :param _builtins.str visual_id: The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.
         :param Sequence['TemplateVisualCustomAction'] actions: The list of custom actions that are configured for a visual.
+        :param _builtins.str data_set_identifier: The data set that is used in the empty visual. Every visual requires a dataset to render.
         """
-        pulumi.set(__self__, "data_set_identifier", data_set_identifier)
         pulumi.set(__self__, "visual_id", visual_id)
         if actions is not None:
             pulumi.set(__self__, "actions", actions)
-
-    @_builtins.property
-    @pulumi.getter(name="dataSetIdentifier")
-    def data_set_identifier(self) -> _builtins.str:
-        """
-        The data set that is used in the empty visual. Every visual requires a dataset to render.
-        """
-        return pulumi.get(self, "data_set_identifier")
+        if data_set_identifier is not None:
+            pulumi.set(__self__, "data_set_identifier", data_set_identifier)
+        if topic_identifier is not None:
+            pulumi.set(__self__, "topic_identifier", topic_identifier)
 
     @_builtins.property
     @pulumi.getter(name="visualId")
@@ -96712,6 +98611,19 @@ class TemplateEmptyVisual(dict):
         The list of custom actions that are configured for a visual.
         """
         return pulumi.get(self, "actions")
+
+    @_builtins.property
+    @pulumi.getter(name="dataSetIdentifier")
+    def data_set_identifier(self) -> Optional[_builtins.str]:
+        """
+        The data set that is used in the empty visual. Every visual requires a dataset to render.
+        """
+        return pulumi.get(self, "data_set_identifier")
+
+    @_builtins.property
+    @pulumi.getter(name="topicIdentifier")
+    def topic_identifier(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "topic_identifier")
 
 
 @pulumi.output_type
@@ -99161,7 +101073,7 @@ class TemplateFontConfiguration(dict):
         """
         :param _builtins.str font_color: Determines the color of the text.
         :param 'TemplateFontDecoration' font_decoration: Determines the appearance of decorative lines on the text.
-        :param _builtins.str font_family: The font family that you want to use.
+        :param _builtins.str font_family: <p>The font family that you want to use.</p>
         :param 'TemplateFontSize' font_size: The option that determines the text display size.
         :param 'TemplateFontStyle' font_style: Determines the text display face that is inherited by the given font family.
         :param 'TemplateFontWeight' font_weight: The option that determines the text display weight, or boldness.
@@ -99199,7 +101111,7 @@ class TemplateFontConfiguration(dict):
     @pulumi.getter(name="fontFamily")
     def font_family(self) -> Optional[_builtins.str]:
         """
-        The font family that you want to use.
+        <p>The font family that you want to use.</p>
         """
         return pulumi.get(self, "font_family")
 
@@ -99234,7 +101146,7 @@ class TemplateFontSize(dict):
                  absolute: Optional[_builtins.str] = None,
                  relative: Optional['TemplateRelativeFontSize'] = None):
         """
-        :param _builtins.str absolute: String based length that is composed of value and unit in px
+        :param _builtins.str absolute: <p>The font size that you want to use in px.</p>
         :param 'TemplateRelativeFontSize' relative: The lexical name for the text size, proportional to its surrounding context.
         """
         if absolute is not None:
@@ -99246,7 +101158,7 @@ class TemplateFontSize(dict):
     @pulumi.getter
     def absolute(self) -> Optional[_builtins.str]:
         """
-        String based length that is composed of value and unit in px
+        <p>The font size that you want to use in px.</p>
         """
         return pulumi.get(self, "absolute")
 
@@ -99670,13 +101582,16 @@ class TemplateFreeFormLayoutConfiguration(dict):
 
     def __init__(__self__, *,
                  elements: Sequence['outputs.TemplateFreeFormLayoutElement'],
-                 canvas_size_options: Optional['outputs.TemplateFreeFormLayoutCanvasSizeOptions'] = None):
+                 canvas_size_options: Optional['outputs.TemplateFreeFormLayoutCanvasSizeOptions'] = None,
+                 groups: Optional[Sequence['outputs.TemplateSheetLayoutGroup']] = None):
         """
         :param Sequence['TemplateFreeFormLayoutElement'] elements: The elements that are included in a free-form layout.
         """
         pulumi.set(__self__, "elements", elements)
         if canvas_size_options is not None:
             pulumi.set(__self__, "canvas_size_options", canvas_size_options)
+        if groups is not None:
+            pulumi.set(__self__, "groups", groups)
 
     @_builtins.property
     @pulumi.getter
@@ -99690,6 +101605,11 @@ class TemplateFreeFormLayoutConfiguration(dict):
     @pulumi.getter(name="canvasSizeOptions")
     def canvas_size_options(self) -> Optional['outputs.TemplateFreeFormLayoutCanvasSizeOptions']:
         return pulumi.get(self, "canvas_size_options")
+
+    @_builtins.property
+    @pulumi.getter
+    def groups(self) -> Optional[Sequence['outputs.TemplateSheetLayoutGroup']]:
+        return pulumi.get(self, "groups")
 
 
 @pulumi.output_type
@@ -101051,6 +102971,203 @@ class TemplateGaugeChartVisual(dict):
 
 
 @pulumi.output_type
+class TemplateGeospatialCategoricalColor(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "categoryDataColors":
+            suggest = "category_data_colors"
+        elif key == "defaultOpacity":
+            suggest = "default_opacity"
+        elif key == "nullDataSettings":
+            suggest = "null_data_settings"
+        elif key == "nullDataVisibility":
+            suggest = "null_data_visibility"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TemplateGeospatialCategoricalColor. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TemplateGeospatialCategoricalColor.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TemplateGeospatialCategoricalColor.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 category_data_colors: Sequence['outputs.TemplateGeospatialCategoricalDataColor'],
+                 default_opacity: Optional[_builtins.float] = None,
+                 null_data_settings: Optional['outputs.TemplateGeospatialNullDataSettings'] = None,
+                 null_data_visibility: Optional['TemplateVisibility'] = None):
+        pulumi.set(__self__, "category_data_colors", category_data_colors)
+        if default_opacity is not None:
+            pulumi.set(__self__, "default_opacity", default_opacity)
+        if null_data_settings is not None:
+            pulumi.set(__self__, "null_data_settings", null_data_settings)
+        if null_data_visibility is not None:
+            pulumi.set(__self__, "null_data_visibility", null_data_visibility)
+
+    @_builtins.property
+    @pulumi.getter(name="categoryDataColors")
+    def category_data_colors(self) -> Sequence['outputs.TemplateGeospatialCategoricalDataColor']:
+        return pulumi.get(self, "category_data_colors")
+
+    @_builtins.property
+    @pulumi.getter(name="defaultOpacity")
+    def default_opacity(self) -> Optional[_builtins.float]:
+        return pulumi.get(self, "default_opacity")
+
+    @_builtins.property
+    @pulumi.getter(name="nullDataSettings")
+    def null_data_settings(self) -> Optional['outputs.TemplateGeospatialNullDataSettings']:
+        return pulumi.get(self, "null_data_settings")
+
+    @_builtins.property
+    @pulumi.getter(name="nullDataVisibility")
+    def null_data_visibility(self) -> Optional['TemplateVisibility']:
+        return pulumi.get(self, "null_data_visibility")
+
+
+@pulumi.output_type
+class TemplateGeospatialCategoricalDataColor(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dataValue":
+            suggest = "data_value"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TemplateGeospatialCategoricalDataColor. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TemplateGeospatialCategoricalDataColor.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TemplateGeospatialCategoricalDataColor.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 color: _builtins.str,
+                 data_value: _builtins.str):
+        pulumi.set(__self__, "color", color)
+        pulumi.set(__self__, "data_value", data_value)
+
+    @_builtins.property
+    @pulumi.getter
+    def color(self) -> _builtins.str:
+        return pulumi.get(self, "color")
+
+    @_builtins.property
+    @pulumi.getter(name="dataValue")
+    def data_value(self) -> _builtins.str:
+        return pulumi.get(self, "data_value")
+
+
+@pulumi.output_type
+class TemplateGeospatialCircleRadius(dict):
+    def __init__(__self__, *,
+                 radius: Optional[_builtins.float] = None):
+        if radius is not None:
+            pulumi.set(__self__, "radius", radius)
+
+    @_builtins.property
+    @pulumi.getter
+    def radius(self) -> Optional[_builtins.float]:
+        return pulumi.get(self, "radius")
+
+
+@pulumi.output_type
+class TemplateGeospatialCircleSymbolStyle(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "circleRadius":
+            suggest = "circle_radius"
+        elif key == "fillColor":
+            suggest = "fill_color"
+        elif key == "strokeColor":
+            suggest = "stroke_color"
+        elif key == "strokeWidth":
+            suggest = "stroke_width"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TemplateGeospatialCircleSymbolStyle. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TemplateGeospatialCircleSymbolStyle.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TemplateGeospatialCircleSymbolStyle.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 circle_radius: Optional['outputs.TemplateGeospatialCircleRadius'] = None,
+                 fill_color: Optional['outputs.TemplateGeospatialColor'] = None,
+                 stroke_color: Optional['outputs.TemplateGeospatialColor'] = None,
+                 stroke_width: Optional['outputs.TemplateGeospatialLineWidth'] = None):
+        if circle_radius is not None:
+            pulumi.set(__self__, "circle_radius", circle_radius)
+        if fill_color is not None:
+            pulumi.set(__self__, "fill_color", fill_color)
+        if stroke_color is not None:
+            pulumi.set(__self__, "stroke_color", stroke_color)
+        if stroke_width is not None:
+            pulumi.set(__self__, "stroke_width", stroke_width)
+
+    @_builtins.property
+    @pulumi.getter(name="circleRadius")
+    def circle_radius(self) -> Optional['outputs.TemplateGeospatialCircleRadius']:
+        return pulumi.get(self, "circle_radius")
+
+    @_builtins.property
+    @pulumi.getter(name="fillColor")
+    def fill_color(self) -> Optional['outputs.TemplateGeospatialColor']:
+        return pulumi.get(self, "fill_color")
+
+    @_builtins.property
+    @pulumi.getter(name="strokeColor")
+    def stroke_color(self) -> Optional['outputs.TemplateGeospatialColor']:
+        return pulumi.get(self, "stroke_color")
+
+    @_builtins.property
+    @pulumi.getter(name="strokeWidth")
+    def stroke_width(self) -> Optional['outputs.TemplateGeospatialLineWidth']:
+        return pulumi.get(self, "stroke_width")
+
+
+@pulumi.output_type
+class TemplateGeospatialColor(dict):
+    def __init__(__self__, *,
+                 categorical: Optional['outputs.TemplateGeospatialCategoricalColor'] = None,
+                 gradient: Optional['outputs.TemplateGeospatialGradientColor'] = None,
+                 solid: Optional['outputs.TemplateGeospatialSolidColor'] = None):
+        if categorical is not None:
+            pulumi.set(__self__, "categorical", categorical)
+        if gradient is not None:
+            pulumi.set(__self__, "gradient", gradient)
+        if solid is not None:
+            pulumi.set(__self__, "solid", solid)
+
+    @_builtins.property
+    @pulumi.getter
+    def categorical(self) -> Optional['outputs.TemplateGeospatialCategoricalColor']:
+        return pulumi.get(self, "categorical")
+
+    @_builtins.property
+    @pulumi.getter
+    def gradient(self) -> Optional['outputs.TemplateGeospatialGradientColor']:
+        return pulumi.get(self, "gradient")
+
+    @_builtins.property
+    @pulumi.getter
+    def solid(self) -> Optional['outputs.TemplateGeospatialSolidColor']:
+        return pulumi.get(self, "solid")
+
+
+@pulumi.output_type
 class TemplateGeospatialCoordinateBounds(dict):
     def __init__(__self__, *,
                  east: _builtins.float,
@@ -101099,6 +103216,131 @@ class TemplateGeospatialCoordinateBounds(dict):
         The longitude of the west bound of the geospatial coordinate bounds.
         """
         return pulumi.get(self, "west")
+
+
+@pulumi.output_type
+class TemplateGeospatialDataSourceItem(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "staticFileDataSource":
+            suggest = "static_file_data_source"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TemplateGeospatialDataSourceItem. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TemplateGeospatialDataSourceItem.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TemplateGeospatialDataSourceItem.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 static_file_data_source: Optional['outputs.TemplateGeospatialStaticFileSource'] = None):
+        if static_file_data_source is not None:
+            pulumi.set(__self__, "static_file_data_source", static_file_data_source)
+
+    @_builtins.property
+    @pulumi.getter(name="staticFileDataSource")
+    def static_file_data_source(self) -> Optional['outputs.TemplateGeospatialStaticFileSource']:
+        return pulumi.get(self, "static_file_data_source")
+
+
+@pulumi.output_type
+class TemplateGeospatialGradientColor(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "stepColors":
+            suggest = "step_colors"
+        elif key == "defaultOpacity":
+            suggest = "default_opacity"
+        elif key == "nullDataSettings":
+            suggest = "null_data_settings"
+        elif key == "nullDataVisibility":
+            suggest = "null_data_visibility"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TemplateGeospatialGradientColor. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TemplateGeospatialGradientColor.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TemplateGeospatialGradientColor.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 step_colors: Sequence['outputs.TemplateGeospatialGradientStepColor'],
+                 default_opacity: Optional[_builtins.float] = None,
+                 null_data_settings: Optional['outputs.TemplateGeospatialNullDataSettings'] = None,
+                 null_data_visibility: Optional['TemplateVisibility'] = None):
+        pulumi.set(__self__, "step_colors", step_colors)
+        if default_opacity is not None:
+            pulumi.set(__self__, "default_opacity", default_opacity)
+        if null_data_settings is not None:
+            pulumi.set(__self__, "null_data_settings", null_data_settings)
+        if null_data_visibility is not None:
+            pulumi.set(__self__, "null_data_visibility", null_data_visibility)
+
+    @_builtins.property
+    @pulumi.getter(name="stepColors")
+    def step_colors(self) -> Sequence['outputs.TemplateGeospatialGradientStepColor']:
+        return pulumi.get(self, "step_colors")
+
+    @_builtins.property
+    @pulumi.getter(name="defaultOpacity")
+    def default_opacity(self) -> Optional[_builtins.float]:
+        return pulumi.get(self, "default_opacity")
+
+    @_builtins.property
+    @pulumi.getter(name="nullDataSettings")
+    def null_data_settings(self) -> Optional['outputs.TemplateGeospatialNullDataSettings']:
+        return pulumi.get(self, "null_data_settings")
+
+    @_builtins.property
+    @pulumi.getter(name="nullDataVisibility")
+    def null_data_visibility(self) -> Optional['TemplateVisibility']:
+        return pulumi.get(self, "null_data_visibility")
+
+
+@pulumi.output_type
+class TemplateGeospatialGradientStepColor(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dataValue":
+            suggest = "data_value"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TemplateGeospatialGradientStepColor. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TemplateGeospatialGradientStepColor.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TemplateGeospatialGradientStepColor.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 color: _builtins.str,
+                 data_value: _builtins.float):
+        pulumi.set(__self__, "color", color)
+        pulumi.set(__self__, "data_value", data_value)
+
+    @_builtins.property
+    @pulumi.getter
+    def color(self) -> _builtins.str:
+        return pulumi.get(self, "color")
+
+    @_builtins.property
+    @pulumi.getter(name="dataValue")
+    def data_value(self) -> _builtins.float:
+        return pulumi.get(self, "data_value")
 
 
 @pulumi.output_type
@@ -101175,6 +103417,425 @@ class TemplateGeospatialHeatmapDataColor(dict):
 
 
 @pulumi.output_type
+class TemplateGeospatialLayerColorField(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "colorDimensionsFields":
+            suggest = "color_dimensions_fields"
+        elif key == "colorValuesFields":
+            suggest = "color_values_fields"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TemplateGeospatialLayerColorField. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TemplateGeospatialLayerColorField.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TemplateGeospatialLayerColorField.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 color_dimensions_fields: Optional[Sequence['outputs.TemplateDimensionField']] = None,
+                 color_values_fields: Optional[Sequence['outputs.TemplateMeasureField']] = None):
+        if color_dimensions_fields is not None:
+            pulumi.set(__self__, "color_dimensions_fields", color_dimensions_fields)
+        if color_values_fields is not None:
+            pulumi.set(__self__, "color_values_fields", color_values_fields)
+
+    @_builtins.property
+    @pulumi.getter(name="colorDimensionsFields")
+    def color_dimensions_fields(self) -> Optional[Sequence['outputs.TemplateDimensionField']]:
+        return pulumi.get(self, "color_dimensions_fields")
+
+    @_builtins.property
+    @pulumi.getter(name="colorValuesFields")
+    def color_values_fields(self) -> Optional[Sequence['outputs.TemplateMeasureField']]:
+        return pulumi.get(self, "color_values_fields")
+
+
+@pulumi.output_type
+class TemplateGeospatialLayerDefinition(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "lineLayer":
+            suggest = "line_layer"
+        elif key == "pointLayer":
+            suggest = "point_layer"
+        elif key == "polygonLayer":
+            suggest = "polygon_layer"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TemplateGeospatialLayerDefinition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TemplateGeospatialLayerDefinition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TemplateGeospatialLayerDefinition.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 line_layer: Optional['outputs.TemplateGeospatialLineLayer'] = None,
+                 point_layer: Optional['outputs.TemplateGeospatialPointLayer'] = None,
+                 polygon_layer: Optional['outputs.TemplateGeospatialPolygonLayer'] = None):
+        if line_layer is not None:
+            pulumi.set(__self__, "line_layer", line_layer)
+        if point_layer is not None:
+            pulumi.set(__self__, "point_layer", point_layer)
+        if polygon_layer is not None:
+            pulumi.set(__self__, "polygon_layer", polygon_layer)
+
+    @_builtins.property
+    @pulumi.getter(name="lineLayer")
+    def line_layer(self) -> Optional['outputs.TemplateGeospatialLineLayer']:
+        return pulumi.get(self, "line_layer")
+
+    @_builtins.property
+    @pulumi.getter(name="pointLayer")
+    def point_layer(self) -> Optional['outputs.TemplateGeospatialPointLayer']:
+        return pulumi.get(self, "point_layer")
+
+    @_builtins.property
+    @pulumi.getter(name="polygonLayer")
+    def polygon_layer(self) -> Optional['outputs.TemplateGeospatialPolygonLayer']:
+        return pulumi.get(self, "polygon_layer")
+
+
+@pulumi.output_type
+class TemplateGeospatialLayerItem(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "layerId":
+            suggest = "layer_id"
+        elif key == "dataSource":
+            suggest = "data_source"
+        elif key == "joinDefinition":
+            suggest = "join_definition"
+        elif key == "layerDefinition":
+            suggest = "layer_definition"
+        elif key == "layerType":
+            suggest = "layer_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TemplateGeospatialLayerItem. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TemplateGeospatialLayerItem.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TemplateGeospatialLayerItem.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 layer_id: _builtins.str,
+                 actions: Optional[Sequence['outputs.TemplateLayerCustomAction']] = None,
+                 data_source: Optional['outputs.TemplateGeospatialDataSourceItem'] = None,
+                 join_definition: Optional['outputs.TemplateGeospatialLayerJoinDefinition'] = None,
+                 label: Optional[_builtins.str] = None,
+                 layer_definition: Optional['outputs.TemplateGeospatialLayerDefinition'] = None,
+                 layer_type: Optional['TemplateGeospatialLayerType'] = None,
+                 tooltip: Optional['outputs.TemplateTooltipOptions'] = None,
+                 visibility: Optional['TemplateVisibility'] = None):
+        pulumi.set(__self__, "layer_id", layer_id)
+        if actions is not None:
+            pulumi.set(__self__, "actions", actions)
+        if data_source is not None:
+            pulumi.set(__self__, "data_source", data_source)
+        if join_definition is not None:
+            pulumi.set(__self__, "join_definition", join_definition)
+        if label is not None:
+            pulumi.set(__self__, "label", label)
+        if layer_definition is not None:
+            pulumi.set(__self__, "layer_definition", layer_definition)
+        if layer_type is not None:
+            pulumi.set(__self__, "layer_type", layer_type)
+        if tooltip is not None:
+            pulumi.set(__self__, "tooltip", tooltip)
+        if visibility is not None:
+            pulumi.set(__self__, "visibility", visibility)
+
+    @_builtins.property
+    @pulumi.getter(name="layerId")
+    def layer_id(self) -> _builtins.str:
+        return pulumi.get(self, "layer_id")
+
+    @_builtins.property
+    @pulumi.getter
+    def actions(self) -> Optional[Sequence['outputs.TemplateLayerCustomAction']]:
+        return pulumi.get(self, "actions")
+
+    @_builtins.property
+    @pulumi.getter(name="dataSource")
+    def data_source(self) -> Optional['outputs.TemplateGeospatialDataSourceItem']:
+        return pulumi.get(self, "data_source")
+
+    @_builtins.property
+    @pulumi.getter(name="joinDefinition")
+    def join_definition(self) -> Optional['outputs.TemplateGeospatialLayerJoinDefinition']:
+        return pulumi.get(self, "join_definition")
+
+    @_builtins.property
+    @pulumi.getter
+    def label(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "label")
+
+    @_builtins.property
+    @pulumi.getter(name="layerDefinition")
+    def layer_definition(self) -> Optional['outputs.TemplateGeospatialLayerDefinition']:
+        return pulumi.get(self, "layer_definition")
+
+    @_builtins.property
+    @pulumi.getter(name="layerType")
+    def layer_type(self) -> Optional['TemplateGeospatialLayerType']:
+        return pulumi.get(self, "layer_type")
+
+    @_builtins.property
+    @pulumi.getter
+    def tooltip(self) -> Optional['outputs.TemplateTooltipOptions']:
+        return pulumi.get(self, "tooltip")
+
+    @_builtins.property
+    @pulumi.getter
+    def visibility(self) -> Optional['TemplateVisibility']:
+        return pulumi.get(self, "visibility")
+
+
+@pulumi.output_type
+class TemplateGeospatialLayerJoinDefinition(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "colorField":
+            suggest = "color_field"
+        elif key == "datasetKeyField":
+            suggest = "dataset_key_field"
+        elif key == "shapeKeyField":
+            suggest = "shape_key_field"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TemplateGeospatialLayerJoinDefinition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TemplateGeospatialLayerJoinDefinition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TemplateGeospatialLayerJoinDefinition.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 color_field: Optional['outputs.TemplateGeospatialLayerColorField'] = None,
+                 dataset_key_field: Optional['outputs.TemplateUnaggregatedField'] = None,
+                 shape_key_field: Optional[_builtins.str] = None):
+        if color_field is not None:
+            pulumi.set(__self__, "color_field", color_field)
+        if dataset_key_field is not None:
+            pulumi.set(__self__, "dataset_key_field", dataset_key_field)
+        if shape_key_field is not None:
+            pulumi.set(__self__, "shape_key_field", shape_key_field)
+
+    @_builtins.property
+    @pulumi.getter(name="colorField")
+    def color_field(self) -> Optional['outputs.TemplateGeospatialLayerColorField']:
+        return pulumi.get(self, "color_field")
+
+    @_builtins.property
+    @pulumi.getter(name="datasetKeyField")
+    def dataset_key_field(self) -> Optional['outputs.TemplateUnaggregatedField']:
+        return pulumi.get(self, "dataset_key_field")
+
+    @_builtins.property
+    @pulumi.getter(name="shapeKeyField")
+    def shape_key_field(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "shape_key_field")
+
+
+@pulumi.output_type
+class TemplateGeospatialLayerMapConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "mapLayers":
+            suggest = "map_layers"
+        elif key == "mapState":
+            suggest = "map_state"
+        elif key == "mapStyle":
+            suggest = "map_style"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TemplateGeospatialLayerMapConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TemplateGeospatialLayerMapConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TemplateGeospatialLayerMapConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 interactions: Optional['outputs.TemplateVisualInteractionOptions'] = None,
+                 legend: Optional['outputs.TemplateLegendOptions'] = None,
+                 map_layers: Optional[Sequence['outputs.TemplateGeospatialLayerItem']] = None,
+                 map_state: Optional['outputs.TemplateGeospatialMapState'] = None,
+                 map_style: Optional['outputs.TemplateGeospatialMapStyle'] = None):
+        if interactions is not None:
+            pulumi.set(__self__, "interactions", interactions)
+        if legend is not None:
+            pulumi.set(__self__, "legend", legend)
+        if map_layers is not None:
+            pulumi.set(__self__, "map_layers", map_layers)
+        if map_state is not None:
+            pulumi.set(__self__, "map_state", map_state)
+        if map_style is not None:
+            pulumi.set(__self__, "map_style", map_style)
+
+    @_builtins.property
+    @pulumi.getter
+    def interactions(self) -> Optional['outputs.TemplateVisualInteractionOptions']:
+        return pulumi.get(self, "interactions")
+
+    @_builtins.property
+    @pulumi.getter
+    def legend(self) -> Optional['outputs.TemplateLegendOptions']:
+        return pulumi.get(self, "legend")
+
+    @_builtins.property
+    @pulumi.getter(name="mapLayers")
+    def map_layers(self) -> Optional[Sequence['outputs.TemplateGeospatialLayerItem']]:
+        return pulumi.get(self, "map_layers")
+
+    @_builtins.property
+    @pulumi.getter(name="mapState")
+    def map_state(self) -> Optional['outputs.TemplateGeospatialMapState']:
+        return pulumi.get(self, "map_state")
+
+    @_builtins.property
+    @pulumi.getter(name="mapStyle")
+    def map_style(self) -> Optional['outputs.TemplateGeospatialMapStyle']:
+        return pulumi.get(self, "map_style")
+
+
+@pulumi.output_type
+class TemplateGeospatialLineLayer(dict):
+    def __init__(__self__, *,
+                 style: 'outputs.TemplateGeospatialLineStyle'):
+        pulumi.set(__self__, "style", style)
+
+    @_builtins.property
+    @pulumi.getter
+    def style(self) -> 'outputs.TemplateGeospatialLineStyle':
+        return pulumi.get(self, "style")
+
+
+@pulumi.output_type
+class TemplateGeospatialLineStyle(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "lineSymbolStyle":
+            suggest = "line_symbol_style"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TemplateGeospatialLineStyle. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TemplateGeospatialLineStyle.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TemplateGeospatialLineStyle.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 line_symbol_style: Optional['outputs.TemplateGeospatialLineSymbolStyle'] = None):
+        if line_symbol_style is not None:
+            pulumi.set(__self__, "line_symbol_style", line_symbol_style)
+
+    @_builtins.property
+    @pulumi.getter(name="lineSymbolStyle")
+    def line_symbol_style(self) -> Optional['outputs.TemplateGeospatialLineSymbolStyle']:
+        return pulumi.get(self, "line_symbol_style")
+
+
+@pulumi.output_type
+class TemplateGeospatialLineSymbolStyle(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fillColor":
+            suggest = "fill_color"
+        elif key == "lineWidth":
+            suggest = "line_width"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TemplateGeospatialLineSymbolStyle. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TemplateGeospatialLineSymbolStyle.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TemplateGeospatialLineSymbolStyle.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 fill_color: Optional['outputs.TemplateGeospatialColor'] = None,
+                 line_width: Optional['outputs.TemplateGeospatialLineWidth'] = None):
+        if fill_color is not None:
+            pulumi.set(__self__, "fill_color", fill_color)
+        if line_width is not None:
+            pulumi.set(__self__, "line_width", line_width)
+
+    @_builtins.property
+    @pulumi.getter(name="fillColor")
+    def fill_color(self) -> Optional['outputs.TemplateGeospatialColor']:
+        return pulumi.get(self, "fill_color")
+
+    @_builtins.property
+    @pulumi.getter(name="lineWidth")
+    def line_width(self) -> Optional['outputs.TemplateGeospatialLineWidth']:
+        return pulumi.get(self, "line_width")
+
+
+@pulumi.output_type
+class TemplateGeospatialLineWidth(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "lineWidth":
+            suggest = "line_width"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TemplateGeospatialLineWidth. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TemplateGeospatialLineWidth.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TemplateGeospatialLineWidth.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 line_width: Optional[_builtins.float] = None):
+        if line_width is not None:
+            pulumi.set(__self__, "line_width", line_width)
+
+    @_builtins.property
+    @pulumi.getter(name="lineWidth")
+    def line_width(self) -> Optional[_builtins.float]:
+        return pulumi.get(self, "line_width")
+
+
+@pulumi.output_type
 class TemplateGeospatialMapAggregatedFieldWells(dict):
     def __init__(__self__, *,
                  colors: Optional[Sequence['outputs.TemplateDimensionField']] = None,
@@ -101246,6 +103907,7 @@ class TemplateGeospatialMapConfiguration(dict):
 
     def __init__(__self__, *,
                  field_wells: Optional['outputs.TemplateGeospatialMapFieldWells'] = None,
+                 interactions: Optional['outputs.TemplateVisualInteractionOptions'] = None,
                  legend: Optional['outputs.TemplateLegendOptions'] = None,
                  map_style_options: Optional['outputs.TemplateGeospatialMapStyleOptions'] = None,
                  point_style_options: Optional['outputs.TemplateGeospatialPointStyleOptions'] = None,
@@ -101262,6 +103924,8 @@ class TemplateGeospatialMapConfiguration(dict):
         """
         if field_wells is not None:
             pulumi.set(__self__, "field_wells", field_wells)
+        if interactions is not None:
+            pulumi.set(__self__, "interactions", interactions)
         if legend is not None:
             pulumi.set(__self__, "legend", legend)
         if map_style_options is not None:
@@ -101282,6 +103946,11 @@ class TemplateGeospatialMapConfiguration(dict):
         The field wells of the visual.
         """
         return pulumi.get(self, "field_wells")
+
+    @_builtins.property
+    @pulumi.getter
+    def interactions(self) -> Optional['outputs.TemplateVisualInteractionOptions']:
+        return pulumi.get(self, "interactions")
 
     @_builtins.property
     @pulumi.getter
@@ -101363,6 +104032,94 @@ class TemplateGeospatialMapFieldWells(dict):
         The aggregated field well for a geospatial map.
         """
         return pulumi.get(self, "geospatial_map_aggregated_field_wells")
+
+
+@pulumi.output_type
+class TemplateGeospatialMapState(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "mapNavigation":
+            suggest = "map_navigation"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TemplateGeospatialMapState. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TemplateGeospatialMapState.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TemplateGeospatialMapState.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 bounds: Optional['outputs.TemplateGeospatialCoordinateBounds'] = None,
+                 map_navigation: Optional['TemplateGeospatialMapNavigation'] = None):
+        if bounds is not None:
+            pulumi.set(__self__, "bounds", bounds)
+        if map_navigation is not None:
+            pulumi.set(__self__, "map_navigation", map_navigation)
+
+    @_builtins.property
+    @pulumi.getter
+    def bounds(self) -> Optional['outputs.TemplateGeospatialCoordinateBounds']:
+        return pulumi.get(self, "bounds")
+
+    @_builtins.property
+    @pulumi.getter(name="mapNavigation")
+    def map_navigation(self) -> Optional['TemplateGeospatialMapNavigation']:
+        return pulumi.get(self, "map_navigation")
+
+
+@pulumi.output_type
+class TemplateGeospatialMapStyle(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "backgroundColor":
+            suggest = "background_color"
+        elif key == "baseMapStyle":
+            suggest = "base_map_style"
+        elif key == "baseMapVisibility":
+            suggest = "base_map_visibility"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TemplateGeospatialMapStyle. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TemplateGeospatialMapStyle.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TemplateGeospatialMapStyle.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 background_color: Optional[_builtins.str] = None,
+                 base_map_style: Optional['TemplateBaseMapStyleType'] = None,
+                 base_map_visibility: Optional['TemplateVisibility'] = None):
+        if background_color is not None:
+            pulumi.set(__self__, "background_color", background_color)
+        if base_map_style is not None:
+            pulumi.set(__self__, "base_map_style", base_map_style)
+        if base_map_visibility is not None:
+            pulumi.set(__self__, "base_map_visibility", base_map_visibility)
+
+    @_builtins.property
+    @pulumi.getter(name="backgroundColor")
+    def background_color(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "background_color")
+
+    @_builtins.property
+    @pulumi.getter(name="baseMapStyle")
+    def base_map_style(self) -> Optional['TemplateBaseMapStyleType']:
+        return pulumi.get(self, "base_map_style")
+
+    @_builtins.property
+    @pulumi.getter(name="baseMapVisibility")
+    def base_map_visibility(self) -> Optional['TemplateVisibility']:
+        return pulumi.get(self, "base_map_visibility")
 
 
 @pulumi.output_type
@@ -101515,6 +104272,127 @@ class TemplateGeospatialMapVisual(dict):
 
 
 @pulumi.output_type
+class TemplateGeospatialNullDataSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "symbolStyle":
+            suggest = "symbol_style"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TemplateGeospatialNullDataSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TemplateGeospatialNullDataSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TemplateGeospatialNullDataSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 symbol_style: 'outputs.TemplateGeospatialNullSymbolStyle'):
+        pulumi.set(__self__, "symbol_style", symbol_style)
+
+    @_builtins.property
+    @pulumi.getter(name="symbolStyle")
+    def symbol_style(self) -> 'outputs.TemplateGeospatialNullSymbolStyle':
+        return pulumi.get(self, "symbol_style")
+
+
+@pulumi.output_type
+class TemplateGeospatialNullSymbolStyle(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fillColor":
+            suggest = "fill_color"
+        elif key == "strokeColor":
+            suggest = "stroke_color"
+        elif key == "strokeWidth":
+            suggest = "stroke_width"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TemplateGeospatialNullSymbolStyle. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TemplateGeospatialNullSymbolStyle.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TemplateGeospatialNullSymbolStyle.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 fill_color: Optional[_builtins.str] = None,
+                 stroke_color: Optional[_builtins.str] = None,
+                 stroke_width: Optional[_builtins.float] = None):
+        if fill_color is not None:
+            pulumi.set(__self__, "fill_color", fill_color)
+        if stroke_color is not None:
+            pulumi.set(__self__, "stroke_color", stroke_color)
+        if stroke_width is not None:
+            pulumi.set(__self__, "stroke_width", stroke_width)
+
+    @_builtins.property
+    @pulumi.getter(name="fillColor")
+    def fill_color(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "fill_color")
+
+    @_builtins.property
+    @pulumi.getter(name="strokeColor")
+    def stroke_color(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "stroke_color")
+
+    @_builtins.property
+    @pulumi.getter(name="strokeWidth")
+    def stroke_width(self) -> Optional[_builtins.float]:
+        return pulumi.get(self, "stroke_width")
+
+
+@pulumi.output_type
+class TemplateGeospatialPointLayer(dict):
+    def __init__(__self__, *,
+                 style: 'outputs.TemplateGeospatialPointStyle'):
+        pulumi.set(__self__, "style", style)
+
+    @_builtins.property
+    @pulumi.getter
+    def style(self) -> 'outputs.TemplateGeospatialPointStyle':
+        return pulumi.get(self, "style")
+
+
+@pulumi.output_type
+class TemplateGeospatialPointStyle(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "circleSymbolStyle":
+            suggest = "circle_symbol_style"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TemplateGeospatialPointStyle. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TemplateGeospatialPointStyle.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TemplateGeospatialPointStyle.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 circle_symbol_style: Optional['outputs.TemplateGeospatialCircleSymbolStyle'] = None):
+        if circle_symbol_style is not None:
+            pulumi.set(__self__, "circle_symbol_style", circle_symbol_style)
+
+    @_builtins.property
+    @pulumi.getter(name="circleSymbolStyle")
+    def circle_symbol_style(self) -> Optional['outputs.TemplateGeospatialCircleSymbolStyle']:
+        return pulumi.get(self, "circle_symbol_style")
+
+
+@pulumi.output_type
 class TemplateGeospatialPointStyleOptions(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -101576,6 +104454,153 @@ class TemplateGeospatialPointStyleOptions(dict):
         The selected point styles (point, cluster) of the geospatial map.
         """
         return pulumi.get(self, "selected_point_style")
+
+
+@pulumi.output_type
+class TemplateGeospatialPolygonLayer(dict):
+    def __init__(__self__, *,
+                 style: 'outputs.TemplateGeospatialPolygonStyle'):
+        pulumi.set(__self__, "style", style)
+
+    @_builtins.property
+    @pulumi.getter
+    def style(self) -> 'outputs.TemplateGeospatialPolygonStyle':
+        return pulumi.get(self, "style")
+
+
+@pulumi.output_type
+class TemplateGeospatialPolygonStyle(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "polygonSymbolStyle":
+            suggest = "polygon_symbol_style"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TemplateGeospatialPolygonStyle. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TemplateGeospatialPolygonStyle.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TemplateGeospatialPolygonStyle.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 polygon_symbol_style: Optional['outputs.TemplateGeospatialPolygonSymbolStyle'] = None):
+        if polygon_symbol_style is not None:
+            pulumi.set(__self__, "polygon_symbol_style", polygon_symbol_style)
+
+    @_builtins.property
+    @pulumi.getter(name="polygonSymbolStyle")
+    def polygon_symbol_style(self) -> Optional['outputs.TemplateGeospatialPolygonSymbolStyle']:
+        return pulumi.get(self, "polygon_symbol_style")
+
+
+@pulumi.output_type
+class TemplateGeospatialPolygonSymbolStyle(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fillColor":
+            suggest = "fill_color"
+        elif key == "strokeColor":
+            suggest = "stroke_color"
+        elif key == "strokeWidth":
+            suggest = "stroke_width"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TemplateGeospatialPolygonSymbolStyle. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TemplateGeospatialPolygonSymbolStyle.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TemplateGeospatialPolygonSymbolStyle.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 fill_color: Optional['outputs.TemplateGeospatialColor'] = None,
+                 stroke_color: Optional['outputs.TemplateGeospatialColor'] = None,
+                 stroke_width: Optional['outputs.TemplateGeospatialLineWidth'] = None):
+        if fill_color is not None:
+            pulumi.set(__self__, "fill_color", fill_color)
+        if stroke_color is not None:
+            pulumi.set(__self__, "stroke_color", stroke_color)
+        if stroke_width is not None:
+            pulumi.set(__self__, "stroke_width", stroke_width)
+
+    @_builtins.property
+    @pulumi.getter(name="fillColor")
+    def fill_color(self) -> Optional['outputs.TemplateGeospatialColor']:
+        return pulumi.get(self, "fill_color")
+
+    @_builtins.property
+    @pulumi.getter(name="strokeColor")
+    def stroke_color(self) -> Optional['outputs.TemplateGeospatialColor']:
+        return pulumi.get(self, "stroke_color")
+
+    @_builtins.property
+    @pulumi.getter(name="strokeWidth")
+    def stroke_width(self) -> Optional['outputs.TemplateGeospatialLineWidth']:
+        return pulumi.get(self, "stroke_width")
+
+
+@pulumi.output_type
+class TemplateGeospatialSolidColor(dict):
+    """
+    Describes the properties for a solid color
+    """
+    def __init__(__self__, *,
+                 color: _builtins.str,
+                 state: Optional['TemplateGeospatialColorState'] = None):
+        """
+        Describes the properties for a solid color
+        """
+        pulumi.set(__self__, "color", color)
+        if state is not None:
+            pulumi.set(__self__, "state", state)
+
+    @_builtins.property
+    @pulumi.getter
+    def color(self) -> _builtins.str:
+        return pulumi.get(self, "color")
+
+    @_builtins.property
+    @pulumi.getter
+    def state(self) -> Optional['TemplateGeospatialColorState']:
+        return pulumi.get(self, "state")
+
+
+@pulumi.output_type
+class TemplateGeospatialStaticFileSource(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "staticFileId":
+            suggest = "static_file_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TemplateGeospatialStaticFileSource. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TemplateGeospatialStaticFileSource.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TemplateGeospatialStaticFileSource.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 static_file_id: _builtins.str):
+        pulumi.set(__self__, "static_file_id", static_file_id)
+
+    @_builtins.property
+    @pulumi.getter(name="staticFileId")
+    def static_file_id(self) -> _builtins.str:
+        return pulumi.get(self, "static_file_id")
 
 
 @pulumi.output_type
@@ -101848,10 +104873,20 @@ class TemplateGridLayoutElement(dict):
             suggest = "element_type"
         elif key == "rowSpan":
             suggest = "row_span"
+        elif key == "backgroundStyle":
+            suggest = "background_style"
+        elif key == "borderRadius":
+            suggest = "border_radius"
+        elif key == "borderStyle":
+            suggest = "border_style"
         elif key == "columnIndex":
             suggest = "column_index"
+        elif key == "loadingAnimation":
+            suggest = "loading_animation"
         elif key == "rowIndex":
             suggest = "row_index"
+        elif key == "selectedBorderStyle":
+            suggest = "selected_border_style"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in TemplateGridLayoutElement. Access the value via the '{suggest}' property getter instead.")
@@ -101869,8 +104904,14 @@ class TemplateGridLayoutElement(dict):
                  element_id: _builtins.str,
                  element_type: 'TemplateLayoutElementType',
                  row_span: _builtins.float,
+                 background_style: Optional['outputs.TemplateGridLayoutElementBackgroundStyle'] = None,
+                 border_radius: Optional[_builtins.str] = None,
+                 border_style: Optional['outputs.TemplateGridLayoutElementBorderStyle'] = None,
                  column_index: Optional[_builtins.float] = None,
-                 row_index: Optional[_builtins.float] = None):
+                 loading_animation: Optional['outputs.TemplateLoadingAnimation'] = None,
+                 padding: Optional[_builtins.str] = None,
+                 row_index: Optional[_builtins.float] = None,
+                 selected_border_style: Optional['outputs.TemplateGridLayoutElementBorderStyle'] = None):
         """
         :param _builtins.float column_span: The width of a grid element expressed as a number of grid columns.
         :param _builtins.str element_id: A unique identifier for an element within a grid layout.
@@ -101883,10 +104924,22 @@ class TemplateGridLayoutElement(dict):
         pulumi.set(__self__, "element_id", element_id)
         pulumi.set(__self__, "element_type", element_type)
         pulumi.set(__self__, "row_span", row_span)
+        if background_style is not None:
+            pulumi.set(__self__, "background_style", background_style)
+        if border_radius is not None:
+            pulumi.set(__self__, "border_radius", border_radius)
+        if border_style is not None:
+            pulumi.set(__self__, "border_style", border_style)
         if column_index is not None:
             pulumi.set(__self__, "column_index", column_index)
+        if loading_animation is not None:
+            pulumi.set(__self__, "loading_animation", loading_animation)
+        if padding is not None:
+            pulumi.set(__self__, "padding", padding)
         if row_index is not None:
             pulumi.set(__self__, "row_index", row_index)
+        if selected_border_style is not None:
+            pulumi.set(__self__, "selected_border_style", selected_border_style)
 
     @_builtins.property
     @pulumi.getter(name="columnSpan")
@@ -101921,6 +104974,21 @@ class TemplateGridLayoutElement(dict):
         return pulumi.get(self, "row_span")
 
     @_builtins.property
+    @pulumi.getter(name="backgroundStyle")
+    def background_style(self) -> Optional['outputs.TemplateGridLayoutElementBackgroundStyle']:
+        return pulumi.get(self, "background_style")
+
+    @_builtins.property
+    @pulumi.getter(name="borderRadius")
+    def border_radius(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "border_radius")
+
+    @_builtins.property
+    @pulumi.getter(name="borderStyle")
+    def border_style(self) -> Optional['outputs.TemplateGridLayoutElementBorderStyle']:
+        return pulumi.get(self, "border_style")
+
+    @_builtins.property
     @pulumi.getter(name="columnIndex")
     def column_index(self) -> Optional[_builtins.float]:
         """
@@ -101929,12 +104997,83 @@ class TemplateGridLayoutElement(dict):
         return pulumi.get(self, "column_index")
 
     @_builtins.property
+    @pulumi.getter(name="loadingAnimation")
+    def loading_animation(self) -> Optional['outputs.TemplateLoadingAnimation']:
+        return pulumi.get(self, "loading_animation")
+
+    @_builtins.property
+    @pulumi.getter
+    def padding(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "padding")
+
+    @_builtins.property
     @pulumi.getter(name="rowIndex")
     def row_index(self) -> Optional[_builtins.float]:
         """
         The row index for the upper left corner of an element.
         """
         return pulumi.get(self, "row_index")
+
+    @_builtins.property
+    @pulumi.getter(name="selectedBorderStyle")
+    def selected_border_style(self) -> Optional['outputs.TemplateGridLayoutElementBorderStyle']:
+        return pulumi.get(self, "selected_border_style")
+
+
+@pulumi.output_type
+class TemplateGridLayoutElementBackgroundStyle(dict):
+    def __init__(__self__, *,
+                 color: Optional[_builtins.str] = None,
+                 visibility: Optional['TemplateVisibility'] = None):
+        if color is not None:
+            pulumi.set(__self__, "color", color)
+        if visibility is not None:
+            pulumi.set(__self__, "visibility", visibility)
+
+    @_builtins.property
+    @pulumi.getter
+    def color(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "color")
+
+    @_builtins.property
+    @pulumi.getter
+    def visibility(self) -> Optional['TemplateVisibility']:
+        return pulumi.get(self, "visibility")
+
+
+@pulumi.output_type
+class TemplateGridLayoutElementBorderStyle(dict):
+    def __init__(__self__, *,
+                 color: Optional[_builtins.str] = None,
+                 visibility: Optional['TemplateVisibility'] = None,
+                 width: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str width: String to encapsulate the most generic way Width can be formatted with whatever units (px, em etc)
+        """
+        if color is not None:
+            pulumi.set(__self__, "color", color)
+        if visibility is not None:
+            pulumi.set(__self__, "visibility", visibility)
+        if width is not None:
+            pulumi.set(__self__, "width", width)
+
+    @_builtins.property
+    @pulumi.getter
+    def color(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "color")
+
+    @_builtins.property
+    @pulumi.getter
+    def visibility(self) -> Optional['TemplateVisibility']:
+        return pulumi.get(self, "visibility")
+
+    @_builtins.property
+    @pulumi.getter
+    def width(self) -> Optional[_builtins.str]:
+        """
+        String to encapsulate the most generic way Width can be formatted with whatever units (px, em etc)
+        """
+        return pulumi.get(self, "width")
 
 
 @pulumi.output_type
@@ -103142,6 +106281,43 @@ class TemplateImageMenuOption(dict):
 
 
 @pulumi.output_type
+class TemplateImageStaticFile(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "staticFileId":
+            suggest = "static_file_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TemplateImageStaticFile. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TemplateImageStaticFile.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TemplateImageStaticFile.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 static_file_id: _builtins.str,
+                 source: Optional['outputs.TemplateStaticFileSource'] = None):
+        pulumi.set(__self__, "static_file_id", static_file_id)
+        if source is not None:
+            pulumi.set(__self__, "source", source)
+
+    @_builtins.property
+    @pulumi.getter(name="staticFileId")
+    def static_file_id(self) -> _builtins.str:
+        return pulumi.get(self, "static_file_id")
+
+    @_builtins.property
+    @pulumi.getter
+    def source(self) -> Optional['outputs.TemplateStaticFileSource']:
+        return pulumi.get(self, "source")
+
+
+@pulumi.output_type
 class TemplateInnerFilter(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -103242,12 +106418,14 @@ class TemplateInsightVisual(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "dataSetIdentifier":
-            suggest = "data_set_identifier"
-        elif key == "visualId":
+        if key == "visualId":
             suggest = "visual_id"
+        elif key == "dataSetIdentifier":
+            suggest = "data_set_identifier"
         elif key == "insightConfiguration":
             suggest = "insight_configuration"
+        elif key == "topicIdentifier":
+            suggest = "topic_identifier"
         elif key == "visualContentAltText":
             suggest = "visual_content_alt_text"
 
@@ -103263,42 +106441,38 @@ class TemplateInsightVisual(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 data_set_identifier: _builtins.str,
                  visual_id: _builtins.str,
                  actions: Optional[Sequence['outputs.TemplateVisualCustomAction']] = None,
+                 data_set_identifier: Optional[_builtins.str] = None,
                  insight_configuration: Optional['outputs.TemplateInsightConfiguration'] = None,
                  subtitle: Optional['outputs.TemplateVisualSubtitleLabelOptions'] = None,
                  title: Optional['outputs.TemplateVisualTitleLabelOptions'] = None,
+                 topic_identifier: Optional[_builtins.str] = None,
                  visual_content_alt_text: Optional[_builtins.str] = None):
         """
-        :param _builtins.str data_set_identifier: The dataset that is used in the insight visual.
         :param _builtins.str visual_id: The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.
         :param Sequence['TemplateVisualCustomAction'] actions: The list of custom actions that are configured for a visual.
+        :param _builtins.str data_set_identifier: The dataset that is used in the insight visual.
         :param 'TemplateInsightConfiguration' insight_configuration: The configuration of an insight visual.
         :param 'TemplateVisualSubtitleLabelOptions' subtitle: The subtitle that is displayed on the visual.
         :param 'TemplateVisualTitleLabelOptions' title: The title that is displayed on the visual.
         :param _builtins.str visual_content_alt_text: The alt text for the visual.
         """
-        pulumi.set(__self__, "data_set_identifier", data_set_identifier)
         pulumi.set(__self__, "visual_id", visual_id)
         if actions is not None:
             pulumi.set(__self__, "actions", actions)
+        if data_set_identifier is not None:
+            pulumi.set(__self__, "data_set_identifier", data_set_identifier)
         if insight_configuration is not None:
             pulumi.set(__self__, "insight_configuration", insight_configuration)
         if subtitle is not None:
             pulumi.set(__self__, "subtitle", subtitle)
         if title is not None:
             pulumi.set(__self__, "title", title)
+        if topic_identifier is not None:
+            pulumi.set(__self__, "topic_identifier", topic_identifier)
         if visual_content_alt_text is not None:
             pulumi.set(__self__, "visual_content_alt_text", visual_content_alt_text)
-
-    @_builtins.property
-    @pulumi.getter(name="dataSetIdentifier")
-    def data_set_identifier(self) -> _builtins.str:
-        """
-        The dataset that is used in the insight visual.
-        """
-        return pulumi.get(self, "data_set_identifier")
 
     @_builtins.property
     @pulumi.getter(name="visualId")
@@ -103315,6 +106489,14 @@ class TemplateInsightVisual(dict):
         The list of custom actions that are configured for a visual.
         """
         return pulumi.get(self, "actions")
+
+    @_builtins.property
+    @pulumi.getter(name="dataSetIdentifier")
+    def data_set_identifier(self) -> Optional[_builtins.str]:
+        """
+        The dataset that is used in the insight visual.
+        """
+        return pulumi.get(self, "data_set_identifier")
 
     @_builtins.property
     @pulumi.getter(name="insightConfiguration")
@@ -103339,6 +106521,11 @@ class TemplateInsightVisual(dict):
         The title that is displayed on the visual.
         """
         return pulumi.get(self, "title")
+
+    @_builtins.property
+    @pulumi.getter(name="topicIdentifier")
+    def topic_identifier(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "topic_identifier")
 
     @_builtins.property
     @pulumi.getter(name="visualContentAltText")
@@ -104522,6 +107709,211 @@ class TemplateLabelOptions(dict):
 
 
 @pulumi.output_type
+class TemplateLayerCustomAction(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "actionOperations":
+            suggest = "action_operations"
+        elif key == "customActionId":
+            suggest = "custom_action_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TemplateLayerCustomAction. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TemplateLayerCustomAction.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TemplateLayerCustomAction.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 action_operations: Sequence['outputs.TemplateLayerCustomActionOperation'],
+                 custom_action_id: _builtins.str,
+                 name: _builtins.str,
+                 trigger: 'TemplateLayerCustomActionTrigger',
+                 status: Optional['TemplateWidgetStatus'] = None):
+        pulumi.set(__self__, "action_operations", action_operations)
+        pulumi.set(__self__, "custom_action_id", custom_action_id)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "trigger", trigger)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @_builtins.property
+    @pulumi.getter(name="actionOperations")
+    def action_operations(self) -> Sequence['outputs.TemplateLayerCustomActionOperation']:
+        return pulumi.get(self, "action_operations")
+
+    @_builtins.property
+    @pulumi.getter(name="customActionId")
+    def custom_action_id(self) -> _builtins.str:
+        return pulumi.get(self, "custom_action_id")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def trigger(self) -> 'TemplateLayerCustomActionTrigger':
+        return pulumi.get(self, "trigger")
+
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> Optional['TemplateWidgetStatus']:
+        return pulumi.get(self, "status")
+
+
+@pulumi.output_type
+class TemplateLayerCustomActionOperation(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "filterOperation":
+            suggest = "filter_operation"
+        elif key == "navigationOperation":
+            suggest = "navigation_operation"
+        elif key == "setParametersOperation":
+            suggest = "set_parameters_operation"
+        elif key == "urlOperation":
+            suggest = "url_operation"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TemplateLayerCustomActionOperation. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TemplateLayerCustomActionOperation.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TemplateLayerCustomActionOperation.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 filter_operation: Optional['outputs.TemplateCustomActionFilterOperation'] = None,
+                 navigation_operation: Optional['outputs.TemplateCustomActionNavigationOperation'] = None,
+                 set_parameters_operation: Optional['outputs.TemplateCustomActionSetParametersOperation'] = None,
+                 url_operation: Optional['outputs.TemplateCustomActionUrlOperation'] = None):
+        if filter_operation is not None:
+            pulumi.set(__self__, "filter_operation", filter_operation)
+        if navigation_operation is not None:
+            pulumi.set(__self__, "navigation_operation", navigation_operation)
+        if set_parameters_operation is not None:
+            pulumi.set(__self__, "set_parameters_operation", set_parameters_operation)
+        if url_operation is not None:
+            pulumi.set(__self__, "url_operation", url_operation)
+
+    @_builtins.property
+    @pulumi.getter(name="filterOperation")
+    def filter_operation(self) -> Optional['outputs.TemplateCustomActionFilterOperation']:
+        return pulumi.get(self, "filter_operation")
+
+    @_builtins.property
+    @pulumi.getter(name="navigationOperation")
+    def navigation_operation(self) -> Optional['outputs.TemplateCustomActionNavigationOperation']:
+        return pulumi.get(self, "navigation_operation")
+
+    @_builtins.property
+    @pulumi.getter(name="setParametersOperation")
+    def set_parameters_operation(self) -> Optional['outputs.TemplateCustomActionSetParametersOperation']:
+        return pulumi.get(self, "set_parameters_operation")
+
+    @_builtins.property
+    @pulumi.getter(name="urlOperation")
+    def url_operation(self) -> Optional['outputs.TemplateCustomActionUrlOperation']:
+        return pulumi.get(self, "url_operation")
+
+
+@pulumi.output_type
+class TemplateLayerMapVisual(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "visualId":
+            suggest = "visual_id"
+        elif key == "chartConfiguration":
+            suggest = "chart_configuration"
+        elif key == "dataSetIdentifier":
+            suggest = "data_set_identifier"
+        elif key == "topicIdentifier":
+            suggest = "topic_identifier"
+        elif key == "visualContentAltText":
+            suggest = "visual_content_alt_text"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TemplateLayerMapVisual. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TemplateLayerMapVisual.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TemplateLayerMapVisual.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 visual_id: _builtins.str,
+                 chart_configuration: Optional['outputs.TemplateGeospatialLayerMapConfiguration'] = None,
+                 data_set_identifier: Optional[_builtins.str] = None,
+                 subtitle: Optional['outputs.TemplateVisualSubtitleLabelOptions'] = None,
+                 title: Optional['outputs.TemplateVisualTitleLabelOptions'] = None,
+                 topic_identifier: Optional[_builtins.str] = None,
+                 visual_content_alt_text: Optional[_builtins.str] = None):
+        pulumi.set(__self__, "visual_id", visual_id)
+        if chart_configuration is not None:
+            pulumi.set(__self__, "chart_configuration", chart_configuration)
+        if data_set_identifier is not None:
+            pulumi.set(__self__, "data_set_identifier", data_set_identifier)
+        if subtitle is not None:
+            pulumi.set(__self__, "subtitle", subtitle)
+        if title is not None:
+            pulumi.set(__self__, "title", title)
+        if topic_identifier is not None:
+            pulumi.set(__self__, "topic_identifier", topic_identifier)
+        if visual_content_alt_text is not None:
+            pulumi.set(__self__, "visual_content_alt_text", visual_content_alt_text)
+
+    @_builtins.property
+    @pulumi.getter(name="visualId")
+    def visual_id(self) -> _builtins.str:
+        return pulumi.get(self, "visual_id")
+
+    @_builtins.property
+    @pulumi.getter(name="chartConfiguration")
+    def chart_configuration(self) -> Optional['outputs.TemplateGeospatialLayerMapConfiguration']:
+        return pulumi.get(self, "chart_configuration")
+
+    @_builtins.property
+    @pulumi.getter(name="dataSetIdentifier")
+    def data_set_identifier(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "data_set_identifier")
+
+    @_builtins.property
+    @pulumi.getter
+    def subtitle(self) -> Optional['outputs.TemplateVisualSubtitleLabelOptions']:
+        return pulumi.get(self, "subtitle")
+
+    @_builtins.property
+    @pulumi.getter
+    def title(self) -> Optional['outputs.TemplateVisualTitleLabelOptions']:
+        return pulumi.get(self, "title")
+
+    @_builtins.property
+    @pulumi.getter(name="topicIdentifier")
+    def topic_identifier(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "topic_identifier")
+
+    @_builtins.property
+    @pulumi.getter(name="visualContentAltText")
+    def visual_content_alt_text(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "visual_content_alt_text")
+
+
+@pulumi.output_type
 class TemplateLayout(dict):
     def __init__(__self__, *,
                  configuration: 'outputs.TemplateLayoutConfiguration'):
@@ -105086,6 +108478,8 @@ class TemplateLineChartDefaultSeriesSettings(dict):
         suggest = None
         if key == "axisBinding":
             suggest = "axis_binding"
+        elif key == "decalSettings":
+            suggest = "decal_settings"
         elif key == "lineStyleSettings":
             suggest = "line_style_settings"
         elif key == "markerStyleSettings":
@@ -105104,6 +108498,7 @@ class TemplateLineChartDefaultSeriesSettings(dict):
 
     def __init__(__self__, *,
                  axis_binding: Optional['TemplateAxisBinding'] = None,
+                 decal_settings: Optional['outputs.TemplateDecalSettings'] = None,
                  line_style_settings: Optional['outputs.TemplateLineChartLineStyleSettings'] = None,
                  marker_style_settings: Optional['outputs.TemplateLineChartMarkerStyleSettings'] = None):
         """
@@ -105113,6 +108508,8 @@ class TemplateLineChartDefaultSeriesSettings(dict):
         """
         if axis_binding is not None:
             pulumi.set(__self__, "axis_binding", axis_binding)
+        if decal_settings is not None:
+            pulumi.set(__self__, "decal_settings", decal_settings)
         if line_style_settings is not None:
             pulumi.set(__self__, "line_style_settings", line_style_settings)
         if marker_style_settings is not None:
@@ -105125,6 +108522,11 @@ class TemplateLineChartDefaultSeriesSettings(dict):
         The axis to which you are binding all line series to.
         """
         return pulumi.get(self, "axis_binding")
+
+    @_builtins.property
+    @pulumi.getter(name="decalSettings")
+    def decal_settings(self) -> Optional['outputs.TemplateDecalSettings']:
+        return pulumi.get(self, "decal_settings")
 
     @_builtins.property
     @pulumi.getter(name="lineStyleSettings")
@@ -105368,7 +108770,9 @@ class TemplateLineChartSeriesSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "lineStyleSettings":
+        if key == "decalSettings":
+            suggest = "decal_settings"
+        elif key == "lineStyleSettings":
             suggest = "line_style_settings"
         elif key == "markerStyleSettings":
             suggest = "marker_style_settings"
@@ -105385,16 +108789,24 @@ class TemplateLineChartSeriesSettings(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 decal_settings: Optional['outputs.TemplateDecalSettings'] = None,
                  line_style_settings: Optional['outputs.TemplateLineChartLineStyleSettings'] = None,
                  marker_style_settings: Optional['outputs.TemplateLineChartMarkerStyleSettings'] = None):
         """
         :param 'TemplateLineChartLineStyleSettings' line_style_settings: Line styles options for a line series in `LineChartVisual` .
         :param 'TemplateLineChartMarkerStyleSettings' marker_style_settings: Marker styles options for a line series in `LineChartVisual` .
         """
+        if decal_settings is not None:
+            pulumi.set(__self__, "decal_settings", decal_settings)
         if line_style_settings is not None:
             pulumi.set(__self__, "line_style_settings", line_style_settings)
         if marker_style_settings is not None:
             pulumi.set(__self__, "marker_style_settings", marker_style_settings)
+
+    @_builtins.property
+    @pulumi.getter(name="decalSettings")
+    def decal_settings(self) -> Optional['outputs.TemplateDecalSettings']:
+        return pulumi.get(self, "decal_settings")
 
     @_builtins.property
     @pulumi.getter(name="lineStyleSettings")
@@ -112504,10 +115916,10 @@ class TemplateResourcePermission(dict):
                            following:</p>
                         <ul>
                            <li>
-                              <p>The ARN of an Amazon QuickSight user or group associated with a data source or dataset. (This is common.)</p>
+                              <p>The ARN of an Amazon Quick user or group associated with a data source or dataset. (This is common.)</p>
                            </li>
                            <li>
-                              <p>The ARN of an Amazon QuickSight user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)</p>
+                              <p>The ARN of an Amazon Quick user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)</p>
                            </li>
                            <li>
                               <p>The ARN of an Amazon Web Services account root: This is an IAM ARN rather than a QuickSight
@@ -112535,10 +115947,10 @@ class TemplateResourcePermission(dict):
                     following:</p>
                  <ul>
                     <li>
-                       <p>The ARN of an Amazon QuickSight user or group associated with a data source or dataset. (This is common.)</p>
+                       <p>The ARN of an Amazon Quick user or group associated with a data source or dataset. (This is common.)</p>
                     </li>
                     <li>
-                       <p>The ARN of an Amazon QuickSight user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)</p>
+                       <p>The ARN of an Amazon Quick user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)</p>
                     </li>
                     <li>
                        <p>The ARN of an Amazon Web Services account root: This is an IAM ARN rather than a QuickSight
@@ -114108,7 +117520,7 @@ class TemplateShapeConditionalFormat(dict):
 class TemplateSheet(dict):
     """
     <p>A <i>sheet</i>, which is an object that contains a set of visuals that
-                are viewed together on one page in Amazon QuickSight. Every analysis and dashboard
+                are viewed together on one page in Amazon Quick. Every analysis and dashboard
                 contains at least one sheet. Each sheet contains at least one visualization widget, for
                 example a chart, pivot table, or narrative insight. Sheets can be associated with other
                 components, such as controls, filters, and so on.</p>
@@ -114135,12 +117547,12 @@ class TemplateSheet(dict):
                  sheet_id: Optional[_builtins.str] = None):
         """
         <p>A <i>sheet</i>, which is an object that contains a set of visuals that
-                    are viewed together on one page in Amazon QuickSight. Every analysis and dashboard
+                    are viewed together on one page in Amazon Quick. Every analysis and dashboard
                     contains at least one sheet. Each sheet contains at least one visualization widget, for
                     example a chart, pivot table, or narrative insight. Sheets can be associated with other
                     components, such as controls, filters, and so on.</p>
 
-        :param _builtins.str name: <p>The name of a sheet. This name is displayed on the sheet's tab in the Amazon QuickSight
+        :param _builtins.str name: <p>The name of a sheet. This name is displayed on the sheet's tab in the Quick
                            console.</p>
         :param _builtins.str sheet_id: <p>The unique identifier associated with a sheet.</p>
         """
@@ -114153,7 +117565,7 @@ class TemplateSheet(dict):
     @pulumi.getter
     def name(self) -> Optional[_builtins.str]:
         """
-        <p>The name of a sheet. This name is displayed on the sheet's tab in the Amazon QuickSight
+        <p>The name of a sheet. This name is displayed on the sheet's tab in the Quick
                     console.</p>
         """
         return pulumi.get(self, "name")
@@ -114849,6 +118261,44 @@ class TemplateSheetImageTooltipText(dict):
 
 
 @pulumi.output_type
+class TemplateSheetLayoutGroup(dict):
+    def __init__(__self__, *,
+                 id: _builtins.str,
+                 members: Sequence['outputs.TemplateSheetLayoutGroupMember']):
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "members", members)
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> _builtins.str:
+        return pulumi.get(self, "id")
+
+    @_builtins.property
+    @pulumi.getter
+    def members(self) -> Sequence['outputs.TemplateSheetLayoutGroupMember']:
+        return pulumi.get(self, "members")
+
+
+@pulumi.output_type
+class TemplateSheetLayoutGroupMember(dict):
+    def __init__(__self__, *,
+                 id: _builtins.str,
+                 type: Any):
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> _builtins.str:
+        return pulumi.get(self, "id")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> Any:
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
 class TemplateSheetTextBox(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -115257,6 +118707,8 @@ class TemplateSourceAnalysis(dict):
         suggest = None
         if key == "dataSetReferences":
             suggest = "data_set_references"
+        elif key == "topicReferences":
+            suggest = "topic_references"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in TemplateSourceAnalysis. Access the value via the '{suggest}' property getter instead.")
@@ -115271,7 +118723,8 @@ class TemplateSourceAnalysis(dict):
 
     def __init__(__self__, *,
                  arn: _builtins.str,
-                 data_set_references: Sequence['outputs.TemplateDataSetReference']):
+                 data_set_references: Sequence['outputs.TemplateDataSetReference'],
+                 topic_references: Optional[Sequence['outputs.TemplateTopicReference']] = None):
         """
         <p>The source analysis of the template.</p>
 
@@ -115281,6 +118734,8 @@ class TemplateSourceAnalysis(dict):
         """
         pulumi.set(__self__, "arn", arn)
         pulumi.set(__self__, "data_set_references", data_set_references)
+        if topic_references is not None:
+            pulumi.set(__self__, "topic_references", topic_references)
 
     @_builtins.property
     @pulumi.getter
@@ -115298,6 +118753,11 @@ class TemplateSourceAnalysis(dict):
                     in the template.</p>
         """
         return pulumi.get(self, "data_set_references")
+
+    @_builtins.property
+    @pulumi.getter(name="topicReferences")
+    def topic_references(self) -> Optional[Sequence['outputs.TemplateTopicReference']]:
+        return pulumi.get(self, "topic_references")
 
 
 @pulumi.output_type
@@ -115431,6 +118891,288 @@ class TemplateSpacing(dict):
         String based length that is composed of value and unit
         """
         return pulumi.get(self, "top")
+
+
+@pulumi.output_type
+class TemplateSparklinesOptions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fieldId":
+            suggest = "field_id"
+        elif key == "xAxisField":
+            suggest = "x_axis_field"
+        elif key == "allPointsMarker":
+            suggest = "all_points_marker"
+        elif key == "lineColor":
+            suggest = "line_color"
+        elif key == "lineInterpolation":
+            suggest = "line_interpolation"
+        elif key == "maxValueMarker":
+            suggest = "max_value_marker"
+        elif key == "minValueMarker":
+            suggest = "min_value_marker"
+        elif key == "visualType":
+            suggest = "visual_type"
+        elif key == "yAxisBehavior":
+            suggest = "y_axis_behavior"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TemplateSparklinesOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TemplateSparklinesOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TemplateSparklinesOptions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 field_id: _builtins.str,
+                 x_axis_field: 'outputs.TemplateDimensionField',
+                 all_points_marker: Optional['outputs.TemplateLineChartMarkerStyleSettings'] = None,
+                 line_color: Optional[_builtins.str] = None,
+                 line_interpolation: Optional['TemplateLineInterpolation'] = None,
+                 max_value_marker: Optional['outputs.TemplateLineChartMarkerStyleSettings'] = None,
+                 min_value_marker: Optional['outputs.TemplateLineChartMarkerStyleSettings'] = None,
+                 visual_type: Optional['TemplateSparklineVisualType'] = None,
+                 y_axis_behavior: Optional['TemplateSparklineAxisBehavior'] = None):
+        pulumi.set(__self__, "field_id", field_id)
+        pulumi.set(__self__, "x_axis_field", x_axis_field)
+        if all_points_marker is not None:
+            pulumi.set(__self__, "all_points_marker", all_points_marker)
+        if line_color is not None:
+            pulumi.set(__self__, "line_color", line_color)
+        if line_interpolation is not None:
+            pulumi.set(__self__, "line_interpolation", line_interpolation)
+        if max_value_marker is not None:
+            pulumi.set(__self__, "max_value_marker", max_value_marker)
+        if min_value_marker is not None:
+            pulumi.set(__self__, "min_value_marker", min_value_marker)
+        if visual_type is not None:
+            pulumi.set(__self__, "visual_type", visual_type)
+        if y_axis_behavior is not None:
+            pulumi.set(__self__, "y_axis_behavior", y_axis_behavior)
+
+    @_builtins.property
+    @pulumi.getter(name="fieldId")
+    def field_id(self) -> _builtins.str:
+        return pulumi.get(self, "field_id")
+
+    @_builtins.property
+    @pulumi.getter(name="xAxisField")
+    def x_axis_field(self) -> 'outputs.TemplateDimensionField':
+        return pulumi.get(self, "x_axis_field")
+
+    @_builtins.property
+    @pulumi.getter(name="allPointsMarker")
+    def all_points_marker(self) -> Optional['outputs.TemplateLineChartMarkerStyleSettings']:
+        return pulumi.get(self, "all_points_marker")
+
+    @_builtins.property
+    @pulumi.getter(name="lineColor")
+    def line_color(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "line_color")
+
+    @_builtins.property
+    @pulumi.getter(name="lineInterpolation")
+    def line_interpolation(self) -> Optional['TemplateLineInterpolation']:
+        return pulumi.get(self, "line_interpolation")
+
+    @_builtins.property
+    @pulumi.getter(name="maxValueMarker")
+    def max_value_marker(self) -> Optional['outputs.TemplateLineChartMarkerStyleSettings']:
+        return pulumi.get(self, "max_value_marker")
+
+    @_builtins.property
+    @pulumi.getter(name="minValueMarker")
+    def min_value_marker(self) -> Optional['outputs.TemplateLineChartMarkerStyleSettings']:
+        return pulumi.get(self, "min_value_marker")
+
+    @_builtins.property
+    @pulumi.getter(name="visualType")
+    def visual_type(self) -> Optional['TemplateSparklineVisualType']:
+        return pulumi.get(self, "visual_type")
+
+    @_builtins.property
+    @pulumi.getter(name="yAxisBehavior")
+    def y_axis_behavior(self) -> Optional['TemplateSparklineAxisBehavior']:
+        return pulumi.get(self, "y_axis_behavior")
+
+
+@pulumi.output_type
+class TemplateSpatialStaticFile(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "staticFileId":
+            suggest = "static_file_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TemplateSpatialStaticFile. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TemplateSpatialStaticFile.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TemplateSpatialStaticFile.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 static_file_id: _builtins.str,
+                 source: Optional['outputs.TemplateStaticFileSource'] = None):
+        pulumi.set(__self__, "static_file_id", static_file_id)
+        if source is not None:
+            pulumi.set(__self__, "source", source)
+
+    @_builtins.property
+    @pulumi.getter(name="staticFileId")
+    def static_file_id(self) -> _builtins.str:
+        return pulumi.get(self, "static_file_id")
+
+    @_builtins.property
+    @pulumi.getter
+    def source(self) -> Optional['outputs.TemplateStaticFileSource']:
+        return pulumi.get(self, "source")
+
+
+@pulumi.output_type
+class TemplateStaticFile(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "imageStaticFile":
+            suggest = "image_static_file"
+        elif key == "spatialStaticFile":
+            suggest = "spatial_static_file"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TemplateStaticFile. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TemplateStaticFile.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TemplateStaticFile.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 image_static_file: Optional['outputs.TemplateImageStaticFile'] = None,
+                 spatial_static_file: Optional['outputs.TemplateSpatialStaticFile'] = None):
+        if image_static_file is not None:
+            pulumi.set(__self__, "image_static_file", image_static_file)
+        if spatial_static_file is not None:
+            pulumi.set(__self__, "spatial_static_file", spatial_static_file)
+
+    @_builtins.property
+    @pulumi.getter(name="imageStaticFile")
+    def image_static_file(self) -> Optional['outputs.TemplateImageStaticFile']:
+        return pulumi.get(self, "image_static_file")
+
+    @_builtins.property
+    @pulumi.getter(name="spatialStaticFile")
+    def spatial_static_file(self) -> Optional['outputs.TemplateSpatialStaticFile']:
+        return pulumi.get(self, "spatial_static_file")
+
+
+@pulumi.output_type
+class TemplateStaticFileS3SourceOptions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "bucketName":
+            suggest = "bucket_name"
+        elif key == "objectKey":
+            suggest = "object_key"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TemplateStaticFileS3SourceOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TemplateStaticFileS3SourceOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TemplateStaticFileS3SourceOptions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 bucket_name: _builtins.str,
+                 object_key: _builtins.str,
+                 region: _builtins.str):
+        pulumi.set(__self__, "bucket_name", bucket_name)
+        pulumi.set(__self__, "object_key", object_key)
+        pulumi.set(__self__, "region", region)
+
+    @_builtins.property
+    @pulumi.getter(name="bucketName")
+    def bucket_name(self) -> _builtins.str:
+        return pulumi.get(self, "bucket_name")
+
+    @_builtins.property
+    @pulumi.getter(name="objectKey")
+    def object_key(self) -> _builtins.str:
+        return pulumi.get(self, "object_key")
+
+    @_builtins.property
+    @pulumi.getter
+    def region(self) -> _builtins.str:
+        return pulumi.get(self, "region")
+
+
+@pulumi.output_type
+class TemplateStaticFileSource(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "s3Options":
+            suggest = "s3_options"
+        elif key == "urlOptions":
+            suggest = "url_options"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TemplateStaticFileSource. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TemplateStaticFileSource.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TemplateStaticFileSource.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 s3_options: Optional['outputs.TemplateStaticFileS3SourceOptions'] = None,
+                 url_options: Optional['outputs.TemplateStaticFileUrlSourceOptions'] = None):
+        if s3_options is not None:
+            pulumi.set(__self__, "s3_options", s3_options)
+        if url_options is not None:
+            pulumi.set(__self__, "url_options", url_options)
+
+    @_builtins.property
+    @pulumi.getter(name="s3Options")
+    def s3_options(self) -> Optional['outputs.TemplateStaticFileS3SourceOptions']:
+        return pulumi.get(self, "s3_options")
+
+    @_builtins.property
+    @pulumi.getter(name="urlOptions")
+    def url_options(self) -> Optional['outputs.TemplateStaticFileUrlSourceOptions']:
+        return pulumi.get(self, "url_options")
+
+
+@pulumi.output_type
+class TemplateStaticFileUrlSourceOptions(dict):
+    def __init__(__self__, *,
+                 url: _builtins.str):
+        pulumi.set(__self__, "url", url)
+
+    @_builtins.property
+    @pulumi.getter
+    def url(self) -> _builtins.str:
+        return pulumi.get(self, "url")
 
 
 @pulumi.output_type
@@ -116774,12 +120516,15 @@ class TemplateTableInlineVisualization(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 data_bars: Optional['outputs.TemplateDataBarsOptions'] = None):
+                 data_bars: Optional['outputs.TemplateDataBarsOptions'] = None,
+                 sparklines: Optional['outputs.TemplateSparklinesOptions'] = None):
         """
         :param 'TemplateDataBarsOptions' data_bars: The configuration of the inline visualization of the data bars within a chart.
         """
         if data_bars is not None:
             pulumi.set(__self__, "data_bars", data_bars)
+        if sparklines is not None:
+            pulumi.set(__self__, "sparklines", sparklines)
 
     @_builtins.property
     @pulumi.getter(name="dataBars")
@@ -116788,6 +120533,11 @@ class TemplateTableInlineVisualization(dict):
         The configuration of the inline visualization of the data bars within a chart.
         """
         return pulumi.get(self, "data_bars")
+
+    @_builtins.property
+    @pulumi.getter
+    def sparklines(self) -> Optional['outputs.TemplateSparklinesOptions']:
+        return pulumi.get(self, "sparklines")
 
 
 @pulumi.output_type
@@ -118585,6 +122335,92 @@ class TemplateTopBottomRankedComputation(dict):
 
 
 @pulumi.output_type
+class TemplateTopicConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "columnGroupSchemaList":
+            suggest = "column_group_schema_list"
+        elif key == "dataSetSchema":
+            suggest = "data_set_schema"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TemplateTopicConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TemplateTopicConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TemplateTopicConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 column_group_schema_list: Optional[Sequence['outputs.TemplateColumnGroupSchema']] = None,
+                 data_set_schema: Optional['outputs.TemplateDataSetSchema'] = None,
+                 placeholder: Optional[_builtins.str] = None):
+        if column_group_schema_list is not None:
+            pulumi.set(__self__, "column_group_schema_list", column_group_schema_list)
+        if data_set_schema is not None:
+            pulumi.set(__self__, "data_set_schema", data_set_schema)
+        if placeholder is not None:
+            pulumi.set(__self__, "placeholder", placeholder)
+
+    @_builtins.property
+    @pulumi.getter(name="columnGroupSchemaList")
+    def column_group_schema_list(self) -> Optional[Sequence['outputs.TemplateColumnGroupSchema']]:
+        return pulumi.get(self, "column_group_schema_list")
+
+    @_builtins.property
+    @pulumi.getter(name="dataSetSchema")
+    def data_set_schema(self) -> Optional['outputs.TemplateDataSetSchema']:
+        return pulumi.get(self, "data_set_schema")
+
+    @_builtins.property
+    @pulumi.getter
+    def placeholder(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "placeholder")
+
+
+@pulumi.output_type
+class TemplateTopicReference(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "topicArn":
+            suggest = "topic_arn"
+        elif key == "topicPlaceholder":
+            suggest = "topic_placeholder"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TemplateTopicReference. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TemplateTopicReference.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TemplateTopicReference.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 topic_arn: _builtins.str,
+                 topic_placeholder: _builtins.str):
+        pulumi.set(__self__, "topic_arn", topic_arn)
+        pulumi.set(__self__, "topic_placeholder", topic_placeholder)
+
+    @_builtins.property
+    @pulumi.getter(name="topicArn")
+    def topic_arn(self) -> _builtins.str:
+        return pulumi.get(self, "topic_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="topicPlaceholder")
+    def topic_placeholder(self) -> _builtins.str:
+        return pulumi.get(self, "topic_placeholder")
+
+
+@pulumi.output_type
 class TemplateTotalAggregationComputation(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -119645,6 +123481,10 @@ class TemplateVersionDefinition(dict):
             suggest = "parameter_declarations"
         elif key == "queryExecutionOptions":
             suggest = "query_execution_options"
+        elif key == "staticFiles":
+            suggest = "static_files"
+        elif key == "topicConfigurations":
+            suggest = "topic_configurations"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in TemplateVersionDefinition. Access the value via the '{suggest}' property getter instead.")
@@ -119666,7 +123506,9 @@ class TemplateVersionDefinition(dict):
                  options: Optional['outputs.TemplateAssetOptions'] = None,
                  parameter_declarations: Optional[Sequence['outputs.TemplateParameterDeclaration']] = None,
                  query_execution_options: Optional['outputs.TemplateQueryExecutionOptions'] = None,
-                 sheets: Optional[Sequence['outputs.TemplateSheetDefinition']] = None):
+                 sheets: Optional[Sequence['outputs.TemplateSheetDefinition']] = None,
+                 static_files: Optional[Sequence['outputs.TemplateStaticFile']] = None,
+                 topic_configurations: Optional[Sequence['outputs.TemplateTopicConfiguration']] = None):
         """
         :param Sequence['TemplateDataSetConfiguration'] data_set_configurations: An array of dataset configurations. These configurations define the required columns for each dataset used within a template.
         :param Sequence['TemplateCalculatedField'] calculated_fields: An array of calculated field definitions for the template.
@@ -119681,6 +123523,7 @@ class TemplateVersionDefinition(dict):
                
                For more information, see [Parameters in Amazon Quick Sight](https://docs.aws.amazon.com/quicksight/latest/user/parameters-in-quicksight.html) in the *Amazon Quick Suite User Guide* .
         :param Sequence['TemplateSheetDefinition'] sheets: An array of sheet definitions for a template.
+        :param Sequence['TemplateStaticFile'] static_files: <p>The static files for the definition.</p>
         """
         pulumi.set(__self__, "data_set_configurations", data_set_configurations)
         if analysis_defaults is not None:
@@ -119699,6 +123542,10 @@ class TemplateVersionDefinition(dict):
             pulumi.set(__self__, "query_execution_options", query_execution_options)
         if sheets is not None:
             pulumi.set(__self__, "sheets", sheets)
+        if static_files is not None:
+            pulumi.set(__self__, "static_files", static_files)
+        if topic_configurations is not None:
+            pulumi.set(__self__, "topic_configurations", topic_configurations)
 
     @_builtins.property
     @pulumi.getter(name="dataSetConfigurations")
@@ -119772,6 +123619,19 @@ class TemplateVersionDefinition(dict):
         """
         return pulumi.get(self, "sheets")
 
+    @_builtins.property
+    @pulumi.getter(name="staticFiles")
+    def static_files(self) -> Optional[Sequence['outputs.TemplateStaticFile']]:
+        """
+        <p>The static files for the definition.</p>
+        """
+        return pulumi.get(self, "static_files")
+
+    @_builtins.property
+    @pulumi.getter(name="topicConfigurations")
+    def topic_configurations(self) -> Optional[Sequence['outputs.TemplateTopicConfiguration']]:
+        return pulumi.get(self, "topic_configurations")
+
 
 @pulumi.output_type
 class TemplateVisibleRangeOptions(dict):
@@ -119840,6 +123700,8 @@ class TemplateVisual(dict):
             suggest = "insight_visual"
         elif key == "kpiVisual":
             suggest = "kpi_visual"
+        elif key == "layerMapVisual":
+            suggest = "layer_map_visual"
         elif key == "lineChartVisual":
             suggest = "line_chart_visual"
         elif key == "pieChartVisual":
@@ -119888,6 +123750,7 @@ class TemplateVisual(dict):
                  histogram_visual: Optional['outputs.TemplateHistogramVisual'] = None,
                  insight_visual: Optional['outputs.TemplateInsightVisual'] = None,
                  kpi_visual: Optional['outputs.TemplateKpiVisual'] = None,
+                 layer_map_visual: Optional['outputs.TemplateLayerMapVisual'] = None,
                  line_chart_visual: Optional['outputs.TemplateLineChartVisual'] = None,
                  pie_chart_visual: Optional['outputs.TemplatePieChartVisual'] = None,
                  pivot_table_visual: Optional['outputs.TemplatePivotTableVisual'] = None,
@@ -119995,6 +123858,8 @@ class TemplateVisual(dict):
             pulumi.set(__self__, "insight_visual", insight_visual)
         if kpi_visual is not None:
             pulumi.set(__self__, "kpi_visual", kpi_visual)
+        if layer_map_visual is not None:
+            pulumi.set(__self__, "layer_map_visual", layer_map_visual)
         if line_chart_visual is not None:
             pulumi.set(__self__, "line_chart_visual", line_chart_visual)
         if pie_chart_visual is not None:
@@ -120145,6 +124010,11 @@ class TemplateVisual(dict):
         For more information, see [Using KPIs](https://docs.aws.amazon.com/quicksight/latest/user/kpi.html) in the *Amazon Quick Suite User Guide* .
         """
         return pulumi.get(self, "kpi_visual")
+
+    @_builtins.property
+    @pulumi.getter(name="layerMapVisual")
+    def layer_map_visual(self) -> Optional['outputs.TemplateLayerMapVisual']:
+        return pulumi.get(self, "layer_map_visual")
 
     @_builtins.property
     @pulumi.getter(name="lineChartVisual")
@@ -121801,14 +125671,30 @@ class ThemeBorderStyle(dict):
     <p>The display options for tile borders for visuals.</p>
     """
     def __init__(__self__, *,
-                 show: Optional[_builtins.bool] = None):
+                 color: Optional[_builtins.str] = None,
+                 show: Optional[_builtins.bool] = None,
+                 width: Optional[_builtins.str] = None):
         """
         <p>The display options for tile borders for visuals.</p>
 
+        :param _builtins.str color: String to encapsulate the most generic way Color can be formatted (words, hexStrings etc)
         :param _builtins.bool show: <p>The option to enable display of borders for visuals.</p>
+        :param _builtins.str width: String to encapsulate the most generic way Width can be formatted with whatever units (px, em etc)
         """
+        if color is not None:
+            pulumi.set(__self__, "color", color)
         if show is not None:
             pulumi.set(__self__, "show", show)
+        if width is not None:
+            pulumi.set(__self__, "width", width)
+
+    @_builtins.property
+    @pulumi.getter
+    def color(self) -> Optional[_builtins.str]:
+        """
+        String to encapsulate the most generic way Color can be formatted (words, hexStrings etc)
+        """
+        return pulumi.get(self, "color")
 
     @_builtins.property
     @pulumi.getter
@@ -121817,6 +125703,14 @@ class ThemeBorderStyle(dict):
         <p>The option to enable display of borders for visuals.</p>
         """
         return pulumi.get(self, "show")
+
+    @_builtins.property
+    @pulumi.getter
+    def width(self) -> Optional[_builtins.str]:
+        """
+        String to encapsulate the most generic way Width can be formatted with whatever units (px, em etc)
+        """
+        return pulumi.get(self, "width")
 
 
 @pulumi.output_type
@@ -122046,6 +125940,124 @@ class ThemeFont(dict):
 
 
 @pulumi.output_type
+class ThemeFontConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fontColor":
+            suggest = "font_color"
+        elif key == "fontDecoration":
+            suggest = "font_decoration"
+        elif key == "fontFamily":
+            suggest = "font_family"
+        elif key == "fontSize":
+            suggest = "font_size"
+        elif key == "fontStyle":
+            suggest = "font_style"
+        elif key == "fontWeight":
+            suggest = "font_weight"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ThemeFontConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ThemeFontConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ThemeFontConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 font_color: Optional[_builtins.str] = None,
+                 font_decoration: Optional['ThemeFontDecoration'] = None,
+                 font_family: Optional[_builtins.str] = None,
+                 font_size: Optional['outputs.ThemeFontSize'] = None,
+                 font_style: Optional['ThemeFontStyle'] = None,
+                 font_weight: Optional['outputs.ThemeFontWeight'] = None):
+        """
+        :param _builtins.str font_family: <p>The font family that you want to use.</p>
+        """
+        if font_color is not None:
+            pulumi.set(__self__, "font_color", font_color)
+        if font_decoration is not None:
+            pulumi.set(__self__, "font_decoration", font_decoration)
+        if font_family is not None:
+            pulumi.set(__self__, "font_family", font_family)
+        if font_size is not None:
+            pulumi.set(__self__, "font_size", font_size)
+        if font_style is not None:
+            pulumi.set(__self__, "font_style", font_style)
+        if font_weight is not None:
+            pulumi.set(__self__, "font_weight", font_weight)
+
+    @_builtins.property
+    @pulumi.getter(name="fontColor")
+    def font_color(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "font_color")
+
+    @_builtins.property
+    @pulumi.getter(name="fontDecoration")
+    def font_decoration(self) -> Optional['ThemeFontDecoration']:
+        return pulumi.get(self, "font_decoration")
+
+    @_builtins.property
+    @pulumi.getter(name="fontFamily")
+    def font_family(self) -> Optional[_builtins.str]:
+        """
+        <p>The font family that you want to use.</p>
+        """
+        return pulumi.get(self, "font_family")
+
+    @_builtins.property
+    @pulumi.getter(name="fontSize")
+    def font_size(self) -> Optional['outputs.ThemeFontSize']:
+        return pulumi.get(self, "font_size")
+
+    @_builtins.property
+    @pulumi.getter(name="fontStyle")
+    def font_style(self) -> Optional['ThemeFontStyle']:
+        return pulumi.get(self, "font_style")
+
+    @_builtins.property
+    @pulumi.getter(name="fontWeight")
+    def font_weight(self) -> Optional['outputs.ThemeFontWeight']:
+        return pulumi.get(self, "font_weight")
+
+
+@pulumi.output_type
+class ThemeFontSize(dict):
+    def __init__(__self__, *,
+                 absolute: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str absolute: <p>The font size that you want to use in px.</p>
+        """
+        if absolute is not None:
+            pulumi.set(__self__, "absolute", absolute)
+
+    @_builtins.property
+    @pulumi.getter
+    def absolute(self) -> Optional[_builtins.str]:
+        """
+        <p>The font size that you want to use in px.</p>
+        """
+        return pulumi.get(self, "absolute")
+
+
+@pulumi.output_type
+class ThemeFontWeight(dict):
+    def __init__(__self__, *,
+                 name: Optional['ThemeFontWeightName'] = None):
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> Optional['ThemeFontWeightName']:
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
 class ThemeGutterStyle(dict):
     """
     <p>The display options for gutter spacing between tiles on a sheet.</p>
@@ -122111,10 +126123,10 @@ class ThemeResourcePermission(dict):
                            following:</p>
                         <ul>
                            <li>
-                              <p>The ARN of an Amazon QuickSight user or group associated with a data source or dataset. (This is common.)</p>
+                              <p>The ARN of an Amazon Quick user or group associated with a data source or dataset. (This is common.)</p>
                            </li>
                            <li>
-                              <p>The ARN of an Amazon QuickSight user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)</p>
+                              <p>The ARN of an Amazon Quick user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)</p>
                            </li>
                            <li>
                               <p>The ARN of an Amazon Web Services account root: This is an IAM ARN rather than a QuickSight
@@ -122142,10 +126154,10 @@ class ThemeResourcePermission(dict):
                     following:</p>
                  <ul>
                     <li>
-                       <p>The ARN of an Amazon QuickSight user or group associated with a data source or dataset. (This is common.)</p>
+                       <p>The ARN of an Amazon Quick user or group associated with a data source or dataset. (This is common.)</p>
                     </li>
                     <li>
-                       <p>The ARN of an Amazon QuickSight user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)</p>
+                       <p>The ARN of an Amazon Quick user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)</p>
                     </li>
                     <li>
                        <p>The ARN of an Amazon Web Services account root: This is an IAM ARN rather than a QuickSight
@@ -122155,6 +126167,33 @@ class ThemeResourcePermission(dict):
                  </ul>
         """
         return pulumi.get(self, "principal")
+
+
+@pulumi.output_type
+class ThemeSheetBackgroundStyle(dict):
+    def __init__(__self__, *,
+                 color: Optional[_builtins.str] = None,
+                 gradient: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str color: String to encapsulate the most generic way Color can be formatted (words, hexStrings etc)
+        """
+        if color is not None:
+            pulumi.set(__self__, "color", color)
+        if gradient is not None:
+            pulumi.set(__self__, "gradient", gradient)
+
+    @_builtins.property
+    @pulumi.getter
+    def color(self) -> Optional[_builtins.str]:
+        """
+        String to encapsulate the most generic way Color can be formatted (words, hexStrings etc)
+        """
+        return pulumi.get(self, "color")
+
+    @_builtins.property
+    @pulumi.getter
+    def gradient(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "gradient")
 
 
 @pulumi.output_type
@@ -122180,6 +126219,7 @@ class ThemeSheetStyle(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 background: Optional['outputs.ThemeSheetBackgroundStyle'] = None,
                  tile: Optional['outputs.ThemeTileStyle'] = None,
                  tile_layout: Optional['outputs.ThemeTileLayoutStyle'] = None):
         """
@@ -122188,10 +126228,17 @@ class ThemeSheetStyle(dict):
         :param 'ThemeTileStyle' tile: The display options for tiles.
         :param 'ThemeTileLayoutStyle' tile_layout: The layout options for tiles.
         """
+        if background is not None:
+            pulumi.set(__self__, "background", background)
         if tile is not None:
             pulumi.set(__self__, "tile", tile)
         if tile_layout is not None:
             pulumi.set(__self__, "tile_layout", tile_layout)
+
+    @_builtins.property
+    @pulumi.getter
+    def background(self) -> Optional['outputs.ThemeSheetBackgroundStyle']:
+        return pulumi.get(self, "background")
 
     @_builtins.property
     @pulumi.getter
@@ -122251,15 +126298,52 @@ class ThemeTileStyle(dict):
     """
     <p>Display options related to tiles on a sheet.</p>
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "backgroundColor":
+            suggest = "background_color"
+        elif key == "borderRadius":
+            suggest = "border_radius"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ThemeTileStyle. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ThemeTileStyle.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ThemeTileStyle.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
-                 border: Optional['outputs.ThemeBorderStyle'] = None):
+                 background_color: Optional[_builtins.str] = None,
+                 border: Optional['outputs.ThemeBorderStyle'] = None,
+                 border_radius: Optional[_builtins.str] = None,
+                 padding: Optional[_builtins.str] = None):
         """
         <p>Display options related to tiles on a sheet.</p>
 
+        :param _builtins.str background_color: String to encapsulate the most generic way Color can be formatted (words, hexStrings etc)
         :param 'ThemeBorderStyle' border: The border around a tile.
         """
+        if background_color is not None:
+            pulumi.set(__self__, "background_color", background_color)
         if border is not None:
             pulumi.set(__self__, "border", border)
+        if border_radius is not None:
+            pulumi.set(__self__, "border_radius", border_radius)
+        if padding is not None:
+            pulumi.set(__self__, "padding", padding)
+
+    @_builtins.property
+    @pulumi.getter(name="backgroundColor")
+    def background_color(self) -> Optional[_builtins.str]:
+        """
+        String to encapsulate the most generic way Color can be formatted (words, hexStrings etc)
+        """
+        return pulumi.get(self, "background_color")
 
     @_builtins.property
     @pulumi.getter
@@ -122269,14 +126353,38 @@ class ThemeTileStyle(dict):
         """
         return pulumi.get(self, "border")
 
+    @_builtins.property
+    @pulumi.getter(name="borderRadius")
+    def border_radius(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "border_radius")
+
+    @_builtins.property
+    @pulumi.getter
+    def padding(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "padding")
+
 
 @pulumi.output_type
 class ThemeTypography(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "fontFamilies":
+        if key == "axisLabelFontConfiguration":
+            suggest = "axis_label_font_configuration"
+        elif key == "axisTitleFontConfiguration":
+            suggest = "axis_title_font_configuration"
+        elif key == "dataLabelFontConfiguration":
+            suggest = "data_label_font_configuration"
+        elif key == "fontFamilies":
             suggest = "font_families"
+        elif key == "legendTitleFontConfiguration":
+            suggest = "legend_title_font_configuration"
+        elif key == "legendValueFontConfiguration":
+            suggest = "legend_value_font_configuration"
+        elif key == "visualSubtitleFontConfiguration":
+            suggest = "visual_subtitle_font_configuration"
+        elif key == "visualTitleFontConfiguration":
+            suggest = "visual_title_font_configuration"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in ThemeTypography. Access the value via the '{suggest}' property getter instead.")
@@ -122290,12 +126398,48 @@ class ThemeTypography(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 font_families: Optional[Sequence['outputs.ThemeFont']] = None):
+                 axis_label_font_configuration: Optional['outputs.ThemeFontConfiguration'] = None,
+                 axis_title_font_configuration: Optional['outputs.ThemeFontConfiguration'] = None,
+                 data_label_font_configuration: Optional['outputs.ThemeFontConfiguration'] = None,
+                 font_families: Optional[Sequence['outputs.ThemeFont']] = None,
+                 legend_title_font_configuration: Optional['outputs.ThemeFontConfiguration'] = None,
+                 legend_value_font_configuration: Optional['outputs.ThemeFontConfiguration'] = None,
+                 visual_subtitle_font_configuration: Optional['outputs.ThemeVisualSubtitleFontConfiguration'] = None,
+                 visual_title_font_configuration: Optional['outputs.ThemeVisualTitleFontConfiguration'] = None):
         """
         :param Sequence['ThemeFont'] font_families: Determines the list of font families.
         """
+        if axis_label_font_configuration is not None:
+            pulumi.set(__self__, "axis_label_font_configuration", axis_label_font_configuration)
+        if axis_title_font_configuration is not None:
+            pulumi.set(__self__, "axis_title_font_configuration", axis_title_font_configuration)
+        if data_label_font_configuration is not None:
+            pulumi.set(__self__, "data_label_font_configuration", data_label_font_configuration)
         if font_families is not None:
             pulumi.set(__self__, "font_families", font_families)
+        if legend_title_font_configuration is not None:
+            pulumi.set(__self__, "legend_title_font_configuration", legend_title_font_configuration)
+        if legend_value_font_configuration is not None:
+            pulumi.set(__self__, "legend_value_font_configuration", legend_value_font_configuration)
+        if visual_subtitle_font_configuration is not None:
+            pulumi.set(__self__, "visual_subtitle_font_configuration", visual_subtitle_font_configuration)
+        if visual_title_font_configuration is not None:
+            pulumi.set(__self__, "visual_title_font_configuration", visual_title_font_configuration)
+
+    @_builtins.property
+    @pulumi.getter(name="axisLabelFontConfiguration")
+    def axis_label_font_configuration(self) -> Optional['outputs.ThemeFontConfiguration']:
+        return pulumi.get(self, "axis_label_font_configuration")
+
+    @_builtins.property
+    @pulumi.getter(name="axisTitleFontConfiguration")
+    def axis_title_font_configuration(self) -> Optional['outputs.ThemeFontConfiguration']:
+        return pulumi.get(self, "axis_title_font_configuration")
+
+    @_builtins.property
+    @pulumi.getter(name="dataLabelFontConfiguration")
+    def data_label_font_configuration(self) -> Optional['outputs.ThemeFontConfiguration']:
+        return pulumi.get(self, "data_label_font_configuration")
 
     @_builtins.property
     @pulumi.getter(name="fontFamilies")
@@ -122305,13 +126449,33 @@ class ThemeTypography(dict):
         """
         return pulumi.get(self, "font_families")
 
+    @_builtins.property
+    @pulumi.getter(name="legendTitleFontConfiguration")
+    def legend_title_font_configuration(self) -> Optional['outputs.ThemeFontConfiguration']:
+        return pulumi.get(self, "legend_title_font_configuration")
+
+    @_builtins.property
+    @pulumi.getter(name="legendValueFontConfiguration")
+    def legend_value_font_configuration(self) -> Optional['outputs.ThemeFontConfiguration']:
+        return pulumi.get(self, "legend_value_font_configuration")
+
+    @_builtins.property
+    @pulumi.getter(name="visualSubtitleFontConfiguration")
+    def visual_subtitle_font_configuration(self) -> Optional['outputs.ThemeVisualSubtitleFontConfiguration']:
+        return pulumi.get(self, "visual_subtitle_font_configuration")
+
+    @_builtins.property
+    @pulumi.getter(name="visualTitleFontConfiguration")
+    def visual_title_font_configuration(self) -> Optional['outputs.ThemeVisualTitleFontConfiguration']:
+        return pulumi.get(self, "visual_title_font_configuration")
+
 
 @pulumi.output_type
 class ThemeUiColorPalette(dict):
     """
     <p>The theme colors that apply to UI and to charts, excluding data colors. The colors
                 description is a hexadecimal color code that consists of six alphanumerical characters,
-                prefixed with <code>#</code>, for example #37BFF5. For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/themes-in-quicksight.html">Using Themes in Amazon QuickSight</a> in the <i>Amazon QuickSight User
+                prefixed with <code>#</code>, for example #37BFF5. For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/themes-in-quicksight.html">Using Themes in Amazon Quick</a> in the <i>Amazon Quick User
                     Guide.</i>
              </p>
     """
@@ -122370,7 +126534,7 @@ class ThemeUiColorPalette(dict):
         """
         <p>The theme colors that apply to UI and to charts, excluding data colors. The colors
                     description is a hexadecimal color code that consists of six alphanumerical characters,
-                    prefixed with <code>#</code>, for example #37BFF5. For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/themes-in-quicksight.html">Using Themes in Amazon QuickSight</a> in the <i>Amazon QuickSight User
+                    prefixed with <code>#</code>, for example #37BFF5. For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/themes-in-quicksight.html">Using Themes in Amazon Quick</a> in the <i>Amazon Quick User
                         Guide.</i>
                  </p>
 
@@ -122612,8 +126776,8 @@ class ThemeVersion(dict):
         <p>A version of a theme.</p>
 
         :param _builtins.str arn: <p>The Amazon Resource Name (ARN) of the resource.</p>
-        :param _builtins.str base_theme_id: <p>The Amazon QuickSight-defined ID of the theme that a custom theme inherits from. All
-                           themes initially inherit from a default Amazon QuickSight theme.</p>
+        :param _builtins.str base_theme_id: <p>The Amazon Quick-defined ID of the theme that a custom theme inherits from. All
+                           themes initially inherit from a default Quick theme.</p>
         :param 'ThemeConfiguration' configuration: The theme configuration, which contains all the theme display properties.
         :param _builtins.str created_time: <p>The date and time that this theme version was created.</p>
         :param _builtins.str description: <p>The description of the theme.</p>
@@ -122650,8 +126814,8 @@ class ThemeVersion(dict):
     @pulumi.getter(name="baseThemeId")
     def base_theme_id(self) -> Optional[_builtins.str]:
         """
-        <p>The Amazon QuickSight-defined ID of the theme that a custom theme inherits from. All
-                    themes initially inherit from a default Amazon QuickSight theme.</p>
+        <p>The Amazon Quick-defined ID of the theme that a custom theme inherits from. All
+                    themes initially inherit from a default Quick theme.</p>
         """
         return pulumi.get(self, "base_theme_id")
 
@@ -122702,6 +126866,106 @@ class ThemeVersion(dict):
         <p>The version number of the theme.</p>
         """
         return pulumi.get(self, "version_number")
+
+
+@pulumi.output_type
+class ThemeVisualSubtitleFontConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fontConfiguration":
+            suggest = "font_configuration"
+        elif key == "textAlignment":
+            suggest = "text_alignment"
+        elif key == "textTransform":
+            suggest = "text_transform"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ThemeVisualSubtitleFontConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ThemeVisualSubtitleFontConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ThemeVisualSubtitleFontConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 font_configuration: Optional['outputs.ThemeFontConfiguration'] = None,
+                 text_alignment: Optional['ThemeHorizontalTextAlignment'] = None,
+                 text_transform: Optional['ThemeTextTransform'] = None):
+        if font_configuration is not None:
+            pulumi.set(__self__, "font_configuration", font_configuration)
+        if text_alignment is not None:
+            pulumi.set(__self__, "text_alignment", text_alignment)
+        if text_transform is not None:
+            pulumi.set(__self__, "text_transform", text_transform)
+
+    @_builtins.property
+    @pulumi.getter(name="fontConfiguration")
+    def font_configuration(self) -> Optional['outputs.ThemeFontConfiguration']:
+        return pulumi.get(self, "font_configuration")
+
+    @_builtins.property
+    @pulumi.getter(name="textAlignment")
+    def text_alignment(self) -> Optional['ThemeHorizontalTextAlignment']:
+        return pulumi.get(self, "text_alignment")
+
+    @_builtins.property
+    @pulumi.getter(name="textTransform")
+    def text_transform(self) -> Optional['ThemeTextTransform']:
+        return pulumi.get(self, "text_transform")
+
+
+@pulumi.output_type
+class ThemeVisualTitleFontConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fontConfiguration":
+            suggest = "font_configuration"
+        elif key == "textAlignment":
+            suggest = "text_alignment"
+        elif key == "textTransform":
+            suggest = "text_transform"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ThemeVisualTitleFontConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ThemeVisualTitleFontConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ThemeVisualTitleFontConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 font_configuration: Optional['outputs.ThemeFontConfiguration'] = None,
+                 text_alignment: Optional['ThemeHorizontalTextAlignment'] = None,
+                 text_transform: Optional['ThemeTextTransform'] = None):
+        if font_configuration is not None:
+            pulumi.set(__self__, "font_configuration", font_configuration)
+        if text_alignment is not None:
+            pulumi.set(__self__, "text_alignment", text_alignment)
+        if text_transform is not None:
+            pulumi.set(__self__, "text_transform", text_transform)
+
+    @_builtins.property
+    @pulumi.getter(name="fontConfiguration")
+    def font_configuration(self) -> Optional['outputs.ThemeFontConfiguration']:
+        return pulumi.get(self, "font_configuration")
+
+    @_builtins.property
+    @pulumi.getter(name="textAlignment")
+    def text_alignment(self) -> Optional['ThemeHorizontalTextAlignment']:
+        return pulumi.get(self, "text_alignment")
+
+    @_builtins.property
+    @pulumi.getter(name="textTransform")
+    def text_transform(self) -> Optional['ThemeTextTransform']:
+        return pulumi.get(self, "text_transform")
 
 
 @pulumi.output_type

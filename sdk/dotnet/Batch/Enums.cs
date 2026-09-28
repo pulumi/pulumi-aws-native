@@ -39,6 +39,69 @@ namespace Pulumi.AwsNative.Batch
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// The desired state of the EKS access entry managed by AWS Batch. When omitted, AWS Batch applies INHERIT_FROM_CLUSTER.
+    /// </summary>
+    [EnumType]
+    public readonly struct ComputeEnvironmentEksAccessEntryDesiredState : IEquatable<ComputeEnvironmentEksAccessEntryDesiredState>
+    {
+        private readonly string _value;
+
+        private ComputeEnvironmentEksAccessEntryDesiredState(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ComputeEnvironmentEksAccessEntryDesiredState Enabled { get; } = new ComputeEnvironmentEksAccessEntryDesiredState("ENABLED");
+        public static ComputeEnvironmentEksAccessEntryDesiredState Disabled { get; } = new ComputeEnvironmentEksAccessEntryDesiredState("DISABLED");
+        public static ComputeEnvironmentEksAccessEntryDesiredState InheritFromCluster { get; } = new ComputeEnvironmentEksAccessEntryDesiredState("INHERIT_FROM_CLUSTER");
+
+        public static bool operator ==(ComputeEnvironmentEksAccessEntryDesiredState left, ComputeEnvironmentEksAccessEntryDesiredState right) => left.Equals(right);
+        public static bool operator !=(ComputeEnvironmentEksAccessEntryDesiredState left, ComputeEnvironmentEksAccessEntryDesiredState right) => !left.Equals(right);
+
+        public static explicit operator string(ComputeEnvironmentEksAccessEntryDesiredState value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ComputeEnvironmentEksAccessEntryDesiredState other && Equals(other);
+        public bool Equals(ComputeEnvironmentEksAccessEntryDesiredState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The read-only status of the EKS access entry, returned by DescribeComputeEnvironments.
+    /// </summary>
+    [EnumType]
+    public readonly struct ComputeEnvironmentEksAccessEntryStatus : IEquatable<ComputeEnvironmentEksAccessEntryStatus>
+    {
+        private readonly string _value;
+
+        private ComputeEnvironmentEksAccessEntryStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ComputeEnvironmentEksAccessEntryStatus Active { get; } = new ComputeEnvironmentEksAccessEntryStatus("ACTIVE");
+        public static ComputeEnvironmentEksAccessEntryStatus Inactive { get; } = new ComputeEnvironmentEksAccessEntryStatus("INACTIVE");
+
+        public static bool operator ==(ComputeEnvironmentEksAccessEntryStatus left, ComputeEnvironmentEksAccessEntryStatus right) => left.Equals(right);
+        public static bool operator !=(ComputeEnvironmentEksAccessEntryStatus left, ComputeEnvironmentEksAccessEntryStatus right) => !left.Equals(right);
+
+        public static explicit operator string(ComputeEnvironmentEksAccessEntryStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ComputeEnvironmentEksAccessEntryStatus other && Equals(other);
+        public bool Equals(ComputeEnvironmentEksAccessEntryStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     [EnumType]
     public readonly struct ComputeEnvironmentInstanceLaunchTemplateCapacityOptionType : IEquatable<ComputeEnvironmentInstanceLaunchTemplateCapacityOptionType>
     {

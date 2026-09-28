@@ -49,6 +49,8 @@ __all__ = [
     'FlowMaintenance',
     'FlowMediaStream',
     'FlowMediaStreamAttributes',
+    'FlowMediaStreamFmtp',
+    'FlowMediaStreamMediaStreamAttributes',
     'FlowMediaStreamSourceConfiguration',
     'FlowNdiConfig',
     'FlowNdiDiscoveryServerConfig',
@@ -143,6 +145,7 @@ __all__ = [
     'RouterOutputResourceMediaLiveTransitEncryptionKeyConfiguration0Properties',
     'RouterOutputResourceMediaLiveTransitEncryptionKeyConfiguration1Properties',
     'RouterOutputResourcePreferredDayTimeMaintenanceConfiguration',
+    'RouterOutputResourcePublicTlsEncryptionConfiguration',
     'RouterOutputResourceRistRouterOutputConfiguration',
     'RouterOutputResourceRouterOutputConfiguration0Properties',
     'RouterOutputResourceRouterOutputConfiguration1Properties',
@@ -151,12 +154,16 @@ __all__ = [
     'RouterOutputResourceRouterOutputProtocolConfiguration1Properties',
     'RouterOutputResourceRouterOutputProtocolConfiguration2Properties',
     'RouterOutputResourceRouterOutputProtocolConfiguration3Properties',
+    'RouterOutputResourceRouterOutputProtocolConfiguration4Properties',
+    'RouterOutputResourceRtmpPushRouterOutputConfiguration',
     'RouterOutputResourceRtpRouterOutputConfiguration',
     'RouterOutputResourceSecretsManagerEncryptionKeyConfiguration',
     'RouterOutputResourceSrtCallerRouterOutputConfiguration',
     'RouterOutputResourceSrtEncryptionConfiguration',
     'RouterOutputResourceSrtListenerRouterOutputConfiguration',
     'RouterOutputResourceStandardRouterOutputConfiguration',
+    'RouterOutputResourceTlsEncryption',
+    'RouterOutputResourceTlsEncryptionConfigurationProperties',
 ]
 
 @pulumi.output_type
@@ -2189,6 +2196,155 @@ class FlowMediaStreamAttributes(dict):
     def lang(self) -> Optional[_builtins.str]:
         """
         The audio language, in a format that is recognized by the receiver.
+        """
+        return pulumi.get(self, "lang")
+
+
+@pulumi.output_type
+class FlowMediaStreamFmtp(dict):
+    """
+    A set of parameters that define the media stream.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "channelOrder":
+            suggest = "channel_order"
+        elif key == "exactFramerate":
+            suggest = "exact_framerate"
+        elif key == "scanMode":
+            suggest = "scan_mode"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FlowMediaStreamFmtp. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FlowMediaStreamFmtp.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FlowMediaStreamFmtp.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 channel_order: Optional[_builtins.str] = None,
+                 colorimetry: Optional['FlowMediaStreamFmtpColorimetry'] = None,
+                 exact_framerate: Optional[_builtins.str] = None,
+                 par: Optional[_builtins.str] = None,
+                 range: Optional['FlowMediaStreamFmtpRange'] = None,
+                 scan_mode: Optional['FlowMediaStreamFmtpScanMode'] = None,
+                 tcs: Optional['FlowMediaStreamFmtpTcs'] = None):
+        """
+        A set of parameters that define the media stream.
+
+        :param _builtins.str channel_order: The format of the audio channel. Can only be specified for an audio media stream.
+        :param 'FlowMediaStreamFmtpColorimetry' colorimetry: The format used for the representation of color.
+        :param _builtins.str exact_framerate: The frame rate for the video stream, in frames/second. For example: 60000/1001.
+        :param _builtins.str par: The pixel aspect ratio (PAR) of the video.
+        :param 'FlowMediaStreamFmtpRange' range: The encoding range of the video.
+        :param 'FlowMediaStreamFmtpScanMode' scan_mode: The type of compression that was used to smooth the video's appearance.
+        :param 'FlowMediaStreamFmtpTcs' tcs: The transfer characteristic system (TCS) that is used in the video.
+        """
+        if channel_order is not None:
+            pulumi.set(__self__, "channel_order", channel_order)
+        if colorimetry is not None:
+            pulumi.set(__self__, "colorimetry", colorimetry)
+        if exact_framerate is not None:
+            pulumi.set(__self__, "exact_framerate", exact_framerate)
+        if par is not None:
+            pulumi.set(__self__, "par", par)
+        if range is not None:
+            pulumi.set(__self__, "range", range)
+        if scan_mode is not None:
+            pulumi.set(__self__, "scan_mode", scan_mode)
+        if tcs is not None:
+            pulumi.set(__self__, "tcs", tcs)
+
+    @_builtins.property
+    @pulumi.getter(name="channelOrder")
+    def channel_order(self) -> Optional[_builtins.str]:
+        """
+        The format of the audio channel. Can only be specified for an audio media stream.
+        """
+        return pulumi.get(self, "channel_order")
+
+    @_builtins.property
+    @pulumi.getter
+    def colorimetry(self) -> Optional['FlowMediaStreamFmtpColorimetry']:
+        """
+        The format used for the representation of color.
+        """
+        return pulumi.get(self, "colorimetry")
+
+    @_builtins.property
+    @pulumi.getter(name="exactFramerate")
+    def exact_framerate(self) -> Optional[_builtins.str]:
+        """
+        The frame rate for the video stream, in frames/second. For example: 60000/1001.
+        """
+        return pulumi.get(self, "exact_framerate")
+
+    @_builtins.property
+    @pulumi.getter
+    def par(self) -> Optional[_builtins.str]:
+        """
+        The pixel aspect ratio (PAR) of the video.
+        """
+        return pulumi.get(self, "par")
+
+    @_builtins.property
+    @pulumi.getter
+    def range(self) -> Optional['FlowMediaStreamFmtpRange']:
+        """
+        The encoding range of the video.
+        """
+        return pulumi.get(self, "range")
+
+    @_builtins.property
+    @pulumi.getter(name="scanMode")
+    def scan_mode(self) -> Optional['FlowMediaStreamFmtpScanMode']:
+        """
+        The type of compression that was used to smooth the video's appearance.
+        """
+        return pulumi.get(self, "scan_mode")
+
+    @_builtins.property
+    @pulumi.getter
+    def tcs(self) -> Optional['FlowMediaStreamFmtpTcs']:
+        """
+        The transfer characteristic system (TCS) that is used in the video.
+        """
+        return pulumi.get(self, "tcs")
+
+
+@pulumi.output_type
+class FlowMediaStreamMediaStreamAttributes(dict):
+    """
+    Attributes that are related to the media stream.
+    """
+    def __init__(__self__, *,
+                 fmtp: Optional['outputs.FlowMediaStreamFmtp'] = None,
+                 lang: Optional[_builtins.str] = None):
+        """
+        Attributes that are related to the media stream.
+
+        :param _builtins.str lang: The audio language, in a format that is recognized by the receiver. Can only be specified for an audio media stream.
+        """
+        if fmtp is not None:
+            pulumi.set(__self__, "fmtp", fmtp)
+        if lang is not None:
+            pulumi.set(__self__, "lang", lang)
+
+    @_builtins.property
+    @pulumi.getter
+    def fmtp(self) -> Optional['outputs.FlowMediaStreamFmtp']:
+        return pulumi.get(self, "fmtp")
+
+    @_builtins.property
+    @pulumi.getter
+    def lang(self) -> Optional[_builtins.str]:
+        """
+        The audio language, in a format that is recognized by the receiver. Can only be specified for an audio media stream.
         """
         return pulumi.get(self, "lang")
 
@@ -6418,6 +6574,18 @@ class RouterOutputResourcePreferredDayTimeMaintenanceConfiguration(dict):
 
 
 @pulumi.output_type
+class RouterOutputResourcePublicTlsEncryptionConfiguration(dict):
+    """
+    The TLS encryption configuration for destinations that present a certificate from a publicly trusted certificate authority. This type does not require any additional settings.
+    """
+    def __init__(__self__):
+        """
+        The TLS encryption configuration for destinations that present a certificate from a publicly trusted certificate authority. This type does not require any additional settings.
+        """
+        pass
+
+
+@pulumi.output_type
 class RouterOutputResourceRistRouterOutputConfiguration(dict):
     """
     The configuration settings for a router output using the RIST (Reliable Internet Stream Transport) protocol, including the destination address and port.
@@ -6662,6 +6830,130 @@ class RouterOutputResourceRouterOutputProtocolConfiguration3Properties(dict):
     @pulumi.getter(name="srtCaller")
     def srt_caller(self) -> 'outputs.RouterOutputResourceSrtCallerRouterOutputConfiguration':
         return pulumi.get(self, "srt_caller")
+
+
+@pulumi.output_type
+class RouterOutputResourceRouterOutputProtocolConfiguration4Properties(dict):
+    """
+    The protocol configuration settings for a router output.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "rtmpPush":
+            suggest = "rtmp_push"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RouterOutputResourceRouterOutputProtocolConfiguration4Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RouterOutputResourceRouterOutputProtocolConfiguration4Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RouterOutputResourceRouterOutputProtocolConfiguration4Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 rtmp_push: 'outputs.RouterOutputResourceRtmpPushRouterOutputConfiguration'):
+        """
+        The protocol configuration settings for a router output.
+        """
+        pulumi.set(__self__, "rtmp_push", rtmp_push)
+
+    @_builtins.property
+    @pulumi.getter(name="rtmpPush")
+    def rtmp_push(self) -> 'outputs.RouterOutputResourceRtmpPushRouterOutputConfiguration':
+        return pulumi.get(self, "rtmp_push")
+
+
+@pulumi.output_type
+class RouterOutputResourceRtmpPushRouterOutputConfiguration(dict):
+    """
+    The configuration settings for a router output that pushes a stream to a destination using the RTMP (Real-Time Messaging Protocol) protocol, or RTMPS (RTMP over TLS) when TLS encryption is specified. These settings include the destination address and port, the application and stream names, and optional TLS encryption configuration.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "applicationName":
+            suggest = "application_name"
+        elif key == "destinationAddress":
+            suggest = "destination_address"
+        elif key == "destinationPort":
+            suggest = "destination_port"
+        elif key == "streamName":
+            suggest = "stream_name"
+        elif key == "tlsEncryption":
+            suggest = "tls_encryption"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RouterOutputResourceRtmpPushRouterOutputConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RouterOutputResourceRtmpPushRouterOutputConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RouterOutputResourceRtmpPushRouterOutputConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 application_name: _builtins.str,
+                 destination_address: _builtins.str,
+                 destination_port: _builtins.int,
+                 stream_name: _builtins.str,
+                 tls_encryption: Optional['outputs.RouterOutputResourceTlsEncryption'] = None):
+        """
+        The configuration settings for a router output that pushes a stream to a destination using the RTMP (Real-Time Messaging Protocol) protocol, or RTMPS (RTMP over TLS) when TLS encryption is specified. These settings include the destination address and port, the application and stream names, and optional TLS encryption configuration.
+
+        :param _builtins.str application_name: The name of the RTMP application on the destination server. Together with the stream name, the application name forms the RTMP URL path, in the pattern rtmp://destinationAddress/applicationName/streamName.
+        :param _builtins.str destination_address: The IP address or hostname of the destination RTMP server that the router output pushes the stream to. Provide only the server address; specify the application and stream names separately.
+        :param _builtins.int destination_port: The TCP port on the destination RTMP server. For RTMP, valid values range from 1024 to 65535. For RTMPS (RTMP over TLS), valid values are 443 or 1024 to 65535. RTMP typically uses port 1935, and RTMPS typically uses port 443.
+        :param _builtins.str stream_name: The name of the RTMP stream that the output publishes to the destination application. The stream name forms the final segment of the RTMP URL path.
+        """
+        pulumi.set(__self__, "application_name", application_name)
+        pulumi.set(__self__, "destination_address", destination_address)
+        pulumi.set(__self__, "destination_port", destination_port)
+        pulumi.set(__self__, "stream_name", stream_name)
+        if tls_encryption is not None:
+            pulumi.set(__self__, "tls_encryption", tls_encryption)
+
+    @_builtins.property
+    @pulumi.getter(name="applicationName")
+    def application_name(self) -> _builtins.str:
+        """
+        The name of the RTMP application on the destination server. Together with the stream name, the application name forms the RTMP URL path, in the pattern rtmp://destinationAddress/applicationName/streamName.
+        """
+        return pulumi.get(self, "application_name")
+
+    @_builtins.property
+    @pulumi.getter(name="destinationAddress")
+    def destination_address(self) -> _builtins.str:
+        """
+        The IP address or hostname of the destination RTMP server that the router output pushes the stream to. Provide only the server address; specify the application and stream names separately.
+        """
+        return pulumi.get(self, "destination_address")
+
+    @_builtins.property
+    @pulumi.getter(name="destinationPort")
+    def destination_port(self) -> _builtins.int:
+        """
+        The TCP port on the destination RTMP server. For RTMP, valid values range from 1024 to 65535. For RTMPS (RTMP over TLS), valid values are 443 or 1024 to 65535. RTMP typically uses port 1935, and RTMPS typically uses port 443.
+        """
+        return pulumi.get(self, "destination_port")
+
+    @_builtins.property
+    @pulumi.getter(name="streamName")
+    def stream_name(self) -> _builtins.str:
+        """
+        The name of the RTMP stream that the output publishes to the destination application. The stream name forms the final segment of the RTMP URL path.
+        """
+        return pulumi.get(self, "stream_name")
+
+    @_builtins.property
+    @pulumi.getter(name="tlsEncryption")
+    def tls_encryption(self) -> Optional['outputs.RouterOutputResourceTlsEncryption']:
+        return pulumi.get(self, "tls_encryption")
 
 
 @pulumi.output_type
@@ -7021,5 +7313,68 @@ class RouterOutputResourceStandardRouterOutputConfiguration(dict):
     @pulumi.getter
     def protocol(self) -> Optional['RouterOutputResourceRouterOutputProtocol']:
         return pulumi.get(self, "protocol")
+
+
+@pulumi.output_type
+class RouterOutputResourceTlsEncryption(dict):
+    """
+    The Transport Layer Security (TLS) encryption settings used to establish a secure connection to a destination.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "encryptionConfiguration":
+            suggest = "encryption_configuration"
+        elif key == "encryptionType":
+            suggest = "encryption_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RouterOutputResourceTlsEncryption. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RouterOutputResourceTlsEncryption.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RouterOutputResourceTlsEncryption.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 encryption_configuration: 'outputs.RouterOutputResourceTlsEncryptionConfigurationProperties',
+                 encryption_type: Optional['RouterOutputResourceTlsEncryptionType'] = None):
+        """
+        The Transport Layer Security (TLS) encryption settings used to establish a secure connection to a destination.
+        """
+        pulumi.set(__self__, "encryption_configuration", encryption_configuration)
+        if encryption_type is not None:
+            pulumi.set(__self__, "encryption_type", encryption_type)
+
+    @_builtins.property
+    @pulumi.getter(name="encryptionConfiguration")
+    def encryption_configuration(self) -> 'outputs.RouterOutputResourceTlsEncryptionConfigurationProperties':
+        return pulumi.get(self, "encryption_configuration")
+
+    @_builtins.property
+    @pulumi.getter(name="encryptionType")
+    def encryption_type(self) -> Optional['RouterOutputResourceTlsEncryptionType']:
+        return pulumi.get(self, "encryption_type")
+
+
+@pulumi.output_type
+class RouterOutputResourceTlsEncryptionConfigurationProperties(dict):
+    """
+    The configuration settings for TLS encryption.
+    """
+    def __init__(__self__, *,
+                 public: 'outputs.RouterOutputResourcePublicTlsEncryptionConfiguration'):
+        """
+        The configuration settings for TLS encryption.
+        """
+        pulumi.set(__self__, "public", public)
+
+    @_builtins.property
+    @pulumi.getter
+    def public(self) -> 'outputs.RouterOutputResourcePublicTlsEncryptionConfiguration':
+        return pulumi.get(self, "public")
 
 

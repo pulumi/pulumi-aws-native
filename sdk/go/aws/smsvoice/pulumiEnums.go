@@ -898,6 +898,99 @@ func (in *protectConfigurationCountryRuleProtectStatusPtr) ToProtectConfiguratio
 	return pulumi.ToOutputWithContext(ctx, in).(ProtectConfigurationCountryRuleProtectStatusPtrOutput)
 }
 
+// The status of the registration attachment.
+type RegistrationAttachmentAttachmentStatus string
+
+const (
+	RegistrationAttachmentAttachmentStatusUploadInProgress = RegistrationAttachmentAttachmentStatus("UPLOAD_IN_PROGRESS")
+	RegistrationAttachmentAttachmentStatusUploadComplete   = RegistrationAttachmentAttachmentStatus("UPLOAD_COMPLETE")
+	RegistrationAttachmentAttachmentStatusUploadFailed     = RegistrationAttachmentAttachmentStatus("UPLOAD_FAILED")
+	RegistrationAttachmentAttachmentStatusDeleted          = RegistrationAttachmentAttachmentStatus("DELETED")
+)
+
+type RegistrationAttachmentAttachmentStatusOutput struct{ *pulumi.OutputState }
+
+func (RegistrationAttachmentAttachmentStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RegistrationAttachmentAttachmentStatus)(nil)).Elem()
+}
+
+func (o RegistrationAttachmentAttachmentStatusOutput) ToRegistrationAttachmentAttachmentStatusOutput() RegistrationAttachmentAttachmentStatusOutput {
+	return o
+}
+
+func (o RegistrationAttachmentAttachmentStatusOutput) ToRegistrationAttachmentAttachmentStatusOutputWithContext(ctx context.Context) RegistrationAttachmentAttachmentStatusOutput {
+	return o
+}
+
+func (o RegistrationAttachmentAttachmentStatusOutput) ToRegistrationAttachmentAttachmentStatusPtrOutput() RegistrationAttachmentAttachmentStatusPtrOutput {
+	return o.ToRegistrationAttachmentAttachmentStatusPtrOutputWithContext(context.Background())
+}
+
+func (o RegistrationAttachmentAttachmentStatusOutput) ToRegistrationAttachmentAttachmentStatusPtrOutputWithContext(ctx context.Context) RegistrationAttachmentAttachmentStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RegistrationAttachmentAttachmentStatus) *RegistrationAttachmentAttachmentStatus {
+		return &v
+	}).(RegistrationAttachmentAttachmentStatusPtrOutput)
+}
+
+func (o RegistrationAttachmentAttachmentStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o RegistrationAttachmentAttachmentStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RegistrationAttachmentAttachmentStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o RegistrationAttachmentAttachmentStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RegistrationAttachmentAttachmentStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RegistrationAttachmentAttachmentStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type RegistrationAttachmentAttachmentStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (RegistrationAttachmentAttachmentStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RegistrationAttachmentAttachmentStatus)(nil)).Elem()
+}
+
+func (o RegistrationAttachmentAttachmentStatusPtrOutput) ToRegistrationAttachmentAttachmentStatusPtrOutput() RegistrationAttachmentAttachmentStatusPtrOutput {
+	return o
+}
+
+func (o RegistrationAttachmentAttachmentStatusPtrOutput) ToRegistrationAttachmentAttachmentStatusPtrOutputWithContext(ctx context.Context) RegistrationAttachmentAttachmentStatusPtrOutput {
+	return o
+}
+
+func (o RegistrationAttachmentAttachmentStatusPtrOutput) Elem() RegistrationAttachmentAttachmentStatusOutput {
+	return o.ApplyT(func(v *RegistrationAttachmentAttachmentStatus) RegistrationAttachmentAttachmentStatus {
+		if v != nil {
+			return *v
+		}
+		var ret RegistrationAttachmentAttachmentStatus
+		return ret
+	}).(RegistrationAttachmentAttachmentStatusOutput)
+}
+
+func (o RegistrationAttachmentAttachmentStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RegistrationAttachmentAttachmentStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *RegistrationAttachmentAttachmentStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
 // The status of the registration.
 type RegistrationStatus string
 
@@ -997,6 +1090,98 @@ func (o RegistrationStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Co
 	}).(pulumi.StringPtrOutput)
 }
 
+// The status of the verified destination phone number. PENDING means the phone number has not been verified yet; VERIFIED means it is verified and can receive messages.
+type VerifiedDestinationNumberStatus string
+
+const (
+	VerifiedDestinationNumberStatusPending     = VerifiedDestinationNumberStatus("PENDING")
+	VerifiedDestinationNumberStatusVerified    = VerifiedDestinationNumberStatus("VERIFIED")
+	VerifiedDestinationNumberStatusUnsupported = VerifiedDestinationNumberStatus("UNSUPPORTED")
+)
+
+type VerifiedDestinationNumberStatusOutput struct{ *pulumi.OutputState }
+
+func (VerifiedDestinationNumberStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VerifiedDestinationNumberStatus)(nil)).Elem()
+}
+
+func (o VerifiedDestinationNumberStatusOutput) ToVerifiedDestinationNumberStatusOutput() VerifiedDestinationNumberStatusOutput {
+	return o
+}
+
+func (o VerifiedDestinationNumberStatusOutput) ToVerifiedDestinationNumberStatusOutputWithContext(ctx context.Context) VerifiedDestinationNumberStatusOutput {
+	return o
+}
+
+func (o VerifiedDestinationNumberStatusOutput) ToVerifiedDestinationNumberStatusPtrOutput() VerifiedDestinationNumberStatusPtrOutput {
+	return o.ToVerifiedDestinationNumberStatusPtrOutputWithContext(context.Background())
+}
+
+func (o VerifiedDestinationNumberStatusOutput) ToVerifiedDestinationNumberStatusPtrOutputWithContext(ctx context.Context) VerifiedDestinationNumberStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VerifiedDestinationNumberStatus) *VerifiedDestinationNumberStatus {
+		return &v
+	}).(VerifiedDestinationNumberStatusPtrOutput)
+}
+
+func (o VerifiedDestinationNumberStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o VerifiedDestinationNumberStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e VerifiedDestinationNumberStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o VerifiedDestinationNumberStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o VerifiedDestinationNumberStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e VerifiedDestinationNumberStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type VerifiedDestinationNumberStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (VerifiedDestinationNumberStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VerifiedDestinationNumberStatus)(nil)).Elem()
+}
+
+func (o VerifiedDestinationNumberStatusPtrOutput) ToVerifiedDestinationNumberStatusPtrOutput() VerifiedDestinationNumberStatusPtrOutput {
+	return o
+}
+
+func (o VerifiedDestinationNumberStatusPtrOutput) ToVerifiedDestinationNumberStatusPtrOutputWithContext(ctx context.Context) VerifiedDestinationNumberStatusPtrOutput {
+	return o
+}
+
+func (o VerifiedDestinationNumberStatusPtrOutput) Elem() VerifiedDestinationNumberStatusOutput {
+	return o.ApplyT(func(v *VerifiedDestinationNumberStatus) VerifiedDestinationNumberStatus {
+		if v != nil {
+			return *v
+		}
+		var ret VerifiedDestinationNumberStatus
+		return ret
+	}).(VerifiedDestinationNumberStatusOutput)
+}
+
+func (o VerifiedDestinationNumberStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o VerifiedDestinationNumberStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *VerifiedDestinationNumberStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PhoneNumberNumberCapabilitiesItemInput)(nil)).Elem(), PhoneNumberNumberCapabilitiesItem("SMS"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PhoneNumberNumberCapabilitiesItemPtrInput)(nil)).Elem(), PhoneNumberNumberCapabilitiesItem("SMS"))
@@ -1020,6 +1205,10 @@ func init() {
 	pulumi.RegisterOutputType(PoolOptionalKeywordActionPtrOutput{})
 	pulumi.RegisterOutputType(ProtectConfigurationCountryRuleProtectStatusOutput{})
 	pulumi.RegisterOutputType(ProtectConfigurationCountryRuleProtectStatusPtrOutput{})
+	pulumi.RegisterOutputType(RegistrationAttachmentAttachmentStatusOutput{})
+	pulumi.RegisterOutputType(RegistrationAttachmentAttachmentStatusPtrOutput{})
 	pulumi.RegisterOutputType(RegistrationStatusOutput{})
 	pulumi.RegisterOutputType(RegistrationStatusPtrOutput{})
+	pulumi.RegisterOutputType(VerifiedDestinationNumberStatusOutput{})
+	pulumi.RegisterOutputType(VerifiedDestinationNumberStatusPtrOutput{})
 }

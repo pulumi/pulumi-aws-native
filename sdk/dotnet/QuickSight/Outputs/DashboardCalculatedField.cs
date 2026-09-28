@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// <summary>
         /// The data set that is used in this calculated field.
         /// </summary>
-        public readonly string DataSetIdentifier;
+        public readonly string? DataSetIdentifier;
         /// <summary>
         /// The expression of the calculated field.
         /// </summary>
@@ -25,18 +25,22 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// The name of the calculated field.
         /// </summary>
         public readonly string Name;
+        public readonly string? TopicIdentifier;
 
         [OutputConstructor]
         private DashboardCalculatedField(
-            string dataSetIdentifier,
+            string? dataSetIdentifier,
 
             string expression,
 
-            string name)
+            string name,
+
+            string? topicIdentifier)
         {
             DataSetIdentifier = dataSetIdentifier;
             Expression = expression;
             Name = name;
+            TopicIdentifier = topicIdentifier;
         }
     }
 }

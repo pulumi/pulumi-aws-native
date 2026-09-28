@@ -239,6 +239,8 @@ if typing.TYPE_CHECKING:
     events = __events
     import pulumi_aws_native.eventschemas as __eventschemas
     eventschemas = __eventschemas
+    import pulumi_aws_native.eventsv2 as __eventsv2
+    eventsv2 = __eventsv2
     import pulumi_aws_native.evidently as __evidently
     evidently = __evidently
     import pulumi_aws_native.evs as __evs
@@ -385,6 +387,8 @@ if typing.TYPE_CHECKING:
     networkflowmonitor = __networkflowmonitor
     import pulumi_aws_native.networkmanager as __networkmanager
     networkmanager = __networkmanager
+    import pulumi_aws_native.networkmonitor as __networkmonitor
+    networkmonitor = __networkmonitor
     import pulumi_aws_native.nimblestudio as __nimblestudio
     nimblestudio = __nimblestudio
     import pulumi_aws_native.oam as __oam
@@ -421,6 +425,8 @@ if typing.TYPE_CHECKING:
     pcs = __pcs
     import pulumi_aws_native.personalize as __personalize
     personalize = __personalize
+    import pulumi_aws_native.pi as __pi
+    pi = __pi
     import pulumi_aws_native.pinpoint as __pinpoint
     pinpoint = __pinpoint
     import pulumi_aws_native.pipes as __pipes
@@ -694,6 +700,7 @@ else:
     entityresolution = _utilities.lazy_import('pulumi_aws_native.entityresolution')
     events = _utilities.lazy_import('pulumi_aws_native.events')
     eventschemas = _utilities.lazy_import('pulumi_aws_native.eventschemas')
+    eventsv2 = _utilities.lazy_import('pulumi_aws_native.eventsv2')
     evidently = _utilities.lazy_import('pulumi_aws_native.evidently')
     evs = _utilities.lazy_import('pulumi_aws_native.evs')
     finspace = _utilities.lazy_import('pulumi_aws_native.finspace')
@@ -767,6 +774,7 @@ else:
     networkfirewall = _utilities.lazy_import('pulumi_aws_native.networkfirewall')
     networkflowmonitor = _utilities.lazy_import('pulumi_aws_native.networkflowmonitor')
     networkmanager = _utilities.lazy_import('pulumi_aws_native.networkmanager')
+    networkmonitor = _utilities.lazy_import('pulumi_aws_native.networkmonitor')
     nimblestudio = _utilities.lazy_import('pulumi_aws_native.nimblestudio')
     oam = _utilities.lazy_import('pulumi_aws_native.oam')
     observabilityadmin = _utilities.lazy_import('pulumi_aws_native.observabilityadmin')
@@ -785,6 +793,7 @@ else:
     pcaconnectorscep = _utilities.lazy_import('pulumi_aws_native.pcaconnectorscep')
     pcs = _utilities.lazy_import('pulumi_aws_native.pcs')
     personalize = _utilities.lazy_import('pulumi_aws_native.personalize')
+    pi = _utilities.lazy_import('pulumi_aws_native.pi')
     pinpoint = _utilities.lazy_import('pulumi_aws_native.pinpoint')
     pipes = _utilities.lazy_import('pulumi_aws_native.pipes')
     pricingplanmanager = _utilities.lazy_import('pulumi_aws_native.pricingplanmanager')
@@ -1236,7 +1245,8 @@ _utilities.register(
   "mod": "bcm",
   "fqn": "pulumi_aws_native.bcm",
   "classes": {
-   "aws-native:bcm:Dashboard": "Dashboard"
+   "aws-native:bcm:Dashboard": "Dashboard",
+   "aws-native:bcm:ScheduledReport": "ScheduledReport"
   }
  },
  {
@@ -1358,6 +1368,7 @@ _utilities.register(
    "aws-native:cases:Domain": "Domain",
    "aws-native:cases:Field": "Field",
    "aws-native:cases:Layout": "Layout",
+   "aws-native:cases:RelatedItem": "RelatedItem",
    "aws-native:cases:Template": "Template"
   }
  },
@@ -1645,6 +1656,7 @@ _utilities.register(
   "classes": {
    "aws-native:comprehend:DocumentClassifier": "DocumentClassifier",
    "aws-native:comprehend:DocumentClassifierEndpoint": "DocumentClassifierEndpoint",
+   "aws-native:comprehend:EntityRecognizer": "EntityRecognizer",
    "aws-native:comprehend:Flywheel": "Flywheel"
   }
  },
@@ -1664,6 +1676,7 @@ _utilities.register(
    "aws-native:configuration:AggregationAuthorization": "AggregationAuthorization",
    "aws-native:configuration:ConfigRule": "ConfigRule",
    "aws-native:configuration:ConfigurationAggregator": "ConfigurationAggregator",
+   "aws-native:configuration:ConfigurationRecorder": "ConfigurationRecorder",
    "aws-native:configuration:ConformancePack": "ConformancePack",
    "aws-native:configuration:Connector": "Connector",
    "aws-native:configuration:DeliveryChannel": "DeliveryChannel",
@@ -1713,6 +1726,7 @@ _utilities.register(
    "aws-native:connect:UserHierarchyStructure": "UserHierarchyStructure",
    "aws-native:connect:View": "View",
    "aws-native:connect:ViewVersion": "ViewVersion",
+   "aws-native:connect:Vocabulary": "Vocabulary",
    "aws-native:connect:Workspace": "Workspace"
   }
  },
@@ -1755,6 +1769,7 @@ _utilities.register(
    "aws-native:customerprofiles:Integration": "Integration",
    "aws-native:customerprofiles:ObjectType": "ObjectType",
    "aws-native:customerprofiles:Recommender": "Recommender",
+   "aws-native:customerprofiles:RecommenderSchema": "RecommenderSchema",
    "aws-native:customerprofiles:SegmentDefinition": "SegmentDefinition"
   }
  },
@@ -1982,6 +1997,7 @@ _utilities.register(
   "fqn": "pulumi_aws_native.drs",
   "classes": {
    "aws-native:drs:LaunchConfigurationTemplate": "LaunchConfigurationTemplate",
+   "aws-native:drs:ReplicationConfigurationTemplate": "ReplicationConfigurationTemplate",
    "aws-native:drs:SourceNetwork": "SourceNetwork"
   }
  },
@@ -2024,8 +2040,10 @@ _utilities.register(
    "aws-native:ec2:FpgaImage": "FpgaImage",
    "aws-native:ec2:GatewayRouteTableAssociation": "GatewayRouteTableAssociation",
    "aws-native:ec2:Host": "Host",
+   "aws-native:ec2:IPv4Pool": "IPv4Pool",
    "aws-native:ec2:Instance": "Instance",
    "aws-native:ec2:InstanceConnectEndpoint": "InstanceConnectEndpoint",
+   "aws-native:ec2:InstanceEventWindow": "InstanceEventWindow",
    "aws-native:ec2:InternetGateway": "InternetGateway",
    "aws-native:ec2:IpPoolRouteTableAssociation": "IpPoolRouteTableAssociation",
    "aws-native:ec2:Ipam": "Ipam",
@@ -2073,6 +2091,7 @@ _utilities.register(
    "aws-native:ec2:SqlHaStandbyDetectedInstance": "SqlHaStandbyDetectedInstance",
    "aws-native:ec2:Subnet": "Subnet",
    "aws-native:ec2:SubnetCidrBlock": "SubnetCidrBlock",
+   "aws-native:ec2:SubnetCidrReservation": "SubnetCidrReservation",
    "aws-native:ec2:SubnetNetworkAclAssociation": "SubnetNetworkAclAssociation",
    "aws-native:ec2:SubnetRouteTableAssociation": "SubnetRouteTableAssociation",
    "aws-native:ec2:TrafficMirrorFilter": "TrafficMirrorFilter",
@@ -2242,6 +2261,7 @@ _utilities.register(
   "mod": "emr",
   "fqn": "pulumi_aws_native.emr",
   "classes": {
+   "aws-native:emr:InstanceGroupConfig": "InstanceGroupConfig",
    "aws-native:emr:SecurityConfiguration": "SecurityConfiguration",
    "aws-native:emr:Step": "Step",
    "aws-native:emr:Studio": "Studio",
@@ -2255,6 +2275,7 @@ _utilities.register(
   "fqn": "pulumi_aws_native.emrcontainers",
   "classes": {
    "aws-native:emrcontainers:Endpoint": "Endpoint",
+   "aws-native:emrcontainers:JobTemplate": "JobTemplate",
    "aws-native:emrcontainers:SecurityConfiguration": "SecurityConfiguration",
    "aws-native:emrcontainers:VirtualCluster": "VirtualCluster"
   }
@@ -2302,6 +2323,17 @@ _utilities.register(
    "aws-native:eventschemas:Registry": "Registry",
    "aws-native:eventschemas:RegistryPolicy": "RegistryPolicy",
    "aws-native:eventschemas:Schema": "Schema"
+  }
+ },
+ {
+  "pkg": "aws-native",
+  "mod": "eventsv2",
+  "fqn": "pulumi_aws_native.eventsv2",
+  "classes": {
+   "aws-native:eventsv2:EventBus": "EventBus",
+   "aws-native:eventsv2:EventSource": "EventSource",
+   "aws-native:eventsv2:ResourcePolicy": "ResourcePolicy",
+   "aws-native:eventsv2:Subscriber": "Subscriber"
   }
  },
  {
@@ -2446,6 +2478,7 @@ _utilities.register(
    "aws-native:glue:IntegrationResourceProperty": "IntegrationResourceProperty",
    "aws-native:glue:Job": "Job",
    "aws-native:glue:MlTransform": "MlTransform",
+   "aws-native:glue:Partition": "Partition",
    "aws-native:glue:Registry": "Registry",
    "aws-native:glue:Schema": "Schema",
    "aws-native:glue:SchemaVersion": "SchemaVersion",
@@ -2662,6 +2695,7 @@ _utilities.register(
    "aws-native:iot:Stream": "Stream",
    "aws-native:iot:Thing": "Thing",
    "aws-native:iot:ThingGroup": "ThingGroup",
+   "aws-native:iot:ThingPrincipalAttachment": "ThingPrincipalAttachment",
    "aws-native:iot:ThingType": "ThingType",
    "aws-native:iot:TopicRule": "TopicRule",
    "aws-native:iot:TopicRuleDestination": "TopicRuleDestination"
@@ -3019,6 +3053,7 @@ _utilities.register(
    "aws-native:mediaconnect:BridgeSource": "BridgeSource",
    "aws-native:mediaconnect:Flow": "Flow",
    "aws-native:mediaconnect:FlowEntitlement": "FlowEntitlement",
+   "aws-native:mediaconnect:FlowMediaStream": "FlowMediaStream",
    "aws-native:mediaconnect:FlowOutput": "FlowOutput",
    "aws-native:mediaconnect:FlowSource": "FlowSource",
    "aws-native:mediaconnect:FlowVpcInterface": "FlowVpcInterface",
@@ -3033,6 +3068,7 @@ _utilities.register(
   "mod": "mediaconvert",
   "fqn": "pulumi_aws_native.mediaconvert",
   "classes": {
+   "aws-native:mediaconvert:JobTemplate": "JobTemplate",
    "aws-native:mediaconvert:Preset": "Preset",
    "aws-native:mediaconvert:Queue": "Queue"
   }
@@ -3114,6 +3150,8 @@ _utilities.register(
   "mod": "mgn",
   "fqn": "pulumi_aws_native.mgn",
   "classes": {
+   "aws-native:mgn:Connector": "Connector",
+   "aws-native:mgn:LaunchConfigurationTemplate": "LaunchConfigurationTemplate",
    "aws-native:mgn:NetworkMigrationDefinition": "NetworkMigrationDefinition"
   }
  },
@@ -3192,7 +3230,8 @@ _utilities.register(
   "mod": "networkflowmonitor",
   "fqn": "pulumi_aws_native.networkflowmonitor",
   "classes": {
-   "aws-native:networkflowmonitor:Monitor": "Monitor"
+   "aws-native:networkflowmonitor:Monitor": "Monitor",
+   "aws-native:networkflowmonitor:Scope": "Scope"
   }
  },
  {
@@ -3202,6 +3241,7 @@ _utilities.register(
   "classes": {
    "aws-native:networkmanager:ConnectAttachment": "ConnectAttachment",
    "aws-native:networkmanager:ConnectPeer": "ConnectPeer",
+   "aws-native:networkmanager:Connection": "Connection",
    "aws-native:networkmanager:CoreNetwork": "CoreNetwork",
    "aws-native:networkmanager:CoreNetworkPrefixListAssociation": "CoreNetworkPrefixListAssociation",
    "aws-native:networkmanager:CustomerGatewayAssociation": "CustomerGatewayAssociation",
@@ -3216,6 +3256,14 @@ _utilities.register(
    "aws-native:networkmanager:TransitGatewayRegistration": "TransitGatewayRegistration",
    "aws-native:networkmanager:TransitGatewayRouteTableAttachment": "TransitGatewayRouteTableAttachment",
    "aws-native:networkmanager:VpcAttachment": "VpcAttachment"
+  }
+ },
+ {
+  "pkg": "aws-native",
+  "mod": "networkmonitor",
+  "fqn": "pulumi_aws_native.networkmonitor",
+  "classes": {
+   "aws-native:networkmonitor:Monitor": "Monitor"
   }
  },
  {
@@ -3407,9 +3455,18 @@ _utilities.register(
    "aws-native:personalize:Dataset": "Dataset",
    "aws-native:personalize:DatasetGroup": "DatasetGroup",
    "aws-native:personalize:EventTracker": "EventTracker",
+   "aws-native:personalize:Filter": "Filter",
    "aws-native:personalize:MetricAttribution": "MetricAttribution",
    "aws-native:personalize:Schema": "Schema",
    "aws-native:personalize:Solution": "Solution"
+  }
+ },
+ {
+  "pkg": "aws-native",
+  "mod": "pi",
+  "fqn": "pulumi_aws_native.pi",
+  "classes": {
+   "aws-native:pi:PerfReports": "PerfReports"
   }
  },
  {
@@ -3657,6 +3714,7 @@ _utilities.register(
   "fqn": "pulumi_aws_native.route53",
   "classes": {
    "aws-native:route53:CidrCollection": "CidrCollection",
+   "aws-native:route53:DelegationSet": "DelegationSet",
    "aws-native:route53:Dnssec": "Dnssec",
    "aws-native:route53:HealthCheck": "HealthCheck",
    "aws-native:route53:HostedZone": "HostedZone",
@@ -3879,7 +3937,8 @@ _utilities.register(
    "aws-native:sagemaker:StudioLifecycleConfig": "StudioLifecycleConfig",
    "aws-native:sagemaker:TrialComponent": "TrialComponent",
    "aws-native:sagemaker:UserProfile": "UserProfile",
-   "aws-native:sagemaker:Workforce": "Workforce"
+   "aws-native:sagemaker:Workforce": "Workforce",
+   "aws-native:sagemaker:Workteam": "Workteam"
   }
  },
  {
@@ -4021,6 +4080,7 @@ _utilities.register(
    "aws-native:ses:CustomVerificationEmailTemplate": "CustomVerificationEmailTemplate",
    "aws-native:ses:DedicatedIpPool": "DedicatedIpPool",
    "aws-native:ses:EmailIdentity": "EmailIdentity",
+   "aws-native:ses:EmailIdentityCertificate": "EmailIdentityCertificate",
    "aws-native:ses:MailManagerAddonInstance": "MailManagerAddonInstance",
    "aws-native:ses:MailManagerAddonSubscription": "MailManagerAddonSubscription",
    "aws-native:ses:MailManagerAddressList": "MailManagerAddressList",
@@ -4077,8 +4137,10 @@ _utilities.register(
    "aws-native:smsvoice:Pool": "Pool",
    "aws-native:smsvoice:ProtectConfiguration": "ProtectConfiguration",
    "aws-native:smsvoice:Registration": "Registration",
+   "aws-native:smsvoice:RegistrationAttachment": "RegistrationAttachment",
    "aws-native:smsvoice:ResourcePolicy": "ResourcePolicy",
-   "aws-native:smsvoice:SenderId": "SenderId"
+   "aws-native:smsvoice:SenderId": "SenderId",
+   "aws-native:smsvoice:VerifiedDestinationNumber": "VerifiedDestinationNumber"
   }
  },
  {
@@ -4187,7 +4249,8 @@ _utilities.register(
   "fqn": "pulumi_aws_native.storagegateway",
   "classes": {
    "aws-native:storagegateway:Tape": "Tape",
-   "aws-native:storagegateway:TapePool": "TapePool"
+   "aws-native:storagegateway:TapePool": "TapePool",
+   "aws-native:storagegateway:Volume": "Volume"
   }
  },
  {
@@ -4251,6 +4314,7 @@ _utilities.register(
   "fqn": "pulumi_aws_native.transcribe",
   "classes": {
    "aws-native:transcribe:CallAnalyticsCategory": "CallAnalyticsCategory",
+   "aws-native:transcribe:MedicalVocabulary": "MedicalVocabulary",
    "aws-native:transcribe:Vocabulary": "Vocabulary",
    "aws-native:transcribe:VocabularyFilter": "VocabularyFilter"
   }
@@ -4346,6 +4410,9 @@ _utilities.register(
   "mod": "wellarchitected",
   "fqn": "pulumi_aws_native.wellarchitected",
   "classes": {
+   "aws-native:wellarchitected:AgentContext": "AgentContext",
+   "aws-native:wellarchitected:AgentGoal": "AgentGoal",
+   "aws-native:wellarchitected:AgentProfile": "AgentProfile",
    "aws-native:wellarchitected:Lens": "Lens",
    "aws-native:wellarchitected:Profile": "Profile",
    "aws-native:wellarchitected:ReviewTemplate": "ReviewTemplate",

@@ -16,10 +16,22 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     public sealed class ThemeBorderStyleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// String to encapsulate the most generic way Color can be formatted (words, hexStrings etc)
+        /// </summary>
+        [Input("color")]
+        public Input<string>? Color { get; set; }
+
+        /// <summary>
         /// &lt;p&gt;The option to enable display of borders for visuals.&lt;/p&gt;
         /// </summary>
         [Input("show")]
         public Input<bool>? Show { get; set; }
+
+        /// <summary>
+        /// String to encapsulate the most generic way Width can be formatted with whatever units (px, em etc)
+        /// </summary>
+        [Input("width")]
+        public Input<string>? Width { get; set; }
 
         public ThemeBorderStyleArgs()
         {

@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "aws-native:bcm:Dashboard":
 		r = &Dashboard{}
+	case "aws-native:bcm:ScheduledReport":
+		r = &ScheduledReport{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}

@@ -54,6 +54,7 @@ __all__ = [
     'DataSourceContextEnrichmentType',
     'DataSourceCrawlFilterConfigurationType',
     'DataSourceDataDeletionPolicy',
+    'DataSourceDayOfWeek',
     'DataSourceEnabledOrDisabledState',
     'DataSourceEnrichmentStrategyMethod',
     'DataSourceParsingModality',
@@ -564,6 +565,20 @@ class DataSourceDataDeletionPolicy(_builtins.str, Enum):
     """
     RETAIN = "RETAIN"
     DELETE = "DELETE"
+
+
+@pulumi.type_token("aws-native:bedrock:DataSourceDayOfWeek")
+class DataSourceDayOfWeek(_builtins.str, Enum):
+    """
+    Day of the week.
+    """
+    SUNDAY = "SUNDAY"
+    MONDAY = "MONDAY"
+    TUESDAY = "TUESDAY"
+    WEDNESDAY = "WEDNESDAY"
+    THURSDAY = "THURSDAY"
+    FRIDAY = "FRIDAY"
+    SATURDAY = "SATURDAY"
 
 
 @pulumi.type_token("aws-native:bedrock:DataSourceEnabledOrDisabledState")

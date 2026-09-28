@@ -15,6 +15,11 @@ export type ConnectPeer = import("./connectPeer").ConnectPeer;
 export const ConnectPeer: typeof import("./connectPeer").ConnectPeer = null as any;
 utilities.lazyLoad(exports, ["ConnectPeer"], () => require("./connectPeer"));
 
+export { ConnectionArgs } from "./connection";
+export type Connection = import("./connection").Connection;
+export const Connection: typeof import("./connection").Connection = null as any;
+utilities.lazyLoad(exports, ["Connection"], () => require("./connection"));
+
 export { CoreNetworkArgs } from "./coreNetwork";
 export type CoreNetwork = import("./coreNetwork").CoreNetwork;
 export const CoreNetwork: typeof import("./coreNetwork").CoreNetwork = null as any;
@@ -49,6 +54,11 @@ export { GetConnectPeerArgs, GetConnectPeerResult, GetConnectPeerOutputArgs } fr
 export const getConnectPeer: typeof import("./getConnectPeer").getConnectPeer = null as any;
 export const getConnectPeerOutput: typeof import("./getConnectPeer").getConnectPeerOutput = null as any;
 utilities.lazyLoad(exports, ["getConnectPeer","getConnectPeerOutput"], () => require("./getConnectPeer"));
+
+export { GetConnectionArgs, GetConnectionResult, GetConnectionOutputArgs } from "./getConnection";
+export const getConnection: typeof import("./getConnection").getConnection = null as any;
+export const getConnectionOutput: typeof import("./getConnection").getConnectionOutput = null as any;
+utilities.lazyLoad(exports, ["getConnection","getConnectionOutput"], () => require("./getConnection"));
 
 export { GetCoreNetworkArgs, GetCoreNetworkResult, GetCoreNetworkOutputArgs } from "./getCoreNetwork";
 export const getCoreNetwork: typeof import("./getCoreNetwork").getCoreNetwork = null as any;
@@ -146,6 +156,9 @@ export const VpcAttachment: typeof import("./vpcAttachment").VpcAttachment = nul
 utilities.lazyLoad(exports, ["VpcAttachment"], () => require("./vpcAttachment"));
 
 
+// Export enums:
+export * from "../types/enums/networkmanager";
+
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
@@ -154,6 +167,8 @@ const _module = {
                 return new ConnectAttachment(name, <any>undefined, { urn })
             case "aws-native:networkmanager:ConnectPeer":
                 return new ConnectPeer(name, <any>undefined, { urn })
+            case "aws-native:networkmanager:Connection":
+                return new Connection(name, <any>undefined, { urn })
             case "aws-native:networkmanager:CoreNetwork":
                 return new CoreNetwork(name, <any>undefined, { urn })
             case "aws-native:networkmanager:CoreNetworkPrefixListAssociation":

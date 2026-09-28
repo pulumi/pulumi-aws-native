@@ -3182,6 +3182,148 @@ func (o OrganizationTelemetryRuleLoggingFilterPtrOutput) Filters() OrganizationT
 	}).(OrganizationTelemetryRuleFilterArrayOutput)
 }
 
+// Configuration parameters for Amazon MSK cluster monitoring.
+type OrganizationTelemetryRuleMskMonitoringParameters struct {
+	// The level of enhanced monitoring for the MSK cluster.
+	EnhancedMonitoring *OrganizationTelemetryRuleMskMonitoringParametersEnhancedMonitoring `pulumi:"enhancedMonitoring"`
+}
+
+// OrganizationTelemetryRuleMskMonitoringParametersInput is an input type that accepts OrganizationTelemetryRuleMskMonitoringParametersArgs and OrganizationTelemetryRuleMskMonitoringParametersOutput values.
+// You can construct a concrete instance of `OrganizationTelemetryRuleMskMonitoringParametersInput` via:
+//
+//	OrganizationTelemetryRuleMskMonitoringParametersArgs{...}
+type OrganizationTelemetryRuleMskMonitoringParametersInput interface {
+	pulumi.Input
+
+	ToOrganizationTelemetryRuleMskMonitoringParametersOutput() OrganizationTelemetryRuleMskMonitoringParametersOutput
+	ToOrganizationTelemetryRuleMskMonitoringParametersOutputWithContext(context.Context) OrganizationTelemetryRuleMskMonitoringParametersOutput
+}
+
+// Configuration parameters for Amazon MSK cluster monitoring.
+type OrganizationTelemetryRuleMskMonitoringParametersArgs struct {
+	// The level of enhanced monitoring for the MSK cluster.
+	EnhancedMonitoring OrganizationTelemetryRuleMskMonitoringParametersEnhancedMonitoringPtrInput `pulumi:"enhancedMonitoring"`
+}
+
+func (OrganizationTelemetryRuleMskMonitoringParametersArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrganizationTelemetryRuleMskMonitoringParameters)(nil)).Elem()
+}
+
+func (i OrganizationTelemetryRuleMskMonitoringParametersArgs) ToOrganizationTelemetryRuleMskMonitoringParametersOutput() OrganizationTelemetryRuleMskMonitoringParametersOutput {
+	return i.ToOrganizationTelemetryRuleMskMonitoringParametersOutputWithContext(context.Background())
+}
+
+func (i OrganizationTelemetryRuleMskMonitoringParametersArgs) ToOrganizationTelemetryRuleMskMonitoringParametersOutputWithContext(ctx context.Context) OrganizationTelemetryRuleMskMonitoringParametersOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrganizationTelemetryRuleMskMonitoringParametersOutput)
+}
+
+func (i OrganizationTelemetryRuleMskMonitoringParametersArgs) ToOrganizationTelemetryRuleMskMonitoringParametersPtrOutput() OrganizationTelemetryRuleMskMonitoringParametersPtrOutput {
+	return i.ToOrganizationTelemetryRuleMskMonitoringParametersPtrOutputWithContext(context.Background())
+}
+
+func (i OrganizationTelemetryRuleMskMonitoringParametersArgs) ToOrganizationTelemetryRuleMskMonitoringParametersPtrOutputWithContext(ctx context.Context) OrganizationTelemetryRuleMskMonitoringParametersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrganizationTelemetryRuleMskMonitoringParametersOutput).ToOrganizationTelemetryRuleMskMonitoringParametersPtrOutputWithContext(ctx)
+}
+
+// OrganizationTelemetryRuleMskMonitoringParametersPtrInput is an input type that accepts OrganizationTelemetryRuleMskMonitoringParametersArgs, OrganizationTelemetryRuleMskMonitoringParametersPtr and OrganizationTelemetryRuleMskMonitoringParametersPtrOutput values.
+// You can construct a concrete instance of `OrganizationTelemetryRuleMskMonitoringParametersPtrInput` via:
+//
+//	        OrganizationTelemetryRuleMskMonitoringParametersArgs{...}
+//
+//	or:
+//
+//	        nil
+type OrganizationTelemetryRuleMskMonitoringParametersPtrInput interface {
+	pulumi.Input
+
+	ToOrganizationTelemetryRuleMskMonitoringParametersPtrOutput() OrganizationTelemetryRuleMskMonitoringParametersPtrOutput
+	ToOrganizationTelemetryRuleMskMonitoringParametersPtrOutputWithContext(context.Context) OrganizationTelemetryRuleMskMonitoringParametersPtrOutput
+}
+
+type organizationTelemetryRuleMskMonitoringParametersPtrType OrganizationTelemetryRuleMskMonitoringParametersArgs
+
+func OrganizationTelemetryRuleMskMonitoringParametersPtr(v *OrganizationTelemetryRuleMskMonitoringParametersArgs) OrganizationTelemetryRuleMskMonitoringParametersPtrInput {
+	return (*organizationTelemetryRuleMskMonitoringParametersPtrType)(v)
+}
+
+func (*organizationTelemetryRuleMskMonitoringParametersPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OrganizationTelemetryRuleMskMonitoringParameters)(nil)).Elem()
+}
+
+func (i *organizationTelemetryRuleMskMonitoringParametersPtrType) ToOrganizationTelemetryRuleMskMonitoringParametersPtrOutput() OrganizationTelemetryRuleMskMonitoringParametersPtrOutput {
+	return i.ToOrganizationTelemetryRuleMskMonitoringParametersPtrOutputWithContext(context.Background())
+}
+
+func (i *organizationTelemetryRuleMskMonitoringParametersPtrType) ToOrganizationTelemetryRuleMskMonitoringParametersPtrOutputWithContext(ctx context.Context) OrganizationTelemetryRuleMskMonitoringParametersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrganizationTelemetryRuleMskMonitoringParametersPtrOutput)
+}
+
+// Configuration parameters for Amazon MSK cluster monitoring.
+type OrganizationTelemetryRuleMskMonitoringParametersOutput struct{ *pulumi.OutputState }
+
+func (OrganizationTelemetryRuleMskMonitoringParametersOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrganizationTelemetryRuleMskMonitoringParameters)(nil)).Elem()
+}
+
+func (o OrganizationTelemetryRuleMskMonitoringParametersOutput) ToOrganizationTelemetryRuleMskMonitoringParametersOutput() OrganizationTelemetryRuleMskMonitoringParametersOutput {
+	return o
+}
+
+func (o OrganizationTelemetryRuleMskMonitoringParametersOutput) ToOrganizationTelemetryRuleMskMonitoringParametersOutputWithContext(ctx context.Context) OrganizationTelemetryRuleMskMonitoringParametersOutput {
+	return o
+}
+
+func (o OrganizationTelemetryRuleMskMonitoringParametersOutput) ToOrganizationTelemetryRuleMskMonitoringParametersPtrOutput() OrganizationTelemetryRuleMskMonitoringParametersPtrOutput {
+	return o.ToOrganizationTelemetryRuleMskMonitoringParametersPtrOutputWithContext(context.Background())
+}
+
+func (o OrganizationTelemetryRuleMskMonitoringParametersOutput) ToOrganizationTelemetryRuleMskMonitoringParametersPtrOutputWithContext(ctx context.Context) OrganizationTelemetryRuleMskMonitoringParametersPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OrganizationTelemetryRuleMskMonitoringParameters) *OrganizationTelemetryRuleMskMonitoringParameters {
+		return &v
+	}).(OrganizationTelemetryRuleMskMonitoringParametersPtrOutput)
+}
+
+// The level of enhanced monitoring for the MSK cluster.
+func (o OrganizationTelemetryRuleMskMonitoringParametersOutput) EnhancedMonitoring() OrganizationTelemetryRuleMskMonitoringParametersEnhancedMonitoringPtrOutput {
+	return o.ApplyT(func(v OrganizationTelemetryRuleMskMonitoringParameters) *OrganizationTelemetryRuleMskMonitoringParametersEnhancedMonitoring {
+		return v.EnhancedMonitoring
+	}).(OrganizationTelemetryRuleMskMonitoringParametersEnhancedMonitoringPtrOutput)
+}
+
+type OrganizationTelemetryRuleMskMonitoringParametersPtrOutput struct{ *pulumi.OutputState }
+
+func (OrganizationTelemetryRuleMskMonitoringParametersPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OrganizationTelemetryRuleMskMonitoringParameters)(nil)).Elem()
+}
+
+func (o OrganizationTelemetryRuleMskMonitoringParametersPtrOutput) ToOrganizationTelemetryRuleMskMonitoringParametersPtrOutput() OrganizationTelemetryRuleMskMonitoringParametersPtrOutput {
+	return o
+}
+
+func (o OrganizationTelemetryRuleMskMonitoringParametersPtrOutput) ToOrganizationTelemetryRuleMskMonitoringParametersPtrOutputWithContext(ctx context.Context) OrganizationTelemetryRuleMskMonitoringParametersPtrOutput {
+	return o
+}
+
+func (o OrganizationTelemetryRuleMskMonitoringParametersPtrOutput) Elem() OrganizationTelemetryRuleMskMonitoringParametersOutput {
+	return o.ApplyT(func(v *OrganizationTelemetryRuleMskMonitoringParameters) OrganizationTelemetryRuleMskMonitoringParameters {
+		if v != nil {
+			return *v
+		}
+		var ret OrganizationTelemetryRuleMskMonitoringParameters
+		return ret
+	}).(OrganizationTelemetryRuleMskMonitoringParametersOutput)
+}
+
+// The level of enhanced monitoring for the MSK cluster.
+func (o OrganizationTelemetryRuleMskMonitoringParametersPtrOutput) EnhancedMonitoring() OrganizationTelemetryRuleMskMonitoringParametersEnhancedMonitoringPtrOutput {
+	return o.ApplyT(func(v *OrganizationTelemetryRuleMskMonitoringParameters) *OrganizationTelemetryRuleMskMonitoringParametersEnhancedMonitoring {
+		if v == nil {
+			return nil
+		}
+		return v.EnhancedMonitoring
+	}).(OrganizationTelemetryRuleMskMonitoringParametersEnhancedMonitoringPtrOutput)
+}
+
 // Status of a telemetry rule in a specific region
 type OrganizationTelemetryRuleRegionStatus struct {
 	// The AWS region code
@@ -3402,7 +3544,8 @@ type OrganizationTelemetryRuleTelemetryDestinationConfiguration struct {
 	ElbLoadBalancerLoggingParameters *OrganizationTelemetryRuleElbLoadBalancerLoggingParameters `pulumi:"elbLoadBalancerLoggingParameters"`
 	KmsKeyArn                        *string                                                    `pulumi:"kmsKeyArn"`
 	// Parameters for log delivery configuration
-	LogDeliveryParameters *OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersProperties `pulumi:"logDeliveryParameters"`
+	LogDeliveryParameters   *OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersProperties `pulumi:"logDeliveryParameters"`
+	MskMonitoringParameters *OrganizationTelemetryRuleMskMonitoringParameters                                          `pulumi:"mskMonitoringParameters"`
 	// The number of days to retain the telemetry data in the destination.
 	RetentionInDays *int `pulumi:"retentionInDays"`
 	// Configuration parameters specific to VPC Flow Logs when VPC is the resource type.
@@ -3434,7 +3577,8 @@ type OrganizationTelemetryRuleTelemetryDestinationConfigurationArgs struct {
 	ElbLoadBalancerLoggingParameters OrganizationTelemetryRuleElbLoadBalancerLoggingParametersPtrInput `pulumi:"elbLoadBalancerLoggingParameters"`
 	KmsKeyArn                        pulumi.StringPtrInput                                             `pulumi:"kmsKeyArn"`
 	// Parameters for log delivery configuration
-	LogDeliveryParameters OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesPtrInput `pulumi:"logDeliveryParameters"`
+	LogDeliveryParameters   OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesPtrInput `pulumi:"logDeliveryParameters"`
+	MskMonitoringParameters OrganizationTelemetryRuleMskMonitoringParametersPtrInput                                          `pulumi:"mskMonitoringParameters"`
 	// The number of days to retain the telemetry data in the destination.
 	RetentionInDays pulumi.IntPtrInput `pulumi:"retentionInDays"`
 	// Configuration parameters specific to VPC Flow Logs when VPC is the resource type.
@@ -3560,6 +3704,12 @@ func (o OrganizationTelemetryRuleTelemetryDestinationConfigurationOutput) LogDel
 	}).(OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesPtrOutput)
 }
 
+func (o OrganizationTelemetryRuleTelemetryDestinationConfigurationOutput) MskMonitoringParameters() OrganizationTelemetryRuleMskMonitoringParametersPtrOutput {
+	return o.ApplyT(func(v OrganizationTelemetryRuleTelemetryDestinationConfiguration) *OrganizationTelemetryRuleMskMonitoringParameters {
+		return v.MskMonitoringParameters
+	}).(OrganizationTelemetryRuleMskMonitoringParametersPtrOutput)
+}
+
 // The number of days to retain the telemetry data in the destination.
 func (o OrganizationTelemetryRuleTelemetryDestinationConfigurationOutput) RetentionInDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v OrganizationTelemetryRuleTelemetryDestinationConfiguration) *int { return v.RetentionInDays }).(pulumi.IntPtrOutput)
@@ -3660,6 +3810,15 @@ func (o OrganizationTelemetryRuleTelemetryDestinationConfigurationPtrOutput) Log
 		}
 		return v.LogDeliveryParameters
 	}).(OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesPtrOutput)
+}
+
+func (o OrganizationTelemetryRuleTelemetryDestinationConfigurationPtrOutput) MskMonitoringParameters() OrganizationTelemetryRuleMskMonitoringParametersPtrOutput {
+	return o.ApplyT(func(v *OrganizationTelemetryRuleTelemetryDestinationConfiguration) *OrganizationTelemetryRuleMskMonitoringParameters {
+		if v == nil {
+			return nil
+		}
+		return v.MskMonitoringParameters
+	}).(OrganizationTelemetryRuleMskMonitoringParametersPtrOutput)
 }
 
 // The number of days to retain the telemetry data in the destination.
@@ -6572,6 +6731,148 @@ func (o TelemetryRuleLoggingFilterPtrOutput) Filters() TelemetryRuleFilterArrayO
 	}).(TelemetryRuleFilterArrayOutput)
 }
 
+// Configuration parameters for Amazon MSK cluster monitoring.
+type TelemetryRuleMskMonitoringParameters struct {
+	// The level of enhanced monitoring for the MSK cluster.
+	EnhancedMonitoring *TelemetryRuleMskMonitoringParametersEnhancedMonitoring `pulumi:"enhancedMonitoring"`
+}
+
+// TelemetryRuleMskMonitoringParametersInput is an input type that accepts TelemetryRuleMskMonitoringParametersArgs and TelemetryRuleMskMonitoringParametersOutput values.
+// You can construct a concrete instance of `TelemetryRuleMskMonitoringParametersInput` via:
+//
+//	TelemetryRuleMskMonitoringParametersArgs{...}
+type TelemetryRuleMskMonitoringParametersInput interface {
+	pulumi.Input
+
+	ToTelemetryRuleMskMonitoringParametersOutput() TelemetryRuleMskMonitoringParametersOutput
+	ToTelemetryRuleMskMonitoringParametersOutputWithContext(context.Context) TelemetryRuleMskMonitoringParametersOutput
+}
+
+// Configuration parameters for Amazon MSK cluster monitoring.
+type TelemetryRuleMskMonitoringParametersArgs struct {
+	// The level of enhanced monitoring for the MSK cluster.
+	EnhancedMonitoring TelemetryRuleMskMonitoringParametersEnhancedMonitoringPtrInput `pulumi:"enhancedMonitoring"`
+}
+
+func (TelemetryRuleMskMonitoringParametersArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TelemetryRuleMskMonitoringParameters)(nil)).Elem()
+}
+
+func (i TelemetryRuleMskMonitoringParametersArgs) ToTelemetryRuleMskMonitoringParametersOutput() TelemetryRuleMskMonitoringParametersOutput {
+	return i.ToTelemetryRuleMskMonitoringParametersOutputWithContext(context.Background())
+}
+
+func (i TelemetryRuleMskMonitoringParametersArgs) ToTelemetryRuleMskMonitoringParametersOutputWithContext(ctx context.Context) TelemetryRuleMskMonitoringParametersOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TelemetryRuleMskMonitoringParametersOutput)
+}
+
+func (i TelemetryRuleMskMonitoringParametersArgs) ToTelemetryRuleMskMonitoringParametersPtrOutput() TelemetryRuleMskMonitoringParametersPtrOutput {
+	return i.ToTelemetryRuleMskMonitoringParametersPtrOutputWithContext(context.Background())
+}
+
+func (i TelemetryRuleMskMonitoringParametersArgs) ToTelemetryRuleMskMonitoringParametersPtrOutputWithContext(ctx context.Context) TelemetryRuleMskMonitoringParametersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TelemetryRuleMskMonitoringParametersOutput).ToTelemetryRuleMskMonitoringParametersPtrOutputWithContext(ctx)
+}
+
+// TelemetryRuleMskMonitoringParametersPtrInput is an input type that accepts TelemetryRuleMskMonitoringParametersArgs, TelemetryRuleMskMonitoringParametersPtr and TelemetryRuleMskMonitoringParametersPtrOutput values.
+// You can construct a concrete instance of `TelemetryRuleMskMonitoringParametersPtrInput` via:
+//
+//	        TelemetryRuleMskMonitoringParametersArgs{...}
+//
+//	or:
+//
+//	        nil
+type TelemetryRuleMskMonitoringParametersPtrInput interface {
+	pulumi.Input
+
+	ToTelemetryRuleMskMonitoringParametersPtrOutput() TelemetryRuleMskMonitoringParametersPtrOutput
+	ToTelemetryRuleMskMonitoringParametersPtrOutputWithContext(context.Context) TelemetryRuleMskMonitoringParametersPtrOutput
+}
+
+type telemetryRuleMskMonitoringParametersPtrType TelemetryRuleMskMonitoringParametersArgs
+
+func TelemetryRuleMskMonitoringParametersPtr(v *TelemetryRuleMskMonitoringParametersArgs) TelemetryRuleMskMonitoringParametersPtrInput {
+	return (*telemetryRuleMskMonitoringParametersPtrType)(v)
+}
+
+func (*telemetryRuleMskMonitoringParametersPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TelemetryRuleMskMonitoringParameters)(nil)).Elem()
+}
+
+func (i *telemetryRuleMskMonitoringParametersPtrType) ToTelemetryRuleMskMonitoringParametersPtrOutput() TelemetryRuleMskMonitoringParametersPtrOutput {
+	return i.ToTelemetryRuleMskMonitoringParametersPtrOutputWithContext(context.Background())
+}
+
+func (i *telemetryRuleMskMonitoringParametersPtrType) ToTelemetryRuleMskMonitoringParametersPtrOutputWithContext(ctx context.Context) TelemetryRuleMskMonitoringParametersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TelemetryRuleMskMonitoringParametersPtrOutput)
+}
+
+// Configuration parameters for Amazon MSK cluster monitoring.
+type TelemetryRuleMskMonitoringParametersOutput struct{ *pulumi.OutputState }
+
+func (TelemetryRuleMskMonitoringParametersOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TelemetryRuleMskMonitoringParameters)(nil)).Elem()
+}
+
+func (o TelemetryRuleMskMonitoringParametersOutput) ToTelemetryRuleMskMonitoringParametersOutput() TelemetryRuleMskMonitoringParametersOutput {
+	return o
+}
+
+func (o TelemetryRuleMskMonitoringParametersOutput) ToTelemetryRuleMskMonitoringParametersOutputWithContext(ctx context.Context) TelemetryRuleMskMonitoringParametersOutput {
+	return o
+}
+
+func (o TelemetryRuleMskMonitoringParametersOutput) ToTelemetryRuleMskMonitoringParametersPtrOutput() TelemetryRuleMskMonitoringParametersPtrOutput {
+	return o.ToTelemetryRuleMskMonitoringParametersPtrOutputWithContext(context.Background())
+}
+
+func (o TelemetryRuleMskMonitoringParametersOutput) ToTelemetryRuleMskMonitoringParametersPtrOutputWithContext(ctx context.Context) TelemetryRuleMskMonitoringParametersPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TelemetryRuleMskMonitoringParameters) *TelemetryRuleMskMonitoringParameters {
+		return &v
+	}).(TelemetryRuleMskMonitoringParametersPtrOutput)
+}
+
+// The level of enhanced monitoring for the MSK cluster.
+func (o TelemetryRuleMskMonitoringParametersOutput) EnhancedMonitoring() TelemetryRuleMskMonitoringParametersEnhancedMonitoringPtrOutput {
+	return o.ApplyT(func(v TelemetryRuleMskMonitoringParameters) *TelemetryRuleMskMonitoringParametersEnhancedMonitoring {
+		return v.EnhancedMonitoring
+	}).(TelemetryRuleMskMonitoringParametersEnhancedMonitoringPtrOutput)
+}
+
+type TelemetryRuleMskMonitoringParametersPtrOutput struct{ *pulumi.OutputState }
+
+func (TelemetryRuleMskMonitoringParametersPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TelemetryRuleMskMonitoringParameters)(nil)).Elem()
+}
+
+func (o TelemetryRuleMskMonitoringParametersPtrOutput) ToTelemetryRuleMskMonitoringParametersPtrOutput() TelemetryRuleMskMonitoringParametersPtrOutput {
+	return o
+}
+
+func (o TelemetryRuleMskMonitoringParametersPtrOutput) ToTelemetryRuleMskMonitoringParametersPtrOutputWithContext(ctx context.Context) TelemetryRuleMskMonitoringParametersPtrOutput {
+	return o
+}
+
+func (o TelemetryRuleMskMonitoringParametersPtrOutput) Elem() TelemetryRuleMskMonitoringParametersOutput {
+	return o.ApplyT(func(v *TelemetryRuleMskMonitoringParameters) TelemetryRuleMskMonitoringParameters {
+		if v != nil {
+			return *v
+		}
+		var ret TelemetryRuleMskMonitoringParameters
+		return ret
+	}).(TelemetryRuleMskMonitoringParametersOutput)
+}
+
+// The level of enhanced monitoring for the MSK cluster.
+func (o TelemetryRuleMskMonitoringParametersPtrOutput) EnhancedMonitoring() TelemetryRuleMskMonitoringParametersEnhancedMonitoringPtrOutput {
+	return o.ApplyT(func(v *TelemetryRuleMskMonitoringParameters) *TelemetryRuleMskMonitoringParametersEnhancedMonitoring {
+		if v == nil {
+			return nil
+		}
+		return v.EnhancedMonitoring
+	}).(TelemetryRuleMskMonitoringParametersEnhancedMonitoringPtrOutput)
+}
+
 // Status of a telemetry rule in a specific region
 type TelemetryRuleRegionStatus struct {
 	// The AWS region code
@@ -6792,7 +7093,8 @@ type TelemetryRuleTelemetryDestinationConfiguration struct {
 	ElbLoadBalancerLoggingParameters *TelemetryRuleElbLoadBalancerLoggingParameters `pulumi:"elbLoadBalancerLoggingParameters"`
 	KmsKeyArn                        *string                                        `pulumi:"kmsKeyArn"`
 	// Parameters for log delivery configuration
-	LogDeliveryParameters *TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersProperties `pulumi:"logDeliveryParameters"`
+	LogDeliveryParameters   *TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersProperties `pulumi:"logDeliveryParameters"`
+	MskMonitoringParameters *TelemetryRuleMskMonitoringParameters                                          `pulumi:"mskMonitoringParameters"`
 	// The number of days to retain the telemetry data in the destination.
 	RetentionInDays *int `pulumi:"retentionInDays"`
 	// Configuration parameters specific to VPC Flow Logs when VPC is the resource type.
@@ -6824,7 +7126,8 @@ type TelemetryRuleTelemetryDestinationConfigurationArgs struct {
 	ElbLoadBalancerLoggingParameters TelemetryRuleElbLoadBalancerLoggingParametersPtrInput `pulumi:"elbLoadBalancerLoggingParameters"`
 	KmsKeyArn                        pulumi.StringPtrInput                                 `pulumi:"kmsKeyArn"`
 	// Parameters for log delivery configuration
-	LogDeliveryParameters TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesPtrInput `pulumi:"logDeliveryParameters"`
+	LogDeliveryParameters   TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesPtrInput `pulumi:"logDeliveryParameters"`
+	MskMonitoringParameters TelemetryRuleMskMonitoringParametersPtrInput                                          `pulumi:"mskMonitoringParameters"`
 	// The number of days to retain the telemetry data in the destination.
 	RetentionInDays pulumi.IntPtrInput `pulumi:"retentionInDays"`
 	// Configuration parameters specific to VPC Flow Logs when VPC is the resource type.
@@ -6948,6 +7251,12 @@ func (o TelemetryRuleTelemetryDestinationConfigurationOutput) LogDeliveryParamet
 	}).(TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesPtrOutput)
 }
 
+func (o TelemetryRuleTelemetryDestinationConfigurationOutput) MskMonitoringParameters() TelemetryRuleMskMonitoringParametersPtrOutput {
+	return o.ApplyT(func(v TelemetryRuleTelemetryDestinationConfiguration) *TelemetryRuleMskMonitoringParameters {
+		return v.MskMonitoringParameters
+	}).(TelemetryRuleMskMonitoringParametersPtrOutput)
+}
+
 // The number of days to retain the telemetry data in the destination.
 func (o TelemetryRuleTelemetryDestinationConfigurationOutput) RetentionInDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v TelemetryRuleTelemetryDestinationConfiguration) *int { return v.RetentionInDays }).(pulumi.IntPtrOutput)
@@ -7048,6 +7357,15 @@ func (o TelemetryRuleTelemetryDestinationConfigurationPtrOutput) LogDeliveryPara
 		}
 		return v.LogDeliveryParameters
 	}).(TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesPtrOutput)
+}
+
+func (o TelemetryRuleTelemetryDestinationConfigurationPtrOutput) MskMonitoringParameters() TelemetryRuleMskMonitoringParametersPtrOutput {
+	return o.ApplyT(func(v *TelemetryRuleTelemetryDestinationConfiguration) *TelemetryRuleMskMonitoringParameters {
+		if v == nil {
+			return nil
+		}
+		return v.MskMonitoringParameters
+	}).(TelemetryRuleMskMonitoringParametersPtrOutput)
 }
 
 // The number of days to retain the telemetry data in the destination.
@@ -7620,6 +7938,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationTelemetryRuleLabelNameConditionPtrInput)(nil)).Elem(), OrganizationTelemetryRuleLabelNameConditionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationTelemetryRuleLoggingFilterInput)(nil)).Elem(), OrganizationTelemetryRuleLoggingFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationTelemetryRuleLoggingFilterPtrInput)(nil)).Elem(), OrganizationTelemetryRuleLoggingFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationTelemetryRuleMskMonitoringParametersInput)(nil)).Elem(), OrganizationTelemetryRuleMskMonitoringParametersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationTelemetryRuleMskMonitoringParametersPtrInput)(nil)).Elem(), OrganizationTelemetryRuleMskMonitoringParametersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationTelemetryRuleSingleHeaderInput)(nil)).Elem(), OrganizationTelemetryRuleSingleHeaderArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationTelemetryRuleSingleHeaderPtrInput)(nil)).Elem(), OrganizationTelemetryRuleSingleHeaderArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationTelemetryRuleTelemetryDestinationConfigurationInput)(nil)).Elem(), OrganizationTelemetryRuleTelemetryDestinationConfigurationArgs{})
@@ -7656,6 +7976,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TelemetryRuleLabelNameConditionPtrInput)(nil)).Elem(), TelemetryRuleLabelNameConditionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TelemetryRuleLoggingFilterInput)(nil)).Elem(), TelemetryRuleLoggingFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TelemetryRuleLoggingFilterPtrInput)(nil)).Elem(), TelemetryRuleLoggingFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TelemetryRuleMskMonitoringParametersInput)(nil)).Elem(), TelemetryRuleMskMonitoringParametersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TelemetryRuleMskMonitoringParametersPtrInput)(nil)).Elem(), TelemetryRuleMskMonitoringParametersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TelemetryRuleSingleHeaderInput)(nil)).Elem(), TelemetryRuleSingleHeaderArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TelemetryRuleSingleHeaderPtrInput)(nil)).Elem(), TelemetryRuleSingleHeaderArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TelemetryRuleTelemetryDestinationConfigurationInput)(nil)).Elem(), TelemetryRuleTelemetryDestinationConfigurationArgs{})
@@ -7710,6 +8032,8 @@ func init() {
 	pulumi.RegisterOutputType(OrganizationTelemetryRuleLabelNameConditionPtrOutput{})
 	pulumi.RegisterOutputType(OrganizationTelemetryRuleLoggingFilterOutput{})
 	pulumi.RegisterOutputType(OrganizationTelemetryRuleLoggingFilterPtrOutput{})
+	pulumi.RegisterOutputType(OrganizationTelemetryRuleMskMonitoringParametersOutput{})
+	pulumi.RegisterOutputType(OrganizationTelemetryRuleMskMonitoringParametersPtrOutput{})
 	pulumi.RegisterOutputType(OrganizationTelemetryRuleRegionStatusOutput{})
 	pulumi.RegisterOutputType(OrganizationTelemetryRuleRegionStatusArrayOutput{})
 	pulumi.RegisterOutputType(OrganizationTelemetryRuleSingleHeaderOutput{})
@@ -7757,6 +8081,8 @@ func init() {
 	pulumi.RegisterOutputType(TelemetryRuleLabelNameConditionPtrOutput{})
 	pulumi.RegisterOutputType(TelemetryRuleLoggingFilterOutput{})
 	pulumi.RegisterOutputType(TelemetryRuleLoggingFilterPtrOutput{})
+	pulumi.RegisterOutputType(TelemetryRuleMskMonitoringParametersOutput{})
+	pulumi.RegisterOutputType(TelemetryRuleMskMonitoringParametersPtrOutput{})
 	pulumi.RegisterOutputType(TelemetryRuleRegionStatusOutput{})
 	pulumi.RegisterOutputType(TelemetryRuleRegionStatusArrayOutput{})
 	pulumi.RegisterOutputType(TelemetryRuleSingleHeaderOutput{})

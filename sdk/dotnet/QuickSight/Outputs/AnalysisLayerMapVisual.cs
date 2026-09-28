@@ -20,9 +20,10 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// <summary>
         /// The dataset that is used to create the layer map visual. You can't create a visual without a dataset.
         /// </summary>
-        public readonly string DataSetIdentifier;
+        public readonly string? DataSetIdentifier;
         public readonly Outputs.AnalysisVisualSubtitleLabelOptions? Subtitle;
         public readonly Outputs.AnalysisVisualTitleLabelOptions? Title;
+        public readonly string? TopicIdentifier;
         /// <summary>
         /// The alt text for the visual.
         /// </summary>
@@ -36,11 +37,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         private AnalysisLayerMapVisual(
             Outputs.AnalysisGeospatialLayerMapConfiguration? chartConfiguration,
 
-            string dataSetIdentifier,
+            string? dataSetIdentifier,
 
             Outputs.AnalysisVisualSubtitleLabelOptions? subtitle,
 
             Outputs.AnalysisVisualTitleLabelOptions? title,
+
+            string? topicIdentifier,
 
             string? visualContentAltText,
 
@@ -50,6 +53,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
             DataSetIdentifier = dataSetIdentifier;
             Subtitle = subtitle;
             Title = title;
+            TopicIdentifier = topicIdentifier;
             VisualContentAltText = visualContentAltText;
             VisualId = visualId;
         }

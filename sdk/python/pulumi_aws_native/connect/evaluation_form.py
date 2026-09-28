@@ -28,6 +28,7 @@ class EvaluationFormArgs:
                  items: pulumi.Input[Sequence[pulumi.Input['EvaluationFormBaseItemArgs']]],
                  status: pulumi.Input['EvaluationFormStatus'],
                  title: pulumi.Input[_builtins.str],
+                 ai_version: pulumi.Input[Optional[_builtins.str]] = None,
                  auto_evaluation_configuration: pulumi.Input[Optional['EvaluationFormAutoEvaluationConfigurationArgs']] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  language_configuration: pulumi.Input[Optional['EvaluationFormLanguageConfigurationArgs']] = None,
@@ -58,6 +59,8 @@ class EvaluationFormArgs:
         pulumi.set(__self__, "items", items)
         pulumi.set(__self__, "status", status)
         pulumi.set(__self__, "title", title)
+        if ai_version is not None:
+            pulumi.set(__self__, "ai_version", ai_version)
         if auto_evaluation_configuration is not None:
             pulumi.set(__self__, "auto_evaluation_configuration", auto_evaluation_configuration)
         if description is not None:
@@ -123,6 +126,15 @@ class EvaluationFormArgs:
     @title.setter
     def title(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "title", value)
+
+    @_builtins.property
+    @pulumi.getter(name="aiVersion")
+    def ai_version(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "ai_version")
+
+    @ai_version.setter
+    def ai_version(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "ai_version", value)
 
     @_builtins.property
     @pulumi.getter(name="autoEvaluationConfiguration")
@@ -216,6 +228,7 @@ class EvaluationForm(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 ai_version: pulumi.Input[Optional[_builtins.str]] = None,
                  auto_evaluation_configuration: pulumi.Input[Optional[Union['EvaluationFormAutoEvaluationConfigurationArgs', 'EvaluationFormAutoEvaluationConfigurationArgsDict']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  instance_arn: pulumi.Input[Optional[_builtins.str]] = None,
@@ -273,6 +286,7 @@ class EvaluationForm(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 ai_version: pulumi.Input[Optional[_builtins.str]] = None,
                  auto_evaluation_configuration: pulumi.Input[Optional[Union['EvaluationFormAutoEvaluationConfigurationArgs', 'EvaluationFormAutoEvaluationConfigurationArgsDict']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  instance_arn: pulumi.Input[Optional[_builtins.str]] = None,
@@ -293,6 +307,7 @@ class EvaluationForm(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = EvaluationFormArgs.__new__(EvaluationFormArgs)
 
+            __props__.__dict__["ai_version"] = ai_version
             __props__.__dict__["auto_evaluation_configuration"] = auto_evaluation_configuration
             __props__.__dict__["description"] = description
             if instance_arn is None and not opts.urn:
@@ -335,6 +350,7 @@ class EvaluationForm(pulumi.CustomResource):
 
         __props__ = EvaluationFormArgs.__new__(EvaluationFormArgs)
 
+        __props__.__dict__["ai_version"] = None
         __props__.__dict__["auto_evaluation_configuration"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["evaluation_form_arn"] = None
@@ -348,6 +364,11 @@ class EvaluationForm(pulumi.CustomResource):
         __props__.__dict__["target_configuration"] = None
         __props__.__dict__["title"] = None
         return EvaluationForm(resource_name, opts=opts, __props__=__props__)
+
+    @_builtins.property
+    @pulumi.getter(name="aiVersion")
+    def ai_version(self) -> pulumi.Output[Optional[_builtins.str]]:
+        return pulumi.get(self, "ai_version")
 
     @_builtins.property
     @pulumi.getter(name="autoEvaluationConfiguration")

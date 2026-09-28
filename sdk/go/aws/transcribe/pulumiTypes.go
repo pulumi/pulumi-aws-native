@@ -1286,6 +1286,13 @@ func (o CallAnalyticsCategoryTranscriptFilterPtrOutput) TranscriptFilterType() C
 	}).(CallAnalyticsCategoryTranscriptFilterTranscriptFilterTypePtrOutput)
 }
 
+type MedicalVocabularyTag struct {
+	// The key of the tag.
+	Key string `pulumi:"key"`
+	// The value of the tag.
+	Value string `pulumi:"value"`
+}
+
 type VocabularyFilterTag struct {
 	// The key of the tag.
 	Key string `pulumi:"key"`

@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.Connect
     [AwsNativeResourceType("aws-native:connect:EvaluationForm")]
     public partial class EvaluationForm : global::Pulumi.CustomResource
     {
+        [Output("aiVersion")]
+        public Output<string?> AiVersion { get; private set; } = null!;
+
         /// <summary>
         /// The automatic evaluation configuration of an evaluation form.
         /// </summary>
@@ -136,6 +139,9 @@ namespace Pulumi.AwsNative.Connect
 
     public sealed class EvaluationFormArgs : global::Pulumi.ResourceArgs
     {
+        [Input("aiVersion")]
+        public Input<string>? AiVersion { get; set; }
+
         /// <summary>
         /// The automatic evaluation configuration of an evaluation form.
         /// </summary>

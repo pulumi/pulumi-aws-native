@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "aws-native:emrcontainers:Endpoint":
 		r = &Endpoint{}
+	case "aws-native:emrcontainers:JobTemplate":
+		r = &JobTemplate{}
 	case "aws-native:emrcontainers:SecurityConfiguration":
 		r = &SecurityConfiguration{}
 	case "aws-native:emrcontainers:VirtualCluster":

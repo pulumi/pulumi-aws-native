@@ -20,6 +20,7 @@ __all__ = [
     'AgentSpaceIamAuthConfiguration',
     'AgentSpaceIdcAuthConfiguration',
     'AgentSpaceOperatorApp',
+    'AgentSpacePreferences',
     'AssetFile',
     'AssociationAwsConfiguration',
     'AssociationAwsResource',
@@ -219,6 +220,47 @@ class AgentSpaceOperatorApp(dict):
     @pulumi.getter
     def idc(self) -> Optional['outputs.AgentSpaceIdcAuthConfiguration']:
         return pulumi.get(self, "idc")
+
+
+@pulumi.output_type
+class AgentSpacePreferences(dict):
+    """
+    Preferences that configure behavior of this AgentSpace. This container fully owns the AgentSpace preferences: the properties supplied here replace the stored preferences in their entirety, and omitting the Preferences container reverts all preferences to their service defaults.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "elevatedActionsEnabled":
+            suggest = "elevated_actions_enabled"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentSpacePreferences. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentSpacePreferences.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentSpacePreferences.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 elevated_actions_enabled: Optional[_builtins.bool] = None):
+        """
+        Preferences that configure behavior of this AgentSpace. This container fully owns the AgentSpace preferences: the properties supplied here replace the stored preferences in their entirety, and omitting the Preferences container reverts all preferences to their service defaults.
+
+        :param _builtins.bool elevated_actions_enabled: Indicates whether elevated directed actions are permitted in this AgentSpace. Defaults to false when not set.
+        """
+        if elevated_actions_enabled is not None:
+            pulumi.set(__self__, "elevated_actions_enabled", elevated_actions_enabled)
+
+    @_builtins.property
+    @pulumi.getter(name="elevatedActionsEnabled")
+    def elevated_actions_enabled(self) -> Optional[_builtins.bool]:
+        """
+        Indicates whether elevated directed actions are permitted in this AgentSpace. Defaults to false when not set.
+        """
+        return pulumi.get(self, "elevated_actions_enabled")
 
 
 @pulumi.output_type
@@ -2921,7 +2963,7 @@ class ServiceMcpServerSigV4AuthorizationConfig(dict):
         :param _builtins.str service: AWS service name for SigV4 signing
         :param Mapping[str, _builtins.str] custom_headers: Custom headers for the SigV4 MCP server
         :param _builtins.str mcp_role_arn: IAM role ARN to assume for SigV4 signing. Optional - when omitted, credentials are resolved at runtime via a monitor account association.
-        :param _builtins.str role_arn: Deprecated - use McpRoleArn instead. IAM role ARN to assume for SigV4 signing
+        :param _builtins.str role_arn: Deprecated - use McpRoleArn instead. IAM role ARN to assume for SigV4 signing. Set to an empty string to remove a previously configured role and make the server role-less (cross-account).
         """
         pulumi.set(__self__, "region", region)
         pulumi.set(__self__, "service", service)
@@ -2968,7 +3010,7 @@ class ServiceMcpServerSigV4AuthorizationConfig(dict):
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> Optional[_builtins.str]:
         """
-        Deprecated - use McpRoleArn instead. IAM role ARN to assume for SigV4 signing
+        Deprecated - use McpRoleArn instead. IAM role ARN to assume for SigV4 signing. Set to an empty string to remove a previously configured role and make the server role-less (cross-account).
         """
         return pulumi.get(self, "role_arn")
 

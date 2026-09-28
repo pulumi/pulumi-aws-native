@@ -2,6 +2,63 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const AgentContextApplicationType = {
+    Sas: "SAS",
+    DesktopApplication: "DESKTOP_APPLICATION",
+    Other: "OTHER",
+} as const;
+
+/**
+ * Type of the application described by this context. Mirrors the value stored in `Content.applicationType` and is surfaced as a typed read-only attribute by the service for discoverability.
+ */
+export type AgentContextApplicationType = (typeof AgentContextApplicationType)[keyof typeof AgentContextApplicationType];
+
+export const AgentContextContextType = {
+    Application: "APPLICATION",
+} as const;
+
+/**
+ * The type of the Agent Context.
+ */
+export type AgentContextContextType = (typeof AgentContextContextType)[keyof typeof AgentContextContextType];
+
+export const AgentContextCriticality = {
+    MissionCritical: "MISSION_CRITICAL",
+    BusinessCritical: "BUSINESS_CRITICAL",
+    NonCritical: "NON_CRITICAL",
+    TestDevelopment: "TEST_DEVELOPMENT",
+} as const;
+
+/**
+ * Business criticality of the application described by this context. Mirrors the value stored in `Content.criticality` and is surfaced as a typed read-only attribute by the service for discoverability.
+ */
+export type AgentContextCriticality = (typeof AgentContextCriticality)[keyof typeof AgentContextCriticality];
+
+export const AgentGoalPillar = {
+    CostOptimization: "COST_OPTIMIZATION",
+    Security: "SECURITY",
+    Resilience: "RESILIENCE",
+    Performance: "PERFORMANCE",
+    OperationalExcellence: "OPERATIONAL_EXCELLENCE",
+} as const;
+
+/**
+ * A Well-Architected pillar the Agent Goal targets.
+ */
+export type AgentGoalPillar = (typeof AgentGoalPillar)[keyof typeof AgentGoalPillar];
+
+export const AgentProfilePillar = {
+    CostOptimization: "COST_OPTIMIZATION",
+    Security: "SECURITY",
+    Resilience: "RESILIENCE",
+    Performance: "PERFORMANCE",
+} as const;
+
+/**
+ * A Well-Architected pillar the Agent Profile focuses on.
+ */
+export type AgentProfilePillar = (typeof AgentProfilePillar)[keyof typeof AgentProfilePillar];
+
 export const ReviewTemplateUpdateStatus = {
     Current: "CURRENT",
     LensNotCurrent: "LENS_NOT_CURRENT",

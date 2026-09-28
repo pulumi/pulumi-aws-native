@@ -77,6 +77,12 @@ namespace Pulumi.AwsNative.Batch
         public readonly string? Context;
         public readonly Outputs.ComputeEnvironmentEcsSettings? EcsSettings;
         /// <summary>
+        /// The details for the Amazon EKS cluster that supports the compute environment.
+        /// 
+        /// &gt; To create a compute environment that uses EKS resources, the caller must have permissions to call `eks:DescribeCluster` .
+        /// </summary>
+        public readonly Outputs.ComputeEnvironmentEksConfiguration? EksConfiguration;
+        /// <summary>
         /// The full Amazon Resource Name (ARN) of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf. For more information, see [AWS Batch service IAM role](https://docs.aws.amazon.com/batch/latest/userguide/service_IAM_role.html) in the *AWS Batch User Guide* .
         /// 
         /// &gt; If your account already created the AWS Batch service-linked role, that role is used by default for your compute environment unless you specify a different role here. If the AWS Batch service-linked role doesn't exist in your account, and no role is specified here, the service attempts to create the AWS Batch service-linked role in your account. 
@@ -115,6 +121,8 @@ namespace Pulumi.AwsNative.Batch
 
             Outputs.ComputeEnvironmentEcsSettings? ecsSettings,
 
+            Outputs.ComputeEnvironmentEksConfiguration? eksConfiguration,
+
             string? serviceRole,
 
             string? state,
@@ -125,6 +133,7 @@ namespace Pulumi.AwsNative.Batch
             ComputeResources = computeResources;
             Context = context;
             EcsSettings = ecsSettings;
+            EksConfiguration = eksConfiguration;
             ServiceRole = serviceRole;
             State = state;
             UnmanagedvCpus = unmanagedvCpus;

@@ -21,6 +21,10 @@ namespace Pulumi.AwsNative.Transfer.Outputs
         /// </summary>
         public readonly int? MaxConcurrentConnections;
         /// <summary>
+        /// Specifies the order in which the connector attempts to use secret versions during authentication. This enables fallback to alternative credentials if the primary version fails.
+        /// </summary>
+        public readonly ImmutableArray<string> OrderedUserSecretVersionStages;
+        /// <summary>
         /// List of public host keys, for the external server to which you are connecting.
         /// </summary>
         public readonly ImmutableArray<string> TrustedHostKeys;
@@ -33,11 +37,14 @@ namespace Pulumi.AwsNative.Transfer.Outputs
         private SftpConfigProperties(
             int? maxConcurrentConnections,
 
+            ImmutableArray<string> orderedUserSecretVersionStages,
+
             ImmutableArray<string> trustedHostKeys,
 
             string? userSecretId)
         {
             MaxConcurrentConnections = maxConcurrentConnections;
+            OrderedUserSecretVersionStages = orderedUserSecretVersionStages;
             TrustedHostKeys = trustedHostKeys;
             UserSecretId = userSecretId;
         }

@@ -1373,6 +1373,13 @@ type ProtectConfigurationTag struct {
 	Value string `pulumi:"value"`
 }
 
+type RegistrationAttachmentTag struct {
+	// The key identifier, or name, of the tag.
+	Key string `pulumi:"key"`
+	// The string value associated with the key of the tag.
+	Value string `pulumi:"value"`
+}
+
 type RegistrationTag struct {
 	// The key identifier, or name, of the tag.
 	Key string `pulumi:"key"`
@@ -1564,6 +1571,14 @@ func (o TwoWayPropertiesPtrOutput) Enabled() pulumi.BoolPtrOutput {
 		}
 		return &v.Enabled
 	}).(pulumi.BoolPtrOutput)
+}
+
+// A key-value pair to associate with a resource.
+type VerifiedDestinationNumberTag struct {
+	// The key of the tag.
+	Key string `pulumi:"key"`
+	// The value of the tag.
+	Value string `pulumi:"value"`
 }
 
 func init() {

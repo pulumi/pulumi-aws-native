@@ -13,6 +13,7 @@ __all__ = [
     'CallAnalyticsCategorySentimentFilterSentimentsItem',
     'CallAnalyticsCategoryTranscriptFilterParticipantRole',
     'CallAnalyticsCategoryTranscriptFilterTranscriptFilterType',
+    'MedicalVocabularyLanguageCode',
     'VocabularyState',
 ]
 
@@ -55,6 +56,52 @@ class CallAnalyticsCategoryTranscriptFilterParticipantRole(_builtins.str, Enum):
 @pulumi.type_token("aws-native:transcribe:CallAnalyticsCategoryTranscriptFilterTranscriptFilterType")
 class CallAnalyticsCategoryTranscriptFilterTranscriptFilterType(_builtins.str, Enum):
     EXACT = "EXACT"
+
+
+@pulumi.type_token("aws-native:transcribe:MedicalVocabularyLanguageCode")
+class MedicalVocabularyLanguageCode(_builtins.str, Enum):
+    """
+    The language code of the vocabulary entries.
+    """
+    AF_ZA = "af-ZA"
+    AR_AE = "ar-AE"
+    AR_SA = "ar-SA"
+    DA_DK = "da-DK"
+    DE_CH = "de-CH"
+    DE_DE = "de-DE"
+    EN_AB = "en-AB"
+    EN_AU = "en-AU"
+    EN_GB = "en-GB"
+    EN_IE = "en-IE"
+    EN_IN = "en-IN"
+    EN_US = "en-US"
+    EN_WL = "en-WL"
+    ES_ES = "es-ES"
+    ES_US = "es-US"
+    FA_IR = "fa-IR"
+    FR_CA = "fr-CA"
+    FR_FR = "fr-FR"
+    HE_IL = "he-IL"
+    HI_IN = "hi-IN"
+    ID_ID = "id-ID"
+    IT_IT = "it-IT"
+    JA_JP = "ja-JP"
+    KO_KR = "ko-KR"
+    MS_MY = "ms-MY"
+    NL_NL = "nl-NL"
+    PT_BR = "pt-BR"
+    PT_PT = "pt-PT"
+    RU_RU = "ru-RU"
+    TA_IN = "ta-IN"
+    TE_IN = "te-IN"
+    TR_TR = "tr-TR"
+    ZH_CN = "zh-CN"
+    ZH_TW = "zh-TW"
+    TH_TH = "th-TH"
+    EN_ZA = "en-ZA"
+    EN_NZ = "en-NZ"
+    VI_VN = "vi-VN"
+    SV_SE = "sv-SE"
 
 
 @pulumi.type_token("aws-native:transcribe:VocabularyState")

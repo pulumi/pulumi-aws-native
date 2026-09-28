@@ -48,6 +48,53 @@ export const CallAnalyticsCategoryTranscriptFilterTranscriptFilterType = {
 
 export type CallAnalyticsCategoryTranscriptFilterTranscriptFilterType = (typeof CallAnalyticsCategoryTranscriptFilterTranscriptFilterType)[keyof typeof CallAnalyticsCategoryTranscriptFilterTranscriptFilterType];
 
+export const MedicalVocabularyLanguageCode = {
+    AfZa: "af-ZA",
+    ArAe: "ar-AE",
+    ArSa: "ar-SA",
+    DaDk: "da-DK",
+    DeCh: "de-CH",
+    DeDe: "de-DE",
+    EnAb: "en-AB",
+    EnAu: "en-AU",
+    EnGb: "en-GB",
+    EnIe: "en-IE",
+    EnIn: "en-IN",
+    EnUs: "en-US",
+    EnWl: "en-WL",
+    EsEs: "es-ES",
+    EsUs: "es-US",
+    FaIr: "fa-IR",
+    FrCa: "fr-CA",
+    FrFr: "fr-FR",
+    HeIl: "he-IL",
+    HiIn: "hi-IN",
+    IdId: "id-ID",
+    ItIt: "it-IT",
+    JaJp: "ja-JP",
+    KoKr: "ko-KR",
+    MsMy: "ms-MY",
+    NlNl: "nl-NL",
+    PtBr: "pt-BR",
+    PtPt: "pt-PT",
+    RuRu: "ru-RU",
+    TaIn: "ta-IN",
+    TeIn: "te-IN",
+    TrTr: "tr-TR",
+    ZhCn: "zh-CN",
+    ZhTw: "zh-TW",
+    ThTh: "th-TH",
+    EnZa: "en-ZA",
+    EnNz: "en-NZ",
+    ViVn: "vi-VN",
+    SvSe: "sv-SE",
+} as const;
+
+/**
+ * The language code of the vocabulary entries.
+ */
+export type MedicalVocabularyLanguageCode = (typeof MedicalVocabularyLanguageCode)[keyof typeof MedicalVocabularyLanguageCode];
+
 export const VocabularyState = {
     Pending: "PENDING",
     Ready: "READY",

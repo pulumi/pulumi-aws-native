@@ -236,13 +236,248 @@ type MonitorTag struct {
 	Value string `pulumi:"value"`
 }
 
+type ScopeTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
+// A target ID is an internally-generated identifier for a target.
+type ScopeTargetId struct {
+	// The account ID for the target.
+	AccountId string `pulumi:"accountId"`
+}
+
+// ScopeTargetIdInput is an input type that accepts ScopeTargetIdArgs and ScopeTargetIdOutput values.
+// You can construct a concrete instance of `ScopeTargetIdInput` via:
+//
+//	ScopeTargetIdArgs{...}
+type ScopeTargetIdInput interface {
+	pulumi.Input
+
+	ToScopeTargetIdOutput() ScopeTargetIdOutput
+	ToScopeTargetIdOutputWithContext(context.Context) ScopeTargetIdOutput
+}
+
+// A target ID is an internally-generated identifier for a target.
+type ScopeTargetIdArgs struct {
+	// The account ID for the target.
+	AccountId pulumi.StringInput `pulumi:"accountId"`
+}
+
+func (ScopeTargetIdArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScopeTargetId)(nil)).Elem()
+}
+
+func (i ScopeTargetIdArgs) ToScopeTargetIdOutput() ScopeTargetIdOutput {
+	return i.ToScopeTargetIdOutputWithContext(context.Background())
+}
+
+func (i ScopeTargetIdArgs) ToScopeTargetIdOutputWithContext(ctx context.Context) ScopeTargetIdOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScopeTargetIdOutput)
+}
+
+// A target ID is an internally-generated identifier for a target.
+type ScopeTargetIdOutput struct{ *pulumi.OutputState }
+
+func (ScopeTargetIdOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScopeTargetId)(nil)).Elem()
+}
+
+func (o ScopeTargetIdOutput) ToScopeTargetIdOutput() ScopeTargetIdOutput {
+	return o
+}
+
+func (o ScopeTargetIdOutput) ToScopeTargetIdOutputWithContext(ctx context.Context) ScopeTargetIdOutput {
+	return o
+}
+
+// The account ID for the target.
+func (o ScopeTargetIdOutput) AccountId() pulumi.StringOutput {
+	return o.ApplyT(func(v ScopeTargetId) string { return v.AccountId }).(pulumi.StringOutput)
+}
+
+// A target identifier is a pair of identifying information for a scope target.
+type ScopeTargetIdentifier struct {
+	TargetId ScopeTargetId `pulumi:"targetId"`
+	// The type of the target. Currently always ACCOUNT.
+	TargetType ScopeTargetIdentifierTargetType `pulumi:"targetType"`
+}
+
+// ScopeTargetIdentifierInput is an input type that accepts ScopeTargetIdentifierArgs and ScopeTargetIdentifierOutput values.
+// You can construct a concrete instance of `ScopeTargetIdentifierInput` via:
+//
+//	ScopeTargetIdentifierArgs{...}
+type ScopeTargetIdentifierInput interface {
+	pulumi.Input
+
+	ToScopeTargetIdentifierOutput() ScopeTargetIdentifierOutput
+	ToScopeTargetIdentifierOutputWithContext(context.Context) ScopeTargetIdentifierOutput
+}
+
+// A target identifier is a pair of identifying information for a scope target.
+type ScopeTargetIdentifierArgs struct {
+	TargetId ScopeTargetIdInput `pulumi:"targetId"`
+	// The type of the target. Currently always ACCOUNT.
+	TargetType ScopeTargetIdentifierTargetTypeInput `pulumi:"targetType"`
+}
+
+func (ScopeTargetIdentifierArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScopeTargetIdentifier)(nil)).Elem()
+}
+
+func (i ScopeTargetIdentifierArgs) ToScopeTargetIdentifierOutput() ScopeTargetIdentifierOutput {
+	return i.ToScopeTargetIdentifierOutputWithContext(context.Background())
+}
+
+func (i ScopeTargetIdentifierArgs) ToScopeTargetIdentifierOutputWithContext(ctx context.Context) ScopeTargetIdentifierOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScopeTargetIdentifierOutput)
+}
+
+// A target identifier is a pair of identifying information for a scope target.
+type ScopeTargetIdentifierOutput struct{ *pulumi.OutputState }
+
+func (ScopeTargetIdentifierOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScopeTargetIdentifier)(nil)).Elem()
+}
+
+func (o ScopeTargetIdentifierOutput) ToScopeTargetIdentifierOutput() ScopeTargetIdentifierOutput {
+	return o
+}
+
+func (o ScopeTargetIdentifierOutput) ToScopeTargetIdentifierOutputWithContext(ctx context.Context) ScopeTargetIdentifierOutput {
+	return o
+}
+
+func (o ScopeTargetIdentifierOutput) TargetId() ScopeTargetIdOutput {
+	return o.ApplyT(func(v ScopeTargetIdentifier) ScopeTargetId { return v.TargetId }).(ScopeTargetIdOutput)
+}
+
+// The type of the target. Currently always ACCOUNT.
+func (o ScopeTargetIdentifierOutput) TargetType() ScopeTargetIdentifierTargetTypeOutput {
+	return o.ApplyT(func(v ScopeTargetIdentifier) ScopeTargetIdentifierTargetType { return v.TargetType }).(ScopeTargetIdentifierTargetTypeOutput)
+}
+
+// A target resource in a scope, identified by a Region and target identifier.
+type ScopeTargetResource struct {
+	// The AWS Region for the target resource.
+	Region           string                `pulumi:"region"`
+	TargetIdentifier ScopeTargetIdentifier `pulumi:"targetIdentifier"`
+}
+
+// ScopeTargetResourceInput is an input type that accepts ScopeTargetResourceArgs and ScopeTargetResourceOutput values.
+// You can construct a concrete instance of `ScopeTargetResourceInput` via:
+//
+//	ScopeTargetResourceArgs{...}
+type ScopeTargetResourceInput interface {
+	pulumi.Input
+
+	ToScopeTargetResourceOutput() ScopeTargetResourceOutput
+	ToScopeTargetResourceOutputWithContext(context.Context) ScopeTargetResourceOutput
+}
+
+// A target resource in a scope, identified by a Region and target identifier.
+type ScopeTargetResourceArgs struct {
+	// The AWS Region for the target resource.
+	Region           pulumi.StringInput         `pulumi:"region"`
+	TargetIdentifier ScopeTargetIdentifierInput `pulumi:"targetIdentifier"`
+}
+
+func (ScopeTargetResourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScopeTargetResource)(nil)).Elem()
+}
+
+func (i ScopeTargetResourceArgs) ToScopeTargetResourceOutput() ScopeTargetResourceOutput {
+	return i.ToScopeTargetResourceOutputWithContext(context.Background())
+}
+
+func (i ScopeTargetResourceArgs) ToScopeTargetResourceOutputWithContext(ctx context.Context) ScopeTargetResourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScopeTargetResourceOutput)
+}
+
+// ScopeTargetResourceArrayInput is an input type that accepts ScopeTargetResourceArray and ScopeTargetResourceArrayOutput values.
+// You can construct a concrete instance of `ScopeTargetResourceArrayInput` via:
+//
+//	ScopeTargetResourceArray{ ScopeTargetResourceArgs{...} }
+type ScopeTargetResourceArrayInput interface {
+	pulumi.Input
+
+	ToScopeTargetResourceArrayOutput() ScopeTargetResourceArrayOutput
+	ToScopeTargetResourceArrayOutputWithContext(context.Context) ScopeTargetResourceArrayOutput
+}
+
+type ScopeTargetResourceArray []ScopeTargetResourceInput
+
+func (ScopeTargetResourceArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ScopeTargetResource)(nil)).Elem()
+}
+
+func (i ScopeTargetResourceArray) ToScopeTargetResourceArrayOutput() ScopeTargetResourceArrayOutput {
+	return i.ToScopeTargetResourceArrayOutputWithContext(context.Background())
+}
+
+func (i ScopeTargetResourceArray) ToScopeTargetResourceArrayOutputWithContext(ctx context.Context) ScopeTargetResourceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScopeTargetResourceArrayOutput)
+}
+
+// A target resource in a scope, identified by a Region and target identifier.
+type ScopeTargetResourceOutput struct{ *pulumi.OutputState }
+
+func (ScopeTargetResourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScopeTargetResource)(nil)).Elem()
+}
+
+func (o ScopeTargetResourceOutput) ToScopeTargetResourceOutput() ScopeTargetResourceOutput {
+	return o
+}
+
+func (o ScopeTargetResourceOutput) ToScopeTargetResourceOutputWithContext(ctx context.Context) ScopeTargetResourceOutput {
+	return o
+}
+
+// The AWS Region for the target resource.
+func (o ScopeTargetResourceOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v ScopeTargetResource) string { return v.Region }).(pulumi.StringOutput)
+}
+
+func (o ScopeTargetResourceOutput) TargetIdentifier() ScopeTargetIdentifierOutput {
+	return o.ApplyT(func(v ScopeTargetResource) ScopeTargetIdentifier { return v.TargetIdentifier }).(ScopeTargetIdentifierOutput)
+}
+
+type ScopeTargetResourceArrayOutput struct{ *pulumi.OutputState }
+
+func (ScopeTargetResourceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ScopeTargetResource)(nil)).Elem()
+}
+
+func (o ScopeTargetResourceArrayOutput) ToScopeTargetResourceArrayOutput() ScopeTargetResourceArrayOutput {
+	return o
+}
+
+func (o ScopeTargetResourceArrayOutput) ToScopeTargetResourceArrayOutputWithContext(ctx context.Context) ScopeTargetResourceArrayOutput {
+	return o
+}
+
+func (o ScopeTargetResourceArrayOutput) Index(i pulumi.IntInput) ScopeTargetResourceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ScopeTargetResource {
+		return vs[0].([]ScopeTargetResource)[vs[1].(int)]
+	}).(ScopeTargetResourceOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*MonitorLocalResourceInput)(nil)).Elem(), MonitorLocalResourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MonitorLocalResourceArrayInput)(nil)).Elem(), MonitorLocalResourceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MonitorRemoteResourceInput)(nil)).Elem(), MonitorRemoteResourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MonitorRemoteResourceArrayInput)(nil)).Elem(), MonitorRemoteResourceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScopeTargetIdInput)(nil)).Elem(), ScopeTargetIdArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScopeTargetIdentifierInput)(nil)).Elem(), ScopeTargetIdentifierArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScopeTargetResourceInput)(nil)).Elem(), ScopeTargetResourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScopeTargetResourceArrayInput)(nil)).Elem(), ScopeTargetResourceArray{})
 	pulumi.RegisterOutputType(MonitorLocalResourceOutput{})
 	pulumi.RegisterOutputType(MonitorLocalResourceArrayOutput{})
 	pulumi.RegisterOutputType(MonitorRemoteResourceOutput{})
 	pulumi.RegisterOutputType(MonitorRemoteResourceArrayOutput{})
+	pulumi.RegisterOutputType(ScopeTargetIdOutput{})
+	pulumi.RegisterOutputType(ScopeTargetIdentifierOutput{})
+	pulumi.RegisterOutputType(ScopeTargetResourceOutput{})
+	pulumi.RegisterOutputType(ScopeTargetResourceArrayOutput{})
 }

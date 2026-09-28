@@ -21,8 +21,11 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         /// <summary>
         /// The data set that the column belongs to.
         /// </summary>
-        [Input("dataSetIdentifier", required: true)]
-        public Input<string> DataSetIdentifier { get; set; } = null!;
+        [Input("dataSetIdentifier")]
+        public Input<string>? DataSetIdentifier { get; set; }
+
+        [Input("topicIdentifier")]
+        public Input<string>? TopicIdentifier { get; set; }
 
         public AnalysisColumnIdentifierArgs()
         {

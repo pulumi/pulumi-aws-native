@@ -15,8 +15,8 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         /// <summary>
         /// The data set that is used in this calculated field.
         /// </summary>
-        [Input("dataSetIdentifier", required: true)]
-        public Input<string> DataSetIdentifier { get; set; } = null!;
+        [Input("dataSetIdentifier")]
+        public Input<string>? DataSetIdentifier { get; set; }
 
         /// <summary>
         /// The expression of the calculated field.
@@ -29,6 +29,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
+
+        [Input("topicIdentifier")]
+        public Input<string>? TopicIdentifier { get; set; }
 
         public DashboardCalculatedFieldArgs()
         {

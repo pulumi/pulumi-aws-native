@@ -9,8 +9,10 @@ import typing
 from ._enums import *
 from .endpoint import *
 from .get_endpoint import *
+from .get_job_template import *
 from .get_security_configuration import *
 from .get_virtual_cluster import *
+from .job_template import *
 from .security_configuration import *
 from .virtual_cluster import *
 from ._inputs import *

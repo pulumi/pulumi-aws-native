@@ -87,6 +87,7 @@ import * as emrcontainers from "./emrcontainers";
 import * as emrserverless from "./emrserverless";
 import * as entityresolution from "./entityresolution";
 import * as events from "./events";
+import * as eventsv2 from "./eventsv2";
 import * as evidently from "./evidently";
 import * as evs from "./evs";
 import * as finspace from "./finspace";
@@ -150,6 +151,8 @@ import * as neptune from "./neptune";
 import * as neptunegraph from "./neptunegraph";
 import * as networkfirewall from "./networkfirewall";
 import * as networkflowmonitor from "./networkflowmonitor";
+import * as networkmanager from "./networkmanager";
+import * as networkmonitor from "./networkmonitor";
 import * as oam from "./oam";
 import * as observabilityadmin from "./observabilityadmin";
 import * as odb from "./odb";
@@ -166,6 +169,7 @@ import * as pcaconnectorad from "./pcaconnectorad";
 import * as pcaconnectorscep from "./pcaconnectorscep";
 import * as pcs from "./pcs";
 import * as personalize from "./personalize";
+import * as pi from "./pi";
 import * as pinpoint from "./pinpoint";
 import * as pipes from "./pipes";
 import * as pricingplanmanager from "./pricingplanmanager";
@@ -323,6 +327,7 @@ export {
     emrserverless,
     entityresolution,
     events,
+    eventsv2,
     evidently,
     evs,
     finspace,
@@ -386,6 +391,8 @@ export {
     neptunegraph,
     networkfirewall,
     networkflowmonitor,
+    networkmanager,
+    networkmonitor,
     oam,
     observabilityadmin,
     odb,
@@ -402,6 +409,7 @@ export {
     pcaconnectorscep,
     pcs,
     personalize,
+    pi,
     pinpoint,
     pipes,
     pricingplanmanager,

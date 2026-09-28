@@ -1802,6 +1802,225 @@ type LayoutTag struct {
 	Value string `pulumi:"value"`
 }
 
+// Represents a comment.
+type RelatedItemCommentContent struct {
+	// Text in the body of a comment.
+	Body string `pulumi:"body"`
+	// Type of the text in the comment.
+	ContentType RelatedItemCommentContentContentType `pulumi:"contentType"`
+}
+
+// RelatedItemCommentContentInput is an input type that accepts RelatedItemCommentContentArgs and RelatedItemCommentContentOutput values.
+// You can construct a concrete instance of `RelatedItemCommentContentInput` via:
+//
+//	RelatedItemCommentContentArgs{...}
+type RelatedItemCommentContentInput interface {
+	pulumi.Input
+
+	ToRelatedItemCommentContentOutput() RelatedItemCommentContentOutput
+	ToRelatedItemCommentContentOutputWithContext(context.Context) RelatedItemCommentContentOutput
+}
+
+// Represents a comment.
+type RelatedItemCommentContentArgs struct {
+	// Text in the body of a comment.
+	Body pulumi.StringInput `pulumi:"body"`
+	// Type of the text in the comment.
+	ContentType RelatedItemCommentContentContentTypeInput `pulumi:"contentType"`
+}
+
+func (RelatedItemCommentContentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RelatedItemCommentContent)(nil)).Elem()
+}
+
+func (i RelatedItemCommentContentArgs) ToRelatedItemCommentContentOutput() RelatedItemCommentContentOutput {
+	return i.ToRelatedItemCommentContentOutputWithContext(context.Background())
+}
+
+func (i RelatedItemCommentContentArgs) ToRelatedItemCommentContentOutputWithContext(ctx context.Context) RelatedItemCommentContentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RelatedItemCommentContentOutput)
+}
+
+func (i RelatedItemCommentContentArgs) ToRelatedItemCommentContentPtrOutput() RelatedItemCommentContentPtrOutput {
+	return i.ToRelatedItemCommentContentPtrOutputWithContext(context.Background())
+}
+
+func (i RelatedItemCommentContentArgs) ToRelatedItemCommentContentPtrOutputWithContext(ctx context.Context) RelatedItemCommentContentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RelatedItemCommentContentOutput).ToRelatedItemCommentContentPtrOutputWithContext(ctx)
+}
+
+// RelatedItemCommentContentPtrInput is an input type that accepts RelatedItemCommentContentArgs, RelatedItemCommentContentPtr and RelatedItemCommentContentPtrOutput values.
+// You can construct a concrete instance of `RelatedItemCommentContentPtrInput` via:
+//
+//	        RelatedItemCommentContentArgs{...}
+//
+//	or:
+//
+//	        nil
+type RelatedItemCommentContentPtrInput interface {
+	pulumi.Input
+
+	ToRelatedItemCommentContentPtrOutput() RelatedItemCommentContentPtrOutput
+	ToRelatedItemCommentContentPtrOutputWithContext(context.Context) RelatedItemCommentContentPtrOutput
+}
+
+type relatedItemCommentContentPtrType RelatedItemCommentContentArgs
+
+func RelatedItemCommentContentPtr(v *RelatedItemCommentContentArgs) RelatedItemCommentContentPtrInput {
+	return (*relatedItemCommentContentPtrType)(v)
+}
+
+func (*relatedItemCommentContentPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RelatedItemCommentContent)(nil)).Elem()
+}
+
+func (i *relatedItemCommentContentPtrType) ToRelatedItemCommentContentPtrOutput() RelatedItemCommentContentPtrOutput {
+	return i.ToRelatedItemCommentContentPtrOutputWithContext(context.Background())
+}
+
+func (i *relatedItemCommentContentPtrType) ToRelatedItemCommentContentPtrOutputWithContext(ctx context.Context) RelatedItemCommentContentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RelatedItemCommentContentPtrOutput)
+}
+
+// Represents a comment.
+type RelatedItemCommentContentOutput struct{ *pulumi.OutputState }
+
+func (RelatedItemCommentContentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RelatedItemCommentContent)(nil)).Elem()
+}
+
+func (o RelatedItemCommentContentOutput) ToRelatedItemCommentContentOutput() RelatedItemCommentContentOutput {
+	return o
+}
+
+func (o RelatedItemCommentContentOutput) ToRelatedItemCommentContentOutputWithContext(ctx context.Context) RelatedItemCommentContentOutput {
+	return o
+}
+
+func (o RelatedItemCommentContentOutput) ToRelatedItemCommentContentPtrOutput() RelatedItemCommentContentPtrOutput {
+	return o.ToRelatedItemCommentContentPtrOutputWithContext(context.Background())
+}
+
+func (o RelatedItemCommentContentOutput) ToRelatedItemCommentContentPtrOutputWithContext(ctx context.Context) RelatedItemCommentContentPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RelatedItemCommentContent) *RelatedItemCommentContent {
+		return &v
+	}).(RelatedItemCommentContentPtrOutput)
+}
+
+// Text in the body of a comment.
+func (o RelatedItemCommentContentOutput) Body() pulumi.StringOutput {
+	return o.ApplyT(func(v RelatedItemCommentContent) string { return v.Body }).(pulumi.StringOutput)
+}
+
+// Type of the text in the comment.
+func (o RelatedItemCommentContentOutput) ContentType() RelatedItemCommentContentContentTypeOutput {
+	return o.ApplyT(func(v RelatedItemCommentContent) RelatedItemCommentContentContentType { return v.ContentType }).(RelatedItemCommentContentContentTypeOutput)
+}
+
+type RelatedItemCommentContentPtrOutput struct{ *pulumi.OutputState }
+
+func (RelatedItemCommentContentPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RelatedItemCommentContent)(nil)).Elem()
+}
+
+func (o RelatedItemCommentContentPtrOutput) ToRelatedItemCommentContentPtrOutput() RelatedItemCommentContentPtrOutput {
+	return o
+}
+
+func (o RelatedItemCommentContentPtrOutput) ToRelatedItemCommentContentPtrOutputWithContext(ctx context.Context) RelatedItemCommentContentPtrOutput {
+	return o
+}
+
+func (o RelatedItemCommentContentPtrOutput) Elem() RelatedItemCommentContentOutput {
+	return o.ApplyT(func(v *RelatedItemCommentContent) RelatedItemCommentContent {
+		if v != nil {
+			return *v
+		}
+		var ret RelatedItemCommentContent
+		return ret
+	}).(RelatedItemCommentContentOutput)
+}
+
+// Text in the body of a comment.
+func (o RelatedItemCommentContentPtrOutput) Body() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RelatedItemCommentContent) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Body
+	}).(pulumi.StringPtrOutput)
+}
+
+// Type of the text in the comment.
+func (o RelatedItemCommentContentPtrOutput) ContentType() RelatedItemCommentContentContentTypePtrOutput {
+	return o.ApplyT(func(v *RelatedItemCommentContent) *RelatedItemCommentContentContentType {
+		if v == nil {
+			return nil
+		}
+		return &v.ContentType
+	}).(RelatedItemCommentContentContentTypePtrOutput)
+}
+
+// Represents the content of a related item.
+type RelatedItemContent struct {
+	Comment *RelatedItemCommentContent `pulumi:"comment"`
+}
+
+// RelatedItemContentInput is an input type that accepts RelatedItemContentArgs and RelatedItemContentOutput values.
+// You can construct a concrete instance of `RelatedItemContentInput` via:
+//
+//	RelatedItemContentArgs{...}
+type RelatedItemContentInput interface {
+	pulumi.Input
+
+	ToRelatedItemContentOutput() RelatedItemContentOutput
+	ToRelatedItemContentOutputWithContext(context.Context) RelatedItemContentOutput
+}
+
+// Represents the content of a related item.
+type RelatedItemContentArgs struct {
+	Comment RelatedItemCommentContentPtrInput `pulumi:"comment"`
+}
+
+func (RelatedItemContentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RelatedItemContent)(nil)).Elem()
+}
+
+func (i RelatedItemContentArgs) ToRelatedItemContentOutput() RelatedItemContentOutput {
+	return i.ToRelatedItemContentOutputWithContext(context.Background())
+}
+
+func (i RelatedItemContentArgs) ToRelatedItemContentOutputWithContext(ctx context.Context) RelatedItemContentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RelatedItemContentOutput)
+}
+
+// Represents the content of a related item.
+type RelatedItemContentOutput struct{ *pulumi.OutputState }
+
+func (RelatedItemContentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RelatedItemContent)(nil)).Elem()
+}
+
+func (o RelatedItemContentOutput) ToRelatedItemContentOutput() RelatedItemContentOutput {
+	return o
+}
+
+func (o RelatedItemContentOutput) ToRelatedItemContentOutputWithContext(ctx context.Context) RelatedItemContentOutput {
+	return o
+}
+
+func (o RelatedItemContentOutput) Comment() RelatedItemCommentContentPtrOutput {
+	return o.ApplyT(func(v RelatedItemContent) *RelatedItemCommentContent { return v.Comment }).(RelatedItemCommentContentPtrOutput)
+}
+
+// A tag associated with the resource.
+type RelatedItemTag struct {
+	// The key of the tag.
+	Key string `pulumi:"key"`
+	// The value of the tag.
+	Value string `pulumi:"value"`
+}
+
 // Specifies the default layout to use when displaying cases created from this template. The layout determines which fields are visible and their arrangement in the agent interface.
 type TemplateLayoutConfiguration struct {
 	// The unique identifier of a layout.
@@ -2185,6 +2404,9 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LayoutSectionPropertiesArrayInput)(nil)).Elem(), LayoutSectionPropertiesArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LayoutSectionsInput)(nil)).Elem(), LayoutSectionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LayoutSectionsPtrInput)(nil)).Elem(), LayoutSectionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RelatedItemCommentContentInput)(nil)).Elem(), RelatedItemCommentContentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RelatedItemCommentContentPtrInput)(nil)).Elem(), RelatedItemCommentContentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RelatedItemContentInput)(nil)).Elem(), RelatedItemContentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateLayoutConfigurationInput)(nil)).Elem(), TemplateLayoutConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateLayoutConfigurationPtrInput)(nil)).Elem(), TemplateLayoutConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateRequiredFieldInput)(nil)).Elem(), TemplateRequiredFieldArgs{})
@@ -2223,6 +2445,9 @@ func init() {
 	pulumi.RegisterOutputType(LayoutSectionPropertiesArrayOutput{})
 	pulumi.RegisterOutputType(LayoutSectionsOutput{})
 	pulumi.RegisterOutputType(LayoutSectionsPtrOutput{})
+	pulumi.RegisterOutputType(RelatedItemCommentContentOutput{})
+	pulumi.RegisterOutputType(RelatedItemCommentContentPtrOutput{})
+	pulumi.RegisterOutputType(RelatedItemContentOutput{})
 	pulumi.RegisterOutputType(TemplateLayoutConfigurationOutput{})
 	pulumi.RegisterOutputType(TemplateLayoutConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(TemplateRequiredFieldOutput{})

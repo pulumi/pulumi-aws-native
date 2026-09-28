@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     /// </summary>
     public sealed class ThemeSheetStyleArgs : global::Pulumi.ResourceArgs
     {
+        [Input("background")]
+        public Input<Inputs.ThemeSheetBackgroundStyleArgs>? Background { get; set; }
+
         /// <summary>
         /// The display options for tiles.
         /// </summary>

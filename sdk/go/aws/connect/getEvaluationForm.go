@@ -29,6 +29,7 @@ type LookupEvaluationFormArgs struct {
 }
 
 type LookupEvaluationFormResult struct {
+	AiVersion *string `pulumi:"aiVersion"`
 	// The automatic evaluation configuration of an evaluation form.
 	AutoEvaluationConfiguration *EvaluationFormAutoEvaluationConfiguration `pulumi:"autoEvaluationConfiguration"`
 	// The description of the evaluation form.
@@ -85,6 +86,10 @@ func (o LookupEvaluationFormResultOutput) ToLookupEvaluationFormResultOutput() L
 
 func (o LookupEvaluationFormResultOutput) ToLookupEvaluationFormResultOutputWithContext(ctx context.Context) LookupEvaluationFormResultOutput {
 	return o
+}
+
+func (o LookupEvaluationFormResultOutput) AiVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupEvaluationFormResult) *string { return v.AiVersion }).(pulumi.StringPtrOutput)
 }
 
 // The automatic evaluation configuration of an evaluation form.

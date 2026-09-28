@@ -134,6 +134,8 @@ __all__ = [
     'InstanceEnaSrdSpecificationArgsDict',
     'InstanceEnaSrdUdpSpecificationArgs',
     'InstanceEnaSrdUdpSpecificationArgsDict',
+    'InstanceEventWindowTimeRangeArgs',
+    'InstanceEventWindowTimeRangeArgsDict',
     'InstanceIpv6AddressArgs',
     'InstanceIpv6AddressArgsDict',
     'InstanceLaunchTemplateSpecificationArgs',
@@ -5582,6 +5584,100 @@ class InstanceEnaSrdUdpSpecificationArgs:
     @ena_srd_udp_enabled.setter
     def ena_srd_udp_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "ena_srd_udp_enabled", value)
+
+
+class InstanceEventWindowTimeRangeArgsDict(TypedDict):
+    """
+    A time range during which an AWS-initiated maintenance event may occur.
+    """
+    end_hour: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    The hour when the time range ends.
+    """
+    end_week_day: NotRequired[pulumi.Input[Optional['InstanceEventWindowTimeRangeEndWeekDay']]]
+    """
+    The day on which the time range ends.
+    """
+    start_hour: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    The hour when the time range begins.
+    """
+    start_week_day: NotRequired[pulumi.Input[Optional['InstanceEventWindowTimeRangeStartWeekDay']]]
+    """
+    The day on which the time range begins.
+    """
+
+@pulumi.input_type
+class InstanceEventWindowTimeRangeArgs:
+    def __init__(__self__, *,
+                 end_hour: pulumi.Input[Optional[_builtins.int]] = None,
+                 end_week_day: pulumi.Input[Optional['InstanceEventWindowTimeRangeEndWeekDay']] = None,
+                 start_hour: pulumi.Input[Optional[_builtins.int]] = None,
+                 start_week_day: pulumi.Input[Optional['InstanceEventWindowTimeRangeStartWeekDay']] = None):
+        """
+        A time range during which an AWS-initiated maintenance event may occur.
+
+        :param pulumi.Input[_builtins.int] end_hour: The hour when the time range ends.
+        :param pulumi.Input['InstanceEventWindowTimeRangeEndWeekDay'] end_week_day: The day on which the time range ends.
+        :param pulumi.Input[_builtins.int] start_hour: The hour when the time range begins.
+        :param pulumi.Input['InstanceEventWindowTimeRangeStartWeekDay'] start_week_day: The day on which the time range begins.
+        """
+        if end_hour is not None:
+            pulumi.set(__self__, "end_hour", end_hour)
+        if end_week_day is not None:
+            pulumi.set(__self__, "end_week_day", end_week_day)
+        if start_hour is not None:
+            pulumi.set(__self__, "start_hour", start_hour)
+        if start_week_day is not None:
+            pulumi.set(__self__, "start_week_day", start_week_day)
+
+    @_builtins.property
+    @pulumi.getter(name="endHour")
+    def end_hour(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        The hour when the time range ends.
+        """
+        return pulumi.get(self, "end_hour")
+
+    @end_hour.setter
+    def end_hour(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "end_hour", value)
+
+    @_builtins.property
+    @pulumi.getter(name="endWeekDay")
+    def end_week_day(self) -> pulumi.Input[Optional['InstanceEventWindowTimeRangeEndWeekDay']]:
+        """
+        The day on which the time range ends.
+        """
+        return pulumi.get(self, "end_week_day")
+
+    @end_week_day.setter
+    def end_week_day(self, value: pulumi.Input[Optional['InstanceEventWindowTimeRangeEndWeekDay']]):
+        pulumi.set(self, "end_week_day", value)
+
+    @_builtins.property
+    @pulumi.getter(name="startHour")
+    def start_hour(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        The hour when the time range begins.
+        """
+        return pulumi.get(self, "start_hour")
+
+    @start_hour.setter
+    def start_hour(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "start_hour", value)
+
+    @_builtins.property
+    @pulumi.getter(name="startWeekDay")
+    def start_week_day(self) -> pulumi.Input[Optional['InstanceEventWindowTimeRangeStartWeekDay']]:
+        """
+        The day on which the time range begins.
+        """
+        return pulumi.get(self, "start_week_day")
+
+    @start_week_day.setter
+    def start_week_day(self, value: pulumi.Input[Optional['InstanceEventWindowTimeRangeStartWeekDay']]):
+        pulumi.set(self, "start_week_day", value)
 
 
 class InstanceIpv6AddressArgsDict(TypedDict):

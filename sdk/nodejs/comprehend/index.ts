@@ -15,6 +15,11 @@ export type DocumentClassifierEndpoint = import("./documentClassifierEndpoint").
 export const DocumentClassifierEndpoint: typeof import("./documentClassifierEndpoint").DocumentClassifierEndpoint = null as any;
 utilities.lazyLoad(exports, ["DocumentClassifierEndpoint"], () => require("./documentClassifierEndpoint"));
 
+export { EntityRecognizerArgs } from "./entityRecognizer";
+export type EntityRecognizer = import("./entityRecognizer").EntityRecognizer;
+export const EntityRecognizer: typeof import("./entityRecognizer").EntityRecognizer = null as any;
+utilities.lazyLoad(exports, ["EntityRecognizer"], () => require("./entityRecognizer"));
+
 export { FlywheelArgs } from "./flywheel";
 export type Flywheel = import("./flywheel").Flywheel;
 export const Flywheel: typeof import("./flywheel").Flywheel = null as any;
@@ -29,6 +34,11 @@ export { GetDocumentClassifierEndpointArgs, GetDocumentClassifierEndpointResult,
 export const getDocumentClassifierEndpoint: typeof import("./getDocumentClassifierEndpoint").getDocumentClassifierEndpoint = null as any;
 export const getDocumentClassifierEndpointOutput: typeof import("./getDocumentClassifierEndpoint").getDocumentClassifierEndpointOutput = null as any;
 utilities.lazyLoad(exports, ["getDocumentClassifierEndpoint","getDocumentClassifierEndpointOutput"], () => require("./getDocumentClassifierEndpoint"));
+
+export { GetEntityRecognizerArgs, GetEntityRecognizerResult, GetEntityRecognizerOutputArgs } from "./getEntityRecognizer";
+export const getEntityRecognizer: typeof import("./getEntityRecognizer").getEntityRecognizer = null as any;
+export const getEntityRecognizerOutput: typeof import("./getEntityRecognizer").getEntityRecognizerOutput = null as any;
+utilities.lazyLoad(exports, ["getEntityRecognizer","getEntityRecognizerOutput"], () => require("./getEntityRecognizer"));
 
 export { GetFlywheelArgs, GetFlywheelResult, GetFlywheelOutputArgs } from "./getFlywheel";
 export const getFlywheel: typeof import("./getFlywheel").getFlywheel = null as any;
@@ -47,6 +57,8 @@ const _module = {
                 return new DocumentClassifier(name, <any>undefined, { urn })
             case "aws-native:comprehend:DocumentClassifierEndpoint":
                 return new DocumentClassifierEndpoint(name, <any>undefined, { urn })
+            case "aws-native:comprehend:EntityRecognizer":
+                return new EntityRecognizer(name, <any>undefined, { urn })
             case "aws-native:comprehend:Flywheel":
                 return new Flywheel(name, <any>undefined, { urn })
             default:

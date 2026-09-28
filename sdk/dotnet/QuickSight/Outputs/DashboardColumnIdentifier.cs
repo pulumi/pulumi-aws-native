@@ -20,16 +20,20 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// <summary>
         /// The data set that the column belongs to.
         /// </summary>
-        public readonly string DataSetIdentifier;
+        public readonly string? DataSetIdentifier;
+        public readonly string? TopicIdentifier;
 
         [OutputConstructor]
         private DashboardColumnIdentifier(
             string columnName,
 
-            string dataSetIdentifier)
+            string? dataSetIdentifier,
+
+            string? topicIdentifier)
         {
             ColumnName = columnName;
             DataSetIdentifier = dataSetIdentifier;
+            TopicIdentifier = topicIdentifier;
         }
     }
 }

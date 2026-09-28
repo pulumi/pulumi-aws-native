@@ -160,6 +160,11 @@ export const getHost: typeof import("./getHost").getHost = null as any;
 export const getHostOutput: typeof import("./getHost").getHostOutput = null as any;
 utilities.lazyLoad(exports, ["getHost","getHostOutput"], () => require("./getHost"));
 
+export { GetIPv4PoolArgs, GetIPv4PoolResult, GetIPv4PoolOutputArgs } from "./getIPv4Pool";
+export const getIPv4Pool: typeof import("./getIPv4Pool").getIPv4Pool = null as any;
+export const getIPv4PoolOutput: typeof import("./getIPv4Pool").getIPv4PoolOutput = null as any;
+utilities.lazyLoad(exports, ["getIPv4Pool","getIPv4PoolOutput"], () => require("./getIPv4Pool"));
+
 export { GetInstanceArgs, GetInstanceResult, GetInstanceOutputArgs } from "./getInstance";
 export const getInstance: typeof import("./getInstance").getInstance = null as any;
 export const getInstanceOutput: typeof import("./getInstance").getInstanceOutput = null as any;
@@ -169,6 +174,11 @@ export { GetInstanceConnectEndpointArgs, GetInstanceConnectEndpointResult, GetIn
 export const getInstanceConnectEndpoint: typeof import("./getInstanceConnectEndpoint").getInstanceConnectEndpoint = null as any;
 export const getInstanceConnectEndpointOutput: typeof import("./getInstanceConnectEndpoint").getInstanceConnectEndpointOutput = null as any;
 utilities.lazyLoad(exports, ["getInstanceConnectEndpoint","getInstanceConnectEndpointOutput"], () => require("./getInstanceConnectEndpoint"));
+
+export { GetInstanceEventWindowArgs, GetInstanceEventWindowResult, GetInstanceEventWindowOutputArgs } from "./getInstanceEventWindow";
+export const getInstanceEventWindow: typeof import("./getInstanceEventWindow").getInstanceEventWindow = null as any;
+export const getInstanceEventWindowOutput: typeof import("./getInstanceEventWindow").getInstanceEventWindowOutput = null as any;
+utilities.lazyLoad(exports, ["getInstanceEventWindow","getInstanceEventWindowOutput"], () => require("./getInstanceEventWindow"));
 
 export { GetInternetGatewayArgs, GetInternetGatewayResult, GetInternetGatewayOutputArgs } from "./getInternetGateway";
 export const getInternetGateway: typeof import("./getInternetGateway").getInternetGateway = null as any;
@@ -390,6 +400,11 @@ export const getSubnetCidrBlock: typeof import("./getSubnetCidrBlock").getSubnet
 export const getSubnetCidrBlockOutput: typeof import("./getSubnetCidrBlock").getSubnetCidrBlockOutput = null as any;
 utilities.lazyLoad(exports, ["getSubnetCidrBlock","getSubnetCidrBlockOutput"], () => require("./getSubnetCidrBlock"));
 
+export { GetSubnetCidrReservationArgs, GetSubnetCidrReservationResult, GetSubnetCidrReservationOutputArgs } from "./getSubnetCidrReservation";
+export const getSubnetCidrReservation: typeof import("./getSubnetCidrReservation").getSubnetCidrReservation = null as any;
+export const getSubnetCidrReservationOutput: typeof import("./getSubnetCidrReservation").getSubnetCidrReservationOutput = null as any;
+utilities.lazyLoad(exports, ["getSubnetCidrReservation","getSubnetCidrReservationOutput"], () => require("./getSubnetCidrReservation"));
+
 export { GetSubnetNetworkAclAssociationArgs, GetSubnetNetworkAclAssociationResult, GetSubnetNetworkAclAssociationOutputArgs } from "./getSubnetNetworkAclAssociation";
 export const getSubnetNetworkAclAssociation: typeof import("./getSubnetNetworkAclAssociation").getSubnetNetworkAclAssociation = null as any;
 export const getSubnetNetworkAclAssociationOutput: typeof import("./getSubnetNetworkAclAssociation").getSubnetNetworkAclAssociationOutput = null as any;
@@ -610,6 +625,11 @@ export type InstanceConnectEndpoint = import("./instanceConnectEndpoint").Instan
 export const InstanceConnectEndpoint: typeof import("./instanceConnectEndpoint").InstanceConnectEndpoint = null as any;
 utilities.lazyLoad(exports, ["InstanceConnectEndpoint"], () => require("./instanceConnectEndpoint"));
 
+export { InstanceEventWindowArgs } from "./instanceEventWindow";
+export type InstanceEventWindow = import("./instanceEventWindow").InstanceEventWindow;
+export const InstanceEventWindow: typeof import("./instanceEventWindow").InstanceEventWindow = null as any;
+utilities.lazyLoad(exports, ["InstanceEventWindow"], () => require("./instanceEventWindow"));
+
 export { InternetGatewayArgs } from "./internetGateway";
 export type InternetGateway = import("./internetGateway").InternetGateway;
 export const InternetGateway: typeof import("./internetGateway").InternetGateway = null as any;
@@ -669,6 +689,11 @@ export { IpamScopeArgs } from "./ipamScope";
 export type IpamScope = import("./ipamScope").IpamScope;
 export const IpamScope: typeof import("./ipamScope").IpamScope = null as any;
 utilities.lazyLoad(exports, ["IpamScope"], () => require("./ipamScope"));
+
+export { IPv4PoolArgs } from "./ipv4Pool";
+export type IPv4Pool = import("./ipv4Pool").IPv4Pool;
+export const IPv4Pool: typeof import("./ipv4Pool").IPv4Pool = null as any;
+utilities.lazyLoad(exports, ["IPv4Pool"], () => require("./ipv4Pool"));
 
 export { KeyPairArgs } from "./keyPair";
 export type KeyPair = import("./keyPair").KeyPair;
@@ -844,6 +869,11 @@ export { SubnetCidrBlockArgs } from "./subnetCidrBlock";
 export type SubnetCidrBlock = import("./subnetCidrBlock").SubnetCidrBlock;
 export const SubnetCidrBlock: typeof import("./subnetCidrBlock").SubnetCidrBlock = null as any;
 utilities.lazyLoad(exports, ["SubnetCidrBlock"], () => require("./subnetCidrBlock"));
+
+export { SubnetCidrReservationArgs } from "./subnetCidrReservation";
+export type SubnetCidrReservation = import("./subnetCidrReservation").SubnetCidrReservation;
+export const SubnetCidrReservation: typeof import("./subnetCidrReservation").SubnetCidrReservation = null as any;
+utilities.lazyLoad(exports, ["SubnetCidrReservation"], () => require("./subnetCidrReservation"));
 
 export { SubnetNetworkAclAssociationArgs } from "./subnetNetworkAclAssociation";
 export type SubnetNetworkAclAssociation = import("./subnetNetworkAclAssociation").SubnetNetworkAclAssociation;
@@ -1120,10 +1150,14 @@ const _module = {
                 return new GatewayRouteTableAssociation(name, <any>undefined, { urn })
             case "aws-native:ec2:Host":
                 return new Host(name, <any>undefined, { urn })
+            case "aws-native:ec2:IPv4Pool":
+                return new IPv4Pool(name, <any>undefined, { urn })
             case "aws-native:ec2:Instance":
                 return new Instance(name, <any>undefined, { urn })
             case "aws-native:ec2:InstanceConnectEndpoint":
                 return new InstanceConnectEndpoint(name, <any>undefined, { urn })
+            case "aws-native:ec2:InstanceEventWindow":
+                return new InstanceEventWindow(name, <any>undefined, { urn })
             case "aws-native:ec2:InternetGateway":
                 return new InternetGateway(name, <any>undefined, { urn })
             case "aws-native:ec2:IpPoolRouteTableAssociation":
@@ -1218,6 +1252,8 @@ const _module = {
                 return new Subnet(name, <any>undefined, { urn })
             case "aws-native:ec2:SubnetCidrBlock":
                 return new SubnetCidrBlock(name, <any>undefined, { urn })
+            case "aws-native:ec2:SubnetCidrReservation":
+                return new SubnetCidrReservation(name, <any>undefined, { urn })
             case "aws-native:ec2:SubnetNetworkAclAssociation":
                 return new SubnetNetworkAclAssociation(name, <any>undefined, { urn })
             case "aws-native:ec2:SubnetRouteTableAssociation":

@@ -22,6 +22,7 @@ __all__ = [
     'ComputeEnvironmentComputeScalingPolicy',
     'ComputeEnvironmentEc2ConfigurationObject',
     'ComputeEnvironmentEcsSettings',
+    'ComputeEnvironmentEksAccessEntry',
     'ComputeEnvironmentEksConfiguration',
     'ComputeEnvironmentInfrastructureOptimization',
     'ComputeEnvironmentInstanceLaunchTemplate',
@@ -795,6 +796,59 @@ class ComputeEnvironmentEcsSettings(dict):
 
 
 @pulumi.output_type
+class ComputeEnvironmentEksAccessEntry(dict):
+    """
+    The EKS access entry configuration for the compute environment. Controls whether AWS Batch manages the EKS access entry for the compute environment's service role, or inherits it from the cluster.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "desiredState":
+            suggest = "desired_state"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ComputeEnvironmentEksAccessEntry. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ComputeEnvironmentEksAccessEntry.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ComputeEnvironmentEksAccessEntry.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 desired_state: Optional['ComputeEnvironmentEksAccessEntryDesiredState'] = None,
+                 status: Optional['ComputeEnvironmentEksAccessEntryStatus'] = None):
+        """
+        The EKS access entry configuration for the compute environment. Controls whether AWS Batch manages the EKS access entry for the compute environment's service role, or inherits it from the cluster.
+
+        :param 'ComputeEnvironmentEksAccessEntryDesiredState' desired_state: The desired state of the EKS access entry managed by AWS Batch. When omitted, AWS Batch applies INHERIT_FROM_CLUSTER.
+        :param 'ComputeEnvironmentEksAccessEntryStatus' status: The read-only status of the EKS access entry, returned by DescribeComputeEnvironments.
+        """
+        if desired_state is not None:
+            pulumi.set(__self__, "desired_state", desired_state)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @_builtins.property
+    @pulumi.getter(name="desiredState")
+    def desired_state(self) -> Optional['ComputeEnvironmentEksAccessEntryDesiredState']:
+        """
+        The desired state of the EKS access entry managed by AWS Batch. When omitted, AWS Batch applies INHERIT_FROM_CLUSTER.
+        """
+        return pulumi.get(self, "desired_state")
+
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> Optional['ComputeEnvironmentEksAccessEntryStatus']:
+        """
+        The read-only status of the EKS access entry, returned by DescribeComputeEnvironments.
+        """
+        return pulumi.get(self, "status")
+
+
+@pulumi.output_type
 class ComputeEnvironmentEksConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -803,6 +857,8 @@ class ComputeEnvironmentEksConfiguration(dict):
             suggest = "eks_cluster_arn"
         elif key == "kubernetesNamespace":
             suggest = "kubernetes_namespace"
+        elif key == "accessEntry":
+            suggest = "access_entry"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in ComputeEnvironmentEksConfiguration. Access the value via the '{suggest}' property getter instead.")
@@ -817,13 +873,16 @@ class ComputeEnvironmentEksConfiguration(dict):
 
     def __init__(__self__, *,
                  eks_cluster_arn: _builtins.str,
-                 kubernetes_namespace: _builtins.str):
+                 kubernetes_namespace: _builtins.str,
+                 access_entry: Optional['outputs.ComputeEnvironmentEksAccessEntry'] = None):
         """
         :param _builtins.str eks_cluster_arn: The Amazon Resource Name (ARN) of the Amazon EKS cluster. An example is `arn: *aws* :eks: *us-east-1* : *123456789012* :cluster/ *ClusterForBatch*` .
         :param _builtins.str kubernetes_namespace: The namespace of the Amazon EKS cluster. AWS Batch manages pods in this namespace. The value can't left empty or null. It must be fewer than 64 characters long, can't be set to `default` , can't start with " `kube-` ," and must match this regular expression: `^[a-z0-9]([-a-z0-9]*[a-z0-9])?$` . For more information, see [Namespaces](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/) in the Kubernetes documentation.
         """
         pulumi.set(__self__, "eks_cluster_arn", eks_cluster_arn)
         pulumi.set(__self__, "kubernetes_namespace", kubernetes_namespace)
+        if access_entry is not None:
+            pulumi.set(__self__, "access_entry", access_entry)
 
     @_builtins.property
     @pulumi.getter(name="eksClusterArn")
@@ -840,6 +899,11 @@ class ComputeEnvironmentEksConfiguration(dict):
         The namespace of the Amazon EKS cluster. AWS Batch manages pods in this namespace. The value can't left empty or null. It must be fewer than 64 characters long, can't be set to `default` , can't start with " `kube-` ," and must match this regular expression: `^[a-z0-9]([-a-z0-9]*[a-z0-9])?$` . For more information, see [Namespaces](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/) in the Kubernetes documentation.
         """
         return pulumi.get(self, "kubernetes_namespace")
+
+    @_builtins.property
+    @pulumi.getter(name="accessEntry")
+    def access_entry(self) -> Optional['outputs.ComputeEnvironmentEksAccessEntry']:
+        return pulumi.get(self, "access_entry")
 
 
 @pulumi.output_type

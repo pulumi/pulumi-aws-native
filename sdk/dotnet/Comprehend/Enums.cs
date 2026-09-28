@@ -274,6 +274,171 @@ namespace Pulumi.AwsNative.Comprehend
     }
 
     /// <summary>
+    /// The type of augmented manifest.
+    /// </summary>
+    [EnumType]
+    public readonly struct EntityRecognizerAugmentedManifestsListItemDocumentType : IEquatable<EntityRecognizerAugmentedManifestsListItemDocumentType>
+    {
+        private readonly string _value;
+
+        private EntityRecognizerAugmentedManifestsListItemDocumentType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static EntityRecognizerAugmentedManifestsListItemDocumentType PlainTextDocument { get; } = new EntityRecognizerAugmentedManifestsListItemDocumentType("PLAIN_TEXT_DOCUMENT");
+        public static EntityRecognizerAugmentedManifestsListItemDocumentType SemiStructuredDocument { get; } = new EntityRecognizerAugmentedManifestsListItemDocumentType("SEMI_STRUCTURED_DOCUMENT");
+
+        public static bool operator ==(EntityRecognizerAugmentedManifestsListItemDocumentType left, EntityRecognizerAugmentedManifestsListItemDocumentType right) => left.Equals(right);
+        public static bool operator !=(EntityRecognizerAugmentedManifestsListItemDocumentType left, EntityRecognizerAugmentedManifestsListItemDocumentType right) => !left.Equals(right);
+
+        public static explicit operator string(EntityRecognizerAugmentedManifestsListItemDocumentType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is EntityRecognizerAugmentedManifestsListItemDocumentType other && Equals(other);
+        public bool Equals(EntityRecognizerAugmentedManifestsListItemDocumentType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The purpose of the data you've provided in the augmented manifest.
+    /// </summary>
+    [EnumType]
+    public readonly struct EntityRecognizerAugmentedManifestsListItemSplit : IEquatable<EntityRecognizerAugmentedManifestsListItemSplit>
+    {
+        private readonly string _value;
+
+        private EntityRecognizerAugmentedManifestsListItemSplit(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static EntityRecognizerAugmentedManifestsListItemSplit Train { get; } = new EntityRecognizerAugmentedManifestsListItemSplit("TRAIN");
+        public static EntityRecognizerAugmentedManifestsListItemSplit Test { get; } = new EntityRecognizerAugmentedManifestsListItemSplit("TEST");
+
+        public static bool operator ==(EntityRecognizerAugmentedManifestsListItemSplit left, EntityRecognizerAugmentedManifestsListItemSplit right) => left.Equals(right);
+        public static bool operator !=(EntityRecognizerAugmentedManifestsListItemSplit left, EntityRecognizerAugmentedManifestsListItemSplit right) => !left.Equals(right);
+
+        public static explicit operator string(EntityRecognizerAugmentedManifestsListItemSplit value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is EntityRecognizerAugmentedManifestsListItemSplit other && Equals(other);
+        public bool Equals(EntityRecognizerAugmentedManifestsListItemSplit other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Specifies how the text in an input file should be processed.
+    /// </summary>
+    [EnumType]
+    public readonly struct EntityRecognizerDocumentsInputFormat : IEquatable<EntityRecognizerDocumentsInputFormat>
+    {
+        private readonly string _value;
+
+        private EntityRecognizerDocumentsInputFormat(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static EntityRecognizerDocumentsInputFormat OneDocPerFile { get; } = new EntityRecognizerDocumentsInputFormat("ONE_DOC_PER_FILE");
+        public static EntityRecognizerDocumentsInputFormat OneDocPerLine { get; } = new EntityRecognizerDocumentsInputFormat("ONE_DOC_PER_LINE");
+
+        public static bool operator ==(EntityRecognizerDocumentsInputFormat left, EntityRecognizerDocumentsInputFormat right) => left.Equals(right);
+        public static bool operator !=(EntityRecognizerDocumentsInputFormat left, EntityRecognizerDocumentsInputFormat right) => !left.Equals(right);
+
+        public static explicit operator string(EntityRecognizerDocumentsInputFormat value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is EntityRecognizerDocumentsInputFormat other && Equals(other);
+        public bool Equals(EntityRecognizerDocumentsInputFormat other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The format of your training data.
+    /// </summary>
+    [EnumType]
+    public readonly struct EntityRecognizerInputDataConfigDataFormat : IEquatable<EntityRecognizerInputDataConfigDataFormat>
+    {
+        private readonly string _value;
+
+        private EntityRecognizerInputDataConfigDataFormat(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static EntityRecognizerInputDataConfigDataFormat ComprehendCsv { get; } = new EntityRecognizerInputDataConfigDataFormat("COMPREHEND_CSV");
+        public static EntityRecognizerInputDataConfigDataFormat AugmentedManifest { get; } = new EntityRecognizerInputDataConfigDataFormat("AUGMENTED_MANIFEST");
+
+        public static bool operator ==(EntityRecognizerInputDataConfigDataFormat left, EntityRecognizerInputDataConfigDataFormat right) => left.Equals(right);
+        public static bool operator !=(EntityRecognizerInputDataConfigDataFormat left, EntityRecognizerInputDataConfigDataFormat right) => !left.Equals(right);
+
+        public static explicit operator string(EntityRecognizerInputDataConfigDataFormat value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is EntityRecognizerInputDataConfigDataFormat other && Equals(other);
+        public bool Equals(EntityRecognizerInputDataConfigDataFormat other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The language of the input documents. All documents must be in the same language.
+    /// </summary>
+    [EnumType]
+    public readonly struct EntityRecognizerLanguageCode : IEquatable<EntityRecognizerLanguageCode>
+    {
+        private readonly string _value;
+
+        private EntityRecognizerLanguageCode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static EntityRecognizerLanguageCode En { get; } = new EntityRecognizerLanguageCode("en");
+        public static EntityRecognizerLanguageCode Es { get; } = new EntityRecognizerLanguageCode("es");
+        public static EntityRecognizerLanguageCode Fr { get; } = new EntityRecognizerLanguageCode("fr");
+        public static EntityRecognizerLanguageCode De { get; } = new EntityRecognizerLanguageCode("de");
+        public static EntityRecognizerLanguageCode It { get; } = new EntityRecognizerLanguageCode("it");
+        public static EntityRecognizerLanguageCode Pt { get; } = new EntityRecognizerLanguageCode("pt");
+        public static EntityRecognizerLanguageCode Ar { get; } = new EntityRecognizerLanguageCode("ar");
+        public static EntityRecognizerLanguageCode Hi { get; } = new EntityRecognizerLanguageCode("hi");
+        public static EntityRecognizerLanguageCode Ja { get; } = new EntityRecognizerLanguageCode("ja");
+        public static EntityRecognizerLanguageCode Ko { get; } = new EntityRecognizerLanguageCode("ko");
+        public static EntityRecognizerLanguageCode Zh { get; } = new EntityRecognizerLanguageCode("zh");
+        public static EntityRecognizerLanguageCode ZhTw { get; } = new EntityRecognizerLanguageCode("zh-TW");
+
+        public static bool operator ==(EntityRecognizerLanguageCode left, EntityRecognizerLanguageCode right) => left.Equals(right);
+        public static bool operator !=(EntityRecognizerLanguageCode left, EntityRecognizerLanguageCode right) => !left.Equals(right);
+
+        public static explicit operator string(EntityRecognizerLanguageCode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is EntityRecognizerLanguageCode other && Equals(other);
+        public bool Equals(EntityRecognizerLanguageCode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Classification mode indicates whether the documents are `MULTI_CLASS` or `MULTI_LABEL` .
     /// </summary>
     [EnumType]

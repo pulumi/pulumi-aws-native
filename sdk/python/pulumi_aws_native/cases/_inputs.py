@@ -58,6 +58,10 @@ __all__ = [
     'LayoutSectionPropertiesArgsDict',
     'LayoutSectionsArgs',
     'LayoutSectionsArgsDict',
+    'RelatedItemCommentContentArgs',
+    'RelatedItemCommentContentArgsDict',
+    'RelatedItemContentArgs',
+    'RelatedItemContentArgsDict',
     'TemplateLayoutConfigurationArgs',
     'TemplateLayoutConfigurationArgsDict',
     'TemplateRequiredFieldArgs',
@@ -765,6 +769,84 @@ class LayoutSectionsArgs:
     @sections.setter
     def sections(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['LayoutSectionPropertiesArgs']]]]):
         pulumi.set(self, "sections", value)
+
+
+class RelatedItemCommentContentArgsDict(TypedDict):
+    """
+    Represents a comment.
+    """
+    body: pulumi.Input[_builtins.str]
+    """
+    Text in the body of a comment.
+    """
+    content_type: pulumi.Input['RelatedItemCommentContentContentType']
+    """
+    Type of the text in the comment.
+    """
+
+@pulumi.input_type
+class RelatedItemCommentContentArgs:
+    def __init__(__self__, *,
+                 body: pulumi.Input[_builtins.str],
+                 content_type: pulumi.Input['RelatedItemCommentContentContentType']):
+        """
+        Represents a comment.
+
+        :param pulumi.Input[_builtins.str] body: Text in the body of a comment.
+        :param pulumi.Input['RelatedItemCommentContentContentType'] content_type: Type of the text in the comment.
+        """
+        pulumi.set(__self__, "body", body)
+        pulumi.set(__self__, "content_type", content_type)
+
+    @_builtins.property
+    @pulumi.getter
+    def body(self) -> pulumi.Input[_builtins.str]:
+        """
+        Text in the body of a comment.
+        """
+        return pulumi.get(self, "body")
+
+    @body.setter
+    def body(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "body", value)
+
+    @_builtins.property
+    @pulumi.getter(name="contentType")
+    def content_type(self) -> pulumi.Input['RelatedItemCommentContentContentType']:
+        """
+        Type of the text in the comment.
+        """
+        return pulumi.get(self, "content_type")
+
+    @content_type.setter
+    def content_type(self, value: pulumi.Input['RelatedItemCommentContentContentType']):
+        pulumi.set(self, "content_type", value)
+
+
+class RelatedItemContentArgsDict(TypedDict):
+    """
+    Represents the content of a related item.
+    """
+    comment: NotRequired[pulumi.Input[Optional['RelatedItemCommentContentArgsDict']]]
+
+@pulumi.input_type
+class RelatedItemContentArgs:
+    def __init__(__self__, *,
+                 comment: pulumi.Input[Optional['RelatedItemCommentContentArgs']] = None):
+        """
+        Represents the content of a related item.
+        """
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+
+    @_builtins.property
+    @pulumi.getter
+    def comment(self) -> pulumi.Input[Optional['RelatedItemCommentContentArgs']]:
+        return pulumi.get(self, "comment")
+
+    @comment.setter
+    def comment(self, value: pulumi.Input[Optional['RelatedItemCommentContentArgs']]):
+        pulumi.set(self, "comment", value)
 
 
 class TemplateLayoutConfigurationArgsDict(TypedDict):

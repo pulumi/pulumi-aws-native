@@ -48,6 +48,9 @@ namespace Pulumi.AwsNative.ObservabilityAdmin.Inputs
         [Input("logDeliveryParameters")]
         public Input<Inputs.OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesArgs>? LogDeliveryParameters { get; set; }
 
+        [Input("mskMonitoringParameters")]
+        public Input<Inputs.OrganizationTelemetryRuleMskMonitoringParametersArgs>? MskMonitoringParameters { get; set; }
+
         /// <summary>
         /// The number of days to retain the telemetry data in the destination.
         /// </summary>

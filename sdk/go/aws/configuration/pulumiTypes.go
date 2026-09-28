@@ -1253,6 +1253,901 @@ type ConfigurationAggregatorTag struct {
 	Value string `pulumi:"value"`
 }
 
+// Specifies whether the configuration recorder excludes certain resource types from being recorded.
+type ConfigurationRecorderExclusionByResourceTypes struct {
+	// A comma-separated list of resource types to exclude from recording by the configuration recorder.
+	ResourceTypes []string `pulumi:"resourceTypes"`
+}
+
+// ConfigurationRecorderExclusionByResourceTypesInput is an input type that accepts ConfigurationRecorderExclusionByResourceTypesArgs and ConfigurationRecorderExclusionByResourceTypesOutput values.
+// You can construct a concrete instance of `ConfigurationRecorderExclusionByResourceTypesInput` via:
+//
+//	ConfigurationRecorderExclusionByResourceTypesArgs{...}
+type ConfigurationRecorderExclusionByResourceTypesInput interface {
+	pulumi.Input
+
+	ToConfigurationRecorderExclusionByResourceTypesOutput() ConfigurationRecorderExclusionByResourceTypesOutput
+	ToConfigurationRecorderExclusionByResourceTypesOutputWithContext(context.Context) ConfigurationRecorderExclusionByResourceTypesOutput
+}
+
+// Specifies whether the configuration recorder excludes certain resource types from being recorded.
+type ConfigurationRecorderExclusionByResourceTypesArgs struct {
+	// A comma-separated list of resource types to exclude from recording by the configuration recorder.
+	ResourceTypes pulumi.StringArrayInput `pulumi:"resourceTypes"`
+}
+
+func (ConfigurationRecorderExclusionByResourceTypesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationRecorderExclusionByResourceTypes)(nil)).Elem()
+}
+
+func (i ConfigurationRecorderExclusionByResourceTypesArgs) ToConfigurationRecorderExclusionByResourceTypesOutput() ConfigurationRecorderExclusionByResourceTypesOutput {
+	return i.ToConfigurationRecorderExclusionByResourceTypesOutputWithContext(context.Background())
+}
+
+func (i ConfigurationRecorderExclusionByResourceTypesArgs) ToConfigurationRecorderExclusionByResourceTypesOutputWithContext(ctx context.Context) ConfigurationRecorderExclusionByResourceTypesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationRecorderExclusionByResourceTypesOutput)
+}
+
+func (i ConfigurationRecorderExclusionByResourceTypesArgs) ToConfigurationRecorderExclusionByResourceTypesPtrOutput() ConfigurationRecorderExclusionByResourceTypesPtrOutput {
+	return i.ToConfigurationRecorderExclusionByResourceTypesPtrOutputWithContext(context.Background())
+}
+
+func (i ConfigurationRecorderExclusionByResourceTypesArgs) ToConfigurationRecorderExclusionByResourceTypesPtrOutputWithContext(ctx context.Context) ConfigurationRecorderExclusionByResourceTypesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationRecorderExclusionByResourceTypesOutput).ToConfigurationRecorderExclusionByResourceTypesPtrOutputWithContext(ctx)
+}
+
+// ConfigurationRecorderExclusionByResourceTypesPtrInput is an input type that accepts ConfigurationRecorderExclusionByResourceTypesArgs, ConfigurationRecorderExclusionByResourceTypesPtr and ConfigurationRecorderExclusionByResourceTypesPtrOutput values.
+// You can construct a concrete instance of `ConfigurationRecorderExclusionByResourceTypesPtrInput` via:
+//
+//	        ConfigurationRecorderExclusionByResourceTypesArgs{...}
+//
+//	or:
+//
+//	        nil
+type ConfigurationRecorderExclusionByResourceTypesPtrInput interface {
+	pulumi.Input
+
+	ToConfigurationRecorderExclusionByResourceTypesPtrOutput() ConfigurationRecorderExclusionByResourceTypesPtrOutput
+	ToConfigurationRecorderExclusionByResourceTypesPtrOutputWithContext(context.Context) ConfigurationRecorderExclusionByResourceTypesPtrOutput
+}
+
+type configurationRecorderExclusionByResourceTypesPtrType ConfigurationRecorderExclusionByResourceTypesArgs
+
+func ConfigurationRecorderExclusionByResourceTypesPtr(v *ConfigurationRecorderExclusionByResourceTypesArgs) ConfigurationRecorderExclusionByResourceTypesPtrInput {
+	return (*configurationRecorderExclusionByResourceTypesPtrType)(v)
+}
+
+func (*configurationRecorderExclusionByResourceTypesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfigurationRecorderExclusionByResourceTypes)(nil)).Elem()
+}
+
+func (i *configurationRecorderExclusionByResourceTypesPtrType) ToConfigurationRecorderExclusionByResourceTypesPtrOutput() ConfigurationRecorderExclusionByResourceTypesPtrOutput {
+	return i.ToConfigurationRecorderExclusionByResourceTypesPtrOutputWithContext(context.Background())
+}
+
+func (i *configurationRecorderExclusionByResourceTypesPtrType) ToConfigurationRecorderExclusionByResourceTypesPtrOutputWithContext(ctx context.Context) ConfigurationRecorderExclusionByResourceTypesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationRecorderExclusionByResourceTypesPtrOutput)
+}
+
+// Specifies whether the configuration recorder excludes certain resource types from being recorded.
+type ConfigurationRecorderExclusionByResourceTypesOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationRecorderExclusionByResourceTypesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationRecorderExclusionByResourceTypes)(nil)).Elem()
+}
+
+func (o ConfigurationRecorderExclusionByResourceTypesOutput) ToConfigurationRecorderExclusionByResourceTypesOutput() ConfigurationRecorderExclusionByResourceTypesOutput {
+	return o
+}
+
+func (o ConfigurationRecorderExclusionByResourceTypesOutput) ToConfigurationRecorderExclusionByResourceTypesOutputWithContext(ctx context.Context) ConfigurationRecorderExclusionByResourceTypesOutput {
+	return o
+}
+
+func (o ConfigurationRecorderExclusionByResourceTypesOutput) ToConfigurationRecorderExclusionByResourceTypesPtrOutput() ConfigurationRecorderExclusionByResourceTypesPtrOutput {
+	return o.ToConfigurationRecorderExclusionByResourceTypesPtrOutputWithContext(context.Background())
+}
+
+func (o ConfigurationRecorderExclusionByResourceTypesOutput) ToConfigurationRecorderExclusionByResourceTypesPtrOutputWithContext(ctx context.Context) ConfigurationRecorderExclusionByResourceTypesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConfigurationRecorderExclusionByResourceTypes) *ConfigurationRecorderExclusionByResourceTypes {
+		return &v
+	}).(ConfigurationRecorderExclusionByResourceTypesPtrOutput)
+}
+
+// A comma-separated list of resource types to exclude from recording by the configuration recorder.
+func (o ConfigurationRecorderExclusionByResourceTypesOutput) ResourceTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ConfigurationRecorderExclusionByResourceTypes) []string { return v.ResourceTypes }).(pulumi.StringArrayOutput)
+}
+
+type ConfigurationRecorderExclusionByResourceTypesPtrOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationRecorderExclusionByResourceTypesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfigurationRecorderExclusionByResourceTypes)(nil)).Elem()
+}
+
+func (o ConfigurationRecorderExclusionByResourceTypesPtrOutput) ToConfigurationRecorderExclusionByResourceTypesPtrOutput() ConfigurationRecorderExclusionByResourceTypesPtrOutput {
+	return o
+}
+
+func (o ConfigurationRecorderExclusionByResourceTypesPtrOutput) ToConfigurationRecorderExclusionByResourceTypesPtrOutputWithContext(ctx context.Context) ConfigurationRecorderExclusionByResourceTypesPtrOutput {
+	return o
+}
+
+func (o ConfigurationRecorderExclusionByResourceTypesPtrOutput) Elem() ConfigurationRecorderExclusionByResourceTypesOutput {
+	return o.ApplyT(func(v *ConfigurationRecorderExclusionByResourceTypes) ConfigurationRecorderExclusionByResourceTypes {
+		if v != nil {
+			return *v
+		}
+		var ret ConfigurationRecorderExclusionByResourceTypes
+		return ret
+	}).(ConfigurationRecorderExclusionByResourceTypesOutput)
+}
+
+// A comma-separated list of resource types to exclude from recording by the configuration recorder.
+func (o ConfigurationRecorderExclusionByResourceTypesPtrOutput) ResourceTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ConfigurationRecorderExclusionByResourceTypes) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ResourceTypes
+	}).(pulumi.StringArrayOutput)
+}
+
+// Specifies which resource types AWS Config records for configuration changes.
+type ConfigurationRecorderRecordingGroup struct {
+	// Specifies whether AWS Config records configuration changes for all supported resource types, excluding the global IAM resource types.
+	AllSupported *bool `pulumi:"allSupported"`
+	// An object that specifies how AWS Config excludes resource types from being recorded by the configuration recorder.
+	ExclusionByResourceTypes *ConfigurationRecorderExclusionByResourceTypes `pulumi:"exclusionByResourceTypes"`
+	// This option is a bundle which only applies to the global IAM resource types: IAM users, groups, roles, and customer managed policies.
+	IncludeGlobalResourceTypes *bool `pulumi:"includeGlobalResourceTypes"`
+	// An object that specifies the recording strategy for the configuration recorder.
+	RecordingStrategy *ConfigurationRecorderRecordingStrategy `pulumi:"recordingStrategy"`
+	// A comma-separated list that specifies which resource types AWS Config records.
+	ResourceTypes []string `pulumi:"resourceTypes"`
+}
+
+// ConfigurationRecorderRecordingGroupInput is an input type that accepts ConfigurationRecorderRecordingGroupArgs and ConfigurationRecorderRecordingGroupOutput values.
+// You can construct a concrete instance of `ConfigurationRecorderRecordingGroupInput` via:
+//
+//	ConfigurationRecorderRecordingGroupArgs{...}
+type ConfigurationRecorderRecordingGroupInput interface {
+	pulumi.Input
+
+	ToConfigurationRecorderRecordingGroupOutput() ConfigurationRecorderRecordingGroupOutput
+	ToConfigurationRecorderRecordingGroupOutputWithContext(context.Context) ConfigurationRecorderRecordingGroupOutput
+}
+
+// Specifies which resource types AWS Config records for configuration changes.
+type ConfigurationRecorderRecordingGroupArgs struct {
+	// Specifies whether AWS Config records configuration changes for all supported resource types, excluding the global IAM resource types.
+	AllSupported pulumi.BoolPtrInput `pulumi:"allSupported"`
+	// An object that specifies how AWS Config excludes resource types from being recorded by the configuration recorder.
+	ExclusionByResourceTypes ConfigurationRecorderExclusionByResourceTypesPtrInput `pulumi:"exclusionByResourceTypes"`
+	// This option is a bundle which only applies to the global IAM resource types: IAM users, groups, roles, and customer managed policies.
+	IncludeGlobalResourceTypes pulumi.BoolPtrInput `pulumi:"includeGlobalResourceTypes"`
+	// An object that specifies the recording strategy for the configuration recorder.
+	RecordingStrategy ConfigurationRecorderRecordingStrategyPtrInput `pulumi:"recordingStrategy"`
+	// A comma-separated list that specifies which resource types AWS Config records.
+	ResourceTypes pulumi.StringArrayInput `pulumi:"resourceTypes"`
+}
+
+func (ConfigurationRecorderRecordingGroupArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationRecorderRecordingGroup)(nil)).Elem()
+}
+
+func (i ConfigurationRecorderRecordingGroupArgs) ToConfigurationRecorderRecordingGroupOutput() ConfigurationRecorderRecordingGroupOutput {
+	return i.ToConfigurationRecorderRecordingGroupOutputWithContext(context.Background())
+}
+
+func (i ConfigurationRecorderRecordingGroupArgs) ToConfigurationRecorderRecordingGroupOutputWithContext(ctx context.Context) ConfigurationRecorderRecordingGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationRecorderRecordingGroupOutput)
+}
+
+func (i ConfigurationRecorderRecordingGroupArgs) ToConfigurationRecorderRecordingGroupPtrOutput() ConfigurationRecorderRecordingGroupPtrOutput {
+	return i.ToConfigurationRecorderRecordingGroupPtrOutputWithContext(context.Background())
+}
+
+func (i ConfigurationRecorderRecordingGroupArgs) ToConfigurationRecorderRecordingGroupPtrOutputWithContext(ctx context.Context) ConfigurationRecorderRecordingGroupPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationRecorderRecordingGroupOutput).ToConfigurationRecorderRecordingGroupPtrOutputWithContext(ctx)
+}
+
+// ConfigurationRecorderRecordingGroupPtrInput is an input type that accepts ConfigurationRecorderRecordingGroupArgs, ConfigurationRecorderRecordingGroupPtr and ConfigurationRecorderRecordingGroupPtrOutput values.
+// You can construct a concrete instance of `ConfigurationRecorderRecordingGroupPtrInput` via:
+//
+//	        ConfigurationRecorderRecordingGroupArgs{...}
+//
+//	or:
+//
+//	        nil
+type ConfigurationRecorderRecordingGroupPtrInput interface {
+	pulumi.Input
+
+	ToConfigurationRecorderRecordingGroupPtrOutput() ConfigurationRecorderRecordingGroupPtrOutput
+	ToConfigurationRecorderRecordingGroupPtrOutputWithContext(context.Context) ConfigurationRecorderRecordingGroupPtrOutput
+}
+
+type configurationRecorderRecordingGroupPtrType ConfigurationRecorderRecordingGroupArgs
+
+func ConfigurationRecorderRecordingGroupPtr(v *ConfigurationRecorderRecordingGroupArgs) ConfigurationRecorderRecordingGroupPtrInput {
+	return (*configurationRecorderRecordingGroupPtrType)(v)
+}
+
+func (*configurationRecorderRecordingGroupPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfigurationRecorderRecordingGroup)(nil)).Elem()
+}
+
+func (i *configurationRecorderRecordingGroupPtrType) ToConfigurationRecorderRecordingGroupPtrOutput() ConfigurationRecorderRecordingGroupPtrOutput {
+	return i.ToConfigurationRecorderRecordingGroupPtrOutputWithContext(context.Background())
+}
+
+func (i *configurationRecorderRecordingGroupPtrType) ToConfigurationRecorderRecordingGroupPtrOutputWithContext(ctx context.Context) ConfigurationRecorderRecordingGroupPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationRecorderRecordingGroupPtrOutput)
+}
+
+// Specifies which resource types AWS Config records for configuration changes.
+type ConfigurationRecorderRecordingGroupOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationRecorderRecordingGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationRecorderRecordingGroup)(nil)).Elem()
+}
+
+func (o ConfigurationRecorderRecordingGroupOutput) ToConfigurationRecorderRecordingGroupOutput() ConfigurationRecorderRecordingGroupOutput {
+	return o
+}
+
+func (o ConfigurationRecorderRecordingGroupOutput) ToConfigurationRecorderRecordingGroupOutputWithContext(ctx context.Context) ConfigurationRecorderRecordingGroupOutput {
+	return o
+}
+
+func (o ConfigurationRecorderRecordingGroupOutput) ToConfigurationRecorderRecordingGroupPtrOutput() ConfigurationRecorderRecordingGroupPtrOutput {
+	return o.ToConfigurationRecorderRecordingGroupPtrOutputWithContext(context.Background())
+}
+
+func (o ConfigurationRecorderRecordingGroupOutput) ToConfigurationRecorderRecordingGroupPtrOutputWithContext(ctx context.Context) ConfigurationRecorderRecordingGroupPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConfigurationRecorderRecordingGroup) *ConfigurationRecorderRecordingGroup {
+		return &v
+	}).(ConfigurationRecorderRecordingGroupPtrOutput)
+}
+
+// Specifies whether AWS Config records configuration changes for all supported resource types, excluding the global IAM resource types.
+func (o ConfigurationRecorderRecordingGroupOutput) AllSupported() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ConfigurationRecorderRecordingGroup) *bool { return v.AllSupported }).(pulumi.BoolPtrOutput)
+}
+
+// An object that specifies how AWS Config excludes resource types from being recorded by the configuration recorder.
+func (o ConfigurationRecorderRecordingGroupOutput) ExclusionByResourceTypes() ConfigurationRecorderExclusionByResourceTypesPtrOutput {
+	return o.ApplyT(func(v ConfigurationRecorderRecordingGroup) *ConfigurationRecorderExclusionByResourceTypes {
+		return v.ExclusionByResourceTypes
+	}).(ConfigurationRecorderExclusionByResourceTypesPtrOutput)
+}
+
+// This option is a bundle which only applies to the global IAM resource types: IAM users, groups, roles, and customer managed policies.
+func (o ConfigurationRecorderRecordingGroupOutput) IncludeGlobalResourceTypes() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ConfigurationRecorderRecordingGroup) *bool { return v.IncludeGlobalResourceTypes }).(pulumi.BoolPtrOutput)
+}
+
+// An object that specifies the recording strategy for the configuration recorder.
+func (o ConfigurationRecorderRecordingGroupOutput) RecordingStrategy() ConfigurationRecorderRecordingStrategyPtrOutput {
+	return o.ApplyT(func(v ConfigurationRecorderRecordingGroup) *ConfigurationRecorderRecordingStrategy {
+		return v.RecordingStrategy
+	}).(ConfigurationRecorderRecordingStrategyPtrOutput)
+}
+
+// A comma-separated list that specifies which resource types AWS Config records.
+func (o ConfigurationRecorderRecordingGroupOutput) ResourceTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ConfigurationRecorderRecordingGroup) []string { return v.ResourceTypes }).(pulumi.StringArrayOutput)
+}
+
+type ConfigurationRecorderRecordingGroupPtrOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationRecorderRecordingGroupPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfigurationRecorderRecordingGroup)(nil)).Elem()
+}
+
+func (o ConfigurationRecorderRecordingGroupPtrOutput) ToConfigurationRecorderRecordingGroupPtrOutput() ConfigurationRecorderRecordingGroupPtrOutput {
+	return o
+}
+
+func (o ConfigurationRecorderRecordingGroupPtrOutput) ToConfigurationRecorderRecordingGroupPtrOutputWithContext(ctx context.Context) ConfigurationRecorderRecordingGroupPtrOutput {
+	return o
+}
+
+func (o ConfigurationRecorderRecordingGroupPtrOutput) Elem() ConfigurationRecorderRecordingGroupOutput {
+	return o.ApplyT(func(v *ConfigurationRecorderRecordingGroup) ConfigurationRecorderRecordingGroup {
+		if v != nil {
+			return *v
+		}
+		var ret ConfigurationRecorderRecordingGroup
+		return ret
+	}).(ConfigurationRecorderRecordingGroupOutput)
+}
+
+// Specifies whether AWS Config records configuration changes for all supported resource types, excluding the global IAM resource types.
+func (o ConfigurationRecorderRecordingGroupPtrOutput) AllSupported() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ConfigurationRecorderRecordingGroup) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AllSupported
+	}).(pulumi.BoolPtrOutput)
+}
+
+// An object that specifies how AWS Config excludes resource types from being recorded by the configuration recorder.
+func (o ConfigurationRecorderRecordingGroupPtrOutput) ExclusionByResourceTypes() ConfigurationRecorderExclusionByResourceTypesPtrOutput {
+	return o.ApplyT(func(v *ConfigurationRecorderRecordingGroup) *ConfigurationRecorderExclusionByResourceTypes {
+		if v == nil {
+			return nil
+		}
+		return v.ExclusionByResourceTypes
+	}).(ConfigurationRecorderExclusionByResourceTypesPtrOutput)
+}
+
+// This option is a bundle which only applies to the global IAM resource types: IAM users, groups, roles, and customer managed policies.
+func (o ConfigurationRecorderRecordingGroupPtrOutput) IncludeGlobalResourceTypes() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ConfigurationRecorderRecordingGroup) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IncludeGlobalResourceTypes
+	}).(pulumi.BoolPtrOutput)
+}
+
+// An object that specifies the recording strategy for the configuration recorder.
+func (o ConfigurationRecorderRecordingGroupPtrOutput) RecordingStrategy() ConfigurationRecorderRecordingStrategyPtrOutput {
+	return o.ApplyT(func(v *ConfigurationRecorderRecordingGroup) *ConfigurationRecorderRecordingStrategy {
+		if v == nil {
+			return nil
+		}
+		return v.RecordingStrategy
+	}).(ConfigurationRecorderRecordingStrategyPtrOutput)
+}
+
+// A comma-separated list that specifies which resource types AWS Config records.
+func (o ConfigurationRecorderRecordingGroupPtrOutput) ResourceTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ConfigurationRecorderRecordingGroup) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ResourceTypes
+	}).(pulumi.StringArrayOutput)
+}
+
+// Specifies the default recording frequency for the configuration recorder.
+type ConfigurationRecorderRecordingMode struct {
+	// The default recording frequency that AWS Config uses to record configuration changes.
+	RecordingFrequency string `pulumi:"recordingFrequency"`
+	// An array of 'RecordingModeOverride' objects for you to specify your overrides for the recording mode.
+	RecordingModeOverrides []ConfigurationRecorderRecordingModeOverride `pulumi:"recordingModeOverrides"`
+}
+
+// ConfigurationRecorderRecordingModeInput is an input type that accepts ConfigurationRecorderRecordingModeArgs and ConfigurationRecorderRecordingModeOutput values.
+// You can construct a concrete instance of `ConfigurationRecorderRecordingModeInput` via:
+//
+//	ConfigurationRecorderRecordingModeArgs{...}
+type ConfigurationRecorderRecordingModeInput interface {
+	pulumi.Input
+
+	ToConfigurationRecorderRecordingModeOutput() ConfigurationRecorderRecordingModeOutput
+	ToConfigurationRecorderRecordingModeOutputWithContext(context.Context) ConfigurationRecorderRecordingModeOutput
+}
+
+// Specifies the default recording frequency for the configuration recorder.
+type ConfigurationRecorderRecordingModeArgs struct {
+	// The default recording frequency that AWS Config uses to record configuration changes.
+	RecordingFrequency pulumi.StringInput `pulumi:"recordingFrequency"`
+	// An array of 'RecordingModeOverride' objects for you to specify your overrides for the recording mode.
+	RecordingModeOverrides ConfigurationRecorderRecordingModeOverrideArrayInput `pulumi:"recordingModeOverrides"`
+}
+
+func (ConfigurationRecorderRecordingModeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationRecorderRecordingMode)(nil)).Elem()
+}
+
+func (i ConfigurationRecorderRecordingModeArgs) ToConfigurationRecorderRecordingModeOutput() ConfigurationRecorderRecordingModeOutput {
+	return i.ToConfigurationRecorderRecordingModeOutputWithContext(context.Background())
+}
+
+func (i ConfigurationRecorderRecordingModeArgs) ToConfigurationRecorderRecordingModeOutputWithContext(ctx context.Context) ConfigurationRecorderRecordingModeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationRecorderRecordingModeOutput)
+}
+
+func (i ConfigurationRecorderRecordingModeArgs) ToConfigurationRecorderRecordingModePtrOutput() ConfigurationRecorderRecordingModePtrOutput {
+	return i.ToConfigurationRecorderRecordingModePtrOutputWithContext(context.Background())
+}
+
+func (i ConfigurationRecorderRecordingModeArgs) ToConfigurationRecorderRecordingModePtrOutputWithContext(ctx context.Context) ConfigurationRecorderRecordingModePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationRecorderRecordingModeOutput).ToConfigurationRecorderRecordingModePtrOutputWithContext(ctx)
+}
+
+// ConfigurationRecorderRecordingModePtrInput is an input type that accepts ConfigurationRecorderRecordingModeArgs, ConfigurationRecorderRecordingModePtr and ConfigurationRecorderRecordingModePtrOutput values.
+// You can construct a concrete instance of `ConfigurationRecorderRecordingModePtrInput` via:
+//
+//	        ConfigurationRecorderRecordingModeArgs{...}
+//
+//	or:
+//
+//	        nil
+type ConfigurationRecorderRecordingModePtrInput interface {
+	pulumi.Input
+
+	ToConfigurationRecorderRecordingModePtrOutput() ConfigurationRecorderRecordingModePtrOutput
+	ToConfigurationRecorderRecordingModePtrOutputWithContext(context.Context) ConfigurationRecorderRecordingModePtrOutput
+}
+
+type configurationRecorderRecordingModePtrType ConfigurationRecorderRecordingModeArgs
+
+func ConfigurationRecorderRecordingModePtr(v *ConfigurationRecorderRecordingModeArgs) ConfigurationRecorderRecordingModePtrInput {
+	return (*configurationRecorderRecordingModePtrType)(v)
+}
+
+func (*configurationRecorderRecordingModePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfigurationRecorderRecordingMode)(nil)).Elem()
+}
+
+func (i *configurationRecorderRecordingModePtrType) ToConfigurationRecorderRecordingModePtrOutput() ConfigurationRecorderRecordingModePtrOutput {
+	return i.ToConfigurationRecorderRecordingModePtrOutputWithContext(context.Background())
+}
+
+func (i *configurationRecorderRecordingModePtrType) ToConfigurationRecorderRecordingModePtrOutputWithContext(ctx context.Context) ConfigurationRecorderRecordingModePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationRecorderRecordingModePtrOutput)
+}
+
+// Specifies the default recording frequency for the configuration recorder.
+type ConfigurationRecorderRecordingModeOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationRecorderRecordingModeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationRecorderRecordingMode)(nil)).Elem()
+}
+
+func (o ConfigurationRecorderRecordingModeOutput) ToConfigurationRecorderRecordingModeOutput() ConfigurationRecorderRecordingModeOutput {
+	return o
+}
+
+func (o ConfigurationRecorderRecordingModeOutput) ToConfigurationRecorderRecordingModeOutputWithContext(ctx context.Context) ConfigurationRecorderRecordingModeOutput {
+	return o
+}
+
+func (o ConfigurationRecorderRecordingModeOutput) ToConfigurationRecorderRecordingModePtrOutput() ConfigurationRecorderRecordingModePtrOutput {
+	return o.ToConfigurationRecorderRecordingModePtrOutputWithContext(context.Background())
+}
+
+func (o ConfigurationRecorderRecordingModeOutput) ToConfigurationRecorderRecordingModePtrOutputWithContext(ctx context.Context) ConfigurationRecorderRecordingModePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConfigurationRecorderRecordingMode) *ConfigurationRecorderRecordingMode {
+		return &v
+	}).(ConfigurationRecorderRecordingModePtrOutput)
+}
+
+// The default recording frequency that AWS Config uses to record configuration changes.
+func (o ConfigurationRecorderRecordingModeOutput) RecordingFrequency() pulumi.StringOutput {
+	return o.ApplyT(func(v ConfigurationRecorderRecordingMode) string { return v.RecordingFrequency }).(pulumi.StringOutput)
+}
+
+// An array of 'RecordingModeOverride' objects for you to specify your overrides for the recording mode.
+func (o ConfigurationRecorderRecordingModeOutput) RecordingModeOverrides() ConfigurationRecorderRecordingModeOverrideArrayOutput {
+	return o.ApplyT(func(v ConfigurationRecorderRecordingMode) []ConfigurationRecorderRecordingModeOverride {
+		return v.RecordingModeOverrides
+	}).(ConfigurationRecorderRecordingModeOverrideArrayOutput)
+}
+
+type ConfigurationRecorderRecordingModePtrOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationRecorderRecordingModePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfigurationRecorderRecordingMode)(nil)).Elem()
+}
+
+func (o ConfigurationRecorderRecordingModePtrOutput) ToConfigurationRecorderRecordingModePtrOutput() ConfigurationRecorderRecordingModePtrOutput {
+	return o
+}
+
+func (o ConfigurationRecorderRecordingModePtrOutput) ToConfigurationRecorderRecordingModePtrOutputWithContext(ctx context.Context) ConfigurationRecorderRecordingModePtrOutput {
+	return o
+}
+
+func (o ConfigurationRecorderRecordingModePtrOutput) Elem() ConfigurationRecorderRecordingModeOutput {
+	return o.ApplyT(func(v *ConfigurationRecorderRecordingMode) ConfigurationRecorderRecordingMode {
+		if v != nil {
+			return *v
+		}
+		var ret ConfigurationRecorderRecordingMode
+		return ret
+	}).(ConfigurationRecorderRecordingModeOutput)
+}
+
+// The default recording frequency that AWS Config uses to record configuration changes.
+func (o ConfigurationRecorderRecordingModePtrOutput) RecordingFrequency() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConfigurationRecorderRecordingMode) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RecordingFrequency
+	}).(pulumi.StringPtrOutput)
+}
+
+// An array of 'RecordingModeOverride' objects for you to specify your overrides for the recording mode.
+func (o ConfigurationRecorderRecordingModePtrOutput) RecordingModeOverrides() ConfigurationRecorderRecordingModeOverrideArrayOutput {
+	return o.ApplyT(func(v *ConfigurationRecorderRecordingMode) []ConfigurationRecorderRecordingModeOverride {
+		if v == nil {
+			return nil
+		}
+		return v.RecordingModeOverrides
+	}).(ConfigurationRecorderRecordingModeOverrideArrayOutput)
+}
+
+// Specifies your overrides for the recording mode
+type ConfigurationRecorderRecordingModeOverride struct {
+	// A description that you provide for the override.
+	Description *string `pulumi:"description"`
+	// The recording frequency that will be applied to all the resource types specified in the override.
+	RecordingFrequency string `pulumi:"recordingFrequency"`
+	// A comma-separated list that specifies which resource types AWS Config includes in the override.
+	ResourceTypes []string `pulumi:"resourceTypes"`
+}
+
+// ConfigurationRecorderRecordingModeOverrideInput is an input type that accepts ConfigurationRecorderRecordingModeOverrideArgs and ConfigurationRecorderRecordingModeOverrideOutput values.
+// You can construct a concrete instance of `ConfigurationRecorderRecordingModeOverrideInput` via:
+//
+//	ConfigurationRecorderRecordingModeOverrideArgs{...}
+type ConfigurationRecorderRecordingModeOverrideInput interface {
+	pulumi.Input
+
+	ToConfigurationRecorderRecordingModeOverrideOutput() ConfigurationRecorderRecordingModeOverrideOutput
+	ToConfigurationRecorderRecordingModeOverrideOutputWithContext(context.Context) ConfigurationRecorderRecordingModeOverrideOutput
+}
+
+// Specifies your overrides for the recording mode
+type ConfigurationRecorderRecordingModeOverrideArgs struct {
+	// A description that you provide for the override.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// The recording frequency that will be applied to all the resource types specified in the override.
+	RecordingFrequency pulumi.StringInput `pulumi:"recordingFrequency"`
+	// A comma-separated list that specifies which resource types AWS Config includes in the override.
+	ResourceTypes pulumi.StringArrayInput `pulumi:"resourceTypes"`
+}
+
+func (ConfigurationRecorderRecordingModeOverrideArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationRecorderRecordingModeOverride)(nil)).Elem()
+}
+
+func (i ConfigurationRecorderRecordingModeOverrideArgs) ToConfigurationRecorderRecordingModeOverrideOutput() ConfigurationRecorderRecordingModeOverrideOutput {
+	return i.ToConfigurationRecorderRecordingModeOverrideOutputWithContext(context.Background())
+}
+
+func (i ConfigurationRecorderRecordingModeOverrideArgs) ToConfigurationRecorderRecordingModeOverrideOutputWithContext(ctx context.Context) ConfigurationRecorderRecordingModeOverrideOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationRecorderRecordingModeOverrideOutput)
+}
+
+// ConfigurationRecorderRecordingModeOverrideArrayInput is an input type that accepts ConfigurationRecorderRecordingModeOverrideArray and ConfigurationRecorderRecordingModeOverrideArrayOutput values.
+// You can construct a concrete instance of `ConfigurationRecorderRecordingModeOverrideArrayInput` via:
+//
+//	ConfigurationRecorderRecordingModeOverrideArray{ ConfigurationRecorderRecordingModeOverrideArgs{...} }
+type ConfigurationRecorderRecordingModeOverrideArrayInput interface {
+	pulumi.Input
+
+	ToConfigurationRecorderRecordingModeOverrideArrayOutput() ConfigurationRecorderRecordingModeOverrideArrayOutput
+	ToConfigurationRecorderRecordingModeOverrideArrayOutputWithContext(context.Context) ConfigurationRecorderRecordingModeOverrideArrayOutput
+}
+
+type ConfigurationRecorderRecordingModeOverrideArray []ConfigurationRecorderRecordingModeOverrideInput
+
+func (ConfigurationRecorderRecordingModeOverrideArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ConfigurationRecorderRecordingModeOverride)(nil)).Elem()
+}
+
+func (i ConfigurationRecorderRecordingModeOverrideArray) ToConfigurationRecorderRecordingModeOverrideArrayOutput() ConfigurationRecorderRecordingModeOverrideArrayOutput {
+	return i.ToConfigurationRecorderRecordingModeOverrideArrayOutputWithContext(context.Background())
+}
+
+func (i ConfigurationRecorderRecordingModeOverrideArray) ToConfigurationRecorderRecordingModeOverrideArrayOutputWithContext(ctx context.Context) ConfigurationRecorderRecordingModeOverrideArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationRecorderRecordingModeOverrideArrayOutput)
+}
+
+// Specifies your overrides for the recording mode
+type ConfigurationRecorderRecordingModeOverrideOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationRecorderRecordingModeOverrideOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationRecorderRecordingModeOverride)(nil)).Elem()
+}
+
+func (o ConfigurationRecorderRecordingModeOverrideOutput) ToConfigurationRecorderRecordingModeOverrideOutput() ConfigurationRecorderRecordingModeOverrideOutput {
+	return o
+}
+
+func (o ConfigurationRecorderRecordingModeOverrideOutput) ToConfigurationRecorderRecordingModeOverrideOutputWithContext(ctx context.Context) ConfigurationRecorderRecordingModeOverrideOutput {
+	return o
+}
+
+// A description that you provide for the override.
+func (o ConfigurationRecorderRecordingModeOverrideOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConfigurationRecorderRecordingModeOverride) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The recording frequency that will be applied to all the resource types specified in the override.
+func (o ConfigurationRecorderRecordingModeOverrideOutput) RecordingFrequency() pulumi.StringOutput {
+	return o.ApplyT(func(v ConfigurationRecorderRecordingModeOverride) string { return v.RecordingFrequency }).(pulumi.StringOutput)
+}
+
+// A comma-separated list that specifies which resource types AWS Config includes in the override.
+func (o ConfigurationRecorderRecordingModeOverrideOutput) ResourceTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ConfigurationRecorderRecordingModeOverride) []string { return v.ResourceTypes }).(pulumi.StringArrayOutput)
+}
+
+type ConfigurationRecorderRecordingModeOverrideArrayOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationRecorderRecordingModeOverrideArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ConfigurationRecorderRecordingModeOverride)(nil)).Elem()
+}
+
+func (o ConfigurationRecorderRecordingModeOverrideArrayOutput) ToConfigurationRecorderRecordingModeOverrideArrayOutput() ConfigurationRecorderRecordingModeOverrideArrayOutput {
+	return o
+}
+
+func (o ConfigurationRecorderRecordingModeOverrideArrayOutput) ToConfigurationRecorderRecordingModeOverrideArrayOutputWithContext(ctx context.Context) ConfigurationRecorderRecordingModeOverrideArrayOutput {
+	return o
+}
+
+func (o ConfigurationRecorderRecordingModeOverrideArrayOutput) Index(i pulumi.IntInput) ConfigurationRecorderRecordingModeOverrideOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ConfigurationRecorderRecordingModeOverride {
+		return vs[0].([]ConfigurationRecorderRecordingModeOverride)[vs[1].(int)]
+	}).(ConfigurationRecorderRecordingModeOverrideOutput)
+}
+
+// Specifies the recording strategy of the configuration recorder.
+type ConfigurationRecorderRecordingStrategy struct {
+	// The recording strategy for the configuration recorder.
+	//
+	// - If you set this option to `ALL_SUPPORTED_RESOURCE_TYPES` , AWS Config records configuration changes for all supported resource types, excluding the global IAM resource types. You also must set the `AllSupported` field of [RecordingGroup](https://docs.aws.amazon.com/config/latest/APIReference/API_RecordingGroup.html) to `true` . When AWS Config adds support for a new resource type, AWS Config automatically starts recording resources of that type. For a list of supported resource types, see [Supported Resource Types](https://docs.aws.amazon.com/config/latest/developerguide/resource-config-reference.html#supported-resources) in the *AWS Config developer guide* .
+	// - If you set this option to `INCLUSION_BY_RESOURCE_TYPES` , AWS Config records configuration changes for only the resource types that you specify in the `ResourceTypes` field of [RecordingGroup](https://docs.aws.amazon.com/config/latest/APIReference/API_RecordingGroup.html) .
+	// - If you set this option to `EXCLUSION_BY_RESOURCE_TYPES` , AWS Config records configuration changes for all supported resource types, except the resource types that you specify to exclude from being recorded in the `ResourceTypes` field of [ExclusionByResourceTypes](https://docs.aws.amazon.com/config/latest/APIReference/API_ExclusionByResourceTypes.html) .
+	//
+	// > *Required and optional fields*
+	// >
+	// > The `recordingStrategy` field is optional when you set the `AllSupported` field of [RecordingGroup](https://docs.aws.amazon.com/config/latest/APIReference/API_RecordingGroup.html) to `true` .
+	// >
+	// > The `recordingStrategy` field is optional when you list resource types in the `ResourceTypes` field of [RecordingGroup](https://docs.aws.amazon.com/config/latest/APIReference/API_RecordingGroup.html) .
+	// >
+	// > The `recordingStrategy` field is required if you list resource types to exclude from recording in the `ResourceTypes` field of [ExclusionByResourceTypes](https://docs.aws.amazon.com/config/latest/APIReference/API_ExclusionByResourceTypes.html) . > *Overriding fields*
+	// >
+	// > If you choose `EXCLUSION_BY_RESOURCE_TYPES` for the recording strategy, the `ExclusionByResourceTypes` field will override other properties in the request.
+	// >
+	// > For example, even if you set `IncludeGlobalResourceTypes` to false, global IAM resource types will still be automatically recorded in this option unless those resource types are specifically listed as exclusions in the `ResourceTypes` field of `ExclusionByResourceTypes` . > *Global resource types and the exclusion recording strategy*
+	// >
+	// > By default, if you choose the `EXCLUSION_BY_RESOURCE_TYPES` recording strategy, when AWS Config adds support for a new resource type in the Region where you set up the configuration recorder, including global resource types, AWS Config starts recording resources of that type automatically.
+	// >
+	// > Unless specifically listed as exclusions, `AWS::RDS::GlobalCluster` will be recorded automatically in all supported AWS Config Regions were the configuration recorder is enabled.
+	// >
+	// > IAM users, groups, roles, and customer managed policies will be recorded in the Region where you set up the configuration recorder if that is a Region where AWS Config was available before February 2022. You cannot be record the global IAM resouce types in Regions supported by AWS Config after February 2022. This list where you cannot record the global IAM resource types includes the following Regions:
+	// > - Asia Pacific (Hyderabad)
+	// > - Asia Pacific (Melbourne)
+	// > - Canada West (Calgary)
+	// > - Europe (Spain)
+	// > - Europe (Zurich)
+	// > - Israel (Tel Aviv)
+	// > - Middle East (UAE)
+	UseOnly string `pulumi:"useOnly"`
+}
+
+// ConfigurationRecorderRecordingStrategyInput is an input type that accepts ConfigurationRecorderRecordingStrategyArgs and ConfigurationRecorderRecordingStrategyOutput values.
+// You can construct a concrete instance of `ConfigurationRecorderRecordingStrategyInput` via:
+//
+//	ConfigurationRecorderRecordingStrategyArgs{...}
+type ConfigurationRecorderRecordingStrategyInput interface {
+	pulumi.Input
+
+	ToConfigurationRecorderRecordingStrategyOutput() ConfigurationRecorderRecordingStrategyOutput
+	ToConfigurationRecorderRecordingStrategyOutputWithContext(context.Context) ConfigurationRecorderRecordingStrategyOutput
+}
+
+// Specifies the recording strategy of the configuration recorder.
+type ConfigurationRecorderRecordingStrategyArgs struct {
+	// The recording strategy for the configuration recorder.
+	//
+	// - If you set this option to `ALL_SUPPORTED_RESOURCE_TYPES` , AWS Config records configuration changes for all supported resource types, excluding the global IAM resource types. You also must set the `AllSupported` field of [RecordingGroup](https://docs.aws.amazon.com/config/latest/APIReference/API_RecordingGroup.html) to `true` . When AWS Config adds support for a new resource type, AWS Config automatically starts recording resources of that type. For a list of supported resource types, see [Supported Resource Types](https://docs.aws.amazon.com/config/latest/developerguide/resource-config-reference.html#supported-resources) in the *AWS Config developer guide* .
+	// - If you set this option to `INCLUSION_BY_RESOURCE_TYPES` , AWS Config records configuration changes for only the resource types that you specify in the `ResourceTypes` field of [RecordingGroup](https://docs.aws.amazon.com/config/latest/APIReference/API_RecordingGroup.html) .
+	// - If you set this option to `EXCLUSION_BY_RESOURCE_TYPES` , AWS Config records configuration changes for all supported resource types, except the resource types that you specify to exclude from being recorded in the `ResourceTypes` field of [ExclusionByResourceTypes](https://docs.aws.amazon.com/config/latest/APIReference/API_ExclusionByResourceTypes.html) .
+	//
+	// > *Required and optional fields*
+	// >
+	// > The `recordingStrategy` field is optional when you set the `AllSupported` field of [RecordingGroup](https://docs.aws.amazon.com/config/latest/APIReference/API_RecordingGroup.html) to `true` .
+	// >
+	// > The `recordingStrategy` field is optional when you list resource types in the `ResourceTypes` field of [RecordingGroup](https://docs.aws.amazon.com/config/latest/APIReference/API_RecordingGroup.html) .
+	// >
+	// > The `recordingStrategy` field is required if you list resource types to exclude from recording in the `ResourceTypes` field of [ExclusionByResourceTypes](https://docs.aws.amazon.com/config/latest/APIReference/API_ExclusionByResourceTypes.html) . > *Overriding fields*
+	// >
+	// > If you choose `EXCLUSION_BY_RESOURCE_TYPES` for the recording strategy, the `ExclusionByResourceTypes` field will override other properties in the request.
+	// >
+	// > For example, even if you set `IncludeGlobalResourceTypes` to false, global IAM resource types will still be automatically recorded in this option unless those resource types are specifically listed as exclusions in the `ResourceTypes` field of `ExclusionByResourceTypes` . > *Global resource types and the exclusion recording strategy*
+	// >
+	// > By default, if you choose the `EXCLUSION_BY_RESOURCE_TYPES` recording strategy, when AWS Config adds support for a new resource type in the Region where you set up the configuration recorder, including global resource types, AWS Config starts recording resources of that type automatically.
+	// >
+	// > Unless specifically listed as exclusions, `AWS::RDS::GlobalCluster` will be recorded automatically in all supported AWS Config Regions were the configuration recorder is enabled.
+	// >
+	// > IAM users, groups, roles, and customer managed policies will be recorded in the Region where you set up the configuration recorder if that is a Region where AWS Config was available before February 2022. You cannot be record the global IAM resouce types in Regions supported by AWS Config after February 2022. This list where you cannot record the global IAM resource types includes the following Regions:
+	// > - Asia Pacific (Hyderabad)
+	// > - Asia Pacific (Melbourne)
+	// > - Canada West (Calgary)
+	// > - Europe (Spain)
+	// > - Europe (Zurich)
+	// > - Israel (Tel Aviv)
+	// > - Middle East (UAE)
+	UseOnly pulumi.StringInput `pulumi:"useOnly"`
+}
+
+func (ConfigurationRecorderRecordingStrategyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationRecorderRecordingStrategy)(nil)).Elem()
+}
+
+func (i ConfigurationRecorderRecordingStrategyArgs) ToConfigurationRecorderRecordingStrategyOutput() ConfigurationRecorderRecordingStrategyOutput {
+	return i.ToConfigurationRecorderRecordingStrategyOutputWithContext(context.Background())
+}
+
+func (i ConfigurationRecorderRecordingStrategyArgs) ToConfigurationRecorderRecordingStrategyOutputWithContext(ctx context.Context) ConfigurationRecorderRecordingStrategyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationRecorderRecordingStrategyOutput)
+}
+
+func (i ConfigurationRecorderRecordingStrategyArgs) ToConfigurationRecorderRecordingStrategyPtrOutput() ConfigurationRecorderRecordingStrategyPtrOutput {
+	return i.ToConfigurationRecorderRecordingStrategyPtrOutputWithContext(context.Background())
+}
+
+func (i ConfigurationRecorderRecordingStrategyArgs) ToConfigurationRecorderRecordingStrategyPtrOutputWithContext(ctx context.Context) ConfigurationRecorderRecordingStrategyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationRecorderRecordingStrategyOutput).ToConfigurationRecorderRecordingStrategyPtrOutputWithContext(ctx)
+}
+
+// ConfigurationRecorderRecordingStrategyPtrInput is an input type that accepts ConfigurationRecorderRecordingStrategyArgs, ConfigurationRecorderRecordingStrategyPtr and ConfigurationRecorderRecordingStrategyPtrOutput values.
+// You can construct a concrete instance of `ConfigurationRecorderRecordingStrategyPtrInput` via:
+//
+//	        ConfigurationRecorderRecordingStrategyArgs{...}
+//
+//	or:
+//
+//	        nil
+type ConfigurationRecorderRecordingStrategyPtrInput interface {
+	pulumi.Input
+
+	ToConfigurationRecorderRecordingStrategyPtrOutput() ConfigurationRecorderRecordingStrategyPtrOutput
+	ToConfigurationRecorderRecordingStrategyPtrOutputWithContext(context.Context) ConfigurationRecorderRecordingStrategyPtrOutput
+}
+
+type configurationRecorderRecordingStrategyPtrType ConfigurationRecorderRecordingStrategyArgs
+
+func ConfigurationRecorderRecordingStrategyPtr(v *ConfigurationRecorderRecordingStrategyArgs) ConfigurationRecorderRecordingStrategyPtrInput {
+	return (*configurationRecorderRecordingStrategyPtrType)(v)
+}
+
+func (*configurationRecorderRecordingStrategyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfigurationRecorderRecordingStrategy)(nil)).Elem()
+}
+
+func (i *configurationRecorderRecordingStrategyPtrType) ToConfigurationRecorderRecordingStrategyPtrOutput() ConfigurationRecorderRecordingStrategyPtrOutput {
+	return i.ToConfigurationRecorderRecordingStrategyPtrOutputWithContext(context.Background())
+}
+
+func (i *configurationRecorderRecordingStrategyPtrType) ToConfigurationRecorderRecordingStrategyPtrOutputWithContext(ctx context.Context) ConfigurationRecorderRecordingStrategyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationRecorderRecordingStrategyPtrOutput)
+}
+
+// Specifies the recording strategy of the configuration recorder.
+type ConfigurationRecorderRecordingStrategyOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationRecorderRecordingStrategyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationRecorderRecordingStrategy)(nil)).Elem()
+}
+
+func (o ConfigurationRecorderRecordingStrategyOutput) ToConfigurationRecorderRecordingStrategyOutput() ConfigurationRecorderRecordingStrategyOutput {
+	return o
+}
+
+func (o ConfigurationRecorderRecordingStrategyOutput) ToConfigurationRecorderRecordingStrategyOutputWithContext(ctx context.Context) ConfigurationRecorderRecordingStrategyOutput {
+	return o
+}
+
+func (o ConfigurationRecorderRecordingStrategyOutput) ToConfigurationRecorderRecordingStrategyPtrOutput() ConfigurationRecorderRecordingStrategyPtrOutput {
+	return o.ToConfigurationRecorderRecordingStrategyPtrOutputWithContext(context.Background())
+}
+
+func (o ConfigurationRecorderRecordingStrategyOutput) ToConfigurationRecorderRecordingStrategyPtrOutputWithContext(ctx context.Context) ConfigurationRecorderRecordingStrategyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConfigurationRecorderRecordingStrategy) *ConfigurationRecorderRecordingStrategy {
+		return &v
+	}).(ConfigurationRecorderRecordingStrategyPtrOutput)
+}
+
+// The recording strategy for the configuration recorder.
+//
+// - If you set this option to `ALL_SUPPORTED_RESOURCE_TYPES` , AWS Config records configuration changes for all supported resource types, excluding the global IAM resource types. You also must set the `AllSupported` field of [RecordingGroup](https://docs.aws.amazon.com/config/latest/APIReference/API_RecordingGroup.html) to `true` . When AWS Config adds support for a new resource type, AWS Config automatically starts recording resources of that type. For a list of supported resource types, see [Supported Resource Types](https://docs.aws.amazon.com/config/latest/developerguide/resource-config-reference.html#supported-resources) in the *AWS Config developer guide* .
+// - If you set this option to `INCLUSION_BY_RESOURCE_TYPES` , AWS Config records configuration changes for only the resource types that you specify in the `ResourceTypes` field of [RecordingGroup](https://docs.aws.amazon.com/config/latest/APIReference/API_RecordingGroup.html) .
+// - If you set this option to `EXCLUSION_BY_RESOURCE_TYPES` , AWS Config records configuration changes for all supported resource types, except the resource types that you specify to exclude from being recorded in the `ResourceTypes` field of [ExclusionByResourceTypes](https://docs.aws.amazon.com/config/latest/APIReference/API_ExclusionByResourceTypes.html) .
+//
+// > *Required and optional fields*
+// >
+// > The `recordingStrategy` field is optional when you set the `AllSupported` field of [RecordingGroup](https://docs.aws.amazon.com/config/latest/APIReference/API_RecordingGroup.html) to `true` .
+// >
+// > The `recordingStrategy` field is optional when you list resource types in the `ResourceTypes` field of [RecordingGroup](https://docs.aws.amazon.com/config/latest/APIReference/API_RecordingGroup.html) .
+// >
+// > The `recordingStrategy` field is required if you list resource types to exclude from recording in the `ResourceTypes` field of [ExclusionByResourceTypes](https://docs.aws.amazon.com/config/latest/APIReference/API_ExclusionByResourceTypes.html) . > *Overriding fields*
+// >
+// > If you choose `EXCLUSION_BY_RESOURCE_TYPES` for the recording strategy, the `ExclusionByResourceTypes` field will override other properties in the request.
+// >
+// > For example, even if you set `IncludeGlobalResourceTypes` to false, global IAM resource types will still be automatically recorded in this option unless those resource types are specifically listed as exclusions in the `ResourceTypes` field of `ExclusionByResourceTypes` . > *Global resource types and the exclusion recording strategy*
+// >
+// > By default, if you choose the `EXCLUSION_BY_RESOURCE_TYPES` recording strategy, when AWS Config adds support for a new resource type in the Region where you set up the configuration recorder, including global resource types, AWS Config starts recording resources of that type automatically.
+// >
+// > Unless specifically listed as exclusions, `AWS::RDS::GlobalCluster` will be recorded automatically in all supported AWS Config Regions were the configuration recorder is enabled.
+// >
+// > IAM users, groups, roles, and customer managed policies will be recorded in the Region where you set up the configuration recorder if that is a Region where AWS Config was available before February 2022. You cannot be record the global IAM resouce types in Regions supported by AWS Config after February 2022. This list where you cannot record the global IAM resource types includes the following Regions:
+// > - Asia Pacific (Hyderabad)
+// > - Asia Pacific (Melbourne)
+// > - Canada West (Calgary)
+// > - Europe (Spain)
+// > - Europe (Zurich)
+// > - Israel (Tel Aviv)
+// > - Middle East (UAE)
+func (o ConfigurationRecorderRecordingStrategyOutput) UseOnly() pulumi.StringOutput {
+	return o.ApplyT(func(v ConfigurationRecorderRecordingStrategy) string { return v.UseOnly }).(pulumi.StringOutput)
+}
+
+type ConfigurationRecorderRecordingStrategyPtrOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationRecorderRecordingStrategyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfigurationRecorderRecordingStrategy)(nil)).Elem()
+}
+
+func (o ConfigurationRecorderRecordingStrategyPtrOutput) ToConfigurationRecorderRecordingStrategyPtrOutput() ConfigurationRecorderRecordingStrategyPtrOutput {
+	return o
+}
+
+func (o ConfigurationRecorderRecordingStrategyPtrOutput) ToConfigurationRecorderRecordingStrategyPtrOutputWithContext(ctx context.Context) ConfigurationRecorderRecordingStrategyPtrOutput {
+	return o
+}
+
+func (o ConfigurationRecorderRecordingStrategyPtrOutput) Elem() ConfigurationRecorderRecordingStrategyOutput {
+	return o.ApplyT(func(v *ConfigurationRecorderRecordingStrategy) ConfigurationRecorderRecordingStrategy {
+		if v != nil {
+			return *v
+		}
+		var ret ConfigurationRecorderRecordingStrategy
+		return ret
+	}).(ConfigurationRecorderRecordingStrategyOutput)
+}
+
+// The recording strategy for the configuration recorder.
+//
+// - If you set this option to `ALL_SUPPORTED_RESOURCE_TYPES` , AWS Config records configuration changes for all supported resource types, excluding the global IAM resource types. You also must set the `AllSupported` field of [RecordingGroup](https://docs.aws.amazon.com/config/latest/APIReference/API_RecordingGroup.html) to `true` . When AWS Config adds support for a new resource type, AWS Config automatically starts recording resources of that type. For a list of supported resource types, see [Supported Resource Types](https://docs.aws.amazon.com/config/latest/developerguide/resource-config-reference.html#supported-resources) in the *AWS Config developer guide* .
+// - If you set this option to `INCLUSION_BY_RESOURCE_TYPES` , AWS Config records configuration changes for only the resource types that you specify in the `ResourceTypes` field of [RecordingGroup](https://docs.aws.amazon.com/config/latest/APIReference/API_RecordingGroup.html) .
+// - If you set this option to `EXCLUSION_BY_RESOURCE_TYPES` , AWS Config records configuration changes for all supported resource types, except the resource types that you specify to exclude from being recorded in the `ResourceTypes` field of [ExclusionByResourceTypes](https://docs.aws.amazon.com/config/latest/APIReference/API_ExclusionByResourceTypes.html) .
+//
+// > *Required and optional fields*
+// >
+// > The `recordingStrategy` field is optional when you set the `AllSupported` field of [RecordingGroup](https://docs.aws.amazon.com/config/latest/APIReference/API_RecordingGroup.html) to `true` .
+// >
+// > The `recordingStrategy` field is optional when you list resource types in the `ResourceTypes` field of [RecordingGroup](https://docs.aws.amazon.com/config/latest/APIReference/API_RecordingGroup.html) .
+// >
+// > The `recordingStrategy` field is required if you list resource types to exclude from recording in the `ResourceTypes` field of [ExclusionByResourceTypes](https://docs.aws.amazon.com/config/latest/APIReference/API_ExclusionByResourceTypes.html) . > *Overriding fields*
+// >
+// > If you choose `EXCLUSION_BY_RESOURCE_TYPES` for the recording strategy, the `ExclusionByResourceTypes` field will override other properties in the request.
+// >
+// > For example, even if you set `IncludeGlobalResourceTypes` to false, global IAM resource types will still be automatically recorded in this option unless those resource types are specifically listed as exclusions in the `ResourceTypes` field of `ExclusionByResourceTypes` . > *Global resource types and the exclusion recording strategy*
+// >
+// > By default, if you choose the `EXCLUSION_BY_RESOURCE_TYPES` recording strategy, when AWS Config adds support for a new resource type in the Region where you set up the configuration recorder, including global resource types, AWS Config starts recording resources of that type automatically.
+// >
+// > Unless specifically listed as exclusions, `AWS::RDS::GlobalCluster` will be recorded automatically in all supported AWS Config Regions were the configuration recorder is enabled.
+// >
+// > IAM users, groups, roles, and customer managed policies will be recorded in the Region where you set up the configuration recorder if that is a Region where AWS Config was available before February 2022. You cannot be record the global IAM resouce types in Regions supported by AWS Config after February 2022. This list where you cannot record the global IAM resource types includes the following Regions:
+// > - Asia Pacific (Hyderabad)
+// > - Asia Pacific (Melbourne)
+// > - Canada West (Calgary)
+// > - Europe (Spain)
+// > - Europe (Zurich)
+// > - Israel (Tel Aviv)
+// > - Middle East (UAE)
+func (o ConfigurationRecorderRecordingStrategyPtrOutput) UseOnly() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConfigurationRecorderRecordingStrategy) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.UseOnly
+	}).(pulumi.StringPtrOutput)
+}
+
 // Input parameters in the form of key-value pairs for the conformance pack.
 type ConformancePackInputParameter struct {
 	// One part of a key-value pair.
@@ -2334,6 +3229,16 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationAggregatorAccountAggregationSourceArrayInput)(nil)).Elem(), ConfigurationAggregatorAccountAggregationSourceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationAggregatorOrganizationAggregationSourceInput)(nil)).Elem(), ConfigurationAggregatorOrganizationAggregationSourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationAggregatorOrganizationAggregationSourcePtrInput)(nil)).Elem(), ConfigurationAggregatorOrganizationAggregationSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationRecorderExclusionByResourceTypesInput)(nil)).Elem(), ConfigurationRecorderExclusionByResourceTypesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationRecorderExclusionByResourceTypesPtrInput)(nil)).Elem(), ConfigurationRecorderExclusionByResourceTypesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationRecorderRecordingGroupInput)(nil)).Elem(), ConfigurationRecorderRecordingGroupArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationRecorderRecordingGroupPtrInput)(nil)).Elem(), ConfigurationRecorderRecordingGroupArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationRecorderRecordingModeInput)(nil)).Elem(), ConfigurationRecorderRecordingModeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationRecorderRecordingModePtrInput)(nil)).Elem(), ConfigurationRecorderRecordingModeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationRecorderRecordingModeOverrideInput)(nil)).Elem(), ConfigurationRecorderRecordingModeOverrideArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationRecorderRecordingModeOverrideArrayInput)(nil)).Elem(), ConfigurationRecorderRecordingModeOverrideArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationRecorderRecordingStrategyInput)(nil)).Elem(), ConfigurationRecorderRecordingStrategyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationRecorderRecordingStrategyPtrInput)(nil)).Elem(), ConfigurationRecorderRecordingStrategyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConformancePackInputParameterInput)(nil)).Elem(), ConformancePackInputParameterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConformancePackInputParameterArrayInput)(nil)).Elem(), ConformancePackInputParameterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorAzureConnectorConfigurationInput)(nil)).Elem(), ConnectorAzureConnectorConfigurationArgs{})
@@ -2365,6 +3270,16 @@ func init() {
 	pulumi.RegisterOutputType(ConfigurationAggregatorAccountAggregationSourceArrayOutput{})
 	pulumi.RegisterOutputType(ConfigurationAggregatorOrganizationAggregationSourceOutput{})
 	pulumi.RegisterOutputType(ConfigurationAggregatorOrganizationAggregationSourcePtrOutput{})
+	pulumi.RegisterOutputType(ConfigurationRecorderExclusionByResourceTypesOutput{})
+	pulumi.RegisterOutputType(ConfigurationRecorderExclusionByResourceTypesPtrOutput{})
+	pulumi.RegisterOutputType(ConfigurationRecorderRecordingGroupOutput{})
+	pulumi.RegisterOutputType(ConfigurationRecorderRecordingGroupPtrOutput{})
+	pulumi.RegisterOutputType(ConfigurationRecorderRecordingModeOutput{})
+	pulumi.RegisterOutputType(ConfigurationRecorderRecordingModePtrOutput{})
+	pulumi.RegisterOutputType(ConfigurationRecorderRecordingModeOverrideOutput{})
+	pulumi.RegisterOutputType(ConfigurationRecorderRecordingModeOverrideArrayOutput{})
+	pulumi.RegisterOutputType(ConfigurationRecorderRecordingStrategyOutput{})
+	pulumi.RegisterOutputType(ConfigurationRecorderRecordingStrategyPtrOutput{})
 	pulumi.RegisterOutputType(ConformancePackInputParameterOutput{})
 	pulumi.RegisterOutputType(ConformancePackInputParameterArrayOutput{})
 	pulumi.RegisterOutputType(ConnectorAzureConnectorConfigurationOutput{})

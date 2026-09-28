@@ -64,8 +64,12 @@ __all__ = [
     'AssetModelVariableValueArgsDict',
     'AssetPropertyArgs',
     'AssetPropertyArgsDict',
+    'DatasetConfigArgs',
+    'DatasetConfigArgsDict',
     'DatasetKendraSourceDetailArgs',
     'DatasetKendraSourceDetailArgsDict',
+    'DatasetSessionConfigArgs',
+    'DatasetSessionConfigArgsDict',
     'DatasetSourceArgs',
     'DatasetSourceArgsDict',
     'DatasetSourceDetailArgs',
@@ -1898,6 +1902,35 @@ class AssetPropertyArgs:
         pulumi.set(self, "unit", value)
 
 
+class DatasetConfigArgsDict(TypedDict):
+    session: NotRequired[pulumi.Input[Optional['DatasetSessionConfigArgsDict']]]
+    """
+    The session configuration for a SESSION dataset.
+    """
+
+@pulumi.input_type
+class DatasetConfigArgs:
+    def __init__(__self__, *,
+                 session: pulumi.Input[Optional['DatasetSessionConfigArgs']] = None):
+        """
+        :param pulumi.Input['DatasetSessionConfigArgs'] session: The session configuration for a SESSION dataset.
+        """
+        if session is not None:
+            pulumi.set(__self__, "session", session)
+
+    @_builtins.property
+    @pulumi.getter
+    def session(self) -> pulumi.Input[Optional['DatasetSessionConfigArgs']]:
+        """
+        The session configuration for a SESSION dataset.
+        """
+        return pulumi.get(self, "session")
+
+    @session.setter
+    def session(self, value: pulumi.Input[Optional['DatasetSessionConfigArgs']]):
+        pulumi.set(self, "session", value)
+
+
 class DatasetKendraSourceDetailArgsDict(TypedDict):
     knowledge_base_arn: pulumi.Input[_builtins.str]
     """
@@ -1943,6 +1976,53 @@ class DatasetKendraSourceDetailArgs:
     @role_arn.setter
     def role_arn(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "role_arn", value)
+
+
+class DatasetSessionConfigArgsDict(TypedDict):
+    session_end_time: pulumi.Input[_builtins.str]
+    """
+    The end time of the session as an ISO 8601 UTC instant, for example 2024-12-31T23:59:59Z.
+    """
+    session_start_time: pulumi.Input[_builtins.str]
+    """
+    The start time of the session as an ISO 8601 UTC instant, for example 2024-01-01T00:00:00Z.
+    """
+
+@pulumi.input_type
+class DatasetSessionConfigArgs:
+    def __init__(__self__, *,
+                 session_end_time: pulumi.Input[_builtins.str],
+                 session_start_time: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] session_end_time: The end time of the session as an ISO 8601 UTC instant, for example 2024-12-31T23:59:59Z.
+        :param pulumi.Input[_builtins.str] session_start_time: The start time of the session as an ISO 8601 UTC instant, for example 2024-01-01T00:00:00Z.
+        """
+        pulumi.set(__self__, "session_end_time", session_end_time)
+        pulumi.set(__self__, "session_start_time", session_start_time)
+
+    @_builtins.property
+    @pulumi.getter(name="sessionEndTime")
+    def session_end_time(self) -> pulumi.Input[_builtins.str]:
+        """
+        The end time of the session as an ISO 8601 UTC instant, for example 2024-12-31T23:59:59Z.
+        """
+        return pulumi.get(self, "session_end_time")
+
+    @session_end_time.setter
+    def session_end_time(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "session_end_time", value)
+
+    @_builtins.property
+    @pulumi.getter(name="sessionStartTime")
+    def session_start_time(self) -> pulumi.Input[_builtins.str]:
+        """
+        The start time of the session as an ISO 8601 UTC instant, for example 2024-01-01T00:00:00Z.
+        """
+        return pulumi.get(self, "session_start_time")
+
+    @session_start_time.setter
+    def session_start_time(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "session_start_time", value)
 
 
 class DatasetSourceArgsDict(TypedDict):

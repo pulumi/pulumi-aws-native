@@ -26,6 +26,8 @@ __all__ = [
     'ComputeEnvironmentEc2ConfigurationObjectArgsDict',
     'ComputeEnvironmentEcsSettingsArgs',
     'ComputeEnvironmentEcsSettingsArgsDict',
+    'ComputeEnvironmentEksAccessEntryArgs',
+    'ComputeEnvironmentEksAccessEntryArgsDict',
     'ComputeEnvironmentEksConfigurationArgs',
     'ComputeEnvironmentEksConfigurationArgsDict',
     'ComputeEnvironmentInfrastructureOptimizationArgs',
@@ -1076,6 +1078,60 @@ class ComputeEnvironmentEcsSettingsArgs:
         pulumi.set(self, "container_insights", value)
 
 
+class ComputeEnvironmentEksAccessEntryArgsDict(TypedDict):
+    """
+    The EKS access entry configuration for the compute environment. Controls whether AWS Batch manages the EKS access entry for the compute environment's service role, or inherits it from the cluster.
+    """
+    desired_state: NotRequired[pulumi.Input[Optional['ComputeEnvironmentEksAccessEntryDesiredState']]]
+    """
+    The desired state of the EKS access entry managed by AWS Batch. When omitted, AWS Batch applies INHERIT_FROM_CLUSTER.
+    """
+    status: NotRequired[pulumi.Input[Optional['ComputeEnvironmentEksAccessEntryStatus']]]
+    """
+    The read-only status of the EKS access entry, returned by DescribeComputeEnvironments.
+    """
+
+@pulumi.input_type
+class ComputeEnvironmentEksAccessEntryArgs:
+    def __init__(__self__, *,
+                 desired_state: pulumi.Input[Optional['ComputeEnvironmentEksAccessEntryDesiredState']] = None,
+                 status: pulumi.Input[Optional['ComputeEnvironmentEksAccessEntryStatus']] = None):
+        """
+        The EKS access entry configuration for the compute environment. Controls whether AWS Batch manages the EKS access entry for the compute environment's service role, or inherits it from the cluster.
+
+        :param pulumi.Input['ComputeEnvironmentEksAccessEntryDesiredState'] desired_state: The desired state of the EKS access entry managed by AWS Batch. When omitted, AWS Batch applies INHERIT_FROM_CLUSTER.
+        :param pulumi.Input['ComputeEnvironmentEksAccessEntryStatus'] status: The read-only status of the EKS access entry, returned by DescribeComputeEnvironments.
+        """
+        if desired_state is not None:
+            pulumi.set(__self__, "desired_state", desired_state)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @_builtins.property
+    @pulumi.getter(name="desiredState")
+    def desired_state(self) -> pulumi.Input[Optional['ComputeEnvironmentEksAccessEntryDesiredState']]:
+        """
+        The desired state of the EKS access entry managed by AWS Batch. When omitted, AWS Batch applies INHERIT_FROM_CLUSTER.
+        """
+        return pulumi.get(self, "desired_state")
+
+    @desired_state.setter
+    def desired_state(self, value: pulumi.Input[Optional['ComputeEnvironmentEksAccessEntryDesiredState']]):
+        pulumi.set(self, "desired_state", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> pulumi.Input[Optional['ComputeEnvironmentEksAccessEntryStatus']]:
+        """
+        The read-only status of the EKS access entry, returned by DescribeComputeEnvironments.
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: pulumi.Input[Optional['ComputeEnvironmentEksAccessEntryStatus']]):
+        pulumi.set(self, "status", value)
+
+
 class ComputeEnvironmentEksConfigurationArgsDict(TypedDict):
     eks_cluster_arn: pulumi.Input[_builtins.str]
     """
@@ -1085,18 +1141,22 @@ class ComputeEnvironmentEksConfigurationArgsDict(TypedDict):
     """
     The namespace of the Amazon EKS cluster. AWS Batch manages pods in this namespace. The value can't left empty or null. It must be fewer than 64 characters long, can't be set to `default` , can't start with " `kube-` ," and must match this regular expression: `^[a-z0-9]([-a-z0-9]*[a-z0-9])?$` . For more information, see [Namespaces](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/) in the Kubernetes documentation.
     """
+    access_entry: NotRequired[pulumi.Input[Optional['ComputeEnvironmentEksAccessEntryArgsDict']]]
 
 @pulumi.input_type
 class ComputeEnvironmentEksConfigurationArgs:
     def __init__(__self__, *,
                  eks_cluster_arn: pulumi.Input[_builtins.str],
-                 kubernetes_namespace: pulumi.Input[_builtins.str]):
+                 kubernetes_namespace: pulumi.Input[_builtins.str],
+                 access_entry: pulumi.Input[Optional['ComputeEnvironmentEksAccessEntryArgs']] = None):
         """
         :param pulumi.Input[_builtins.str] eks_cluster_arn: The Amazon Resource Name (ARN) of the Amazon EKS cluster. An example is `arn: *aws* :eks: *us-east-1* : *123456789012* :cluster/ *ClusterForBatch*` .
         :param pulumi.Input[_builtins.str] kubernetes_namespace: The namespace of the Amazon EKS cluster. AWS Batch manages pods in this namespace. The value can't left empty or null. It must be fewer than 64 characters long, can't be set to `default` , can't start with " `kube-` ," and must match this regular expression: `^[a-z0-9]([-a-z0-9]*[a-z0-9])?$` . For more information, see [Namespaces](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/) in the Kubernetes documentation.
         """
         pulumi.set(__self__, "eks_cluster_arn", eks_cluster_arn)
         pulumi.set(__self__, "kubernetes_namespace", kubernetes_namespace)
+        if access_entry is not None:
+            pulumi.set(__self__, "access_entry", access_entry)
 
     @_builtins.property
     @pulumi.getter(name="eksClusterArn")
@@ -1121,6 +1181,15 @@ class ComputeEnvironmentEksConfigurationArgs:
     @kubernetes_namespace.setter
     def kubernetes_namespace(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "kubernetes_namespace", value)
+
+    @_builtins.property
+    @pulumi.getter(name="accessEntry")
+    def access_entry(self) -> pulumi.Input[Optional['ComputeEnvironmentEksAccessEntryArgs']]:
+        return pulumi.get(self, "access_entry")
+
+    @access_entry.setter
+    def access_entry(self, value: pulumi.Input[Optional['ComputeEnvironmentEksAccessEntryArgs']]):
+        pulumi.set(self, "access_entry", value)
 
 
 class ComputeEnvironmentInfrastructureOptimizationArgsDict(TypedDict):

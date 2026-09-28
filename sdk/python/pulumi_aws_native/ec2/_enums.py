@@ -47,6 +47,8 @@ __all__ = [
     'HostRecovery',
     'InstanceAffinity',
     'InstanceConnectEndpointState',
+    'InstanceEventWindowTimeRangeEndWeekDay',
+    'InstanceEventWindowTimeRangeStartWeekDay',
     'InstanceMetadataOptionsHttpEndpoint',
     'InstanceMetadataOptionsHttpProtocolIpv6',
     'InstanceMetadataOptionsHttpTokens',
@@ -99,6 +101,7 @@ __all__ = [
     'SpotFleetTagSpecificationResourceType',
     'SqlHaStandbyDetectedInstanceHaStatus',
     'SqlHaStandbyDetectedInstanceSqlServerLicenseUsage',
+    'SubnetCidrReservationReservationType',
     'TrafficMirrorFilterTrafficMirrorNetworkService',
     'TransitGatewayEncryptionSupport',
     'TransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceType',
@@ -606,6 +609,34 @@ class InstanceConnectEndpointState(_builtins.str, Enum):
     UPDATE_IN_PROGRESS = "update-in-progress"
     UPDATE_COMPLETE = "update-complete"
     UPDATE_FAILED = "update-failed"
+
+
+@pulumi.type_token("aws-native:ec2:InstanceEventWindowTimeRangeEndWeekDay")
+class InstanceEventWindowTimeRangeEndWeekDay(_builtins.str, Enum):
+    """
+    The day on which the time range ends.
+    """
+    SUNDAY = "sunday"
+    MONDAY = "monday"
+    TUESDAY = "tuesday"
+    WEDNESDAY = "wednesday"
+    THURSDAY = "thursday"
+    FRIDAY = "friday"
+    SATURDAY = "saturday"
+
+
+@pulumi.type_token("aws-native:ec2:InstanceEventWindowTimeRangeStartWeekDay")
+class InstanceEventWindowTimeRangeStartWeekDay(_builtins.str, Enum):
+    """
+    The day on which the time range begins.
+    """
+    SUNDAY = "sunday"
+    MONDAY = "monday"
+    TUESDAY = "tuesday"
+    WEDNESDAY = "wednesday"
+    THURSDAY = "thursday"
+    FRIDAY = "friday"
+    SATURDAY = "saturday"
 
 
 @pulumi.type_token("aws-native:ec2:InstanceMetadataOptionsHttpEndpoint")
@@ -1184,6 +1215,15 @@ class SqlHaStandbyDetectedInstanceSqlServerLicenseUsage(_builtins.str, Enum):
     """
     FULL = "full"
     WAIVED = "waived"
+
+
+@pulumi.type_token("aws-native:ec2:SubnetCidrReservationReservationType")
+class SubnetCidrReservationReservationType(_builtins.str, Enum):
+    """
+    The type of reservation. A prefix reservation is used for an IPv6 prefix delegated to a network interface; an explicit reservation is used for a range that Amazon EC2 must not assign automatically.
+    """
+    PREFIX = "prefix"
+    EXPLICIT = "explicit"
 
 
 @pulumi.type_token("aws-native:ec2:TrafficMirrorFilterTrafficMirrorNetworkService")

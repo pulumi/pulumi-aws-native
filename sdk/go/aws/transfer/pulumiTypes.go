@@ -1613,7 +1613,8 @@ type ServerProtocolDetails struct {
 	// *Special values*
 	//
 	// The `AUTO` and `0.0.0.0` are special values for the `PassiveIp` parameter. The value `PassiveIp=AUTO` is assigned by default to FTP and FTPS type servers. In this case, the server automatically responds with one of the endpoint IPs within the PASV response. `PassiveIp=0.0.0.0` has a more unique application for its usage. For example, if you have a High Availability (HA) Network Load Balancer (NLB) environment, where you have 3 subnets, you can only specify a single IP address using the `PassiveIp` parameter. This reduces the effectiveness of having High Availability. In this case, you can specify `PassiveIp=0.0.0.0` . This tells the client to use the same IP address as the Control connection and utilize all AZs for their connections. Note, however, that not all FTP clients support the `PassiveIp=0.0.0.0` response. FileZilla and WinSCP do support it. If you are using other clients, check to see if your client supports the `PassiveIp=0.0.0.0` response.
-	PassiveIp *string `pulumi:"passiveIp"`
+	PassiveIp   *string            `pulumi:"passiveIp"`
+	ProxyConfig *ServerProxyConfig `pulumi:"proxyConfig"`
 	// Use the `SetStatOption` to ignore the error that is generated when the client attempts to use `SETSTAT` on a file you are uploading to an S3 bucket.
 	//
 	// Some SFTP file transfer clients can attempt to change the attributes of remote files, including timestamp and permissions, using commands, such as `SETSTAT` when uploading the file. However, these commands are not compatible with object storage systems, such as Amazon S3. Due to this incompatibility, file uploads from these clients can result in errors even when the file is otherwise successfully uploaded.
@@ -1659,7 +1660,8 @@ type ServerProtocolDetailsArgs struct {
 	// *Special values*
 	//
 	// The `AUTO` and `0.0.0.0` are special values for the `PassiveIp` parameter. The value `PassiveIp=AUTO` is assigned by default to FTP and FTPS type servers. In this case, the server automatically responds with one of the endpoint IPs within the PASV response. `PassiveIp=0.0.0.0` has a more unique application for its usage. For example, if you have a High Availability (HA) Network Load Balancer (NLB) environment, where you have 3 subnets, you can only specify a single IP address using the `PassiveIp` parameter. This reduces the effectiveness of having High Availability. In this case, you can specify `PassiveIp=0.0.0.0` . This tells the client to use the same IP address as the Control connection and utilize all AZs for their connections. Note, however, that not all FTP clients support the `PassiveIp=0.0.0.0` response. FileZilla and WinSCP do support it. If you are using other clients, check to see if your client supports the `PassiveIp=0.0.0.0` response.
-	PassiveIp pulumi.StringPtrInput `pulumi:"passiveIp"`
+	PassiveIp   pulumi.StringPtrInput     `pulumi:"passiveIp"`
+	ProxyConfig ServerProxyConfigPtrInput `pulumi:"proxyConfig"`
 	// Use the `SetStatOption` to ignore the error that is generated when the client attempts to use `SETSTAT` on a file you are uploading to an S3 bucket.
 	//
 	// Some SFTP file transfer clients can attempt to change the attributes of remote files, including timestamp and permissions, using commands, such as `SETSTAT` when uploading the file. However, these commands are not compatible with object storage systems, such as Amazon S3. Due to this incompatibility, file uploads from these clients can result in errors even when the file is otherwise successfully uploaded.
@@ -1777,6 +1779,10 @@ func (o ServerProtocolDetailsOutput) PassiveIp() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServerProtocolDetails) *string { return v.PassiveIp }).(pulumi.StringPtrOutput)
 }
 
+func (o ServerProtocolDetailsOutput) ProxyConfig() ServerProxyConfigPtrOutput {
+	return o.ApplyT(func(v ServerProtocolDetails) *ServerProxyConfig { return v.ProxyConfig }).(ServerProxyConfigPtrOutput)
+}
+
 // Use the `SetStatOption` to ignore the error that is generated when the client attempts to use `SETSTAT` on a file you are uploading to an S3 bucket.
 //
 // Some SFTP file transfer clients can attempt to change the attributes of remote files, including timestamp and permissions, using commands, such as `SETSTAT` when uploading the file. However, these commands are not compatible with object storage systems, such as Amazon S3. Due to this incompatibility, file uploads from these clients can result in errors even when the file is otherwise successfully uploaded.
@@ -1855,6 +1861,15 @@ func (o ServerProtocolDetailsPtrOutput) PassiveIp() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+func (o ServerProtocolDetailsPtrOutput) ProxyConfig() ServerProxyConfigPtrOutput {
+	return o.ApplyT(func(v *ServerProtocolDetails) *ServerProxyConfig {
+		if v == nil {
+			return nil
+		}
+		return v.ProxyConfig
+	}).(ServerProxyConfigPtrOutput)
+}
+
 // Use the `SetStatOption` to ignore the error that is generated when the client attempts to use `SETSTAT` on a file you are uploading to an S3 bucket.
 //
 // Some SFTP file transfer clients can attempt to change the attributes of remote files, including timestamp and permissions, using commands, such as `SETSTAT` when uploading the file. However, these commands are not compatible with object storage systems, such as Amazon S3. Due to this incompatibility, file uploads from these clients can result in errors even when the file is otherwise successfully uploaded.
@@ -1885,6 +1900,139 @@ func (o ServerProtocolDetailsPtrOutput) TlsSessionResumptionMode() ServerTlsSess
 		}
 		return v.TlsSessionResumptionMode
 	}).(ServerTlsSessionResumptionModePtrOutput)
+}
+
+type ServerProxyConfig struct {
+	SftpMode *ServerProxyMode `pulumi:"sftpMode"`
+}
+
+// ServerProxyConfigInput is an input type that accepts ServerProxyConfigArgs and ServerProxyConfigOutput values.
+// You can construct a concrete instance of `ServerProxyConfigInput` via:
+//
+//	ServerProxyConfigArgs{...}
+type ServerProxyConfigInput interface {
+	pulumi.Input
+
+	ToServerProxyConfigOutput() ServerProxyConfigOutput
+	ToServerProxyConfigOutputWithContext(context.Context) ServerProxyConfigOutput
+}
+
+type ServerProxyConfigArgs struct {
+	SftpMode ServerProxyModePtrInput `pulumi:"sftpMode"`
+}
+
+func (ServerProxyConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerProxyConfig)(nil)).Elem()
+}
+
+func (i ServerProxyConfigArgs) ToServerProxyConfigOutput() ServerProxyConfigOutput {
+	return i.ToServerProxyConfigOutputWithContext(context.Background())
+}
+
+func (i ServerProxyConfigArgs) ToServerProxyConfigOutputWithContext(ctx context.Context) ServerProxyConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerProxyConfigOutput)
+}
+
+func (i ServerProxyConfigArgs) ToServerProxyConfigPtrOutput() ServerProxyConfigPtrOutput {
+	return i.ToServerProxyConfigPtrOutputWithContext(context.Background())
+}
+
+func (i ServerProxyConfigArgs) ToServerProxyConfigPtrOutputWithContext(ctx context.Context) ServerProxyConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerProxyConfigOutput).ToServerProxyConfigPtrOutputWithContext(ctx)
+}
+
+// ServerProxyConfigPtrInput is an input type that accepts ServerProxyConfigArgs, ServerProxyConfigPtr and ServerProxyConfigPtrOutput values.
+// You can construct a concrete instance of `ServerProxyConfigPtrInput` via:
+//
+//	        ServerProxyConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type ServerProxyConfigPtrInput interface {
+	pulumi.Input
+
+	ToServerProxyConfigPtrOutput() ServerProxyConfigPtrOutput
+	ToServerProxyConfigPtrOutputWithContext(context.Context) ServerProxyConfigPtrOutput
+}
+
+type serverProxyConfigPtrType ServerProxyConfigArgs
+
+func ServerProxyConfigPtr(v *ServerProxyConfigArgs) ServerProxyConfigPtrInput {
+	return (*serverProxyConfigPtrType)(v)
+}
+
+func (*serverProxyConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServerProxyConfig)(nil)).Elem()
+}
+
+func (i *serverProxyConfigPtrType) ToServerProxyConfigPtrOutput() ServerProxyConfigPtrOutput {
+	return i.ToServerProxyConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *serverProxyConfigPtrType) ToServerProxyConfigPtrOutputWithContext(ctx context.Context) ServerProxyConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerProxyConfigPtrOutput)
+}
+
+type ServerProxyConfigOutput struct{ *pulumi.OutputState }
+
+func (ServerProxyConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerProxyConfig)(nil)).Elem()
+}
+
+func (o ServerProxyConfigOutput) ToServerProxyConfigOutput() ServerProxyConfigOutput {
+	return o
+}
+
+func (o ServerProxyConfigOutput) ToServerProxyConfigOutputWithContext(ctx context.Context) ServerProxyConfigOutput {
+	return o
+}
+
+func (o ServerProxyConfigOutput) ToServerProxyConfigPtrOutput() ServerProxyConfigPtrOutput {
+	return o.ToServerProxyConfigPtrOutputWithContext(context.Background())
+}
+
+func (o ServerProxyConfigOutput) ToServerProxyConfigPtrOutputWithContext(ctx context.Context) ServerProxyConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServerProxyConfig) *ServerProxyConfig {
+		return &v
+	}).(ServerProxyConfigPtrOutput)
+}
+
+func (o ServerProxyConfigOutput) SftpMode() ServerProxyModePtrOutput {
+	return o.ApplyT(func(v ServerProxyConfig) *ServerProxyMode { return v.SftpMode }).(ServerProxyModePtrOutput)
+}
+
+type ServerProxyConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ServerProxyConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServerProxyConfig)(nil)).Elem()
+}
+
+func (o ServerProxyConfigPtrOutput) ToServerProxyConfigPtrOutput() ServerProxyConfigPtrOutput {
+	return o
+}
+
+func (o ServerProxyConfigPtrOutput) ToServerProxyConfigPtrOutputWithContext(ctx context.Context) ServerProxyConfigPtrOutput {
+	return o
+}
+
+func (o ServerProxyConfigPtrOutput) Elem() ServerProxyConfigOutput {
+	return o.ApplyT(func(v *ServerProxyConfig) ServerProxyConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ServerProxyConfig
+		return ret
+	}).(ServerProxyConfigOutput)
+}
+
+func (o ServerProxyConfigPtrOutput) SftpMode() ServerProxyModePtrOutput {
+	return o.ApplyT(func(v *ServerProxyConfig) *ServerProxyMode {
+		if v == nil {
+			return nil
+		}
+		return v.SftpMode
+	}).(ServerProxyModePtrOutput)
 }
 
 type ServerS3StorageOptions struct {
@@ -2359,6 +2507,8 @@ func (o ServerWorkflowDetailsPtrOutput) OnUpload() ServerWorkflowDetailArrayOutp
 type SftpConfigProperties struct {
 	// Specifies the number of active connections that your connector can establish with the remote server at the same time.
 	MaxConcurrentConnections *int `pulumi:"maxConcurrentConnections"`
+	// Specifies the order in which the connector attempts to use secret versions during authentication. This enables fallback to alternative credentials if the primary version fails.
+	OrderedUserSecretVersionStages []string `pulumi:"orderedUserSecretVersionStages"`
 	// List of public host keys, for the external server to which you are connecting.
 	TrustedHostKeys []string `pulumi:"trustedHostKeys"`
 	// ARN or name of the secret in AWS Secrets Manager which contains the SFTP user's private keys or passwords.
@@ -2380,6 +2530,8 @@ type SftpConfigPropertiesInput interface {
 type SftpConfigPropertiesArgs struct {
 	// Specifies the number of active connections that your connector can establish with the remote server at the same time.
 	MaxConcurrentConnections pulumi.IntPtrInput `pulumi:"maxConcurrentConnections"`
+	// Specifies the order in which the connector attempts to use secret versions during authentication. This enables fallback to alternative credentials if the primary version fails.
+	OrderedUserSecretVersionStages pulumi.StringArrayInput `pulumi:"orderedUserSecretVersionStages"`
 	// List of public host keys, for the external server to which you are connecting.
 	TrustedHostKeys pulumi.StringArrayInput `pulumi:"trustedHostKeys"`
 	// ARN or name of the secret in AWS Secrets Manager which contains the SFTP user's private keys or passwords.
@@ -2469,6 +2621,11 @@ func (o SftpConfigPropertiesOutput) MaxConcurrentConnections() pulumi.IntPtrOutp
 	return o.ApplyT(func(v SftpConfigProperties) *int { return v.MaxConcurrentConnections }).(pulumi.IntPtrOutput)
 }
 
+// Specifies the order in which the connector attempts to use secret versions during authentication. This enables fallback to alternative credentials if the primary version fails.
+func (o SftpConfigPropertiesOutput) OrderedUserSecretVersionStages() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SftpConfigProperties) []string { return v.OrderedUserSecretVersionStages }).(pulumi.StringArrayOutput)
+}
+
 // List of public host keys, for the external server to which you are connecting.
 func (o SftpConfigPropertiesOutput) TrustedHostKeys() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v SftpConfigProperties) []string { return v.TrustedHostKeys }).(pulumi.StringArrayOutput)
@@ -2511,6 +2668,16 @@ func (o SftpConfigPropertiesPtrOutput) MaxConcurrentConnections() pulumi.IntPtrO
 		}
 		return v.MaxConcurrentConnections
 	}).(pulumi.IntPtrOutput)
+}
+
+// Specifies the order in which the connector attempts to use secret versions during authentication. This enables fallback to alternative credentials if the primary version fails.
+func (o SftpConfigPropertiesPtrOutput) OrderedUserSecretVersionStages() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *SftpConfigProperties) []string {
+		if v == nil {
+			return nil
+		}
+		return v.OrderedUserSecretVersionStages
+	}).(pulumi.StringArrayOutput)
 }
 
 // List of public host keys, for the external server to which you are connecting.
@@ -5439,6 +5606,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerIdentityProviderDetailsPtrInput)(nil)).Elem(), ServerIdentityProviderDetailsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerProtocolDetailsInput)(nil)).Elem(), ServerProtocolDetailsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerProtocolDetailsPtrInput)(nil)).Elem(), ServerProtocolDetailsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerProxyConfigInput)(nil)).Elem(), ServerProxyConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerProxyConfigPtrInput)(nil)).Elem(), ServerProxyConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerS3StorageOptionsInput)(nil)).Elem(), ServerS3StorageOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerS3StorageOptionsPtrInput)(nil)).Elem(), ServerS3StorageOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerWorkflowDetailInput)(nil)).Elem(), ServerWorkflowDetailArgs{})
@@ -5498,6 +5667,8 @@ func init() {
 	pulumi.RegisterOutputType(ServerIdentityProviderDetailsPtrOutput{})
 	pulumi.RegisterOutputType(ServerProtocolDetailsOutput{})
 	pulumi.RegisterOutputType(ServerProtocolDetailsPtrOutput{})
+	pulumi.RegisterOutputType(ServerProxyConfigOutput{})
+	pulumi.RegisterOutputType(ServerProxyConfigPtrOutput{})
 	pulumi.RegisterOutputType(ServerS3StorageOptionsOutput{})
 	pulumi.RegisterOutputType(ServerS3StorageOptionsPtrOutput{})
 	pulumi.RegisterOutputType(ServerWorkflowDetailOutput{})

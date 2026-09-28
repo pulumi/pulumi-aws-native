@@ -271,4 +271,97 @@ namespace Pulumi.AwsNative.Bcm
 
         public override string ToString() => _value;
     }
+
+    /// <summary>
+    /// Whether a date value is absolute or relative.
+    /// </summary>
+    [EnumType]
+    public readonly struct ScheduledReportDateTimeType : IEquatable<ScheduledReportDateTimeType>
+    {
+        private readonly string _value;
+
+        private ScheduledReportDateTimeType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ScheduledReportDateTimeType Absolute { get; } = new ScheduledReportDateTimeType("ABSOLUTE");
+        public static ScheduledReportDateTimeType Relative { get; } = new ScheduledReportDateTimeType("RELATIVE");
+
+        public static bool operator ==(ScheduledReportDateTimeType left, ScheduledReportDateTimeType right) => left.Equals(right);
+        public static bool operator !=(ScheduledReportDateTimeType left, ScheduledReportDateTimeType right) => !left.Equals(right);
+
+        public static explicit operator string(ScheduledReportDateTimeType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ScheduledReportDateTimeType other && Equals(other);
+        public bool Equals(ScheduledReportDateTimeType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The health status of a scheduled report.
+    /// </summary>
+    [EnumType]
+    public readonly struct ScheduledReportHealthStatusCode : IEquatable<ScheduledReportHealthStatusCode>
+    {
+        private readonly string _value;
+
+        private ScheduledReportHealthStatusCode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ScheduledReportHealthStatusCode Healthy { get; } = new ScheduledReportHealthStatusCode("HEALTHY");
+        public static ScheduledReportHealthStatusCode Unhealthy { get; } = new ScheduledReportHealthStatusCode("UNHEALTHY");
+
+        public static bool operator ==(ScheduledReportHealthStatusCode left, ScheduledReportHealthStatusCode right) => left.Equals(right);
+        public static bool operator !=(ScheduledReportHealthStatusCode left, ScheduledReportHealthStatusCode right) => !left.Equals(right);
+
+        public static explicit operator string(ScheduledReportHealthStatusCode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ScheduledReportHealthStatusCode other && Equals(other);
+        public bool Equals(ScheduledReportHealthStatusCode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Whether the schedule is active.
+    /// </summary>
+    [EnumType]
+    public readonly struct ScheduledReportScheduleState : IEquatable<ScheduledReportScheduleState>
+    {
+        private readonly string _value;
+
+        private ScheduledReportScheduleState(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ScheduledReportScheduleState Enabled { get; } = new ScheduledReportScheduleState("ENABLED");
+        public static ScheduledReportScheduleState Disabled { get; } = new ScheduledReportScheduleState("DISABLED");
+
+        public static bool operator ==(ScheduledReportScheduleState left, ScheduledReportScheduleState right) => left.Equals(right);
+        public static bool operator !=(ScheduledReportScheduleState left, ScheduledReportScheduleState right) => !left.Equals(right);
+
+        public static explicit operator string(ScheduledReportScheduleState value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ScheduledReportScheduleState other && Equals(other);
+        public bool Equals(ScheduledReportScheduleState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
 }

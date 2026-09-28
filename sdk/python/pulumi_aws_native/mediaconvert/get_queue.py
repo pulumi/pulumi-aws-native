@@ -23,7 +23,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetQueueResult:
-    def __init__(__self__, arn=None, concurrent_jobs=None, description=None, pricing_plan=None, status=None, tags=None):
+    def __init__(__self__, arn=None, concurrent_jobs=None, description=None, maximum_concurrent_feeds=None, pricing_plan=None, status=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -33,6 +33,9 @@ class GetQueueResult:
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
+        if maximum_concurrent_feeds and not isinstance(maximum_concurrent_feeds, int):
+            raise TypeError("Expected argument 'maximum_concurrent_feeds' to be a int")
+        pulumi.set(__self__, "maximum_concurrent_feeds", maximum_concurrent_feeds)
         if pricing_plan and not isinstance(pricing_plan, str):
             raise TypeError("Expected argument 'pricing_plan' to be a str")
         pulumi.set(__self__, "pricing_plan", pricing_plan)
@@ -66,6 +69,14 @@ class GetQueueResult:
         A description of the queue that you are creating.
         """
         return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter(name="maximumConcurrentFeeds")
+    def maximum_concurrent_feeds(self) -> Optional[_builtins.int]:
+        """
+        Specify the maximum number of Elemental Inference feeds MediaConvert can process concurrently.
+        """
+        return pulumi.get(self, "maximum_concurrent_feeds")
 
     @_builtins.property
     @pulumi.getter(name="pricingPlan")
@@ -103,6 +114,7 @@ class AwaitableGetQueueResult(GetQueueResult):
             arn=self.arn,
             concurrent_jobs=self.concurrent_jobs,
             description=self.description,
+            maximum_concurrent_feeds=self.maximum_concurrent_feeds,
             pricing_plan=self.pricing_plan,
             status=self.status,
             tags=self.tags)
@@ -124,6 +136,7 @@ def get_queue(name: Optional[_builtins.str] = None,
         arn=pulumi.get(__ret__, 'arn'),
         concurrent_jobs=pulumi.get(__ret__, 'concurrent_jobs'),
         description=pulumi.get(__ret__, 'description'),
+        maximum_concurrent_feeds=pulumi.get(__ret__, 'maximum_concurrent_feeds'),
         pricing_plan=pulumi.get(__ret__, 'pricing_plan'),
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'))
@@ -142,6 +155,7 @@ def get_queue_output(name: pulumi.Input[Optional[_builtins.str]] = None,
         arn=pulumi.get(__response__, 'arn'),
         concurrent_jobs=pulumi.get(__response__, 'concurrent_jobs'),
         description=pulumi.get(__response__, 'description'),
+        maximum_concurrent_feeds=pulumi.get(__response__, 'maximum_concurrent_feeds'),
         pricing_plan=pulumi.get(__response__, 'pricing_plan'),
         status=pulumi.get(__response__, 'status'),
         tags=pulumi.get(__response__, 'tags')))

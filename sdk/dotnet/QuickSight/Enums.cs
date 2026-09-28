@@ -1004,6 +1004,82 @@ namespace Pulumi.AwsNative.QuickSight
     }
 
     [EnumType]
+    public readonly struct AnalysisDecalPatternType : IEquatable<AnalysisDecalPatternType>
+    {
+        private readonly string _value;
+
+        private AnalysisDecalPatternType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AnalysisDecalPatternType Solid { get; } = new AnalysisDecalPatternType("SOLID");
+        public static AnalysisDecalPatternType DiagonalMedium { get; } = new AnalysisDecalPatternType("DIAGONAL_MEDIUM");
+        public static AnalysisDecalPatternType CircleMedium { get; } = new AnalysisDecalPatternType("CIRCLE_MEDIUM");
+        public static AnalysisDecalPatternType DiamondGridMedium { get; } = new AnalysisDecalPatternType("DIAMOND_GRID_MEDIUM");
+        public static AnalysisDecalPatternType CheckerboardMedium { get; } = new AnalysisDecalPatternType("CHECKERBOARD_MEDIUM");
+        public static AnalysisDecalPatternType TriangleMedium { get; } = new AnalysisDecalPatternType("TRIANGLE_MEDIUM");
+        public static AnalysisDecalPatternType DiagonalOppositeMedium { get; } = new AnalysisDecalPatternType("DIAGONAL_OPPOSITE_MEDIUM");
+        public static AnalysisDecalPatternType DiamondMedium { get; } = new AnalysisDecalPatternType("DIAMOND_MEDIUM");
+        public static AnalysisDecalPatternType DiagonalLarge { get; } = new AnalysisDecalPatternType("DIAGONAL_LARGE");
+        public static AnalysisDecalPatternType CircleLarge { get; } = new AnalysisDecalPatternType("CIRCLE_LARGE");
+        public static AnalysisDecalPatternType DiamondGridLarge { get; } = new AnalysisDecalPatternType("DIAMOND_GRID_LARGE");
+        public static AnalysisDecalPatternType CheckerboardLarge { get; } = new AnalysisDecalPatternType("CHECKERBOARD_LARGE");
+        public static AnalysisDecalPatternType TriangleLarge { get; } = new AnalysisDecalPatternType("TRIANGLE_LARGE");
+        public static AnalysisDecalPatternType DiagonalOppositeLarge { get; } = new AnalysisDecalPatternType("DIAGONAL_OPPOSITE_LARGE");
+        public static AnalysisDecalPatternType DiamondLarge { get; } = new AnalysisDecalPatternType("DIAMOND_LARGE");
+        public static AnalysisDecalPatternType DiagonalSmall { get; } = new AnalysisDecalPatternType("DIAGONAL_SMALL");
+        public static AnalysisDecalPatternType CircleSmall { get; } = new AnalysisDecalPatternType("CIRCLE_SMALL");
+        public static AnalysisDecalPatternType DiamondGridSmall { get; } = new AnalysisDecalPatternType("DIAMOND_GRID_SMALL");
+        public static AnalysisDecalPatternType CheckerboardSmall { get; } = new AnalysisDecalPatternType("CHECKERBOARD_SMALL");
+        public static AnalysisDecalPatternType TriangleSmall { get; } = new AnalysisDecalPatternType("TRIANGLE_SMALL");
+        public static AnalysisDecalPatternType DiagonalOppositeSmall { get; } = new AnalysisDecalPatternType("DIAGONAL_OPPOSITE_SMALL");
+        public static AnalysisDecalPatternType DiamondSmall { get; } = new AnalysisDecalPatternType("DIAMOND_SMALL");
+
+        public static bool operator ==(AnalysisDecalPatternType left, AnalysisDecalPatternType right) => left.Equals(right);
+        public static bool operator !=(AnalysisDecalPatternType left, AnalysisDecalPatternType right) => !left.Equals(right);
+
+        public static explicit operator string(AnalysisDecalPatternType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AnalysisDecalPatternType other && Equals(other);
+        public bool Equals(AnalysisDecalPatternType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct AnalysisDecalStyleType : IEquatable<AnalysisDecalStyleType>
+    {
+        private readonly string _value;
+
+        private AnalysisDecalStyleType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AnalysisDecalStyleType Manual { get; } = new AnalysisDecalStyleType("Manual");
+        public static AnalysisDecalStyleType Auto { get; } = new AnalysisDecalStyleType("Auto");
+
+        public static bool operator ==(AnalysisDecalStyleType left, AnalysisDecalStyleType right) => left.Equals(right);
+        public static bool operator !=(AnalysisDecalStyleType left, AnalysisDecalStyleType right) => !left.Equals(right);
+
+        public static explicit operator string(AnalysisDecalStyleType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AnalysisDecalStyleType other && Equals(other);
+        public bool Equals(AnalysisDecalStyleType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct AnalysisDigitGroupingStyle : IEquatable<AnalysisDigitGroupingStyle>
     {
         private readonly string _value;
@@ -2840,6 +2916,7 @@ namespace Pulumi.AwsNative.QuickSight
 
         public static AnalysisSelectedTooltipType Basic { get; } = new AnalysisSelectedTooltipType("BASIC");
         public static AnalysisSelectedTooltipType Detailed { get; } = new AnalysisSelectedTooltipType("DETAILED");
+        public static AnalysisSelectedTooltipType Sheet { get; } = new AnalysisSelectedTooltipType("SHEET");
 
         public static bool operator ==(AnalysisSelectedTooltipType left, AnalysisSelectedTooltipType right) => left.Equals(right);
         public static bool operator !=(AnalysisSelectedTooltipType left, AnalysisSelectedTooltipType right) => !left.Equals(right);
@@ -3198,6 +3275,62 @@ namespace Pulumi.AwsNative.QuickSight
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is AnalysisSortDirection other && Equals(other);
         public bool Equals(AnalysisSortDirection other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct AnalysisSparklineAxisBehavior : IEquatable<AnalysisSparklineAxisBehavior>
+    {
+        private readonly string _value;
+
+        private AnalysisSparklineAxisBehavior(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AnalysisSparklineAxisBehavior Shared { get; } = new AnalysisSparklineAxisBehavior("SHARED");
+        public static AnalysisSparklineAxisBehavior Independent { get; } = new AnalysisSparklineAxisBehavior("INDEPENDENT");
+
+        public static bool operator ==(AnalysisSparklineAxisBehavior left, AnalysisSparklineAxisBehavior right) => left.Equals(right);
+        public static bool operator !=(AnalysisSparklineAxisBehavior left, AnalysisSparklineAxisBehavior right) => !left.Equals(right);
+
+        public static explicit operator string(AnalysisSparklineAxisBehavior value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AnalysisSparklineAxisBehavior other && Equals(other);
+        public bool Equals(AnalysisSparklineAxisBehavior other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct AnalysisSparklineVisualType : IEquatable<AnalysisSparklineVisualType>
+    {
+        private readonly string _value;
+
+        private AnalysisSparklineVisualType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AnalysisSparklineVisualType Line { get; } = new AnalysisSparklineVisualType("LINE");
+        public static AnalysisSparklineVisualType AreaLine { get; } = new AnalysisSparklineVisualType("AREA_LINE");
+
+        public static bool operator ==(AnalysisSparklineVisualType left, AnalysisSparklineVisualType right) => left.Equals(right);
+        public static bool operator !=(AnalysisSparklineVisualType left, AnalysisSparklineVisualType right) => !left.Equals(right);
+
+        public static explicit operator string(AnalysisSparklineVisualType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AnalysisSparklineVisualType other && Equals(other);
+        public bool Equals(AnalysisSparklineVisualType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -4783,6 +4916,82 @@ namespace Pulumi.AwsNative.QuickSight
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is DashboardDayOfTheWeek other && Equals(other);
         public bool Equals(DashboardDayOfTheWeek other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct DashboardDecalPatternType : IEquatable<DashboardDecalPatternType>
+    {
+        private readonly string _value;
+
+        private DashboardDecalPatternType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DashboardDecalPatternType Solid { get; } = new DashboardDecalPatternType("SOLID");
+        public static DashboardDecalPatternType DiagonalMedium { get; } = new DashboardDecalPatternType("DIAGONAL_MEDIUM");
+        public static DashboardDecalPatternType CircleMedium { get; } = new DashboardDecalPatternType("CIRCLE_MEDIUM");
+        public static DashboardDecalPatternType DiamondGridMedium { get; } = new DashboardDecalPatternType("DIAMOND_GRID_MEDIUM");
+        public static DashboardDecalPatternType CheckerboardMedium { get; } = new DashboardDecalPatternType("CHECKERBOARD_MEDIUM");
+        public static DashboardDecalPatternType TriangleMedium { get; } = new DashboardDecalPatternType("TRIANGLE_MEDIUM");
+        public static DashboardDecalPatternType DiagonalOppositeMedium { get; } = new DashboardDecalPatternType("DIAGONAL_OPPOSITE_MEDIUM");
+        public static DashboardDecalPatternType DiamondMedium { get; } = new DashboardDecalPatternType("DIAMOND_MEDIUM");
+        public static DashboardDecalPatternType DiagonalLarge { get; } = new DashboardDecalPatternType("DIAGONAL_LARGE");
+        public static DashboardDecalPatternType CircleLarge { get; } = new DashboardDecalPatternType("CIRCLE_LARGE");
+        public static DashboardDecalPatternType DiamondGridLarge { get; } = new DashboardDecalPatternType("DIAMOND_GRID_LARGE");
+        public static DashboardDecalPatternType CheckerboardLarge { get; } = new DashboardDecalPatternType("CHECKERBOARD_LARGE");
+        public static DashboardDecalPatternType TriangleLarge { get; } = new DashboardDecalPatternType("TRIANGLE_LARGE");
+        public static DashboardDecalPatternType DiagonalOppositeLarge { get; } = new DashboardDecalPatternType("DIAGONAL_OPPOSITE_LARGE");
+        public static DashboardDecalPatternType DiamondLarge { get; } = new DashboardDecalPatternType("DIAMOND_LARGE");
+        public static DashboardDecalPatternType DiagonalSmall { get; } = new DashboardDecalPatternType("DIAGONAL_SMALL");
+        public static DashboardDecalPatternType CircleSmall { get; } = new DashboardDecalPatternType("CIRCLE_SMALL");
+        public static DashboardDecalPatternType DiamondGridSmall { get; } = new DashboardDecalPatternType("DIAMOND_GRID_SMALL");
+        public static DashboardDecalPatternType CheckerboardSmall { get; } = new DashboardDecalPatternType("CHECKERBOARD_SMALL");
+        public static DashboardDecalPatternType TriangleSmall { get; } = new DashboardDecalPatternType("TRIANGLE_SMALL");
+        public static DashboardDecalPatternType DiagonalOppositeSmall { get; } = new DashboardDecalPatternType("DIAGONAL_OPPOSITE_SMALL");
+        public static DashboardDecalPatternType DiamondSmall { get; } = new DashboardDecalPatternType("DIAMOND_SMALL");
+
+        public static bool operator ==(DashboardDecalPatternType left, DashboardDecalPatternType right) => left.Equals(right);
+        public static bool operator !=(DashboardDecalPatternType left, DashboardDecalPatternType right) => !left.Equals(right);
+
+        public static explicit operator string(DashboardDecalPatternType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DashboardDecalPatternType other && Equals(other);
+        public bool Equals(DashboardDecalPatternType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct DashboardDecalStyleType : IEquatable<DashboardDecalStyleType>
+    {
+        private readonly string _value;
+
+        private DashboardDecalStyleType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DashboardDecalStyleType Manual { get; } = new DashboardDecalStyleType("Manual");
+        public static DashboardDecalStyleType Auto { get; } = new DashboardDecalStyleType("Auto");
+
+        public static bool operator ==(DashboardDecalStyleType left, DashboardDecalStyleType right) => left.Equals(right);
+        public static bool operator !=(DashboardDecalStyleType left, DashboardDecalStyleType right) => !left.Equals(right);
+
+        public static explicit operator string(DashboardDecalStyleType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DashboardDecalStyleType other && Equals(other);
+        public bool Equals(DashboardDecalStyleType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -6627,6 +6836,7 @@ namespace Pulumi.AwsNative.QuickSight
 
         public static DashboardSelectedTooltipType Basic { get; } = new DashboardSelectedTooltipType("BASIC");
         public static DashboardSelectedTooltipType Detailed { get; } = new DashboardSelectedTooltipType("DETAILED");
+        public static DashboardSelectedTooltipType Sheet { get; } = new DashboardSelectedTooltipType("SHEET");
 
         public static bool operator ==(DashboardSelectedTooltipType left, DashboardSelectedTooltipType right) => left.Equals(right);
         public static bool operator !=(DashboardSelectedTooltipType left, DashboardSelectedTooltipType right) => !left.Equals(right);
@@ -6985,6 +7195,62 @@ namespace Pulumi.AwsNative.QuickSight
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is DashboardSortDirection other && Equals(other);
         public bool Equals(DashboardSortDirection other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct DashboardSparklineAxisBehavior : IEquatable<DashboardSparklineAxisBehavior>
+    {
+        private readonly string _value;
+
+        private DashboardSparklineAxisBehavior(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DashboardSparklineAxisBehavior Shared { get; } = new DashboardSparklineAxisBehavior("SHARED");
+        public static DashboardSparklineAxisBehavior Independent { get; } = new DashboardSparklineAxisBehavior("INDEPENDENT");
+
+        public static bool operator ==(DashboardSparklineAxisBehavior left, DashboardSparklineAxisBehavior right) => left.Equals(right);
+        public static bool operator !=(DashboardSparklineAxisBehavior left, DashboardSparklineAxisBehavior right) => !left.Equals(right);
+
+        public static explicit operator string(DashboardSparklineAxisBehavior value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DashboardSparklineAxisBehavior other && Equals(other);
+        public bool Equals(DashboardSparklineAxisBehavior other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct DashboardSparklineVisualType : IEquatable<DashboardSparklineVisualType>
+    {
+        private readonly string _value;
+
+        private DashboardSparklineVisualType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DashboardSparklineVisualType Line { get; } = new DashboardSparklineVisualType("LINE");
+        public static DashboardSparklineVisualType AreaLine { get; } = new DashboardSparklineVisualType("AREA_LINE");
+
+        public static bool operator ==(DashboardSparklineVisualType left, DashboardSparklineVisualType right) => left.Equals(right);
+        public static bool operator !=(DashboardSparklineVisualType left, DashboardSparklineVisualType right) => !left.Equals(right);
+
+        public static explicit operator string(DashboardSparklineVisualType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DashboardSparklineVisualType other && Equals(other);
+        public bool Equals(DashboardSparklineVisualType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -10077,6 +10343,82 @@ namespace Pulumi.AwsNative.QuickSight
     }
 
     [EnumType]
+    public readonly struct TemplateDecalPatternType : IEquatable<TemplateDecalPatternType>
+    {
+        private readonly string _value;
+
+        private TemplateDecalPatternType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static TemplateDecalPatternType Solid { get; } = new TemplateDecalPatternType("SOLID");
+        public static TemplateDecalPatternType DiagonalMedium { get; } = new TemplateDecalPatternType("DIAGONAL_MEDIUM");
+        public static TemplateDecalPatternType CircleMedium { get; } = new TemplateDecalPatternType("CIRCLE_MEDIUM");
+        public static TemplateDecalPatternType DiamondGridMedium { get; } = new TemplateDecalPatternType("DIAMOND_GRID_MEDIUM");
+        public static TemplateDecalPatternType CheckerboardMedium { get; } = new TemplateDecalPatternType("CHECKERBOARD_MEDIUM");
+        public static TemplateDecalPatternType TriangleMedium { get; } = new TemplateDecalPatternType("TRIANGLE_MEDIUM");
+        public static TemplateDecalPatternType DiagonalOppositeMedium { get; } = new TemplateDecalPatternType("DIAGONAL_OPPOSITE_MEDIUM");
+        public static TemplateDecalPatternType DiamondMedium { get; } = new TemplateDecalPatternType("DIAMOND_MEDIUM");
+        public static TemplateDecalPatternType DiagonalLarge { get; } = new TemplateDecalPatternType("DIAGONAL_LARGE");
+        public static TemplateDecalPatternType CircleLarge { get; } = new TemplateDecalPatternType("CIRCLE_LARGE");
+        public static TemplateDecalPatternType DiamondGridLarge { get; } = new TemplateDecalPatternType("DIAMOND_GRID_LARGE");
+        public static TemplateDecalPatternType CheckerboardLarge { get; } = new TemplateDecalPatternType("CHECKERBOARD_LARGE");
+        public static TemplateDecalPatternType TriangleLarge { get; } = new TemplateDecalPatternType("TRIANGLE_LARGE");
+        public static TemplateDecalPatternType DiagonalOppositeLarge { get; } = new TemplateDecalPatternType("DIAGONAL_OPPOSITE_LARGE");
+        public static TemplateDecalPatternType DiamondLarge { get; } = new TemplateDecalPatternType("DIAMOND_LARGE");
+        public static TemplateDecalPatternType DiagonalSmall { get; } = new TemplateDecalPatternType("DIAGONAL_SMALL");
+        public static TemplateDecalPatternType CircleSmall { get; } = new TemplateDecalPatternType("CIRCLE_SMALL");
+        public static TemplateDecalPatternType DiamondGridSmall { get; } = new TemplateDecalPatternType("DIAMOND_GRID_SMALL");
+        public static TemplateDecalPatternType CheckerboardSmall { get; } = new TemplateDecalPatternType("CHECKERBOARD_SMALL");
+        public static TemplateDecalPatternType TriangleSmall { get; } = new TemplateDecalPatternType("TRIANGLE_SMALL");
+        public static TemplateDecalPatternType DiagonalOppositeSmall { get; } = new TemplateDecalPatternType("DIAGONAL_OPPOSITE_SMALL");
+        public static TemplateDecalPatternType DiamondSmall { get; } = new TemplateDecalPatternType("DIAMOND_SMALL");
+
+        public static bool operator ==(TemplateDecalPatternType left, TemplateDecalPatternType right) => left.Equals(right);
+        public static bool operator !=(TemplateDecalPatternType left, TemplateDecalPatternType right) => !left.Equals(right);
+
+        public static explicit operator string(TemplateDecalPatternType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TemplateDecalPatternType other && Equals(other);
+        public bool Equals(TemplateDecalPatternType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct TemplateDecalStyleType : IEquatable<TemplateDecalStyleType>
+    {
+        private readonly string _value;
+
+        private TemplateDecalStyleType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static TemplateDecalStyleType Manual { get; } = new TemplateDecalStyleType("Manual");
+        public static TemplateDecalStyleType Auto { get; } = new TemplateDecalStyleType("Auto");
+
+        public static bool operator ==(TemplateDecalStyleType left, TemplateDecalStyleType right) => left.Equals(right);
+        public static bool operator !=(TemplateDecalStyleType left, TemplateDecalStyleType right) => !left.Equals(right);
+
+        public static explicit operator string(TemplateDecalStyleType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TemplateDecalStyleType other && Equals(other);
+        public bool Equals(TemplateDecalStyleType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct TemplateDigitGroupingStyle : IEquatable<TemplateDigitGroupingStyle>
     {
         private readonly string _value;
@@ -10334,6 +10676,94 @@ namespace Pulumi.AwsNative.QuickSight
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// Defines view state of the color
+    /// </summary>
+    [EnumType]
+    public readonly struct TemplateGeospatialColorState : IEquatable<TemplateGeospatialColorState>
+    {
+        private readonly string _value;
+
+        private TemplateGeospatialColorState(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static TemplateGeospatialColorState Enabled { get; } = new TemplateGeospatialColorState("ENABLED");
+        public static TemplateGeospatialColorState Disabled { get; } = new TemplateGeospatialColorState("DISABLED");
+
+        public static bool operator ==(TemplateGeospatialColorState left, TemplateGeospatialColorState right) => left.Equals(right);
+        public static bool operator !=(TemplateGeospatialColorState left, TemplateGeospatialColorState right) => !left.Equals(right);
+
+        public static explicit operator string(TemplateGeospatialColorState value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TemplateGeospatialColorState other && Equals(other);
+        public bool Equals(TemplateGeospatialColorState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct TemplateGeospatialLayerType : IEquatable<TemplateGeospatialLayerType>
+    {
+        private readonly string _value;
+
+        private TemplateGeospatialLayerType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static TemplateGeospatialLayerType Point { get; } = new TemplateGeospatialLayerType("POINT");
+        public static TemplateGeospatialLayerType Line { get; } = new TemplateGeospatialLayerType("LINE");
+        public static TemplateGeospatialLayerType Polygon { get; } = new TemplateGeospatialLayerType("POLYGON");
+
+        public static bool operator ==(TemplateGeospatialLayerType left, TemplateGeospatialLayerType right) => left.Equals(right);
+        public static bool operator !=(TemplateGeospatialLayerType left, TemplateGeospatialLayerType right) => !left.Equals(right);
+
+        public static explicit operator string(TemplateGeospatialLayerType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TemplateGeospatialLayerType other && Equals(other);
+        public bool Equals(TemplateGeospatialLayerType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct TemplateGeospatialMapNavigation : IEquatable<TemplateGeospatialMapNavigation>
+    {
+        private readonly string _value;
+
+        private TemplateGeospatialMapNavigation(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static TemplateGeospatialMapNavigation Enabled { get; } = new TemplateGeospatialMapNavigation("ENABLED");
+        public static TemplateGeospatialMapNavigation Disabled { get; } = new TemplateGeospatialMapNavigation("DISABLED");
+
+        public static bool operator ==(TemplateGeospatialMapNavigation left, TemplateGeospatialMapNavigation right) => left.Equals(right);
+        public static bool operator !=(TemplateGeospatialMapNavigation left, TemplateGeospatialMapNavigation right) => !left.Equals(right);
+
+        public static explicit operator string(TemplateGeospatialMapNavigation value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TemplateGeospatialMapNavigation other && Equals(other);
+        public bool Equals(TemplateGeospatialMapNavigation other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     [EnumType]
     public readonly struct TemplateGeospatialSelectedPointStyle : IEquatable<TemplateGeospatialSelectedPointStyle>
     {
@@ -10550,6 +10980,34 @@ namespace Pulumi.AwsNative.QuickSight
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is TemplateKpiVisualStandardLayoutType other && Equals(other);
         public bool Equals(TemplateKpiVisualStandardLayoutType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct TemplateLayerCustomActionTrigger : IEquatable<TemplateLayerCustomActionTrigger>
+    {
+        private readonly string _value;
+
+        private TemplateLayerCustomActionTrigger(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static TemplateLayerCustomActionTrigger DataPointClick { get; } = new TemplateLayerCustomActionTrigger("DATA_POINT_CLICK");
+        public static TemplateLayerCustomActionTrigger DataPointMenu { get; } = new TemplateLayerCustomActionTrigger("DATA_POINT_MENU");
+
+        public static bool operator ==(TemplateLayerCustomActionTrigger left, TemplateLayerCustomActionTrigger right) => left.Equals(right);
+        public static bool operator !=(TemplateLayerCustomActionTrigger left, TemplateLayerCustomActionTrigger right) => !left.Equals(right);
+
+        public static explicit operator string(TemplateLayerCustomActionTrigger value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TemplateLayerCustomActionTrigger other && Equals(other);
+        public bool Equals(TemplateLayerCustomActionTrigger other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -11791,6 +12249,7 @@ namespace Pulumi.AwsNative.QuickSight
 
         public static TemplateSelectedTooltipType Basic { get; } = new TemplateSelectedTooltipType("BASIC");
         public static TemplateSelectedTooltipType Detailed { get; } = new TemplateSelectedTooltipType("DETAILED");
+        public static TemplateSelectedTooltipType Sheet { get; } = new TemplateSelectedTooltipType("SHEET");
 
         public static bool operator ==(TemplateSelectedTooltipType left, TemplateSelectedTooltipType right) => left.Equals(right);
         public static bool operator !=(TemplateSelectedTooltipType left, TemplateSelectedTooltipType right) => !left.Equals(right);
@@ -12149,6 +12608,62 @@ namespace Pulumi.AwsNative.QuickSight
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is TemplateSortDirection other && Equals(other);
         public bool Equals(TemplateSortDirection other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct TemplateSparklineAxisBehavior : IEquatable<TemplateSparklineAxisBehavior>
+    {
+        private readonly string _value;
+
+        private TemplateSparklineAxisBehavior(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static TemplateSparklineAxisBehavior Shared { get; } = new TemplateSparklineAxisBehavior("SHARED");
+        public static TemplateSparklineAxisBehavior Independent { get; } = new TemplateSparklineAxisBehavior("INDEPENDENT");
+
+        public static bool operator ==(TemplateSparklineAxisBehavior left, TemplateSparklineAxisBehavior right) => left.Equals(right);
+        public static bool operator !=(TemplateSparklineAxisBehavior left, TemplateSparklineAxisBehavior right) => !left.Equals(right);
+
+        public static explicit operator string(TemplateSparklineAxisBehavior value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TemplateSparklineAxisBehavior other && Equals(other);
+        public bool Equals(TemplateSparklineAxisBehavior other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct TemplateSparklineVisualType : IEquatable<TemplateSparklineVisualType>
+    {
+        private readonly string _value;
+
+        private TemplateSparklineVisualType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static TemplateSparklineVisualType Line { get; } = new TemplateSparklineVisualType("LINE");
+        public static TemplateSparklineVisualType AreaLine { get; } = new TemplateSparklineVisualType("AREA_LINE");
+
+        public static bool operator ==(TemplateSparklineVisualType left, TemplateSparklineVisualType right) => left.Equals(right);
+        public static bool operator !=(TemplateSparklineVisualType left, TemplateSparklineVisualType right) => !left.Equals(right);
+
+        public static explicit operator string(TemplateSparklineVisualType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TemplateSparklineVisualType other && Equals(other);
+        public bool Equals(TemplateSparklineVisualType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -12983,6 +13498,120 @@ namespace Pulumi.AwsNative.QuickSight
     }
 
     [EnumType]
+    public readonly struct ThemeFontDecoration : IEquatable<ThemeFontDecoration>
+    {
+        private readonly string _value;
+
+        private ThemeFontDecoration(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ThemeFontDecoration Underline { get; } = new ThemeFontDecoration("UNDERLINE");
+        public static ThemeFontDecoration None { get; } = new ThemeFontDecoration("NONE");
+
+        public static bool operator ==(ThemeFontDecoration left, ThemeFontDecoration right) => left.Equals(right);
+        public static bool operator !=(ThemeFontDecoration left, ThemeFontDecoration right) => !left.Equals(right);
+
+        public static explicit operator string(ThemeFontDecoration value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ThemeFontDecoration other && Equals(other);
+        public bool Equals(ThemeFontDecoration other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct ThemeFontStyle : IEquatable<ThemeFontStyle>
+    {
+        private readonly string _value;
+
+        private ThemeFontStyle(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ThemeFontStyle Normal { get; } = new ThemeFontStyle("NORMAL");
+        public static ThemeFontStyle Italic { get; } = new ThemeFontStyle("ITALIC");
+
+        public static bool operator ==(ThemeFontStyle left, ThemeFontStyle right) => left.Equals(right);
+        public static bool operator !=(ThemeFontStyle left, ThemeFontStyle right) => !left.Equals(right);
+
+        public static explicit operator string(ThemeFontStyle value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ThemeFontStyle other && Equals(other);
+        public bool Equals(ThemeFontStyle other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct ThemeFontWeightName : IEquatable<ThemeFontWeightName>
+    {
+        private readonly string _value;
+
+        private ThemeFontWeightName(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ThemeFontWeightName Normal { get; } = new ThemeFontWeightName("NORMAL");
+        public static ThemeFontWeightName Bold { get; } = new ThemeFontWeightName("BOLD");
+
+        public static bool operator ==(ThemeFontWeightName left, ThemeFontWeightName right) => left.Equals(right);
+        public static bool operator !=(ThemeFontWeightName left, ThemeFontWeightName right) => !left.Equals(right);
+
+        public static explicit operator string(ThemeFontWeightName value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ThemeFontWeightName other && Equals(other);
+        public bool Equals(ThemeFontWeightName other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct ThemeHorizontalTextAlignment : IEquatable<ThemeHorizontalTextAlignment>
+    {
+        private readonly string _value;
+
+        private ThemeHorizontalTextAlignment(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ThemeHorizontalTextAlignment Left { get; } = new ThemeHorizontalTextAlignment("LEFT");
+        public static ThemeHorizontalTextAlignment Center { get; } = new ThemeHorizontalTextAlignment("CENTER");
+        public static ThemeHorizontalTextAlignment Right { get; } = new ThemeHorizontalTextAlignment("RIGHT");
+        public static ThemeHorizontalTextAlignment Auto { get; } = new ThemeHorizontalTextAlignment("AUTO");
+
+        public static bool operator ==(ThemeHorizontalTextAlignment left, ThemeHorizontalTextAlignment right) => left.Equals(right);
+        public static bool operator !=(ThemeHorizontalTextAlignment left, ThemeHorizontalTextAlignment right) => !left.Equals(right);
+
+        public static explicit operator string(ThemeHorizontalTextAlignment value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ThemeHorizontalTextAlignment other && Equals(other);
+        public bool Equals(ThemeHorizontalTextAlignment other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct ThemeResourceStatus : IEquatable<ThemeResourceStatus>
     {
         private readonly string _value;
@@ -13009,6 +13638,33 @@ namespace Pulumi.AwsNative.QuickSight
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is ThemeResourceStatus other && Equals(other);
         public bool Equals(ThemeResourceStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct ThemeTextTransform : IEquatable<ThemeTextTransform>
+    {
+        private readonly string _value;
+
+        private ThemeTextTransform(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ThemeTextTransform Capitalize { get; } = new ThemeTextTransform("CAPITALIZE");
+
+        public static bool operator ==(ThemeTextTransform left, ThemeTextTransform right) => left.Equals(right);
+        public static bool operator !=(ThemeTextTransform left, ThemeTextTransform right) => !left.Equals(right);
+
+        public static explicit operator string(ThemeTextTransform value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ThemeTextTransform other && Equals(other);
+        public bool Equals(ThemeTextTransform other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

@@ -25,6 +25,7 @@ export interface GetEvaluationFormArgs {
 }
 
 export interface GetEvaluationFormResult {
+    readonly aiVersion?: string;
     /**
      * The automatic evaluation configuration of an evaluation form.
      */

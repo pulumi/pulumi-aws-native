@@ -24,37 +24,50 @@ __all__ = ['DatasetArgs', 'Dataset']
 @pulumi.input_type
 class DatasetArgs:
     def __init__(__self__, *,
-                 dataset_source: pulumi.Input['DatasetSourceArgs'],
+                 dataset_config: pulumi.Input[Optional['DatasetConfigArgs']] = None,
                  dataset_description: pulumi.Input[Optional[_builtins.str]] = None,
                  dataset_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 dataset_source: pulumi.Input[Optional['DatasetSourceArgs']] = None,
+                 dataset_type: pulumi.Input[Optional['DatasetType']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 workspace_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Dataset resource.
 
-        :param pulumi.Input['DatasetSourceArgs'] dataset_source: The data source for the dataset.
+        :param pulumi.Input['DatasetConfigArgs'] dataset_config: The configuration for the dataset.
         :param pulumi.Input[_builtins.str] dataset_description: A description about the dataset, and its functionality.
         :param pulumi.Input[_builtins.str] dataset_name: The name of the dataset.
+        :param pulumi.Input['DatasetSourceArgs'] dataset_source: The data source for the dataset.
+        :param pulumi.Input['DatasetType'] dataset_type: The type of the dataset.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[_builtins.str] workspace_name: The name of the workspace associated with the dataset.
         """
-        pulumi.set(__self__, "dataset_source", dataset_source)
+        if dataset_config is not None:
+            pulumi.set(__self__, "dataset_config", dataset_config)
         if dataset_description is not None:
             pulumi.set(__self__, "dataset_description", dataset_description)
         if dataset_name is not None:
             pulumi.set(__self__, "dataset_name", dataset_name)
+        if dataset_source is not None:
+            pulumi.set(__self__, "dataset_source", dataset_source)
+        if dataset_type is not None:
+            pulumi.set(__self__, "dataset_type", dataset_type)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if workspace_name is not None:
+            pulumi.set(__self__, "workspace_name", workspace_name)
 
     @_builtins.property
-    @pulumi.getter(name="datasetSource")
-    def dataset_source(self) -> pulumi.Input['DatasetSourceArgs']:
+    @pulumi.getter(name="datasetConfig")
+    def dataset_config(self) -> pulumi.Input[Optional['DatasetConfigArgs']]:
         """
-        The data source for the dataset.
+        The configuration for the dataset.
         """
-        return pulumi.get(self, "dataset_source")
+        return pulumi.get(self, "dataset_config")
 
-    @dataset_source.setter
-    def dataset_source(self, value: pulumi.Input['DatasetSourceArgs']):
-        pulumi.set(self, "dataset_source", value)
+    @dataset_config.setter
+    def dataset_config(self, value: pulumi.Input[Optional['DatasetConfigArgs']]):
+        pulumi.set(self, "dataset_config", value)
 
     @_builtins.property
     @pulumi.getter(name="datasetDescription")
@@ -81,6 +94,30 @@ class DatasetArgs:
         pulumi.set(self, "dataset_name", value)
 
     @_builtins.property
+    @pulumi.getter(name="datasetSource")
+    def dataset_source(self) -> pulumi.Input[Optional['DatasetSourceArgs']]:
+        """
+        The data source for the dataset.
+        """
+        return pulumi.get(self, "dataset_source")
+
+    @dataset_source.setter
+    def dataset_source(self, value: pulumi.Input[Optional['DatasetSourceArgs']]):
+        pulumi.set(self, "dataset_source", value)
+
+    @_builtins.property
+    @pulumi.getter(name="datasetType")
+    def dataset_type(self) -> pulumi.Input[Optional['DatasetType']]:
+        """
+        The type of the dataset.
+        """
+        return pulumi.get(self, "dataset_type")
+
+    @dataset_type.setter
+    def dataset_type(self, value: pulumi.Input[Optional['DatasetType']]):
+        pulumi.set(self, "dataset_type", value)
+
+    @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
@@ -92,6 +129,18 @@ class DatasetArgs:
     def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
+    @_builtins.property
+    @pulumi.getter(name="workspaceName")
+    def workspace_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the workspace associated with the dataset.
+        """
+        return pulumi.get(self, "workspace_name")
+
+    @workspace_name.setter
+    def workspace_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "workspace_name", value)
+
 
 @pulumi.type_token("aws-native:iotsitewise:Dataset")
 class Dataset(pulumi.CustomResource):
@@ -99,26 +148,32 @@ class Dataset(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 dataset_config: pulumi.Input[Optional[Union['DatasetConfigArgs', 'DatasetConfigArgsDict']]] = None,
                  dataset_description: pulumi.Input[Optional[_builtins.str]] = None,
                  dataset_name: pulumi.Input[Optional[_builtins.str]] = None,
                  dataset_source: pulumi.Input[Optional[Union['DatasetSourceArgs', 'DatasetSourceArgsDict']]] = None,
+                 dataset_type: pulumi.Input[Optional['DatasetType']] = None,
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Resource schema for AWS::IoTSiteWise::Dataset.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Union['DatasetConfigArgs', 'DatasetConfigArgsDict']] dataset_config: The configuration for the dataset.
         :param pulumi.Input[_builtins.str] dataset_description: A description about the dataset, and its functionality.
         :param pulumi.Input[_builtins.str] dataset_name: The name of the dataset.
         :param pulumi.Input[Union['DatasetSourceArgs', 'DatasetSourceArgsDict']] dataset_source: The data source for the dataset.
+        :param pulumi.Input['DatasetType'] dataset_type: The type of the dataset.
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[_builtins.str] workspace_name: The name of the workspace associated with the dataset.
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: DatasetArgs,
+                 args: Optional[DatasetArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource schema for AWS::IoTSiteWise::Dataset.
@@ -138,10 +193,13 @@ class Dataset(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 dataset_config: pulumi.Input[Optional[Union['DatasetConfigArgs', 'DatasetConfigArgsDict']]] = None,
                  dataset_description: pulumi.Input[Optional[_builtins.str]] = None,
                  dataset_name: pulumi.Input[Optional[_builtins.str]] = None,
                  dataset_source: pulumi.Input[Optional[Union['DatasetSourceArgs', 'DatasetSourceArgsDict']]] = None,
+                 dataset_type: pulumi.Input[Optional['DatasetType']] = None,
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -151,14 +209,17 @@ class Dataset(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = DatasetArgs.__new__(DatasetArgs)
 
+            __props__.__dict__["dataset_config"] = dataset_config
             __props__.__dict__["dataset_description"] = dataset_description
             __props__.__dict__["dataset_name"] = dataset_name
-            if dataset_source is None and not opts.urn:
-                raise TypeError("Missing required property 'dataset_source'")
             __props__.__dict__["dataset_source"] = dataset_source
+            __props__.__dict__["dataset_type"] = dataset_type
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["workspace_name"] = workspace_name
             __props__.__dict__["dataset_arn"] = None
             __props__.__dict__["dataset_id"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["datasetType", "workspaceName"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Dataset, __self__).__init__(
             'aws-native:iotsitewise:Dataset',
             resource_name,
@@ -182,11 +243,14 @@ class Dataset(pulumi.CustomResource):
         __props__ = DatasetArgs.__new__(DatasetArgs)
 
         __props__.__dict__["dataset_arn"] = None
+        __props__.__dict__["dataset_config"] = None
         __props__.__dict__["dataset_description"] = None
         __props__.__dict__["dataset_id"] = None
         __props__.__dict__["dataset_name"] = None
         __props__.__dict__["dataset_source"] = None
+        __props__.__dict__["dataset_type"] = None
         __props__.__dict__["tags"] = None
+        __props__.__dict__["workspace_name"] = None
         return Dataset(resource_name, opts=opts, __props__=__props__)
 
     @_builtins.property
@@ -196,6 +260,14 @@ class Dataset(pulumi.CustomResource):
         The ARN of the dataset.
         """
         return pulumi.get(self, "dataset_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="datasetConfig")
+    def dataset_config(self) -> pulumi.Output[Optional['outputs.DatasetConfig']]:
+        """
+        The configuration for the dataset.
+        """
+        return pulumi.get(self, "dataset_config")
 
     @_builtins.property
     @pulumi.getter(name="datasetDescription")
@@ -209,7 +281,7 @@ class Dataset(pulumi.CustomResource):
     @pulumi.getter(name="datasetId")
     def dataset_id(self) -> pulumi.Output[_builtins.str]:
         """
-        The ID of the dataset.
+        The ID of the dataset. For workspace-scoped datasets this is the workspace name and dataset ID joined by a slash, for example my-workspace/123e4567-e89b-42d3-a456-426614174000.
         """
         return pulumi.get(self, "dataset_id")
 
@@ -223,11 +295,19 @@ class Dataset(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="datasetSource")
-    def dataset_source(self) -> pulumi.Output['outputs.DatasetSource']:
+    def dataset_source(self) -> pulumi.Output[Optional['outputs.DatasetSource']]:
         """
         The data source for the dataset.
         """
         return pulumi.get(self, "dataset_source")
+
+    @_builtins.property
+    @pulumi.getter(name="datasetType")
+    def dataset_type(self) -> pulumi.Output[Optional['DatasetType']]:
+        """
+        The type of the dataset.
+        """
+        return pulumi.get(self, "dataset_type")
 
     @_builtins.property
     @pulumi.getter
@@ -236,4 +316,12 @@ class Dataset(pulumi.CustomResource):
         An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
+
+    @_builtins.property
+    @pulumi.getter(name="workspaceName")
+    def workspace_name(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The name of the workspace associated with the dataset.
+        """
+        return pulumi.get(self, "workspace_name")
 

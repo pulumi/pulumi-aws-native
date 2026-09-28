@@ -34,7 +34,7 @@ namespace Pulumi.AwsNative.IoTSiteWise
     public sealed class GetDatasetArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The ID of the dataset.
+        /// The ID of the dataset. For workspace-scoped datasets this is the workspace name and dataset ID joined by a slash, for example my-workspace/123e4567-e89b-42d3-a456-426614174000.
         /// </summary>
         [Input("datasetId", required: true)]
         public string DatasetId { get; set; } = null!;
@@ -48,7 +48,7 @@ namespace Pulumi.AwsNative.IoTSiteWise
     public sealed class GetDatasetInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The ID of the dataset.
+        /// The ID of the dataset. For workspace-scoped datasets this is the workspace name and dataset ID joined by a slash, for example my-workspace/123e4567-e89b-42d3-a456-426614174000.
         /// </summary>
         [Input("datasetId", required: true)]
         public Input<string> DatasetId { get; set; } = null!;
@@ -68,11 +68,15 @@ namespace Pulumi.AwsNative.IoTSiteWise
         /// </summary>
         public readonly string? DatasetArn;
         /// <summary>
+        /// The configuration for the dataset.
+        /// </summary>
+        public readonly Outputs.DatasetConfig? DatasetConfig;
+        /// <summary>
         /// A description about the dataset, and its functionality.
         /// </summary>
         public readonly string? DatasetDescription;
         /// <summary>
-        /// The ID of the dataset.
+        /// The ID of the dataset. For workspace-scoped datasets this is the workspace name and dataset ID joined by a slash, for example my-workspace/123e4567-e89b-42d3-a456-426614174000.
         /// </summary>
         public readonly string? DatasetId;
         /// <summary>
@@ -92,6 +96,8 @@ namespace Pulumi.AwsNative.IoTSiteWise
         private GetDatasetResult(
             string? datasetArn,
 
+            Outputs.DatasetConfig? datasetConfig,
+
             string? datasetDescription,
 
             string? datasetId,
@@ -103,6 +109,7 @@ namespace Pulumi.AwsNative.IoTSiteWise
             ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             DatasetArn = datasetArn;
+            DatasetConfig = datasetConfig;
             DatasetDescription = datasetDescription;
             DatasetId = datasetId;
             DatasetName = datasetName;
