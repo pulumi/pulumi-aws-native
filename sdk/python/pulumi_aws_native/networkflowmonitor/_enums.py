@@ -10,6 +10,8 @@ __all__ = [
     'MonitorLocalResourceType',
     'MonitorRemoteResourceType',
     'MonitorStatus',
+    'ScopeStatus',
+    'ScopeTargetIdentifierTargetType',
 ]
 
 
@@ -47,3 +49,21 @@ class MonitorStatus(_builtins.str, Enum):
     INACTIVE = "INACTIVE"
     ERROR = "ERROR"
     DELETING = "DELETING"
+
+
+@pulumi.type_token("aws-native:networkflowmonitor:ScopeStatus")
+class ScopeStatus(_builtins.str, Enum):
+    """
+    The status of the scope.
+    """
+    SUCCEEDED = "SUCCEEDED"
+    IN_PROGRESS = "IN_PROGRESS"
+    FAILED = "FAILED"
+
+
+@pulumi.type_token("aws-native:networkflowmonitor:ScopeTargetIdentifierTargetType")
+class ScopeTargetIdentifierTargetType(_builtins.str, Enum):
+    """
+    The type of the target. Currently always ACCOUNT.
+    """
+    ACCOUNT = "ACCOUNT"

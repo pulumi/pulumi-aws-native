@@ -7786,6 +7786,182 @@ func (in *dataSourceDataDeletionPolicyPtr) ToDataSourceDataDeletionPolicyPtrOutp
 	return pulumi.ToOutputWithContext(ctx, in).(DataSourceDataDeletionPolicyPtrOutput)
 }
 
+// Day of the week.
+type DataSourceDayOfWeek string
+
+const (
+	DataSourceDayOfWeekSunday    = DataSourceDayOfWeek("SUNDAY")
+	DataSourceDayOfWeekMonday    = DataSourceDayOfWeek("MONDAY")
+	DataSourceDayOfWeekTuesday   = DataSourceDayOfWeek("TUESDAY")
+	DataSourceDayOfWeekWednesday = DataSourceDayOfWeek("WEDNESDAY")
+	DataSourceDayOfWeekThursday  = DataSourceDayOfWeek("THURSDAY")
+	DataSourceDayOfWeekFriday    = DataSourceDayOfWeek("FRIDAY")
+	DataSourceDayOfWeekSaturday  = DataSourceDayOfWeek("SATURDAY")
+)
+
+func (DataSourceDayOfWeek) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceDayOfWeek)(nil)).Elem()
+}
+
+func (e DataSourceDayOfWeek) ToDataSourceDayOfWeekOutput() DataSourceDayOfWeekOutput {
+	return pulumi.ToOutput(e).(DataSourceDayOfWeekOutput)
+}
+
+func (e DataSourceDayOfWeek) ToDataSourceDayOfWeekOutputWithContext(ctx context.Context) DataSourceDayOfWeekOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DataSourceDayOfWeekOutput)
+}
+
+func (e DataSourceDayOfWeek) ToDataSourceDayOfWeekPtrOutput() DataSourceDayOfWeekPtrOutput {
+	return e.ToDataSourceDayOfWeekPtrOutputWithContext(context.Background())
+}
+
+func (e DataSourceDayOfWeek) ToDataSourceDayOfWeekPtrOutputWithContext(ctx context.Context) DataSourceDayOfWeekPtrOutput {
+	return DataSourceDayOfWeek(e).ToDataSourceDayOfWeekOutputWithContext(ctx).ToDataSourceDayOfWeekPtrOutputWithContext(ctx)
+}
+
+func (e DataSourceDayOfWeek) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DataSourceDayOfWeek) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DataSourceDayOfWeek) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DataSourceDayOfWeek) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DataSourceDayOfWeekOutput struct{ *pulumi.OutputState }
+
+func (DataSourceDayOfWeekOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceDayOfWeek)(nil)).Elem()
+}
+
+func (o DataSourceDayOfWeekOutput) ToDataSourceDayOfWeekOutput() DataSourceDayOfWeekOutput {
+	return o
+}
+
+func (o DataSourceDayOfWeekOutput) ToDataSourceDayOfWeekOutputWithContext(ctx context.Context) DataSourceDayOfWeekOutput {
+	return o
+}
+
+func (o DataSourceDayOfWeekOutput) ToDataSourceDayOfWeekPtrOutput() DataSourceDayOfWeekPtrOutput {
+	return o.ToDataSourceDayOfWeekPtrOutputWithContext(context.Background())
+}
+
+func (o DataSourceDayOfWeekOutput) ToDataSourceDayOfWeekPtrOutputWithContext(ctx context.Context) DataSourceDayOfWeekPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSourceDayOfWeek) *DataSourceDayOfWeek {
+		return &v
+	}).(DataSourceDayOfWeekPtrOutput)
+}
+
+func (o DataSourceDayOfWeekOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DataSourceDayOfWeekOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DataSourceDayOfWeek) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DataSourceDayOfWeekOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DataSourceDayOfWeekOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DataSourceDayOfWeek) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DataSourceDayOfWeekPtrOutput struct{ *pulumi.OutputState }
+
+func (DataSourceDayOfWeekPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceDayOfWeek)(nil)).Elem()
+}
+
+func (o DataSourceDayOfWeekPtrOutput) ToDataSourceDayOfWeekPtrOutput() DataSourceDayOfWeekPtrOutput {
+	return o
+}
+
+func (o DataSourceDayOfWeekPtrOutput) ToDataSourceDayOfWeekPtrOutputWithContext(ctx context.Context) DataSourceDayOfWeekPtrOutput {
+	return o
+}
+
+func (o DataSourceDayOfWeekPtrOutput) Elem() DataSourceDayOfWeekOutput {
+	return o.ApplyT(func(v *DataSourceDayOfWeek) DataSourceDayOfWeek {
+		if v != nil {
+			return *v
+		}
+		var ret DataSourceDayOfWeek
+		return ret
+	}).(DataSourceDayOfWeekOutput)
+}
+
+func (o DataSourceDayOfWeekPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DataSourceDayOfWeekPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DataSourceDayOfWeek) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DataSourceDayOfWeekInput is an input type that accepts values of the DataSourceDayOfWeek enum
+// A concrete instance of `DataSourceDayOfWeekInput` can be one of the following:
+//
+//	DataSourceDayOfWeekSunday
+//	DataSourceDayOfWeekMonday
+//	DataSourceDayOfWeekTuesday
+//	DataSourceDayOfWeekWednesday
+//	DataSourceDayOfWeekThursday
+//	DataSourceDayOfWeekFriday
+//	DataSourceDayOfWeekSaturday
+type DataSourceDayOfWeekInput interface {
+	pulumi.Input
+
+	ToDataSourceDayOfWeekOutput() DataSourceDayOfWeekOutput
+	ToDataSourceDayOfWeekOutputWithContext(context.Context) DataSourceDayOfWeekOutput
+}
+
+var dataSourceDayOfWeekPtrType = reflect.TypeOf((**DataSourceDayOfWeek)(nil)).Elem()
+
+type DataSourceDayOfWeekPtrInput interface {
+	pulumi.Input
+
+	ToDataSourceDayOfWeekPtrOutput() DataSourceDayOfWeekPtrOutput
+	ToDataSourceDayOfWeekPtrOutputWithContext(context.Context) DataSourceDayOfWeekPtrOutput
+}
+
+type dataSourceDayOfWeekPtr string
+
+func DataSourceDayOfWeekPtr(v string) DataSourceDayOfWeekPtrInput {
+	return (*dataSourceDayOfWeekPtr)(&v)
+}
+
+func (*dataSourceDayOfWeekPtr) ElementType() reflect.Type {
+	return dataSourceDayOfWeekPtrType
+}
+
+func (in *dataSourceDayOfWeekPtr) ToDataSourceDayOfWeekPtrOutput() DataSourceDayOfWeekPtrOutput {
+	return pulumi.ToOutput(in).(DataSourceDayOfWeekPtrOutput)
+}
+
+func (in *dataSourceDayOfWeekPtr) ToDataSourceDayOfWeekPtrOutputWithContext(ctx context.Context) DataSourceDayOfWeekPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DataSourceDayOfWeekPtrOutput)
+}
+
 // Indicates whether a feature is enabled or disabled.
 type DataSourceEnabledOrDisabledState string
 
@@ -18179,6 +18355,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceCrawlFilterConfigurationTypePtrInput)(nil)).Elem(), DataSourceCrawlFilterConfigurationType("PATTERN"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceDataDeletionPolicyInput)(nil)).Elem(), DataSourceDataDeletionPolicy("RETAIN"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceDataDeletionPolicyPtrInput)(nil)).Elem(), DataSourceDataDeletionPolicy("RETAIN"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceDayOfWeekInput)(nil)).Elem(), DataSourceDayOfWeek("SUNDAY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceDayOfWeekPtrInput)(nil)).Elem(), DataSourceDayOfWeek("SUNDAY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceEnabledOrDisabledStateInput)(nil)).Elem(), DataSourceEnabledOrDisabledState("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceEnabledOrDisabledStatePtrInput)(nil)).Elem(), DataSourceEnabledOrDisabledState("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceEnrichmentStrategyMethodInput)(nil)).Elem(), DataSourceEnrichmentStrategyMethod("CHUNK_ENTITY_EXTRACTION"))
@@ -18386,6 +18564,8 @@ func init() {
 	pulumi.RegisterOutputType(DataSourceCrawlFilterConfigurationTypePtrOutput{})
 	pulumi.RegisterOutputType(DataSourceDataDeletionPolicyOutput{})
 	pulumi.RegisterOutputType(DataSourceDataDeletionPolicyPtrOutput{})
+	pulumi.RegisterOutputType(DataSourceDayOfWeekOutput{})
+	pulumi.RegisterOutputType(DataSourceDayOfWeekPtrOutput{})
 	pulumi.RegisterOutputType(DataSourceEnabledOrDisabledStateOutput{})
 	pulumi.RegisterOutputType(DataSourceEnabledOrDisabledStatePtrOutput{})
 	pulumi.RegisterOutputType(DataSourceEnrichmentStrategyMethodOutput{})

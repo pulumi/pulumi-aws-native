@@ -12689,6 +12689,286 @@ func (o DataSourceCustomTransformationConfigurationPtrOutput) Transformations() 
 	}).(DataSourceTransformationArrayOutput)
 }
 
+// A daily refresh. The run time is system-chosen (off-peak) and not customer-configurable.
+type DataSourceDailySchedule struct {
+}
+
+// DataSourceDailyScheduleInput is an input type that accepts DataSourceDailyScheduleArgs and DataSourceDailyScheduleOutput values.
+// You can construct a concrete instance of `DataSourceDailyScheduleInput` via:
+//
+//	DataSourceDailyScheduleArgs{...}
+type DataSourceDailyScheduleInput interface {
+	pulumi.Input
+
+	ToDataSourceDailyScheduleOutput() DataSourceDailyScheduleOutput
+	ToDataSourceDailyScheduleOutputWithContext(context.Context) DataSourceDailyScheduleOutput
+}
+
+// A daily refresh. The run time is system-chosen (off-peak) and not customer-configurable.
+type DataSourceDailyScheduleArgs struct {
+}
+
+func (DataSourceDailyScheduleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceDailySchedule)(nil)).Elem()
+}
+
+func (i DataSourceDailyScheduleArgs) ToDataSourceDailyScheduleOutput() DataSourceDailyScheduleOutput {
+	return i.ToDataSourceDailyScheduleOutputWithContext(context.Background())
+}
+
+func (i DataSourceDailyScheduleArgs) ToDataSourceDailyScheduleOutputWithContext(ctx context.Context) DataSourceDailyScheduleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceDailyScheduleOutput)
+}
+
+func (i DataSourceDailyScheduleArgs) ToDataSourceDailySchedulePtrOutput() DataSourceDailySchedulePtrOutput {
+	return i.ToDataSourceDailySchedulePtrOutputWithContext(context.Background())
+}
+
+func (i DataSourceDailyScheduleArgs) ToDataSourceDailySchedulePtrOutputWithContext(ctx context.Context) DataSourceDailySchedulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceDailyScheduleOutput).ToDataSourceDailySchedulePtrOutputWithContext(ctx)
+}
+
+// DataSourceDailySchedulePtrInput is an input type that accepts DataSourceDailyScheduleArgs, DataSourceDailySchedulePtr and DataSourceDailySchedulePtrOutput values.
+// You can construct a concrete instance of `DataSourceDailySchedulePtrInput` via:
+//
+//	        DataSourceDailyScheduleArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataSourceDailySchedulePtrInput interface {
+	pulumi.Input
+
+	ToDataSourceDailySchedulePtrOutput() DataSourceDailySchedulePtrOutput
+	ToDataSourceDailySchedulePtrOutputWithContext(context.Context) DataSourceDailySchedulePtrOutput
+}
+
+type dataSourceDailySchedulePtrType DataSourceDailyScheduleArgs
+
+func DataSourceDailySchedulePtr(v *DataSourceDailyScheduleArgs) DataSourceDailySchedulePtrInput {
+	return (*dataSourceDailySchedulePtrType)(v)
+}
+
+func (*dataSourceDailySchedulePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceDailySchedule)(nil)).Elem()
+}
+
+func (i *dataSourceDailySchedulePtrType) ToDataSourceDailySchedulePtrOutput() DataSourceDailySchedulePtrOutput {
+	return i.ToDataSourceDailySchedulePtrOutputWithContext(context.Background())
+}
+
+func (i *dataSourceDailySchedulePtrType) ToDataSourceDailySchedulePtrOutputWithContext(ctx context.Context) DataSourceDailySchedulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceDailySchedulePtrOutput)
+}
+
+// A daily refresh. The run time is system-chosen (off-peak) and not customer-configurable.
+type DataSourceDailyScheduleOutput struct{ *pulumi.OutputState }
+
+func (DataSourceDailyScheduleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceDailySchedule)(nil)).Elem()
+}
+
+func (o DataSourceDailyScheduleOutput) ToDataSourceDailyScheduleOutput() DataSourceDailyScheduleOutput {
+	return o
+}
+
+func (o DataSourceDailyScheduleOutput) ToDataSourceDailyScheduleOutputWithContext(ctx context.Context) DataSourceDailyScheduleOutput {
+	return o
+}
+
+func (o DataSourceDailyScheduleOutput) ToDataSourceDailySchedulePtrOutput() DataSourceDailySchedulePtrOutput {
+	return o.ToDataSourceDailySchedulePtrOutputWithContext(context.Background())
+}
+
+func (o DataSourceDailyScheduleOutput) ToDataSourceDailySchedulePtrOutputWithContext(ctx context.Context) DataSourceDailySchedulePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSourceDailySchedule) *DataSourceDailySchedule {
+		return &v
+	}).(DataSourceDailySchedulePtrOutput)
+}
+
+type DataSourceDailySchedulePtrOutput struct{ *pulumi.OutputState }
+
+func (DataSourceDailySchedulePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceDailySchedule)(nil)).Elem()
+}
+
+func (o DataSourceDailySchedulePtrOutput) ToDataSourceDailySchedulePtrOutput() DataSourceDailySchedulePtrOutput {
+	return o
+}
+
+func (o DataSourceDailySchedulePtrOutput) ToDataSourceDailySchedulePtrOutputWithContext(ctx context.Context) DataSourceDailySchedulePtrOutput {
+	return o
+}
+
+func (o DataSourceDailySchedulePtrOutput) Elem() DataSourceDailyScheduleOutput {
+	return o.ApplyT(func(v *DataSourceDailySchedule) DataSourceDailySchedule {
+		if v != nil {
+			return *v
+		}
+		var ret DataSourceDailySchedule
+		return ret
+	}).(DataSourceDailyScheduleOutput)
+}
+
+// Day of the month on which a monthly refresh runs. Exactly one variant is set: an explicit day number, or the last calendar day of the month.
+type DataSourceDayOfMonth struct {
+	// Specific day of the month, 1 through 28 (capped at 28 to avoid month-length ambiguity).
+	DayNumber *int `pulumi:"dayNumber"`
+	// Run on the last calendar day of each month.
+	LastDayOfMonth interface{} `pulumi:"lastDayOfMonth"`
+}
+
+// DataSourceDayOfMonthInput is an input type that accepts DataSourceDayOfMonthArgs and DataSourceDayOfMonthOutput values.
+// You can construct a concrete instance of `DataSourceDayOfMonthInput` via:
+//
+//	DataSourceDayOfMonthArgs{...}
+type DataSourceDayOfMonthInput interface {
+	pulumi.Input
+
+	ToDataSourceDayOfMonthOutput() DataSourceDayOfMonthOutput
+	ToDataSourceDayOfMonthOutputWithContext(context.Context) DataSourceDayOfMonthOutput
+}
+
+// Day of the month on which a monthly refresh runs. Exactly one variant is set: an explicit day number, or the last calendar day of the month.
+type DataSourceDayOfMonthArgs struct {
+	// Specific day of the month, 1 through 28 (capped at 28 to avoid month-length ambiguity).
+	DayNumber pulumi.IntPtrInput `pulumi:"dayNumber"`
+	// Run on the last calendar day of each month.
+	LastDayOfMonth pulumi.Input `pulumi:"lastDayOfMonth"`
+}
+
+func (DataSourceDayOfMonthArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceDayOfMonth)(nil)).Elem()
+}
+
+func (i DataSourceDayOfMonthArgs) ToDataSourceDayOfMonthOutput() DataSourceDayOfMonthOutput {
+	return i.ToDataSourceDayOfMonthOutputWithContext(context.Background())
+}
+
+func (i DataSourceDayOfMonthArgs) ToDataSourceDayOfMonthOutputWithContext(ctx context.Context) DataSourceDayOfMonthOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceDayOfMonthOutput)
+}
+
+func (i DataSourceDayOfMonthArgs) ToDataSourceDayOfMonthPtrOutput() DataSourceDayOfMonthPtrOutput {
+	return i.ToDataSourceDayOfMonthPtrOutputWithContext(context.Background())
+}
+
+func (i DataSourceDayOfMonthArgs) ToDataSourceDayOfMonthPtrOutputWithContext(ctx context.Context) DataSourceDayOfMonthPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceDayOfMonthOutput).ToDataSourceDayOfMonthPtrOutputWithContext(ctx)
+}
+
+// DataSourceDayOfMonthPtrInput is an input type that accepts DataSourceDayOfMonthArgs, DataSourceDayOfMonthPtr and DataSourceDayOfMonthPtrOutput values.
+// You can construct a concrete instance of `DataSourceDayOfMonthPtrInput` via:
+//
+//	        DataSourceDayOfMonthArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataSourceDayOfMonthPtrInput interface {
+	pulumi.Input
+
+	ToDataSourceDayOfMonthPtrOutput() DataSourceDayOfMonthPtrOutput
+	ToDataSourceDayOfMonthPtrOutputWithContext(context.Context) DataSourceDayOfMonthPtrOutput
+}
+
+type dataSourceDayOfMonthPtrType DataSourceDayOfMonthArgs
+
+func DataSourceDayOfMonthPtr(v *DataSourceDayOfMonthArgs) DataSourceDayOfMonthPtrInput {
+	return (*dataSourceDayOfMonthPtrType)(v)
+}
+
+func (*dataSourceDayOfMonthPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceDayOfMonth)(nil)).Elem()
+}
+
+func (i *dataSourceDayOfMonthPtrType) ToDataSourceDayOfMonthPtrOutput() DataSourceDayOfMonthPtrOutput {
+	return i.ToDataSourceDayOfMonthPtrOutputWithContext(context.Background())
+}
+
+func (i *dataSourceDayOfMonthPtrType) ToDataSourceDayOfMonthPtrOutputWithContext(ctx context.Context) DataSourceDayOfMonthPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceDayOfMonthPtrOutput)
+}
+
+// Day of the month on which a monthly refresh runs. Exactly one variant is set: an explicit day number, or the last calendar day of the month.
+type DataSourceDayOfMonthOutput struct{ *pulumi.OutputState }
+
+func (DataSourceDayOfMonthOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceDayOfMonth)(nil)).Elem()
+}
+
+func (o DataSourceDayOfMonthOutput) ToDataSourceDayOfMonthOutput() DataSourceDayOfMonthOutput {
+	return o
+}
+
+func (o DataSourceDayOfMonthOutput) ToDataSourceDayOfMonthOutputWithContext(ctx context.Context) DataSourceDayOfMonthOutput {
+	return o
+}
+
+func (o DataSourceDayOfMonthOutput) ToDataSourceDayOfMonthPtrOutput() DataSourceDayOfMonthPtrOutput {
+	return o.ToDataSourceDayOfMonthPtrOutputWithContext(context.Background())
+}
+
+func (o DataSourceDayOfMonthOutput) ToDataSourceDayOfMonthPtrOutputWithContext(ctx context.Context) DataSourceDayOfMonthPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSourceDayOfMonth) *DataSourceDayOfMonth {
+		return &v
+	}).(DataSourceDayOfMonthPtrOutput)
+}
+
+// Specific day of the month, 1 through 28 (capped at 28 to avoid month-length ambiguity).
+func (o DataSourceDayOfMonthOutput) DayNumber() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DataSourceDayOfMonth) *int { return v.DayNumber }).(pulumi.IntPtrOutput)
+}
+
+// Run on the last calendar day of each month.
+func (o DataSourceDayOfMonthOutput) LastDayOfMonth() pulumi.AnyOutput {
+	return o.ApplyT(func(v DataSourceDayOfMonth) interface{} { return v.LastDayOfMonth }).(pulumi.AnyOutput)
+}
+
+type DataSourceDayOfMonthPtrOutput struct{ *pulumi.OutputState }
+
+func (DataSourceDayOfMonthPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceDayOfMonth)(nil)).Elem()
+}
+
+func (o DataSourceDayOfMonthPtrOutput) ToDataSourceDayOfMonthPtrOutput() DataSourceDayOfMonthPtrOutput {
+	return o
+}
+
+func (o DataSourceDayOfMonthPtrOutput) ToDataSourceDayOfMonthPtrOutputWithContext(ctx context.Context) DataSourceDayOfMonthPtrOutput {
+	return o
+}
+
+func (o DataSourceDayOfMonthPtrOutput) Elem() DataSourceDayOfMonthOutput {
+	return o.ApplyT(func(v *DataSourceDayOfMonth) DataSourceDayOfMonth {
+		if v != nil {
+			return *v
+		}
+		var ret DataSourceDayOfMonth
+		return ret
+	}).(DataSourceDayOfMonthOutput)
+}
+
+// Specific day of the month, 1 through 28 (capped at 28 to avoid month-length ambiguity).
+func (o DataSourceDayOfMonthPtrOutput) DayNumber() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DataSourceDayOfMonth) *int {
+		if v == nil {
+			return nil
+		}
+		return v.DayNumber
+	}).(pulumi.IntPtrOutput)
+}
+
+// Run on the last calendar day of each month.
+func (o DataSourceDayOfMonthPtrOutput) LastDayOfMonth() pulumi.AnyOutput {
+	return o.ApplyT(func(v *DataSourceDayOfMonth) interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.LastDayOfMonth
+	}).(pulumi.AnyOutput)
+}
+
 // Configuration for deletion protection.
 type DataSourceDeletionProtectionConfiguration struct {
 	DeletionProtectionStatus DataSourceEnabledOrDisabledState `pulumi:"deletionProtectionStatus"`
@@ -13690,6 +13970,7 @@ type DataSourceManagedKnowledgeBaseConnectorConfiguration struct {
 	ConnectorParameters             interface{}                                `pulumi:"connectorParameters"`
 	DeletionProtectionConfiguration *DataSourceDeletionProtectionConfiguration `pulumi:"deletionProtectionConfiguration"`
 	MediaExtractionConfiguration    *DataSourceMediaExtractionConfiguration    `pulumi:"mediaExtractionConfiguration"`
+	SyncSchedule                    *DataSourceSyncSchedule                    `pulumi:"syncSchedule"`
 }
 
 // DataSourceManagedKnowledgeBaseConnectorConfigurationInput is an input type that accepts DataSourceManagedKnowledgeBaseConnectorConfigurationArgs and DataSourceManagedKnowledgeBaseConnectorConfigurationOutput values.
@@ -13709,6 +13990,7 @@ type DataSourceManagedKnowledgeBaseConnectorConfigurationArgs struct {
 	ConnectorParameters             pulumi.Input                                      `pulumi:"connectorParameters"`
 	DeletionProtectionConfiguration DataSourceDeletionProtectionConfigurationPtrInput `pulumi:"deletionProtectionConfiguration"`
 	MediaExtractionConfiguration    DataSourceMediaExtractionConfigurationPtrInput    `pulumi:"mediaExtractionConfiguration"`
+	SyncSchedule                    DataSourceSyncSchedulePtrInput                    `pulumi:"syncSchedule"`
 }
 
 func (DataSourceManagedKnowledgeBaseConnectorConfigurationArgs) ElementType() reflect.Type {
@@ -13806,6 +14088,12 @@ func (o DataSourceManagedKnowledgeBaseConnectorConfigurationOutput) MediaExtract
 	}).(DataSourceMediaExtractionConfigurationPtrOutput)
 }
 
+func (o DataSourceManagedKnowledgeBaseConnectorConfigurationOutput) SyncSchedule() DataSourceSyncSchedulePtrOutput {
+	return o.ApplyT(func(v DataSourceManagedKnowledgeBaseConnectorConfiguration) *DataSourceSyncSchedule {
+		return v.SyncSchedule
+	}).(DataSourceSyncSchedulePtrOutput)
+}
+
 type DataSourceManagedKnowledgeBaseConnectorConfigurationPtrOutput struct{ *pulumi.OutputState }
 
 func (DataSourceManagedKnowledgeBaseConnectorConfigurationPtrOutput) ElementType() reflect.Type {
@@ -13856,6 +14144,15 @@ func (o DataSourceManagedKnowledgeBaseConnectorConfigurationPtrOutput) MediaExtr
 		}
 		return v.MediaExtractionConfiguration
 	}).(DataSourceMediaExtractionConfigurationPtrOutput)
+}
+
+func (o DataSourceManagedKnowledgeBaseConnectorConfigurationPtrOutput) SyncSchedule() DataSourceSyncSchedulePtrOutput {
+	return o.ApplyT(func(v *DataSourceManagedKnowledgeBaseConnectorConfiguration) *DataSourceSyncSchedule {
+		if v == nil {
+			return nil
+		}
+		return v.SyncSchedule
+	}).(DataSourceSyncSchedulePtrOutput)
 }
 
 // Configuration for media extraction settings.
@@ -14028,6 +14325,142 @@ func (o DataSourceMediaExtractionConfigurationPtrOutput) VideoExtractionConfigur
 		}
 		return v.VideoExtractionConfiguration
 	}).(DataSourceVideoExtractionConfigurationPtrOutput)
+}
+
+// A monthly refresh on a specified day of the month.
+type DataSourceMonthlySchedule struct {
+	DayOfMonth DataSourceDayOfMonth `pulumi:"dayOfMonth"`
+}
+
+// DataSourceMonthlyScheduleInput is an input type that accepts DataSourceMonthlyScheduleArgs and DataSourceMonthlyScheduleOutput values.
+// You can construct a concrete instance of `DataSourceMonthlyScheduleInput` via:
+//
+//	DataSourceMonthlyScheduleArgs{...}
+type DataSourceMonthlyScheduleInput interface {
+	pulumi.Input
+
+	ToDataSourceMonthlyScheduleOutput() DataSourceMonthlyScheduleOutput
+	ToDataSourceMonthlyScheduleOutputWithContext(context.Context) DataSourceMonthlyScheduleOutput
+}
+
+// A monthly refresh on a specified day of the month.
+type DataSourceMonthlyScheduleArgs struct {
+	DayOfMonth DataSourceDayOfMonthInput `pulumi:"dayOfMonth"`
+}
+
+func (DataSourceMonthlyScheduleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceMonthlySchedule)(nil)).Elem()
+}
+
+func (i DataSourceMonthlyScheduleArgs) ToDataSourceMonthlyScheduleOutput() DataSourceMonthlyScheduleOutput {
+	return i.ToDataSourceMonthlyScheduleOutputWithContext(context.Background())
+}
+
+func (i DataSourceMonthlyScheduleArgs) ToDataSourceMonthlyScheduleOutputWithContext(ctx context.Context) DataSourceMonthlyScheduleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceMonthlyScheduleOutput)
+}
+
+func (i DataSourceMonthlyScheduleArgs) ToDataSourceMonthlySchedulePtrOutput() DataSourceMonthlySchedulePtrOutput {
+	return i.ToDataSourceMonthlySchedulePtrOutputWithContext(context.Background())
+}
+
+func (i DataSourceMonthlyScheduleArgs) ToDataSourceMonthlySchedulePtrOutputWithContext(ctx context.Context) DataSourceMonthlySchedulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceMonthlyScheduleOutput).ToDataSourceMonthlySchedulePtrOutputWithContext(ctx)
+}
+
+// DataSourceMonthlySchedulePtrInput is an input type that accepts DataSourceMonthlyScheduleArgs, DataSourceMonthlySchedulePtr and DataSourceMonthlySchedulePtrOutput values.
+// You can construct a concrete instance of `DataSourceMonthlySchedulePtrInput` via:
+//
+//	        DataSourceMonthlyScheduleArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataSourceMonthlySchedulePtrInput interface {
+	pulumi.Input
+
+	ToDataSourceMonthlySchedulePtrOutput() DataSourceMonthlySchedulePtrOutput
+	ToDataSourceMonthlySchedulePtrOutputWithContext(context.Context) DataSourceMonthlySchedulePtrOutput
+}
+
+type dataSourceMonthlySchedulePtrType DataSourceMonthlyScheduleArgs
+
+func DataSourceMonthlySchedulePtr(v *DataSourceMonthlyScheduleArgs) DataSourceMonthlySchedulePtrInput {
+	return (*dataSourceMonthlySchedulePtrType)(v)
+}
+
+func (*dataSourceMonthlySchedulePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceMonthlySchedule)(nil)).Elem()
+}
+
+func (i *dataSourceMonthlySchedulePtrType) ToDataSourceMonthlySchedulePtrOutput() DataSourceMonthlySchedulePtrOutput {
+	return i.ToDataSourceMonthlySchedulePtrOutputWithContext(context.Background())
+}
+
+func (i *dataSourceMonthlySchedulePtrType) ToDataSourceMonthlySchedulePtrOutputWithContext(ctx context.Context) DataSourceMonthlySchedulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceMonthlySchedulePtrOutput)
+}
+
+// A monthly refresh on a specified day of the month.
+type DataSourceMonthlyScheduleOutput struct{ *pulumi.OutputState }
+
+func (DataSourceMonthlyScheduleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceMonthlySchedule)(nil)).Elem()
+}
+
+func (o DataSourceMonthlyScheduleOutput) ToDataSourceMonthlyScheduleOutput() DataSourceMonthlyScheduleOutput {
+	return o
+}
+
+func (o DataSourceMonthlyScheduleOutput) ToDataSourceMonthlyScheduleOutputWithContext(ctx context.Context) DataSourceMonthlyScheduleOutput {
+	return o
+}
+
+func (o DataSourceMonthlyScheduleOutput) ToDataSourceMonthlySchedulePtrOutput() DataSourceMonthlySchedulePtrOutput {
+	return o.ToDataSourceMonthlySchedulePtrOutputWithContext(context.Background())
+}
+
+func (o DataSourceMonthlyScheduleOutput) ToDataSourceMonthlySchedulePtrOutputWithContext(ctx context.Context) DataSourceMonthlySchedulePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSourceMonthlySchedule) *DataSourceMonthlySchedule {
+		return &v
+	}).(DataSourceMonthlySchedulePtrOutput)
+}
+
+func (o DataSourceMonthlyScheduleOutput) DayOfMonth() DataSourceDayOfMonthOutput {
+	return o.ApplyT(func(v DataSourceMonthlySchedule) DataSourceDayOfMonth { return v.DayOfMonth }).(DataSourceDayOfMonthOutput)
+}
+
+type DataSourceMonthlySchedulePtrOutput struct{ *pulumi.OutputState }
+
+func (DataSourceMonthlySchedulePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceMonthlySchedule)(nil)).Elem()
+}
+
+func (o DataSourceMonthlySchedulePtrOutput) ToDataSourceMonthlySchedulePtrOutput() DataSourceMonthlySchedulePtrOutput {
+	return o
+}
+
+func (o DataSourceMonthlySchedulePtrOutput) ToDataSourceMonthlySchedulePtrOutputWithContext(ctx context.Context) DataSourceMonthlySchedulePtrOutput {
+	return o
+}
+
+func (o DataSourceMonthlySchedulePtrOutput) Elem() DataSourceMonthlyScheduleOutput {
+	return o.ApplyT(func(v *DataSourceMonthlySchedule) DataSourceMonthlySchedule {
+		if v != nil {
+			return *v
+		}
+		var ret DataSourceMonthlySchedule
+		return ret
+	}).(DataSourceMonthlyScheduleOutput)
+}
+
+func (o DataSourceMonthlySchedulePtrOutput) DayOfMonth() DataSourceDayOfMonthPtrOutput {
+	return o.ApplyT(func(v *DataSourceMonthlySchedule) *DataSourceDayOfMonth {
+		if v == nil {
+			return nil
+		}
+		return &v.DayOfMonth
+	}).(DataSourceDayOfMonthPtrOutput)
 }
 
 // Settings for parsing document contents
@@ -16369,6 +16802,172 @@ func (o DataSourceSharePointSourceConfigurationPtrOutput) TenantId() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
+// Recurring schedule on which the connector automatically refreshes ingested content. Exactly one frequency variant is set.
+type DataSourceSyncSchedule struct {
+	Daily   *DataSourceDailySchedule   `pulumi:"daily"`
+	Monthly *DataSourceMonthlySchedule `pulumi:"monthly"`
+	Weekly  *DataSourceWeeklySchedule  `pulumi:"weekly"`
+}
+
+// DataSourceSyncScheduleInput is an input type that accepts DataSourceSyncScheduleArgs and DataSourceSyncScheduleOutput values.
+// You can construct a concrete instance of `DataSourceSyncScheduleInput` via:
+//
+//	DataSourceSyncScheduleArgs{...}
+type DataSourceSyncScheduleInput interface {
+	pulumi.Input
+
+	ToDataSourceSyncScheduleOutput() DataSourceSyncScheduleOutput
+	ToDataSourceSyncScheduleOutputWithContext(context.Context) DataSourceSyncScheduleOutput
+}
+
+// Recurring schedule on which the connector automatically refreshes ingested content. Exactly one frequency variant is set.
+type DataSourceSyncScheduleArgs struct {
+	Daily   DataSourceDailySchedulePtrInput   `pulumi:"daily"`
+	Monthly DataSourceMonthlySchedulePtrInput `pulumi:"monthly"`
+	Weekly  DataSourceWeeklySchedulePtrInput  `pulumi:"weekly"`
+}
+
+func (DataSourceSyncScheduleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceSyncSchedule)(nil)).Elem()
+}
+
+func (i DataSourceSyncScheduleArgs) ToDataSourceSyncScheduleOutput() DataSourceSyncScheduleOutput {
+	return i.ToDataSourceSyncScheduleOutputWithContext(context.Background())
+}
+
+func (i DataSourceSyncScheduleArgs) ToDataSourceSyncScheduleOutputWithContext(ctx context.Context) DataSourceSyncScheduleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceSyncScheduleOutput)
+}
+
+func (i DataSourceSyncScheduleArgs) ToDataSourceSyncSchedulePtrOutput() DataSourceSyncSchedulePtrOutput {
+	return i.ToDataSourceSyncSchedulePtrOutputWithContext(context.Background())
+}
+
+func (i DataSourceSyncScheduleArgs) ToDataSourceSyncSchedulePtrOutputWithContext(ctx context.Context) DataSourceSyncSchedulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceSyncScheduleOutput).ToDataSourceSyncSchedulePtrOutputWithContext(ctx)
+}
+
+// DataSourceSyncSchedulePtrInput is an input type that accepts DataSourceSyncScheduleArgs, DataSourceSyncSchedulePtr and DataSourceSyncSchedulePtrOutput values.
+// You can construct a concrete instance of `DataSourceSyncSchedulePtrInput` via:
+//
+//	        DataSourceSyncScheduleArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataSourceSyncSchedulePtrInput interface {
+	pulumi.Input
+
+	ToDataSourceSyncSchedulePtrOutput() DataSourceSyncSchedulePtrOutput
+	ToDataSourceSyncSchedulePtrOutputWithContext(context.Context) DataSourceSyncSchedulePtrOutput
+}
+
+type dataSourceSyncSchedulePtrType DataSourceSyncScheduleArgs
+
+func DataSourceSyncSchedulePtr(v *DataSourceSyncScheduleArgs) DataSourceSyncSchedulePtrInput {
+	return (*dataSourceSyncSchedulePtrType)(v)
+}
+
+func (*dataSourceSyncSchedulePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceSyncSchedule)(nil)).Elem()
+}
+
+func (i *dataSourceSyncSchedulePtrType) ToDataSourceSyncSchedulePtrOutput() DataSourceSyncSchedulePtrOutput {
+	return i.ToDataSourceSyncSchedulePtrOutputWithContext(context.Background())
+}
+
+func (i *dataSourceSyncSchedulePtrType) ToDataSourceSyncSchedulePtrOutputWithContext(ctx context.Context) DataSourceSyncSchedulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceSyncSchedulePtrOutput)
+}
+
+// Recurring schedule on which the connector automatically refreshes ingested content. Exactly one frequency variant is set.
+type DataSourceSyncScheduleOutput struct{ *pulumi.OutputState }
+
+func (DataSourceSyncScheduleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceSyncSchedule)(nil)).Elem()
+}
+
+func (o DataSourceSyncScheduleOutput) ToDataSourceSyncScheduleOutput() DataSourceSyncScheduleOutput {
+	return o
+}
+
+func (o DataSourceSyncScheduleOutput) ToDataSourceSyncScheduleOutputWithContext(ctx context.Context) DataSourceSyncScheduleOutput {
+	return o
+}
+
+func (o DataSourceSyncScheduleOutput) ToDataSourceSyncSchedulePtrOutput() DataSourceSyncSchedulePtrOutput {
+	return o.ToDataSourceSyncSchedulePtrOutputWithContext(context.Background())
+}
+
+func (o DataSourceSyncScheduleOutput) ToDataSourceSyncSchedulePtrOutputWithContext(ctx context.Context) DataSourceSyncSchedulePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSourceSyncSchedule) *DataSourceSyncSchedule {
+		return &v
+	}).(DataSourceSyncSchedulePtrOutput)
+}
+
+func (o DataSourceSyncScheduleOutput) Daily() DataSourceDailySchedulePtrOutput {
+	return o.ApplyT(func(v DataSourceSyncSchedule) *DataSourceDailySchedule { return v.Daily }).(DataSourceDailySchedulePtrOutput)
+}
+
+func (o DataSourceSyncScheduleOutput) Monthly() DataSourceMonthlySchedulePtrOutput {
+	return o.ApplyT(func(v DataSourceSyncSchedule) *DataSourceMonthlySchedule { return v.Monthly }).(DataSourceMonthlySchedulePtrOutput)
+}
+
+func (o DataSourceSyncScheduleOutput) Weekly() DataSourceWeeklySchedulePtrOutput {
+	return o.ApplyT(func(v DataSourceSyncSchedule) *DataSourceWeeklySchedule { return v.Weekly }).(DataSourceWeeklySchedulePtrOutput)
+}
+
+type DataSourceSyncSchedulePtrOutput struct{ *pulumi.OutputState }
+
+func (DataSourceSyncSchedulePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceSyncSchedule)(nil)).Elem()
+}
+
+func (o DataSourceSyncSchedulePtrOutput) ToDataSourceSyncSchedulePtrOutput() DataSourceSyncSchedulePtrOutput {
+	return o
+}
+
+func (o DataSourceSyncSchedulePtrOutput) ToDataSourceSyncSchedulePtrOutputWithContext(ctx context.Context) DataSourceSyncSchedulePtrOutput {
+	return o
+}
+
+func (o DataSourceSyncSchedulePtrOutput) Elem() DataSourceSyncScheduleOutput {
+	return o.ApplyT(func(v *DataSourceSyncSchedule) DataSourceSyncSchedule {
+		if v != nil {
+			return *v
+		}
+		var ret DataSourceSyncSchedule
+		return ret
+	}).(DataSourceSyncScheduleOutput)
+}
+
+func (o DataSourceSyncSchedulePtrOutput) Daily() DataSourceDailySchedulePtrOutput {
+	return o.ApplyT(func(v *DataSourceSyncSchedule) *DataSourceDailySchedule {
+		if v == nil {
+			return nil
+		}
+		return v.Daily
+	}).(DataSourceDailySchedulePtrOutput)
+}
+
+func (o DataSourceSyncSchedulePtrOutput) Monthly() DataSourceMonthlySchedulePtrOutput {
+	return o.ApplyT(func(v *DataSourceSyncSchedule) *DataSourceMonthlySchedule {
+		if v == nil {
+			return nil
+		}
+		return v.Monthly
+	}).(DataSourceMonthlySchedulePtrOutput)
+}
+
+func (o DataSourceSyncSchedulePtrOutput) Weekly() DataSourceWeeklySchedulePtrOutput {
+	return o.ApplyT(func(v *DataSourceSyncSchedule) *DataSourceWeeklySchedule {
+		if v == nil {
+			return nil
+		}
+		return v.Weekly
+	}).(DataSourceWeeklySchedulePtrOutput)
+}
+
 // A Lambda function that processes documents.
 type DataSourceTransformation struct {
 	// When the service applies the transformation.
@@ -17776,6 +18375,142 @@ func (o DataSourceWebSourceConfigurationPtrOutput) UrlConfiguration() DataSource
 		}
 		return &v.UrlConfiguration
 	}).(DataSourceUrlConfigurationPtrOutput)
+}
+
+// A weekly refresh on a specified day of the week.
+type DataSourceWeeklySchedule struct {
+	DayOfWeek DataSourceDayOfWeek `pulumi:"dayOfWeek"`
+}
+
+// DataSourceWeeklyScheduleInput is an input type that accepts DataSourceWeeklyScheduleArgs and DataSourceWeeklyScheduleOutput values.
+// You can construct a concrete instance of `DataSourceWeeklyScheduleInput` via:
+//
+//	DataSourceWeeklyScheduleArgs{...}
+type DataSourceWeeklyScheduleInput interface {
+	pulumi.Input
+
+	ToDataSourceWeeklyScheduleOutput() DataSourceWeeklyScheduleOutput
+	ToDataSourceWeeklyScheduleOutputWithContext(context.Context) DataSourceWeeklyScheduleOutput
+}
+
+// A weekly refresh on a specified day of the week.
+type DataSourceWeeklyScheduleArgs struct {
+	DayOfWeek DataSourceDayOfWeekInput `pulumi:"dayOfWeek"`
+}
+
+func (DataSourceWeeklyScheduleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceWeeklySchedule)(nil)).Elem()
+}
+
+func (i DataSourceWeeklyScheduleArgs) ToDataSourceWeeklyScheduleOutput() DataSourceWeeklyScheduleOutput {
+	return i.ToDataSourceWeeklyScheduleOutputWithContext(context.Background())
+}
+
+func (i DataSourceWeeklyScheduleArgs) ToDataSourceWeeklyScheduleOutputWithContext(ctx context.Context) DataSourceWeeklyScheduleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceWeeklyScheduleOutput)
+}
+
+func (i DataSourceWeeklyScheduleArgs) ToDataSourceWeeklySchedulePtrOutput() DataSourceWeeklySchedulePtrOutput {
+	return i.ToDataSourceWeeklySchedulePtrOutputWithContext(context.Background())
+}
+
+func (i DataSourceWeeklyScheduleArgs) ToDataSourceWeeklySchedulePtrOutputWithContext(ctx context.Context) DataSourceWeeklySchedulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceWeeklyScheduleOutput).ToDataSourceWeeklySchedulePtrOutputWithContext(ctx)
+}
+
+// DataSourceWeeklySchedulePtrInput is an input type that accepts DataSourceWeeklyScheduleArgs, DataSourceWeeklySchedulePtr and DataSourceWeeklySchedulePtrOutput values.
+// You can construct a concrete instance of `DataSourceWeeklySchedulePtrInput` via:
+//
+//	        DataSourceWeeklyScheduleArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataSourceWeeklySchedulePtrInput interface {
+	pulumi.Input
+
+	ToDataSourceWeeklySchedulePtrOutput() DataSourceWeeklySchedulePtrOutput
+	ToDataSourceWeeklySchedulePtrOutputWithContext(context.Context) DataSourceWeeklySchedulePtrOutput
+}
+
+type dataSourceWeeklySchedulePtrType DataSourceWeeklyScheduleArgs
+
+func DataSourceWeeklySchedulePtr(v *DataSourceWeeklyScheduleArgs) DataSourceWeeklySchedulePtrInput {
+	return (*dataSourceWeeklySchedulePtrType)(v)
+}
+
+func (*dataSourceWeeklySchedulePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceWeeklySchedule)(nil)).Elem()
+}
+
+func (i *dataSourceWeeklySchedulePtrType) ToDataSourceWeeklySchedulePtrOutput() DataSourceWeeklySchedulePtrOutput {
+	return i.ToDataSourceWeeklySchedulePtrOutputWithContext(context.Background())
+}
+
+func (i *dataSourceWeeklySchedulePtrType) ToDataSourceWeeklySchedulePtrOutputWithContext(ctx context.Context) DataSourceWeeklySchedulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceWeeklySchedulePtrOutput)
+}
+
+// A weekly refresh on a specified day of the week.
+type DataSourceWeeklyScheduleOutput struct{ *pulumi.OutputState }
+
+func (DataSourceWeeklyScheduleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceWeeklySchedule)(nil)).Elem()
+}
+
+func (o DataSourceWeeklyScheduleOutput) ToDataSourceWeeklyScheduleOutput() DataSourceWeeklyScheduleOutput {
+	return o
+}
+
+func (o DataSourceWeeklyScheduleOutput) ToDataSourceWeeklyScheduleOutputWithContext(ctx context.Context) DataSourceWeeklyScheduleOutput {
+	return o
+}
+
+func (o DataSourceWeeklyScheduleOutput) ToDataSourceWeeklySchedulePtrOutput() DataSourceWeeklySchedulePtrOutput {
+	return o.ToDataSourceWeeklySchedulePtrOutputWithContext(context.Background())
+}
+
+func (o DataSourceWeeklyScheduleOutput) ToDataSourceWeeklySchedulePtrOutputWithContext(ctx context.Context) DataSourceWeeklySchedulePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSourceWeeklySchedule) *DataSourceWeeklySchedule {
+		return &v
+	}).(DataSourceWeeklySchedulePtrOutput)
+}
+
+func (o DataSourceWeeklyScheduleOutput) DayOfWeek() DataSourceDayOfWeekOutput {
+	return o.ApplyT(func(v DataSourceWeeklySchedule) DataSourceDayOfWeek { return v.DayOfWeek }).(DataSourceDayOfWeekOutput)
+}
+
+type DataSourceWeeklySchedulePtrOutput struct{ *pulumi.OutputState }
+
+func (DataSourceWeeklySchedulePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceWeeklySchedule)(nil)).Elem()
+}
+
+func (o DataSourceWeeklySchedulePtrOutput) ToDataSourceWeeklySchedulePtrOutput() DataSourceWeeklySchedulePtrOutput {
+	return o
+}
+
+func (o DataSourceWeeklySchedulePtrOutput) ToDataSourceWeeklySchedulePtrOutputWithContext(ctx context.Context) DataSourceWeeklySchedulePtrOutput {
+	return o
+}
+
+func (o DataSourceWeeklySchedulePtrOutput) Elem() DataSourceWeeklyScheduleOutput {
+	return o.ApplyT(func(v *DataSourceWeeklySchedule) DataSourceWeeklySchedule {
+		if v != nil {
+			return *v
+		}
+		var ret DataSourceWeeklySchedule
+		return ret
+	}).(DataSourceWeeklyScheduleOutput)
+}
+
+func (o DataSourceWeeklySchedulePtrOutput) DayOfWeek() DataSourceDayOfWeekPtrOutput {
+	return o.ApplyT(func(v *DataSourceWeeklySchedule) *DataSourceDayOfWeek {
+		if v == nil {
+			return nil
+		}
+		return &v.DayOfWeek
+	}).(DataSourceDayOfWeekPtrOutput)
 }
 
 // Model-specific information for the enforced guardrail configuration. If not present, the configuration is enforced on all models
@@ -47235,6 +47970,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceCrawlFilterConfigurationPtrInput)(nil)).Elem(), DataSourceCrawlFilterConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceCustomTransformationConfigurationInput)(nil)).Elem(), DataSourceCustomTransformationConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceCustomTransformationConfigurationPtrInput)(nil)).Elem(), DataSourceCustomTransformationConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceDailyScheduleInput)(nil)).Elem(), DataSourceDailyScheduleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceDailySchedulePtrInput)(nil)).Elem(), DataSourceDailyScheduleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceDayOfMonthInput)(nil)).Elem(), DataSourceDayOfMonthArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceDayOfMonthPtrInput)(nil)).Elem(), DataSourceDayOfMonthArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceDeletionProtectionConfigurationInput)(nil)).Elem(), DataSourceDeletionProtectionConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceDeletionProtectionConfigurationPtrInput)(nil)).Elem(), DataSourceDeletionProtectionConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceEnrichmentStrategyConfigurationInput)(nil)).Elem(), DataSourceEnrichmentStrategyConfigurationArgs{})
@@ -47253,6 +47992,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceManagedKnowledgeBaseConnectorConfigurationPtrInput)(nil)).Elem(), DataSourceManagedKnowledgeBaseConnectorConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceMediaExtractionConfigurationInput)(nil)).Elem(), DataSourceMediaExtractionConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceMediaExtractionConfigurationPtrInput)(nil)).Elem(), DataSourceMediaExtractionConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceMonthlyScheduleInput)(nil)).Elem(), DataSourceMonthlyScheduleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceMonthlySchedulePtrInput)(nil)).Elem(), DataSourceMonthlyScheduleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceParsingConfigurationInput)(nil)).Elem(), DataSourceParsingConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceParsingConfigurationPtrInput)(nil)).Elem(), DataSourceParsingConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceParsingPromptInput)(nil)).Elem(), DataSourceParsingPromptArgs{})
@@ -47283,6 +48024,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceSharePointDataSourceConfigurationPtrInput)(nil)).Elem(), DataSourceSharePointDataSourceConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceSharePointSourceConfigurationInput)(nil)).Elem(), DataSourceSharePointSourceConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceSharePointSourceConfigurationPtrInput)(nil)).Elem(), DataSourceSharePointSourceConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceSyncScheduleInput)(nil)).Elem(), DataSourceSyncScheduleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceSyncSchedulePtrInput)(nil)).Elem(), DataSourceSyncScheduleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceTransformationInput)(nil)).Elem(), DataSourceTransformationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceTransformationArrayInput)(nil)).Elem(), DataSourceTransformationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceTransformationFunctionInput)(nil)).Elem(), DataSourceTransformationFunctionArgs{})
@@ -47301,6 +48044,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceWebDataSourceConfigurationPtrInput)(nil)).Elem(), DataSourceWebDataSourceConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceWebSourceConfigurationInput)(nil)).Elem(), DataSourceWebSourceConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceWebSourceConfigurationPtrInput)(nil)).Elem(), DataSourceWebSourceConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceWeeklyScheduleInput)(nil)).Elem(), DataSourceWeeklyScheduleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceWeeklySchedulePtrInput)(nil)).Elem(), DataSourceWeeklyScheduleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EnforcedGuardrailConfigurationModelEnforcementInput)(nil)).Elem(), EnforcedGuardrailConfigurationModelEnforcementArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EnforcedGuardrailConfigurationModelEnforcementPtrInput)(nil)).Elem(), EnforcedGuardrailConfigurationModelEnforcementArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EnforcedGuardrailConfigurationSelectiveContentGuardingInput)(nil)).Elem(), EnforcedGuardrailConfigurationSelectiveContentGuardingArgs{})
@@ -47779,6 +48524,10 @@ func init() {
 	pulumi.RegisterOutputType(DataSourceCrawlFilterConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DataSourceCustomTransformationConfigurationOutput{})
 	pulumi.RegisterOutputType(DataSourceCustomTransformationConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(DataSourceDailyScheduleOutput{})
+	pulumi.RegisterOutputType(DataSourceDailySchedulePtrOutput{})
+	pulumi.RegisterOutputType(DataSourceDayOfMonthOutput{})
+	pulumi.RegisterOutputType(DataSourceDayOfMonthPtrOutput{})
 	pulumi.RegisterOutputType(DataSourceDeletionProtectionConfigurationOutput{})
 	pulumi.RegisterOutputType(DataSourceDeletionProtectionConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DataSourceEnrichmentStrategyConfigurationOutput{})
@@ -47797,6 +48546,8 @@ func init() {
 	pulumi.RegisterOutputType(DataSourceManagedKnowledgeBaseConnectorConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DataSourceMediaExtractionConfigurationOutput{})
 	pulumi.RegisterOutputType(DataSourceMediaExtractionConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(DataSourceMonthlyScheduleOutput{})
+	pulumi.RegisterOutputType(DataSourceMonthlySchedulePtrOutput{})
 	pulumi.RegisterOutputType(DataSourceParsingConfigurationOutput{})
 	pulumi.RegisterOutputType(DataSourceParsingConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DataSourceParsingPromptOutput{})
@@ -47827,6 +48578,8 @@ func init() {
 	pulumi.RegisterOutputType(DataSourceSharePointDataSourceConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DataSourceSharePointSourceConfigurationOutput{})
 	pulumi.RegisterOutputType(DataSourceSharePointSourceConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(DataSourceSyncScheduleOutput{})
+	pulumi.RegisterOutputType(DataSourceSyncSchedulePtrOutput{})
 	pulumi.RegisterOutputType(DataSourceTransformationOutput{})
 	pulumi.RegisterOutputType(DataSourceTransformationArrayOutput{})
 	pulumi.RegisterOutputType(DataSourceTransformationFunctionOutput{})
@@ -47845,6 +48598,8 @@ func init() {
 	pulumi.RegisterOutputType(DataSourceWebDataSourceConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DataSourceWebSourceConfigurationOutput{})
 	pulumi.RegisterOutputType(DataSourceWebSourceConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(DataSourceWeeklyScheduleOutput{})
+	pulumi.RegisterOutputType(DataSourceWeeklySchedulePtrOutput{})
 	pulumi.RegisterOutputType(EnforcedGuardrailConfigurationModelEnforcementOutput{})
 	pulumi.RegisterOutputType(EnforcedGuardrailConfigurationModelEnforcementPtrOutput{})
 	pulumi.RegisterOutputType(EnforcedGuardrailConfigurationSelectiveContentGuardingOutput{})

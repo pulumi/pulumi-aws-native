@@ -8,6 +8,168 @@ using Pulumi;
 namespace Pulumi.AwsNative.WellArchitected
 {
     /// <summary>
+    /// Type of the application described by this context. Mirrors the value stored in `Content.applicationType` and is surfaced as a typed read-only attribute by the service for discoverability.
+    /// </summary>
+    [EnumType]
+    public readonly struct AgentContextApplicationType : IEquatable<AgentContextApplicationType>
+    {
+        private readonly string _value;
+
+        private AgentContextApplicationType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AgentContextApplicationType Sas { get; } = new AgentContextApplicationType("SAS");
+        public static AgentContextApplicationType DesktopApplication { get; } = new AgentContextApplicationType("DESKTOP_APPLICATION");
+        public static AgentContextApplicationType Other { get; } = new AgentContextApplicationType("OTHER");
+
+        public static bool operator ==(AgentContextApplicationType left, AgentContextApplicationType right) => left.Equals(right);
+        public static bool operator !=(AgentContextApplicationType left, AgentContextApplicationType right) => !left.Equals(right);
+
+        public static explicit operator string(AgentContextApplicationType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AgentContextApplicationType other && Equals(other);
+        public bool Equals(AgentContextApplicationType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The type of the Agent Context.
+    /// </summary>
+    [EnumType]
+    public readonly struct AgentContextContextType : IEquatable<AgentContextContextType>
+    {
+        private readonly string _value;
+
+        private AgentContextContextType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AgentContextContextType Application { get; } = new AgentContextContextType("APPLICATION");
+
+        public static bool operator ==(AgentContextContextType left, AgentContextContextType right) => left.Equals(right);
+        public static bool operator !=(AgentContextContextType left, AgentContextContextType right) => !left.Equals(right);
+
+        public static explicit operator string(AgentContextContextType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AgentContextContextType other && Equals(other);
+        public bool Equals(AgentContextContextType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Business criticality of the application described by this context. Mirrors the value stored in `Content.criticality` and is surfaced as a typed read-only attribute by the service for discoverability.
+    /// </summary>
+    [EnumType]
+    public readonly struct AgentContextCriticality : IEquatable<AgentContextCriticality>
+    {
+        private readonly string _value;
+
+        private AgentContextCriticality(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AgentContextCriticality MissionCritical { get; } = new AgentContextCriticality("MISSION_CRITICAL");
+        public static AgentContextCriticality BusinessCritical { get; } = new AgentContextCriticality("BUSINESS_CRITICAL");
+        public static AgentContextCriticality NonCritical { get; } = new AgentContextCriticality("NON_CRITICAL");
+        public static AgentContextCriticality TestDevelopment { get; } = new AgentContextCriticality("TEST_DEVELOPMENT");
+
+        public static bool operator ==(AgentContextCriticality left, AgentContextCriticality right) => left.Equals(right);
+        public static bool operator !=(AgentContextCriticality left, AgentContextCriticality right) => !left.Equals(right);
+
+        public static explicit operator string(AgentContextCriticality value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AgentContextCriticality other && Equals(other);
+        public bool Equals(AgentContextCriticality other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// A Well-Architected pillar the Agent Goal targets.
+    /// </summary>
+    [EnumType]
+    public readonly struct AgentGoalPillar : IEquatable<AgentGoalPillar>
+    {
+        private readonly string _value;
+
+        private AgentGoalPillar(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AgentGoalPillar CostOptimization { get; } = new AgentGoalPillar("COST_OPTIMIZATION");
+        public static AgentGoalPillar Security { get; } = new AgentGoalPillar("SECURITY");
+        public static AgentGoalPillar Resilience { get; } = new AgentGoalPillar("RESILIENCE");
+        public static AgentGoalPillar Performance { get; } = new AgentGoalPillar("PERFORMANCE");
+        public static AgentGoalPillar OperationalExcellence { get; } = new AgentGoalPillar("OPERATIONAL_EXCELLENCE");
+
+        public static bool operator ==(AgentGoalPillar left, AgentGoalPillar right) => left.Equals(right);
+        public static bool operator !=(AgentGoalPillar left, AgentGoalPillar right) => !left.Equals(right);
+
+        public static explicit operator string(AgentGoalPillar value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AgentGoalPillar other && Equals(other);
+        public bool Equals(AgentGoalPillar other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// A Well-Architected pillar the Agent Profile focuses on.
+    /// </summary>
+    [EnumType]
+    public readonly struct AgentProfilePillar : IEquatable<AgentProfilePillar>
+    {
+        private readonly string _value;
+
+        private AgentProfilePillar(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AgentProfilePillar CostOptimization { get; } = new AgentProfilePillar("COST_OPTIMIZATION");
+        public static AgentProfilePillar Security { get; } = new AgentProfilePillar("SECURITY");
+        public static AgentProfilePillar Resilience { get; } = new AgentProfilePillar("RESILIENCE");
+        public static AgentProfilePillar Performance { get; } = new AgentProfilePillar("PERFORMANCE");
+
+        public static bool operator ==(AgentProfilePillar left, AgentProfilePillar right) => left.Equals(right);
+        public static bool operator !=(AgentProfilePillar left, AgentProfilePillar right) => !left.Equals(right);
+
+        public static explicit operator string(AgentProfilePillar value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AgentProfilePillar other && Equals(other);
+        public bool Equals(AgentProfilePillar other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The latest status of the review template.
     /// </summary>
     [EnumType]

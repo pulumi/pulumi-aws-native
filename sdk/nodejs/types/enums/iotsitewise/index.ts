@@ -39,6 +39,7 @@ export type AssetPropertyNotificationState = (typeof AssetPropertyNotificationSt
 
 export const DatasetSourceSourceFormat = {
     KnowledgeBase: "KNOWLEDGE_BASE",
+    Timeseries: "TIMESERIES",
 } as const;
 
 /**
@@ -48,12 +49,24 @@ export type DatasetSourceSourceFormat = (typeof DatasetSourceSourceFormat)[keyof
 
 export const DatasetSourceSourceType = {
     Kendra: "KENDRA",
+    Sitewise: "SITEWISE",
 } as const;
 
 /**
  * The type of data source for the dataset.
  */
 export type DatasetSourceSourceType = (typeof DatasetSourceSourceType)[keyof typeof DatasetSourceSourceType];
+
+export const DatasetType = {
+    Session: "SESSION",
+    Curated: "CURATED",
+    External: "EXTERNAL",
+} as const;
+
+/**
+ * The type of the dataset.
+ */
+export type DatasetType = (typeof DatasetType)[keyof typeof DatasetType];
 
 export const GatewayGreengrassV2CoreDeviceOperatingSystem = {
     LinuxAarch64: "LINUX_AARCH64",

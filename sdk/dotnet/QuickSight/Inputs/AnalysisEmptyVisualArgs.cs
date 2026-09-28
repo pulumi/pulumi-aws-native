@@ -27,8 +27,11 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         /// <summary>
         /// The data set that is used in the empty visual. Every visual requires a dataset to render.
         /// </summary>
-        [Input("dataSetIdentifier", required: true)]
-        public Input<string> DataSetIdentifier { get; set; } = null!;
+        [Input("dataSetIdentifier")]
+        public Input<string>? DataSetIdentifier { get; set; }
+
+        [Input("topicIdentifier")]
+        public Input<string>? TopicIdentifier { get; set; }
 
         /// <summary>
         /// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.

@@ -21,6 +21,8 @@ type Queue struct {
 	ConcurrentJobs pulumi.IntPtrOutput `pulumi:"concurrentJobs"`
 	// A description of the queue that you are creating.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// Specify the maximum number of Elemental Inference feeds MediaConvert can process concurrently.
+	MaximumConcurrentFeeds pulumi.IntPtrOutput `pulumi:"maximumConcurrentFeeds"`
 	// The name of the queue that you are creating.
 	Name pulumi.StringPtrOutput `pulumi:"name"`
 	// When you use CloudFormation, you can create only on-demand queues. Therefore, always set PricingPlan to the value ON_DEMAND when declaring an AWS::MediaConvert::Queue in your CloudFormation template. To create a reserved queue, use the AWS Elemental MediaConvert console at https://console.aws.amazon.com/mediaconvert to set up a contract. For more information, see Working with AWS Elemental MediaConvert Queues in the AWS Elemental MediaConvert User Guide.
@@ -81,6 +83,8 @@ type queueArgs struct {
 	ConcurrentJobs *int `pulumi:"concurrentJobs"`
 	// A description of the queue that you are creating.
 	Description *string `pulumi:"description"`
+	// Specify the maximum number of Elemental Inference feeds MediaConvert can process concurrently.
+	MaximumConcurrentFeeds *int `pulumi:"maximumConcurrentFeeds"`
 	// The name of the queue that you are creating.
 	Name *string `pulumi:"name"`
 	// When you use CloudFormation, you can create only on-demand queues. Therefore, always set PricingPlan to the value ON_DEMAND when declaring an AWS::MediaConvert::Queue in your CloudFormation template. To create a reserved queue, use the AWS Elemental MediaConvert console at https://console.aws.amazon.com/mediaconvert to set up a contract. For more information, see Working with AWS Elemental MediaConvert Queues in the AWS Elemental MediaConvert User Guide.
@@ -99,6 +103,8 @@ type QueueArgs struct {
 	ConcurrentJobs pulumi.IntPtrInput
 	// A description of the queue that you are creating.
 	Description pulumi.StringPtrInput
+	// Specify the maximum number of Elemental Inference feeds MediaConvert can process concurrently.
+	MaximumConcurrentFeeds pulumi.IntPtrInput
 	// The name of the queue that you are creating.
 	Name pulumi.StringPtrInput
 	// When you use CloudFormation, you can create only on-demand queues. Therefore, always set PricingPlan to the value ON_DEMAND when declaring an AWS::MediaConvert::Queue in your CloudFormation template. To create a reserved queue, use the AWS Elemental MediaConvert console at https://console.aws.amazon.com/mediaconvert to set up a contract. For more information, see Working with AWS Elemental MediaConvert Queues in the AWS Elemental MediaConvert User Guide.
@@ -161,6 +167,11 @@ func (o QueueOutput) ConcurrentJobs() pulumi.IntPtrOutput {
 // A description of the queue that you are creating.
 func (o QueueOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Queue) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Specify the maximum number of Elemental Inference feeds MediaConvert can process concurrently.
+func (o QueueOutput) MaximumConcurrentFeeds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Queue) pulumi.IntPtrOutput { return v.MaximumConcurrentFeeds }).(pulumi.IntPtrOutput)
 }
 
 // The name of the queue that you are creating.

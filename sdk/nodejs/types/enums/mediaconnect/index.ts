@@ -230,6 +230,60 @@ export const FlowMaintenanceMaintenanceDay = {
  */
 export type FlowMaintenanceMaintenanceDay = (typeof FlowMaintenanceMaintenanceDay)[keyof typeof FlowMaintenanceMaintenanceDay];
 
+export const FlowMediaStreamFmtpColorimetry = {
+    Bt601: "BT601",
+    Bt709: "BT709",
+    Bt2020: "BT2020",
+    Bt2100: "BT2100",
+    St20651: "ST2065-1",
+    St20653: "ST2065-3",
+    Xyz: "XYZ",
+} as const;
+
+/**
+ * The format used for the representation of color.
+ */
+export type FlowMediaStreamFmtpColorimetry = (typeof FlowMediaStreamFmtpColorimetry)[keyof typeof FlowMediaStreamFmtpColorimetry];
+
+export const FlowMediaStreamFmtpRange = {
+    Narrow: "NARROW",
+    Full: "FULL",
+    Fullprotect: "FULLPROTECT",
+} as const;
+
+/**
+ * The encoding range of the video.
+ */
+export type FlowMediaStreamFmtpRange = (typeof FlowMediaStreamFmtpRange)[keyof typeof FlowMediaStreamFmtpRange];
+
+export const FlowMediaStreamFmtpScanMode = {
+    Progressive: "progressive",
+    Interlace: "interlace",
+    ProgressiveSegmentedFrame: "progressive-segmented-frame",
+} as const;
+
+/**
+ * The type of compression that was used to smooth the video's appearance.
+ */
+export type FlowMediaStreamFmtpScanMode = (typeof FlowMediaStreamFmtpScanMode)[keyof typeof FlowMediaStreamFmtpScanMode];
+
+export const FlowMediaStreamFmtpTcs = {
+    Sdr: "SDR",
+    Pq: "PQ",
+    Hlg: "HLG",
+    Linear: "LINEAR",
+    Bt2100linpq: "BT2100LINPQ",
+    Bt2100linhlg: "BT2100LINHLG",
+    St20651: "ST2065-1",
+    St4281: "ST428-1",
+    Density: "DENSITY",
+} as const;
+
+/**
+ * The transfer characteristic system (TCS) that is used in the video.
+ */
+export type FlowMediaStreamFmtpTcs = (typeof FlowMediaStreamFmtpTcs)[keyof typeof FlowMediaStreamFmtpTcs];
+
 export const FlowMediaStreamMediaStreamType = {
     Video: "video",
     Audio: "audio",
@@ -689,6 +743,7 @@ export const RouterOutputResourceRouterOutputProtocol = {
     Rist: "RIST",
     SrtCaller: "SRT_CALLER",
     SrtListener: "SRT_LISTENER",
+    RtmpPush: "RTMP_PUSH",
 } as const;
 
 export type RouterOutputResourceRouterOutputProtocol = (typeof RouterOutputResourceRouterOutputProtocol)[keyof typeof RouterOutputResourceRouterOutputProtocol];
@@ -738,3 +793,9 @@ export const RouterOutputResourceRoutingScope = {
 } as const;
 
 export type RouterOutputResourceRoutingScope = (typeof RouterOutputResourceRoutingScope)[keyof typeof RouterOutputResourceRoutingScope];
+
+export const RouterOutputResourceTlsEncryptionType = {
+    Public: "PUBLIC",
+} as const;
+
+export type RouterOutputResourceTlsEncryptionType = (typeof RouterOutputResourceTlsEncryptionType)[keyof typeof RouterOutputResourceTlsEncryptionType];

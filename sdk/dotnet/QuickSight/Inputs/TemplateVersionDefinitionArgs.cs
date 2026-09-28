@@ -102,6 +102,26 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
             set => _sheets = value;
         }
 
+        [Input("staticFiles")]
+        private InputList<Inputs.TemplateStaticFileArgs>? _staticFiles;
+
+        /// <summary>
+        /// &lt;p&gt;The static files for the definition.&lt;/p&gt;
+        /// </summary>
+        public InputList<Inputs.TemplateStaticFileArgs> StaticFiles
+        {
+            get => _staticFiles ?? (_staticFiles = new InputList<Inputs.TemplateStaticFileArgs>());
+            set => _staticFiles = value;
+        }
+
+        [Input("topicConfigurations")]
+        private InputList<Inputs.TemplateTopicConfigurationArgs>? _topicConfigurations;
+        public InputList<Inputs.TemplateTopicConfigurationArgs> TopicConfigurations
+        {
+            get => _topicConfigurations ?? (_topicConfigurations = new InputList<Inputs.TemplateTopicConfigurationArgs>());
+            set => _topicConfigurations = value;
+        }
+
         public TemplateVersionDefinitionArgs()
         {
         }

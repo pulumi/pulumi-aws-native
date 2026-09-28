@@ -8,6 +8,199 @@ using Pulumi;
 namespace Pulumi.AwsNative.Mgn
 {
     /// <summary>
+    /// Launch configuration template boot mode.
+    /// </summary>
+    [EnumType]
+    public readonly struct LaunchConfigurationTemplateBootMode : IEquatable<LaunchConfigurationTemplateBootMode>
+    {
+        private readonly string _value;
+
+        private LaunchConfigurationTemplateBootMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static LaunchConfigurationTemplateBootMode LegacyBios { get; } = new LaunchConfigurationTemplateBootMode("LEGACY_BIOS");
+        public static LaunchConfigurationTemplateBootMode Uefi { get; } = new LaunchConfigurationTemplateBootMode("UEFI");
+        public static LaunchConfigurationTemplateBootMode UseSource { get; } = new LaunchConfigurationTemplateBootMode("USE_SOURCE");
+
+        public static bool operator ==(LaunchConfigurationTemplateBootMode left, LaunchConfigurationTemplateBootMode right) => left.Equals(right);
+        public static bool operator !=(LaunchConfigurationTemplateBootMode left, LaunchConfigurationTemplateBootMode right) => !left.Equals(right);
+
+        public static explicit operator string(LaunchConfigurationTemplateBootMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is LaunchConfigurationTemplateBootMode other && Equals(other);
+        public bool Equals(LaunchConfigurationTemplateBootMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Launch disposition.
+    /// </summary>
+    [EnumType]
+    public readonly struct LaunchConfigurationTemplateLaunchDisposition : IEquatable<LaunchConfigurationTemplateLaunchDisposition>
+    {
+        private readonly string _value;
+
+        private LaunchConfigurationTemplateLaunchDisposition(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static LaunchConfigurationTemplateLaunchDisposition Stopped { get; } = new LaunchConfigurationTemplateLaunchDisposition("STOPPED");
+        public static LaunchConfigurationTemplateLaunchDisposition Started { get; } = new LaunchConfigurationTemplateLaunchDisposition("STARTED");
+
+        public static bool operator ==(LaunchConfigurationTemplateLaunchDisposition left, LaunchConfigurationTemplateLaunchDisposition right) => left.Equals(right);
+        public static bool operator !=(LaunchConfigurationTemplateLaunchDisposition left, LaunchConfigurationTemplateLaunchDisposition right) => !left.Equals(right);
+
+        public static explicit operator string(LaunchConfigurationTemplateLaunchDisposition value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is LaunchConfigurationTemplateLaunchDisposition other && Equals(other);
+        public bool Equals(LaunchConfigurationTemplateLaunchDisposition other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Launch template disk volume type configuration.
+    /// </summary>
+    [EnumType]
+    public readonly struct LaunchConfigurationTemplateLaunchTemplateDiskConfVolumeType : IEquatable<LaunchConfigurationTemplateLaunchTemplateDiskConfVolumeType>
+    {
+        private readonly string _value;
+
+        private LaunchConfigurationTemplateLaunchTemplateDiskConfVolumeType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static LaunchConfigurationTemplateLaunchTemplateDiskConfVolumeType Io1 { get; } = new LaunchConfigurationTemplateLaunchTemplateDiskConfVolumeType("io1");
+        public static LaunchConfigurationTemplateLaunchTemplateDiskConfVolumeType Io2 { get; } = new LaunchConfigurationTemplateLaunchTemplateDiskConfVolumeType("io2");
+        public static LaunchConfigurationTemplateLaunchTemplateDiskConfVolumeType Gp3 { get; } = new LaunchConfigurationTemplateLaunchTemplateDiskConfVolumeType("gp3");
+        public static LaunchConfigurationTemplateLaunchTemplateDiskConfVolumeType Gp2 { get; } = new LaunchConfigurationTemplateLaunchTemplateDiskConfVolumeType("gp2");
+        public static LaunchConfigurationTemplateLaunchTemplateDiskConfVolumeType St1 { get; } = new LaunchConfigurationTemplateLaunchTemplateDiskConfVolumeType("st1");
+        public static LaunchConfigurationTemplateLaunchTemplateDiskConfVolumeType Sc1 { get; } = new LaunchConfigurationTemplateLaunchTemplateDiskConfVolumeType("sc1");
+        public static LaunchConfigurationTemplateLaunchTemplateDiskConfVolumeType Standard { get; } = new LaunchConfigurationTemplateLaunchTemplateDiskConfVolumeType("standard");
+
+        public static bool operator ==(LaunchConfigurationTemplateLaunchTemplateDiskConfVolumeType left, LaunchConfigurationTemplateLaunchTemplateDiskConfVolumeType right) => left.Equals(right);
+        public static bool operator !=(LaunchConfigurationTemplateLaunchTemplateDiskConfVolumeType left, LaunchConfigurationTemplateLaunchTemplateDiskConfVolumeType right) => !left.Equals(right);
+
+        public static explicit operator string(LaunchConfigurationTemplateLaunchTemplateDiskConfVolumeType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is LaunchConfigurationTemplateLaunchTemplateDiskConfVolumeType other && Equals(other);
+        public bool Equals(LaunchConfigurationTemplateLaunchTemplateDiskConfVolumeType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Deployment type in which AWS Systems Manager Documents will be executed.
+    /// </summary>
+    [EnumType]
+    public readonly struct LaunchConfigurationTemplatePostLaunchActionsDeployment : IEquatable<LaunchConfigurationTemplatePostLaunchActionsDeployment>
+    {
+        private readonly string _value;
+
+        private LaunchConfigurationTemplatePostLaunchActionsDeployment(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static LaunchConfigurationTemplatePostLaunchActionsDeployment TestAndCutover { get; } = new LaunchConfigurationTemplatePostLaunchActionsDeployment("TEST_AND_CUTOVER");
+        public static LaunchConfigurationTemplatePostLaunchActionsDeployment CutoverOnly { get; } = new LaunchConfigurationTemplatePostLaunchActionsDeployment("CUTOVER_ONLY");
+        public static LaunchConfigurationTemplatePostLaunchActionsDeployment TestOnly { get; } = new LaunchConfigurationTemplatePostLaunchActionsDeployment("TEST_ONLY");
+
+        public static bool operator ==(LaunchConfigurationTemplatePostLaunchActionsDeployment left, LaunchConfigurationTemplatePostLaunchActionsDeployment right) => left.Equals(right);
+        public static bool operator !=(LaunchConfigurationTemplatePostLaunchActionsDeployment left, LaunchConfigurationTemplatePostLaunchActionsDeployment right) => !left.Equals(right);
+
+        public static explicit operator string(LaunchConfigurationTemplatePostLaunchActionsDeployment value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is LaunchConfigurationTemplatePostLaunchActionsDeployment other && Equals(other);
+        public bool Equals(LaunchConfigurationTemplatePostLaunchActionsDeployment other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// AWS Systems Manager Parameter Store parameter type.
+    /// </summary>
+    [EnumType]
+    public readonly struct LaunchConfigurationTemplateSsmParameterStoreParameterParameterType : IEquatable<LaunchConfigurationTemplateSsmParameterStoreParameterParameterType>
+    {
+        private readonly string _value;
+
+        private LaunchConfigurationTemplateSsmParameterStoreParameterParameterType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static LaunchConfigurationTemplateSsmParameterStoreParameterParameterType String { get; } = new LaunchConfigurationTemplateSsmParameterStoreParameterParameterType("STRING");
+        public static LaunchConfigurationTemplateSsmParameterStoreParameterParameterType SecureString { get; } = new LaunchConfigurationTemplateSsmParameterStoreParameterParameterType("SECURE_STRING");
+
+        public static bool operator ==(LaunchConfigurationTemplateSsmParameterStoreParameterParameterType left, LaunchConfigurationTemplateSsmParameterStoreParameterParameterType right) => left.Equals(right);
+        public static bool operator !=(LaunchConfigurationTemplateSsmParameterStoreParameterParameterType left, LaunchConfigurationTemplateSsmParameterStoreParameterParameterType right) => !left.Equals(right);
+
+        public static explicit operator string(LaunchConfigurationTemplateSsmParameterStoreParameterParameterType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is LaunchConfigurationTemplateSsmParameterStoreParameterParameterType other && Equals(other);
+        public bool Equals(LaunchConfigurationTemplateSsmParameterStoreParameterParameterType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Target instance type right-sizing method.
+    /// </summary>
+    [EnumType]
+    public readonly struct LaunchConfigurationTemplateTargetInstanceTypeRightSizingMethod : IEquatable<LaunchConfigurationTemplateTargetInstanceTypeRightSizingMethod>
+    {
+        private readonly string _value;
+
+        private LaunchConfigurationTemplateTargetInstanceTypeRightSizingMethod(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static LaunchConfigurationTemplateTargetInstanceTypeRightSizingMethod None { get; } = new LaunchConfigurationTemplateTargetInstanceTypeRightSizingMethod("NONE");
+        public static LaunchConfigurationTemplateTargetInstanceTypeRightSizingMethod Basic { get; } = new LaunchConfigurationTemplateTargetInstanceTypeRightSizingMethod("BASIC");
+
+        public static bool operator ==(LaunchConfigurationTemplateTargetInstanceTypeRightSizingMethod left, LaunchConfigurationTemplateTargetInstanceTypeRightSizingMethod right) => left.Equals(right);
+        public static bool operator !=(LaunchConfigurationTemplateTargetInstanceTypeRightSizingMethod left, LaunchConfigurationTemplateTargetInstanceTypeRightSizingMethod right) => !left.Equals(right);
+
+        public static explicit operator string(LaunchConfigurationTemplateTargetInstanceTypeRightSizingMethod value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is LaunchConfigurationTemplateTargetInstanceTypeRightSizingMethod other && Equals(other);
+        public bool Equals(LaunchConfigurationTemplateTargetInstanceTypeRightSizingMethod other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The source environment type.
     /// </summary>
     [EnumType]

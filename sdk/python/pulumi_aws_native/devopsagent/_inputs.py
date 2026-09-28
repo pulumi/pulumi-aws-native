@@ -22,6 +22,8 @@ __all__ = [
     'AgentSpaceIdcAuthConfigurationArgsDict',
     'AgentSpaceOperatorAppArgs',
     'AgentSpaceOperatorAppArgsDict',
+    'AgentSpacePreferencesArgs',
+    'AgentSpacePreferencesArgsDict',
     'AssetFileArgs',
     'AssetFileArgsDict',
     'AssociationAwsConfigurationArgs',
@@ -272,6 +274,40 @@ class AgentSpaceOperatorAppArgs:
     @idc.setter
     def idc(self, value: pulumi.Input[Optional['AgentSpaceIdcAuthConfigurationArgs']]):
         pulumi.set(self, "idc", value)
+
+
+class AgentSpacePreferencesArgsDict(TypedDict):
+    """
+    Preferences that configure behavior of this AgentSpace. This container fully owns the AgentSpace preferences: the properties supplied here replace the stored preferences in their entirety, and omitting the Preferences container reverts all preferences to their service defaults.
+    """
+    elevated_actions_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    Indicates whether elevated directed actions are permitted in this AgentSpace. Defaults to false when not set.
+    """
+
+@pulumi.input_type
+class AgentSpacePreferencesArgs:
+    def __init__(__self__, *,
+                 elevated_actions_enabled: pulumi.Input[Optional[_builtins.bool]] = None):
+        """
+        Preferences that configure behavior of this AgentSpace. This container fully owns the AgentSpace preferences: the properties supplied here replace the stored preferences in their entirety, and omitting the Preferences container reverts all preferences to their service defaults.
+
+        :param pulumi.Input[_builtins.bool] elevated_actions_enabled: Indicates whether elevated directed actions are permitted in this AgentSpace. Defaults to false when not set.
+        """
+        if elevated_actions_enabled is not None:
+            pulumi.set(__self__, "elevated_actions_enabled", elevated_actions_enabled)
+
+    @_builtins.property
+    @pulumi.getter(name="elevatedActionsEnabled")
+    def elevated_actions_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Indicates whether elevated directed actions are permitted in this AgentSpace. Defaults to false when not set.
+        """
+        return pulumi.get(self, "elevated_actions_enabled")
+
+    @elevated_actions_enabled.setter
+    def elevated_actions_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "elevated_actions_enabled", value)
 
 
 class AssetFileArgsDict(TypedDict):
@@ -3131,7 +3167,7 @@ class ServiceMcpServerSigV4AuthorizationConfigArgsDict(TypedDict):
     """
     role_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Deprecated - use McpRoleArn instead. IAM role ARN to assume for SigV4 signing
+    Deprecated - use McpRoleArn instead. IAM role ARN to assume for SigV4 signing. Set to an empty string to remove a previously configured role and make the server role-less (cross-account).
     """
 
 @pulumi.input_type
@@ -3149,7 +3185,7 @@ class ServiceMcpServerSigV4AuthorizationConfigArgs:
         :param pulumi.Input[_builtins.str] service: AWS service name for SigV4 signing
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] custom_headers: Custom headers for the SigV4 MCP server
         :param pulumi.Input[_builtins.str] mcp_role_arn: IAM role ARN to assume for SigV4 signing. Optional - when omitted, credentials are resolved at runtime via a monitor account association.
-        :param pulumi.Input[_builtins.str] role_arn: Deprecated - use McpRoleArn instead. IAM role ARN to assume for SigV4 signing
+        :param pulumi.Input[_builtins.str] role_arn: Deprecated - use McpRoleArn instead. IAM role ARN to assume for SigV4 signing. Set to an empty string to remove a previously configured role and make the server role-less (cross-account).
         """
         pulumi.set(__self__, "region", region)
         pulumi.set(__self__, "service", service)
@@ -3212,7 +3248,7 @@ class ServiceMcpServerSigV4AuthorizationConfigArgs:
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Deprecated - use McpRoleArn instead. IAM role ARN to assume for SigV4 signing
+        Deprecated - use McpRoleArn instead. IAM role ARN to assume for SigV4 signing. Set to an empty string to remove a previously configured role and make the server role-less (cross-account).
         """
         return pulumi.get(self, "role_arn")
 

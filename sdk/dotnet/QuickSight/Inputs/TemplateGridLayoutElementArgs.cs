@@ -12,6 +12,15 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class TemplateGridLayoutElementArgs : global::Pulumi.ResourceArgs
     {
+        [Input("backgroundStyle")]
+        public Input<Inputs.TemplateGridLayoutElementBackgroundStyleArgs>? BackgroundStyle { get; set; }
+
+        [Input("borderRadius")]
+        public Input<string>? BorderRadius { get; set; }
+
+        [Input("borderStyle")]
+        public Input<Inputs.TemplateGridLayoutElementBorderStyleArgs>? BorderStyle { get; set; }
+
         /// <summary>
         /// The column index for the upper left corner of an element.
         /// </summary>
@@ -36,6 +45,12 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         [Input("elementType", required: true)]
         public Input<Pulumi.AwsNative.QuickSight.TemplateLayoutElementType> ElementType { get; set; } = null!;
 
+        [Input("loadingAnimation")]
+        public Input<Inputs.TemplateLoadingAnimationArgs>? LoadingAnimation { get; set; }
+
+        [Input("padding")]
+        public Input<string>? Padding { get; set; }
+
         /// <summary>
         /// The row index for the upper left corner of an element.
         /// </summary>
@@ -47,6 +62,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         /// </summary>
         [Input("rowSpan", required: true)]
         public Input<double> RowSpan { get; set; } = null!;
+
+        [Input("selectedBorderStyle")]
+        public Input<Inputs.TemplateGridLayoutElementBorderStyleArgs>? SelectedBorderStyle { get; set; }
 
         public TemplateGridLayoutElementArgs()
         {

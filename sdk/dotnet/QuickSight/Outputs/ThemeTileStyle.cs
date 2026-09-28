@@ -17,14 +17,30 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     public sealed class ThemeTileStyle
     {
         /// <summary>
+        /// String to encapsulate the most generic way Color can be formatted (words, hexStrings etc)
+        /// </summary>
+        public readonly string? BackgroundColor;
+        /// <summary>
         /// The border around a tile.
         /// </summary>
         public readonly Outputs.ThemeBorderStyle? Border;
+        public readonly string? BorderRadius;
+        public readonly string? Padding;
 
         [OutputConstructor]
-        private ThemeTileStyle(Outputs.ThemeBorderStyle? border)
+        private ThemeTileStyle(
+            string? backgroundColor,
+
+            Outputs.ThemeBorderStyle? border,
+
+            string? borderRadius,
+
+            string? padding)
         {
+            BackgroundColor = backgroundColor;
             Border = border;
+            BorderRadius = borderRadius;
+            Padding = padding;
         }
     }
 }

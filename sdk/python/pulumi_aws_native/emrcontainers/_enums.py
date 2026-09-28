@@ -8,6 +8,7 @@ from enum import Enum
 
 __all__ = [
     'EndpointMonitoringConfigurationPersistentAppUi',
+    'JobTemplateTemplateParameterConfigurationType',
     'SecurityConfigurationContainerProviderType',
     'SecurityConfigurationLocalDiskEncryptionConfigurationEncryptionKeyProviderType',
     'SecurityConfigurationS3EncryptionConfigurationEncryptionOption',
@@ -19,6 +20,15 @@ __all__ = [
 class EndpointMonitoringConfigurationPersistentAppUi(_builtins.str, Enum):
     ENABLED = "ENABLED"
     DISABLED = "DISABLED"
+
+
+@pulumi.type_token("aws-native:emrcontainers:JobTemplateTemplateParameterConfigurationType")
+class JobTemplateTemplateParameterConfigurationType(_builtins.str, Enum):
+    """
+    The type of the job template parameter.
+    """
+    NUMBER = "NUMBER"
+    STRING = "STRING"
 
 
 @pulumi.type_token("aws-native:emrcontainers:SecurityConfigurationContainerProviderType")

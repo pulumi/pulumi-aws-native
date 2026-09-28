@@ -60,6 +60,8 @@ __all__ = [
     'OrganizationTelemetryRuleLabelNameConditionArgsDict',
     'OrganizationTelemetryRuleLoggingFilterArgs',
     'OrganizationTelemetryRuleLoggingFilterArgsDict',
+    'OrganizationTelemetryRuleMskMonitoringParametersArgs',
+    'OrganizationTelemetryRuleMskMonitoringParametersArgsDict',
     'OrganizationTelemetryRuleSingleHeaderArgs',
     'OrganizationTelemetryRuleSingleHeaderArgsDict',
     'OrganizationTelemetryRuleTelemetryDestinationConfigurationArgs',
@@ -100,6 +102,8 @@ __all__ = [
     'TelemetryRuleLabelNameConditionArgsDict',
     'TelemetryRuleLoggingFilterArgs',
     'TelemetryRuleLoggingFilterArgsDict',
+    'TelemetryRuleMskMonitoringParametersArgs',
+    'TelemetryRuleMskMonitoringParametersArgsDict',
     'TelemetryRuleSingleHeaderArgs',
     'TelemetryRuleSingleHeaderArgsDict',
     'TelemetryRuleTelemetryDestinationConfigurationArgs',
@@ -1298,6 +1302,40 @@ class OrganizationTelemetryRuleLoggingFilterArgs:
         pulumi.set(self, "filters", value)
 
 
+class OrganizationTelemetryRuleMskMonitoringParametersArgsDict(TypedDict):
+    """
+    Configuration parameters for Amazon MSK cluster monitoring.
+    """
+    enhanced_monitoring: NotRequired[pulumi.Input[Optional['OrganizationTelemetryRuleMskMonitoringParametersEnhancedMonitoring']]]
+    """
+    The level of enhanced monitoring for the MSK cluster.
+    """
+
+@pulumi.input_type
+class OrganizationTelemetryRuleMskMonitoringParametersArgs:
+    def __init__(__self__, *,
+                 enhanced_monitoring: pulumi.Input[Optional['OrganizationTelemetryRuleMskMonitoringParametersEnhancedMonitoring']] = None):
+        """
+        Configuration parameters for Amazon MSK cluster monitoring.
+
+        :param pulumi.Input['OrganizationTelemetryRuleMskMonitoringParametersEnhancedMonitoring'] enhanced_monitoring: The level of enhanced monitoring for the MSK cluster.
+        """
+        if enhanced_monitoring is not None:
+            pulumi.set(__self__, "enhanced_monitoring", enhanced_monitoring)
+
+    @_builtins.property
+    @pulumi.getter(name="enhancedMonitoring")
+    def enhanced_monitoring(self) -> pulumi.Input[Optional['OrganizationTelemetryRuleMskMonitoringParametersEnhancedMonitoring']]:
+        """
+        The level of enhanced monitoring for the MSK cluster.
+        """
+        return pulumi.get(self, "enhanced_monitoring")
+
+    @enhanced_monitoring.setter
+    def enhanced_monitoring(self, value: pulumi.Input[Optional['OrganizationTelemetryRuleMskMonitoringParametersEnhancedMonitoring']]):
+        pulumi.set(self, "enhanced_monitoring", value)
+
+
 class OrganizationTelemetryRuleSingleHeaderArgsDict(TypedDict):
     """
     Header for the field to match.
@@ -1356,6 +1394,7 @@ class OrganizationTelemetryRuleTelemetryDestinationConfigurationArgsDict(TypedDi
     """
     Parameters for log delivery configuration
     """
+    msk_monitoring_parameters: NotRequired[pulumi.Input[Optional['OrganizationTelemetryRuleMskMonitoringParametersArgsDict']]]
     retention_in_days: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The number of days to retain the telemetry data in the destination.
@@ -1378,6 +1417,7 @@ class OrganizationTelemetryRuleTelemetryDestinationConfigurationArgs:
                  elb_load_balancer_logging_parameters: pulumi.Input[Optional['OrganizationTelemetryRuleElbLoadBalancerLoggingParametersArgs']] = None,
                  kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  log_delivery_parameters: pulumi.Input[Optional['OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesArgs']] = None,
+                 msk_monitoring_parameters: pulumi.Input[Optional['OrganizationTelemetryRuleMskMonitoringParametersArgs']] = None,
                  retention_in_days: pulumi.Input[Optional[_builtins.int]] = None,
                  vpc_flow_log_parameters: pulumi.Input[Optional['OrganizationTelemetryRuleVpcFlowLogParametersArgs']] = None,
                  waf_logging_parameters: pulumi.Input[Optional['OrganizationTelemetryRuleWafLoggingParametersArgs']] = None):
@@ -1405,6 +1445,8 @@ class OrganizationTelemetryRuleTelemetryDestinationConfigurationArgs:
             pulumi.set(__self__, "kms_key_arn", kms_key_arn)
         if log_delivery_parameters is not None:
             pulumi.set(__self__, "log_delivery_parameters", log_delivery_parameters)
+        if msk_monitoring_parameters is not None:
+            pulumi.set(__self__, "msk_monitoring_parameters", msk_monitoring_parameters)
         if retention_in_days is not None:
             pulumi.set(__self__, "retention_in_days", retention_in_days)
         if vpc_flow_log_parameters is not None:
@@ -1480,6 +1522,15 @@ class OrganizationTelemetryRuleTelemetryDestinationConfigurationArgs:
     @log_delivery_parameters.setter
     def log_delivery_parameters(self, value: pulumi.Input[Optional['OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesArgs']]):
         pulumi.set(self, "log_delivery_parameters", value)
+
+    @_builtins.property
+    @pulumi.getter(name="mskMonitoringParameters")
+    def msk_monitoring_parameters(self) -> pulumi.Input[Optional['OrganizationTelemetryRuleMskMonitoringParametersArgs']]:
+        return pulumi.get(self, "msk_monitoring_parameters")
+
+    @msk_monitoring_parameters.setter
+    def msk_monitoring_parameters(self, value: pulumi.Input[Optional['OrganizationTelemetryRuleMskMonitoringParametersArgs']]):
+        pulumi.set(self, "msk_monitoring_parameters", value)
 
     @_builtins.property
     @pulumi.getter(name="retentionInDays")
@@ -2789,6 +2840,40 @@ class TelemetryRuleLoggingFilterArgs:
         pulumi.set(self, "filters", value)
 
 
+class TelemetryRuleMskMonitoringParametersArgsDict(TypedDict):
+    """
+    Configuration parameters for Amazon MSK cluster monitoring.
+    """
+    enhanced_monitoring: NotRequired[pulumi.Input[Optional['TelemetryRuleMskMonitoringParametersEnhancedMonitoring']]]
+    """
+    The level of enhanced monitoring for the MSK cluster.
+    """
+
+@pulumi.input_type
+class TelemetryRuleMskMonitoringParametersArgs:
+    def __init__(__self__, *,
+                 enhanced_monitoring: pulumi.Input[Optional['TelemetryRuleMskMonitoringParametersEnhancedMonitoring']] = None):
+        """
+        Configuration parameters for Amazon MSK cluster monitoring.
+
+        :param pulumi.Input['TelemetryRuleMskMonitoringParametersEnhancedMonitoring'] enhanced_monitoring: The level of enhanced monitoring for the MSK cluster.
+        """
+        if enhanced_monitoring is not None:
+            pulumi.set(__self__, "enhanced_monitoring", enhanced_monitoring)
+
+    @_builtins.property
+    @pulumi.getter(name="enhancedMonitoring")
+    def enhanced_monitoring(self) -> pulumi.Input[Optional['TelemetryRuleMskMonitoringParametersEnhancedMonitoring']]:
+        """
+        The level of enhanced monitoring for the MSK cluster.
+        """
+        return pulumi.get(self, "enhanced_monitoring")
+
+    @enhanced_monitoring.setter
+    def enhanced_monitoring(self, value: pulumi.Input[Optional['TelemetryRuleMskMonitoringParametersEnhancedMonitoring']]):
+        pulumi.set(self, "enhanced_monitoring", value)
+
+
 class TelemetryRuleSingleHeaderArgsDict(TypedDict):
     """
     Header for the field to match.
@@ -2847,6 +2932,7 @@ class TelemetryRuleTelemetryDestinationConfigurationArgsDict(TypedDict):
     """
     Parameters for log delivery configuration
     """
+    msk_monitoring_parameters: NotRequired[pulumi.Input[Optional['TelemetryRuleMskMonitoringParametersArgsDict']]]
     retention_in_days: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The number of days to retain the telemetry data in the destination.
@@ -2869,6 +2955,7 @@ class TelemetryRuleTelemetryDestinationConfigurationArgs:
                  elb_load_balancer_logging_parameters: pulumi.Input[Optional['TelemetryRuleElbLoadBalancerLoggingParametersArgs']] = None,
                  kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  log_delivery_parameters: pulumi.Input[Optional['TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesArgs']] = None,
+                 msk_monitoring_parameters: pulumi.Input[Optional['TelemetryRuleMskMonitoringParametersArgs']] = None,
                  retention_in_days: pulumi.Input[Optional[_builtins.int]] = None,
                  vpc_flow_log_parameters: pulumi.Input[Optional['TelemetryRuleVpcFlowLogParametersArgs']] = None,
                  waf_logging_parameters: pulumi.Input[Optional['TelemetryRuleWafLoggingParametersArgs']] = None):
@@ -2896,6 +2983,8 @@ class TelemetryRuleTelemetryDestinationConfigurationArgs:
             pulumi.set(__self__, "kms_key_arn", kms_key_arn)
         if log_delivery_parameters is not None:
             pulumi.set(__self__, "log_delivery_parameters", log_delivery_parameters)
+        if msk_monitoring_parameters is not None:
+            pulumi.set(__self__, "msk_monitoring_parameters", msk_monitoring_parameters)
         if retention_in_days is not None:
             pulumi.set(__self__, "retention_in_days", retention_in_days)
         if vpc_flow_log_parameters is not None:
@@ -2971,6 +3060,15 @@ class TelemetryRuleTelemetryDestinationConfigurationArgs:
     @log_delivery_parameters.setter
     def log_delivery_parameters(self, value: pulumi.Input[Optional['TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesArgs']]):
         pulumi.set(self, "log_delivery_parameters", value)
+
+    @_builtins.property
+    @pulumi.getter(name="mskMonitoringParameters")
+    def msk_monitoring_parameters(self) -> pulumi.Input[Optional['TelemetryRuleMskMonitoringParametersArgs']]:
+        return pulumi.get(self, "msk_monitoring_parameters")
+
+    @msk_monitoring_parameters.setter
+    def msk_monitoring_parameters(self, value: pulumi.Input[Optional['TelemetryRuleMskMonitoringParametersArgs']]):
+        pulumi.set(self, "msk_monitoring_parameters", value)
 
     @_builtins.property
     @pulumi.getter(name="retentionInDays")

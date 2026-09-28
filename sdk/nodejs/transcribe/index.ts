@@ -15,6 +15,11 @@ export const getCallAnalyticsCategory: typeof import("./getCallAnalyticsCategory
 export const getCallAnalyticsCategoryOutput: typeof import("./getCallAnalyticsCategory").getCallAnalyticsCategoryOutput = null as any;
 utilities.lazyLoad(exports, ["getCallAnalyticsCategory","getCallAnalyticsCategoryOutput"], () => require("./getCallAnalyticsCategory"));
 
+export { GetMedicalVocabularyArgs, GetMedicalVocabularyResult, GetMedicalVocabularyOutputArgs } from "./getMedicalVocabulary";
+export const getMedicalVocabulary: typeof import("./getMedicalVocabulary").getMedicalVocabulary = null as any;
+export const getMedicalVocabularyOutput: typeof import("./getMedicalVocabulary").getMedicalVocabularyOutput = null as any;
+utilities.lazyLoad(exports, ["getMedicalVocabulary","getMedicalVocabularyOutput"], () => require("./getMedicalVocabulary"));
+
 export { GetVocabularyArgs, GetVocabularyResult, GetVocabularyOutputArgs } from "./getVocabulary";
 export const getVocabulary: typeof import("./getVocabulary").getVocabulary = null as any;
 export const getVocabularyOutput: typeof import("./getVocabulary").getVocabularyOutput = null as any;
@@ -24,6 +29,11 @@ export { GetVocabularyFilterArgs, GetVocabularyFilterResult, GetVocabularyFilter
 export const getVocabularyFilter: typeof import("./getVocabularyFilter").getVocabularyFilter = null as any;
 export const getVocabularyFilterOutput: typeof import("./getVocabularyFilter").getVocabularyFilterOutput = null as any;
 utilities.lazyLoad(exports, ["getVocabularyFilter","getVocabularyFilterOutput"], () => require("./getVocabularyFilter"));
+
+export { MedicalVocabularyArgs } from "./medicalVocabulary";
+export type MedicalVocabulary = import("./medicalVocabulary").MedicalVocabulary;
+export const MedicalVocabulary: typeof import("./medicalVocabulary").MedicalVocabulary = null as any;
+utilities.lazyLoad(exports, ["MedicalVocabulary"], () => require("./medicalVocabulary"));
 
 export { VocabularyArgs } from "./vocabulary";
 export type Vocabulary = import("./vocabulary").Vocabulary;
@@ -45,6 +55,8 @@ const _module = {
         switch (type) {
             case "aws-native:transcribe:CallAnalyticsCategory":
                 return new CallAnalyticsCategory(name, <any>undefined, { urn })
+            case "aws-native:transcribe:MedicalVocabulary":
+                return new MedicalVocabulary(name, <any>undefined, { urn })
             case "aws-native:transcribe:Vocabulary":
                 return new Vocabulary(name, <any>undefined, { urn })
             case "aws-native:transcribe:VocabularyFilter":

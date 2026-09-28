@@ -526,6 +526,11 @@
           "type" : "string",
           "maxLength" : 128
         },
+        "ConsumerAccountRoleArn" : {
+          "minLength" : 20,
+          "type" : "string",
+          "maxLength" : 2048
+        },
         "IdentityCenterConfiguration" : {
           "$ref" : "#/definitions/IdentityCenterConfiguration"
         },

@@ -10,6 +10,858 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Launch configuration template boot mode.
+type LaunchConfigurationTemplateBootMode string
+
+const (
+	LaunchConfigurationTemplateBootModeLegacyBios = LaunchConfigurationTemplateBootMode("LEGACY_BIOS")
+	LaunchConfigurationTemplateBootModeUefi       = LaunchConfigurationTemplateBootMode("UEFI")
+	LaunchConfigurationTemplateBootModeUseSource  = LaunchConfigurationTemplateBootMode("USE_SOURCE")
+)
+
+func (LaunchConfigurationTemplateBootMode) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchConfigurationTemplateBootMode)(nil)).Elem()
+}
+
+func (e LaunchConfigurationTemplateBootMode) ToLaunchConfigurationTemplateBootModeOutput() LaunchConfigurationTemplateBootModeOutput {
+	return pulumi.ToOutput(e).(LaunchConfigurationTemplateBootModeOutput)
+}
+
+func (e LaunchConfigurationTemplateBootMode) ToLaunchConfigurationTemplateBootModeOutputWithContext(ctx context.Context) LaunchConfigurationTemplateBootModeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(LaunchConfigurationTemplateBootModeOutput)
+}
+
+func (e LaunchConfigurationTemplateBootMode) ToLaunchConfigurationTemplateBootModePtrOutput() LaunchConfigurationTemplateBootModePtrOutput {
+	return e.ToLaunchConfigurationTemplateBootModePtrOutputWithContext(context.Background())
+}
+
+func (e LaunchConfigurationTemplateBootMode) ToLaunchConfigurationTemplateBootModePtrOutputWithContext(ctx context.Context) LaunchConfigurationTemplateBootModePtrOutput {
+	return LaunchConfigurationTemplateBootMode(e).ToLaunchConfigurationTemplateBootModeOutputWithContext(ctx).ToLaunchConfigurationTemplateBootModePtrOutputWithContext(ctx)
+}
+
+func (e LaunchConfigurationTemplateBootMode) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e LaunchConfigurationTemplateBootMode) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e LaunchConfigurationTemplateBootMode) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e LaunchConfigurationTemplateBootMode) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type LaunchConfigurationTemplateBootModeOutput struct{ *pulumi.OutputState }
+
+func (LaunchConfigurationTemplateBootModeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchConfigurationTemplateBootMode)(nil)).Elem()
+}
+
+func (o LaunchConfigurationTemplateBootModeOutput) ToLaunchConfigurationTemplateBootModeOutput() LaunchConfigurationTemplateBootModeOutput {
+	return o
+}
+
+func (o LaunchConfigurationTemplateBootModeOutput) ToLaunchConfigurationTemplateBootModeOutputWithContext(ctx context.Context) LaunchConfigurationTemplateBootModeOutput {
+	return o
+}
+
+func (o LaunchConfigurationTemplateBootModeOutput) ToLaunchConfigurationTemplateBootModePtrOutput() LaunchConfigurationTemplateBootModePtrOutput {
+	return o.ToLaunchConfigurationTemplateBootModePtrOutputWithContext(context.Background())
+}
+
+func (o LaunchConfigurationTemplateBootModeOutput) ToLaunchConfigurationTemplateBootModePtrOutputWithContext(ctx context.Context) LaunchConfigurationTemplateBootModePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LaunchConfigurationTemplateBootMode) *LaunchConfigurationTemplateBootMode {
+		return &v
+	}).(LaunchConfigurationTemplateBootModePtrOutput)
+}
+
+func (o LaunchConfigurationTemplateBootModeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o LaunchConfigurationTemplateBootModeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e LaunchConfigurationTemplateBootMode) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o LaunchConfigurationTemplateBootModeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o LaunchConfigurationTemplateBootModeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e LaunchConfigurationTemplateBootMode) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type LaunchConfigurationTemplateBootModePtrOutput struct{ *pulumi.OutputState }
+
+func (LaunchConfigurationTemplateBootModePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LaunchConfigurationTemplateBootMode)(nil)).Elem()
+}
+
+func (o LaunchConfigurationTemplateBootModePtrOutput) ToLaunchConfigurationTemplateBootModePtrOutput() LaunchConfigurationTemplateBootModePtrOutput {
+	return o
+}
+
+func (o LaunchConfigurationTemplateBootModePtrOutput) ToLaunchConfigurationTemplateBootModePtrOutputWithContext(ctx context.Context) LaunchConfigurationTemplateBootModePtrOutput {
+	return o
+}
+
+func (o LaunchConfigurationTemplateBootModePtrOutput) Elem() LaunchConfigurationTemplateBootModeOutput {
+	return o.ApplyT(func(v *LaunchConfigurationTemplateBootMode) LaunchConfigurationTemplateBootMode {
+		if v != nil {
+			return *v
+		}
+		var ret LaunchConfigurationTemplateBootMode
+		return ret
+	}).(LaunchConfigurationTemplateBootModeOutput)
+}
+
+func (o LaunchConfigurationTemplateBootModePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o LaunchConfigurationTemplateBootModePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *LaunchConfigurationTemplateBootMode) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// LaunchConfigurationTemplateBootModeInput is an input type that accepts values of the LaunchConfigurationTemplateBootMode enum
+// A concrete instance of `LaunchConfigurationTemplateBootModeInput` can be one of the following:
+//
+//	LaunchConfigurationTemplateBootModeLegacyBios
+//	LaunchConfigurationTemplateBootModeUefi
+//	LaunchConfigurationTemplateBootModeUseSource
+type LaunchConfigurationTemplateBootModeInput interface {
+	pulumi.Input
+
+	ToLaunchConfigurationTemplateBootModeOutput() LaunchConfigurationTemplateBootModeOutput
+	ToLaunchConfigurationTemplateBootModeOutputWithContext(context.Context) LaunchConfigurationTemplateBootModeOutput
+}
+
+var launchConfigurationTemplateBootModePtrType = reflect.TypeOf((**LaunchConfigurationTemplateBootMode)(nil)).Elem()
+
+type LaunchConfigurationTemplateBootModePtrInput interface {
+	pulumi.Input
+
+	ToLaunchConfigurationTemplateBootModePtrOutput() LaunchConfigurationTemplateBootModePtrOutput
+	ToLaunchConfigurationTemplateBootModePtrOutputWithContext(context.Context) LaunchConfigurationTemplateBootModePtrOutput
+}
+
+type launchConfigurationTemplateBootModePtr string
+
+func LaunchConfigurationTemplateBootModePtr(v string) LaunchConfigurationTemplateBootModePtrInput {
+	return (*launchConfigurationTemplateBootModePtr)(&v)
+}
+
+func (*launchConfigurationTemplateBootModePtr) ElementType() reflect.Type {
+	return launchConfigurationTemplateBootModePtrType
+}
+
+func (in *launchConfigurationTemplateBootModePtr) ToLaunchConfigurationTemplateBootModePtrOutput() LaunchConfigurationTemplateBootModePtrOutput {
+	return pulumi.ToOutput(in).(LaunchConfigurationTemplateBootModePtrOutput)
+}
+
+func (in *launchConfigurationTemplateBootModePtr) ToLaunchConfigurationTemplateBootModePtrOutputWithContext(ctx context.Context) LaunchConfigurationTemplateBootModePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(LaunchConfigurationTemplateBootModePtrOutput)
+}
+
+// Launch disposition.
+type LaunchConfigurationTemplateLaunchDisposition string
+
+const (
+	LaunchConfigurationTemplateLaunchDispositionStopped = LaunchConfigurationTemplateLaunchDisposition("STOPPED")
+	LaunchConfigurationTemplateLaunchDispositionStarted = LaunchConfigurationTemplateLaunchDisposition("STARTED")
+)
+
+func (LaunchConfigurationTemplateLaunchDisposition) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchConfigurationTemplateLaunchDisposition)(nil)).Elem()
+}
+
+func (e LaunchConfigurationTemplateLaunchDisposition) ToLaunchConfigurationTemplateLaunchDispositionOutput() LaunchConfigurationTemplateLaunchDispositionOutput {
+	return pulumi.ToOutput(e).(LaunchConfigurationTemplateLaunchDispositionOutput)
+}
+
+func (e LaunchConfigurationTemplateLaunchDisposition) ToLaunchConfigurationTemplateLaunchDispositionOutputWithContext(ctx context.Context) LaunchConfigurationTemplateLaunchDispositionOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(LaunchConfigurationTemplateLaunchDispositionOutput)
+}
+
+func (e LaunchConfigurationTemplateLaunchDisposition) ToLaunchConfigurationTemplateLaunchDispositionPtrOutput() LaunchConfigurationTemplateLaunchDispositionPtrOutput {
+	return e.ToLaunchConfigurationTemplateLaunchDispositionPtrOutputWithContext(context.Background())
+}
+
+func (e LaunchConfigurationTemplateLaunchDisposition) ToLaunchConfigurationTemplateLaunchDispositionPtrOutputWithContext(ctx context.Context) LaunchConfigurationTemplateLaunchDispositionPtrOutput {
+	return LaunchConfigurationTemplateLaunchDisposition(e).ToLaunchConfigurationTemplateLaunchDispositionOutputWithContext(ctx).ToLaunchConfigurationTemplateLaunchDispositionPtrOutputWithContext(ctx)
+}
+
+func (e LaunchConfigurationTemplateLaunchDisposition) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e LaunchConfigurationTemplateLaunchDisposition) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e LaunchConfigurationTemplateLaunchDisposition) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e LaunchConfigurationTemplateLaunchDisposition) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type LaunchConfigurationTemplateLaunchDispositionOutput struct{ *pulumi.OutputState }
+
+func (LaunchConfigurationTemplateLaunchDispositionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchConfigurationTemplateLaunchDisposition)(nil)).Elem()
+}
+
+func (o LaunchConfigurationTemplateLaunchDispositionOutput) ToLaunchConfigurationTemplateLaunchDispositionOutput() LaunchConfigurationTemplateLaunchDispositionOutput {
+	return o
+}
+
+func (o LaunchConfigurationTemplateLaunchDispositionOutput) ToLaunchConfigurationTemplateLaunchDispositionOutputWithContext(ctx context.Context) LaunchConfigurationTemplateLaunchDispositionOutput {
+	return o
+}
+
+func (o LaunchConfigurationTemplateLaunchDispositionOutput) ToLaunchConfigurationTemplateLaunchDispositionPtrOutput() LaunchConfigurationTemplateLaunchDispositionPtrOutput {
+	return o.ToLaunchConfigurationTemplateLaunchDispositionPtrOutputWithContext(context.Background())
+}
+
+func (o LaunchConfigurationTemplateLaunchDispositionOutput) ToLaunchConfigurationTemplateLaunchDispositionPtrOutputWithContext(ctx context.Context) LaunchConfigurationTemplateLaunchDispositionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LaunchConfigurationTemplateLaunchDisposition) *LaunchConfigurationTemplateLaunchDisposition {
+		return &v
+	}).(LaunchConfigurationTemplateLaunchDispositionPtrOutput)
+}
+
+func (o LaunchConfigurationTemplateLaunchDispositionOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o LaunchConfigurationTemplateLaunchDispositionOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e LaunchConfigurationTemplateLaunchDisposition) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o LaunchConfigurationTemplateLaunchDispositionOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o LaunchConfigurationTemplateLaunchDispositionOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e LaunchConfigurationTemplateLaunchDisposition) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type LaunchConfigurationTemplateLaunchDispositionPtrOutput struct{ *pulumi.OutputState }
+
+func (LaunchConfigurationTemplateLaunchDispositionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LaunchConfigurationTemplateLaunchDisposition)(nil)).Elem()
+}
+
+func (o LaunchConfigurationTemplateLaunchDispositionPtrOutput) ToLaunchConfigurationTemplateLaunchDispositionPtrOutput() LaunchConfigurationTemplateLaunchDispositionPtrOutput {
+	return o
+}
+
+func (o LaunchConfigurationTemplateLaunchDispositionPtrOutput) ToLaunchConfigurationTemplateLaunchDispositionPtrOutputWithContext(ctx context.Context) LaunchConfigurationTemplateLaunchDispositionPtrOutput {
+	return o
+}
+
+func (o LaunchConfigurationTemplateLaunchDispositionPtrOutput) Elem() LaunchConfigurationTemplateLaunchDispositionOutput {
+	return o.ApplyT(func(v *LaunchConfigurationTemplateLaunchDisposition) LaunchConfigurationTemplateLaunchDisposition {
+		if v != nil {
+			return *v
+		}
+		var ret LaunchConfigurationTemplateLaunchDisposition
+		return ret
+	}).(LaunchConfigurationTemplateLaunchDispositionOutput)
+}
+
+func (o LaunchConfigurationTemplateLaunchDispositionPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o LaunchConfigurationTemplateLaunchDispositionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *LaunchConfigurationTemplateLaunchDisposition) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// LaunchConfigurationTemplateLaunchDispositionInput is an input type that accepts values of the LaunchConfigurationTemplateLaunchDisposition enum
+// A concrete instance of `LaunchConfigurationTemplateLaunchDispositionInput` can be one of the following:
+//
+//	LaunchConfigurationTemplateLaunchDispositionStopped
+//	LaunchConfigurationTemplateLaunchDispositionStarted
+type LaunchConfigurationTemplateLaunchDispositionInput interface {
+	pulumi.Input
+
+	ToLaunchConfigurationTemplateLaunchDispositionOutput() LaunchConfigurationTemplateLaunchDispositionOutput
+	ToLaunchConfigurationTemplateLaunchDispositionOutputWithContext(context.Context) LaunchConfigurationTemplateLaunchDispositionOutput
+}
+
+var launchConfigurationTemplateLaunchDispositionPtrType = reflect.TypeOf((**LaunchConfigurationTemplateLaunchDisposition)(nil)).Elem()
+
+type LaunchConfigurationTemplateLaunchDispositionPtrInput interface {
+	pulumi.Input
+
+	ToLaunchConfigurationTemplateLaunchDispositionPtrOutput() LaunchConfigurationTemplateLaunchDispositionPtrOutput
+	ToLaunchConfigurationTemplateLaunchDispositionPtrOutputWithContext(context.Context) LaunchConfigurationTemplateLaunchDispositionPtrOutput
+}
+
+type launchConfigurationTemplateLaunchDispositionPtr string
+
+func LaunchConfigurationTemplateLaunchDispositionPtr(v string) LaunchConfigurationTemplateLaunchDispositionPtrInput {
+	return (*launchConfigurationTemplateLaunchDispositionPtr)(&v)
+}
+
+func (*launchConfigurationTemplateLaunchDispositionPtr) ElementType() reflect.Type {
+	return launchConfigurationTemplateLaunchDispositionPtrType
+}
+
+func (in *launchConfigurationTemplateLaunchDispositionPtr) ToLaunchConfigurationTemplateLaunchDispositionPtrOutput() LaunchConfigurationTemplateLaunchDispositionPtrOutput {
+	return pulumi.ToOutput(in).(LaunchConfigurationTemplateLaunchDispositionPtrOutput)
+}
+
+func (in *launchConfigurationTemplateLaunchDispositionPtr) ToLaunchConfigurationTemplateLaunchDispositionPtrOutputWithContext(ctx context.Context) LaunchConfigurationTemplateLaunchDispositionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(LaunchConfigurationTemplateLaunchDispositionPtrOutput)
+}
+
+// Launch template disk volume type configuration.
+type LaunchConfigurationTemplateLaunchTemplateDiskConfVolumeType string
+
+const (
+	LaunchConfigurationTemplateLaunchTemplateDiskConfVolumeTypeIo1      = LaunchConfigurationTemplateLaunchTemplateDiskConfVolumeType("io1")
+	LaunchConfigurationTemplateLaunchTemplateDiskConfVolumeTypeIo2      = LaunchConfigurationTemplateLaunchTemplateDiskConfVolumeType("io2")
+	LaunchConfigurationTemplateLaunchTemplateDiskConfVolumeTypeGp3      = LaunchConfigurationTemplateLaunchTemplateDiskConfVolumeType("gp3")
+	LaunchConfigurationTemplateLaunchTemplateDiskConfVolumeTypeGp2      = LaunchConfigurationTemplateLaunchTemplateDiskConfVolumeType("gp2")
+	LaunchConfigurationTemplateLaunchTemplateDiskConfVolumeTypeSt1      = LaunchConfigurationTemplateLaunchTemplateDiskConfVolumeType("st1")
+	LaunchConfigurationTemplateLaunchTemplateDiskConfVolumeTypeSc1      = LaunchConfigurationTemplateLaunchTemplateDiskConfVolumeType("sc1")
+	LaunchConfigurationTemplateLaunchTemplateDiskConfVolumeTypeStandard = LaunchConfigurationTemplateLaunchTemplateDiskConfVolumeType("standard")
+)
+
+func (LaunchConfigurationTemplateLaunchTemplateDiskConfVolumeType) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchConfigurationTemplateLaunchTemplateDiskConfVolumeType)(nil)).Elem()
+}
+
+func (e LaunchConfigurationTemplateLaunchTemplateDiskConfVolumeType) ToLaunchConfigurationTemplateLaunchTemplateDiskConfVolumeTypeOutput() LaunchConfigurationTemplateLaunchTemplateDiskConfVolumeTypeOutput {
+	return pulumi.ToOutput(e).(LaunchConfigurationTemplateLaunchTemplateDiskConfVolumeTypeOutput)
+}
+
+func (e LaunchConfigurationTemplateLaunchTemplateDiskConfVolumeType) ToLaunchConfigurationTemplateLaunchTemplateDiskConfVolumeTypeOutputWithContext(ctx context.Context) LaunchConfigurationTemplateLaunchTemplateDiskConfVolumeTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(LaunchConfigurationTemplateLaunchTemplateDiskConfVolumeTypeOutput)
+}
+
+func (e LaunchConfigurationTemplateLaunchTemplateDiskConfVolumeType) ToLaunchConfigurationTemplateLaunchTemplateDiskConfVolumeTypePtrOutput() LaunchConfigurationTemplateLaunchTemplateDiskConfVolumeTypePtrOutput {
+	return e.ToLaunchConfigurationTemplateLaunchTemplateDiskConfVolumeTypePtrOutputWithContext(context.Background())
+}
+
+func (e LaunchConfigurationTemplateLaunchTemplateDiskConfVolumeType) ToLaunchConfigurationTemplateLaunchTemplateDiskConfVolumeTypePtrOutputWithContext(ctx context.Context) LaunchConfigurationTemplateLaunchTemplateDiskConfVolumeTypePtrOutput {
+	return LaunchConfigurationTemplateLaunchTemplateDiskConfVolumeType(e).ToLaunchConfigurationTemplateLaunchTemplateDiskConfVolumeTypeOutputWithContext(ctx).ToLaunchConfigurationTemplateLaunchTemplateDiskConfVolumeTypePtrOutputWithContext(ctx)
+}
+
+func (e LaunchConfigurationTemplateLaunchTemplateDiskConfVolumeType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e LaunchConfigurationTemplateLaunchTemplateDiskConfVolumeType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e LaunchConfigurationTemplateLaunchTemplateDiskConfVolumeType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e LaunchConfigurationTemplateLaunchTemplateDiskConfVolumeType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type LaunchConfigurationTemplateLaunchTemplateDiskConfVolumeTypeOutput struct{ *pulumi.OutputState }
+
+func (LaunchConfigurationTemplateLaunchTemplateDiskConfVolumeTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchConfigurationTemplateLaunchTemplateDiskConfVolumeType)(nil)).Elem()
+}
+
+func (o LaunchConfigurationTemplateLaunchTemplateDiskConfVolumeTypeOutput) ToLaunchConfigurationTemplateLaunchTemplateDiskConfVolumeTypeOutput() LaunchConfigurationTemplateLaunchTemplateDiskConfVolumeTypeOutput {
+	return o
+}
+
+func (o LaunchConfigurationTemplateLaunchTemplateDiskConfVolumeTypeOutput) ToLaunchConfigurationTemplateLaunchTemplateDiskConfVolumeTypeOutputWithContext(ctx context.Context) LaunchConfigurationTemplateLaunchTemplateDiskConfVolumeTypeOutput {
+	return o
+}
+
+func (o LaunchConfigurationTemplateLaunchTemplateDiskConfVolumeTypeOutput) ToLaunchConfigurationTemplateLaunchTemplateDiskConfVolumeTypePtrOutput() LaunchConfigurationTemplateLaunchTemplateDiskConfVolumeTypePtrOutput {
+	return o.ToLaunchConfigurationTemplateLaunchTemplateDiskConfVolumeTypePtrOutputWithContext(context.Background())
+}
+
+func (o LaunchConfigurationTemplateLaunchTemplateDiskConfVolumeTypeOutput) ToLaunchConfigurationTemplateLaunchTemplateDiskConfVolumeTypePtrOutputWithContext(ctx context.Context) LaunchConfigurationTemplateLaunchTemplateDiskConfVolumeTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LaunchConfigurationTemplateLaunchTemplateDiskConfVolumeType) *LaunchConfigurationTemplateLaunchTemplateDiskConfVolumeType {
+		return &v
+	}).(LaunchConfigurationTemplateLaunchTemplateDiskConfVolumeTypePtrOutput)
+}
+
+func (o LaunchConfigurationTemplateLaunchTemplateDiskConfVolumeTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o LaunchConfigurationTemplateLaunchTemplateDiskConfVolumeTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e LaunchConfigurationTemplateLaunchTemplateDiskConfVolumeType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o LaunchConfigurationTemplateLaunchTemplateDiskConfVolumeTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o LaunchConfigurationTemplateLaunchTemplateDiskConfVolumeTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e LaunchConfigurationTemplateLaunchTemplateDiskConfVolumeType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type LaunchConfigurationTemplateLaunchTemplateDiskConfVolumeTypePtrOutput struct{ *pulumi.OutputState }
+
+func (LaunchConfigurationTemplateLaunchTemplateDiskConfVolumeTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LaunchConfigurationTemplateLaunchTemplateDiskConfVolumeType)(nil)).Elem()
+}
+
+func (o LaunchConfigurationTemplateLaunchTemplateDiskConfVolumeTypePtrOutput) ToLaunchConfigurationTemplateLaunchTemplateDiskConfVolumeTypePtrOutput() LaunchConfigurationTemplateLaunchTemplateDiskConfVolumeTypePtrOutput {
+	return o
+}
+
+func (o LaunchConfigurationTemplateLaunchTemplateDiskConfVolumeTypePtrOutput) ToLaunchConfigurationTemplateLaunchTemplateDiskConfVolumeTypePtrOutputWithContext(ctx context.Context) LaunchConfigurationTemplateLaunchTemplateDiskConfVolumeTypePtrOutput {
+	return o
+}
+
+func (o LaunchConfigurationTemplateLaunchTemplateDiskConfVolumeTypePtrOutput) Elem() LaunchConfigurationTemplateLaunchTemplateDiskConfVolumeTypeOutput {
+	return o.ApplyT(func(v *LaunchConfigurationTemplateLaunchTemplateDiskConfVolumeType) LaunchConfigurationTemplateLaunchTemplateDiskConfVolumeType {
+		if v != nil {
+			return *v
+		}
+		var ret LaunchConfigurationTemplateLaunchTemplateDiskConfVolumeType
+		return ret
+	}).(LaunchConfigurationTemplateLaunchTemplateDiskConfVolumeTypeOutput)
+}
+
+func (o LaunchConfigurationTemplateLaunchTemplateDiskConfVolumeTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o LaunchConfigurationTemplateLaunchTemplateDiskConfVolumeTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *LaunchConfigurationTemplateLaunchTemplateDiskConfVolumeType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// LaunchConfigurationTemplateLaunchTemplateDiskConfVolumeTypeInput is an input type that accepts values of the LaunchConfigurationTemplateLaunchTemplateDiskConfVolumeType enum
+// A concrete instance of `LaunchConfigurationTemplateLaunchTemplateDiskConfVolumeTypeInput` can be one of the following:
+//
+//	LaunchConfigurationTemplateLaunchTemplateDiskConfVolumeTypeIo1
+//	LaunchConfigurationTemplateLaunchTemplateDiskConfVolumeTypeIo2
+//	LaunchConfigurationTemplateLaunchTemplateDiskConfVolumeTypeGp3
+//	LaunchConfigurationTemplateLaunchTemplateDiskConfVolumeTypeGp2
+//	LaunchConfigurationTemplateLaunchTemplateDiskConfVolumeTypeSt1
+//	LaunchConfigurationTemplateLaunchTemplateDiskConfVolumeTypeSc1
+//	LaunchConfigurationTemplateLaunchTemplateDiskConfVolumeTypeStandard
+type LaunchConfigurationTemplateLaunchTemplateDiskConfVolumeTypeInput interface {
+	pulumi.Input
+
+	ToLaunchConfigurationTemplateLaunchTemplateDiskConfVolumeTypeOutput() LaunchConfigurationTemplateLaunchTemplateDiskConfVolumeTypeOutput
+	ToLaunchConfigurationTemplateLaunchTemplateDiskConfVolumeTypeOutputWithContext(context.Context) LaunchConfigurationTemplateLaunchTemplateDiskConfVolumeTypeOutput
+}
+
+var launchConfigurationTemplateLaunchTemplateDiskConfVolumeTypePtrType = reflect.TypeOf((**LaunchConfigurationTemplateLaunchTemplateDiskConfVolumeType)(nil)).Elem()
+
+type LaunchConfigurationTemplateLaunchTemplateDiskConfVolumeTypePtrInput interface {
+	pulumi.Input
+
+	ToLaunchConfigurationTemplateLaunchTemplateDiskConfVolumeTypePtrOutput() LaunchConfigurationTemplateLaunchTemplateDiskConfVolumeTypePtrOutput
+	ToLaunchConfigurationTemplateLaunchTemplateDiskConfVolumeTypePtrOutputWithContext(context.Context) LaunchConfigurationTemplateLaunchTemplateDiskConfVolumeTypePtrOutput
+}
+
+type launchConfigurationTemplateLaunchTemplateDiskConfVolumeTypePtr string
+
+func LaunchConfigurationTemplateLaunchTemplateDiskConfVolumeTypePtr(v string) LaunchConfigurationTemplateLaunchTemplateDiskConfVolumeTypePtrInput {
+	return (*launchConfigurationTemplateLaunchTemplateDiskConfVolumeTypePtr)(&v)
+}
+
+func (*launchConfigurationTemplateLaunchTemplateDiskConfVolumeTypePtr) ElementType() reflect.Type {
+	return launchConfigurationTemplateLaunchTemplateDiskConfVolumeTypePtrType
+}
+
+func (in *launchConfigurationTemplateLaunchTemplateDiskConfVolumeTypePtr) ToLaunchConfigurationTemplateLaunchTemplateDiskConfVolumeTypePtrOutput() LaunchConfigurationTemplateLaunchTemplateDiskConfVolumeTypePtrOutput {
+	return pulumi.ToOutput(in).(LaunchConfigurationTemplateLaunchTemplateDiskConfVolumeTypePtrOutput)
+}
+
+func (in *launchConfigurationTemplateLaunchTemplateDiskConfVolumeTypePtr) ToLaunchConfigurationTemplateLaunchTemplateDiskConfVolumeTypePtrOutputWithContext(ctx context.Context) LaunchConfigurationTemplateLaunchTemplateDiskConfVolumeTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(LaunchConfigurationTemplateLaunchTemplateDiskConfVolumeTypePtrOutput)
+}
+
+// Deployment type in which AWS Systems Manager Documents will be executed.
+type LaunchConfigurationTemplatePostLaunchActionsDeployment string
+
+const (
+	LaunchConfigurationTemplatePostLaunchActionsDeploymentTestAndCutover = LaunchConfigurationTemplatePostLaunchActionsDeployment("TEST_AND_CUTOVER")
+	LaunchConfigurationTemplatePostLaunchActionsDeploymentCutoverOnly    = LaunchConfigurationTemplatePostLaunchActionsDeployment("CUTOVER_ONLY")
+	LaunchConfigurationTemplatePostLaunchActionsDeploymentTestOnly       = LaunchConfigurationTemplatePostLaunchActionsDeployment("TEST_ONLY")
+)
+
+func (LaunchConfigurationTemplatePostLaunchActionsDeployment) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchConfigurationTemplatePostLaunchActionsDeployment)(nil)).Elem()
+}
+
+func (e LaunchConfigurationTemplatePostLaunchActionsDeployment) ToLaunchConfigurationTemplatePostLaunchActionsDeploymentOutput() LaunchConfigurationTemplatePostLaunchActionsDeploymentOutput {
+	return pulumi.ToOutput(e).(LaunchConfigurationTemplatePostLaunchActionsDeploymentOutput)
+}
+
+func (e LaunchConfigurationTemplatePostLaunchActionsDeployment) ToLaunchConfigurationTemplatePostLaunchActionsDeploymentOutputWithContext(ctx context.Context) LaunchConfigurationTemplatePostLaunchActionsDeploymentOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(LaunchConfigurationTemplatePostLaunchActionsDeploymentOutput)
+}
+
+func (e LaunchConfigurationTemplatePostLaunchActionsDeployment) ToLaunchConfigurationTemplatePostLaunchActionsDeploymentPtrOutput() LaunchConfigurationTemplatePostLaunchActionsDeploymentPtrOutput {
+	return e.ToLaunchConfigurationTemplatePostLaunchActionsDeploymentPtrOutputWithContext(context.Background())
+}
+
+func (e LaunchConfigurationTemplatePostLaunchActionsDeployment) ToLaunchConfigurationTemplatePostLaunchActionsDeploymentPtrOutputWithContext(ctx context.Context) LaunchConfigurationTemplatePostLaunchActionsDeploymentPtrOutput {
+	return LaunchConfigurationTemplatePostLaunchActionsDeployment(e).ToLaunchConfigurationTemplatePostLaunchActionsDeploymentOutputWithContext(ctx).ToLaunchConfigurationTemplatePostLaunchActionsDeploymentPtrOutputWithContext(ctx)
+}
+
+func (e LaunchConfigurationTemplatePostLaunchActionsDeployment) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e LaunchConfigurationTemplatePostLaunchActionsDeployment) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e LaunchConfigurationTemplatePostLaunchActionsDeployment) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e LaunchConfigurationTemplatePostLaunchActionsDeployment) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type LaunchConfigurationTemplatePostLaunchActionsDeploymentOutput struct{ *pulumi.OutputState }
+
+func (LaunchConfigurationTemplatePostLaunchActionsDeploymentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchConfigurationTemplatePostLaunchActionsDeployment)(nil)).Elem()
+}
+
+func (o LaunchConfigurationTemplatePostLaunchActionsDeploymentOutput) ToLaunchConfigurationTemplatePostLaunchActionsDeploymentOutput() LaunchConfigurationTemplatePostLaunchActionsDeploymentOutput {
+	return o
+}
+
+func (o LaunchConfigurationTemplatePostLaunchActionsDeploymentOutput) ToLaunchConfigurationTemplatePostLaunchActionsDeploymentOutputWithContext(ctx context.Context) LaunchConfigurationTemplatePostLaunchActionsDeploymentOutput {
+	return o
+}
+
+func (o LaunchConfigurationTemplatePostLaunchActionsDeploymentOutput) ToLaunchConfigurationTemplatePostLaunchActionsDeploymentPtrOutput() LaunchConfigurationTemplatePostLaunchActionsDeploymentPtrOutput {
+	return o.ToLaunchConfigurationTemplatePostLaunchActionsDeploymentPtrOutputWithContext(context.Background())
+}
+
+func (o LaunchConfigurationTemplatePostLaunchActionsDeploymentOutput) ToLaunchConfigurationTemplatePostLaunchActionsDeploymentPtrOutputWithContext(ctx context.Context) LaunchConfigurationTemplatePostLaunchActionsDeploymentPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LaunchConfigurationTemplatePostLaunchActionsDeployment) *LaunchConfigurationTemplatePostLaunchActionsDeployment {
+		return &v
+	}).(LaunchConfigurationTemplatePostLaunchActionsDeploymentPtrOutput)
+}
+
+func (o LaunchConfigurationTemplatePostLaunchActionsDeploymentOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o LaunchConfigurationTemplatePostLaunchActionsDeploymentOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e LaunchConfigurationTemplatePostLaunchActionsDeployment) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o LaunchConfigurationTemplatePostLaunchActionsDeploymentOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o LaunchConfigurationTemplatePostLaunchActionsDeploymentOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e LaunchConfigurationTemplatePostLaunchActionsDeployment) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type LaunchConfigurationTemplatePostLaunchActionsDeploymentPtrOutput struct{ *pulumi.OutputState }
+
+func (LaunchConfigurationTemplatePostLaunchActionsDeploymentPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LaunchConfigurationTemplatePostLaunchActionsDeployment)(nil)).Elem()
+}
+
+func (o LaunchConfigurationTemplatePostLaunchActionsDeploymentPtrOutput) ToLaunchConfigurationTemplatePostLaunchActionsDeploymentPtrOutput() LaunchConfigurationTemplatePostLaunchActionsDeploymentPtrOutput {
+	return o
+}
+
+func (o LaunchConfigurationTemplatePostLaunchActionsDeploymentPtrOutput) ToLaunchConfigurationTemplatePostLaunchActionsDeploymentPtrOutputWithContext(ctx context.Context) LaunchConfigurationTemplatePostLaunchActionsDeploymentPtrOutput {
+	return o
+}
+
+func (o LaunchConfigurationTemplatePostLaunchActionsDeploymentPtrOutput) Elem() LaunchConfigurationTemplatePostLaunchActionsDeploymentOutput {
+	return o.ApplyT(func(v *LaunchConfigurationTemplatePostLaunchActionsDeployment) LaunchConfigurationTemplatePostLaunchActionsDeployment {
+		if v != nil {
+			return *v
+		}
+		var ret LaunchConfigurationTemplatePostLaunchActionsDeployment
+		return ret
+	}).(LaunchConfigurationTemplatePostLaunchActionsDeploymentOutput)
+}
+
+func (o LaunchConfigurationTemplatePostLaunchActionsDeploymentPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o LaunchConfigurationTemplatePostLaunchActionsDeploymentPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *LaunchConfigurationTemplatePostLaunchActionsDeployment) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// LaunchConfigurationTemplatePostLaunchActionsDeploymentInput is an input type that accepts values of the LaunchConfigurationTemplatePostLaunchActionsDeployment enum
+// A concrete instance of `LaunchConfigurationTemplatePostLaunchActionsDeploymentInput` can be one of the following:
+//
+//	LaunchConfigurationTemplatePostLaunchActionsDeploymentTestAndCutover
+//	LaunchConfigurationTemplatePostLaunchActionsDeploymentCutoverOnly
+//	LaunchConfigurationTemplatePostLaunchActionsDeploymentTestOnly
+type LaunchConfigurationTemplatePostLaunchActionsDeploymentInput interface {
+	pulumi.Input
+
+	ToLaunchConfigurationTemplatePostLaunchActionsDeploymentOutput() LaunchConfigurationTemplatePostLaunchActionsDeploymentOutput
+	ToLaunchConfigurationTemplatePostLaunchActionsDeploymentOutputWithContext(context.Context) LaunchConfigurationTemplatePostLaunchActionsDeploymentOutput
+}
+
+var launchConfigurationTemplatePostLaunchActionsDeploymentPtrType = reflect.TypeOf((**LaunchConfigurationTemplatePostLaunchActionsDeployment)(nil)).Elem()
+
+type LaunchConfigurationTemplatePostLaunchActionsDeploymentPtrInput interface {
+	pulumi.Input
+
+	ToLaunchConfigurationTemplatePostLaunchActionsDeploymentPtrOutput() LaunchConfigurationTemplatePostLaunchActionsDeploymentPtrOutput
+	ToLaunchConfigurationTemplatePostLaunchActionsDeploymentPtrOutputWithContext(context.Context) LaunchConfigurationTemplatePostLaunchActionsDeploymentPtrOutput
+}
+
+type launchConfigurationTemplatePostLaunchActionsDeploymentPtr string
+
+func LaunchConfigurationTemplatePostLaunchActionsDeploymentPtr(v string) LaunchConfigurationTemplatePostLaunchActionsDeploymentPtrInput {
+	return (*launchConfigurationTemplatePostLaunchActionsDeploymentPtr)(&v)
+}
+
+func (*launchConfigurationTemplatePostLaunchActionsDeploymentPtr) ElementType() reflect.Type {
+	return launchConfigurationTemplatePostLaunchActionsDeploymentPtrType
+}
+
+func (in *launchConfigurationTemplatePostLaunchActionsDeploymentPtr) ToLaunchConfigurationTemplatePostLaunchActionsDeploymentPtrOutput() LaunchConfigurationTemplatePostLaunchActionsDeploymentPtrOutput {
+	return pulumi.ToOutput(in).(LaunchConfigurationTemplatePostLaunchActionsDeploymentPtrOutput)
+}
+
+func (in *launchConfigurationTemplatePostLaunchActionsDeploymentPtr) ToLaunchConfigurationTemplatePostLaunchActionsDeploymentPtrOutputWithContext(ctx context.Context) LaunchConfigurationTemplatePostLaunchActionsDeploymentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(LaunchConfigurationTemplatePostLaunchActionsDeploymentPtrOutput)
+}
+
+// AWS Systems Manager Parameter Store parameter type.
+type LaunchConfigurationTemplateSsmParameterStoreParameterParameterType string
+
+const (
+	LaunchConfigurationTemplateSsmParameterStoreParameterParameterTypeString       = LaunchConfigurationTemplateSsmParameterStoreParameterParameterType("STRING")
+	LaunchConfigurationTemplateSsmParameterStoreParameterParameterTypeSecureString = LaunchConfigurationTemplateSsmParameterStoreParameterParameterType("SECURE_STRING")
+)
+
+// Target instance type right-sizing method.
+type LaunchConfigurationTemplateTargetInstanceTypeRightSizingMethod string
+
+const (
+	LaunchConfigurationTemplateTargetInstanceTypeRightSizingMethodNone  = LaunchConfigurationTemplateTargetInstanceTypeRightSizingMethod("NONE")
+	LaunchConfigurationTemplateTargetInstanceTypeRightSizingMethodBasic = LaunchConfigurationTemplateTargetInstanceTypeRightSizingMethod("BASIC")
+)
+
+func (LaunchConfigurationTemplateTargetInstanceTypeRightSizingMethod) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchConfigurationTemplateTargetInstanceTypeRightSizingMethod)(nil)).Elem()
+}
+
+func (e LaunchConfigurationTemplateTargetInstanceTypeRightSizingMethod) ToLaunchConfigurationTemplateTargetInstanceTypeRightSizingMethodOutput() LaunchConfigurationTemplateTargetInstanceTypeRightSizingMethodOutput {
+	return pulumi.ToOutput(e).(LaunchConfigurationTemplateTargetInstanceTypeRightSizingMethodOutput)
+}
+
+func (e LaunchConfigurationTemplateTargetInstanceTypeRightSizingMethod) ToLaunchConfigurationTemplateTargetInstanceTypeRightSizingMethodOutputWithContext(ctx context.Context) LaunchConfigurationTemplateTargetInstanceTypeRightSizingMethodOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(LaunchConfigurationTemplateTargetInstanceTypeRightSizingMethodOutput)
+}
+
+func (e LaunchConfigurationTemplateTargetInstanceTypeRightSizingMethod) ToLaunchConfigurationTemplateTargetInstanceTypeRightSizingMethodPtrOutput() LaunchConfigurationTemplateTargetInstanceTypeRightSizingMethodPtrOutput {
+	return e.ToLaunchConfigurationTemplateTargetInstanceTypeRightSizingMethodPtrOutputWithContext(context.Background())
+}
+
+func (e LaunchConfigurationTemplateTargetInstanceTypeRightSizingMethod) ToLaunchConfigurationTemplateTargetInstanceTypeRightSizingMethodPtrOutputWithContext(ctx context.Context) LaunchConfigurationTemplateTargetInstanceTypeRightSizingMethodPtrOutput {
+	return LaunchConfigurationTemplateTargetInstanceTypeRightSizingMethod(e).ToLaunchConfigurationTemplateTargetInstanceTypeRightSizingMethodOutputWithContext(ctx).ToLaunchConfigurationTemplateTargetInstanceTypeRightSizingMethodPtrOutputWithContext(ctx)
+}
+
+func (e LaunchConfigurationTemplateTargetInstanceTypeRightSizingMethod) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e LaunchConfigurationTemplateTargetInstanceTypeRightSizingMethod) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e LaunchConfigurationTemplateTargetInstanceTypeRightSizingMethod) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e LaunchConfigurationTemplateTargetInstanceTypeRightSizingMethod) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type LaunchConfigurationTemplateTargetInstanceTypeRightSizingMethodOutput struct{ *pulumi.OutputState }
+
+func (LaunchConfigurationTemplateTargetInstanceTypeRightSizingMethodOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchConfigurationTemplateTargetInstanceTypeRightSizingMethod)(nil)).Elem()
+}
+
+func (o LaunchConfigurationTemplateTargetInstanceTypeRightSizingMethodOutput) ToLaunchConfigurationTemplateTargetInstanceTypeRightSizingMethodOutput() LaunchConfigurationTemplateTargetInstanceTypeRightSizingMethodOutput {
+	return o
+}
+
+func (o LaunchConfigurationTemplateTargetInstanceTypeRightSizingMethodOutput) ToLaunchConfigurationTemplateTargetInstanceTypeRightSizingMethodOutputWithContext(ctx context.Context) LaunchConfigurationTemplateTargetInstanceTypeRightSizingMethodOutput {
+	return o
+}
+
+func (o LaunchConfigurationTemplateTargetInstanceTypeRightSizingMethodOutput) ToLaunchConfigurationTemplateTargetInstanceTypeRightSizingMethodPtrOutput() LaunchConfigurationTemplateTargetInstanceTypeRightSizingMethodPtrOutput {
+	return o.ToLaunchConfigurationTemplateTargetInstanceTypeRightSizingMethodPtrOutputWithContext(context.Background())
+}
+
+func (o LaunchConfigurationTemplateTargetInstanceTypeRightSizingMethodOutput) ToLaunchConfigurationTemplateTargetInstanceTypeRightSizingMethodPtrOutputWithContext(ctx context.Context) LaunchConfigurationTemplateTargetInstanceTypeRightSizingMethodPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LaunchConfigurationTemplateTargetInstanceTypeRightSizingMethod) *LaunchConfigurationTemplateTargetInstanceTypeRightSizingMethod {
+		return &v
+	}).(LaunchConfigurationTemplateTargetInstanceTypeRightSizingMethodPtrOutput)
+}
+
+func (o LaunchConfigurationTemplateTargetInstanceTypeRightSizingMethodOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o LaunchConfigurationTemplateTargetInstanceTypeRightSizingMethodOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e LaunchConfigurationTemplateTargetInstanceTypeRightSizingMethod) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o LaunchConfigurationTemplateTargetInstanceTypeRightSizingMethodOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o LaunchConfigurationTemplateTargetInstanceTypeRightSizingMethodOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e LaunchConfigurationTemplateTargetInstanceTypeRightSizingMethod) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type LaunchConfigurationTemplateTargetInstanceTypeRightSizingMethodPtrOutput struct{ *pulumi.OutputState }
+
+func (LaunchConfigurationTemplateTargetInstanceTypeRightSizingMethodPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LaunchConfigurationTemplateTargetInstanceTypeRightSizingMethod)(nil)).Elem()
+}
+
+func (o LaunchConfigurationTemplateTargetInstanceTypeRightSizingMethodPtrOutput) ToLaunchConfigurationTemplateTargetInstanceTypeRightSizingMethodPtrOutput() LaunchConfigurationTemplateTargetInstanceTypeRightSizingMethodPtrOutput {
+	return o
+}
+
+func (o LaunchConfigurationTemplateTargetInstanceTypeRightSizingMethodPtrOutput) ToLaunchConfigurationTemplateTargetInstanceTypeRightSizingMethodPtrOutputWithContext(ctx context.Context) LaunchConfigurationTemplateTargetInstanceTypeRightSizingMethodPtrOutput {
+	return o
+}
+
+func (o LaunchConfigurationTemplateTargetInstanceTypeRightSizingMethodPtrOutput) Elem() LaunchConfigurationTemplateTargetInstanceTypeRightSizingMethodOutput {
+	return o.ApplyT(func(v *LaunchConfigurationTemplateTargetInstanceTypeRightSizingMethod) LaunchConfigurationTemplateTargetInstanceTypeRightSizingMethod {
+		if v != nil {
+			return *v
+		}
+		var ret LaunchConfigurationTemplateTargetInstanceTypeRightSizingMethod
+		return ret
+	}).(LaunchConfigurationTemplateTargetInstanceTypeRightSizingMethodOutput)
+}
+
+func (o LaunchConfigurationTemplateTargetInstanceTypeRightSizingMethodPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o LaunchConfigurationTemplateTargetInstanceTypeRightSizingMethodPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *LaunchConfigurationTemplateTargetInstanceTypeRightSizingMethod) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// LaunchConfigurationTemplateTargetInstanceTypeRightSizingMethodInput is an input type that accepts values of the LaunchConfigurationTemplateTargetInstanceTypeRightSizingMethod enum
+// A concrete instance of `LaunchConfigurationTemplateTargetInstanceTypeRightSizingMethodInput` can be one of the following:
+//
+//	LaunchConfigurationTemplateTargetInstanceTypeRightSizingMethodNone
+//	LaunchConfigurationTemplateTargetInstanceTypeRightSizingMethodBasic
+type LaunchConfigurationTemplateTargetInstanceTypeRightSizingMethodInput interface {
+	pulumi.Input
+
+	ToLaunchConfigurationTemplateTargetInstanceTypeRightSizingMethodOutput() LaunchConfigurationTemplateTargetInstanceTypeRightSizingMethodOutput
+	ToLaunchConfigurationTemplateTargetInstanceTypeRightSizingMethodOutputWithContext(context.Context) LaunchConfigurationTemplateTargetInstanceTypeRightSizingMethodOutput
+}
+
+var launchConfigurationTemplateTargetInstanceTypeRightSizingMethodPtrType = reflect.TypeOf((**LaunchConfigurationTemplateTargetInstanceTypeRightSizingMethod)(nil)).Elem()
+
+type LaunchConfigurationTemplateTargetInstanceTypeRightSizingMethodPtrInput interface {
+	pulumi.Input
+
+	ToLaunchConfigurationTemplateTargetInstanceTypeRightSizingMethodPtrOutput() LaunchConfigurationTemplateTargetInstanceTypeRightSizingMethodPtrOutput
+	ToLaunchConfigurationTemplateTargetInstanceTypeRightSizingMethodPtrOutputWithContext(context.Context) LaunchConfigurationTemplateTargetInstanceTypeRightSizingMethodPtrOutput
+}
+
+type launchConfigurationTemplateTargetInstanceTypeRightSizingMethodPtr string
+
+func LaunchConfigurationTemplateTargetInstanceTypeRightSizingMethodPtr(v string) LaunchConfigurationTemplateTargetInstanceTypeRightSizingMethodPtrInput {
+	return (*launchConfigurationTemplateTargetInstanceTypeRightSizingMethodPtr)(&v)
+}
+
+func (*launchConfigurationTemplateTargetInstanceTypeRightSizingMethodPtr) ElementType() reflect.Type {
+	return launchConfigurationTemplateTargetInstanceTypeRightSizingMethodPtrType
+}
+
+func (in *launchConfigurationTemplateTargetInstanceTypeRightSizingMethodPtr) ToLaunchConfigurationTemplateTargetInstanceTypeRightSizingMethodPtrOutput() LaunchConfigurationTemplateTargetInstanceTypeRightSizingMethodPtrOutput {
+	return pulumi.ToOutput(in).(LaunchConfigurationTemplateTargetInstanceTypeRightSizingMethodPtrOutput)
+}
+
+func (in *launchConfigurationTemplateTargetInstanceTypeRightSizingMethodPtr) ToLaunchConfigurationTemplateTargetInstanceTypeRightSizingMethodPtrOutputWithContext(ctx context.Context) LaunchConfigurationTemplateTargetInstanceTypeRightSizingMethodPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(LaunchConfigurationTemplateTargetInstanceTypeRightSizingMethodPtrOutput)
+}
+
 // The source environment type.
 type NetworkMigrationDefinitionSourceConfigurationSourceEnvironment string
 
@@ -519,12 +1371,32 @@ func (in *networkMigrationDefinitionTargetNetworkTopologyPtr) ToNetworkMigration
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*LaunchConfigurationTemplateBootModeInput)(nil)).Elem(), LaunchConfigurationTemplateBootMode("LEGACY_BIOS"))
+	pulumi.RegisterInputType(reflect.TypeOf((*LaunchConfigurationTemplateBootModePtrInput)(nil)).Elem(), LaunchConfigurationTemplateBootMode("LEGACY_BIOS"))
+	pulumi.RegisterInputType(reflect.TypeOf((*LaunchConfigurationTemplateLaunchDispositionInput)(nil)).Elem(), LaunchConfigurationTemplateLaunchDisposition("STOPPED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*LaunchConfigurationTemplateLaunchDispositionPtrInput)(nil)).Elem(), LaunchConfigurationTemplateLaunchDisposition("STOPPED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*LaunchConfigurationTemplateLaunchTemplateDiskConfVolumeTypeInput)(nil)).Elem(), LaunchConfigurationTemplateLaunchTemplateDiskConfVolumeType("io1"))
+	pulumi.RegisterInputType(reflect.TypeOf((*LaunchConfigurationTemplateLaunchTemplateDiskConfVolumeTypePtrInput)(nil)).Elem(), LaunchConfigurationTemplateLaunchTemplateDiskConfVolumeType("io1"))
+	pulumi.RegisterInputType(reflect.TypeOf((*LaunchConfigurationTemplatePostLaunchActionsDeploymentInput)(nil)).Elem(), LaunchConfigurationTemplatePostLaunchActionsDeployment("TEST_AND_CUTOVER"))
+	pulumi.RegisterInputType(reflect.TypeOf((*LaunchConfigurationTemplatePostLaunchActionsDeploymentPtrInput)(nil)).Elem(), LaunchConfigurationTemplatePostLaunchActionsDeployment("TEST_AND_CUTOVER"))
+	pulumi.RegisterInputType(reflect.TypeOf((*LaunchConfigurationTemplateTargetInstanceTypeRightSizingMethodInput)(nil)).Elem(), LaunchConfigurationTemplateTargetInstanceTypeRightSizingMethod("NONE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*LaunchConfigurationTemplateTargetInstanceTypeRightSizingMethodPtrInput)(nil)).Elem(), LaunchConfigurationTemplateTargetInstanceTypeRightSizingMethod("NONE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkMigrationDefinitionSourceConfigurationSourceEnvironmentInput)(nil)).Elem(), NetworkMigrationDefinitionSourceConfigurationSourceEnvironment("NSX"))
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkMigrationDefinitionSourceConfigurationSourceEnvironmentPtrInput)(nil)).Elem(), NetworkMigrationDefinitionSourceConfigurationSourceEnvironment("NSX"))
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkMigrationDefinitionTargetDeploymentInput)(nil)).Elem(), NetworkMigrationDefinitionTargetDeployment("SINGLE_ACCOUNT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkMigrationDefinitionTargetDeploymentPtrInput)(nil)).Elem(), NetworkMigrationDefinitionTargetDeployment("SINGLE_ACCOUNT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkMigrationDefinitionTargetNetworkTopologyInput)(nil)).Elem(), NetworkMigrationDefinitionTargetNetworkTopology("ISOLATED_VPC"))
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkMigrationDefinitionTargetNetworkTopologyPtrInput)(nil)).Elem(), NetworkMigrationDefinitionTargetNetworkTopology("ISOLATED_VPC"))
+	pulumi.RegisterOutputType(LaunchConfigurationTemplateBootModeOutput{})
+	pulumi.RegisterOutputType(LaunchConfigurationTemplateBootModePtrOutput{})
+	pulumi.RegisterOutputType(LaunchConfigurationTemplateLaunchDispositionOutput{})
+	pulumi.RegisterOutputType(LaunchConfigurationTemplateLaunchDispositionPtrOutput{})
+	pulumi.RegisterOutputType(LaunchConfigurationTemplateLaunchTemplateDiskConfVolumeTypeOutput{})
+	pulumi.RegisterOutputType(LaunchConfigurationTemplateLaunchTemplateDiskConfVolumeTypePtrOutput{})
+	pulumi.RegisterOutputType(LaunchConfigurationTemplatePostLaunchActionsDeploymentOutput{})
+	pulumi.RegisterOutputType(LaunchConfigurationTemplatePostLaunchActionsDeploymentPtrOutput{})
+	pulumi.RegisterOutputType(LaunchConfigurationTemplateTargetInstanceTypeRightSizingMethodOutput{})
+	pulumi.RegisterOutputType(LaunchConfigurationTemplateTargetInstanceTypeRightSizingMethodPtrOutput{})
 	pulumi.RegisterOutputType(NetworkMigrationDefinitionSourceConfigurationSourceEnvironmentOutput{})
 	pulumi.RegisterOutputType(NetworkMigrationDefinitionSourceConfigurationSourceEnvironmentPtrOutput{})
 	pulumi.RegisterOutputType(NetworkMigrationDefinitionTargetDeploymentOutput{})

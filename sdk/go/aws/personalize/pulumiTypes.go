@@ -387,6 +387,14 @@ type EventTrackerTag struct {
 	Value string `pulumi:"value"`
 }
 
+// A key-value pair to associate with a resource.
+type FilterTag struct {
+	// The key name of the tag.
+	Key string `pulumi:"key"`
+	// The value for the tag.
+	Value string `pulumi:"value"`
+}
+
 // A metric attribute for the metric attribution.
 type MetricAttributionMetricAttribute struct {
 	// The metric's event type.

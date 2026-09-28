@@ -10,9 +10,16 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.LakeFormation.Outputs
 {
 
+    /// <summary>
+    /// A structure for the catalog object.
+    ///   This is an object with no properties that effectively behaves as a true or false. A valid input for this property type in both yaml or json is null or ``{}``.
+    /// </summary>
     [OutputType]
     public sealed class PrincipalPermissionsCatalogResource
     {
+        /// <summary>
+        /// An identifier for the catalog resource.
+        /// </summary>
         public readonly string? Id;
 
         [OutputConstructor]

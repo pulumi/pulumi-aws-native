@@ -1677,6 +1677,176 @@ func (in *organizationTelemetryRuleFilterRequirementPtr) ToOrganizationTelemetry
 	return pulumi.ToOutputWithContext(ctx, in).(OrganizationTelemetryRuleFilterRequirementPtrOutput)
 }
 
+// The level of enhanced monitoring for the MSK cluster.
+type OrganizationTelemetryRuleMskMonitoringParametersEnhancedMonitoring string
+
+const (
+	OrganizationTelemetryRuleMskMonitoringParametersEnhancedMonitoringDefault              = OrganizationTelemetryRuleMskMonitoringParametersEnhancedMonitoring("DEFAULT")
+	OrganizationTelemetryRuleMskMonitoringParametersEnhancedMonitoringPerBroker            = OrganizationTelemetryRuleMskMonitoringParametersEnhancedMonitoring("PER_BROKER")
+	OrganizationTelemetryRuleMskMonitoringParametersEnhancedMonitoringPerTopicPerBroker    = OrganizationTelemetryRuleMskMonitoringParametersEnhancedMonitoring("PER_TOPIC_PER_BROKER")
+	OrganizationTelemetryRuleMskMonitoringParametersEnhancedMonitoringPerTopicPerPartition = OrganizationTelemetryRuleMskMonitoringParametersEnhancedMonitoring("PER_TOPIC_PER_PARTITION")
+)
+
+func (OrganizationTelemetryRuleMskMonitoringParametersEnhancedMonitoring) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrganizationTelemetryRuleMskMonitoringParametersEnhancedMonitoring)(nil)).Elem()
+}
+
+func (e OrganizationTelemetryRuleMskMonitoringParametersEnhancedMonitoring) ToOrganizationTelemetryRuleMskMonitoringParametersEnhancedMonitoringOutput() OrganizationTelemetryRuleMskMonitoringParametersEnhancedMonitoringOutput {
+	return pulumi.ToOutput(e).(OrganizationTelemetryRuleMskMonitoringParametersEnhancedMonitoringOutput)
+}
+
+func (e OrganizationTelemetryRuleMskMonitoringParametersEnhancedMonitoring) ToOrganizationTelemetryRuleMskMonitoringParametersEnhancedMonitoringOutputWithContext(ctx context.Context) OrganizationTelemetryRuleMskMonitoringParametersEnhancedMonitoringOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(OrganizationTelemetryRuleMskMonitoringParametersEnhancedMonitoringOutput)
+}
+
+func (e OrganizationTelemetryRuleMskMonitoringParametersEnhancedMonitoring) ToOrganizationTelemetryRuleMskMonitoringParametersEnhancedMonitoringPtrOutput() OrganizationTelemetryRuleMskMonitoringParametersEnhancedMonitoringPtrOutput {
+	return e.ToOrganizationTelemetryRuleMskMonitoringParametersEnhancedMonitoringPtrOutputWithContext(context.Background())
+}
+
+func (e OrganizationTelemetryRuleMskMonitoringParametersEnhancedMonitoring) ToOrganizationTelemetryRuleMskMonitoringParametersEnhancedMonitoringPtrOutputWithContext(ctx context.Context) OrganizationTelemetryRuleMskMonitoringParametersEnhancedMonitoringPtrOutput {
+	return OrganizationTelemetryRuleMskMonitoringParametersEnhancedMonitoring(e).ToOrganizationTelemetryRuleMskMonitoringParametersEnhancedMonitoringOutputWithContext(ctx).ToOrganizationTelemetryRuleMskMonitoringParametersEnhancedMonitoringPtrOutputWithContext(ctx)
+}
+
+func (e OrganizationTelemetryRuleMskMonitoringParametersEnhancedMonitoring) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e OrganizationTelemetryRuleMskMonitoringParametersEnhancedMonitoring) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e OrganizationTelemetryRuleMskMonitoringParametersEnhancedMonitoring) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e OrganizationTelemetryRuleMskMonitoringParametersEnhancedMonitoring) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type OrganizationTelemetryRuleMskMonitoringParametersEnhancedMonitoringOutput struct{ *pulumi.OutputState }
+
+func (OrganizationTelemetryRuleMskMonitoringParametersEnhancedMonitoringOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrganizationTelemetryRuleMskMonitoringParametersEnhancedMonitoring)(nil)).Elem()
+}
+
+func (o OrganizationTelemetryRuleMskMonitoringParametersEnhancedMonitoringOutput) ToOrganizationTelemetryRuleMskMonitoringParametersEnhancedMonitoringOutput() OrganizationTelemetryRuleMskMonitoringParametersEnhancedMonitoringOutput {
+	return o
+}
+
+func (o OrganizationTelemetryRuleMskMonitoringParametersEnhancedMonitoringOutput) ToOrganizationTelemetryRuleMskMonitoringParametersEnhancedMonitoringOutputWithContext(ctx context.Context) OrganizationTelemetryRuleMskMonitoringParametersEnhancedMonitoringOutput {
+	return o
+}
+
+func (o OrganizationTelemetryRuleMskMonitoringParametersEnhancedMonitoringOutput) ToOrganizationTelemetryRuleMskMonitoringParametersEnhancedMonitoringPtrOutput() OrganizationTelemetryRuleMskMonitoringParametersEnhancedMonitoringPtrOutput {
+	return o.ToOrganizationTelemetryRuleMskMonitoringParametersEnhancedMonitoringPtrOutputWithContext(context.Background())
+}
+
+func (o OrganizationTelemetryRuleMskMonitoringParametersEnhancedMonitoringOutput) ToOrganizationTelemetryRuleMskMonitoringParametersEnhancedMonitoringPtrOutputWithContext(ctx context.Context) OrganizationTelemetryRuleMskMonitoringParametersEnhancedMonitoringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OrganizationTelemetryRuleMskMonitoringParametersEnhancedMonitoring) *OrganizationTelemetryRuleMskMonitoringParametersEnhancedMonitoring {
+		return &v
+	}).(OrganizationTelemetryRuleMskMonitoringParametersEnhancedMonitoringPtrOutput)
+}
+
+func (o OrganizationTelemetryRuleMskMonitoringParametersEnhancedMonitoringOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o OrganizationTelemetryRuleMskMonitoringParametersEnhancedMonitoringOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e OrganizationTelemetryRuleMskMonitoringParametersEnhancedMonitoring) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o OrganizationTelemetryRuleMskMonitoringParametersEnhancedMonitoringOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o OrganizationTelemetryRuleMskMonitoringParametersEnhancedMonitoringOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e OrganizationTelemetryRuleMskMonitoringParametersEnhancedMonitoring) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type OrganizationTelemetryRuleMskMonitoringParametersEnhancedMonitoringPtrOutput struct{ *pulumi.OutputState }
+
+func (OrganizationTelemetryRuleMskMonitoringParametersEnhancedMonitoringPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OrganizationTelemetryRuleMskMonitoringParametersEnhancedMonitoring)(nil)).Elem()
+}
+
+func (o OrganizationTelemetryRuleMskMonitoringParametersEnhancedMonitoringPtrOutput) ToOrganizationTelemetryRuleMskMonitoringParametersEnhancedMonitoringPtrOutput() OrganizationTelemetryRuleMskMonitoringParametersEnhancedMonitoringPtrOutput {
+	return o
+}
+
+func (o OrganizationTelemetryRuleMskMonitoringParametersEnhancedMonitoringPtrOutput) ToOrganizationTelemetryRuleMskMonitoringParametersEnhancedMonitoringPtrOutputWithContext(ctx context.Context) OrganizationTelemetryRuleMskMonitoringParametersEnhancedMonitoringPtrOutput {
+	return o
+}
+
+func (o OrganizationTelemetryRuleMskMonitoringParametersEnhancedMonitoringPtrOutput) Elem() OrganizationTelemetryRuleMskMonitoringParametersEnhancedMonitoringOutput {
+	return o.ApplyT(func(v *OrganizationTelemetryRuleMskMonitoringParametersEnhancedMonitoring) OrganizationTelemetryRuleMskMonitoringParametersEnhancedMonitoring {
+		if v != nil {
+			return *v
+		}
+		var ret OrganizationTelemetryRuleMskMonitoringParametersEnhancedMonitoring
+		return ret
+	}).(OrganizationTelemetryRuleMskMonitoringParametersEnhancedMonitoringOutput)
+}
+
+func (o OrganizationTelemetryRuleMskMonitoringParametersEnhancedMonitoringPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o OrganizationTelemetryRuleMskMonitoringParametersEnhancedMonitoringPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *OrganizationTelemetryRuleMskMonitoringParametersEnhancedMonitoring) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// OrganizationTelemetryRuleMskMonitoringParametersEnhancedMonitoringInput is an input type that accepts values of the OrganizationTelemetryRuleMskMonitoringParametersEnhancedMonitoring enum
+// A concrete instance of `OrganizationTelemetryRuleMskMonitoringParametersEnhancedMonitoringInput` can be one of the following:
+//
+//	OrganizationTelemetryRuleMskMonitoringParametersEnhancedMonitoringDefault
+//	OrganizationTelemetryRuleMskMonitoringParametersEnhancedMonitoringPerBroker
+//	OrganizationTelemetryRuleMskMonitoringParametersEnhancedMonitoringPerTopicPerBroker
+//	OrganizationTelemetryRuleMskMonitoringParametersEnhancedMonitoringPerTopicPerPartition
+type OrganizationTelemetryRuleMskMonitoringParametersEnhancedMonitoringInput interface {
+	pulumi.Input
+
+	ToOrganizationTelemetryRuleMskMonitoringParametersEnhancedMonitoringOutput() OrganizationTelemetryRuleMskMonitoringParametersEnhancedMonitoringOutput
+	ToOrganizationTelemetryRuleMskMonitoringParametersEnhancedMonitoringOutputWithContext(context.Context) OrganizationTelemetryRuleMskMonitoringParametersEnhancedMonitoringOutput
+}
+
+var organizationTelemetryRuleMskMonitoringParametersEnhancedMonitoringPtrType = reflect.TypeOf((**OrganizationTelemetryRuleMskMonitoringParametersEnhancedMonitoring)(nil)).Elem()
+
+type OrganizationTelemetryRuleMskMonitoringParametersEnhancedMonitoringPtrInput interface {
+	pulumi.Input
+
+	ToOrganizationTelemetryRuleMskMonitoringParametersEnhancedMonitoringPtrOutput() OrganizationTelemetryRuleMskMonitoringParametersEnhancedMonitoringPtrOutput
+	ToOrganizationTelemetryRuleMskMonitoringParametersEnhancedMonitoringPtrOutputWithContext(context.Context) OrganizationTelemetryRuleMskMonitoringParametersEnhancedMonitoringPtrOutput
+}
+
+type organizationTelemetryRuleMskMonitoringParametersEnhancedMonitoringPtr string
+
+func OrganizationTelemetryRuleMskMonitoringParametersEnhancedMonitoringPtr(v string) OrganizationTelemetryRuleMskMonitoringParametersEnhancedMonitoringPtrInput {
+	return (*organizationTelemetryRuleMskMonitoringParametersEnhancedMonitoringPtr)(&v)
+}
+
+func (*organizationTelemetryRuleMskMonitoringParametersEnhancedMonitoringPtr) ElementType() reflect.Type {
+	return organizationTelemetryRuleMskMonitoringParametersEnhancedMonitoringPtrType
+}
+
+func (in *organizationTelemetryRuleMskMonitoringParametersEnhancedMonitoringPtr) ToOrganizationTelemetryRuleMskMonitoringParametersEnhancedMonitoringPtrOutput() OrganizationTelemetryRuleMskMonitoringParametersEnhancedMonitoringPtrOutput {
+	return pulumi.ToOutput(in).(OrganizationTelemetryRuleMskMonitoringParametersEnhancedMonitoringPtrOutput)
+}
+
+func (in *organizationTelemetryRuleMskMonitoringParametersEnhancedMonitoringPtr) ToOrganizationTelemetryRuleMskMonitoringParametersEnhancedMonitoringPtrOutputWithContext(ctx context.Context) OrganizationTelemetryRuleMskMonitoringParametersEnhancedMonitoringPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(OrganizationTelemetryRuleMskMonitoringParametersEnhancedMonitoringPtrOutput)
+}
+
 // Resource Type associated with the Organization Telemetry Rule
 type OrganizationTelemetryRuleResourceType string
 
@@ -1688,6 +1858,11 @@ const (
 	OrganizationTelemetryRuleResourceTypeAwsElasticLoadBalancingV2LoadBalancer = OrganizationTelemetryRuleResourceType("AWS::ElasticLoadBalancingV2::LoadBalancer")
 	OrganizationTelemetryRuleResourceTypeAwsec2Instance                        = OrganizationTelemetryRuleResourceType("AWS::EC2::Instance")
 	OrganizationTelemetryRuleResourceTypeAwsSecurityHubHub                     = OrganizationTelemetryRuleResourceType("AWS::SecurityHub::Hub")
+	OrganizationTelemetryRuleResourceTypeAwsSecurityHubHubV2                   = OrganizationTelemetryRuleResourceType("AWS::SecurityHub::HubV2")
+	OrganizationTelemetryRuleResourceTypeAwss3Bucket                           = OrganizationTelemetryRuleResourceType("AWS::S3::Bucket")
+	OrganizationTelemetryRuleResourceTypeAwsmskCluster                         = OrganizationTelemetryRuleResourceType("AWS::MSK::Cluster")
+	OrganizationTelemetryRuleResourceTypeAwsCloudFrontDistribution             = OrganizationTelemetryRuleResourceType("AWS::CloudFront::Distribution")
+	OrganizationTelemetryRuleResourceTypeAwsCloudWatchOTelEnrichment           = OrganizationTelemetryRuleResourceType("AWS::CloudWatch::OTelEnrichment")
 )
 
 func (OrganizationTelemetryRuleResourceType) ElementType() reflect.Type {
@@ -1819,6 +1994,11 @@ func (o OrganizationTelemetryRuleResourceTypePtrOutput) ToStringPtrOutputWithCon
 //	OrganizationTelemetryRuleResourceTypeAwsElasticLoadBalancingV2LoadBalancer
 //	OrganizationTelemetryRuleResourceTypeAwsec2Instance
 //	OrganizationTelemetryRuleResourceTypeAwsSecurityHubHub
+//	OrganizationTelemetryRuleResourceTypeAwsSecurityHubHubV2
+//	OrganizationTelemetryRuleResourceTypeAwss3Bucket
+//	OrganizationTelemetryRuleResourceTypeAwsmskCluster
+//	OrganizationTelemetryRuleResourceTypeAwsCloudFrontDistribution
+//	OrganizationTelemetryRuleResourceTypeAwsCloudWatchOTelEnrichment
 type OrganizationTelemetryRuleResourceTypeInput interface {
 	pulumi.Input
 
@@ -1857,6 +2037,9 @@ type OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParame
 
 const (
 	OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItemSecurityFindingLogs = OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItem("SECURITY_FINDING_LOGS")
+	OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItemS3ServerAccessLogs  = OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItem("S3_SERVER_ACCESS_LOGS")
+	OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItemAccessLogs          = OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItem("ACCESS_LOGS")
+	OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItemConnectionLogs      = OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItem("CONNECTION_LOGS")
 	OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItemAlbAccessLogs       = OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItem("ALB_ACCESS_LOGS")
 	OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItemAlbConnectionLogs   = OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItem("ALB_CONNECTION_LOGS")
 	OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItemAlbHealthCheckLogs  = OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItem("ALB_HEALTH_CHECK_LOGS")
@@ -1985,6 +2168,9 @@ func (o OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryPar
 // A concrete instance of `OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItemInput` can be one of the following:
 //
 //	OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItemSecurityFindingLogs
+//	OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItemS3ServerAccessLogs
+//	OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItemAccessLogs
+//	OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItemConnectionLogs
 //	OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItemAlbAccessLogs
 //	OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItemAlbConnectionLogs
 //	OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItemAlbHealthCheckLogs
@@ -3970,6 +4156,176 @@ func (in *telemetryRuleFilterRequirementPtr) ToTelemetryRuleFilterRequirementPtr
 	return pulumi.ToOutputWithContext(ctx, in).(TelemetryRuleFilterRequirementPtrOutput)
 }
 
+// The level of enhanced monitoring for the MSK cluster.
+type TelemetryRuleMskMonitoringParametersEnhancedMonitoring string
+
+const (
+	TelemetryRuleMskMonitoringParametersEnhancedMonitoringDefault              = TelemetryRuleMskMonitoringParametersEnhancedMonitoring("DEFAULT")
+	TelemetryRuleMskMonitoringParametersEnhancedMonitoringPerBroker            = TelemetryRuleMskMonitoringParametersEnhancedMonitoring("PER_BROKER")
+	TelemetryRuleMskMonitoringParametersEnhancedMonitoringPerTopicPerBroker    = TelemetryRuleMskMonitoringParametersEnhancedMonitoring("PER_TOPIC_PER_BROKER")
+	TelemetryRuleMskMonitoringParametersEnhancedMonitoringPerTopicPerPartition = TelemetryRuleMskMonitoringParametersEnhancedMonitoring("PER_TOPIC_PER_PARTITION")
+)
+
+func (TelemetryRuleMskMonitoringParametersEnhancedMonitoring) ElementType() reflect.Type {
+	return reflect.TypeOf((*TelemetryRuleMskMonitoringParametersEnhancedMonitoring)(nil)).Elem()
+}
+
+func (e TelemetryRuleMskMonitoringParametersEnhancedMonitoring) ToTelemetryRuleMskMonitoringParametersEnhancedMonitoringOutput() TelemetryRuleMskMonitoringParametersEnhancedMonitoringOutput {
+	return pulumi.ToOutput(e).(TelemetryRuleMskMonitoringParametersEnhancedMonitoringOutput)
+}
+
+func (e TelemetryRuleMskMonitoringParametersEnhancedMonitoring) ToTelemetryRuleMskMonitoringParametersEnhancedMonitoringOutputWithContext(ctx context.Context) TelemetryRuleMskMonitoringParametersEnhancedMonitoringOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(TelemetryRuleMskMonitoringParametersEnhancedMonitoringOutput)
+}
+
+func (e TelemetryRuleMskMonitoringParametersEnhancedMonitoring) ToTelemetryRuleMskMonitoringParametersEnhancedMonitoringPtrOutput() TelemetryRuleMskMonitoringParametersEnhancedMonitoringPtrOutput {
+	return e.ToTelemetryRuleMskMonitoringParametersEnhancedMonitoringPtrOutputWithContext(context.Background())
+}
+
+func (e TelemetryRuleMskMonitoringParametersEnhancedMonitoring) ToTelemetryRuleMskMonitoringParametersEnhancedMonitoringPtrOutputWithContext(ctx context.Context) TelemetryRuleMskMonitoringParametersEnhancedMonitoringPtrOutput {
+	return TelemetryRuleMskMonitoringParametersEnhancedMonitoring(e).ToTelemetryRuleMskMonitoringParametersEnhancedMonitoringOutputWithContext(ctx).ToTelemetryRuleMskMonitoringParametersEnhancedMonitoringPtrOutputWithContext(ctx)
+}
+
+func (e TelemetryRuleMskMonitoringParametersEnhancedMonitoring) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TelemetryRuleMskMonitoringParametersEnhancedMonitoring) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TelemetryRuleMskMonitoringParametersEnhancedMonitoring) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e TelemetryRuleMskMonitoringParametersEnhancedMonitoring) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type TelemetryRuleMskMonitoringParametersEnhancedMonitoringOutput struct{ *pulumi.OutputState }
+
+func (TelemetryRuleMskMonitoringParametersEnhancedMonitoringOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TelemetryRuleMskMonitoringParametersEnhancedMonitoring)(nil)).Elem()
+}
+
+func (o TelemetryRuleMskMonitoringParametersEnhancedMonitoringOutput) ToTelemetryRuleMskMonitoringParametersEnhancedMonitoringOutput() TelemetryRuleMskMonitoringParametersEnhancedMonitoringOutput {
+	return o
+}
+
+func (o TelemetryRuleMskMonitoringParametersEnhancedMonitoringOutput) ToTelemetryRuleMskMonitoringParametersEnhancedMonitoringOutputWithContext(ctx context.Context) TelemetryRuleMskMonitoringParametersEnhancedMonitoringOutput {
+	return o
+}
+
+func (o TelemetryRuleMskMonitoringParametersEnhancedMonitoringOutput) ToTelemetryRuleMskMonitoringParametersEnhancedMonitoringPtrOutput() TelemetryRuleMskMonitoringParametersEnhancedMonitoringPtrOutput {
+	return o.ToTelemetryRuleMskMonitoringParametersEnhancedMonitoringPtrOutputWithContext(context.Background())
+}
+
+func (o TelemetryRuleMskMonitoringParametersEnhancedMonitoringOutput) ToTelemetryRuleMskMonitoringParametersEnhancedMonitoringPtrOutputWithContext(ctx context.Context) TelemetryRuleMskMonitoringParametersEnhancedMonitoringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TelemetryRuleMskMonitoringParametersEnhancedMonitoring) *TelemetryRuleMskMonitoringParametersEnhancedMonitoring {
+		return &v
+	}).(TelemetryRuleMskMonitoringParametersEnhancedMonitoringPtrOutput)
+}
+
+func (o TelemetryRuleMskMonitoringParametersEnhancedMonitoringOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o TelemetryRuleMskMonitoringParametersEnhancedMonitoringOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TelemetryRuleMskMonitoringParametersEnhancedMonitoring) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o TelemetryRuleMskMonitoringParametersEnhancedMonitoringOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TelemetryRuleMskMonitoringParametersEnhancedMonitoringOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TelemetryRuleMskMonitoringParametersEnhancedMonitoring) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type TelemetryRuleMskMonitoringParametersEnhancedMonitoringPtrOutput struct{ *pulumi.OutputState }
+
+func (TelemetryRuleMskMonitoringParametersEnhancedMonitoringPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TelemetryRuleMskMonitoringParametersEnhancedMonitoring)(nil)).Elem()
+}
+
+func (o TelemetryRuleMskMonitoringParametersEnhancedMonitoringPtrOutput) ToTelemetryRuleMskMonitoringParametersEnhancedMonitoringPtrOutput() TelemetryRuleMskMonitoringParametersEnhancedMonitoringPtrOutput {
+	return o
+}
+
+func (o TelemetryRuleMskMonitoringParametersEnhancedMonitoringPtrOutput) ToTelemetryRuleMskMonitoringParametersEnhancedMonitoringPtrOutputWithContext(ctx context.Context) TelemetryRuleMskMonitoringParametersEnhancedMonitoringPtrOutput {
+	return o
+}
+
+func (o TelemetryRuleMskMonitoringParametersEnhancedMonitoringPtrOutput) Elem() TelemetryRuleMskMonitoringParametersEnhancedMonitoringOutput {
+	return o.ApplyT(func(v *TelemetryRuleMskMonitoringParametersEnhancedMonitoring) TelemetryRuleMskMonitoringParametersEnhancedMonitoring {
+		if v != nil {
+			return *v
+		}
+		var ret TelemetryRuleMskMonitoringParametersEnhancedMonitoring
+		return ret
+	}).(TelemetryRuleMskMonitoringParametersEnhancedMonitoringOutput)
+}
+
+func (o TelemetryRuleMskMonitoringParametersEnhancedMonitoringPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TelemetryRuleMskMonitoringParametersEnhancedMonitoringPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *TelemetryRuleMskMonitoringParametersEnhancedMonitoring) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// TelemetryRuleMskMonitoringParametersEnhancedMonitoringInput is an input type that accepts values of the TelemetryRuleMskMonitoringParametersEnhancedMonitoring enum
+// A concrete instance of `TelemetryRuleMskMonitoringParametersEnhancedMonitoringInput` can be one of the following:
+//
+//	TelemetryRuleMskMonitoringParametersEnhancedMonitoringDefault
+//	TelemetryRuleMskMonitoringParametersEnhancedMonitoringPerBroker
+//	TelemetryRuleMskMonitoringParametersEnhancedMonitoringPerTopicPerBroker
+//	TelemetryRuleMskMonitoringParametersEnhancedMonitoringPerTopicPerPartition
+type TelemetryRuleMskMonitoringParametersEnhancedMonitoringInput interface {
+	pulumi.Input
+
+	ToTelemetryRuleMskMonitoringParametersEnhancedMonitoringOutput() TelemetryRuleMskMonitoringParametersEnhancedMonitoringOutput
+	ToTelemetryRuleMskMonitoringParametersEnhancedMonitoringOutputWithContext(context.Context) TelemetryRuleMskMonitoringParametersEnhancedMonitoringOutput
+}
+
+var telemetryRuleMskMonitoringParametersEnhancedMonitoringPtrType = reflect.TypeOf((**TelemetryRuleMskMonitoringParametersEnhancedMonitoring)(nil)).Elem()
+
+type TelemetryRuleMskMonitoringParametersEnhancedMonitoringPtrInput interface {
+	pulumi.Input
+
+	ToTelemetryRuleMskMonitoringParametersEnhancedMonitoringPtrOutput() TelemetryRuleMskMonitoringParametersEnhancedMonitoringPtrOutput
+	ToTelemetryRuleMskMonitoringParametersEnhancedMonitoringPtrOutputWithContext(context.Context) TelemetryRuleMskMonitoringParametersEnhancedMonitoringPtrOutput
+}
+
+type telemetryRuleMskMonitoringParametersEnhancedMonitoringPtr string
+
+func TelemetryRuleMskMonitoringParametersEnhancedMonitoringPtr(v string) TelemetryRuleMskMonitoringParametersEnhancedMonitoringPtrInput {
+	return (*telemetryRuleMskMonitoringParametersEnhancedMonitoringPtr)(&v)
+}
+
+func (*telemetryRuleMskMonitoringParametersEnhancedMonitoringPtr) ElementType() reflect.Type {
+	return telemetryRuleMskMonitoringParametersEnhancedMonitoringPtrType
+}
+
+func (in *telemetryRuleMskMonitoringParametersEnhancedMonitoringPtr) ToTelemetryRuleMskMonitoringParametersEnhancedMonitoringPtrOutput() TelemetryRuleMskMonitoringParametersEnhancedMonitoringPtrOutput {
+	return pulumi.ToOutput(in).(TelemetryRuleMskMonitoringParametersEnhancedMonitoringPtrOutput)
+}
+
+func (in *telemetryRuleMskMonitoringParametersEnhancedMonitoringPtr) ToTelemetryRuleMskMonitoringParametersEnhancedMonitoringPtrOutputWithContext(ctx context.Context) TelemetryRuleMskMonitoringParametersEnhancedMonitoringPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(TelemetryRuleMskMonitoringParametersEnhancedMonitoringPtrOutput)
+}
+
 // Resource Type associated with the Telemetry Rule
 type TelemetryRuleResourceType string
 
@@ -3984,6 +4340,15 @@ const (
 	TelemetryRuleResourceTypeAwsBedrockAgentCoreBrowser            = TelemetryRuleResourceType("AWS::BedrockAgentCore::Browser")
 	TelemetryRuleResourceTypeAwsBedrockAgentCoreCodeInterpreter    = TelemetryRuleResourceType("AWS::BedrockAgentCore::CodeInterpreter")
 	TelemetryRuleResourceTypeAwsSecurityHubHub                     = TelemetryRuleResourceType("AWS::SecurityHub::Hub")
+	TelemetryRuleResourceTypeAwsSecurityHubHubV2                   = TelemetryRuleResourceType("AWS::SecurityHub::HubV2")
+	TelemetryRuleResourceTypeAwss3Bucket                           = TelemetryRuleResourceType("AWS::S3::Bucket")
+	TelemetryRuleResourceTypeAwsmskCluster                         = TelemetryRuleResourceType("AWS::MSK::Cluster")
+	TelemetryRuleResourceTypeAwsCloudFrontDistribution             = TelemetryRuleResourceType("AWS::CloudFront::Distribution")
+	TelemetryRuleResourceTypeAwsCloudWatchOTelEnrichment           = TelemetryRuleResourceType("AWS::CloudWatch::OTelEnrichment")
+	TelemetryRuleResourceTypeAwsBedrockKnowledgeBase               = TelemetryRuleResourceType("AWS::Bedrock::KnowledgeBase")
+	TelemetryRuleResourceTypeAwsBedrockAgentCoreMemory             = TelemetryRuleResourceType("AWS::BedrockAgentCore::Memory")
+	TelemetryRuleResourceTypeAwsBedrockAgentCoreGateway            = TelemetryRuleResourceType("AWS::BedrockAgentCore::Gateway")
+	TelemetryRuleResourceTypeAwsBedrockAgentCoreWorkloadIdentity   = TelemetryRuleResourceType("AWS::BedrockAgentCore::WorkloadIdentity")
 )
 
 func (TelemetryRuleResourceType) ElementType() reflect.Type {
@@ -4118,6 +4483,15 @@ func (o TelemetryRuleResourceTypePtrOutput) ToStringPtrOutputWithContext(ctx con
 //	TelemetryRuleResourceTypeAwsBedrockAgentCoreBrowser
 //	TelemetryRuleResourceTypeAwsBedrockAgentCoreCodeInterpreter
 //	TelemetryRuleResourceTypeAwsSecurityHubHub
+//	TelemetryRuleResourceTypeAwsSecurityHubHubV2
+//	TelemetryRuleResourceTypeAwss3Bucket
+//	TelemetryRuleResourceTypeAwsmskCluster
+//	TelemetryRuleResourceTypeAwsCloudFrontDistribution
+//	TelemetryRuleResourceTypeAwsCloudWatchOTelEnrichment
+//	TelemetryRuleResourceTypeAwsBedrockKnowledgeBase
+//	TelemetryRuleResourceTypeAwsBedrockAgentCoreMemory
+//	TelemetryRuleResourceTypeAwsBedrockAgentCoreGateway
+//	TelemetryRuleResourceTypeAwsBedrockAgentCoreWorkloadIdentity
 type TelemetryRuleResourceTypeInput interface {
 	pulumi.Input
 
@@ -4158,6 +4532,9 @@ const (
 	TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItemApplicationLogs     = TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItem("APPLICATION_LOGS")
 	TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItemUsageLogs           = TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItem("USAGE_LOGS")
 	TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItemSecurityFindingLogs = TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItem("SECURITY_FINDING_LOGS")
+	TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItemS3ServerAccessLogs  = TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItem("S3_SERVER_ACCESS_LOGS")
+	TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItemAccessLogs          = TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItem("ACCESS_LOGS")
+	TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItemConnectionLogs      = TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItem("CONNECTION_LOGS")
 	TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItemAlbAccessLogs       = TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItem("ALB_ACCESS_LOGS")
 	TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItemAlbConnectionLogs   = TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItem("ALB_CONNECTION_LOGS")
 	TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItemAlbHealthCheckLogs  = TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItem("ALB_HEALTH_CHECK_LOGS")
@@ -4288,6 +4665,9 @@ func (o TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPrope
 //	TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItemApplicationLogs
 //	TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItemUsageLogs
 //	TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItemSecurityFindingLogs
+//	TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItemS3ServerAccessLogs
+//	TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItemAccessLogs
+//	TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItemConnectionLogs
 //	TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItemAlbAccessLogs
 //	TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItemAlbConnectionLogs
 //	TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItemAlbHealthCheckLogs
@@ -4944,6 +5324,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationTelemetryRuleFilterBehaviorPtrInput)(nil)).Elem(), OrganizationTelemetryRuleFilterBehavior("KEEP"))
 	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationTelemetryRuleFilterRequirementInput)(nil)).Elem(), OrganizationTelemetryRuleFilterRequirement("MEETS_ALL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationTelemetryRuleFilterRequirementPtrInput)(nil)).Elem(), OrganizationTelemetryRuleFilterRequirement("MEETS_ALL"))
+	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationTelemetryRuleMskMonitoringParametersEnhancedMonitoringInput)(nil)).Elem(), OrganizationTelemetryRuleMskMonitoringParametersEnhancedMonitoring("DEFAULT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationTelemetryRuleMskMonitoringParametersEnhancedMonitoringPtrInput)(nil)).Elem(), OrganizationTelemetryRuleMskMonitoringParametersEnhancedMonitoring("DEFAULT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationTelemetryRuleResourceTypeInput)(nil)).Elem(), OrganizationTelemetryRuleResourceType("AWS::EC2::VPC"))
 	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationTelemetryRuleResourceTypePtrInput)(nil)).Elem(), OrganizationTelemetryRuleResourceType("AWS::EC2::VPC"))
 	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItemInput)(nil)).Elem(), OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItem("SECURITY_FINDING_LOGS"))
@@ -4970,6 +5352,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TelemetryRuleFilterBehaviorPtrInput)(nil)).Elem(), TelemetryRuleFilterBehavior("KEEP"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TelemetryRuleFilterRequirementInput)(nil)).Elem(), TelemetryRuleFilterRequirement("MEETS_ALL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TelemetryRuleFilterRequirementPtrInput)(nil)).Elem(), TelemetryRuleFilterRequirement("MEETS_ALL"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TelemetryRuleMskMonitoringParametersEnhancedMonitoringInput)(nil)).Elem(), TelemetryRuleMskMonitoringParametersEnhancedMonitoring("DEFAULT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TelemetryRuleMskMonitoringParametersEnhancedMonitoringPtrInput)(nil)).Elem(), TelemetryRuleMskMonitoringParametersEnhancedMonitoring("DEFAULT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TelemetryRuleResourceTypeInput)(nil)).Elem(), TelemetryRuleResourceType("AWS::EC2::VPC"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TelemetryRuleResourceTypePtrInput)(nil)).Elem(), TelemetryRuleResourceType("AWS::EC2::VPC"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItemInput)(nil)).Elem(), TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItem("APPLICATION_LOGS"))
@@ -5002,6 +5386,8 @@ func init() {
 	pulumi.RegisterOutputType(OrganizationTelemetryRuleFilterBehaviorPtrOutput{})
 	pulumi.RegisterOutputType(OrganizationTelemetryRuleFilterRequirementOutput{})
 	pulumi.RegisterOutputType(OrganizationTelemetryRuleFilterRequirementPtrOutput{})
+	pulumi.RegisterOutputType(OrganizationTelemetryRuleMskMonitoringParametersEnhancedMonitoringOutput{})
+	pulumi.RegisterOutputType(OrganizationTelemetryRuleMskMonitoringParametersEnhancedMonitoringPtrOutput{})
 	pulumi.RegisterOutputType(OrganizationTelemetryRuleResourceTypeOutput{})
 	pulumi.RegisterOutputType(OrganizationTelemetryRuleResourceTypePtrOutput{})
 	pulumi.RegisterOutputType(OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItemOutput{})
@@ -5032,6 +5418,8 @@ func init() {
 	pulumi.RegisterOutputType(TelemetryRuleFilterBehaviorPtrOutput{})
 	pulumi.RegisterOutputType(TelemetryRuleFilterRequirementOutput{})
 	pulumi.RegisterOutputType(TelemetryRuleFilterRequirementPtrOutput{})
+	pulumi.RegisterOutputType(TelemetryRuleMskMonitoringParametersEnhancedMonitoringOutput{})
+	pulumi.RegisterOutputType(TelemetryRuleMskMonitoringParametersEnhancedMonitoringPtrOutput{})
 	pulumi.RegisterOutputType(TelemetryRuleResourceTypeOutput{})
 	pulumi.RegisterOutputType(TelemetryRuleResourceTypePtrOutput{})
 	pulumi.RegisterOutputType(TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItemOutput{})

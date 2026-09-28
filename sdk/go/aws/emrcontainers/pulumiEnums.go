@@ -175,6 +175,172 @@ func (in *endpointMonitoringConfigurationPersistentAppUiPtr) ToEndpointMonitorin
 	return pulumi.ToOutputWithContext(ctx, in).(EndpointMonitoringConfigurationPersistentAppUiPtrOutput)
 }
 
+// The type of the job template parameter.
+type JobTemplateTemplateParameterConfigurationType string
+
+const (
+	JobTemplateTemplateParameterConfigurationTypeNumber = JobTemplateTemplateParameterConfigurationType("NUMBER")
+	JobTemplateTemplateParameterConfigurationTypeString = JobTemplateTemplateParameterConfigurationType("STRING")
+)
+
+func (JobTemplateTemplateParameterConfigurationType) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobTemplateTemplateParameterConfigurationType)(nil)).Elem()
+}
+
+func (e JobTemplateTemplateParameterConfigurationType) ToJobTemplateTemplateParameterConfigurationTypeOutput() JobTemplateTemplateParameterConfigurationTypeOutput {
+	return pulumi.ToOutput(e).(JobTemplateTemplateParameterConfigurationTypeOutput)
+}
+
+func (e JobTemplateTemplateParameterConfigurationType) ToJobTemplateTemplateParameterConfigurationTypeOutputWithContext(ctx context.Context) JobTemplateTemplateParameterConfigurationTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(JobTemplateTemplateParameterConfigurationTypeOutput)
+}
+
+func (e JobTemplateTemplateParameterConfigurationType) ToJobTemplateTemplateParameterConfigurationTypePtrOutput() JobTemplateTemplateParameterConfigurationTypePtrOutput {
+	return e.ToJobTemplateTemplateParameterConfigurationTypePtrOutputWithContext(context.Background())
+}
+
+func (e JobTemplateTemplateParameterConfigurationType) ToJobTemplateTemplateParameterConfigurationTypePtrOutputWithContext(ctx context.Context) JobTemplateTemplateParameterConfigurationTypePtrOutput {
+	return JobTemplateTemplateParameterConfigurationType(e).ToJobTemplateTemplateParameterConfigurationTypeOutputWithContext(ctx).ToJobTemplateTemplateParameterConfigurationTypePtrOutputWithContext(ctx)
+}
+
+func (e JobTemplateTemplateParameterConfigurationType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e JobTemplateTemplateParameterConfigurationType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e JobTemplateTemplateParameterConfigurationType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e JobTemplateTemplateParameterConfigurationType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type JobTemplateTemplateParameterConfigurationTypeOutput struct{ *pulumi.OutputState }
+
+func (JobTemplateTemplateParameterConfigurationTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobTemplateTemplateParameterConfigurationType)(nil)).Elem()
+}
+
+func (o JobTemplateTemplateParameterConfigurationTypeOutput) ToJobTemplateTemplateParameterConfigurationTypeOutput() JobTemplateTemplateParameterConfigurationTypeOutput {
+	return o
+}
+
+func (o JobTemplateTemplateParameterConfigurationTypeOutput) ToJobTemplateTemplateParameterConfigurationTypeOutputWithContext(ctx context.Context) JobTemplateTemplateParameterConfigurationTypeOutput {
+	return o
+}
+
+func (o JobTemplateTemplateParameterConfigurationTypeOutput) ToJobTemplateTemplateParameterConfigurationTypePtrOutput() JobTemplateTemplateParameterConfigurationTypePtrOutput {
+	return o.ToJobTemplateTemplateParameterConfigurationTypePtrOutputWithContext(context.Background())
+}
+
+func (o JobTemplateTemplateParameterConfigurationTypeOutput) ToJobTemplateTemplateParameterConfigurationTypePtrOutputWithContext(ctx context.Context) JobTemplateTemplateParameterConfigurationTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobTemplateTemplateParameterConfigurationType) *JobTemplateTemplateParameterConfigurationType {
+		return &v
+	}).(JobTemplateTemplateParameterConfigurationTypePtrOutput)
+}
+
+func (o JobTemplateTemplateParameterConfigurationTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o JobTemplateTemplateParameterConfigurationTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e JobTemplateTemplateParameterConfigurationType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o JobTemplateTemplateParameterConfigurationTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o JobTemplateTemplateParameterConfigurationTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e JobTemplateTemplateParameterConfigurationType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type JobTemplateTemplateParameterConfigurationTypePtrOutput struct{ *pulumi.OutputState }
+
+func (JobTemplateTemplateParameterConfigurationTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobTemplateTemplateParameterConfigurationType)(nil)).Elem()
+}
+
+func (o JobTemplateTemplateParameterConfigurationTypePtrOutput) ToJobTemplateTemplateParameterConfigurationTypePtrOutput() JobTemplateTemplateParameterConfigurationTypePtrOutput {
+	return o
+}
+
+func (o JobTemplateTemplateParameterConfigurationTypePtrOutput) ToJobTemplateTemplateParameterConfigurationTypePtrOutputWithContext(ctx context.Context) JobTemplateTemplateParameterConfigurationTypePtrOutput {
+	return o
+}
+
+func (o JobTemplateTemplateParameterConfigurationTypePtrOutput) Elem() JobTemplateTemplateParameterConfigurationTypeOutput {
+	return o.ApplyT(func(v *JobTemplateTemplateParameterConfigurationType) JobTemplateTemplateParameterConfigurationType {
+		if v != nil {
+			return *v
+		}
+		var ret JobTemplateTemplateParameterConfigurationType
+		return ret
+	}).(JobTemplateTemplateParameterConfigurationTypeOutput)
+}
+
+func (o JobTemplateTemplateParameterConfigurationTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o JobTemplateTemplateParameterConfigurationTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *JobTemplateTemplateParameterConfigurationType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// JobTemplateTemplateParameterConfigurationTypeInput is an input type that accepts values of the JobTemplateTemplateParameterConfigurationType enum
+// A concrete instance of `JobTemplateTemplateParameterConfigurationTypeInput` can be one of the following:
+//
+//	JobTemplateTemplateParameterConfigurationTypeNumber
+//	JobTemplateTemplateParameterConfigurationTypeString
+type JobTemplateTemplateParameterConfigurationTypeInput interface {
+	pulumi.Input
+
+	ToJobTemplateTemplateParameterConfigurationTypeOutput() JobTemplateTemplateParameterConfigurationTypeOutput
+	ToJobTemplateTemplateParameterConfigurationTypeOutputWithContext(context.Context) JobTemplateTemplateParameterConfigurationTypeOutput
+}
+
+var jobTemplateTemplateParameterConfigurationTypePtrType = reflect.TypeOf((**JobTemplateTemplateParameterConfigurationType)(nil)).Elem()
+
+type JobTemplateTemplateParameterConfigurationTypePtrInput interface {
+	pulumi.Input
+
+	ToJobTemplateTemplateParameterConfigurationTypePtrOutput() JobTemplateTemplateParameterConfigurationTypePtrOutput
+	ToJobTemplateTemplateParameterConfigurationTypePtrOutputWithContext(context.Context) JobTemplateTemplateParameterConfigurationTypePtrOutput
+}
+
+type jobTemplateTemplateParameterConfigurationTypePtr string
+
+func JobTemplateTemplateParameterConfigurationTypePtr(v string) JobTemplateTemplateParameterConfigurationTypePtrInput {
+	return (*jobTemplateTemplateParameterConfigurationTypePtr)(&v)
+}
+
+func (*jobTemplateTemplateParameterConfigurationTypePtr) ElementType() reflect.Type {
+	return jobTemplateTemplateParameterConfigurationTypePtrType
+}
+
+func (in *jobTemplateTemplateParameterConfigurationTypePtr) ToJobTemplateTemplateParameterConfigurationTypePtrOutput() JobTemplateTemplateParameterConfigurationTypePtrOutput {
+	return pulumi.ToOutput(in).(JobTemplateTemplateParameterConfigurationTypePtrOutput)
+}
+
+func (in *jobTemplateTemplateParameterConfigurationTypePtr) ToJobTemplateTemplateParameterConfigurationTypePtrOutputWithContext(ctx context.Context) JobTemplateTemplateParameterConfigurationTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(JobTemplateTemplateParameterConfigurationTypePtrOutput)
+}
+
 // The container provider type.
 type SecurityConfigurationContainerProviderType string
 
@@ -838,6 +1004,8 @@ func (in *securityConfigurationTlsCertificateConfigurationCertificateProviderTyp
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointMonitoringConfigurationPersistentAppUiInput)(nil)).Elem(), EndpointMonitoringConfigurationPersistentAppUi("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointMonitoringConfigurationPersistentAppUiPtrInput)(nil)).Elem(), EndpointMonitoringConfigurationPersistentAppUi("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*JobTemplateTemplateParameterConfigurationTypeInput)(nil)).Elem(), JobTemplateTemplateParameterConfigurationType("NUMBER"))
+	pulumi.RegisterInputType(reflect.TypeOf((*JobTemplateTemplateParameterConfigurationTypePtrInput)(nil)).Elem(), JobTemplateTemplateParameterConfigurationType("NUMBER"))
 	pulumi.RegisterInputType(reflect.TypeOf((*SecurityConfigurationContainerProviderTypeInput)(nil)).Elem(), SecurityConfigurationContainerProviderType("EKS"))
 	pulumi.RegisterInputType(reflect.TypeOf((*SecurityConfigurationContainerProviderTypePtrInput)(nil)).Elem(), SecurityConfigurationContainerProviderType("EKS"))
 	pulumi.RegisterInputType(reflect.TypeOf((*SecurityConfigurationLocalDiskEncryptionConfigurationEncryptionKeyProviderTypeInput)(nil)).Elem(), SecurityConfigurationLocalDiskEncryptionConfigurationEncryptionKeyProviderType("AwsKms"))
@@ -848,6 +1016,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SecurityConfigurationTlsCertificateConfigurationCertificateProviderTypePtrInput)(nil)).Elem(), SecurityConfigurationTlsCertificateConfigurationCertificateProviderType("PEM"))
 	pulumi.RegisterOutputType(EndpointMonitoringConfigurationPersistentAppUiOutput{})
 	pulumi.RegisterOutputType(EndpointMonitoringConfigurationPersistentAppUiPtrOutput{})
+	pulumi.RegisterOutputType(JobTemplateTemplateParameterConfigurationTypeOutput{})
+	pulumi.RegisterOutputType(JobTemplateTemplateParameterConfigurationTypePtrOutput{})
 	pulumi.RegisterOutputType(SecurityConfigurationContainerProviderTypeOutput{})
 	pulumi.RegisterOutputType(SecurityConfigurationContainerProviderTypePtrOutput{})
 	pulumi.RegisterOutputType(SecurityConfigurationLocalDiskEncryptionConfigurationEncryptionKeyProviderTypeOutput{})

@@ -226,6 +226,13 @@ export const ServerProtocol = {
 
 export type ServerProtocol = (typeof ServerProtocol)[keyof typeof ServerProtocol];
 
+export const ServerProxyMode = {
+    ProxyProtocolV2Enforced: "PROXY_PROTOCOL_V2_ENFORCED",
+    None: "NONE",
+} as const;
+
+export type ServerProxyMode = (typeof ServerProxyMode)[keyof typeof ServerProxyMode];
+
 export const ServerSetStatOption = {
     Default: "DEFAULT",
     EnableNoOp: "ENABLE_NO_OP",

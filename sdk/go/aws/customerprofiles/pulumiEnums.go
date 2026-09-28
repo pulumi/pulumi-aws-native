@@ -4778,6 +4778,426 @@ func (o ObjectTypeKeyStandardIdentifiersItemArrayOutput) Index(i pulumi.IntInput
 	}).(ObjectTypeKeyStandardIdentifiersItemOutput)
 }
 
+type RecommenderSchemaFieldContentType string
+
+const (
+	RecommenderSchemaFieldContentTypeString = RecommenderSchemaFieldContentType("STRING")
+	RecommenderSchemaFieldContentTypeNumber = RecommenderSchemaFieldContentType("NUMBER")
+)
+
+func (RecommenderSchemaFieldContentType) ElementType() reflect.Type {
+	return reflect.TypeOf((*RecommenderSchemaFieldContentType)(nil)).Elem()
+}
+
+func (e RecommenderSchemaFieldContentType) ToRecommenderSchemaFieldContentTypeOutput() RecommenderSchemaFieldContentTypeOutput {
+	return pulumi.ToOutput(e).(RecommenderSchemaFieldContentTypeOutput)
+}
+
+func (e RecommenderSchemaFieldContentType) ToRecommenderSchemaFieldContentTypeOutputWithContext(ctx context.Context) RecommenderSchemaFieldContentTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(RecommenderSchemaFieldContentTypeOutput)
+}
+
+func (e RecommenderSchemaFieldContentType) ToRecommenderSchemaFieldContentTypePtrOutput() RecommenderSchemaFieldContentTypePtrOutput {
+	return e.ToRecommenderSchemaFieldContentTypePtrOutputWithContext(context.Background())
+}
+
+func (e RecommenderSchemaFieldContentType) ToRecommenderSchemaFieldContentTypePtrOutputWithContext(ctx context.Context) RecommenderSchemaFieldContentTypePtrOutput {
+	return RecommenderSchemaFieldContentType(e).ToRecommenderSchemaFieldContentTypeOutputWithContext(ctx).ToRecommenderSchemaFieldContentTypePtrOutputWithContext(ctx)
+}
+
+func (e RecommenderSchemaFieldContentType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e RecommenderSchemaFieldContentType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e RecommenderSchemaFieldContentType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e RecommenderSchemaFieldContentType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type RecommenderSchemaFieldContentTypeOutput struct{ *pulumi.OutputState }
+
+func (RecommenderSchemaFieldContentTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RecommenderSchemaFieldContentType)(nil)).Elem()
+}
+
+func (o RecommenderSchemaFieldContentTypeOutput) ToRecommenderSchemaFieldContentTypeOutput() RecommenderSchemaFieldContentTypeOutput {
+	return o
+}
+
+func (o RecommenderSchemaFieldContentTypeOutput) ToRecommenderSchemaFieldContentTypeOutputWithContext(ctx context.Context) RecommenderSchemaFieldContentTypeOutput {
+	return o
+}
+
+func (o RecommenderSchemaFieldContentTypeOutput) ToRecommenderSchemaFieldContentTypePtrOutput() RecommenderSchemaFieldContentTypePtrOutput {
+	return o.ToRecommenderSchemaFieldContentTypePtrOutputWithContext(context.Background())
+}
+
+func (o RecommenderSchemaFieldContentTypeOutput) ToRecommenderSchemaFieldContentTypePtrOutputWithContext(ctx context.Context) RecommenderSchemaFieldContentTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RecommenderSchemaFieldContentType) *RecommenderSchemaFieldContentType {
+		return &v
+	}).(RecommenderSchemaFieldContentTypePtrOutput)
+}
+
+func (o RecommenderSchemaFieldContentTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o RecommenderSchemaFieldContentTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RecommenderSchemaFieldContentType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o RecommenderSchemaFieldContentTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RecommenderSchemaFieldContentTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RecommenderSchemaFieldContentType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type RecommenderSchemaFieldContentTypePtrOutput struct{ *pulumi.OutputState }
+
+func (RecommenderSchemaFieldContentTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RecommenderSchemaFieldContentType)(nil)).Elem()
+}
+
+func (o RecommenderSchemaFieldContentTypePtrOutput) ToRecommenderSchemaFieldContentTypePtrOutput() RecommenderSchemaFieldContentTypePtrOutput {
+	return o
+}
+
+func (o RecommenderSchemaFieldContentTypePtrOutput) ToRecommenderSchemaFieldContentTypePtrOutputWithContext(ctx context.Context) RecommenderSchemaFieldContentTypePtrOutput {
+	return o
+}
+
+func (o RecommenderSchemaFieldContentTypePtrOutput) Elem() RecommenderSchemaFieldContentTypeOutput {
+	return o.ApplyT(func(v *RecommenderSchemaFieldContentType) RecommenderSchemaFieldContentType {
+		if v != nil {
+			return *v
+		}
+		var ret RecommenderSchemaFieldContentType
+		return ret
+	}).(RecommenderSchemaFieldContentTypeOutput)
+}
+
+func (o RecommenderSchemaFieldContentTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RecommenderSchemaFieldContentTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *RecommenderSchemaFieldContentType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// RecommenderSchemaFieldContentTypeInput is an input type that accepts values of the RecommenderSchemaFieldContentType enum
+// A concrete instance of `RecommenderSchemaFieldContentTypeInput` can be one of the following:
+//
+//	RecommenderSchemaFieldContentTypeString
+//	RecommenderSchemaFieldContentTypeNumber
+type RecommenderSchemaFieldContentTypeInput interface {
+	pulumi.Input
+
+	ToRecommenderSchemaFieldContentTypeOutput() RecommenderSchemaFieldContentTypeOutput
+	ToRecommenderSchemaFieldContentTypeOutputWithContext(context.Context) RecommenderSchemaFieldContentTypeOutput
+}
+
+var recommenderSchemaFieldContentTypePtrType = reflect.TypeOf((**RecommenderSchemaFieldContentType)(nil)).Elem()
+
+type RecommenderSchemaFieldContentTypePtrInput interface {
+	pulumi.Input
+
+	ToRecommenderSchemaFieldContentTypePtrOutput() RecommenderSchemaFieldContentTypePtrOutput
+	ToRecommenderSchemaFieldContentTypePtrOutputWithContext(context.Context) RecommenderSchemaFieldContentTypePtrOutput
+}
+
+type recommenderSchemaFieldContentTypePtr string
+
+func RecommenderSchemaFieldContentTypePtr(v string) RecommenderSchemaFieldContentTypePtrInput {
+	return (*recommenderSchemaFieldContentTypePtr)(&v)
+}
+
+func (*recommenderSchemaFieldContentTypePtr) ElementType() reflect.Type {
+	return recommenderSchemaFieldContentTypePtrType
+}
+
+func (in *recommenderSchemaFieldContentTypePtr) ToRecommenderSchemaFieldContentTypePtrOutput() RecommenderSchemaFieldContentTypePtrOutput {
+	return pulumi.ToOutput(in).(RecommenderSchemaFieldContentTypePtrOutput)
+}
+
+func (in *recommenderSchemaFieldContentTypePtr) ToRecommenderSchemaFieldContentTypePtrOutputWithContext(ctx context.Context) RecommenderSchemaFieldContentTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(RecommenderSchemaFieldContentTypePtrOutput)
+}
+
+type RecommenderSchemaFieldFeatureType string
+
+const (
+	RecommenderSchemaFieldFeatureTypeTextual     = RecommenderSchemaFieldFeatureType("TEXTUAL")
+	RecommenderSchemaFieldFeatureTypeCategorical = RecommenderSchemaFieldFeatureType("CATEGORICAL")
+)
+
+func (RecommenderSchemaFieldFeatureType) ElementType() reflect.Type {
+	return reflect.TypeOf((*RecommenderSchemaFieldFeatureType)(nil)).Elem()
+}
+
+func (e RecommenderSchemaFieldFeatureType) ToRecommenderSchemaFieldFeatureTypeOutput() RecommenderSchemaFieldFeatureTypeOutput {
+	return pulumi.ToOutput(e).(RecommenderSchemaFieldFeatureTypeOutput)
+}
+
+func (e RecommenderSchemaFieldFeatureType) ToRecommenderSchemaFieldFeatureTypeOutputWithContext(ctx context.Context) RecommenderSchemaFieldFeatureTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(RecommenderSchemaFieldFeatureTypeOutput)
+}
+
+func (e RecommenderSchemaFieldFeatureType) ToRecommenderSchemaFieldFeatureTypePtrOutput() RecommenderSchemaFieldFeatureTypePtrOutput {
+	return e.ToRecommenderSchemaFieldFeatureTypePtrOutputWithContext(context.Background())
+}
+
+func (e RecommenderSchemaFieldFeatureType) ToRecommenderSchemaFieldFeatureTypePtrOutputWithContext(ctx context.Context) RecommenderSchemaFieldFeatureTypePtrOutput {
+	return RecommenderSchemaFieldFeatureType(e).ToRecommenderSchemaFieldFeatureTypeOutputWithContext(ctx).ToRecommenderSchemaFieldFeatureTypePtrOutputWithContext(ctx)
+}
+
+func (e RecommenderSchemaFieldFeatureType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e RecommenderSchemaFieldFeatureType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e RecommenderSchemaFieldFeatureType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e RecommenderSchemaFieldFeatureType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type RecommenderSchemaFieldFeatureTypeOutput struct{ *pulumi.OutputState }
+
+func (RecommenderSchemaFieldFeatureTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RecommenderSchemaFieldFeatureType)(nil)).Elem()
+}
+
+func (o RecommenderSchemaFieldFeatureTypeOutput) ToRecommenderSchemaFieldFeatureTypeOutput() RecommenderSchemaFieldFeatureTypeOutput {
+	return o
+}
+
+func (o RecommenderSchemaFieldFeatureTypeOutput) ToRecommenderSchemaFieldFeatureTypeOutputWithContext(ctx context.Context) RecommenderSchemaFieldFeatureTypeOutput {
+	return o
+}
+
+func (o RecommenderSchemaFieldFeatureTypeOutput) ToRecommenderSchemaFieldFeatureTypePtrOutput() RecommenderSchemaFieldFeatureTypePtrOutput {
+	return o.ToRecommenderSchemaFieldFeatureTypePtrOutputWithContext(context.Background())
+}
+
+func (o RecommenderSchemaFieldFeatureTypeOutput) ToRecommenderSchemaFieldFeatureTypePtrOutputWithContext(ctx context.Context) RecommenderSchemaFieldFeatureTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RecommenderSchemaFieldFeatureType) *RecommenderSchemaFieldFeatureType {
+		return &v
+	}).(RecommenderSchemaFieldFeatureTypePtrOutput)
+}
+
+func (o RecommenderSchemaFieldFeatureTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o RecommenderSchemaFieldFeatureTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RecommenderSchemaFieldFeatureType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o RecommenderSchemaFieldFeatureTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RecommenderSchemaFieldFeatureTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RecommenderSchemaFieldFeatureType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type RecommenderSchemaFieldFeatureTypePtrOutput struct{ *pulumi.OutputState }
+
+func (RecommenderSchemaFieldFeatureTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RecommenderSchemaFieldFeatureType)(nil)).Elem()
+}
+
+func (o RecommenderSchemaFieldFeatureTypePtrOutput) ToRecommenderSchemaFieldFeatureTypePtrOutput() RecommenderSchemaFieldFeatureTypePtrOutput {
+	return o
+}
+
+func (o RecommenderSchemaFieldFeatureTypePtrOutput) ToRecommenderSchemaFieldFeatureTypePtrOutputWithContext(ctx context.Context) RecommenderSchemaFieldFeatureTypePtrOutput {
+	return o
+}
+
+func (o RecommenderSchemaFieldFeatureTypePtrOutput) Elem() RecommenderSchemaFieldFeatureTypeOutput {
+	return o.ApplyT(func(v *RecommenderSchemaFieldFeatureType) RecommenderSchemaFieldFeatureType {
+		if v != nil {
+			return *v
+		}
+		var ret RecommenderSchemaFieldFeatureType
+		return ret
+	}).(RecommenderSchemaFieldFeatureTypeOutput)
+}
+
+func (o RecommenderSchemaFieldFeatureTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RecommenderSchemaFieldFeatureTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *RecommenderSchemaFieldFeatureType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// RecommenderSchemaFieldFeatureTypeInput is an input type that accepts values of the RecommenderSchemaFieldFeatureType enum
+// A concrete instance of `RecommenderSchemaFieldFeatureTypeInput` can be one of the following:
+//
+//	RecommenderSchemaFieldFeatureTypeTextual
+//	RecommenderSchemaFieldFeatureTypeCategorical
+type RecommenderSchemaFieldFeatureTypeInput interface {
+	pulumi.Input
+
+	ToRecommenderSchemaFieldFeatureTypeOutput() RecommenderSchemaFieldFeatureTypeOutput
+	ToRecommenderSchemaFieldFeatureTypeOutputWithContext(context.Context) RecommenderSchemaFieldFeatureTypeOutput
+}
+
+var recommenderSchemaFieldFeatureTypePtrType = reflect.TypeOf((**RecommenderSchemaFieldFeatureType)(nil)).Elem()
+
+type RecommenderSchemaFieldFeatureTypePtrInput interface {
+	pulumi.Input
+
+	ToRecommenderSchemaFieldFeatureTypePtrOutput() RecommenderSchemaFieldFeatureTypePtrOutput
+	ToRecommenderSchemaFieldFeatureTypePtrOutputWithContext(context.Context) RecommenderSchemaFieldFeatureTypePtrOutput
+}
+
+type recommenderSchemaFieldFeatureTypePtr string
+
+func RecommenderSchemaFieldFeatureTypePtr(v string) RecommenderSchemaFieldFeatureTypePtrInput {
+	return (*recommenderSchemaFieldFeatureTypePtr)(&v)
+}
+
+func (*recommenderSchemaFieldFeatureTypePtr) ElementType() reflect.Type {
+	return recommenderSchemaFieldFeatureTypePtrType
+}
+
+func (in *recommenderSchemaFieldFeatureTypePtr) ToRecommenderSchemaFieldFeatureTypePtrOutput() RecommenderSchemaFieldFeatureTypePtrOutput {
+	return pulumi.ToOutput(in).(RecommenderSchemaFieldFeatureTypePtrOutput)
+}
+
+func (in *recommenderSchemaFieldFeatureTypePtr) ToRecommenderSchemaFieldFeatureTypePtrOutputWithContext(ctx context.Context) RecommenderSchemaFieldFeatureTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(RecommenderSchemaFieldFeatureTypePtrOutput)
+}
+
+type RecommenderSchemaStatus string
+
+const (
+	RecommenderSchemaStatusActive   = RecommenderSchemaStatus("ACTIVE")
+	RecommenderSchemaStatusDeleting = RecommenderSchemaStatus("DELETING")
+)
+
+type RecommenderSchemaStatusOutput struct{ *pulumi.OutputState }
+
+func (RecommenderSchemaStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RecommenderSchemaStatus)(nil)).Elem()
+}
+
+func (o RecommenderSchemaStatusOutput) ToRecommenderSchemaStatusOutput() RecommenderSchemaStatusOutput {
+	return o
+}
+
+func (o RecommenderSchemaStatusOutput) ToRecommenderSchemaStatusOutputWithContext(ctx context.Context) RecommenderSchemaStatusOutput {
+	return o
+}
+
+func (o RecommenderSchemaStatusOutput) ToRecommenderSchemaStatusPtrOutput() RecommenderSchemaStatusPtrOutput {
+	return o.ToRecommenderSchemaStatusPtrOutputWithContext(context.Background())
+}
+
+func (o RecommenderSchemaStatusOutput) ToRecommenderSchemaStatusPtrOutputWithContext(ctx context.Context) RecommenderSchemaStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RecommenderSchemaStatus) *RecommenderSchemaStatus {
+		return &v
+	}).(RecommenderSchemaStatusPtrOutput)
+}
+
+func (o RecommenderSchemaStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o RecommenderSchemaStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RecommenderSchemaStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o RecommenderSchemaStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RecommenderSchemaStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RecommenderSchemaStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type RecommenderSchemaStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (RecommenderSchemaStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RecommenderSchemaStatus)(nil)).Elem()
+}
+
+func (o RecommenderSchemaStatusPtrOutput) ToRecommenderSchemaStatusPtrOutput() RecommenderSchemaStatusPtrOutput {
+	return o
+}
+
+func (o RecommenderSchemaStatusPtrOutput) ToRecommenderSchemaStatusPtrOutputWithContext(ctx context.Context) RecommenderSchemaStatusPtrOutput {
+	return o
+}
+
+func (o RecommenderSchemaStatusPtrOutput) Elem() RecommenderSchemaStatusOutput {
+	return o.ApplyT(func(v *RecommenderSchemaStatus) RecommenderSchemaStatus {
+		if v != nil {
+			return *v
+		}
+		var ret RecommenderSchemaStatus
+		return ret
+	}).(RecommenderSchemaStatusOutput)
+}
+
+func (o RecommenderSchemaStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RecommenderSchemaStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *RecommenderSchemaStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
 // The status of the recommender
 type RecommenderStatus string
 
@@ -6763,6 +7183,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ObjectTypeKeyStandardIdentifiersItemInput)(nil)).Elem(), ObjectTypeKeyStandardIdentifiersItem("PROFILE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ObjectTypeKeyStandardIdentifiersItemPtrInput)(nil)).Elem(), ObjectTypeKeyStandardIdentifiersItem("PROFILE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ObjectTypeKeyStandardIdentifiersItemArrayInput)(nil)).Elem(), ObjectTypeKeyStandardIdentifiersItemArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RecommenderSchemaFieldContentTypeInput)(nil)).Elem(), RecommenderSchemaFieldContentType("STRING"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RecommenderSchemaFieldContentTypePtrInput)(nil)).Elem(), RecommenderSchemaFieldContentType("STRING"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RecommenderSchemaFieldFeatureTypeInput)(nil)).Elem(), RecommenderSchemaFieldFeatureType("TEXTUAL"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RecommenderSchemaFieldFeatureTypePtrInput)(nil)).Elem(), RecommenderSchemaFieldFeatureType("TEXTUAL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*SegmentDefinitionAttributeDimensionTypeInput)(nil)).Elem(), SegmentDefinitionAttributeDimensionType("INCLUSIVE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*SegmentDefinitionAttributeDimensionTypePtrInput)(nil)).Elem(), SegmentDefinitionAttributeDimensionType("INCLUSIVE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*SegmentDefinitionDateDimensionTypeInput)(nil)).Elem(), SegmentDefinitionDateDimensionType("BEFORE"))
@@ -6841,6 +7265,12 @@ func init() {
 	pulumi.RegisterOutputType(ObjectTypeKeyStandardIdentifiersItemOutput{})
 	pulumi.RegisterOutputType(ObjectTypeKeyStandardIdentifiersItemPtrOutput{})
 	pulumi.RegisterOutputType(ObjectTypeKeyStandardIdentifiersItemArrayOutput{})
+	pulumi.RegisterOutputType(RecommenderSchemaFieldContentTypeOutput{})
+	pulumi.RegisterOutputType(RecommenderSchemaFieldContentTypePtrOutput{})
+	pulumi.RegisterOutputType(RecommenderSchemaFieldFeatureTypeOutput{})
+	pulumi.RegisterOutputType(RecommenderSchemaFieldFeatureTypePtrOutput{})
+	pulumi.RegisterOutputType(RecommenderSchemaStatusOutput{})
+	pulumi.RegisterOutputType(RecommenderSchemaStatusPtrOutput{})
 	pulumi.RegisterOutputType(RecommenderStatusOutput{})
 	pulumi.RegisterOutputType(RecommenderStatusPtrOutput{})
 	pulumi.RegisterOutputType(SegmentDefinitionAttributeDimensionTypeOutput{})

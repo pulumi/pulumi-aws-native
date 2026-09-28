@@ -111,6 +111,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &UserProfile{}
 	case "aws-native:sagemaker:Workforce":
 		r = &Workforce{}
+	case "aws-native:sagemaker:Workteam":
+		r = &Workteam{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}

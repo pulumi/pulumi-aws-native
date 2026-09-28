@@ -448,15 +448,277 @@ func (o MonitorStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context
 	}).(pulumi.StringPtrOutput)
 }
 
+// The status of the scope.
+type ScopeStatus string
+
+const (
+	ScopeStatusSucceeded  = ScopeStatus("SUCCEEDED")
+	ScopeStatusInProgress = ScopeStatus("IN_PROGRESS")
+	ScopeStatusFailed     = ScopeStatus("FAILED")
+)
+
+type ScopeStatusOutput struct{ *pulumi.OutputState }
+
+func (ScopeStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScopeStatus)(nil)).Elem()
+}
+
+func (o ScopeStatusOutput) ToScopeStatusOutput() ScopeStatusOutput {
+	return o
+}
+
+func (o ScopeStatusOutput) ToScopeStatusOutputWithContext(ctx context.Context) ScopeStatusOutput {
+	return o
+}
+
+func (o ScopeStatusOutput) ToScopeStatusPtrOutput() ScopeStatusPtrOutput {
+	return o.ToScopeStatusPtrOutputWithContext(context.Background())
+}
+
+func (o ScopeStatusOutput) ToScopeStatusPtrOutputWithContext(ctx context.Context) ScopeStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ScopeStatus) *ScopeStatus {
+		return &v
+	}).(ScopeStatusPtrOutput)
+}
+
+func (o ScopeStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ScopeStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ScopeStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ScopeStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ScopeStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ScopeStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ScopeStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (ScopeStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ScopeStatus)(nil)).Elem()
+}
+
+func (o ScopeStatusPtrOutput) ToScopeStatusPtrOutput() ScopeStatusPtrOutput {
+	return o
+}
+
+func (o ScopeStatusPtrOutput) ToScopeStatusPtrOutputWithContext(ctx context.Context) ScopeStatusPtrOutput {
+	return o
+}
+
+func (o ScopeStatusPtrOutput) Elem() ScopeStatusOutput {
+	return o.ApplyT(func(v *ScopeStatus) ScopeStatus {
+		if v != nil {
+			return *v
+		}
+		var ret ScopeStatus
+		return ret
+	}).(ScopeStatusOutput)
+}
+
+func (o ScopeStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ScopeStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ScopeStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of the target. Currently always ACCOUNT.
+type ScopeTargetIdentifierTargetType string
+
+const (
+	ScopeTargetIdentifierTargetTypeAccount = ScopeTargetIdentifierTargetType("ACCOUNT")
+)
+
+func (ScopeTargetIdentifierTargetType) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScopeTargetIdentifierTargetType)(nil)).Elem()
+}
+
+func (e ScopeTargetIdentifierTargetType) ToScopeTargetIdentifierTargetTypeOutput() ScopeTargetIdentifierTargetTypeOutput {
+	return pulumi.ToOutput(e).(ScopeTargetIdentifierTargetTypeOutput)
+}
+
+func (e ScopeTargetIdentifierTargetType) ToScopeTargetIdentifierTargetTypeOutputWithContext(ctx context.Context) ScopeTargetIdentifierTargetTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ScopeTargetIdentifierTargetTypeOutput)
+}
+
+func (e ScopeTargetIdentifierTargetType) ToScopeTargetIdentifierTargetTypePtrOutput() ScopeTargetIdentifierTargetTypePtrOutput {
+	return e.ToScopeTargetIdentifierTargetTypePtrOutputWithContext(context.Background())
+}
+
+func (e ScopeTargetIdentifierTargetType) ToScopeTargetIdentifierTargetTypePtrOutputWithContext(ctx context.Context) ScopeTargetIdentifierTargetTypePtrOutput {
+	return ScopeTargetIdentifierTargetType(e).ToScopeTargetIdentifierTargetTypeOutputWithContext(ctx).ToScopeTargetIdentifierTargetTypePtrOutputWithContext(ctx)
+}
+
+func (e ScopeTargetIdentifierTargetType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ScopeTargetIdentifierTargetType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ScopeTargetIdentifierTargetType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ScopeTargetIdentifierTargetType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ScopeTargetIdentifierTargetTypeOutput struct{ *pulumi.OutputState }
+
+func (ScopeTargetIdentifierTargetTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScopeTargetIdentifierTargetType)(nil)).Elem()
+}
+
+func (o ScopeTargetIdentifierTargetTypeOutput) ToScopeTargetIdentifierTargetTypeOutput() ScopeTargetIdentifierTargetTypeOutput {
+	return o
+}
+
+func (o ScopeTargetIdentifierTargetTypeOutput) ToScopeTargetIdentifierTargetTypeOutputWithContext(ctx context.Context) ScopeTargetIdentifierTargetTypeOutput {
+	return o
+}
+
+func (o ScopeTargetIdentifierTargetTypeOutput) ToScopeTargetIdentifierTargetTypePtrOutput() ScopeTargetIdentifierTargetTypePtrOutput {
+	return o.ToScopeTargetIdentifierTargetTypePtrOutputWithContext(context.Background())
+}
+
+func (o ScopeTargetIdentifierTargetTypeOutput) ToScopeTargetIdentifierTargetTypePtrOutputWithContext(ctx context.Context) ScopeTargetIdentifierTargetTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ScopeTargetIdentifierTargetType) *ScopeTargetIdentifierTargetType {
+		return &v
+	}).(ScopeTargetIdentifierTargetTypePtrOutput)
+}
+
+func (o ScopeTargetIdentifierTargetTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ScopeTargetIdentifierTargetTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ScopeTargetIdentifierTargetType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ScopeTargetIdentifierTargetTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ScopeTargetIdentifierTargetTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ScopeTargetIdentifierTargetType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ScopeTargetIdentifierTargetTypePtrOutput struct{ *pulumi.OutputState }
+
+func (ScopeTargetIdentifierTargetTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ScopeTargetIdentifierTargetType)(nil)).Elem()
+}
+
+func (o ScopeTargetIdentifierTargetTypePtrOutput) ToScopeTargetIdentifierTargetTypePtrOutput() ScopeTargetIdentifierTargetTypePtrOutput {
+	return o
+}
+
+func (o ScopeTargetIdentifierTargetTypePtrOutput) ToScopeTargetIdentifierTargetTypePtrOutputWithContext(ctx context.Context) ScopeTargetIdentifierTargetTypePtrOutput {
+	return o
+}
+
+func (o ScopeTargetIdentifierTargetTypePtrOutput) Elem() ScopeTargetIdentifierTargetTypeOutput {
+	return o.ApplyT(func(v *ScopeTargetIdentifierTargetType) ScopeTargetIdentifierTargetType {
+		if v != nil {
+			return *v
+		}
+		var ret ScopeTargetIdentifierTargetType
+		return ret
+	}).(ScopeTargetIdentifierTargetTypeOutput)
+}
+
+func (o ScopeTargetIdentifierTargetTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ScopeTargetIdentifierTargetTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ScopeTargetIdentifierTargetType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ScopeTargetIdentifierTargetTypeInput is an input type that accepts values of the ScopeTargetIdentifierTargetType enum
+// A concrete instance of `ScopeTargetIdentifierTargetTypeInput` can be one of the following:
+//
+//	ScopeTargetIdentifierTargetTypeAccount
+type ScopeTargetIdentifierTargetTypeInput interface {
+	pulumi.Input
+
+	ToScopeTargetIdentifierTargetTypeOutput() ScopeTargetIdentifierTargetTypeOutput
+	ToScopeTargetIdentifierTargetTypeOutputWithContext(context.Context) ScopeTargetIdentifierTargetTypeOutput
+}
+
+var scopeTargetIdentifierTargetTypePtrType = reflect.TypeOf((**ScopeTargetIdentifierTargetType)(nil)).Elem()
+
+type ScopeTargetIdentifierTargetTypePtrInput interface {
+	pulumi.Input
+
+	ToScopeTargetIdentifierTargetTypePtrOutput() ScopeTargetIdentifierTargetTypePtrOutput
+	ToScopeTargetIdentifierTargetTypePtrOutputWithContext(context.Context) ScopeTargetIdentifierTargetTypePtrOutput
+}
+
+type scopeTargetIdentifierTargetTypePtr string
+
+func ScopeTargetIdentifierTargetTypePtr(v string) ScopeTargetIdentifierTargetTypePtrInput {
+	return (*scopeTargetIdentifierTargetTypePtr)(&v)
+}
+
+func (*scopeTargetIdentifierTargetTypePtr) ElementType() reflect.Type {
+	return scopeTargetIdentifierTargetTypePtrType
+}
+
+func (in *scopeTargetIdentifierTargetTypePtr) ToScopeTargetIdentifierTargetTypePtrOutput() ScopeTargetIdentifierTargetTypePtrOutput {
+	return pulumi.ToOutput(in).(ScopeTargetIdentifierTargetTypePtrOutput)
+}
+
+func (in *scopeTargetIdentifierTargetTypePtr) ToScopeTargetIdentifierTargetTypePtrOutputWithContext(ctx context.Context) ScopeTargetIdentifierTargetTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ScopeTargetIdentifierTargetTypePtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*MonitorLocalResourceTypeInput)(nil)).Elem(), MonitorLocalResourceType("AWS::EC2::VPC"))
 	pulumi.RegisterInputType(reflect.TypeOf((*MonitorLocalResourceTypePtrInput)(nil)).Elem(), MonitorLocalResourceType("AWS::EC2::VPC"))
 	pulumi.RegisterInputType(reflect.TypeOf((*MonitorRemoteResourceTypeInput)(nil)).Elem(), MonitorRemoteResourceType("AWS::EC2::VPC"))
 	pulumi.RegisterInputType(reflect.TypeOf((*MonitorRemoteResourceTypePtrInput)(nil)).Elem(), MonitorRemoteResourceType("AWS::EC2::VPC"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ScopeTargetIdentifierTargetTypeInput)(nil)).Elem(), ScopeTargetIdentifierTargetType("ACCOUNT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ScopeTargetIdentifierTargetTypePtrInput)(nil)).Elem(), ScopeTargetIdentifierTargetType("ACCOUNT"))
 	pulumi.RegisterOutputType(MonitorLocalResourceTypeOutput{})
 	pulumi.RegisterOutputType(MonitorLocalResourceTypePtrOutput{})
 	pulumi.RegisterOutputType(MonitorRemoteResourceTypeOutput{})
 	pulumi.RegisterOutputType(MonitorRemoteResourceTypePtrOutput{})
 	pulumi.RegisterOutputType(MonitorStatusOutput{})
 	pulumi.RegisterOutputType(MonitorStatusPtrOutput{})
+	pulumi.RegisterOutputType(ScopeStatusOutput{})
+	pulumi.RegisterOutputType(ScopeStatusPtrOutput{})
+	pulumi.RegisterOutputType(ScopeTargetIdentifierTargetTypeOutput{})
+	pulumi.RegisterOutputType(ScopeTargetIdentifierTargetTypePtrOutput{})
 }

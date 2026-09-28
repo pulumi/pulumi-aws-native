@@ -75,6 +75,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Thing{}
 	case "aws-native:iot:ThingGroup":
 		r = &ThingGroup{}
+	case "aws-native:iot:ThingPrincipalAttachment":
+		r = &ThingPrincipalAttachment{}
 	case "aws-native:iot:ThingType":
 		r = &ThingType{}
 	case "aws-native:iot:TopicRule":

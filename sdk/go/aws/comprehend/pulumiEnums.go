@@ -1407,6 +1407,856 @@ func (in *documentClassifierModePtr) ToDocumentClassifierModePtrOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, in).(DocumentClassifierModePtrOutput)
 }
 
+// The type of augmented manifest.
+type EntityRecognizerAugmentedManifestsListItemDocumentType string
+
+const (
+	EntityRecognizerAugmentedManifestsListItemDocumentTypePlainTextDocument      = EntityRecognizerAugmentedManifestsListItemDocumentType("PLAIN_TEXT_DOCUMENT")
+	EntityRecognizerAugmentedManifestsListItemDocumentTypeSemiStructuredDocument = EntityRecognizerAugmentedManifestsListItemDocumentType("SEMI_STRUCTURED_DOCUMENT")
+)
+
+func (EntityRecognizerAugmentedManifestsListItemDocumentType) ElementType() reflect.Type {
+	return reflect.TypeOf((*EntityRecognizerAugmentedManifestsListItemDocumentType)(nil)).Elem()
+}
+
+func (e EntityRecognizerAugmentedManifestsListItemDocumentType) ToEntityRecognizerAugmentedManifestsListItemDocumentTypeOutput() EntityRecognizerAugmentedManifestsListItemDocumentTypeOutput {
+	return pulumi.ToOutput(e).(EntityRecognizerAugmentedManifestsListItemDocumentTypeOutput)
+}
+
+func (e EntityRecognizerAugmentedManifestsListItemDocumentType) ToEntityRecognizerAugmentedManifestsListItemDocumentTypeOutputWithContext(ctx context.Context) EntityRecognizerAugmentedManifestsListItemDocumentTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(EntityRecognizerAugmentedManifestsListItemDocumentTypeOutput)
+}
+
+func (e EntityRecognizerAugmentedManifestsListItemDocumentType) ToEntityRecognizerAugmentedManifestsListItemDocumentTypePtrOutput() EntityRecognizerAugmentedManifestsListItemDocumentTypePtrOutput {
+	return e.ToEntityRecognizerAugmentedManifestsListItemDocumentTypePtrOutputWithContext(context.Background())
+}
+
+func (e EntityRecognizerAugmentedManifestsListItemDocumentType) ToEntityRecognizerAugmentedManifestsListItemDocumentTypePtrOutputWithContext(ctx context.Context) EntityRecognizerAugmentedManifestsListItemDocumentTypePtrOutput {
+	return EntityRecognizerAugmentedManifestsListItemDocumentType(e).ToEntityRecognizerAugmentedManifestsListItemDocumentTypeOutputWithContext(ctx).ToEntityRecognizerAugmentedManifestsListItemDocumentTypePtrOutputWithContext(ctx)
+}
+
+func (e EntityRecognizerAugmentedManifestsListItemDocumentType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e EntityRecognizerAugmentedManifestsListItemDocumentType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e EntityRecognizerAugmentedManifestsListItemDocumentType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e EntityRecognizerAugmentedManifestsListItemDocumentType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type EntityRecognizerAugmentedManifestsListItemDocumentTypeOutput struct{ *pulumi.OutputState }
+
+func (EntityRecognizerAugmentedManifestsListItemDocumentTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EntityRecognizerAugmentedManifestsListItemDocumentType)(nil)).Elem()
+}
+
+func (o EntityRecognizerAugmentedManifestsListItemDocumentTypeOutput) ToEntityRecognizerAugmentedManifestsListItemDocumentTypeOutput() EntityRecognizerAugmentedManifestsListItemDocumentTypeOutput {
+	return o
+}
+
+func (o EntityRecognizerAugmentedManifestsListItemDocumentTypeOutput) ToEntityRecognizerAugmentedManifestsListItemDocumentTypeOutputWithContext(ctx context.Context) EntityRecognizerAugmentedManifestsListItemDocumentTypeOutput {
+	return o
+}
+
+func (o EntityRecognizerAugmentedManifestsListItemDocumentTypeOutput) ToEntityRecognizerAugmentedManifestsListItemDocumentTypePtrOutput() EntityRecognizerAugmentedManifestsListItemDocumentTypePtrOutput {
+	return o.ToEntityRecognizerAugmentedManifestsListItemDocumentTypePtrOutputWithContext(context.Background())
+}
+
+func (o EntityRecognizerAugmentedManifestsListItemDocumentTypeOutput) ToEntityRecognizerAugmentedManifestsListItemDocumentTypePtrOutputWithContext(ctx context.Context) EntityRecognizerAugmentedManifestsListItemDocumentTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EntityRecognizerAugmentedManifestsListItemDocumentType) *EntityRecognizerAugmentedManifestsListItemDocumentType {
+		return &v
+	}).(EntityRecognizerAugmentedManifestsListItemDocumentTypePtrOutput)
+}
+
+func (o EntityRecognizerAugmentedManifestsListItemDocumentTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o EntityRecognizerAugmentedManifestsListItemDocumentTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e EntityRecognizerAugmentedManifestsListItemDocumentType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o EntityRecognizerAugmentedManifestsListItemDocumentTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o EntityRecognizerAugmentedManifestsListItemDocumentTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e EntityRecognizerAugmentedManifestsListItemDocumentType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type EntityRecognizerAugmentedManifestsListItemDocumentTypePtrOutput struct{ *pulumi.OutputState }
+
+func (EntityRecognizerAugmentedManifestsListItemDocumentTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EntityRecognizerAugmentedManifestsListItemDocumentType)(nil)).Elem()
+}
+
+func (o EntityRecognizerAugmentedManifestsListItemDocumentTypePtrOutput) ToEntityRecognizerAugmentedManifestsListItemDocumentTypePtrOutput() EntityRecognizerAugmentedManifestsListItemDocumentTypePtrOutput {
+	return o
+}
+
+func (o EntityRecognizerAugmentedManifestsListItemDocumentTypePtrOutput) ToEntityRecognizerAugmentedManifestsListItemDocumentTypePtrOutputWithContext(ctx context.Context) EntityRecognizerAugmentedManifestsListItemDocumentTypePtrOutput {
+	return o
+}
+
+func (o EntityRecognizerAugmentedManifestsListItemDocumentTypePtrOutput) Elem() EntityRecognizerAugmentedManifestsListItemDocumentTypeOutput {
+	return o.ApplyT(func(v *EntityRecognizerAugmentedManifestsListItemDocumentType) EntityRecognizerAugmentedManifestsListItemDocumentType {
+		if v != nil {
+			return *v
+		}
+		var ret EntityRecognizerAugmentedManifestsListItemDocumentType
+		return ret
+	}).(EntityRecognizerAugmentedManifestsListItemDocumentTypeOutput)
+}
+
+func (o EntityRecognizerAugmentedManifestsListItemDocumentTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o EntityRecognizerAugmentedManifestsListItemDocumentTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *EntityRecognizerAugmentedManifestsListItemDocumentType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// EntityRecognizerAugmentedManifestsListItemDocumentTypeInput is an input type that accepts values of the EntityRecognizerAugmentedManifestsListItemDocumentType enum
+// A concrete instance of `EntityRecognizerAugmentedManifestsListItemDocumentTypeInput` can be one of the following:
+//
+//	EntityRecognizerAugmentedManifestsListItemDocumentTypePlainTextDocument
+//	EntityRecognizerAugmentedManifestsListItemDocumentTypeSemiStructuredDocument
+type EntityRecognizerAugmentedManifestsListItemDocumentTypeInput interface {
+	pulumi.Input
+
+	ToEntityRecognizerAugmentedManifestsListItemDocumentTypeOutput() EntityRecognizerAugmentedManifestsListItemDocumentTypeOutput
+	ToEntityRecognizerAugmentedManifestsListItemDocumentTypeOutputWithContext(context.Context) EntityRecognizerAugmentedManifestsListItemDocumentTypeOutput
+}
+
+var entityRecognizerAugmentedManifestsListItemDocumentTypePtrType = reflect.TypeOf((**EntityRecognizerAugmentedManifestsListItemDocumentType)(nil)).Elem()
+
+type EntityRecognizerAugmentedManifestsListItemDocumentTypePtrInput interface {
+	pulumi.Input
+
+	ToEntityRecognizerAugmentedManifestsListItemDocumentTypePtrOutput() EntityRecognizerAugmentedManifestsListItemDocumentTypePtrOutput
+	ToEntityRecognizerAugmentedManifestsListItemDocumentTypePtrOutputWithContext(context.Context) EntityRecognizerAugmentedManifestsListItemDocumentTypePtrOutput
+}
+
+type entityRecognizerAugmentedManifestsListItemDocumentTypePtr string
+
+func EntityRecognizerAugmentedManifestsListItemDocumentTypePtr(v string) EntityRecognizerAugmentedManifestsListItemDocumentTypePtrInput {
+	return (*entityRecognizerAugmentedManifestsListItemDocumentTypePtr)(&v)
+}
+
+func (*entityRecognizerAugmentedManifestsListItemDocumentTypePtr) ElementType() reflect.Type {
+	return entityRecognizerAugmentedManifestsListItemDocumentTypePtrType
+}
+
+func (in *entityRecognizerAugmentedManifestsListItemDocumentTypePtr) ToEntityRecognizerAugmentedManifestsListItemDocumentTypePtrOutput() EntityRecognizerAugmentedManifestsListItemDocumentTypePtrOutput {
+	return pulumi.ToOutput(in).(EntityRecognizerAugmentedManifestsListItemDocumentTypePtrOutput)
+}
+
+func (in *entityRecognizerAugmentedManifestsListItemDocumentTypePtr) ToEntityRecognizerAugmentedManifestsListItemDocumentTypePtrOutputWithContext(ctx context.Context) EntityRecognizerAugmentedManifestsListItemDocumentTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(EntityRecognizerAugmentedManifestsListItemDocumentTypePtrOutput)
+}
+
+// The purpose of the data you've provided in the augmented manifest.
+type EntityRecognizerAugmentedManifestsListItemSplit string
+
+const (
+	EntityRecognizerAugmentedManifestsListItemSplitTrain = EntityRecognizerAugmentedManifestsListItemSplit("TRAIN")
+	EntityRecognizerAugmentedManifestsListItemSplitTest  = EntityRecognizerAugmentedManifestsListItemSplit("TEST")
+)
+
+func (EntityRecognizerAugmentedManifestsListItemSplit) ElementType() reflect.Type {
+	return reflect.TypeOf((*EntityRecognizerAugmentedManifestsListItemSplit)(nil)).Elem()
+}
+
+func (e EntityRecognizerAugmentedManifestsListItemSplit) ToEntityRecognizerAugmentedManifestsListItemSplitOutput() EntityRecognizerAugmentedManifestsListItemSplitOutput {
+	return pulumi.ToOutput(e).(EntityRecognizerAugmentedManifestsListItemSplitOutput)
+}
+
+func (e EntityRecognizerAugmentedManifestsListItemSplit) ToEntityRecognizerAugmentedManifestsListItemSplitOutputWithContext(ctx context.Context) EntityRecognizerAugmentedManifestsListItemSplitOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(EntityRecognizerAugmentedManifestsListItemSplitOutput)
+}
+
+func (e EntityRecognizerAugmentedManifestsListItemSplit) ToEntityRecognizerAugmentedManifestsListItemSplitPtrOutput() EntityRecognizerAugmentedManifestsListItemSplitPtrOutput {
+	return e.ToEntityRecognizerAugmentedManifestsListItemSplitPtrOutputWithContext(context.Background())
+}
+
+func (e EntityRecognizerAugmentedManifestsListItemSplit) ToEntityRecognizerAugmentedManifestsListItemSplitPtrOutputWithContext(ctx context.Context) EntityRecognizerAugmentedManifestsListItemSplitPtrOutput {
+	return EntityRecognizerAugmentedManifestsListItemSplit(e).ToEntityRecognizerAugmentedManifestsListItemSplitOutputWithContext(ctx).ToEntityRecognizerAugmentedManifestsListItemSplitPtrOutputWithContext(ctx)
+}
+
+func (e EntityRecognizerAugmentedManifestsListItemSplit) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e EntityRecognizerAugmentedManifestsListItemSplit) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e EntityRecognizerAugmentedManifestsListItemSplit) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e EntityRecognizerAugmentedManifestsListItemSplit) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type EntityRecognizerAugmentedManifestsListItemSplitOutput struct{ *pulumi.OutputState }
+
+func (EntityRecognizerAugmentedManifestsListItemSplitOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EntityRecognizerAugmentedManifestsListItemSplit)(nil)).Elem()
+}
+
+func (o EntityRecognizerAugmentedManifestsListItemSplitOutput) ToEntityRecognizerAugmentedManifestsListItemSplitOutput() EntityRecognizerAugmentedManifestsListItemSplitOutput {
+	return o
+}
+
+func (o EntityRecognizerAugmentedManifestsListItemSplitOutput) ToEntityRecognizerAugmentedManifestsListItemSplitOutputWithContext(ctx context.Context) EntityRecognizerAugmentedManifestsListItemSplitOutput {
+	return o
+}
+
+func (o EntityRecognizerAugmentedManifestsListItemSplitOutput) ToEntityRecognizerAugmentedManifestsListItemSplitPtrOutput() EntityRecognizerAugmentedManifestsListItemSplitPtrOutput {
+	return o.ToEntityRecognizerAugmentedManifestsListItemSplitPtrOutputWithContext(context.Background())
+}
+
+func (o EntityRecognizerAugmentedManifestsListItemSplitOutput) ToEntityRecognizerAugmentedManifestsListItemSplitPtrOutputWithContext(ctx context.Context) EntityRecognizerAugmentedManifestsListItemSplitPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EntityRecognizerAugmentedManifestsListItemSplit) *EntityRecognizerAugmentedManifestsListItemSplit {
+		return &v
+	}).(EntityRecognizerAugmentedManifestsListItemSplitPtrOutput)
+}
+
+func (o EntityRecognizerAugmentedManifestsListItemSplitOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o EntityRecognizerAugmentedManifestsListItemSplitOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e EntityRecognizerAugmentedManifestsListItemSplit) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o EntityRecognizerAugmentedManifestsListItemSplitOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o EntityRecognizerAugmentedManifestsListItemSplitOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e EntityRecognizerAugmentedManifestsListItemSplit) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type EntityRecognizerAugmentedManifestsListItemSplitPtrOutput struct{ *pulumi.OutputState }
+
+func (EntityRecognizerAugmentedManifestsListItemSplitPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EntityRecognizerAugmentedManifestsListItemSplit)(nil)).Elem()
+}
+
+func (o EntityRecognizerAugmentedManifestsListItemSplitPtrOutput) ToEntityRecognizerAugmentedManifestsListItemSplitPtrOutput() EntityRecognizerAugmentedManifestsListItemSplitPtrOutput {
+	return o
+}
+
+func (o EntityRecognizerAugmentedManifestsListItemSplitPtrOutput) ToEntityRecognizerAugmentedManifestsListItemSplitPtrOutputWithContext(ctx context.Context) EntityRecognizerAugmentedManifestsListItemSplitPtrOutput {
+	return o
+}
+
+func (o EntityRecognizerAugmentedManifestsListItemSplitPtrOutput) Elem() EntityRecognizerAugmentedManifestsListItemSplitOutput {
+	return o.ApplyT(func(v *EntityRecognizerAugmentedManifestsListItemSplit) EntityRecognizerAugmentedManifestsListItemSplit {
+		if v != nil {
+			return *v
+		}
+		var ret EntityRecognizerAugmentedManifestsListItemSplit
+		return ret
+	}).(EntityRecognizerAugmentedManifestsListItemSplitOutput)
+}
+
+func (o EntityRecognizerAugmentedManifestsListItemSplitPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o EntityRecognizerAugmentedManifestsListItemSplitPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *EntityRecognizerAugmentedManifestsListItemSplit) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// EntityRecognizerAugmentedManifestsListItemSplitInput is an input type that accepts values of the EntityRecognizerAugmentedManifestsListItemSplit enum
+// A concrete instance of `EntityRecognizerAugmentedManifestsListItemSplitInput` can be one of the following:
+//
+//	EntityRecognizerAugmentedManifestsListItemSplitTrain
+//	EntityRecognizerAugmentedManifestsListItemSplitTest
+type EntityRecognizerAugmentedManifestsListItemSplitInput interface {
+	pulumi.Input
+
+	ToEntityRecognizerAugmentedManifestsListItemSplitOutput() EntityRecognizerAugmentedManifestsListItemSplitOutput
+	ToEntityRecognizerAugmentedManifestsListItemSplitOutputWithContext(context.Context) EntityRecognizerAugmentedManifestsListItemSplitOutput
+}
+
+var entityRecognizerAugmentedManifestsListItemSplitPtrType = reflect.TypeOf((**EntityRecognizerAugmentedManifestsListItemSplit)(nil)).Elem()
+
+type EntityRecognizerAugmentedManifestsListItemSplitPtrInput interface {
+	pulumi.Input
+
+	ToEntityRecognizerAugmentedManifestsListItemSplitPtrOutput() EntityRecognizerAugmentedManifestsListItemSplitPtrOutput
+	ToEntityRecognizerAugmentedManifestsListItemSplitPtrOutputWithContext(context.Context) EntityRecognizerAugmentedManifestsListItemSplitPtrOutput
+}
+
+type entityRecognizerAugmentedManifestsListItemSplitPtr string
+
+func EntityRecognizerAugmentedManifestsListItemSplitPtr(v string) EntityRecognizerAugmentedManifestsListItemSplitPtrInput {
+	return (*entityRecognizerAugmentedManifestsListItemSplitPtr)(&v)
+}
+
+func (*entityRecognizerAugmentedManifestsListItemSplitPtr) ElementType() reflect.Type {
+	return entityRecognizerAugmentedManifestsListItemSplitPtrType
+}
+
+func (in *entityRecognizerAugmentedManifestsListItemSplitPtr) ToEntityRecognizerAugmentedManifestsListItemSplitPtrOutput() EntityRecognizerAugmentedManifestsListItemSplitPtrOutput {
+	return pulumi.ToOutput(in).(EntityRecognizerAugmentedManifestsListItemSplitPtrOutput)
+}
+
+func (in *entityRecognizerAugmentedManifestsListItemSplitPtr) ToEntityRecognizerAugmentedManifestsListItemSplitPtrOutputWithContext(ctx context.Context) EntityRecognizerAugmentedManifestsListItemSplitPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(EntityRecognizerAugmentedManifestsListItemSplitPtrOutput)
+}
+
+// Specifies how the text in an input file should be processed.
+type EntityRecognizerDocumentsInputFormat string
+
+const (
+	EntityRecognizerDocumentsInputFormatOneDocPerFile = EntityRecognizerDocumentsInputFormat("ONE_DOC_PER_FILE")
+	EntityRecognizerDocumentsInputFormatOneDocPerLine = EntityRecognizerDocumentsInputFormat("ONE_DOC_PER_LINE")
+)
+
+func (EntityRecognizerDocumentsInputFormat) ElementType() reflect.Type {
+	return reflect.TypeOf((*EntityRecognizerDocumentsInputFormat)(nil)).Elem()
+}
+
+func (e EntityRecognizerDocumentsInputFormat) ToEntityRecognizerDocumentsInputFormatOutput() EntityRecognizerDocumentsInputFormatOutput {
+	return pulumi.ToOutput(e).(EntityRecognizerDocumentsInputFormatOutput)
+}
+
+func (e EntityRecognizerDocumentsInputFormat) ToEntityRecognizerDocumentsInputFormatOutputWithContext(ctx context.Context) EntityRecognizerDocumentsInputFormatOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(EntityRecognizerDocumentsInputFormatOutput)
+}
+
+func (e EntityRecognizerDocumentsInputFormat) ToEntityRecognizerDocumentsInputFormatPtrOutput() EntityRecognizerDocumentsInputFormatPtrOutput {
+	return e.ToEntityRecognizerDocumentsInputFormatPtrOutputWithContext(context.Background())
+}
+
+func (e EntityRecognizerDocumentsInputFormat) ToEntityRecognizerDocumentsInputFormatPtrOutputWithContext(ctx context.Context) EntityRecognizerDocumentsInputFormatPtrOutput {
+	return EntityRecognizerDocumentsInputFormat(e).ToEntityRecognizerDocumentsInputFormatOutputWithContext(ctx).ToEntityRecognizerDocumentsInputFormatPtrOutputWithContext(ctx)
+}
+
+func (e EntityRecognizerDocumentsInputFormat) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e EntityRecognizerDocumentsInputFormat) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e EntityRecognizerDocumentsInputFormat) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e EntityRecognizerDocumentsInputFormat) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type EntityRecognizerDocumentsInputFormatOutput struct{ *pulumi.OutputState }
+
+func (EntityRecognizerDocumentsInputFormatOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EntityRecognizerDocumentsInputFormat)(nil)).Elem()
+}
+
+func (o EntityRecognizerDocumentsInputFormatOutput) ToEntityRecognizerDocumentsInputFormatOutput() EntityRecognizerDocumentsInputFormatOutput {
+	return o
+}
+
+func (o EntityRecognizerDocumentsInputFormatOutput) ToEntityRecognizerDocumentsInputFormatOutputWithContext(ctx context.Context) EntityRecognizerDocumentsInputFormatOutput {
+	return o
+}
+
+func (o EntityRecognizerDocumentsInputFormatOutput) ToEntityRecognizerDocumentsInputFormatPtrOutput() EntityRecognizerDocumentsInputFormatPtrOutput {
+	return o.ToEntityRecognizerDocumentsInputFormatPtrOutputWithContext(context.Background())
+}
+
+func (o EntityRecognizerDocumentsInputFormatOutput) ToEntityRecognizerDocumentsInputFormatPtrOutputWithContext(ctx context.Context) EntityRecognizerDocumentsInputFormatPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EntityRecognizerDocumentsInputFormat) *EntityRecognizerDocumentsInputFormat {
+		return &v
+	}).(EntityRecognizerDocumentsInputFormatPtrOutput)
+}
+
+func (o EntityRecognizerDocumentsInputFormatOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o EntityRecognizerDocumentsInputFormatOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e EntityRecognizerDocumentsInputFormat) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o EntityRecognizerDocumentsInputFormatOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o EntityRecognizerDocumentsInputFormatOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e EntityRecognizerDocumentsInputFormat) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type EntityRecognizerDocumentsInputFormatPtrOutput struct{ *pulumi.OutputState }
+
+func (EntityRecognizerDocumentsInputFormatPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EntityRecognizerDocumentsInputFormat)(nil)).Elem()
+}
+
+func (o EntityRecognizerDocumentsInputFormatPtrOutput) ToEntityRecognizerDocumentsInputFormatPtrOutput() EntityRecognizerDocumentsInputFormatPtrOutput {
+	return o
+}
+
+func (o EntityRecognizerDocumentsInputFormatPtrOutput) ToEntityRecognizerDocumentsInputFormatPtrOutputWithContext(ctx context.Context) EntityRecognizerDocumentsInputFormatPtrOutput {
+	return o
+}
+
+func (o EntityRecognizerDocumentsInputFormatPtrOutput) Elem() EntityRecognizerDocumentsInputFormatOutput {
+	return o.ApplyT(func(v *EntityRecognizerDocumentsInputFormat) EntityRecognizerDocumentsInputFormat {
+		if v != nil {
+			return *v
+		}
+		var ret EntityRecognizerDocumentsInputFormat
+		return ret
+	}).(EntityRecognizerDocumentsInputFormatOutput)
+}
+
+func (o EntityRecognizerDocumentsInputFormatPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o EntityRecognizerDocumentsInputFormatPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *EntityRecognizerDocumentsInputFormat) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// EntityRecognizerDocumentsInputFormatInput is an input type that accepts values of the EntityRecognizerDocumentsInputFormat enum
+// A concrete instance of `EntityRecognizerDocumentsInputFormatInput` can be one of the following:
+//
+//	EntityRecognizerDocumentsInputFormatOneDocPerFile
+//	EntityRecognizerDocumentsInputFormatOneDocPerLine
+type EntityRecognizerDocumentsInputFormatInput interface {
+	pulumi.Input
+
+	ToEntityRecognizerDocumentsInputFormatOutput() EntityRecognizerDocumentsInputFormatOutput
+	ToEntityRecognizerDocumentsInputFormatOutputWithContext(context.Context) EntityRecognizerDocumentsInputFormatOutput
+}
+
+var entityRecognizerDocumentsInputFormatPtrType = reflect.TypeOf((**EntityRecognizerDocumentsInputFormat)(nil)).Elem()
+
+type EntityRecognizerDocumentsInputFormatPtrInput interface {
+	pulumi.Input
+
+	ToEntityRecognizerDocumentsInputFormatPtrOutput() EntityRecognizerDocumentsInputFormatPtrOutput
+	ToEntityRecognizerDocumentsInputFormatPtrOutputWithContext(context.Context) EntityRecognizerDocumentsInputFormatPtrOutput
+}
+
+type entityRecognizerDocumentsInputFormatPtr string
+
+func EntityRecognizerDocumentsInputFormatPtr(v string) EntityRecognizerDocumentsInputFormatPtrInput {
+	return (*entityRecognizerDocumentsInputFormatPtr)(&v)
+}
+
+func (*entityRecognizerDocumentsInputFormatPtr) ElementType() reflect.Type {
+	return entityRecognizerDocumentsInputFormatPtrType
+}
+
+func (in *entityRecognizerDocumentsInputFormatPtr) ToEntityRecognizerDocumentsInputFormatPtrOutput() EntityRecognizerDocumentsInputFormatPtrOutput {
+	return pulumi.ToOutput(in).(EntityRecognizerDocumentsInputFormatPtrOutput)
+}
+
+func (in *entityRecognizerDocumentsInputFormatPtr) ToEntityRecognizerDocumentsInputFormatPtrOutputWithContext(ctx context.Context) EntityRecognizerDocumentsInputFormatPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(EntityRecognizerDocumentsInputFormatPtrOutput)
+}
+
+// The format of your training data.
+type EntityRecognizerInputDataConfigDataFormat string
+
+const (
+	EntityRecognizerInputDataConfigDataFormatComprehendCsv     = EntityRecognizerInputDataConfigDataFormat("COMPREHEND_CSV")
+	EntityRecognizerInputDataConfigDataFormatAugmentedManifest = EntityRecognizerInputDataConfigDataFormat("AUGMENTED_MANIFEST")
+)
+
+func (EntityRecognizerInputDataConfigDataFormat) ElementType() reflect.Type {
+	return reflect.TypeOf((*EntityRecognizerInputDataConfigDataFormat)(nil)).Elem()
+}
+
+func (e EntityRecognizerInputDataConfigDataFormat) ToEntityRecognizerInputDataConfigDataFormatOutput() EntityRecognizerInputDataConfigDataFormatOutput {
+	return pulumi.ToOutput(e).(EntityRecognizerInputDataConfigDataFormatOutput)
+}
+
+func (e EntityRecognizerInputDataConfigDataFormat) ToEntityRecognizerInputDataConfigDataFormatOutputWithContext(ctx context.Context) EntityRecognizerInputDataConfigDataFormatOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(EntityRecognizerInputDataConfigDataFormatOutput)
+}
+
+func (e EntityRecognizerInputDataConfigDataFormat) ToEntityRecognizerInputDataConfigDataFormatPtrOutput() EntityRecognizerInputDataConfigDataFormatPtrOutput {
+	return e.ToEntityRecognizerInputDataConfigDataFormatPtrOutputWithContext(context.Background())
+}
+
+func (e EntityRecognizerInputDataConfigDataFormat) ToEntityRecognizerInputDataConfigDataFormatPtrOutputWithContext(ctx context.Context) EntityRecognizerInputDataConfigDataFormatPtrOutput {
+	return EntityRecognizerInputDataConfigDataFormat(e).ToEntityRecognizerInputDataConfigDataFormatOutputWithContext(ctx).ToEntityRecognizerInputDataConfigDataFormatPtrOutputWithContext(ctx)
+}
+
+func (e EntityRecognizerInputDataConfigDataFormat) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e EntityRecognizerInputDataConfigDataFormat) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e EntityRecognizerInputDataConfigDataFormat) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e EntityRecognizerInputDataConfigDataFormat) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type EntityRecognizerInputDataConfigDataFormatOutput struct{ *pulumi.OutputState }
+
+func (EntityRecognizerInputDataConfigDataFormatOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EntityRecognizerInputDataConfigDataFormat)(nil)).Elem()
+}
+
+func (o EntityRecognizerInputDataConfigDataFormatOutput) ToEntityRecognizerInputDataConfigDataFormatOutput() EntityRecognizerInputDataConfigDataFormatOutput {
+	return o
+}
+
+func (o EntityRecognizerInputDataConfigDataFormatOutput) ToEntityRecognizerInputDataConfigDataFormatOutputWithContext(ctx context.Context) EntityRecognizerInputDataConfigDataFormatOutput {
+	return o
+}
+
+func (o EntityRecognizerInputDataConfigDataFormatOutput) ToEntityRecognizerInputDataConfigDataFormatPtrOutput() EntityRecognizerInputDataConfigDataFormatPtrOutput {
+	return o.ToEntityRecognizerInputDataConfigDataFormatPtrOutputWithContext(context.Background())
+}
+
+func (o EntityRecognizerInputDataConfigDataFormatOutput) ToEntityRecognizerInputDataConfigDataFormatPtrOutputWithContext(ctx context.Context) EntityRecognizerInputDataConfigDataFormatPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EntityRecognizerInputDataConfigDataFormat) *EntityRecognizerInputDataConfigDataFormat {
+		return &v
+	}).(EntityRecognizerInputDataConfigDataFormatPtrOutput)
+}
+
+func (o EntityRecognizerInputDataConfigDataFormatOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o EntityRecognizerInputDataConfigDataFormatOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e EntityRecognizerInputDataConfigDataFormat) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o EntityRecognizerInputDataConfigDataFormatOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o EntityRecognizerInputDataConfigDataFormatOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e EntityRecognizerInputDataConfigDataFormat) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type EntityRecognizerInputDataConfigDataFormatPtrOutput struct{ *pulumi.OutputState }
+
+func (EntityRecognizerInputDataConfigDataFormatPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EntityRecognizerInputDataConfigDataFormat)(nil)).Elem()
+}
+
+func (o EntityRecognizerInputDataConfigDataFormatPtrOutput) ToEntityRecognizerInputDataConfigDataFormatPtrOutput() EntityRecognizerInputDataConfigDataFormatPtrOutput {
+	return o
+}
+
+func (o EntityRecognizerInputDataConfigDataFormatPtrOutput) ToEntityRecognizerInputDataConfigDataFormatPtrOutputWithContext(ctx context.Context) EntityRecognizerInputDataConfigDataFormatPtrOutput {
+	return o
+}
+
+func (o EntityRecognizerInputDataConfigDataFormatPtrOutput) Elem() EntityRecognizerInputDataConfigDataFormatOutput {
+	return o.ApplyT(func(v *EntityRecognizerInputDataConfigDataFormat) EntityRecognizerInputDataConfigDataFormat {
+		if v != nil {
+			return *v
+		}
+		var ret EntityRecognizerInputDataConfigDataFormat
+		return ret
+	}).(EntityRecognizerInputDataConfigDataFormatOutput)
+}
+
+func (o EntityRecognizerInputDataConfigDataFormatPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o EntityRecognizerInputDataConfigDataFormatPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *EntityRecognizerInputDataConfigDataFormat) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// EntityRecognizerInputDataConfigDataFormatInput is an input type that accepts values of the EntityRecognizerInputDataConfigDataFormat enum
+// A concrete instance of `EntityRecognizerInputDataConfigDataFormatInput` can be one of the following:
+//
+//	EntityRecognizerInputDataConfigDataFormatComprehendCsv
+//	EntityRecognizerInputDataConfigDataFormatAugmentedManifest
+type EntityRecognizerInputDataConfigDataFormatInput interface {
+	pulumi.Input
+
+	ToEntityRecognizerInputDataConfigDataFormatOutput() EntityRecognizerInputDataConfigDataFormatOutput
+	ToEntityRecognizerInputDataConfigDataFormatOutputWithContext(context.Context) EntityRecognizerInputDataConfigDataFormatOutput
+}
+
+var entityRecognizerInputDataConfigDataFormatPtrType = reflect.TypeOf((**EntityRecognizerInputDataConfigDataFormat)(nil)).Elem()
+
+type EntityRecognizerInputDataConfigDataFormatPtrInput interface {
+	pulumi.Input
+
+	ToEntityRecognizerInputDataConfigDataFormatPtrOutput() EntityRecognizerInputDataConfigDataFormatPtrOutput
+	ToEntityRecognizerInputDataConfigDataFormatPtrOutputWithContext(context.Context) EntityRecognizerInputDataConfigDataFormatPtrOutput
+}
+
+type entityRecognizerInputDataConfigDataFormatPtr string
+
+func EntityRecognizerInputDataConfigDataFormatPtr(v string) EntityRecognizerInputDataConfigDataFormatPtrInput {
+	return (*entityRecognizerInputDataConfigDataFormatPtr)(&v)
+}
+
+func (*entityRecognizerInputDataConfigDataFormatPtr) ElementType() reflect.Type {
+	return entityRecognizerInputDataConfigDataFormatPtrType
+}
+
+func (in *entityRecognizerInputDataConfigDataFormatPtr) ToEntityRecognizerInputDataConfigDataFormatPtrOutput() EntityRecognizerInputDataConfigDataFormatPtrOutput {
+	return pulumi.ToOutput(in).(EntityRecognizerInputDataConfigDataFormatPtrOutput)
+}
+
+func (in *entityRecognizerInputDataConfigDataFormatPtr) ToEntityRecognizerInputDataConfigDataFormatPtrOutputWithContext(ctx context.Context) EntityRecognizerInputDataConfigDataFormatPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(EntityRecognizerInputDataConfigDataFormatPtrOutput)
+}
+
+// The language of the input documents. All documents must be in the same language.
+type EntityRecognizerLanguageCode string
+
+const (
+	EntityRecognizerLanguageCodeEn   = EntityRecognizerLanguageCode("en")
+	EntityRecognizerLanguageCodeEs   = EntityRecognizerLanguageCode("es")
+	EntityRecognizerLanguageCodeFr   = EntityRecognizerLanguageCode("fr")
+	EntityRecognizerLanguageCodeDe   = EntityRecognizerLanguageCode("de")
+	EntityRecognizerLanguageCodeIt   = EntityRecognizerLanguageCode("it")
+	EntityRecognizerLanguageCodePt   = EntityRecognizerLanguageCode("pt")
+	EntityRecognizerLanguageCodeAr   = EntityRecognizerLanguageCode("ar")
+	EntityRecognizerLanguageCodeHi   = EntityRecognizerLanguageCode("hi")
+	EntityRecognizerLanguageCodeJa   = EntityRecognizerLanguageCode("ja")
+	EntityRecognizerLanguageCodeKo   = EntityRecognizerLanguageCode("ko")
+	EntityRecognizerLanguageCodeZh   = EntityRecognizerLanguageCode("zh")
+	EntityRecognizerLanguageCodeZhTw = EntityRecognizerLanguageCode("zh-TW")
+)
+
+func (EntityRecognizerLanguageCode) ElementType() reflect.Type {
+	return reflect.TypeOf((*EntityRecognizerLanguageCode)(nil)).Elem()
+}
+
+func (e EntityRecognizerLanguageCode) ToEntityRecognizerLanguageCodeOutput() EntityRecognizerLanguageCodeOutput {
+	return pulumi.ToOutput(e).(EntityRecognizerLanguageCodeOutput)
+}
+
+func (e EntityRecognizerLanguageCode) ToEntityRecognizerLanguageCodeOutputWithContext(ctx context.Context) EntityRecognizerLanguageCodeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(EntityRecognizerLanguageCodeOutput)
+}
+
+func (e EntityRecognizerLanguageCode) ToEntityRecognizerLanguageCodePtrOutput() EntityRecognizerLanguageCodePtrOutput {
+	return e.ToEntityRecognizerLanguageCodePtrOutputWithContext(context.Background())
+}
+
+func (e EntityRecognizerLanguageCode) ToEntityRecognizerLanguageCodePtrOutputWithContext(ctx context.Context) EntityRecognizerLanguageCodePtrOutput {
+	return EntityRecognizerLanguageCode(e).ToEntityRecognizerLanguageCodeOutputWithContext(ctx).ToEntityRecognizerLanguageCodePtrOutputWithContext(ctx)
+}
+
+func (e EntityRecognizerLanguageCode) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e EntityRecognizerLanguageCode) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e EntityRecognizerLanguageCode) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e EntityRecognizerLanguageCode) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type EntityRecognizerLanguageCodeOutput struct{ *pulumi.OutputState }
+
+func (EntityRecognizerLanguageCodeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EntityRecognizerLanguageCode)(nil)).Elem()
+}
+
+func (o EntityRecognizerLanguageCodeOutput) ToEntityRecognizerLanguageCodeOutput() EntityRecognizerLanguageCodeOutput {
+	return o
+}
+
+func (o EntityRecognizerLanguageCodeOutput) ToEntityRecognizerLanguageCodeOutputWithContext(ctx context.Context) EntityRecognizerLanguageCodeOutput {
+	return o
+}
+
+func (o EntityRecognizerLanguageCodeOutput) ToEntityRecognizerLanguageCodePtrOutput() EntityRecognizerLanguageCodePtrOutput {
+	return o.ToEntityRecognizerLanguageCodePtrOutputWithContext(context.Background())
+}
+
+func (o EntityRecognizerLanguageCodeOutput) ToEntityRecognizerLanguageCodePtrOutputWithContext(ctx context.Context) EntityRecognizerLanguageCodePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EntityRecognizerLanguageCode) *EntityRecognizerLanguageCode {
+		return &v
+	}).(EntityRecognizerLanguageCodePtrOutput)
+}
+
+func (o EntityRecognizerLanguageCodeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o EntityRecognizerLanguageCodeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e EntityRecognizerLanguageCode) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o EntityRecognizerLanguageCodeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o EntityRecognizerLanguageCodeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e EntityRecognizerLanguageCode) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type EntityRecognizerLanguageCodePtrOutput struct{ *pulumi.OutputState }
+
+func (EntityRecognizerLanguageCodePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EntityRecognizerLanguageCode)(nil)).Elem()
+}
+
+func (o EntityRecognizerLanguageCodePtrOutput) ToEntityRecognizerLanguageCodePtrOutput() EntityRecognizerLanguageCodePtrOutput {
+	return o
+}
+
+func (o EntityRecognizerLanguageCodePtrOutput) ToEntityRecognizerLanguageCodePtrOutputWithContext(ctx context.Context) EntityRecognizerLanguageCodePtrOutput {
+	return o
+}
+
+func (o EntityRecognizerLanguageCodePtrOutput) Elem() EntityRecognizerLanguageCodeOutput {
+	return o.ApplyT(func(v *EntityRecognizerLanguageCode) EntityRecognizerLanguageCode {
+		if v != nil {
+			return *v
+		}
+		var ret EntityRecognizerLanguageCode
+		return ret
+	}).(EntityRecognizerLanguageCodeOutput)
+}
+
+func (o EntityRecognizerLanguageCodePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o EntityRecognizerLanguageCodePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *EntityRecognizerLanguageCode) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// EntityRecognizerLanguageCodeInput is an input type that accepts values of the EntityRecognizerLanguageCode enum
+// A concrete instance of `EntityRecognizerLanguageCodeInput` can be one of the following:
+//
+//	EntityRecognizerLanguageCodeEn
+//	EntityRecognizerLanguageCodeEs
+//	EntityRecognizerLanguageCodeFr
+//	EntityRecognizerLanguageCodeDe
+//	EntityRecognizerLanguageCodeIt
+//	EntityRecognizerLanguageCodePt
+//	EntityRecognizerLanguageCodeAr
+//	EntityRecognizerLanguageCodeHi
+//	EntityRecognizerLanguageCodeJa
+//	EntityRecognizerLanguageCodeKo
+//	EntityRecognizerLanguageCodeZh
+//	EntityRecognizerLanguageCodeZhTw
+type EntityRecognizerLanguageCodeInput interface {
+	pulumi.Input
+
+	ToEntityRecognizerLanguageCodeOutput() EntityRecognizerLanguageCodeOutput
+	ToEntityRecognizerLanguageCodeOutputWithContext(context.Context) EntityRecognizerLanguageCodeOutput
+}
+
+var entityRecognizerLanguageCodePtrType = reflect.TypeOf((**EntityRecognizerLanguageCode)(nil)).Elem()
+
+type EntityRecognizerLanguageCodePtrInput interface {
+	pulumi.Input
+
+	ToEntityRecognizerLanguageCodePtrOutput() EntityRecognizerLanguageCodePtrOutput
+	ToEntityRecognizerLanguageCodePtrOutputWithContext(context.Context) EntityRecognizerLanguageCodePtrOutput
+}
+
+type entityRecognizerLanguageCodePtr string
+
+func EntityRecognizerLanguageCodePtr(v string) EntityRecognizerLanguageCodePtrInput {
+	return (*entityRecognizerLanguageCodePtr)(&v)
+}
+
+func (*entityRecognizerLanguageCodePtr) ElementType() reflect.Type {
+	return entityRecognizerLanguageCodePtrType
+}
+
+func (in *entityRecognizerLanguageCodePtr) ToEntityRecognizerLanguageCodePtrOutput() EntityRecognizerLanguageCodePtrOutput {
+	return pulumi.ToOutput(in).(EntityRecognizerLanguageCodePtrOutput)
+}
+
+func (in *entityRecognizerLanguageCodePtr) ToEntityRecognizerLanguageCodePtrOutputWithContext(ctx context.Context) EntityRecognizerLanguageCodePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(EntityRecognizerLanguageCodePtrOutput)
+}
+
 // Classification mode indicates whether the documents are `MULTI_CLASS` or `MULTI_LABEL` .
 type FlywheelDocumentClassificationConfigMode string
 
@@ -1931,6 +2781,16 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DocumentClassifierLanguageCodePtrInput)(nil)).Elem(), DocumentClassifierLanguageCode("en"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DocumentClassifierModeInput)(nil)).Elem(), DocumentClassifierMode("MULTI_CLASS"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DocumentClassifierModePtrInput)(nil)).Elem(), DocumentClassifierMode("MULTI_CLASS"))
+	pulumi.RegisterInputType(reflect.TypeOf((*EntityRecognizerAugmentedManifestsListItemDocumentTypeInput)(nil)).Elem(), EntityRecognizerAugmentedManifestsListItemDocumentType("PLAIN_TEXT_DOCUMENT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*EntityRecognizerAugmentedManifestsListItemDocumentTypePtrInput)(nil)).Elem(), EntityRecognizerAugmentedManifestsListItemDocumentType("PLAIN_TEXT_DOCUMENT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*EntityRecognizerAugmentedManifestsListItemSplitInput)(nil)).Elem(), EntityRecognizerAugmentedManifestsListItemSplit("TRAIN"))
+	pulumi.RegisterInputType(reflect.TypeOf((*EntityRecognizerAugmentedManifestsListItemSplitPtrInput)(nil)).Elem(), EntityRecognizerAugmentedManifestsListItemSplit("TRAIN"))
+	pulumi.RegisterInputType(reflect.TypeOf((*EntityRecognizerDocumentsInputFormatInput)(nil)).Elem(), EntityRecognizerDocumentsInputFormat("ONE_DOC_PER_FILE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*EntityRecognizerDocumentsInputFormatPtrInput)(nil)).Elem(), EntityRecognizerDocumentsInputFormat("ONE_DOC_PER_FILE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*EntityRecognizerInputDataConfigDataFormatInput)(nil)).Elem(), EntityRecognizerInputDataConfigDataFormat("COMPREHEND_CSV"))
+	pulumi.RegisterInputType(reflect.TypeOf((*EntityRecognizerInputDataConfigDataFormatPtrInput)(nil)).Elem(), EntityRecognizerInputDataConfigDataFormat("COMPREHEND_CSV"))
+	pulumi.RegisterInputType(reflect.TypeOf((*EntityRecognizerLanguageCodeInput)(nil)).Elem(), EntityRecognizerLanguageCode("en"))
+	pulumi.RegisterInputType(reflect.TypeOf((*EntityRecognizerLanguageCodePtrInput)(nil)).Elem(), EntityRecognizerLanguageCode("en"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FlywheelDocumentClassificationConfigModeInput)(nil)).Elem(), FlywheelDocumentClassificationConfigMode("MULTI_CLASS"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FlywheelDocumentClassificationConfigModePtrInput)(nil)).Elem(), FlywheelDocumentClassificationConfigMode("MULTI_CLASS"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FlywheelModelTypeInput)(nil)).Elem(), FlywheelModelType("DOCUMENT_CLASSIFIER"))
@@ -1954,6 +2814,16 @@ func init() {
 	pulumi.RegisterOutputType(DocumentClassifierLanguageCodePtrOutput{})
 	pulumi.RegisterOutputType(DocumentClassifierModeOutput{})
 	pulumi.RegisterOutputType(DocumentClassifierModePtrOutput{})
+	pulumi.RegisterOutputType(EntityRecognizerAugmentedManifestsListItemDocumentTypeOutput{})
+	pulumi.RegisterOutputType(EntityRecognizerAugmentedManifestsListItemDocumentTypePtrOutput{})
+	pulumi.RegisterOutputType(EntityRecognizerAugmentedManifestsListItemSplitOutput{})
+	pulumi.RegisterOutputType(EntityRecognizerAugmentedManifestsListItemSplitPtrOutput{})
+	pulumi.RegisterOutputType(EntityRecognizerDocumentsInputFormatOutput{})
+	pulumi.RegisterOutputType(EntityRecognizerDocumentsInputFormatPtrOutput{})
+	pulumi.RegisterOutputType(EntityRecognizerInputDataConfigDataFormatOutput{})
+	pulumi.RegisterOutputType(EntityRecognizerInputDataConfigDataFormatPtrOutput{})
+	pulumi.RegisterOutputType(EntityRecognizerLanguageCodeOutput{})
+	pulumi.RegisterOutputType(EntityRecognizerLanguageCodePtrOutput{})
 	pulumi.RegisterOutputType(FlywheelDocumentClassificationConfigModeOutput{})
 	pulumi.RegisterOutputType(FlywheelDocumentClassificationConfigModePtrOutput{})
 	pulumi.RegisterOutputType(FlywheelModelTypeOutput{})

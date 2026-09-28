@@ -25,6 +25,7 @@ namespace Pulumi.AwsNative.Connect.Outputs
         ///  *Length Constraints*: Minimum length of 0. Maximum length of 1024.
         /// </summary>
         public readonly string? Instructions;
+        public readonly Outputs.EvaluationFormMetricConfiguration? MetricConfiguration;
         /// <summary>
         /// The flag to enable not applicable answers to the question.
         /// </summary>
@@ -65,6 +66,8 @@ namespace Pulumi.AwsNative.Connect.Outputs
 
             string? instructions,
 
+            Outputs.EvaluationFormMetricConfiguration? metricConfiguration,
+
             bool? notApplicableEnabled,
 
             Pulumi.AwsNative.Connect.EvaluationFormQuestionQuestionType questionType,
@@ -81,6 +84,7 @@ namespace Pulumi.AwsNative.Connect.Outputs
         {
             Enablement = enablement;
             Instructions = instructions;
+            MetricConfiguration = metricConfiguration;
             NotApplicableEnabled = notApplicableEnabled;
             QuestionType = questionType;
             QuestionTypeProperties = questionTypeProperties;

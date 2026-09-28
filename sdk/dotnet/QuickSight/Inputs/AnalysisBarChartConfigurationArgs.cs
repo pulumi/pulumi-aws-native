@@ -54,6 +54,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         [Input("dataLabels")]
         public Input<Inputs.AnalysisDataLabelOptionsArgs>? DataLabels { get; set; }
 
+        [Input("defaultSeriesSettings")]
+        public Input<Inputs.AnalysisBarChartDefaultSeriesSettingsArgs>? DefaultSeriesSettings { get; set; }
+
         /// <summary>
         /// The field wells of the visual.
         /// </summary>
@@ -91,6 +94,14 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         {
             get => _referenceLines ?? (_referenceLines = new InputList<Inputs.AnalysisReferenceLineArgs>());
             set => _referenceLines = value;
+        }
+
+        [Input("series")]
+        private InputList<Inputs.AnalysisBarSeriesItemArgs>? _series;
+        public InputList<Inputs.AnalysisBarSeriesItemArgs> Series
+        {
+            get => _series ?? (_series = new InputList<Inputs.AnalysisBarSeriesItemArgs>());
+            set => _series = value;
         }
 
         /// <summary>

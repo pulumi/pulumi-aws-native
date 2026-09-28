@@ -167,6 +167,39 @@ namespace Pulumi.AwsNative.Smsvoice
     }
 
     /// <summary>
+    /// The status of the registration attachment.
+    /// </summary>
+    [EnumType]
+    public readonly struct RegistrationAttachmentAttachmentStatus : IEquatable<RegistrationAttachmentAttachmentStatus>
+    {
+        private readonly string _value;
+
+        private RegistrationAttachmentAttachmentStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static RegistrationAttachmentAttachmentStatus UploadInProgress { get; } = new RegistrationAttachmentAttachmentStatus("UPLOAD_IN_PROGRESS");
+        public static RegistrationAttachmentAttachmentStatus UploadComplete { get; } = new RegistrationAttachmentAttachmentStatus("UPLOAD_COMPLETE");
+        public static RegistrationAttachmentAttachmentStatus UploadFailed { get; } = new RegistrationAttachmentAttachmentStatus("UPLOAD_FAILED");
+        public static RegistrationAttachmentAttachmentStatus Deleted { get; } = new RegistrationAttachmentAttachmentStatus("DELETED");
+
+        public static bool operator ==(RegistrationAttachmentAttachmentStatus left, RegistrationAttachmentAttachmentStatus right) => left.Equals(right);
+        public static bool operator !=(RegistrationAttachmentAttachmentStatus left, RegistrationAttachmentAttachmentStatus right) => !left.Equals(right);
+
+        public static explicit operator string(RegistrationAttachmentAttachmentStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is RegistrationAttachmentAttachmentStatus other && Equals(other);
+        public bool Equals(RegistrationAttachmentAttachmentStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The status of the registration.
     /// </summary>
     [EnumType]
@@ -198,6 +231,38 @@ namespace Pulumi.AwsNative.Smsvoice
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is RegistrationStatus other && Equals(other);
         public bool Equals(RegistrationStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The status of the verified destination phone number. PENDING means the phone number has not been verified yet; VERIFIED means it is verified and can receive messages.
+    /// </summary>
+    [EnumType]
+    public readonly struct VerifiedDestinationNumberStatus : IEquatable<VerifiedDestinationNumberStatus>
+    {
+        private readonly string _value;
+
+        private VerifiedDestinationNumberStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static VerifiedDestinationNumberStatus Pending { get; } = new VerifiedDestinationNumberStatus("PENDING");
+        public static VerifiedDestinationNumberStatus Verified { get; } = new VerifiedDestinationNumberStatus("VERIFIED");
+        public static VerifiedDestinationNumberStatus Unsupported { get; } = new VerifiedDestinationNumberStatus("UNSUPPORTED");
+
+        public static bool operator ==(VerifiedDestinationNumberStatus left, VerifiedDestinationNumberStatus right) => left.Equals(right);
+        public static bool operator !=(VerifiedDestinationNumberStatus left, VerifiedDestinationNumberStatus right) => !left.Equals(right);
+
+        public static explicit operator string(VerifiedDestinationNumberStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is VerifiedDestinationNumberStatus other && Equals(other);
+        public bool Equals(VerifiedDestinationNumberStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

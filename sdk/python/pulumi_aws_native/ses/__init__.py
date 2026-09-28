@@ -13,6 +13,7 @@ from .contact_list import *
 from .custom_verification_email_template import *
 from .dedicated_ip_pool import *
 from .email_identity import *
+from .email_identity_certificate import *
 from .get_configuration_set import *
 from .get_configuration_set_event_destination import *
 from .get_contact_list import *

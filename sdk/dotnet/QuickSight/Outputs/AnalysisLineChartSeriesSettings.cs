@@ -13,6 +13,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisLineChartSeriesSettings
     {
+        public readonly Outputs.AnalysisDecalSettings? DecalSettings;
         /// <summary>
         /// Line styles options for a line series in `LineChartVisual` .
         /// </summary>
@@ -24,10 +25,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 
         [OutputConstructor]
         private AnalysisLineChartSeriesSettings(
+            Outputs.AnalysisDecalSettings? decalSettings,
+
             Outputs.AnalysisLineChartLineStyleSettings? lineStyleSettings,
 
             Outputs.AnalysisLineChartMarkerStyleSettings? markerStyleSettings)
         {
+            DecalSettings = decalSettings;
             LineStyleSettings = lineStyleSettings;
             MarkerStyleSettings = markerStyleSettings;
         }

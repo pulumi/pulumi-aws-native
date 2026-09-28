@@ -2882,6 +2882,714 @@ func (o DashboardWidgetConfigArrayOutput) Index(i pulumi.IntInput) DashboardWidg
 	}).(DashboardWidgetConfigOutput)
 }
 
+// An absolute or relative date range.
+type ScheduledReportDateTimeRange struct {
+	// The end of the range.
+	EndTime ScheduledReportDateTimeValue `pulumi:"endTime"`
+	// The start of the range.
+	StartTime ScheduledReportDateTimeValue `pulumi:"startTime"`
+}
+
+// ScheduledReportDateTimeRangeInput is an input type that accepts ScheduledReportDateTimeRangeArgs and ScheduledReportDateTimeRangeOutput values.
+// You can construct a concrete instance of `ScheduledReportDateTimeRangeInput` via:
+//
+//	ScheduledReportDateTimeRangeArgs{...}
+type ScheduledReportDateTimeRangeInput interface {
+	pulumi.Input
+
+	ToScheduledReportDateTimeRangeOutput() ScheduledReportDateTimeRangeOutput
+	ToScheduledReportDateTimeRangeOutputWithContext(context.Context) ScheduledReportDateTimeRangeOutput
+}
+
+// An absolute or relative date range.
+type ScheduledReportDateTimeRangeArgs struct {
+	// The end of the range.
+	EndTime ScheduledReportDateTimeValueInput `pulumi:"endTime"`
+	// The start of the range.
+	StartTime ScheduledReportDateTimeValueInput `pulumi:"startTime"`
+}
+
+func (ScheduledReportDateTimeRangeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScheduledReportDateTimeRange)(nil)).Elem()
+}
+
+func (i ScheduledReportDateTimeRangeArgs) ToScheduledReportDateTimeRangeOutput() ScheduledReportDateTimeRangeOutput {
+	return i.ToScheduledReportDateTimeRangeOutputWithContext(context.Background())
+}
+
+func (i ScheduledReportDateTimeRangeArgs) ToScheduledReportDateTimeRangeOutputWithContext(ctx context.Context) ScheduledReportDateTimeRangeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScheduledReportDateTimeRangeOutput)
+}
+
+func (i ScheduledReportDateTimeRangeArgs) ToScheduledReportDateTimeRangePtrOutput() ScheduledReportDateTimeRangePtrOutput {
+	return i.ToScheduledReportDateTimeRangePtrOutputWithContext(context.Background())
+}
+
+func (i ScheduledReportDateTimeRangeArgs) ToScheduledReportDateTimeRangePtrOutputWithContext(ctx context.Context) ScheduledReportDateTimeRangePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScheduledReportDateTimeRangeOutput).ToScheduledReportDateTimeRangePtrOutputWithContext(ctx)
+}
+
+// ScheduledReportDateTimeRangePtrInput is an input type that accepts ScheduledReportDateTimeRangeArgs, ScheduledReportDateTimeRangePtr and ScheduledReportDateTimeRangePtrOutput values.
+// You can construct a concrete instance of `ScheduledReportDateTimeRangePtrInput` via:
+//
+//	        ScheduledReportDateTimeRangeArgs{...}
+//
+//	or:
+//
+//	        nil
+type ScheduledReportDateTimeRangePtrInput interface {
+	pulumi.Input
+
+	ToScheduledReportDateTimeRangePtrOutput() ScheduledReportDateTimeRangePtrOutput
+	ToScheduledReportDateTimeRangePtrOutputWithContext(context.Context) ScheduledReportDateTimeRangePtrOutput
+}
+
+type scheduledReportDateTimeRangePtrType ScheduledReportDateTimeRangeArgs
+
+func ScheduledReportDateTimeRangePtr(v *ScheduledReportDateTimeRangeArgs) ScheduledReportDateTimeRangePtrInput {
+	return (*scheduledReportDateTimeRangePtrType)(v)
+}
+
+func (*scheduledReportDateTimeRangePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ScheduledReportDateTimeRange)(nil)).Elem()
+}
+
+func (i *scheduledReportDateTimeRangePtrType) ToScheduledReportDateTimeRangePtrOutput() ScheduledReportDateTimeRangePtrOutput {
+	return i.ToScheduledReportDateTimeRangePtrOutputWithContext(context.Background())
+}
+
+func (i *scheduledReportDateTimeRangePtrType) ToScheduledReportDateTimeRangePtrOutputWithContext(ctx context.Context) ScheduledReportDateTimeRangePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScheduledReportDateTimeRangePtrOutput)
+}
+
+// An absolute or relative date range.
+type ScheduledReportDateTimeRangeOutput struct{ *pulumi.OutputState }
+
+func (ScheduledReportDateTimeRangeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScheduledReportDateTimeRange)(nil)).Elem()
+}
+
+func (o ScheduledReportDateTimeRangeOutput) ToScheduledReportDateTimeRangeOutput() ScheduledReportDateTimeRangeOutput {
+	return o
+}
+
+func (o ScheduledReportDateTimeRangeOutput) ToScheduledReportDateTimeRangeOutputWithContext(ctx context.Context) ScheduledReportDateTimeRangeOutput {
+	return o
+}
+
+func (o ScheduledReportDateTimeRangeOutput) ToScheduledReportDateTimeRangePtrOutput() ScheduledReportDateTimeRangePtrOutput {
+	return o.ToScheduledReportDateTimeRangePtrOutputWithContext(context.Background())
+}
+
+func (o ScheduledReportDateTimeRangeOutput) ToScheduledReportDateTimeRangePtrOutputWithContext(ctx context.Context) ScheduledReportDateTimeRangePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ScheduledReportDateTimeRange) *ScheduledReportDateTimeRange {
+		return &v
+	}).(ScheduledReportDateTimeRangePtrOutput)
+}
+
+// The end of the range.
+func (o ScheduledReportDateTimeRangeOutput) EndTime() ScheduledReportDateTimeValueOutput {
+	return o.ApplyT(func(v ScheduledReportDateTimeRange) ScheduledReportDateTimeValue { return v.EndTime }).(ScheduledReportDateTimeValueOutput)
+}
+
+// The start of the range.
+func (o ScheduledReportDateTimeRangeOutput) StartTime() ScheduledReportDateTimeValueOutput {
+	return o.ApplyT(func(v ScheduledReportDateTimeRange) ScheduledReportDateTimeValue { return v.StartTime }).(ScheduledReportDateTimeValueOutput)
+}
+
+type ScheduledReportDateTimeRangePtrOutput struct{ *pulumi.OutputState }
+
+func (ScheduledReportDateTimeRangePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ScheduledReportDateTimeRange)(nil)).Elem()
+}
+
+func (o ScheduledReportDateTimeRangePtrOutput) ToScheduledReportDateTimeRangePtrOutput() ScheduledReportDateTimeRangePtrOutput {
+	return o
+}
+
+func (o ScheduledReportDateTimeRangePtrOutput) ToScheduledReportDateTimeRangePtrOutputWithContext(ctx context.Context) ScheduledReportDateTimeRangePtrOutput {
+	return o
+}
+
+func (o ScheduledReportDateTimeRangePtrOutput) Elem() ScheduledReportDateTimeRangeOutput {
+	return o.ApplyT(func(v *ScheduledReportDateTimeRange) ScheduledReportDateTimeRange {
+		if v != nil {
+			return *v
+		}
+		var ret ScheduledReportDateTimeRange
+		return ret
+	}).(ScheduledReportDateTimeRangeOutput)
+}
+
+// The end of the range.
+func (o ScheduledReportDateTimeRangePtrOutput) EndTime() ScheduledReportDateTimeValuePtrOutput {
+	return o.ApplyT(func(v *ScheduledReportDateTimeRange) *ScheduledReportDateTimeValue {
+		if v == nil {
+			return nil
+		}
+		return &v.EndTime
+	}).(ScheduledReportDateTimeValuePtrOutput)
+}
+
+// The start of the range.
+func (o ScheduledReportDateTimeRangePtrOutput) StartTime() ScheduledReportDateTimeValuePtrOutput {
+	return o.ApplyT(func(v *ScheduledReportDateTimeRange) *ScheduledReportDateTimeValue {
+		if v == nil {
+			return nil
+		}
+		return &v.StartTime
+	}).(ScheduledReportDateTimeValuePtrOutput)
+}
+
+// A date expressed either as an absolute instant or as an offset from now.
+type ScheduledReportDateTimeValue struct {
+	// Whether Value is an absolute date or a duration relative to now.
+	Type ScheduledReportDateTimeType `pulumi:"type"`
+	// The date, or an ISO 8601 duration when Type is RELATIVE.
+	Value string `pulumi:"value"`
+}
+
+// ScheduledReportDateTimeValueInput is an input type that accepts ScheduledReportDateTimeValueArgs and ScheduledReportDateTimeValueOutput values.
+// You can construct a concrete instance of `ScheduledReportDateTimeValueInput` via:
+//
+//	ScheduledReportDateTimeValueArgs{...}
+type ScheduledReportDateTimeValueInput interface {
+	pulumi.Input
+
+	ToScheduledReportDateTimeValueOutput() ScheduledReportDateTimeValueOutput
+	ToScheduledReportDateTimeValueOutputWithContext(context.Context) ScheduledReportDateTimeValueOutput
+}
+
+// A date expressed either as an absolute instant or as an offset from now.
+type ScheduledReportDateTimeValueArgs struct {
+	// Whether Value is an absolute date or a duration relative to now.
+	Type ScheduledReportDateTimeTypeInput `pulumi:"type"`
+	// The date, or an ISO 8601 duration when Type is RELATIVE.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (ScheduledReportDateTimeValueArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScheduledReportDateTimeValue)(nil)).Elem()
+}
+
+func (i ScheduledReportDateTimeValueArgs) ToScheduledReportDateTimeValueOutput() ScheduledReportDateTimeValueOutput {
+	return i.ToScheduledReportDateTimeValueOutputWithContext(context.Background())
+}
+
+func (i ScheduledReportDateTimeValueArgs) ToScheduledReportDateTimeValueOutputWithContext(ctx context.Context) ScheduledReportDateTimeValueOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScheduledReportDateTimeValueOutput)
+}
+
+func (i ScheduledReportDateTimeValueArgs) ToScheduledReportDateTimeValuePtrOutput() ScheduledReportDateTimeValuePtrOutput {
+	return i.ToScheduledReportDateTimeValuePtrOutputWithContext(context.Background())
+}
+
+func (i ScheduledReportDateTimeValueArgs) ToScheduledReportDateTimeValuePtrOutputWithContext(ctx context.Context) ScheduledReportDateTimeValuePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScheduledReportDateTimeValueOutput).ToScheduledReportDateTimeValuePtrOutputWithContext(ctx)
+}
+
+// ScheduledReportDateTimeValuePtrInput is an input type that accepts ScheduledReportDateTimeValueArgs, ScheduledReportDateTimeValuePtr and ScheduledReportDateTimeValuePtrOutput values.
+// You can construct a concrete instance of `ScheduledReportDateTimeValuePtrInput` via:
+//
+//	        ScheduledReportDateTimeValueArgs{...}
+//
+//	or:
+//
+//	        nil
+type ScheduledReportDateTimeValuePtrInput interface {
+	pulumi.Input
+
+	ToScheduledReportDateTimeValuePtrOutput() ScheduledReportDateTimeValuePtrOutput
+	ToScheduledReportDateTimeValuePtrOutputWithContext(context.Context) ScheduledReportDateTimeValuePtrOutput
+}
+
+type scheduledReportDateTimeValuePtrType ScheduledReportDateTimeValueArgs
+
+func ScheduledReportDateTimeValuePtr(v *ScheduledReportDateTimeValueArgs) ScheduledReportDateTimeValuePtrInput {
+	return (*scheduledReportDateTimeValuePtrType)(v)
+}
+
+func (*scheduledReportDateTimeValuePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ScheduledReportDateTimeValue)(nil)).Elem()
+}
+
+func (i *scheduledReportDateTimeValuePtrType) ToScheduledReportDateTimeValuePtrOutput() ScheduledReportDateTimeValuePtrOutput {
+	return i.ToScheduledReportDateTimeValuePtrOutputWithContext(context.Background())
+}
+
+func (i *scheduledReportDateTimeValuePtrType) ToScheduledReportDateTimeValuePtrOutputWithContext(ctx context.Context) ScheduledReportDateTimeValuePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScheduledReportDateTimeValuePtrOutput)
+}
+
+// A date expressed either as an absolute instant or as an offset from now.
+type ScheduledReportDateTimeValueOutput struct{ *pulumi.OutputState }
+
+func (ScheduledReportDateTimeValueOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScheduledReportDateTimeValue)(nil)).Elem()
+}
+
+func (o ScheduledReportDateTimeValueOutput) ToScheduledReportDateTimeValueOutput() ScheduledReportDateTimeValueOutput {
+	return o
+}
+
+func (o ScheduledReportDateTimeValueOutput) ToScheduledReportDateTimeValueOutputWithContext(ctx context.Context) ScheduledReportDateTimeValueOutput {
+	return o
+}
+
+func (o ScheduledReportDateTimeValueOutput) ToScheduledReportDateTimeValuePtrOutput() ScheduledReportDateTimeValuePtrOutput {
+	return o.ToScheduledReportDateTimeValuePtrOutputWithContext(context.Background())
+}
+
+func (o ScheduledReportDateTimeValueOutput) ToScheduledReportDateTimeValuePtrOutputWithContext(ctx context.Context) ScheduledReportDateTimeValuePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ScheduledReportDateTimeValue) *ScheduledReportDateTimeValue {
+		return &v
+	}).(ScheduledReportDateTimeValuePtrOutput)
+}
+
+// Whether Value is an absolute date or a duration relative to now.
+func (o ScheduledReportDateTimeValueOutput) Type() ScheduledReportDateTimeTypeOutput {
+	return o.ApplyT(func(v ScheduledReportDateTimeValue) ScheduledReportDateTimeType { return v.Type }).(ScheduledReportDateTimeTypeOutput)
+}
+
+// The date, or an ISO 8601 duration when Type is RELATIVE.
+func (o ScheduledReportDateTimeValueOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v ScheduledReportDateTimeValue) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type ScheduledReportDateTimeValuePtrOutput struct{ *pulumi.OutputState }
+
+func (ScheduledReportDateTimeValuePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ScheduledReportDateTimeValue)(nil)).Elem()
+}
+
+func (o ScheduledReportDateTimeValuePtrOutput) ToScheduledReportDateTimeValuePtrOutput() ScheduledReportDateTimeValuePtrOutput {
+	return o
+}
+
+func (o ScheduledReportDateTimeValuePtrOutput) ToScheduledReportDateTimeValuePtrOutputWithContext(ctx context.Context) ScheduledReportDateTimeValuePtrOutput {
+	return o
+}
+
+func (o ScheduledReportDateTimeValuePtrOutput) Elem() ScheduledReportDateTimeValueOutput {
+	return o.ApplyT(func(v *ScheduledReportDateTimeValue) ScheduledReportDateTimeValue {
+		if v != nil {
+			return *v
+		}
+		var ret ScheduledReportDateTimeValue
+		return ret
+	}).(ScheduledReportDateTimeValueOutput)
+}
+
+// Whether Value is an absolute date or a duration relative to now.
+func (o ScheduledReportDateTimeValuePtrOutput) Type() ScheduledReportDateTimeTypePtrOutput {
+	return o.ApplyT(func(v *ScheduledReportDateTimeValue) *ScheduledReportDateTimeType {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(ScheduledReportDateTimeTypePtrOutput)
+}
+
+// The date, or an ISO 8601 duration when Type is RELATIVE.
+func (o ScheduledReportDateTimeValuePtrOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ScheduledReportDateTimeValue) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Value
+	}).(pulumi.StringPtrOutput)
+}
+
+// The health of the scheduled report as of its last refresh.
+type ScheduledReportHealthStatus struct {
+	// The time at which the health status was last refreshed.
+	LastRefreshedAt *string `pulumi:"lastRefreshedAt"`
+	// Whether the scheduled report is healthy.
+	StatusCode ScheduledReportHealthStatusCode `pulumi:"statusCode"`
+}
+
+// The health of the scheduled report as of its last refresh.
+type ScheduledReportHealthStatusOutput struct{ *pulumi.OutputState }
+
+func (ScheduledReportHealthStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScheduledReportHealthStatus)(nil)).Elem()
+}
+
+func (o ScheduledReportHealthStatusOutput) ToScheduledReportHealthStatusOutput() ScheduledReportHealthStatusOutput {
+	return o
+}
+
+func (o ScheduledReportHealthStatusOutput) ToScheduledReportHealthStatusOutputWithContext(ctx context.Context) ScheduledReportHealthStatusOutput {
+	return o
+}
+
+// The time at which the health status was last refreshed.
+func (o ScheduledReportHealthStatusOutput) LastRefreshedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ScheduledReportHealthStatus) *string { return v.LastRefreshedAt }).(pulumi.StringPtrOutput)
+}
+
+// Whether the scheduled report is healthy.
+func (o ScheduledReportHealthStatusOutput) StatusCode() ScheduledReportHealthStatusCodeOutput {
+	return o.ApplyT(func(v ScheduledReportHealthStatus) ScheduledReportHealthStatusCode { return v.StatusCode }).(ScheduledReportHealthStatusCodeOutput)
+}
+
+type ScheduledReportHealthStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (ScheduledReportHealthStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ScheduledReportHealthStatus)(nil)).Elem()
+}
+
+func (o ScheduledReportHealthStatusPtrOutput) ToScheduledReportHealthStatusPtrOutput() ScheduledReportHealthStatusPtrOutput {
+	return o
+}
+
+func (o ScheduledReportHealthStatusPtrOutput) ToScheduledReportHealthStatusPtrOutputWithContext(ctx context.Context) ScheduledReportHealthStatusPtrOutput {
+	return o
+}
+
+func (o ScheduledReportHealthStatusPtrOutput) Elem() ScheduledReportHealthStatusOutput {
+	return o.ApplyT(func(v *ScheduledReportHealthStatus) ScheduledReportHealthStatus {
+		if v != nil {
+			return *v
+		}
+		var ret ScheduledReportHealthStatus
+		return ret
+	}).(ScheduledReportHealthStatusOutput)
+}
+
+// The time at which the health status was last refreshed.
+func (o ScheduledReportHealthStatusPtrOutput) LastRefreshedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ScheduledReportHealthStatus) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LastRefreshedAt
+	}).(pulumi.StringPtrOutput)
+}
+
+// Whether the scheduled report is healthy.
+func (o ScheduledReportHealthStatusPtrOutput) StatusCode() ScheduledReportHealthStatusCodePtrOutput {
+	return o.ApplyT(func(v *ScheduledReportHealthStatus) *ScheduledReportHealthStatusCode {
+		if v == nil {
+			return nil
+		}
+		return &v.StatusCode
+	}).(ScheduledReportHealthStatusCodePtrOutput)
+}
+
+// Defines when and how often a scheduled report runs.
+type ScheduledReportScheduleConfig struct {
+	// The schedule expression that specifies when to trigger the scheduled report run. This value must be a cron expression consisting of six fields separated by white spaces: cron(minutes hours day_of_month month day_of_week year).
+	ScheduleExpression *string `pulumi:"scheduleExpression"`
+	// The time zone for the schedule expression, for example, UTC.
+	ScheduleExpressionTimeZone *string `pulumi:"scheduleExpressionTimeZone"`
+	// The time period during which the schedule is active.
+	SchedulePeriod *ScheduledReportSchedulePeriod `pulumi:"schedulePeriod"`
+	// The state of the schedule. ENABLED means the scheduled report runs according to its schedule expression. DISABLED means the scheduled report is paused and will not run until re-enabled.
+	State *ScheduledReportScheduleState `pulumi:"state"`
+}
+
+// ScheduledReportScheduleConfigInput is an input type that accepts ScheduledReportScheduleConfigArgs and ScheduledReportScheduleConfigOutput values.
+// You can construct a concrete instance of `ScheduledReportScheduleConfigInput` via:
+//
+//	ScheduledReportScheduleConfigArgs{...}
+type ScheduledReportScheduleConfigInput interface {
+	pulumi.Input
+
+	ToScheduledReportScheduleConfigOutput() ScheduledReportScheduleConfigOutput
+	ToScheduledReportScheduleConfigOutputWithContext(context.Context) ScheduledReportScheduleConfigOutput
+}
+
+// Defines when and how often a scheduled report runs.
+type ScheduledReportScheduleConfigArgs struct {
+	// The schedule expression that specifies when to trigger the scheduled report run. This value must be a cron expression consisting of six fields separated by white spaces: cron(minutes hours day_of_month month day_of_week year).
+	ScheduleExpression pulumi.StringPtrInput `pulumi:"scheduleExpression"`
+	// The time zone for the schedule expression, for example, UTC.
+	ScheduleExpressionTimeZone pulumi.StringPtrInput `pulumi:"scheduleExpressionTimeZone"`
+	// The time period during which the schedule is active.
+	SchedulePeriod ScheduledReportSchedulePeriodPtrInput `pulumi:"schedulePeriod"`
+	// The state of the schedule. ENABLED means the scheduled report runs according to its schedule expression. DISABLED means the scheduled report is paused and will not run until re-enabled.
+	State ScheduledReportScheduleStatePtrInput `pulumi:"state"`
+}
+
+func (ScheduledReportScheduleConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScheduledReportScheduleConfig)(nil)).Elem()
+}
+
+func (i ScheduledReportScheduleConfigArgs) ToScheduledReportScheduleConfigOutput() ScheduledReportScheduleConfigOutput {
+	return i.ToScheduledReportScheduleConfigOutputWithContext(context.Background())
+}
+
+func (i ScheduledReportScheduleConfigArgs) ToScheduledReportScheduleConfigOutputWithContext(ctx context.Context) ScheduledReportScheduleConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScheduledReportScheduleConfigOutput)
+}
+
+// Defines when and how often a scheduled report runs.
+type ScheduledReportScheduleConfigOutput struct{ *pulumi.OutputState }
+
+func (ScheduledReportScheduleConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScheduledReportScheduleConfig)(nil)).Elem()
+}
+
+func (o ScheduledReportScheduleConfigOutput) ToScheduledReportScheduleConfigOutput() ScheduledReportScheduleConfigOutput {
+	return o
+}
+
+func (o ScheduledReportScheduleConfigOutput) ToScheduledReportScheduleConfigOutputWithContext(ctx context.Context) ScheduledReportScheduleConfigOutput {
+	return o
+}
+
+// The schedule expression that specifies when to trigger the scheduled report run. This value must be a cron expression consisting of six fields separated by white spaces: cron(minutes hours day_of_month month day_of_week year).
+func (o ScheduledReportScheduleConfigOutput) ScheduleExpression() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ScheduledReportScheduleConfig) *string { return v.ScheduleExpression }).(pulumi.StringPtrOutput)
+}
+
+// The time zone for the schedule expression, for example, UTC.
+func (o ScheduledReportScheduleConfigOutput) ScheduleExpressionTimeZone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ScheduledReportScheduleConfig) *string { return v.ScheduleExpressionTimeZone }).(pulumi.StringPtrOutput)
+}
+
+// The time period during which the schedule is active.
+func (o ScheduledReportScheduleConfigOutput) SchedulePeriod() ScheduledReportSchedulePeriodPtrOutput {
+	return o.ApplyT(func(v ScheduledReportScheduleConfig) *ScheduledReportSchedulePeriod { return v.SchedulePeriod }).(ScheduledReportSchedulePeriodPtrOutput)
+}
+
+// The state of the schedule. ENABLED means the scheduled report runs according to its schedule expression. DISABLED means the scheduled report is paused and will not run until re-enabled.
+func (o ScheduledReportScheduleConfigOutput) State() ScheduledReportScheduleStatePtrOutput {
+	return o.ApplyT(func(v ScheduledReportScheduleConfig) *ScheduledReportScheduleState { return v.State }).(ScheduledReportScheduleStatePtrOutput)
+}
+
+type ScheduledReportScheduleConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ScheduledReportScheduleConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ScheduledReportScheduleConfig)(nil)).Elem()
+}
+
+func (o ScheduledReportScheduleConfigPtrOutput) ToScheduledReportScheduleConfigPtrOutput() ScheduledReportScheduleConfigPtrOutput {
+	return o
+}
+
+func (o ScheduledReportScheduleConfigPtrOutput) ToScheduledReportScheduleConfigPtrOutputWithContext(ctx context.Context) ScheduledReportScheduleConfigPtrOutput {
+	return o
+}
+
+func (o ScheduledReportScheduleConfigPtrOutput) Elem() ScheduledReportScheduleConfigOutput {
+	return o.ApplyT(func(v *ScheduledReportScheduleConfig) ScheduledReportScheduleConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ScheduledReportScheduleConfig
+		return ret
+	}).(ScheduledReportScheduleConfigOutput)
+}
+
+// The schedule expression that specifies when to trigger the scheduled report run. This value must be a cron expression consisting of six fields separated by white spaces: cron(minutes hours day_of_month month day_of_week year).
+func (o ScheduledReportScheduleConfigPtrOutput) ScheduleExpression() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ScheduledReportScheduleConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ScheduleExpression
+	}).(pulumi.StringPtrOutput)
+}
+
+// The time zone for the schedule expression, for example, UTC.
+func (o ScheduledReportScheduleConfigPtrOutput) ScheduleExpressionTimeZone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ScheduledReportScheduleConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ScheduleExpressionTimeZone
+	}).(pulumi.StringPtrOutput)
+}
+
+// The time period during which the schedule is active.
+func (o ScheduledReportScheduleConfigPtrOutput) SchedulePeriod() ScheduledReportSchedulePeriodPtrOutput {
+	return o.ApplyT(func(v *ScheduledReportScheduleConfig) *ScheduledReportSchedulePeriod {
+		if v == nil {
+			return nil
+		}
+		return v.SchedulePeriod
+	}).(ScheduledReportSchedulePeriodPtrOutput)
+}
+
+// The state of the schedule. ENABLED means the scheduled report runs according to its schedule expression. DISABLED means the scheduled report is paused and will not run until re-enabled.
+func (o ScheduledReportScheduleConfigPtrOutput) State() ScheduledReportScheduleStatePtrOutput {
+	return o.ApplyT(func(v *ScheduledReportScheduleConfig) *ScheduledReportScheduleState {
+		if v == nil {
+			return nil
+		}
+		return v.State
+	}).(ScheduledReportScheduleStatePtrOutput)
+}
+
+// The window during which the schedule is active. When omitted the service defaults it. EndTime must be within three years of the time of the request.
+type ScheduledReportSchedulePeriod struct {
+	// The time at which the schedule stops being active.
+	EndTime *string `pulumi:"endTime"`
+	// The time at which the schedule becomes active.
+	StartTime *string `pulumi:"startTime"`
+}
+
+// ScheduledReportSchedulePeriodInput is an input type that accepts ScheduledReportSchedulePeriodArgs and ScheduledReportSchedulePeriodOutput values.
+// You can construct a concrete instance of `ScheduledReportSchedulePeriodInput` via:
+//
+//	ScheduledReportSchedulePeriodArgs{...}
+type ScheduledReportSchedulePeriodInput interface {
+	pulumi.Input
+
+	ToScheduledReportSchedulePeriodOutput() ScheduledReportSchedulePeriodOutput
+	ToScheduledReportSchedulePeriodOutputWithContext(context.Context) ScheduledReportSchedulePeriodOutput
+}
+
+// The window during which the schedule is active. When omitted the service defaults it. EndTime must be within three years of the time of the request.
+type ScheduledReportSchedulePeriodArgs struct {
+	// The time at which the schedule stops being active.
+	EndTime pulumi.StringPtrInput `pulumi:"endTime"`
+	// The time at which the schedule becomes active.
+	StartTime pulumi.StringPtrInput `pulumi:"startTime"`
+}
+
+func (ScheduledReportSchedulePeriodArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScheduledReportSchedulePeriod)(nil)).Elem()
+}
+
+func (i ScheduledReportSchedulePeriodArgs) ToScheduledReportSchedulePeriodOutput() ScheduledReportSchedulePeriodOutput {
+	return i.ToScheduledReportSchedulePeriodOutputWithContext(context.Background())
+}
+
+func (i ScheduledReportSchedulePeriodArgs) ToScheduledReportSchedulePeriodOutputWithContext(ctx context.Context) ScheduledReportSchedulePeriodOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScheduledReportSchedulePeriodOutput)
+}
+
+func (i ScheduledReportSchedulePeriodArgs) ToScheduledReportSchedulePeriodPtrOutput() ScheduledReportSchedulePeriodPtrOutput {
+	return i.ToScheduledReportSchedulePeriodPtrOutputWithContext(context.Background())
+}
+
+func (i ScheduledReportSchedulePeriodArgs) ToScheduledReportSchedulePeriodPtrOutputWithContext(ctx context.Context) ScheduledReportSchedulePeriodPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScheduledReportSchedulePeriodOutput).ToScheduledReportSchedulePeriodPtrOutputWithContext(ctx)
+}
+
+// ScheduledReportSchedulePeriodPtrInput is an input type that accepts ScheduledReportSchedulePeriodArgs, ScheduledReportSchedulePeriodPtr and ScheduledReportSchedulePeriodPtrOutput values.
+// You can construct a concrete instance of `ScheduledReportSchedulePeriodPtrInput` via:
+//
+//	        ScheduledReportSchedulePeriodArgs{...}
+//
+//	or:
+//
+//	        nil
+type ScheduledReportSchedulePeriodPtrInput interface {
+	pulumi.Input
+
+	ToScheduledReportSchedulePeriodPtrOutput() ScheduledReportSchedulePeriodPtrOutput
+	ToScheduledReportSchedulePeriodPtrOutputWithContext(context.Context) ScheduledReportSchedulePeriodPtrOutput
+}
+
+type scheduledReportSchedulePeriodPtrType ScheduledReportSchedulePeriodArgs
+
+func ScheduledReportSchedulePeriodPtr(v *ScheduledReportSchedulePeriodArgs) ScheduledReportSchedulePeriodPtrInput {
+	return (*scheduledReportSchedulePeriodPtrType)(v)
+}
+
+func (*scheduledReportSchedulePeriodPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ScheduledReportSchedulePeriod)(nil)).Elem()
+}
+
+func (i *scheduledReportSchedulePeriodPtrType) ToScheduledReportSchedulePeriodPtrOutput() ScheduledReportSchedulePeriodPtrOutput {
+	return i.ToScheduledReportSchedulePeriodPtrOutputWithContext(context.Background())
+}
+
+func (i *scheduledReportSchedulePeriodPtrType) ToScheduledReportSchedulePeriodPtrOutputWithContext(ctx context.Context) ScheduledReportSchedulePeriodPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScheduledReportSchedulePeriodPtrOutput)
+}
+
+// The window during which the schedule is active. When omitted the service defaults it. EndTime must be within three years of the time of the request.
+type ScheduledReportSchedulePeriodOutput struct{ *pulumi.OutputState }
+
+func (ScheduledReportSchedulePeriodOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScheduledReportSchedulePeriod)(nil)).Elem()
+}
+
+func (o ScheduledReportSchedulePeriodOutput) ToScheduledReportSchedulePeriodOutput() ScheduledReportSchedulePeriodOutput {
+	return o
+}
+
+func (o ScheduledReportSchedulePeriodOutput) ToScheduledReportSchedulePeriodOutputWithContext(ctx context.Context) ScheduledReportSchedulePeriodOutput {
+	return o
+}
+
+func (o ScheduledReportSchedulePeriodOutput) ToScheduledReportSchedulePeriodPtrOutput() ScheduledReportSchedulePeriodPtrOutput {
+	return o.ToScheduledReportSchedulePeriodPtrOutputWithContext(context.Background())
+}
+
+func (o ScheduledReportSchedulePeriodOutput) ToScheduledReportSchedulePeriodPtrOutputWithContext(ctx context.Context) ScheduledReportSchedulePeriodPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ScheduledReportSchedulePeriod) *ScheduledReportSchedulePeriod {
+		return &v
+	}).(ScheduledReportSchedulePeriodPtrOutput)
+}
+
+// The time at which the schedule stops being active.
+func (o ScheduledReportSchedulePeriodOutput) EndTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ScheduledReportSchedulePeriod) *string { return v.EndTime }).(pulumi.StringPtrOutput)
+}
+
+// The time at which the schedule becomes active.
+func (o ScheduledReportSchedulePeriodOutput) StartTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ScheduledReportSchedulePeriod) *string { return v.StartTime }).(pulumi.StringPtrOutput)
+}
+
+type ScheduledReportSchedulePeriodPtrOutput struct{ *pulumi.OutputState }
+
+func (ScheduledReportSchedulePeriodPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ScheduledReportSchedulePeriod)(nil)).Elem()
+}
+
+func (o ScheduledReportSchedulePeriodPtrOutput) ToScheduledReportSchedulePeriodPtrOutput() ScheduledReportSchedulePeriodPtrOutput {
+	return o
+}
+
+func (o ScheduledReportSchedulePeriodPtrOutput) ToScheduledReportSchedulePeriodPtrOutputWithContext(ctx context.Context) ScheduledReportSchedulePeriodPtrOutput {
+	return o
+}
+
+func (o ScheduledReportSchedulePeriodPtrOutput) Elem() ScheduledReportSchedulePeriodOutput {
+	return o.ApplyT(func(v *ScheduledReportSchedulePeriod) ScheduledReportSchedulePeriod {
+		if v != nil {
+			return *v
+		}
+		var ret ScheduledReportSchedulePeriod
+		return ret
+	}).(ScheduledReportSchedulePeriodOutput)
+}
+
+// The time at which the schedule stops being active.
+func (o ScheduledReportSchedulePeriodPtrOutput) EndTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ScheduledReportSchedulePeriod) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EndTime
+	}).(pulumi.StringPtrOutput)
+}
+
+// The time at which the schedule becomes active.
+func (o ScheduledReportSchedulePeriodPtrOutput) StartTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ScheduledReportSchedulePeriod) *string {
+		if v == nil {
+			return nil
+		}
+		return v.StartTime
+	}).(pulumi.StringPtrOutput)
+}
+
+// A key-value pair applied to the scheduled report.
+type ScheduledReportTag struct {
+	// The tag key.
+	Key string `pulumi:"key"`
+	// The tag value.
+	Value string `pulumi:"value"`
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardCostAndUsageExpressionInput)(nil)).Elem(), DashboardCostAndUsageExpressionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardCostAndUsageExpressionPtrInput)(nil)).Elem(), DashboardCostAndUsageExpressionArgs{})
@@ -2921,6 +3629,13 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardWidgetArrayInput)(nil)).Elem(), DashboardWidgetArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardWidgetConfigInput)(nil)).Elem(), DashboardWidgetConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardWidgetConfigArrayInput)(nil)).Elem(), DashboardWidgetConfigArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScheduledReportDateTimeRangeInput)(nil)).Elem(), ScheduledReportDateTimeRangeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScheduledReportDateTimeRangePtrInput)(nil)).Elem(), ScheduledReportDateTimeRangeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScheduledReportDateTimeValueInput)(nil)).Elem(), ScheduledReportDateTimeValueArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScheduledReportDateTimeValuePtrInput)(nil)).Elem(), ScheduledReportDateTimeValueArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScheduledReportScheduleConfigInput)(nil)).Elem(), ScheduledReportScheduleConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScheduledReportSchedulePeriodInput)(nil)).Elem(), ScheduledReportSchedulePeriodArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScheduledReportSchedulePeriodPtrInput)(nil)).Elem(), ScheduledReportSchedulePeriodArgs{})
 	pulumi.RegisterOutputType(DashboardCostAndUsageExpressionOutput{})
 	pulumi.RegisterOutputType(DashboardCostAndUsageExpressionPtrOutput{})
 	pulumi.RegisterOutputType(DashboardCostAndUsageExpressionArrayOutput{})
@@ -2959,4 +3674,14 @@ func init() {
 	pulumi.RegisterOutputType(DashboardWidgetArrayOutput{})
 	pulumi.RegisterOutputType(DashboardWidgetConfigOutput{})
 	pulumi.RegisterOutputType(DashboardWidgetConfigArrayOutput{})
+	pulumi.RegisterOutputType(ScheduledReportDateTimeRangeOutput{})
+	pulumi.RegisterOutputType(ScheduledReportDateTimeRangePtrOutput{})
+	pulumi.RegisterOutputType(ScheduledReportDateTimeValueOutput{})
+	pulumi.RegisterOutputType(ScheduledReportDateTimeValuePtrOutput{})
+	pulumi.RegisterOutputType(ScheduledReportHealthStatusOutput{})
+	pulumi.RegisterOutputType(ScheduledReportHealthStatusPtrOutput{})
+	pulumi.RegisterOutputType(ScheduledReportScheduleConfigOutput{})
+	pulumi.RegisterOutputType(ScheduledReportScheduleConfigPtrOutput{})
+	pulumi.RegisterOutputType(ScheduledReportSchedulePeriodOutput{})
+	pulumi.RegisterOutputType(ScheduledReportSchedulePeriodPtrOutput{})
 }

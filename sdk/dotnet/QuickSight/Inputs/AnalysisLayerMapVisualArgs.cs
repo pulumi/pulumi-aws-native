@@ -21,14 +21,17 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         /// <summary>
         /// The dataset that is used to create the layer map visual. You can't create a visual without a dataset.
         /// </summary>
-        [Input("dataSetIdentifier", required: true)]
-        public Input<string> DataSetIdentifier { get; set; } = null!;
+        [Input("dataSetIdentifier")]
+        public Input<string>? DataSetIdentifier { get; set; }
 
         [Input("subtitle")]
         public Input<Inputs.AnalysisVisualSubtitleLabelOptionsArgs>? Subtitle { get; set; }
 
         [Input("title")]
         public Input<Inputs.AnalysisVisualTitleLabelOptionsArgs>? Title { get; set; }
+
+        [Input("topicIdentifier")]
+        public Input<string>? TopicIdentifier { get; set; }
 
         /// <summary>
         /// The alt text for the visual.

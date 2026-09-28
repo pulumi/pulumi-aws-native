@@ -98,3 +98,33 @@ export const DashboardVisualType = {
 } as const;
 
 export type DashboardVisualType = (typeof DashboardVisualType)[keyof typeof DashboardVisualType];
+
+export const ScheduledReportDateTimeType = {
+    Absolute: "ABSOLUTE",
+    Relative: "RELATIVE",
+} as const;
+
+/**
+ * Whether a date value is absolute or relative.
+ */
+export type ScheduledReportDateTimeType = (typeof ScheduledReportDateTimeType)[keyof typeof ScheduledReportDateTimeType];
+
+export const ScheduledReportHealthStatusCode = {
+    Healthy: "HEALTHY",
+    Unhealthy: "UNHEALTHY",
+} as const;
+
+/**
+ * The health status of a scheduled report.
+ */
+export type ScheduledReportHealthStatusCode = (typeof ScheduledReportHealthStatusCode)[keyof typeof ScheduledReportHealthStatusCode];
+
+export const ScheduledReportScheduleState = {
+    Enabled: "ENABLED",
+    Disabled: "DISABLED",
+} as const;
+
+/**
+ * Whether the schedule is active.
+ */
+export type ScheduledReportScheduleState = (typeof ScheduledReportScheduleState)[keyof typeof ScheduledReportScheduleState];

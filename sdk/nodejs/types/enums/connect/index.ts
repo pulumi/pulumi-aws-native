@@ -173,6 +173,15 @@ export const EvaluationFormLanguageConfigurationFormLanguage = {
  */
 export type EvaluationFormLanguageConfigurationFormLanguage = (typeof EvaluationFormLanguageConfigurationFormLanguage)[keyof typeof EvaluationFormLanguageConfigurationFormLanguage];
 
+export const EvaluationFormMetricConfigurationMetricType = {
+    BusinessOutcome: "BUSINESS_OUTCOME",
+} as const;
+
+/**
+ * The type of the metric.
+ */
+export type EvaluationFormMetricConfigurationMetricType = (typeof EvaluationFormMetricConfigurationMetricType)[keyof typeof EvaluationFormMetricConfigurationMetricType];
+
 export const EvaluationFormMultiSelectQuestionPropertiesDisplayAs = {
     Dropdown: "DROPDOWN",
     Checkbox: "CHECKBOX",
@@ -821,6 +830,59 @@ export const UserVoiceEnhancementMode = {
  * The Voice Enhancement Mode setting.
  */
 export type UserVoiceEnhancementMode = (typeof UserVoiceEnhancementMode)[keyof typeof UserVoiceEnhancementMode];
+
+export const VocabularyLanguageCode = {
+    ArAe: "ar-AE",
+    DeCh: "de-CH",
+    DeDe: "de-DE",
+    EnAb: "en-AB",
+    EnAu: "en-AU",
+    EnGb: "en-GB",
+    EnIe: "en-IE",
+    EnIn: "en-IN",
+    EnUs: "en-US",
+    EnWl: "en-WL",
+    EsEs: "es-ES",
+    EsUs: "es-US",
+    FrCa: "fr-CA",
+    FrFr: "fr-FR",
+    HiIn: "hi-IN",
+    ItIt: "it-IT",
+    JaJp: "ja-JP",
+    KoKr: "ko-KR",
+    PtBr: "pt-BR",
+    PtPt: "pt-PT",
+    ZhCn: "zh-CN",
+    EnNz: "en-NZ",
+    EnZa: "en-ZA",
+    CaEs: "ca-ES",
+    DaDk: "da-DK",
+    FiFi: "fi-FI",
+    IdId: "id-ID",
+    MsMy: "ms-MY",
+    NlNl: "nl-NL",
+    NoNo: "no-NO",
+    PlPl: "pl-PL",
+    SvSe: "sv-SE",
+    TlPh: "tl-PH",
+} as const;
+
+/**
+ * The language code of the vocabulary entries.
+ */
+export type VocabularyLanguageCode = (typeof VocabularyLanguageCode)[keyof typeof VocabularyLanguageCode];
+
+export const VocabularyState = {
+    CreationInProgress: "CREATION_IN_PROGRESS",
+    Active: "ACTIVE",
+    CreationFailed: "CREATION_FAILED",
+    DeleteInProgress: "DELETE_IN_PROGRESS",
+} as const;
+
+/**
+ * The current state of the custom vocabulary.
+ */
+export type VocabularyState = (typeof VocabularyState)[keyof typeof VocabularyState];
 
 export const WorkspaceFontFamily = {
     Arial: "ARIAL",

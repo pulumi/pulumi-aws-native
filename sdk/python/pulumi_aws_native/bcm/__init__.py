@@ -9,5 +9,7 @@ import typing
 from ._enums import *
 from .dashboard import *
 from .get_dashboard import *
+from .get_scheduled_report import *
+from .scheduled_report import *
 from ._inputs import *
 from . import outputs

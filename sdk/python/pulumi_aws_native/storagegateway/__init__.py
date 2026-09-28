@@ -9,5 +9,7 @@ import typing
 from ._enums import *
 from .get_tape import *
 from .get_tape_pool import *
+from .get_volume import *
 from .tape import *
 from .tape_pool import *
+from .volume import *

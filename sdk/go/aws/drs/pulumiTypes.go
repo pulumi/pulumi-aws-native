@@ -161,6 +161,148 @@ type LaunchConfigurationTemplateTag struct {
 	Value string `pulumi:"value"`
 }
 
+type ReplicationConfigurationTemplatePitPolicyRule struct {
+	// Whether this rule is enabled or not.
+	Enabled *bool `pulumi:"enabled"`
+	// How often, in the chosen units, a snapshot should be taken.
+	Interval int `pulumi:"interval"`
+	// The duration to retain a snapshot for, in the chosen units.
+	RetentionDuration int `pulumi:"retentionDuration"`
+	// The ID of the rule.
+	RuleId *int `pulumi:"ruleId"`
+	// The units used to measure the interval and retentionDuration.
+	Units ReplicationConfigurationTemplatePitPolicyRuleUnits `pulumi:"units"`
+}
+
+// ReplicationConfigurationTemplatePitPolicyRuleInput is an input type that accepts ReplicationConfigurationTemplatePitPolicyRuleArgs and ReplicationConfigurationTemplatePitPolicyRuleOutput values.
+// You can construct a concrete instance of `ReplicationConfigurationTemplatePitPolicyRuleInput` via:
+//
+//	ReplicationConfigurationTemplatePitPolicyRuleArgs{...}
+type ReplicationConfigurationTemplatePitPolicyRuleInput interface {
+	pulumi.Input
+
+	ToReplicationConfigurationTemplatePitPolicyRuleOutput() ReplicationConfigurationTemplatePitPolicyRuleOutput
+	ToReplicationConfigurationTemplatePitPolicyRuleOutputWithContext(context.Context) ReplicationConfigurationTemplatePitPolicyRuleOutput
+}
+
+type ReplicationConfigurationTemplatePitPolicyRuleArgs struct {
+	// Whether this rule is enabled or not.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// How often, in the chosen units, a snapshot should be taken.
+	Interval pulumi.IntInput `pulumi:"interval"`
+	// The duration to retain a snapshot for, in the chosen units.
+	RetentionDuration pulumi.IntInput `pulumi:"retentionDuration"`
+	// The ID of the rule.
+	RuleId pulumi.IntPtrInput `pulumi:"ruleId"`
+	// The units used to measure the interval and retentionDuration.
+	Units ReplicationConfigurationTemplatePitPolicyRuleUnitsInput `pulumi:"units"`
+}
+
+func (ReplicationConfigurationTemplatePitPolicyRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicationConfigurationTemplatePitPolicyRule)(nil)).Elem()
+}
+
+func (i ReplicationConfigurationTemplatePitPolicyRuleArgs) ToReplicationConfigurationTemplatePitPolicyRuleOutput() ReplicationConfigurationTemplatePitPolicyRuleOutput {
+	return i.ToReplicationConfigurationTemplatePitPolicyRuleOutputWithContext(context.Background())
+}
+
+func (i ReplicationConfigurationTemplatePitPolicyRuleArgs) ToReplicationConfigurationTemplatePitPolicyRuleOutputWithContext(ctx context.Context) ReplicationConfigurationTemplatePitPolicyRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicationConfigurationTemplatePitPolicyRuleOutput)
+}
+
+// ReplicationConfigurationTemplatePitPolicyRuleArrayInput is an input type that accepts ReplicationConfigurationTemplatePitPolicyRuleArray and ReplicationConfigurationTemplatePitPolicyRuleArrayOutput values.
+// You can construct a concrete instance of `ReplicationConfigurationTemplatePitPolicyRuleArrayInput` via:
+//
+//	ReplicationConfigurationTemplatePitPolicyRuleArray{ ReplicationConfigurationTemplatePitPolicyRuleArgs{...} }
+type ReplicationConfigurationTemplatePitPolicyRuleArrayInput interface {
+	pulumi.Input
+
+	ToReplicationConfigurationTemplatePitPolicyRuleArrayOutput() ReplicationConfigurationTemplatePitPolicyRuleArrayOutput
+	ToReplicationConfigurationTemplatePitPolicyRuleArrayOutputWithContext(context.Context) ReplicationConfigurationTemplatePitPolicyRuleArrayOutput
+}
+
+type ReplicationConfigurationTemplatePitPolicyRuleArray []ReplicationConfigurationTemplatePitPolicyRuleInput
+
+func (ReplicationConfigurationTemplatePitPolicyRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ReplicationConfigurationTemplatePitPolicyRule)(nil)).Elem()
+}
+
+func (i ReplicationConfigurationTemplatePitPolicyRuleArray) ToReplicationConfigurationTemplatePitPolicyRuleArrayOutput() ReplicationConfigurationTemplatePitPolicyRuleArrayOutput {
+	return i.ToReplicationConfigurationTemplatePitPolicyRuleArrayOutputWithContext(context.Background())
+}
+
+func (i ReplicationConfigurationTemplatePitPolicyRuleArray) ToReplicationConfigurationTemplatePitPolicyRuleArrayOutputWithContext(ctx context.Context) ReplicationConfigurationTemplatePitPolicyRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicationConfigurationTemplatePitPolicyRuleArrayOutput)
+}
+
+type ReplicationConfigurationTemplatePitPolicyRuleOutput struct{ *pulumi.OutputState }
+
+func (ReplicationConfigurationTemplatePitPolicyRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicationConfigurationTemplatePitPolicyRule)(nil)).Elem()
+}
+
+func (o ReplicationConfigurationTemplatePitPolicyRuleOutput) ToReplicationConfigurationTemplatePitPolicyRuleOutput() ReplicationConfigurationTemplatePitPolicyRuleOutput {
+	return o
+}
+
+func (o ReplicationConfigurationTemplatePitPolicyRuleOutput) ToReplicationConfigurationTemplatePitPolicyRuleOutputWithContext(ctx context.Context) ReplicationConfigurationTemplatePitPolicyRuleOutput {
+	return o
+}
+
+// Whether this rule is enabled or not.
+func (o ReplicationConfigurationTemplatePitPolicyRuleOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ReplicationConfigurationTemplatePitPolicyRule) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// How often, in the chosen units, a snapshot should be taken.
+func (o ReplicationConfigurationTemplatePitPolicyRuleOutput) Interval() pulumi.IntOutput {
+	return o.ApplyT(func(v ReplicationConfigurationTemplatePitPolicyRule) int { return v.Interval }).(pulumi.IntOutput)
+}
+
+// The duration to retain a snapshot for, in the chosen units.
+func (o ReplicationConfigurationTemplatePitPolicyRuleOutput) RetentionDuration() pulumi.IntOutput {
+	return o.ApplyT(func(v ReplicationConfigurationTemplatePitPolicyRule) int { return v.RetentionDuration }).(pulumi.IntOutput)
+}
+
+// The ID of the rule.
+func (o ReplicationConfigurationTemplatePitPolicyRuleOutput) RuleId() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ReplicationConfigurationTemplatePitPolicyRule) *int { return v.RuleId }).(pulumi.IntPtrOutput)
+}
+
+// The units used to measure the interval and retentionDuration.
+func (o ReplicationConfigurationTemplatePitPolicyRuleOutput) Units() ReplicationConfigurationTemplatePitPolicyRuleUnitsOutput {
+	return o.ApplyT(func(v ReplicationConfigurationTemplatePitPolicyRule) ReplicationConfigurationTemplatePitPolicyRuleUnits {
+		return v.Units
+	}).(ReplicationConfigurationTemplatePitPolicyRuleUnitsOutput)
+}
+
+type ReplicationConfigurationTemplatePitPolicyRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (ReplicationConfigurationTemplatePitPolicyRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ReplicationConfigurationTemplatePitPolicyRule)(nil)).Elem()
+}
+
+func (o ReplicationConfigurationTemplatePitPolicyRuleArrayOutput) ToReplicationConfigurationTemplatePitPolicyRuleArrayOutput() ReplicationConfigurationTemplatePitPolicyRuleArrayOutput {
+	return o
+}
+
+func (o ReplicationConfigurationTemplatePitPolicyRuleArrayOutput) ToReplicationConfigurationTemplatePitPolicyRuleArrayOutputWithContext(ctx context.Context) ReplicationConfigurationTemplatePitPolicyRuleArrayOutput {
+	return o
+}
+
+func (o ReplicationConfigurationTemplatePitPolicyRuleArrayOutput) Index(i pulumi.IntInput) ReplicationConfigurationTemplatePitPolicyRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ReplicationConfigurationTemplatePitPolicyRule {
+		return vs[0].([]ReplicationConfigurationTemplatePitPolicyRule)[vs[1].(int)]
+	}).(ReplicationConfigurationTemplatePitPolicyRuleOutput)
+}
+
+type ReplicationConfigurationTemplateTag struct {
+	// The key of the tag.
+	Key string `pulumi:"key"`
+	// The value of the tag.
+	Value string `pulumi:"value"`
+}
+
 type SourceNetworkTag struct {
 	Key   string `pulumi:"key"`
 	Value string `pulumi:"value"`
@@ -169,6 +311,10 @@ type SourceNetworkTag struct {
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchConfigurationTemplateLicensingInput)(nil)).Elem(), LaunchConfigurationTemplateLicensingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchConfigurationTemplateLicensingPtrInput)(nil)).Elem(), LaunchConfigurationTemplateLicensingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationConfigurationTemplatePitPolicyRuleInput)(nil)).Elem(), ReplicationConfigurationTemplatePitPolicyRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationConfigurationTemplatePitPolicyRuleArrayInput)(nil)).Elem(), ReplicationConfigurationTemplatePitPolicyRuleArray{})
 	pulumi.RegisterOutputType(LaunchConfigurationTemplateLicensingOutput{})
 	pulumi.RegisterOutputType(LaunchConfigurationTemplateLicensingPtrOutput{})
+	pulumi.RegisterOutputType(ReplicationConfigurationTemplatePitPolicyRuleOutput{})
+	pulumi.RegisterOutputType(ReplicationConfigurationTemplatePitPolicyRuleArrayOutput{})
 }

@@ -17,6 +17,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// The axis to which you are binding all line series to.
         /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.AnalysisAxisBinding? AxisBinding;
+        public readonly Outputs.AnalysisDecalSettings? DecalSettings;
         /// <summary>
         /// Line styles options for all line series in the visual.
         /// </summary>
@@ -30,11 +31,14 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         private AnalysisLineChartDefaultSeriesSettings(
             Pulumi.AwsNative.QuickSight.AnalysisAxisBinding? axisBinding,
 
+            Outputs.AnalysisDecalSettings? decalSettings,
+
             Outputs.AnalysisLineChartLineStyleSettings? lineStyleSettings,
 
             Outputs.AnalysisLineChartMarkerStyleSettings? markerStyleSettings)
         {
             AxisBinding = axisBinding;
+            DecalSettings = decalSettings;
             LineStyleSettings = lineStyleSettings;
             MarkerStyleSettings = markerStyleSettings;
         }

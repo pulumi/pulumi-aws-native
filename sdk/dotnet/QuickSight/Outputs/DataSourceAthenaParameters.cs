@@ -16,6 +16,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DataSourceAthenaParameters
     {
+        public readonly string? ConsumerAccountRoleArn;
         /// <summary>
         /// An optional parameter that configures IAM Identity Center authentication to grant Quick Sight access to your workgroup.
         /// 
@@ -33,12 +34,15 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 
         [OutputConstructor]
         private DataSourceAthenaParameters(
+            string? consumerAccountRoleArn,
+
             Outputs.DataSourceIdentityCenterConfiguration? identityCenterConfiguration,
 
             string? roleArn,
 
             string? workGroup)
         {
+            ConsumerAccountRoleArn = consumerAccountRoleArn;
             IdentityCenterConfiguration = identityCenterConfiguration;
             RoleArn = roleArn;
             WorkGroup = workGroup;

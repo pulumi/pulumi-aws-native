@@ -7,10 +7,77 @@ import pulumi
 from enum import Enum
 
 __all__ = [
+    'LaunchConfigurationTemplateBootMode',
+    'LaunchConfigurationTemplateLaunchDisposition',
+    'LaunchConfigurationTemplateLaunchTemplateDiskConfVolumeType',
+    'LaunchConfigurationTemplatePostLaunchActionsDeployment',
+    'LaunchConfigurationTemplateSsmParameterStoreParameterParameterType',
+    'LaunchConfigurationTemplateTargetInstanceTypeRightSizingMethod',
     'NetworkMigrationDefinitionSourceConfigurationSourceEnvironment',
     'NetworkMigrationDefinitionTargetDeployment',
     'NetworkMigrationDefinitionTargetNetworkTopology',
 ]
+
+
+@pulumi.type_token("aws-native:mgn:LaunchConfigurationTemplateBootMode")
+class LaunchConfigurationTemplateBootMode(_builtins.str, Enum):
+    """
+    Launch configuration template boot mode.
+    """
+    LEGACY_BIOS = "LEGACY_BIOS"
+    UEFI = "UEFI"
+    USE_SOURCE = "USE_SOURCE"
+
+
+@pulumi.type_token("aws-native:mgn:LaunchConfigurationTemplateLaunchDisposition")
+class LaunchConfigurationTemplateLaunchDisposition(_builtins.str, Enum):
+    """
+    Launch disposition.
+    """
+    STOPPED = "STOPPED"
+    STARTED = "STARTED"
+
+
+@pulumi.type_token("aws-native:mgn:LaunchConfigurationTemplateLaunchTemplateDiskConfVolumeType")
+class LaunchConfigurationTemplateLaunchTemplateDiskConfVolumeType(_builtins.str, Enum):
+    """
+    Launch template disk volume type configuration.
+    """
+    IO1 = "io1"
+    IO2 = "io2"
+    GP3 = "gp3"
+    GP2 = "gp2"
+    ST1 = "st1"
+    SC1 = "sc1"
+    STANDARD = "standard"
+
+
+@pulumi.type_token("aws-native:mgn:LaunchConfigurationTemplatePostLaunchActionsDeployment")
+class LaunchConfigurationTemplatePostLaunchActionsDeployment(_builtins.str, Enum):
+    """
+    Deployment type in which AWS Systems Manager Documents will be executed.
+    """
+    TEST_AND_CUTOVER = "TEST_AND_CUTOVER"
+    CUTOVER_ONLY = "CUTOVER_ONLY"
+    TEST_ONLY = "TEST_ONLY"
+
+
+@pulumi.type_token("aws-native:mgn:LaunchConfigurationTemplateSsmParameterStoreParameterParameterType")
+class LaunchConfigurationTemplateSsmParameterStoreParameterParameterType(_builtins.str, Enum):
+    """
+    AWS Systems Manager Parameter Store parameter type.
+    """
+    STRING = "STRING"
+    SECURE_STRING = "SECURE_STRING"
+
+
+@pulumi.type_token("aws-native:mgn:LaunchConfigurationTemplateTargetInstanceTypeRightSizingMethod")
+class LaunchConfigurationTemplateTargetInstanceTypeRightSizingMethod(_builtins.str, Enum):
+    """
+    Target instance type right-sizing method.
+    """
+    NONE = "NONE"
+    BASIC = "BASIC"
 
 
 @pulumi.type_token("aws-native:mgn:NetworkMigrationDefinitionSourceConfigurationSourceEnvironment")

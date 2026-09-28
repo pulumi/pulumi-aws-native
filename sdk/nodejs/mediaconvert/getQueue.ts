@@ -35,6 +35,10 @@ export interface GetQueueResult {
      */
     readonly description?: string;
     /**
+     * Specify the maximum number of Elemental Inference feeds MediaConvert can process concurrently.
+     */
+    readonly maximumConcurrentFeeds?: number;
+    /**
      * When you use CloudFormation, you can create only on-demand queues. Therefore, always set PricingPlan to the value ON_DEMAND when declaring an AWS::MediaConvert::Queue in your CloudFormation template. To create a reserved queue, use the AWS Elemental MediaConvert console at https://console.aws.amazon.com/mediaconvert to set up a contract. For more information, see Working with AWS Elemental MediaConvert Queues in the AWS Elemental MediaConvert User Guide.
      */
     readonly pricingPlan?: string;

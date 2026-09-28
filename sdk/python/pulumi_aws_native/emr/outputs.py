@@ -17,9 +17,673 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'InstanceGroupConfigAppConfiguration',
+    'InstanceGroupConfigAutoScalingPolicy',
+    'InstanceGroupConfigCloudWatchAlarmDefinition',
+    'InstanceGroupConfigEbsBlockDeviceConfig',
+    'InstanceGroupConfigEbsConfiguration',
+    'InstanceGroupConfigMetricDimension',
+    'InstanceGroupConfigScalingAction',
+    'InstanceGroupConfigScalingConstraints',
+    'InstanceGroupConfigScalingRule',
+    'InstanceGroupConfigScalingTrigger',
+    'InstanceGroupConfigSimpleScalingPolicyConfiguration',
+    'InstanceGroupConfigVolumeSpecification',
     'StepHadoopJarStepConfig',
     'StepKeyValue',
 ]
+
+@pulumi.output_type
+class InstanceGroupConfigAppConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "configurationProperties":
+            suggest = "configuration_properties"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InstanceGroupConfigAppConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InstanceGroupConfigAppConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InstanceGroupConfigAppConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 classification: Optional[_builtins.str] = None,
+                 configuration_properties: Optional[Mapping[str, _builtins.str]] = None,
+                 configurations: Optional[Sequence['outputs.InstanceGroupConfigAppConfiguration']] = None):
+        if classification is not None:
+            pulumi.set(__self__, "classification", classification)
+        if configuration_properties is not None:
+            pulumi.set(__self__, "configuration_properties", configuration_properties)
+        if configurations is not None:
+            pulumi.set(__self__, "configurations", configurations)
+
+    @_builtins.property
+    @pulumi.getter
+    def classification(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "classification")
+
+    @_builtins.property
+    @pulumi.getter(name="configurationProperties")
+    def configuration_properties(self) -> Optional[Mapping[str, _builtins.str]]:
+        return pulumi.get(self, "configuration_properties")
+
+    @_builtins.property
+    @pulumi.getter
+    def configurations(self) -> Optional[Sequence['outputs.InstanceGroupConfigAppConfiguration']]:
+        return pulumi.get(self, "configurations")
+
+
+@pulumi.output_type
+class InstanceGroupConfigAutoScalingPolicy(dict):
+    def __init__(__self__, *,
+                 constraints: 'outputs.InstanceGroupConfigScalingConstraints',
+                 rules: Sequence['outputs.InstanceGroupConfigScalingRule']):
+        """
+        :param 'InstanceGroupConfigScalingConstraints' constraints: The upper and lower Amazon EC2 instance limits for an automatic scaling policy. Automatic scaling activity will not cause an instance group to grow above or below these limits.
+        :param Sequence['InstanceGroupConfigScalingRule'] rules: The scale-in and scale-out rules that comprise the automatic scaling policy.
+        """
+        pulumi.set(__self__, "constraints", constraints)
+        pulumi.set(__self__, "rules", rules)
+
+    @_builtins.property
+    @pulumi.getter
+    def constraints(self) -> 'outputs.InstanceGroupConfigScalingConstraints':
+        """
+        The upper and lower Amazon EC2 instance limits for an automatic scaling policy. Automatic scaling activity will not cause an instance group to grow above or below these limits.
+        """
+        return pulumi.get(self, "constraints")
+
+    @_builtins.property
+    @pulumi.getter
+    def rules(self) -> Sequence['outputs.InstanceGroupConfigScalingRule']:
+        """
+        The scale-in and scale-out rules that comprise the automatic scaling policy.
+        """
+        return pulumi.get(self, "rules")
+
+
+@pulumi.output_type
+class InstanceGroupConfigCloudWatchAlarmDefinition(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "comparisonOperator":
+            suggest = "comparison_operator"
+        elif key == "metricName":
+            suggest = "metric_name"
+        elif key == "evaluationPeriods":
+            suggest = "evaluation_periods"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InstanceGroupConfigCloudWatchAlarmDefinition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InstanceGroupConfigCloudWatchAlarmDefinition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InstanceGroupConfigCloudWatchAlarmDefinition.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 comparison_operator: _builtins.str,
+                 metric_name: _builtins.str,
+                 period: _builtins.int,
+                 threshold: _builtins.float,
+                 dimensions: Optional[Sequence['outputs.InstanceGroupConfigMetricDimension']] = None,
+                 evaluation_periods: Optional[_builtins.int] = None,
+                 namespace: Optional[_builtins.str] = None,
+                 statistic: Optional[_builtins.str] = None,
+                 unit: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str comparison_operator: Determines how the metric specified by `MetricName` is compared to the value specified by `Threshold` .
+        :param _builtins.str metric_name: The name of the CloudWatch metric that is watched to determine an alarm condition.
+        :param _builtins.int period: The period, in seconds, over which the statistic is applied. CloudWatch metrics for Amazon EMR are emitted every five minutes (300 seconds), so if you specify a CloudWatch metric, specify `300` .
+        :param _builtins.float threshold: The value against which the specified statistic is compared.
+        :param Sequence['InstanceGroupConfigMetricDimension'] dimensions: A CloudWatch metric dimension.
+        :param _builtins.int evaluation_periods: The number of periods, in five-minute increments, during which the alarm condition must exist before the alarm triggers automatic scaling activity. The default value is `1` .
+        :param _builtins.str namespace: The namespace for the CloudWatch metric. The default is `AWS/ElasticMapReduce` .
+        :param _builtins.str statistic: The statistic to apply to the metric associated with the alarm. The default is `AVERAGE` .
+        :param _builtins.str unit: The unit of measure associated with the CloudWatch metric being watched. The value specified for `Unit` must correspond to the units specified in the CloudWatch metric.
+        """
+        pulumi.set(__self__, "comparison_operator", comparison_operator)
+        pulumi.set(__self__, "metric_name", metric_name)
+        pulumi.set(__self__, "period", period)
+        pulumi.set(__self__, "threshold", threshold)
+        if dimensions is not None:
+            pulumi.set(__self__, "dimensions", dimensions)
+        if evaluation_periods is not None:
+            pulumi.set(__self__, "evaluation_periods", evaluation_periods)
+        if namespace is not None:
+            pulumi.set(__self__, "namespace", namespace)
+        if statistic is not None:
+            pulumi.set(__self__, "statistic", statistic)
+        if unit is not None:
+            pulumi.set(__self__, "unit", unit)
+
+    @_builtins.property
+    @pulumi.getter(name="comparisonOperator")
+    def comparison_operator(self) -> _builtins.str:
+        """
+        Determines how the metric specified by `MetricName` is compared to the value specified by `Threshold` .
+        """
+        return pulumi.get(self, "comparison_operator")
+
+    @_builtins.property
+    @pulumi.getter(name="metricName")
+    def metric_name(self) -> _builtins.str:
+        """
+        The name of the CloudWatch metric that is watched to determine an alarm condition.
+        """
+        return pulumi.get(self, "metric_name")
+
+    @_builtins.property
+    @pulumi.getter
+    def period(self) -> _builtins.int:
+        """
+        The period, in seconds, over which the statistic is applied. CloudWatch metrics for Amazon EMR are emitted every five minutes (300 seconds), so if you specify a CloudWatch metric, specify `300` .
+        """
+        return pulumi.get(self, "period")
+
+    @_builtins.property
+    @pulumi.getter
+    def threshold(self) -> _builtins.float:
+        """
+        The value against which the specified statistic is compared.
+        """
+        return pulumi.get(self, "threshold")
+
+    @_builtins.property
+    @pulumi.getter
+    def dimensions(self) -> Optional[Sequence['outputs.InstanceGroupConfigMetricDimension']]:
+        """
+        A CloudWatch metric dimension.
+        """
+        return pulumi.get(self, "dimensions")
+
+    @_builtins.property
+    @pulumi.getter(name="evaluationPeriods")
+    def evaluation_periods(self) -> Optional[_builtins.int]:
+        """
+        The number of periods, in five-minute increments, during which the alarm condition must exist before the alarm triggers automatic scaling activity. The default value is `1` .
+        """
+        return pulumi.get(self, "evaluation_periods")
+
+    @_builtins.property
+    @pulumi.getter
+    def namespace(self) -> Optional[_builtins.str]:
+        """
+        The namespace for the CloudWatch metric. The default is `AWS/ElasticMapReduce` .
+        """
+        return pulumi.get(self, "namespace")
+
+    @_builtins.property
+    @pulumi.getter
+    def statistic(self) -> Optional[_builtins.str]:
+        """
+        The statistic to apply to the metric associated with the alarm. The default is `AVERAGE` .
+        """
+        return pulumi.get(self, "statistic")
+
+    @_builtins.property
+    @pulumi.getter
+    def unit(self) -> Optional[_builtins.str]:
+        """
+        The unit of measure associated with the CloudWatch metric being watched. The value specified for `Unit` must correspond to the units specified in the CloudWatch metric.
+        """
+        return pulumi.get(self, "unit")
+
+
+@pulumi.output_type
+class InstanceGroupConfigEbsBlockDeviceConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "volumeSpecification":
+            suggest = "volume_specification"
+        elif key == "volumesPerInstance":
+            suggest = "volumes_per_instance"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InstanceGroupConfigEbsBlockDeviceConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InstanceGroupConfigEbsBlockDeviceConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InstanceGroupConfigEbsBlockDeviceConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 volume_specification: 'outputs.InstanceGroupConfigVolumeSpecification',
+                 volumes_per_instance: Optional[_builtins.int] = None):
+        """
+        :param 'InstanceGroupConfigVolumeSpecification' volume_specification: EBS volume specifications such as volume type, IOPS, size (GiB) and throughput (MiB/s) that are requested for the EBS volume attached to an Amazon EC2 instance in the cluster.
+        :param _builtins.int volumes_per_instance: Use of this property can confuse CloudFormation drift detection. The EbsBlockDeviceConfigs read from the system may return a list with one entry per volume, replacing any entry specified in the template with a VolumesPerInstance greater than one by that many entries containing only the VolumeSpecification. Thus to avoid false drift detection, it is recommended to supply repeated entries in EbsBlockDeviceConfigs for any VolumeSpecification which is intended to be repeated and not to use this property.
+        """
+        pulumi.set(__self__, "volume_specification", volume_specification)
+        if volumes_per_instance is not None:
+            pulumi.set(__self__, "volumes_per_instance", volumes_per_instance)
+
+    @_builtins.property
+    @pulumi.getter(name="volumeSpecification")
+    def volume_specification(self) -> 'outputs.InstanceGroupConfigVolumeSpecification':
+        """
+        EBS volume specifications such as volume type, IOPS, size (GiB) and throughput (MiB/s) that are requested for the EBS volume attached to an Amazon EC2 instance in the cluster.
+        """
+        return pulumi.get(self, "volume_specification")
+
+    @_builtins.property
+    @pulumi.getter(name="volumesPerInstance")
+    def volumes_per_instance(self) -> Optional[_builtins.int]:
+        """
+        Use of this property can confuse CloudFormation drift detection. The EbsBlockDeviceConfigs read from the system may return a list with one entry per volume, replacing any entry specified in the template with a VolumesPerInstance greater than one by that many entries containing only the VolumeSpecification. Thus to avoid false drift detection, it is recommended to supply repeated entries in EbsBlockDeviceConfigs for any VolumeSpecification which is intended to be repeated and not to use this property.
+        """
+        return pulumi.get(self, "volumes_per_instance")
+
+
+@pulumi.output_type
+class InstanceGroupConfigEbsConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ebsBlockDeviceConfigs":
+            suggest = "ebs_block_device_configs"
+        elif key == "ebsOptimized":
+            suggest = "ebs_optimized"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InstanceGroupConfigEbsConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InstanceGroupConfigEbsConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InstanceGroupConfigEbsConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 ebs_block_device_configs: Optional[Sequence['outputs.InstanceGroupConfigEbsBlockDeviceConfig']] = None,
+                 ebs_optimized: Optional[_builtins.bool] = None):
+        """
+        :param Sequence['InstanceGroupConfigEbsBlockDeviceConfig'] ebs_block_device_configs: An array of Amazon EBS volume specifications attached to a cluster instance.
+        :param _builtins.bool ebs_optimized: Indicates whether an Amazon EBS volume is EBS-optimized. The default is false. You should explicitly set this value to true to enable the Amazon EBS-optimized setting for an EC2 instance.
+        """
+        if ebs_block_device_configs is not None:
+            pulumi.set(__self__, "ebs_block_device_configs", ebs_block_device_configs)
+        if ebs_optimized is not None:
+            pulumi.set(__self__, "ebs_optimized", ebs_optimized)
+
+    @_builtins.property
+    @pulumi.getter(name="ebsBlockDeviceConfigs")
+    def ebs_block_device_configs(self) -> Optional[Sequence['outputs.InstanceGroupConfigEbsBlockDeviceConfig']]:
+        """
+        An array of Amazon EBS volume specifications attached to a cluster instance.
+        """
+        return pulumi.get(self, "ebs_block_device_configs")
+
+    @_builtins.property
+    @pulumi.getter(name="ebsOptimized")
+    def ebs_optimized(self) -> Optional[_builtins.bool]:
+        """
+        Indicates whether an Amazon EBS volume is EBS-optimized. The default is false. You should explicitly set this value to true to enable the Amazon EBS-optimized setting for an EC2 instance.
+        """
+        return pulumi.get(self, "ebs_optimized")
+
+
+@pulumi.output_type
+class InstanceGroupConfigMetricDimension(dict):
+    def __init__(__self__, *,
+                 key: _builtins.str,
+                 value: _builtins.str):
+        """
+        :param _builtins.str key: The dimension name.
+        :param _builtins.str value: The dimension value.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        """
+        The dimension name.
+        """
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        """
+        The dimension value.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class InstanceGroupConfigScalingAction(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "simpleScalingPolicyConfiguration":
+            suggest = "simple_scaling_policy_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InstanceGroupConfigScalingAction. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InstanceGroupConfigScalingAction.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InstanceGroupConfigScalingAction.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 simple_scaling_policy_configuration: 'outputs.InstanceGroupConfigSimpleScalingPolicyConfiguration',
+                 market: Optional[_builtins.str] = None):
+        """
+        :param 'InstanceGroupConfigSimpleScalingPolicyConfiguration' simple_scaling_policy_configuration: The type of adjustment the automatic scaling activity makes when triggered, and the periodicity of the adjustment.
+        :param _builtins.str market: Not available for instance groups. Instance groups use the market type specified for the group.
+        """
+        pulumi.set(__self__, "simple_scaling_policy_configuration", simple_scaling_policy_configuration)
+        if market is not None:
+            pulumi.set(__self__, "market", market)
+
+    @_builtins.property
+    @pulumi.getter(name="simpleScalingPolicyConfiguration")
+    def simple_scaling_policy_configuration(self) -> 'outputs.InstanceGroupConfigSimpleScalingPolicyConfiguration':
+        """
+        The type of adjustment the automatic scaling activity makes when triggered, and the periodicity of the adjustment.
+        """
+        return pulumi.get(self, "simple_scaling_policy_configuration")
+
+    @_builtins.property
+    @pulumi.getter
+    def market(self) -> Optional[_builtins.str]:
+        """
+        Not available for instance groups. Instance groups use the market type specified for the group.
+        """
+        return pulumi.get(self, "market")
+
+
+@pulumi.output_type
+class InstanceGroupConfigScalingConstraints(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maxCapacity":
+            suggest = "max_capacity"
+        elif key == "minCapacity":
+            suggest = "min_capacity"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InstanceGroupConfigScalingConstraints. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InstanceGroupConfigScalingConstraints.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InstanceGroupConfigScalingConstraints.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 max_capacity: _builtins.int,
+                 min_capacity: _builtins.int):
+        """
+        :param _builtins.int max_capacity: The upper boundary of Amazon EC2 instances in an instance group beyond which scaling activities are not allowed to grow. Scale-out activities will not add instances beyond this boundary.
+        :param _builtins.int min_capacity: The lower boundary of Amazon EC2 instances in an instance group below which scaling activities are not allowed to shrink. Scale-in activities will not terminate instances below this boundary.
+        """
+        pulumi.set(__self__, "max_capacity", max_capacity)
+        pulumi.set(__self__, "min_capacity", min_capacity)
+
+    @_builtins.property
+    @pulumi.getter(name="maxCapacity")
+    def max_capacity(self) -> _builtins.int:
+        """
+        The upper boundary of Amazon EC2 instances in an instance group beyond which scaling activities are not allowed to grow. Scale-out activities will not add instances beyond this boundary.
+        """
+        return pulumi.get(self, "max_capacity")
+
+    @_builtins.property
+    @pulumi.getter(name="minCapacity")
+    def min_capacity(self) -> _builtins.int:
+        """
+        The lower boundary of Amazon EC2 instances in an instance group below which scaling activities are not allowed to shrink. Scale-in activities will not terminate instances below this boundary.
+        """
+        return pulumi.get(self, "min_capacity")
+
+
+@pulumi.output_type
+class InstanceGroupConfigScalingRule(dict):
+    def __init__(__self__, *,
+                 action: 'outputs.InstanceGroupConfigScalingAction',
+                 name: _builtins.str,
+                 trigger: 'outputs.InstanceGroupConfigScalingTrigger',
+                 description: Optional[_builtins.str] = None):
+        """
+        :param 'InstanceGroupConfigScalingAction' action: The conditions that trigger an automatic scaling activity.
+        :param _builtins.str name: The name used to identify an automatic scaling rule. Rule names must be unique within a scaling policy.
+        :param 'InstanceGroupConfigScalingTrigger' trigger: The CloudWatch alarm definition that determines when automatic scaling activity is triggered.
+        :param _builtins.str description: A friendly, more verbose description of the automatic scaling rule.
+        """
+        pulumi.set(__self__, "action", action)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "trigger", trigger)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+
+    @_builtins.property
+    @pulumi.getter
+    def action(self) -> 'outputs.InstanceGroupConfigScalingAction':
+        """
+        The conditions that trigger an automatic scaling activity.
+        """
+        return pulumi.get(self, "action")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        The name used to identify an automatic scaling rule. Rule names must be unique within a scaling policy.
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def trigger(self) -> 'outputs.InstanceGroupConfigScalingTrigger':
+        """
+        The CloudWatch alarm definition that determines when automatic scaling activity is triggered.
+        """
+        return pulumi.get(self, "trigger")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> Optional[_builtins.str]:
+        """
+        A friendly, more verbose description of the automatic scaling rule.
+        """
+        return pulumi.get(self, "description")
+
+
+@pulumi.output_type
+class InstanceGroupConfigScalingTrigger(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cloudWatchAlarmDefinition":
+            suggest = "cloud_watch_alarm_definition"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InstanceGroupConfigScalingTrigger. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InstanceGroupConfigScalingTrigger.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InstanceGroupConfigScalingTrigger.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 cloud_watch_alarm_definition: 'outputs.InstanceGroupConfigCloudWatchAlarmDefinition'):
+        """
+        :param 'InstanceGroupConfigCloudWatchAlarmDefinition' cloud_watch_alarm_definition: The definition of a CloudWatch metric alarm. When the defined alarm conditions are met along with other trigger parameters, scaling activity begins.
+        """
+        pulumi.set(__self__, "cloud_watch_alarm_definition", cloud_watch_alarm_definition)
+
+    @_builtins.property
+    @pulumi.getter(name="cloudWatchAlarmDefinition")
+    def cloud_watch_alarm_definition(self) -> 'outputs.InstanceGroupConfigCloudWatchAlarmDefinition':
+        """
+        The definition of a CloudWatch metric alarm. When the defined alarm conditions are met along with other trigger parameters, scaling activity begins.
+        """
+        return pulumi.get(self, "cloud_watch_alarm_definition")
+
+
+@pulumi.output_type
+class InstanceGroupConfigSimpleScalingPolicyConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "scalingAdjustment":
+            suggest = "scaling_adjustment"
+        elif key == "adjustmentType":
+            suggest = "adjustment_type"
+        elif key == "coolDown":
+            suggest = "cool_down"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InstanceGroupConfigSimpleScalingPolicyConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InstanceGroupConfigSimpleScalingPolicyConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InstanceGroupConfigSimpleScalingPolicyConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 scaling_adjustment: _builtins.int,
+                 adjustment_type: Optional[_builtins.str] = None,
+                 cool_down: Optional[_builtins.int] = None):
+        """
+        :param _builtins.int scaling_adjustment: The amount by which to scale in or scale out, based on the specified `AdjustmentType` . A positive value adds to the instance group's Amazon EC2 instance count while a negative number removes instances. If `AdjustmentType` is set to `EXACT_CAPACITY` , the number should only be a positive integer. If `AdjustmentType` is set to `PERCENT_CHANGE_IN_CAPACITY` , the value should express the percentage as an integer. For example, -20 indicates a decrease in 20% increments of cluster capacity.
+        :param _builtins.str adjustment_type: The way in which Amazon EC2 instances are added (if `ScalingAdjustment` is a positive number) or terminated (if `ScalingAdjustment` is a negative number) each time the scaling activity is triggered. `CHANGE_IN_CAPACITY` is the default. `CHANGE_IN_CAPACITY` indicates that the Amazon EC2 instance count increments or decrements by `ScalingAdjustment` , which should be expressed as an integer. `PERCENT_CHANGE_IN_CAPACITY` indicates the instance count increments or decrements by the percentage specified by `ScalingAdjustment` , which should be expressed as an integer. For example, 20 indicates an increase in 20% increments of cluster capacity. `EXACT_CAPACITY` indicates the scaling activity results in an instance group with the number of Amazon EC2 instances specified by `ScalingAdjustment` , which should be expressed as a positive integer.
+        :param _builtins.int cool_down: The amount of time, in seconds, after a scaling activity completes before any further trigger-related scaling activities can start. The default value is 0.
+        """
+        pulumi.set(__self__, "scaling_adjustment", scaling_adjustment)
+        if adjustment_type is not None:
+            pulumi.set(__self__, "adjustment_type", adjustment_type)
+        if cool_down is not None:
+            pulumi.set(__self__, "cool_down", cool_down)
+
+    @_builtins.property
+    @pulumi.getter(name="scalingAdjustment")
+    def scaling_adjustment(self) -> _builtins.int:
+        """
+        The amount by which to scale in or scale out, based on the specified `AdjustmentType` . A positive value adds to the instance group's Amazon EC2 instance count while a negative number removes instances. If `AdjustmentType` is set to `EXACT_CAPACITY` , the number should only be a positive integer. If `AdjustmentType` is set to `PERCENT_CHANGE_IN_CAPACITY` , the value should express the percentage as an integer. For example, -20 indicates a decrease in 20% increments of cluster capacity.
+        """
+        return pulumi.get(self, "scaling_adjustment")
+
+    @_builtins.property
+    @pulumi.getter(name="adjustmentType")
+    def adjustment_type(self) -> Optional[_builtins.str]:
+        """
+        The way in which Amazon EC2 instances are added (if `ScalingAdjustment` is a positive number) or terminated (if `ScalingAdjustment` is a negative number) each time the scaling activity is triggered. `CHANGE_IN_CAPACITY` is the default. `CHANGE_IN_CAPACITY` indicates that the Amazon EC2 instance count increments or decrements by `ScalingAdjustment` , which should be expressed as an integer. `PERCENT_CHANGE_IN_CAPACITY` indicates the instance count increments or decrements by the percentage specified by `ScalingAdjustment` , which should be expressed as an integer. For example, 20 indicates an increase in 20% increments of cluster capacity. `EXACT_CAPACITY` indicates the scaling activity results in an instance group with the number of Amazon EC2 instances specified by `ScalingAdjustment` , which should be expressed as a positive integer.
+        """
+        return pulumi.get(self, "adjustment_type")
+
+    @_builtins.property
+    @pulumi.getter(name="coolDown")
+    def cool_down(self) -> Optional[_builtins.int]:
+        """
+        The amount of time, in seconds, after a scaling activity completes before any further trigger-related scaling activities can start. The default value is 0.
+        """
+        return pulumi.get(self, "cool_down")
+
+
+@pulumi.output_type
+class InstanceGroupConfigVolumeSpecification(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sizeInGb":
+            suggest = "size_in_gb"
+        elif key == "volumeType":
+            suggest = "volume_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InstanceGroupConfigVolumeSpecification. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InstanceGroupConfigVolumeSpecification.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InstanceGroupConfigVolumeSpecification.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 size_in_gb: _builtins.int,
+                 volume_type: _builtins.str,
+                 iops: Optional[_builtins.int] = None,
+                 throughput: Optional[_builtins.int] = None):
+        """
+        :param _builtins.int size_in_gb: The volume size, in gibibytes (GiB). This can be a number from 1 - 1024. If the volume type is EBS-optimized, the minimum value is 10.
+        :param _builtins.str volume_type: The volume type. Volume types supported are gp3, gp2, io1, st1, sc1, and standard.
+        :param _builtins.int iops: The number of I/O operations per second (IOPS) that the volume supports.
+        :param _builtins.int throughput: The throughput, in mebibyte per second (MiB/s). This optional parameter can be a number from 125 - 1000 and is valid only for gp3 volumes.
+        """
+        pulumi.set(__self__, "size_in_gb", size_in_gb)
+        pulumi.set(__self__, "volume_type", volume_type)
+        if iops is not None:
+            pulumi.set(__self__, "iops", iops)
+        if throughput is not None:
+            pulumi.set(__self__, "throughput", throughput)
+
+    @_builtins.property
+    @pulumi.getter(name="sizeInGb")
+    def size_in_gb(self) -> _builtins.int:
+        """
+        The volume size, in gibibytes (GiB). This can be a number from 1 - 1024. If the volume type is EBS-optimized, the minimum value is 10.
+        """
+        return pulumi.get(self, "size_in_gb")
+
+    @_builtins.property
+    @pulumi.getter(name="volumeType")
+    def volume_type(self) -> _builtins.str:
+        """
+        The volume type. Volume types supported are gp3, gp2, io1, st1, sc1, and standard.
+        """
+        return pulumi.get(self, "volume_type")
+
+    @_builtins.property
+    @pulumi.getter
+    def iops(self) -> Optional[_builtins.int]:
+        """
+        The number of I/O operations per second (IOPS) that the volume supports.
+        """
+        return pulumi.get(self, "iops")
+
+    @_builtins.property
+    @pulumi.getter
+    def throughput(self) -> Optional[_builtins.int]:
+        """
+        The throughput, in mebibyte per second (MiB/s). This optional parameter can be a number from 125 - 1000 and is valid only for gp3 volumes.
+        """
+        return pulumi.get(self, "throughput")
+
 
 @pulumi.output_type
 class StepHadoopJarStepConfig(dict):

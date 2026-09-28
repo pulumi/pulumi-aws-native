@@ -15,6 +15,9 @@ __all__ = [
     'DashboardMetricName',
     'DashboardType',
     'DashboardVisualType',
+    'ScheduledReportDateTimeType',
+    'ScheduledReportHealthStatusCode',
+    'ScheduledReportScheduleState',
 ]
 
 
@@ -105,3 +108,30 @@ class DashboardVisualType(_builtins.str, Enum):
     LINE = "LINE"
     BAR = "BAR"
     STACK = "STACK"
+
+
+@pulumi.type_token("aws-native:bcm:ScheduledReportDateTimeType")
+class ScheduledReportDateTimeType(_builtins.str, Enum):
+    """
+    Whether a date value is absolute or relative.
+    """
+    ABSOLUTE = "ABSOLUTE"
+    RELATIVE = "RELATIVE"
+
+
+@pulumi.type_token("aws-native:bcm:ScheduledReportHealthStatusCode")
+class ScheduledReportHealthStatusCode(_builtins.str, Enum):
+    """
+    The health status of a scheduled report.
+    """
+    HEALTHY = "HEALTHY"
+    UNHEALTHY = "UNHEALTHY"
+
+
+@pulumi.type_token("aws-native:bcm:ScheduledReportScheduleState")
+class ScheduledReportScheduleState(_builtins.str, Enum):
+    """
+    Whether the schedule is active.
+    """
+    ENABLED = "ENABLED"
+    DISABLED = "DISABLED"

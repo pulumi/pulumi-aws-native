@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TemplateGridLayoutElement
     {
+        public readonly Outputs.TemplateGridLayoutElementBackgroundStyle? BackgroundStyle;
+        public readonly string? BorderRadius;
+        public readonly Outputs.TemplateGridLayoutElementBorderStyle? BorderStyle;
         /// <summary>
         /// The column index for the upper left corner of an element.
         /// </summary>
@@ -29,6 +32,8 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// The type of element.
         /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.TemplateLayoutElementType ElementType;
+        public readonly Outputs.TemplateLoadingAnimation? LoadingAnimation;
+        public readonly string? Padding;
         /// <summary>
         /// The row index for the upper left corner of an element.
         /// </summary>
@@ -37,9 +42,16 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// The height of a grid element expressed as a number of grid rows.
         /// </summary>
         public readonly double RowSpan;
+        public readonly Outputs.TemplateGridLayoutElementBorderStyle? SelectedBorderStyle;
 
         [OutputConstructor]
         private TemplateGridLayoutElement(
+            Outputs.TemplateGridLayoutElementBackgroundStyle? backgroundStyle,
+
+            string? borderRadius,
+
+            Outputs.TemplateGridLayoutElementBorderStyle? borderStyle,
+
             double? columnIndex,
 
             double columnSpan,
@@ -48,16 +60,28 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 
             Pulumi.AwsNative.QuickSight.TemplateLayoutElementType elementType,
 
+            Outputs.TemplateLoadingAnimation? loadingAnimation,
+
+            string? padding,
+
             double? rowIndex,
 
-            double rowSpan)
+            double rowSpan,
+
+            Outputs.TemplateGridLayoutElementBorderStyle? selectedBorderStyle)
         {
+            BackgroundStyle = backgroundStyle;
+            BorderRadius = borderRadius;
+            BorderStyle = borderStyle;
             ColumnIndex = columnIndex;
             ColumnSpan = columnSpan;
             ElementId = elementId;
             ElementType = elementType;
+            LoadingAnimation = loadingAnimation;
+            Padding = padding;
             RowIndex = rowIndex;
             RowSpan = rowSpan;
+            SelectedBorderStyle = selectedBorderStyle;
         }
     }
 }

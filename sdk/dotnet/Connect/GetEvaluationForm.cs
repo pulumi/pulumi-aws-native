@@ -63,6 +63,7 @@ namespace Pulumi.AwsNative.Connect
     [OutputType]
     public sealed class GetEvaluationFormResult
     {
+        public readonly string? AiVersion;
         /// <summary>
         /// The automatic evaluation configuration of an evaluation form.
         /// </summary>
@@ -118,6 +119,8 @@ namespace Pulumi.AwsNative.Connect
 
         [OutputConstructor]
         private GetEvaluationFormResult(
+            string? aiVersion,
+
             Outputs.EvaluationFormAutoEvaluationConfiguration? autoEvaluationConfiguration,
 
             string? description,
@@ -142,6 +145,7 @@ namespace Pulumi.AwsNative.Connect
 
             string? title)
         {
+            AiVersion = aiVersion;
             AutoEvaluationConfiguration = autoEvaluationConfiguration;
             Description = description;
             EvaluationFormArn = evaluationFormArn;

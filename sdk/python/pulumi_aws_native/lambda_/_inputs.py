@@ -1345,7 +1345,7 @@ class EventSourceMappingProvisionedPollerConfigArgsDict(TypedDict):
     """
     maximum_pollers: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
-    The maximum number of event pollers this event source can scale up to. For Amazon SQS events source mappings, default is 200, and minimum value allowed is 2. For Amazon MSK and self-managed Apache Kafka event source mappings, default is 200, and minimum value allowed is 1.
+    The maximum number of event pollers this event source can scale up to. For Amazon SQS event source mappings, the accepted range is between 2 and 10,000, with a default of 200. For Amazon MSK and self-managed Apache Kafka event source mappings, the accepted range is between 1 and 2,000, with a default of 200.
     """
     minimum_pollers: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
@@ -1365,7 +1365,7 @@ class EventSourceMappingProvisionedPollerConfigArgs:
         """
         The [provisioned mode](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventsourcemapping.html#invocation-eventsourcemapping-provisioned-mode) configuration for the event source. Use Provisioned Mode to customize the minimum and maximum number of event pollers for your event source.
 
-        :param pulumi.Input[_builtins.int] maximum_pollers: The maximum number of event pollers this event source can scale up to. For Amazon SQS events source mappings, default is 200, and minimum value allowed is 2. For Amazon MSK and self-managed Apache Kafka event source mappings, default is 200, and minimum value allowed is 1.
+        :param pulumi.Input[_builtins.int] maximum_pollers: The maximum number of event pollers this event source can scale up to. For Amazon SQS event source mappings, the accepted range is between 2 and 10,000, with a default of 200. For Amazon MSK and self-managed Apache Kafka event source mappings, the accepted range is between 1 and 2,000, with a default of 200.
         :param pulumi.Input[_builtins.int] minimum_pollers: The minimum number of event pollers this event source can scale down to. For Amazon SQS events source mappings, default is 2, and minimum 2 required. For Amazon MSK and self-managed Apache Kafka event source mappings, default is 1.
         :param pulumi.Input[_builtins.str] poller_group_name: (Amazon MSK and self-managed Apache Kafka) The name of the provisioned poller group. Use this option to group multiple ESMs within the event source's VPC to share Event Poller Unit (EPU) capacity. You can use this option to optimize Provisioned mode costs for your ESMs. You can group up to 100 ESMs per poller group and aggregate maximum pollers across all ESMs in a group cannot exceed 2000.
         """
@@ -1380,7 +1380,7 @@ class EventSourceMappingProvisionedPollerConfigArgs:
     @pulumi.getter(name="maximumPollers")
     def maximum_pollers(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        The maximum number of event pollers this event source can scale up to. For Amazon SQS events source mappings, default is 200, and minimum value allowed is 2. For Amazon MSK and self-managed Apache Kafka event source mappings, default is 200, and minimum value allowed is 1.
+        The maximum number of event pollers this event source can scale up to. For Amazon SQS event source mappings, the accepted range is between 2 and 10,000, with a default of 200. For Amazon MSK and self-managed Apache Kafka event source mappings, the accepted range is between 1 and 2,000, with a default of 200.
         """
         return pulumi.get(self, "maximum_pollers")
 
@@ -1687,6 +1687,7 @@ class EventSourceMappingSelfManagedKafkaEventSourceConfigArgsDict(TypedDict):
     """
     The identifier for the Kafka consumer group to join. The consumer group ID must be unique among all your Kafka event sources. After creating a Kafka event source mapping with the consumer group ID specified, you cannot update this value. For more information, see [Customizable consumer group ID](https://docs.aws.amazon.com/lambda/latest/dg/with-kafka-process.html#services-smaa-topic-add).
     """
+    consumption_mode: NotRequired[pulumi.Input[Optional['EventSourceMappingConsumptionMode']]]
     schema_registry_config: NotRequired[pulumi.Input[Optional['EventSourceMappingSchemaRegistryConfigArgsDict']]]
     """
     Specific configuration settings for a Kafka schema registry.
@@ -1696,6 +1697,7 @@ class EventSourceMappingSelfManagedKafkaEventSourceConfigArgsDict(TypedDict):
 class EventSourceMappingSelfManagedKafkaEventSourceConfigArgs:
     def __init__(__self__, *,
                  consumer_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 consumption_mode: pulumi.Input[Optional['EventSourceMappingConsumptionMode']] = None,
                  schema_registry_config: pulumi.Input[Optional['EventSourceMappingSchemaRegistryConfigArgs']] = None):
         """
         Specific configuration settings for a self-managed Apache Kafka event source.
@@ -1705,6 +1707,8 @@ class EventSourceMappingSelfManagedKafkaEventSourceConfigArgs:
         """
         if consumer_group_id is not None:
             pulumi.set(__self__, "consumer_group_id", consumer_group_id)
+        if consumption_mode is not None:
+            pulumi.set(__self__, "consumption_mode", consumption_mode)
         if schema_registry_config is not None:
             pulumi.set(__self__, "schema_registry_config", schema_registry_config)
 
@@ -1719,6 +1723,15 @@ class EventSourceMappingSelfManagedKafkaEventSourceConfigArgs:
     @consumer_group_id.setter
     def consumer_group_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "consumer_group_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="consumptionMode")
+    def consumption_mode(self) -> pulumi.Input[Optional['EventSourceMappingConsumptionMode']]:
+        return pulumi.get(self, "consumption_mode")
+
+    @consumption_mode.setter
+    def consumption_mode(self, value: pulumi.Input[Optional['EventSourceMappingConsumptionMode']]):
+        pulumi.set(self, "consumption_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="schemaRegistryConfig")
@@ -2196,7 +2209,7 @@ class FunctionEphemeralStorageArgs:
 
 class FunctionFileSystemConfigArgsDict(TypedDict):
     """
-    Details about the connection between a Lambda function and an [Amazon EFS file system](https://docs.aws.amazon.com/lambda/latest/dg/configuration-filesystem.html) or an [Amazon S3 Files file system](https://docs.aws.amazon.com/lambda/latest/dg/configuration-filesystem.html).
+    Details about the connection between a Lambda function and an [Amazon EFS file system](https://docs.aws.amazon.com/lambda/latest/dg/configuration-filesystem.html) or an [Amazon S3 file system](https://docs.aws.amazon.com/lambda/latest/dg/configuration-filesystem.html).
     """
     arn: pulumi.Input[_builtins.str]
     """
@@ -2207,6 +2220,9 @@ class FunctionFileSystemConfigArgsDict(TypedDict):
     The path where the function can access the file system, starting with ``/mnt/``.
     """
     s3_files_config: NotRequired[pulumi.Input[Optional['FunctionS3FilesConfigArgsDict']]]
+    """
+    The configuration for how your function accesses data on an Amazon S3 file system. Valid only when the file system access point ARN is an Amazon S3 Files access point. If you specify a different access point type (for example, Amazon Elastic File System), the operation returns an ``InvalidParameterException``.
+    """
 
 @pulumi.input_type
 class FunctionFileSystemConfigArgs:
@@ -2215,10 +2231,11 @@ class FunctionFileSystemConfigArgs:
                  local_mount_path: pulumi.Input[_builtins.str],
                  s3_files_config: pulumi.Input[Optional['FunctionS3FilesConfigArgs']] = None):
         """
-        Details about the connection between a Lambda function and an [Amazon EFS file system](https://docs.aws.amazon.com/lambda/latest/dg/configuration-filesystem.html) or an [Amazon S3 Files file system](https://docs.aws.amazon.com/lambda/latest/dg/configuration-filesystem.html).
+        Details about the connection between a Lambda function and an [Amazon EFS file system](https://docs.aws.amazon.com/lambda/latest/dg/configuration-filesystem.html) or an [Amazon S3 file system](https://docs.aws.amazon.com/lambda/latest/dg/configuration-filesystem.html).
 
         :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the Amazon EFS or Amazon S3 Files access point that provides access to the file system.
         :param pulumi.Input[_builtins.str] local_mount_path: The path where the function can access the file system, starting with ``/mnt/``.
+        :param pulumi.Input['FunctionS3FilesConfigArgs'] s3_files_config: The configuration for how your function accesses data on an Amazon S3 file system. Valid only when the file system access point ARN is an Amazon S3 Files access point. If you specify a different access point type (for example, Amazon Elastic File System), the operation returns an ``InvalidParameterException``.
         """
         pulumi.set(__self__, "arn", arn)
         pulumi.set(__self__, "local_mount_path", local_mount_path)
@@ -2252,6 +2269,9 @@ class FunctionFileSystemConfigArgs:
     @_builtins.property
     @pulumi.getter(name="s3FilesConfig")
     def s3_files_config(self) -> pulumi.Input[Optional['FunctionS3FilesConfigArgs']]:
+        """
+        The configuration for how your function accesses data on an Amazon S3 file system. Valid only when the file system access point ARN is an Amazon S3 Files access point. If you specify a different access point type (for example, Amazon Elastic File System), the operation returns an ``InvalidParameterException``.
+        """
         return pulumi.get(self, "s3_files_config")
 
     @s3_files_config.setter
@@ -2572,9 +2592,17 @@ class FunctionRuntimeManagementConfigArgs:
 
 
 class FunctionS3FilesConfigArgsDict(TypedDict):
+    """
+    Setting controls how your function accesses data from an Amazon S3 file system.
+    """
     direct_s3_read: NotRequired[pulumi.Input[Optional['FunctionS3FilesConfigDirectS3Read']]]
     """
-    Specifies if a function reads from the file system for the lowest latency, or through Amazon S3 Files feature "direct Amazon S3 bucket reads" for the highest throughput
+    Specifies if a function reads from the file system for the lowest latency, or through Amazon S3 Files feature "direct Amazon S3 bucket reads" for the highest throughput. Valid values:
+      +  ``AUTO`` (default) – Direct reads are active for functions you configure with 512 MB or more of memory.
+      +  ``ENABLED`` – Enforces all reads are directly from the Amazon S3 bucket, regardless of available memory (less than 512 MB).
+      +  ``DISABLED`` – Routes all reads through the file system, regardless of memory configuration.
+
+     To use direct reads, you must grant the execution role the ``s3:GetObject`` and ``s3:GetObjectVersion`` permissions. If a direct read fails, Lambda automatically falls back to reading through the file system.
     """
 
 @pulumi.input_type
@@ -2582,7 +2610,14 @@ class FunctionS3FilesConfigArgs:
     def __init__(__self__, *,
                  direct_s3_read: pulumi.Input[Optional['FunctionS3FilesConfigDirectS3Read']] = None):
         """
-        :param pulumi.Input['FunctionS3FilesConfigDirectS3Read'] direct_s3_read: Specifies if a function reads from the file system for the lowest latency, or through Amazon S3 Files feature "direct Amazon S3 bucket reads" for the highest throughput
+        Setting controls how your function accesses data from an Amazon S3 file system.
+
+        :param pulumi.Input['FunctionS3FilesConfigDirectS3Read'] direct_s3_read: Specifies if a function reads from the file system for the lowest latency, or through Amazon S3 Files feature "direct Amazon S3 bucket reads" for the highest throughput. Valid values:
+                 +  ``AUTO`` (default) – Direct reads are active for functions you configure with 512 MB or more of memory.
+                 +  ``ENABLED`` – Enforces all reads are directly from the Amazon S3 bucket, regardless of available memory (less than 512 MB).
+                 +  ``DISABLED`` – Routes all reads through the file system, regardless of memory configuration.
+               
+                To use direct reads, you must grant the execution role the ``s3:GetObject`` and ``s3:GetObjectVersion`` permissions. If a direct read fails, Lambda automatically falls back to reading through the file system.
         """
         if direct_s3_read is not None:
             pulumi.set(__self__, "direct_s3_read", direct_s3_read)
@@ -2591,7 +2626,12 @@ class FunctionS3FilesConfigArgs:
     @pulumi.getter(name="directS3Read")
     def direct_s3_read(self) -> pulumi.Input[Optional['FunctionS3FilesConfigDirectS3Read']]:
         """
-        Specifies if a function reads from the file system for the lowest latency, or through Amazon S3 Files feature "direct Amazon S3 bucket reads" for the highest throughput
+        Specifies if a function reads from the file system for the lowest latency, or through Amazon S3 Files feature "direct Amazon S3 bucket reads" for the highest throughput. Valid values:
+          +  ``AUTO`` (default) – Direct reads are active for functions you configure with 512 MB or more of memory.
+          +  ``ENABLED`` – Enforces all reads are directly from the Amazon S3 bucket, regardless of available memory (less than 512 MB).
+          +  ``DISABLED`` – Routes all reads through the file system, regardless of memory configuration.
+
+         To use direct reads, you must grant the execution role the ``s3:GetObject`` and ``s3:GetObjectVersion`` permissions. If a direct read fails, Lambda automatically falls back to reading through the file system.
         """
         return pulumi.get(self, "direct_s3_read")
 

@@ -13,6 +13,132 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+// Defines an account, its in-scope regions, and the access role used to reach resources in that account.
+type AgentProfileAggregationConfiguration struct {
+	// The ARN of the IAM role used to access resources in this account.
+	AccessRoleArn string `pulumi:"accessRoleArn"`
+	// The target AWS account ID.
+	AccountId string `pulumi:"accountId"`
+	// The target regions in the account.
+	Regions []string `pulumi:"regions"`
+}
+
+// AgentProfileAggregationConfigurationInput is an input type that accepts AgentProfileAggregationConfigurationArgs and AgentProfileAggregationConfigurationOutput values.
+// You can construct a concrete instance of `AgentProfileAggregationConfigurationInput` via:
+//
+//	AgentProfileAggregationConfigurationArgs{...}
+type AgentProfileAggregationConfigurationInput interface {
+	pulumi.Input
+
+	ToAgentProfileAggregationConfigurationOutput() AgentProfileAggregationConfigurationOutput
+	ToAgentProfileAggregationConfigurationOutputWithContext(context.Context) AgentProfileAggregationConfigurationOutput
+}
+
+// Defines an account, its in-scope regions, and the access role used to reach resources in that account.
+type AgentProfileAggregationConfigurationArgs struct {
+	// The ARN of the IAM role used to access resources in this account.
+	AccessRoleArn pulumi.StringInput `pulumi:"accessRoleArn"`
+	// The target AWS account ID.
+	AccountId pulumi.StringInput `pulumi:"accountId"`
+	// The target regions in the account.
+	Regions pulumi.StringArrayInput `pulumi:"regions"`
+}
+
+func (AgentProfileAggregationConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentProfileAggregationConfiguration)(nil)).Elem()
+}
+
+func (i AgentProfileAggregationConfigurationArgs) ToAgentProfileAggregationConfigurationOutput() AgentProfileAggregationConfigurationOutput {
+	return i.ToAgentProfileAggregationConfigurationOutputWithContext(context.Background())
+}
+
+func (i AgentProfileAggregationConfigurationArgs) ToAgentProfileAggregationConfigurationOutputWithContext(ctx context.Context) AgentProfileAggregationConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentProfileAggregationConfigurationOutput)
+}
+
+// AgentProfileAggregationConfigurationArrayInput is an input type that accepts AgentProfileAggregationConfigurationArray and AgentProfileAggregationConfigurationArrayOutput values.
+// You can construct a concrete instance of `AgentProfileAggregationConfigurationArrayInput` via:
+//
+//	AgentProfileAggregationConfigurationArray{ AgentProfileAggregationConfigurationArgs{...} }
+type AgentProfileAggregationConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToAgentProfileAggregationConfigurationArrayOutput() AgentProfileAggregationConfigurationArrayOutput
+	ToAgentProfileAggregationConfigurationArrayOutputWithContext(context.Context) AgentProfileAggregationConfigurationArrayOutput
+}
+
+type AgentProfileAggregationConfigurationArray []AgentProfileAggregationConfigurationInput
+
+func (AgentProfileAggregationConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgentProfileAggregationConfiguration)(nil)).Elem()
+}
+
+func (i AgentProfileAggregationConfigurationArray) ToAgentProfileAggregationConfigurationArrayOutput() AgentProfileAggregationConfigurationArrayOutput {
+	return i.ToAgentProfileAggregationConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i AgentProfileAggregationConfigurationArray) ToAgentProfileAggregationConfigurationArrayOutputWithContext(ctx context.Context) AgentProfileAggregationConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentProfileAggregationConfigurationArrayOutput)
+}
+
+// Defines an account, its in-scope regions, and the access role used to reach resources in that account.
+type AgentProfileAggregationConfigurationOutput struct{ *pulumi.OutputState }
+
+func (AgentProfileAggregationConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentProfileAggregationConfiguration)(nil)).Elem()
+}
+
+func (o AgentProfileAggregationConfigurationOutput) ToAgentProfileAggregationConfigurationOutput() AgentProfileAggregationConfigurationOutput {
+	return o
+}
+
+func (o AgentProfileAggregationConfigurationOutput) ToAgentProfileAggregationConfigurationOutputWithContext(ctx context.Context) AgentProfileAggregationConfigurationOutput {
+	return o
+}
+
+// The ARN of the IAM role used to access resources in this account.
+func (o AgentProfileAggregationConfigurationOutput) AccessRoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentProfileAggregationConfiguration) string { return v.AccessRoleArn }).(pulumi.StringOutput)
+}
+
+// The target AWS account ID.
+func (o AgentProfileAggregationConfigurationOutput) AccountId() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentProfileAggregationConfiguration) string { return v.AccountId }).(pulumi.StringOutput)
+}
+
+// The target regions in the account.
+func (o AgentProfileAggregationConfigurationOutput) Regions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AgentProfileAggregationConfiguration) []string { return v.Regions }).(pulumi.StringArrayOutput)
+}
+
+type AgentProfileAggregationConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (AgentProfileAggregationConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgentProfileAggregationConfiguration)(nil)).Elem()
+}
+
+func (o AgentProfileAggregationConfigurationArrayOutput) ToAgentProfileAggregationConfigurationArrayOutput() AgentProfileAggregationConfigurationArrayOutput {
+	return o
+}
+
+func (o AgentProfileAggregationConfigurationArrayOutput) ToAgentProfileAggregationConfigurationArrayOutputWithContext(ctx context.Context) AgentProfileAggregationConfigurationArrayOutput {
+	return o
+}
+
+func (o AgentProfileAggregationConfigurationArrayOutput) Index(i pulumi.IntInput) AgentProfileAggregationConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AgentProfileAggregationConfiguration {
+		return vs[0].([]AgentProfileAggregationConfiguration)[vs[1].(int)]
+	}).(AgentProfileAggregationConfigurationOutput)
+}
+
+// A key-value pair to associate with the Agent Profile.
+type AgentProfileTag struct {
+	// The tag key.
+	Key string `pulumi:"key"`
+	// The tag value.
+	Value string `pulumi:"value"`
+}
+
 // Discovery configuration associated to the workload.
 type DiscoveryConfigProperties struct {
 	// Discovery integration status in respect to Trusted Advisor for the workload.
@@ -299,10 +425,14 @@ type TagsItemProperties struct {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentProfileAggregationConfigurationInput)(nil)).Elem(), AgentProfileAggregationConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentProfileAggregationConfigurationArrayInput)(nil)).Elem(), AgentProfileAggregationConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DiscoveryConfigPropertiesInput)(nil)).Elem(), DiscoveryConfigPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DiscoveryConfigPropertiesPtrInput)(nil)).Elem(), DiscoveryConfigPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProfileQuestionUpdateInput)(nil)).Elem(), ProfileQuestionUpdateArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProfileQuestionUpdateArrayInput)(nil)).Elem(), ProfileQuestionUpdateArray{})
+	pulumi.RegisterOutputType(AgentProfileAggregationConfigurationOutput{})
+	pulumi.RegisterOutputType(AgentProfileAggregationConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(DiscoveryConfigPropertiesOutput{})
 	pulumi.RegisterOutputType(DiscoveryConfigPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(ProfileQuestionUpdateOutput{})

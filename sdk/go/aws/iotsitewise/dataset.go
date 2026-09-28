@@ -7,7 +7,6 @@ import (
 	"context"
 	"reflect"
 
-	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
@@ -19,28 +18,36 @@ type Dataset struct {
 
 	// The ARN of the dataset.
 	DatasetArn pulumi.StringOutput `pulumi:"datasetArn"`
+	// The configuration for the dataset.
+	DatasetConfig DatasetConfigPtrOutput `pulumi:"datasetConfig"`
 	// A description about the dataset, and its functionality.
 	DatasetDescription pulumi.StringPtrOutput `pulumi:"datasetDescription"`
-	// The ID of the dataset.
+	// The ID of the dataset. For workspace-scoped datasets this is the workspace name and dataset ID joined by a slash, for example my-workspace/123e4567-e89b-42d3-a456-426614174000.
 	DatasetId pulumi.StringOutput `pulumi:"datasetId"`
 	// The name of the dataset.
 	DatasetName pulumi.StringOutput `pulumi:"datasetName"`
 	// The data source for the dataset.
-	DatasetSource DatasetSourceOutput `pulumi:"datasetSource"`
+	DatasetSource DatasetSourcePtrOutput `pulumi:"datasetSource"`
+	// The type of the dataset.
+	DatasetType DatasetTypePtrOutput `pulumi:"datasetType"`
 	// An array of key-value pairs to apply to this resource.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
+	// The name of the workspace associated with the dataset.
+	WorkspaceName pulumi.StringPtrOutput `pulumi:"workspaceName"`
 }
 
 // NewDataset registers a new resource with the given unique name, arguments, and options.
 func NewDataset(ctx *pulumi.Context,
 	name string, args *DatasetArgs, opts ...pulumi.ResourceOption) (*Dataset, error) {
 	if args == nil {
-		return nil, errors.New("missing one or more required arguments")
+		args = &DatasetArgs{}
 	}
 
-	if args.DatasetSource == nil {
-		return nil, errors.New("invalid value for required argument 'DatasetSource'")
-	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"datasetType",
+		"workspaceName",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Dataset
 	err := ctx.RegisterResource("aws-native:iotsitewise:Dataset", name, args, &resource, opts...)
@@ -74,26 +81,38 @@ func (DatasetState) ElementType() reflect.Type {
 }
 
 type datasetArgs struct {
+	// The configuration for the dataset.
+	DatasetConfig *DatasetConfig `pulumi:"datasetConfig"`
 	// A description about the dataset, and its functionality.
 	DatasetDescription *string `pulumi:"datasetDescription"`
 	// The name of the dataset.
 	DatasetName *string `pulumi:"datasetName"`
 	// The data source for the dataset.
-	DatasetSource DatasetSource `pulumi:"datasetSource"`
+	DatasetSource *DatasetSource `pulumi:"datasetSource"`
+	// The type of the dataset.
+	DatasetType *DatasetType `pulumi:"datasetType"`
 	// An array of key-value pairs to apply to this resource.
 	Tags []aws.Tag `pulumi:"tags"`
+	// The name of the workspace associated with the dataset.
+	WorkspaceName *string `pulumi:"workspaceName"`
 }
 
 // The set of arguments for constructing a Dataset resource.
 type DatasetArgs struct {
+	// The configuration for the dataset.
+	DatasetConfig DatasetConfigPtrInput
 	// A description about the dataset, and its functionality.
 	DatasetDescription pulumi.StringPtrInput
 	// The name of the dataset.
 	DatasetName pulumi.StringPtrInput
 	// The data source for the dataset.
-	DatasetSource DatasetSourceInput
+	DatasetSource DatasetSourcePtrInput
+	// The type of the dataset.
+	DatasetType DatasetTypePtrInput
 	// An array of key-value pairs to apply to this resource.
 	Tags aws.TagArrayInput
+	// The name of the workspace associated with the dataset.
+	WorkspaceName pulumi.StringPtrInput
 }
 
 func (DatasetArgs) ElementType() reflect.Type {
@@ -138,12 +157,17 @@ func (o DatasetOutput) DatasetArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Dataset) pulumi.StringOutput { return v.DatasetArn }).(pulumi.StringOutput)
 }
 
+// The configuration for the dataset.
+func (o DatasetOutput) DatasetConfig() DatasetConfigPtrOutput {
+	return o.ApplyT(func(v *Dataset) DatasetConfigPtrOutput { return v.DatasetConfig }).(DatasetConfigPtrOutput)
+}
+
 // A description about the dataset, and its functionality.
 func (o DatasetOutput) DatasetDescription() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Dataset) pulumi.StringPtrOutput { return v.DatasetDescription }).(pulumi.StringPtrOutput)
 }
 
-// The ID of the dataset.
+// The ID of the dataset. For workspace-scoped datasets this is the workspace name and dataset ID joined by a slash, for example my-workspace/123e4567-e89b-42d3-a456-426614174000.
 func (o DatasetOutput) DatasetId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Dataset) pulumi.StringOutput { return v.DatasetId }).(pulumi.StringOutput)
 }
@@ -154,13 +178,23 @@ func (o DatasetOutput) DatasetName() pulumi.StringOutput {
 }
 
 // The data source for the dataset.
-func (o DatasetOutput) DatasetSource() DatasetSourceOutput {
-	return o.ApplyT(func(v *Dataset) DatasetSourceOutput { return v.DatasetSource }).(DatasetSourceOutput)
+func (o DatasetOutput) DatasetSource() DatasetSourcePtrOutput {
+	return o.ApplyT(func(v *Dataset) DatasetSourcePtrOutput { return v.DatasetSource }).(DatasetSourcePtrOutput)
+}
+
+// The type of the dataset.
+func (o DatasetOutput) DatasetType() DatasetTypePtrOutput {
+	return o.ApplyT(func(v *Dataset) DatasetTypePtrOutput { return v.DatasetType }).(DatasetTypePtrOutput)
 }
 
 // An array of key-value pairs to apply to this resource.
 func (o DatasetOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *Dataset) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
+}
+
+// The name of the workspace associated with the dataset.
+func (o DatasetOutput) WorkspaceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Dataset) pulumi.StringPtrOutput { return v.WorkspaceName }).(pulumi.StringPtrOutput)
 }
 
 func init() {

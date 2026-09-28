@@ -76,6 +76,10 @@ namespace Pulumi.AwsNative.MediaConvert
         /// </summary>
         public readonly string? Description;
         /// <summary>
+        /// Specify the maximum number of Elemental Inference feeds MediaConvert can process concurrently.
+        /// </summary>
+        public readonly int? MaximumConcurrentFeeds;
+        /// <summary>
         /// When you use CloudFormation, you can create only on-demand queues. Therefore, always set PricingPlan to the value ON_DEMAND when declaring an AWS::MediaConvert::Queue in your CloudFormation template. To create a reserved queue, use the AWS Elemental MediaConvert console at https://console.aws.amazon.com/mediaconvert to set up a contract. For more information, see Working with AWS Elemental MediaConvert Queues in the AWS Elemental MediaConvert User Guide.
         /// </summary>
         public readonly string? PricingPlan;
@@ -98,6 +102,8 @@ namespace Pulumi.AwsNative.MediaConvert
 
             string? description,
 
+            int? maximumConcurrentFeeds,
+
             string? pricingPlan,
 
             string? status,
@@ -107,6 +113,7 @@ namespace Pulumi.AwsNative.MediaConvert
             Arn = arn;
             ConcurrentJobs = concurrentJobs;
             Description = description;
+            MaximumConcurrentFeeds = maximumConcurrentFeeds;
             PricingPlan = pricingPlan;
             Status = status;
             Tags = tags;

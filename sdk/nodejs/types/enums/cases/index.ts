@@ -38,6 +38,29 @@ export const FieldType = {
  */
 export type FieldType = (typeof FieldType)[keyof typeof FieldType];
 
+export const RelatedItemCommentContentContentType = {
+    TextPlain: "Text/Plain",
+} as const;
+
+/**
+ * Type of the text in the comment.
+ */
+export type RelatedItemCommentContentContentType = (typeof RelatedItemCommentContentContentType)[keyof typeof RelatedItemCommentContentContentType];
+
+export const RelatedItemType = {
+    Contact: "Contact",
+    Comment: "Comment",
+    File: "File",
+    Sla: "Sla",
+    ConnectCase: "ConnectCase",
+    Custom: "Custom",
+} as const;
+
+/**
+ * The type of a related item.
+ */
+export type RelatedItemType = (typeof RelatedItemType)[keyof typeof RelatedItemType];
+
 export const TemplateStatus = {
     Active: "Active",
     Inactive: "Inactive",

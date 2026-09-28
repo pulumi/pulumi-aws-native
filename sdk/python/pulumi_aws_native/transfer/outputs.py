@@ -25,6 +25,7 @@ __all__ = [
     'ServerEndpointDetails',
     'ServerIdentityProviderDetails',
     'ServerProtocolDetails',
+    'ServerProxyConfig',
     'ServerS3StorageOptions',
     'ServerWorkflowDetail',
     'ServerWorkflowDetails',
@@ -695,6 +696,8 @@ class ServerProtocolDetails(dict):
             suggest = "as2_transports"
         elif key == "passiveIp":
             suggest = "passive_ip"
+        elif key == "proxyConfig":
+            suggest = "proxy_config"
         elif key == "setStatOption":
             suggest = "set_stat_option"
         elif key == "tlsSessionResumptionMode":
@@ -714,6 +717,7 @@ class ServerProtocolDetails(dict):
     def __init__(__self__, *,
                  as2_transports: Optional[Sequence['ServerAs2Transport']] = None,
                  passive_ip: Optional[_builtins.str] = None,
+                 proxy_config: Optional['outputs.ServerProxyConfig'] = None,
                  set_stat_option: Optional['ServerSetStatOption'] = None,
                  tls_session_resumption_mode: Optional['ServerTlsSessionResumptionMode'] = None):
         """
@@ -750,6 +754,8 @@ class ServerProtocolDetails(dict):
             pulumi.set(__self__, "as2_transports", as2_transports)
         if passive_ip is not None:
             pulumi.set(__self__, "passive_ip", passive_ip)
+        if proxy_config is not None:
+            pulumi.set(__self__, "proxy_config", proxy_config)
         if set_stat_option is not None:
             pulumi.set(__self__, "set_stat_option", set_stat_option)
         if tls_session_resumption_mode is not None:
@@ -784,6 +790,11 @@ class ServerProtocolDetails(dict):
         return pulumi.get(self, "passive_ip")
 
     @_builtins.property
+    @pulumi.getter(name="proxyConfig")
+    def proxy_config(self) -> Optional['outputs.ServerProxyConfig']:
+        return pulumi.get(self, "proxy_config")
+
+    @_builtins.property
     @pulumi.getter(name="setStatOption")
     def set_stat_option(self) -> Optional['ServerSetStatOption']:
         """
@@ -810,6 +821,36 @@ class ServerProtocolDetails(dict):
         > Not all FTPS clients perform TLS session resumption. So, if you choose to enforce TLS session resumption, you prevent any connections from FTPS clients that don't perform the protocol negotiation. To determine whether or not you can use the `ENFORCED` value, you need to test your clients.
         """
         return pulumi.get(self, "tls_session_resumption_mode")
+
+
+@pulumi.output_type
+class ServerProxyConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sftpMode":
+            suggest = "sftp_mode"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServerProxyConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServerProxyConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServerProxyConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 sftp_mode: Optional['ServerProxyMode'] = None):
+        if sftp_mode is not None:
+            pulumi.set(__self__, "sftp_mode", sftp_mode)
+
+    @_builtins.property
+    @pulumi.getter(name="sftpMode")
+    def sftp_mode(self) -> Optional['ServerProxyMode']:
+        return pulumi.get(self, "sftp_mode")
 
 
 @pulumi.output_type
@@ -986,6 +1027,8 @@ class SftpConfigProperties(dict):
         suggest = None
         if key == "maxConcurrentConnections":
             suggest = "max_concurrent_connections"
+        elif key == "orderedUserSecretVersionStages":
+            suggest = "ordered_user_secret_version_stages"
         elif key == "trustedHostKeys":
             suggest = "trusted_host_keys"
         elif key == "userSecretId":
@@ -1004,17 +1047,21 @@ class SftpConfigProperties(dict):
 
     def __init__(__self__, *,
                  max_concurrent_connections: Optional[_builtins.int] = None,
+                 ordered_user_secret_version_stages: Optional[Sequence[_builtins.str]] = None,
                  trusted_host_keys: Optional[Sequence[_builtins.str]] = None,
                  user_secret_id: Optional[_builtins.str] = None):
         """
         Configuration for an SFTP connector.
 
         :param _builtins.int max_concurrent_connections: Specifies the number of active connections that your connector can establish with the remote server at the same time.
+        :param Sequence[_builtins.str] ordered_user_secret_version_stages: Specifies the order in which the connector attempts to use secret versions during authentication. This enables fallback to alternative credentials if the primary version fails.
         :param Sequence[_builtins.str] trusted_host_keys: List of public host keys, for the external server to which you are connecting.
         :param _builtins.str user_secret_id: ARN or name of the secret in AWS Secrets Manager which contains the SFTP user's private keys or passwords.
         """
         if max_concurrent_connections is not None:
             pulumi.set(__self__, "max_concurrent_connections", max_concurrent_connections)
+        if ordered_user_secret_version_stages is not None:
+            pulumi.set(__self__, "ordered_user_secret_version_stages", ordered_user_secret_version_stages)
         if trusted_host_keys is not None:
             pulumi.set(__self__, "trusted_host_keys", trusted_host_keys)
         if user_secret_id is not None:
@@ -1027,6 +1074,14 @@ class SftpConfigProperties(dict):
         Specifies the number of active connections that your connector can establish with the remote server at the same time.
         """
         return pulumi.get(self, "max_concurrent_connections")
+
+    @_builtins.property
+    @pulumi.getter(name="orderedUserSecretVersionStages")
+    def ordered_user_secret_version_stages(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        Specifies the order in which the connector attempts to use secret versions during authentication. This enables fallback to alternative credentials if the primary version fails.
+        """
+        return pulumi.get(self, "ordered_user_secret_version_stages")
 
     @_builtins.property
     @pulumi.getter(name="trustedHostKeys")

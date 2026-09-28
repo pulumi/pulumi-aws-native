@@ -42,11 +42,15 @@ export class Dataset extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly datasetArn: pulumi.Output<string>;
     /**
+     * The configuration for the dataset.
+     */
+    declare public readonly datasetConfig: pulumi.Output<outputs.iotsitewise.DatasetConfig | undefined>;
+    /**
      * A description about the dataset, and its functionality.
      */
     declare public readonly datasetDescription: pulumi.Output<string | undefined>;
     /**
-     * The ID of the dataset.
+     * The ID of the dataset. For workspace-scoped datasets this is the workspace name and dataset ID joined by a slash, for example my-workspace/123e4567-e89b-42d3-a456-426614174000.
      */
     declare public /*out*/ readonly datasetId: pulumi.Output<string>;
     /**
@@ -56,11 +60,19 @@ export class Dataset extends pulumi.CustomResource {
     /**
      * The data source for the dataset.
      */
-    declare public readonly datasetSource: pulumi.Output<outputs.iotsitewise.DatasetSource>;
+    declare public readonly datasetSource: pulumi.Output<outputs.iotsitewise.DatasetSource | undefined>;
+    /**
+     * The type of the dataset.
+     */
+    declare public readonly datasetType: pulumi.Output<enums.iotsitewise.DatasetType | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
     declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
+    /**
+     * The name of the workspace associated with the dataset.
+     */
+    declare public readonly workspaceName: pulumi.Output<string | undefined>;
 
     /**
      * Create a Dataset resource with the given unique name, arguments, and options.
@@ -69,28 +81,33 @@ export class Dataset extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: DatasetArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: DatasetArgs, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.datasetSource === undefined && !opts.urn) {
-                throw new Error("Missing required property 'datasetSource'");
-            }
+            resourceInputs["datasetConfig"] = args?.datasetConfig;
             resourceInputs["datasetDescription"] = args?.datasetDescription;
             resourceInputs["datasetName"] = args?.datasetName;
             resourceInputs["datasetSource"] = args?.datasetSource;
+            resourceInputs["datasetType"] = args?.datasetType;
             resourceInputs["tags"] = args?.tags;
+            resourceInputs["workspaceName"] = args?.workspaceName;
             resourceInputs["datasetArn"] = undefined /*out*/;
             resourceInputs["datasetId"] = undefined /*out*/;
         } else {
             resourceInputs["datasetArn"] = undefined /*out*/;
+            resourceInputs["datasetConfig"] = undefined /*out*/;
             resourceInputs["datasetDescription"] = undefined /*out*/;
             resourceInputs["datasetId"] = undefined /*out*/;
             resourceInputs["datasetName"] = undefined /*out*/;
             resourceInputs["datasetSource"] = undefined /*out*/;
+            resourceInputs["datasetType"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["workspaceName"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["datasetType", "workspaceName"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Dataset.__pulumiType, name, resourceInputs, opts);
     }
 }
@@ -99,6 +116,10 @@ export class Dataset extends pulumi.CustomResource {
  * The set of arguments for constructing a Dataset resource.
  */
 export interface DatasetArgs {
+    /**
+     * The configuration for the dataset.
+     */
+    datasetConfig?: pulumi.Input<inputs.iotsitewise.DatasetConfigArgs | undefined>;
     /**
      * A description about the dataset, and its functionality.
      */
@@ -110,9 +131,17 @@ export interface DatasetArgs {
     /**
      * The data source for the dataset.
      */
-    datasetSource: pulumi.Input<inputs.iotsitewise.DatasetSourceArgs>;
+    datasetSource?: pulumi.Input<inputs.iotsitewise.DatasetSourceArgs | undefined>;
+    /**
+     * The type of the dataset.
+     */
+    datasetType?: pulumi.Input<enums.iotsitewise.DatasetType | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
+    /**
+     * The name of the workspace associated with the dataset.
+     */
+    workspaceName?: pulumi.Input<string | undefined>;
 }

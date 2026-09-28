@@ -34,7 +34,7 @@ type Flow struct {
 	// The maintenance settings you want to use for the flow.
 	Maintenance FlowMaintenancePtrOutput `pulumi:"maintenance"`
 	// The media streams associated with the flow. You can associate any of these media streams with sources and outputs on the flow.
-	MediaStreams FlowMediaStreamArrayOutput `pulumi:"mediaStreams"`
+	MediaStreams FlowMediaStreamTypeArrayOutput `pulumi:"mediaStreams"`
 	// The name of the flow.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Specifies the configuration settings for NDI sources and outputs. Required when the flow includes NDI sources or outputs.
@@ -109,7 +109,7 @@ type flowArgs struct {
 	// The maintenance settings you want to use for the flow.
 	Maintenance *FlowMaintenance `pulumi:"maintenance"`
 	// The media streams associated with the flow. You can associate any of these media streams with sources and outputs on the flow.
-	MediaStreams []FlowMediaStream `pulumi:"mediaStreams"`
+	MediaStreams []FlowMediaStreamType `pulumi:"mediaStreams"`
 	// The name of the flow.
 	Name *string `pulumi:"name"`
 	// Specifies the configuration settings for NDI sources and outputs. Required when the flow includes NDI sources or outputs.
@@ -137,7 +137,7 @@ type FlowArgs struct {
 	// The maintenance settings you want to use for the flow.
 	Maintenance FlowMaintenancePtrInput
 	// The media streams associated with the flow. You can associate any of these media streams with sources and outputs on the flow.
-	MediaStreams FlowMediaStreamArrayInput
+	MediaStreams FlowMediaStreamTypeArrayInput
 	// The name of the flow.
 	Name pulumi.StringPtrInput
 	// Specifies the configuration settings for NDI sources and outputs. Required when the flow includes NDI sources or outputs.
@@ -232,8 +232,8 @@ func (o FlowOutput) Maintenance() FlowMaintenancePtrOutput {
 }
 
 // The media streams associated with the flow. You can associate any of these media streams with sources and outputs on the flow.
-func (o FlowOutput) MediaStreams() FlowMediaStreamArrayOutput {
-	return o.ApplyT(func(v *Flow) FlowMediaStreamArrayOutput { return v.MediaStreams }).(FlowMediaStreamArrayOutput)
+func (o FlowOutput) MediaStreams() FlowMediaStreamTypeArrayOutput {
+	return o.ApplyT(func(v *Flow) FlowMediaStreamTypeArrayOutput { return v.MediaStreams }).(FlowMediaStreamTypeArrayOutput)
 }
 
 // The name of the flow.

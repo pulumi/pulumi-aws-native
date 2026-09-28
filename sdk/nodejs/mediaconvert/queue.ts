@@ -47,6 +47,10 @@ export class Queue extends pulumi.CustomResource {
      */
     declare public readonly description: pulumi.Output<string | undefined>;
     /**
+     * Specify the maximum number of Elemental Inference feeds MediaConvert can process concurrently.
+     */
+    declare public readonly maximumConcurrentFeeds: pulumi.Output<number | undefined>;
+    /**
      * The name of the queue that you are creating.
      */
     declare public readonly name: pulumi.Output<string | undefined>;
@@ -78,6 +82,7 @@ export class Queue extends pulumi.CustomResource {
         if (!opts.id) {
             resourceInputs["concurrentJobs"] = args?.concurrentJobs;
             resourceInputs["description"] = args?.description;
+            resourceInputs["maximumConcurrentFeeds"] = args?.maximumConcurrentFeeds;
             resourceInputs["name"] = args?.name;
             resourceInputs["pricingPlan"] = args?.pricingPlan;
             resourceInputs["status"] = args?.status;
@@ -87,6 +92,7 @@ export class Queue extends pulumi.CustomResource {
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["concurrentJobs"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["maximumConcurrentFeeds"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["pricingPlan"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
@@ -111,6 +117,10 @@ export interface QueueArgs {
      * A description of the queue that you are creating.
      */
     description?: pulumi.Input<string | undefined>;
+    /**
+     * Specify the maximum number of Elemental Inference feeds MediaConvert can process concurrently.
+     */
+    maximumConcurrentFeeds?: pulumi.Input<number | undefined>;
     /**
      * The name of the queue that you are creating.
      */

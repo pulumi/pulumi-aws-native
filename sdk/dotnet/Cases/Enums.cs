@@ -107,6 +107,71 @@ namespace Pulumi.AwsNative.Cases
     }
 
     /// <summary>
+    /// Type of the text in the comment.
+    /// </summary>
+    [EnumType]
+    public readonly struct RelatedItemCommentContentContentType : IEquatable<RelatedItemCommentContentContentType>
+    {
+        private readonly string _value;
+
+        private RelatedItemCommentContentContentType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static RelatedItemCommentContentContentType TextPlain { get; } = new RelatedItemCommentContentContentType("Text/Plain");
+
+        public static bool operator ==(RelatedItemCommentContentContentType left, RelatedItemCommentContentContentType right) => left.Equals(right);
+        public static bool operator !=(RelatedItemCommentContentContentType left, RelatedItemCommentContentContentType right) => !left.Equals(right);
+
+        public static explicit operator string(RelatedItemCommentContentContentType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is RelatedItemCommentContentContentType other && Equals(other);
+        public bool Equals(RelatedItemCommentContentContentType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The type of a related item.
+    /// </summary>
+    [EnumType]
+    public readonly struct RelatedItemType : IEquatable<RelatedItemType>
+    {
+        private readonly string _value;
+
+        private RelatedItemType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static RelatedItemType Contact { get; } = new RelatedItemType("Contact");
+        public static RelatedItemType Comment { get; } = new RelatedItemType("Comment");
+        public static RelatedItemType File { get; } = new RelatedItemType("File");
+        public static RelatedItemType Sla { get; } = new RelatedItemType("Sla");
+        public static RelatedItemType ConnectCase { get; } = new RelatedItemType("ConnectCase");
+        public static RelatedItemType Custom { get; } = new RelatedItemType("Custom");
+
+        public static bool operator ==(RelatedItemType left, RelatedItemType right) => left.Equals(right);
+        public static bool operator !=(RelatedItemType left, RelatedItemType right) => !left.Equals(right);
+
+        public static explicit operator string(RelatedItemType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is RelatedItemType other && Equals(other);
+        public bool Equals(RelatedItemType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The current status of the template. Active templates can be used to create new cases, while Inactive templates are disabled but preserved for existing cases.
     /// </summary>
     [EnumType]

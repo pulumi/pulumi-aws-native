@@ -103,6 +103,18 @@ export const OrganizationTelemetryRuleFilterRequirement = {
  */
 export type OrganizationTelemetryRuleFilterRequirement = (typeof OrganizationTelemetryRuleFilterRequirement)[keyof typeof OrganizationTelemetryRuleFilterRequirement];
 
+export const OrganizationTelemetryRuleMskMonitoringParametersEnhancedMonitoring = {
+    Default: "DEFAULT",
+    PerBroker: "PER_BROKER",
+    PerTopicPerBroker: "PER_TOPIC_PER_BROKER",
+    PerTopicPerPartition: "PER_TOPIC_PER_PARTITION",
+} as const;
+
+/**
+ * The level of enhanced monitoring for the MSK cluster.
+ */
+export type OrganizationTelemetryRuleMskMonitoringParametersEnhancedMonitoring = (typeof OrganizationTelemetryRuleMskMonitoringParametersEnhancedMonitoring)[keyof typeof OrganizationTelemetryRuleMskMonitoringParametersEnhancedMonitoring];
+
 export const OrganizationTelemetryRuleResourceType = {
     Awsec2vpc: "AWS::EC2::VPC",
     AwswaFv2WebAcl: "AWS::WAFv2::WebACL",
@@ -111,6 +123,11 @@ export const OrganizationTelemetryRuleResourceType = {
     AwsElasticLoadBalancingV2LoadBalancer: "AWS::ElasticLoadBalancingV2::LoadBalancer",
     Awsec2Instance: "AWS::EC2::Instance",
     AwsSecurityHubHub: "AWS::SecurityHub::Hub",
+    AwsSecurityHubHubV2: "AWS::SecurityHub::HubV2",
+    Awss3Bucket: "AWS::S3::Bucket",
+    AwsmskCluster: "AWS::MSK::Cluster",
+    AwsCloudFrontDistribution: "AWS::CloudFront::Distribution",
+    AwsCloudWatchOTelEnrichment: "AWS::CloudWatch::OTelEnrichment",
 } as const;
 
 /**
@@ -120,6 +137,9 @@ export type OrganizationTelemetryRuleResourceType = (typeof OrganizationTelemetr
 
 export const OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItem = {
     SecurityFindingLogs: "SECURITY_FINDING_LOGS",
+    S3ServerAccessLogs: "S3_SERVER_ACCESS_LOGS",
+    AccessLogs: "ACCESS_LOGS",
+    ConnectionLogs: "CONNECTION_LOGS",
     AlbAccessLogs: "ALB_ACCESS_LOGS",
     AlbConnectionLogs: "ALB_CONNECTION_LOGS",
     AlbHealthCheckLogs: "ALB_HEALTH_CHECK_LOGS",
@@ -255,6 +275,18 @@ export const TelemetryRuleFilterRequirement = {
  */
 export type TelemetryRuleFilterRequirement = (typeof TelemetryRuleFilterRequirement)[keyof typeof TelemetryRuleFilterRequirement];
 
+export const TelemetryRuleMskMonitoringParametersEnhancedMonitoring = {
+    Default: "DEFAULT",
+    PerBroker: "PER_BROKER",
+    PerTopicPerBroker: "PER_TOPIC_PER_BROKER",
+    PerTopicPerPartition: "PER_TOPIC_PER_PARTITION",
+} as const;
+
+/**
+ * The level of enhanced monitoring for the MSK cluster.
+ */
+export type TelemetryRuleMskMonitoringParametersEnhancedMonitoring = (typeof TelemetryRuleMskMonitoringParametersEnhancedMonitoring)[keyof typeof TelemetryRuleMskMonitoringParametersEnhancedMonitoring];
+
 export const TelemetryRuleResourceType = {
     Awsec2vpc: "AWS::EC2::VPC",
     AwswaFv2WebAcl: "AWS::WAFv2::WebACL",
@@ -266,6 +298,15 @@ export const TelemetryRuleResourceType = {
     AwsBedrockAgentCoreBrowser: "AWS::BedrockAgentCore::Browser",
     AwsBedrockAgentCoreCodeInterpreter: "AWS::BedrockAgentCore::CodeInterpreter",
     AwsSecurityHubHub: "AWS::SecurityHub::Hub",
+    AwsSecurityHubHubV2: "AWS::SecurityHub::HubV2",
+    Awss3Bucket: "AWS::S3::Bucket",
+    AwsmskCluster: "AWS::MSK::Cluster",
+    AwsCloudFrontDistribution: "AWS::CloudFront::Distribution",
+    AwsCloudWatchOTelEnrichment: "AWS::CloudWatch::OTelEnrichment",
+    AwsBedrockKnowledgeBase: "AWS::Bedrock::KnowledgeBase",
+    AwsBedrockAgentCoreMemory: "AWS::BedrockAgentCore::Memory",
+    AwsBedrockAgentCoreGateway: "AWS::BedrockAgentCore::Gateway",
+    AwsBedrockAgentCoreWorkloadIdentity: "AWS::BedrockAgentCore::WorkloadIdentity",
 } as const;
 
 /**
@@ -277,6 +318,9 @@ export const TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParameters
     ApplicationLogs: "APPLICATION_LOGS",
     UsageLogs: "USAGE_LOGS",
     SecurityFindingLogs: "SECURITY_FINDING_LOGS",
+    S3ServerAccessLogs: "S3_SERVER_ACCESS_LOGS",
+    AccessLogs: "ACCESS_LOGS",
+    ConnectionLogs: "CONNECTION_LOGS",
     AlbAccessLogs: "ALB_ACCESS_LOGS",
     AlbConnectionLogs: "ALB_CONNECTION_LOGS",
     AlbHealthCheckLogs: "ALB_HEALTH_CHECK_LOGS",

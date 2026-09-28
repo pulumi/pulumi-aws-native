@@ -154,10 +154,10 @@
   "primaryIdentifier" : [ "/properties/Id", "/properties/ConfigurationSetName" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "ses:CreateConfigurationSetEventDestination", "ses:GetConfigurationSetEventDestinations", "ses:DescribeConfigurationSet" ]
+      "permissions" : [ "ses:CreateConfigurationSetEventDestination", "ses:GetConfigurationSetEventDestinations", "ses:DescribeConfigurationSet", "iam:PassRole" ]
     },
     "update" : {
-      "permissions" : [ "ses:UpdateConfigurationSetEventDestination", "ses:GetConfigurationSetEventDestinations" ]
+      "permissions" : [ "ses:UpdateConfigurationSetEventDestination", "ses:GetConfigurationSetEventDestinations", "iam:PassRole" ]
     },
     "delete" : {
       "permissions" : [ "ses:DeleteConfigurationSetEventDestination" ]

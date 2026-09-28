@@ -319,6 +319,39 @@ namespace Pulumi.AwsNative.ObservabilityAdmin
     }
 
     /// <summary>
+    /// The level of enhanced monitoring for the MSK cluster.
+    /// </summary>
+    [EnumType]
+    public readonly struct OrganizationTelemetryRuleMskMonitoringParametersEnhancedMonitoring : IEquatable<OrganizationTelemetryRuleMskMonitoringParametersEnhancedMonitoring>
+    {
+        private readonly string _value;
+
+        private OrganizationTelemetryRuleMskMonitoringParametersEnhancedMonitoring(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static OrganizationTelemetryRuleMskMonitoringParametersEnhancedMonitoring Default { get; } = new OrganizationTelemetryRuleMskMonitoringParametersEnhancedMonitoring("DEFAULT");
+        public static OrganizationTelemetryRuleMskMonitoringParametersEnhancedMonitoring PerBroker { get; } = new OrganizationTelemetryRuleMskMonitoringParametersEnhancedMonitoring("PER_BROKER");
+        public static OrganizationTelemetryRuleMskMonitoringParametersEnhancedMonitoring PerTopicPerBroker { get; } = new OrganizationTelemetryRuleMskMonitoringParametersEnhancedMonitoring("PER_TOPIC_PER_BROKER");
+        public static OrganizationTelemetryRuleMskMonitoringParametersEnhancedMonitoring PerTopicPerPartition { get; } = new OrganizationTelemetryRuleMskMonitoringParametersEnhancedMonitoring("PER_TOPIC_PER_PARTITION");
+
+        public static bool operator ==(OrganizationTelemetryRuleMskMonitoringParametersEnhancedMonitoring left, OrganizationTelemetryRuleMskMonitoringParametersEnhancedMonitoring right) => left.Equals(right);
+        public static bool operator !=(OrganizationTelemetryRuleMskMonitoringParametersEnhancedMonitoring left, OrganizationTelemetryRuleMskMonitoringParametersEnhancedMonitoring right) => !left.Equals(right);
+
+        public static explicit operator string(OrganizationTelemetryRuleMskMonitoringParametersEnhancedMonitoring value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is OrganizationTelemetryRuleMskMonitoringParametersEnhancedMonitoring other && Equals(other);
+        public bool Equals(OrganizationTelemetryRuleMskMonitoringParametersEnhancedMonitoring other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Resource Type associated with the Organization Telemetry Rule
     /// </summary>
     [EnumType]
@@ -338,6 +371,11 @@ namespace Pulumi.AwsNative.ObservabilityAdmin
         public static OrganizationTelemetryRuleResourceType AwsElasticLoadBalancingV2LoadBalancer { get; } = new OrganizationTelemetryRuleResourceType("AWS::ElasticLoadBalancingV2::LoadBalancer");
         public static OrganizationTelemetryRuleResourceType Awsec2Instance { get; } = new OrganizationTelemetryRuleResourceType("AWS::EC2::Instance");
         public static OrganizationTelemetryRuleResourceType AwsSecurityHubHub { get; } = new OrganizationTelemetryRuleResourceType("AWS::SecurityHub::Hub");
+        public static OrganizationTelemetryRuleResourceType AwsSecurityHubHubV2 { get; } = new OrganizationTelemetryRuleResourceType("AWS::SecurityHub::HubV2");
+        public static OrganizationTelemetryRuleResourceType Awss3Bucket { get; } = new OrganizationTelemetryRuleResourceType("AWS::S3::Bucket");
+        public static OrganizationTelemetryRuleResourceType AwsmskCluster { get; } = new OrganizationTelemetryRuleResourceType("AWS::MSK::Cluster");
+        public static OrganizationTelemetryRuleResourceType AwsCloudFrontDistribution { get; } = new OrganizationTelemetryRuleResourceType("AWS::CloudFront::Distribution");
+        public static OrganizationTelemetryRuleResourceType AwsCloudWatchOTelEnrichment { get; } = new OrganizationTelemetryRuleResourceType("AWS::CloudWatch::OTelEnrichment");
 
         public static bool operator ==(OrganizationTelemetryRuleResourceType left, OrganizationTelemetryRuleResourceType right) => left.Equals(right);
         public static bool operator !=(OrganizationTelemetryRuleResourceType left, OrganizationTelemetryRuleResourceType right) => !left.Equals(right);
@@ -365,6 +403,9 @@ namespace Pulumi.AwsNative.ObservabilityAdmin
         }
 
         public static OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItem SecurityFindingLogs { get; } = new OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItem("SECURITY_FINDING_LOGS");
+        public static OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItem S3ServerAccessLogs { get; } = new OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItem("S3_SERVER_ACCESS_LOGS");
+        public static OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItem AccessLogs { get; } = new OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItem("ACCESS_LOGS");
+        public static OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItem ConnectionLogs { get; } = new OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItem("CONNECTION_LOGS");
         public static OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItem AlbAccessLogs { get; } = new OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItem("ALB_ACCESS_LOGS");
         public static OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItem AlbConnectionLogs { get; } = new OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItem("ALB_CONNECTION_LOGS");
         public static OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItem AlbHealthCheckLogs { get; } = new OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItem("ALB_HEALTH_CHECK_LOGS");
@@ -765,6 +806,39 @@ namespace Pulumi.AwsNative.ObservabilityAdmin
     }
 
     /// <summary>
+    /// The level of enhanced monitoring for the MSK cluster.
+    /// </summary>
+    [EnumType]
+    public readonly struct TelemetryRuleMskMonitoringParametersEnhancedMonitoring : IEquatable<TelemetryRuleMskMonitoringParametersEnhancedMonitoring>
+    {
+        private readonly string _value;
+
+        private TelemetryRuleMskMonitoringParametersEnhancedMonitoring(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static TelemetryRuleMskMonitoringParametersEnhancedMonitoring Default { get; } = new TelemetryRuleMskMonitoringParametersEnhancedMonitoring("DEFAULT");
+        public static TelemetryRuleMskMonitoringParametersEnhancedMonitoring PerBroker { get; } = new TelemetryRuleMskMonitoringParametersEnhancedMonitoring("PER_BROKER");
+        public static TelemetryRuleMskMonitoringParametersEnhancedMonitoring PerTopicPerBroker { get; } = new TelemetryRuleMskMonitoringParametersEnhancedMonitoring("PER_TOPIC_PER_BROKER");
+        public static TelemetryRuleMskMonitoringParametersEnhancedMonitoring PerTopicPerPartition { get; } = new TelemetryRuleMskMonitoringParametersEnhancedMonitoring("PER_TOPIC_PER_PARTITION");
+
+        public static bool operator ==(TelemetryRuleMskMonitoringParametersEnhancedMonitoring left, TelemetryRuleMskMonitoringParametersEnhancedMonitoring right) => left.Equals(right);
+        public static bool operator !=(TelemetryRuleMskMonitoringParametersEnhancedMonitoring left, TelemetryRuleMskMonitoringParametersEnhancedMonitoring right) => !left.Equals(right);
+
+        public static explicit operator string(TelemetryRuleMskMonitoringParametersEnhancedMonitoring value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TelemetryRuleMskMonitoringParametersEnhancedMonitoring other && Equals(other);
+        public bool Equals(TelemetryRuleMskMonitoringParametersEnhancedMonitoring other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Resource Type associated with the Telemetry Rule
     /// </summary>
     [EnumType]
@@ -787,6 +861,15 @@ namespace Pulumi.AwsNative.ObservabilityAdmin
         public static TelemetryRuleResourceType AwsBedrockAgentCoreBrowser { get; } = new TelemetryRuleResourceType("AWS::BedrockAgentCore::Browser");
         public static TelemetryRuleResourceType AwsBedrockAgentCoreCodeInterpreter { get; } = new TelemetryRuleResourceType("AWS::BedrockAgentCore::CodeInterpreter");
         public static TelemetryRuleResourceType AwsSecurityHubHub { get; } = new TelemetryRuleResourceType("AWS::SecurityHub::Hub");
+        public static TelemetryRuleResourceType AwsSecurityHubHubV2 { get; } = new TelemetryRuleResourceType("AWS::SecurityHub::HubV2");
+        public static TelemetryRuleResourceType Awss3Bucket { get; } = new TelemetryRuleResourceType("AWS::S3::Bucket");
+        public static TelemetryRuleResourceType AwsmskCluster { get; } = new TelemetryRuleResourceType("AWS::MSK::Cluster");
+        public static TelemetryRuleResourceType AwsCloudFrontDistribution { get; } = new TelemetryRuleResourceType("AWS::CloudFront::Distribution");
+        public static TelemetryRuleResourceType AwsCloudWatchOTelEnrichment { get; } = new TelemetryRuleResourceType("AWS::CloudWatch::OTelEnrichment");
+        public static TelemetryRuleResourceType AwsBedrockKnowledgeBase { get; } = new TelemetryRuleResourceType("AWS::Bedrock::KnowledgeBase");
+        public static TelemetryRuleResourceType AwsBedrockAgentCoreMemory { get; } = new TelemetryRuleResourceType("AWS::BedrockAgentCore::Memory");
+        public static TelemetryRuleResourceType AwsBedrockAgentCoreGateway { get; } = new TelemetryRuleResourceType("AWS::BedrockAgentCore::Gateway");
+        public static TelemetryRuleResourceType AwsBedrockAgentCoreWorkloadIdentity { get; } = new TelemetryRuleResourceType("AWS::BedrockAgentCore::WorkloadIdentity");
 
         public static bool operator ==(TelemetryRuleResourceType left, TelemetryRuleResourceType right) => left.Equals(right);
         public static bool operator !=(TelemetryRuleResourceType left, TelemetryRuleResourceType right) => !left.Equals(right);
@@ -816,6 +899,9 @@ namespace Pulumi.AwsNative.ObservabilityAdmin
         public static TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItem ApplicationLogs { get; } = new TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItem("APPLICATION_LOGS");
         public static TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItem UsageLogs { get; } = new TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItem("USAGE_LOGS");
         public static TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItem SecurityFindingLogs { get; } = new TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItem("SECURITY_FINDING_LOGS");
+        public static TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItem S3ServerAccessLogs { get; } = new TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItem("S3_SERVER_ACCESS_LOGS");
+        public static TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItem AccessLogs { get; } = new TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItem("ACCESS_LOGS");
+        public static TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItem ConnectionLogs { get; } = new TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItem("CONNECTION_LOGS");
         public static TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItem AlbAccessLogs { get; } = new TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItem("ALB_ACCESS_LOGS");
         public static TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItem AlbConnectionLogs { get; } = new TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItem("ALB_CONNECTION_LOGS");
         public static TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItem AlbHealthCheckLogs { get; } = new TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItem("ALB_HEALTH_CHECK_LOGS");

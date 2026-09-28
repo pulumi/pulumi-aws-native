@@ -1481,6 +1481,42 @@ namespace Pulumi.AwsNative.Bedrock
     }
 
     /// <summary>
+    /// Day of the week.
+    /// </summary>
+    [EnumType]
+    public readonly struct DataSourceDayOfWeek : IEquatable<DataSourceDayOfWeek>
+    {
+        private readonly string _value;
+
+        private DataSourceDayOfWeek(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DataSourceDayOfWeek Sunday { get; } = new DataSourceDayOfWeek("SUNDAY");
+        public static DataSourceDayOfWeek Monday { get; } = new DataSourceDayOfWeek("MONDAY");
+        public static DataSourceDayOfWeek Tuesday { get; } = new DataSourceDayOfWeek("TUESDAY");
+        public static DataSourceDayOfWeek Wednesday { get; } = new DataSourceDayOfWeek("WEDNESDAY");
+        public static DataSourceDayOfWeek Thursday { get; } = new DataSourceDayOfWeek("THURSDAY");
+        public static DataSourceDayOfWeek Friday { get; } = new DataSourceDayOfWeek("FRIDAY");
+        public static DataSourceDayOfWeek Saturday { get; } = new DataSourceDayOfWeek("SATURDAY");
+
+        public static bool operator ==(DataSourceDayOfWeek left, DataSourceDayOfWeek right) => left.Equals(right);
+        public static bool operator !=(DataSourceDayOfWeek left, DataSourceDayOfWeek right) => !left.Equals(right);
+
+        public static explicit operator string(DataSourceDayOfWeek value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DataSourceDayOfWeek other && Equals(other);
+        public bool Equals(DataSourceDayOfWeek other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Indicates whether a feature is enabled or disabled.
     /// </summary>
     [EnumType]

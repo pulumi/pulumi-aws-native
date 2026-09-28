@@ -27,6 +27,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ConfigRule{}
 	case "aws-native:configuration:ConfigurationAggregator":
 		r = &ConfigurationAggregator{}
+	case "aws-native:configuration:ConfigurationRecorder":
+		r = &ConfigurationRecorder{}
 	case "aws-native:configuration:ConformancePack":
 		r = &ConformancePack{}
 	case "aws-native:configuration:Connector":

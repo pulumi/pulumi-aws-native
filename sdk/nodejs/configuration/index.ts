@@ -20,6 +20,11 @@ export type ConfigurationAggregator = import("./configurationAggregator").Config
 export const ConfigurationAggregator: typeof import("./configurationAggregator").ConfigurationAggregator = null as any;
 utilities.lazyLoad(exports, ["ConfigurationAggregator"], () => require("./configurationAggregator"));
 
+export { ConfigurationRecorderArgs } from "./configurationRecorder";
+export type ConfigurationRecorder = import("./configurationRecorder").ConfigurationRecorder;
+export const ConfigurationRecorder: typeof import("./configurationRecorder").ConfigurationRecorder = null as any;
+utilities.lazyLoad(exports, ["ConfigurationRecorder"], () => require("./configurationRecorder"));
+
 export { ConformancePackArgs } from "./conformancePack";
 export type ConformancePack = import("./conformancePack").ConformancePack;
 export const ConformancePack: typeof import("./conformancePack").ConformancePack = null as any;
@@ -49,6 +54,11 @@ export { GetConfigurationAggregatorArgs, GetConfigurationAggregatorResult, GetCo
 export const getConfigurationAggregator: typeof import("./getConfigurationAggregator").getConfigurationAggregator = null as any;
 export const getConfigurationAggregatorOutput: typeof import("./getConfigurationAggregator").getConfigurationAggregatorOutput = null as any;
 utilities.lazyLoad(exports, ["getConfigurationAggregator","getConfigurationAggregatorOutput"], () => require("./getConfigurationAggregator"));
+
+export { GetConfigurationRecorderArgs, GetConfigurationRecorderResult, GetConfigurationRecorderOutputArgs } from "./getConfigurationRecorder";
+export const getConfigurationRecorder: typeof import("./getConfigurationRecorder").getConfigurationRecorder = null as any;
+export const getConfigurationRecorderOutput: typeof import("./getConfigurationRecorder").getConfigurationRecorderOutput = null as any;
+utilities.lazyLoad(exports, ["getConfigurationRecorder","getConfigurationRecorderOutput"], () => require("./getConfigurationRecorder"));
 
 export { GetConformancePackArgs, GetConformancePackResult, GetConformancePackOutputArgs } from "./getConformancePack";
 export const getConformancePack: typeof import("./getConformancePack").getConformancePack = null as any;
@@ -109,6 +119,8 @@ const _module = {
                 return new ConfigRule(name, <any>undefined, { urn })
             case "aws-native:configuration:ConfigurationAggregator":
                 return new ConfigurationAggregator(name, <any>undefined, { urn })
+            case "aws-native:configuration:ConfigurationRecorder":
+                return new ConfigurationRecorder(name, <any>undefined, { urn })
             case "aws-native:configuration:ConformancePack":
                 return new ConformancePack(name, <any>undefined, { urn })
             case "aws-native:configuration:Connector":

@@ -962,6 +962,1337 @@ type EndpointTag struct {
 	Value string `pulumi:"value"`
 }
 
+// A configuration specification to be used when provisioning virtual clusters, which can include configurations for applications and software bundled with Amazon EMR on EKS.
+type JobTemplateConfiguration struct {
+	// The classification within a configuration.
+	Classification string                     `pulumi:"classification"`
+	Configurations []JobTemplateConfiguration `pulumi:"configurations"`
+	// A set of properties specified within a configuration classification.
+	Properties map[string]string `pulumi:"properties"`
+}
+
+// JobTemplateConfigurationInput is an input type that accepts JobTemplateConfigurationArgs and JobTemplateConfigurationOutput values.
+// You can construct a concrete instance of `JobTemplateConfigurationInput` via:
+//
+//	JobTemplateConfigurationArgs{...}
+type JobTemplateConfigurationInput interface {
+	pulumi.Input
+
+	ToJobTemplateConfigurationOutput() JobTemplateConfigurationOutput
+	ToJobTemplateConfigurationOutputWithContext(context.Context) JobTemplateConfigurationOutput
+}
+
+// A configuration specification to be used when provisioning virtual clusters, which can include configurations for applications and software bundled with Amazon EMR on EKS.
+type JobTemplateConfigurationArgs struct {
+	// The classification within a configuration.
+	Classification pulumi.StringInput                 `pulumi:"classification"`
+	Configurations JobTemplateConfigurationArrayInput `pulumi:"configurations"`
+	// A set of properties specified within a configuration classification.
+	Properties pulumi.StringMapInput `pulumi:"properties"`
+}
+
+func (JobTemplateConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobTemplateConfiguration)(nil)).Elem()
+}
+
+func (i JobTemplateConfigurationArgs) ToJobTemplateConfigurationOutput() JobTemplateConfigurationOutput {
+	return i.ToJobTemplateConfigurationOutputWithContext(context.Background())
+}
+
+func (i JobTemplateConfigurationArgs) ToJobTemplateConfigurationOutputWithContext(ctx context.Context) JobTemplateConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobTemplateConfigurationOutput)
+}
+
+// JobTemplateConfigurationArrayInput is an input type that accepts JobTemplateConfigurationArray and JobTemplateConfigurationArrayOutput values.
+// You can construct a concrete instance of `JobTemplateConfigurationArrayInput` via:
+//
+//	JobTemplateConfigurationArray{ JobTemplateConfigurationArgs{...} }
+type JobTemplateConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToJobTemplateConfigurationArrayOutput() JobTemplateConfigurationArrayOutput
+	ToJobTemplateConfigurationArrayOutputWithContext(context.Context) JobTemplateConfigurationArrayOutput
+}
+
+type JobTemplateConfigurationArray []JobTemplateConfigurationInput
+
+func (JobTemplateConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]JobTemplateConfiguration)(nil)).Elem()
+}
+
+func (i JobTemplateConfigurationArray) ToJobTemplateConfigurationArrayOutput() JobTemplateConfigurationArrayOutput {
+	return i.ToJobTemplateConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i JobTemplateConfigurationArray) ToJobTemplateConfigurationArrayOutputWithContext(ctx context.Context) JobTemplateConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobTemplateConfigurationArrayOutput)
+}
+
+// A configuration specification to be used when provisioning virtual clusters, which can include configurations for applications and software bundled with Amazon EMR on EKS.
+type JobTemplateConfigurationOutput struct{ *pulumi.OutputState }
+
+func (JobTemplateConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobTemplateConfiguration)(nil)).Elem()
+}
+
+func (o JobTemplateConfigurationOutput) ToJobTemplateConfigurationOutput() JobTemplateConfigurationOutput {
+	return o
+}
+
+func (o JobTemplateConfigurationOutput) ToJobTemplateConfigurationOutputWithContext(ctx context.Context) JobTemplateConfigurationOutput {
+	return o
+}
+
+// The classification within a configuration.
+func (o JobTemplateConfigurationOutput) Classification() pulumi.StringOutput {
+	return o.ApplyT(func(v JobTemplateConfiguration) string { return v.Classification }).(pulumi.StringOutput)
+}
+
+func (o JobTemplateConfigurationOutput) Configurations() JobTemplateConfigurationArrayOutput {
+	return o.ApplyT(func(v JobTemplateConfiguration) []JobTemplateConfiguration { return v.Configurations }).(JobTemplateConfigurationArrayOutput)
+}
+
+// A set of properties specified within a configuration classification.
+func (o JobTemplateConfigurationOutput) Properties() pulumi.StringMapOutput {
+	return o.ApplyT(func(v JobTemplateConfiguration) map[string]string { return v.Properties }).(pulumi.StringMapOutput)
+}
+
+type JobTemplateConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (JobTemplateConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]JobTemplateConfiguration)(nil)).Elem()
+}
+
+func (o JobTemplateConfigurationArrayOutput) ToJobTemplateConfigurationArrayOutput() JobTemplateConfigurationArrayOutput {
+	return o
+}
+
+func (o JobTemplateConfigurationArrayOutput) ToJobTemplateConfigurationArrayOutputWithContext(ctx context.Context) JobTemplateConfigurationArrayOutput {
+	return o
+}
+
+func (o JobTemplateConfigurationArrayOutput) Index(i pulumi.IntInput) JobTemplateConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) JobTemplateConfiguration {
+		return vs[0].([]JobTemplateConfiguration)[vs[1].(int)]
+	}).(JobTemplateConfigurationOutput)
+}
+
+// The values of a StartJobRun API request used in job runs started using the job template.
+type JobTemplateData struct {
+	ConfigurationOverrides *JobTemplateParametricConfigurationOverrides `pulumi:"configurationOverrides"`
+	// The execution role ARN of the job run, or a template parameter reference.
+	ExecutionRoleArn string               `pulumi:"executionRoleArn"`
+	JobDriver        JobTemplateJobDriver `pulumi:"jobDriver"`
+	// The tags assigned to jobs started using the job template.
+	JobTags map[string]string `pulumi:"jobTags"`
+	// The configuration of parameters existing in the job template.
+	ParameterConfiguration map[string]JobTemplateTemplateParameterConfiguration `pulumi:"parameterConfiguration"`
+	// The release version of Amazon EMR, or a template parameter reference.
+	ReleaseLabel string `pulumi:"releaseLabel"`
+}
+
+// JobTemplateDataInput is an input type that accepts JobTemplateDataArgs and JobTemplateDataOutput values.
+// You can construct a concrete instance of `JobTemplateDataInput` via:
+//
+//	JobTemplateDataArgs{...}
+type JobTemplateDataInput interface {
+	pulumi.Input
+
+	ToJobTemplateDataOutput() JobTemplateDataOutput
+	ToJobTemplateDataOutputWithContext(context.Context) JobTemplateDataOutput
+}
+
+// The values of a StartJobRun API request used in job runs started using the job template.
+type JobTemplateDataArgs struct {
+	ConfigurationOverrides JobTemplateParametricConfigurationOverridesPtrInput `pulumi:"configurationOverrides"`
+	// The execution role ARN of the job run, or a template parameter reference.
+	ExecutionRoleArn pulumi.StringInput        `pulumi:"executionRoleArn"`
+	JobDriver        JobTemplateJobDriverInput `pulumi:"jobDriver"`
+	// The tags assigned to jobs started using the job template.
+	JobTags pulumi.StringMapInput `pulumi:"jobTags"`
+	// The configuration of parameters existing in the job template.
+	ParameterConfiguration JobTemplateTemplateParameterConfigurationMapInput `pulumi:"parameterConfiguration"`
+	// The release version of Amazon EMR, or a template parameter reference.
+	ReleaseLabel pulumi.StringInput `pulumi:"releaseLabel"`
+}
+
+func (JobTemplateDataArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobTemplateData)(nil)).Elem()
+}
+
+func (i JobTemplateDataArgs) ToJobTemplateDataOutput() JobTemplateDataOutput {
+	return i.ToJobTemplateDataOutputWithContext(context.Background())
+}
+
+func (i JobTemplateDataArgs) ToJobTemplateDataOutputWithContext(ctx context.Context) JobTemplateDataOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobTemplateDataOutput)
+}
+
+// The values of a StartJobRun API request used in job runs started using the job template.
+type JobTemplateDataOutput struct{ *pulumi.OutputState }
+
+func (JobTemplateDataOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobTemplateData)(nil)).Elem()
+}
+
+func (o JobTemplateDataOutput) ToJobTemplateDataOutput() JobTemplateDataOutput {
+	return o
+}
+
+func (o JobTemplateDataOutput) ToJobTemplateDataOutputWithContext(ctx context.Context) JobTemplateDataOutput {
+	return o
+}
+
+func (o JobTemplateDataOutput) ConfigurationOverrides() JobTemplateParametricConfigurationOverridesPtrOutput {
+	return o.ApplyT(func(v JobTemplateData) *JobTemplateParametricConfigurationOverrides { return v.ConfigurationOverrides }).(JobTemplateParametricConfigurationOverridesPtrOutput)
+}
+
+// The execution role ARN of the job run, or a template parameter reference.
+func (o JobTemplateDataOutput) ExecutionRoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v JobTemplateData) string { return v.ExecutionRoleArn }).(pulumi.StringOutput)
+}
+
+func (o JobTemplateDataOutput) JobDriver() JobTemplateJobDriverOutput {
+	return o.ApplyT(func(v JobTemplateData) JobTemplateJobDriver { return v.JobDriver }).(JobTemplateJobDriverOutput)
+}
+
+// The tags assigned to jobs started using the job template.
+func (o JobTemplateDataOutput) JobTags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v JobTemplateData) map[string]string { return v.JobTags }).(pulumi.StringMapOutput)
+}
+
+// The configuration of parameters existing in the job template.
+func (o JobTemplateDataOutput) ParameterConfiguration() JobTemplateTemplateParameterConfigurationMapOutput {
+	return o.ApplyT(func(v JobTemplateData) map[string]JobTemplateTemplateParameterConfiguration {
+		return v.ParameterConfiguration
+	}).(JobTemplateTemplateParameterConfigurationMapOutput)
+}
+
+// The release version of Amazon EMR, or a template parameter reference.
+func (o JobTemplateDataOutput) ReleaseLabel() pulumi.StringOutput {
+	return o.ApplyT(func(v JobTemplateData) string { return v.ReleaseLabel }).(pulumi.StringOutput)
+}
+
+// Specify the driver that the job runs on. Exactly one of the two available job drivers is required, either SparkSqlJobDriver or SparkSubmitJobDriver.
+type JobTemplateJobDriver struct {
+	SparkSqlJobDriver    *JobTemplateSparkSqlJobDriver    `pulumi:"sparkSqlJobDriver"`
+	SparkSubmitJobDriver *JobTemplateSparkSubmitJobDriver `pulumi:"sparkSubmitJobDriver"`
+}
+
+// JobTemplateJobDriverInput is an input type that accepts JobTemplateJobDriverArgs and JobTemplateJobDriverOutput values.
+// You can construct a concrete instance of `JobTemplateJobDriverInput` via:
+//
+//	JobTemplateJobDriverArgs{...}
+type JobTemplateJobDriverInput interface {
+	pulumi.Input
+
+	ToJobTemplateJobDriverOutput() JobTemplateJobDriverOutput
+	ToJobTemplateJobDriverOutputWithContext(context.Context) JobTemplateJobDriverOutput
+}
+
+// Specify the driver that the job runs on. Exactly one of the two available job drivers is required, either SparkSqlJobDriver or SparkSubmitJobDriver.
+type JobTemplateJobDriverArgs struct {
+	SparkSqlJobDriver    JobTemplateSparkSqlJobDriverPtrInput    `pulumi:"sparkSqlJobDriver"`
+	SparkSubmitJobDriver JobTemplateSparkSubmitJobDriverPtrInput `pulumi:"sparkSubmitJobDriver"`
+}
+
+func (JobTemplateJobDriverArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobTemplateJobDriver)(nil)).Elem()
+}
+
+func (i JobTemplateJobDriverArgs) ToJobTemplateJobDriverOutput() JobTemplateJobDriverOutput {
+	return i.ToJobTemplateJobDriverOutputWithContext(context.Background())
+}
+
+func (i JobTemplateJobDriverArgs) ToJobTemplateJobDriverOutputWithContext(ctx context.Context) JobTemplateJobDriverOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobTemplateJobDriverOutput)
+}
+
+// Specify the driver that the job runs on. Exactly one of the two available job drivers is required, either SparkSqlJobDriver or SparkSubmitJobDriver.
+type JobTemplateJobDriverOutput struct{ *pulumi.OutputState }
+
+func (JobTemplateJobDriverOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobTemplateJobDriver)(nil)).Elem()
+}
+
+func (o JobTemplateJobDriverOutput) ToJobTemplateJobDriverOutput() JobTemplateJobDriverOutput {
+	return o
+}
+
+func (o JobTemplateJobDriverOutput) ToJobTemplateJobDriverOutputWithContext(ctx context.Context) JobTemplateJobDriverOutput {
+	return o
+}
+
+func (o JobTemplateJobDriverOutput) SparkSqlJobDriver() JobTemplateSparkSqlJobDriverPtrOutput {
+	return o.ApplyT(func(v JobTemplateJobDriver) *JobTemplateSparkSqlJobDriver { return v.SparkSqlJobDriver }).(JobTemplateSparkSqlJobDriverPtrOutput)
+}
+
+func (o JobTemplateJobDriverOutput) SparkSubmitJobDriver() JobTemplateSparkSubmitJobDriverPtrOutput {
+	return o.ApplyT(func(v JobTemplateJobDriver) *JobTemplateSparkSubmitJobDriver { return v.SparkSubmitJobDriver }).(JobTemplateSparkSubmitJobDriverPtrOutput)
+}
+
+// A configuration for CloudWatch monitoring. This data type allows job template parameters to be specified within.
+type JobTemplateParametricCloudWatchMonitoringConfiguration struct {
+	// The name of the log group for log publishing, or a template parameter reference.
+	LogGroupName *string `pulumi:"logGroupName"`
+	// The specified name prefix for log streams.
+	LogStreamNamePrefix *string `pulumi:"logStreamNamePrefix"`
+}
+
+// JobTemplateParametricCloudWatchMonitoringConfigurationInput is an input type that accepts JobTemplateParametricCloudWatchMonitoringConfigurationArgs and JobTemplateParametricCloudWatchMonitoringConfigurationOutput values.
+// You can construct a concrete instance of `JobTemplateParametricCloudWatchMonitoringConfigurationInput` via:
+//
+//	JobTemplateParametricCloudWatchMonitoringConfigurationArgs{...}
+type JobTemplateParametricCloudWatchMonitoringConfigurationInput interface {
+	pulumi.Input
+
+	ToJobTemplateParametricCloudWatchMonitoringConfigurationOutput() JobTemplateParametricCloudWatchMonitoringConfigurationOutput
+	ToJobTemplateParametricCloudWatchMonitoringConfigurationOutputWithContext(context.Context) JobTemplateParametricCloudWatchMonitoringConfigurationOutput
+}
+
+// A configuration for CloudWatch monitoring. This data type allows job template parameters to be specified within.
+type JobTemplateParametricCloudWatchMonitoringConfigurationArgs struct {
+	// The name of the log group for log publishing, or a template parameter reference.
+	LogGroupName pulumi.StringPtrInput `pulumi:"logGroupName"`
+	// The specified name prefix for log streams.
+	LogStreamNamePrefix pulumi.StringPtrInput `pulumi:"logStreamNamePrefix"`
+}
+
+func (JobTemplateParametricCloudWatchMonitoringConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobTemplateParametricCloudWatchMonitoringConfiguration)(nil)).Elem()
+}
+
+func (i JobTemplateParametricCloudWatchMonitoringConfigurationArgs) ToJobTemplateParametricCloudWatchMonitoringConfigurationOutput() JobTemplateParametricCloudWatchMonitoringConfigurationOutput {
+	return i.ToJobTemplateParametricCloudWatchMonitoringConfigurationOutputWithContext(context.Background())
+}
+
+func (i JobTemplateParametricCloudWatchMonitoringConfigurationArgs) ToJobTemplateParametricCloudWatchMonitoringConfigurationOutputWithContext(ctx context.Context) JobTemplateParametricCloudWatchMonitoringConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobTemplateParametricCloudWatchMonitoringConfigurationOutput)
+}
+
+func (i JobTemplateParametricCloudWatchMonitoringConfigurationArgs) ToJobTemplateParametricCloudWatchMonitoringConfigurationPtrOutput() JobTemplateParametricCloudWatchMonitoringConfigurationPtrOutput {
+	return i.ToJobTemplateParametricCloudWatchMonitoringConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i JobTemplateParametricCloudWatchMonitoringConfigurationArgs) ToJobTemplateParametricCloudWatchMonitoringConfigurationPtrOutputWithContext(ctx context.Context) JobTemplateParametricCloudWatchMonitoringConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobTemplateParametricCloudWatchMonitoringConfigurationOutput).ToJobTemplateParametricCloudWatchMonitoringConfigurationPtrOutputWithContext(ctx)
+}
+
+// JobTemplateParametricCloudWatchMonitoringConfigurationPtrInput is an input type that accepts JobTemplateParametricCloudWatchMonitoringConfigurationArgs, JobTemplateParametricCloudWatchMonitoringConfigurationPtr and JobTemplateParametricCloudWatchMonitoringConfigurationPtrOutput values.
+// You can construct a concrete instance of `JobTemplateParametricCloudWatchMonitoringConfigurationPtrInput` via:
+//
+//	        JobTemplateParametricCloudWatchMonitoringConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type JobTemplateParametricCloudWatchMonitoringConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToJobTemplateParametricCloudWatchMonitoringConfigurationPtrOutput() JobTemplateParametricCloudWatchMonitoringConfigurationPtrOutput
+	ToJobTemplateParametricCloudWatchMonitoringConfigurationPtrOutputWithContext(context.Context) JobTemplateParametricCloudWatchMonitoringConfigurationPtrOutput
+}
+
+type jobTemplateParametricCloudWatchMonitoringConfigurationPtrType JobTemplateParametricCloudWatchMonitoringConfigurationArgs
+
+func JobTemplateParametricCloudWatchMonitoringConfigurationPtr(v *JobTemplateParametricCloudWatchMonitoringConfigurationArgs) JobTemplateParametricCloudWatchMonitoringConfigurationPtrInput {
+	return (*jobTemplateParametricCloudWatchMonitoringConfigurationPtrType)(v)
+}
+
+func (*jobTemplateParametricCloudWatchMonitoringConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobTemplateParametricCloudWatchMonitoringConfiguration)(nil)).Elem()
+}
+
+func (i *jobTemplateParametricCloudWatchMonitoringConfigurationPtrType) ToJobTemplateParametricCloudWatchMonitoringConfigurationPtrOutput() JobTemplateParametricCloudWatchMonitoringConfigurationPtrOutput {
+	return i.ToJobTemplateParametricCloudWatchMonitoringConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *jobTemplateParametricCloudWatchMonitoringConfigurationPtrType) ToJobTemplateParametricCloudWatchMonitoringConfigurationPtrOutputWithContext(ctx context.Context) JobTemplateParametricCloudWatchMonitoringConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobTemplateParametricCloudWatchMonitoringConfigurationPtrOutput)
+}
+
+// A configuration for CloudWatch monitoring. This data type allows job template parameters to be specified within.
+type JobTemplateParametricCloudWatchMonitoringConfigurationOutput struct{ *pulumi.OutputState }
+
+func (JobTemplateParametricCloudWatchMonitoringConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobTemplateParametricCloudWatchMonitoringConfiguration)(nil)).Elem()
+}
+
+func (o JobTemplateParametricCloudWatchMonitoringConfigurationOutput) ToJobTemplateParametricCloudWatchMonitoringConfigurationOutput() JobTemplateParametricCloudWatchMonitoringConfigurationOutput {
+	return o
+}
+
+func (o JobTemplateParametricCloudWatchMonitoringConfigurationOutput) ToJobTemplateParametricCloudWatchMonitoringConfigurationOutputWithContext(ctx context.Context) JobTemplateParametricCloudWatchMonitoringConfigurationOutput {
+	return o
+}
+
+func (o JobTemplateParametricCloudWatchMonitoringConfigurationOutput) ToJobTemplateParametricCloudWatchMonitoringConfigurationPtrOutput() JobTemplateParametricCloudWatchMonitoringConfigurationPtrOutput {
+	return o.ToJobTemplateParametricCloudWatchMonitoringConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o JobTemplateParametricCloudWatchMonitoringConfigurationOutput) ToJobTemplateParametricCloudWatchMonitoringConfigurationPtrOutputWithContext(ctx context.Context) JobTemplateParametricCloudWatchMonitoringConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobTemplateParametricCloudWatchMonitoringConfiguration) *JobTemplateParametricCloudWatchMonitoringConfiguration {
+		return &v
+	}).(JobTemplateParametricCloudWatchMonitoringConfigurationPtrOutput)
+}
+
+// The name of the log group for log publishing, or a template parameter reference.
+func (o JobTemplateParametricCloudWatchMonitoringConfigurationOutput) LogGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobTemplateParametricCloudWatchMonitoringConfiguration) *string { return v.LogGroupName }).(pulumi.StringPtrOutput)
+}
+
+// The specified name prefix for log streams.
+func (o JobTemplateParametricCloudWatchMonitoringConfigurationOutput) LogStreamNamePrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobTemplateParametricCloudWatchMonitoringConfiguration) *string { return v.LogStreamNamePrefix }).(pulumi.StringPtrOutput)
+}
+
+type JobTemplateParametricCloudWatchMonitoringConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (JobTemplateParametricCloudWatchMonitoringConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobTemplateParametricCloudWatchMonitoringConfiguration)(nil)).Elem()
+}
+
+func (o JobTemplateParametricCloudWatchMonitoringConfigurationPtrOutput) ToJobTemplateParametricCloudWatchMonitoringConfigurationPtrOutput() JobTemplateParametricCloudWatchMonitoringConfigurationPtrOutput {
+	return o
+}
+
+func (o JobTemplateParametricCloudWatchMonitoringConfigurationPtrOutput) ToJobTemplateParametricCloudWatchMonitoringConfigurationPtrOutputWithContext(ctx context.Context) JobTemplateParametricCloudWatchMonitoringConfigurationPtrOutput {
+	return o
+}
+
+func (o JobTemplateParametricCloudWatchMonitoringConfigurationPtrOutput) Elem() JobTemplateParametricCloudWatchMonitoringConfigurationOutput {
+	return o.ApplyT(func(v *JobTemplateParametricCloudWatchMonitoringConfiguration) JobTemplateParametricCloudWatchMonitoringConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret JobTemplateParametricCloudWatchMonitoringConfiguration
+		return ret
+	}).(JobTemplateParametricCloudWatchMonitoringConfigurationOutput)
+}
+
+// The name of the log group for log publishing, or a template parameter reference.
+func (o JobTemplateParametricCloudWatchMonitoringConfigurationPtrOutput) LogGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JobTemplateParametricCloudWatchMonitoringConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LogGroupName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The specified name prefix for log streams.
+func (o JobTemplateParametricCloudWatchMonitoringConfigurationPtrOutput) LogStreamNamePrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JobTemplateParametricCloudWatchMonitoringConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LogStreamNamePrefix
+	}).(pulumi.StringPtrOutput)
+}
+
+// A configuration specification to be used to override existing configurations. This data type allows job template parameters to be specified within.
+type JobTemplateParametricConfigurationOverrides struct {
+	ApplicationConfiguration []JobTemplateConfiguration                    `pulumi:"applicationConfiguration"`
+	MonitoringConfiguration  *JobTemplateParametricMonitoringConfiguration `pulumi:"monitoringConfiguration"`
+}
+
+// JobTemplateParametricConfigurationOverridesInput is an input type that accepts JobTemplateParametricConfigurationOverridesArgs and JobTemplateParametricConfigurationOverridesOutput values.
+// You can construct a concrete instance of `JobTemplateParametricConfigurationOverridesInput` via:
+//
+//	JobTemplateParametricConfigurationOverridesArgs{...}
+type JobTemplateParametricConfigurationOverridesInput interface {
+	pulumi.Input
+
+	ToJobTemplateParametricConfigurationOverridesOutput() JobTemplateParametricConfigurationOverridesOutput
+	ToJobTemplateParametricConfigurationOverridesOutputWithContext(context.Context) JobTemplateParametricConfigurationOverridesOutput
+}
+
+// A configuration specification to be used to override existing configurations. This data type allows job template parameters to be specified within.
+type JobTemplateParametricConfigurationOverridesArgs struct {
+	ApplicationConfiguration JobTemplateConfigurationArrayInput                   `pulumi:"applicationConfiguration"`
+	MonitoringConfiguration  JobTemplateParametricMonitoringConfigurationPtrInput `pulumi:"monitoringConfiguration"`
+}
+
+func (JobTemplateParametricConfigurationOverridesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobTemplateParametricConfigurationOverrides)(nil)).Elem()
+}
+
+func (i JobTemplateParametricConfigurationOverridesArgs) ToJobTemplateParametricConfigurationOverridesOutput() JobTemplateParametricConfigurationOverridesOutput {
+	return i.ToJobTemplateParametricConfigurationOverridesOutputWithContext(context.Background())
+}
+
+func (i JobTemplateParametricConfigurationOverridesArgs) ToJobTemplateParametricConfigurationOverridesOutputWithContext(ctx context.Context) JobTemplateParametricConfigurationOverridesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobTemplateParametricConfigurationOverridesOutput)
+}
+
+func (i JobTemplateParametricConfigurationOverridesArgs) ToJobTemplateParametricConfigurationOverridesPtrOutput() JobTemplateParametricConfigurationOverridesPtrOutput {
+	return i.ToJobTemplateParametricConfigurationOverridesPtrOutputWithContext(context.Background())
+}
+
+func (i JobTemplateParametricConfigurationOverridesArgs) ToJobTemplateParametricConfigurationOverridesPtrOutputWithContext(ctx context.Context) JobTemplateParametricConfigurationOverridesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobTemplateParametricConfigurationOverridesOutput).ToJobTemplateParametricConfigurationOverridesPtrOutputWithContext(ctx)
+}
+
+// JobTemplateParametricConfigurationOverridesPtrInput is an input type that accepts JobTemplateParametricConfigurationOverridesArgs, JobTemplateParametricConfigurationOverridesPtr and JobTemplateParametricConfigurationOverridesPtrOutput values.
+// You can construct a concrete instance of `JobTemplateParametricConfigurationOverridesPtrInput` via:
+//
+//	        JobTemplateParametricConfigurationOverridesArgs{...}
+//
+//	or:
+//
+//	        nil
+type JobTemplateParametricConfigurationOverridesPtrInput interface {
+	pulumi.Input
+
+	ToJobTemplateParametricConfigurationOverridesPtrOutput() JobTemplateParametricConfigurationOverridesPtrOutput
+	ToJobTemplateParametricConfigurationOverridesPtrOutputWithContext(context.Context) JobTemplateParametricConfigurationOverridesPtrOutput
+}
+
+type jobTemplateParametricConfigurationOverridesPtrType JobTemplateParametricConfigurationOverridesArgs
+
+func JobTemplateParametricConfigurationOverridesPtr(v *JobTemplateParametricConfigurationOverridesArgs) JobTemplateParametricConfigurationOverridesPtrInput {
+	return (*jobTemplateParametricConfigurationOverridesPtrType)(v)
+}
+
+func (*jobTemplateParametricConfigurationOverridesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobTemplateParametricConfigurationOverrides)(nil)).Elem()
+}
+
+func (i *jobTemplateParametricConfigurationOverridesPtrType) ToJobTemplateParametricConfigurationOverridesPtrOutput() JobTemplateParametricConfigurationOverridesPtrOutput {
+	return i.ToJobTemplateParametricConfigurationOverridesPtrOutputWithContext(context.Background())
+}
+
+func (i *jobTemplateParametricConfigurationOverridesPtrType) ToJobTemplateParametricConfigurationOverridesPtrOutputWithContext(ctx context.Context) JobTemplateParametricConfigurationOverridesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobTemplateParametricConfigurationOverridesPtrOutput)
+}
+
+// A configuration specification to be used to override existing configurations. This data type allows job template parameters to be specified within.
+type JobTemplateParametricConfigurationOverridesOutput struct{ *pulumi.OutputState }
+
+func (JobTemplateParametricConfigurationOverridesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobTemplateParametricConfigurationOverrides)(nil)).Elem()
+}
+
+func (o JobTemplateParametricConfigurationOverridesOutput) ToJobTemplateParametricConfigurationOverridesOutput() JobTemplateParametricConfigurationOverridesOutput {
+	return o
+}
+
+func (o JobTemplateParametricConfigurationOverridesOutput) ToJobTemplateParametricConfigurationOverridesOutputWithContext(ctx context.Context) JobTemplateParametricConfigurationOverridesOutput {
+	return o
+}
+
+func (o JobTemplateParametricConfigurationOverridesOutput) ToJobTemplateParametricConfigurationOverridesPtrOutput() JobTemplateParametricConfigurationOverridesPtrOutput {
+	return o.ToJobTemplateParametricConfigurationOverridesPtrOutputWithContext(context.Background())
+}
+
+func (o JobTemplateParametricConfigurationOverridesOutput) ToJobTemplateParametricConfigurationOverridesPtrOutputWithContext(ctx context.Context) JobTemplateParametricConfigurationOverridesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobTemplateParametricConfigurationOverrides) *JobTemplateParametricConfigurationOverrides {
+		return &v
+	}).(JobTemplateParametricConfigurationOverridesPtrOutput)
+}
+
+func (o JobTemplateParametricConfigurationOverridesOutput) ApplicationConfiguration() JobTemplateConfigurationArrayOutput {
+	return o.ApplyT(func(v JobTemplateParametricConfigurationOverrides) []JobTemplateConfiguration {
+		return v.ApplicationConfiguration
+	}).(JobTemplateConfigurationArrayOutput)
+}
+
+func (o JobTemplateParametricConfigurationOverridesOutput) MonitoringConfiguration() JobTemplateParametricMonitoringConfigurationPtrOutput {
+	return o.ApplyT(func(v JobTemplateParametricConfigurationOverrides) *JobTemplateParametricMonitoringConfiguration {
+		return v.MonitoringConfiguration
+	}).(JobTemplateParametricMonitoringConfigurationPtrOutput)
+}
+
+type JobTemplateParametricConfigurationOverridesPtrOutput struct{ *pulumi.OutputState }
+
+func (JobTemplateParametricConfigurationOverridesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobTemplateParametricConfigurationOverrides)(nil)).Elem()
+}
+
+func (o JobTemplateParametricConfigurationOverridesPtrOutput) ToJobTemplateParametricConfigurationOverridesPtrOutput() JobTemplateParametricConfigurationOverridesPtrOutput {
+	return o
+}
+
+func (o JobTemplateParametricConfigurationOverridesPtrOutput) ToJobTemplateParametricConfigurationOverridesPtrOutputWithContext(ctx context.Context) JobTemplateParametricConfigurationOverridesPtrOutput {
+	return o
+}
+
+func (o JobTemplateParametricConfigurationOverridesPtrOutput) Elem() JobTemplateParametricConfigurationOverridesOutput {
+	return o.ApplyT(func(v *JobTemplateParametricConfigurationOverrides) JobTemplateParametricConfigurationOverrides {
+		if v != nil {
+			return *v
+		}
+		var ret JobTemplateParametricConfigurationOverrides
+		return ret
+	}).(JobTemplateParametricConfigurationOverridesOutput)
+}
+
+func (o JobTemplateParametricConfigurationOverridesPtrOutput) ApplicationConfiguration() JobTemplateConfigurationArrayOutput {
+	return o.ApplyT(func(v *JobTemplateParametricConfigurationOverrides) []JobTemplateConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.ApplicationConfiguration
+	}).(JobTemplateConfigurationArrayOutput)
+}
+
+func (o JobTemplateParametricConfigurationOverridesPtrOutput) MonitoringConfiguration() JobTemplateParametricMonitoringConfigurationPtrOutput {
+	return o.ApplyT(func(v *JobTemplateParametricConfigurationOverrides) *JobTemplateParametricMonitoringConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.MonitoringConfiguration
+	}).(JobTemplateParametricMonitoringConfigurationPtrOutput)
+}
+
+// Configuration setting for monitoring. This data type allows job template parameters to be specified within.
+type JobTemplateParametricMonitoringConfiguration struct {
+	CloudWatchMonitoringConfiguration *JobTemplateParametricCloudWatchMonitoringConfiguration `pulumi:"cloudWatchMonitoringConfiguration"`
+	// Monitoring configurations for the persistent application UI, or a template parameter reference.
+	PersistentAppUi           *string                                         `pulumi:"persistentAppUi"`
+	S3MonitoringConfiguration *JobTemplateParametricS3MonitoringConfiguration `pulumi:"s3MonitoringConfiguration"`
+}
+
+// JobTemplateParametricMonitoringConfigurationInput is an input type that accepts JobTemplateParametricMonitoringConfigurationArgs and JobTemplateParametricMonitoringConfigurationOutput values.
+// You can construct a concrete instance of `JobTemplateParametricMonitoringConfigurationInput` via:
+//
+//	JobTemplateParametricMonitoringConfigurationArgs{...}
+type JobTemplateParametricMonitoringConfigurationInput interface {
+	pulumi.Input
+
+	ToJobTemplateParametricMonitoringConfigurationOutput() JobTemplateParametricMonitoringConfigurationOutput
+	ToJobTemplateParametricMonitoringConfigurationOutputWithContext(context.Context) JobTemplateParametricMonitoringConfigurationOutput
+}
+
+// Configuration setting for monitoring. This data type allows job template parameters to be specified within.
+type JobTemplateParametricMonitoringConfigurationArgs struct {
+	CloudWatchMonitoringConfiguration JobTemplateParametricCloudWatchMonitoringConfigurationPtrInput `pulumi:"cloudWatchMonitoringConfiguration"`
+	// Monitoring configurations for the persistent application UI, or a template parameter reference.
+	PersistentAppUi           pulumi.StringPtrInput                                  `pulumi:"persistentAppUi"`
+	S3MonitoringConfiguration JobTemplateParametricS3MonitoringConfigurationPtrInput `pulumi:"s3MonitoringConfiguration"`
+}
+
+func (JobTemplateParametricMonitoringConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobTemplateParametricMonitoringConfiguration)(nil)).Elem()
+}
+
+func (i JobTemplateParametricMonitoringConfigurationArgs) ToJobTemplateParametricMonitoringConfigurationOutput() JobTemplateParametricMonitoringConfigurationOutput {
+	return i.ToJobTemplateParametricMonitoringConfigurationOutputWithContext(context.Background())
+}
+
+func (i JobTemplateParametricMonitoringConfigurationArgs) ToJobTemplateParametricMonitoringConfigurationOutputWithContext(ctx context.Context) JobTemplateParametricMonitoringConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobTemplateParametricMonitoringConfigurationOutput)
+}
+
+func (i JobTemplateParametricMonitoringConfigurationArgs) ToJobTemplateParametricMonitoringConfigurationPtrOutput() JobTemplateParametricMonitoringConfigurationPtrOutput {
+	return i.ToJobTemplateParametricMonitoringConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i JobTemplateParametricMonitoringConfigurationArgs) ToJobTemplateParametricMonitoringConfigurationPtrOutputWithContext(ctx context.Context) JobTemplateParametricMonitoringConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobTemplateParametricMonitoringConfigurationOutput).ToJobTemplateParametricMonitoringConfigurationPtrOutputWithContext(ctx)
+}
+
+// JobTemplateParametricMonitoringConfigurationPtrInput is an input type that accepts JobTemplateParametricMonitoringConfigurationArgs, JobTemplateParametricMonitoringConfigurationPtr and JobTemplateParametricMonitoringConfigurationPtrOutput values.
+// You can construct a concrete instance of `JobTemplateParametricMonitoringConfigurationPtrInput` via:
+//
+//	        JobTemplateParametricMonitoringConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type JobTemplateParametricMonitoringConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToJobTemplateParametricMonitoringConfigurationPtrOutput() JobTemplateParametricMonitoringConfigurationPtrOutput
+	ToJobTemplateParametricMonitoringConfigurationPtrOutputWithContext(context.Context) JobTemplateParametricMonitoringConfigurationPtrOutput
+}
+
+type jobTemplateParametricMonitoringConfigurationPtrType JobTemplateParametricMonitoringConfigurationArgs
+
+func JobTemplateParametricMonitoringConfigurationPtr(v *JobTemplateParametricMonitoringConfigurationArgs) JobTemplateParametricMonitoringConfigurationPtrInput {
+	return (*jobTemplateParametricMonitoringConfigurationPtrType)(v)
+}
+
+func (*jobTemplateParametricMonitoringConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobTemplateParametricMonitoringConfiguration)(nil)).Elem()
+}
+
+func (i *jobTemplateParametricMonitoringConfigurationPtrType) ToJobTemplateParametricMonitoringConfigurationPtrOutput() JobTemplateParametricMonitoringConfigurationPtrOutput {
+	return i.ToJobTemplateParametricMonitoringConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *jobTemplateParametricMonitoringConfigurationPtrType) ToJobTemplateParametricMonitoringConfigurationPtrOutputWithContext(ctx context.Context) JobTemplateParametricMonitoringConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobTemplateParametricMonitoringConfigurationPtrOutput)
+}
+
+// Configuration setting for monitoring. This data type allows job template parameters to be specified within.
+type JobTemplateParametricMonitoringConfigurationOutput struct{ *pulumi.OutputState }
+
+func (JobTemplateParametricMonitoringConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobTemplateParametricMonitoringConfiguration)(nil)).Elem()
+}
+
+func (o JobTemplateParametricMonitoringConfigurationOutput) ToJobTemplateParametricMonitoringConfigurationOutput() JobTemplateParametricMonitoringConfigurationOutput {
+	return o
+}
+
+func (o JobTemplateParametricMonitoringConfigurationOutput) ToJobTemplateParametricMonitoringConfigurationOutputWithContext(ctx context.Context) JobTemplateParametricMonitoringConfigurationOutput {
+	return o
+}
+
+func (o JobTemplateParametricMonitoringConfigurationOutput) ToJobTemplateParametricMonitoringConfigurationPtrOutput() JobTemplateParametricMonitoringConfigurationPtrOutput {
+	return o.ToJobTemplateParametricMonitoringConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o JobTemplateParametricMonitoringConfigurationOutput) ToJobTemplateParametricMonitoringConfigurationPtrOutputWithContext(ctx context.Context) JobTemplateParametricMonitoringConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobTemplateParametricMonitoringConfiguration) *JobTemplateParametricMonitoringConfiguration {
+		return &v
+	}).(JobTemplateParametricMonitoringConfigurationPtrOutput)
+}
+
+func (o JobTemplateParametricMonitoringConfigurationOutput) CloudWatchMonitoringConfiguration() JobTemplateParametricCloudWatchMonitoringConfigurationPtrOutput {
+	return o.ApplyT(func(v JobTemplateParametricMonitoringConfiguration) *JobTemplateParametricCloudWatchMonitoringConfiguration {
+		return v.CloudWatchMonitoringConfiguration
+	}).(JobTemplateParametricCloudWatchMonitoringConfigurationPtrOutput)
+}
+
+// Monitoring configurations for the persistent application UI, or a template parameter reference.
+func (o JobTemplateParametricMonitoringConfigurationOutput) PersistentAppUi() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobTemplateParametricMonitoringConfiguration) *string { return v.PersistentAppUi }).(pulumi.StringPtrOutput)
+}
+
+func (o JobTemplateParametricMonitoringConfigurationOutput) S3MonitoringConfiguration() JobTemplateParametricS3MonitoringConfigurationPtrOutput {
+	return o.ApplyT(func(v JobTemplateParametricMonitoringConfiguration) *JobTemplateParametricS3MonitoringConfiguration {
+		return v.S3MonitoringConfiguration
+	}).(JobTemplateParametricS3MonitoringConfigurationPtrOutput)
+}
+
+type JobTemplateParametricMonitoringConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (JobTemplateParametricMonitoringConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobTemplateParametricMonitoringConfiguration)(nil)).Elem()
+}
+
+func (o JobTemplateParametricMonitoringConfigurationPtrOutput) ToJobTemplateParametricMonitoringConfigurationPtrOutput() JobTemplateParametricMonitoringConfigurationPtrOutput {
+	return o
+}
+
+func (o JobTemplateParametricMonitoringConfigurationPtrOutput) ToJobTemplateParametricMonitoringConfigurationPtrOutputWithContext(ctx context.Context) JobTemplateParametricMonitoringConfigurationPtrOutput {
+	return o
+}
+
+func (o JobTemplateParametricMonitoringConfigurationPtrOutput) Elem() JobTemplateParametricMonitoringConfigurationOutput {
+	return o.ApplyT(func(v *JobTemplateParametricMonitoringConfiguration) JobTemplateParametricMonitoringConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret JobTemplateParametricMonitoringConfiguration
+		return ret
+	}).(JobTemplateParametricMonitoringConfigurationOutput)
+}
+
+func (o JobTemplateParametricMonitoringConfigurationPtrOutput) CloudWatchMonitoringConfiguration() JobTemplateParametricCloudWatchMonitoringConfigurationPtrOutput {
+	return o.ApplyT(func(v *JobTemplateParametricMonitoringConfiguration) *JobTemplateParametricCloudWatchMonitoringConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.CloudWatchMonitoringConfiguration
+	}).(JobTemplateParametricCloudWatchMonitoringConfigurationPtrOutput)
+}
+
+// Monitoring configurations for the persistent application UI, or a template parameter reference.
+func (o JobTemplateParametricMonitoringConfigurationPtrOutput) PersistentAppUi() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JobTemplateParametricMonitoringConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PersistentAppUi
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o JobTemplateParametricMonitoringConfigurationPtrOutput) S3MonitoringConfiguration() JobTemplateParametricS3MonitoringConfigurationPtrOutput {
+	return o.ApplyT(func(v *JobTemplateParametricMonitoringConfiguration) *JobTemplateParametricS3MonitoringConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.S3MonitoringConfiguration
+	}).(JobTemplateParametricS3MonitoringConfigurationPtrOutput)
+}
+
+// Amazon S3 configuration for monitoring log publishing. This data type allows job template parameters to be specified within.
+type JobTemplateParametricS3MonitoringConfiguration struct {
+	// Amazon S3 destination URI for log publishing.
+	LogUri *string `pulumi:"logUri"`
+}
+
+// JobTemplateParametricS3MonitoringConfigurationInput is an input type that accepts JobTemplateParametricS3MonitoringConfigurationArgs and JobTemplateParametricS3MonitoringConfigurationOutput values.
+// You can construct a concrete instance of `JobTemplateParametricS3MonitoringConfigurationInput` via:
+//
+//	JobTemplateParametricS3MonitoringConfigurationArgs{...}
+type JobTemplateParametricS3MonitoringConfigurationInput interface {
+	pulumi.Input
+
+	ToJobTemplateParametricS3MonitoringConfigurationOutput() JobTemplateParametricS3MonitoringConfigurationOutput
+	ToJobTemplateParametricS3MonitoringConfigurationOutputWithContext(context.Context) JobTemplateParametricS3MonitoringConfigurationOutput
+}
+
+// Amazon S3 configuration for monitoring log publishing. This data type allows job template parameters to be specified within.
+type JobTemplateParametricS3MonitoringConfigurationArgs struct {
+	// Amazon S3 destination URI for log publishing.
+	LogUri pulumi.StringPtrInput `pulumi:"logUri"`
+}
+
+func (JobTemplateParametricS3MonitoringConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobTemplateParametricS3MonitoringConfiguration)(nil)).Elem()
+}
+
+func (i JobTemplateParametricS3MonitoringConfigurationArgs) ToJobTemplateParametricS3MonitoringConfigurationOutput() JobTemplateParametricS3MonitoringConfigurationOutput {
+	return i.ToJobTemplateParametricS3MonitoringConfigurationOutputWithContext(context.Background())
+}
+
+func (i JobTemplateParametricS3MonitoringConfigurationArgs) ToJobTemplateParametricS3MonitoringConfigurationOutputWithContext(ctx context.Context) JobTemplateParametricS3MonitoringConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobTemplateParametricS3MonitoringConfigurationOutput)
+}
+
+func (i JobTemplateParametricS3MonitoringConfigurationArgs) ToJobTemplateParametricS3MonitoringConfigurationPtrOutput() JobTemplateParametricS3MonitoringConfigurationPtrOutput {
+	return i.ToJobTemplateParametricS3MonitoringConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i JobTemplateParametricS3MonitoringConfigurationArgs) ToJobTemplateParametricS3MonitoringConfigurationPtrOutputWithContext(ctx context.Context) JobTemplateParametricS3MonitoringConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobTemplateParametricS3MonitoringConfigurationOutput).ToJobTemplateParametricS3MonitoringConfigurationPtrOutputWithContext(ctx)
+}
+
+// JobTemplateParametricS3MonitoringConfigurationPtrInput is an input type that accepts JobTemplateParametricS3MonitoringConfigurationArgs, JobTemplateParametricS3MonitoringConfigurationPtr and JobTemplateParametricS3MonitoringConfigurationPtrOutput values.
+// You can construct a concrete instance of `JobTemplateParametricS3MonitoringConfigurationPtrInput` via:
+//
+//	        JobTemplateParametricS3MonitoringConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type JobTemplateParametricS3MonitoringConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToJobTemplateParametricS3MonitoringConfigurationPtrOutput() JobTemplateParametricS3MonitoringConfigurationPtrOutput
+	ToJobTemplateParametricS3MonitoringConfigurationPtrOutputWithContext(context.Context) JobTemplateParametricS3MonitoringConfigurationPtrOutput
+}
+
+type jobTemplateParametricS3MonitoringConfigurationPtrType JobTemplateParametricS3MonitoringConfigurationArgs
+
+func JobTemplateParametricS3MonitoringConfigurationPtr(v *JobTemplateParametricS3MonitoringConfigurationArgs) JobTemplateParametricS3MonitoringConfigurationPtrInput {
+	return (*jobTemplateParametricS3MonitoringConfigurationPtrType)(v)
+}
+
+func (*jobTemplateParametricS3MonitoringConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobTemplateParametricS3MonitoringConfiguration)(nil)).Elem()
+}
+
+func (i *jobTemplateParametricS3MonitoringConfigurationPtrType) ToJobTemplateParametricS3MonitoringConfigurationPtrOutput() JobTemplateParametricS3MonitoringConfigurationPtrOutput {
+	return i.ToJobTemplateParametricS3MonitoringConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *jobTemplateParametricS3MonitoringConfigurationPtrType) ToJobTemplateParametricS3MonitoringConfigurationPtrOutputWithContext(ctx context.Context) JobTemplateParametricS3MonitoringConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobTemplateParametricS3MonitoringConfigurationPtrOutput)
+}
+
+// Amazon S3 configuration for monitoring log publishing. This data type allows job template parameters to be specified within.
+type JobTemplateParametricS3MonitoringConfigurationOutput struct{ *pulumi.OutputState }
+
+func (JobTemplateParametricS3MonitoringConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobTemplateParametricS3MonitoringConfiguration)(nil)).Elem()
+}
+
+func (o JobTemplateParametricS3MonitoringConfigurationOutput) ToJobTemplateParametricS3MonitoringConfigurationOutput() JobTemplateParametricS3MonitoringConfigurationOutput {
+	return o
+}
+
+func (o JobTemplateParametricS3MonitoringConfigurationOutput) ToJobTemplateParametricS3MonitoringConfigurationOutputWithContext(ctx context.Context) JobTemplateParametricS3MonitoringConfigurationOutput {
+	return o
+}
+
+func (o JobTemplateParametricS3MonitoringConfigurationOutput) ToJobTemplateParametricS3MonitoringConfigurationPtrOutput() JobTemplateParametricS3MonitoringConfigurationPtrOutput {
+	return o.ToJobTemplateParametricS3MonitoringConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o JobTemplateParametricS3MonitoringConfigurationOutput) ToJobTemplateParametricS3MonitoringConfigurationPtrOutputWithContext(ctx context.Context) JobTemplateParametricS3MonitoringConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobTemplateParametricS3MonitoringConfiguration) *JobTemplateParametricS3MonitoringConfiguration {
+		return &v
+	}).(JobTemplateParametricS3MonitoringConfigurationPtrOutput)
+}
+
+// Amazon S3 destination URI for log publishing.
+func (o JobTemplateParametricS3MonitoringConfigurationOutput) LogUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobTemplateParametricS3MonitoringConfiguration) *string { return v.LogUri }).(pulumi.StringPtrOutput)
+}
+
+type JobTemplateParametricS3MonitoringConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (JobTemplateParametricS3MonitoringConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobTemplateParametricS3MonitoringConfiguration)(nil)).Elem()
+}
+
+func (o JobTemplateParametricS3MonitoringConfigurationPtrOutput) ToJobTemplateParametricS3MonitoringConfigurationPtrOutput() JobTemplateParametricS3MonitoringConfigurationPtrOutput {
+	return o
+}
+
+func (o JobTemplateParametricS3MonitoringConfigurationPtrOutput) ToJobTemplateParametricS3MonitoringConfigurationPtrOutputWithContext(ctx context.Context) JobTemplateParametricS3MonitoringConfigurationPtrOutput {
+	return o
+}
+
+func (o JobTemplateParametricS3MonitoringConfigurationPtrOutput) Elem() JobTemplateParametricS3MonitoringConfigurationOutput {
+	return o.ApplyT(func(v *JobTemplateParametricS3MonitoringConfiguration) JobTemplateParametricS3MonitoringConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret JobTemplateParametricS3MonitoringConfiguration
+		return ret
+	}).(JobTemplateParametricS3MonitoringConfigurationOutput)
+}
+
+// Amazon S3 destination URI for log publishing.
+func (o JobTemplateParametricS3MonitoringConfigurationPtrOutput) LogUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JobTemplateParametricS3MonitoringConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LogUri
+	}).(pulumi.StringPtrOutput)
+}
+
+// The job driver for job type.
+type JobTemplateSparkSqlJobDriver struct {
+	EntryPoint         *string `pulumi:"entryPoint"`
+	SparkSqlParameters *string `pulumi:"sparkSqlParameters"`
+}
+
+// JobTemplateSparkSqlJobDriverInput is an input type that accepts JobTemplateSparkSqlJobDriverArgs and JobTemplateSparkSqlJobDriverOutput values.
+// You can construct a concrete instance of `JobTemplateSparkSqlJobDriverInput` via:
+//
+//	JobTemplateSparkSqlJobDriverArgs{...}
+type JobTemplateSparkSqlJobDriverInput interface {
+	pulumi.Input
+
+	ToJobTemplateSparkSqlJobDriverOutput() JobTemplateSparkSqlJobDriverOutput
+	ToJobTemplateSparkSqlJobDriverOutputWithContext(context.Context) JobTemplateSparkSqlJobDriverOutput
+}
+
+// The job driver for job type.
+type JobTemplateSparkSqlJobDriverArgs struct {
+	EntryPoint         pulumi.StringPtrInput `pulumi:"entryPoint"`
+	SparkSqlParameters pulumi.StringPtrInput `pulumi:"sparkSqlParameters"`
+}
+
+func (JobTemplateSparkSqlJobDriverArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobTemplateSparkSqlJobDriver)(nil)).Elem()
+}
+
+func (i JobTemplateSparkSqlJobDriverArgs) ToJobTemplateSparkSqlJobDriverOutput() JobTemplateSparkSqlJobDriverOutput {
+	return i.ToJobTemplateSparkSqlJobDriverOutputWithContext(context.Background())
+}
+
+func (i JobTemplateSparkSqlJobDriverArgs) ToJobTemplateSparkSqlJobDriverOutputWithContext(ctx context.Context) JobTemplateSparkSqlJobDriverOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobTemplateSparkSqlJobDriverOutput)
+}
+
+func (i JobTemplateSparkSqlJobDriverArgs) ToJobTemplateSparkSqlJobDriverPtrOutput() JobTemplateSparkSqlJobDriverPtrOutput {
+	return i.ToJobTemplateSparkSqlJobDriverPtrOutputWithContext(context.Background())
+}
+
+func (i JobTemplateSparkSqlJobDriverArgs) ToJobTemplateSparkSqlJobDriverPtrOutputWithContext(ctx context.Context) JobTemplateSparkSqlJobDriverPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobTemplateSparkSqlJobDriverOutput).ToJobTemplateSparkSqlJobDriverPtrOutputWithContext(ctx)
+}
+
+// JobTemplateSparkSqlJobDriverPtrInput is an input type that accepts JobTemplateSparkSqlJobDriverArgs, JobTemplateSparkSqlJobDriverPtr and JobTemplateSparkSqlJobDriverPtrOutput values.
+// You can construct a concrete instance of `JobTemplateSparkSqlJobDriverPtrInput` via:
+//
+//	        JobTemplateSparkSqlJobDriverArgs{...}
+//
+//	or:
+//
+//	        nil
+type JobTemplateSparkSqlJobDriverPtrInput interface {
+	pulumi.Input
+
+	ToJobTemplateSparkSqlJobDriverPtrOutput() JobTemplateSparkSqlJobDriverPtrOutput
+	ToJobTemplateSparkSqlJobDriverPtrOutputWithContext(context.Context) JobTemplateSparkSqlJobDriverPtrOutput
+}
+
+type jobTemplateSparkSqlJobDriverPtrType JobTemplateSparkSqlJobDriverArgs
+
+func JobTemplateSparkSqlJobDriverPtr(v *JobTemplateSparkSqlJobDriverArgs) JobTemplateSparkSqlJobDriverPtrInput {
+	return (*jobTemplateSparkSqlJobDriverPtrType)(v)
+}
+
+func (*jobTemplateSparkSqlJobDriverPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobTemplateSparkSqlJobDriver)(nil)).Elem()
+}
+
+func (i *jobTemplateSparkSqlJobDriverPtrType) ToJobTemplateSparkSqlJobDriverPtrOutput() JobTemplateSparkSqlJobDriverPtrOutput {
+	return i.ToJobTemplateSparkSqlJobDriverPtrOutputWithContext(context.Background())
+}
+
+func (i *jobTemplateSparkSqlJobDriverPtrType) ToJobTemplateSparkSqlJobDriverPtrOutputWithContext(ctx context.Context) JobTemplateSparkSqlJobDriverPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobTemplateSparkSqlJobDriverPtrOutput)
+}
+
+// The job driver for job type.
+type JobTemplateSparkSqlJobDriverOutput struct{ *pulumi.OutputState }
+
+func (JobTemplateSparkSqlJobDriverOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobTemplateSparkSqlJobDriver)(nil)).Elem()
+}
+
+func (o JobTemplateSparkSqlJobDriverOutput) ToJobTemplateSparkSqlJobDriverOutput() JobTemplateSparkSqlJobDriverOutput {
+	return o
+}
+
+func (o JobTemplateSparkSqlJobDriverOutput) ToJobTemplateSparkSqlJobDriverOutputWithContext(ctx context.Context) JobTemplateSparkSqlJobDriverOutput {
+	return o
+}
+
+func (o JobTemplateSparkSqlJobDriverOutput) ToJobTemplateSparkSqlJobDriverPtrOutput() JobTemplateSparkSqlJobDriverPtrOutput {
+	return o.ToJobTemplateSparkSqlJobDriverPtrOutputWithContext(context.Background())
+}
+
+func (o JobTemplateSparkSqlJobDriverOutput) ToJobTemplateSparkSqlJobDriverPtrOutputWithContext(ctx context.Context) JobTemplateSparkSqlJobDriverPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobTemplateSparkSqlJobDriver) *JobTemplateSparkSqlJobDriver {
+		return &v
+	}).(JobTemplateSparkSqlJobDriverPtrOutput)
+}
+
+func (o JobTemplateSparkSqlJobDriverOutput) EntryPoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobTemplateSparkSqlJobDriver) *string { return v.EntryPoint }).(pulumi.StringPtrOutput)
+}
+
+func (o JobTemplateSparkSqlJobDriverOutput) SparkSqlParameters() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobTemplateSparkSqlJobDriver) *string { return v.SparkSqlParameters }).(pulumi.StringPtrOutput)
+}
+
+type JobTemplateSparkSqlJobDriverPtrOutput struct{ *pulumi.OutputState }
+
+func (JobTemplateSparkSqlJobDriverPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobTemplateSparkSqlJobDriver)(nil)).Elem()
+}
+
+func (o JobTemplateSparkSqlJobDriverPtrOutput) ToJobTemplateSparkSqlJobDriverPtrOutput() JobTemplateSparkSqlJobDriverPtrOutput {
+	return o
+}
+
+func (o JobTemplateSparkSqlJobDriverPtrOutput) ToJobTemplateSparkSqlJobDriverPtrOutputWithContext(ctx context.Context) JobTemplateSparkSqlJobDriverPtrOutput {
+	return o
+}
+
+func (o JobTemplateSparkSqlJobDriverPtrOutput) Elem() JobTemplateSparkSqlJobDriverOutput {
+	return o.ApplyT(func(v *JobTemplateSparkSqlJobDriver) JobTemplateSparkSqlJobDriver {
+		if v != nil {
+			return *v
+		}
+		var ret JobTemplateSparkSqlJobDriver
+		return ret
+	}).(JobTemplateSparkSqlJobDriverOutput)
+}
+
+func (o JobTemplateSparkSqlJobDriverPtrOutput) EntryPoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JobTemplateSparkSqlJobDriver) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EntryPoint
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o JobTemplateSparkSqlJobDriverPtrOutput) SparkSqlParameters() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JobTemplateSparkSqlJobDriver) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SparkSqlParameters
+	}).(pulumi.StringPtrOutput)
+}
+
+// The information about job driver for Spark submit.
+type JobTemplateSparkSubmitJobDriver struct {
+	EntryPoint            string   `pulumi:"entryPoint"`
+	EntryPointArguments   []string `pulumi:"entryPointArguments"`
+	SparkSubmitParameters *string  `pulumi:"sparkSubmitParameters"`
+}
+
+// JobTemplateSparkSubmitJobDriverInput is an input type that accepts JobTemplateSparkSubmitJobDriverArgs and JobTemplateSparkSubmitJobDriverOutput values.
+// You can construct a concrete instance of `JobTemplateSparkSubmitJobDriverInput` via:
+//
+//	JobTemplateSparkSubmitJobDriverArgs{...}
+type JobTemplateSparkSubmitJobDriverInput interface {
+	pulumi.Input
+
+	ToJobTemplateSparkSubmitJobDriverOutput() JobTemplateSparkSubmitJobDriverOutput
+	ToJobTemplateSparkSubmitJobDriverOutputWithContext(context.Context) JobTemplateSparkSubmitJobDriverOutput
+}
+
+// The information about job driver for Spark submit.
+type JobTemplateSparkSubmitJobDriverArgs struct {
+	EntryPoint            pulumi.StringInput      `pulumi:"entryPoint"`
+	EntryPointArguments   pulumi.StringArrayInput `pulumi:"entryPointArguments"`
+	SparkSubmitParameters pulumi.StringPtrInput   `pulumi:"sparkSubmitParameters"`
+}
+
+func (JobTemplateSparkSubmitJobDriverArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobTemplateSparkSubmitJobDriver)(nil)).Elem()
+}
+
+func (i JobTemplateSparkSubmitJobDriverArgs) ToJobTemplateSparkSubmitJobDriverOutput() JobTemplateSparkSubmitJobDriverOutput {
+	return i.ToJobTemplateSparkSubmitJobDriverOutputWithContext(context.Background())
+}
+
+func (i JobTemplateSparkSubmitJobDriverArgs) ToJobTemplateSparkSubmitJobDriverOutputWithContext(ctx context.Context) JobTemplateSparkSubmitJobDriverOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobTemplateSparkSubmitJobDriverOutput)
+}
+
+func (i JobTemplateSparkSubmitJobDriverArgs) ToJobTemplateSparkSubmitJobDriverPtrOutput() JobTemplateSparkSubmitJobDriverPtrOutput {
+	return i.ToJobTemplateSparkSubmitJobDriverPtrOutputWithContext(context.Background())
+}
+
+func (i JobTemplateSparkSubmitJobDriverArgs) ToJobTemplateSparkSubmitJobDriverPtrOutputWithContext(ctx context.Context) JobTemplateSparkSubmitJobDriverPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobTemplateSparkSubmitJobDriverOutput).ToJobTemplateSparkSubmitJobDriverPtrOutputWithContext(ctx)
+}
+
+// JobTemplateSparkSubmitJobDriverPtrInput is an input type that accepts JobTemplateSparkSubmitJobDriverArgs, JobTemplateSparkSubmitJobDriverPtr and JobTemplateSparkSubmitJobDriverPtrOutput values.
+// You can construct a concrete instance of `JobTemplateSparkSubmitJobDriverPtrInput` via:
+//
+//	        JobTemplateSparkSubmitJobDriverArgs{...}
+//
+//	or:
+//
+//	        nil
+type JobTemplateSparkSubmitJobDriverPtrInput interface {
+	pulumi.Input
+
+	ToJobTemplateSparkSubmitJobDriverPtrOutput() JobTemplateSparkSubmitJobDriverPtrOutput
+	ToJobTemplateSparkSubmitJobDriverPtrOutputWithContext(context.Context) JobTemplateSparkSubmitJobDriverPtrOutput
+}
+
+type jobTemplateSparkSubmitJobDriverPtrType JobTemplateSparkSubmitJobDriverArgs
+
+func JobTemplateSparkSubmitJobDriverPtr(v *JobTemplateSparkSubmitJobDriverArgs) JobTemplateSparkSubmitJobDriverPtrInput {
+	return (*jobTemplateSparkSubmitJobDriverPtrType)(v)
+}
+
+func (*jobTemplateSparkSubmitJobDriverPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobTemplateSparkSubmitJobDriver)(nil)).Elem()
+}
+
+func (i *jobTemplateSparkSubmitJobDriverPtrType) ToJobTemplateSparkSubmitJobDriverPtrOutput() JobTemplateSparkSubmitJobDriverPtrOutput {
+	return i.ToJobTemplateSparkSubmitJobDriverPtrOutputWithContext(context.Background())
+}
+
+func (i *jobTemplateSparkSubmitJobDriverPtrType) ToJobTemplateSparkSubmitJobDriverPtrOutputWithContext(ctx context.Context) JobTemplateSparkSubmitJobDriverPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobTemplateSparkSubmitJobDriverPtrOutput)
+}
+
+// The information about job driver for Spark submit.
+type JobTemplateSparkSubmitJobDriverOutput struct{ *pulumi.OutputState }
+
+func (JobTemplateSparkSubmitJobDriverOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobTemplateSparkSubmitJobDriver)(nil)).Elem()
+}
+
+func (o JobTemplateSparkSubmitJobDriverOutput) ToJobTemplateSparkSubmitJobDriverOutput() JobTemplateSparkSubmitJobDriverOutput {
+	return o
+}
+
+func (o JobTemplateSparkSubmitJobDriverOutput) ToJobTemplateSparkSubmitJobDriverOutputWithContext(ctx context.Context) JobTemplateSparkSubmitJobDriverOutput {
+	return o
+}
+
+func (o JobTemplateSparkSubmitJobDriverOutput) ToJobTemplateSparkSubmitJobDriverPtrOutput() JobTemplateSparkSubmitJobDriverPtrOutput {
+	return o.ToJobTemplateSparkSubmitJobDriverPtrOutputWithContext(context.Background())
+}
+
+func (o JobTemplateSparkSubmitJobDriverOutput) ToJobTemplateSparkSubmitJobDriverPtrOutputWithContext(ctx context.Context) JobTemplateSparkSubmitJobDriverPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobTemplateSparkSubmitJobDriver) *JobTemplateSparkSubmitJobDriver {
+		return &v
+	}).(JobTemplateSparkSubmitJobDriverPtrOutput)
+}
+
+func (o JobTemplateSparkSubmitJobDriverOutput) EntryPoint() pulumi.StringOutput {
+	return o.ApplyT(func(v JobTemplateSparkSubmitJobDriver) string { return v.EntryPoint }).(pulumi.StringOutput)
+}
+
+func (o JobTemplateSparkSubmitJobDriverOutput) EntryPointArguments() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v JobTemplateSparkSubmitJobDriver) []string { return v.EntryPointArguments }).(pulumi.StringArrayOutput)
+}
+
+func (o JobTemplateSparkSubmitJobDriverOutput) SparkSubmitParameters() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobTemplateSparkSubmitJobDriver) *string { return v.SparkSubmitParameters }).(pulumi.StringPtrOutput)
+}
+
+type JobTemplateSparkSubmitJobDriverPtrOutput struct{ *pulumi.OutputState }
+
+func (JobTemplateSparkSubmitJobDriverPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobTemplateSparkSubmitJobDriver)(nil)).Elem()
+}
+
+func (o JobTemplateSparkSubmitJobDriverPtrOutput) ToJobTemplateSparkSubmitJobDriverPtrOutput() JobTemplateSparkSubmitJobDriverPtrOutput {
+	return o
+}
+
+func (o JobTemplateSparkSubmitJobDriverPtrOutput) ToJobTemplateSparkSubmitJobDriverPtrOutputWithContext(ctx context.Context) JobTemplateSparkSubmitJobDriverPtrOutput {
+	return o
+}
+
+func (o JobTemplateSparkSubmitJobDriverPtrOutput) Elem() JobTemplateSparkSubmitJobDriverOutput {
+	return o.ApplyT(func(v *JobTemplateSparkSubmitJobDriver) JobTemplateSparkSubmitJobDriver {
+		if v != nil {
+			return *v
+		}
+		var ret JobTemplateSparkSubmitJobDriver
+		return ret
+	}).(JobTemplateSparkSubmitJobDriverOutput)
+}
+
+func (o JobTemplateSparkSubmitJobDriverPtrOutput) EntryPoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JobTemplateSparkSubmitJobDriver) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.EntryPoint
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o JobTemplateSparkSubmitJobDriverPtrOutput) EntryPointArguments() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *JobTemplateSparkSubmitJobDriver) []string {
+		if v == nil {
+			return nil
+		}
+		return v.EntryPointArguments
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o JobTemplateSparkSubmitJobDriverPtrOutput) SparkSubmitParameters() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JobTemplateSparkSubmitJobDriver) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SparkSubmitParameters
+	}).(pulumi.StringPtrOutput)
+}
+
+// A key-value pair to associate with the job template.
+type JobTemplateTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
+// The configuration of a job template parameter.
+type JobTemplateTemplateParameterConfiguration struct {
+	// The default value for the job template parameter.
+	DefaultValue *string `pulumi:"defaultValue"`
+	// The type of the job template parameter.
+	Type *JobTemplateTemplateParameterConfigurationType `pulumi:"type"`
+}
+
+// JobTemplateTemplateParameterConfigurationInput is an input type that accepts JobTemplateTemplateParameterConfigurationArgs and JobTemplateTemplateParameterConfigurationOutput values.
+// You can construct a concrete instance of `JobTemplateTemplateParameterConfigurationInput` via:
+//
+//	JobTemplateTemplateParameterConfigurationArgs{...}
+type JobTemplateTemplateParameterConfigurationInput interface {
+	pulumi.Input
+
+	ToJobTemplateTemplateParameterConfigurationOutput() JobTemplateTemplateParameterConfigurationOutput
+	ToJobTemplateTemplateParameterConfigurationOutputWithContext(context.Context) JobTemplateTemplateParameterConfigurationOutput
+}
+
+// The configuration of a job template parameter.
+type JobTemplateTemplateParameterConfigurationArgs struct {
+	// The default value for the job template parameter.
+	DefaultValue pulumi.StringPtrInput `pulumi:"defaultValue"`
+	// The type of the job template parameter.
+	Type JobTemplateTemplateParameterConfigurationTypePtrInput `pulumi:"type"`
+}
+
+func (JobTemplateTemplateParameterConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobTemplateTemplateParameterConfiguration)(nil)).Elem()
+}
+
+func (i JobTemplateTemplateParameterConfigurationArgs) ToJobTemplateTemplateParameterConfigurationOutput() JobTemplateTemplateParameterConfigurationOutput {
+	return i.ToJobTemplateTemplateParameterConfigurationOutputWithContext(context.Background())
+}
+
+func (i JobTemplateTemplateParameterConfigurationArgs) ToJobTemplateTemplateParameterConfigurationOutputWithContext(ctx context.Context) JobTemplateTemplateParameterConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobTemplateTemplateParameterConfigurationOutput)
+}
+
+// JobTemplateTemplateParameterConfigurationMapInput is an input type that accepts JobTemplateTemplateParameterConfigurationMap and JobTemplateTemplateParameterConfigurationMapOutput values.
+// You can construct a concrete instance of `JobTemplateTemplateParameterConfigurationMapInput` via:
+//
+//	JobTemplateTemplateParameterConfigurationMap{ "key": JobTemplateTemplateParameterConfigurationArgs{...} }
+type JobTemplateTemplateParameterConfigurationMapInput interface {
+	pulumi.Input
+
+	ToJobTemplateTemplateParameterConfigurationMapOutput() JobTemplateTemplateParameterConfigurationMapOutput
+	ToJobTemplateTemplateParameterConfigurationMapOutputWithContext(context.Context) JobTemplateTemplateParameterConfigurationMapOutput
+}
+
+type JobTemplateTemplateParameterConfigurationMap map[string]JobTemplateTemplateParameterConfigurationInput
+
+func (JobTemplateTemplateParameterConfigurationMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]JobTemplateTemplateParameterConfiguration)(nil)).Elem()
+}
+
+func (i JobTemplateTemplateParameterConfigurationMap) ToJobTemplateTemplateParameterConfigurationMapOutput() JobTemplateTemplateParameterConfigurationMapOutput {
+	return i.ToJobTemplateTemplateParameterConfigurationMapOutputWithContext(context.Background())
+}
+
+func (i JobTemplateTemplateParameterConfigurationMap) ToJobTemplateTemplateParameterConfigurationMapOutputWithContext(ctx context.Context) JobTemplateTemplateParameterConfigurationMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobTemplateTemplateParameterConfigurationMapOutput)
+}
+
+// The configuration of a job template parameter.
+type JobTemplateTemplateParameterConfigurationOutput struct{ *pulumi.OutputState }
+
+func (JobTemplateTemplateParameterConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobTemplateTemplateParameterConfiguration)(nil)).Elem()
+}
+
+func (o JobTemplateTemplateParameterConfigurationOutput) ToJobTemplateTemplateParameterConfigurationOutput() JobTemplateTemplateParameterConfigurationOutput {
+	return o
+}
+
+func (o JobTemplateTemplateParameterConfigurationOutput) ToJobTemplateTemplateParameterConfigurationOutputWithContext(ctx context.Context) JobTemplateTemplateParameterConfigurationOutput {
+	return o
+}
+
+// The default value for the job template parameter.
+func (o JobTemplateTemplateParameterConfigurationOutput) DefaultValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobTemplateTemplateParameterConfiguration) *string { return v.DefaultValue }).(pulumi.StringPtrOutput)
+}
+
+// The type of the job template parameter.
+func (o JobTemplateTemplateParameterConfigurationOutput) Type() JobTemplateTemplateParameterConfigurationTypePtrOutput {
+	return o.ApplyT(func(v JobTemplateTemplateParameterConfiguration) *JobTemplateTemplateParameterConfigurationType {
+		return v.Type
+	}).(JobTemplateTemplateParameterConfigurationTypePtrOutput)
+}
+
+type JobTemplateTemplateParameterConfigurationMapOutput struct{ *pulumi.OutputState }
+
+func (JobTemplateTemplateParameterConfigurationMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]JobTemplateTemplateParameterConfiguration)(nil)).Elem()
+}
+
+func (o JobTemplateTemplateParameterConfigurationMapOutput) ToJobTemplateTemplateParameterConfigurationMapOutput() JobTemplateTemplateParameterConfigurationMapOutput {
+	return o
+}
+
+func (o JobTemplateTemplateParameterConfigurationMapOutput) ToJobTemplateTemplateParameterConfigurationMapOutputWithContext(ctx context.Context) JobTemplateTemplateParameterConfigurationMapOutput {
+	return o
+}
+
+func (o JobTemplateTemplateParameterConfigurationMapOutput) MapIndex(k pulumi.StringInput) JobTemplateTemplateParameterConfigurationOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) JobTemplateTemplateParameterConfiguration {
+		return vs[0].(map[string]JobTemplateTemplateParameterConfiguration)[vs[1].(string)]
+	}).(JobTemplateTemplateParameterConfigurationOutput)
+}
+
 // At-rest encryption configuration.
 type SecurityConfigurationAtRestEncryptionConfiguration struct {
 	LocalDiskEncryptionConfiguration *SecurityConfigurationLocalDiskEncryptionConfiguration `pulumi:"localDiskEncryptionConfiguration"`
@@ -3622,6 +4953,24 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointMonitoringConfigurationPtrInput)(nil)).Elem(), EndpointMonitoringConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointS3MonitoringConfigurationInput)(nil)).Elem(), EndpointS3MonitoringConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointS3MonitoringConfigurationPtrInput)(nil)).Elem(), EndpointS3MonitoringConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobTemplateConfigurationInput)(nil)).Elem(), JobTemplateConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobTemplateConfigurationArrayInput)(nil)).Elem(), JobTemplateConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobTemplateDataInput)(nil)).Elem(), JobTemplateDataArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobTemplateJobDriverInput)(nil)).Elem(), JobTemplateJobDriverArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobTemplateParametricCloudWatchMonitoringConfigurationInput)(nil)).Elem(), JobTemplateParametricCloudWatchMonitoringConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobTemplateParametricCloudWatchMonitoringConfigurationPtrInput)(nil)).Elem(), JobTemplateParametricCloudWatchMonitoringConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobTemplateParametricConfigurationOverridesInput)(nil)).Elem(), JobTemplateParametricConfigurationOverridesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobTemplateParametricConfigurationOverridesPtrInput)(nil)).Elem(), JobTemplateParametricConfigurationOverridesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobTemplateParametricMonitoringConfigurationInput)(nil)).Elem(), JobTemplateParametricMonitoringConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobTemplateParametricMonitoringConfigurationPtrInput)(nil)).Elem(), JobTemplateParametricMonitoringConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobTemplateParametricS3MonitoringConfigurationInput)(nil)).Elem(), JobTemplateParametricS3MonitoringConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobTemplateParametricS3MonitoringConfigurationPtrInput)(nil)).Elem(), JobTemplateParametricS3MonitoringConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobTemplateSparkSqlJobDriverInput)(nil)).Elem(), JobTemplateSparkSqlJobDriverArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobTemplateSparkSqlJobDriverPtrInput)(nil)).Elem(), JobTemplateSparkSqlJobDriverArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobTemplateSparkSubmitJobDriverInput)(nil)).Elem(), JobTemplateSparkSubmitJobDriverArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobTemplateSparkSubmitJobDriverPtrInput)(nil)).Elem(), JobTemplateSparkSubmitJobDriverArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobTemplateTemplateParameterConfigurationInput)(nil)).Elem(), JobTemplateTemplateParameterConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobTemplateTemplateParameterConfigurationMapInput)(nil)).Elem(), JobTemplateTemplateParameterConfigurationMap{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SecurityConfigurationAtRestEncryptionConfigurationInput)(nil)).Elem(), SecurityConfigurationAtRestEncryptionConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SecurityConfigurationAtRestEncryptionConfigurationPtrInput)(nil)).Elem(), SecurityConfigurationAtRestEncryptionConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SecurityConfigurationAuthenticationConfigurationInput)(nil)).Elem(), SecurityConfigurationAuthenticationConfigurationArgs{})
@@ -3670,6 +5019,24 @@ func init() {
 	pulumi.RegisterOutputType(EndpointMonitoringConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(EndpointS3MonitoringConfigurationOutput{})
 	pulumi.RegisterOutputType(EndpointS3MonitoringConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(JobTemplateConfigurationOutput{})
+	pulumi.RegisterOutputType(JobTemplateConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(JobTemplateDataOutput{})
+	pulumi.RegisterOutputType(JobTemplateJobDriverOutput{})
+	pulumi.RegisterOutputType(JobTemplateParametricCloudWatchMonitoringConfigurationOutput{})
+	pulumi.RegisterOutputType(JobTemplateParametricCloudWatchMonitoringConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(JobTemplateParametricConfigurationOverridesOutput{})
+	pulumi.RegisterOutputType(JobTemplateParametricConfigurationOverridesPtrOutput{})
+	pulumi.RegisterOutputType(JobTemplateParametricMonitoringConfigurationOutput{})
+	pulumi.RegisterOutputType(JobTemplateParametricMonitoringConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(JobTemplateParametricS3MonitoringConfigurationOutput{})
+	pulumi.RegisterOutputType(JobTemplateParametricS3MonitoringConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(JobTemplateSparkSqlJobDriverOutput{})
+	pulumi.RegisterOutputType(JobTemplateSparkSqlJobDriverPtrOutput{})
+	pulumi.RegisterOutputType(JobTemplateSparkSubmitJobDriverOutput{})
+	pulumi.RegisterOutputType(JobTemplateSparkSubmitJobDriverPtrOutput{})
+	pulumi.RegisterOutputType(JobTemplateTemplateParameterConfigurationOutput{})
+	pulumi.RegisterOutputType(JobTemplateTemplateParameterConfigurationMapOutput{})
 	pulumi.RegisterOutputType(SecurityConfigurationAtRestEncryptionConfigurationOutput{})
 	pulumi.RegisterOutputType(SecurityConfigurationAtRestEncryptionConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(SecurityConfigurationAuthenticationConfigurationOutput{})

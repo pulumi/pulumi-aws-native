@@ -56,6 +56,18 @@ export const ProtectConfigurationCountryRuleProtectStatus = {
  */
 export type ProtectConfigurationCountryRuleProtectStatus = (typeof ProtectConfigurationCountryRuleProtectStatus)[keyof typeof ProtectConfigurationCountryRuleProtectStatus];
 
+export const RegistrationAttachmentAttachmentStatus = {
+    UploadInProgress: "UPLOAD_IN_PROGRESS",
+    UploadComplete: "UPLOAD_COMPLETE",
+    UploadFailed: "UPLOAD_FAILED",
+    Deleted: "DELETED",
+} as const;
+
+/**
+ * The status of the registration attachment.
+ */
+export type RegistrationAttachmentAttachmentStatus = (typeof RegistrationAttachmentAttachmentStatus)[keyof typeof RegistrationAttachmentAttachmentStatus];
+
 export const RegistrationStatus = {
     Created: "CREATED",
     Submitted: "SUBMITTED",
@@ -73,3 +85,14 @@ export const RegistrationStatus = {
  * The status of the registration.
  */
 export type RegistrationStatus = (typeof RegistrationStatus)[keyof typeof RegistrationStatus];
+
+export const VerifiedDestinationNumberStatus = {
+    Pending: "PENDING",
+    Verified: "VERIFIED",
+    Unsupported: "UNSUPPORTED",
+} as const;
+
+/**
+ * The status of the verified destination phone number. PENDING means the phone number has not been verified yet; VERIFIED means it is verified and can receive messages.
+ */
+export type VerifiedDestinationNumberStatus = (typeof VerifiedDestinationNumberStatus)[keyof typeof VerifiedDestinationNumberStatus];

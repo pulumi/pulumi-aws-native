@@ -1353,6 +1353,78 @@ namespace Pulumi.AwsNative.Ec2
     }
 
     /// <summary>
+    /// The day on which the time range ends.
+    /// </summary>
+    [EnumType]
+    public readonly struct InstanceEventWindowTimeRangeEndWeekDay : IEquatable<InstanceEventWindowTimeRangeEndWeekDay>
+    {
+        private readonly string _value;
+
+        private InstanceEventWindowTimeRangeEndWeekDay(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static InstanceEventWindowTimeRangeEndWeekDay Sunday { get; } = new InstanceEventWindowTimeRangeEndWeekDay("sunday");
+        public static InstanceEventWindowTimeRangeEndWeekDay Monday { get; } = new InstanceEventWindowTimeRangeEndWeekDay("monday");
+        public static InstanceEventWindowTimeRangeEndWeekDay Tuesday { get; } = new InstanceEventWindowTimeRangeEndWeekDay("tuesday");
+        public static InstanceEventWindowTimeRangeEndWeekDay Wednesday { get; } = new InstanceEventWindowTimeRangeEndWeekDay("wednesday");
+        public static InstanceEventWindowTimeRangeEndWeekDay Thursday { get; } = new InstanceEventWindowTimeRangeEndWeekDay("thursday");
+        public static InstanceEventWindowTimeRangeEndWeekDay Friday { get; } = new InstanceEventWindowTimeRangeEndWeekDay("friday");
+        public static InstanceEventWindowTimeRangeEndWeekDay Saturday { get; } = new InstanceEventWindowTimeRangeEndWeekDay("saturday");
+
+        public static bool operator ==(InstanceEventWindowTimeRangeEndWeekDay left, InstanceEventWindowTimeRangeEndWeekDay right) => left.Equals(right);
+        public static bool operator !=(InstanceEventWindowTimeRangeEndWeekDay left, InstanceEventWindowTimeRangeEndWeekDay right) => !left.Equals(right);
+
+        public static explicit operator string(InstanceEventWindowTimeRangeEndWeekDay value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is InstanceEventWindowTimeRangeEndWeekDay other && Equals(other);
+        public bool Equals(InstanceEventWindowTimeRangeEndWeekDay other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The day on which the time range begins.
+    /// </summary>
+    [EnumType]
+    public readonly struct InstanceEventWindowTimeRangeStartWeekDay : IEquatable<InstanceEventWindowTimeRangeStartWeekDay>
+    {
+        private readonly string _value;
+
+        private InstanceEventWindowTimeRangeStartWeekDay(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static InstanceEventWindowTimeRangeStartWeekDay Sunday { get; } = new InstanceEventWindowTimeRangeStartWeekDay("sunday");
+        public static InstanceEventWindowTimeRangeStartWeekDay Monday { get; } = new InstanceEventWindowTimeRangeStartWeekDay("monday");
+        public static InstanceEventWindowTimeRangeStartWeekDay Tuesday { get; } = new InstanceEventWindowTimeRangeStartWeekDay("tuesday");
+        public static InstanceEventWindowTimeRangeStartWeekDay Wednesday { get; } = new InstanceEventWindowTimeRangeStartWeekDay("wednesday");
+        public static InstanceEventWindowTimeRangeStartWeekDay Thursday { get; } = new InstanceEventWindowTimeRangeStartWeekDay("thursday");
+        public static InstanceEventWindowTimeRangeStartWeekDay Friday { get; } = new InstanceEventWindowTimeRangeStartWeekDay("friday");
+        public static InstanceEventWindowTimeRangeStartWeekDay Saturday { get; } = new InstanceEventWindowTimeRangeStartWeekDay("saturday");
+
+        public static bool operator ==(InstanceEventWindowTimeRangeStartWeekDay left, InstanceEventWindowTimeRangeStartWeekDay right) => left.Equals(right);
+        public static bool operator !=(InstanceEventWindowTimeRangeStartWeekDay left, InstanceEventWindowTimeRangeStartWeekDay right) => !left.Equals(right);
+
+        public static explicit operator string(InstanceEventWindowTimeRangeStartWeekDay value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is InstanceEventWindowTimeRangeStartWeekDay other && Equals(other);
+        public bool Equals(InstanceEventWindowTimeRangeStartWeekDay other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Enables or disables the HTTP metadata endpoint on your instances. If you specify a value of disabled, you cannot access your instance metadata.
     /// </summary>
     [EnumType]
@@ -3067,6 +3139,37 @@ namespace Pulumi.AwsNative.Ec2
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is SqlHaStandbyDetectedInstanceSqlServerLicenseUsage other && Equals(other);
         public bool Equals(SqlHaStandbyDetectedInstanceSqlServerLicenseUsage other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The type of reservation. A prefix reservation is used for an IPv6 prefix delegated to a network interface; an explicit reservation is used for a range that Amazon EC2 must not assign automatically.
+    /// </summary>
+    [EnumType]
+    public readonly struct SubnetCidrReservationReservationType : IEquatable<SubnetCidrReservationReservationType>
+    {
+        private readonly string _value;
+
+        private SubnetCidrReservationReservationType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SubnetCidrReservationReservationType Prefix { get; } = new SubnetCidrReservationReservationType("prefix");
+        public static SubnetCidrReservationReservationType Explicit { get; } = new SubnetCidrReservationReservationType("explicit");
+
+        public static bool operator ==(SubnetCidrReservationReservationType left, SubnetCidrReservationReservationType right) => left.Equals(right);
+        public static bool operator !=(SubnetCidrReservationReservationType left, SubnetCidrReservationReservationType right) => !left.Equals(right);
+
+        public static explicit operator string(SubnetCidrReservationReservationType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SubnetCidrReservationReservationType other && Equals(other);
+        public bool Equals(SubnetCidrReservationReservationType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

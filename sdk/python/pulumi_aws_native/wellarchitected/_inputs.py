@@ -16,11 +16,84 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
+    'AgentProfileAggregationConfigurationArgs',
+    'AgentProfileAggregationConfigurationArgsDict',
     'DiscoveryConfigPropertiesArgs',
     'DiscoveryConfigPropertiesArgsDict',
     'ProfileQuestionUpdateArgs',
     'ProfileQuestionUpdateArgsDict',
 ]
+
+class AgentProfileAggregationConfigurationArgsDict(TypedDict):
+    """
+    Defines an account, its in-scope regions, and the access role used to reach resources in that account.
+    """
+    access_role_arn: pulumi.Input[_builtins.str]
+    """
+    The ARN of the IAM role used to access resources in this account.
+    """
+    account_id: pulumi.Input[_builtins.str]
+    """
+    The target AWS account ID.
+    """
+    regions: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    The target regions in the account.
+    """
+
+@pulumi.input_type
+class AgentProfileAggregationConfigurationArgs:
+    def __init__(__self__, *,
+                 access_role_arn: pulumi.Input[_builtins.str],
+                 account_id: pulumi.Input[_builtins.str],
+                 regions: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        """
+        Defines an account, its in-scope regions, and the access role used to reach resources in that account.
+
+        :param pulumi.Input[_builtins.str] access_role_arn: The ARN of the IAM role used to access resources in this account.
+        :param pulumi.Input[_builtins.str] account_id: The target AWS account ID.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] regions: The target regions in the account.
+        """
+        pulumi.set(__self__, "access_role_arn", access_role_arn)
+        pulumi.set(__self__, "account_id", account_id)
+        pulumi.set(__self__, "regions", regions)
+
+    @_builtins.property
+    @pulumi.getter(name="accessRoleArn")
+    def access_role_arn(self) -> pulumi.Input[_builtins.str]:
+        """
+        The ARN of the IAM role used to access resources in this account.
+        """
+        return pulumi.get(self, "access_role_arn")
+
+    @access_role_arn.setter
+    def access_role_arn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "access_role_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="accountId")
+    def account_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        The target AWS account ID.
+        """
+        return pulumi.get(self, "account_id")
+
+    @account_id.setter
+    def account_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "account_id", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def regions(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        """
+        The target regions in the account.
+        """
+        return pulumi.get(self, "regions")
+
+    @regions.setter
+    def regions(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "regions", value)
+
 
 class DiscoveryConfigPropertiesArgsDict(TypedDict):
     """

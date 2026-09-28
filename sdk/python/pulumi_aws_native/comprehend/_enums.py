@@ -15,6 +15,11 @@ __all__ = [
     'DocumentClassifierInputDataConfigDocumentType',
     'DocumentClassifierLanguageCode',
     'DocumentClassifierMode',
+    'EntityRecognizerAugmentedManifestsListItemDocumentType',
+    'EntityRecognizerAugmentedManifestsListItemSplit',
+    'EntityRecognizerDocumentsInputFormat',
+    'EntityRecognizerInputDataConfigDataFormat',
+    'EntityRecognizerLanguageCode',
     'FlywheelDocumentClassificationConfigMode',
     'FlywheelModelType',
     'FlywheelTaskConfigLanguageCode',
@@ -109,6 +114,61 @@ class DocumentClassifierMode(_builtins.str, Enum):
     """
     MULTI_CLASS = "MULTI_CLASS"
     MULTI_LABEL = "MULTI_LABEL"
+
+
+@pulumi.type_token("aws-native:comprehend:EntityRecognizerAugmentedManifestsListItemDocumentType")
+class EntityRecognizerAugmentedManifestsListItemDocumentType(_builtins.str, Enum):
+    """
+    The type of augmented manifest.
+    """
+    PLAIN_TEXT_DOCUMENT = "PLAIN_TEXT_DOCUMENT"
+    SEMI_STRUCTURED_DOCUMENT = "SEMI_STRUCTURED_DOCUMENT"
+
+
+@pulumi.type_token("aws-native:comprehend:EntityRecognizerAugmentedManifestsListItemSplit")
+class EntityRecognizerAugmentedManifestsListItemSplit(_builtins.str, Enum):
+    """
+    The purpose of the data you've provided in the augmented manifest.
+    """
+    TRAIN = "TRAIN"
+    TEST = "TEST"
+
+
+@pulumi.type_token("aws-native:comprehend:EntityRecognizerDocumentsInputFormat")
+class EntityRecognizerDocumentsInputFormat(_builtins.str, Enum):
+    """
+    Specifies how the text in an input file should be processed.
+    """
+    ONE_DOC_PER_FILE = "ONE_DOC_PER_FILE"
+    ONE_DOC_PER_LINE = "ONE_DOC_PER_LINE"
+
+
+@pulumi.type_token("aws-native:comprehend:EntityRecognizerInputDataConfigDataFormat")
+class EntityRecognizerInputDataConfigDataFormat(_builtins.str, Enum):
+    """
+    The format of your training data.
+    """
+    COMPREHEND_CSV = "COMPREHEND_CSV"
+    AUGMENTED_MANIFEST = "AUGMENTED_MANIFEST"
+
+
+@pulumi.type_token("aws-native:comprehend:EntityRecognizerLanguageCode")
+class EntityRecognizerLanguageCode(_builtins.str, Enum):
+    """
+    The language of the input documents. All documents must be in the same language.
+    """
+    EN = "en"
+    ES = "es"
+    FR = "fr"
+    DE = "de"
+    IT = "it"
+    PT = "pt"
+    AR = "ar"
+    HI = "hi"
+    JA = "ja"
+    KO = "ko"
+    ZH = "zh"
+    ZH_TW = "zh-TW"
 
 
 @pulumi.type_token("aws-native:comprehend:FlywheelDocumentClassificationConfigMode")

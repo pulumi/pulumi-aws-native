@@ -39,6 +39,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// The label options (label text, label visibility, and sort icon visibility) of a combo chart's color field well.
         /// </summary>
         public readonly Outputs.DashboardChartAxisLabelOptions? ColorLabelOptions;
+        public readonly Outputs.DashboardComboChartDefaultSeriesSettings? DefaultSeriesSettings;
         /// <summary>
         /// The field wells of the visual.
         /// </summary>
@@ -77,6 +78,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// The label options (label text, label visibility, and sort icon visibility) of a combo chart's secondary y-axis(line) field well.
         /// </summary>
         public readonly Outputs.DashboardChartAxisLabelOptions? SecondaryYAxisLabelOptions;
+        public readonly ImmutableArray<Outputs.DashboardComboSeriesItem> Series;
         public readonly Outputs.DashboardSingleAxisOptions? SingleAxisOptions;
         /// <summary>
         /// The sort configuration of a `ComboChartVisual` .
@@ -103,6 +105,8 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 
             Outputs.DashboardChartAxisLabelOptions? colorLabelOptions,
 
+            Outputs.DashboardComboChartDefaultSeriesSettings? defaultSeriesSettings,
+
             Outputs.DashboardComboChartFieldWells? fieldWells,
 
             Outputs.DashboardVisualInteractionOptions? interactions,
@@ -121,6 +125,8 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 
             Outputs.DashboardChartAxisLabelOptions? secondaryYAxisLabelOptions,
 
+            ImmutableArray<Outputs.DashboardComboSeriesItem> series,
+
             Outputs.DashboardSingleAxisOptions? singleAxisOptions,
 
             Outputs.DashboardComboChartSortConfiguration? sortConfiguration,
@@ -134,6 +140,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
             CategoryAxis = categoryAxis;
             CategoryLabelOptions = categoryLabelOptions;
             ColorLabelOptions = colorLabelOptions;
+            DefaultSeriesSettings = defaultSeriesSettings;
             FieldWells = fieldWells;
             Interactions = interactions;
             Legend = legend;
@@ -143,6 +150,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
             ReferenceLines = referenceLines;
             SecondaryYAxisDisplayOptions = secondaryYAxisDisplayOptions;
             SecondaryYAxisLabelOptions = secondaryYAxisLabelOptions;
+            Series = series;
             SingleAxisOptions = singleAxisOptions;
             SortConfiguration = sortConfiguration;
             Tooltip = tooltip;

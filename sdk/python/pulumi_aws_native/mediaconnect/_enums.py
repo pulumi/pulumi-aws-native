@@ -28,6 +28,10 @@ __all__ = [
     'FlowFmtpTcs',
     'FlowFrozenFramesState',
     'FlowMaintenanceMaintenanceDay',
+    'FlowMediaStreamFmtpColorimetry',
+    'FlowMediaStreamFmtpRange',
+    'FlowMediaStreamFmtpScanMode',
+    'FlowMediaStreamFmtpTcs',
     'FlowMediaStreamMediaStreamType',
     'FlowMediaStreamSourceConfigurationEncodingName',
     'FlowMediaStreamVideoFormat',
@@ -82,6 +86,7 @@ __all__ = [
     'RouterOutputResourceRouterOutputTier',
     'RouterOutputResourceRouterOutputType',
     'RouterOutputResourceRoutingScope',
+    'RouterOutputResourceTlsEncryptionType',
 ]
 
 
@@ -290,6 +295,56 @@ class FlowMaintenanceMaintenanceDay(_builtins.str, Enum):
     FRIDAY = "Friday"
     SATURDAY = "Saturday"
     SUNDAY = "Sunday"
+
+
+@pulumi.type_token("aws-native:mediaconnect:FlowMediaStreamFmtpColorimetry")
+class FlowMediaStreamFmtpColorimetry(_builtins.str, Enum):
+    """
+    The format used for the representation of color.
+    """
+    BT601 = "BT601"
+    BT709 = "BT709"
+    BT2020 = "BT2020"
+    BT2100 = "BT2100"
+    ST20651 = "ST2065-1"
+    ST20653 = "ST2065-3"
+    XYZ = "XYZ"
+
+
+@pulumi.type_token("aws-native:mediaconnect:FlowMediaStreamFmtpRange")
+class FlowMediaStreamFmtpRange(_builtins.str, Enum):
+    """
+    The encoding range of the video.
+    """
+    NARROW = "NARROW"
+    FULL = "FULL"
+    FULLPROTECT = "FULLPROTECT"
+
+
+@pulumi.type_token("aws-native:mediaconnect:FlowMediaStreamFmtpScanMode")
+class FlowMediaStreamFmtpScanMode(_builtins.str, Enum):
+    """
+    The type of compression that was used to smooth the video's appearance.
+    """
+    PROGRESSIVE = "progressive"
+    INTERLACE = "interlace"
+    PROGRESSIVE_SEGMENTED_FRAME = "progressive-segmented-frame"
+
+
+@pulumi.type_token("aws-native:mediaconnect:FlowMediaStreamFmtpTcs")
+class FlowMediaStreamFmtpTcs(_builtins.str, Enum):
+    """
+    The transfer characteristic system (TCS) that is used in the video.
+    """
+    SDR = "SDR"
+    PQ = "PQ"
+    HLG = "HLG"
+    LINEAR = "LINEAR"
+    BT2100LINPQ = "BT2100LINPQ"
+    BT2100LINHLG = "BT2100LINHLG"
+    ST20651 = "ST2065-1"
+    ST4281 = "ST428-1"
+    DENSITY = "DENSITY"
 
 
 @pulumi.type_token("aws-native:mediaconnect:FlowMediaStreamMediaStreamType")
@@ -704,6 +759,7 @@ class RouterOutputResourceRouterOutputProtocol(_builtins.str, Enum):
     RIST = "RIST"
     SRT_CALLER = "SRT_CALLER"
     SRT_LISTENER = "SRT_LISTENER"
+    RTMP_PUSH = "RTMP_PUSH"
 
 
 @pulumi.type_token("aws-native:mediaconnect:RouterOutputResourceRouterOutputRoutedState")
@@ -745,3 +801,8 @@ class RouterOutputResourceRouterOutputType(_builtins.str, Enum):
 class RouterOutputResourceRoutingScope(_builtins.str, Enum):
     REGIONAL = "REGIONAL"
     GLOBAL_ = "GLOBAL"
+
+
+@pulumi.type_token("aws-native:mediaconnect:RouterOutputResourceTlsEncryptionType")
+class RouterOutputResourceTlsEncryptionType(_builtins.str, Enum):
+    PUBLIC = "PUBLIC"

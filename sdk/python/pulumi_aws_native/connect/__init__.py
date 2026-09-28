@@ -55,6 +55,7 @@ from .get_user_hierarchy_group import *
 from .get_user_hierarchy_structure import *
 from .get_view import *
 from .get_view_version import *
+from .get_vocabulary import *
 from .get_workspace import *
 from .hours_of_operation import *
 from .instance import *
@@ -79,6 +80,7 @@ from .user_hierarchy_group import *
 from .user_hierarchy_structure import *
 from .view import *
 from .view_version import *
+from .vocabulary import *
 from .workspace import *
 from ._inputs import *
 from . import outputs

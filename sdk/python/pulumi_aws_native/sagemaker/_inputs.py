@@ -834,6 +834,14 @@ __all__ = [
     'WorkforceSourceIpConfigArgsDict',
     'WorkforceVpcConfigRequestArgs',
     'WorkforceVpcConfigRequestArgsDict',
+    'WorkteamCognitoMemberDefinitionArgs',
+    'WorkteamCognitoMemberDefinitionArgsDict',
+    'WorkteamMemberDefinitionArgs',
+    'WorkteamMemberDefinitionArgsDict',
+    'WorkteamNotificationConfigurationArgs',
+    'WorkteamNotificationConfigurationArgsDict',
+    'WorkteamOidcMemberDefinitionArgs',
+    'WorkteamOidcMemberDefinitionArgsDict',
 ]
 
 class ActionMetadataPropertiesArgsDict(TypedDict):
@@ -29109,5 +29117,196 @@ class WorkforceVpcConfigRequestArgs:
     @vpc_id.setter
     def vpc_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "vpc_id", value)
+
+
+class WorkteamCognitoMemberDefinitionArgsDict(TypedDict):
+    """
+    The Amazon Cognito user group that is part of the work team.
+    """
+    cognito_client_id: pulumi.Input[_builtins.str]
+    """
+    An identifier for an application client. You must create the app client ID using Amazon Cognito.
+    """
+    cognito_user_group: pulumi.Input[_builtins.str]
+    """
+    An identifier for a user group.
+    """
+    cognito_user_pool: pulumi.Input[_builtins.str]
+    """
+    An identifier for a user pool. The user pool must be in the same region as the service that you are calling.
+    """
+
+@pulumi.input_type
+class WorkteamCognitoMemberDefinitionArgs:
+    def __init__(__self__, *,
+                 cognito_client_id: pulumi.Input[_builtins.str],
+                 cognito_user_group: pulumi.Input[_builtins.str],
+                 cognito_user_pool: pulumi.Input[_builtins.str]):
+        """
+        The Amazon Cognito user group that is part of the work team.
+
+        :param pulumi.Input[_builtins.str] cognito_client_id: An identifier for an application client. You must create the app client ID using Amazon Cognito.
+        :param pulumi.Input[_builtins.str] cognito_user_group: An identifier for a user group.
+        :param pulumi.Input[_builtins.str] cognito_user_pool: An identifier for a user pool. The user pool must be in the same region as the service that you are calling.
+        """
+        pulumi.set(__self__, "cognito_client_id", cognito_client_id)
+        pulumi.set(__self__, "cognito_user_group", cognito_user_group)
+        pulumi.set(__self__, "cognito_user_pool", cognito_user_pool)
+
+    @_builtins.property
+    @pulumi.getter(name="cognitoClientId")
+    def cognito_client_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        An identifier for an application client. You must create the app client ID using Amazon Cognito.
+        """
+        return pulumi.get(self, "cognito_client_id")
+
+    @cognito_client_id.setter
+    def cognito_client_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "cognito_client_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="cognitoUserGroup")
+    def cognito_user_group(self) -> pulumi.Input[_builtins.str]:
+        """
+        An identifier for a user group.
+        """
+        return pulumi.get(self, "cognito_user_group")
+
+    @cognito_user_group.setter
+    def cognito_user_group(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "cognito_user_group", value)
+
+    @_builtins.property
+    @pulumi.getter(name="cognitoUserPool")
+    def cognito_user_pool(self) -> pulumi.Input[_builtins.str]:
+        """
+        An identifier for a user pool. The user pool must be in the same region as the service that you are calling.
+        """
+        return pulumi.get(self, "cognito_user_pool")
+
+    @cognito_user_pool.setter
+    def cognito_user_pool(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "cognito_user_pool", value)
+
+
+class WorkteamMemberDefinitionArgsDict(TypedDict):
+    """
+    Defines an Amazon Cognito or your own OIDC IdP user group that is part of a work team.
+    """
+    cognito_member_definition: NotRequired[pulumi.Input[Optional['WorkteamCognitoMemberDefinitionArgsDict']]]
+    """
+    The Amazon Cognito user group that is part of the work team
+    """
+    oidc_member_definition: NotRequired[pulumi.Input[Optional['WorkteamOidcMemberDefinitionArgsDict']]]
+    """
+    A list user groups that exist in your OIDC Identity Provider (IdP).
+    """
+
+@pulumi.input_type
+class WorkteamMemberDefinitionArgs:
+    def __init__(__self__, *,
+                 cognito_member_definition: pulumi.Input[Optional['WorkteamCognitoMemberDefinitionArgs']] = None,
+                 oidc_member_definition: pulumi.Input[Optional['WorkteamOidcMemberDefinitionArgs']] = None):
+        """
+        Defines an Amazon Cognito or your own OIDC IdP user group that is part of a work team.
+
+        :param pulumi.Input['WorkteamCognitoMemberDefinitionArgs'] cognito_member_definition: The Amazon Cognito user group that is part of the work team
+        :param pulumi.Input['WorkteamOidcMemberDefinitionArgs'] oidc_member_definition: A list user groups that exist in your OIDC Identity Provider (IdP).
+        """
+        if cognito_member_definition is not None:
+            pulumi.set(__self__, "cognito_member_definition", cognito_member_definition)
+        if oidc_member_definition is not None:
+            pulumi.set(__self__, "oidc_member_definition", oidc_member_definition)
+
+    @_builtins.property
+    @pulumi.getter(name="cognitoMemberDefinition")
+    def cognito_member_definition(self) -> pulumi.Input[Optional['WorkteamCognitoMemberDefinitionArgs']]:
+        """
+        The Amazon Cognito user group that is part of the work team
+        """
+        return pulumi.get(self, "cognito_member_definition")
+
+    @cognito_member_definition.setter
+    def cognito_member_definition(self, value: pulumi.Input[Optional['WorkteamCognitoMemberDefinitionArgs']]):
+        pulumi.set(self, "cognito_member_definition", value)
+
+    @_builtins.property
+    @pulumi.getter(name="oidcMemberDefinition")
+    def oidc_member_definition(self) -> pulumi.Input[Optional['WorkteamOidcMemberDefinitionArgs']]:
+        """
+        A list user groups that exist in your OIDC Identity Provider (IdP).
+        """
+        return pulumi.get(self, "oidc_member_definition")
+
+    @oidc_member_definition.setter
+    def oidc_member_definition(self, value: pulumi.Input[Optional['WorkteamOidcMemberDefinitionArgs']]):
+        pulumi.set(self, "oidc_member_definition", value)
+
+
+class WorkteamNotificationConfigurationArgsDict(TypedDict):
+    """
+    Configures SNS notifications of available or expiring work items for work teams.
+    """
+    notification_topic_arn: pulumi.Input[_builtins.str]
+    """
+    The Amazon Resource Name (ARN) of the Amazon SNS topic to which notifications should be published.
+    """
+
+@pulumi.input_type
+class WorkteamNotificationConfigurationArgs:
+    def __init__(__self__, *,
+                 notification_topic_arn: pulumi.Input[_builtins.str]):
+        """
+        Configures SNS notifications of available or expiring work items for work teams.
+
+        :param pulumi.Input[_builtins.str] notification_topic_arn: The Amazon Resource Name (ARN) of the Amazon SNS topic to which notifications should be published.
+        """
+        pulumi.set(__self__, "notification_topic_arn", notification_topic_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="notificationTopicArn")
+    def notification_topic_arn(self) -> pulumi.Input[_builtins.str]:
+        """
+        The Amazon Resource Name (ARN) of the Amazon SNS topic to which notifications should be published.
+        """
+        return pulumi.get(self, "notification_topic_arn")
+
+    @notification_topic_arn.setter
+    def notification_topic_arn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "notification_topic_arn", value)
+
+
+class WorkteamOidcMemberDefinitionArgsDict(TypedDict):
+    """
+    A list of user groups that exist in your OIDC Identity Provider (IdP).
+    """
+    oidc_groups: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    A list of OIDC group names whose members will be part of this workteam
+    """
+
+@pulumi.input_type
+class WorkteamOidcMemberDefinitionArgs:
+    def __init__(__self__, *,
+                 oidc_groups: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        """
+        A list of user groups that exist in your OIDC Identity Provider (IdP).
+
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] oidc_groups: A list of OIDC group names whose members will be part of this workteam
+        """
+        pulumi.set(__self__, "oidc_groups", oidc_groups)
+
+    @_builtins.property
+    @pulumi.getter(name="oidcGroups")
+    def oidc_groups(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        """
+        A list of OIDC group names whose members will be part of this workteam
+        """
+        return pulumi.get(self, "oidc_groups")
+
+    @oidc_groups.setter
+    def oidc_groups(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "oidc_groups", value)
 
 

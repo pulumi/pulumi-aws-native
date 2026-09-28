@@ -5,6 +5,36 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { AgentContextArgs } from "./agentContext";
+export type AgentContext = import("./agentContext").AgentContext;
+export const AgentContext: typeof import("./agentContext").AgentContext = null as any;
+utilities.lazyLoad(exports, ["AgentContext"], () => require("./agentContext"));
+
+export { AgentGoalArgs } from "./agentGoal";
+export type AgentGoal = import("./agentGoal").AgentGoal;
+export const AgentGoal: typeof import("./agentGoal").AgentGoal = null as any;
+utilities.lazyLoad(exports, ["AgentGoal"], () => require("./agentGoal"));
+
+export { AgentProfileArgs } from "./agentProfile";
+export type AgentProfile = import("./agentProfile").AgentProfile;
+export const AgentProfile: typeof import("./agentProfile").AgentProfile = null as any;
+utilities.lazyLoad(exports, ["AgentProfile"], () => require("./agentProfile"));
+
+export { GetAgentContextArgs, GetAgentContextResult, GetAgentContextOutputArgs } from "./getAgentContext";
+export const getAgentContext: typeof import("./getAgentContext").getAgentContext = null as any;
+export const getAgentContextOutput: typeof import("./getAgentContext").getAgentContextOutput = null as any;
+utilities.lazyLoad(exports, ["getAgentContext","getAgentContextOutput"], () => require("./getAgentContext"));
+
+export { GetAgentGoalArgs, GetAgentGoalResult, GetAgentGoalOutputArgs } from "./getAgentGoal";
+export const getAgentGoal: typeof import("./getAgentGoal").getAgentGoal = null as any;
+export const getAgentGoalOutput: typeof import("./getAgentGoal").getAgentGoalOutput = null as any;
+utilities.lazyLoad(exports, ["getAgentGoal","getAgentGoalOutput"], () => require("./getAgentGoal"));
+
+export { GetAgentProfileArgs, GetAgentProfileResult, GetAgentProfileOutputArgs } from "./getAgentProfile";
+export const getAgentProfile: typeof import("./getAgentProfile").getAgentProfile = null as any;
+export const getAgentProfileOutput: typeof import("./getAgentProfile").getAgentProfileOutput = null as any;
+utilities.lazyLoad(exports, ["getAgentProfile","getAgentProfileOutput"], () => require("./getAgentProfile"));
+
 export { GetLensArgs, GetLensResult, GetLensOutputArgs } from "./getLens";
 export const getLens: typeof import("./getLens").getLens = null as any;
 export const getLensOutput: typeof import("./getLens").getLensOutput = null as any;
@@ -53,6 +83,12 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws-native:wellarchitected:AgentContext":
+                return new AgentContext(name, <any>undefined, { urn })
+            case "aws-native:wellarchitected:AgentGoal":
+                return new AgentGoal(name, <any>undefined, { urn })
+            case "aws-native:wellarchitected:AgentProfile":
+                return new AgentProfile(name, <any>undefined, { urn })
             case "aws-native:wellarchitected:Lens":
                 return new Lens(name, <any>undefined, { urn })
             case "aws-native:wellarchitected:Profile":

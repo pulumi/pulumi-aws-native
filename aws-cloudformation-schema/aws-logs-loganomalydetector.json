@@ -68,16 +68,16 @@
   "primaryIdentifier" : [ "/properties/AnomalyDetectorArn" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "logs:CreateLogAnomalyDetector" ]
+      "permissions" : [ "logs:CreateLogAnomalyDetector", "kms:Encrypt", "kms:Decrypt", "kms:GenerateDataKey", "kms:DescribeKey" ]
     },
     "read" : {
-      "permissions" : [ "logs:GetLogAnomalyDetector" ]
+      "permissions" : [ "logs:GetLogAnomalyDetector", "kms:Decrypt", "kms:DescribeKey" ]
     },
     "update" : {
-      "permissions" : [ "logs:UpdateLogAnomalyDetector" ]
+      "permissions" : [ "logs:UpdateLogAnomalyDetector", "kms:Encrypt", "kms:Decrypt", "kms:GenerateDataKey", "kms:DescribeKey" ]
     },
     "delete" : {
-      "permissions" : [ "logs:DeleteLogAnomalyDetector" ]
+      "permissions" : [ "logs:DeleteLogAnomalyDetector", "kms:Decrypt", "kms:DescribeKey" ]
     },
     "list" : {
       "permissions" : [ "logs:ListLogAnomalyDetectors" ]

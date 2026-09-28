@@ -101,12 +101,20 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         private InputList<Inputs.DashboardStaticFileArgs>? _staticFiles;
 
         /// <summary>
-        /// The static files for the definition.
+        /// &lt;p&gt;The static files for the definition.&lt;/p&gt;
         /// </summary>
         public InputList<Inputs.DashboardStaticFileArgs> StaticFiles
         {
             get => _staticFiles ?? (_staticFiles = new InputList<Inputs.DashboardStaticFileArgs>());
             set => _staticFiles = value;
+        }
+
+        [Input("topicIdentifierDeclarations")]
+        private InputList<Inputs.DashboardTopicIdentifierDeclarationArgs>? _topicIdentifierDeclarations;
+        public InputList<Inputs.DashboardTopicIdentifierDeclarationArgs> TopicIdentifierDeclarations
+        {
+            get => _topicIdentifierDeclarations ?? (_topicIdentifierDeclarations = new InputList<Inputs.DashboardTopicIdentifierDeclarationArgs>());
+            set => _topicIdentifierDeclarations = value;
         }
 
         public DashboardVersionDefinitionArgs()

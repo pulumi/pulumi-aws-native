@@ -64,6 +64,7 @@ from .software_package_version import *
 from .stream import *
 from .thing import *
 from .thing_group import *
+from .thing_principal_attachment import *
 from .thing_type import *
 from .topic_rule import *
 from .topic_rule_destination import *

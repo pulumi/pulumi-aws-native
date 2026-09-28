@@ -130,6 +130,11 @@ export const getMlTransform: typeof import("./getMlTransform").getMlTransform = 
 export const getMlTransformOutput: typeof import("./getMlTransform").getMlTransformOutput = null as any;
 utilities.lazyLoad(exports, ["getMlTransform","getMlTransformOutput"], () => require("./getMlTransform"));
 
+export { GetPartitionArgs, GetPartitionResult, GetPartitionOutputArgs } from "./getPartition";
+export const getPartition: typeof import("./getPartition").getPartition = null as any;
+export const getPartitionOutput: typeof import("./getPartition").getPartitionOutput = null as any;
+utilities.lazyLoad(exports, ["getPartition","getPartitionOutput"], () => require("./getPartition"));
+
 export { GetRegistryArgs, GetRegistryResult, GetRegistryOutputArgs } from "./getRegistry";
 export const getRegistry: typeof import("./getRegistry").getRegistry = null as any;
 export const getRegistryOutput: typeof import("./getRegistry").getRegistryOutput = null as any;
@@ -204,6 +209,11 @@ export { MlTransformArgs } from "./mlTransform";
 export type MlTransform = import("./mlTransform").MlTransform;
 export const MlTransform: typeof import("./mlTransform").MlTransform = null as any;
 utilities.lazyLoad(exports, ["MlTransform"], () => require("./mlTransform"));
+
+export { PartitionArgs } from "./partition";
+export type Partition = import("./partition").Partition;
+export const Partition: typeof import("./partition").Partition = null as any;
+utilities.lazyLoad(exports, ["Partition"], () => require("./partition"));
 
 export { RegistryArgs } from "./registry";
 export type Registry = import("./registry").Registry;
@@ -298,6 +308,8 @@ const _module = {
                 return new Job(name, <any>undefined, { urn })
             case "aws-native:glue:MlTransform":
                 return new MlTransform(name, <any>undefined, { urn })
+            case "aws-native:glue:Partition":
+                return new Partition(name, <any>undefined, { urn })
             case "aws-native:glue:Registry":
                 return new Registry(name, <any>undefined, { urn })
             case "aws-native:glue:Schema":

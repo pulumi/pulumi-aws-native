@@ -315,6 +315,11 @@ export const getWorkforce: typeof import("./getWorkforce").getWorkforce = null a
 export const getWorkforceOutput: typeof import("./getWorkforce").getWorkforceOutput = null as any;
 utilities.lazyLoad(exports, ["getWorkforce","getWorkforceOutput"], () => require("./getWorkforce"));
 
+export { GetWorkteamArgs, GetWorkteamResult, GetWorkteamOutputArgs } from "./getWorkteam";
+export const getWorkteam: typeof import("./getWorkteam").getWorkteam = null as any;
+export const getWorkteamOutput: typeof import("./getWorkteam").getWorkteamOutput = null as any;
+utilities.lazyLoad(exports, ["getWorkteam","getWorkteamOutput"], () => require("./getWorkteam"));
+
 export { HubArgs } from "./hub";
 export type Hub = import("./hub").Hub;
 export const Hub: typeof import("./hub").Hub = null as any;
@@ -450,6 +455,11 @@ export type Workforce = import("./workforce").Workforce;
 export const Workforce: typeof import("./workforce").Workforce = null as any;
 utilities.lazyLoad(exports, ["Workforce"], () => require("./workforce"));
 
+export { WorkteamArgs } from "./workteam";
+export type Workteam = import("./workteam").Workteam;
+export const Workteam: typeof import("./workteam").Workteam = null as any;
+utilities.lazyLoad(exports, ["Workteam"], () => require("./workteam"));
+
 
 // Export enums:
 export * from "../types/enums/sagemaker";
@@ -548,6 +558,8 @@ const _module = {
                 return new UserProfile(name, <any>undefined, { urn })
             case "aws-native:sagemaker:Workforce":
                 return new Workforce(name, <any>undefined, { urn })
+            case "aws-native:sagemaker:Workteam":
+                return new Workteam(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

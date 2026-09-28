@@ -16,6 +16,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class ThemeSheetStyle
     {
+        public readonly Outputs.ThemeSheetBackgroundStyle? Background;
         /// <summary>
         /// The display options for tiles.
         /// </summary>
@@ -27,10 +28,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 
         [OutputConstructor]
         private ThemeSheetStyle(
+            Outputs.ThemeSheetBackgroundStyle? background,
+
             Outputs.ThemeTileStyle? tile,
 
             Outputs.ThemeTileLayoutStyle? tileLayout)
         {
+            Background = background;
             Tile = tile;
             TileLayout = tileLayout;
         }

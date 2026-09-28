@@ -20,6 +20,12 @@ __all__ = [
     'MonitorLocalResourceArgsDict',
     'MonitorRemoteResourceArgs',
     'MonitorRemoteResourceArgsDict',
+    'ScopeTargetIdArgs',
+    'ScopeTargetIdArgsDict',
+    'ScopeTargetIdentifierArgs',
+    'ScopeTargetIdentifierArgsDict',
+    'ScopeTargetResourceArgs',
+    'ScopeTargetResourceArgsDict',
 ]
 
 class MonitorLocalResourceArgsDict(TypedDict):
@@ -124,5 +130,128 @@ class MonitorRemoteResourceArgs:
     @type.setter
     def type(self, value: pulumi.Input['MonitorRemoteResourceType']):
         pulumi.set(self, "type", value)
+
+
+class ScopeTargetIdArgsDict(TypedDict):
+    """
+    A target ID is an internally-generated identifier for a target.
+    """
+    account_id: pulumi.Input[_builtins.str]
+    """
+    The account ID for the target.
+    """
+
+@pulumi.input_type
+class ScopeTargetIdArgs:
+    def __init__(__self__, *,
+                 account_id: pulumi.Input[_builtins.str]):
+        """
+        A target ID is an internally-generated identifier for a target.
+
+        :param pulumi.Input[_builtins.str] account_id: The account ID for the target.
+        """
+        pulumi.set(__self__, "account_id", account_id)
+
+    @_builtins.property
+    @pulumi.getter(name="accountId")
+    def account_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        The account ID for the target.
+        """
+        return pulumi.get(self, "account_id")
+
+    @account_id.setter
+    def account_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "account_id", value)
+
+
+class ScopeTargetIdentifierArgsDict(TypedDict):
+    """
+    A target identifier is a pair of identifying information for a scope target.
+    """
+    target_id: pulumi.Input['ScopeTargetIdArgsDict']
+    target_type: pulumi.Input['ScopeTargetIdentifierTargetType']
+    """
+    The type of the target. Currently always ACCOUNT.
+    """
+
+@pulumi.input_type
+class ScopeTargetIdentifierArgs:
+    def __init__(__self__, *,
+                 target_id: pulumi.Input['ScopeTargetIdArgs'],
+                 target_type: pulumi.Input['ScopeTargetIdentifierTargetType']):
+        """
+        A target identifier is a pair of identifying information for a scope target.
+
+        :param pulumi.Input['ScopeTargetIdentifierTargetType'] target_type: The type of the target. Currently always ACCOUNT.
+        """
+        pulumi.set(__self__, "target_id", target_id)
+        pulumi.set(__self__, "target_type", target_type)
+
+    @_builtins.property
+    @pulumi.getter(name="targetId")
+    def target_id(self) -> pulumi.Input['ScopeTargetIdArgs']:
+        return pulumi.get(self, "target_id")
+
+    @target_id.setter
+    def target_id(self, value: pulumi.Input['ScopeTargetIdArgs']):
+        pulumi.set(self, "target_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="targetType")
+    def target_type(self) -> pulumi.Input['ScopeTargetIdentifierTargetType']:
+        """
+        The type of the target. Currently always ACCOUNT.
+        """
+        return pulumi.get(self, "target_type")
+
+    @target_type.setter
+    def target_type(self, value: pulumi.Input['ScopeTargetIdentifierTargetType']):
+        pulumi.set(self, "target_type", value)
+
+
+class ScopeTargetResourceArgsDict(TypedDict):
+    """
+    A target resource in a scope, identified by a Region and target identifier.
+    """
+    region: pulumi.Input[_builtins.str]
+    """
+    The AWS Region for the target resource.
+    """
+    target_identifier: pulumi.Input['ScopeTargetIdentifierArgsDict']
+
+@pulumi.input_type
+class ScopeTargetResourceArgs:
+    def __init__(__self__, *,
+                 region: pulumi.Input[_builtins.str],
+                 target_identifier: pulumi.Input['ScopeTargetIdentifierArgs']):
+        """
+        A target resource in a scope, identified by a Region and target identifier.
+
+        :param pulumi.Input[_builtins.str] region: The AWS Region for the target resource.
+        """
+        pulumi.set(__self__, "region", region)
+        pulumi.set(__self__, "target_identifier", target_identifier)
+
+    @_builtins.property
+    @pulumi.getter
+    def region(self) -> pulumi.Input[_builtins.str]:
+        """
+        The AWS Region for the target resource.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "region", value)
+
+    @_builtins.property
+    @pulumi.getter(name="targetIdentifier")
+    def target_identifier(self) -> pulumi.Input['ScopeTargetIdentifierArgs']:
+        return pulumi.get(self, "target_identifier")
+
+    @target_identifier.setter
+    def target_identifier(self, value: pulumi.Input['ScopeTargetIdentifierArgs']):
+        pulumi.set(self, "target_identifier", value)
 
 

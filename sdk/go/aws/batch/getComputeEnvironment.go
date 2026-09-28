@@ -35,6 +35,10 @@ type LookupComputeEnvironmentResult struct {
 	// Reserved.
 	Context     *string                        `pulumi:"context"`
 	EcsSettings *ComputeEnvironmentEcsSettings `pulumi:"ecsSettings"`
+	// The details for the Amazon EKS cluster that supports the compute environment.
+	//
+	// > To create a compute environment that uses EKS resources, the caller must have permissions to call `eks:DescribeCluster` .
+	EksConfiguration *ComputeEnvironmentEksConfiguration `pulumi:"eksConfiguration"`
 	// The full Amazon Resource Name (ARN) of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf. For more information, see [AWS Batch service IAM role](https://docs.aws.amazon.com/batch/latest/userguide/service_IAM_role.html) in the *AWS Batch User Guide* .
 	//
 	// > If your account already created the AWS Batch service-linked role, that role is used by default for your compute environment unless you specify a different role here. If the AWS Batch service-linked role doesn't exist in your account, and no role is specified here, the service attempts to create the AWS Batch service-linked role in your account.
@@ -104,6 +108,13 @@ func (o LookupComputeEnvironmentResultOutput) Context() pulumi.StringPtrOutput {
 
 func (o LookupComputeEnvironmentResultOutput) EcsSettings() ComputeEnvironmentEcsSettingsPtrOutput {
 	return o.ApplyT(func(v LookupComputeEnvironmentResult) *ComputeEnvironmentEcsSettings { return v.EcsSettings }).(ComputeEnvironmentEcsSettingsPtrOutput)
+}
+
+// The details for the Amazon EKS cluster that supports the compute environment.
+//
+// > To create a compute environment that uses EKS resources, the caller must have permissions to call `eks:DescribeCluster` .
+func (o LookupComputeEnvironmentResultOutput) EksConfiguration() ComputeEnvironmentEksConfigurationPtrOutput {
+	return o.ApplyT(func(v LookupComputeEnvironmentResult) *ComputeEnvironmentEksConfiguration { return v.EksConfiguration }).(ComputeEnvironmentEksConfigurationPtrOutput)
 }
 
 // The full Amazon Resource Name (ARN) of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf. For more information, see [AWS Batch service IAM role](https://docs.aws.amazon.com/batch/latest/userguide/service_IAM_role.html) in the *AWS Batch User Guide* .

@@ -40,3 +40,23 @@ export const MonitorStatus = {
  * The status of the monitor.
  */
 export type MonitorStatus = (typeof MonitorStatus)[keyof typeof MonitorStatus];
+
+export const ScopeStatus = {
+    Succeeded: "SUCCEEDED",
+    InProgress: "IN_PROGRESS",
+    Failed: "FAILED",
+} as const;
+
+/**
+ * The status of the scope.
+ */
+export type ScopeStatus = (typeof ScopeStatus)[keyof typeof ScopeStatus];
+
+export const ScopeTargetIdentifierTargetType = {
+    Account: "ACCOUNT",
+} as const;
+
+/**
+ * The type of the target. Currently always ACCOUNT.
+ */
+export type ScopeTargetIdentifierTargetType = (typeof ScopeTargetIdentifierTargetType)[keyof typeof ScopeTargetIdentifierTargetType];

@@ -7142,6 +7142,358 @@ func (o InstanceConnectEndpointStateEnumPtrOutput) ToStringPtrOutputWithContext(
 	}).(pulumi.StringPtrOutput)
 }
 
+// The day on which the time range ends.
+type InstanceEventWindowTimeRangeEndWeekDay string
+
+const (
+	InstanceEventWindowTimeRangeEndWeekDaySunday    = InstanceEventWindowTimeRangeEndWeekDay("sunday")
+	InstanceEventWindowTimeRangeEndWeekDayMonday    = InstanceEventWindowTimeRangeEndWeekDay("monday")
+	InstanceEventWindowTimeRangeEndWeekDayTuesday   = InstanceEventWindowTimeRangeEndWeekDay("tuesday")
+	InstanceEventWindowTimeRangeEndWeekDayWednesday = InstanceEventWindowTimeRangeEndWeekDay("wednesday")
+	InstanceEventWindowTimeRangeEndWeekDayThursday  = InstanceEventWindowTimeRangeEndWeekDay("thursday")
+	InstanceEventWindowTimeRangeEndWeekDayFriday    = InstanceEventWindowTimeRangeEndWeekDay("friday")
+	InstanceEventWindowTimeRangeEndWeekDaySaturday  = InstanceEventWindowTimeRangeEndWeekDay("saturday")
+)
+
+func (InstanceEventWindowTimeRangeEndWeekDay) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceEventWindowTimeRangeEndWeekDay)(nil)).Elem()
+}
+
+func (e InstanceEventWindowTimeRangeEndWeekDay) ToInstanceEventWindowTimeRangeEndWeekDayOutput() InstanceEventWindowTimeRangeEndWeekDayOutput {
+	return pulumi.ToOutput(e).(InstanceEventWindowTimeRangeEndWeekDayOutput)
+}
+
+func (e InstanceEventWindowTimeRangeEndWeekDay) ToInstanceEventWindowTimeRangeEndWeekDayOutputWithContext(ctx context.Context) InstanceEventWindowTimeRangeEndWeekDayOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(InstanceEventWindowTimeRangeEndWeekDayOutput)
+}
+
+func (e InstanceEventWindowTimeRangeEndWeekDay) ToInstanceEventWindowTimeRangeEndWeekDayPtrOutput() InstanceEventWindowTimeRangeEndWeekDayPtrOutput {
+	return e.ToInstanceEventWindowTimeRangeEndWeekDayPtrOutputWithContext(context.Background())
+}
+
+func (e InstanceEventWindowTimeRangeEndWeekDay) ToInstanceEventWindowTimeRangeEndWeekDayPtrOutputWithContext(ctx context.Context) InstanceEventWindowTimeRangeEndWeekDayPtrOutput {
+	return InstanceEventWindowTimeRangeEndWeekDay(e).ToInstanceEventWindowTimeRangeEndWeekDayOutputWithContext(ctx).ToInstanceEventWindowTimeRangeEndWeekDayPtrOutputWithContext(ctx)
+}
+
+func (e InstanceEventWindowTimeRangeEndWeekDay) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e InstanceEventWindowTimeRangeEndWeekDay) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e InstanceEventWindowTimeRangeEndWeekDay) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e InstanceEventWindowTimeRangeEndWeekDay) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type InstanceEventWindowTimeRangeEndWeekDayOutput struct{ *pulumi.OutputState }
+
+func (InstanceEventWindowTimeRangeEndWeekDayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceEventWindowTimeRangeEndWeekDay)(nil)).Elem()
+}
+
+func (o InstanceEventWindowTimeRangeEndWeekDayOutput) ToInstanceEventWindowTimeRangeEndWeekDayOutput() InstanceEventWindowTimeRangeEndWeekDayOutput {
+	return o
+}
+
+func (o InstanceEventWindowTimeRangeEndWeekDayOutput) ToInstanceEventWindowTimeRangeEndWeekDayOutputWithContext(ctx context.Context) InstanceEventWindowTimeRangeEndWeekDayOutput {
+	return o
+}
+
+func (o InstanceEventWindowTimeRangeEndWeekDayOutput) ToInstanceEventWindowTimeRangeEndWeekDayPtrOutput() InstanceEventWindowTimeRangeEndWeekDayPtrOutput {
+	return o.ToInstanceEventWindowTimeRangeEndWeekDayPtrOutputWithContext(context.Background())
+}
+
+func (o InstanceEventWindowTimeRangeEndWeekDayOutput) ToInstanceEventWindowTimeRangeEndWeekDayPtrOutputWithContext(ctx context.Context) InstanceEventWindowTimeRangeEndWeekDayPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InstanceEventWindowTimeRangeEndWeekDay) *InstanceEventWindowTimeRangeEndWeekDay {
+		return &v
+	}).(InstanceEventWindowTimeRangeEndWeekDayPtrOutput)
+}
+
+func (o InstanceEventWindowTimeRangeEndWeekDayOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o InstanceEventWindowTimeRangeEndWeekDayOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e InstanceEventWindowTimeRangeEndWeekDay) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o InstanceEventWindowTimeRangeEndWeekDayOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o InstanceEventWindowTimeRangeEndWeekDayOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e InstanceEventWindowTimeRangeEndWeekDay) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type InstanceEventWindowTimeRangeEndWeekDayPtrOutput struct{ *pulumi.OutputState }
+
+func (InstanceEventWindowTimeRangeEndWeekDayPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InstanceEventWindowTimeRangeEndWeekDay)(nil)).Elem()
+}
+
+func (o InstanceEventWindowTimeRangeEndWeekDayPtrOutput) ToInstanceEventWindowTimeRangeEndWeekDayPtrOutput() InstanceEventWindowTimeRangeEndWeekDayPtrOutput {
+	return o
+}
+
+func (o InstanceEventWindowTimeRangeEndWeekDayPtrOutput) ToInstanceEventWindowTimeRangeEndWeekDayPtrOutputWithContext(ctx context.Context) InstanceEventWindowTimeRangeEndWeekDayPtrOutput {
+	return o
+}
+
+func (o InstanceEventWindowTimeRangeEndWeekDayPtrOutput) Elem() InstanceEventWindowTimeRangeEndWeekDayOutput {
+	return o.ApplyT(func(v *InstanceEventWindowTimeRangeEndWeekDay) InstanceEventWindowTimeRangeEndWeekDay {
+		if v != nil {
+			return *v
+		}
+		var ret InstanceEventWindowTimeRangeEndWeekDay
+		return ret
+	}).(InstanceEventWindowTimeRangeEndWeekDayOutput)
+}
+
+func (o InstanceEventWindowTimeRangeEndWeekDayPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o InstanceEventWindowTimeRangeEndWeekDayPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *InstanceEventWindowTimeRangeEndWeekDay) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// InstanceEventWindowTimeRangeEndWeekDayInput is an input type that accepts values of the InstanceEventWindowTimeRangeEndWeekDay enum
+// A concrete instance of `InstanceEventWindowTimeRangeEndWeekDayInput` can be one of the following:
+//
+//	InstanceEventWindowTimeRangeEndWeekDaySunday
+//	InstanceEventWindowTimeRangeEndWeekDayMonday
+//	InstanceEventWindowTimeRangeEndWeekDayTuesday
+//	InstanceEventWindowTimeRangeEndWeekDayWednesday
+//	InstanceEventWindowTimeRangeEndWeekDayThursday
+//	InstanceEventWindowTimeRangeEndWeekDayFriday
+//	InstanceEventWindowTimeRangeEndWeekDaySaturday
+type InstanceEventWindowTimeRangeEndWeekDayInput interface {
+	pulumi.Input
+
+	ToInstanceEventWindowTimeRangeEndWeekDayOutput() InstanceEventWindowTimeRangeEndWeekDayOutput
+	ToInstanceEventWindowTimeRangeEndWeekDayOutputWithContext(context.Context) InstanceEventWindowTimeRangeEndWeekDayOutput
+}
+
+var instanceEventWindowTimeRangeEndWeekDayPtrType = reflect.TypeOf((**InstanceEventWindowTimeRangeEndWeekDay)(nil)).Elem()
+
+type InstanceEventWindowTimeRangeEndWeekDayPtrInput interface {
+	pulumi.Input
+
+	ToInstanceEventWindowTimeRangeEndWeekDayPtrOutput() InstanceEventWindowTimeRangeEndWeekDayPtrOutput
+	ToInstanceEventWindowTimeRangeEndWeekDayPtrOutputWithContext(context.Context) InstanceEventWindowTimeRangeEndWeekDayPtrOutput
+}
+
+type instanceEventWindowTimeRangeEndWeekDayPtr string
+
+func InstanceEventWindowTimeRangeEndWeekDayPtr(v string) InstanceEventWindowTimeRangeEndWeekDayPtrInput {
+	return (*instanceEventWindowTimeRangeEndWeekDayPtr)(&v)
+}
+
+func (*instanceEventWindowTimeRangeEndWeekDayPtr) ElementType() reflect.Type {
+	return instanceEventWindowTimeRangeEndWeekDayPtrType
+}
+
+func (in *instanceEventWindowTimeRangeEndWeekDayPtr) ToInstanceEventWindowTimeRangeEndWeekDayPtrOutput() InstanceEventWindowTimeRangeEndWeekDayPtrOutput {
+	return pulumi.ToOutput(in).(InstanceEventWindowTimeRangeEndWeekDayPtrOutput)
+}
+
+func (in *instanceEventWindowTimeRangeEndWeekDayPtr) ToInstanceEventWindowTimeRangeEndWeekDayPtrOutputWithContext(ctx context.Context) InstanceEventWindowTimeRangeEndWeekDayPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(InstanceEventWindowTimeRangeEndWeekDayPtrOutput)
+}
+
+// The day on which the time range begins.
+type InstanceEventWindowTimeRangeStartWeekDay string
+
+const (
+	InstanceEventWindowTimeRangeStartWeekDaySunday    = InstanceEventWindowTimeRangeStartWeekDay("sunday")
+	InstanceEventWindowTimeRangeStartWeekDayMonday    = InstanceEventWindowTimeRangeStartWeekDay("monday")
+	InstanceEventWindowTimeRangeStartWeekDayTuesday   = InstanceEventWindowTimeRangeStartWeekDay("tuesday")
+	InstanceEventWindowTimeRangeStartWeekDayWednesday = InstanceEventWindowTimeRangeStartWeekDay("wednesday")
+	InstanceEventWindowTimeRangeStartWeekDayThursday  = InstanceEventWindowTimeRangeStartWeekDay("thursday")
+	InstanceEventWindowTimeRangeStartWeekDayFriday    = InstanceEventWindowTimeRangeStartWeekDay("friday")
+	InstanceEventWindowTimeRangeStartWeekDaySaturday  = InstanceEventWindowTimeRangeStartWeekDay("saturday")
+)
+
+func (InstanceEventWindowTimeRangeStartWeekDay) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceEventWindowTimeRangeStartWeekDay)(nil)).Elem()
+}
+
+func (e InstanceEventWindowTimeRangeStartWeekDay) ToInstanceEventWindowTimeRangeStartWeekDayOutput() InstanceEventWindowTimeRangeStartWeekDayOutput {
+	return pulumi.ToOutput(e).(InstanceEventWindowTimeRangeStartWeekDayOutput)
+}
+
+func (e InstanceEventWindowTimeRangeStartWeekDay) ToInstanceEventWindowTimeRangeStartWeekDayOutputWithContext(ctx context.Context) InstanceEventWindowTimeRangeStartWeekDayOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(InstanceEventWindowTimeRangeStartWeekDayOutput)
+}
+
+func (e InstanceEventWindowTimeRangeStartWeekDay) ToInstanceEventWindowTimeRangeStartWeekDayPtrOutput() InstanceEventWindowTimeRangeStartWeekDayPtrOutput {
+	return e.ToInstanceEventWindowTimeRangeStartWeekDayPtrOutputWithContext(context.Background())
+}
+
+func (e InstanceEventWindowTimeRangeStartWeekDay) ToInstanceEventWindowTimeRangeStartWeekDayPtrOutputWithContext(ctx context.Context) InstanceEventWindowTimeRangeStartWeekDayPtrOutput {
+	return InstanceEventWindowTimeRangeStartWeekDay(e).ToInstanceEventWindowTimeRangeStartWeekDayOutputWithContext(ctx).ToInstanceEventWindowTimeRangeStartWeekDayPtrOutputWithContext(ctx)
+}
+
+func (e InstanceEventWindowTimeRangeStartWeekDay) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e InstanceEventWindowTimeRangeStartWeekDay) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e InstanceEventWindowTimeRangeStartWeekDay) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e InstanceEventWindowTimeRangeStartWeekDay) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type InstanceEventWindowTimeRangeStartWeekDayOutput struct{ *pulumi.OutputState }
+
+func (InstanceEventWindowTimeRangeStartWeekDayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceEventWindowTimeRangeStartWeekDay)(nil)).Elem()
+}
+
+func (o InstanceEventWindowTimeRangeStartWeekDayOutput) ToInstanceEventWindowTimeRangeStartWeekDayOutput() InstanceEventWindowTimeRangeStartWeekDayOutput {
+	return o
+}
+
+func (o InstanceEventWindowTimeRangeStartWeekDayOutput) ToInstanceEventWindowTimeRangeStartWeekDayOutputWithContext(ctx context.Context) InstanceEventWindowTimeRangeStartWeekDayOutput {
+	return o
+}
+
+func (o InstanceEventWindowTimeRangeStartWeekDayOutput) ToInstanceEventWindowTimeRangeStartWeekDayPtrOutput() InstanceEventWindowTimeRangeStartWeekDayPtrOutput {
+	return o.ToInstanceEventWindowTimeRangeStartWeekDayPtrOutputWithContext(context.Background())
+}
+
+func (o InstanceEventWindowTimeRangeStartWeekDayOutput) ToInstanceEventWindowTimeRangeStartWeekDayPtrOutputWithContext(ctx context.Context) InstanceEventWindowTimeRangeStartWeekDayPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InstanceEventWindowTimeRangeStartWeekDay) *InstanceEventWindowTimeRangeStartWeekDay {
+		return &v
+	}).(InstanceEventWindowTimeRangeStartWeekDayPtrOutput)
+}
+
+func (o InstanceEventWindowTimeRangeStartWeekDayOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o InstanceEventWindowTimeRangeStartWeekDayOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e InstanceEventWindowTimeRangeStartWeekDay) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o InstanceEventWindowTimeRangeStartWeekDayOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o InstanceEventWindowTimeRangeStartWeekDayOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e InstanceEventWindowTimeRangeStartWeekDay) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type InstanceEventWindowTimeRangeStartWeekDayPtrOutput struct{ *pulumi.OutputState }
+
+func (InstanceEventWindowTimeRangeStartWeekDayPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InstanceEventWindowTimeRangeStartWeekDay)(nil)).Elem()
+}
+
+func (o InstanceEventWindowTimeRangeStartWeekDayPtrOutput) ToInstanceEventWindowTimeRangeStartWeekDayPtrOutput() InstanceEventWindowTimeRangeStartWeekDayPtrOutput {
+	return o
+}
+
+func (o InstanceEventWindowTimeRangeStartWeekDayPtrOutput) ToInstanceEventWindowTimeRangeStartWeekDayPtrOutputWithContext(ctx context.Context) InstanceEventWindowTimeRangeStartWeekDayPtrOutput {
+	return o
+}
+
+func (o InstanceEventWindowTimeRangeStartWeekDayPtrOutput) Elem() InstanceEventWindowTimeRangeStartWeekDayOutput {
+	return o.ApplyT(func(v *InstanceEventWindowTimeRangeStartWeekDay) InstanceEventWindowTimeRangeStartWeekDay {
+		if v != nil {
+			return *v
+		}
+		var ret InstanceEventWindowTimeRangeStartWeekDay
+		return ret
+	}).(InstanceEventWindowTimeRangeStartWeekDayOutput)
+}
+
+func (o InstanceEventWindowTimeRangeStartWeekDayPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o InstanceEventWindowTimeRangeStartWeekDayPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *InstanceEventWindowTimeRangeStartWeekDay) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// InstanceEventWindowTimeRangeStartWeekDayInput is an input type that accepts values of the InstanceEventWindowTimeRangeStartWeekDay enum
+// A concrete instance of `InstanceEventWindowTimeRangeStartWeekDayInput` can be one of the following:
+//
+//	InstanceEventWindowTimeRangeStartWeekDaySunday
+//	InstanceEventWindowTimeRangeStartWeekDayMonday
+//	InstanceEventWindowTimeRangeStartWeekDayTuesday
+//	InstanceEventWindowTimeRangeStartWeekDayWednesday
+//	InstanceEventWindowTimeRangeStartWeekDayThursday
+//	InstanceEventWindowTimeRangeStartWeekDayFriday
+//	InstanceEventWindowTimeRangeStartWeekDaySaturday
+type InstanceEventWindowTimeRangeStartWeekDayInput interface {
+	pulumi.Input
+
+	ToInstanceEventWindowTimeRangeStartWeekDayOutput() InstanceEventWindowTimeRangeStartWeekDayOutput
+	ToInstanceEventWindowTimeRangeStartWeekDayOutputWithContext(context.Context) InstanceEventWindowTimeRangeStartWeekDayOutput
+}
+
+var instanceEventWindowTimeRangeStartWeekDayPtrType = reflect.TypeOf((**InstanceEventWindowTimeRangeStartWeekDay)(nil)).Elem()
+
+type InstanceEventWindowTimeRangeStartWeekDayPtrInput interface {
+	pulumi.Input
+
+	ToInstanceEventWindowTimeRangeStartWeekDayPtrOutput() InstanceEventWindowTimeRangeStartWeekDayPtrOutput
+	ToInstanceEventWindowTimeRangeStartWeekDayPtrOutputWithContext(context.Context) InstanceEventWindowTimeRangeStartWeekDayPtrOutput
+}
+
+type instanceEventWindowTimeRangeStartWeekDayPtr string
+
+func InstanceEventWindowTimeRangeStartWeekDayPtr(v string) InstanceEventWindowTimeRangeStartWeekDayPtrInput {
+	return (*instanceEventWindowTimeRangeStartWeekDayPtr)(&v)
+}
+
+func (*instanceEventWindowTimeRangeStartWeekDayPtr) ElementType() reflect.Type {
+	return instanceEventWindowTimeRangeStartWeekDayPtrType
+}
+
+func (in *instanceEventWindowTimeRangeStartWeekDayPtr) ToInstanceEventWindowTimeRangeStartWeekDayPtrOutput() InstanceEventWindowTimeRangeStartWeekDayPtrOutput {
+	return pulumi.ToOutput(in).(InstanceEventWindowTimeRangeStartWeekDayPtrOutput)
+}
+
+func (in *instanceEventWindowTimeRangeStartWeekDayPtr) ToInstanceEventWindowTimeRangeStartWeekDayPtrOutputWithContext(ctx context.Context) InstanceEventWindowTimeRangeStartWeekDayPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(InstanceEventWindowTimeRangeStartWeekDayPtrOutput)
+}
+
 // Enables or disables the HTTP metadata endpoint on your instances. If you specify a value of disabled, you cannot access your instance metadata.
 type InstanceMetadataOptionsHttpEndpoint string
 
@@ -15476,6 +15828,172 @@ func (o SqlHaStandbyDetectedInstanceSqlServerLicenseUsagePtrOutput) ToStringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
+// The type of reservation. A prefix reservation is used for an IPv6 prefix delegated to a network interface; an explicit reservation is used for a range that Amazon EC2 must not assign automatically.
+type SubnetCidrReservationReservationType string
+
+const (
+	SubnetCidrReservationReservationTypePrefix   = SubnetCidrReservationReservationType("prefix")
+	SubnetCidrReservationReservationTypeExplicit = SubnetCidrReservationReservationType("explicit")
+)
+
+func (SubnetCidrReservationReservationType) ElementType() reflect.Type {
+	return reflect.TypeOf((*SubnetCidrReservationReservationType)(nil)).Elem()
+}
+
+func (e SubnetCidrReservationReservationType) ToSubnetCidrReservationReservationTypeOutput() SubnetCidrReservationReservationTypeOutput {
+	return pulumi.ToOutput(e).(SubnetCidrReservationReservationTypeOutput)
+}
+
+func (e SubnetCidrReservationReservationType) ToSubnetCidrReservationReservationTypeOutputWithContext(ctx context.Context) SubnetCidrReservationReservationTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(SubnetCidrReservationReservationTypeOutput)
+}
+
+func (e SubnetCidrReservationReservationType) ToSubnetCidrReservationReservationTypePtrOutput() SubnetCidrReservationReservationTypePtrOutput {
+	return e.ToSubnetCidrReservationReservationTypePtrOutputWithContext(context.Background())
+}
+
+func (e SubnetCidrReservationReservationType) ToSubnetCidrReservationReservationTypePtrOutputWithContext(ctx context.Context) SubnetCidrReservationReservationTypePtrOutput {
+	return SubnetCidrReservationReservationType(e).ToSubnetCidrReservationReservationTypeOutputWithContext(ctx).ToSubnetCidrReservationReservationTypePtrOutputWithContext(ctx)
+}
+
+func (e SubnetCidrReservationReservationType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e SubnetCidrReservationReservationType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e SubnetCidrReservationReservationType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e SubnetCidrReservationReservationType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type SubnetCidrReservationReservationTypeOutput struct{ *pulumi.OutputState }
+
+func (SubnetCidrReservationReservationTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SubnetCidrReservationReservationType)(nil)).Elem()
+}
+
+func (o SubnetCidrReservationReservationTypeOutput) ToSubnetCidrReservationReservationTypeOutput() SubnetCidrReservationReservationTypeOutput {
+	return o
+}
+
+func (o SubnetCidrReservationReservationTypeOutput) ToSubnetCidrReservationReservationTypeOutputWithContext(ctx context.Context) SubnetCidrReservationReservationTypeOutput {
+	return o
+}
+
+func (o SubnetCidrReservationReservationTypeOutput) ToSubnetCidrReservationReservationTypePtrOutput() SubnetCidrReservationReservationTypePtrOutput {
+	return o.ToSubnetCidrReservationReservationTypePtrOutputWithContext(context.Background())
+}
+
+func (o SubnetCidrReservationReservationTypeOutput) ToSubnetCidrReservationReservationTypePtrOutputWithContext(ctx context.Context) SubnetCidrReservationReservationTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SubnetCidrReservationReservationType) *SubnetCidrReservationReservationType {
+		return &v
+	}).(SubnetCidrReservationReservationTypePtrOutput)
+}
+
+func (o SubnetCidrReservationReservationTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o SubnetCidrReservationReservationTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SubnetCidrReservationReservationType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o SubnetCidrReservationReservationTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SubnetCidrReservationReservationTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SubnetCidrReservationReservationType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type SubnetCidrReservationReservationTypePtrOutput struct{ *pulumi.OutputState }
+
+func (SubnetCidrReservationReservationTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SubnetCidrReservationReservationType)(nil)).Elem()
+}
+
+func (o SubnetCidrReservationReservationTypePtrOutput) ToSubnetCidrReservationReservationTypePtrOutput() SubnetCidrReservationReservationTypePtrOutput {
+	return o
+}
+
+func (o SubnetCidrReservationReservationTypePtrOutput) ToSubnetCidrReservationReservationTypePtrOutputWithContext(ctx context.Context) SubnetCidrReservationReservationTypePtrOutput {
+	return o
+}
+
+func (o SubnetCidrReservationReservationTypePtrOutput) Elem() SubnetCidrReservationReservationTypeOutput {
+	return o.ApplyT(func(v *SubnetCidrReservationReservationType) SubnetCidrReservationReservationType {
+		if v != nil {
+			return *v
+		}
+		var ret SubnetCidrReservationReservationType
+		return ret
+	}).(SubnetCidrReservationReservationTypeOutput)
+}
+
+func (o SubnetCidrReservationReservationTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SubnetCidrReservationReservationTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *SubnetCidrReservationReservationType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// SubnetCidrReservationReservationTypeInput is an input type that accepts values of the SubnetCidrReservationReservationType enum
+// A concrete instance of `SubnetCidrReservationReservationTypeInput` can be one of the following:
+//
+//	SubnetCidrReservationReservationTypePrefix
+//	SubnetCidrReservationReservationTypeExplicit
+type SubnetCidrReservationReservationTypeInput interface {
+	pulumi.Input
+
+	ToSubnetCidrReservationReservationTypeOutput() SubnetCidrReservationReservationTypeOutput
+	ToSubnetCidrReservationReservationTypeOutputWithContext(context.Context) SubnetCidrReservationReservationTypeOutput
+}
+
+var subnetCidrReservationReservationTypePtrType = reflect.TypeOf((**SubnetCidrReservationReservationType)(nil)).Elem()
+
+type SubnetCidrReservationReservationTypePtrInput interface {
+	pulumi.Input
+
+	ToSubnetCidrReservationReservationTypePtrOutput() SubnetCidrReservationReservationTypePtrOutput
+	ToSubnetCidrReservationReservationTypePtrOutputWithContext(context.Context) SubnetCidrReservationReservationTypePtrOutput
+}
+
+type subnetCidrReservationReservationTypePtr string
+
+func SubnetCidrReservationReservationTypePtr(v string) SubnetCidrReservationReservationTypePtrInput {
+	return (*subnetCidrReservationReservationTypePtr)(&v)
+}
+
+func (*subnetCidrReservationReservationTypePtr) ElementType() reflect.Type {
+	return subnetCidrReservationReservationTypePtrType
+}
+
+func (in *subnetCidrReservationReservationTypePtr) ToSubnetCidrReservationReservationTypePtrOutput() SubnetCidrReservationReservationTypePtrOutput {
+	return pulumi.ToOutput(in).(SubnetCidrReservationReservationTypePtrOutput)
+}
+
+func (in *subnetCidrReservationReservationTypePtr) ToSubnetCidrReservationReservationTypePtrOutputWithContext(ctx context.Context) SubnetCidrReservationReservationTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(SubnetCidrReservationReservationTypePtrOutput)
+}
+
 // The network service traffic that is associated with the traffic mirror filter.
 type TrafficMirrorFilterTrafficMirrorNetworkService string
 
@@ -22444,6 +22962,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*HostRecoveryPtrInput)(nil)).Elem(), HostRecovery("on"))
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceAffinityInput)(nil)).Elem(), InstanceAffinity("default"))
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceAffinityPtrInput)(nil)).Elem(), InstanceAffinity("default"))
+	pulumi.RegisterInputType(reflect.TypeOf((*InstanceEventWindowTimeRangeEndWeekDayInput)(nil)).Elem(), InstanceEventWindowTimeRangeEndWeekDay("sunday"))
+	pulumi.RegisterInputType(reflect.TypeOf((*InstanceEventWindowTimeRangeEndWeekDayPtrInput)(nil)).Elem(), InstanceEventWindowTimeRangeEndWeekDay("sunday"))
+	pulumi.RegisterInputType(reflect.TypeOf((*InstanceEventWindowTimeRangeStartWeekDayInput)(nil)).Elem(), InstanceEventWindowTimeRangeStartWeekDay("sunday"))
+	pulumi.RegisterInputType(reflect.TypeOf((*InstanceEventWindowTimeRangeStartWeekDayPtrInput)(nil)).Elem(), InstanceEventWindowTimeRangeStartWeekDay("sunday"))
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceMetadataOptionsHttpEndpointInput)(nil)).Elem(), InstanceMetadataOptionsHttpEndpoint("disabled"))
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceMetadataOptionsHttpEndpointPtrInput)(nil)).Elem(), InstanceMetadataOptionsHttpEndpoint("disabled"))
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceMetadataOptionsHttpProtocolIpv6Input)(nil)).Elem(), InstanceMetadataOptionsHttpProtocolIpv6("disabled"))
@@ -22533,6 +23055,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SpotFleetSpotPlacementTenancyPtrInput)(nil)).Elem(), SpotFleetSpotPlacementTenancy("dedicated"))
 	pulumi.RegisterInputType(reflect.TypeOf((*SpotFleetTagSpecificationResourceTypeInput)(nil)).Elem(), SpotFleetTagSpecificationResourceType("client-vpn-endpoint"))
 	pulumi.RegisterInputType(reflect.TypeOf((*SpotFleetTagSpecificationResourceTypePtrInput)(nil)).Elem(), SpotFleetTagSpecificationResourceType("client-vpn-endpoint"))
+	pulumi.RegisterInputType(reflect.TypeOf((*SubnetCidrReservationReservationTypeInput)(nil)).Elem(), SubnetCidrReservationReservationType("prefix"))
+	pulumi.RegisterInputType(reflect.TypeOf((*SubnetCidrReservationReservationTypePtrInput)(nil)).Elem(), SubnetCidrReservationReservationType("prefix"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TrafficMirrorFilterTrafficMirrorNetworkServiceInput)(nil)).Elem(), TrafficMirrorFilterTrafficMirrorNetworkService("amazon-dns"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TrafficMirrorFilterTrafficMirrorNetworkServicePtrInput)(nil)).Elem(), TrafficMirrorFilterTrafficMirrorNetworkService("amazon-dns"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TrafficMirrorFilterTrafficMirrorNetworkServiceArrayInput)(nil)).Elem(), TrafficMirrorFilterTrafficMirrorNetworkServiceArray{})
@@ -22703,6 +23227,10 @@ func init() {
 	pulumi.RegisterOutputType(InstanceAffinityPtrOutput{})
 	pulumi.RegisterOutputType(InstanceConnectEndpointStateEnumOutput{})
 	pulumi.RegisterOutputType(InstanceConnectEndpointStateEnumPtrOutput{})
+	pulumi.RegisterOutputType(InstanceEventWindowTimeRangeEndWeekDayOutput{})
+	pulumi.RegisterOutputType(InstanceEventWindowTimeRangeEndWeekDayPtrOutput{})
+	pulumi.RegisterOutputType(InstanceEventWindowTimeRangeStartWeekDayOutput{})
+	pulumi.RegisterOutputType(InstanceEventWindowTimeRangeStartWeekDayPtrOutput{})
 	pulumi.RegisterOutputType(InstanceMetadataOptionsHttpEndpointOutput{})
 	pulumi.RegisterOutputType(InstanceMetadataOptionsHttpEndpointPtrOutput{})
 	pulumi.RegisterOutputType(InstanceMetadataOptionsHttpProtocolIpv6Output{})
@@ -22814,6 +23342,8 @@ func init() {
 	pulumi.RegisterOutputType(SqlHaStandbyDetectedInstanceHaStatusPtrOutput{})
 	pulumi.RegisterOutputType(SqlHaStandbyDetectedInstanceSqlServerLicenseUsageOutput{})
 	pulumi.RegisterOutputType(SqlHaStandbyDetectedInstanceSqlServerLicenseUsagePtrOutput{})
+	pulumi.RegisterOutputType(SubnetCidrReservationReservationTypeOutput{})
+	pulumi.RegisterOutputType(SubnetCidrReservationReservationTypePtrOutput{})
 	pulumi.RegisterOutputType(TrafficMirrorFilterTrafficMirrorNetworkServiceOutput{})
 	pulumi.RegisterOutputType(TrafficMirrorFilterTrafficMirrorNetworkServicePtrOutput{})
 	pulumi.RegisterOutputType(TrafficMirrorFilterTrafficMirrorNetworkServiceArrayOutput{})

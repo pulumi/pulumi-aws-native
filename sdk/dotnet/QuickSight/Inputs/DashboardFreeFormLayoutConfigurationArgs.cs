@@ -27,6 +27,14 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
             set => _elements = value;
         }
 
+        [Input("groups")]
+        private InputList<Inputs.DashboardSheetLayoutGroupArgs>? _groups;
+        public InputList<Inputs.DashboardSheetLayoutGroupArgs> Groups
+        {
+            get => _groups ?? (_groups = new InputList<Inputs.DashboardSheetLayoutGroupArgs>());
+            set => _groups = value;
+        }
+
         public DashboardFreeFormLayoutConfigurationArgs()
         {
         }

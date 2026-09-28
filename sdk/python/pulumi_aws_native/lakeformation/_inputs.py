@@ -151,18 +151,34 @@ class DataCellsFilterRowFilterArgs:
 
 
 class PrincipalPermissionsCatalogResourceArgsDict(TypedDict):
+    """
+    A structure for the catalog object.
+      This is an object with no properties that effectively behaves as a true or false. A valid input for this property type in both yaml or json is null or ``{}``.
+    """
     id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    An identifier for the catalog resource.
+    """
 
 @pulumi.input_type
 class PrincipalPermissionsCatalogResourceArgs:
     def __init__(__self__, *,
                  id: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        A structure for the catalog object.
+          This is an object with no properties that effectively behaves as a true or false. A valid input for this property type in both yaml or json is null or ``{}``.
+
+        :param pulumi.Input[_builtins.str] id: An identifier for the catalog resource.
+        """
         if id is not None:
             pulumi.set(__self__, "id", id)
 
     @_builtins.property
     @pulumi.getter
     def id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        An identifier for the catalog resource.
+        """
         return pulumi.get(self, "id")
 
     @id.setter

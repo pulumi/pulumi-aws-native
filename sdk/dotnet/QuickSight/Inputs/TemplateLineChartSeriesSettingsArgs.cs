@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class TemplateLineChartSeriesSettingsArgs : global::Pulumi.ResourceArgs
     {
+        [Input("decalSettings")]
+        public Input<Inputs.TemplateDecalSettingsArgs>? DecalSettings { get; set; }
+
         /// <summary>
         /// Line styles options for a line series in `LineChartVisual` .
         /// </summary>

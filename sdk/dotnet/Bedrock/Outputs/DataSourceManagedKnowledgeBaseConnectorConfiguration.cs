@@ -22,6 +22,7 @@ namespace Pulumi.AwsNative.Bedrock.Outputs
         public readonly object? ConnectorParameters;
         public readonly Outputs.DataSourceDeletionProtectionConfiguration? DeletionProtectionConfiguration;
         public readonly Outputs.DataSourceMediaExtractionConfiguration? MediaExtractionConfiguration;
+        public readonly Outputs.DataSourceSyncSchedule? SyncSchedule;
 
         [OutputConstructor]
         private DataSourceManagedKnowledgeBaseConnectorConfiguration(
@@ -29,11 +30,14 @@ namespace Pulumi.AwsNative.Bedrock.Outputs
 
             Outputs.DataSourceDeletionProtectionConfiguration? deletionProtectionConfiguration,
 
-            Outputs.DataSourceMediaExtractionConfiguration? mediaExtractionConfiguration)
+            Outputs.DataSourceMediaExtractionConfiguration? mediaExtractionConfiguration,
+
+            Outputs.DataSourceSyncSchedule? syncSchedule)
         {
             ConnectorParameters = connectorParameters;
             DeletionProtectionConfiguration = deletionProtectionConfiguration;
             MediaExtractionConfiguration = mediaExtractionConfiguration;
+            SyncSchedule = syncSchedule;
         }
     }
 }

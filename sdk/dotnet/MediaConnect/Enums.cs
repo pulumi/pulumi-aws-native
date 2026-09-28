@@ -677,6 +677,144 @@ namespace Pulumi.AwsNative.MediaConnect
     }
 
     /// <summary>
+    /// The format used for the representation of color.
+    /// </summary>
+    [EnumType]
+    public readonly struct FlowMediaStreamFmtpColorimetry : IEquatable<FlowMediaStreamFmtpColorimetry>
+    {
+        private readonly string _value;
+
+        private FlowMediaStreamFmtpColorimetry(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static FlowMediaStreamFmtpColorimetry Bt601 { get; } = new FlowMediaStreamFmtpColorimetry("BT601");
+        public static FlowMediaStreamFmtpColorimetry Bt709 { get; } = new FlowMediaStreamFmtpColorimetry("BT709");
+        public static FlowMediaStreamFmtpColorimetry Bt2020 { get; } = new FlowMediaStreamFmtpColorimetry("BT2020");
+        public static FlowMediaStreamFmtpColorimetry Bt2100 { get; } = new FlowMediaStreamFmtpColorimetry("BT2100");
+        public static FlowMediaStreamFmtpColorimetry St20651 { get; } = new FlowMediaStreamFmtpColorimetry("ST2065-1");
+        public static FlowMediaStreamFmtpColorimetry St20653 { get; } = new FlowMediaStreamFmtpColorimetry("ST2065-3");
+        public static FlowMediaStreamFmtpColorimetry Xyz { get; } = new FlowMediaStreamFmtpColorimetry("XYZ");
+
+        public static bool operator ==(FlowMediaStreamFmtpColorimetry left, FlowMediaStreamFmtpColorimetry right) => left.Equals(right);
+        public static bool operator !=(FlowMediaStreamFmtpColorimetry left, FlowMediaStreamFmtpColorimetry right) => !left.Equals(right);
+
+        public static explicit operator string(FlowMediaStreamFmtpColorimetry value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is FlowMediaStreamFmtpColorimetry other && Equals(other);
+        public bool Equals(FlowMediaStreamFmtpColorimetry other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The encoding range of the video.
+    /// </summary>
+    [EnumType]
+    public readonly struct FlowMediaStreamFmtpRange : IEquatable<FlowMediaStreamFmtpRange>
+    {
+        private readonly string _value;
+
+        private FlowMediaStreamFmtpRange(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static FlowMediaStreamFmtpRange Narrow { get; } = new FlowMediaStreamFmtpRange("NARROW");
+        public static FlowMediaStreamFmtpRange Full { get; } = new FlowMediaStreamFmtpRange("FULL");
+        public static FlowMediaStreamFmtpRange Fullprotect { get; } = new FlowMediaStreamFmtpRange("FULLPROTECT");
+
+        public static bool operator ==(FlowMediaStreamFmtpRange left, FlowMediaStreamFmtpRange right) => left.Equals(right);
+        public static bool operator !=(FlowMediaStreamFmtpRange left, FlowMediaStreamFmtpRange right) => !left.Equals(right);
+
+        public static explicit operator string(FlowMediaStreamFmtpRange value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is FlowMediaStreamFmtpRange other && Equals(other);
+        public bool Equals(FlowMediaStreamFmtpRange other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The type of compression that was used to smooth the video's appearance.
+    /// </summary>
+    [EnumType]
+    public readonly struct FlowMediaStreamFmtpScanMode : IEquatable<FlowMediaStreamFmtpScanMode>
+    {
+        private readonly string _value;
+
+        private FlowMediaStreamFmtpScanMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static FlowMediaStreamFmtpScanMode Progressive { get; } = new FlowMediaStreamFmtpScanMode("progressive");
+        public static FlowMediaStreamFmtpScanMode Interlace { get; } = new FlowMediaStreamFmtpScanMode("interlace");
+        public static FlowMediaStreamFmtpScanMode ProgressiveSegmentedFrame { get; } = new FlowMediaStreamFmtpScanMode("progressive-segmented-frame");
+
+        public static bool operator ==(FlowMediaStreamFmtpScanMode left, FlowMediaStreamFmtpScanMode right) => left.Equals(right);
+        public static bool operator !=(FlowMediaStreamFmtpScanMode left, FlowMediaStreamFmtpScanMode right) => !left.Equals(right);
+
+        public static explicit operator string(FlowMediaStreamFmtpScanMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is FlowMediaStreamFmtpScanMode other && Equals(other);
+        public bool Equals(FlowMediaStreamFmtpScanMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The transfer characteristic system (TCS) that is used in the video.
+    /// </summary>
+    [EnumType]
+    public readonly struct FlowMediaStreamFmtpTcs : IEquatable<FlowMediaStreamFmtpTcs>
+    {
+        private readonly string _value;
+
+        private FlowMediaStreamFmtpTcs(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static FlowMediaStreamFmtpTcs Sdr { get; } = new FlowMediaStreamFmtpTcs("SDR");
+        public static FlowMediaStreamFmtpTcs Pq { get; } = new FlowMediaStreamFmtpTcs("PQ");
+        public static FlowMediaStreamFmtpTcs Hlg { get; } = new FlowMediaStreamFmtpTcs("HLG");
+        public static FlowMediaStreamFmtpTcs Linear { get; } = new FlowMediaStreamFmtpTcs("LINEAR");
+        public static FlowMediaStreamFmtpTcs Bt2100linpq { get; } = new FlowMediaStreamFmtpTcs("BT2100LINPQ");
+        public static FlowMediaStreamFmtpTcs Bt2100linhlg { get; } = new FlowMediaStreamFmtpTcs("BT2100LINHLG");
+        public static FlowMediaStreamFmtpTcs St20651 { get; } = new FlowMediaStreamFmtpTcs("ST2065-1");
+        public static FlowMediaStreamFmtpTcs St4281 { get; } = new FlowMediaStreamFmtpTcs("ST428-1");
+        public static FlowMediaStreamFmtpTcs Density { get; } = new FlowMediaStreamFmtpTcs("DENSITY");
+
+        public static bool operator ==(FlowMediaStreamFmtpTcs left, FlowMediaStreamFmtpTcs right) => left.Equals(right);
+        public static bool operator !=(FlowMediaStreamFmtpTcs left, FlowMediaStreamFmtpTcs right) => !left.Equals(right);
+
+        public static explicit operator string(FlowMediaStreamFmtpTcs value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is FlowMediaStreamFmtpTcs other && Equals(other);
+        public bool Equals(FlowMediaStreamFmtpTcs other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The type of media stream.
     /// </summary>
     [EnumType]
@@ -2152,6 +2290,7 @@ namespace Pulumi.AwsNative.MediaConnect
         public static RouterOutputResourceRouterOutputProtocol Rist { get; } = new RouterOutputResourceRouterOutputProtocol("RIST");
         public static RouterOutputResourceRouterOutputProtocol SrtCaller { get; } = new RouterOutputResourceRouterOutputProtocol("SRT_CALLER");
         public static RouterOutputResourceRouterOutputProtocol SrtListener { get; } = new RouterOutputResourceRouterOutputProtocol("SRT_LISTENER");
+        public static RouterOutputResourceRouterOutputProtocol RtmpPush { get; } = new RouterOutputResourceRouterOutputProtocol("RTMP_PUSH");
 
         public static bool operator ==(RouterOutputResourceRouterOutputProtocol left, RouterOutputResourceRouterOutputProtocol right) => left.Equals(right);
         public static bool operator !=(RouterOutputResourceRouterOutputProtocol left, RouterOutputResourceRouterOutputProtocol right) => !left.Equals(right);
@@ -2312,6 +2451,33 @@ namespace Pulumi.AwsNative.MediaConnect
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is RouterOutputResourceRoutingScope other && Equals(other);
         public bool Equals(RouterOutputResourceRoutingScope other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct RouterOutputResourceTlsEncryptionType : IEquatable<RouterOutputResourceTlsEncryptionType>
+    {
+        private readonly string _value;
+
+        private RouterOutputResourceTlsEncryptionType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static RouterOutputResourceTlsEncryptionType Public { get; } = new RouterOutputResourceTlsEncryptionType("PUBLIC");
+
+        public static bool operator ==(RouterOutputResourceTlsEncryptionType left, RouterOutputResourceTlsEncryptionType right) => left.Equals(right);
+        public static bool operator !=(RouterOutputResourceTlsEncryptionType left, RouterOutputResourceTlsEncryptionType right) => !left.Equals(right);
+
+        public static explicit operator string(RouterOutputResourceTlsEncryptionType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is RouterOutputResourceTlsEncryptionType other && Equals(other);
+        public bool Equals(RouterOutputResourceTlsEncryptionType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

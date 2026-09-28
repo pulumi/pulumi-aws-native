@@ -133,7 +133,7 @@
       "permissions" : [ "acm:UpdateAcmeDomainValidation", "acm:DescribeAcmeDomainValidation", "acm:TagResource", "acm:UntagResource", "acm:ListTagsForResource", "route53:ChangeResourceRecordSets", "route53:GetHostedZone", "route53:GetChange" ]
     },
     "delete" : {
-      "permissions" : [ "acm:DeleteAcmeDomainValidation", "acm:DescribeAcmeDomainValidation", "route53:ChangeResourceRecordSets", "route53:GetHostedZone", "route53:GetChange" ]
+      "permissions" : [ "acm:DeleteAcmeDomainValidation", "acm:DescribeAcmeDomainValidation", "acm:ListTagsForResource", "route53:ChangeResourceRecordSets", "route53:GetHostedZone", "route53:GetChange" ]
     },
     "list" : {
       "handlerSchema" : {

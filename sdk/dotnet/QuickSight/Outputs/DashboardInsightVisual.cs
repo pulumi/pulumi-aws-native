@@ -20,7 +20,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// <summary>
         /// The dataset that is used in the insight visual.
         /// </summary>
-        public readonly string DataSetIdentifier;
+        public readonly string? DataSetIdentifier;
         /// <summary>
         /// The configuration of an insight visual.
         /// </summary>
@@ -33,6 +33,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// The title that is displayed on the visual.
         /// </summary>
         public readonly Outputs.DashboardVisualTitleLabelOptions? Title;
+        public readonly string? TopicIdentifier;
         /// <summary>
         /// The alt text for the visual.
         /// </summary>
@@ -46,13 +47,15 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         private DashboardInsightVisual(
             ImmutableArray<Outputs.DashboardVisualCustomAction> actions,
 
-            string dataSetIdentifier,
+            string? dataSetIdentifier,
 
             Outputs.DashboardInsightConfiguration? insightConfiguration,
 
             Outputs.DashboardVisualSubtitleLabelOptions? subtitle,
 
             Outputs.DashboardVisualTitleLabelOptions? title,
+
+            string? topicIdentifier,
 
             string? visualContentAltText,
 
@@ -63,6 +66,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
             InsightConfiguration = insightConfiguration;
             Subtitle = subtitle;
             Title = title;
+            TopicIdentifier = topicIdentifier;
             VisualContentAltText = visualContentAltText;
             VisualId = visualId;
         }

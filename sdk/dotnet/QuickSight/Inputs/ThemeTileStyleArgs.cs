@@ -16,10 +16,22 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     public sealed class ThemeTileStyleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// String to encapsulate the most generic way Color can be formatted (words, hexStrings etc)
+        /// </summary>
+        [Input("backgroundColor")]
+        public Input<string>? BackgroundColor { get; set; }
+
+        /// <summary>
         /// The border around a tile.
         /// </summary>
         [Input("border")]
         public Input<Inputs.ThemeBorderStyleArgs>? Border { get; set; }
+
+        [Input("borderRadius")]
+        public Input<string>? BorderRadius { get; set; }
+
+        [Input("padding")]
+        public Input<string>? Padding { get; set; }
 
         public ThemeTileStyleArgs()
         {

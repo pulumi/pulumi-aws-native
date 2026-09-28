@@ -25,7 +25,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetAgentSpaceResult:
-    def __init__(__self__, agent_space_id=None, arn=None, created_at=None, description=None, locale=None, name=None, operator_app=None, tags=None, updated_at=None):
+    def __init__(__self__, agent_space_id=None, arn=None, created_at=None, description=None, locale=None, name=None, operator_app=None, preferences=None, tags=None, updated_at=None):
         if agent_space_id and not isinstance(agent_space_id, str):
             raise TypeError("Expected argument 'agent_space_id' to be a str")
         pulumi.set(__self__, "agent_space_id", agent_space_id)
@@ -47,6 +47,9 @@ class GetAgentSpaceResult:
         if operator_app and not isinstance(operator_app, dict):
             raise TypeError("Expected argument 'operator_app' to be a dict")
         pulumi.set(__self__, "operator_app", operator_app)
+        if preferences and not isinstance(preferences, dict):
+            raise TypeError("Expected argument 'preferences' to be a dict")
+        pulumi.set(__self__, "preferences", preferences)
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
@@ -109,6 +112,11 @@ class GetAgentSpaceResult:
 
     @_builtins.property
     @pulumi.getter
+    def preferences(self) -> Optional['outputs.AgentSpacePreferences']:
+        return pulumi.get(self, "preferences")
+
+    @_builtins.property
+    @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
         """
         An array of key-value pairs to apply to this resource.
@@ -137,6 +145,7 @@ class AwaitableGetAgentSpaceResult(GetAgentSpaceResult):
             locale=self.locale,
             name=self.name,
             operator_app=self.operator_app,
+            preferences=self.preferences,
             tags=self.tags,
             updated_at=self.updated_at)
 
@@ -161,6 +170,7 @@ def get_agent_space(agent_space_id: Optional[_builtins.str] = None,
         locale=pulumi.get(__ret__, 'locale'),
         name=pulumi.get(__ret__, 'name'),
         operator_app=pulumi.get(__ret__, 'operator_app'),
+        preferences=pulumi.get(__ret__, 'preferences'),
         tags=pulumi.get(__ret__, 'tags'),
         updated_at=pulumi.get(__ret__, 'updated_at'))
 def get_agent_space_output(agent_space_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -182,5 +192,6 @@ def get_agent_space_output(agent_space_id: pulumi.Input[Optional[_builtins.str]]
         locale=pulumi.get(__response__, 'locale'),
         name=pulumi.get(__response__, 'name'),
         operator_app=pulumi.get(__response__, 'operator_app'),
+        preferences=pulumi.get(__response__, 'preferences'),
         tags=pulumi.get(__response__, 'tags'),
         updated_at=pulumi.get(__response__, 'updated_at')))

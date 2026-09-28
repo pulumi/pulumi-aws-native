@@ -9740,6 +9740,13 @@ type HostTag struct {
 	Value string `pulumi:"value"`
 }
 
+type IPv4PoolTag struct {
+	// The tag key.
+	Key string `pulumi:"key"`
+	// The tag value.
+	Value string `pulumi:"value"`
+}
+
 type InstanceAssociationParameter struct {
 	// The name of an input parameter that is in the associated SSM document.
 	Key string `pulumi:"key"`
@@ -10907,6 +10914,141 @@ func (o InstanceEnaSrdUdpSpecificationPtrOutput) EnaSrdUdpEnabled() pulumi.BoolP
 		}
 		return v.EnaSrdUdpEnabled
 	}).(pulumi.BoolPtrOutput)
+}
+
+// A key-value pair to associate with a resource.
+type InstanceEventWindowTag struct {
+	// The key of the tag.
+	Key string `pulumi:"key"`
+	// The value of the tag.
+	Value string `pulumi:"value"`
+}
+
+// A time range during which an AWS-initiated maintenance event may occur.
+type InstanceEventWindowTimeRange struct {
+	// The hour when the time range ends.
+	EndHour *int `pulumi:"endHour"`
+	// The day on which the time range ends.
+	EndWeekDay *InstanceEventWindowTimeRangeEndWeekDay `pulumi:"endWeekDay"`
+	// The hour when the time range begins.
+	StartHour *int `pulumi:"startHour"`
+	// The day on which the time range begins.
+	StartWeekDay *InstanceEventWindowTimeRangeStartWeekDay `pulumi:"startWeekDay"`
+}
+
+// InstanceEventWindowTimeRangeInput is an input type that accepts InstanceEventWindowTimeRangeArgs and InstanceEventWindowTimeRangeOutput values.
+// You can construct a concrete instance of `InstanceEventWindowTimeRangeInput` via:
+//
+//	InstanceEventWindowTimeRangeArgs{...}
+type InstanceEventWindowTimeRangeInput interface {
+	pulumi.Input
+
+	ToInstanceEventWindowTimeRangeOutput() InstanceEventWindowTimeRangeOutput
+	ToInstanceEventWindowTimeRangeOutputWithContext(context.Context) InstanceEventWindowTimeRangeOutput
+}
+
+// A time range during which an AWS-initiated maintenance event may occur.
+type InstanceEventWindowTimeRangeArgs struct {
+	// The hour when the time range ends.
+	EndHour pulumi.IntPtrInput `pulumi:"endHour"`
+	// The day on which the time range ends.
+	EndWeekDay InstanceEventWindowTimeRangeEndWeekDayPtrInput `pulumi:"endWeekDay"`
+	// The hour when the time range begins.
+	StartHour pulumi.IntPtrInput `pulumi:"startHour"`
+	// The day on which the time range begins.
+	StartWeekDay InstanceEventWindowTimeRangeStartWeekDayPtrInput `pulumi:"startWeekDay"`
+}
+
+func (InstanceEventWindowTimeRangeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceEventWindowTimeRange)(nil)).Elem()
+}
+
+func (i InstanceEventWindowTimeRangeArgs) ToInstanceEventWindowTimeRangeOutput() InstanceEventWindowTimeRangeOutput {
+	return i.ToInstanceEventWindowTimeRangeOutputWithContext(context.Background())
+}
+
+func (i InstanceEventWindowTimeRangeArgs) ToInstanceEventWindowTimeRangeOutputWithContext(ctx context.Context) InstanceEventWindowTimeRangeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceEventWindowTimeRangeOutput)
+}
+
+// InstanceEventWindowTimeRangeArrayInput is an input type that accepts InstanceEventWindowTimeRangeArray and InstanceEventWindowTimeRangeArrayOutput values.
+// You can construct a concrete instance of `InstanceEventWindowTimeRangeArrayInput` via:
+//
+//	InstanceEventWindowTimeRangeArray{ InstanceEventWindowTimeRangeArgs{...} }
+type InstanceEventWindowTimeRangeArrayInput interface {
+	pulumi.Input
+
+	ToInstanceEventWindowTimeRangeArrayOutput() InstanceEventWindowTimeRangeArrayOutput
+	ToInstanceEventWindowTimeRangeArrayOutputWithContext(context.Context) InstanceEventWindowTimeRangeArrayOutput
+}
+
+type InstanceEventWindowTimeRangeArray []InstanceEventWindowTimeRangeInput
+
+func (InstanceEventWindowTimeRangeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InstanceEventWindowTimeRange)(nil)).Elem()
+}
+
+func (i InstanceEventWindowTimeRangeArray) ToInstanceEventWindowTimeRangeArrayOutput() InstanceEventWindowTimeRangeArrayOutput {
+	return i.ToInstanceEventWindowTimeRangeArrayOutputWithContext(context.Background())
+}
+
+func (i InstanceEventWindowTimeRangeArray) ToInstanceEventWindowTimeRangeArrayOutputWithContext(ctx context.Context) InstanceEventWindowTimeRangeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceEventWindowTimeRangeArrayOutput)
+}
+
+// A time range during which an AWS-initiated maintenance event may occur.
+type InstanceEventWindowTimeRangeOutput struct{ *pulumi.OutputState }
+
+func (InstanceEventWindowTimeRangeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceEventWindowTimeRange)(nil)).Elem()
+}
+
+func (o InstanceEventWindowTimeRangeOutput) ToInstanceEventWindowTimeRangeOutput() InstanceEventWindowTimeRangeOutput {
+	return o
+}
+
+func (o InstanceEventWindowTimeRangeOutput) ToInstanceEventWindowTimeRangeOutputWithContext(ctx context.Context) InstanceEventWindowTimeRangeOutput {
+	return o
+}
+
+// The hour when the time range ends.
+func (o InstanceEventWindowTimeRangeOutput) EndHour() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v InstanceEventWindowTimeRange) *int { return v.EndHour }).(pulumi.IntPtrOutput)
+}
+
+// The day on which the time range ends.
+func (o InstanceEventWindowTimeRangeOutput) EndWeekDay() InstanceEventWindowTimeRangeEndWeekDayPtrOutput {
+	return o.ApplyT(func(v InstanceEventWindowTimeRange) *InstanceEventWindowTimeRangeEndWeekDay { return v.EndWeekDay }).(InstanceEventWindowTimeRangeEndWeekDayPtrOutput)
+}
+
+// The hour when the time range begins.
+func (o InstanceEventWindowTimeRangeOutput) StartHour() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v InstanceEventWindowTimeRange) *int { return v.StartHour }).(pulumi.IntPtrOutput)
+}
+
+// The day on which the time range begins.
+func (o InstanceEventWindowTimeRangeOutput) StartWeekDay() InstanceEventWindowTimeRangeStartWeekDayPtrOutput {
+	return o.ApplyT(func(v InstanceEventWindowTimeRange) *InstanceEventWindowTimeRangeStartWeekDay { return v.StartWeekDay }).(InstanceEventWindowTimeRangeStartWeekDayPtrOutput)
+}
+
+type InstanceEventWindowTimeRangeArrayOutput struct{ *pulumi.OutputState }
+
+func (InstanceEventWindowTimeRangeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InstanceEventWindowTimeRange)(nil)).Elem()
+}
+
+func (o InstanceEventWindowTimeRangeArrayOutput) ToInstanceEventWindowTimeRangeArrayOutput() InstanceEventWindowTimeRangeArrayOutput {
+	return o
+}
+
+func (o InstanceEventWindowTimeRangeArrayOutput) ToInstanceEventWindowTimeRangeArrayOutputWithContext(ctx context.Context) InstanceEventWindowTimeRangeArrayOutput {
+	return o
+}
+
+func (o InstanceEventWindowTimeRangeArrayOutput) Index(i pulumi.IntInput) InstanceEventWindowTimeRangeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) InstanceEventWindowTimeRange {
+		return vs[0].([]InstanceEventWindowTimeRange)[vs[1].(int)]
+	}).(InstanceEventWindowTimeRangeOutput)
 }
 
 type InstanceIpv6Address struct {
@@ -34717,6 +34859,13 @@ func (o SseSpecificationPropertiesPtrOutput) KmsKeyArn() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
+type SubnetCidrReservationTag struct {
+	// The key of the tag. Amazon EC2 reserves keys beginning with 'aws:' for internal use and rejects them for this resource. Amazon EC2 accepts a maximum of 128 Unicode characters.
+	Key string `pulumi:"key"`
+	// The value of the tag. Amazon EC2 accepts a maximum of 256 Unicode characters.
+	Value string `pulumi:"value"`
+}
+
 // Specifies a tag. For more information, see [Resource tags](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).
 type SubnetTag struct {
 	// The tag key.
@@ -41619,6 +41768,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceEnaSrdSpecificationPtrInput)(nil)).Elem(), InstanceEnaSrdSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceEnaSrdUdpSpecificationInput)(nil)).Elem(), InstanceEnaSrdUdpSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceEnaSrdUdpSpecificationPtrInput)(nil)).Elem(), InstanceEnaSrdUdpSpecificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InstanceEventWindowTimeRangeInput)(nil)).Elem(), InstanceEventWindowTimeRangeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InstanceEventWindowTimeRangeArrayInput)(nil)).Elem(), InstanceEventWindowTimeRangeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceIpv6AddressInput)(nil)).Elem(), InstanceIpv6AddressArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceIpv6AddressArrayInput)(nil)).Elem(), InstanceIpv6AddressArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceLaunchTemplateSpecificationInput)(nil)).Elem(), InstanceLaunchTemplateSpecificationArgs{})
@@ -42053,6 +42204,8 @@ func init() {
 	pulumi.RegisterOutputType(InstanceEnaSrdSpecificationPtrOutput{})
 	pulumi.RegisterOutputType(InstanceEnaSrdUdpSpecificationOutput{})
 	pulumi.RegisterOutputType(InstanceEnaSrdUdpSpecificationPtrOutput{})
+	pulumi.RegisterOutputType(InstanceEventWindowTimeRangeOutput{})
+	pulumi.RegisterOutputType(InstanceEventWindowTimeRangeArrayOutput{})
 	pulumi.RegisterOutputType(InstanceIpv6AddressOutput{})
 	pulumi.RegisterOutputType(InstanceIpv6AddressArrayOutput{})
 	pulumi.RegisterOutputType(InstanceLaunchTemplateSpecificationOutput{})

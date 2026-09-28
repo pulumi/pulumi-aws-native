@@ -93,6 +93,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &View{}
 	case "aws-native:connect:ViewVersion":
 		r = &ViewVersion{}
+	case "aws-native:connect:Vocabulary":
+		r = &Vocabulary{}
 	case "aws-native:connect:Workspace":
 		r = &Workspace{}
 	default:

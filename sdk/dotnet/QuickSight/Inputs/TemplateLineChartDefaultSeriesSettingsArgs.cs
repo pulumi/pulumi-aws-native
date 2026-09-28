@@ -18,6 +18,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         [Input("axisBinding")]
         public Input<Pulumi.AwsNative.QuickSight.TemplateAxisBinding>? AxisBinding { get; set; }
 
+        [Input("decalSettings")]
+        public Input<Inputs.TemplateDecalSettingsArgs>? DecalSettings { get; set; }
+
         /// <summary>
         /// Line styles options for all line series in the visual.
         /// </summary>

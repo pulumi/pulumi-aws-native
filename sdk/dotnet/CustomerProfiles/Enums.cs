@@ -1001,6 +1001,90 @@ namespace Pulumi.AwsNative.CustomerProfiles
         public override string ToString() => _value;
     }
 
+    [EnumType]
+    public readonly struct RecommenderSchemaFieldContentType : IEquatable<RecommenderSchemaFieldContentType>
+    {
+        private readonly string _value;
+
+        private RecommenderSchemaFieldContentType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static RecommenderSchemaFieldContentType String { get; } = new RecommenderSchemaFieldContentType("STRING");
+        public static RecommenderSchemaFieldContentType Number { get; } = new RecommenderSchemaFieldContentType("NUMBER");
+
+        public static bool operator ==(RecommenderSchemaFieldContentType left, RecommenderSchemaFieldContentType right) => left.Equals(right);
+        public static bool operator !=(RecommenderSchemaFieldContentType left, RecommenderSchemaFieldContentType right) => !left.Equals(right);
+
+        public static explicit operator string(RecommenderSchemaFieldContentType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is RecommenderSchemaFieldContentType other && Equals(other);
+        public bool Equals(RecommenderSchemaFieldContentType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct RecommenderSchemaFieldFeatureType : IEquatable<RecommenderSchemaFieldFeatureType>
+    {
+        private readonly string _value;
+
+        private RecommenderSchemaFieldFeatureType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static RecommenderSchemaFieldFeatureType Textual { get; } = new RecommenderSchemaFieldFeatureType("TEXTUAL");
+        public static RecommenderSchemaFieldFeatureType Categorical { get; } = new RecommenderSchemaFieldFeatureType("CATEGORICAL");
+
+        public static bool operator ==(RecommenderSchemaFieldFeatureType left, RecommenderSchemaFieldFeatureType right) => left.Equals(right);
+        public static bool operator !=(RecommenderSchemaFieldFeatureType left, RecommenderSchemaFieldFeatureType right) => !left.Equals(right);
+
+        public static explicit operator string(RecommenderSchemaFieldFeatureType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is RecommenderSchemaFieldFeatureType other && Equals(other);
+        public bool Equals(RecommenderSchemaFieldFeatureType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct RecommenderSchemaStatus : IEquatable<RecommenderSchemaStatus>
+    {
+        private readonly string _value;
+
+        private RecommenderSchemaStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static RecommenderSchemaStatus Active { get; } = new RecommenderSchemaStatus("ACTIVE");
+        public static RecommenderSchemaStatus Deleting { get; } = new RecommenderSchemaStatus("DELETING");
+
+        public static bool operator ==(RecommenderSchemaStatus left, RecommenderSchemaStatus right) => left.Equals(right);
+        public static bool operator !=(RecommenderSchemaStatus left, RecommenderSchemaStatus right) => !left.Equals(right);
+
+        public static explicit operator string(RecommenderSchemaStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is RecommenderSchemaStatus other && Equals(other);
+        public bool Equals(RecommenderSchemaStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     /// <summary>
     /// The status of the recommender
     /// </summary>

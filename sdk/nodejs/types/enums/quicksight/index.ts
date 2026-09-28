@@ -305,6 +305,40 @@ export const AnalysisDayOfTheWeek = {
 
 export type AnalysisDayOfTheWeek = (typeof AnalysisDayOfTheWeek)[keyof typeof AnalysisDayOfTheWeek];
 
+export const AnalysisDecalPatternType = {
+    Solid: "SOLID",
+    DiagonalMedium: "DIAGONAL_MEDIUM",
+    CircleMedium: "CIRCLE_MEDIUM",
+    DiamondGridMedium: "DIAMOND_GRID_MEDIUM",
+    CheckerboardMedium: "CHECKERBOARD_MEDIUM",
+    TriangleMedium: "TRIANGLE_MEDIUM",
+    DiagonalOppositeMedium: "DIAGONAL_OPPOSITE_MEDIUM",
+    DiamondMedium: "DIAMOND_MEDIUM",
+    DiagonalLarge: "DIAGONAL_LARGE",
+    CircleLarge: "CIRCLE_LARGE",
+    DiamondGridLarge: "DIAMOND_GRID_LARGE",
+    CheckerboardLarge: "CHECKERBOARD_LARGE",
+    TriangleLarge: "TRIANGLE_LARGE",
+    DiagonalOppositeLarge: "DIAGONAL_OPPOSITE_LARGE",
+    DiamondLarge: "DIAMOND_LARGE",
+    DiagonalSmall: "DIAGONAL_SMALL",
+    CircleSmall: "CIRCLE_SMALL",
+    DiamondGridSmall: "DIAMOND_GRID_SMALL",
+    CheckerboardSmall: "CHECKERBOARD_SMALL",
+    TriangleSmall: "TRIANGLE_SMALL",
+    DiagonalOppositeSmall: "DIAGONAL_OPPOSITE_SMALL",
+    DiamondSmall: "DIAMOND_SMALL",
+} as const;
+
+export type AnalysisDecalPatternType = (typeof AnalysisDecalPatternType)[keyof typeof AnalysisDecalPatternType];
+
+export const AnalysisDecalStyleType = {
+    Manual: "Manual",
+    Auto: "Auto",
+} as const;
+
+export type AnalysisDecalStyleType = (typeof AnalysisDecalStyleType)[keyof typeof AnalysisDecalStyleType];
+
 export const AnalysisDigitGroupingStyle = {
     Default: "DEFAULT",
     Lakhs: "LAKHS",
@@ -831,6 +865,7 @@ export type AnalysisSelectedFieldOptions = (typeof AnalysisSelectedFieldOptions)
 export const AnalysisSelectedTooltipType = {
     Basic: "BASIC",
     Detailed: "DETAILED",
+    Sheet: "SHEET",
 } as const;
 
 export type AnalysisSelectedTooltipType = (typeof AnalysisSelectedTooltipType)[keyof typeof AnalysisSelectedTooltipType];
@@ -931,6 +966,20 @@ export const AnalysisSortDirection = {
 } as const;
 
 export type AnalysisSortDirection = (typeof AnalysisSortDirection)[keyof typeof AnalysisSortDirection];
+
+export const AnalysisSparklineAxisBehavior = {
+    Shared: "SHARED",
+    Independent: "INDEPENDENT",
+} as const;
+
+export type AnalysisSparklineAxisBehavior = (typeof AnalysisSparklineAxisBehavior)[keyof typeof AnalysisSparklineAxisBehavior];
+
+export const AnalysisSparklineVisualType = {
+    Line: "LINE",
+    AreaLine: "AREA_LINE",
+} as const;
+
+export type AnalysisSparklineVisualType = (typeof AnalysisSparklineVisualType)[keyof typeof AnalysisSparklineVisualType];
 
 export const AnalysisSpecialValue = {
     Empty: "EMPTY",
@@ -1361,6 +1410,40 @@ export const DashboardDayOfTheWeek = {
 } as const;
 
 export type DashboardDayOfTheWeek = (typeof DashboardDayOfTheWeek)[keyof typeof DashboardDayOfTheWeek];
+
+export const DashboardDecalPatternType = {
+    Solid: "SOLID",
+    DiagonalMedium: "DIAGONAL_MEDIUM",
+    CircleMedium: "CIRCLE_MEDIUM",
+    DiamondGridMedium: "DIAMOND_GRID_MEDIUM",
+    CheckerboardMedium: "CHECKERBOARD_MEDIUM",
+    TriangleMedium: "TRIANGLE_MEDIUM",
+    DiagonalOppositeMedium: "DIAGONAL_OPPOSITE_MEDIUM",
+    DiamondMedium: "DIAMOND_MEDIUM",
+    DiagonalLarge: "DIAGONAL_LARGE",
+    CircleLarge: "CIRCLE_LARGE",
+    DiamondGridLarge: "DIAMOND_GRID_LARGE",
+    CheckerboardLarge: "CHECKERBOARD_LARGE",
+    TriangleLarge: "TRIANGLE_LARGE",
+    DiagonalOppositeLarge: "DIAGONAL_OPPOSITE_LARGE",
+    DiamondLarge: "DIAMOND_LARGE",
+    DiagonalSmall: "DIAGONAL_SMALL",
+    CircleSmall: "CIRCLE_SMALL",
+    DiamondGridSmall: "DIAMOND_GRID_SMALL",
+    CheckerboardSmall: "CHECKERBOARD_SMALL",
+    TriangleSmall: "TRIANGLE_SMALL",
+    DiagonalOppositeSmall: "DIAGONAL_OPPOSITE_SMALL",
+    DiamondSmall: "DIAMOND_SMALL",
+} as const;
+
+export type DashboardDecalPatternType = (typeof DashboardDecalPatternType)[keyof typeof DashboardDecalPatternType];
+
+export const DashboardDecalStyleType = {
+    Manual: "Manual",
+    Auto: "Auto",
+} as const;
+
+export type DashboardDecalStyleType = (typeof DashboardDecalStyleType)[keyof typeof DashboardDecalStyleType];
 
 export const DashboardDigitGroupingStyle = {
     Default: "DEFAULT",
@@ -1888,6 +1971,7 @@ export type DashboardSelectedFieldOptions = (typeof DashboardSelectedFieldOption
 export const DashboardSelectedTooltipType = {
     Basic: "BASIC",
     Detailed: "DETAILED",
+    Sheet: "SHEET",
 } as const;
 
 export type DashboardSelectedTooltipType = (typeof DashboardSelectedTooltipType)[keyof typeof DashboardSelectedTooltipType];
@@ -1988,6 +2072,20 @@ export const DashboardSortDirection = {
 } as const;
 
 export type DashboardSortDirection = (typeof DashboardSortDirection)[keyof typeof DashboardSortDirection];
+
+export const DashboardSparklineAxisBehavior = {
+    Shared: "SHARED",
+    Independent: "INDEPENDENT",
+} as const;
+
+export type DashboardSparklineAxisBehavior = (typeof DashboardSparklineAxisBehavior)[keyof typeof DashboardSparklineAxisBehavior];
+
+export const DashboardSparklineVisualType = {
+    Line: "LINE",
+    AreaLine: "AREA_LINE",
+} as const;
+
+export type DashboardSparklineVisualType = (typeof DashboardSparklineVisualType)[keyof typeof DashboardSparklineVisualType];
 
 export const DashboardSpecialValue = {
     Empty: "EMPTY",
@@ -2931,6 +3029,40 @@ export const TemplateDayOfTheWeek = {
 
 export type TemplateDayOfTheWeek = (typeof TemplateDayOfTheWeek)[keyof typeof TemplateDayOfTheWeek];
 
+export const TemplateDecalPatternType = {
+    Solid: "SOLID",
+    DiagonalMedium: "DIAGONAL_MEDIUM",
+    CircleMedium: "CIRCLE_MEDIUM",
+    DiamondGridMedium: "DIAMOND_GRID_MEDIUM",
+    CheckerboardMedium: "CHECKERBOARD_MEDIUM",
+    TriangleMedium: "TRIANGLE_MEDIUM",
+    DiagonalOppositeMedium: "DIAGONAL_OPPOSITE_MEDIUM",
+    DiamondMedium: "DIAMOND_MEDIUM",
+    DiagonalLarge: "DIAGONAL_LARGE",
+    CircleLarge: "CIRCLE_LARGE",
+    DiamondGridLarge: "DIAMOND_GRID_LARGE",
+    CheckerboardLarge: "CHECKERBOARD_LARGE",
+    TriangleLarge: "TRIANGLE_LARGE",
+    DiagonalOppositeLarge: "DIAGONAL_OPPOSITE_LARGE",
+    DiamondLarge: "DIAMOND_LARGE",
+    DiagonalSmall: "DIAGONAL_SMALL",
+    CircleSmall: "CIRCLE_SMALL",
+    DiamondGridSmall: "DIAMOND_GRID_SMALL",
+    CheckerboardSmall: "CHECKERBOARD_SMALL",
+    TriangleSmall: "TRIANGLE_SMALL",
+    DiagonalOppositeSmall: "DIAGONAL_OPPOSITE_SMALL",
+    DiamondSmall: "DIAMOND_SMALL",
+} as const;
+
+export type TemplateDecalPatternType = (typeof TemplateDecalPatternType)[keyof typeof TemplateDecalPatternType];
+
+export const TemplateDecalStyleType = {
+    Manual: "Manual",
+    Auto: "Auto",
+} as const;
+
+export type TemplateDecalStyleType = (typeof TemplateDecalStyleType)[keyof typeof TemplateDecalStyleType];
+
 export const TemplateDigitGroupingStyle = {
     Default: "DEFAULT",
     Lakhs: "LAKHS",
@@ -2999,6 +3131,31 @@ export const TemplateFunnelChartMeasureDataLabelStyle = {
 } as const;
 
 export type TemplateFunnelChartMeasureDataLabelStyle = (typeof TemplateFunnelChartMeasureDataLabelStyle)[keyof typeof TemplateFunnelChartMeasureDataLabelStyle];
+
+export const TemplateGeospatialColorState = {
+    Enabled: "ENABLED",
+    Disabled: "DISABLED",
+} as const;
+
+/**
+ * Defines view state of the color
+ */
+export type TemplateGeospatialColorState = (typeof TemplateGeospatialColorState)[keyof typeof TemplateGeospatialColorState];
+
+export const TemplateGeospatialLayerType = {
+    Point: "POINT",
+    Line: "LINE",
+    Polygon: "POLYGON",
+} as const;
+
+export type TemplateGeospatialLayerType = (typeof TemplateGeospatialLayerType)[keyof typeof TemplateGeospatialLayerType];
+
+export const TemplateGeospatialMapNavigation = {
+    Enabled: "ENABLED",
+    Disabled: "DISABLED",
+} as const;
+
+export type TemplateGeospatialMapNavigation = (typeof TemplateGeospatialMapNavigation)[keyof typeof TemplateGeospatialMapNavigation];
 
 export const TemplateGeospatialSelectedPointStyle = {
     Point: "POINT",
@@ -3075,6 +3232,13 @@ export const TemplateKpiVisualStandardLayoutType = {
 } as const;
 
 export type TemplateKpiVisualStandardLayoutType = (typeof TemplateKpiVisualStandardLayoutType)[keyof typeof TemplateKpiVisualStandardLayoutType];
+
+export const TemplateLayerCustomActionTrigger = {
+    DataPointClick: "DATA_POINT_CLICK",
+    DataPointMenu: "DATA_POINT_MENU",
+} as const;
+
+export type TemplateLayerCustomActionTrigger = (typeof TemplateLayerCustomActionTrigger)[keyof typeof TemplateLayerCustomActionTrigger];
 
 export const TemplateLayoutElementType = {
     Visual: "VISUAL",
@@ -3419,6 +3583,7 @@ export type TemplateSelectedFieldOptions = (typeof TemplateSelectedFieldOptions)
 export const TemplateSelectedTooltipType = {
     Basic: "BASIC",
     Detailed: "DETAILED",
+    Sheet: "SHEET",
 } as const;
 
 export type TemplateSelectedTooltipType = (typeof TemplateSelectedTooltipType)[keyof typeof TemplateSelectedTooltipType];
@@ -3519,6 +3684,20 @@ export const TemplateSortDirection = {
 } as const;
 
 export type TemplateSortDirection = (typeof TemplateSortDirection)[keyof typeof TemplateSortDirection];
+
+export const TemplateSparklineAxisBehavior = {
+    Shared: "SHARED",
+    Independent: "INDEPENDENT",
+} as const;
+
+export type TemplateSparklineAxisBehavior = (typeof TemplateSparklineAxisBehavior)[keyof typeof TemplateSparklineAxisBehavior];
+
+export const TemplateSparklineVisualType = {
+    Line: "LINE",
+    AreaLine: "AREA_LINE",
+} as const;
+
+export type TemplateSparklineVisualType = (typeof TemplateSparklineVisualType)[keyof typeof TemplateSparklineVisualType];
 
 export const TemplateSpecialValue = {
     Empty: "EMPTY",
@@ -3737,6 +3916,36 @@ export const ThemeErrorType = {
 
 export type ThemeErrorType = (typeof ThemeErrorType)[keyof typeof ThemeErrorType];
 
+export const ThemeFontDecoration = {
+    Underline: "UNDERLINE",
+    None: "NONE",
+} as const;
+
+export type ThemeFontDecoration = (typeof ThemeFontDecoration)[keyof typeof ThemeFontDecoration];
+
+export const ThemeFontStyle = {
+    Normal: "NORMAL",
+    Italic: "ITALIC",
+} as const;
+
+export type ThemeFontStyle = (typeof ThemeFontStyle)[keyof typeof ThemeFontStyle];
+
+export const ThemeFontWeightName = {
+    Normal: "NORMAL",
+    Bold: "BOLD",
+} as const;
+
+export type ThemeFontWeightName = (typeof ThemeFontWeightName)[keyof typeof ThemeFontWeightName];
+
+export const ThemeHorizontalTextAlignment = {
+    Left: "LEFT",
+    Center: "CENTER",
+    Right: "RIGHT",
+    Auto: "AUTO",
+} as const;
+
+export type ThemeHorizontalTextAlignment = (typeof ThemeHorizontalTextAlignment)[keyof typeof ThemeHorizontalTextAlignment];
+
 export const ThemeResourceStatus = {
     CreationInProgress: "CREATION_IN_PROGRESS",
     CreationSuccessful: "CREATION_SUCCESSFUL",
@@ -3749,6 +3958,12 @@ export const ThemeResourceStatus = {
 } as const;
 
 export type ThemeResourceStatus = (typeof ThemeResourceStatus)[keyof typeof ThemeResourceStatus];
+
+export const ThemeTextTransform = {
+    Capitalize: "CAPITALIZE",
+} as const;
+
+export type ThemeTextTransform = (typeof ThemeTextTransform)[keyof typeof ThemeTextTransform];
 
 export const ThemeType = {
     Quicksight: "QUICKSIGHT",

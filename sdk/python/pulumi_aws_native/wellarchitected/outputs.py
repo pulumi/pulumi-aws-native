@@ -16,9 +16,74 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
+    'AgentProfileAggregationConfiguration',
     'DiscoveryConfigProperties',
     'ProfileQuestionUpdate',
 ]
+
+@pulumi.output_type
+class AgentProfileAggregationConfiguration(dict):
+    """
+    Defines an account, its in-scope regions, and the access role used to reach resources in that account.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "accessRoleArn":
+            suggest = "access_role_arn"
+        elif key == "accountId":
+            suggest = "account_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentProfileAggregationConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentProfileAggregationConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentProfileAggregationConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 access_role_arn: _builtins.str,
+                 account_id: _builtins.str,
+                 regions: Sequence[_builtins.str]):
+        """
+        Defines an account, its in-scope regions, and the access role used to reach resources in that account.
+
+        :param _builtins.str access_role_arn: The ARN of the IAM role used to access resources in this account.
+        :param _builtins.str account_id: The target AWS account ID.
+        :param Sequence[_builtins.str] regions: The target regions in the account.
+        """
+        pulumi.set(__self__, "access_role_arn", access_role_arn)
+        pulumi.set(__self__, "account_id", account_id)
+        pulumi.set(__self__, "regions", regions)
+
+    @_builtins.property
+    @pulumi.getter(name="accessRoleArn")
+    def access_role_arn(self) -> _builtins.str:
+        """
+        The ARN of the IAM role used to access resources in this account.
+        """
+        return pulumi.get(self, "access_role_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="accountId")
+    def account_id(self) -> _builtins.str:
+        """
+        The target AWS account ID.
+        """
+        return pulumi.get(self, "account_id")
+
+    @_builtins.property
+    @pulumi.getter
+    def regions(self) -> Sequence[_builtins.str]:
+        """
+        The target regions in the account.
+        """
+        return pulumi.get(self, "regions")
+
 
 @pulumi.output_type
 class DiscoveryConfigProperties(dict):

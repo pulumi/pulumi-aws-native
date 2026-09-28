@@ -9,9 +9,11 @@ import typing
 from ._enums import *
 from .document_classifier import *
 from .document_classifier_endpoint import *
+from .entity_recognizer import *
 from .flywheel import *
 from .get_document_classifier import *
 from .get_document_classifier_endpoint import *
+from .get_entity_recognizer import *
 from .get_flywheel import *
 from ._inputs import *
 from . import outputs

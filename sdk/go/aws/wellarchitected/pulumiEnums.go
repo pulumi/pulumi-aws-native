@@ -10,6 +10,787 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Type of the application described by this context. Mirrors the value stored in `Content.applicationType` and is surfaced as a typed read-only attribute by the service for discoverability.
+type AgentContextApplicationType string
+
+const (
+	AgentContextApplicationTypeSas                = AgentContextApplicationType("SAS")
+	AgentContextApplicationTypeDesktopApplication = AgentContextApplicationType("DESKTOP_APPLICATION")
+	AgentContextApplicationTypeOther              = AgentContextApplicationType("OTHER")
+)
+
+type AgentContextApplicationTypeOutput struct{ *pulumi.OutputState }
+
+func (AgentContextApplicationTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentContextApplicationType)(nil)).Elem()
+}
+
+func (o AgentContextApplicationTypeOutput) ToAgentContextApplicationTypeOutput() AgentContextApplicationTypeOutput {
+	return o
+}
+
+func (o AgentContextApplicationTypeOutput) ToAgentContextApplicationTypeOutputWithContext(ctx context.Context) AgentContextApplicationTypeOutput {
+	return o
+}
+
+func (o AgentContextApplicationTypeOutput) ToAgentContextApplicationTypePtrOutput() AgentContextApplicationTypePtrOutput {
+	return o.ToAgentContextApplicationTypePtrOutputWithContext(context.Background())
+}
+
+func (o AgentContextApplicationTypeOutput) ToAgentContextApplicationTypePtrOutputWithContext(ctx context.Context) AgentContextApplicationTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentContextApplicationType) *AgentContextApplicationType {
+		return &v
+	}).(AgentContextApplicationTypePtrOutput)
+}
+
+func (o AgentContextApplicationTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o AgentContextApplicationTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AgentContextApplicationType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o AgentContextApplicationTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AgentContextApplicationTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AgentContextApplicationType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type AgentContextApplicationTypePtrOutput struct{ *pulumi.OutputState }
+
+func (AgentContextApplicationTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentContextApplicationType)(nil)).Elem()
+}
+
+func (o AgentContextApplicationTypePtrOutput) ToAgentContextApplicationTypePtrOutput() AgentContextApplicationTypePtrOutput {
+	return o
+}
+
+func (o AgentContextApplicationTypePtrOutput) ToAgentContextApplicationTypePtrOutputWithContext(ctx context.Context) AgentContextApplicationTypePtrOutput {
+	return o
+}
+
+func (o AgentContextApplicationTypePtrOutput) Elem() AgentContextApplicationTypeOutput {
+	return o.ApplyT(func(v *AgentContextApplicationType) AgentContextApplicationType {
+		if v != nil {
+			return *v
+		}
+		var ret AgentContextApplicationType
+		return ret
+	}).(AgentContextApplicationTypeOutput)
+}
+
+func (o AgentContextApplicationTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AgentContextApplicationTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AgentContextApplicationType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of the Agent Context.
+type AgentContextContextType string
+
+const (
+	AgentContextContextTypeApplication = AgentContextContextType("APPLICATION")
+)
+
+func (AgentContextContextType) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentContextContextType)(nil)).Elem()
+}
+
+func (e AgentContextContextType) ToAgentContextContextTypeOutput() AgentContextContextTypeOutput {
+	return pulumi.ToOutput(e).(AgentContextContextTypeOutput)
+}
+
+func (e AgentContextContextType) ToAgentContextContextTypeOutputWithContext(ctx context.Context) AgentContextContextTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(AgentContextContextTypeOutput)
+}
+
+func (e AgentContextContextType) ToAgentContextContextTypePtrOutput() AgentContextContextTypePtrOutput {
+	return e.ToAgentContextContextTypePtrOutputWithContext(context.Background())
+}
+
+func (e AgentContextContextType) ToAgentContextContextTypePtrOutputWithContext(ctx context.Context) AgentContextContextTypePtrOutput {
+	return AgentContextContextType(e).ToAgentContextContextTypeOutputWithContext(ctx).ToAgentContextContextTypePtrOutputWithContext(ctx)
+}
+
+func (e AgentContextContextType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AgentContextContextType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AgentContextContextType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e AgentContextContextType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type AgentContextContextTypeOutput struct{ *pulumi.OutputState }
+
+func (AgentContextContextTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentContextContextType)(nil)).Elem()
+}
+
+func (o AgentContextContextTypeOutput) ToAgentContextContextTypeOutput() AgentContextContextTypeOutput {
+	return o
+}
+
+func (o AgentContextContextTypeOutput) ToAgentContextContextTypeOutputWithContext(ctx context.Context) AgentContextContextTypeOutput {
+	return o
+}
+
+func (o AgentContextContextTypeOutput) ToAgentContextContextTypePtrOutput() AgentContextContextTypePtrOutput {
+	return o.ToAgentContextContextTypePtrOutputWithContext(context.Background())
+}
+
+func (o AgentContextContextTypeOutput) ToAgentContextContextTypePtrOutputWithContext(ctx context.Context) AgentContextContextTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentContextContextType) *AgentContextContextType {
+		return &v
+	}).(AgentContextContextTypePtrOutput)
+}
+
+func (o AgentContextContextTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o AgentContextContextTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AgentContextContextType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o AgentContextContextTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AgentContextContextTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AgentContextContextType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type AgentContextContextTypePtrOutput struct{ *pulumi.OutputState }
+
+func (AgentContextContextTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentContextContextType)(nil)).Elem()
+}
+
+func (o AgentContextContextTypePtrOutput) ToAgentContextContextTypePtrOutput() AgentContextContextTypePtrOutput {
+	return o
+}
+
+func (o AgentContextContextTypePtrOutput) ToAgentContextContextTypePtrOutputWithContext(ctx context.Context) AgentContextContextTypePtrOutput {
+	return o
+}
+
+func (o AgentContextContextTypePtrOutput) Elem() AgentContextContextTypeOutput {
+	return o.ApplyT(func(v *AgentContextContextType) AgentContextContextType {
+		if v != nil {
+			return *v
+		}
+		var ret AgentContextContextType
+		return ret
+	}).(AgentContextContextTypeOutput)
+}
+
+func (o AgentContextContextTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AgentContextContextTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AgentContextContextType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// AgentContextContextTypeInput is an input type that accepts values of the AgentContextContextType enum
+// A concrete instance of `AgentContextContextTypeInput` can be one of the following:
+//
+//	AgentContextContextTypeApplication
+type AgentContextContextTypeInput interface {
+	pulumi.Input
+
+	ToAgentContextContextTypeOutput() AgentContextContextTypeOutput
+	ToAgentContextContextTypeOutputWithContext(context.Context) AgentContextContextTypeOutput
+}
+
+var agentContextContextTypePtrType = reflect.TypeOf((**AgentContextContextType)(nil)).Elem()
+
+type AgentContextContextTypePtrInput interface {
+	pulumi.Input
+
+	ToAgentContextContextTypePtrOutput() AgentContextContextTypePtrOutput
+	ToAgentContextContextTypePtrOutputWithContext(context.Context) AgentContextContextTypePtrOutput
+}
+
+type agentContextContextTypePtr string
+
+func AgentContextContextTypePtr(v string) AgentContextContextTypePtrInput {
+	return (*agentContextContextTypePtr)(&v)
+}
+
+func (*agentContextContextTypePtr) ElementType() reflect.Type {
+	return agentContextContextTypePtrType
+}
+
+func (in *agentContextContextTypePtr) ToAgentContextContextTypePtrOutput() AgentContextContextTypePtrOutput {
+	return pulumi.ToOutput(in).(AgentContextContextTypePtrOutput)
+}
+
+func (in *agentContextContextTypePtr) ToAgentContextContextTypePtrOutputWithContext(ctx context.Context) AgentContextContextTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(AgentContextContextTypePtrOutput)
+}
+
+// Business criticality of the application described by this context. Mirrors the value stored in `Content.criticality` and is surfaced as a typed read-only attribute by the service for discoverability.
+type AgentContextCriticality string
+
+const (
+	AgentContextCriticalityMissionCritical  = AgentContextCriticality("MISSION_CRITICAL")
+	AgentContextCriticalityBusinessCritical = AgentContextCriticality("BUSINESS_CRITICAL")
+	AgentContextCriticalityNonCritical      = AgentContextCriticality("NON_CRITICAL")
+	AgentContextCriticalityTestDevelopment  = AgentContextCriticality("TEST_DEVELOPMENT")
+)
+
+type AgentContextCriticalityOutput struct{ *pulumi.OutputState }
+
+func (AgentContextCriticalityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentContextCriticality)(nil)).Elem()
+}
+
+func (o AgentContextCriticalityOutput) ToAgentContextCriticalityOutput() AgentContextCriticalityOutput {
+	return o
+}
+
+func (o AgentContextCriticalityOutput) ToAgentContextCriticalityOutputWithContext(ctx context.Context) AgentContextCriticalityOutput {
+	return o
+}
+
+func (o AgentContextCriticalityOutput) ToAgentContextCriticalityPtrOutput() AgentContextCriticalityPtrOutput {
+	return o.ToAgentContextCriticalityPtrOutputWithContext(context.Background())
+}
+
+func (o AgentContextCriticalityOutput) ToAgentContextCriticalityPtrOutputWithContext(ctx context.Context) AgentContextCriticalityPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentContextCriticality) *AgentContextCriticality {
+		return &v
+	}).(AgentContextCriticalityPtrOutput)
+}
+
+func (o AgentContextCriticalityOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o AgentContextCriticalityOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AgentContextCriticality) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o AgentContextCriticalityOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AgentContextCriticalityOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AgentContextCriticality) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type AgentContextCriticalityPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentContextCriticalityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentContextCriticality)(nil)).Elem()
+}
+
+func (o AgentContextCriticalityPtrOutput) ToAgentContextCriticalityPtrOutput() AgentContextCriticalityPtrOutput {
+	return o
+}
+
+func (o AgentContextCriticalityPtrOutput) ToAgentContextCriticalityPtrOutputWithContext(ctx context.Context) AgentContextCriticalityPtrOutput {
+	return o
+}
+
+func (o AgentContextCriticalityPtrOutput) Elem() AgentContextCriticalityOutput {
+	return o.ApplyT(func(v *AgentContextCriticality) AgentContextCriticality {
+		if v != nil {
+			return *v
+		}
+		var ret AgentContextCriticality
+		return ret
+	}).(AgentContextCriticalityOutput)
+}
+
+func (o AgentContextCriticalityPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AgentContextCriticalityPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AgentContextCriticality) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// A Well-Architected pillar the Agent Goal targets.
+type AgentGoalPillar string
+
+const (
+	AgentGoalPillarCostOptimization      = AgentGoalPillar("COST_OPTIMIZATION")
+	AgentGoalPillarSecurity              = AgentGoalPillar("SECURITY")
+	AgentGoalPillarResilience            = AgentGoalPillar("RESILIENCE")
+	AgentGoalPillarPerformance           = AgentGoalPillar("PERFORMANCE")
+	AgentGoalPillarOperationalExcellence = AgentGoalPillar("OPERATIONAL_EXCELLENCE")
+)
+
+func (AgentGoalPillar) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentGoalPillar)(nil)).Elem()
+}
+
+func (e AgentGoalPillar) ToAgentGoalPillarOutput() AgentGoalPillarOutput {
+	return pulumi.ToOutput(e).(AgentGoalPillarOutput)
+}
+
+func (e AgentGoalPillar) ToAgentGoalPillarOutputWithContext(ctx context.Context) AgentGoalPillarOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(AgentGoalPillarOutput)
+}
+
+func (e AgentGoalPillar) ToAgentGoalPillarPtrOutput() AgentGoalPillarPtrOutput {
+	return e.ToAgentGoalPillarPtrOutputWithContext(context.Background())
+}
+
+func (e AgentGoalPillar) ToAgentGoalPillarPtrOutputWithContext(ctx context.Context) AgentGoalPillarPtrOutput {
+	return AgentGoalPillar(e).ToAgentGoalPillarOutputWithContext(ctx).ToAgentGoalPillarPtrOutputWithContext(ctx)
+}
+
+func (e AgentGoalPillar) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AgentGoalPillar) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AgentGoalPillar) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e AgentGoalPillar) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type AgentGoalPillarOutput struct{ *pulumi.OutputState }
+
+func (AgentGoalPillarOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentGoalPillar)(nil)).Elem()
+}
+
+func (o AgentGoalPillarOutput) ToAgentGoalPillarOutput() AgentGoalPillarOutput {
+	return o
+}
+
+func (o AgentGoalPillarOutput) ToAgentGoalPillarOutputWithContext(ctx context.Context) AgentGoalPillarOutput {
+	return o
+}
+
+func (o AgentGoalPillarOutput) ToAgentGoalPillarPtrOutput() AgentGoalPillarPtrOutput {
+	return o.ToAgentGoalPillarPtrOutputWithContext(context.Background())
+}
+
+func (o AgentGoalPillarOutput) ToAgentGoalPillarPtrOutputWithContext(ctx context.Context) AgentGoalPillarPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentGoalPillar) *AgentGoalPillar {
+		return &v
+	}).(AgentGoalPillarPtrOutput)
+}
+
+func (o AgentGoalPillarOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o AgentGoalPillarOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AgentGoalPillar) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o AgentGoalPillarOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AgentGoalPillarOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AgentGoalPillar) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type AgentGoalPillarPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentGoalPillarPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentGoalPillar)(nil)).Elem()
+}
+
+func (o AgentGoalPillarPtrOutput) ToAgentGoalPillarPtrOutput() AgentGoalPillarPtrOutput {
+	return o
+}
+
+func (o AgentGoalPillarPtrOutput) ToAgentGoalPillarPtrOutputWithContext(ctx context.Context) AgentGoalPillarPtrOutput {
+	return o
+}
+
+func (o AgentGoalPillarPtrOutput) Elem() AgentGoalPillarOutput {
+	return o.ApplyT(func(v *AgentGoalPillar) AgentGoalPillar {
+		if v != nil {
+			return *v
+		}
+		var ret AgentGoalPillar
+		return ret
+	}).(AgentGoalPillarOutput)
+}
+
+func (o AgentGoalPillarPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AgentGoalPillarPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AgentGoalPillar) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// AgentGoalPillarInput is an input type that accepts values of the AgentGoalPillar enum
+// A concrete instance of `AgentGoalPillarInput` can be one of the following:
+//
+//	AgentGoalPillarCostOptimization
+//	AgentGoalPillarSecurity
+//	AgentGoalPillarResilience
+//	AgentGoalPillarPerformance
+//	AgentGoalPillarOperationalExcellence
+type AgentGoalPillarInput interface {
+	pulumi.Input
+
+	ToAgentGoalPillarOutput() AgentGoalPillarOutput
+	ToAgentGoalPillarOutputWithContext(context.Context) AgentGoalPillarOutput
+}
+
+var agentGoalPillarPtrType = reflect.TypeOf((**AgentGoalPillar)(nil)).Elem()
+
+type AgentGoalPillarPtrInput interface {
+	pulumi.Input
+
+	ToAgentGoalPillarPtrOutput() AgentGoalPillarPtrOutput
+	ToAgentGoalPillarPtrOutputWithContext(context.Context) AgentGoalPillarPtrOutput
+}
+
+type agentGoalPillarPtr string
+
+func AgentGoalPillarPtr(v string) AgentGoalPillarPtrInput {
+	return (*agentGoalPillarPtr)(&v)
+}
+
+func (*agentGoalPillarPtr) ElementType() reflect.Type {
+	return agentGoalPillarPtrType
+}
+
+func (in *agentGoalPillarPtr) ToAgentGoalPillarPtrOutput() AgentGoalPillarPtrOutput {
+	return pulumi.ToOutput(in).(AgentGoalPillarPtrOutput)
+}
+
+func (in *agentGoalPillarPtr) ToAgentGoalPillarPtrOutputWithContext(ctx context.Context) AgentGoalPillarPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(AgentGoalPillarPtrOutput)
+}
+
+// AgentGoalPillarArrayInput is an input type that accepts AgentGoalPillarArray and AgentGoalPillarArrayOutput values.
+// You can construct a concrete instance of `AgentGoalPillarArrayInput` via:
+//
+//	AgentGoalPillarArray{ AgentGoalPillarArgs{...} }
+type AgentGoalPillarArrayInput interface {
+	pulumi.Input
+
+	ToAgentGoalPillarArrayOutput() AgentGoalPillarArrayOutput
+	ToAgentGoalPillarArrayOutputWithContext(context.Context) AgentGoalPillarArrayOutput
+}
+
+type AgentGoalPillarArray []AgentGoalPillar
+
+func (AgentGoalPillarArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgentGoalPillar)(nil)).Elem()
+}
+
+func (i AgentGoalPillarArray) ToAgentGoalPillarArrayOutput() AgentGoalPillarArrayOutput {
+	return i.ToAgentGoalPillarArrayOutputWithContext(context.Background())
+}
+
+func (i AgentGoalPillarArray) ToAgentGoalPillarArrayOutputWithContext(ctx context.Context) AgentGoalPillarArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentGoalPillarArrayOutput)
+}
+
+type AgentGoalPillarArrayOutput struct{ *pulumi.OutputState }
+
+func (AgentGoalPillarArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgentGoalPillar)(nil)).Elem()
+}
+
+func (o AgentGoalPillarArrayOutput) ToAgentGoalPillarArrayOutput() AgentGoalPillarArrayOutput {
+	return o
+}
+
+func (o AgentGoalPillarArrayOutput) ToAgentGoalPillarArrayOutputWithContext(ctx context.Context) AgentGoalPillarArrayOutput {
+	return o
+}
+
+func (o AgentGoalPillarArrayOutput) Index(i pulumi.IntInput) AgentGoalPillarOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AgentGoalPillar {
+		return vs[0].([]AgentGoalPillar)[vs[1].(int)]
+	}).(AgentGoalPillarOutput)
+}
+
+// A Well-Architected pillar the Agent Profile focuses on.
+type AgentProfilePillar string
+
+const (
+	AgentProfilePillarCostOptimization = AgentProfilePillar("COST_OPTIMIZATION")
+	AgentProfilePillarSecurity         = AgentProfilePillar("SECURITY")
+	AgentProfilePillarResilience       = AgentProfilePillar("RESILIENCE")
+	AgentProfilePillarPerformance      = AgentProfilePillar("PERFORMANCE")
+)
+
+func (AgentProfilePillar) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentProfilePillar)(nil)).Elem()
+}
+
+func (e AgentProfilePillar) ToAgentProfilePillarOutput() AgentProfilePillarOutput {
+	return pulumi.ToOutput(e).(AgentProfilePillarOutput)
+}
+
+func (e AgentProfilePillar) ToAgentProfilePillarOutputWithContext(ctx context.Context) AgentProfilePillarOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(AgentProfilePillarOutput)
+}
+
+func (e AgentProfilePillar) ToAgentProfilePillarPtrOutput() AgentProfilePillarPtrOutput {
+	return e.ToAgentProfilePillarPtrOutputWithContext(context.Background())
+}
+
+func (e AgentProfilePillar) ToAgentProfilePillarPtrOutputWithContext(ctx context.Context) AgentProfilePillarPtrOutput {
+	return AgentProfilePillar(e).ToAgentProfilePillarOutputWithContext(ctx).ToAgentProfilePillarPtrOutputWithContext(ctx)
+}
+
+func (e AgentProfilePillar) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AgentProfilePillar) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AgentProfilePillar) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e AgentProfilePillar) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type AgentProfilePillarOutput struct{ *pulumi.OutputState }
+
+func (AgentProfilePillarOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentProfilePillar)(nil)).Elem()
+}
+
+func (o AgentProfilePillarOutput) ToAgentProfilePillarOutput() AgentProfilePillarOutput {
+	return o
+}
+
+func (o AgentProfilePillarOutput) ToAgentProfilePillarOutputWithContext(ctx context.Context) AgentProfilePillarOutput {
+	return o
+}
+
+func (o AgentProfilePillarOutput) ToAgentProfilePillarPtrOutput() AgentProfilePillarPtrOutput {
+	return o.ToAgentProfilePillarPtrOutputWithContext(context.Background())
+}
+
+func (o AgentProfilePillarOutput) ToAgentProfilePillarPtrOutputWithContext(ctx context.Context) AgentProfilePillarPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentProfilePillar) *AgentProfilePillar {
+		return &v
+	}).(AgentProfilePillarPtrOutput)
+}
+
+func (o AgentProfilePillarOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o AgentProfilePillarOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AgentProfilePillar) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o AgentProfilePillarOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AgentProfilePillarOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AgentProfilePillar) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type AgentProfilePillarPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentProfilePillarPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentProfilePillar)(nil)).Elem()
+}
+
+func (o AgentProfilePillarPtrOutput) ToAgentProfilePillarPtrOutput() AgentProfilePillarPtrOutput {
+	return o
+}
+
+func (o AgentProfilePillarPtrOutput) ToAgentProfilePillarPtrOutputWithContext(ctx context.Context) AgentProfilePillarPtrOutput {
+	return o
+}
+
+func (o AgentProfilePillarPtrOutput) Elem() AgentProfilePillarOutput {
+	return o.ApplyT(func(v *AgentProfilePillar) AgentProfilePillar {
+		if v != nil {
+			return *v
+		}
+		var ret AgentProfilePillar
+		return ret
+	}).(AgentProfilePillarOutput)
+}
+
+func (o AgentProfilePillarPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AgentProfilePillarPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AgentProfilePillar) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// AgentProfilePillarInput is an input type that accepts values of the AgentProfilePillar enum
+// A concrete instance of `AgentProfilePillarInput` can be one of the following:
+//
+//	AgentProfilePillarCostOptimization
+//	AgentProfilePillarSecurity
+//	AgentProfilePillarResilience
+//	AgentProfilePillarPerformance
+type AgentProfilePillarInput interface {
+	pulumi.Input
+
+	ToAgentProfilePillarOutput() AgentProfilePillarOutput
+	ToAgentProfilePillarOutputWithContext(context.Context) AgentProfilePillarOutput
+}
+
+var agentProfilePillarPtrType = reflect.TypeOf((**AgentProfilePillar)(nil)).Elem()
+
+type AgentProfilePillarPtrInput interface {
+	pulumi.Input
+
+	ToAgentProfilePillarPtrOutput() AgentProfilePillarPtrOutput
+	ToAgentProfilePillarPtrOutputWithContext(context.Context) AgentProfilePillarPtrOutput
+}
+
+type agentProfilePillarPtr string
+
+func AgentProfilePillarPtr(v string) AgentProfilePillarPtrInput {
+	return (*agentProfilePillarPtr)(&v)
+}
+
+func (*agentProfilePillarPtr) ElementType() reflect.Type {
+	return agentProfilePillarPtrType
+}
+
+func (in *agentProfilePillarPtr) ToAgentProfilePillarPtrOutput() AgentProfilePillarPtrOutput {
+	return pulumi.ToOutput(in).(AgentProfilePillarPtrOutput)
+}
+
+func (in *agentProfilePillarPtr) ToAgentProfilePillarPtrOutputWithContext(ctx context.Context) AgentProfilePillarPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(AgentProfilePillarPtrOutput)
+}
+
+// AgentProfilePillarArrayInput is an input type that accepts AgentProfilePillarArray and AgentProfilePillarArrayOutput values.
+// You can construct a concrete instance of `AgentProfilePillarArrayInput` via:
+//
+//	AgentProfilePillarArray{ AgentProfilePillarArgs{...} }
+type AgentProfilePillarArrayInput interface {
+	pulumi.Input
+
+	ToAgentProfilePillarArrayOutput() AgentProfilePillarArrayOutput
+	ToAgentProfilePillarArrayOutputWithContext(context.Context) AgentProfilePillarArrayOutput
+}
+
+type AgentProfilePillarArray []AgentProfilePillar
+
+func (AgentProfilePillarArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgentProfilePillar)(nil)).Elem()
+}
+
+func (i AgentProfilePillarArray) ToAgentProfilePillarArrayOutput() AgentProfilePillarArrayOutput {
+	return i.ToAgentProfilePillarArrayOutputWithContext(context.Background())
+}
+
+func (i AgentProfilePillarArray) ToAgentProfilePillarArrayOutputWithContext(ctx context.Context) AgentProfilePillarArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentProfilePillarArrayOutput)
+}
+
+type AgentProfilePillarArrayOutput struct{ *pulumi.OutputState }
+
+func (AgentProfilePillarArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgentProfilePillar)(nil)).Elem()
+}
+
+func (o AgentProfilePillarArrayOutput) ToAgentProfilePillarArrayOutput() AgentProfilePillarArrayOutput {
+	return o
+}
+
+func (o AgentProfilePillarArrayOutput) ToAgentProfilePillarArrayOutputWithContext(ctx context.Context) AgentProfilePillarArrayOutput {
+	return o
+}
+
+func (o AgentProfilePillarArrayOutput) Index(i pulumi.IntInput) AgentProfilePillarOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AgentProfilePillar {
+		return vs[0].([]AgentProfilePillar)[vs[1].(int)]
+	}).(AgentProfilePillarOutput)
+}
+
 // The latest status of the review template.
 type ReviewTemplateUpdateStatus string
 
@@ -738,6 +1519,14 @@ func (o WorkloadImprovementStatusPtrOutput) ToStringPtrOutputWithContext(ctx con
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentContextContextTypeInput)(nil)).Elem(), AgentContextContextType("APPLICATION"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentContextContextTypePtrInput)(nil)).Elem(), AgentContextContextType("APPLICATION"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentGoalPillarInput)(nil)).Elem(), AgentGoalPillar("COST_OPTIMIZATION"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentGoalPillarPtrInput)(nil)).Elem(), AgentGoalPillar("COST_OPTIMIZATION"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentGoalPillarArrayInput)(nil)).Elem(), AgentGoalPillarArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentProfilePillarInput)(nil)).Elem(), AgentProfilePillar("COST_OPTIMIZATION"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentProfilePillarPtrInput)(nil)).Elem(), AgentProfilePillar("COST_OPTIMIZATION"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentProfilePillarArrayInput)(nil)).Elem(), AgentProfilePillarArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadDiscoveryConfigPropertiesTrustedAdvisorIntegrationStatusInput)(nil)).Elem(), WorkloadDiscoveryConfigPropertiesTrustedAdvisorIntegrationStatus("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadDiscoveryConfigPropertiesTrustedAdvisorIntegrationStatusPtrInput)(nil)).Elem(), WorkloadDiscoveryConfigPropertiesTrustedAdvisorIntegrationStatus("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadDiscoveryConfigPropertiesWorkloadResourceDefinitionItemInput)(nil)).Elem(), WorkloadDiscoveryConfigPropertiesWorkloadResourceDefinitionItem("WORKLOAD_METADATA"))
@@ -745,6 +1534,18 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadDiscoveryConfigPropertiesWorkloadResourceDefinitionItemArrayInput)(nil)).Elem(), WorkloadDiscoveryConfigPropertiesWorkloadResourceDefinitionItemArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadEnvironmentInput)(nil)).Elem(), WorkloadEnvironment("PRODUCTION"))
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadEnvironmentPtrInput)(nil)).Elem(), WorkloadEnvironment("PRODUCTION"))
+	pulumi.RegisterOutputType(AgentContextApplicationTypeOutput{})
+	pulumi.RegisterOutputType(AgentContextApplicationTypePtrOutput{})
+	pulumi.RegisterOutputType(AgentContextContextTypeOutput{})
+	pulumi.RegisterOutputType(AgentContextContextTypePtrOutput{})
+	pulumi.RegisterOutputType(AgentContextCriticalityOutput{})
+	pulumi.RegisterOutputType(AgentContextCriticalityPtrOutput{})
+	pulumi.RegisterOutputType(AgentGoalPillarOutput{})
+	pulumi.RegisterOutputType(AgentGoalPillarPtrOutput{})
+	pulumi.RegisterOutputType(AgentGoalPillarArrayOutput{})
+	pulumi.RegisterOutputType(AgentProfilePillarOutput{})
+	pulumi.RegisterOutputType(AgentProfilePillarPtrOutput{})
+	pulumi.RegisterOutputType(AgentProfilePillarArrayOutput{})
 	pulumi.RegisterOutputType(ReviewTemplateUpdateStatusOutput{})
 	pulumi.RegisterOutputType(ReviewTemplateUpdateStatusPtrOutput{})
 	pulumi.RegisterOutputType(WorkloadDiscoveryConfigPropertiesTrustedAdvisorIntegrationStatusOutput{})

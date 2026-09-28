@@ -24,6 +24,16 @@ __all__ = [
     'EndpointEmreksConfiguration',
     'EndpointMonitoringConfiguration',
     'EndpointS3MonitoringConfiguration',
+    'JobTemplateConfiguration',
+    'JobTemplateData',
+    'JobTemplateJobDriver',
+    'JobTemplateParametricCloudWatchMonitoringConfiguration',
+    'JobTemplateParametricConfigurationOverrides',
+    'JobTemplateParametricMonitoringConfiguration',
+    'JobTemplateParametricS3MonitoringConfiguration',
+    'JobTemplateSparkSqlJobDriver',
+    'JobTemplateSparkSubmitJobDriver',
+    'JobTemplateTemplateParameterConfiguration',
     'SecurityConfigurationAtRestEncryptionConfiguration',
     'SecurityConfigurationAuthenticationConfiguration',
     'SecurityConfigurationAuthorizationConfiguration',
@@ -317,6 +327,552 @@ class EndpointS3MonitoringConfiguration(dict):
     @pulumi.getter(name="logUri")
     def log_uri(self) -> _builtins.str:
         return pulumi.get(self, "log_uri")
+
+
+@pulumi.output_type
+class JobTemplateConfiguration(dict):
+    """
+    A configuration specification to be used when provisioning virtual clusters, which can include configurations for applications and software bundled with Amazon EMR on EKS.
+    """
+    def __init__(__self__, *,
+                 classification: _builtins.str,
+                 configurations: Optional[Sequence['outputs.JobTemplateConfiguration']] = None,
+                 properties: Optional[Mapping[str, _builtins.str]] = None):
+        """
+        A configuration specification to be used when provisioning virtual clusters, which can include configurations for applications and software bundled with Amazon EMR on EKS.
+
+        :param _builtins.str classification: The classification within a configuration.
+        :param Mapping[str, _builtins.str] properties: A set of properties specified within a configuration classification.
+        """
+        pulumi.set(__self__, "classification", classification)
+        if configurations is not None:
+            pulumi.set(__self__, "configurations", configurations)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
+
+    @_builtins.property
+    @pulumi.getter
+    def classification(self) -> _builtins.str:
+        """
+        The classification within a configuration.
+        """
+        return pulumi.get(self, "classification")
+
+    @_builtins.property
+    @pulumi.getter
+    def configurations(self) -> Optional[Sequence['outputs.JobTemplateConfiguration']]:
+        return pulumi.get(self, "configurations")
+
+    @_builtins.property
+    @pulumi.getter
+    def properties(self) -> Optional[Mapping[str, _builtins.str]]:
+        """
+        A set of properties specified within a configuration classification.
+        """
+        return pulumi.get(self, "properties")
+
+
+@pulumi.output_type
+class JobTemplateData(dict):
+    """
+    The values of a StartJobRun API request used in job runs started using the job template.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "executionRoleArn":
+            suggest = "execution_role_arn"
+        elif key == "jobDriver":
+            suggest = "job_driver"
+        elif key == "releaseLabel":
+            suggest = "release_label"
+        elif key == "configurationOverrides":
+            suggest = "configuration_overrides"
+        elif key == "jobTags":
+            suggest = "job_tags"
+        elif key == "parameterConfiguration":
+            suggest = "parameter_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in JobTemplateData. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        JobTemplateData.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        JobTemplateData.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 execution_role_arn: _builtins.str,
+                 job_driver: 'outputs.JobTemplateJobDriver',
+                 release_label: _builtins.str,
+                 configuration_overrides: Optional['outputs.JobTemplateParametricConfigurationOverrides'] = None,
+                 job_tags: Optional[Mapping[str, _builtins.str]] = None,
+                 parameter_configuration: Optional[Mapping[str, 'outputs.JobTemplateTemplateParameterConfiguration']] = None):
+        """
+        The values of a StartJobRun API request used in job runs started using the job template.
+
+        :param _builtins.str execution_role_arn: The execution role ARN of the job run, or a template parameter reference.
+        :param _builtins.str release_label: The release version of Amazon EMR, or a template parameter reference.
+        :param Mapping[str, _builtins.str] job_tags: The tags assigned to jobs started using the job template.
+        :param Mapping[str, 'JobTemplateTemplateParameterConfiguration'] parameter_configuration: The configuration of parameters existing in the job template.
+        """
+        pulumi.set(__self__, "execution_role_arn", execution_role_arn)
+        pulumi.set(__self__, "job_driver", job_driver)
+        pulumi.set(__self__, "release_label", release_label)
+        if configuration_overrides is not None:
+            pulumi.set(__self__, "configuration_overrides", configuration_overrides)
+        if job_tags is not None:
+            pulumi.set(__self__, "job_tags", job_tags)
+        if parameter_configuration is not None:
+            pulumi.set(__self__, "parameter_configuration", parameter_configuration)
+
+    @_builtins.property
+    @pulumi.getter(name="executionRoleArn")
+    def execution_role_arn(self) -> _builtins.str:
+        """
+        The execution role ARN of the job run, or a template parameter reference.
+        """
+        return pulumi.get(self, "execution_role_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="jobDriver")
+    def job_driver(self) -> 'outputs.JobTemplateJobDriver':
+        return pulumi.get(self, "job_driver")
+
+    @_builtins.property
+    @pulumi.getter(name="releaseLabel")
+    def release_label(self) -> _builtins.str:
+        """
+        The release version of Amazon EMR, or a template parameter reference.
+        """
+        return pulumi.get(self, "release_label")
+
+    @_builtins.property
+    @pulumi.getter(name="configurationOverrides")
+    def configuration_overrides(self) -> Optional['outputs.JobTemplateParametricConfigurationOverrides']:
+        return pulumi.get(self, "configuration_overrides")
+
+    @_builtins.property
+    @pulumi.getter(name="jobTags")
+    def job_tags(self) -> Optional[Mapping[str, _builtins.str]]:
+        """
+        The tags assigned to jobs started using the job template.
+        """
+        return pulumi.get(self, "job_tags")
+
+    @_builtins.property
+    @pulumi.getter(name="parameterConfiguration")
+    def parameter_configuration(self) -> Optional[Mapping[str, 'outputs.JobTemplateTemplateParameterConfiguration']]:
+        """
+        The configuration of parameters existing in the job template.
+        """
+        return pulumi.get(self, "parameter_configuration")
+
+
+@pulumi.output_type
+class JobTemplateJobDriver(dict):
+    """
+    Specify the driver that the job runs on. Exactly one of the two available job drivers is required, either SparkSqlJobDriver or SparkSubmitJobDriver.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sparkSqlJobDriver":
+            suggest = "spark_sql_job_driver"
+        elif key == "sparkSubmitJobDriver":
+            suggest = "spark_submit_job_driver"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in JobTemplateJobDriver. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        JobTemplateJobDriver.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        JobTemplateJobDriver.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 spark_sql_job_driver: Optional['outputs.JobTemplateSparkSqlJobDriver'] = None,
+                 spark_submit_job_driver: Optional['outputs.JobTemplateSparkSubmitJobDriver'] = None):
+        """
+        Specify the driver that the job runs on. Exactly one of the two available job drivers is required, either SparkSqlJobDriver or SparkSubmitJobDriver.
+        """
+        if spark_sql_job_driver is not None:
+            pulumi.set(__self__, "spark_sql_job_driver", spark_sql_job_driver)
+        if spark_submit_job_driver is not None:
+            pulumi.set(__self__, "spark_submit_job_driver", spark_submit_job_driver)
+
+    @_builtins.property
+    @pulumi.getter(name="sparkSqlJobDriver")
+    def spark_sql_job_driver(self) -> Optional['outputs.JobTemplateSparkSqlJobDriver']:
+        return pulumi.get(self, "spark_sql_job_driver")
+
+    @_builtins.property
+    @pulumi.getter(name="sparkSubmitJobDriver")
+    def spark_submit_job_driver(self) -> Optional['outputs.JobTemplateSparkSubmitJobDriver']:
+        return pulumi.get(self, "spark_submit_job_driver")
+
+
+@pulumi.output_type
+class JobTemplateParametricCloudWatchMonitoringConfiguration(dict):
+    """
+    A configuration for CloudWatch monitoring. This data type allows job template parameters to be specified within.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "logGroupName":
+            suggest = "log_group_name"
+        elif key == "logStreamNamePrefix":
+            suggest = "log_stream_name_prefix"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in JobTemplateParametricCloudWatchMonitoringConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        JobTemplateParametricCloudWatchMonitoringConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        JobTemplateParametricCloudWatchMonitoringConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 log_group_name: Optional[_builtins.str] = None,
+                 log_stream_name_prefix: Optional[_builtins.str] = None):
+        """
+        A configuration for CloudWatch monitoring. This data type allows job template parameters to be specified within.
+
+        :param _builtins.str log_group_name: The name of the log group for log publishing, or a template parameter reference.
+        :param _builtins.str log_stream_name_prefix: The specified name prefix for log streams.
+        """
+        if log_group_name is not None:
+            pulumi.set(__self__, "log_group_name", log_group_name)
+        if log_stream_name_prefix is not None:
+            pulumi.set(__self__, "log_stream_name_prefix", log_stream_name_prefix)
+
+    @_builtins.property
+    @pulumi.getter(name="logGroupName")
+    def log_group_name(self) -> Optional[_builtins.str]:
+        """
+        The name of the log group for log publishing, or a template parameter reference.
+        """
+        return pulumi.get(self, "log_group_name")
+
+    @_builtins.property
+    @pulumi.getter(name="logStreamNamePrefix")
+    def log_stream_name_prefix(self) -> Optional[_builtins.str]:
+        """
+        The specified name prefix for log streams.
+        """
+        return pulumi.get(self, "log_stream_name_prefix")
+
+
+@pulumi.output_type
+class JobTemplateParametricConfigurationOverrides(dict):
+    """
+    A configuration specification to be used to override existing configurations. This data type allows job template parameters to be specified within.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "applicationConfiguration":
+            suggest = "application_configuration"
+        elif key == "monitoringConfiguration":
+            suggest = "monitoring_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in JobTemplateParametricConfigurationOverrides. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        JobTemplateParametricConfigurationOverrides.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        JobTemplateParametricConfigurationOverrides.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 application_configuration: Optional[Sequence['outputs.JobTemplateConfiguration']] = None,
+                 monitoring_configuration: Optional['outputs.JobTemplateParametricMonitoringConfiguration'] = None):
+        """
+        A configuration specification to be used to override existing configurations. This data type allows job template parameters to be specified within.
+        """
+        if application_configuration is not None:
+            pulumi.set(__self__, "application_configuration", application_configuration)
+        if monitoring_configuration is not None:
+            pulumi.set(__self__, "monitoring_configuration", monitoring_configuration)
+
+    @_builtins.property
+    @pulumi.getter(name="applicationConfiguration")
+    def application_configuration(self) -> Optional[Sequence['outputs.JobTemplateConfiguration']]:
+        return pulumi.get(self, "application_configuration")
+
+    @_builtins.property
+    @pulumi.getter(name="monitoringConfiguration")
+    def monitoring_configuration(self) -> Optional['outputs.JobTemplateParametricMonitoringConfiguration']:
+        return pulumi.get(self, "monitoring_configuration")
+
+
+@pulumi.output_type
+class JobTemplateParametricMonitoringConfiguration(dict):
+    """
+    Configuration setting for monitoring. This data type allows job template parameters to be specified within.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cloudWatchMonitoringConfiguration":
+            suggest = "cloud_watch_monitoring_configuration"
+        elif key == "persistentAppUi":
+            suggest = "persistent_app_ui"
+        elif key == "s3MonitoringConfiguration":
+            suggest = "s3_monitoring_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in JobTemplateParametricMonitoringConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        JobTemplateParametricMonitoringConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        JobTemplateParametricMonitoringConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 cloud_watch_monitoring_configuration: Optional['outputs.JobTemplateParametricCloudWatchMonitoringConfiguration'] = None,
+                 persistent_app_ui: Optional[_builtins.str] = None,
+                 s3_monitoring_configuration: Optional['outputs.JobTemplateParametricS3MonitoringConfiguration'] = None):
+        """
+        Configuration setting for monitoring. This data type allows job template parameters to be specified within.
+
+        :param _builtins.str persistent_app_ui: Monitoring configurations for the persistent application UI, or a template parameter reference.
+        """
+        if cloud_watch_monitoring_configuration is not None:
+            pulumi.set(__self__, "cloud_watch_monitoring_configuration", cloud_watch_monitoring_configuration)
+        if persistent_app_ui is not None:
+            pulumi.set(__self__, "persistent_app_ui", persistent_app_ui)
+        if s3_monitoring_configuration is not None:
+            pulumi.set(__self__, "s3_monitoring_configuration", s3_monitoring_configuration)
+
+    @_builtins.property
+    @pulumi.getter(name="cloudWatchMonitoringConfiguration")
+    def cloud_watch_monitoring_configuration(self) -> Optional['outputs.JobTemplateParametricCloudWatchMonitoringConfiguration']:
+        return pulumi.get(self, "cloud_watch_monitoring_configuration")
+
+    @_builtins.property
+    @pulumi.getter(name="persistentAppUi")
+    def persistent_app_ui(self) -> Optional[_builtins.str]:
+        """
+        Monitoring configurations for the persistent application UI, or a template parameter reference.
+        """
+        return pulumi.get(self, "persistent_app_ui")
+
+    @_builtins.property
+    @pulumi.getter(name="s3MonitoringConfiguration")
+    def s3_monitoring_configuration(self) -> Optional['outputs.JobTemplateParametricS3MonitoringConfiguration']:
+        return pulumi.get(self, "s3_monitoring_configuration")
+
+
+@pulumi.output_type
+class JobTemplateParametricS3MonitoringConfiguration(dict):
+    """
+    Amazon S3 configuration for monitoring log publishing. This data type allows job template parameters to be specified within.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "logUri":
+            suggest = "log_uri"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in JobTemplateParametricS3MonitoringConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        JobTemplateParametricS3MonitoringConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        JobTemplateParametricS3MonitoringConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 log_uri: Optional[_builtins.str] = None):
+        """
+        Amazon S3 configuration for monitoring log publishing. This data type allows job template parameters to be specified within.
+
+        :param _builtins.str log_uri: Amazon S3 destination URI for log publishing.
+        """
+        if log_uri is not None:
+            pulumi.set(__self__, "log_uri", log_uri)
+
+    @_builtins.property
+    @pulumi.getter(name="logUri")
+    def log_uri(self) -> Optional[_builtins.str]:
+        """
+        Amazon S3 destination URI for log publishing.
+        """
+        return pulumi.get(self, "log_uri")
+
+
+@pulumi.output_type
+class JobTemplateSparkSqlJobDriver(dict):
+    """
+    The job driver for job type.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "entryPoint":
+            suggest = "entry_point"
+        elif key == "sparkSqlParameters":
+            suggest = "spark_sql_parameters"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in JobTemplateSparkSqlJobDriver. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        JobTemplateSparkSqlJobDriver.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        JobTemplateSparkSqlJobDriver.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 entry_point: Optional[_builtins.str] = None,
+                 spark_sql_parameters: Optional[_builtins.str] = None):
+        """
+        The job driver for job type.
+        """
+        if entry_point is not None:
+            pulumi.set(__self__, "entry_point", entry_point)
+        if spark_sql_parameters is not None:
+            pulumi.set(__self__, "spark_sql_parameters", spark_sql_parameters)
+
+    @_builtins.property
+    @pulumi.getter(name="entryPoint")
+    def entry_point(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "entry_point")
+
+    @_builtins.property
+    @pulumi.getter(name="sparkSqlParameters")
+    def spark_sql_parameters(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "spark_sql_parameters")
+
+
+@pulumi.output_type
+class JobTemplateSparkSubmitJobDriver(dict):
+    """
+    The information about job driver for Spark submit.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "entryPoint":
+            suggest = "entry_point"
+        elif key == "entryPointArguments":
+            suggest = "entry_point_arguments"
+        elif key == "sparkSubmitParameters":
+            suggest = "spark_submit_parameters"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in JobTemplateSparkSubmitJobDriver. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        JobTemplateSparkSubmitJobDriver.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        JobTemplateSparkSubmitJobDriver.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 entry_point: _builtins.str,
+                 entry_point_arguments: Optional[Sequence[_builtins.str]] = None,
+                 spark_submit_parameters: Optional[_builtins.str] = None):
+        """
+        The information about job driver for Spark submit.
+        """
+        pulumi.set(__self__, "entry_point", entry_point)
+        if entry_point_arguments is not None:
+            pulumi.set(__self__, "entry_point_arguments", entry_point_arguments)
+        if spark_submit_parameters is not None:
+            pulumi.set(__self__, "spark_submit_parameters", spark_submit_parameters)
+
+    @_builtins.property
+    @pulumi.getter(name="entryPoint")
+    def entry_point(self) -> _builtins.str:
+        return pulumi.get(self, "entry_point")
+
+    @_builtins.property
+    @pulumi.getter(name="entryPointArguments")
+    def entry_point_arguments(self) -> Optional[Sequence[_builtins.str]]:
+        return pulumi.get(self, "entry_point_arguments")
+
+    @_builtins.property
+    @pulumi.getter(name="sparkSubmitParameters")
+    def spark_submit_parameters(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "spark_submit_parameters")
+
+
+@pulumi.output_type
+class JobTemplateTemplateParameterConfiguration(dict):
+    """
+    The configuration of a job template parameter.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "defaultValue":
+            suggest = "default_value"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in JobTemplateTemplateParameterConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        JobTemplateTemplateParameterConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        JobTemplateTemplateParameterConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 default_value: Optional[_builtins.str] = None,
+                 type: Optional['JobTemplateTemplateParameterConfigurationType'] = None):
+        """
+        The configuration of a job template parameter.
+
+        :param _builtins.str default_value: The default value for the job template parameter.
+        :param 'JobTemplateTemplateParameterConfigurationType' type: The type of the job template parameter.
+        """
+        if default_value is not None:
+            pulumi.set(__self__, "default_value", default_value)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter(name="defaultValue")
+    def default_value(self) -> Optional[_builtins.str]:
+        """
+        The default value for the job template parameter.
+        """
+        return pulumi.get(self, "default_value")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> Optional['JobTemplateTemplateParameterConfigurationType']:
+        """
+        The type of the job template parameter.
+        """
+        return pulumi.get(self, "type")
 
 
 @pulumi.output_type

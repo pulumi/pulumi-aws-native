@@ -20,6 +20,7 @@ namespace Pulumi.AwsNative.Lambda.Outputs
         /// The identifier for the Kafka consumer group to join. The consumer group ID must be unique among all your Kafka event sources. After creating a Kafka event source mapping with the consumer group ID specified, you cannot update this value. For more information, see [Customizable consumer group ID](https://docs.aws.amazon.com/lambda/latest/dg/with-kafka-process.html#services-smaa-topic-add).
         /// </summary>
         public readonly string? ConsumerGroupId;
+        public readonly Pulumi.AwsNative.Lambda.EventSourceMappingConsumptionMode? ConsumptionMode;
         /// <summary>
         /// Specific configuration settings for a Kafka schema registry.
         /// </summary>
@@ -29,9 +30,12 @@ namespace Pulumi.AwsNative.Lambda.Outputs
         private EventSourceMappingSelfManagedKafkaEventSourceConfig(
             string? consumerGroupId,
 
+            Pulumi.AwsNative.Lambda.EventSourceMappingConsumptionMode? consumptionMode,
+
             Outputs.EventSourceMappingSchemaRegistryConfig? schemaRegistryConfig)
         {
             ConsumerGroupId = consumerGroupId;
+            ConsumptionMode = consumptionMode;
             SchemaRegistryConfig = schemaRegistryConfig;
         }
     }

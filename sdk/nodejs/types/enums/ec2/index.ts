@@ -507,6 +507,36 @@ export const InstanceConnectEndpointState = {
  */
 export type InstanceConnectEndpointState = (typeof InstanceConnectEndpointState)[keyof typeof InstanceConnectEndpointState];
 
+export const InstanceEventWindowTimeRangeEndWeekDay = {
+    Sunday: "sunday",
+    Monday: "monday",
+    Tuesday: "tuesday",
+    Wednesday: "wednesday",
+    Thursday: "thursday",
+    Friday: "friday",
+    Saturday: "saturday",
+} as const;
+
+/**
+ * The day on which the time range ends.
+ */
+export type InstanceEventWindowTimeRangeEndWeekDay = (typeof InstanceEventWindowTimeRangeEndWeekDay)[keyof typeof InstanceEventWindowTimeRangeEndWeekDay];
+
+export const InstanceEventWindowTimeRangeStartWeekDay = {
+    Sunday: "sunday",
+    Monday: "monday",
+    Tuesday: "tuesday",
+    Wednesday: "wednesday",
+    Thursday: "thursday",
+    Friday: "friday",
+    Saturday: "saturday",
+} as const;
+
+/**
+ * The day on which the time range begins.
+ */
+export type InstanceEventWindowTimeRangeStartWeekDay = (typeof InstanceEventWindowTimeRangeStartWeekDay)[keyof typeof InstanceEventWindowTimeRangeStartWeekDay];
+
 export const InstanceMetadataOptionsHttpEndpoint = {
     Disabled: "disabled",
     Enabled: "enabled",
@@ -1136,6 +1166,16 @@ export const SqlHaStandbyDetectedInstanceSqlServerLicenseUsage = {
  * The SQL Server license type of the EC2 instance.
  */
 export type SqlHaStandbyDetectedInstanceSqlServerLicenseUsage = (typeof SqlHaStandbyDetectedInstanceSqlServerLicenseUsage)[keyof typeof SqlHaStandbyDetectedInstanceSqlServerLicenseUsage];
+
+export const SubnetCidrReservationReservationType = {
+    Prefix: "prefix",
+    Explicit: "explicit",
+} as const;
+
+/**
+ * The type of reservation. A prefix reservation is used for an IPv6 prefix delegated to a network interface; an explicit reservation is used for a range that Amazon EC2 must not assign automatically.
+ */
+export type SubnetCidrReservationReservationType = (typeof SubnetCidrReservationReservationType)[keyof typeof SubnetCidrReservationReservationType];
 
 export const TrafficMirrorFilterTrafficMirrorNetworkService = {
     AmazonDns: "amazon-dns",

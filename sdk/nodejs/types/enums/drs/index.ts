@@ -22,3 +22,57 @@ export const LaunchConfigurationTemplateTargetInstanceTypeRightSizingMethod = {
  * Target instance type right-sizing method.
  */
 export type LaunchConfigurationTemplateTargetInstanceTypeRightSizingMethod = (typeof LaunchConfigurationTemplateTargetInstanceTypeRightSizingMethod)[keyof typeof LaunchConfigurationTemplateTargetInstanceTypeRightSizingMethod];
+
+export const ReplicationConfigurationTemplateDataPlaneRouting = {
+    PrivateIp: "PRIVATE_IP",
+    PublicIp: "PUBLIC_IP",
+} as const;
+
+/**
+ * The data plane routing mechanism that will be used for replication.
+ */
+export type ReplicationConfigurationTemplateDataPlaneRouting = (typeof ReplicationConfigurationTemplateDataPlaneRouting)[keyof typeof ReplicationConfigurationTemplateDataPlaneRouting];
+
+export const ReplicationConfigurationTemplateDefaultLargeStagingDiskType = {
+    Gp2: "GP2",
+    Gp3: "GP3",
+    St1: "ST1",
+    Auto: "AUTO",
+} as const;
+
+/**
+ * The Staging Disk EBS volume type to be used during replication.
+ */
+export type ReplicationConfigurationTemplateDefaultLargeStagingDiskType = (typeof ReplicationConfigurationTemplateDefaultLargeStagingDiskType)[keyof typeof ReplicationConfigurationTemplateDefaultLargeStagingDiskType];
+
+export const ReplicationConfigurationTemplateEbsEncryption = {
+    Default: "DEFAULT",
+    Custom: "CUSTOM",
+    None: "NONE",
+} as const;
+
+/**
+ * The type of EBS encryption to be used during replication.
+ */
+export type ReplicationConfigurationTemplateEbsEncryption = (typeof ReplicationConfigurationTemplateEbsEncryption)[keyof typeof ReplicationConfigurationTemplateEbsEncryption];
+
+export const ReplicationConfigurationTemplateInternetProtocol = {
+    Ipv4: "IPV4",
+    Ipv6: "IPV6",
+} as const;
+
+/**
+ * Which version of the Internet Protocol to use for replication of data.
+ */
+export type ReplicationConfigurationTemplateInternetProtocol = (typeof ReplicationConfigurationTemplateInternetProtocol)[keyof typeof ReplicationConfigurationTemplateInternetProtocol];
+
+export const ReplicationConfigurationTemplatePitPolicyRuleUnits = {
+    Minute: "MINUTE",
+    Hour: "HOUR",
+    Day: "DAY",
+} as const;
+
+/**
+ * The units used to measure the interval and retentionDuration.
+ */
+export type ReplicationConfigurationTemplatePitPolicyRuleUnits = (typeof ReplicationConfigurationTemplatePitPolicyRuleUnits)[keyof typeof ReplicationConfigurationTemplatePitPolicyRuleUnits];

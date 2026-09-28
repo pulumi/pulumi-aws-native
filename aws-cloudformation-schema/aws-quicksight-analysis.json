@@ -19,10 +19,10 @@
       "permissions" : [ "quicksight:DescribeAnalysis", "quicksight:DescribeAnalysisPermissions", "quicksight:ListTagsForResource" ]
     },
     "create" : {
-      "permissions" : [ "quicksight:DescribeAnalysis", "quicksight:DescribeAnalysisPermissions", "quicksight:CreateAnalysis", "quicksight:DescribeTemplate", "quicksight:DescribeTheme", "quicksight:PassDataSet", "quicksight:TagResource", "quicksight:UntagResource", "quicksight:ListTagsForResource", "quicksight:CreateFolderMembership", "quicksight:DeleteFolderMembership", "quicksight:ListFoldersForResource" ]
+      "permissions" : [ "quicksight:DescribeAnalysis", "quicksight:DescribeAnalysisPermissions", "quicksight:CreateAnalysis", "quicksight:DescribeTemplate", "quicksight:DescribeTheme", "quicksight:PassDataSet", "quicksight:PassTopic", "quicksight:TagResource", "quicksight:UntagResource", "quicksight:ListTagsForResource", "quicksight:CreateFolderMembership", "quicksight:DeleteFolderMembership", "quicksight:ListFoldersForResource" ]
     },
     "update" : {
-      "permissions" : [ "quicksight:DescribeAnalysis", "quicksight:DescribeAnalysisPermissions", "quicksight:UpdateAnalysis", "quicksight:UpdateAnalysisPermissions", "quicksight:CreateFolderMembership", "quicksight:DeleteFolderMembership", "quicksight:ListFoldersForResource", "quicksight:DescribeTemplate", "quicksight:DescribeTheme", "quicksight:PassDataSet", "quicksight:TagResource", "quicksight:UntagResource", "quicksight:ListTagsForResource" ]
+      "permissions" : [ "quicksight:DescribeAnalysis", "quicksight:DescribeAnalysisPermissions", "quicksight:UpdateAnalysis", "quicksight:UpdateAnalysisPermissions", "quicksight:CreateFolderMembership", "quicksight:DeleteFolderMembership", "quicksight:ListFoldersForResource", "quicksight:DescribeTemplate", "quicksight:DescribeTheme", "quicksight:PassDataSet", "quicksight:PassTopic", "quicksight:TagResource", "quicksight:UntagResource", "quicksight:ListTagsForResource" ]
     },
     "list" : {
       "permissions" : [ "quicksight:ListAnalyses" ],
@@ -300,7 +300,7 @@
           "maxLength" : 4096
         },
         "DataSetIdentifier" : {
-          "minLength" : 1,
+          "minLength" : 0,
           "type" : "string",
           "maxLength" : 2048
         }
@@ -318,6 +318,10 @@
           "$ref" : "#/definitions/DataFieldSeriesItem"
         }
       }
+    },
+    "SparklineVisualType" : {
+      "type" : "string",
+      "enum" : [ "LINE", "AREA_LINE" ]
     },
     "LineChartLineStyleSettings" : {
       "additionalProperties" : false,
@@ -353,7 +357,7 @@
       }
     },
     "Parameters" : {
-      "description" : "<p>A list of Amazon QuickSight parameters and the list's override values.</p>",
+      "description" : "<p>A list of Quick parameters and the list's override values.</p>",
       "additionalProperties" : false,
       "type" : "object",
       "properties" : {
@@ -406,7 +410,7 @@
           "maxLength" : 2048
         },
         "DataSetIdentifier" : {
-          "minLength" : 1,
+          "minLength" : 0,
           "type" : "string",
           "maxLength" : 2048
         }
@@ -500,6 +504,24 @@
         }
       },
       "required" : [ "FieldId" ]
+    },
+    "ComboChartSeriesSettings" : {
+      "additionalProperties" : false,
+      "type" : "object",
+      "properties" : {
+        "BorderSettings" : {
+          "$ref" : "#/definitions/BorderSettings"
+        },
+        "DecalSettings" : {
+          "$ref" : "#/definitions/DecalSettings"
+        },
+        "LineStyleSettings" : {
+          "$ref" : "#/definitions/LineChartLineStyleSettings"
+        },
+        "MarkerStyleSettings" : {
+          "$ref" : "#/definitions/LineChartMarkerStyleSettings"
+        }
+      }
     },
     "AssetOptions" : {
       "additionalProperties" : false,
@@ -681,6 +703,9 @@
       "additionalProperties" : false,
       "type" : "object",
       "properties" : {
+        "DecalSettings" : {
+          "$ref" : "#/definitions/DecalSettings"
+        },
         "LineStyleSettings" : {
           "$ref" : "#/definitions/LineChartLineStyleSettings"
         },
@@ -927,7 +952,8 @@
           "$ref" : "#/definitions/GeospatialLayerMapConfiguration"
         },
         "DataSetIdentifier" : {
-          "minLength" : 1,
+          "default" : "",
+          "minLength" : 0,
           "type" : "string",
           "maxLength" : 2048
         },
@@ -938,9 +964,14 @@
           "minLength" : 1,
           "type" : "string",
           "maxLength" : 1024
+        },
+        "TopicIdentifier" : {
+          "minLength" : 1,
+          "type" : "string",
+          "maxLength" : 2048
         }
       },
-      "required" : [ "DataSetIdentifier", "VisualId" ]
+      "required" : [ "VisualId" ]
     },
     "RelativeDateType" : {
       "type" : "string",
@@ -1181,6 +1212,10 @@
       },
       "required" : [ "DisplayMode" ]
     },
+    "SparklineAxisBehavior" : {
+      "type" : "string",
+      "enum" : [ "SHARED", "INDEPENDENT" ]
+    },
     "PivotTableTotalOptions" : {
       "additionalProperties" : false,
       "type" : "object",
@@ -1371,6 +1406,21 @@
       "type" : "string",
       "enum" : [ "FLUID", "NORMAL" ]
     },
+    "FieldBarSeriesItem" : {
+      "additionalProperties" : false,
+      "type" : "object",
+      "properties" : {
+        "FieldId" : {
+          "minLength" : 1,
+          "type" : "string",
+          "maxLength" : 512
+        },
+        "Settings" : {
+          "$ref" : "#/definitions/BarChartSeriesSettings"
+        }
+      },
+      "required" : [ "FieldId" ]
+    },
     "MaximumLabelType" : {
       "additionalProperties" : false,
       "type" : "object",
@@ -1476,6 +1526,21 @@
           "type" : "string"
         }
       }
+    },
+    "TopicIdentifierDeclaration" : {
+      "additionalProperties" : false,
+      "type" : "object",
+      "properties" : {
+        "Identifier" : {
+          "minLength" : 1,
+          "type" : "string",
+          "maxLength" : 2048
+        },
+        "TopicArn" : {
+          "type" : "string"
+        }
+      },
+      "required" : [ "Identifier", "TopicArn" ]
     },
     "SheetImageSource" : {
       "additionalProperties" : false,
@@ -1690,6 +1755,10 @@
       },
       "required" : [ "FieldId" ]
     },
+    "DecalPatternType" : {
+      "type" : "string",
+      "enum" : [ "SOLID", "DIAGONAL_MEDIUM", "CIRCLE_MEDIUM", "DIAMOND_GRID_MEDIUM", "CHECKERBOARD_MEDIUM", "TRIANGLE_MEDIUM", "DIAGONAL_OPPOSITE_MEDIUM", "DIAMOND_MEDIUM", "DIAGONAL_LARGE", "CIRCLE_LARGE", "DIAMOND_GRID_LARGE", "CHECKERBOARD_LARGE", "TRIANGLE_LARGE", "DIAGONAL_OPPOSITE_LARGE", "DIAMOND_LARGE", "DIAGONAL_SMALL", "CIRCLE_SMALL", "DIAMOND_GRID_SMALL", "CHECKERBOARD_SMALL", "TRIANGLE_SMALL", "DIAGONAL_OPPOSITE_SMALL", "DIAMOND_SMALL" ]
+    },
     "IntegerParameterDeclaration" : {
       "additionalProperties" : false,
       "type" : "object",
@@ -1725,6 +1794,7 @@
       "type" : "object",
       "properties" : {
         "FontFamily" : {
+          "description" : "<p>The font family that you want to use.</p>",
           "type" : "string"
         },
         "FontStyle" : {
@@ -2211,8 +2281,19 @@
         "BarsArrangement" : {
           "$ref" : "#/definitions/BarsArrangement"
         },
+        "DefaultSeriesSettings" : {
+          "$ref" : "#/definitions/ComboChartDefaultSeriesSettings"
+        },
         "SecondaryYAxisLabelOptions" : {
           "$ref" : "#/definitions/ChartAxisLabelOptions"
+        },
+        "Series" : {
+          "minItems" : 0,
+          "maxItems" : 2000,
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/ComboSeriesItem"
+          }
         },
         "LineDataLabels" : {
           "$ref" : "#/definitions/DataLabelOptions"
@@ -2409,6 +2490,30 @@
         }
       }
     },
+    "DecalSettings" : {
+      "additionalProperties" : false,
+      "type" : "object",
+      "properties" : {
+        "DecalStyleType" : {
+          "$ref" : "#/definitions/DecalStyleType"
+        },
+        "DecalColor" : {
+          "pattern" : "^#[A-F0-9]{6}(?:[A-F0-9]{2})?$",
+          "type" : "string"
+        },
+        "DecalVisibility" : {
+          "$ref" : "#/definitions/Visibility"
+        },
+        "DecalPatternType" : {
+          "$ref" : "#/definitions/DecalPatternType"
+        },
+        "ElementValue" : {
+          "minLength" : 0,
+          "type" : "string",
+          "maxLength" : 1024
+        }
+      }
+    },
     "FontSize" : {
       "additionalProperties" : false,
       "type" : "object",
@@ -2417,7 +2522,7 @@
           "$ref" : "#/definitions/RelativeFontSize"
         },
         "Absolute" : {
-          "description" : "String based length that is composed of value and unit in px",
+          "description" : "<p>The font size that you want to use in px.</p>",
           "type" : "string"
         }
       }
@@ -2592,6 +2697,24 @@
         }
       }
     },
+    "ComboChartDefaultSeriesSettings" : {
+      "additionalProperties" : false,
+      "type" : "object",
+      "properties" : {
+        "BorderSettings" : {
+          "$ref" : "#/definitions/BorderSettings"
+        },
+        "DecalSettings" : {
+          "$ref" : "#/definitions/DecalSettings"
+        },
+        "LineStyleSettings" : {
+          "$ref" : "#/definitions/LineChartLineStyleSettings"
+        },
+        "MarkerStyleSettings" : {
+          "$ref" : "#/definitions/LineChartMarkerStyleSettings"
+        }
+      }
+    },
     "EmptyVisual" : {
       "additionalProperties" : false,
       "type" : "object",
@@ -2611,12 +2734,18 @@
           }
         },
         "DataSetIdentifier" : {
+          "default" : "",
+          "minLength" : 0,
+          "type" : "string",
+          "maxLength" : 2048
+        },
+        "TopicIdentifier" : {
           "minLength" : 1,
           "type" : "string",
           "maxLength" : 2048
         }
       },
-      "required" : [ "DataSetIdentifier", "VisualId" ]
+      "required" : [ "VisualId" ]
     },
     "KPISparklineOptions" : {
       "additionalProperties" : false,
@@ -2915,6 +3044,9 @@
       "additionalProperties" : false,
       "type" : "object",
       "properties" : {
+        "DecalSettings" : {
+          "$ref" : "#/definitions/DecalSettings"
+        },
         "LineStyleSettings" : {
           "$ref" : "#/definitions/LineChartLineStyleSettings"
         },
@@ -3380,16 +3512,38 @@
           "type" : "number",
           "minimum" : 0
         },
+        "BorderStyle" : {
+          "$ref" : "#/definitions/GridLayoutElementBorderStyle"
+        },
+        "BorderRadius" : {
+          "minLength" : 0,
+          "type" : "string",
+          "maxLength" : 50
+        },
         "RowSpan" : {
           "maximum" : 21,
           "type" : "number",
           "minimum" : 1
+        },
+        "Padding" : {
+          "minLength" : 0,
+          "type" : "string",
+          "maxLength" : 200
+        },
+        "LoadingAnimation" : {
+          "$ref" : "#/definitions/LoadingAnimation"
+        },
+        "BackgroundStyle" : {
+          "$ref" : "#/definitions/GridLayoutElementBackgroundStyle"
         },
         "ElementId" : {
           "minLength" : 1,
           "pattern" : "^[\\w\\-]+$",
           "type" : "string",
           "maxLength" : 512
+        },
+        "SelectedBorderStyle" : {
+          "$ref" : "#/definitions/GridLayoutElementBorderStyle"
         }
       },
       "required" : [ "ColumnSpan", "ElementId", "ElementType", "RowSpan" ]
@@ -3404,12 +3558,10 @@
         "BorderStyle" : {
           "$ref" : "#/definitions/FreeFormLayoutElementBorderStyle"
         },
-        "Height" : {
-          "description" : "String based length that is composed of value and unit in px",
-          "type" : "string"
-        },
-        "Visibility" : {
-          "$ref" : "#/definitions/Visibility"
+        "BorderRadius" : {
+          "minLength" : 0,
+          "type" : "string",
+          "maxLength" : 50
         },
         "RenderingRules" : {
           "minItems" : 0,
@@ -3423,6 +3575,25 @@
           "description" : "String based length that is composed of value and unit in px with Integer.MAX_VALUE as maximum value",
           "type" : "string"
         },
+        "BackgroundStyle" : {
+          "$ref" : "#/definitions/FreeFormLayoutElementBackgroundStyle"
+        },
+        "XAxisLocation" : {
+          "description" : "String based length that is composed of value and unit in px",
+          "type" : "string"
+        },
+        "Padding" : {
+          "minLength" : 0,
+          "type" : "string",
+          "maxLength" : 200
+        },
+        "Height" : {
+          "description" : "String based length that is composed of value and unit in px",
+          "type" : "string"
+        },
+        "Visibility" : {
+          "$ref" : "#/definitions/Visibility"
+        },
         "LoadingAnimation" : {
           "$ref" : "#/definitions/LoadingAnimation"
         },
@@ -3430,18 +3601,11 @@
           "description" : "String based length that is composed of value and unit in px",
           "type" : "string"
         },
-        "BackgroundStyle" : {
-          "$ref" : "#/definitions/FreeFormLayoutElementBackgroundStyle"
-        },
         "ElementId" : {
           "minLength" : 1,
           "pattern" : "^[\\w\\-]+$",
           "type" : "string",
           "maxLength" : 512
-        },
-        "XAxisLocation" : {
-          "description" : "String based length that is composed of value and unit in px",
-          "type" : "string"
         },
         "SelectedBorderStyle" : {
           "$ref" : "#/definitions/FreeFormLayoutElementBorderStyle"
@@ -3501,6 +3665,18 @@
       "properties" : {
         "FilledMapAggregatedFieldWells" : {
           "$ref" : "#/definitions/FilledMapAggregatedFieldWells"
+        }
+      }
+    },
+    "BarChartSeriesSettings" : {
+      "additionalProperties" : false,
+      "type" : "object",
+      "properties" : {
+        "BorderSettings" : {
+          "$ref" : "#/definitions/BorderSettings"
+        },
+        "DecalSettings" : {
+          "$ref" : "#/definitions/DecalSettings"
         }
       }
     },
@@ -3976,6 +4152,12 @@
         },
         "Visibility" : {
           "$ref" : "#/definitions/Visibility"
+        },
+        "Width" : {
+          "minLength" : 0,
+          "description" : "String to encapsulate the most generic way Width can be formatted with whatever units (px, em etc)",
+          "type" : "string",
+          "maxLength" : 50
         }
       }
     },
@@ -4182,6 +4364,21 @@
           "$ref" : "#/definitions/SectionBasedLayoutConfiguration"
         }
       }
+    },
+    "TopicReference" : {
+      "additionalProperties" : false,
+      "type" : "object",
+      "properties" : {
+        "TopicArn" : {
+          "type" : "string"
+        },
+        "TopicPlaceholder" : {
+          "minLength" : 1,
+          "type" : "string",
+          "maxLength" : 2048
+        }
+      },
+      "required" : [ "TopicArn", "TopicPlaceholder" ]
     },
     "ImageStaticFile" : {
       "additionalProperties" : false,
@@ -4733,6 +4930,20 @@
         }
       }
     },
+    "DecalSettingsConfiguration" : {
+      "additionalProperties" : false,
+      "type" : "object",
+      "properties" : {
+        "CustomDecalSettings" : {
+          "minItems" : 0,
+          "maxItems" : 50,
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/DecalSettings"
+          }
+        }
+      }
+    },
     "TableRowConditionalFormatting" : {
       "additionalProperties" : false,
       "type" : "object",
@@ -4959,6 +5170,10 @@
       },
       "required" : [ "VisualId" ]
     },
+    "DecalStyleType" : {
+      "type" : "string",
+      "enum" : [ "Manual", "Auto" ]
+    },
     "ScatterPlotFieldWells" : {
       "additionalProperties" : false,
       "type" : "object",
@@ -5169,6 +5384,9 @@
         "Column" : {
           "$ref" : "#/definitions/ColumnIdentifier"
         },
+        "DecalSettingsConfiguration" : {
+          "$ref" : "#/definitions/DecalSettingsConfiguration"
+        },
         "ColorsConfiguration" : {
           "$ref" : "#/definitions/ColorsConfiguration"
         }
@@ -5227,7 +5445,7 @@
       "properties" : {
         "Actions" : {
           "minItems" : 1,
-          "maxItems" : 20,
+          "maxItems" : 30,
           "description" : "<p>The IAM action to grant or revoke permissions on.</p>",
           "type" : "array",
           "items" : {
@@ -5236,7 +5454,7 @@
         },
         "Principal" : {
           "minLength" : 1,
-          "description" : "<p>The Amazon Resource Name (ARN) of the principal. This can be one of the\n            following:</p>\n         <ul>\n            <li>\n               <p>The ARN of an Amazon QuickSight user or group associated with a data source or dataset. (This is common.)</p>\n            </li>\n            <li>\n               <p>The ARN of an Amazon QuickSight user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)</p>\n            </li>\n            <li>\n               <p>The ARN of an Amazon Web Services account root: This is an IAM ARN rather than a QuickSight\n                    ARN. Use this option only to share resources (templates) across Amazon Web Services accounts.\n                    (This is less common.) </p>\n            </li>\n         </ul>",
+          "description" : "<p>The Amazon Resource Name (ARN) of the principal. This can be one of the\n            following:</p>\n         <ul>\n            <li>\n               <p>The ARN of an Amazon Quick user or group associated with a data source or dataset. (This is common.)</p>\n            </li>\n            <li>\n               <p>The ARN of an Amazon Quick user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)</p>\n            </li>\n            <li>\n               <p>The ARN of an Amazon Web Services account root: This is an IAM ARN rather than a QuickSight\n                    ARN. Use this option only to share resources (templates) across Amazon Web Services accounts.\n                    (This is less common.) </p>\n            </li>\n         </ul>",
           "type" : "string",
           "maxLength" : 256
         }
@@ -5363,6 +5581,23 @@
       "properties" : {
         "HeatMapAggregatedFieldWells" : {
           "$ref" : "#/definitions/HeatMapAggregatedFieldWells"
+        }
+      }
+    },
+    "BorderSettings" : {
+      "additionalProperties" : false,
+      "type" : "object",
+      "properties" : {
+        "BorderVisibility" : {
+          "$ref" : "#/definitions/Visibility"
+        },
+        "BorderColor" : {
+          "pattern" : "^#[A-F0-9]{6}(?:[A-F0-9]{2})?$",
+          "type" : "string"
+        },
+        "BorderWidth" : {
+          "description" : "String based length that is composed of value and unit in px",
+          "type" : "string"
         }
       }
     },
@@ -6158,7 +6393,7 @@
       "required" : [ "ComputationId" ]
     },
     "Sheet" : {
-      "description" : "<p>A <i>sheet</i>, which is an object that contains a set of visuals that\n            are viewed together on one page in Amazon QuickSight. Every analysis and dashboard\n            contains at least one sheet. Each sheet contains at least one visualization widget, for\n            example a chart, pivot table, or narrative insight. Sheets can be associated with other\n            components, such as controls, filters, and so on.</p>",
+      "description" : "<p>A <i>sheet</i>, which is an object that contains a set of visuals that\n            are viewed together on one page in Amazon Quick. Every analysis and dashboard\n            contains at least one sheet. Each sheet contains at least one visualization widget, for\n            example a chart, pivot table, or narrative insight. Sheets can be associated with other\n            components, such as controls, filters, and so on.</p>",
       "additionalProperties" : false,
       "type" : "object",
       "properties" : {
@@ -6171,7 +6406,7 @@
         },
         "Name" : {
           "minLength" : 1,
-          "description" : "<p>The name of a sheet. This name is displayed on the sheet's tab in the Amazon QuickSight\n            console.</p>",
+          "description" : "<p>The name of a sheet. This name is displayed on the sheet's tab in the Quick\n            console.</p>",
           "type" : "string",
           "maxLength" : 2048
         }
@@ -6364,7 +6599,7 @@
       "type" : "object",
       "properties" : {
         "DataSetReferences" : {
-          "minItems" : 1,
+          "minItems" : 0,
           "description" : "<p>The dataset references of the source template of an analysis.</p>",
           "type" : "array",
           "items" : {
@@ -6374,6 +6609,13 @@
         "Arn" : {
           "description" : "<p>The Amazon Resource Name (ARN) of the source template of an analysis.</p>",
           "type" : "string"
+        },
+        "TopicReferences" : {
+          "minItems" : 1,
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/TopicReference"
+          }
         }
       },
       "required" : [ "Arn", "DataSetReferences" ]
@@ -6693,6 +6935,21 @@
         }
       }
     },
+    "FieldComboSeriesItem" : {
+      "additionalProperties" : false,
+      "type" : "object",
+      "properties" : {
+        "FieldId" : {
+          "minLength" : 1,
+          "type" : "string",
+          "maxLength" : 512
+        },
+        "Settings" : {
+          "$ref" : "#/definitions/ComboChartSeriesSettings"
+        }
+      },
+      "required" : [ "FieldId" ]
+    },
     "PivotTableOptions" : {
       "additionalProperties" : false,
       "type" : "object",
@@ -6801,6 +7058,25 @@
       "type" : "string",
       "enum" : [ "SUNDAY", "MONDAY", "TUESDAY", "WEDNESDAY", "THURSDAY", "FRIDAY", "SATURDAY" ]
     },
+    "GridLayoutElementBorderStyle" : {
+      "additionalProperties" : false,
+      "type" : "object",
+      "properties" : {
+        "Color" : {
+          "pattern" : "^#[A-F0-9]{6}(?:[A-F0-9]{2})?$",
+          "type" : "string"
+        },
+        "Visibility" : {
+          "$ref" : "#/definitions/Visibility"
+        },
+        "Width" : {
+          "minLength" : 0,
+          "description" : "String to encapsulate the most generic way Width can be formatted with whatever units (px, em etc)",
+          "type" : "string",
+          "maxLength" : 50
+        }
+      }
+    },
     "TopBottomRankedComputation" : {
       "additionalProperties" : false,
       "type" : "object",
@@ -6893,6 +7169,11 @@
         }
       },
       "required" : [ "MaximumValue", "MinimumValue", "ParameterControlId", "SourceParameterName", "StepSize", "Title" ]
+    },
+    "BarSeriesItem" : {
+      "additionalProperties" : false,
+      "type" : "object",
+      "properties" : { }
     },
     "NegativeValueDisplayMode" : {
       "type" : "string",
@@ -7235,7 +7516,8 @@
           }
         },
         "DataSetIdentifier" : {
-          "minLength" : 1,
+          "default" : "",
+          "minLength" : 0,
           "type" : "string",
           "maxLength" : 2048
         },
@@ -7249,9 +7531,14 @@
           "minLength" : 1,
           "type" : "string",
           "maxLength" : 1024
+        },
+        "TopicIdentifier" : {
+          "minLength" : 1,
+          "type" : "string",
+          "maxLength" : 2048
         }
       },
-      "required" : [ "DataSetIdentifier", "VisualId" ]
+      "required" : [ "VisualId" ]
     },
     "TableSortConfiguration" : {
       "additionalProperties" : false,
@@ -7680,6 +7967,40 @@
       },
       "required" : [ "VisualId" ]
     },
+    "SheetLayoutGroup" : {
+      "additionalProperties" : false,
+      "type" : "object",
+      "properties" : {
+        "Id" : {
+          "minLength" : 1,
+          "pattern" : "^[\\w\\-]+$",
+          "type" : "string",
+          "maxLength" : 512
+        },
+        "Members" : {
+          "minItems" : 2,
+          "maxItems" : 430,
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/SheetLayoutGroupMember"
+          }
+        }
+      },
+      "required" : [ "Id", "Members" ]
+    },
+    "GridLayoutElementBackgroundStyle" : {
+      "additionalProperties" : false,
+      "type" : "object",
+      "properties" : {
+        "Color" : {
+          "pattern" : "^#[A-F0-9]{6}(?:[A-F0-9]{2})?$",
+          "type" : "string"
+        },
+        "Visibility" : {
+          "$ref" : "#/definitions/Visibility"
+        }
+      }
+    },
     "ComparisonConfiguration" : {
       "additionalProperties" : false,
       "type" : "object",
@@ -7948,12 +8269,18 @@
           "maxLength" : 127
         },
         "DataSetIdentifier" : {
+          "default" : "",
+          "minLength" : 0,
+          "type" : "string",
+          "maxLength" : 2048
+        },
+        "TopicIdentifier" : {
           "minLength" : 1,
           "type" : "string",
           "maxLength" : 2048
         }
       },
-      "required" : [ "ColumnName", "DataSetIdentifier" ]
+      "required" : [ "ColumnName" ]
     },
     "PivotTableConfiguration" : {
       "additionalProperties" : false,
@@ -8115,6 +8442,9 @@
       "additionalProperties" : false,
       "type" : "object",
       "properties" : {
+        "Sparklines" : {
+          "$ref" : "#/definitions/SparklinesOptions"
+        },
         "DataBars" : {
           "$ref" : "#/definitions/DataBarsOptions"
         }
@@ -8186,6 +8516,12 @@
           "maxLength" : 32000
         },
         "DataSetIdentifier" : {
+          "default" : "",
+          "minLength" : 0,
+          "type" : "string",
+          "maxLength" : 2048
+        },
+        "TopicIdentifier" : {
           "minLength" : 1,
           "type" : "string",
           "maxLength" : 2048
@@ -8196,11 +8532,16 @@
           "maxLength" : 127
         }
       },
-      "required" : [ "DataSetIdentifier", "Expression", "Name" ]
+      "required" : [ "Expression", "Name" ]
     },
     "ValidationStrategyMode" : {
       "type" : "string",
       "enum" : [ "STRICT", "LENIENT" ]
+    },
+    "ComboSeriesItem" : {
+      "additionalProperties" : false,
+      "type" : "object",
+      "properties" : { }
     },
     "WaterfallChartSortConfiguration" : {
       "additionalProperties" : false,
@@ -8233,6 +8574,24 @@
           "$ref" : "#/definitions/PredefinedHierarchy"
         }
       }
+    },
+    "DataFieldBarSeriesItem" : {
+      "additionalProperties" : false,
+      "type" : "object",
+      "properties" : {
+        "FieldId" : {
+          "minLength" : 1,
+          "type" : "string",
+          "maxLength" : 512
+        },
+        "FieldValue" : {
+          "type" : "string"
+        },
+        "Settings" : {
+          "$ref" : "#/definitions/BarChartSeriesSettings"
+        }
+      },
+      "required" : [ "FieldId" ]
     },
     "NestedFilter" : {
       "additionalProperties" : false,
@@ -8442,7 +8801,7 @@
     },
     "SelectedTooltipType" : {
       "type" : "string",
-      "enum" : [ "BASIC", "DETAILED" ]
+      "enum" : [ "BASIC", "DETAILED", "SHEET" ]
     },
     "SheetDefinition" : {
       "additionalProperties" : false,
@@ -8740,6 +9099,24 @@
       },
       "required" : [ "ComputationId" ]
     },
+    "DataFieldComboSeriesItem" : {
+      "additionalProperties" : false,
+      "type" : "object",
+      "properties" : {
+        "FieldId" : {
+          "minLength" : 1,
+          "type" : "string",
+          "maxLength" : 512
+        },
+        "FieldValue" : {
+          "type" : "string"
+        },
+        "Settings" : {
+          "$ref" : "#/definitions/ComboChartSeriesSettings"
+        }
+      },
+      "required" : [ "FieldId" ]
+    },
     "SmallMultiplesAxisProperties" : {
       "additionalProperties" : false,
       "type" : "object",
@@ -8834,6 +9211,17 @@
         "BarsArrangement" : {
           "$ref" : "#/definitions/BarsArrangement"
         },
+        "DefaultSeriesSettings" : {
+          "$ref" : "#/definitions/BarChartDefaultSeriesSettings"
+        },
+        "Series" : {
+          "minItems" : 0,
+          "maxItems" : 2000,
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/BarSeriesItem"
+          }
+        },
         "CategoryAxis" : {
           "$ref" : "#/definitions/AxisDisplayOptions"
         },
@@ -8920,6 +9308,43 @@
           "type" : "string"
         }
       }
+    },
+    "SparklinesOptions" : {
+      "additionalProperties" : false,
+      "type" : "object",
+      "properties" : {
+        "LineInterpolation" : {
+          "$ref" : "#/definitions/LineInterpolation"
+        },
+        "MaxValueMarker" : {
+          "$ref" : "#/definitions/LineChartMarkerStyleSettings"
+        },
+        "XAxisField" : {
+          "$ref" : "#/definitions/DimensionField"
+        },
+        "AllPointsMarker" : {
+          "$ref" : "#/definitions/LineChartMarkerStyleSettings"
+        },
+        "MinValueMarker" : {
+          "$ref" : "#/definitions/LineChartMarkerStyleSettings"
+        },
+        "FieldId" : {
+          "minLength" : 1,
+          "type" : "string",
+          "maxLength" : 512
+        },
+        "VisualType" : {
+          "$ref" : "#/definitions/SparklineVisualType"
+        },
+        "LineColor" : {
+          "pattern" : "^#[A-F0-9]{6}$",
+          "type" : "string"
+        },
+        "YAxisBehavior" : {
+          "$ref" : "#/definitions/SparklineAxisBehavior"
+        }
+      },
+      "required" : [ "FieldId", "XAxisField" ]
     },
     "ComparisonFormatConfiguration" : {
       "additionalProperties" : false,
@@ -9597,7 +10022,7 @@
       "type" : "object",
       "properties" : {
         "Identifier" : {
-          "minLength" : 1,
+          "minLength" : 0,
           "type" : "string",
           "maxLength" : 2048
         },
@@ -9967,6 +10392,14 @@
       "properties" : {
         "CanvasSizeOptions" : {
           "$ref" : "#/definitions/FreeFormLayoutCanvasSizeOptions"
+        },
+        "Groups" : {
+          "minItems" : 0,
+          "maxItems" : 215,
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/SheetLayoutGroup"
+          }
         },
         "Elements" : {
           "minItems" : 0,
@@ -11021,6 +11454,20 @@
         }
       }
     },
+    "SheetLayoutGroupMember" : {
+      "additionalProperties" : false,
+      "type" : "object",
+      "properties" : {
+        "Type" : { },
+        "Id" : {
+          "minLength" : 1,
+          "pattern" : "^[\\w\\-]+$",
+          "type" : "string",
+          "maxLength" : 512
+        }
+      },
+      "required" : [ "Id", "Type" ]
+    },
     "VisualTitleLabelOptions" : {
       "additionalProperties" : false,
       "type" : "object",
@@ -11336,7 +11783,8 @@
           }
         },
         "DataSetIdentifier" : {
-          "minLength" : 1,
+          "default" : "",
+          "minLength" : 0,
           "type" : "string",
           "maxLength" : 2048
         },
@@ -11347,9 +11795,14 @@
           "minLength" : 1,
           "type" : "string",
           "maxLength" : 1024
+        },
+        "TopicIdentifier" : {
+          "minLength" : 1,
+          "type" : "string",
+          "maxLength" : 2048
         }
       },
-      "required" : [ "DataSetIdentifier", "VisualId" ]
+      "required" : [ "VisualId" ]
     },
     "GeospatialMapNavigation" : {
       "type" : "string",
@@ -11466,9 +11919,18 @@
         "StaticFiles" : {
           "minItems" : 0,
           "maxItems" : 200,
+          "description" : "<p>The static files for the definition.</p>",
           "type" : "array",
           "items" : {
             "$ref" : "#/definitions/StaticFile"
+          }
+        },
+        "TopicIdentifierDeclarations" : {
+          "minItems" : 0,
+          "maxItems" : 50,
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/TopicIdentifierDeclaration"
           }
         },
         "CalculatedFields" : {
@@ -11480,7 +11942,7 @@
           }
         },
         "DataSetIdentifierDeclarations" : {
-          "minItems" : 1,
+          "minItems" : 0,
           "maxItems" : 50,
           "type" : "array",
           "items" : {
@@ -11508,7 +11970,7 @@
         },
         "ParameterDeclarations" : {
           "minItems" : 0,
-          "maxItems" : 200,
+          "maxItems" : 400,
           "type" : "array",
           "items" : {
             "$ref" : "#/definitions/ParameterDeclaration"
@@ -11520,6 +11982,18 @@
     "PaperOrientation" : {
       "type" : "string",
       "enum" : [ "PORTRAIT", "LANDSCAPE" ]
+    },
+    "BarChartDefaultSeriesSettings" : {
+      "additionalProperties" : false,
+      "type" : "object",
+      "properties" : {
+        "BorderSettings" : {
+          "$ref" : "#/definitions/BorderSettings"
+        },
+        "DecalSettings" : {
+          "$ref" : "#/definitions/DecalSettings"
+        }
+      }
     },
     "GeospatialNullSymbolStyle" : {
       "additionalProperties" : false,

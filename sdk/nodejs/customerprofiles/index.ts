@@ -70,6 +70,11 @@ export const getRecommender: typeof import("./getRecommender").getRecommender = 
 export const getRecommenderOutput: typeof import("./getRecommender").getRecommenderOutput = null as any;
 utilities.lazyLoad(exports, ["getRecommender","getRecommenderOutput"], () => require("./getRecommender"));
 
+export { GetRecommenderSchemaArgs, GetRecommenderSchemaResult, GetRecommenderSchemaOutputArgs } from "./getRecommenderSchema";
+export const getRecommenderSchema: typeof import("./getRecommenderSchema").getRecommenderSchema = null as any;
+export const getRecommenderSchemaOutput: typeof import("./getRecommenderSchema").getRecommenderSchemaOutput = null as any;
+utilities.lazyLoad(exports, ["getRecommenderSchema","getRecommenderSchemaOutput"], () => require("./getRecommenderSchema"));
+
 export { GetSegmentDefinitionArgs, GetSegmentDefinitionResult, GetSegmentDefinitionOutputArgs } from "./getSegmentDefinition";
 export const getSegmentDefinition: typeof import("./getSegmentDefinition").getSegmentDefinition = null as any;
 export const getSegmentDefinitionOutput: typeof import("./getSegmentDefinition").getSegmentDefinitionOutput = null as any;
@@ -89,6 +94,11 @@ export { RecommenderArgs } from "./recommender";
 export type Recommender = import("./recommender").Recommender;
 export const Recommender: typeof import("./recommender").Recommender = null as any;
 utilities.lazyLoad(exports, ["Recommender"], () => require("./recommender"));
+
+export { RecommenderSchemaArgs } from "./recommenderSchema";
+export type RecommenderSchema = import("./recommenderSchema").RecommenderSchema;
+export const RecommenderSchema: typeof import("./recommenderSchema").RecommenderSchema = null as any;
+utilities.lazyLoad(exports, ["RecommenderSchema"], () => require("./recommenderSchema"));
 
 export { SegmentDefinitionArgs } from "./segmentDefinition";
 export type SegmentDefinition = import("./segmentDefinition").SegmentDefinition;
@@ -119,6 +129,8 @@ const _module = {
                 return new ObjectType(name, <any>undefined, { urn })
             case "aws-native:customerprofiles:Recommender":
                 return new Recommender(name, <any>undefined, { urn })
+            case "aws-native:customerprofiles:RecommenderSchema":
+                return new RecommenderSchema(name, <any>undefined, { urn })
             case "aws-native:customerprofiles:SegmentDefinition":
                 return new SegmentDefinition(name, <any>undefined, { urn })
             default:

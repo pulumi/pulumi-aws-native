@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     /// <summary>
     /// &lt;p&gt;The theme colors that apply to UI and to charts, excluding data colors. The colors
     ///             description is a hexadecimal color code that consists of six alphanumerical characters,
-    ///             prefixed with &lt;code&gt;#&lt;/code&gt;, for example #37BFF5. For more information, see &lt;a href="https://docs.aws.amazon.com/quicksight/latest/user/themes-in-quicksight.html"&gt;Using Themes in Amazon QuickSight&lt;/a&gt; in the &lt;i&gt;Amazon QuickSight User
+    ///             prefixed with &lt;code&gt;#&lt;/code&gt;, for example #37BFF5. For more information, see &lt;a href="https://docs.aws.amazon.com/quicksight/latest/user/themes-in-quicksight.html"&gt;Using Themes in Amazon Quick&lt;/a&gt; in the &lt;i&gt;Amazon Quick User
     ///                 Guide.&lt;/i&gt;
     ///          &lt;/p&gt;
     /// </summary>

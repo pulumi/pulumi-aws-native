@@ -5,6 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { GetInstanceGroupConfigArgs, GetInstanceGroupConfigResult, GetInstanceGroupConfigOutputArgs } from "./getInstanceGroupConfig";
+export const getInstanceGroupConfig: typeof import("./getInstanceGroupConfig").getInstanceGroupConfig = null as any;
+export const getInstanceGroupConfigOutput: typeof import("./getInstanceGroupConfig").getInstanceGroupConfigOutput = null as any;
+utilities.lazyLoad(exports, ["getInstanceGroupConfig","getInstanceGroupConfigOutput"], () => require("./getInstanceGroupConfig"));
+
 export { GetStepArgs, GetStepResult, GetStepOutputArgs } from "./getStep";
 export const getStep: typeof import("./getStep").getStep = null as any;
 export const getStepOutput: typeof import("./getStep").getStepOutput = null as any;
@@ -24,6 +29,11 @@ export { GetWalWorkspaceArgs, GetWalWorkspaceResult, GetWalWorkspaceOutputArgs }
 export const getWalWorkspace: typeof import("./getWalWorkspace").getWalWorkspace = null as any;
 export const getWalWorkspaceOutput: typeof import("./getWalWorkspace").getWalWorkspaceOutput = null as any;
 utilities.lazyLoad(exports, ["getWalWorkspace","getWalWorkspaceOutput"], () => require("./getWalWorkspace"));
+
+export { InstanceGroupConfigArgs } from "./instanceGroupConfig";
+export type InstanceGroupConfig = import("./instanceGroupConfig").InstanceGroupConfig;
+export const InstanceGroupConfig: typeof import("./instanceGroupConfig").InstanceGroupConfig = null as any;
+utilities.lazyLoad(exports, ["InstanceGroupConfig"], () => require("./instanceGroupConfig"));
 
 export { SecurityConfigurationArgs } from "./securityConfiguration";
 export type SecurityConfiguration = import("./securityConfiguration").SecurityConfiguration;
@@ -58,6 +68,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws-native:emr:InstanceGroupConfig":
+                return new InstanceGroupConfig(name, <any>undefined, { urn })
             case "aws-native:emr:SecurityConfiguration":
                 return new SecurityConfiguration(name, <any>undefined, { urn })
             case "aws-native:emr:Step":

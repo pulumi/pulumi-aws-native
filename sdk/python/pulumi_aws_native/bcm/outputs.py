@@ -36,6 +36,11 @@ __all__ = [
     'DashboardTagValues',
     'DashboardWidget',
     'DashboardWidgetConfig',
+    'ScheduledReportDateTimeRange',
+    'ScheduledReportDateTimeValue',
+    'ScheduledReportHealthStatus',
+    'ScheduledReportScheduleConfig',
+    'ScheduledReportSchedulePeriod',
 ]
 
 @pulumi.output_type
@@ -906,5 +911,282 @@ class DashboardWidgetConfig(dict):
     @pulumi.getter(name="queryParameters")
     def query_parameters(self) -> 'outputs.DashboardQueryParameters':
         return pulumi.get(self, "query_parameters")
+
+
+@pulumi.output_type
+class ScheduledReportDateTimeRange(dict):
+    """
+    An absolute or relative date range.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "endTime":
+            suggest = "end_time"
+        elif key == "startTime":
+            suggest = "start_time"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ScheduledReportDateTimeRange. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ScheduledReportDateTimeRange.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ScheduledReportDateTimeRange.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 end_time: 'outputs.ScheduledReportDateTimeValue',
+                 start_time: 'outputs.ScheduledReportDateTimeValue'):
+        """
+        An absolute or relative date range.
+
+        :param 'ScheduledReportDateTimeValue' end_time: The end of the range.
+        :param 'ScheduledReportDateTimeValue' start_time: The start of the range.
+        """
+        pulumi.set(__self__, "end_time", end_time)
+        pulumi.set(__self__, "start_time", start_time)
+
+    @_builtins.property
+    @pulumi.getter(name="endTime")
+    def end_time(self) -> 'outputs.ScheduledReportDateTimeValue':
+        """
+        The end of the range.
+        """
+        return pulumi.get(self, "end_time")
+
+    @_builtins.property
+    @pulumi.getter(name="startTime")
+    def start_time(self) -> 'outputs.ScheduledReportDateTimeValue':
+        """
+        The start of the range.
+        """
+        return pulumi.get(self, "start_time")
+
+
+@pulumi.output_type
+class ScheduledReportDateTimeValue(dict):
+    """
+    A date expressed either as an absolute instant or as an offset from now.
+    """
+    def __init__(__self__, *,
+                 type: 'ScheduledReportDateTimeType',
+                 value: _builtins.str):
+        """
+        A date expressed either as an absolute instant or as an offset from now.
+
+        :param 'ScheduledReportDateTimeType' type: Whether Value is an absolute date or a duration relative to now.
+        :param _builtins.str value: The date, or an ISO 8601 duration when Type is RELATIVE.
+        """
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> 'ScheduledReportDateTimeType':
+        """
+        Whether Value is an absolute date or a duration relative to now.
+        """
+        return pulumi.get(self, "type")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        """
+        The date, or an ISO 8601 duration when Type is RELATIVE.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ScheduledReportHealthStatus(dict):
+    """
+    The health of the scheduled report as of its last refresh.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "statusCode":
+            suggest = "status_code"
+        elif key == "lastRefreshedAt":
+            suggest = "last_refreshed_at"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ScheduledReportHealthStatus. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ScheduledReportHealthStatus.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ScheduledReportHealthStatus.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 status_code: 'ScheduledReportHealthStatusCode',
+                 last_refreshed_at: Optional[_builtins.str] = None):
+        """
+        The health of the scheduled report as of its last refresh.
+
+        :param 'ScheduledReportHealthStatusCode' status_code: Whether the scheduled report is healthy.
+        :param _builtins.str last_refreshed_at: The time at which the health status was last refreshed.
+        """
+        pulumi.set(__self__, "status_code", status_code)
+        if last_refreshed_at is not None:
+            pulumi.set(__self__, "last_refreshed_at", last_refreshed_at)
+
+    @_builtins.property
+    @pulumi.getter(name="statusCode")
+    def status_code(self) -> 'ScheduledReportHealthStatusCode':
+        """
+        Whether the scheduled report is healthy.
+        """
+        return pulumi.get(self, "status_code")
+
+    @_builtins.property
+    @pulumi.getter(name="lastRefreshedAt")
+    def last_refreshed_at(self) -> Optional[_builtins.str]:
+        """
+        The time at which the health status was last refreshed.
+        """
+        return pulumi.get(self, "last_refreshed_at")
+
+
+@pulumi.output_type
+class ScheduledReportScheduleConfig(dict):
+    """
+    Defines when and how often a scheduled report runs.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "scheduleExpression":
+            suggest = "schedule_expression"
+        elif key == "scheduleExpressionTimeZone":
+            suggest = "schedule_expression_time_zone"
+        elif key == "schedulePeriod":
+            suggest = "schedule_period"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ScheduledReportScheduleConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ScheduledReportScheduleConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ScheduledReportScheduleConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 schedule_expression: Optional[_builtins.str] = None,
+                 schedule_expression_time_zone: Optional[_builtins.str] = None,
+                 schedule_period: Optional['outputs.ScheduledReportSchedulePeriod'] = None,
+                 state: Optional['ScheduledReportScheduleState'] = None):
+        """
+        Defines when and how often a scheduled report runs.
+
+        :param _builtins.str schedule_expression: The schedule expression that specifies when to trigger the scheduled report run. This value must be a cron expression consisting of six fields separated by white spaces: cron(minutes hours day_of_month month day_of_week year).
+        :param _builtins.str schedule_expression_time_zone: The time zone for the schedule expression, for example, UTC.
+        :param 'ScheduledReportSchedulePeriod' schedule_period: The time period during which the schedule is active.
+        :param 'ScheduledReportScheduleState' state: The state of the schedule. ENABLED means the scheduled report runs according to its schedule expression. DISABLED means the scheduled report is paused and will not run until re-enabled.
+        """
+        if schedule_expression is not None:
+            pulumi.set(__self__, "schedule_expression", schedule_expression)
+        if schedule_expression_time_zone is not None:
+            pulumi.set(__self__, "schedule_expression_time_zone", schedule_expression_time_zone)
+        if schedule_period is not None:
+            pulumi.set(__self__, "schedule_period", schedule_period)
+        if state is not None:
+            pulumi.set(__self__, "state", state)
+
+    @_builtins.property
+    @pulumi.getter(name="scheduleExpression")
+    def schedule_expression(self) -> Optional[_builtins.str]:
+        """
+        The schedule expression that specifies when to trigger the scheduled report run. This value must be a cron expression consisting of six fields separated by white spaces: cron(minutes hours day_of_month month day_of_week year).
+        """
+        return pulumi.get(self, "schedule_expression")
+
+    @_builtins.property
+    @pulumi.getter(name="scheduleExpressionTimeZone")
+    def schedule_expression_time_zone(self) -> Optional[_builtins.str]:
+        """
+        The time zone for the schedule expression, for example, UTC.
+        """
+        return pulumi.get(self, "schedule_expression_time_zone")
+
+    @_builtins.property
+    @pulumi.getter(name="schedulePeriod")
+    def schedule_period(self) -> Optional['outputs.ScheduledReportSchedulePeriod']:
+        """
+        The time period during which the schedule is active.
+        """
+        return pulumi.get(self, "schedule_period")
+
+    @_builtins.property
+    @pulumi.getter
+    def state(self) -> Optional['ScheduledReportScheduleState']:
+        """
+        The state of the schedule. ENABLED means the scheduled report runs according to its schedule expression. DISABLED means the scheduled report is paused and will not run until re-enabled.
+        """
+        return pulumi.get(self, "state")
+
+
+@pulumi.output_type
+class ScheduledReportSchedulePeriod(dict):
+    """
+    The window during which the schedule is active. When omitted the service defaults it. EndTime must be within three years of the time of the request.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "endTime":
+            suggest = "end_time"
+        elif key == "startTime":
+            suggest = "start_time"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ScheduledReportSchedulePeriod. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ScheduledReportSchedulePeriod.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ScheduledReportSchedulePeriod.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 end_time: Optional[_builtins.str] = None,
+                 start_time: Optional[_builtins.str] = None):
+        """
+        The window during which the schedule is active. When omitted the service defaults it. EndTime must be within three years of the time of the request.
+
+        :param _builtins.str end_time: The time at which the schedule stops being active.
+        :param _builtins.str start_time: The time at which the schedule becomes active.
+        """
+        if end_time is not None:
+            pulumi.set(__self__, "end_time", end_time)
+        if start_time is not None:
+            pulumi.set(__self__, "start_time", start_time)
+
+    @_builtins.property
+    @pulumi.getter(name="endTime")
+    def end_time(self) -> Optional[_builtins.str]:
+        """
+        The time at which the schedule stops being active.
+        """
+        return pulumi.get(self, "end_time")
+
+    @_builtins.property
+    @pulumi.getter(name="startTime")
+    def start_time(self) -> Optional[_builtins.str]:
+        """
+        The time at which the schedule becomes active.
+        """
+        return pulumi.get(self, "start_time")
 
 

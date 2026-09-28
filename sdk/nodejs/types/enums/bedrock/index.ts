@@ -488,6 +488,21 @@ export const DataSourceDataDeletionPolicy = {
  */
 export type DataSourceDataDeletionPolicy = (typeof DataSourceDataDeletionPolicy)[keyof typeof DataSourceDataDeletionPolicy];
 
+export const DataSourceDayOfWeek = {
+    Sunday: "SUNDAY",
+    Monday: "MONDAY",
+    Tuesday: "TUESDAY",
+    Wednesday: "WEDNESDAY",
+    Thursday: "THURSDAY",
+    Friday: "FRIDAY",
+    Saturday: "SATURDAY",
+} as const;
+
+/**
+ * Day of the week.
+ */
+export type DataSourceDayOfWeek = (typeof DataSourceDayOfWeek)[keyof typeof DataSourceDayOfWeek];
+
 export const DataSourceEnabledOrDisabledState = {
     Enabled: "ENABLED",
     Disabled: "DISABLED",

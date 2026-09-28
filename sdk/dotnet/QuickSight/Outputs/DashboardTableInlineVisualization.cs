@@ -17,11 +17,16 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// The configuration of the inline visualization of the data bars within a chart.
         /// </summary>
         public readonly Outputs.DashboardDataBarsOptions? DataBars;
+        public readonly Outputs.DashboardSparklinesOptions? Sparklines;
 
         [OutputConstructor]
-        private DashboardTableInlineVisualization(Outputs.DashboardDataBarsOptions? dataBars)
+        private DashboardTableInlineVisualization(
+            Outputs.DashboardDataBarsOptions? dataBars,
+
+            Outputs.DashboardSparklinesOptions? sparklines)
         {
             DataBars = dataBars;
+            Sparklines = sparklines;
         }
     }
 }

@@ -60,6 +60,9 @@ namespace Pulumi.AwsNative.DevOpsAgent
         [Output("operatorApp")]
         public Output<Outputs.AgentSpaceOperatorApp?> OperatorApp { get; private set; } = null!;
 
+        [Output("preferences")]
+        public Output<Outputs.AgentSpacePreferences?> Preferences { get; private set; } = null!;
+
         /// <summary>
         /// An array of key-value pairs to apply to this resource.
         /// </summary>
@@ -147,6 +150,9 @@ namespace Pulumi.AwsNative.DevOpsAgent
 
         [Input("operatorApp")]
         public Input<Inputs.AgentSpaceOperatorAppArgs>? OperatorApp { get; set; }
+
+        [Input("preferences")]
+        public Input<Inputs.AgentSpacePreferencesArgs>? Preferences { get; set; }
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;

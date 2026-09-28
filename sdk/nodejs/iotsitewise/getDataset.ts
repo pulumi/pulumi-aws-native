@@ -19,7 +19,7 @@ export function getDataset(args: GetDatasetArgs, opts?: pulumi.InvokeOptions): P
 
 export interface GetDatasetArgs {
     /**
-     * The ID of the dataset.
+     * The ID of the dataset. For workspace-scoped datasets this is the workspace name and dataset ID joined by a slash, for example my-workspace/123e4567-e89b-42d3-a456-426614174000.
      */
     datasetId: string;
 }
@@ -30,11 +30,15 @@ export interface GetDatasetResult {
      */
     readonly datasetArn?: string;
     /**
+     * The configuration for the dataset.
+     */
+    readonly datasetConfig?: outputs.iotsitewise.DatasetConfig;
+    /**
      * A description about the dataset, and its functionality.
      */
     readonly datasetDescription?: string;
     /**
-     * The ID of the dataset.
+     * The ID of the dataset. For workspace-scoped datasets this is the workspace name and dataset ID joined by a slash, for example my-workspace/123e4567-e89b-42d3-a456-426614174000.
      */
     readonly datasetId?: string;
     /**
@@ -62,7 +66,7 @@ export function getDatasetOutput(args: GetDatasetOutputArgs, opts?: pulumi.Invok
 
 export interface GetDatasetOutputArgs {
     /**
-     * The ID of the dataset.
+     * The ID of the dataset. For workspace-scoped datasets this is the workspace name and dataset ID joined by a slash, for example my-workspace/123e4567-e89b-42d3-a456-426614174000.
      */
     datasetId: pulumi.Input<string>;
 }

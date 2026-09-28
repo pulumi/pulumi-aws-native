@@ -50,6 +50,11 @@ export const getLayout: typeof import("./getLayout").getLayout = null as any;
 export const getLayoutOutput: typeof import("./getLayout").getLayoutOutput = null as any;
 utilities.lazyLoad(exports, ["getLayout","getLayoutOutput"], () => require("./getLayout"));
 
+export { GetRelatedItemArgs, GetRelatedItemResult, GetRelatedItemOutputArgs } from "./getRelatedItem";
+export const getRelatedItem: typeof import("./getRelatedItem").getRelatedItem = null as any;
+export const getRelatedItemOutput: typeof import("./getRelatedItem").getRelatedItemOutput = null as any;
+utilities.lazyLoad(exports, ["getRelatedItem","getRelatedItemOutput"], () => require("./getRelatedItem"));
+
 export { GetTemplateArgs, GetTemplateResult, GetTemplateOutputArgs } from "./getTemplate";
 export const getTemplate: typeof import("./getTemplate").getTemplate = null as any;
 export const getTemplateOutput: typeof import("./getTemplate").getTemplateOutput = null as any;
@@ -59,6 +64,11 @@ export { LayoutArgs } from "./layout";
 export type Layout = import("./layout").Layout;
 export const Layout: typeof import("./layout").Layout = null as any;
 utilities.lazyLoad(exports, ["Layout"], () => require("./layout"));
+
+export { RelatedItemArgs } from "./relatedItem";
+export type RelatedItem = import("./relatedItem").RelatedItem;
+export const RelatedItem: typeof import("./relatedItem").RelatedItem = null as any;
+utilities.lazyLoad(exports, ["RelatedItem"], () => require("./relatedItem"));
 
 export { TemplateArgs } from "./template";
 export type Template = import("./template").Template;
@@ -83,6 +93,8 @@ const _module = {
                 return new Field(name, <any>undefined, { urn })
             case "aws-native:cases:Layout":
                 return new Layout(name, <any>undefined, { urn })
+            case "aws-native:cases:RelatedItem":
+                return new RelatedItem(name, <any>undefined, { urn })
             case "aws-native:cases:Template":
                 return new Template(name, <any>undefined, { urn })
             default:

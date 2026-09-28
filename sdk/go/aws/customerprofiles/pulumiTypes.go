@@ -7543,6 +7543,112 @@ func (o RecommenderEventsConfigPtrOutput) EventParametersList() RecommenderEvent
 	}).(RecommenderEventParametersArrayOutput)
 }
 
+type RecommenderSchemaField struct {
+	ContentType     *RecommenderSchemaFieldContentType `pulumi:"contentType"`
+	FeatureType     *RecommenderSchemaFieldFeatureType `pulumi:"featureType"`
+	TargetFieldName string                             `pulumi:"targetFieldName"`
+}
+
+// RecommenderSchemaFieldInput is an input type that accepts RecommenderSchemaFieldArgs and RecommenderSchemaFieldOutput values.
+// You can construct a concrete instance of `RecommenderSchemaFieldInput` via:
+//
+//	RecommenderSchemaFieldArgs{...}
+type RecommenderSchemaFieldInput interface {
+	pulumi.Input
+
+	ToRecommenderSchemaFieldOutput() RecommenderSchemaFieldOutput
+	ToRecommenderSchemaFieldOutputWithContext(context.Context) RecommenderSchemaFieldOutput
+}
+
+type RecommenderSchemaFieldArgs struct {
+	ContentType     RecommenderSchemaFieldContentTypePtrInput `pulumi:"contentType"`
+	FeatureType     RecommenderSchemaFieldFeatureTypePtrInput `pulumi:"featureType"`
+	TargetFieldName pulumi.StringInput                        `pulumi:"targetFieldName"`
+}
+
+func (RecommenderSchemaFieldArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RecommenderSchemaField)(nil)).Elem()
+}
+
+func (i RecommenderSchemaFieldArgs) ToRecommenderSchemaFieldOutput() RecommenderSchemaFieldOutput {
+	return i.ToRecommenderSchemaFieldOutputWithContext(context.Background())
+}
+
+func (i RecommenderSchemaFieldArgs) ToRecommenderSchemaFieldOutputWithContext(ctx context.Context) RecommenderSchemaFieldOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RecommenderSchemaFieldOutput)
+}
+
+// RecommenderSchemaFieldArrayInput is an input type that accepts RecommenderSchemaFieldArray and RecommenderSchemaFieldArrayOutput values.
+// You can construct a concrete instance of `RecommenderSchemaFieldArrayInput` via:
+//
+//	RecommenderSchemaFieldArray{ RecommenderSchemaFieldArgs{...} }
+type RecommenderSchemaFieldArrayInput interface {
+	pulumi.Input
+
+	ToRecommenderSchemaFieldArrayOutput() RecommenderSchemaFieldArrayOutput
+	ToRecommenderSchemaFieldArrayOutputWithContext(context.Context) RecommenderSchemaFieldArrayOutput
+}
+
+type RecommenderSchemaFieldArray []RecommenderSchemaFieldInput
+
+func (RecommenderSchemaFieldArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RecommenderSchemaField)(nil)).Elem()
+}
+
+func (i RecommenderSchemaFieldArray) ToRecommenderSchemaFieldArrayOutput() RecommenderSchemaFieldArrayOutput {
+	return i.ToRecommenderSchemaFieldArrayOutputWithContext(context.Background())
+}
+
+func (i RecommenderSchemaFieldArray) ToRecommenderSchemaFieldArrayOutputWithContext(ctx context.Context) RecommenderSchemaFieldArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RecommenderSchemaFieldArrayOutput)
+}
+
+type RecommenderSchemaFieldOutput struct{ *pulumi.OutputState }
+
+func (RecommenderSchemaFieldOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RecommenderSchemaField)(nil)).Elem()
+}
+
+func (o RecommenderSchemaFieldOutput) ToRecommenderSchemaFieldOutput() RecommenderSchemaFieldOutput {
+	return o
+}
+
+func (o RecommenderSchemaFieldOutput) ToRecommenderSchemaFieldOutputWithContext(ctx context.Context) RecommenderSchemaFieldOutput {
+	return o
+}
+
+func (o RecommenderSchemaFieldOutput) ContentType() RecommenderSchemaFieldContentTypePtrOutput {
+	return o.ApplyT(func(v RecommenderSchemaField) *RecommenderSchemaFieldContentType { return v.ContentType }).(RecommenderSchemaFieldContentTypePtrOutput)
+}
+
+func (o RecommenderSchemaFieldOutput) FeatureType() RecommenderSchemaFieldFeatureTypePtrOutput {
+	return o.ApplyT(func(v RecommenderSchemaField) *RecommenderSchemaFieldFeatureType { return v.FeatureType }).(RecommenderSchemaFieldFeatureTypePtrOutput)
+}
+
+func (o RecommenderSchemaFieldOutput) TargetFieldName() pulumi.StringOutput {
+	return o.ApplyT(func(v RecommenderSchemaField) string { return v.TargetFieldName }).(pulumi.StringOutput)
+}
+
+type RecommenderSchemaFieldArrayOutput struct{ *pulumi.OutputState }
+
+func (RecommenderSchemaFieldArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RecommenderSchemaField)(nil)).Elem()
+}
+
+func (o RecommenderSchemaFieldArrayOutput) ToRecommenderSchemaFieldArrayOutput() RecommenderSchemaFieldArrayOutput {
+	return o
+}
+
+func (o RecommenderSchemaFieldArrayOutput) ToRecommenderSchemaFieldArrayOutputWithContext(ctx context.Context) RecommenderSchemaFieldArrayOutput {
+	return o
+}
+
+func (o RecommenderSchemaFieldArrayOutput) Index(i pulumi.IntInput) RecommenderSchemaFieldOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RecommenderSchemaField {
+		return vs[0].([]RecommenderSchemaField)[vs[1].(int)]
+	}).(RecommenderSchemaFieldOutput)
+}
+
 type RecommenderTag struct {
 	Key   string `pulumi:"key"`
 	Value string `pulumi:"value"`
@@ -10154,6 +10260,56 @@ type SegmentDefinitionTag struct {
 	Value string `pulumi:"value"`
 }
 
+type TagsItemProperties struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
+type RecommenderSchemaFieldArrayMap map[string]RecommenderSchemaFieldArrayInput
+
+func (RecommenderSchemaFieldArrayMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string][]RecommenderSchemaField)(nil)).Elem()
+}
+
+func (i RecommenderSchemaFieldArrayMap) ToRecommenderSchemaFieldArrayMapOutput() RecommenderSchemaFieldArrayMapOutput {
+	return i.ToRecommenderSchemaFieldArrayMapOutputWithContext(context.Background())
+}
+
+func (i RecommenderSchemaFieldArrayMap) ToRecommenderSchemaFieldArrayMapOutputWithContext(ctx context.Context) RecommenderSchemaFieldArrayMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RecommenderSchemaFieldArrayMapOutput)
+}
+
+// RecommenderSchemaFieldArrayMapInput is an input type that accepts RecommenderSchemaFieldArrayMap and RecommenderSchemaFieldArrayMapOutput values.
+// You can construct a concrete instance of `RecommenderSchemaFieldArrayMapInput` via:
+//
+//	RecommenderSchemaFieldArrayMap{ "key": RecommenderSchemaFieldArray{ RecommenderSchemaFieldArgs{...} } }
+type RecommenderSchemaFieldArrayMapInput interface {
+	pulumi.Input
+
+	ToRecommenderSchemaFieldArrayMapOutput() RecommenderSchemaFieldArrayMapOutput
+	ToRecommenderSchemaFieldArrayMapOutputWithContext(context.Context) RecommenderSchemaFieldArrayMapOutput
+}
+
+type RecommenderSchemaFieldArrayMapOutput struct{ *pulumi.OutputState }
+
+func (RecommenderSchemaFieldArrayMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string][]RecommenderSchemaField)(nil)).Elem()
+}
+
+func (o RecommenderSchemaFieldArrayMapOutput) ToRecommenderSchemaFieldArrayMapOutput() RecommenderSchemaFieldArrayMapOutput {
+	return o
+}
+
+func (o RecommenderSchemaFieldArrayMapOutput) ToRecommenderSchemaFieldArrayMapOutputWithContext(ctx context.Context) RecommenderSchemaFieldArrayMapOutput {
+	return o
+}
+
+func (o RecommenderSchemaFieldArrayMapOutput) MapIndex(k pulumi.StringInput) RecommenderSchemaFieldArrayOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) []RecommenderSchemaField {
+		return vs[0].(map[string][]RecommenderSchemaField)[vs[1].(string)]
+	}).(RecommenderSchemaFieldArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CalculatedAttributeDefinitionAttributeDetailsInput)(nil)).Elem(), CalculatedAttributeDefinitionAttributeDetailsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CalculatedAttributeDefinitionAttributeItemInput)(nil)).Elem(), CalculatedAttributeDefinitionAttributeItemArgs{})
@@ -10248,6 +10404,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RecommenderEventParametersArrayInput)(nil)).Elem(), RecommenderEventParametersArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RecommenderEventsConfigInput)(nil)).Elem(), RecommenderEventsConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RecommenderEventsConfigPtrInput)(nil)).Elem(), RecommenderEventsConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RecommenderSchemaFieldInput)(nil)).Elem(), RecommenderSchemaFieldArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RecommenderSchemaFieldArrayInput)(nil)).Elem(), RecommenderSchemaFieldArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SegmentDefinitionAddressDimensionInput)(nil)).Elem(), SegmentDefinitionAddressDimensionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SegmentDefinitionAddressDimensionPtrInput)(nil)).Elem(), SegmentDefinitionAddressDimensionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SegmentDefinitionAttributeDimensionInput)(nil)).Elem(), SegmentDefinitionAttributeDimensionArgs{})
@@ -10279,6 +10437,7 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SegmentDefinitionSortAttributeArrayInput)(nil)).Elem(), SegmentDefinitionSortAttributeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SegmentDefinitionSourceSegmentInput)(nil)).Elem(), SegmentDefinitionSourceSegmentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SegmentDefinitionSourceSegmentArrayInput)(nil)).Elem(), SegmentDefinitionSourceSegmentArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RecommenderSchemaFieldArrayMapInput)(nil)).Elem(), RecommenderSchemaFieldArrayMap{})
 	pulumi.RegisterOutputType(CalculatedAttributeDefinitionAttributeDetailsOutput{})
 	pulumi.RegisterOutputType(CalculatedAttributeDefinitionAttributeDetailsPtrOutput{})
 	pulumi.RegisterOutputType(CalculatedAttributeDefinitionAttributeItemOutput{})
@@ -10379,6 +10538,8 @@ func init() {
 	pulumi.RegisterOutputType(RecommenderEventParametersArrayOutput{})
 	pulumi.RegisterOutputType(RecommenderEventsConfigOutput{})
 	pulumi.RegisterOutputType(RecommenderEventsConfigPtrOutput{})
+	pulumi.RegisterOutputType(RecommenderSchemaFieldOutput{})
+	pulumi.RegisterOutputType(RecommenderSchemaFieldArrayOutput{})
 	pulumi.RegisterOutputType(RecommenderTrainingMetricsOutput{})
 	pulumi.RegisterOutputType(RecommenderTrainingMetricsArrayOutput{})
 	pulumi.RegisterOutputType(RecommenderTrainingMetricsMetricsPropertiesOutput{})
@@ -10416,4 +10577,5 @@ func init() {
 	pulumi.RegisterOutputType(SegmentDefinitionSortAttributeArrayOutput{})
 	pulumi.RegisterOutputType(SegmentDefinitionSourceSegmentOutput{})
 	pulumi.RegisterOutputType(SegmentDefinitionSourceSegmentArrayOutput{})
+	pulumi.RegisterOutputType(RecommenderSchemaFieldArrayMapOutput{})
 }

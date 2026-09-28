@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "aws-native:drs:LaunchConfigurationTemplate":
 		r = &LaunchConfigurationTemplate{}
+	case "aws-native:drs:ReplicationConfigurationTemplate":
+		r = &ReplicationConfigurationTemplate{}
 	case "aws-native:drs:SourceNetwork":
 		r = &SourceNetwork{}
 	default:

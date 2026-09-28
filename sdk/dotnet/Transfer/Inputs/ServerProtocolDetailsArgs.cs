@@ -42,6 +42,9 @@ namespace Pulumi.AwsNative.Transfer.Inputs
         [Input("passiveIp")]
         public Input<string>? PassiveIp { get; set; }
 
+        [Input("proxyConfig")]
+        public Input<Inputs.ServerProxyConfigArgs>? ProxyConfig { get; set; }
+
         /// <summary>
         /// Use the `SetStatOption` to ignore the error that is generated when the client attempts to use `SETSTAT` on a file you are uploading to an S3 bucket.
         /// 

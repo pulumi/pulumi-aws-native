@@ -110,6 +110,8 @@ __all__ = [
     'RecommenderEventParametersArgsDict',
     'RecommenderEventsConfigArgs',
     'RecommenderEventsConfigArgsDict',
+    'RecommenderSchemaFieldArgs',
+    'RecommenderSchemaFieldArgsDict',
     'SegmentDefinitionAddressDimensionArgs',
     'SegmentDefinitionAddressDimensionArgsDict',
     'SegmentDefinitionAttributeDimensionArgs',
@@ -3129,6 +3131,51 @@ class RecommenderEventsConfigArgs:
     @event_parameters_list.setter
     def event_parameters_list(self, value: pulumi.Input[Sequence[pulumi.Input['RecommenderEventParametersArgs']]]):
         pulumi.set(self, "event_parameters_list", value)
+
+
+class RecommenderSchemaFieldArgsDict(TypedDict):
+    target_field_name: pulumi.Input[_builtins.str]
+    content_type: NotRequired[pulumi.Input[Optional['RecommenderSchemaFieldContentType']]]
+    feature_type: NotRequired[pulumi.Input[Optional['RecommenderSchemaFieldFeatureType']]]
+
+@pulumi.input_type
+class RecommenderSchemaFieldArgs:
+    def __init__(__self__, *,
+                 target_field_name: pulumi.Input[_builtins.str],
+                 content_type: pulumi.Input[Optional['RecommenderSchemaFieldContentType']] = None,
+                 feature_type: pulumi.Input[Optional['RecommenderSchemaFieldFeatureType']] = None):
+        pulumi.set(__self__, "target_field_name", target_field_name)
+        if content_type is not None:
+            pulumi.set(__self__, "content_type", content_type)
+        if feature_type is not None:
+            pulumi.set(__self__, "feature_type", feature_type)
+
+    @_builtins.property
+    @pulumi.getter(name="targetFieldName")
+    def target_field_name(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "target_field_name")
+
+    @target_field_name.setter
+    def target_field_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "target_field_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="contentType")
+    def content_type(self) -> pulumi.Input[Optional['RecommenderSchemaFieldContentType']]:
+        return pulumi.get(self, "content_type")
+
+    @content_type.setter
+    def content_type(self, value: pulumi.Input[Optional['RecommenderSchemaFieldContentType']]):
+        pulumi.set(self, "content_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="featureType")
+    def feature_type(self) -> pulumi.Input[Optional['RecommenderSchemaFieldFeatureType']]:
+        return pulumi.get(self, "feature_type")
+
+    @feature_type.setter
+    def feature_type(self, value: pulumi.Input[Optional['RecommenderSchemaFieldFeatureType']]):
+        pulumi.set(self, "feature_type", value)
 
 
 class SegmentDefinitionAddressDimensionArgsDict(TypedDict):

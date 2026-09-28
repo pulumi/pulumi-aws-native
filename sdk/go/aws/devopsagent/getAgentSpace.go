@@ -42,6 +42,7 @@ type LookupAgentSpaceResult struct {
 	// The name of the AgentSpace.
 	Name        *string                `pulumi:"name"`
 	OperatorApp *AgentSpaceOperatorApp `pulumi:"operatorApp"`
+	Preferences *AgentSpacePreferences `pulumi:"preferences"`
 	// An array of key-value pairs to apply to this resource.
 	Tags []aws.Tag `pulumi:"tags"`
 	// The timestamp when the resource was last updated.
@@ -108,6 +109,10 @@ func (o LookupAgentSpaceResultOutput) Name() pulumi.StringPtrOutput {
 
 func (o LookupAgentSpaceResultOutput) OperatorApp() AgentSpaceOperatorAppPtrOutput {
 	return o.ApplyT(func(v LookupAgentSpaceResult) *AgentSpaceOperatorApp { return v.OperatorApp }).(AgentSpaceOperatorAppPtrOutput)
+}
+
+func (o LookupAgentSpaceResultOutput) Preferences() AgentSpacePreferencesPtrOutput {
+	return o.ApplyT(func(v LookupAgentSpaceResult) *AgentSpacePreferences { return v.Preferences }).(AgentSpacePreferencesPtrOutput)
 }
 
 // An array of key-value pairs to apply to this resource.

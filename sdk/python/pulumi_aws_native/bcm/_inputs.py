@@ -54,6 +54,14 @@ __all__ = [
     'DashboardWidgetArgsDict',
     'DashboardWidgetConfigArgs',
     'DashboardWidgetConfigArgsDict',
+    'ScheduledReportDateTimeRangeArgs',
+    'ScheduledReportDateTimeRangeArgsDict',
+    'ScheduledReportDateTimeValueArgs',
+    'ScheduledReportDateTimeValueArgsDict',
+    'ScheduledReportScheduleConfigArgs',
+    'ScheduledReportScheduleConfigArgsDict',
+    'ScheduledReportSchedulePeriodArgs',
+    'ScheduledReportSchedulePeriodArgsDict',
 ]
 
 class DashboardCostAndUsageExpressionArgsDict(TypedDict):
@@ -998,5 +1006,257 @@ class DashboardWidgetConfigArgs:
     @query_parameters.setter
     def query_parameters(self, value: pulumi.Input['DashboardQueryParametersArgs']):
         pulumi.set(self, "query_parameters", value)
+
+
+class ScheduledReportDateTimeRangeArgsDict(TypedDict):
+    """
+    An absolute or relative date range.
+    """
+    end_time: pulumi.Input['ScheduledReportDateTimeValueArgsDict']
+    """
+    The end of the range.
+    """
+    start_time: pulumi.Input['ScheduledReportDateTimeValueArgsDict']
+    """
+    The start of the range.
+    """
+
+@pulumi.input_type
+class ScheduledReportDateTimeRangeArgs:
+    def __init__(__self__, *,
+                 end_time: pulumi.Input['ScheduledReportDateTimeValueArgs'],
+                 start_time: pulumi.Input['ScheduledReportDateTimeValueArgs']):
+        """
+        An absolute or relative date range.
+
+        :param pulumi.Input['ScheduledReportDateTimeValueArgs'] end_time: The end of the range.
+        :param pulumi.Input['ScheduledReportDateTimeValueArgs'] start_time: The start of the range.
+        """
+        pulumi.set(__self__, "end_time", end_time)
+        pulumi.set(__self__, "start_time", start_time)
+
+    @_builtins.property
+    @pulumi.getter(name="endTime")
+    def end_time(self) -> pulumi.Input['ScheduledReportDateTimeValueArgs']:
+        """
+        The end of the range.
+        """
+        return pulumi.get(self, "end_time")
+
+    @end_time.setter
+    def end_time(self, value: pulumi.Input['ScheduledReportDateTimeValueArgs']):
+        pulumi.set(self, "end_time", value)
+
+    @_builtins.property
+    @pulumi.getter(name="startTime")
+    def start_time(self) -> pulumi.Input['ScheduledReportDateTimeValueArgs']:
+        """
+        The start of the range.
+        """
+        return pulumi.get(self, "start_time")
+
+    @start_time.setter
+    def start_time(self, value: pulumi.Input['ScheduledReportDateTimeValueArgs']):
+        pulumi.set(self, "start_time", value)
+
+
+class ScheduledReportDateTimeValueArgsDict(TypedDict):
+    """
+    A date expressed either as an absolute instant or as an offset from now.
+    """
+    type: pulumi.Input['ScheduledReportDateTimeType']
+    """
+    Whether Value is an absolute date or a duration relative to now.
+    """
+    value: pulumi.Input[_builtins.str]
+    """
+    The date, or an ISO 8601 duration when Type is RELATIVE.
+    """
+
+@pulumi.input_type
+class ScheduledReportDateTimeValueArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input['ScheduledReportDateTimeType'],
+                 value: pulumi.Input[_builtins.str]):
+        """
+        A date expressed either as an absolute instant or as an offset from now.
+
+        :param pulumi.Input['ScheduledReportDateTimeType'] type: Whether Value is an absolute date or a duration relative to now.
+        :param pulumi.Input[_builtins.str] value: The date, or an ISO 8601 duration when Type is RELATIVE.
+        """
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> pulumi.Input['ScheduledReportDateTimeType']:
+        """
+        Whether Value is an absolute date or a duration relative to now.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input['ScheduledReportDateTimeType']):
+        pulumi.set(self, "type", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[_builtins.str]:
+        """
+        The date, or an ISO 8601 duration when Type is RELATIVE.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "value", value)
+
+
+class ScheduledReportScheduleConfigArgsDict(TypedDict):
+    """
+    Defines when and how often a scheduled report runs.
+    """
+    schedule_expression: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The schedule expression that specifies when to trigger the scheduled report run. This value must be a cron expression consisting of six fields separated by white spaces: cron(minutes hours day_of_month month day_of_week year).
+    """
+    schedule_expression_time_zone: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The time zone for the schedule expression, for example, UTC.
+    """
+    schedule_period: NotRequired[pulumi.Input[Optional['ScheduledReportSchedulePeriodArgsDict']]]
+    """
+    The time period during which the schedule is active.
+    """
+    state: NotRequired[pulumi.Input[Optional['ScheduledReportScheduleState']]]
+    """
+    The state of the schedule. ENABLED means the scheduled report runs according to its schedule expression. DISABLED means the scheduled report is paused and will not run until re-enabled.
+    """
+
+@pulumi.input_type
+class ScheduledReportScheduleConfigArgs:
+    def __init__(__self__, *,
+                 schedule_expression: pulumi.Input[Optional[_builtins.str]] = None,
+                 schedule_expression_time_zone: pulumi.Input[Optional[_builtins.str]] = None,
+                 schedule_period: pulumi.Input[Optional['ScheduledReportSchedulePeriodArgs']] = None,
+                 state: pulumi.Input[Optional['ScheduledReportScheduleState']] = None):
+        """
+        Defines when and how often a scheduled report runs.
+
+        :param pulumi.Input[_builtins.str] schedule_expression: The schedule expression that specifies when to trigger the scheduled report run. This value must be a cron expression consisting of six fields separated by white spaces: cron(minutes hours day_of_month month day_of_week year).
+        :param pulumi.Input[_builtins.str] schedule_expression_time_zone: The time zone for the schedule expression, for example, UTC.
+        :param pulumi.Input['ScheduledReportSchedulePeriodArgs'] schedule_period: The time period during which the schedule is active.
+        :param pulumi.Input['ScheduledReportScheduleState'] state: The state of the schedule. ENABLED means the scheduled report runs according to its schedule expression. DISABLED means the scheduled report is paused and will not run until re-enabled.
+        """
+        if schedule_expression is not None:
+            pulumi.set(__self__, "schedule_expression", schedule_expression)
+        if schedule_expression_time_zone is not None:
+            pulumi.set(__self__, "schedule_expression_time_zone", schedule_expression_time_zone)
+        if schedule_period is not None:
+            pulumi.set(__self__, "schedule_period", schedule_period)
+        if state is not None:
+            pulumi.set(__self__, "state", state)
+
+    @_builtins.property
+    @pulumi.getter(name="scheduleExpression")
+    def schedule_expression(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The schedule expression that specifies when to trigger the scheduled report run. This value must be a cron expression consisting of six fields separated by white spaces: cron(minutes hours day_of_month month day_of_week year).
+        """
+        return pulumi.get(self, "schedule_expression")
+
+    @schedule_expression.setter
+    def schedule_expression(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "schedule_expression", value)
+
+    @_builtins.property
+    @pulumi.getter(name="scheduleExpressionTimeZone")
+    def schedule_expression_time_zone(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The time zone for the schedule expression, for example, UTC.
+        """
+        return pulumi.get(self, "schedule_expression_time_zone")
+
+    @schedule_expression_time_zone.setter
+    def schedule_expression_time_zone(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "schedule_expression_time_zone", value)
+
+    @_builtins.property
+    @pulumi.getter(name="schedulePeriod")
+    def schedule_period(self) -> pulumi.Input[Optional['ScheduledReportSchedulePeriodArgs']]:
+        """
+        The time period during which the schedule is active.
+        """
+        return pulumi.get(self, "schedule_period")
+
+    @schedule_period.setter
+    def schedule_period(self, value: pulumi.Input[Optional['ScheduledReportSchedulePeriodArgs']]):
+        pulumi.set(self, "schedule_period", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def state(self) -> pulumi.Input[Optional['ScheduledReportScheduleState']]:
+        """
+        The state of the schedule. ENABLED means the scheduled report runs according to its schedule expression. DISABLED means the scheduled report is paused and will not run until re-enabled.
+        """
+        return pulumi.get(self, "state")
+
+    @state.setter
+    def state(self, value: pulumi.Input[Optional['ScheduledReportScheduleState']]):
+        pulumi.set(self, "state", value)
+
+
+class ScheduledReportSchedulePeriodArgsDict(TypedDict):
+    """
+    The window during which the schedule is active. When omitted the service defaults it. EndTime must be within three years of the time of the request.
+    """
+    end_time: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The time at which the schedule stops being active.
+    """
+    start_time: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The time at which the schedule becomes active.
+    """
+
+@pulumi.input_type
+class ScheduledReportSchedulePeriodArgs:
+    def __init__(__self__, *,
+                 end_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 start_time: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        The window during which the schedule is active. When omitted the service defaults it. EndTime must be within three years of the time of the request.
+
+        :param pulumi.Input[_builtins.str] end_time: The time at which the schedule stops being active.
+        :param pulumi.Input[_builtins.str] start_time: The time at which the schedule becomes active.
+        """
+        if end_time is not None:
+            pulumi.set(__self__, "end_time", end_time)
+        if start_time is not None:
+            pulumi.set(__self__, "start_time", start_time)
+
+    @_builtins.property
+    @pulumi.getter(name="endTime")
+    def end_time(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The time at which the schedule stops being active.
+        """
+        return pulumi.get(self, "end_time")
+
+    @end_time.setter
+    def end_time(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "end_time", value)
+
+    @_builtins.property
+    @pulumi.getter(name="startTime")
+    def start_time(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The time at which the schedule becomes active.
+        """
+        return pulumi.get(self, "start_time")
+
+    @start_time.setter
+    def start_time(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "start_time", value)
 
 

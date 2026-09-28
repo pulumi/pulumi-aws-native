@@ -10,8 +10,15 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.LakeFormation.Inputs
 {
 
+    /// <summary>
+    /// A structure for the catalog object.
+    ///   This is an object with no properties that effectively behaves as a true or false. A valid input for this property type in both yaml or json is null or ``{}``.
+    /// </summary>
     public sealed class PrincipalPermissionsCatalogResourceArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// An identifier for the catalog resource.
+        /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
 

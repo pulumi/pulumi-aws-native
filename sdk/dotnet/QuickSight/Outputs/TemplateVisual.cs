@@ -89,6 +89,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// For more information, see [Using KPIs](https://docs.aws.amazon.com/quicksight/latest/user/kpi.html) in the *Amazon Quick Suite User Guide* .
         /// </summary>
         public readonly Outputs.TemplateKpiVisual? KpiVisual;
+        public readonly Outputs.TemplateLayerMapVisual? LayerMapVisual;
         /// <summary>
         /// A line chart.
         /// 
@@ -182,6 +183,8 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 
             Outputs.TemplateKpiVisual? kpiVisual,
 
+            Outputs.TemplateLayerMapVisual? layerMapVisual,
+
             Outputs.TemplateLineChartVisual? lineChartVisual,
 
             Outputs.TemplatePieChartVisual? pieChartVisual,
@@ -217,6 +220,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
             HistogramVisual = histogramVisual;
             InsightVisual = insightVisual;
             KpiVisual = kpiVisual;
+            LayerMapVisual = layerMapVisual;
             LineChartVisual = lineChartVisual;
             PieChartVisual = pieChartVisual;
             PivotTableVisual = pivotTableVisual;

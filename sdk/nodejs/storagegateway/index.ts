@@ -15,6 +15,11 @@ export const getTapePool: typeof import("./getTapePool").getTapePool = null as a
 export const getTapePoolOutput: typeof import("./getTapePool").getTapePoolOutput = null as any;
 utilities.lazyLoad(exports, ["getTapePool","getTapePoolOutput"], () => require("./getTapePool"));
 
+export { GetVolumeArgs, GetVolumeResult, GetVolumeOutputArgs } from "./getVolume";
+export const getVolume: typeof import("./getVolume").getVolume = null as any;
+export const getVolumeOutput: typeof import("./getVolume").getVolumeOutput = null as any;
+utilities.lazyLoad(exports, ["getVolume","getVolumeOutput"], () => require("./getVolume"));
+
 export { TapeArgs } from "./tape";
 export type Tape = import("./tape").Tape;
 export const Tape: typeof import("./tape").Tape = null as any;
@@ -24,6 +29,11 @@ export { TapePoolArgs } from "./tapePool";
 export type TapePool = import("./tapePool").TapePool;
 export const TapePool: typeof import("./tapePool").TapePool = null as any;
 utilities.lazyLoad(exports, ["TapePool"], () => require("./tapePool"));
+
+export { VolumeArgs } from "./volume";
+export type Volume = import("./volume").Volume;
+export const Volume: typeof import("./volume").Volume = null as any;
+utilities.lazyLoad(exports, ["Volume"], () => require("./volume"));
 
 
 // Export enums:
@@ -37,6 +47,8 @@ const _module = {
                 return new Tape(name, <any>undefined, { urn })
             case "aws-native:storagegateway:TapePool":
                 return new TapePool(name, <any>undefined, { urn })
+            case "aws-native:storagegateway:Volume":
+                return new Volume(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

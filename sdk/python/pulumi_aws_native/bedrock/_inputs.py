@@ -178,6 +178,10 @@ __all__ = [
     'DataSourceCrawlFilterConfigurationArgsDict',
     'DataSourceCustomTransformationConfigurationArgs',
     'DataSourceCustomTransformationConfigurationArgsDict',
+    'DataSourceDailyScheduleArgs',
+    'DataSourceDailyScheduleArgsDict',
+    'DataSourceDayOfMonthArgs',
+    'DataSourceDayOfMonthArgsDict',
     'DataSourceDeletionProtectionConfigurationArgs',
     'DataSourceDeletionProtectionConfigurationArgsDict',
     'DataSourceEnrichmentStrategyConfigurationArgs',
@@ -196,6 +200,8 @@ __all__ = [
     'DataSourceManagedKnowledgeBaseConnectorConfigurationArgsDict',
     'DataSourceMediaExtractionConfigurationArgs',
     'DataSourceMediaExtractionConfigurationArgsDict',
+    'DataSourceMonthlyScheduleArgs',
+    'DataSourceMonthlyScheduleArgsDict',
     'DataSourceParsingConfigurationArgs',
     'DataSourceParsingConfigurationArgsDict',
     'DataSourceParsingPromptArgs',
@@ -226,6 +232,8 @@ __all__ = [
     'DataSourceSharePointDataSourceConfigurationArgsDict',
     'DataSourceSharePointSourceConfigurationArgs',
     'DataSourceSharePointSourceConfigurationArgsDict',
+    'DataSourceSyncScheduleArgs',
+    'DataSourceSyncScheduleArgsDict',
     'DataSourceTransformationArgs',
     'DataSourceTransformationArgsDict',
     'DataSourceTransformationFunctionArgs',
@@ -246,6 +254,8 @@ __all__ = [
     'DataSourceWebDataSourceConfigurationArgsDict',
     'DataSourceWebSourceConfigurationArgs',
     'DataSourceWebSourceConfigurationArgsDict',
+    'DataSourceWeeklyScheduleArgs',
+    'DataSourceWeeklyScheduleArgsDict',
     'EnforcedGuardrailConfigurationModelEnforcementArgs',
     'EnforcedGuardrailConfigurationModelEnforcementArgsDict',
     'EnforcedGuardrailConfigurationSelectiveContentGuardingArgs',
@@ -5131,6 +5141,75 @@ class DataSourceCustomTransformationConfigurationArgs:
         pulumi.set(self, "transformations", value)
 
 
+class DataSourceDailyScheduleArgsDict(TypedDict):
+    """
+    A daily refresh. The run time is system-chosen (off-peak) and not customer-configurable.
+    """
+    pass
+
+@pulumi.input_type
+class DataSourceDailyScheduleArgs:
+    def __init__(__self__):
+        """
+        A daily refresh. The run time is system-chosen (off-peak) and not customer-configurable.
+        """
+        pass
+
+
+class DataSourceDayOfMonthArgsDict(TypedDict):
+    """
+    Day of the month on which a monthly refresh runs. Exactly one variant is set: an explicit day number, or the last calendar day of the month.
+    """
+    day_number: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    Specific day of the month, 1 through 28 (capped at 28 to avoid month-length ambiguity).
+    """
+    last_day_of_month: NotRequired[Any]
+    """
+    Run on the last calendar day of each month.
+    """
+
+@pulumi.input_type
+class DataSourceDayOfMonthArgs:
+    def __init__(__self__, *,
+                 day_number: pulumi.Input[Optional[_builtins.int]] = None,
+                 last_day_of_month: Optional[Any] = None):
+        """
+        Day of the month on which a monthly refresh runs. Exactly one variant is set: an explicit day number, or the last calendar day of the month.
+
+        :param pulumi.Input[_builtins.int] day_number: Specific day of the month, 1 through 28 (capped at 28 to avoid month-length ambiguity).
+        :param Any last_day_of_month: Run on the last calendar day of each month.
+        """
+        if day_number is not None:
+            pulumi.set(__self__, "day_number", day_number)
+        if last_day_of_month is not None:
+            pulumi.set(__self__, "last_day_of_month", last_day_of_month)
+
+    @_builtins.property
+    @pulumi.getter(name="dayNumber")
+    def day_number(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Specific day of the month, 1 through 28 (capped at 28 to avoid month-length ambiguity).
+        """
+        return pulumi.get(self, "day_number")
+
+    @day_number.setter
+    def day_number(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "day_number", value)
+
+    @_builtins.property
+    @pulumi.getter(name="lastDayOfMonth")
+    def last_day_of_month(self) -> Optional[Any]:
+        """
+        Run on the last calendar day of each month.
+        """
+        return pulumi.get(self, "last_day_of_month")
+
+    @last_day_of_month.setter
+    def last_day_of_month(self, value: Optional[Any]):
+        pulumi.set(self, "last_day_of_month", value)
+
+
 class DataSourceDeletionProtectionConfigurationArgsDict(TypedDict):
     """
     Configuration for deletion protection.
@@ -5415,13 +5494,15 @@ class DataSourceManagedKnowledgeBaseConnectorConfigurationArgsDict(TypedDict):
     """
     deletion_protection_configuration: NotRequired[pulumi.Input[Optional['DataSourceDeletionProtectionConfigurationArgsDict']]]
     media_extraction_configuration: NotRequired[pulumi.Input[Optional['DataSourceMediaExtractionConfigurationArgsDict']]]
+    sync_schedule: NotRequired[pulumi.Input[Optional['DataSourceSyncScheduleArgsDict']]]
 
 @pulumi.input_type
 class DataSourceManagedKnowledgeBaseConnectorConfigurationArgs:
     def __init__(__self__, *,
                  connector_parameters: Optional[Any] = None,
                  deletion_protection_configuration: pulumi.Input[Optional['DataSourceDeletionProtectionConfigurationArgs']] = None,
-                 media_extraction_configuration: pulumi.Input[Optional['DataSourceMediaExtractionConfigurationArgs']] = None):
+                 media_extraction_configuration: pulumi.Input[Optional['DataSourceMediaExtractionConfigurationArgs']] = None,
+                 sync_schedule: pulumi.Input[Optional['DataSourceSyncScheduleArgs']] = None):
         """
         Configuration for managed knowledge base connector data sources.
 
@@ -5433,6 +5514,8 @@ class DataSourceManagedKnowledgeBaseConnectorConfigurationArgs:
             pulumi.set(__self__, "deletion_protection_configuration", deletion_protection_configuration)
         if media_extraction_configuration is not None:
             pulumi.set(__self__, "media_extraction_configuration", media_extraction_configuration)
+        if sync_schedule is not None:
+            pulumi.set(__self__, "sync_schedule", sync_schedule)
 
     @_builtins.property
     @pulumi.getter(name="connectorParameters")
@@ -5463,6 +5546,15 @@ class DataSourceManagedKnowledgeBaseConnectorConfigurationArgs:
     @media_extraction_configuration.setter
     def media_extraction_configuration(self, value: pulumi.Input[Optional['DataSourceMediaExtractionConfigurationArgs']]):
         pulumi.set(self, "media_extraction_configuration", value)
+
+    @_builtins.property
+    @pulumi.getter(name="syncSchedule")
+    def sync_schedule(self) -> pulumi.Input[Optional['DataSourceSyncScheduleArgs']]:
+        return pulumi.get(self, "sync_schedule")
+
+    @sync_schedule.setter
+    def sync_schedule(self, value: pulumi.Input[Optional['DataSourceSyncScheduleArgs']]):
+        pulumi.set(self, "sync_schedule", value)
 
 
 class DataSourceMediaExtractionConfigurationArgsDict(TypedDict):
@@ -5515,6 +5607,31 @@ class DataSourceMediaExtractionConfigurationArgs:
     @video_extraction_configuration.setter
     def video_extraction_configuration(self, value: pulumi.Input[Optional['DataSourceVideoExtractionConfigurationArgs']]):
         pulumi.set(self, "video_extraction_configuration", value)
+
+
+class DataSourceMonthlyScheduleArgsDict(TypedDict):
+    """
+    A monthly refresh on a specified day of the month.
+    """
+    day_of_month: pulumi.Input['DataSourceDayOfMonthArgsDict']
+
+@pulumi.input_type
+class DataSourceMonthlyScheduleArgs:
+    def __init__(__self__, *,
+                 day_of_month: pulumi.Input['DataSourceDayOfMonthArgs']):
+        """
+        A monthly refresh on a specified day of the month.
+        """
+        pulumi.set(__self__, "day_of_month", day_of_month)
+
+    @_builtins.property
+    @pulumi.getter(name="dayOfMonth")
+    def day_of_month(self) -> pulumi.Input['DataSourceDayOfMonthArgs']:
+        return pulumi.get(self, "day_of_month")
+
+    @day_of_month.setter
+    def day_of_month(self, value: pulumi.Input['DataSourceDayOfMonthArgs']):
+        pulumi.set(self, "day_of_month", value)
 
 
 class DataSourceParsingConfigurationArgsDict(TypedDict):
@@ -6333,6 +6450,58 @@ class DataSourceSharePointSourceConfigurationArgs:
         pulumi.set(self, "tenant_id", value)
 
 
+class DataSourceSyncScheduleArgsDict(TypedDict):
+    """
+    Recurring schedule on which the connector automatically refreshes ingested content. Exactly one frequency variant is set.
+    """
+    daily: NotRequired[pulumi.Input[Optional['DataSourceDailyScheduleArgsDict']]]
+    monthly: NotRequired[pulumi.Input[Optional['DataSourceMonthlyScheduleArgsDict']]]
+    weekly: NotRequired[pulumi.Input[Optional['DataSourceWeeklyScheduleArgsDict']]]
+
+@pulumi.input_type
+class DataSourceSyncScheduleArgs:
+    def __init__(__self__, *,
+                 daily: pulumi.Input[Optional['DataSourceDailyScheduleArgs']] = None,
+                 monthly: pulumi.Input[Optional['DataSourceMonthlyScheduleArgs']] = None,
+                 weekly: pulumi.Input[Optional['DataSourceWeeklyScheduleArgs']] = None):
+        """
+        Recurring schedule on which the connector automatically refreshes ingested content. Exactly one frequency variant is set.
+        """
+        if daily is not None:
+            pulumi.set(__self__, "daily", daily)
+        if monthly is not None:
+            pulumi.set(__self__, "monthly", monthly)
+        if weekly is not None:
+            pulumi.set(__self__, "weekly", weekly)
+
+    @_builtins.property
+    @pulumi.getter
+    def daily(self) -> pulumi.Input[Optional['DataSourceDailyScheduleArgs']]:
+        return pulumi.get(self, "daily")
+
+    @daily.setter
+    def daily(self, value: pulumi.Input[Optional['DataSourceDailyScheduleArgs']]):
+        pulumi.set(self, "daily", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def monthly(self) -> pulumi.Input[Optional['DataSourceMonthlyScheduleArgs']]:
+        return pulumi.get(self, "monthly")
+
+    @monthly.setter
+    def monthly(self, value: pulumi.Input[Optional['DataSourceMonthlyScheduleArgs']]):
+        pulumi.set(self, "monthly", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def weekly(self) -> pulumi.Input[Optional['DataSourceWeeklyScheduleArgs']]:
+        return pulumi.get(self, "weekly")
+
+    @weekly.setter
+    def weekly(self, value: pulumi.Input[Optional['DataSourceWeeklyScheduleArgs']]):
+        pulumi.set(self, "weekly", value)
+
+
 class DataSourceTransformationArgsDict(TypedDict):
     """
     A Lambda function that processes documents.
@@ -6881,6 +7050,31 @@ class DataSourceWebSourceConfigurationArgs:
     @url_configuration.setter
     def url_configuration(self, value: pulumi.Input['DataSourceUrlConfigurationArgs']):
         pulumi.set(self, "url_configuration", value)
+
+
+class DataSourceWeeklyScheduleArgsDict(TypedDict):
+    """
+    A weekly refresh on a specified day of the week.
+    """
+    day_of_week: pulumi.Input['DataSourceDayOfWeek']
+
+@pulumi.input_type
+class DataSourceWeeklyScheduleArgs:
+    def __init__(__self__, *,
+                 day_of_week: pulumi.Input['DataSourceDayOfWeek']):
+        """
+        A weekly refresh on a specified day of the week.
+        """
+        pulumi.set(__self__, "day_of_week", day_of_week)
+
+    @_builtins.property
+    @pulumi.getter(name="dayOfWeek")
+    def day_of_week(self) -> pulumi.Input['DataSourceDayOfWeek']:
+        return pulumi.get(self, "day_of_week")
+
+    @day_of_week.setter
+    def day_of_week(self, value: pulumi.Input['DataSourceDayOfWeek']):
+        pulumi.set(self, "day_of_week", value)
 
 
 class EnforcedGuardrailConfigurationModelEnforcementArgsDict(TypedDict):

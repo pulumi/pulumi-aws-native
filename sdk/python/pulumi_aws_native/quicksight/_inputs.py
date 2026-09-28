@@ -104,12 +104,16 @@ __all__ = [
     'AnalysisBarChartAggregatedFieldWellsArgsDict',
     'AnalysisBarChartConfigurationArgs',
     'AnalysisBarChartConfigurationArgsDict',
+    'AnalysisBarChartDefaultSeriesSettingsArgs',
+    'AnalysisBarChartDefaultSeriesSettingsArgsDict',
     'AnalysisBarChartFieldWellsArgs',
     'AnalysisBarChartFieldWellsArgsDict',
     'AnalysisBarChartSortConfigurationArgs',
     'AnalysisBarChartSortConfigurationArgsDict',
     'AnalysisBarChartVisualArgs',
     'AnalysisBarChartVisualArgsDict',
+    'AnalysisBarSeriesItemArgs',
+    'AnalysisBarSeriesItemArgsDict',
     'AnalysisBinCountOptionsArgs',
     'AnalysisBinCountOptionsArgsDict',
     'AnalysisBinWidthOptionsArgs',
@@ -128,6 +132,8 @@ __all__ = [
     'AnalysisBodySectionRepeatDimensionConfigurationArgsDict',
     'AnalysisBodySectionRepeatPageBreakConfigurationArgs',
     'AnalysisBodySectionRepeatPageBreakConfigurationArgsDict',
+    'AnalysisBorderSettingsArgs',
+    'AnalysisBorderSettingsArgsDict',
     'AnalysisBoxPlotAggregatedFieldWellsArgs',
     'AnalysisBoxPlotAggregatedFieldWellsArgsDict',
     'AnalysisBoxPlotChartConfigurationArgs',
@@ -186,12 +192,16 @@ __all__ = [
     'AnalysisComboChartAggregatedFieldWellsArgsDict',
     'AnalysisComboChartConfigurationArgs',
     'AnalysisComboChartConfigurationArgsDict',
+    'AnalysisComboChartDefaultSeriesSettingsArgs',
+    'AnalysisComboChartDefaultSeriesSettingsArgsDict',
     'AnalysisComboChartFieldWellsArgs',
     'AnalysisComboChartFieldWellsArgsDict',
     'AnalysisComboChartSortConfigurationArgs',
     'AnalysisComboChartSortConfigurationArgsDict',
     'AnalysisComboChartVisualArgs',
     'AnalysisComboChartVisualArgsDict',
+    'AnalysisComboSeriesItemArgs',
+    'AnalysisComboSeriesItemArgsDict',
     'AnalysisComparisonConfigurationArgs',
     'AnalysisComparisonConfigurationArgsDict',
     'AnalysisComparisonFormatConfigurationArgs',
@@ -288,6 +298,10 @@ __all__ = [
     'AnalysisDateTimePickerControlDisplayOptionsArgsDict',
     'AnalysisDateTimeValueWhenUnsetConfigurationArgs',
     'AnalysisDateTimeValueWhenUnsetConfigurationArgsDict',
+    'AnalysisDecalSettingsArgs',
+    'AnalysisDecalSettingsArgsDict',
+    'AnalysisDecalSettingsConfigurationArgs',
+    'AnalysisDecalSettingsConfigurationArgsDict',
     'AnalysisDecimalDefaultValuesArgs',
     'AnalysisDecimalDefaultValuesArgsDict',
     'AnalysisDecimalParameterArgs',
@@ -564,6 +578,10 @@ __all__ = [
     'AnalysisGridLayoutConfigurationArgsDict',
     'AnalysisGridLayoutElementArgs',
     'AnalysisGridLayoutElementArgsDict',
+    'AnalysisGridLayoutElementBackgroundStyleArgs',
+    'AnalysisGridLayoutElementBackgroundStyleArgsDict',
+    'AnalysisGridLayoutElementBorderStyleArgs',
+    'AnalysisGridLayoutElementBorderStyleArgsDict',
     'AnalysisGridLayoutScreenCanvasSizeOptionsArgs',
     'AnalysisGridLayoutScreenCanvasSizeOptionsArgsDict',
     'AnalysisGrowthRateComputationArgs',
@@ -964,6 +982,10 @@ __all__ = [
     'AnalysisSheetImageTooltipConfigurationArgsDict',
     'AnalysisSheetImageTooltipTextArgs',
     'AnalysisSheetImageTooltipTextArgsDict',
+    'AnalysisSheetLayoutGroupArgs',
+    'AnalysisSheetLayoutGroupArgsDict',
+    'AnalysisSheetLayoutGroupMemberArgs',
+    'AnalysisSheetLayoutGroupMemberArgsDict',
     'AnalysisSheetTextBoxArgs',
     'AnalysisSheetTextBoxArgsDict',
     'AnalysisSheetVisualScopingConfigurationArgs',
@@ -986,6 +1008,8 @@ __all__ = [
     'AnalysisSourceTemplateArgsDict',
     'AnalysisSpacingArgs',
     'AnalysisSpacingArgsDict',
+    'AnalysisSparklinesOptionsArgs',
+    'AnalysisSparklinesOptionsArgsDict',
     'AnalysisSpatialStaticFileArgs',
     'AnalysisSpatialStaticFileArgsDict',
     'AnalysisStaticFileArgs',
@@ -1092,6 +1116,10 @@ __all__ = [
     'AnalysisTopBottomMoversComputationArgsDict',
     'AnalysisTopBottomRankedComputationArgs',
     'AnalysisTopBottomRankedComputationArgsDict',
+    'AnalysisTopicIdentifierDeclarationArgs',
+    'AnalysisTopicIdentifierDeclarationArgsDict',
+    'AnalysisTopicReferenceArgs',
+    'AnalysisTopicReferenceArgsDict',
     'AnalysisTotalAggregationComputationArgs',
     'AnalysisTotalAggregationComputationArgsDict',
     'AnalysisTotalAggregationFunctionArgs',
@@ -1226,12 +1254,16 @@ __all__ = [
     'DashboardBarChartAggregatedFieldWellsArgsDict',
     'DashboardBarChartConfigurationArgs',
     'DashboardBarChartConfigurationArgsDict',
+    'DashboardBarChartDefaultSeriesSettingsArgs',
+    'DashboardBarChartDefaultSeriesSettingsArgsDict',
     'DashboardBarChartFieldWellsArgs',
     'DashboardBarChartFieldWellsArgsDict',
     'DashboardBarChartSortConfigurationArgs',
     'DashboardBarChartSortConfigurationArgsDict',
     'DashboardBarChartVisualArgs',
     'DashboardBarChartVisualArgsDict',
+    'DashboardBarSeriesItemArgs',
+    'DashboardBarSeriesItemArgsDict',
     'DashboardBinCountOptionsArgs',
     'DashboardBinCountOptionsArgsDict',
     'DashboardBinWidthOptionsArgs',
@@ -1250,6 +1282,8 @@ __all__ = [
     'DashboardBodySectionRepeatDimensionConfigurationArgsDict',
     'DashboardBodySectionRepeatPageBreakConfigurationArgs',
     'DashboardBodySectionRepeatPageBreakConfigurationArgsDict',
+    'DashboardBorderSettingsArgs',
+    'DashboardBorderSettingsArgsDict',
     'DashboardBoxPlotAggregatedFieldWellsArgs',
     'DashboardBoxPlotAggregatedFieldWellsArgsDict',
     'DashboardBoxPlotChartConfigurationArgs',
@@ -1308,12 +1342,16 @@ __all__ = [
     'DashboardComboChartAggregatedFieldWellsArgsDict',
     'DashboardComboChartConfigurationArgs',
     'DashboardComboChartConfigurationArgsDict',
+    'DashboardComboChartDefaultSeriesSettingsArgs',
+    'DashboardComboChartDefaultSeriesSettingsArgsDict',
     'DashboardComboChartFieldWellsArgs',
     'DashboardComboChartFieldWellsArgsDict',
     'DashboardComboChartSortConfigurationArgs',
     'DashboardComboChartSortConfigurationArgsDict',
     'DashboardComboChartVisualArgs',
     'DashboardComboChartVisualArgsDict',
+    'DashboardComboSeriesItemArgs',
+    'DashboardComboSeriesItemArgsDict',
     'DashboardComparisonConfigurationArgs',
     'DashboardComparisonConfigurationArgsDict',
     'DashboardComparisonFormatConfigurationArgs',
@@ -1420,6 +1458,10 @@ __all__ = [
     'DashboardDateTimePickerControlDisplayOptionsArgsDict',
     'DashboardDateTimeValueWhenUnsetConfigurationArgs',
     'DashboardDateTimeValueWhenUnsetConfigurationArgsDict',
+    'DashboardDecalSettingsArgs',
+    'DashboardDecalSettingsArgsDict',
+    'DashboardDecalSettingsConfigurationArgs',
+    'DashboardDecalSettingsConfigurationArgsDict',
     'DashboardDecimalDefaultValuesArgs',
     'DashboardDecimalDefaultValuesArgsDict',
     'DashboardDecimalParameterArgs',
@@ -2106,6 +2148,10 @@ __all__ = [
     'DashboardSheetImageTooltipTextArgsDict',
     'DashboardSheetLayoutElementMaximizationOptionArgs',
     'DashboardSheetLayoutElementMaximizationOptionArgsDict',
+    'DashboardSheetLayoutGroupArgs',
+    'DashboardSheetLayoutGroupArgsDict',
+    'DashboardSheetLayoutGroupMemberArgs',
+    'DashboardSheetLayoutGroupMemberArgsDict',
     'DashboardSheetTextBoxArgs',
     'DashboardSheetTextBoxArgsDict',
     'DashboardSheetVisualScopingConfigurationArgs',
@@ -2128,6 +2174,8 @@ __all__ = [
     'DashboardSourceTemplateArgsDict',
     'DashboardSpacingArgs',
     'DashboardSpacingArgsDict',
+    'DashboardSparklinesOptionsArgs',
+    'DashboardSparklinesOptionsArgsDict',
     'DashboardSpatialStaticFileArgs',
     'DashboardSpatialStaticFileArgsDict',
     'DashboardStaticFileArgs',
@@ -2234,6 +2282,10 @@ __all__ = [
     'DashboardTopBottomMoversComputationArgsDict',
     'DashboardTopBottomRankedComputationArgs',
     'DashboardTopBottomRankedComputationArgsDict',
+    'DashboardTopicIdentifierDeclarationArgs',
+    'DashboardTopicIdentifierDeclarationArgsDict',
+    'DashboardTopicReferenceArgs',
+    'DashboardTopicReferenceArgsDict',
     'DashboardTotalAggregationComputationArgs',
     'DashboardTotalAggregationComputationArgsDict',
     'DashboardTotalAggregationFunctionArgs',
@@ -2692,12 +2744,16 @@ __all__ = [
     'TemplateBarChartAggregatedFieldWellsArgsDict',
     'TemplateBarChartConfigurationArgs',
     'TemplateBarChartConfigurationArgsDict',
+    'TemplateBarChartDefaultSeriesSettingsArgs',
+    'TemplateBarChartDefaultSeriesSettingsArgsDict',
     'TemplateBarChartFieldWellsArgs',
     'TemplateBarChartFieldWellsArgsDict',
     'TemplateBarChartSortConfigurationArgs',
     'TemplateBarChartSortConfigurationArgsDict',
     'TemplateBarChartVisualArgs',
     'TemplateBarChartVisualArgsDict',
+    'TemplateBarSeriesItemArgs',
+    'TemplateBarSeriesItemArgsDict',
     'TemplateBinCountOptionsArgs',
     'TemplateBinCountOptionsArgsDict',
     'TemplateBinWidthOptionsArgs',
@@ -2716,6 +2772,8 @@ __all__ = [
     'TemplateBodySectionRepeatDimensionConfigurationArgsDict',
     'TemplateBodySectionRepeatPageBreakConfigurationArgs',
     'TemplateBodySectionRepeatPageBreakConfigurationArgsDict',
+    'TemplateBorderSettingsArgs',
+    'TemplateBorderSettingsArgsDict',
     'TemplateBoxPlotAggregatedFieldWellsArgs',
     'TemplateBoxPlotAggregatedFieldWellsArgsDict',
     'TemplateBoxPlotChartConfigurationArgs',
@@ -2780,12 +2838,16 @@ __all__ = [
     'TemplateComboChartAggregatedFieldWellsArgsDict',
     'TemplateComboChartConfigurationArgs',
     'TemplateComboChartConfigurationArgsDict',
+    'TemplateComboChartDefaultSeriesSettingsArgs',
+    'TemplateComboChartDefaultSeriesSettingsArgsDict',
     'TemplateComboChartFieldWellsArgs',
     'TemplateComboChartFieldWellsArgsDict',
     'TemplateComboChartSortConfigurationArgs',
     'TemplateComboChartSortConfigurationArgsDict',
     'TemplateComboChartVisualArgs',
     'TemplateComboChartVisualArgsDict',
+    'TemplateComboSeriesItemArgs',
+    'TemplateComboSeriesItemArgsDict',
     'TemplateComparisonConfigurationArgs',
     'TemplateComparisonConfigurationArgsDict',
     'TemplateComparisonFormatConfigurationArgs',
@@ -2882,6 +2944,10 @@ __all__ = [
     'TemplateDateTimePickerControlDisplayOptionsArgsDict',
     'TemplateDateTimeValueWhenUnsetConfigurationArgs',
     'TemplateDateTimeValueWhenUnsetConfigurationArgsDict',
+    'TemplateDecalSettingsArgs',
+    'TemplateDecalSettingsArgsDict',
+    'TemplateDecalSettingsConfigurationArgs',
+    'TemplateDecalSettingsConfigurationArgsDict',
     'TemplateDecimalDefaultValuesArgs',
     'TemplateDecimalDefaultValuesArgsDict',
     'TemplateDecimalParameterDeclarationArgs',
@@ -3058,26 +3124,82 @@ __all__ = [
     'TemplateGaugeChartPrimaryValueConditionalFormattingArgsDict',
     'TemplateGaugeChartVisualArgs',
     'TemplateGaugeChartVisualArgsDict',
+    'TemplateGeospatialCategoricalColorArgs',
+    'TemplateGeospatialCategoricalColorArgsDict',
+    'TemplateGeospatialCategoricalDataColorArgs',
+    'TemplateGeospatialCategoricalDataColorArgsDict',
+    'TemplateGeospatialCircleRadiusArgs',
+    'TemplateGeospatialCircleRadiusArgsDict',
+    'TemplateGeospatialCircleSymbolStyleArgs',
+    'TemplateGeospatialCircleSymbolStyleArgsDict',
+    'TemplateGeospatialColorArgs',
+    'TemplateGeospatialColorArgsDict',
     'TemplateGeospatialCoordinateBoundsArgs',
     'TemplateGeospatialCoordinateBoundsArgsDict',
+    'TemplateGeospatialDataSourceItemArgs',
+    'TemplateGeospatialDataSourceItemArgsDict',
+    'TemplateGeospatialGradientColorArgs',
+    'TemplateGeospatialGradientColorArgsDict',
+    'TemplateGeospatialGradientStepColorArgs',
+    'TemplateGeospatialGradientStepColorArgsDict',
     'TemplateGeospatialHeatmapColorScaleArgs',
     'TemplateGeospatialHeatmapColorScaleArgsDict',
     'TemplateGeospatialHeatmapConfigurationArgs',
     'TemplateGeospatialHeatmapConfigurationArgsDict',
     'TemplateGeospatialHeatmapDataColorArgs',
     'TemplateGeospatialHeatmapDataColorArgsDict',
+    'TemplateGeospatialLayerColorFieldArgs',
+    'TemplateGeospatialLayerColorFieldArgsDict',
+    'TemplateGeospatialLayerDefinitionArgs',
+    'TemplateGeospatialLayerDefinitionArgsDict',
+    'TemplateGeospatialLayerItemArgs',
+    'TemplateGeospatialLayerItemArgsDict',
+    'TemplateGeospatialLayerJoinDefinitionArgs',
+    'TemplateGeospatialLayerJoinDefinitionArgsDict',
+    'TemplateGeospatialLayerMapConfigurationArgs',
+    'TemplateGeospatialLayerMapConfigurationArgsDict',
+    'TemplateGeospatialLineLayerArgs',
+    'TemplateGeospatialLineLayerArgsDict',
+    'TemplateGeospatialLineStyleArgs',
+    'TemplateGeospatialLineStyleArgsDict',
+    'TemplateGeospatialLineSymbolStyleArgs',
+    'TemplateGeospatialLineSymbolStyleArgsDict',
+    'TemplateGeospatialLineWidthArgs',
+    'TemplateGeospatialLineWidthArgsDict',
     'TemplateGeospatialMapAggregatedFieldWellsArgs',
     'TemplateGeospatialMapAggregatedFieldWellsArgsDict',
     'TemplateGeospatialMapConfigurationArgs',
     'TemplateGeospatialMapConfigurationArgsDict',
     'TemplateGeospatialMapFieldWellsArgs',
     'TemplateGeospatialMapFieldWellsArgsDict',
+    'TemplateGeospatialMapStateArgs',
+    'TemplateGeospatialMapStateArgsDict',
+    'TemplateGeospatialMapStyleArgs',
+    'TemplateGeospatialMapStyleArgsDict',
     'TemplateGeospatialMapStyleOptionsArgs',
     'TemplateGeospatialMapStyleOptionsArgsDict',
     'TemplateGeospatialMapVisualArgs',
     'TemplateGeospatialMapVisualArgsDict',
+    'TemplateGeospatialNullDataSettingsArgs',
+    'TemplateGeospatialNullDataSettingsArgsDict',
+    'TemplateGeospatialNullSymbolStyleArgs',
+    'TemplateGeospatialNullSymbolStyleArgsDict',
+    'TemplateGeospatialPointLayerArgs',
+    'TemplateGeospatialPointLayerArgsDict',
+    'TemplateGeospatialPointStyleArgs',
+    'TemplateGeospatialPointStyleArgsDict',
     'TemplateGeospatialPointStyleOptionsArgs',
     'TemplateGeospatialPointStyleOptionsArgsDict',
+    'TemplateGeospatialPolygonLayerArgs',
+    'TemplateGeospatialPolygonLayerArgsDict',
+    'TemplateGeospatialPolygonStyleArgs',
+    'TemplateGeospatialPolygonStyleArgsDict',
+    'TemplateGeospatialPolygonSymbolStyleArgs',
+    'TemplateGeospatialPolygonSymbolStyleArgsDict',
+    'TemplateGeospatialSolidColorArgs',
+    'TemplateGeospatialSolidColorArgsDict',
+    'TemplateGeospatialStaticFileSourceArgs',
+    'TemplateGeospatialStaticFileSourceArgsDict',
     'TemplateGeospatialWindowOptionsArgs',
     'TemplateGeospatialWindowOptionsArgsDict',
     'TemplateGlobalTableBorderOptionsArgs',
@@ -3092,6 +3214,10 @@ __all__ = [
     'TemplateGridLayoutConfigurationArgsDict',
     'TemplateGridLayoutElementArgs',
     'TemplateGridLayoutElementArgsDict',
+    'TemplateGridLayoutElementBackgroundStyleArgs',
+    'TemplateGridLayoutElementBackgroundStyleArgsDict',
+    'TemplateGridLayoutElementBorderStyleArgs',
+    'TemplateGridLayoutElementBorderStyleArgsDict',
     'TemplateGridLayoutScreenCanvasSizeOptionsArgs',
     'TemplateGridLayoutScreenCanvasSizeOptionsArgsDict',
     'TemplateGrowthRateComputationArgs',
@@ -3126,6 +3252,8 @@ __all__ = [
     'TemplateImageInteractionOptionsArgsDict',
     'TemplateImageMenuOptionArgs',
     'TemplateImageMenuOptionArgsDict',
+    'TemplateImageStaticFileArgs',
+    'TemplateImageStaticFileArgsDict',
     'TemplateInnerFilterArgs',
     'TemplateInnerFilterArgsDict',
     'TemplateInsightConfigurationArgs',
@@ -3170,6 +3298,12 @@ __all__ = [
     'TemplateKpiVisualStandardLayoutArgsDict',
     'TemplateLabelOptionsArgs',
     'TemplateLabelOptionsArgsDict',
+    'TemplateLayerCustomActionArgs',
+    'TemplateLayerCustomActionArgsDict',
+    'TemplateLayerCustomActionOperationArgs',
+    'TemplateLayerCustomActionOperationArgsDict',
+    'TemplateLayerMapVisualArgs',
+    'TemplateLayerMapVisualArgsDict',
     'TemplateLayoutArgs',
     'TemplateLayoutArgsDict',
     'TemplateLayoutConfigurationArgs',
@@ -3478,6 +3612,10 @@ __all__ = [
     'TemplateSheetImageTooltipConfigurationArgsDict',
     'TemplateSheetImageTooltipTextArgs',
     'TemplateSheetImageTooltipTextArgsDict',
+    'TemplateSheetLayoutGroupArgs',
+    'TemplateSheetLayoutGroupArgsDict',
+    'TemplateSheetLayoutGroupMemberArgs',
+    'TemplateSheetLayoutGroupMemberArgsDict',
     'TemplateSheetTextBoxArgs',
     'TemplateSheetTextBoxArgsDict',
     'TemplateSheetVisualScopingConfigurationArgs',
@@ -3502,6 +3640,18 @@ __all__ = [
     'TemplateSourceTemplateArgsDict',
     'TemplateSpacingArgs',
     'TemplateSpacingArgsDict',
+    'TemplateSparklinesOptionsArgs',
+    'TemplateSparklinesOptionsArgsDict',
+    'TemplateSpatialStaticFileArgs',
+    'TemplateSpatialStaticFileArgsDict',
+    'TemplateStaticFileArgs',
+    'TemplateStaticFileArgsDict',
+    'TemplateStaticFileS3SourceOptionsArgs',
+    'TemplateStaticFileS3SourceOptionsArgsDict',
+    'TemplateStaticFileSourceArgs',
+    'TemplateStaticFileSourceArgsDict',
+    'TemplateStaticFileUrlSourceOptionsArgs',
+    'TemplateStaticFileUrlSourceOptionsArgsDict',
     'TemplateStringDefaultValuesArgs',
     'TemplateStringDefaultValuesArgsDict',
     'TemplateStringFormatConfigurationArgs',
@@ -3596,6 +3746,10 @@ __all__ = [
     'TemplateTopBottomMoversComputationArgsDict',
     'TemplateTopBottomRankedComputationArgs',
     'TemplateTopBottomRankedComputationArgsDict',
+    'TemplateTopicConfigurationArgs',
+    'TemplateTopicConfigurationArgsDict',
+    'TemplateTopicReferenceArgs',
+    'TemplateTopicReferenceArgsDict',
     'TemplateTotalAggregationComputationArgs',
     'TemplateTotalAggregationComputationArgsDict',
     'TemplateTotalAggregationFunctionArgs',
@@ -3686,12 +3840,20 @@ __all__ = [
     'ThemeDataColorPaletteArgsDict',
     'ThemeFontArgs',
     'ThemeFontArgsDict',
+    'ThemeFontConfigurationArgs',
+    'ThemeFontConfigurationArgsDict',
+    'ThemeFontSizeArgs',
+    'ThemeFontSizeArgsDict',
+    'ThemeFontWeightArgs',
+    'ThemeFontWeightArgsDict',
     'ThemeGutterStyleArgs',
     'ThemeGutterStyleArgsDict',
     'ThemeMarginStyleArgs',
     'ThemeMarginStyleArgsDict',
     'ThemeResourcePermissionArgs',
     'ThemeResourcePermissionArgsDict',
+    'ThemeSheetBackgroundStyleArgs',
+    'ThemeSheetBackgroundStyleArgsDict',
     'ThemeSheetStyleArgs',
     'ThemeSheetStyleArgsDict',
     'ThemeTileLayoutStyleArgs',
@@ -3702,6 +3864,10 @@ __all__ = [
     'ThemeTypographyArgsDict',
     'ThemeUiColorPaletteArgs',
     'ThemeUiColorPaletteArgsDict',
+    'ThemeVisualSubtitleFontConfigurationArgs',
+    'ThemeVisualSubtitleFontConfigurationArgsDict',
+    'ThemeVisualTitleFontConfigurationArgs',
+    'ThemeVisualTitleFontConfigurationArgsDict',
     'TopicCalculatedFieldArgs',
     'TopicCalculatedFieldArgsDict',
     'TopicCategoryFilterArgs',
@@ -5818,6 +5984,7 @@ class AnalysisBarChartConfigurationArgsDict(TypedDict):
     """
     The options that determine if visual data labels are displayed.
     """
+    default_series_settings: NotRequired[pulumi.Input[Optional['AnalysisBarChartDefaultSeriesSettingsArgsDict']]]
     field_wells: NotRequired[pulumi.Input[Optional['AnalysisBarChartFieldWellsArgsDict']]]
     """
     The field wells of the visual.
@@ -5841,6 +6008,7 @@ class AnalysisBarChartConfigurationArgsDict(TypedDict):
     """
     The reference line setup of the visual.
     """
+    series: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AnalysisBarSeriesItemArgsDict']]]]]
     small_multiples_options: NotRequired[pulumi.Input[Optional['AnalysisSmallMultiplesOptionsArgsDict']]]
     """
     The small multiples setup for the visual.
@@ -5875,11 +6043,13 @@ class AnalysisBarChartConfigurationArgs:
                  color_label_options: pulumi.Input[Optional['AnalysisChartAxisLabelOptionsArgs']] = None,
                  contribution_analysis_defaults: pulumi.Input[Optional[Sequence[pulumi.Input['AnalysisContributionAnalysisDefaultArgs']]]] = None,
                  data_labels: pulumi.Input[Optional['AnalysisDataLabelOptionsArgs']] = None,
+                 default_series_settings: pulumi.Input[Optional['AnalysisBarChartDefaultSeriesSettingsArgs']] = None,
                  field_wells: pulumi.Input[Optional['AnalysisBarChartFieldWellsArgs']] = None,
                  interactions: pulumi.Input[Optional['AnalysisVisualInteractionOptionsArgs']] = None,
                  legend: pulumi.Input[Optional['AnalysisLegendOptionsArgs']] = None,
                  orientation: pulumi.Input[Optional['AnalysisBarChartOrientation']] = None,
                  reference_lines: pulumi.Input[Optional[Sequence[pulumi.Input['AnalysisReferenceLineArgs']]]] = None,
+                 series: pulumi.Input[Optional[Sequence[pulumi.Input['AnalysisBarSeriesItemArgs']]]] = None,
                  small_multiples_options: pulumi.Input[Optional['AnalysisSmallMultiplesOptionsArgs']] = None,
                  sort_configuration: pulumi.Input[Optional['AnalysisBarChartSortConfigurationArgs']] = None,
                  tooltip: pulumi.Input[Optional['AnalysisTooltipOptionsArgs']] = None,
@@ -5920,6 +6090,8 @@ class AnalysisBarChartConfigurationArgs:
             pulumi.set(__self__, "contribution_analysis_defaults", contribution_analysis_defaults)
         if data_labels is not None:
             pulumi.set(__self__, "data_labels", data_labels)
+        if default_series_settings is not None:
+            pulumi.set(__self__, "default_series_settings", default_series_settings)
         if field_wells is not None:
             pulumi.set(__self__, "field_wells", field_wells)
         if interactions is not None:
@@ -5930,6 +6102,8 @@ class AnalysisBarChartConfigurationArgs:
             pulumi.set(__self__, "orientation", orientation)
         if reference_lines is not None:
             pulumi.set(__self__, "reference_lines", reference_lines)
+        if series is not None:
+            pulumi.set(__self__, "series", series)
         if small_multiples_options is not None:
             pulumi.set(__self__, "small_multiples_options", small_multiples_options)
         if sort_configuration is not None:
@@ -6016,6 +6190,15 @@ class AnalysisBarChartConfigurationArgs:
         pulumi.set(self, "data_labels", value)
 
     @_builtins.property
+    @pulumi.getter(name="defaultSeriesSettings")
+    def default_series_settings(self) -> pulumi.Input[Optional['AnalysisBarChartDefaultSeriesSettingsArgs']]:
+        return pulumi.get(self, "default_series_settings")
+
+    @default_series_settings.setter
+    def default_series_settings(self, value: pulumi.Input[Optional['AnalysisBarChartDefaultSeriesSettingsArgs']]):
+        pulumi.set(self, "default_series_settings", value)
+
+    @_builtins.property
     @pulumi.getter(name="fieldWells")
     def field_wells(self) -> pulumi.Input[Optional['AnalysisBarChartFieldWellsArgs']]:
         """
@@ -6077,6 +6260,15 @@ class AnalysisBarChartConfigurationArgs:
     @reference_lines.setter
     def reference_lines(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AnalysisReferenceLineArgs']]]]):
         pulumi.set(self, "reference_lines", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def series(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AnalysisBarSeriesItemArgs']]]]:
+        return pulumi.get(self, "series")
+
+    @series.setter
+    def series(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AnalysisBarSeriesItemArgs']]]]):
+        pulumi.set(self, "series", value)
 
     @_builtins.property
     @pulumi.getter(name="smallMultiplesOptions")
@@ -6149,6 +6341,39 @@ class AnalysisBarChartConfigurationArgs:
     @visual_palette.setter
     def visual_palette(self, value: pulumi.Input[Optional['AnalysisVisualPaletteArgs']]):
         pulumi.set(self, "visual_palette", value)
+
+
+class AnalysisBarChartDefaultSeriesSettingsArgsDict(TypedDict):
+    border_settings: NotRequired[pulumi.Input[Optional['AnalysisBorderSettingsArgsDict']]]
+    decal_settings: NotRequired[pulumi.Input[Optional['AnalysisDecalSettingsArgsDict']]]
+
+@pulumi.input_type
+class AnalysisBarChartDefaultSeriesSettingsArgs:
+    def __init__(__self__, *,
+                 border_settings: pulumi.Input[Optional['AnalysisBorderSettingsArgs']] = None,
+                 decal_settings: pulumi.Input[Optional['AnalysisDecalSettingsArgs']] = None):
+        if border_settings is not None:
+            pulumi.set(__self__, "border_settings", border_settings)
+        if decal_settings is not None:
+            pulumi.set(__self__, "decal_settings", decal_settings)
+
+    @_builtins.property
+    @pulumi.getter(name="borderSettings")
+    def border_settings(self) -> pulumi.Input[Optional['AnalysisBorderSettingsArgs']]:
+        return pulumi.get(self, "border_settings")
+
+    @border_settings.setter
+    def border_settings(self, value: pulumi.Input[Optional['AnalysisBorderSettingsArgs']]):
+        pulumi.set(self, "border_settings", value)
+
+    @_builtins.property
+    @pulumi.getter(name="decalSettings")
+    def decal_settings(self) -> pulumi.Input[Optional['AnalysisDecalSettingsArgs']]:
+        return pulumi.get(self, "decal_settings")
+
+    @decal_settings.setter
+    def decal_settings(self, value: pulumi.Input[Optional['AnalysisDecalSettingsArgs']]):
+        pulumi.set(self, "decal_settings", value)
 
 
 class AnalysisBarChartFieldWellsArgsDict(TypedDict):
@@ -6455,6 +6680,15 @@ class AnalysisBarChartVisualArgs:
     @visual_content_alt_text.setter
     def visual_content_alt_text(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "visual_content_alt_text", value)
+
+
+class AnalysisBarSeriesItemArgsDict(TypedDict):
+    pass
+
+@pulumi.input_type
+class AnalysisBarSeriesItemArgs:
+    def __init__(__self__):
+        pass
 
 
 class AnalysisBinCountOptionsArgsDict(TypedDict):
@@ -6929,6 +7163,61 @@ class AnalysisBodySectionRepeatPageBreakConfigurationArgs:
     @after.setter
     def after(self, value: pulumi.Input[Optional['AnalysisSectionAfterPageBreakArgs']]):
         pulumi.set(self, "after", value)
+
+
+class AnalysisBorderSettingsArgsDict(TypedDict):
+    border_color: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    border_visibility: NotRequired[pulumi.Input[Optional['AnalysisVisibility']]]
+    border_width: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    String based length that is composed of value and unit in px
+    """
+
+@pulumi.input_type
+class AnalysisBorderSettingsArgs:
+    def __init__(__self__, *,
+                 border_color: pulumi.Input[Optional[_builtins.str]] = None,
+                 border_visibility: pulumi.Input[Optional['AnalysisVisibility']] = None,
+                 border_width: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] border_width: String based length that is composed of value and unit in px
+        """
+        if border_color is not None:
+            pulumi.set(__self__, "border_color", border_color)
+        if border_visibility is not None:
+            pulumi.set(__self__, "border_visibility", border_visibility)
+        if border_width is not None:
+            pulumi.set(__self__, "border_width", border_width)
+
+    @_builtins.property
+    @pulumi.getter(name="borderColor")
+    def border_color(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "border_color")
+
+    @border_color.setter
+    def border_color(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "border_color", value)
+
+    @_builtins.property
+    @pulumi.getter(name="borderVisibility")
+    def border_visibility(self) -> pulumi.Input[Optional['AnalysisVisibility']]:
+        return pulumi.get(self, "border_visibility")
+
+    @border_visibility.setter
+    def border_visibility(self, value: pulumi.Input[Optional['AnalysisVisibility']]):
+        pulumi.set(self, "border_visibility", value)
+
+    @_builtins.property
+    @pulumi.getter(name="borderWidth")
+    def border_width(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        String based length that is composed of value and unit in px
+        """
+        return pulumi.get(self, "border_width")
+
+    @border_width.setter
+    def border_width(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "border_width", value)
 
 
 class AnalysisBoxPlotAggregatedFieldWellsArgsDict(TypedDict):
@@ -7547,10 +7836,6 @@ class AnalysisBoxPlotVisualArgs:
 
 
 class AnalysisCalculatedFieldArgsDict(TypedDict):
-    data_set_identifier: pulumi.Input[_builtins.str]
-    """
-    The data set that is used in this calculated field.
-    """
     expression: pulumi.Input[_builtins.str]
     """
     The expression of the calculated field.
@@ -7559,33 +7844,30 @@ class AnalysisCalculatedFieldArgsDict(TypedDict):
     """
     The name of the calculated field.
     """
+    data_set_identifier: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The data set that is used in this calculated field.
+    """
+    topic_identifier: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
 class AnalysisCalculatedFieldArgs:
     def __init__(__self__, *,
-                 data_set_identifier: pulumi.Input[_builtins.str],
                  expression: pulumi.Input[_builtins.str],
-                 name: pulumi.Input[_builtins.str]):
+                 name: pulumi.Input[_builtins.str],
+                 data_set_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 topic_identifier: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] data_set_identifier: The data set that is used in this calculated field.
         :param pulumi.Input[_builtins.str] expression: The expression of the calculated field.
         :param pulumi.Input[_builtins.str] name: The name of the calculated field.
+        :param pulumi.Input[_builtins.str] data_set_identifier: The data set that is used in this calculated field.
         """
-        pulumi.set(__self__, "data_set_identifier", data_set_identifier)
         pulumi.set(__self__, "expression", expression)
         pulumi.set(__self__, "name", name)
-
-    @_builtins.property
-    @pulumi.getter(name="dataSetIdentifier")
-    def data_set_identifier(self) -> pulumi.Input[_builtins.str]:
-        """
-        The data set that is used in this calculated field.
-        """
-        return pulumi.get(self, "data_set_identifier")
-
-    @data_set_identifier.setter
-    def data_set_identifier(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "data_set_identifier", value)
+        if data_set_identifier is not None:
+            pulumi.set(__self__, "data_set_identifier", data_set_identifier)
+        if topic_identifier is not None:
+            pulumi.set(__self__, "topic_identifier", topic_identifier)
 
     @_builtins.property
     @pulumi.getter
@@ -7610,6 +7892,27 @@ class AnalysisCalculatedFieldArgs:
     @name.setter
     def name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="dataSetIdentifier")
+    def data_set_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The data set that is used in this calculated field.
+        """
+        return pulumi.get(self, "data_set_identifier")
+
+    @data_set_identifier.setter
+    def data_set_identifier(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "data_set_identifier", value)
+
+    @_builtins.property
+    @pulumi.getter(name="topicIdentifier")
+    def topic_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "topic_identifier")
+
+    @topic_identifier.setter
+    def topic_identifier(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "topic_identifier", value)
 
 
 class AnalysisCalculatedMeasureFieldArgsDict(TypedDict):
@@ -8398,6 +8701,7 @@ class AnalysisColumnConfigurationArgsDict(TypedDict):
     """
     The color configurations of the column.
     """
+    decal_settings_configuration: NotRequired[pulumi.Input[Optional['AnalysisDecalSettingsConfigurationArgsDict']]]
     format_configuration: NotRequired[pulumi.Input[Optional['AnalysisFormatConfigurationArgsDict']]]
     """
     The format configuration of a column.
@@ -8412,6 +8716,7 @@ class AnalysisColumnConfigurationArgs:
     def __init__(__self__, *,
                  column: pulumi.Input['AnalysisColumnIdentifierArgs'],
                  colors_configuration: pulumi.Input[Optional['AnalysisColorsConfigurationArgs']] = None,
+                 decal_settings_configuration: pulumi.Input[Optional['AnalysisDecalSettingsConfigurationArgs']] = None,
                  format_configuration: pulumi.Input[Optional['AnalysisFormatConfigurationArgs']] = None,
                  role: pulumi.Input[Optional['AnalysisColumnRole']] = None):
         """
@@ -8423,6 +8728,8 @@ class AnalysisColumnConfigurationArgs:
         pulumi.set(__self__, "column", column)
         if colors_configuration is not None:
             pulumi.set(__self__, "colors_configuration", colors_configuration)
+        if decal_settings_configuration is not None:
+            pulumi.set(__self__, "decal_settings_configuration", decal_settings_configuration)
         if format_configuration is not None:
             pulumi.set(__self__, "format_configuration", format_configuration)
         if role is not None:
@@ -8451,6 +8758,15 @@ class AnalysisColumnConfigurationArgs:
     @colors_configuration.setter
     def colors_configuration(self, value: pulumi.Input[Optional['AnalysisColorsConfigurationArgs']]):
         pulumi.set(self, "colors_configuration", value)
+
+    @_builtins.property
+    @pulumi.getter(name="decalSettingsConfiguration")
+    def decal_settings_configuration(self) -> pulumi.Input[Optional['AnalysisDecalSettingsConfigurationArgs']]:
+        return pulumi.get(self, "decal_settings_configuration")
+
+    @decal_settings_configuration.setter
+    def decal_settings_configuration(self, value: pulumi.Input[Optional['AnalysisDecalSettingsConfigurationArgs']]):
+        pulumi.set(self, "decal_settings_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="formatConfiguration")
@@ -8551,22 +8867,27 @@ class AnalysisColumnIdentifierArgsDict(TypedDict):
     """
     The name of the column.
     """
-    data_set_identifier: pulumi.Input[_builtins.str]
+    data_set_identifier: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The data set that the column belongs to.
     """
+    topic_identifier: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
 class AnalysisColumnIdentifierArgs:
     def __init__(__self__, *,
                  column_name: pulumi.Input[_builtins.str],
-                 data_set_identifier: pulumi.Input[_builtins.str]):
+                 data_set_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 topic_identifier: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] column_name: The name of the column.
         :param pulumi.Input[_builtins.str] data_set_identifier: The data set that the column belongs to.
         """
         pulumi.set(__self__, "column_name", column_name)
-        pulumi.set(__self__, "data_set_identifier", data_set_identifier)
+        if data_set_identifier is not None:
+            pulumi.set(__self__, "data_set_identifier", data_set_identifier)
+        if topic_identifier is not None:
+            pulumi.set(__self__, "topic_identifier", topic_identifier)
 
     @_builtins.property
     @pulumi.getter(name="columnName")
@@ -8582,15 +8903,24 @@ class AnalysisColumnIdentifierArgs:
 
     @_builtins.property
     @pulumi.getter(name="dataSetIdentifier")
-    def data_set_identifier(self) -> pulumi.Input[_builtins.str]:
+    def data_set_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The data set that the column belongs to.
         """
         return pulumi.get(self, "data_set_identifier")
 
     @data_set_identifier.setter
-    def data_set_identifier(self, value: pulumi.Input[_builtins.str]):
+    def data_set_identifier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "data_set_identifier", value)
+
+    @_builtins.property
+    @pulumi.getter(name="topicIdentifier")
+    def topic_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "topic_identifier")
+
+    @topic_identifier.setter
+    def topic_identifier(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "topic_identifier", value)
 
 
 class AnalysisColumnSortArgsDict(TypedDict):
@@ -8877,6 +9207,7 @@ class AnalysisComboChartConfigurationArgsDict(TypedDict):
     """
     The label options (label text, label visibility, and sort icon visibility) of a combo chart's color field well.
     """
+    default_series_settings: NotRequired[pulumi.Input[Optional['AnalysisComboChartDefaultSeriesSettingsArgsDict']]]
     field_wells: NotRequired[pulumi.Input[Optional['AnalysisComboChartFieldWellsArgsDict']]]
     """
     The field wells of the visual.
@@ -8915,6 +9246,7 @@ class AnalysisComboChartConfigurationArgsDict(TypedDict):
     """
     The label options (label text, label visibility, and sort icon visibility) of a combo chart's secondary y-axis(line) field well.
     """
+    series: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AnalysisComboSeriesItemArgsDict']]]]]
     single_axis_options: NotRequired[pulumi.Input[Optional['AnalysisSingleAxisOptionsArgsDict']]]
     sort_configuration: NotRequired[pulumi.Input[Optional['AnalysisComboChartSortConfigurationArgsDict']]]
     """
@@ -8937,6 +9269,7 @@ class AnalysisComboChartConfigurationArgs:
                  category_axis: pulumi.Input[Optional['AnalysisAxisDisplayOptionsArgs']] = None,
                  category_label_options: pulumi.Input[Optional['AnalysisChartAxisLabelOptionsArgs']] = None,
                  color_label_options: pulumi.Input[Optional['AnalysisChartAxisLabelOptionsArgs']] = None,
+                 default_series_settings: pulumi.Input[Optional['AnalysisComboChartDefaultSeriesSettingsArgs']] = None,
                  field_wells: pulumi.Input[Optional['AnalysisComboChartFieldWellsArgs']] = None,
                  interactions: pulumi.Input[Optional['AnalysisVisualInteractionOptionsArgs']] = None,
                  legend: pulumi.Input[Optional['AnalysisLegendOptionsArgs']] = None,
@@ -8946,6 +9279,7 @@ class AnalysisComboChartConfigurationArgs:
                  reference_lines: pulumi.Input[Optional[Sequence[pulumi.Input['AnalysisReferenceLineArgs']]]] = None,
                  secondary_y_axis_display_options: pulumi.Input[Optional['AnalysisAxisDisplayOptionsArgs']] = None,
                  secondary_y_axis_label_options: pulumi.Input[Optional['AnalysisChartAxisLabelOptionsArgs']] = None,
+                 series: pulumi.Input[Optional[Sequence[pulumi.Input['AnalysisComboSeriesItemArgs']]]] = None,
                  single_axis_options: pulumi.Input[Optional['AnalysisSingleAxisOptionsArgs']] = None,
                  sort_configuration: pulumi.Input[Optional['AnalysisComboChartSortConfigurationArgs']] = None,
                  tooltip: pulumi.Input[Optional['AnalysisTooltipOptionsArgs']] = None,
@@ -8987,6 +9321,8 @@ class AnalysisComboChartConfigurationArgs:
             pulumi.set(__self__, "category_label_options", category_label_options)
         if color_label_options is not None:
             pulumi.set(__self__, "color_label_options", color_label_options)
+        if default_series_settings is not None:
+            pulumi.set(__self__, "default_series_settings", default_series_settings)
         if field_wells is not None:
             pulumi.set(__self__, "field_wells", field_wells)
         if interactions is not None:
@@ -9005,6 +9341,8 @@ class AnalysisComboChartConfigurationArgs:
             pulumi.set(__self__, "secondary_y_axis_display_options", secondary_y_axis_display_options)
         if secondary_y_axis_label_options is not None:
             pulumi.set(__self__, "secondary_y_axis_label_options", secondary_y_axis_label_options)
+        if series is not None:
+            pulumi.set(__self__, "series", series)
         if single_axis_options is not None:
             pulumi.set(__self__, "single_axis_options", single_axis_options)
         if sort_configuration is not None:
@@ -9079,6 +9417,15 @@ class AnalysisComboChartConfigurationArgs:
     @color_label_options.setter
     def color_label_options(self, value: pulumi.Input[Optional['AnalysisChartAxisLabelOptionsArgs']]):
         pulumi.set(self, "color_label_options", value)
+
+    @_builtins.property
+    @pulumi.getter(name="defaultSeriesSettings")
+    def default_series_settings(self) -> pulumi.Input[Optional['AnalysisComboChartDefaultSeriesSettingsArgs']]:
+        return pulumi.get(self, "default_series_settings")
+
+    @default_series_settings.setter
+    def default_series_settings(self, value: pulumi.Input[Optional['AnalysisComboChartDefaultSeriesSettingsArgs']]):
+        pulumi.set(self, "default_series_settings", value)
 
     @_builtins.property
     @pulumi.getter(name="fieldWells")
@@ -9191,6 +9538,15 @@ class AnalysisComboChartConfigurationArgs:
         pulumi.set(self, "secondary_y_axis_label_options", value)
 
     @_builtins.property
+    @pulumi.getter
+    def series(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AnalysisComboSeriesItemArgs']]]]:
+        return pulumi.get(self, "series")
+
+    @series.setter
+    def series(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AnalysisComboSeriesItemArgs']]]]):
+        pulumi.set(self, "series", value)
+
+    @_builtins.property
     @pulumi.getter(name="singleAxisOptions")
     def single_axis_options(self) -> pulumi.Input[Optional['AnalysisSingleAxisOptionsArgs']]:
         return pulumi.get(self, "single_axis_options")
@@ -9234,6 +9590,65 @@ class AnalysisComboChartConfigurationArgs:
     @visual_palette.setter
     def visual_palette(self, value: pulumi.Input[Optional['AnalysisVisualPaletteArgs']]):
         pulumi.set(self, "visual_palette", value)
+
+
+class AnalysisComboChartDefaultSeriesSettingsArgsDict(TypedDict):
+    border_settings: NotRequired[pulumi.Input[Optional['AnalysisBorderSettingsArgsDict']]]
+    decal_settings: NotRequired[pulumi.Input[Optional['AnalysisDecalSettingsArgsDict']]]
+    line_style_settings: NotRequired[pulumi.Input[Optional['AnalysisLineChartLineStyleSettingsArgsDict']]]
+    marker_style_settings: NotRequired[pulumi.Input[Optional['AnalysisLineChartMarkerStyleSettingsArgsDict']]]
+
+@pulumi.input_type
+class AnalysisComboChartDefaultSeriesSettingsArgs:
+    def __init__(__self__, *,
+                 border_settings: pulumi.Input[Optional['AnalysisBorderSettingsArgs']] = None,
+                 decal_settings: pulumi.Input[Optional['AnalysisDecalSettingsArgs']] = None,
+                 line_style_settings: pulumi.Input[Optional['AnalysisLineChartLineStyleSettingsArgs']] = None,
+                 marker_style_settings: pulumi.Input[Optional['AnalysisLineChartMarkerStyleSettingsArgs']] = None):
+        if border_settings is not None:
+            pulumi.set(__self__, "border_settings", border_settings)
+        if decal_settings is not None:
+            pulumi.set(__self__, "decal_settings", decal_settings)
+        if line_style_settings is not None:
+            pulumi.set(__self__, "line_style_settings", line_style_settings)
+        if marker_style_settings is not None:
+            pulumi.set(__self__, "marker_style_settings", marker_style_settings)
+
+    @_builtins.property
+    @pulumi.getter(name="borderSettings")
+    def border_settings(self) -> pulumi.Input[Optional['AnalysisBorderSettingsArgs']]:
+        return pulumi.get(self, "border_settings")
+
+    @border_settings.setter
+    def border_settings(self, value: pulumi.Input[Optional['AnalysisBorderSettingsArgs']]):
+        pulumi.set(self, "border_settings", value)
+
+    @_builtins.property
+    @pulumi.getter(name="decalSettings")
+    def decal_settings(self) -> pulumi.Input[Optional['AnalysisDecalSettingsArgs']]:
+        return pulumi.get(self, "decal_settings")
+
+    @decal_settings.setter
+    def decal_settings(self, value: pulumi.Input[Optional['AnalysisDecalSettingsArgs']]):
+        pulumi.set(self, "decal_settings", value)
+
+    @_builtins.property
+    @pulumi.getter(name="lineStyleSettings")
+    def line_style_settings(self) -> pulumi.Input[Optional['AnalysisLineChartLineStyleSettingsArgs']]:
+        return pulumi.get(self, "line_style_settings")
+
+    @line_style_settings.setter
+    def line_style_settings(self, value: pulumi.Input[Optional['AnalysisLineChartLineStyleSettingsArgs']]):
+        pulumi.set(self, "line_style_settings", value)
+
+    @_builtins.property
+    @pulumi.getter(name="markerStyleSettings")
+    def marker_style_settings(self) -> pulumi.Input[Optional['AnalysisLineChartMarkerStyleSettingsArgs']]:
+        return pulumi.get(self, "marker_style_settings")
+
+    @marker_style_settings.setter
+    def marker_style_settings(self, value: pulumi.Input[Optional['AnalysisLineChartMarkerStyleSettingsArgs']]):
+        pulumi.set(self, "marker_style_settings", value)
 
 
 class AnalysisComboChartFieldWellsArgsDict(TypedDict):
@@ -9500,6 +9915,15 @@ class AnalysisComboChartVisualArgs:
     @visual_content_alt_text.setter
     def visual_content_alt_text(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "visual_content_alt_text", value)
+
+
+class AnalysisComboSeriesItemArgsDict(TypedDict):
+    pass
+
+@pulumi.input_type
+class AnalysisComboSeriesItemArgs:
+    def __init__(__self__):
+        pass
 
 
 class AnalysisComparisonConfigurationArgsDict(TypedDict):
@@ -10799,10 +11223,6 @@ class AnalysisCustomContentConfigurationArgs:
 
 
 class AnalysisCustomContentVisualArgsDict(TypedDict):
-    data_set_identifier: pulumi.Input[_builtins.str]
-    """
-    The dataset that is used to create the custom content visual. You can't create a visual without a dataset.
-    """
     visual_id: pulumi.Input[_builtins.str]
     """
     The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.
@@ -10815,6 +11235,10 @@ class AnalysisCustomContentVisualArgsDict(TypedDict):
     """
     The configuration of a `CustomContentVisual` .
     """
+    data_set_identifier: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The dataset that is used to create the custom content visual. You can't create a visual without a dataset.
+    """
     subtitle: NotRequired[pulumi.Input[Optional['AnalysisVisualSubtitleLabelOptionsArgsDict']]]
     """
     The subtitle that is displayed on the visual.
@@ -10823,6 +11247,7 @@ class AnalysisCustomContentVisualArgsDict(TypedDict):
     """
     The title that is displayed on the visual.
     """
+    topic_identifier: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     visual_content_alt_text: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The alt text for the visual.
@@ -10831,46 +11256,38 @@ class AnalysisCustomContentVisualArgsDict(TypedDict):
 @pulumi.input_type
 class AnalysisCustomContentVisualArgs:
     def __init__(__self__, *,
-                 data_set_identifier: pulumi.Input[_builtins.str],
                  visual_id: pulumi.Input[_builtins.str],
                  actions: pulumi.Input[Optional[Sequence[pulumi.Input['AnalysisVisualCustomActionArgs']]]] = None,
                  chart_configuration: pulumi.Input[Optional['AnalysisCustomContentConfigurationArgs']] = None,
+                 data_set_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                  subtitle: pulumi.Input[Optional['AnalysisVisualSubtitleLabelOptionsArgs']] = None,
                  title: pulumi.Input[Optional['AnalysisVisualTitleLabelOptionsArgs']] = None,
+                 topic_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                  visual_content_alt_text: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] data_set_identifier: The dataset that is used to create the custom content visual. You can't create a visual without a dataset.
         :param pulumi.Input[_builtins.str] visual_id: The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.
         :param pulumi.Input[Sequence[pulumi.Input['AnalysisVisualCustomActionArgs']]] actions: The list of custom actions that are configured for a visual.
         :param pulumi.Input['AnalysisCustomContentConfigurationArgs'] chart_configuration: The configuration of a `CustomContentVisual` .
+        :param pulumi.Input[_builtins.str] data_set_identifier: The dataset that is used to create the custom content visual. You can't create a visual without a dataset.
         :param pulumi.Input['AnalysisVisualSubtitleLabelOptionsArgs'] subtitle: The subtitle that is displayed on the visual.
         :param pulumi.Input['AnalysisVisualTitleLabelOptionsArgs'] title: The title that is displayed on the visual.
         :param pulumi.Input[_builtins.str] visual_content_alt_text: The alt text for the visual.
         """
-        pulumi.set(__self__, "data_set_identifier", data_set_identifier)
         pulumi.set(__self__, "visual_id", visual_id)
         if actions is not None:
             pulumi.set(__self__, "actions", actions)
         if chart_configuration is not None:
             pulumi.set(__self__, "chart_configuration", chart_configuration)
+        if data_set_identifier is not None:
+            pulumi.set(__self__, "data_set_identifier", data_set_identifier)
         if subtitle is not None:
             pulumi.set(__self__, "subtitle", subtitle)
         if title is not None:
             pulumi.set(__self__, "title", title)
+        if topic_identifier is not None:
+            pulumi.set(__self__, "topic_identifier", topic_identifier)
         if visual_content_alt_text is not None:
             pulumi.set(__self__, "visual_content_alt_text", visual_content_alt_text)
-
-    @_builtins.property
-    @pulumi.getter(name="dataSetIdentifier")
-    def data_set_identifier(self) -> pulumi.Input[_builtins.str]:
-        """
-        The dataset that is used to create the custom content visual. You can't create a visual without a dataset.
-        """
-        return pulumi.get(self, "data_set_identifier")
-
-    @data_set_identifier.setter
-    def data_set_identifier(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "data_set_identifier", value)
 
     @_builtins.property
     @pulumi.getter(name="visualId")
@@ -10909,6 +11326,18 @@ class AnalysisCustomContentVisualArgs:
         pulumi.set(self, "chart_configuration", value)
 
     @_builtins.property
+    @pulumi.getter(name="dataSetIdentifier")
+    def data_set_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The dataset that is used to create the custom content visual. You can't create a visual without a dataset.
+        """
+        return pulumi.get(self, "data_set_identifier")
+
+    @data_set_identifier.setter
+    def data_set_identifier(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "data_set_identifier", value)
+
+    @_builtins.property
     @pulumi.getter
     def subtitle(self) -> pulumi.Input[Optional['AnalysisVisualSubtitleLabelOptionsArgs']]:
         """
@@ -10931,6 +11360,15 @@ class AnalysisCustomContentVisualArgs:
     @title.setter
     def title(self, value: pulumi.Input[Optional['AnalysisVisualTitleLabelOptionsArgs']]):
         pulumi.set(self, "title", value)
+
+    @_builtins.property
+    @pulumi.getter(name="topicIdentifier")
+    def topic_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "topic_identifier")
+
+    @topic_identifier.setter
+    def topic_identifier(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "topic_identifier", value)
 
     @_builtins.property
     @pulumi.getter(name="visualContentAltText")
@@ -13021,6 +13459,98 @@ class AnalysisDateTimeValueWhenUnsetConfigurationArgs:
         pulumi.set(self, "value_when_unset_option", value)
 
 
+class AnalysisDecalSettingsArgsDict(TypedDict):
+    decal_color: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    decal_pattern_type: NotRequired[pulumi.Input[Optional['AnalysisDecalPatternType']]]
+    decal_style_type: NotRequired[pulumi.Input[Optional['AnalysisDecalStyleType']]]
+    decal_visibility: NotRequired[pulumi.Input[Optional['AnalysisVisibility']]]
+    element_value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+
+@pulumi.input_type
+class AnalysisDecalSettingsArgs:
+    def __init__(__self__, *,
+                 decal_color: pulumi.Input[Optional[_builtins.str]] = None,
+                 decal_pattern_type: pulumi.Input[Optional['AnalysisDecalPatternType']] = None,
+                 decal_style_type: pulumi.Input[Optional['AnalysisDecalStyleType']] = None,
+                 decal_visibility: pulumi.Input[Optional['AnalysisVisibility']] = None,
+                 element_value: pulumi.Input[Optional[_builtins.str]] = None):
+        if decal_color is not None:
+            pulumi.set(__self__, "decal_color", decal_color)
+        if decal_pattern_type is not None:
+            pulumi.set(__self__, "decal_pattern_type", decal_pattern_type)
+        if decal_style_type is not None:
+            pulumi.set(__self__, "decal_style_type", decal_style_type)
+        if decal_visibility is not None:
+            pulumi.set(__self__, "decal_visibility", decal_visibility)
+        if element_value is not None:
+            pulumi.set(__self__, "element_value", element_value)
+
+    @_builtins.property
+    @pulumi.getter(name="decalColor")
+    def decal_color(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "decal_color")
+
+    @decal_color.setter
+    def decal_color(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "decal_color", value)
+
+    @_builtins.property
+    @pulumi.getter(name="decalPatternType")
+    def decal_pattern_type(self) -> pulumi.Input[Optional['AnalysisDecalPatternType']]:
+        return pulumi.get(self, "decal_pattern_type")
+
+    @decal_pattern_type.setter
+    def decal_pattern_type(self, value: pulumi.Input[Optional['AnalysisDecalPatternType']]):
+        pulumi.set(self, "decal_pattern_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="decalStyleType")
+    def decal_style_type(self) -> pulumi.Input[Optional['AnalysisDecalStyleType']]:
+        return pulumi.get(self, "decal_style_type")
+
+    @decal_style_type.setter
+    def decal_style_type(self, value: pulumi.Input[Optional['AnalysisDecalStyleType']]):
+        pulumi.set(self, "decal_style_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="decalVisibility")
+    def decal_visibility(self) -> pulumi.Input[Optional['AnalysisVisibility']]:
+        return pulumi.get(self, "decal_visibility")
+
+    @decal_visibility.setter
+    def decal_visibility(self, value: pulumi.Input[Optional['AnalysisVisibility']]):
+        pulumi.set(self, "decal_visibility", value)
+
+    @_builtins.property
+    @pulumi.getter(name="elementValue")
+    def element_value(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "element_value")
+
+    @element_value.setter
+    def element_value(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "element_value", value)
+
+
+class AnalysisDecalSettingsConfigurationArgsDict(TypedDict):
+    custom_decal_settings: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AnalysisDecalSettingsArgsDict']]]]]
+
+@pulumi.input_type
+class AnalysisDecalSettingsConfigurationArgs:
+    def __init__(__self__, *,
+                 custom_decal_settings: pulumi.Input[Optional[Sequence[pulumi.Input['AnalysisDecalSettingsArgs']]]] = None):
+        if custom_decal_settings is not None:
+            pulumi.set(__self__, "custom_decal_settings", custom_decal_settings)
+
+    @_builtins.property
+    @pulumi.getter(name="customDecalSettings")
+    def custom_decal_settings(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AnalysisDecalSettingsArgs']]]]:
+        return pulumi.get(self, "custom_decal_settings")
+
+    @custom_decal_settings.setter
+    def custom_decal_settings(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AnalysisDecalSettingsArgs']]]]):
+        pulumi.set(self, "custom_decal_settings", value)
+
+
 class AnalysisDecimalDefaultValuesArgsDict(TypedDict):
     dynamic_value: NotRequired[pulumi.Input[Optional['AnalysisDynamicDefaultValueArgsDict']]]
     """
@@ -14298,8 +14828,9 @@ class AnalysisDefinitionArgsDict(TypedDict):
     """
     static_files: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AnalysisStaticFileArgsDict']]]]]
     """
-    The static files for the definition.
+    <p>The static files for the definition.</p>
     """
+    topic_identifier_declarations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AnalysisTopicIdentifierDeclarationArgsDict']]]]]
 
 @pulumi.input_type
 class AnalysisDefinitionArgs:
@@ -14313,7 +14844,8 @@ class AnalysisDefinitionArgs:
                  parameter_declarations: pulumi.Input[Optional[Sequence[pulumi.Input['AnalysisParameterDeclarationArgs']]]] = None,
                  query_execution_options: pulumi.Input[Optional['AnalysisQueryExecutionOptionsArgs']] = None,
                  sheets: pulumi.Input[Optional[Sequence[pulumi.Input['AnalysisSheetDefinitionArgs']]]] = None,
-                 static_files: pulumi.Input[Optional[Sequence[pulumi.Input['AnalysisStaticFileArgs']]]] = None):
+                 static_files: pulumi.Input[Optional[Sequence[pulumi.Input['AnalysisStaticFileArgs']]]] = None,
+                 topic_identifier_declarations: pulumi.Input[Optional[Sequence[pulumi.Input['AnalysisTopicIdentifierDeclarationArgs']]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['AnalysisDataSetIdentifierDeclarationArgs']]] data_set_identifier_declarations: An array of dataset identifier declarations. This mapping allows the usage of dataset identifiers instead of dataset ARNs throughout analysis sub-structures.
         :param pulumi.Input[Sequence[pulumi.Input['AnalysisCalculatedFieldArgs']]] calculated_fields: An array of calculated field definitions for the analysis.
@@ -14328,7 +14860,7 @@ class AnalysisDefinitionArgs:
                
                For more information, see [Parameters in Amazon Quick Sight](https://docs.aws.amazon.com/quicksight/latest/user/parameters-in-quicksight.html) in the *Amazon Quick Suite User Guide* .
         :param pulumi.Input[Sequence[pulumi.Input['AnalysisSheetDefinitionArgs']]] sheets: An array of sheet definitions for an analysis. Each `SheetDefinition` provides detailed information about a sheet within this analysis.
-        :param pulumi.Input[Sequence[pulumi.Input['AnalysisStaticFileArgs']]] static_files: The static files for the definition.
+        :param pulumi.Input[Sequence[pulumi.Input['AnalysisStaticFileArgs']]] static_files: <p>The static files for the definition.</p>
         """
         pulumi.set(__self__, "data_set_identifier_declarations", data_set_identifier_declarations)
         if analysis_defaults is not None:
@@ -14349,6 +14881,8 @@ class AnalysisDefinitionArgs:
             pulumi.set(__self__, "sheets", sheets)
         if static_files is not None:
             pulumi.set(__self__, "static_files", static_files)
+        if topic_identifier_declarations is not None:
+            pulumi.set(__self__, "topic_identifier_declarations", topic_identifier_declarations)
 
     @_builtins.property
     @pulumi.getter(name="dataSetIdentifierDeclarations")
@@ -14462,13 +14996,22 @@ class AnalysisDefinitionArgs:
     @pulumi.getter(name="staticFiles")
     def static_files(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AnalysisStaticFileArgs']]]]:
         """
-        The static files for the definition.
+        <p>The static files for the definition.</p>
         """
         return pulumi.get(self, "static_files")
 
     @static_files.setter
     def static_files(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AnalysisStaticFileArgs']]]]):
         pulumi.set(self, "static_files", value)
+
+    @_builtins.property
+    @pulumi.getter(name="topicIdentifierDeclarations")
+    def topic_identifier_declarations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AnalysisTopicIdentifierDeclarationArgs']]]]:
+        return pulumi.get(self, "topic_identifier_declarations")
+
+    @topic_identifier_declarations.setter
+    def topic_identifier_declarations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AnalysisTopicIdentifierDeclarationArgs']]]]):
+        pulumi.set(self, "topic_identifier_declarations", value)
 
 
 class AnalysisDestinationParameterValueConfigurationArgsDict(TypedDict):
@@ -14949,10 +15492,6 @@ class AnalysisDynamicDefaultValueArgs:
 
 
 class AnalysisEmptyVisualArgsDict(TypedDict):
-    data_set_identifier: pulumi.Input[_builtins.str]
-    """
-    The data set that is used in the empty visual. Every visual requires a dataset to render.
-    """
     visual_id: pulumi.Input[_builtins.str]
     """
     The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.
@@ -14961,34 +15500,31 @@ class AnalysisEmptyVisualArgsDict(TypedDict):
     """
     The list of custom actions that are configured for a visual.
     """
+    data_set_identifier: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The data set that is used in the empty visual. Every visual requires a dataset to render.
+    """
+    topic_identifier: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
 class AnalysisEmptyVisualArgs:
     def __init__(__self__, *,
-                 data_set_identifier: pulumi.Input[_builtins.str],
                  visual_id: pulumi.Input[_builtins.str],
-                 actions: pulumi.Input[Optional[Sequence[pulumi.Input['AnalysisVisualCustomActionArgs']]]] = None):
+                 actions: pulumi.Input[Optional[Sequence[pulumi.Input['AnalysisVisualCustomActionArgs']]]] = None,
+                 data_set_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 topic_identifier: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] data_set_identifier: The data set that is used in the empty visual. Every visual requires a dataset to render.
         :param pulumi.Input[_builtins.str] visual_id: The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.
         :param pulumi.Input[Sequence[pulumi.Input['AnalysisVisualCustomActionArgs']]] actions: The list of custom actions that are configured for a visual.
+        :param pulumi.Input[_builtins.str] data_set_identifier: The data set that is used in the empty visual. Every visual requires a dataset to render.
         """
-        pulumi.set(__self__, "data_set_identifier", data_set_identifier)
         pulumi.set(__self__, "visual_id", visual_id)
         if actions is not None:
             pulumi.set(__self__, "actions", actions)
-
-    @_builtins.property
-    @pulumi.getter(name="dataSetIdentifier")
-    def data_set_identifier(self) -> pulumi.Input[_builtins.str]:
-        """
-        The data set that is used in the empty visual. Every visual requires a dataset to render.
-        """
-        return pulumi.get(self, "data_set_identifier")
-
-    @data_set_identifier.setter
-    def data_set_identifier(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "data_set_identifier", value)
+        if data_set_identifier is not None:
+            pulumi.set(__self__, "data_set_identifier", data_set_identifier)
+        if topic_identifier is not None:
+            pulumi.set(__self__, "topic_identifier", topic_identifier)
 
     @_builtins.property
     @pulumi.getter(name="visualId")
@@ -15013,6 +15549,27 @@ class AnalysisEmptyVisualArgs:
     @actions.setter
     def actions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AnalysisVisualCustomActionArgs']]]]):
         pulumi.set(self, "actions", value)
+
+    @_builtins.property
+    @pulumi.getter(name="dataSetIdentifier")
+    def data_set_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The data set that is used in the empty visual. Every visual requires a dataset to render.
+        """
+        return pulumi.get(self, "data_set_identifier")
+
+    @data_set_identifier.setter
+    def data_set_identifier(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "data_set_identifier", value)
+
+    @_builtins.property
+    @pulumi.getter(name="topicIdentifier")
+    def topic_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "topic_identifier")
+
+    @topic_identifier.setter
+    def topic_identifier(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "topic_identifier", value)
 
 
 class AnalysisEntityArgsDict(TypedDict):
@@ -17947,7 +18504,7 @@ class AnalysisFontConfigurationArgsDict(TypedDict):
     """
     font_family: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The font family that you want to use.
+    <p>The font family that you want to use.</p>
     """
     font_size: NotRequired[pulumi.Input[Optional['AnalysisFontSizeArgsDict']]]
     """
@@ -17974,7 +18531,7 @@ class AnalysisFontConfigurationArgs:
         """
         :param pulumi.Input[_builtins.str] font_color: Determines the color of the text.
         :param pulumi.Input['AnalysisFontDecoration'] font_decoration: Determines the appearance of decorative lines on the text.
-        :param pulumi.Input[_builtins.str] font_family: The font family that you want to use.
+        :param pulumi.Input[_builtins.str] font_family: <p>The font family that you want to use.</p>
         :param pulumi.Input['AnalysisFontSizeArgs'] font_size: The option that determines the text display size.
         :param pulumi.Input['AnalysisFontStyle'] font_style: Determines the text display face that is inherited by the given font family.
         :param pulumi.Input['AnalysisFontWeightArgs'] font_weight: The option that determines the text display weight, or boldness.
@@ -18020,7 +18577,7 @@ class AnalysisFontConfigurationArgs:
     @pulumi.getter(name="fontFamily")
     def font_family(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The font family that you want to use.
+        <p>The font family that you want to use.</p>
         """
         return pulumi.get(self, "font_family")
 
@@ -18068,7 +18625,7 @@ class AnalysisFontConfigurationArgs:
 class AnalysisFontSizeArgsDict(TypedDict):
     absolute: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    String based length that is composed of value and unit in px
+    <p>The font size that you want to use in px.</p>
     """
     relative: NotRequired[pulumi.Input[Optional['AnalysisRelativeFontSize']]]
     """
@@ -18081,7 +18638,7 @@ class AnalysisFontSizeArgs:
                  absolute: pulumi.Input[Optional[_builtins.str]] = None,
                  relative: pulumi.Input[Optional['AnalysisRelativeFontSize']] = None):
         """
-        :param pulumi.Input[_builtins.str] absolute: String based length that is composed of value and unit in px
+        :param pulumi.Input[_builtins.str] absolute: <p>The font size that you want to use in px.</p>
         :param pulumi.Input['AnalysisRelativeFontSize'] relative: The lexical name for the text size, proportional to its surrounding context.
         """
         if absolute is not None:
@@ -18093,7 +18650,7 @@ class AnalysisFontSizeArgs:
     @pulumi.getter
     def absolute(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        String based length that is composed of value and unit in px
+        <p>The font size that you want to use in px.</p>
         """
         return pulumi.get(self, "absolute")
 
@@ -18582,18 +19139,22 @@ class AnalysisFreeFormLayoutConfigurationArgsDict(TypedDict):
     The elements that are included in a free-form layout.
     """
     canvas_size_options: NotRequired[pulumi.Input[Optional['AnalysisFreeFormLayoutCanvasSizeOptionsArgsDict']]]
+    groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AnalysisSheetLayoutGroupArgsDict']]]]]
 
 @pulumi.input_type
 class AnalysisFreeFormLayoutConfigurationArgs:
     def __init__(__self__, *,
                  elements: pulumi.Input[Sequence[pulumi.Input['AnalysisFreeFormLayoutElementArgs']]],
-                 canvas_size_options: pulumi.Input[Optional['AnalysisFreeFormLayoutCanvasSizeOptionsArgs']] = None):
+                 canvas_size_options: pulumi.Input[Optional['AnalysisFreeFormLayoutCanvasSizeOptionsArgs']] = None,
+                 groups: pulumi.Input[Optional[Sequence[pulumi.Input['AnalysisSheetLayoutGroupArgs']]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['AnalysisFreeFormLayoutElementArgs']]] elements: The elements that are included in a free-form layout.
         """
         pulumi.set(__self__, "elements", elements)
         if canvas_size_options is not None:
             pulumi.set(__self__, "canvas_size_options", canvas_size_options)
+        if groups is not None:
+            pulumi.set(__self__, "groups", groups)
 
     @_builtins.property
     @pulumi.getter
@@ -18615,6 +19176,15 @@ class AnalysisFreeFormLayoutConfigurationArgs:
     @canvas_size_options.setter
     def canvas_size_options(self, value: pulumi.Input[Optional['AnalysisFreeFormLayoutCanvasSizeOptionsArgs']]):
         pulumi.set(self, "canvas_size_options", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def groups(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AnalysisSheetLayoutGroupArgs']]]]:
+        return pulumi.get(self, "groups")
+
+    @groups.setter
+    def groups(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AnalysisSheetLayoutGroupArgs']]]]):
+        pulumi.set(self, "groups", value)
 
 
 class AnalysisFreeFormLayoutElementArgsDict(TypedDict):
@@ -18646,6 +19216,7 @@ class AnalysisFreeFormLayoutElementArgsDict(TypedDict):
     """
     The background style configuration of a free-form layout element.
     """
+    border_radius: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     border_style: NotRequired[pulumi.Input[Optional['AnalysisFreeFormLayoutElementBorderStyleArgsDict']]]
     """
     The border style configuration of a free-form layout element.
@@ -18654,6 +19225,7 @@ class AnalysisFreeFormLayoutElementArgsDict(TypedDict):
     """
     The loading animation configuration of a free-form layout element.
     """
+    padding: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     rendering_rules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AnalysisSheetElementRenderingRuleArgsDict']]]]]
     """
     The rendering rules that determine when an element should be displayed within a free-form layout.
@@ -18677,8 +19249,10 @@ class AnalysisFreeFormLayoutElementArgs:
                  x_axis_location: pulumi.Input[_builtins.str],
                  y_axis_location: pulumi.Input[_builtins.str],
                  background_style: pulumi.Input[Optional['AnalysisFreeFormLayoutElementBackgroundStyleArgs']] = None,
+                 border_radius: pulumi.Input[Optional[_builtins.str]] = None,
                  border_style: pulumi.Input[Optional['AnalysisFreeFormLayoutElementBorderStyleArgs']] = None,
                  loading_animation: pulumi.Input[Optional['AnalysisLoadingAnimationArgs']] = None,
+                 padding: pulumi.Input[Optional[_builtins.str]] = None,
                  rendering_rules: pulumi.Input[Optional[Sequence[pulumi.Input['AnalysisSheetElementRenderingRuleArgs']]]] = None,
                  selected_border_style: pulumi.Input[Optional['AnalysisFreeFormLayoutElementBorderStyleArgs']] = None,
                  visibility: pulumi.Input[Optional['AnalysisVisibility']] = None):
@@ -18704,10 +19278,14 @@ class AnalysisFreeFormLayoutElementArgs:
         pulumi.set(__self__, "y_axis_location", y_axis_location)
         if background_style is not None:
             pulumi.set(__self__, "background_style", background_style)
+        if border_radius is not None:
+            pulumi.set(__self__, "border_radius", border_radius)
         if border_style is not None:
             pulumi.set(__self__, "border_style", border_style)
         if loading_animation is not None:
             pulumi.set(__self__, "loading_animation", loading_animation)
+        if padding is not None:
+            pulumi.set(__self__, "padding", padding)
         if rendering_rules is not None:
             pulumi.set(__self__, "rendering_rules", rendering_rules)
         if selected_border_style is not None:
@@ -18800,6 +19378,15 @@ class AnalysisFreeFormLayoutElementArgs:
         pulumi.set(self, "background_style", value)
 
     @_builtins.property
+    @pulumi.getter(name="borderRadius")
+    def border_radius(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "border_radius")
+
+    @border_radius.setter
+    def border_radius(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "border_radius", value)
+
+    @_builtins.property
     @pulumi.getter(name="borderStyle")
     def border_style(self) -> pulumi.Input[Optional['AnalysisFreeFormLayoutElementBorderStyleArgs']]:
         """
@@ -18822,6 +19409,15 @@ class AnalysisFreeFormLayoutElementArgs:
     @loading_animation.setter
     def loading_animation(self, value: pulumi.Input[Optional['AnalysisLoadingAnimationArgs']]):
         pulumi.set(self, "loading_animation", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def padding(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "padding")
+
+    @padding.setter
+    def padding(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "padding", value)
 
     @_builtins.property
     @pulumi.getter(name="renderingRules")
@@ -18918,20 +19514,28 @@ class AnalysisFreeFormLayoutElementBorderStyleArgsDict(TypedDict):
     """
     The border visibility of a free-form layout element.
     """
+    width: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    String to encapsulate the most generic way Width can be formatted with whatever units (px, em etc)
+    """
 
 @pulumi.input_type
 class AnalysisFreeFormLayoutElementBorderStyleArgs:
     def __init__(__self__, *,
                  color: pulumi.Input[Optional[_builtins.str]] = None,
-                 visibility: pulumi.Input[Optional['AnalysisVisibility']] = None):
+                 visibility: pulumi.Input[Optional['AnalysisVisibility']] = None,
+                 width: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] color: The border color of a free-form layout element.
         :param pulumi.Input['AnalysisVisibility'] visibility: The border visibility of a free-form layout element.
+        :param pulumi.Input[_builtins.str] width: String to encapsulate the most generic way Width can be formatted with whatever units (px, em etc)
         """
         if color is not None:
             pulumi.set(__self__, "color", color)
         if visibility is not None:
             pulumi.set(__self__, "visibility", visibility)
+        if width is not None:
+            pulumi.set(__self__, "width", width)
 
     @_builtins.property
     @pulumi.getter
@@ -18956,6 +19560,18 @@ class AnalysisFreeFormLayoutElementBorderStyleArgs:
     @visibility.setter
     def visibility(self, value: pulumi.Input[Optional['AnalysisVisibility']]):
         pulumi.set(self, "visibility", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def width(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        String to encapsulate the most generic way Width can be formatted with whatever units (px, em etc)
+        """
+        return pulumi.get(self, "width")
+
+    @width.setter
+    def width(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "width", value)
 
 
 class AnalysisFreeFormLayoutScreenCanvasSizeOptionsArgsDict(TypedDict):
@@ -22781,14 +23397,20 @@ class AnalysisGridLayoutElementArgsDict(TypedDict):
     """
     The height of a grid element expressed as a number of grid rows.
     """
+    background_style: NotRequired[pulumi.Input[Optional['AnalysisGridLayoutElementBackgroundStyleArgsDict']]]
+    border_radius: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    border_style: NotRequired[pulumi.Input[Optional['AnalysisGridLayoutElementBorderStyleArgsDict']]]
     column_index: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     The column index for the upper left corner of an element.
     """
+    loading_animation: NotRequired[pulumi.Input[Optional['AnalysisLoadingAnimationArgsDict']]]
+    padding: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     row_index: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     The row index for the upper left corner of an element.
     """
+    selected_border_style: NotRequired[pulumi.Input[Optional['AnalysisGridLayoutElementBorderStyleArgsDict']]]
 
 @pulumi.input_type
 class AnalysisGridLayoutElementArgs:
@@ -22797,8 +23419,14 @@ class AnalysisGridLayoutElementArgs:
                  element_id: pulumi.Input[_builtins.str],
                  element_type: pulumi.Input['AnalysisLayoutElementType'],
                  row_span: pulumi.Input[_builtins.float],
+                 background_style: pulumi.Input[Optional['AnalysisGridLayoutElementBackgroundStyleArgs']] = None,
+                 border_radius: pulumi.Input[Optional[_builtins.str]] = None,
+                 border_style: pulumi.Input[Optional['AnalysisGridLayoutElementBorderStyleArgs']] = None,
                  column_index: pulumi.Input[Optional[_builtins.float]] = None,
-                 row_index: pulumi.Input[Optional[_builtins.float]] = None):
+                 loading_animation: pulumi.Input[Optional['AnalysisLoadingAnimationArgs']] = None,
+                 padding: pulumi.Input[Optional[_builtins.str]] = None,
+                 row_index: pulumi.Input[Optional[_builtins.float]] = None,
+                 selected_border_style: pulumi.Input[Optional['AnalysisGridLayoutElementBorderStyleArgs']] = None):
         """
         :param pulumi.Input[_builtins.float] column_span: The width of a grid element expressed as a number of grid columns.
         :param pulumi.Input[_builtins.str] element_id: A unique identifier for an element within a grid layout.
@@ -22811,10 +23439,22 @@ class AnalysisGridLayoutElementArgs:
         pulumi.set(__self__, "element_id", element_id)
         pulumi.set(__self__, "element_type", element_type)
         pulumi.set(__self__, "row_span", row_span)
+        if background_style is not None:
+            pulumi.set(__self__, "background_style", background_style)
+        if border_radius is not None:
+            pulumi.set(__self__, "border_radius", border_radius)
+        if border_style is not None:
+            pulumi.set(__self__, "border_style", border_style)
         if column_index is not None:
             pulumi.set(__self__, "column_index", column_index)
+        if loading_animation is not None:
+            pulumi.set(__self__, "loading_animation", loading_animation)
+        if padding is not None:
+            pulumi.set(__self__, "padding", padding)
         if row_index is not None:
             pulumi.set(__self__, "row_index", row_index)
+        if selected_border_style is not None:
+            pulumi.set(__self__, "selected_border_style", selected_border_style)
 
     @_builtins.property
     @pulumi.getter(name="columnSpan")
@@ -22865,6 +23505,33 @@ class AnalysisGridLayoutElementArgs:
         pulumi.set(self, "row_span", value)
 
     @_builtins.property
+    @pulumi.getter(name="backgroundStyle")
+    def background_style(self) -> pulumi.Input[Optional['AnalysisGridLayoutElementBackgroundStyleArgs']]:
+        return pulumi.get(self, "background_style")
+
+    @background_style.setter
+    def background_style(self, value: pulumi.Input[Optional['AnalysisGridLayoutElementBackgroundStyleArgs']]):
+        pulumi.set(self, "background_style", value)
+
+    @_builtins.property
+    @pulumi.getter(name="borderRadius")
+    def border_radius(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "border_radius")
+
+    @border_radius.setter
+    def border_radius(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "border_radius", value)
+
+    @_builtins.property
+    @pulumi.getter(name="borderStyle")
+    def border_style(self) -> pulumi.Input[Optional['AnalysisGridLayoutElementBorderStyleArgs']]:
+        return pulumi.get(self, "border_style")
+
+    @border_style.setter
+    def border_style(self, value: pulumi.Input[Optional['AnalysisGridLayoutElementBorderStyleArgs']]):
+        pulumi.set(self, "border_style", value)
+
+    @_builtins.property
     @pulumi.getter(name="columnIndex")
     def column_index(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
@@ -22877,6 +23544,24 @@ class AnalysisGridLayoutElementArgs:
         pulumi.set(self, "column_index", value)
 
     @_builtins.property
+    @pulumi.getter(name="loadingAnimation")
+    def loading_animation(self) -> pulumi.Input[Optional['AnalysisLoadingAnimationArgs']]:
+        return pulumi.get(self, "loading_animation")
+
+    @loading_animation.setter
+    def loading_animation(self, value: pulumi.Input[Optional['AnalysisLoadingAnimationArgs']]):
+        pulumi.set(self, "loading_animation", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def padding(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "padding")
+
+    @padding.setter
+    def padding(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "padding", value)
+
+    @_builtins.property
     @pulumi.getter(name="rowIndex")
     def row_index(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
@@ -22887,6 +23572,103 @@ class AnalysisGridLayoutElementArgs:
     @row_index.setter
     def row_index(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "row_index", value)
+
+    @_builtins.property
+    @pulumi.getter(name="selectedBorderStyle")
+    def selected_border_style(self) -> pulumi.Input[Optional['AnalysisGridLayoutElementBorderStyleArgs']]:
+        return pulumi.get(self, "selected_border_style")
+
+    @selected_border_style.setter
+    def selected_border_style(self, value: pulumi.Input[Optional['AnalysisGridLayoutElementBorderStyleArgs']]):
+        pulumi.set(self, "selected_border_style", value)
+
+
+class AnalysisGridLayoutElementBackgroundStyleArgsDict(TypedDict):
+    color: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    visibility: NotRequired[pulumi.Input[Optional['AnalysisVisibility']]]
+
+@pulumi.input_type
+class AnalysisGridLayoutElementBackgroundStyleArgs:
+    def __init__(__self__, *,
+                 color: pulumi.Input[Optional[_builtins.str]] = None,
+                 visibility: pulumi.Input[Optional['AnalysisVisibility']] = None):
+        if color is not None:
+            pulumi.set(__self__, "color", color)
+        if visibility is not None:
+            pulumi.set(__self__, "visibility", visibility)
+
+    @_builtins.property
+    @pulumi.getter
+    def color(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "color")
+
+    @color.setter
+    def color(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "color", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def visibility(self) -> pulumi.Input[Optional['AnalysisVisibility']]:
+        return pulumi.get(self, "visibility")
+
+    @visibility.setter
+    def visibility(self, value: pulumi.Input[Optional['AnalysisVisibility']]):
+        pulumi.set(self, "visibility", value)
+
+
+class AnalysisGridLayoutElementBorderStyleArgsDict(TypedDict):
+    color: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    visibility: NotRequired[pulumi.Input[Optional['AnalysisVisibility']]]
+    width: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    String to encapsulate the most generic way Width can be formatted with whatever units (px, em etc)
+    """
+
+@pulumi.input_type
+class AnalysisGridLayoutElementBorderStyleArgs:
+    def __init__(__self__, *,
+                 color: pulumi.Input[Optional[_builtins.str]] = None,
+                 visibility: pulumi.Input[Optional['AnalysisVisibility']] = None,
+                 width: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] width: String to encapsulate the most generic way Width can be formatted with whatever units (px, em etc)
+        """
+        if color is not None:
+            pulumi.set(__self__, "color", color)
+        if visibility is not None:
+            pulumi.set(__self__, "visibility", visibility)
+        if width is not None:
+            pulumi.set(__self__, "width", width)
+
+    @_builtins.property
+    @pulumi.getter
+    def color(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "color")
+
+    @color.setter
+    def color(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "color", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def visibility(self) -> pulumi.Input[Optional['AnalysisVisibility']]:
+        return pulumi.get(self, "visibility")
+
+    @visibility.setter
+    def visibility(self, value: pulumi.Input[Optional['AnalysisVisibility']]):
+        pulumi.set(self, "visibility", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def width(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        String to encapsulate the most generic way Width can be formatted with whatever units (px, em etc)
+        """
+        return pulumi.get(self, "width")
+
+    @width.setter
+    def width(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "width", value)
 
 
 class AnalysisGridLayoutScreenCanvasSizeOptionsArgsDict(TypedDict):
@@ -24486,10 +25268,6 @@ class AnalysisInsightConfigurationArgs:
 
 
 class AnalysisInsightVisualArgsDict(TypedDict):
-    data_set_identifier: pulumi.Input[_builtins.str]
-    """
-    The dataset that is used in the insight visual.
-    """
     visual_id: pulumi.Input[_builtins.str]
     """
     The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.
@@ -24497,6 +25275,10 @@ class AnalysisInsightVisualArgsDict(TypedDict):
     actions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AnalysisVisualCustomActionArgsDict']]]]]
     """
     The list of custom actions that are configured for a visual.
+    """
+    data_set_identifier: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The dataset that is used in the insight visual.
     """
     insight_configuration: NotRequired[pulumi.Input[Optional['AnalysisInsightConfigurationArgsDict']]]
     """
@@ -24510,6 +25292,7 @@ class AnalysisInsightVisualArgsDict(TypedDict):
     """
     The title that is displayed on the visual.
     """
+    topic_identifier: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     visual_content_alt_text: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The alt text for the visual.
@@ -24518,46 +25301,38 @@ class AnalysisInsightVisualArgsDict(TypedDict):
 @pulumi.input_type
 class AnalysisInsightVisualArgs:
     def __init__(__self__, *,
-                 data_set_identifier: pulumi.Input[_builtins.str],
                  visual_id: pulumi.Input[_builtins.str],
                  actions: pulumi.Input[Optional[Sequence[pulumi.Input['AnalysisVisualCustomActionArgs']]]] = None,
+                 data_set_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                  insight_configuration: pulumi.Input[Optional['AnalysisInsightConfigurationArgs']] = None,
                  subtitle: pulumi.Input[Optional['AnalysisVisualSubtitleLabelOptionsArgs']] = None,
                  title: pulumi.Input[Optional['AnalysisVisualTitleLabelOptionsArgs']] = None,
+                 topic_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                  visual_content_alt_text: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] data_set_identifier: The dataset that is used in the insight visual.
         :param pulumi.Input[_builtins.str] visual_id: The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.
         :param pulumi.Input[Sequence[pulumi.Input['AnalysisVisualCustomActionArgs']]] actions: The list of custom actions that are configured for a visual.
+        :param pulumi.Input[_builtins.str] data_set_identifier: The dataset that is used in the insight visual.
         :param pulumi.Input['AnalysisInsightConfigurationArgs'] insight_configuration: The configuration of an insight visual.
         :param pulumi.Input['AnalysisVisualSubtitleLabelOptionsArgs'] subtitle: The subtitle that is displayed on the visual.
         :param pulumi.Input['AnalysisVisualTitleLabelOptionsArgs'] title: The title that is displayed on the visual.
         :param pulumi.Input[_builtins.str] visual_content_alt_text: The alt text for the visual.
         """
-        pulumi.set(__self__, "data_set_identifier", data_set_identifier)
         pulumi.set(__self__, "visual_id", visual_id)
         if actions is not None:
             pulumi.set(__self__, "actions", actions)
+        if data_set_identifier is not None:
+            pulumi.set(__self__, "data_set_identifier", data_set_identifier)
         if insight_configuration is not None:
             pulumi.set(__self__, "insight_configuration", insight_configuration)
         if subtitle is not None:
             pulumi.set(__self__, "subtitle", subtitle)
         if title is not None:
             pulumi.set(__self__, "title", title)
+        if topic_identifier is not None:
+            pulumi.set(__self__, "topic_identifier", topic_identifier)
         if visual_content_alt_text is not None:
             pulumi.set(__self__, "visual_content_alt_text", visual_content_alt_text)
-
-    @_builtins.property
-    @pulumi.getter(name="dataSetIdentifier")
-    def data_set_identifier(self) -> pulumi.Input[_builtins.str]:
-        """
-        The dataset that is used in the insight visual.
-        """
-        return pulumi.get(self, "data_set_identifier")
-
-    @data_set_identifier.setter
-    def data_set_identifier(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "data_set_identifier", value)
 
     @_builtins.property
     @pulumi.getter(name="visualId")
@@ -24582,6 +25357,18 @@ class AnalysisInsightVisualArgs:
     @actions.setter
     def actions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AnalysisVisualCustomActionArgs']]]]):
         pulumi.set(self, "actions", value)
+
+    @_builtins.property
+    @pulumi.getter(name="dataSetIdentifier")
+    def data_set_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The dataset that is used in the insight visual.
+        """
+        return pulumi.get(self, "data_set_identifier")
+
+    @data_set_identifier.setter
+    def data_set_identifier(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "data_set_identifier", value)
 
     @_builtins.property
     @pulumi.getter(name="insightConfiguration")
@@ -24618,6 +25405,15 @@ class AnalysisInsightVisualArgs:
     @title.setter
     def title(self, value: pulumi.Input[Optional['AnalysisVisualTitleLabelOptionsArgs']]):
         pulumi.set(self, "title", value)
+
+    @_builtins.property
+    @pulumi.getter(name="topicIdentifier")
+    def topic_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "topic_identifier")
+
+    @topic_identifier.setter
+    def topic_identifier(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "topic_identifier", value)
 
     @_builtins.property
     @pulumi.getter(name="visualContentAltText")
@@ -26187,10 +26983,6 @@ class AnalysisLayerCustomActionOperationArgs:
 
 
 class AnalysisLayerMapVisualArgsDict(TypedDict):
-    data_set_identifier: pulumi.Input[_builtins.str]
-    """
-    The dataset that is used to create the layer map visual. You can't create a visual without a dataset.
-    """
     visual_id: pulumi.Input[_builtins.str]
     """
     The ID of the visual.
@@ -26199,8 +26991,13 @@ class AnalysisLayerMapVisualArgsDict(TypedDict):
     """
     The configuration settings of the visual.
     """
+    data_set_identifier: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The dataset that is used to create the layer map visual. You can't create a visual without a dataset.
+    """
     subtitle: NotRequired[pulumi.Input[Optional['AnalysisVisualSubtitleLabelOptionsArgsDict']]]
     title: NotRequired[pulumi.Input[Optional['AnalysisVisualTitleLabelOptionsArgsDict']]]
+    topic_identifier: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     visual_content_alt_text: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The alt text for the visual.
@@ -26209,40 +27006,32 @@ class AnalysisLayerMapVisualArgsDict(TypedDict):
 @pulumi.input_type
 class AnalysisLayerMapVisualArgs:
     def __init__(__self__, *,
-                 data_set_identifier: pulumi.Input[_builtins.str],
                  visual_id: pulumi.Input[_builtins.str],
                  chart_configuration: pulumi.Input[Optional['AnalysisGeospatialLayerMapConfigurationArgs']] = None,
+                 data_set_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                  subtitle: pulumi.Input[Optional['AnalysisVisualSubtitleLabelOptionsArgs']] = None,
                  title: pulumi.Input[Optional['AnalysisVisualTitleLabelOptionsArgs']] = None,
+                 topic_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                  visual_content_alt_text: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] data_set_identifier: The dataset that is used to create the layer map visual. You can't create a visual without a dataset.
         :param pulumi.Input[_builtins.str] visual_id: The ID of the visual.
         :param pulumi.Input['AnalysisGeospatialLayerMapConfigurationArgs'] chart_configuration: The configuration settings of the visual.
+        :param pulumi.Input[_builtins.str] data_set_identifier: The dataset that is used to create the layer map visual. You can't create a visual without a dataset.
         :param pulumi.Input[_builtins.str] visual_content_alt_text: The alt text for the visual.
         """
-        pulumi.set(__self__, "data_set_identifier", data_set_identifier)
         pulumi.set(__self__, "visual_id", visual_id)
         if chart_configuration is not None:
             pulumi.set(__self__, "chart_configuration", chart_configuration)
+        if data_set_identifier is not None:
+            pulumi.set(__self__, "data_set_identifier", data_set_identifier)
         if subtitle is not None:
             pulumi.set(__self__, "subtitle", subtitle)
         if title is not None:
             pulumi.set(__self__, "title", title)
+        if topic_identifier is not None:
+            pulumi.set(__self__, "topic_identifier", topic_identifier)
         if visual_content_alt_text is not None:
             pulumi.set(__self__, "visual_content_alt_text", visual_content_alt_text)
-
-    @_builtins.property
-    @pulumi.getter(name="dataSetIdentifier")
-    def data_set_identifier(self) -> pulumi.Input[_builtins.str]:
-        """
-        The dataset that is used to create the layer map visual. You can't create a visual without a dataset.
-        """
-        return pulumi.get(self, "data_set_identifier")
-
-    @data_set_identifier.setter
-    def data_set_identifier(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "data_set_identifier", value)
 
     @_builtins.property
     @pulumi.getter(name="visualId")
@@ -26269,6 +27058,18 @@ class AnalysisLayerMapVisualArgs:
         pulumi.set(self, "chart_configuration", value)
 
     @_builtins.property
+    @pulumi.getter(name="dataSetIdentifier")
+    def data_set_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The dataset that is used to create the layer map visual. You can't create a visual without a dataset.
+        """
+        return pulumi.get(self, "data_set_identifier")
+
+    @data_set_identifier.setter
+    def data_set_identifier(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "data_set_identifier", value)
+
+    @_builtins.property
     @pulumi.getter
     def subtitle(self) -> pulumi.Input[Optional['AnalysisVisualSubtitleLabelOptionsArgs']]:
         return pulumi.get(self, "subtitle")
@@ -26285,6 +27086,15 @@ class AnalysisLayerMapVisualArgs:
     @title.setter
     def title(self, value: pulumi.Input[Optional['AnalysisVisualTitleLabelOptionsArgs']]):
         pulumi.set(self, "title", value)
+
+    @_builtins.property
+    @pulumi.getter(name="topicIdentifier")
+    def topic_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "topic_identifier")
+
+    @topic_identifier.setter
+    def topic_identifier(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "topic_identifier", value)
 
     @_builtins.property
     @pulumi.getter(name="visualContentAltText")
@@ -27049,6 +27859,7 @@ class AnalysisLineChartDefaultSeriesSettingsArgsDict(TypedDict):
     """
     The axis to which you are binding all line series to.
     """
+    decal_settings: NotRequired[pulumi.Input[Optional['AnalysisDecalSettingsArgsDict']]]
     line_style_settings: NotRequired[pulumi.Input[Optional['AnalysisLineChartLineStyleSettingsArgsDict']]]
     """
     Line styles options for all line series in the visual.
@@ -27062,6 +27873,7 @@ class AnalysisLineChartDefaultSeriesSettingsArgsDict(TypedDict):
 class AnalysisLineChartDefaultSeriesSettingsArgs:
     def __init__(__self__, *,
                  axis_binding: pulumi.Input[Optional['AnalysisAxisBinding']] = None,
+                 decal_settings: pulumi.Input[Optional['AnalysisDecalSettingsArgs']] = None,
                  line_style_settings: pulumi.Input[Optional['AnalysisLineChartLineStyleSettingsArgs']] = None,
                  marker_style_settings: pulumi.Input[Optional['AnalysisLineChartMarkerStyleSettingsArgs']] = None):
         """
@@ -27071,6 +27883,8 @@ class AnalysisLineChartDefaultSeriesSettingsArgs:
         """
         if axis_binding is not None:
             pulumi.set(__self__, "axis_binding", axis_binding)
+        if decal_settings is not None:
+            pulumi.set(__self__, "decal_settings", decal_settings)
         if line_style_settings is not None:
             pulumi.set(__self__, "line_style_settings", line_style_settings)
         if marker_style_settings is not None:
@@ -27087,6 +27901,15 @@ class AnalysisLineChartDefaultSeriesSettingsArgs:
     @axis_binding.setter
     def axis_binding(self, value: pulumi.Input[Optional['AnalysisAxisBinding']]):
         pulumi.set(self, "axis_binding", value)
+
+    @_builtins.property
+    @pulumi.getter(name="decalSettings")
+    def decal_settings(self) -> pulumi.Input[Optional['AnalysisDecalSettingsArgs']]:
+        return pulumi.get(self, "decal_settings")
+
+    @decal_settings.setter
+    def decal_settings(self, value: pulumi.Input[Optional['AnalysisDecalSettingsArgs']]):
+        pulumi.set(self, "decal_settings", value)
 
     @_builtins.property
     @pulumi.getter(name="lineStyleSettings")
@@ -27363,6 +28186,7 @@ class AnalysisLineChartMarkerStyleSettingsArgs:
 
 
 class AnalysisLineChartSeriesSettingsArgsDict(TypedDict):
+    decal_settings: NotRequired[pulumi.Input[Optional['AnalysisDecalSettingsArgsDict']]]
     line_style_settings: NotRequired[pulumi.Input[Optional['AnalysisLineChartLineStyleSettingsArgsDict']]]
     """
     Line styles options for a line series in `LineChartVisual` .
@@ -27375,16 +28199,28 @@ class AnalysisLineChartSeriesSettingsArgsDict(TypedDict):
 @pulumi.input_type
 class AnalysisLineChartSeriesSettingsArgs:
     def __init__(__self__, *,
+                 decal_settings: pulumi.Input[Optional['AnalysisDecalSettingsArgs']] = None,
                  line_style_settings: pulumi.Input[Optional['AnalysisLineChartLineStyleSettingsArgs']] = None,
                  marker_style_settings: pulumi.Input[Optional['AnalysisLineChartMarkerStyleSettingsArgs']] = None):
         """
         :param pulumi.Input['AnalysisLineChartLineStyleSettingsArgs'] line_style_settings: Line styles options for a line series in `LineChartVisual` .
         :param pulumi.Input['AnalysisLineChartMarkerStyleSettingsArgs'] marker_style_settings: Marker styles options for a line series in `LineChartVisual` .
         """
+        if decal_settings is not None:
+            pulumi.set(__self__, "decal_settings", decal_settings)
         if line_style_settings is not None:
             pulumi.set(__self__, "line_style_settings", line_style_settings)
         if marker_style_settings is not None:
             pulumi.set(__self__, "marker_style_settings", marker_style_settings)
+
+    @_builtins.property
+    @pulumi.getter(name="decalSettings")
+    def decal_settings(self) -> pulumi.Input[Optional['AnalysisDecalSettingsArgs']]:
+        return pulumi.get(self, "decal_settings")
+
+    @decal_settings.setter
+    def decal_settings(self, value: pulumi.Input[Optional['AnalysisDecalSettingsArgs']]):
+        pulumi.set(self, "decal_settings", value)
 
     @_builtins.property
     @pulumi.getter(name="lineStyleSettings")
@@ -30997,7 +31833,7 @@ class AnalysisParameterTextFieldControlArgs:
 
 class AnalysisParametersArgsDict(TypedDict):
     """
-    <p>A list of Amazon QuickSight parameters and the list's override values.</p>
+    <p>A list of Quick parameters and the list's override values.</p>
     """
     date_time_parameters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AnalysisDateTimeParameterArgsDict']]]]]
     """
@@ -31024,7 +31860,7 @@ class AnalysisParametersArgs:
                  integer_parameters: pulumi.Input[Optional[Sequence[pulumi.Input['AnalysisIntegerParameterArgs']]]] = None,
                  string_parameters: pulumi.Input[Optional[Sequence[pulumi.Input['AnalysisStringParameterArgs']]]] = None):
         """
-        <p>A list of Amazon QuickSight parameters and the list's override values.</p>
+        <p>A list of Quick parameters and the list's override values.</p>
 
         :param pulumi.Input[Sequence[pulumi.Input['AnalysisDateTimeParameterArgs']]] date_time_parameters: <p>The parameters that have a data type of date-time.</p>
         :param pulumi.Input[Sequence[pulumi.Input['AnalysisDecimalParameterArgs']]] decimal_parameters: <p>The parameters that have a data type of decimal.</p>
@@ -36018,10 +36854,10 @@ class AnalysisResourcePermissionArgsDict(TypedDict):
                 following:</p>
              <ul>
                 <li>
-                   <p>The ARN of an Amazon QuickSight user or group associated with a data source or dataset. (This is common.)</p>
+                   <p>The ARN of an Amazon Quick user or group associated with a data source or dataset. (This is common.)</p>
                 </li>
                 <li>
-                   <p>The ARN of an Amazon QuickSight user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)</p>
+                   <p>The ARN of an Amazon Quick user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)</p>
                 </li>
                 <li>
                    <p>The ARN of an Amazon Web Services account root: This is an IAM ARN rather than a QuickSight
@@ -36044,10 +36880,10 @@ class AnalysisResourcePermissionArgs:
                            following:</p>
                         <ul>
                            <li>
-                              <p>The ARN of an Amazon QuickSight user or group associated with a data source or dataset. (This is common.)</p>
+                              <p>The ARN of an Amazon Quick user or group associated with a data source or dataset. (This is common.)</p>
                            </li>
                            <li>
-                              <p>The ARN of an Amazon QuickSight user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)</p>
+                              <p>The ARN of an Amazon Quick user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)</p>
                            </li>
                            <li>
                               <p>The ARN of an Amazon Web Services account root: This is an IAM ARN rather than a QuickSight
@@ -36079,10 +36915,10 @@ class AnalysisResourcePermissionArgs:
                     following:</p>
                  <ul>
                     <li>
-                       <p>The ARN of an Amazon QuickSight user or group associated with a data source or dataset. (This is common.)</p>
+                       <p>The ARN of an Amazon Quick user or group associated with a data source or dataset. (This is common.)</p>
                     </li>
                     <li>
-                       <p>The ARN of an Amazon QuickSight user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)</p>
+                       <p>The ARN of an Amazon Quick user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)</p>
                     </li>
                     <li>
                        <p>The ARN of an Amazon Web Services account root: This is an IAM ARN rather than a QuickSight
@@ -37908,14 +38744,14 @@ class AnalysisShapeConditionalFormatArgs:
 class AnalysisSheetArgsDict(TypedDict):
     """
     <p>A <i>sheet</i>, which is an object that contains a set of visuals that
-                are viewed together on one page in Amazon QuickSight. Every analysis and dashboard
+                are viewed together on one page in Amazon Quick. Every analysis and dashboard
                 contains at least one sheet. Each sheet contains at least one visualization widget, for
                 example a chart, pivot table, or narrative insight. Sheets can be associated with other
                 components, such as controls, filters, and so on.</p>
     """
     name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    <p>The name of a sheet. This name is displayed on the sheet's tab in the Amazon QuickSight
+    <p>The name of a sheet. This name is displayed on the sheet's tab in the Quick
                 console.</p>
     """
     sheet_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
@@ -37930,12 +38766,12 @@ class AnalysisSheetArgs:
                  sheet_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         <p>A <i>sheet</i>, which is an object that contains a set of visuals that
-                    are viewed together on one page in Amazon QuickSight. Every analysis and dashboard
+                    are viewed together on one page in Amazon Quick. Every analysis and dashboard
                     contains at least one sheet. Each sheet contains at least one visualization widget, for
                     example a chart, pivot table, or narrative insight. Sheets can be associated with other
                     components, such as controls, filters, and so on.</p>
 
-        :param pulumi.Input[_builtins.str] name: <p>The name of a sheet. This name is displayed on the sheet's tab in the Amazon QuickSight
+        :param pulumi.Input[_builtins.str] name: <p>The name of a sheet. This name is displayed on the sheet's tab in the Quick
                            console.</p>
         :param pulumi.Input[_builtins.str] sheet_id: <p>The unique identifier associated with a sheet.</p>
         """
@@ -37948,7 +38784,7 @@ class AnalysisSheetArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        <p>The name of a sheet. This name is displayed on the sheet's tab in the Amazon QuickSight
+        <p>The name of a sheet. This name is displayed on the sheet's tab in the Quick
                     console.</p>
         """
         return pulumi.get(self, "name")
@@ -38768,6 +39604,68 @@ class AnalysisSheetImageTooltipTextArgs:
         pulumi.set(self, "plain_text", value)
 
 
+class AnalysisSheetLayoutGroupArgsDict(TypedDict):
+    id: pulumi.Input[_builtins.str]
+    members: pulumi.Input[Sequence[pulumi.Input['AnalysisSheetLayoutGroupMemberArgsDict']]]
+
+@pulumi.input_type
+class AnalysisSheetLayoutGroupArgs:
+    def __init__(__self__, *,
+                 id: pulumi.Input[_builtins.str],
+                 members: pulumi.Input[Sequence[pulumi.Input['AnalysisSheetLayoutGroupMemberArgs']]]):
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "members", members)
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "id", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def members(self) -> pulumi.Input[Sequence[pulumi.Input['AnalysisSheetLayoutGroupMemberArgs']]]:
+        return pulumi.get(self, "members")
+
+    @members.setter
+    def members(self, value: pulumi.Input[Sequence[pulumi.Input['AnalysisSheetLayoutGroupMemberArgs']]]):
+        pulumi.set(self, "members", value)
+
+
+class AnalysisSheetLayoutGroupMemberArgsDict(TypedDict):
+    id: pulumi.Input[_builtins.str]
+    type: Any
+
+@pulumi.input_type
+class AnalysisSheetLayoutGroupMemberArgs:
+    def __init__(__self__, *,
+                 id: pulumi.Input[_builtins.str],
+                 type: Any):
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "id", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> Any:
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Any):
+        pulumi.set(self, "type", value)
+
+
 class AnalysisSheetTextBoxArgsDict(TypedDict):
     sheet_text_box_id: pulumi.Input[_builtins.str]
     """
@@ -39264,12 +40162,14 @@ class AnalysisSourceTemplateArgsDict(TypedDict):
     """
     <p>The dataset references of the source template of an analysis.</p>
     """
+    topic_references: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AnalysisTopicReferenceArgsDict']]]]]
 
 @pulumi.input_type
 class AnalysisSourceTemplateArgs:
     def __init__(__self__, *,
                  arn: pulumi.Input[_builtins.str],
-                 data_set_references: pulumi.Input[Sequence[pulumi.Input['AnalysisDataSetReferenceArgs']]]):
+                 data_set_references: pulumi.Input[Sequence[pulumi.Input['AnalysisDataSetReferenceArgs']]],
+                 topic_references: pulumi.Input[Optional[Sequence[pulumi.Input['AnalysisTopicReferenceArgs']]]] = None):
         """
         <p>The source template of an analysis.</p>
 
@@ -39278,6 +40178,8 @@ class AnalysisSourceTemplateArgs:
         """
         pulumi.set(__self__, "arn", arn)
         pulumi.set(__self__, "data_set_references", data_set_references)
+        if topic_references is not None:
+            pulumi.set(__self__, "topic_references", topic_references)
 
     @_builtins.property
     @pulumi.getter
@@ -39302,6 +40204,15 @@ class AnalysisSourceTemplateArgs:
     @data_set_references.setter
     def data_set_references(self, value: pulumi.Input[Sequence[pulumi.Input['AnalysisDataSetReferenceArgs']]]):
         pulumi.set(self, "data_set_references", value)
+
+    @_builtins.property
+    @pulumi.getter(name="topicReferences")
+    def topic_references(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AnalysisTopicReferenceArgs']]]]:
+        return pulumi.get(self, "topic_references")
+
+    @topic_references.setter
+    def topic_references(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AnalysisTopicReferenceArgs']]]]):
+        pulumi.set(self, "topic_references", value)
 
 
 class AnalysisSpacingArgsDict(TypedDict):
@@ -39391,6 +40302,128 @@ class AnalysisSpacingArgs:
     @top.setter
     def top(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "top", value)
+
+
+class AnalysisSparklinesOptionsArgsDict(TypedDict):
+    field_id: pulumi.Input[_builtins.str]
+    x_axis_field: pulumi.Input['AnalysisDimensionFieldArgsDict']
+    all_points_marker: NotRequired[pulumi.Input[Optional['AnalysisLineChartMarkerStyleSettingsArgsDict']]]
+    line_color: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    line_interpolation: NotRequired[pulumi.Input[Optional['AnalysisLineInterpolation']]]
+    max_value_marker: NotRequired[pulumi.Input[Optional['AnalysisLineChartMarkerStyleSettingsArgsDict']]]
+    min_value_marker: NotRequired[pulumi.Input[Optional['AnalysisLineChartMarkerStyleSettingsArgsDict']]]
+    visual_type: NotRequired[pulumi.Input[Optional['AnalysisSparklineVisualType']]]
+    y_axis_behavior: NotRequired[pulumi.Input[Optional['AnalysisSparklineAxisBehavior']]]
+
+@pulumi.input_type
+class AnalysisSparklinesOptionsArgs:
+    def __init__(__self__, *,
+                 field_id: pulumi.Input[_builtins.str],
+                 x_axis_field: pulumi.Input['AnalysisDimensionFieldArgs'],
+                 all_points_marker: pulumi.Input[Optional['AnalysisLineChartMarkerStyleSettingsArgs']] = None,
+                 line_color: pulumi.Input[Optional[_builtins.str]] = None,
+                 line_interpolation: pulumi.Input[Optional['AnalysisLineInterpolation']] = None,
+                 max_value_marker: pulumi.Input[Optional['AnalysisLineChartMarkerStyleSettingsArgs']] = None,
+                 min_value_marker: pulumi.Input[Optional['AnalysisLineChartMarkerStyleSettingsArgs']] = None,
+                 visual_type: pulumi.Input[Optional['AnalysisSparklineVisualType']] = None,
+                 y_axis_behavior: pulumi.Input[Optional['AnalysisSparklineAxisBehavior']] = None):
+        pulumi.set(__self__, "field_id", field_id)
+        pulumi.set(__self__, "x_axis_field", x_axis_field)
+        if all_points_marker is not None:
+            pulumi.set(__self__, "all_points_marker", all_points_marker)
+        if line_color is not None:
+            pulumi.set(__self__, "line_color", line_color)
+        if line_interpolation is not None:
+            pulumi.set(__self__, "line_interpolation", line_interpolation)
+        if max_value_marker is not None:
+            pulumi.set(__self__, "max_value_marker", max_value_marker)
+        if min_value_marker is not None:
+            pulumi.set(__self__, "min_value_marker", min_value_marker)
+        if visual_type is not None:
+            pulumi.set(__self__, "visual_type", visual_type)
+        if y_axis_behavior is not None:
+            pulumi.set(__self__, "y_axis_behavior", y_axis_behavior)
+
+    @_builtins.property
+    @pulumi.getter(name="fieldId")
+    def field_id(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "field_id")
+
+    @field_id.setter
+    def field_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "field_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="xAxisField")
+    def x_axis_field(self) -> pulumi.Input['AnalysisDimensionFieldArgs']:
+        return pulumi.get(self, "x_axis_field")
+
+    @x_axis_field.setter
+    def x_axis_field(self, value: pulumi.Input['AnalysisDimensionFieldArgs']):
+        pulumi.set(self, "x_axis_field", value)
+
+    @_builtins.property
+    @pulumi.getter(name="allPointsMarker")
+    def all_points_marker(self) -> pulumi.Input[Optional['AnalysisLineChartMarkerStyleSettingsArgs']]:
+        return pulumi.get(self, "all_points_marker")
+
+    @all_points_marker.setter
+    def all_points_marker(self, value: pulumi.Input[Optional['AnalysisLineChartMarkerStyleSettingsArgs']]):
+        pulumi.set(self, "all_points_marker", value)
+
+    @_builtins.property
+    @pulumi.getter(name="lineColor")
+    def line_color(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "line_color")
+
+    @line_color.setter
+    def line_color(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "line_color", value)
+
+    @_builtins.property
+    @pulumi.getter(name="lineInterpolation")
+    def line_interpolation(self) -> pulumi.Input[Optional['AnalysisLineInterpolation']]:
+        return pulumi.get(self, "line_interpolation")
+
+    @line_interpolation.setter
+    def line_interpolation(self, value: pulumi.Input[Optional['AnalysisLineInterpolation']]):
+        pulumi.set(self, "line_interpolation", value)
+
+    @_builtins.property
+    @pulumi.getter(name="maxValueMarker")
+    def max_value_marker(self) -> pulumi.Input[Optional['AnalysisLineChartMarkerStyleSettingsArgs']]:
+        return pulumi.get(self, "max_value_marker")
+
+    @max_value_marker.setter
+    def max_value_marker(self, value: pulumi.Input[Optional['AnalysisLineChartMarkerStyleSettingsArgs']]):
+        pulumi.set(self, "max_value_marker", value)
+
+    @_builtins.property
+    @pulumi.getter(name="minValueMarker")
+    def min_value_marker(self) -> pulumi.Input[Optional['AnalysisLineChartMarkerStyleSettingsArgs']]:
+        return pulumi.get(self, "min_value_marker")
+
+    @min_value_marker.setter
+    def min_value_marker(self, value: pulumi.Input[Optional['AnalysisLineChartMarkerStyleSettingsArgs']]):
+        pulumi.set(self, "min_value_marker", value)
+
+    @_builtins.property
+    @pulumi.getter(name="visualType")
+    def visual_type(self) -> pulumi.Input[Optional['AnalysisSparklineVisualType']]:
+        return pulumi.get(self, "visual_type")
+
+    @visual_type.setter
+    def visual_type(self, value: pulumi.Input[Optional['AnalysisSparklineVisualType']]):
+        pulumi.set(self, "visual_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="yAxisBehavior")
+    def y_axis_behavior(self) -> pulumi.Input[Optional['AnalysisSparklineAxisBehavior']]:
+        return pulumi.get(self, "y_axis_behavior")
+
+    @y_axis_behavior.setter
+    def y_axis_behavior(self, value: pulumi.Input[Optional['AnalysisSparklineAxisBehavior']]):
+        pulumi.set(self, "y_axis_behavior", value)
 
 
 class AnalysisSpatialStaticFileArgsDict(TypedDict):
@@ -41223,16 +42256,20 @@ class AnalysisTableInlineVisualizationArgsDict(TypedDict):
     """
     The configuration of the inline visualization of the data bars within a chart.
     """
+    sparklines: NotRequired[pulumi.Input[Optional['AnalysisSparklinesOptionsArgsDict']]]
 
 @pulumi.input_type
 class AnalysisTableInlineVisualizationArgs:
     def __init__(__self__, *,
-                 data_bars: pulumi.Input[Optional['AnalysisDataBarsOptionsArgs']] = None):
+                 data_bars: pulumi.Input[Optional['AnalysisDataBarsOptionsArgs']] = None,
+                 sparklines: pulumi.Input[Optional['AnalysisSparklinesOptionsArgs']] = None):
         """
         :param pulumi.Input['AnalysisDataBarsOptionsArgs'] data_bars: The configuration of the inline visualization of the data bars within a chart.
         """
         if data_bars is not None:
             pulumi.set(__self__, "data_bars", data_bars)
+        if sparklines is not None:
+            pulumi.set(__self__, "sparklines", sparklines)
 
     @_builtins.property
     @pulumi.getter(name="dataBars")
@@ -41245,6 +42282,15 @@ class AnalysisTableInlineVisualizationArgs:
     @data_bars.setter
     def data_bars(self, value: pulumi.Input[Optional['AnalysisDataBarsOptionsArgs']]):
         pulumi.set(self, "data_bars", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def sparklines(self) -> pulumi.Input[Optional['AnalysisSparklinesOptionsArgs']]:
+        return pulumi.get(self, "sparklines")
+
+    @sparklines.setter
+    def sparklines(self, value: pulumi.Input[Optional['AnalysisSparklinesOptionsArgs']]):
+        pulumi.set(self, "sparklines", value)
 
 
 class AnalysisTableOptionsArgsDict(TypedDict):
@@ -43409,6 +44455,68 @@ class AnalysisTopBottomRankedComputationArgs:
     @value.setter
     def value(self, value: pulumi.Input[Optional['AnalysisMeasureFieldArgs']]):
         pulumi.set(self, "value", value)
+
+
+class AnalysisTopicIdentifierDeclarationArgsDict(TypedDict):
+    identifier: pulumi.Input[_builtins.str]
+    topic_arn: pulumi.Input[_builtins.str]
+
+@pulumi.input_type
+class AnalysisTopicIdentifierDeclarationArgs:
+    def __init__(__self__, *,
+                 identifier: pulumi.Input[_builtins.str],
+                 topic_arn: pulumi.Input[_builtins.str]):
+        pulumi.set(__self__, "identifier", identifier)
+        pulumi.set(__self__, "topic_arn", topic_arn)
+
+    @_builtins.property
+    @pulumi.getter
+    def identifier(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "identifier")
+
+    @identifier.setter
+    def identifier(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "identifier", value)
+
+    @_builtins.property
+    @pulumi.getter(name="topicArn")
+    def topic_arn(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "topic_arn")
+
+    @topic_arn.setter
+    def topic_arn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "topic_arn", value)
+
+
+class AnalysisTopicReferenceArgsDict(TypedDict):
+    topic_arn: pulumi.Input[_builtins.str]
+    topic_placeholder: pulumi.Input[_builtins.str]
+
+@pulumi.input_type
+class AnalysisTopicReferenceArgs:
+    def __init__(__self__, *,
+                 topic_arn: pulumi.Input[_builtins.str],
+                 topic_placeholder: pulumi.Input[_builtins.str]):
+        pulumi.set(__self__, "topic_arn", topic_arn)
+        pulumi.set(__self__, "topic_placeholder", topic_placeholder)
+
+    @_builtins.property
+    @pulumi.getter(name="topicArn")
+    def topic_arn(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "topic_arn")
+
+    @topic_arn.setter
+    def topic_arn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "topic_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="topicPlaceholder")
+    def topic_placeholder(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "topic_placeholder")
+
+    @topic_placeholder.setter
+    def topic_placeholder(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "topic_placeholder", value)
 
 
 class AnalysisTotalAggregationComputationArgsDict(TypedDict):
@@ -51399,6 +52507,7 @@ class DashboardBarChartConfigurationArgsDict(TypedDict):
     """
     The options that determine if visual data labels are displayed.
     """
+    default_series_settings: NotRequired[pulumi.Input[Optional['DashboardBarChartDefaultSeriesSettingsArgsDict']]]
     field_wells: NotRequired[pulumi.Input[Optional['DashboardBarChartFieldWellsArgsDict']]]
     """
     The field wells of the visual.
@@ -51422,6 +52531,7 @@ class DashboardBarChartConfigurationArgsDict(TypedDict):
     """
     The reference line setup of the visual.
     """
+    series: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DashboardBarSeriesItemArgsDict']]]]]
     small_multiples_options: NotRequired[pulumi.Input[Optional['DashboardSmallMultiplesOptionsArgsDict']]]
     """
     The small multiples setup for the visual.
@@ -51456,11 +52566,13 @@ class DashboardBarChartConfigurationArgs:
                  color_label_options: pulumi.Input[Optional['DashboardChartAxisLabelOptionsArgs']] = None,
                  contribution_analysis_defaults: pulumi.Input[Optional[Sequence[pulumi.Input['DashboardContributionAnalysisDefaultArgs']]]] = None,
                  data_labels: pulumi.Input[Optional['DashboardDataLabelOptionsArgs']] = None,
+                 default_series_settings: pulumi.Input[Optional['DashboardBarChartDefaultSeriesSettingsArgs']] = None,
                  field_wells: pulumi.Input[Optional['DashboardBarChartFieldWellsArgs']] = None,
                  interactions: pulumi.Input[Optional['DashboardVisualInteractionOptionsArgs']] = None,
                  legend: pulumi.Input[Optional['DashboardLegendOptionsArgs']] = None,
                  orientation: pulumi.Input[Optional['DashboardBarChartOrientation']] = None,
                  reference_lines: pulumi.Input[Optional[Sequence[pulumi.Input['DashboardReferenceLineArgs']]]] = None,
+                 series: pulumi.Input[Optional[Sequence[pulumi.Input['DashboardBarSeriesItemArgs']]]] = None,
                  small_multiples_options: pulumi.Input[Optional['DashboardSmallMultiplesOptionsArgs']] = None,
                  sort_configuration: pulumi.Input[Optional['DashboardBarChartSortConfigurationArgs']] = None,
                  tooltip: pulumi.Input[Optional['DashboardTooltipOptionsArgs']] = None,
@@ -51501,6 +52613,8 @@ class DashboardBarChartConfigurationArgs:
             pulumi.set(__self__, "contribution_analysis_defaults", contribution_analysis_defaults)
         if data_labels is not None:
             pulumi.set(__self__, "data_labels", data_labels)
+        if default_series_settings is not None:
+            pulumi.set(__self__, "default_series_settings", default_series_settings)
         if field_wells is not None:
             pulumi.set(__self__, "field_wells", field_wells)
         if interactions is not None:
@@ -51511,6 +52625,8 @@ class DashboardBarChartConfigurationArgs:
             pulumi.set(__self__, "orientation", orientation)
         if reference_lines is not None:
             pulumi.set(__self__, "reference_lines", reference_lines)
+        if series is not None:
+            pulumi.set(__self__, "series", series)
         if small_multiples_options is not None:
             pulumi.set(__self__, "small_multiples_options", small_multiples_options)
         if sort_configuration is not None:
@@ -51597,6 +52713,15 @@ class DashboardBarChartConfigurationArgs:
         pulumi.set(self, "data_labels", value)
 
     @_builtins.property
+    @pulumi.getter(name="defaultSeriesSettings")
+    def default_series_settings(self) -> pulumi.Input[Optional['DashboardBarChartDefaultSeriesSettingsArgs']]:
+        return pulumi.get(self, "default_series_settings")
+
+    @default_series_settings.setter
+    def default_series_settings(self, value: pulumi.Input[Optional['DashboardBarChartDefaultSeriesSettingsArgs']]):
+        pulumi.set(self, "default_series_settings", value)
+
+    @_builtins.property
     @pulumi.getter(name="fieldWells")
     def field_wells(self) -> pulumi.Input[Optional['DashboardBarChartFieldWellsArgs']]:
         """
@@ -51658,6 +52783,15 @@ class DashboardBarChartConfigurationArgs:
     @reference_lines.setter
     def reference_lines(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DashboardReferenceLineArgs']]]]):
         pulumi.set(self, "reference_lines", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def series(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DashboardBarSeriesItemArgs']]]]:
+        return pulumi.get(self, "series")
+
+    @series.setter
+    def series(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DashboardBarSeriesItemArgs']]]]):
+        pulumi.set(self, "series", value)
 
     @_builtins.property
     @pulumi.getter(name="smallMultiplesOptions")
@@ -51730,6 +52864,39 @@ class DashboardBarChartConfigurationArgs:
     @visual_palette.setter
     def visual_palette(self, value: pulumi.Input[Optional['DashboardVisualPaletteArgs']]):
         pulumi.set(self, "visual_palette", value)
+
+
+class DashboardBarChartDefaultSeriesSettingsArgsDict(TypedDict):
+    border_settings: NotRequired[pulumi.Input[Optional['DashboardBorderSettingsArgsDict']]]
+    decal_settings: NotRequired[pulumi.Input[Optional['DashboardDecalSettingsArgsDict']]]
+
+@pulumi.input_type
+class DashboardBarChartDefaultSeriesSettingsArgs:
+    def __init__(__self__, *,
+                 border_settings: pulumi.Input[Optional['DashboardBorderSettingsArgs']] = None,
+                 decal_settings: pulumi.Input[Optional['DashboardDecalSettingsArgs']] = None):
+        if border_settings is not None:
+            pulumi.set(__self__, "border_settings", border_settings)
+        if decal_settings is not None:
+            pulumi.set(__self__, "decal_settings", decal_settings)
+
+    @_builtins.property
+    @pulumi.getter(name="borderSettings")
+    def border_settings(self) -> pulumi.Input[Optional['DashboardBorderSettingsArgs']]:
+        return pulumi.get(self, "border_settings")
+
+    @border_settings.setter
+    def border_settings(self, value: pulumi.Input[Optional['DashboardBorderSettingsArgs']]):
+        pulumi.set(self, "border_settings", value)
+
+    @_builtins.property
+    @pulumi.getter(name="decalSettings")
+    def decal_settings(self) -> pulumi.Input[Optional['DashboardDecalSettingsArgs']]:
+        return pulumi.get(self, "decal_settings")
+
+    @decal_settings.setter
+    def decal_settings(self, value: pulumi.Input[Optional['DashboardDecalSettingsArgs']]):
+        pulumi.set(self, "decal_settings", value)
 
 
 class DashboardBarChartFieldWellsArgsDict(TypedDict):
@@ -52036,6 +53203,15 @@ class DashboardBarChartVisualArgs:
     @visual_content_alt_text.setter
     def visual_content_alt_text(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "visual_content_alt_text", value)
+
+
+class DashboardBarSeriesItemArgsDict(TypedDict):
+    pass
+
+@pulumi.input_type
+class DashboardBarSeriesItemArgs:
+    def __init__(__self__):
+        pass
 
 
 class DashboardBinCountOptionsArgsDict(TypedDict):
@@ -52510,6 +53686,61 @@ class DashboardBodySectionRepeatPageBreakConfigurationArgs:
     @after.setter
     def after(self, value: pulumi.Input[Optional['DashboardSectionAfterPageBreakArgs']]):
         pulumi.set(self, "after", value)
+
+
+class DashboardBorderSettingsArgsDict(TypedDict):
+    border_color: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    border_visibility: NotRequired[pulumi.Input[Optional['DashboardVisibility']]]
+    border_width: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    String based length that is composed of value and unit in px
+    """
+
+@pulumi.input_type
+class DashboardBorderSettingsArgs:
+    def __init__(__self__, *,
+                 border_color: pulumi.Input[Optional[_builtins.str]] = None,
+                 border_visibility: pulumi.Input[Optional['DashboardVisibility']] = None,
+                 border_width: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] border_width: String based length that is composed of value and unit in px
+        """
+        if border_color is not None:
+            pulumi.set(__self__, "border_color", border_color)
+        if border_visibility is not None:
+            pulumi.set(__self__, "border_visibility", border_visibility)
+        if border_width is not None:
+            pulumi.set(__self__, "border_width", border_width)
+
+    @_builtins.property
+    @pulumi.getter(name="borderColor")
+    def border_color(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "border_color")
+
+    @border_color.setter
+    def border_color(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "border_color", value)
+
+    @_builtins.property
+    @pulumi.getter(name="borderVisibility")
+    def border_visibility(self) -> pulumi.Input[Optional['DashboardVisibility']]:
+        return pulumi.get(self, "border_visibility")
+
+    @border_visibility.setter
+    def border_visibility(self, value: pulumi.Input[Optional['DashboardVisibility']]):
+        pulumi.set(self, "border_visibility", value)
+
+    @_builtins.property
+    @pulumi.getter(name="borderWidth")
+    def border_width(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        String based length that is composed of value and unit in px
+        """
+        return pulumi.get(self, "border_width")
+
+    @border_width.setter
+    def border_width(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "border_width", value)
 
 
 class DashboardBoxPlotAggregatedFieldWellsArgsDict(TypedDict):
@@ -53128,10 +54359,6 @@ class DashboardBoxPlotVisualArgs:
 
 
 class DashboardCalculatedFieldArgsDict(TypedDict):
-    data_set_identifier: pulumi.Input[_builtins.str]
-    """
-    The data set that is used in this calculated field.
-    """
     expression: pulumi.Input[_builtins.str]
     """
     The expression of the calculated field.
@@ -53140,33 +54367,30 @@ class DashboardCalculatedFieldArgsDict(TypedDict):
     """
     The name of the calculated field.
     """
+    data_set_identifier: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The data set that is used in this calculated field.
+    """
+    topic_identifier: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
 class DashboardCalculatedFieldArgs:
     def __init__(__self__, *,
-                 data_set_identifier: pulumi.Input[_builtins.str],
                  expression: pulumi.Input[_builtins.str],
-                 name: pulumi.Input[_builtins.str]):
+                 name: pulumi.Input[_builtins.str],
+                 data_set_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 topic_identifier: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] data_set_identifier: The data set that is used in this calculated field.
         :param pulumi.Input[_builtins.str] expression: The expression of the calculated field.
         :param pulumi.Input[_builtins.str] name: The name of the calculated field.
+        :param pulumi.Input[_builtins.str] data_set_identifier: The data set that is used in this calculated field.
         """
-        pulumi.set(__self__, "data_set_identifier", data_set_identifier)
         pulumi.set(__self__, "expression", expression)
         pulumi.set(__self__, "name", name)
-
-    @_builtins.property
-    @pulumi.getter(name="dataSetIdentifier")
-    def data_set_identifier(self) -> pulumi.Input[_builtins.str]:
-        """
-        The data set that is used in this calculated field.
-        """
-        return pulumi.get(self, "data_set_identifier")
-
-    @data_set_identifier.setter
-    def data_set_identifier(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "data_set_identifier", value)
+        if data_set_identifier is not None:
+            pulumi.set(__self__, "data_set_identifier", data_set_identifier)
+        if topic_identifier is not None:
+            pulumi.set(__self__, "topic_identifier", topic_identifier)
 
     @_builtins.property
     @pulumi.getter
@@ -53191,6 +54415,27 @@ class DashboardCalculatedFieldArgs:
     @name.setter
     def name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="dataSetIdentifier")
+    def data_set_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The data set that is used in this calculated field.
+        """
+        return pulumi.get(self, "data_set_identifier")
+
+    @data_set_identifier.setter
+    def data_set_identifier(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "data_set_identifier", value)
+
+    @_builtins.property
+    @pulumi.getter(name="topicIdentifier")
+    def topic_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "topic_identifier")
+
+    @topic_identifier.setter
+    def topic_identifier(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "topic_identifier", value)
 
 
 class DashboardCalculatedMeasureFieldArgsDict(TypedDict):
@@ -53979,6 +55224,7 @@ class DashboardColumnConfigurationArgsDict(TypedDict):
     """
     The color configurations of the column.
     """
+    decal_settings_configuration: NotRequired[pulumi.Input[Optional['DashboardDecalSettingsConfigurationArgsDict']]]
     format_configuration: NotRequired[pulumi.Input[Optional['DashboardFormatConfigurationArgsDict']]]
     """
     The format configuration of a column.
@@ -53993,6 +55239,7 @@ class DashboardColumnConfigurationArgs:
     def __init__(__self__, *,
                  column: pulumi.Input['DashboardColumnIdentifierArgs'],
                  colors_configuration: pulumi.Input[Optional['DashboardColorsConfigurationArgs']] = None,
+                 decal_settings_configuration: pulumi.Input[Optional['DashboardDecalSettingsConfigurationArgs']] = None,
                  format_configuration: pulumi.Input[Optional['DashboardFormatConfigurationArgs']] = None,
                  role: pulumi.Input[Optional['DashboardColumnRole']] = None):
         """
@@ -54004,6 +55251,8 @@ class DashboardColumnConfigurationArgs:
         pulumi.set(__self__, "column", column)
         if colors_configuration is not None:
             pulumi.set(__self__, "colors_configuration", colors_configuration)
+        if decal_settings_configuration is not None:
+            pulumi.set(__self__, "decal_settings_configuration", decal_settings_configuration)
         if format_configuration is not None:
             pulumi.set(__self__, "format_configuration", format_configuration)
         if role is not None:
@@ -54032,6 +55281,15 @@ class DashboardColumnConfigurationArgs:
     @colors_configuration.setter
     def colors_configuration(self, value: pulumi.Input[Optional['DashboardColorsConfigurationArgs']]):
         pulumi.set(self, "colors_configuration", value)
+
+    @_builtins.property
+    @pulumi.getter(name="decalSettingsConfiguration")
+    def decal_settings_configuration(self) -> pulumi.Input[Optional['DashboardDecalSettingsConfigurationArgs']]:
+        return pulumi.get(self, "decal_settings_configuration")
+
+    @decal_settings_configuration.setter
+    def decal_settings_configuration(self, value: pulumi.Input[Optional['DashboardDecalSettingsConfigurationArgs']]):
+        pulumi.set(self, "decal_settings_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="formatConfiguration")
@@ -54132,22 +55390,27 @@ class DashboardColumnIdentifierArgsDict(TypedDict):
     """
     The name of the column.
     """
-    data_set_identifier: pulumi.Input[_builtins.str]
+    data_set_identifier: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The data set that the column belongs to.
     """
+    topic_identifier: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
 class DashboardColumnIdentifierArgs:
     def __init__(__self__, *,
                  column_name: pulumi.Input[_builtins.str],
-                 data_set_identifier: pulumi.Input[_builtins.str]):
+                 data_set_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 topic_identifier: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] column_name: The name of the column.
         :param pulumi.Input[_builtins.str] data_set_identifier: The data set that the column belongs to.
         """
         pulumi.set(__self__, "column_name", column_name)
-        pulumi.set(__self__, "data_set_identifier", data_set_identifier)
+        if data_set_identifier is not None:
+            pulumi.set(__self__, "data_set_identifier", data_set_identifier)
+        if topic_identifier is not None:
+            pulumi.set(__self__, "topic_identifier", topic_identifier)
 
     @_builtins.property
     @pulumi.getter(name="columnName")
@@ -54163,15 +55426,24 @@ class DashboardColumnIdentifierArgs:
 
     @_builtins.property
     @pulumi.getter(name="dataSetIdentifier")
-    def data_set_identifier(self) -> pulumi.Input[_builtins.str]:
+    def data_set_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The data set that the column belongs to.
         """
         return pulumi.get(self, "data_set_identifier")
 
     @data_set_identifier.setter
-    def data_set_identifier(self, value: pulumi.Input[_builtins.str]):
+    def data_set_identifier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "data_set_identifier", value)
+
+    @_builtins.property
+    @pulumi.getter(name="topicIdentifier")
+    def topic_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "topic_identifier")
+
+    @topic_identifier.setter
+    def topic_identifier(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "topic_identifier", value)
 
 
 class DashboardColumnSortArgsDict(TypedDict):
@@ -54458,6 +55730,7 @@ class DashboardComboChartConfigurationArgsDict(TypedDict):
     """
     The label options (label text, label visibility, and sort icon visibility) of a combo chart's color field well.
     """
+    default_series_settings: NotRequired[pulumi.Input[Optional['DashboardComboChartDefaultSeriesSettingsArgsDict']]]
     field_wells: NotRequired[pulumi.Input[Optional['DashboardComboChartFieldWellsArgsDict']]]
     """
     The field wells of the visual.
@@ -54496,6 +55769,7 @@ class DashboardComboChartConfigurationArgsDict(TypedDict):
     """
     The label options (label text, label visibility, and sort icon visibility) of a combo chart's secondary y-axis(line) field well.
     """
+    series: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DashboardComboSeriesItemArgsDict']]]]]
     single_axis_options: NotRequired[pulumi.Input[Optional['DashboardSingleAxisOptionsArgsDict']]]
     sort_configuration: NotRequired[pulumi.Input[Optional['DashboardComboChartSortConfigurationArgsDict']]]
     """
@@ -54518,6 +55792,7 @@ class DashboardComboChartConfigurationArgs:
                  category_axis: pulumi.Input[Optional['DashboardAxisDisplayOptionsArgs']] = None,
                  category_label_options: pulumi.Input[Optional['DashboardChartAxisLabelOptionsArgs']] = None,
                  color_label_options: pulumi.Input[Optional['DashboardChartAxisLabelOptionsArgs']] = None,
+                 default_series_settings: pulumi.Input[Optional['DashboardComboChartDefaultSeriesSettingsArgs']] = None,
                  field_wells: pulumi.Input[Optional['DashboardComboChartFieldWellsArgs']] = None,
                  interactions: pulumi.Input[Optional['DashboardVisualInteractionOptionsArgs']] = None,
                  legend: pulumi.Input[Optional['DashboardLegendOptionsArgs']] = None,
@@ -54527,6 +55802,7 @@ class DashboardComboChartConfigurationArgs:
                  reference_lines: pulumi.Input[Optional[Sequence[pulumi.Input['DashboardReferenceLineArgs']]]] = None,
                  secondary_y_axis_display_options: pulumi.Input[Optional['DashboardAxisDisplayOptionsArgs']] = None,
                  secondary_y_axis_label_options: pulumi.Input[Optional['DashboardChartAxisLabelOptionsArgs']] = None,
+                 series: pulumi.Input[Optional[Sequence[pulumi.Input['DashboardComboSeriesItemArgs']]]] = None,
                  single_axis_options: pulumi.Input[Optional['DashboardSingleAxisOptionsArgs']] = None,
                  sort_configuration: pulumi.Input[Optional['DashboardComboChartSortConfigurationArgs']] = None,
                  tooltip: pulumi.Input[Optional['DashboardTooltipOptionsArgs']] = None,
@@ -54568,6 +55844,8 @@ class DashboardComboChartConfigurationArgs:
             pulumi.set(__self__, "category_label_options", category_label_options)
         if color_label_options is not None:
             pulumi.set(__self__, "color_label_options", color_label_options)
+        if default_series_settings is not None:
+            pulumi.set(__self__, "default_series_settings", default_series_settings)
         if field_wells is not None:
             pulumi.set(__self__, "field_wells", field_wells)
         if interactions is not None:
@@ -54586,6 +55864,8 @@ class DashboardComboChartConfigurationArgs:
             pulumi.set(__self__, "secondary_y_axis_display_options", secondary_y_axis_display_options)
         if secondary_y_axis_label_options is not None:
             pulumi.set(__self__, "secondary_y_axis_label_options", secondary_y_axis_label_options)
+        if series is not None:
+            pulumi.set(__self__, "series", series)
         if single_axis_options is not None:
             pulumi.set(__self__, "single_axis_options", single_axis_options)
         if sort_configuration is not None:
@@ -54660,6 +55940,15 @@ class DashboardComboChartConfigurationArgs:
     @color_label_options.setter
     def color_label_options(self, value: pulumi.Input[Optional['DashboardChartAxisLabelOptionsArgs']]):
         pulumi.set(self, "color_label_options", value)
+
+    @_builtins.property
+    @pulumi.getter(name="defaultSeriesSettings")
+    def default_series_settings(self) -> pulumi.Input[Optional['DashboardComboChartDefaultSeriesSettingsArgs']]:
+        return pulumi.get(self, "default_series_settings")
+
+    @default_series_settings.setter
+    def default_series_settings(self, value: pulumi.Input[Optional['DashboardComboChartDefaultSeriesSettingsArgs']]):
+        pulumi.set(self, "default_series_settings", value)
 
     @_builtins.property
     @pulumi.getter(name="fieldWells")
@@ -54772,6 +56061,15 @@ class DashboardComboChartConfigurationArgs:
         pulumi.set(self, "secondary_y_axis_label_options", value)
 
     @_builtins.property
+    @pulumi.getter
+    def series(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DashboardComboSeriesItemArgs']]]]:
+        return pulumi.get(self, "series")
+
+    @series.setter
+    def series(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DashboardComboSeriesItemArgs']]]]):
+        pulumi.set(self, "series", value)
+
+    @_builtins.property
     @pulumi.getter(name="singleAxisOptions")
     def single_axis_options(self) -> pulumi.Input[Optional['DashboardSingleAxisOptionsArgs']]:
         return pulumi.get(self, "single_axis_options")
@@ -54815,6 +56113,65 @@ class DashboardComboChartConfigurationArgs:
     @visual_palette.setter
     def visual_palette(self, value: pulumi.Input[Optional['DashboardVisualPaletteArgs']]):
         pulumi.set(self, "visual_palette", value)
+
+
+class DashboardComboChartDefaultSeriesSettingsArgsDict(TypedDict):
+    border_settings: NotRequired[pulumi.Input[Optional['DashboardBorderSettingsArgsDict']]]
+    decal_settings: NotRequired[pulumi.Input[Optional['DashboardDecalSettingsArgsDict']]]
+    line_style_settings: NotRequired[pulumi.Input[Optional['DashboardLineChartLineStyleSettingsArgsDict']]]
+    marker_style_settings: NotRequired[pulumi.Input[Optional['DashboardLineChartMarkerStyleSettingsArgsDict']]]
+
+@pulumi.input_type
+class DashboardComboChartDefaultSeriesSettingsArgs:
+    def __init__(__self__, *,
+                 border_settings: pulumi.Input[Optional['DashboardBorderSettingsArgs']] = None,
+                 decal_settings: pulumi.Input[Optional['DashboardDecalSettingsArgs']] = None,
+                 line_style_settings: pulumi.Input[Optional['DashboardLineChartLineStyleSettingsArgs']] = None,
+                 marker_style_settings: pulumi.Input[Optional['DashboardLineChartMarkerStyleSettingsArgs']] = None):
+        if border_settings is not None:
+            pulumi.set(__self__, "border_settings", border_settings)
+        if decal_settings is not None:
+            pulumi.set(__self__, "decal_settings", decal_settings)
+        if line_style_settings is not None:
+            pulumi.set(__self__, "line_style_settings", line_style_settings)
+        if marker_style_settings is not None:
+            pulumi.set(__self__, "marker_style_settings", marker_style_settings)
+
+    @_builtins.property
+    @pulumi.getter(name="borderSettings")
+    def border_settings(self) -> pulumi.Input[Optional['DashboardBorderSettingsArgs']]:
+        return pulumi.get(self, "border_settings")
+
+    @border_settings.setter
+    def border_settings(self, value: pulumi.Input[Optional['DashboardBorderSettingsArgs']]):
+        pulumi.set(self, "border_settings", value)
+
+    @_builtins.property
+    @pulumi.getter(name="decalSettings")
+    def decal_settings(self) -> pulumi.Input[Optional['DashboardDecalSettingsArgs']]:
+        return pulumi.get(self, "decal_settings")
+
+    @decal_settings.setter
+    def decal_settings(self, value: pulumi.Input[Optional['DashboardDecalSettingsArgs']]):
+        pulumi.set(self, "decal_settings", value)
+
+    @_builtins.property
+    @pulumi.getter(name="lineStyleSettings")
+    def line_style_settings(self) -> pulumi.Input[Optional['DashboardLineChartLineStyleSettingsArgs']]:
+        return pulumi.get(self, "line_style_settings")
+
+    @line_style_settings.setter
+    def line_style_settings(self, value: pulumi.Input[Optional['DashboardLineChartLineStyleSettingsArgs']]):
+        pulumi.set(self, "line_style_settings", value)
+
+    @_builtins.property
+    @pulumi.getter(name="markerStyleSettings")
+    def marker_style_settings(self) -> pulumi.Input[Optional['DashboardLineChartMarkerStyleSettingsArgs']]:
+        return pulumi.get(self, "marker_style_settings")
+
+    @marker_style_settings.setter
+    def marker_style_settings(self, value: pulumi.Input[Optional['DashboardLineChartMarkerStyleSettingsArgs']]):
+        pulumi.set(self, "marker_style_settings", value)
 
 
 class DashboardComboChartFieldWellsArgsDict(TypedDict):
@@ -55081,6 +56438,15 @@ class DashboardComboChartVisualArgs:
     @visual_content_alt_text.setter
     def visual_content_alt_text(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "visual_content_alt_text", value)
+
+
+class DashboardComboSeriesItemArgsDict(TypedDict):
+    pass
+
+@pulumi.input_type
+class DashboardComboSeriesItemArgs:
+    def __init__(__self__):
+        pass
 
 
 class DashboardComparisonConfigurationArgsDict(TypedDict):
@@ -56380,10 +57746,6 @@ class DashboardCustomContentConfigurationArgs:
 
 
 class DashboardCustomContentVisualArgsDict(TypedDict):
-    data_set_identifier: pulumi.Input[_builtins.str]
-    """
-    The dataset that is used to create the custom content visual. You can't create a visual without a dataset.
-    """
     visual_id: pulumi.Input[_builtins.str]
     """
     The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.
@@ -56396,6 +57758,10 @@ class DashboardCustomContentVisualArgsDict(TypedDict):
     """
     The configuration of a `CustomContentVisual` .
     """
+    data_set_identifier: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The dataset that is used to create the custom content visual. You can't create a visual without a dataset.
+    """
     subtitle: NotRequired[pulumi.Input[Optional['DashboardVisualSubtitleLabelOptionsArgsDict']]]
     """
     The subtitle that is displayed on the visual.
@@ -56404,6 +57770,7 @@ class DashboardCustomContentVisualArgsDict(TypedDict):
     """
     The title that is displayed on the visual.
     """
+    topic_identifier: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     visual_content_alt_text: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The alt text for the visual.
@@ -56412,46 +57779,38 @@ class DashboardCustomContentVisualArgsDict(TypedDict):
 @pulumi.input_type
 class DashboardCustomContentVisualArgs:
     def __init__(__self__, *,
-                 data_set_identifier: pulumi.Input[_builtins.str],
                  visual_id: pulumi.Input[_builtins.str],
                  actions: pulumi.Input[Optional[Sequence[pulumi.Input['DashboardVisualCustomActionArgs']]]] = None,
                  chart_configuration: pulumi.Input[Optional['DashboardCustomContentConfigurationArgs']] = None,
+                 data_set_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                  subtitle: pulumi.Input[Optional['DashboardVisualSubtitleLabelOptionsArgs']] = None,
                  title: pulumi.Input[Optional['DashboardVisualTitleLabelOptionsArgs']] = None,
+                 topic_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                  visual_content_alt_text: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] data_set_identifier: The dataset that is used to create the custom content visual. You can't create a visual without a dataset.
         :param pulumi.Input[_builtins.str] visual_id: The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.
         :param pulumi.Input[Sequence[pulumi.Input['DashboardVisualCustomActionArgs']]] actions: The list of custom actions that are configured for a visual.
         :param pulumi.Input['DashboardCustomContentConfigurationArgs'] chart_configuration: The configuration of a `CustomContentVisual` .
+        :param pulumi.Input[_builtins.str] data_set_identifier: The dataset that is used to create the custom content visual. You can't create a visual without a dataset.
         :param pulumi.Input['DashboardVisualSubtitleLabelOptionsArgs'] subtitle: The subtitle that is displayed on the visual.
         :param pulumi.Input['DashboardVisualTitleLabelOptionsArgs'] title: The title that is displayed on the visual.
         :param pulumi.Input[_builtins.str] visual_content_alt_text: The alt text for the visual.
         """
-        pulumi.set(__self__, "data_set_identifier", data_set_identifier)
         pulumi.set(__self__, "visual_id", visual_id)
         if actions is not None:
             pulumi.set(__self__, "actions", actions)
         if chart_configuration is not None:
             pulumi.set(__self__, "chart_configuration", chart_configuration)
+        if data_set_identifier is not None:
+            pulumi.set(__self__, "data_set_identifier", data_set_identifier)
         if subtitle is not None:
             pulumi.set(__self__, "subtitle", subtitle)
         if title is not None:
             pulumi.set(__self__, "title", title)
+        if topic_identifier is not None:
+            pulumi.set(__self__, "topic_identifier", topic_identifier)
         if visual_content_alt_text is not None:
             pulumi.set(__self__, "visual_content_alt_text", visual_content_alt_text)
-
-    @_builtins.property
-    @pulumi.getter(name="dataSetIdentifier")
-    def data_set_identifier(self) -> pulumi.Input[_builtins.str]:
-        """
-        The dataset that is used to create the custom content visual. You can't create a visual without a dataset.
-        """
-        return pulumi.get(self, "data_set_identifier")
-
-    @data_set_identifier.setter
-    def data_set_identifier(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "data_set_identifier", value)
 
     @_builtins.property
     @pulumi.getter(name="visualId")
@@ -56490,6 +57849,18 @@ class DashboardCustomContentVisualArgs:
         pulumi.set(self, "chart_configuration", value)
 
     @_builtins.property
+    @pulumi.getter(name="dataSetIdentifier")
+    def data_set_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The dataset that is used to create the custom content visual. You can't create a visual without a dataset.
+        """
+        return pulumi.get(self, "data_set_identifier")
+
+    @data_set_identifier.setter
+    def data_set_identifier(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "data_set_identifier", value)
+
+    @_builtins.property
     @pulumi.getter
     def subtitle(self) -> pulumi.Input[Optional['DashboardVisualSubtitleLabelOptionsArgs']]:
         """
@@ -56512,6 +57883,15 @@ class DashboardCustomContentVisualArgs:
     @title.setter
     def title(self, value: pulumi.Input[Optional['DashboardVisualTitleLabelOptionsArgs']]):
         pulumi.set(self, "title", value)
+
+    @_builtins.property
+    @pulumi.getter(name="topicIdentifier")
+    def topic_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "topic_identifier")
+
+    @topic_identifier.setter
+    def topic_identifier(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "topic_identifier", value)
 
     @_builtins.property
     @pulumi.getter(name="visualContentAltText")
@@ -57847,6 +59227,9 @@ class DashboardDataPointTooltipOptionArgs:
 
 
 class DashboardDataQaEnabledOptionArgsDict(TypedDict):
+    """
+    <p>Adds Q&A capabilities to a dashboard. If no topic is linked, Dashboard Q&A uses the data values that are rendered on the dashboard. End users can use Dashboard Q&A to ask for different slices of the data that they see on the dashboard. If a topic is linked, Topic Q&A is enabled.</p>
+    """
     availability_status: NotRequired[pulumi.Input[Optional['DashboardBehavior']]]
     """
     The status of the Data Q&A option on the dashboard.
@@ -57857,6 +59240,8 @@ class DashboardDataQaEnabledOptionArgs:
     def __init__(__self__, *,
                  availability_status: pulumi.Input[Optional['DashboardBehavior']] = None):
         """
+        <p>Adds Q&A capabilities to a dashboard. If no topic is linked, Dashboard Q&A uses the data values that are rendered on the dashboard. End users can use Dashboard Q&A to ask for different slices of the data that they see on the dashboard. If a topic is linked, Topic Q&A is enabled.</p>
+
         :param pulumi.Input['DashboardBehavior'] availability_status: The status of the Data Q&A option on the dashboard.
         """
         if availability_status is not None:
@@ -58760,6 +60145,98 @@ class DashboardDateTimeValueWhenUnsetConfigurationArgs:
     @value_when_unset_option.setter
     def value_when_unset_option(self, value: pulumi.Input[Optional['DashboardValueWhenUnsetOption']]):
         pulumi.set(self, "value_when_unset_option", value)
+
+
+class DashboardDecalSettingsArgsDict(TypedDict):
+    decal_color: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    decal_pattern_type: NotRequired[pulumi.Input[Optional['DashboardDecalPatternType']]]
+    decal_style_type: NotRequired[pulumi.Input[Optional['DashboardDecalStyleType']]]
+    decal_visibility: NotRequired[pulumi.Input[Optional['DashboardVisibility']]]
+    element_value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+
+@pulumi.input_type
+class DashboardDecalSettingsArgs:
+    def __init__(__self__, *,
+                 decal_color: pulumi.Input[Optional[_builtins.str]] = None,
+                 decal_pattern_type: pulumi.Input[Optional['DashboardDecalPatternType']] = None,
+                 decal_style_type: pulumi.Input[Optional['DashboardDecalStyleType']] = None,
+                 decal_visibility: pulumi.Input[Optional['DashboardVisibility']] = None,
+                 element_value: pulumi.Input[Optional[_builtins.str]] = None):
+        if decal_color is not None:
+            pulumi.set(__self__, "decal_color", decal_color)
+        if decal_pattern_type is not None:
+            pulumi.set(__self__, "decal_pattern_type", decal_pattern_type)
+        if decal_style_type is not None:
+            pulumi.set(__self__, "decal_style_type", decal_style_type)
+        if decal_visibility is not None:
+            pulumi.set(__self__, "decal_visibility", decal_visibility)
+        if element_value is not None:
+            pulumi.set(__self__, "element_value", element_value)
+
+    @_builtins.property
+    @pulumi.getter(name="decalColor")
+    def decal_color(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "decal_color")
+
+    @decal_color.setter
+    def decal_color(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "decal_color", value)
+
+    @_builtins.property
+    @pulumi.getter(name="decalPatternType")
+    def decal_pattern_type(self) -> pulumi.Input[Optional['DashboardDecalPatternType']]:
+        return pulumi.get(self, "decal_pattern_type")
+
+    @decal_pattern_type.setter
+    def decal_pattern_type(self, value: pulumi.Input[Optional['DashboardDecalPatternType']]):
+        pulumi.set(self, "decal_pattern_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="decalStyleType")
+    def decal_style_type(self) -> pulumi.Input[Optional['DashboardDecalStyleType']]:
+        return pulumi.get(self, "decal_style_type")
+
+    @decal_style_type.setter
+    def decal_style_type(self, value: pulumi.Input[Optional['DashboardDecalStyleType']]):
+        pulumi.set(self, "decal_style_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="decalVisibility")
+    def decal_visibility(self) -> pulumi.Input[Optional['DashboardVisibility']]:
+        return pulumi.get(self, "decal_visibility")
+
+    @decal_visibility.setter
+    def decal_visibility(self, value: pulumi.Input[Optional['DashboardVisibility']]):
+        pulumi.set(self, "decal_visibility", value)
+
+    @_builtins.property
+    @pulumi.getter(name="elementValue")
+    def element_value(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "element_value")
+
+    @element_value.setter
+    def element_value(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "element_value", value)
+
+
+class DashboardDecalSettingsConfigurationArgsDict(TypedDict):
+    custom_decal_settings: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DashboardDecalSettingsArgsDict']]]]]
+
+@pulumi.input_type
+class DashboardDecalSettingsConfigurationArgs:
+    def __init__(__self__, *,
+                 custom_decal_settings: pulumi.Input[Optional[Sequence[pulumi.Input['DashboardDecalSettingsArgs']]]] = None):
+        if custom_decal_settings is not None:
+            pulumi.set(__self__, "custom_decal_settings", custom_decal_settings)
+
+    @_builtins.property
+    @pulumi.getter(name="customDecalSettings")
+    def custom_decal_settings(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DashboardDecalSettingsArgs']]]]:
+        return pulumi.get(self, "custom_decal_settings")
+
+    @custom_decal_settings.setter
+    def custom_decal_settings(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DashboardDecalSettingsArgs']]]]):
+        pulumi.set(self, "custom_decal_settings", value)
 
 
 class DashboardDecimalDefaultValuesArgsDict(TypedDict):
@@ -60450,10 +61927,6 @@ class DashboardDynamicDefaultValueArgs:
 
 
 class DashboardEmptyVisualArgsDict(TypedDict):
-    data_set_identifier: pulumi.Input[_builtins.str]
-    """
-    The data set that is used in the empty visual. Every visual requires a dataset to render.
-    """
     visual_id: pulumi.Input[_builtins.str]
     """
     The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.
@@ -60462,34 +61935,31 @@ class DashboardEmptyVisualArgsDict(TypedDict):
     """
     The list of custom actions that are configured for a visual.
     """
+    data_set_identifier: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The data set that is used in the empty visual. Every visual requires a dataset to render.
+    """
+    topic_identifier: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
 class DashboardEmptyVisualArgs:
     def __init__(__self__, *,
-                 data_set_identifier: pulumi.Input[_builtins.str],
                  visual_id: pulumi.Input[_builtins.str],
-                 actions: pulumi.Input[Optional[Sequence[pulumi.Input['DashboardVisualCustomActionArgs']]]] = None):
+                 actions: pulumi.Input[Optional[Sequence[pulumi.Input['DashboardVisualCustomActionArgs']]]] = None,
+                 data_set_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 topic_identifier: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] data_set_identifier: The data set that is used in the empty visual. Every visual requires a dataset to render.
         :param pulumi.Input[_builtins.str] visual_id: The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.
         :param pulumi.Input[Sequence[pulumi.Input['DashboardVisualCustomActionArgs']]] actions: The list of custom actions that are configured for a visual.
+        :param pulumi.Input[_builtins.str] data_set_identifier: The data set that is used in the empty visual. Every visual requires a dataset to render.
         """
-        pulumi.set(__self__, "data_set_identifier", data_set_identifier)
         pulumi.set(__self__, "visual_id", visual_id)
         if actions is not None:
             pulumi.set(__self__, "actions", actions)
-
-    @_builtins.property
-    @pulumi.getter(name="dataSetIdentifier")
-    def data_set_identifier(self) -> pulumi.Input[_builtins.str]:
-        """
-        The data set that is used in the empty visual. Every visual requires a dataset to render.
-        """
-        return pulumi.get(self, "data_set_identifier")
-
-    @data_set_identifier.setter
-    def data_set_identifier(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "data_set_identifier", value)
+        if data_set_identifier is not None:
+            pulumi.set(__self__, "data_set_identifier", data_set_identifier)
+        if topic_identifier is not None:
+            pulumi.set(__self__, "topic_identifier", topic_identifier)
 
     @_builtins.property
     @pulumi.getter(name="visualId")
@@ -60514,6 +61984,27 @@ class DashboardEmptyVisualArgs:
     @actions.setter
     def actions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DashboardVisualCustomActionArgs']]]]):
         pulumi.set(self, "actions", value)
+
+    @_builtins.property
+    @pulumi.getter(name="dataSetIdentifier")
+    def data_set_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The data set that is used in the empty visual. Every visual requires a dataset to render.
+        """
+        return pulumi.get(self, "data_set_identifier")
+
+    @data_set_identifier.setter
+    def data_set_identifier(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "data_set_identifier", value)
+
+    @_builtins.property
+    @pulumi.getter(name="topicIdentifier")
+    def topic_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "topic_identifier")
+
+    @topic_identifier.setter
+    def topic_identifier(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "topic_identifier", value)
 
 
 class DashboardExcludePeriodConfigurationArgsDict(TypedDict):
@@ -63476,7 +64967,7 @@ class DashboardFontConfigurationArgsDict(TypedDict):
     """
     font_family: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The font family that you want to use.
+    <p>The font family that you want to use.</p>
     """
     font_size: NotRequired[pulumi.Input[Optional['DashboardFontSizeArgsDict']]]
     """
@@ -63503,7 +64994,7 @@ class DashboardFontConfigurationArgs:
         """
         :param pulumi.Input[_builtins.str] font_color: Determines the color of the text.
         :param pulumi.Input['DashboardFontDecoration'] font_decoration: Determines the appearance of decorative lines on the text.
-        :param pulumi.Input[_builtins.str] font_family: The font family that you want to use.
+        :param pulumi.Input[_builtins.str] font_family: <p>The font family that you want to use.</p>
         :param pulumi.Input['DashboardFontSizeArgs'] font_size: The option that determines the text display size.
         :param pulumi.Input['DashboardFontStyle'] font_style: Determines the text display face that is inherited by the given font family.
         :param pulumi.Input['DashboardFontWeightArgs'] font_weight: The option that determines the text display weight, or boldness.
@@ -63549,7 +65040,7 @@ class DashboardFontConfigurationArgs:
     @pulumi.getter(name="fontFamily")
     def font_family(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The font family that you want to use.
+        <p>The font family that you want to use.</p>
         """
         return pulumi.get(self, "font_family")
 
@@ -63597,7 +65088,7 @@ class DashboardFontConfigurationArgs:
 class DashboardFontSizeArgsDict(TypedDict):
     absolute: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    String based length that is composed of value and unit in px
+    <p>The font size that you want to use in px.</p>
     """
     relative: NotRequired[pulumi.Input[Optional['DashboardRelativeFontSize']]]
     """
@@ -63610,7 +65101,7 @@ class DashboardFontSizeArgs:
                  absolute: pulumi.Input[Optional[_builtins.str]] = None,
                  relative: pulumi.Input[Optional['DashboardRelativeFontSize']] = None):
         """
-        :param pulumi.Input[_builtins.str] absolute: String based length that is composed of value and unit in px
+        :param pulumi.Input[_builtins.str] absolute: <p>The font size that you want to use in px.</p>
         :param pulumi.Input['DashboardRelativeFontSize'] relative: The lexical name for the text size, proportional to its surrounding context.
         """
         if absolute is not None:
@@ -63622,7 +65113,7 @@ class DashboardFontSizeArgs:
     @pulumi.getter
     def absolute(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        String based length that is composed of value and unit in px
+        <p>The font size that you want to use in px.</p>
         """
         return pulumi.get(self, "absolute")
 
@@ -64111,18 +65602,22 @@ class DashboardFreeFormLayoutConfigurationArgsDict(TypedDict):
     The elements that are included in a free-form layout.
     """
     canvas_size_options: NotRequired[pulumi.Input[Optional['DashboardFreeFormLayoutCanvasSizeOptionsArgsDict']]]
+    groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DashboardSheetLayoutGroupArgsDict']]]]]
 
 @pulumi.input_type
 class DashboardFreeFormLayoutConfigurationArgs:
     def __init__(__self__, *,
                  elements: pulumi.Input[Sequence[pulumi.Input['DashboardFreeFormLayoutElementArgs']]],
-                 canvas_size_options: pulumi.Input[Optional['DashboardFreeFormLayoutCanvasSizeOptionsArgs']] = None):
+                 canvas_size_options: pulumi.Input[Optional['DashboardFreeFormLayoutCanvasSizeOptionsArgs']] = None,
+                 groups: pulumi.Input[Optional[Sequence[pulumi.Input['DashboardSheetLayoutGroupArgs']]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['DashboardFreeFormLayoutElementArgs']]] elements: The elements that are included in a free-form layout.
         """
         pulumi.set(__self__, "elements", elements)
         if canvas_size_options is not None:
             pulumi.set(__self__, "canvas_size_options", canvas_size_options)
+        if groups is not None:
+            pulumi.set(__self__, "groups", groups)
 
     @_builtins.property
     @pulumi.getter
@@ -64144,6 +65639,15 @@ class DashboardFreeFormLayoutConfigurationArgs:
     @canvas_size_options.setter
     def canvas_size_options(self, value: pulumi.Input[Optional['DashboardFreeFormLayoutCanvasSizeOptionsArgs']]):
         pulumi.set(self, "canvas_size_options", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def groups(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DashboardSheetLayoutGroupArgs']]]]:
+        return pulumi.get(self, "groups")
+
+    @groups.setter
+    def groups(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DashboardSheetLayoutGroupArgs']]]]):
+        pulumi.set(self, "groups", value)
 
 
 class DashboardFreeFormLayoutElementArgsDict(TypedDict):
@@ -70306,10 +71810,6 @@ class DashboardInsightConfigurationArgs:
 
 
 class DashboardInsightVisualArgsDict(TypedDict):
-    data_set_identifier: pulumi.Input[_builtins.str]
-    """
-    The dataset that is used in the insight visual.
-    """
     visual_id: pulumi.Input[_builtins.str]
     """
     The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.
@@ -70317,6 +71817,10 @@ class DashboardInsightVisualArgsDict(TypedDict):
     actions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DashboardVisualCustomActionArgsDict']]]]]
     """
     The list of custom actions that are configured for a visual.
+    """
+    data_set_identifier: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The dataset that is used in the insight visual.
     """
     insight_configuration: NotRequired[pulumi.Input[Optional['DashboardInsightConfigurationArgsDict']]]
     """
@@ -70330,6 +71834,7 @@ class DashboardInsightVisualArgsDict(TypedDict):
     """
     The title that is displayed on the visual.
     """
+    topic_identifier: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     visual_content_alt_text: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The alt text for the visual.
@@ -70338,46 +71843,38 @@ class DashboardInsightVisualArgsDict(TypedDict):
 @pulumi.input_type
 class DashboardInsightVisualArgs:
     def __init__(__self__, *,
-                 data_set_identifier: pulumi.Input[_builtins.str],
                  visual_id: pulumi.Input[_builtins.str],
                  actions: pulumi.Input[Optional[Sequence[pulumi.Input['DashboardVisualCustomActionArgs']]]] = None,
+                 data_set_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                  insight_configuration: pulumi.Input[Optional['DashboardInsightConfigurationArgs']] = None,
                  subtitle: pulumi.Input[Optional['DashboardVisualSubtitleLabelOptionsArgs']] = None,
                  title: pulumi.Input[Optional['DashboardVisualTitleLabelOptionsArgs']] = None,
+                 topic_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                  visual_content_alt_text: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] data_set_identifier: The dataset that is used in the insight visual.
         :param pulumi.Input[_builtins.str] visual_id: The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.
         :param pulumi.Input[Sequence[pulumi.Input['DashboardVisualCustomActionArgs']]] actions: The list of custom actions that are configured for a visual.
+        :param pulumi.Input[_builtins.str] data_set_identifier: The dataset that is used in the insight visual.
         :param pulumi.Input['DashboardInsightConfigurationArgs'] insight_configuration: The configuration of an insight visual.
         :param pulumi.Input['DashboardVisualSubtitleLabelOptionsArgs'] subtitle: The subtitle that is displayed on the visual.
         :param pulumi.Input['DashboardVisualTitleLabelOptionsArgs'] title: The title that is displayed on the visual.
         :param pulumi.Input[_builtins.str] visual_content_alt_text: The alt text for the visual.
         """
-        pulumi.set(__self__, "data_set_identifier", data_set_identifier)
         pulumi.set(__self__, "visual_id", visual_id)
         if actions is not None:
             pulumi.set(__self__, "actions", actions)
+        if data_set_identifier is not None:
+            pulumi.set(__self__, "data_set_identifier", data_set_identifier)
         if insight_configuration is not None:
             pulumi.set(__self__, "insight_configuration", insight_configuration)
         if subtitle is not None:
             pulumi.set(__self__, "subtitle", subtitle)
         if title is not None:
             pulumi.set(__self__, "title", title)
+        if topic_identifier is not None:
+            pulumi.set(__self__, "topic_identifier", topic_identifier)
         if visual_content_alt_text is not None:
             pulumi.set(__self__, "visual_content_alt_text", visual_content_alt_text)
-
-    @_builtins.property
-    @pulumi.getter(name="dataSetIdentifier")
-    def data_set_identifier(self) -> pulumi.Input[_builtins.str]:
-        """
-        The dataset that is used in the insight visual.
-        """
-        return pulumi.get(self, "data_set_identifier")
-
-    @data_set_identifier.setter
-    def data_set_identifier(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "data_set_identifier", value)
 
     @_builtins.property
     @pulumi.getter(name="visualId")
@@ -70402,6 +71899,18 @@ class DashboardInsightVisualArgs:
     @actions.setter
     def actions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DashboardVisualCustomActionArgs']]]]):
         pulumi.set(self, "actions", value)
+
+    @_builtins.property
+    @pulumi.getter(name="dataSetIdentifier")
+    def data_set_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The dataset that is used in the insight visual.
+        """
+        return pulumi.get(self, "data_set_identifier")
+
+    @data_set_identifier.setter
+    def data_set_identifier(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "data_set_identifier", value)
 
     @_builtins.property
     @pulumi.getter(name="insightConfiguration")
@@ -70438,6 +71947,15 @@ class DashboardInsightVisualArgs:
     @title.setter
     def title(self, value: pulumi.Input[Optional['DashboardVisualTitleLabelOptionsArgs']]):
         pulumi.set(self, "title", value)
+
+    @_builtins.property
+    @pulumi.getter(name="topicIdentifier")
+    def topic_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "topic_identifier")
+
+    @topic_identifier.setter
+    def topic_identifier(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "topic_identifier", value)
 
     @_builtins.property
     @pulumi.getter(name="visualContentAltText")
@@ -72007,10 +73525,6 @@ class DashboardLayerCustomActionOperationArgs:
 
 
 class DashboardLayerMapVisualArgsDict(TypedDict):
-    data_set_identifier: pulumi.Input[_builtins.str]
-    """
-    The dataset that is used to create the layer map visual. You can't create a visual without a dataset.
-    """
     visual_id: pulumi.Input[_builtins.str]
     """
     The ID of the visual.
@@ -72019,8 +73533,13 @@ class DashboardLayerMapVisualArgsDict(TypedDict):
     """
     The configuration settings of the visual.
     """
+    data_set_identifier: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The dataset that is used to create the layer map visual. You can't create a visual without a dataset.
+    """
     subtitle: NotRequired[pulumi.Input[Optional['DashboardVisualSubtitleLabelOptionsArgsDict']]]
     title: NotRequired[pulumi.Input[Optional['DashboardVisualTitleLabelOptionsArgsDict']]]
+    topic_identifier: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     visual_content_alt_text: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The alt text for the visual.
@@ -72029,40 +73548,32 @@ class DashboardLayerMapVisualArgsDict(TypedDict):
 @pulumi.input_type
 class DashboardLayerMapVisualArgs:
     def __init__(__self__, *,
-                 data_set_identifier: pulumi.Input[_builtins.str],
                  visual_id: pulumi.Input[_builtins.str],
                  chart_configuration: pulumi.Input[Optional['DashboardGeospatialLayerMapConfigurationArgs']] = None,
+                 data_set_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                  subtitle: pulumi.Input[Optional['DashboardVisualSubtitleLabelOptionsArgs']] = None,
                  title: pulumi.Input[Optional['DashboardVisualTitleLabelOptionsArgs']] = None,
+                 topic_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                  visual_content_alt_text: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] data_set_identifier: The dataset that is used to create the layer map visual. You can't create a visual without a dataset.
         :param pulumi.Input[_builtins.str] visual_id: The ID of the visual.
         :param pulumi.Input['DashboardGeospatialLayerMapConfigurationArgs'] chart_configuration: The configuration settings of the visual.
+        :param pulumi.Input[_builtins.str] data_set_identifier: The dataset that is used to create the layer map visual. You can't create a visual without a dataset.
         :param pulumi.Input[_builtins.str] visual_content_alt_text: The alt text for the visual.
         """
-        pulumi.set(__self__, "data_set_identifier", data_set_identifier)
         pulumi.set(__self__, "visual_id", visual_id)
         if chart_configuration is not None:
             pulumi.set(__self__, "chart_configuration", chart_configuration)
+        if data_set_identifier is not None:
+            pulumi.set(__self__, "data_set_identifier", data_set_identifier)
         if subtitle is not None:
             pulumi.set(__self__, "subtitle", subtitle)
         if title is not None:
             pulumi.set(__self__, "title", title)
+        if topic_identifier is not None:
+            pulumi.set(__self__, "topic_identifier", topic_identifier)
         if visual_content_alt_text is not None:
             pulumi.set(__self__, "visual_content_alt_text", visual_content_alt_text)
-
-    @_builtins.property
-    @pulumi.getter(name="dataSetIdentifier")
-    def data_set_identifier(self) -> pulumi.Input[_builtins.str]:
-        """
-        The dataset that is used to create the layer map visual. You can't create a visual without a dataset.
-        """
-        return pulumi.get(self, "data_set_identifier")
-
-    @data_set_identifier.setter
-    def data_set_identifier(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "data_set_identifier", value)
 
     @_builtins.property
     @pulumi.getter(name="visualId")
@@ -72089,6 +73600,18 @@ class DashboardLayerMapVisualArgs:
         pulumi.set(self, "chart_configuration", value)
 
     @_builtins.property
+    @pulumi.getter(name="dataSetIdentifier")
+    def data_set_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The dataset that is used to create the layer map visual. You can't create a visual without a dataset.
+        """
+        return pulumi.get(self, "data_set_identifier")
+
+    @data_set_identifier.setter
+    def data_set_identifier(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "data_set_identifier", value)
+
+    @_builtins.property
     @pulumi.getter
     def subtitle(self) -> pulumi.Input[Optional['DashboardVisualSubtitleLabelOptionsArgs']]:
         return pulumi.get(self, "subtitle")
@@ -72105,6 +73628,15 @@ class DashboardLayerMapVisualArgs:
     @title.setter
     def title(self, value: pulumi.Input[Optional['DashboardVisualTitleLabelOptionsArgs']]):
         pulumi.set(self, "title", value)
+
+    @_builtins.property
+    @pulumi.getter(name="topicIdentifier")
+    def topic_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "topic_identifier")
+
+    @topic_identifier.setter
+    def topic_identifier(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "topic_identifier", value)
 
     @_builtins.property
     @pulumi.getter(name="visualContentAltText")
@@ -72869,6 +74401,7 @@ class DashboardLineChartDefaultSeriesSettingsArgsDict(TypedDict):
     """
     The axis to which you are binding all line series to.
     """
+    decal_settings: NotRequired[pulumi.Input[Optional['DashboardDecalSettingsArgsDict']]]
     line_style_settings: NotRequired[pulumi.Input[Optional['DashboardLineChartLineStyleSettingsArgsDict']]]
     """
     Line styles options for all line series in the visual.
@@ -72882,6 +74415,7 @@ class DashboardLineChartDefaultSeriesSettingsArgsDict(TypedDict):
 class DashboardLineChartDefaultSeriesSettingsArgs:
     def __init__(__self__, *,
                  axis_binding: pulumi.Input[Optional['DashboardAxisBinding']] = None,
+                 decal_settings: pulumi.Input[Optional['DashboardDecalSettingsArgs']] = None,
                  line_style_settings: pulumi.Input[Optional['DashboardLineChartLineStyleSettingsArgs']] = None,
                  marker_style_settings: pulumi.Input[Optional['DashboardLineChartMarkerStyleSettingsArgs']] = None):
         """
@@ -72891,6 +74425,8 @@ class DashboardLineChartDefaultSeriesSettingsArgs:
         """
         if axis_binding is not None:
             pulumi.set(__self__, "axis_binding", axis_binding)
+        if decal_settings is not None:
+            pulumi.set(__self__, "decal_settings", decal_settings)
         if line_style_settings is not None:
             pulumi.set(__self__, "line_style_settings", line_style_settings)
         if marker_style_settings is not None:
@@ -72907,6 +74443,15 @@ class DashboardLineChartDefaultSeriesSettingsArgs:
     @axis_binding.setter
     def axis_binding(self, value: pulumi.Input[Optional['DashboardAxisBinding']]):
         pulumi.set(self, "axis_binding", value)
+
+    @_builtins.property
+    @pulumi.getter(name="decalSettings")
+    def decal_settings(self) -> pulumi.Input[Optional['DashboardDecalSettingsArgs']]:
+        return pulumi.get(self, "decal_settings")
+
+    @decal_settings.setter
+    def decal_settings(self, value: pulumi.Input[Optional['DashboardDecalSettingsArgs']]):
+        pulumi.set(self, "decal_settings", value)
 
     @_builtins.property
     @pulumi.getter(name="lineStyleSettings")
@@ -73183,6 +74728,7 @@ class DashboardLineChartMarkerStyleSettingsArgs:
 
 
 class DashboardLineChartSeriesSettingsArgsDict(TypedDict):
+    decal_settings: NotRequired[pulumi.Input[Optional['DashboardDecalSettingsArgsDict']]]
     line_style_settings: NotRequired[pulumi.Input[Optional['DashboardLineChartLineStyleSettingsArgsDict']]]
     """
     Line styles options for a line series in `LineChartVisual` .
@@ -73195,16 +74741,28 @@ class DashboardLineChartSeriesSettingsArgsDict(TypedDict):
 @pulumi.input_type
 class DashboardLineChartSeriesSettingsArgs:
     def __init__(__self__, *,
+                 decal_settings: pulumi.Input[Optional['DashboardDecalSettingsArgs']] = None,
                  line_style_settings: pulumi.Input[Optional['DashboardLineChartLineStyleSettingsArgs']] = None,
                  marker_style_settings: pulumi.Input[Optional['DashboardLineChartMarkerStyleSettingsArgs']] = None):
         """
         :param pulumi.Input['DashboardLineChartLineStyleSettingsArgs'] line_style_settings: Line styles options for a line series in `LineChartVisual` .
         :param pulumi.Input['DashboardLineChartMarkerStyleSettingsArgs'] marker_style_settings: Marker styles options for a line series in `LineChartVisual` .
         """
+        if decal_settings is not None:
+            pulumi.set(__self__, "decal_settings", decal_settings)
         if line_style_settings is not None:
             pulumi.set(__self__, "line_style_settings", line_style_settings)
         if marker_style_settings is not None:
             pulumi.set(__self__, "marker_style_settings", marker_style_settings)
+
+    @_builtins.property
+    @pulumi.getter(name="decalSettings")
+    def decal_settings(self) -> pulumi.Input[Optional['DashboardDecalSettingsArgs']]:
+        return pulumi.get(self, "decal_settings")
+
+    @decal_settings.setter
+    def decal_settings(self, value: pulumi.Input[Optional['DashboardDecalSettingsArgs']]):
+        pulumi.set(self, "decal_settings", value)
 
     @_builtins.property
     @pulumi.getter(name="lineStyleSettings")
@@ -76846,7 +78404,7 @@ class DashboardParameterTextFieldControlArgs:
 
 class DashboardParametersArgsDict(TypedDict):
     """
-    <p>A list of Amazon QuickSight parameters and the list's override values.</p>
+    <p>A list of Quick parameters and the list's override values.</p>
     """
     date_time_parameters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DashboardDateTimeParameterArgsDict']]]]]
     """
@@ -76873,7 +78431,7 @@ class DashboardParametersArgs:
                  integer_parameters: pulumi.Input[Optional[Sequence[pulumi.Input['DashboardIntegerParameterArgs']]]] = None,
                  string_parameters: pulumi.Input[Optional[Sequence[pulumi.Input['DashboardStringParameterArgs']]]] = None):
         """
-        <p>A list of Amazon QuickSight parameters and the list's override values.</p>
+        <p>A list of Quick parameters and the list's override values.</p>
 
         :param pulumi.Input[Sequence[pulumi.Input['DashboardDateTimeParameterArgs']]] date_time_parameters: <p>The parameters that have a data type of date-time.</p>
         :param pulumi.Input[Sequence[pulumi.Input['DashboardDecimalParameterArgs']]] decimal_parameters: <p>The parameters that have a data type of decimal.</p>
@@ -82181,10 +83739,10 @@ class DashboardResourcePermissionArgsDict(TypedDict):
                 following:</p>
              <ul>
                 <li>
-                   <p>The ARN of an Amazon QuickSight user or group associated with a data source or dataset. (This is common.)</p>
+                   <p>The ARN of an Amazon Quick user or group associated with a data source or dataset. (This is common.)</p>
                 </li>
                 <li>
-                   <p>The ARN of an Amazon QuickSight user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)</p>
+                   <p>The ARN of an Amazon Quick user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)</p>
                 </li>
                 <li>
                    <p>The ARN of an Amazon Web Services account root: This is an IAM ARN rather than a QuickSight
@@ -82207,10 +83765,10 @@ class DashboardResourcePermissionArgs:
                            following:</p>
                         <ul>
                            <li>
-                              <p>The ARN of an Amazon QuickSight user or group associated with a data source or dataset. (This is common.)</p>
+                              <p>The ARN of an Amazon Quick user or group associated with a data source or dataset. (This is common.)</p>
                            </li>
                            <li>
-                              <p>The ARN of an Amazon QuickSight user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)</p>
+                              <p>The ARN of an Amazon Quick user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)</p>
                            </li>
                            <li>
                               <p>The ARN of an Amazon Web Services account root: This is an IAM ARN rather than a QuickSight
@@ -82242,10 +83800,10 @@ class DashboardResourcePermissionArgs:
                     following:</p>
                  <ul>
                     <li>
-                       <p>The ARN of an Amazon QuickSight user or group associated with a data source or dataset. (This is common.)</p>
+                       <p>The ARN of an Amazon Quick user or group associated with a data source or dataset. (This is common.)</p>
                     </li>
                     <li>
-                       <p>The ARN of an Amazon QuickSight user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)</p>
+                       <p>The ARN of an Amazon Quick user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)</p>
                     </li>
                     <li>
                        <p>The ARN of an Amazon Web Services account root: This is an IAM ARN rather than a QuickSight
@@ -84934,6 +86492,68 @@ class DashboardSheetLayoutElementMaximizationOptionArgs:
         pulumi.set(self, "availability_status", value)
 
 
+class DashboardSheetLayoutGroupArgsDict(TypedDict):
+    id: pulumi.Input[_builtins.str]
+    members: pulumi.Input[Sequence[pulumi.Input['DashboardSheetLayoutGroupMemberArgsDict']]]
+
+@pulumi.input_type
+class DashboardSheetLayoutGroupArgs:
+    def __init__(__self__, *,
+                 id: pulumi.Input[_builtins.str],
+                 members: pulumi.Input[Sequence[pulumi.Input['DashboardSheetLayoutGroupMemberArgs']]]):
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "members", members)
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "id", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def members(self) -> pulumi.Input[Sequence[pulumi.Input['DashboardSheetLayoutGroupMemberArgs']]]:
+        return pulumi.get(self, "members")
+
+    @members.setter
+    def members(self, value: pulumi.Input[Sequence[pulumi.Input['DashboardSheetLayoutGroupMemberArgs']]]):
+        pulumi.set(self, "members", value)
+
+
+class DashboardSheetLayoutGroupMemberArgsDict(TypedDict):
+    id: pulumi.Input[_builtins.str]
+    type: Any
+
+@pulumi.input_type
+class DashboardSheetLayoutGroupMemberArgs:
+    def __init__(__self__, *,
+                 id: pulumi.Input[_builtins.str],
+                 type: Any):
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "id", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> Any:
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Any):
+        pulumi.set(self, "type", value)
+
+
 class DashboardSheetTextBoxArgsDict(TypedDict):
     sheet_text_box_id: pulumi.Input[_builtins.str]
     """
@@ -85430,12 +87050,14 @@ class DashboardSourceTemplateArgsDict(TypedDict):
     """
     <p>Dataset references.</p>
     """
+    topic_references: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DashboardTopicReferenceArgsDict']]]]]
 
 @pulumi.input_type
 class DashboardSourceTemplateArgs:
     def __init__(__self__, *,
                  arn: pulumi.Input[_builtins.str],
-                 data_set_references: pulumi.Input[Sequence[pulumi.Input['DashboardDataSetReferenceArgs']]]):
+                 data_set_references: pulumi.Input[Sequence[pulumi.Input['DashboardDataSetReferenceArgs']]],
+                 topic_references: pulumi.Input[Optional[Sequence[pulumi.Input['DashboardTopicReferenceArgs']]]] = None):
         """
         <p>Dashboard source template.</p>
 
@@ -85444,6 +87066,8 @@ class DashboardSourceTemplateArgs:
         """
         pulumi.set(__self__, "arn", arn)
         pulumi.set(__self__, "data_set_references", data_set_references)
+        if topic_references is not None:
+            pulumi.set(__self__, "topic_references", topic_references)
 
     @_builtins.property
     @pulumi.getter
@@ -85468,6 +87092,15 @@ class DashboardSourceTemplateArgs:
     @data_set_references.setter
     def data_set_references(self, value: pulumi.Input[Sequence[pulumi.Input['DashboardDataSetReferenceArgs']]]):
         pulumi.set(self, "data_set_references", value)
+
+    @_builtins.property
+    @pulumi.getter(name="topicReferences")
+    def topic_references(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DashboardTopicReferenceArgs']]]]:
+        return pulumi.get(self, "topic_references")
+
+    @topic_references.setter
+    def topic_references(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DashboardTopicReferenceArgs']]]]):
+        pulumi.set(self, "topic_references", value)
 
 
 class DashboardSpacingArgsDict(TypedDict):
@@ -85557,6 +87190,128 @@ class DashboardSpacingArgs:
     @top.setter
     def top(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "top", value)
+
+
+class DashboardSparklinesOptionsArgsDict(TypedDict):
+    field_id: pulumi.Input[_builtins.str]
+    x_axis_field: pulumi.Input['DashboardDimensionFieldArgsDict']
+    all_points_marker: NotRequired[pulumi.Input[Optional['DashboardLineChartMarkerStyleSettingsArgsDict']]]
+    line_color: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    line_interpolation: NotRequired[pulumi.Input[Optional['DashboardLineInterpolation']]]
+    max_value_marker: NotRequired[pulumi.Input[Optional['DashboardLineChartMarkerStyleSettingsArgsDict']]]
+    min_value_marker: NotRequired[pulumi.Input[Optional['DashboardLineChartMarkerStyleSettingsArgsDict']]]
+    visual_type: NotRequired[pulumi.Input[Optional['DashboardSparklineVisualType']]]
+    y_axis_behavior: NotRequired[pulumi.Input[Optional['DashboardSparklineAxisBehavior']]]
+
+@pulumi.input_type
+class DashboardSparklinesOptionsArgs:
+    def __init__(__self__, *,
+                 field_id: pulumi.Input[_builtins.str],
+                 x_axis_field: pulumi.Input['DashboardDimensionFieldArgs'],
+                 all_points_marker: pulumi.Input[Optional['DashboardLineChartMarkerStyleSettingsArgs']] = None,
+                 line_color: pulumi.Input[Optional[_builtins.str]] = None,
+                 line_interpolation: pulumi.Input[Optional['DashboardLineInterpolation']] = None,
+                 max_value_marker: pulumi.Input[Optional['DashboardLineChartMarkerStyleSettingsArgs']] = None,
+                 min_value_marker: pulumi.Input[Optional['DashboardLineChartMarkerStyleSettingsArgs']] = None,
+                 visual_type: pulumi.Input[Optional['DashboardSparklineVisualType']] = None,
+                 y_axis_behavior: pulumi.Input[Optional['DashboardSparklineAxisBehavior']] = None):
+        pulumi.set(__self__, "field_id", field_id)
+        pulumi.set(__self__, "x_axis_field", x_axis_field)
+        if all_points_marker is not None:
+            pulumi.set(__self__, "all_points_marker", all_points_marker)
+        if line_color is not None:
+            pulumi.set(__self__, "line_color", line_color)
+        if line_interpolation is not None:
+            pulumi.set(__self__, "line_interpolation", line_interpolation)
+        if max_value_marker is not None:
+            pulumi.set(__self__, "max_value_marker", max_value_marker)
+        if min_value_marker is not None:
+            pulumi.set(__self__, "min_value_marker", min_value_marker)
+        if visual_type is not None:
+            pulumi.set(__self__, "visual_type", visual_type)
+        if y_axis_behavior is not None:
+            pulumi.set(__self__, "y_axis_behavior", y_axis_behavior)
+
+    @_builtins.property
+    @pulumi.getter(name="fieldId")
+    def field_id(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "field_id")
+
+    @field_id.setter
+    def field_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "field_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="xAxisField")
+    def x_axis_field(self) -> pulumi.Input['DashboardDimensionFieldArgs']:
+        return pulumi.get(self, "x_axis_field")
+
+    @x_axis_field.setter
+    def x_axis_field(self, value: pulumi.Input['DashboardDimensionFieldArgs']):
+        pulumi.set(self, "x_axis_field", value)
+
+    @_builtins.property
+    @pulumi.getter(name="allPointsMarker")
+    def all_points_marker(self) -> pulumi.Input[Optional['DashboardLineChartMarkerStyleSettingsArgs']]:
+        return pulumi.get(self, "all_points_marker")
+
+    @all_points_marker.setter
+    def all_points_marker(self, value: pulumi.Input[Optional['DashboardLineChartMarkerStyleSettingsArgs']]):
+        pulumi.set(self, "all_points_marker", value)
+
+    @_builtins.property
+    @pulumi.getter(name="lineColor")
+    def line_color(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "line_color")
+
+    @line_color.setter
+    def line_color(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "line_color", value)
+
+    @_builtins.property
+    @pulumi.getter(name="lineInterpolation")
+    def line_interpolation(self) -> pulumi.Input[Optional['DashboardLineInterpolation']]:
+        return pulumi.get(self, "line_interpolation")
+
+    @line_interpolation.setter
+    def line_interpolation(self, value: pulumi.Input[Optional['DashboardLineInterpolation']]):
+        pulumi.set(self, "line_interpolation", value)
+
+    @_builtins.property
+    @pulumi.getter(name="maxValueMarker")
+    def max_value_marker(self) -> pulumi.Input[Optional['DashboardLineChartMarkerStyleSettingsArgs']]:
+        return pulumi.get(self, "max_value_marker")
+
+    @max_value_marker.setter
+    def max_value_marker(self, value: pulumi.Input[Optional['DashboardLineChartMarkerStyleSettingsArgs']]):
+        pulumi.set(self, "max_value_marker", value)
+
+    @_builtins.property
+    @pulumi.getter(name="minValueMarker")
+    def min_value_marker(self) -> pulumi.Input[Optional['DashboardLineChartMarkerStyleSettingsArgs']]:
+        return pulumi.get(self, "min_value_marker")
+
+    @min_value_marker.setter
+    def min_value_marker(self, value: pulumi.Input[Optional['DashboardLineChartMarkerStyleSettingsArgs']]):
+        pulumi.set(self, "min_value_marker", value)
+
+    @_builtins.property
+    @pulumi.getter(name="visualType")
+    def visual_type(self) -> pulumi.Input[Optional['DashboardSparklineVisualType']]:
+        return pulumi.get(self, "visual_type")
+
+    @visual_type.setter
+    def visual_type(self, value: pulumi.Input[Optional['DashboardSparklineVisualType']]):
+        pulumi.set(self, "visual_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="yAxisBehavior")
+    def y_axis_behavior(self) -> pulumi.Input[Optional['DashboardSparklineAxisBehavior']]:
+        return pulumi.get(self, "y_axis_behavior")
+
+    @y_axis_behavior.setter
+    def y_axis_behavior(self, value: pulumi.Input[Optional['DashboardSparklineAxisBehavior']]):
+        pulumi.set(self, "y_axis_behavior", value)
 
 
 class DashboardSpatialStaticFileArgsDict(TypedDict):
@@ -87389,16 +89144,20 @@ class DashboardTableInlineVisualizationArgsDict(TypedDict):
     """
     The configuration of the inline visualization of the data bars within a chart.
     """
+    sparklines: NotRequired[pulumi.Input[Optional['DashboardSparklinesOptionsArgsDict']]]
 
 @pulumi.input_type
 class DashboardTableInlineVisualizationArgs:
     def __init__(__self__, *,
-                 data_bars: pulumi.Input[Optional['DashboardDataBarsOptionsArgs']] = None):
+                 data_bars: pulumi.Input[Optional['DashboardDataBarsOptionsArgs']] = None,
+                 sparklines: pulumi.Input[Optional['DashboardSparklinesOptionsArgs']] = None):
         """
         :param pulumi.Input['DashboardDataBarsOptionsArgs'] data_bars: The configuration of the inline visualization of the data bars within a chart.
         """
         if data_bars is not None:
             pulumi.set(__self__, "data_bars", data_bars)
+        if sparklines is not None:
+            pulumi.set(__self__, "sparklines", sparklines)
 
     @_builtins.property
     @pulumi.getter(name="dataBars")
@@ -87411,6 +89170,15 @@ class DashboardTableInlineVisualizationArgs:
     @data_bars.setter
     def data_bars(self, value: pulumi.Input[Optional['DashboardDataBarsOptionsArgs']]):
         pulumi.set(self, "data_bars", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def sparklines(self) -> pulumi.Input[Optional['DashboardSparklinesOptionsArgs']]:
+        return pulumi.get(self, "sparklines")
+
+    @sparklines.setter
+    def sparklines(self, value: pulumi.Input[Optional['DashboardSparklinesOptionsArgs']]):
+        pulumi.set(self, "sparklines", value)
 
 
 class DashboardTableOptionsArgsDict(TypedDict):
@@ -89577,6 +91345,68 @@ class DashboardTopBottomRankedComputationArgs:
         pulumi.set(self, "value", value)
 
 
+class DashboardTopicIdentifierDeclarationArgsDict(TypedDict):
+    identifier: pulumi.Input[_builtins.str]
+    topic_arn: pulumi.Input[_builtins.str]
+
+@pulumi.input_type
+class DashboardTopicIdentifierDeclarationArgs:
+    def __init__(__self__, *,
+                 identifier: pulumi.Input[_builtins.str],
+                 topic_arn: pulumi.Input[_builtins.str]):
+        pulumi.set(__self__, "identifier", identifier)
+        pulumi.set(__self__, "topic_arn", topic_arn)
+
+    @_builtins.property
+    @pulumi.getter
+    def identifier(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "identifier")
+
+    @identifier.setter
+    def identifier(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "identifier", value)
+
+    @_builtins.property
+    @pulumi.getter(name="topicArn")
+    def topic_arn(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "topic_arn")
+
+    @topic_arn.setter
+    def topic_arn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "topic_arn", value)
+
+
+class DashboardTopicReferenceArgsDict(TypedDict):
+    topic_arn: pulumi.Input[_builtins.str]
+    topic_placeholder: pulumi.Input[_builtins.str]
+
+@pulumi.input_type
+class DashboardTopicReferenceArgs:
+    def __init__(__self__, *,
+                 topic_arn: pulumi.Input[_builtins.str],
+                 topic_placeholder: pulumi.Input[_builtins.str]):
+        pulumi.set(__self__, "topic_arn", topic_arn)
+        pulumi.set(__self__, "topic_placeholder", topic_placeholder)
+
+    @_builtins.property
+    @pulumi.getter(name="topicArn")
+    def topic_arn(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "topic_arn")
+
+    @topic_arn.setter
+    def topic_arn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "topic_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="topicPlaceholder")
+    def topic_placeholder(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "topic_placeholder")
+
+    @topic_placeholder.setter
+    def topic_placeholder(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "topic_placeholder", value)
+
+
 class DashboardTotalAggregationComputationArgsDict(TypedDict):
     computation_id: pulumi.Input[_builtins.str]
     """
@@ -90664,8 +92494,9 @@ class DashboardVersionDefinitionArgsDict(TypedDict):
     """
     static_files: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DashboardStaticFileArgsDict']]]]]
     """
-    The static files for the definition.
+    <p>The static files for the definition.</p>
     """
+    topic_identifier_declarations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DashboardTopicIdentifierDeclarationArgsDict']]]]]
 
 @pulumi.input_type
 class DashboardVersionDefinitionArgs:
@@ -90678,7 +92509,8 @@ class DashboardVersionDefinitionArgs:
                  options: pulumi.Input[Optional['DashboardAssetOptionsArgs']] = None,
                  parameter_declarations: pulumi.Input[Optional[Sequence[pulumi.Input['DashboardParameterDeclarationArgs']]]] = None,
                  sheets: pulumi.Input[Optional[Sequence[pulumi.Input['DashboardSheetDefinitionArgs']]]] = None,
-                 static_files: pulumi.Input[Optional[Sequence[pulumi.Input['DashboardStaticFileArgs']]]] = None):
+                 static_files: pulumi.Input[Optional[Sequence[pulumi.Input['DashboardStaticFileArgs']]]] = None,
+                 topic_identifier_declarations: pulumi.Input[Optional[Sequence[pulumi.Input['DashboardTopicIdentifierDeclarationArgs']]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['DashboardDataSetIdentifierDeclarationArgs']]] data_set_identifier_declarations: An array of dataset identifier declarations. With this mapping,you can use dataset identifiers instead of dataset Amazon Resource Names (ARNs) throughout the dashboard's sub-structures.
         :param pulumi.Input[Sequence[pulumi.Input['DashboardCalculatedFieldArgs']]] calculated_fields: An array of calculated field definitions for the dashboard.
@@ -90691,7 +92523,7 @@ class DashboardVersionDefinitionArgs:
                
                For more information, see [Parameters in Amazon Quick Sight](https://docs.aws.amazon.com/quicksight/latest/user/parameters-in-quicksight.html) in the *Amazon Quick Suite User Guide* .
         :param pulumi.Input[Sequence[pulumi.Input['DashboardSheetDefinitionArgs']]] sheets: An array of sheet definitions for a dashboard.
-        :param pulumi.Input[Sequence[pulumi.Input['DashboardStaticFileArgs']]] static_files: The static files for the definition.
+        :param pulumi.Input[Sequence[pulumi.Input['DashboardStaticFileArgs']]] static_files: <p>The static files for the definition.</p>
         """
         pulumi.set(__self__, "data_set_identifier_declarations", data_set_identifier_declarations)
         if analysis_defaults is not None:
@@ -90710,6 +92542,8 @@ class DashboardVersionDefinitionArgs:
             pulumi.set(__self__, "sheets", sheets)
         if static_files is not None:
             pulumi.set(__self__, "static_files", static_files)
+        if topic_identifier_declarations is not None:
+            pulumi.set(__self__, "topic_identifier_declarations", topic_identifier_declarations)
 
     @_builtins.property
     @pulumi.getter(name="dataSetIdentifierDeclarations")
@@ -90812,13 +92646,22 @@ class DashboardVersionDefinitionArgs:
     @pulumi.getter(name="staticFiles")
     def static_files(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DashboardStaticFileArgs']]]]:
         """
-        The static files for the definition.
+        <p>The static files for the definition.</p>
         """
         return pulumi.get(self, "static_files")
 
     @static_files.setter
     def static_files(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DashboardStaticFileArgs']]]]):
         pulumi.set(self, "static_files", value)
+
+    @_builtins.property
+    @pulumi.getter(name="topicIdentifierDeclarations")
+    def topic_identifier_declarations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DashboardTopicIdentifierDeclarationArgs']]]]:
+        return pulumi.get(self, "topic_identifier_declarations")
+
+    @topic_identifier_declarations.setter
+    def topic_identifier_declarations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DashboardTopicIdentifierDeclarationArgs']]]]):
+        pulumi.set(self, "topic_identifier_declarations", value)
 
 
 class DashboardVisibleRangeOptionsArgsDict(TypedDict):
@@ -100150,6 +101993,7 @@ class DataSourceAthenaParametersArgsDict(TypedDict):
     """
     <p>Parameters for Amazon Athena.</p>
     """
+    consumer_account_role_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     identity_center_configuration: NotRequired[pulumi.Input[Optional['DataSourceIdentityCenterConfigurationArgsDict']]]
     """
     An optional parameter that configures IAM Identity Center authentication to grant Quick Sight access to your workgroup.
@@ -100168,6 +102012,7 @@ class DataSourceAthenaParametersArgsDict(TypedDict):
 @pulumi.input_type
 class DataSourceAthenaParametersArgs:
     def __init__(__self__, *,
+                 consumer_account_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  identity_center_configuration: pulumi.Input[Optional['DataSourceIdentityCenterConfigurationArgs']] = None,
                  role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  work_group: pulumi.Input[Optional[_builtins.str]] = None):
@@ -100180,12 +102025,23 @@ class DataSourceAthenaParametersArgs:
         :param pulumi.Input[_builtins.str] role_arn: <p>Use the <code>RoleArn</code> structure to override an account-wide role for a specific Athena data source. For example, say an account administrator has turned off all Athena access with an account-wide role. The administrator can then use <code>RoleArn</code> to bypass the account-wide role and allow Athena access for the single Athena data source that is specified in the structure, even if the account-wide role forbidding Athena access is still active.</p>
         :param pulumi.Input[_builtins.str] work_group: <p>The workgroup that Amazon Athena uses.</p>
         """
+        if consumer_account_role_arn is not None:
+            pulumi.set(__self__, "consumer_account_role_arn", consumer_account_role_arn)
         if identity_center_configuration is not None:
             pulumi.set(__self__, "identity_center_configuration", identity_center_configuration)
         if role_arn is not None:
             pulumi.set(__self__, "role_arn", role_arn)
         if work_group is not None:
             pulumi.set(__self__, "work_group", work_group)
+
+    @_builtins.property
+    @pulumi.getter(name="consumerAccountRoleArn")
+    def consumer_account_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "consumer_account_role_arn")
+
+    @consumer_account_role_arn.setter
+    def consumer_account_role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "consumer_account_role_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="identityCenterConfiguration")
@@ -104999,6 +106855,7 @@ class TemplateBarChartConfigurationArgsDict(TypedDict):
     """
     The options that determine if visual data labels are displayed.
     """
+    default_series_settings: NotRequired[pulumi.Input[Optional['TemplateBarChartDefaultSeriesSettingsArgsDict']]]
     field_wells: NotRequired[pulumi.Input[Optional['TemplateBarChartFieldWellsArgsDict']]]
     """
     The field wells of the visual.
@@ -105022,6 +106879,7 @@ class TemplateBarChartConfigurationArgsDict(TypedDict):
     """
     The reference line setup of the visual.
     """
+    series: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TemplateBarSeriesItemArgsDict']]]]]
     small_multiples_options: NotRequired[pulumi.Input[Optional['TemplateSmallMultiplesOptionsArgsDict']]]
     """
     The small multiples setup for the visual.
@@ -105056,11 +106914,13 @@ class TemplateBarChartConfigurationArgs:
                  color_label_options: pulumi.Input[Optional['TemplateChartAxisLabelOptionsArgs']] = None,
                  contribution_analysis_defaults: pulumi.Input[Optional[Sequence[pulumi.Input['TemplateContributionAnalysisDefaultArgs']]]] = None,
                  data_labels: pulumi.Input[Optional['TemplateDataLabelOptionsArgs']] = None,
+                 default_series_settings: pulumi.Input[Optional['TemplateBarChartDefaultSeriesSettingsArgs']] = None,
                  field_wells: pulumi.Input[Optional['TemplateBarChartFieldWellsArgs']] = None,
                  interactions: pulumi.Input[Optional['TemplateVisualInteractionOptionsArgs']] = None,
                  legend: pulumi.Input[Optional['TemplateLegendOptionsArgs']] = None,
                  orientation: pulumi.Input[Optional['TemplateBarChartOrientation']] = None,
                  reference_lines: pulumi.Input[Optional[Sequence[pulumi.Input['TemplateReferenceLineArgs']]]] = None,
+                 series: pulumi.Input[Optional[Sequence[pulumi.Input['TemplateBarSeriesItemArgs']]]] = None,
                  small_multiples_options: pulumi.Input[Optional['TemplateSmallMultiplesOptionsArgs']] = None,
                  sort_configuration: pulumi.Input[Optional['TemplateBarChartSortConfigurationArgs']] = None,
                  tooltip: pulumi.Input[Optional['TemplateTooltipOptionsArgs']] = None,
@@ -105101,6 +106961,8 @@ class TemplateBarChartConfigurationArgs:
             pulumi.set(__self__, "contribution_analysis_defaults", contribution_analysis_defaults)
         if data_labels is not None:
             pulumi.set(__self__, "data_labels", data_labels)
+        if default_series_settings is not None:
+            pulumi.set(__self__, "default_series_settings", default_series_settings)
         if field_wells is not None:
             pulumi.set(__self__, "field_wells", field_wells)
         if interactions is not None:
@@ -105111,6 +106973,8 @@ class TemplateBarChartConfigurationArgs:
             pulumi.set(__self__, "orientation", orientation)
         if reference_lines is not None:
             pulumi.set(__self__, "reference_lines", reference_lines)
+        if series is not None:
+            pulumi.set(__self__, "series", series)
         if small_multiples_options is not None:
             pulumi.set(__self__, "small_multiples_options", small_multiples_options)
         if sort_configuration is not None:
@@ -105197,6 +107061,15 @@ class TemplateBarChartConfigurationArgs:
         pulumi.set(self, "data_labels", value)
 
     @_builtins.property
+    @pulumi.getter(name="defaultSeriesSettings")
+    def default_series_settings(self) -> pulumi.Input[Optional['TemplateBarChartDefaultSeriesSettingsArgs']]:
+        return pulumi.get(self, "default_series_settings")
+
+    @default_series_settings.setter
+    def default_series_settings(self, value: pulumi.Input[Optional['TemplateBarChartDefaultSeriesSettingsArgs']]):
+        pulumi.set(self, "default_series_settings", value)
+
+    @_builtins.property
     @pulumi.getter(name="fieldWells")
     def field_wells(self) -> pulumi.Input[Optional['TemplateBarChartFieldWellsArgs']]:
         """
@@ -105258,6 +107131,15 @@ class TemplateBarChartConfigurationArgs:
     @reference_lines.setter
     def reference_lines(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['TemplateReferenceLineArgs']]]]):
         pulumi.set(self, "reference_lines", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def series(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['TemplateBarSeriesItemArgs']]]]:
+        return pulumi.get(self, "series")
+
+    @series.setter
+    def series(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['TemplateBarSeriesItemArgs']]]]):
+        pulumi.set(self, "series", value)
 
     @_builtins.property
     @pulumi.getter(name="smallMultiplesOptions")
@@ -105330,6 +107212,39 @@ class TemplateBarChartConfigurationArgs:
     @visual_palette.setter
     def visual_palette(self, value: pulumi.Input[Optional['TemplateVisualPaletteArgs']]):
         pulumi.set(self, "visual_palette", value)
+
+
+class TemplateBarChartDefaultSeriesSettingsArgsDict(TypedDict):
+    border_settings: NotRequired[pulumi.Input[Optional['TemplateBorderSettingsArgsDict']]]
+    decal_settings: NotRequired[pulumi.Input[Optional['TemplateDecalSettingsArgsDict']]]
+
+@pulumi.input_type
+class TemplateBarChartDefaultSeriesSettingsArgs:
+    def __init__(__self__, *,
+                 border_settings: pulumi.Input[Optional['TemplateBorderSettingsArgs']] = None,
+                 decal_settings: pulumi.Input[Optional['TemplateDecalSettingsArgs']] = None):
+        if border_settings is not None:
+            pulumi.set(__self__, "border_settings", border_settings)
+        if decal_settings is not None:
+            pulumi.set(__self__, "decal_settings", decal_settings)
+
+    @_builtins.property
+    @pulumi.getter(name="borderSettings")
+    def border_settings(self) -> pulumi.Input[Optional['TemplateBorderSettingsArgs']]:
+        return pulumi.get(self, "border_settings")
+
+    @border_settings.setter
+    def border_settings(self, value: pulumi.Input[Optional['TemplateBorderSettingsArgs']]):
+        pulumi.set(self, "border_settings", value)
+
+    @_builtins.property
+    @pulumi.getter(name="decalSettings")
+    def decal_settings(self) -> pulumi.Input[Optional['TemplateDecalSettingsArgs']]:
+        return pulumi.get(self, "decal_settings")
+
+    @decal_settings.setter
+    def decal_settings(self, value: pulumi.Input[Optional['TemplateDecalSettingsArgs']]):
+        pulumi.set(self, "decal_settings", value)
 
 
 class TemplateBarChartFieldWellsArgsDict(TypedDict):
@@ -105636,6 +107551,15 @@ class TemplateBarChartVisualArgs:
     @visual_content_alt_text.setter
     def visual_content_alt_text(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "visual_content_alt_text", value)
+
+
+class TemplateBarSeriesItemArgsDict(TypedDict):
+    pass
+
+@pulumi.input_type
+class TemplateBarSeriesItemArgs:
+    def __init__(__self__):
+        pass
 
 
 class TemplateBinCountOptionsArgsDict(TypedDict):
@@ -106110,6 +108034,61 @@ class TemplateBodySectionRepeatPageBreakConfigurationArgs:
     @after.setter
     def after(self, value: pulumi.Input[Optional['TemplateSectionAfterPageBreakArgs']]):
         pulumi.set(self, "after", value)
+
+
+class TemplateBorderSettingsArgsDict(TypedDict):
+    border_color: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    border_visibility: NotRequired[pulumi.Input[Optional['TemplateVisibility']]]
+    border_width: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    String based length that is composed of value and unit in px
+    """
+
+@pulumi.input_type
+class TemplateBorderSettingsArgs:
+    def __init__(__self__, *,
+                 border_color: pulumi.Input[Optional[_builtins.str]] = None,
+                 border_visibility: pulumi.Input[Optional['TemplateVisibility']] = None,
+                 border_width: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] border_width: String based length that is composed of value and unit in px
+        """
+        if border_color is not None:
+            pulumi.set(__self__, "border_color", border_color)
+        if border_visibility is not None:
+            pulumi.set(__self__, "border_visibility", border_visibility)
+        if border_width is not None:
+            pulumi.set(__self__, "border_width", border_width)
+
+    @_builtins.property
+    @pulumi.getter(name="borderColor")
+    def border_color(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "border_color")
+
+    @border_color.setter
+    def border_color(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "border_color", value)
+
+    @_builtins.property
+    @pulumi.getter(name="borderVisibility")
+    def border_visibility(self) -> pulumi.Input[Optional['TemplateVisibility']]:
+        return pulumi.get(self, "border_visibility")
+
+    @border_visibility.setter
+    def border_visibility(self, value: pulumi.Input[Optional['TemplateVisibility']]):
+        pulumi.set(self, "border_visibility", value)
+
+    @_builtins.property
+    @pulumi.getter(name="borderWidth")
+    def border_width(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        String based length that is composed of value and unit in px
+        """
+        return pulumi.get(self, "border_width")
+
+    @border_width.setter
+    def border_width(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "border_width", value)
 
 
 class TemplateBoxPlotAggregatedFieldWellsArgsDict(TypedDict):
@@ -106728,10 +108707,6 @@ class TemplateBoxPlotVisualArgs:
 
 
 class TemplateCalculatedFieldArgsDict(TypedDict):
-    data_set_identifier: pulumi.Input[_builtins.str]
-    """
-    The data set that is used in this calculated field.
-    """
     expression: pulumi.Input[_builtins.str]
     """
     The expression of the calculated field.
@@ -106740,33 +108715,30 @@ class TemplateCalculatedFieldArgsDict(TypedDict):
     """
     The name of the calculated field.
     """
+    data_set_identifier: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The data set that is used in this calculated field.
+    """
+    topic_identifier: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
 class TemplateCalculatedFieldArgs:
     def __init__(__self__, *,
-                 data_set_identifier: pulumi.Input[_builtins.str],
                  expression: pulumi.Input[_builtins.str],
-                 name: pulumi.Input[_builtins.str]):
+                 name: pulumi.Input[_builtins.str],
+                 data_set_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 topic_identifier: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] data_set_identifier: The data set that is used in this calculated field.
         :param pulumi.Input[_builtins.str] expression: The expression of the calculated field.
         :param pulumi.Input[_builtins.str] name: The name of the calculated field.
+        :param pulumi.Input[_builtins.str] data_set_identifier: The data set that is used in this calculated field.
         """
-        pulumi.set(__self__, "data_set_identifier", data_set_identifier)
         pulumi.set(__self__, "expression", expression)
         pulumi.set(__self__, "name", name)
-
-    @_builtins.property
-    @pulumi.getter(name="dataSetIdentifier")
-    def data_set_identifier(self) -> pulumi.Input[_builtins.str]:
-        """
-        The data set that is used in this calculated field.
-        """
-        return pulumi.get(self, "data_set_identifier")
-
-    @data_set_identifier.setter
-    def data_set_identifier(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "data_set_identifier", value)
+        if data_set_identifier is not None:
+            pulumi.set(__self__, "data_set_identifier", data_set_identifier)
+        if topic_identifier is not None:
+            pulumi.set(__self__, "topic_identifier", topic_identifier)
 
     @_builtins.property
     @pulumi.getter
@@ -106791,6 +108763,27 @@ class TemplateCalculatedFieldArgs:
     @name.setter
     def name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="dataSetIdentifier")
+    def data_set_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The data set that is used in this calculated field.
+        """
+        return pulumi.get(self, "data_set_identifier")
+
+    @data_set_identifier.setter
+    def data_set_identifier(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "data_set_identifier", value)
+
+    @_builtins.property
+    @pulumi.getter(name="topicIdentifier")
+    def topic_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "topic_identifier")
+
+    @topic_identifier.setter
+    def topic_identifier(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "topic_identifier", value)
 
 
 class TemplateCalculatedMeasureFieldArgsDict(TypedDict):
@@ -107579,6 +109572,7 @@ class TemplateColumnConfigurationArgsDict(TypedDict):
     """
     The color configurations of the column.
     """
+    decal_settings_configuration: NotRequired[pulumi.Input[Optional['TemplateDecalSettingsConfigurationArgsDict']]]
     format_configuration: NotRequired[pulumi.Input[Optional['TemplateFormatConfigurationArgsDict']]]
     """
     The format configuration of a column.
@@ -107593,6 +109587,7 @@ class TemplateColumnConfigurationArgs:
     def __init__(__self__, *,
                  column: pulumi.Input['TemplateColumnIdentifierArgs'],
                  colors_configuration: pulumi.Input[Optional['TemplateColorsConfigurationArgs']] = None,
+                 decal_settings_configuration: pulumi.Input[Optional['TemplateDecalSettingsConfigurationArgs']] = None,
                  format_configuration: pulumi.Input[Optional['TemplateFormatConfigurationArgs']] = None,
                  role: pulumi.Input[Optional['TemplateColumnRole']] = None):
         """
@@ -107604,6 +109599,8 @@ class TemplateColumnConfigurationArgs:
         pulumi.set(__self__, "column", column)
         if colors_configuration is not None:
             pulumi.set(__self__, "colors_configuration", colors_configuration)
+        if decal_settings_configuration is not None:
+            pulumi.set(__self__, "decal_settings_configuration", decal_settings_configuration)
         if format_configuration is not None:
             pulumi.set(__self__, "format_configuration", format_configuration)
         if role is not None:
@@ -107632,6 +109629,15 @@ class TemplateColumnConfigurationArgs:
     @colors_configuration.setter
     def colors_configuration(self, value: pulumi.Input[Optional['TemplateColorsConfigurationArgs']]):
         pulumi.set(self, "colors_configuration", value)
+
+    @_builtins.property
+    @pulumi.getter(name="decalSettingsConfiguration")
+    def decal_settings_configuration(self) -> pulumi.Input[Optional['TemplateDecalSettingsConfigurationArgs']]:
+        return pulumi.get(self, "decal_settings_configuration")
+
+    @decal_settings_configuration.setter
+    def decal_settings_configuration(self, value: pulumi.Input[Optional['TemplateDecalSettingsConfigurationArgs']]):
+        pulumi.set(self, "decal_settings_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="formatConfiguration")
@@ -107820,22 +109826,27 @@ class TemplateColumnIdentifierArgsDict(TypedDict):
     """
     The name of the column.
     """
-    data_set_identifier: pulumi.Input[_builtins.str]
+    data_set_identifier: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The data set that the column belongs to.
     """
+    topic_identifier: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
 class TemplateColumnIdentifierArgs:
     def __init__(__self__, *,
                  column_name: pulumi.Input[_builtins.str],
-                 data_set_identifier: pulumi.Input[_builtins.str]):
+                 data_set_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 topic_identifier: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] column_name: The name of the column.
         :param pulumi.Input[_builtins.str] data_set_identifier: The data set that the column belongs to.
         """
         pulumi.set(__self__, "column_name", column_name)
-        pulumi.set(__self__, "data_set_identifier", data_set_identifier)
+        if data_set_identifier is not None:
+            pulumi.set(__self__, "data_set_identifier", data_set_identifier)
+        if topic_identifier is not None:
+            pulumi.set(__self__, "topic_identifier", topic_identifier)
 
     @_builtins.property
     @pulumi.getter(name="columnName")
@@ -107851,15 +109862,24 @@ class TemplateColumnIdentifierArgs:
 
     @_builtins.property
     @pulumi.getter(name="dataSetIdentifier")
-    def data_set_identifier(self) -> pulumi.Input[_builtins.str]:
+    def data_set_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The data set that the column belongs to.
         """
         return pulumi.get(self, "data_set_identifier")
 
     @data_set_identifier.setter
-    def data_set_identifier(self, value: pulumi.Input[_builtins.str]):
+    def data_set_identifier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "data_set_identifier", value)
+
+    @_builtins.property
+    @pulumi.getter(name="topicIdentifier")
+    def topic_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "topic_identifier")
+
+    @topic_identifier.setter
+    def topic_identifier(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "topic_identifier", value)
 
 
 class TemplateColumnSchemaArgsDict(TypedDict):
@@ -108220,6 +110240,7 @@ class TemplateComboChartConfigurationArgsDict(TypedDict):
     """
     The label options (label text, label visibility, and sort icon visibility) of a combo chart's color field well.
     """
+    default_series_settings: NotRequired[pulumi.Input[Optional['TemplateComboChartDefaultSeriesSettingsArgsDict']]]
     field_wells: NotRequired[pulumi.Input[Optional['TemplateComboChartFieldWellsArgsDict']]]
     """
     The field wells of the visual.
@@ -108258,6 +110279,7 @@ class TemplateComboChartConfigurationArgsDict(TypedDict):
     """
     The label options (label text, label visibility, and sort icon visibility) of a combo chart's secondary y-axis(line) field well.
     """
+    series: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TemplateComboSeriesItemArgsDict']]]]]
     single_axis_options: NotRequired[pulumi.Input[Optional['TemplateSingleAxisOptionsArgsDict']]]
     sort_configuration: NotRequired[pulumi.Input[Optional['TemplateComboChartSortConfigurationArgsDict']]]
     """
@@ -108280,6 +110302,7 @@ class TemplateComboChartConfigurationArgs:
                  category_axis: pulumi.Input[Optional['TemplateAxisDisplayOptionsArgs']] = None,
                  category_label_options: pulumi.Input[Optional['TemplateChartAxisLabelOptionsArgs']] = None,
                  color_label_options: pulumi.Input[Optional['TemplateChartAxisLabelOptionsArgs']] = None,
+                 default_series_settings: pulumi.Input[Optional['TemplateComboChartDefaultSeriesSettingsArgs']] = None,
                  field_wells: pulumi.Input[Optional['TemplateComboChartFieldWellsArgs']] = None,
                  interactions: pulumi.Input[Optional['TemplateVisualInteractionOptionsArgs']] = None,
                  legend: pulumi.Input[Optional['TemplateLegendOptionsArgs']] = None,
@@ -108289,6 +110312,7 @@ class TemplateComboChartConfigurationArgs:
                  reference_lines: pulumi.Input[Optional[Sequence[pulumi.Input['TemplateReferenceLineArgs']]]] = None,
                  secondary_y_axis_display_options: pulumi.Input[Optional['TemplateAxisDisplayOptionsArgs']] = None,
                  secondary_y_axis_label_options: pulumi.Input[Optional['TemplateChartAxisLabelOptionsArgs']] = None,
+                 series: pulumi.Input[Optional[Sequence[pulumi.Input['TemplateComboSeriesItemArgs']]]] = None,
                  single_axis_options: pulumi.Input[Optional['TemplateSingleAxisOptionsArgs']] = None,
                  sort_configuration: pulumi.Input[Optional['TemplateComboChartSortConfigurationArgs']] = None,
                  tooltip: pulumi.Input[Optional['TemplateTooltipOptionsArgs']] = None,
@@ -108330,6 +110354,8 @@ class TemplateComboChartConfigurationArgs:
             pulumi.set(__self__, "category_label_options", category_label_options)
         if color_label_options is not None:
             pulumi.set(__self__, "color_label_options", color_label_options)
+        if default_series_settings is not None:
+            pulumi.set(__self__, "default_series_settings", default_series_settings)
         if field_wells is not None:
             pulumi.set(__self__, "field_wells", field_wells)
         if interactions is not None:
@@ -108348,6 +110374,8 @@ class TemplateComboChartConfigurationArgs:
             pulumi.set(__self__, "secondary_y_axis_display_options", secondary_y_axis_display_options)
         if secondary_y_axis_label_options is not None:
             pulumi.set(__self__, "secondary_y_axis_label_options", secondary_y_axis_label_options)
+        if series is not None:
+            pulumi.set(__self__, "series", series)
         if single_axis_options is not None:
             pulumi.set(__self__, "single_axis_options", single_axis_options)
         if sort_configuration is not None:
@@ -108422,6 +110450,15 @@ class TemplateComboChartConfigurationArgs:
     @color_label_options.setter
     def color_label_options(self, value: pulumi.Input[Optional['TemplateChartAxisLabelOptionsArgs']]):
         pulumi.set(self, "color_label_options", value)
+
+    @_builtins.property
+    @pulumi.getter(name="defaultSeriesSettings")
+    def default_series_settings(self) -> pulumi.Input[Optional['TemplateComboChartDefaultSeriesSettingsArgs']]:
+        return pulumi.get(self, "default_series_settings")
+
+    @default_series_settings.setter
+    def default_series_settings(self, value: pulumi.Input[Optional['TemplateComboChartDefaultSeriesSettingsArgs']]):
+        pulumi.set(self, "default_series_settings", value)
 
     @_builtins.property
     @pulumi.getter(name="fieldWells")
@@ -108534,6 +110571,15 @@ class TemplateComboChartConfigurationArgs:
         pulumi.set(self, "secondary_y_axis_label_options", value)
 
     @_builtins.property
+    @pulumi.getter
+    def series(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['TemplateComboSeriesItemArgs']]]]:
+        return pulumi.get(self, "series")
+
+    @series.setter
+    def series(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['TemplateComboSeriesItemArgs']]]]):
+        pulumi.set(self, "series", value)
+
+    @_builtins.property
     @pulumi.getter(name="singleAxisOptions")
     def single_axis_options(self) -> pulumi.Input[Optional['TemplateSingleAxisOptionsArgs']]:
         return pulumi.get(self, "single_axis_options")
@@ -108577,6 +110623,65 @@ class TemplateComboChartConfigurationArgs:
     @visual_palette.setter
     def visual_palette(self, value: pulumi.Input[Optional['TemplateVisualPaletteArgs']]):
         pulumi.set(self, "visual_palette", value)
+
+
+class TemplateComboChartDefaultSeriesSettingsArgsDict(TypedDict):
+    border_settings: NotRequired[pulumi.Input[Optional['TemplateBorderSettingsArgsDict']]]
+    decal_settings: NotRequired[pulumi.Input[Optional['TemplateDecalSettingsArgsDict']]]
+    line_style_settings: NotRequired[pulumi.Input[Optional['TemplateLineChartLineStyleSettingsArgsDict']]]
+    marker_style_settings: NotRequired[pulumi.Input[Optional['TemplateLineChartMarkerStyleSettingsArgsDict']]]
+
+@pulumi.input_type
+class TemplateComboChartDefaultSeriesSettingsArgs:
+    def __init__(__self__, *,
+                 border_settings: pulumi.Input[Optional['TemplateBorderSettingsArgs']] = None,
+                 decal_settings: pulumi.Input[Optional['TemplateDecalSettingsArgs']] = None,
+                 line_style_settings: pulumi.Input[Optional['TemplateLineChartLineStyleSettingsArgs']] = None,
+                 marker_style_settings: pulumi.Input[Optional['TemplateLineChartMarkerStyleSettingsArgs']] = None):
+        if border_settings is not None:
+            pulumi.set(__self__, "border_settings", border_settings)
+        if decal_settings is not None:
+            pulumi.set(__self__, "decal_settings", decal_settings)
+        if line_style_settings is not None:
+            pulumi.set(__self__, "line_style_settings", line_style_settings)
+        if marker_style_settings is not None:
+            pulumi.set(__self__, "marker_style_settings", marker_style_settings)
+
+    @_builtins.property
+    @pulumi.getter(name="borderSettings")
+    def border_settings(self) -> pulumi.Input[Optional['TemplateBorderSettingsArgs']]:
+        return pulumi.get(self, "border_settings")
+
+    @border_settings.setter
+    def border_settings(self, value: pulumi.Input[Optional['TemplateBorderSettingsArgs']]):
+        pulumi.set(self, "border_settings", value)
+
+    @_builtins.property
+    @pulumi.getter(name="decalSettings")
+    def decal_settings(self) -> pulumi.Input[Optional['TemplateDecalSettingsArgs']]:
+        return pulumi.get(self, "decal_settings")
+
+    @decal_settings.setter
+    def decal_settings(self, value: pulumi.Input[Optional['TemplateDecalSettingsArgs']]):
+        pulumi.set(self, "decal_settings", value)
+
+    @_builtins.property
+    @pulumi.getter(name="lineStyleSettings")
+    def line_style_settings(self) -> pulumi.Input[Optional['TemplateLineChartLineStyleSettingsArgs']]:
+        return pulumi.get(self, "line_style_settings")
+
+    @line_style_settings.setter
+    def line_style_settings(self, value: pulumi.Input[Optional['TemplateLineChartLineStyleSettingsArgs']]):
+        pulumi.set(self, "line_style_settings", value)
+
+    @_builtins.property
+    @pulumi.getter(name="markerStyleSettings")
+    def marker_style_settings(self) -> pulumi.Input[Optional['TemplateLineChartMarkerStyleSettingsArgs']]:
+        return pulumi.get(self, "marker_style_settings")
+
+    @marker_style_settings.setter
+    def marker_style_settings(self, value: pulumi.Input[Optional['TemplateLineChartMarkerStyleSettingsArgs']]):
+        pulumi.set(self, "marker_style_settings", value)
 
 
 class TemplateComboChartFieldWellsArgsDict(TypedDict):
@@ -108843,6 +110948,15 @@ class TemplateComboChartVisualArgs:
     @visual_content_alt_text.setter
     def visual_content_alt_text(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "visual_content_alt_text", value)
+
+
+class TemplateComboSeriesItemArgsDict(TypedDict):
+    pass
+
+@pulumi.input_type
+class TemplateComboSeriesItemArgs:
+    def __init__(__self__):
+        pass
 
 
 class TemplateComparisonConfigurationArgsDict(TypedDict):
@@ -110142,10 +112256,6 @@ class TemplateCustomContentConfigurationArgs:
 
 
 class TemplateCustomContentVisualArgsDict(TypedDict):
-    data_set_identifier: pulumi.Input[_builtins.str]
-    """
-    The dataset that is used to create the custom content visual. You can't create a visual without a dataset.
-    """
     visual_id: pulumi.Input[_builtins.str]
     """
     The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.
@@ -110158,6 +112268,10 @@ class TemplateCustomContentVisualArgsDict(TypedDict):
     """
     The configuration of a `CustomContentVisual` .
     """
+    data_set_identifier: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The dataset that is used to create the custom content visual. You can't create a visual without a dataset.
+    """
     subtitle: NotRequired[pulumi.Input[Optional['TemplateVisualSubtitleLabelOptionsArgsDict']]]
     """
     The subtitle that is displayed on the visual.
@@ -110166,6 +112280,7 @@ class TemplateCustomContentVisualArgsDict(TypedDict):
     """
     The title that is displayed on the visual.
     """
+    topic_identifier: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     visual_content_alt_text: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The alt text for the visual.
@@ -110174,46 +112289,38 @@ class TemplateCustomContentVisualArgsDict(TypedDict):
 @pulumi.input_type
 class TemplateCustomContentVisualArgs:
     def __init__(__self__, *,
-                 data_set_identifier: pulumi.Input[_builtins.str],
                  visual_id: pulumi.Input[_builtins.str],
                  actions: pulumi.Input[Optional[Sequence[pulumi.Input['TemplateVisualCustomActionArgs']]]] = None,
                  chart_configuration: pulumi.Input[Optional['TemplateCustomContentConfigurationArgs']] = None,
+                 data_set_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                  subtitle: pulumi.Input[Optional['TemplateVisualSubtitleLabelOptionsArgs']] = None,
                  title: pulumi.Input[Optional['TemplateVisualTitleLabelOptionsArgs']] = None,
+                 topic_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                  visual_content_alt_text: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] data_set_identifier: The dataset that is used to create the custom content visual. You can't create a visual without a dataset.
         :param pulumi.Input[_builtins.str] visual_id: The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.
         :param pulumi.Input[Sequence[pulumi.Input['TemplateVisualCustomActionArgs']]] actions: The list of custom actions that are configured for a visual.
         :param pulumi.Input['TemplateCustomContentConfigurationArgs'] chart_configuration: The configuration of a `CustomContentVisual` .
+        :param pulumi.Input[_builtins.str] data_set_identifier: The dataset that is used to create the custom content visual. You can't create a visual without a dataset.
         :param pulumi.Input['TemplateVisualSubtitleLabelOptionsArgs'] subtitle: The subtitle that is displayed on the visual.
         :param pulumi.Input['TemplateVisualTitleLabelOptionsArgs'] title: The title that is displayed on the visual.
         :param pulumi.Input[_builtins.str] visual_content_alt_text: The alt text for the visual.
         """
-        pulumi.set(__self__, "data_set_identifier", data_set_identifier)
         pulumi.set(__self__, "visual_id", visual_id)
         if actions is not None:
             pulumi.set(__self__, "actions", actions)
         if chart_configuration is not None:
             pulumi.set(__self__, "chart_configuration", chart_configuration)
+        if data_set_identifier is not None:
+            pulumi.set(__self__, "data_set_identifier", data_set_identifier)
         if subtitle is not None:
             pulumi.set(__self__, "subtitle", subtitle)
         if title is not None:
             pulumi.set(__self__, "title", title)
+        if topic_identifier is not None:
+            pulumi.set(__self__, "topic_identifier", topic_identifier)
         if visual_content_alt_text is not None:
             pulumi.set(__self__, "visual_content_alt_text", visual_content_alt_text)
-
-    @_builtins.property
-    @pulumi.getter(name="dataSetIdentifier")
-    def data_set_identifier(self) -> pulumi.Input[_builtins.str]:
-        """
-        The dataset that is used to create the custom content visual. You can't create a visual without a dataset.
-        """
-        return pulumi.get(self, "data_set_identifier")
-
-    @data_set_identifier.setter
-    def data_set_identifier(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "data_set_identifier", value)
 
     @_builtins.property
     @pulumi.getter(name="visualId")
@@ -110252,6 +112359,18 @@ class TemplateCustomContentVisualArgs:
         pulumi.set(self, "chart_configuration", value)
 
     @_builtins.property
+    @pulumi.getter(name="dataSetIdentifier")
+    def data_set_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The dataset that is used to create the custom content visual. You can't create a visual without a dataset.
+        """
+        return pulumi.get(self, "data_set_identifier")
+
+    @data_set_identifier.setter
+    def data_set_identifier(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "data_set_identifier", value)
+
+    @_builtins.property
     @pulumi.getter
     def subtitle(self) -> pulumi.Input[Optional['TemplateVisualSubtitleLabelOptionsArgs']]:
         """
@@ -110274,6 +112393,15 @@ class TemplateCustomContentVisualArgs:
     @title.setter
     def title(self, value: pulumi.Input[Optional['TemplateVisualTitleLabelOptionsArgs']]):
         pulumi.set(self, "title", value)
+
+    @_builtins.property
+    @pulumi.getter(name="topicIdentifier")
+    def topic_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "topic_identifier")
+
+    @topic_identifier.setter
+    def topic_identifier(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "topic_identifier", value)
 
     @_builtins.property
     @pulumi.getter(name="visualContentAltText")
@@ -112373,6 +114501,98 @@ class TemplateDateTimeValueWhenUnsetConfigurationArgs:
         pulumi.set(self, "value_when_unset_option", value)
 
 
+class TemplateDecalSettingsArgsDict(TypedDict):
+    decal_color: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    decal_pattern_type: NotRequired[pulumi.Input[Optional['TemplateDecalPatternType']]]
+    decal_style_type: NotRequired[pulumi.Input[Optional['TemplateDecalStyleType']]]
+    decal_visibility: NotRequired[pulumi.Input[Optional['TemplateVisibility']]]
+    element_value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+
+@pulumi.input_type
+class TemplateDecalSettingsArgs:
+    def __init__(__self__, *,
+                 decal_color: pulumi.Input[Optional[_builtins.str]] = None,
+                 decal_pattern_type: pulumi.Input[Optional['TemplateDecalPatternType']] = None,
+                 decal_style_type: pulumi.Input[Optional['TemplateDecalStyleType']] = None,
+                 decal_visibility: pulumi.Input[Optional['TemplateVisibility']] = None,
+                 element_value: pulumi.Input[Optional[_builtins.str]] = None):
+        if decal_color is not None:
+            pulumi.set(__self__, "decal_color", decal_color)
+        if decal_pattern_type is not None:
+            pulumi.set(__self__, "decal_pattern_type", decal_pattern_type)
+        if decal_style_type is not None:
+            pulumi.set(__self__, "decal_style_type", decal_style_type)
+        if decal_visibility is not None:
+            pulumi.set(__self__, "decal_visibility", decal_visibility)
+        if element_value is not None:
+            pulumi.set(__self__, "element_value", element_value)
+
+    @_builtins.property
+    @pulumi.getter(name="decalColor")
+    def decal_color(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "decal_color")
+
+    @decal_color.setter
+    def decal_color(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "decal_color", value)
+
+    @_builtins.property
+    @pulumi.getter(name="decalPatternType")
+    def decal_pattern_type(self) -> pulumi.Input[Optional['TemplateDecalPatternType']]:
+        return pulumi.get(self, "decal_pattern_type")
+
+    @decal_pattern_type.setter
+    def decal_pattern_type(self, value: pulumi.Input[Optional['TemplateDecalPatternType']]):
+        pulumi.set(self, "decal_pattern_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="decalStyleType")
+    def decal_style_type(self) -> pulumi.Input[Optional['TemplateDecalStyleType']]:
+        return pulumi.get(self, "decal_style_type")
+
+    @decal_style_type.setter
+    def decal_style_type(self, value: pulumi.Input[Optional['TemplateDecalStyleType']]):
+        pulumi.set(self, "decal_style_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="decalVisibility")
+    def decal_visibility(self) -> pulumi.Input[Optional['TemplateVisibility']]:
+        return pulumi.get(self, "decal_visibility")
+
+    @decal_visibility.setter
+    def decal_visibility(self, value: pulumi.Input[Optional['TemplateVisibility']]):
+        pulumi.set(self, "decal_visibility", value)
+
+    @_builtins.property
+    @pulumi.getter(name="elementValue")
+    def element_value(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "element_value")
+
+    @element_value.setter
+    def element_value(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "element_value", value)
+
+
+class TemplateDecalSettingsConfigurationArgsDict(TypedDict):
+    custom_decal_settings: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TemplateDecalSettingsArgsDict']]]]]
+
+@pulumi.input_type
+class TemplateDecalSettingsConfigurationArgs:
+    def __init__(__self__, *,
+                 custom_decal_settings: pulumi.Input[Optional[Sequence[pulumi.Input['TemplateDecalSettingsArgs']]]] = None):
+        if custom_decal_settings is not None:
+            pulumi.set(__self__, "custom_decal_settings", custom_decal_settings)
+
+    @_builtins.property
+    @pulumi.getter(name="customDecalSettings")
+    def custom_decal_settings(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['TemplateDecalSettingsArgs']]]]:
+        return pulumi.get(self, "custom_decal_settings")
+
+    @custom_decal_settings.setter
+    def custom_decal_settings(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['TemplateDecalSettingsArgs']]]]):
+        pulumi.set(self, "custom_decal_settings", value)
+
+
 class TemplateDecimalDefaultValuesArgsDict(TypedDict):
     dynamic_value: NotRequired[pulumi.Input[Optional['TemplateDynamicDefaultValueArgsDict']]]
     """
@@ -114009,10 +116229,6 @@ class TemplateDynamicDefaultValueArgs:
 
 
 class TemplateEmptyVisualArgsDict(TypedDict):
-    data_set_identifier: pulumi.Input[_builtins.str]
-    """
-    The data set that is used in the empty visual. Every visual requires a dataset to render.
-    """
     visual_id: pulumi.Input[_builtins.str]
     """
     The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.
@@ -114021,34 +116237,31 @@ class TemplateEmptyVisualArgsDict(TypedDict):
     """
     The list of custom actions that are configured for a visual.
     """
+    data_set_identifier: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The data set that is used in the empty visual. Every visual requires a dataset to render.
+    """
+    topic_identifier: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
 class TemplateEmptyVisualArgs:
     def __init__(__self__, *,
-                 data_set_identifier: pulumi.Input[_builtins.str],
                  visual_id: pulumi.Input[_builtins.str],
-                 actions: pulumi.Input[Optional[Sequence[pulumi.Input['TemplateVisualCustomActionArgs']]]] = None):
+                 actions: pulumi.Input[Optional[Sequence[pulumi.Input['TemplateVisualCustomActionArgs']]]] = None,
+                 data_set_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 topic_identifier: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] data_set_identifier: The data set that is used in the empty visual. Every visual requires a dataset to render.
         :param pulumi.Input[_builtins.str] visual_id: The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.
         :param pulumi.Input[Sequence[pulumi.Input['TemplateVisualCustomActionArgs']]] actions: The list of custom actions that are configured for a visual.
+        :param pulumi.Input[_builtins.str] data_set_identifier: The data set that is used in the empty visual. Every visual requires a dataset to render.
         """
-        pulumi.set(__self__, "data_set_identifier", data_set_identifier)
         pulumi.set(__self__, "visual_id", visual_id)
         if actions is not None:
             pulumi.set(__self__, "actions", actions)
-
-    @_builtins.property
-    @pulumi.getter(name="dataSetIdentifier")
-    def data_set_identifier(self) -> pulumi.Input[_builtins.str]:
-        """
-        The data set that is used in the empty visual. Every visual requires a dataset to render.
-        """
-        return pulumi.get(self, "data_set_identifier")
-
-    @data_set_identifier.setter
-    def data_set_identifier(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "data_set_identifier", value)
+        if data_set_identifier is not None:
+            pulumi.set(__self__, "data_set_identifier", data_set_identifier)
+        if topic_identifier is not None:
+            pulumi.set(__self__, "topic_identifier", topic_identifier)
 
     @_builtins.property
     @pulumi.getter(name="visualId")
@@ -114073,6 +116286,27 @@ class TemplateEmptyVisualArgs:
     @actions.setter
     def actions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['TemplateVisualCustomActionArgs']]]]):
         pulumi.set(self, "actions", value)
+
+    @_builtins.property
+    @pulumi.getter(name="dataSetIdentifier")
+    def data_set_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The data set that is used in the empty visual. Every visual requires a dataset to render.
+        """
+        return pulumi.get(self, "data_set_identifier")
+
+    @data_set_identifier.setter
+    def data_set_identifier(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "data_set_identifier", value)
+
+    @_builtins.property
+    @pulumi.getter(name="topicIdentifier")
+    def topic_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "topic_identifier")
+
+    @topic_identifier.setter
+    def topic_identifier(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "topic_identifier", value)
 
 
 class TemplateExcludePeriodConfigurationArgsDict(TypedDict):
@@ -116904,7 +119138,7 @@ class TemplateFontConfigurationArgsDict(TypedDict):
     """
     font_family: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The font family that you want to use.
+    <p>The font family that you want to use.</p>
     """
     font_size: NotRequired[pulumi.Input[Optional['TemplateFontSizeArgsDict']]]
     """
@@ -116931,7 +119165,7 @@ class TemplateFontConfigurationArgs:
         """
         :param pulumi.Input[_builtins.str] font_color: Determines the color of the text.
         :param pulumi.Input['TemplateFontDecoration'] font_decoration: Determines the appearance of decorative lines on the text.
-        :param pulumi.Input[_builtins.str] font_family: The font family that you want to use.
+        :param pulumi.Input[_builtins.str] font_family: <p>The font family that you want to use.</p>
         :param pulumi.Input['TemplateFontSizeArgs'] font_size: The option that determines the text display size.
         :param pulumi.Input['TemplateFontStyle'] font_style: Determines the text display face that is inherited by the given font family.
         :param pulumi.Input['TemplateFontWeightArgs'] font_weight: The option that determines the text display weight, or boldness.
@@ -116977,7 +119211,7 @@ class TemplateFontConfigurationArgs:
     @pulumi.getter(name="fontFamily")
     def font_family(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The font family that you want to use.
+        <p>The font family that you want to use.</p>
         """
         return pulumi.get(self, "font_family")
 
@@ -117025,7 +119259,7 @@ class TemplateFontConfigurationArgs:
 class TemplateFontSizeArgsDict(TypedDict):
     absolute: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    String based length that is composed of value and unit in px
+    <p>The font size that you want to use in px.</p>
     """
     relative: NotRequired[pulumi.Input[Optional['TemplateRelativeFontSize']]]
     """
@@ -117038,7 +119272,7 @@ class TemplateFontSizeArgs:
                  absolute: pulumi.Input[Optional[_builtins.str]] = None,
                  relative: pulumi.Input[Optional['TemplateRelativeFontSize']] = None):
         """
-        :param pulumi.Input[_builtins.str] absolute: String based length that is composed of value and unit in px
+        :param pulumi.Input[_builtins.str] absolute: <p>The font size that you want to use in px.</p>
         :param pulumi.Input['TemplateRelativeFontSize'] relative: The lexical name for the text size, proportional to its surrounding context.
         """
         if absolute is not None:
@@ -117050,7 +119284,7 @@ class TemplateFontSizeArgs:
     @pulumi.getter
     def absolute(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        String based length that is composed of value and unit in px
+        <p>The font size that you want to use in px.</p>
         """
         return pulumi.get(self, "absolute")
 
@@ -117539,18 +119773,22 @@ class TemplateFreeFormLayoutConfigurationArgsDict(TypedDict):
     The elements that are included in a free-form layout.
     """
     canvas_size_options: NotRequired[pulumi.Input[Optional['TemplateFreeFormLayoutCanvasSizeOptionsArgsDict']]]
+    groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TemplateSheetLayoutGroupArgsDict']]]]]
 
 @pulumi.input_type
 class TemplateFreeFormLayoutConfigurationArgs:
     def __init__(__self__, *,
                  elements: pulumi.Input[Sequence[pulumi.Input['TemplateFreeFormLayoutElementArgs']]],
-                 canvas_size_options: pulumi.Input[Optional['TemplateFreeFormLayoutCanvasSizeOptionsArgs']] = None):
+                 canvas_size_options: pulumi.Input[Optional['TemplateFreeFormLayoutCanvasSizeOptionsArgs']] = None,
+                 groups: pulumi.Input[Optional[Sequence[pulumi.Input['TemplateSheetLayoutGroupArgs']]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['TemplateFreeFormLayoutElementArgs']]] elements: The elements that are included in a free-form layout.
         """
         pulumi.set(__self__, "elements", elements)
         if canvas_size_options is not None:
             pulumi.set(__self__, "canvas_size_options", canvas_size_options)
+        if groups is not None:
+            pulumi.set(__self__, "groups", groups)
 
     @_builtins.property
     @pulumi.getter
@@ -117572,6 +119810,15 @@ class TemplateFreeFormLayoutConfigurationArgs:
     @canvas_size_options.setter
     def canvas_size_options(self, value: pulumi.Input[Optional['TemplateFreeFormLayoutCanvasSizeOptionsArgs']]):
         pulumi.set(self, "canvas_size_options", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def groups(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['TemplateSheetLayoutGroupArgs']]]]:
+        return pulumi.get(self, "groups")
+
+    @groups.setter
+    def groups(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['TemplateSheetLayoutGroupArgs']]]]):
+        pulumi.set(self, "groups", value)
 
 
 class TemplateFreeFormLayoutElementArgsDict(TypedDict):
@@ -119230,6 +121477,220 @@ class TemplateGaugeChartVisualArgs:
         pulumi.set(self, "visual_content_alt_text", value)
 
 
+class TemplateGeospatialCategoricalColorArgsDict(TypedDict):
+    category_data_colors: pulumi.Input[Sequence[pulumi.Input['TemplateGeospatialCategoricalDataColorArgsDict']]]
+    default_opacity: NotRequired[pulumi.Input[Optional[_builtins.float]]]
+    null_data_settings: NotRequired[pulumi.Input[Optional['TemplateGeospatialNullDataSettingsArgsDict']]]
+    null_data_visibility: NotRequired[pulumi.Input[Optional['TemplateVisibility']]]
+
+@pulumi.input_type
+class TemplateGeospatialCategoricalColorArgs:
+    def __init__(__self__, *,
+                 category_data_colors: pulumi.Input[Sequence[pulumi.Input['TemplateGeospatialCategoricalDataColorArgs']]],
+                 default_opacity: pulumi.Input[Optional[_builtins.float]] = None,
+                 null_data_settings: pulumi.Input[Optional['TemplateGeospatialNullDataSettingsArgs']] = None,
+                 null_data_visibility: pulumi.Input[Optional['TemplateVisibility']] = None):
+        pulumi.set(__self__, "category_data_colors", category_data_colors)
+        if default_opacity is not None:
+            pulumi.set(__self__, "default_opacity", default_opacity)
+        if null_data_settings is not None:
+            pulumi.set(__self__, "null_data_settings", null_data_settings)
+        if null_data_visibility is not None:
+            pulumi.set(__self__, "null_data_visibility", null_data_visibility)
+
+    @_builtins.property
+    @pulumi.getter(name="categoryDataColors")
+    def category_data_colors(self) -> pulumi.Input[Sequence[pulumi.Input['TemplateGeospatialCategoricalDataColorArgs']]]:
+        return pulumi.get(self, "category_data_colors")
+
+    @category_data_colors.setter
+    def category_data_colors(self, value: pulumi.Input[Sequence[pulumi.Input['TemplateGeospatialCategoricalDataColorArgs']]]):
+        pulumi.set(self, "category_data_colors", value)
+
+    @_builtins.property
+    @pulumi.getter(name="defaultOpacity")
+    def default_opacity(self) -> pulumi.Input[Optional[_builtins.float]]:
+        return pulumi.get(self, "default_opacity")
+
+    @default_opacity.setter
+    def default_opacity(self, value: pulumi.Input[Optional[_builtins.float]]):
+        pulumi.set(self, "default_opacity", value)
+
+    @_builtins.property
+    @pulumi.getter(name="nullDataSettings")
+    def null_data_settings(self) -> pulumi.Input[Optional['TemplateGeospatialNullDataSettingsArgs']]:
+        return pulumi.get(self, "null_data_settings")
+
+    @null_data_settings.setter
+    def null_data_settings(self, value: pulumi.Input[Optional['TemplateGeospatialNullDataSettingsArgs']]):
+        pulumi.set(self, "null_data_settings", value)
+
+    @_builtins.property
+    @pulumi.getter(name="nullDataVisibility")
+    def null_data_visibility(self) -> pulumi.Input[Optional['TemplateVisibility']]:
+        return pulumi.get(self, "null_data_visibility")
+
+    @null_data_visibility.setter
+    def null_data_visibility(self, value: pulumi.Input[Optional['TemplateVisibility']]):
+        pulumi.set(self, "null_data_visibility", value)
+
+
+class TemplateGeospatialCategoricalDataColorArgsDict(TypedDict):
+    color: pulumi.Input[_builtins.str]
+    data_value: pulumi.Input[_builtins.str]
+
+@pulumi.input_type
+class TemplateGeospatialCategoricalDataColorArgs:
+    def __init__(__self__, *,
+                 color: pulumi.Input[_builtins.str],
+                 data_value: pulumi.Input[_builtins.str]):
+        pulumi.set(__self__, "color", color)
+        pulumi.set(__self__, "data_value", data_value)
+
+    @_builtins.property
+    @pulumi.getter
+    def color(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "color")
+
+    @color.setter
+    def color(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "color", value)
+
+    @_builtins.property
+    @pulumi.getter(name="dataValue")
+    def data_value(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "data_value")
+
+    @data_value.setter
+    def data_value(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "data_value", value)
+
+
+class TemplateGeospatialCircleRadiusArgsDict(TypedDict):
+    radius: NotRequired[pulumi.Input[Optional[_builtins.float]]]
+
+@pulumi.input_type
+class TemplateGeospatialCircleRadiusArgs:
+    def __init__(__self__, *,
+                 radius: pulumi.Input[Optional[_builtins.float]] = None):
+        if radius is not None:
+            pulumi.set(__self__, "radius", radius)
+
+    @_builtins.property
+    @pulumi.getter
+    def radius(self) -> pulumi.Input[Optional[_builtins.float]]:
+        return pulumi.get(self, "radius")
+
+    @radius.setter
+    def radius(self, value: pulumi.Input[Optional[_builtins.float]]):
+        pulumi.set(self, "radius", value)
+
+
+class TemplateGeospatialCircleSymbolStyleArgsDict(TypedDict):
+    circle_radius: NotRequired[pulumi.Input[Optional['TemplateGeospatialCircleRadiusArgsDict']]]
+    fill_color: NotRequired[pulumi.Input[Optional['TemplateGeospatialColorArgsDict']]]
+    stroke_color: NotRequired[pulumi.Input[Optional['TemplateGeospatialColorArgsDict']]]
+    stroke_width: NotRequired[pulumi.Input[Optional['TemplateGeospatialLineWidthArgsDict']]]
+
+@pulumi.input_type
+class TemplateGeospatialCircleSymbolStyleArgs:
+    def __init__(__self__, *,
+                 circle_radius: pulumi.Input[Optional['TemplateGeospatialCircleRadiusArgs']] = None,
+                 fill_color: pulumi.Input[Optional['TemplateGeospatialColorArgs']] = None,
+                 stroke_color: pulumi.Input[Optional['TemplateGeospatialColorArgs']] = None,
+                 stroke_width: pulumi.Input[Optional['TemplateGeospatialLineWidthArgs']] = None):
+        if circle_radius is not None:
+            pulumi.set(__self__, "circle_radius", circle_radius)
+        if fill_color is not None:
+            pulumi.set(__self__, "fill_color", fill_color)
+        if stroke_color is not None:
+            pulumi.set(__self__, "stroke_color", stroke_color)
+        if stroke_width is not None:
+            pulumi.set(__self__, "stroke_width", stroke_width)
+
+    @_builtins.property
+    @pulumi.getter(name="circleRadius")
+    def circle_radius(self) -> pulumi.Input[Optional['TemplateGeospatialCircleRadiusArgs']]:
+        return pulumi.get(self, "circle_radius")
+
+    @circle_radius.setter
+    def circle_radius(self, value: pulumi.Input[Optional['TemplateGeospatialCircleRadiusArgs']]):
+        pulumi.set(self, "circle_radius", value)
+
+    @_builtins.property
+    @pulumi.getter(name="fillColor")
+    def fill_color(self) -> pulumi.Input[Optional['TemplateGeospatialColorArgs']]:
+        return pulumi.get(self, "fill_color")
+
+    @fill_color.setter
+    def fill_color(self, value: pulumi.Input[Optional['TemplateGeospatialColorArgs']]):
+        pulumi.set(self, "fill_color", value)
+
+    @_builtins.property
+    @pulumi.getter(name="strokeColor")
+    def stroke_color(self) -> pulumi.Input[Optional['TemplateGeospatialColorArgs']]:
+        return pulumi.get(self, "stroke_color")
+
+    @stroke_color.setter
+    def stroke_color(self, value: pulumi.Input[Optional['TemplateGeospatialColorArgs']]):
+        pulumi.set(self, "stroke_color", value)
+
+    @_builtins.property
+    @pulumi.getter(name="strokeWidth")
+    def stroke_width(self) -> pulumi.Input[Optional['TemplateGeospatialLineWidthArgs']]:
+        return pulumi.get(self, "stroke_width")
+
+    @stroke_width.setter
+    def stroke_width(self, value: pulumi.Input[Optional['TemplateGeospatialLineWidthArgs']]):
+        pulumi.set(self, "stroke_width", value)
+
+
+class TemplateGeospatialColorArgsDict(TypedDict):
+    categorical: NotRequired[pulumi.Input[Optional['TemplateGeospatialCategoricalColorArgsDict']]]
+    gradient: NotRequired[pulumi.Input[Optional['TemplateGeospatialGradientColorArgsDict']]]
+    solid: NotRequired[pulumi.Input[Optional['TemplateGeospatialSolidColorArgsDict']]]
+
+@pulumi.input_type
+class TemplateGeospatialColorArgs:
+    def __init__(__self__, *,
+                 categorical: pulumi.Input[Optional['TemplateGeospatialCategoricalColorArgs']] = None,
+                 gradient: pulumi.Input[Optional['TemplateGeospatialGradientColorArgs']] = None,
+                 solid: pulumi.Input[Optional['TemplateGeospatialSolidColorArgs']] = None):
+        if categorical is not None:
+            pulumi.set(__self__, "categorical", categorical)
+        if gradient is not None:
+            pulumi.set(__self__, "gradient", gradient)
+        if solid is not None:
+            pulumi.set(__self__, "solid", solid)
+
+    @_builtins.property
+    @pulumi.getter
+    def categorical(self) -> pulumi.Input[Optional['TemplateGeospatialCategoricalColorArgs']]:
+        return pulumi.get(self, "categorical")
+
+    @categorical.setter
+    def categorical(self, value: pulumi.Input[Optional['TemplateGeospatialCategoricalColorArgs']]):
+        pulumi.set(self, "categorical", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def gradient(self) -> pulumi.Input[Optional['TemplateGeospatialGradientColorArgs']]:
+        return pulumi.get(self, "gradient")
+
+    @gradient.setter
+    def gradient(self, value: pulumi.Input[Optional['TemplateGeospatialGradientColorArgs']]):
+        pulumi.set(self, "gradient", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def solid(self) -> pulumi.Input[Optional['TemplateGeospatialSolidColorArgs']]:
+        return pulumi.get(self, "solid")
+
+    @solid.setter
+    def solid(self, value: pulumi.Input[Optional['TemplateGeospatialSolidColorArgs']]):
+        pulumi.set(self, "solid", value)
+
+
 class TemplateGeospatialCoordinateBoundsArgsDict(TypedDict):
     east: pulumi.Input[_builtins.float]
     """
@@ -119313,6 +121774,115 @@ class TemplateGeospatialCoordinateBoundsArgs:
     @west.setter
     def west(self, value: pulumi.Input[_builtins.float]):
         pulumi.set(self, "west", value)
+
+
+class TemplateGeospatialDataSourceItemArgsDict(TypedDict):
+    static_file_data_source: NotRequired[pulumi.Input[Optional['TemplateGeospatialStaticFileSourceArgsDict']]]
+
+@pulumi.input_type
+class TemplateGeospatialDataSourceItemArgs:
+    def __init__(__self__, *,
+                 static_file_data_source: pulumi.Input[Optional['TemplateGeospatialStaticFileSourceArgs']] = None):
+        if static_file_data_source is not None:
+            pulumi.set(__self__, "static_file_data_source", static_file_data_source)
+
+    @_builtins.property
+    @pulumi.getter(name="staticFileDataSource")
+    def static_file_data_source(self) -> pulumi.Input[Optional['TemplateGeospatialStaticFileSourceArgs']]:
+        return pulumi.get(self, "static_file_data_source")
+
+    @static_file_data_source.setter
+    def static_file_data_source(self, value: pulumi.Input[Optional['TemplateGeospatialStaticFileSourceArgs']]):
+        pulumi.set(self, "static_file_data_source", value)
+
+
+class TemplateGeospatialGradientColorArgsDict(TypedDict):
+    step_colors: pulumi.Input[Sequence[pulumi.Input['TemplateGeospatialGradientStepColorArgsDict']]]
+    default_opacity: NotRequired[pulumi.Input[Optional[_builtins.float]]]
+    null_data_settings: NotRequired[pulumi.Input[Optional['TemplateGeospatialNullDataSettingsArgsDict']]]
+    null_data_visibility: NotRequired[pulumi.Input[Optional['TemplateVisibility']]]
+
+@pulumi.input_type
+class TemplateGeospatialGradientColorArgs:
+    def __init__(__self__, *,
+                 step_colors: pulumi.Input[Sequence[pulumi.Input['TemplateGeospatialGradientStepColorArgs']]],
+                 default_opacity: pulumi.Input[Optional[_builtins.float]] = None,
+                 null_data_settings: pulumi.Input[Optional['TemplateGeospatialNullDataSettingsArgs']] = None,
+                 null_data_visibility: pulumi.Input[Optional['TemplateVisibility']] = None):
+        pulumi.set(__self__, "step_colors", step_colors)
+        if default_opacity is not None:
+            pulumi.set(__self__, "default_opacity", default_opacity)
+        if null_data_settings is not None:
+            pulumi.set(__self__, "null_data_settings", null_data_settings)
+        if null_data_visibility is not None:
+            pulumi.set(__self__, "null_data_visibility", null_data_visibility)
+
+    @_builtins.property
+    @pulumi.getter(name="stepColors")
+    def step_colors(self) -> pulumi.Input[Sequence[pulumi.Input['TemplateGeospatialGradientStepColorArgs']]]:
+        return pulumi.get(self, "step_colors")
+
+    @step_colors.setter
+    def step_colors(self, value: pulumi.Input[Sequence[pulumi.Input['TemplateGeospatialGradientStepColorArgs']]]):
+        pulumi.set(self, "step_colors", value)
+
+    @_builtins.property
+    @pulumi.getter(name="defaultOpacity")
+    def default_opacity(self) -> pulumi.Input[Optional[_builtins.float]]:
+        return pulumi.get(self, "default_opacity")
+
+    @default_opacity.setter
+    def default_opacity(self, value: pulumi.Input[Optional[_builtins.float]]):
+        pulumi.set(self, "default_opacity", value)
+
+    @_builtins.property
+    @pulumi.getter(name="nullDataSettings")
+    def null_data_settings(self) -> pulumi.Input[Optional['TemplateGeospatialNullDataSettingsArgs']]:
+        return pulumi.get(self, "null_data_settings")
+
+    @null_data_settings.setter
+    def null_data_settings(self, value: pulumi.Input[Optional['TemplateGeospatialNullDataSettingsArgs']]):
+        pulumi.set(self, "null_data_settings", value)
+
+    @_builtins.property
+    @pulumi.getter(name="nullDataVisibility")
+    def null_data_visibility(self) -> pulumi.Input[Optional['TemplateVisibility']]:
+        return pulumi.get(self, "null_data_visibility")
+
+    @null_data_visibility.setter
+    def null_data_visibility(self, value: pulumi.Input[Optional['TemplateVisibility']]):
+        pulumi.set(self, "null_data_visibility", value)
+
+
+class TemplateGeospatialGradientStepColorArgsDict(TypedDict):
+    color: pulumi.Input[_builtins.str]
+    data_value: pulumi.Input[_builtins.float]
+
+@pulumi.input_type
+class TemplateGeospatialGradientStepColorArgs:
+    def __init__(__self__, *,
+                 color: pulumi.Input[_builtins.str],
+                 data_value: pulumi.Input[_builtins.float]):
+        pulumi.set(__self__, "color", color)
+        pulumi.set(__self__, "data_value", data_value)
+
+    @_builtins.property
+    @pulumi.getter
+    def color(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "color")
+
+    @color.setter
+    def color(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "color", value)
+
+    @_builtins.property
+    @pulumi.getter(name="dataValue")
+    def data_value(self) -> pulumi.Input[_builtins.float]:
+        return pulumi.get(self, "data_value")
+
+    @data_value.setter
+    def data_value(self, value: pulumi.Input[_builtins.float]):
+        pulumi.set(self, "data_value", value)
 
 
 class TemplateGeospatialHeatmapColorScaleArgsDict(TypedDict):
@@ -119401,6 +121971,418 @@ class TemplateGeospatialHeatmapDataColorArgs:
         pulumi.set(self, "color", value)
 
 
+class TemplateGeospatialLayerColorFieldArgsDict(TypedDict):
+    color_dimensions_fields: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TemplateDimensionFieldArgsDict']]]]]
+    color_values_fields: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TemplateMeasureFieldArgsDict']]]]]
+
+@pulumi.input_type
+class TemplateGeospatialLayerColorFieldArgs:
+    def __init__(__self__, *,
+                 color_dimensions_fields: pulumi.Input[Optional[Sequence[pulumi.Input['TemplateDimensionFieldArgs']]]] = None,
+                 color_values_fields: pulumi.Input[Optional[Sequence[pulumi.Input['TemplateMeasureFieldArgs']]]] = None):
+        if color_dimensions_fields is not None:
+            pulumi.set(__self__, "color_dimensions_fields", color_dimensions_fields)
+        if color_values_fields is not None:
+            pulumi.set(__self__, "color_values_fields", color_values_fields)
+
+    @_builtins.property
+    @pulumi.getter(name="colorDimensionsFields")
+    def color_dimensions_fields(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['TemplateDimensionFieldArgs']]]]:
+        return pulumi.get(self, "color_dimensions_fields")
+
+    @color_dimensions_fields.setter
+    def color_dimensions_fields(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['TemplateDimensionFieldArgs']]]]):
+        pulumi.set(self, "color_dimensions_fields", value)
+
+    @_builtins.property
+    @pulumi.getter(name="colorValuesFields")
+    def color_values_fields(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['TemplateMeasureFieldArgs']]]]:
+        return pulumi.get(self, "color_values_fields")
+
+    @color_values_fields.setter
+    def color_values_fields(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['TemplateMeasureFieldArgs']]]]):
+        pulumi.set(self, "color_values_fields", value)
+
+
+class TemplateGeospatialLayerDefinitionArgsDict(TypedDict):
+    line_layer: NotRequired[pulumi.Input[Optional['TemplateGeospatialLineLayerArgsDict']]]
+    point_layer: NotRequired[pulumi.Input[Optional['TemplateGeospatialPointLayerArgsDict']]]
+    polygon_layer: NotRequired[pulumi.Input[Optional['TemplateGeospatialPolygonLayerArgsDict']]]
+
+@pulumi.input_type
+class TemplateGeospatialLayerDefinitionArgs:
+    def __init__(__self__, *,
+                 line_layer: pulumi.Input[Optional['TemplateGeospatialLineLayerArgs']] = None,
+                 point_layer: pulumi.Input[Optional['TemplateGeospatialPointLayerArgs']] = None,
+                 polygon_layer: pulumi.Input[Optional['TemplateGeospatialPolygonLayerArgs']] = None):
+        if line_layer is not None:
+            pulumi.set(__self__, "line_layer", line_layer)
+        if point_layer is not None:
+            pulumi.set(__self__, "point_layer", point_layer)
+        if polygon_layer is not None:
+            pulumi.set(__self__, "polygon_layer", polygon_layer)
+
+    @_builtins.property
+    @pulumi.getter(name="lineLayer")
+    def line_layer(self) -> pulumi.Input[Optional['TemplateGeospatialLineLayerArgs']]:
+        return pulumi.get(self, "line_layer")
+
+    @line_layer.setter
+    def line_layer(self, value: pulumi.Input[Optional['TemplateGeospatialLineLayerArgs']]):
+        pulumi.set(self, "line_layer", value)
+
+    @_builtins.property
+    @pulumi.getter(name="pointLayer")
+    def point_layer(self) -> pulumi.Input[Optional['TemplateGeospatialPointLayerArgs']]:
+        return pulumi.get(self, "point_layer")
+
+    @point_layer.setter
+    def point_layer(self, value: pulumi.Input[Optional['TemplateGeospatialPointLayerArgs']]):
+        pulumi.set(self, "point_layer", value)
+
+    @_builtins.property
+    @pulumi.getter(name="polygonLayer")
+    def polygon_layer(self) -> pulumi.Input[Optional['TemplateGeospatialPolygonLayerArgs']]:
+        return pulumi.get(self, "polygon_layer")
+
+    @polygon_layer.setter
+    def polygon_layer(self, value: pulumi.Input[Optional['TemplateGeospatialPolygonLayerArgs']]):
+        pulumi.set(self, "polygon_layer", value)
+
+
+class TemplateGeospatialLayerItemArgsDict(TypedDict):
+    layer_id: pulumi.Input[_builtins.str]
+    actions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TemplateLayerCustomActionArgsDict']]]]]
+    data_source: NotRequired[pulumi.Input[Optional['TemplateGeospatialDataSourceItemArgsDict']]]
+    join_definition: NotRequired[pulumi.Input[Optional['TemplateGeospatialLayerJoinDefinitionArgsDict']]]
+    label: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    layer_definition: NotRequired[pulumi.Input[Optional['TemplateGeospatialLayerDefinitionArgsDict']]]
+    layer_type: NotRequired[pulumi.Input[Optional['TemplateGeospatialLayerType']]]
+    tooltip: NotRequired[pulumi.Input[Optional['TemplateTooltipOptionsArgsDict']]]
+    visibility: NotRequired[pulumi.Input[Optional['TemplateVisibility']]]
+
+@pulumi.input_type
+class TemplateGeospatialLayerItemArgs:
+    def __init__(__self__, *,
+                 layer_id: pulumi.Input[_builtins.str],
+                 actions: pulumi.Input[Optional[Sequence[pulumi.Input['TemplateLayerCustomActionArgs']]]] = None,
+                 data_source: pulumi.Input[Optional['TemplateGeospatialDataSourceItemArgs']] = None,
+                 join_definition: pulumi.Input[Optional['TemplateGeospatialLayerJoinDefinitionArgs']] = None,
+                 label: pulumi.Input[Optional[_builtins.str]] = None,
+                 layer_definition: pulumi.Input[Optional['TemplateGeospatialLayerDefinitionArgs']] = None,
+                 layer_type: pulumi.Input[Optional['TemplateGeospatialLayerType']] = None,
+                 tooltip: pulumi.Input[Optional['TemplateTooltipOptionsArgs']] = None,
+                 visibility: pulumi.Input[Optional['TemplateVisibility']] = None):
+        pulumi.set(__self__, "layer_id", layer_id)
+        if actions is not None:
+            pulumi.set(__self__, "actions", actions)
+        if data_source is not None:
+            pulumi.set(__self__, "data_source", data_source)
+        if join_definition is not None:
+            pulumi.set(__self__, "join_definition", join_definition)
+        if label is not None:
+            pulumi.set(__self__, "label", label)
+        if layer_definition is not None:
+            pulumi.set(__self__, "layer_definition", layer_definition)
+        if layer_type is not None:
+            pulumi.set(__self__, "layer_type", layer_type)
+        if tooltip is not None:
+            pulumi.set(__self__, "tooltip", tooltip)
+        if visibility is not None:
+            pulumi.set(__self__, "visibility", visibility)
+
+    @_builtins.property
+    @pulumi.getter(name="layerId")
+    def layer_id(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "layer_id")
+
+    @layer_id.setter
+    def layer_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "layer_id", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def actions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['TemplateLayerCustomActionArgs']]]]:
+        return pulumi.get(self, "actions")
+
+    @actions.setter
+    def actions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['TemplateLayerCustomActionArgs']]]]):
+        pulumi.set(self, "actions", value)
+
+    @_builtins.property
+    @pulumi.getter(name="dataSource")
+    def data_source(self) -> pulumi.Input[Optional['TemplateGeospatialDataSourceItemArgs']]:
+        return pulumi.get(self, "data_source")
+
+    @data_source.setter
+    def data_source(self, value: pulumi.Input[Optional['TemplateGeospatialDataSourceItemArgs']]):
+        pulumi.set(self, "data_source", value)
+
+    @_builtins.property
+    @pulumi.getter(name="joinDefinition")
+    def join_definition(self) -> pulumi.Input[Optional['TemplateGeospatialLayerJoinDefinitionArgs']]:
+        return pulumi.get(self, "join_definition")
+
+    @join_definition.setter
+    def join_definition(self, value: pulumi.Input[Optional['TemplateGeospatialLayerJoinDefinitionArgs']]):
+        pulumi.set(self, "join_definition", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def label(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "label")
+
+    @label.setter
+    def label(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "label", value)
+
+    @_builtins.property
+    @pulumi.getter(name="layerDefinition")
+    def layer_definition(self) -> pulumi.Input[Optional['TemplateGeospatialLayerDefinitionArgs']]:
+        return pulumi.get(self, "layer_definition")
+
+    @layer_definition.setter
+    def layer_definition(self, value: pulumi.Input[Optional['TemplateGeospatialLayerDefinitionArgs']]):
+        pulumi.set(self, "layer_definition", value)
+
+    @_builtins.property
+    @pulumi.getter(name="layerType")
+    def layer_type(self) -> pulumi.Input[Optional['TemplateGeospatialLayerType']]:
+        return pulumi.get(self, "layer_type")
+
+    @layer_type.setter
+    def layer_type(self, value: pulumi.Input[Optional['TemplateGeospatialLayerType']]):
+        pulumi.set(self, "layer_type", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def tooltip(self) -> pulumi.Input[Optional['TemplateTooltipOptionsArgs']]:
+        return pulumi.get(self, "tooltip")
+
+    @tooltip.setter
+    def tooltip(self, value: pulumi.Input[Optional['TemplateTooltipOptionsArgs']]):
+        pulumi.set(self, "tooltip", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def visibility(self) -> pulumi.Input[Optional['TemplateVisibility']]:
+        return pulumi.get(self, "visibility")
+
+    @visibility.setter
+    def visibility(self, value: pulumi.Input[Optional['TemplateVisibility']]):
+        pulumi.set(self, "visibility", value)
+
+
+class TemplateGeospatialLayerJoinDefinitionArgsDict(TypedDict):
+    color_field: NotRequired[pulumi.Input[Optional['TemplateGeospatialLayerColorFieldArgsDict']]]
+    dataset_key_field: NotRequired[pulumi.Input[Optional['TemplateUnaggregatedFieldArgsDict']]]
+    shape_key_field: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+
+@pulumi.input_type
+class TemplateGeospatialLayerJoinDefinitionArgs:
+    def __init__(__self__, *,
+                 color_field: pulumi.Input[Optional['TemplateGeospatialLayerColorFieldArgs']] = None,
+                 dataset_key_field: pulumi.Input[Optional['TemplateUnaggregatedFieldArgs']] = None,
+                 shape_key_field: pulumi.Input[Optional[_builtins.str]] = None):
+        if color_field is not None:
+            pulumi.set(__self__, "color_field", color_field)
+        if dataset_key_field is not None:
+            pulumi.set(__self__, "dataset_key_field", dataset_key_field)
+        if shape_key_field is not None:
+            pulumi.set(__self__, "shape_key_field", shape_key_field)
+
+    @_builtins.property
+    @pulumi.getter(name="colorField")
+    def color_field(self) -> pulumi.Input[Optional['TemplateGeospatialLayerColorFieldArgs']]:
+        return pulumi.get(self, "color_field")
+
+    @color_field.setter
+    def color_field(self, value: pulumi.Input[Optional['TemplateGeospatialLayerColorFieldArgs']]):
+        pulumi.set(self, "color_field", value)
+
+    @_builtins.property
+    @pulumi.getter(name="datasetKeyField")
+    def dataset_key_field(self) -> pulumi.Input[Optional['TemplateUnaggregatedFieldArgs']]:
+        return pulumi.get(self, "dataset_key_field")
+
+    @dataset_key_field.setter
+    def dataset_key_field(self, value: pulumi.Input[Optional['TemplateUnaggregatedFieldArgs']]):
+        pulumi.set(self, "dataset_key_field", value)
+
+    @_builtins.property
+    @pulumi.getter(name="shapeKeyField")
+    def shape_key_field(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "shape_key_field")
+
+    @shape_key_field.setter
+    def shape_key_field(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "shape_key_field", value)
+
+
+class TemplateGeospatialLayerMapConfigurationArgsDict(TypedDict):
+    interactions: NotRequired[pulumi.Input[Optional['TemplateVisualInteractionOptionsArgsDict']]]
+    legend: NotRequired[pulumi.Input[Optional['TemplateLegendOptionsArgsDict']]]
+    map_layers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TemplateGeospatialLayerItemArgsDict']]]]]
+    map_state: NotRequired[pulumi.Input[Optional['TemplateGeospatialMapStateArgsDict']]]
+    map_style: NotRequired[pulumi.Input[Optional['TemplateGeospatialMapStyleArgsDict']]]
+
+@pulumi.input_type
+class TemplateGeospatialLayerMapConfigurationArgs:
+    def __init__(__self__, *,
+                 interactions: pulumi.Input[Optional['TemplateVisualInteractionOptionsArgs']] = None,
+                 legend: pulumi.Input[Optional['TemplateLegendOptionsArgs']] = None,
+                 map_layers: pulumi.Input[Optional[Sequence[pulumi.Input['TemplateGeospatialLayerItemArgs']]]] = None,
+                 map_state: pulumi.Input[Optional['TemplateGeospatialMapStateArgs']] = None,
+                 map_style: pulumi.Input[Optional['TemplateGeospatialMapStyleArgs']] = None):
+        if interactions is not None:
+            pulumi.set(__self__, "interactions", interactions)
+        if legend is not None:
+            pulumi.set(__self__, "legend", legend)
+        if map_layers is not None:
+            pulumi.set(__self__, "map_layers", map_layers)
+        if map_state is not None:
+            pulumi.set(__self__, "map_state", map_state)
+        if map_style is not None:
+            pulumi.set(__self__, "map_style", map_style)
+
+    @_builtins.property
+    @pulumi.getter
+    def interactions(self) -> pulumi.Input[Optional['TemplateVisualInteractionOptionsArgs']]:
+        return pulumi.get(self, "interactions")
+
+    @interactions.setter
+    def interactions(self, value: pulumi.Input[Optional['TemplateVisualInteractionOptionsArgs']]):
+        pulumi.set(self, "interactions", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def legend(self) -> pulumi.Input[Optional['TemplateLegendOptionsArgs']]:
+        return pulumi.get(self, "legend")
+
+    @legend.setter
+    def legend(self, value: pulumi.Input[Optional['TemplateLegendOptionsArgs']]):
+        pulumi.set(self, "legend", value)
+
+    @_builtins.property
+    @pulumi.getter(name="mapLayers")
+    def map_layers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['TemplateGeospatialLayerItemArgs']]]]:
+        return pulumi.get(self, "map_layers")
+
+    @map_layers.setter
+    def map_layers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['TemplateGeospatialLayerItemArgs']]]]):
+        pulumi.set(self, "map_layers", value)
+
+    @_builtins.property
+    @pulumi.getter(name="mapState")
+    def map_state(self) -> pulumi.Input[Optional['TemplateGeospatialMapStateArgs']]:
+        return pulumi.get(self, "map_state")
+
+    @map_state.setter
+    def map_state(self, value: pulumi.Input[Optional['TemplateGeospatialMapStateArgs']]):
+        pulumi.set(self, "map_state", value)
+
+    @_builtins.property
+    @pulumi.getter(name="mapStyle")
+    def map_style(self) -> pulumi.Input[Optional['TemplateGeospatialMapStyleArgs']]:
+        return pulumi.get(self, "map_style")
+
+    @map_style.setter
+    def map_style(self, value: pulumi.Input[Optional['TemplateGeospatialMapStyleArgs']]):
+        pulumi.set(self, "map_style", value)
+
+
+class TemplateGeospatialLineLayerArgsDict(TypedDict):
+    style: pulumi.Input['TemplateGeospatialLineStyleArgsDict']
+
+@pulumi.input_type
+class TemplateGeospatialLineLayerArgs:
+    def __init__(__self__, *,
+                 style: pulumi.Input['TemplateGeospatialLineStyleArgs']):
+        pulumi.set(__self__, "style", style)
+
+    @_builtins.property
+    @pulumi.getter
+    def style(self) -> pulumi.Input['TemplateGeospatialLineStyleArgs']:
+        return pulumi.get(self, "style")
+
+    @style.setter
+    def style(self, value: pulumi.Input['TemplateGeospatialLineStyleArgs']):
+        pulumi.set(self, "style", value)
+
+
+class TemplateGeospatialLineStyleArgsDict(TypedDict):
+    line_symbol_style: NotRequired[pulumi.Input[Optional['TemplateGeospatialLineSymbolStyleArgsDict']]]
+
+@pulumi.input_type
+class TemplateGeospatialLineStyleArgs:
+    def __init__(__self__, *,
+                 line_symbol_style: pulumi.Input[Optional['TemplateGeospatialLineSymbolStyleArgs']] = None):
+        if line_symbol_style is not None:
+            pulumi.set(__self__, "line_symbol_style", line_symbol_style)
+
+    @_builtins.property
+    @pulumi.getter(name="lineSymbolStyle")
+    def line_symbol_style(self) -> pulumi.Input[Optional['TemplateGeospatialLineSymbolStyleArgs']]:
+        return pulumi.get(self, "line_symbol_style")
+
+    @line_symbol_style.setter
+    def line_symbol_style(self, value: pulumi.Input[Optional['TemplateGeospatialLineSymbolStyleArgs']]):
+        pulumi.set(self, "line_symbol_style", value)
+
+
+class TemplateGeospatialLineSymbolStyleArgsDict(TypedDict):
+    fill_color: NotRequired[pulumi.Input[Optional['TemplateGeospatialColorArgsDict']]]
+    line_width: NotRequired[pulumi.Input[Optional['TemplateGeospatialLineWidthArgsDict']]]
+
+@pulumi.input_type
+class TemplateGeospatialLineSymbolStyleArgs:
+    def __init__(__self__, *,
+                 fill_color: pulumi.Input[Optional['TemplateGeospatialColorArgs']] = None,
+                 line_width: pulumi.Input[Optional['TemplateGeospatialLineWidthArgs']] = None):
+        if fill_color is not None:
+            pulumi.set(__self__, "fill_color", fill_color)
+        if line_width is not None:
+            pulumi.set(__self__, "line_width", line_width)
+
+    @_builtins.property
+    @pulumi.getter(name="fillColor")
+    def fill_color(self) -> pulumi.Input[Optional['TemplateGeospatialColorArgs']]:
+        return pulumi.get(self, "fill_color")
+
+    @fill_color.setter
+    def fill_color(self, value: pulumi.Input[Optional['TemplateGeospatialColorArgs']]):
+        pulumi.set(self, "fill_color", value)
+
+    @_builtins.property
+    @pulumi.getter(name="lineWidth")
+    def line_width(self) -> pulumi.Input[Optional['TemplateGeospatialLineWidthArgs']]:
+        return pulumi.get(self, "line_width")
+
+    @line_width.setter
+    def line_width(self, value: pulumi.Input[Optional['TemplateGeospatialLineWidthArgs']]):
+        pulumi.set(self, "line_width", value)
+
+
+class TemplateGeospatialLineWidthArgsDict(TypedDict):
+    line_width: NotRequired[pulumi.Input[Optional[_builtins.float]]]
+
+@pulumi.input_type
+class TemplateGeospatialLineWidthArgs:
+    def __init__(__self__, *,
+                 line_width: pulumi.Input[Optional[_builtins.float]] = None):
+        if line_width is not None:
+            pulumi.set(__self__, "line_width", line_width)
+
+    @_builtins.property
+    @pulumi.getter(name="lineWidth")
+    def line_width(self) -> pulumi.Input[Optional[_builtins.float]]:
+        return pulumi.get(self, "line_width")
+
+    @line_width.setter
+    def line_width(self, value: pulumi.Input[Optional[_builtins.float]]):
+        pulumi.set(self, "line_width", value)
+
+
 class TemplateGeospatialMapAggregatedFieldWellsArgsDict(TypedDict):
     colors: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TemplateDimensionFieldArgsDict']]]]]
     """
@@ -119475,6 +122457,7 @@ class TemplateGeospatialMapConfigurationArgsDict(TypedDict):
     """
     The field wells of the visual.
     """
+    interactions: NotRequired[pulumi.Input[Optional['TemplateVisualInteractionOptionsArgsDict']]]
     legend: NotRequired[pulumi.Input[Optional['TemplateLegendOptionsArgsDict']]]
     """
     The legend display setup of the visual.
@@ -119501,6 +122484,7 @@ class TemplateGeospatialMapConfigurationArgsDict(TypedDict):
 class TemplateGeospatialMapConfigurationArgs:
     def __init__(__self__, *,
                  field_wells: pulumi.Input[Optional['TemplateGeospatialMapFieldWellsArgs']] = None,
+                 interactions: pulumi.Input[Optional['TemplateVisualInteractionOptionsArgs']] = None,
                  legend: pulumi.Input[Optional['TemplateLegendOptionsArgs']] = None,
                  map_style_options: pulumi.Input[Optional['TemplateGeospatialMapStyleOptionsArgs']] = None,
                  point_style_options: pulumi.Input[Optional['TemplateGeospatialPointStyleOptionsArgs']] = None,
@@ -119517,6 +122501,8 @@ class TemplateGeospatialMapConfigurationArgs:
         """
         if field_wells is not None:
             pulumi.set(__self__, "field_wells", field_wells)
+        if interactions is not None:
+            pulumi.set(__self__, "interactions", interactions)
         if legend is not None:
             pulumi.set(__self__, "legend", legend)
         if map_style_options is not None:
@@ -119541,6 +122527,15 @@ class TemplateGeospatialMapConfigurationArgs:
     @field_wells.setter
     def field_wells(self, value: pulumi.Input[Optional['TemplateGeospatialMapFieldWellsArgs']]):
         pulumi.set(self, "field_wells", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def interactions(self) -> pulumi.Input[Optional['TemplateVisualInteractionOptionsArgs']]:
+        return pulumi.get(self, "interactions")
+
+    @interactions.setter
+    def interactions(self, value: pulumi.Input[Optional['TemplateVisualInteractionOptionsArgs']]):
+        pulumi.set(self, "interactions", value)
 
     @_builtins.property
     @pulumi.getter
@@ -119639,6 +122634,85 @@ class TemplateGeospatialMapFieldWellsArgs:
     @geospatial_map_aggregated_field_wells.setter
     def geospatial_map_aggregated_field_wells(self, value: pulumi.Input[Optional['TemplateGeospatialMapAggregatedFieldWellsArgs']]):
         pulumi.set(self, "geospatial_map_aggregated_field_wells", value)
+
+
+class TemplateGeospatialMapStateArgsDict(TypedDict):
+    bounds: NotRequired[pulumi.Input[Optional['TemplateGeospatialCoordinateBoundsArgsDict']]]
+    map_navigation: NotRequired[pulumi.Input[Optional['TemplateGeospatialMapNavigation']]]
+
+@pulumi.input_type
+class TemplateGeospatialMapStateArgs:
+    def __init__(__self__, *,
+                 bounds: pulumi.Input[Optional['TemplateGeospatialCoordinateBoundsArgs']] = None,
+                 map_navigation: pulumi.Input[Optional['TemplateGeospatialMapNavigation']] = None):
+        if bounds is not None:
+            pulumi.set(__self__, "bounds", bounds)
+        if map_navigation is not None:
+            pulumi.set(__self__, "map_navigation", map_navigation)
+
+    @_builtins.property
+    @pulumi.getter
+    def bounds(self) -> pulumi.Input[Optional['TemplateGeospatialCoordinateBoundsArgs']]:
+        return pulumi.get(self, "bounds")
+
+    @bounds.setter
+    def bounds(self, value: pulumi.Input[Optional['TemplateGeospatialCoordinateBoundsArgs']]):
+        pulumi.set(self, "bounds", value)
+
+    @_builtins.property
+    @pulumi.getter(name="mapNavigation")
+    def map_navigation(self) -> pulumi.Input[Optional['TemplateGeospatialMapNavigation']]:
+        return pulumi.get(self, "map_navigation")
+
+    @map_navigation.setter
+    def map_navigation(self, value: pulumi.Input[Optional['TemplateGeospatialMapNavigation']]):
+        pulumi.set(self, "map_navigation", value)
+
+
+class TemplateGeospatialMapStyleArgsDict(TypedDict):
+    background_color: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    base_map_style: NotRequired[pulumi.Input[Optional['TemplateBaseMapStyleType']]]
+    base_map_visibility: NotRequired[pulumi.Input[Optional['TemplateVisibility']]]
+
+@pulumi.input_type
+class TemplateGeospatialMapStyleArgs:
+    def __init__(__self__, *,
+                 background_color: pulumi.Input[Optional[_builtins.str]] = None,
+                 base_map_style: pulumi.Input[Optional['TemplateBaseMapStyleType']] = None,
+                 base_map_visibility: pulumi.Input[Optional['TemplateVisibility']] = None):
+        if background_color is not None:
+            pulumi.set(__self__, "background_color", background_color)
+        if base_map_style is not None:
+            pulumi.set(__self__, "base_map_style", base_map_style)
+        if base_map_visibility is not None:
+            pulumi.set(__self__, "base_map_visibility", base_map_visibility)
+
+    @_builtins.property
+    @pulumi.getter(name="backgroundColor")
+    def background_color(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "background_color")
+
+    @background_color.setter
+    def background_color(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "background_color", value)
+
+    @_builtins.property
+    @pulumi.getter(name="baseMapStyle")
+    def base_map_style(self) -> pulumi.Input[Optional['TemplateBaseMapStyleType']]:
+        return pulumi.get(self, "base_map_style")
+
+    @base_map_style.setter
+    def base_map_style(self, value: pulumi.Input[Optional['TemplateBaseMapStyleType']]):
+        pulumi.set(self, "base_map_style", value)
+
+    @_builtins.property
+    @pulumi.getter(name="baseMapVisibility")
+    def base_map_visibility(self) -> pulumi.Input[Optional['TemplateVisibility']]:
+        return pulumi.get(self, "base_map_visibility")
+
+    @base_map_visibility.setter
+    def base_map_visibility(self, value: pulumi.Input[Optional['TemplateVisibility']]):
+        pulumi.set(self, "base_map_visibility", value)
 
 
 class TemplateGeospatialMapStyleOptionsArgsDict(TypedDict):
@@ -119818,6 +122892,110 @@ class TemplateGeospatialMapVisualArgs:
         pulumi.set(self, "visual_content_alt_text", value)
 
 
+class TemplateGeospatialNullDataSettingsArgsDict(TypedDict):
+    symbol_style: pulumi.Input['TemplateGeospatialNullSymbolStyleArgsDict']
+
+@pulumi.input_type
+class TemplateGeospatialNullDataSettingsArgs:
+    def __init__(__self__, *,
+                 symbol_style: pulumi.Input['TemplateGeospatialNullSymbolStyleArgs']):
+        pulumi.set(__self__, "symbol_style", symbol_style)
+
+    @_builtins.property
+    @pulumi.getter(name="symbolStyle")
+    def symbol_style(self) -> pulumi.Input['TemplateGeospatialNullSymbolStyleArgs']:
+        return pulumi.get(self, "symbol_style")
+
+    @symbol_style.setter
+    def symbol_style(self, value: pulumi.Input['TemplateGeospatialNullSymbolStyleArgs']):
+        pulumi.set(self, "symbol_style", value)
+
+
+class TemplateGeospatialNullSymbolStyleArgsDict(TypedDict):
+    fill_color: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    stroke_color: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    stroke_width: NotRequired[pulumi.Input[Optional[_builtins.float]]]
+
+@pulumi.input_type
+class TemplateGeospatialNullSymbolStyleArgs:
+    def __init__(__self__, *,
+                 fill_color: pulumi.Input[Optional[_builtins.str]] = None,
+                 stroke_color: pulumi.Input[Optional[_builtins.str]] = None,
+                 stroke_width: pulumi.Input[Optional[_builtins.float]] = None):
+        if fill_color is not None:
+            pulumi.set(__self__, "fill_color", fill_color)
+        if stroke_color is not None:
+            pulumi.set(__self__, "stroke_color", stroke_color)
+        if stroke_width is not None:
+            pulumi.set(__self__, "stroke_width", stroke_width)
+
+    @_builtins.property
+    @pulumi.getter(name="fillColor")
+    def fill_color(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "fill_color")
+
+    @fill_color.setter
+    def fill_color(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "fill_color", value)
+
+    @_builtins.property
+    @pulumi.getter(name="strokeColor")
+    def stroke_color(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "stroke_color")
+
+    @stroke_color.setter
+    def stroke_color(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "stroke_color", value)
+
+    @_builtins.property
+    @pulumi.getter(name="strokeWidth")
+    def stroke_width(self) -> pulumi.Input[Optional[_builtins.float]]:
+        return pulumi.get(self, "stroke_width")
+
+    @stroke_width.setter
+    def stroke_width(self, value: pulumi.Input[Optional[_builtins.float]]):
+        pulumi.set(self, "stroke_width", value)
+
+
+class TemplateGeospatialPointLayerArgsDict(TypedDict):
+    style: pulumi.Input['TemplateGeospatialPointStyleArgsDict']
+
+@pulumi.input_type
+class TemplateGeospatialPointLayerArgs:
+    def __init__(__self__, *,
+                 style: pulumi.Input['TemplateGeospatialPointStyleArgs']):
+        pulumi.set(__self__, "style", style)
+
+    @_builtins.property
+    @pulumi.getter
+    def style(self) -> pulumi.Input['TemplateGeospatialPointStyleArgs']:
+        return pulumi.get(self, "style")
+
+    @style.setter
+    def style(self, value: pulumi.Input['TemplateGeospatialPointStyleArgs']):
+        pulumi.set(self, "style", value)
+
+
+class TemplateGeospatialPointStyleArgsDict(TypedDict):
+    circle_symbol_style: NotRequired[pulumi.Input[Optional['TemplateGeospatialCircleSymbolStyleArgsDict']]]
+
+@pulumi.input_type
+class TemplateGeospatialPointStyleArgs:
+    def __init__(__self__, *,
+                 circle_symbol_style: pulumi.Input[Optional['TemplateGeospatialCircleSymbolStyleArgs']] = None):
+        if circle_symbol_style is not None:
+            pulumi.set(__self__, "circle_symbol_style", circle_symbol_style)
+
+    @_builtins.property
+    @pulumi.getter(name="circleSymbolStyle")
+    def circle_symbol_style(self) -> pulumi.Input[Optional['TemplateGeospatialCircleSymbolStyleArgs']]:
+        return pulumi.get(self, "circle_symbol_style")
+
+    @circle_symbol_style.setter
+    def circle_symbol_style(self, value: pulumi.Input[Optional['TemplateGeospatialCircleSymbolStyleArgs']]):
+        pulumi.set(self, "circle_symbol_style", value)
+
+
 class TemplateGeospatialPointStyleOptionsArgsDict(TypedDict):
     cluster_marker_configuration: NotRequired[pulumi.Input[Optional['TemplateClusterMarkerConfigurationArgsDict']]]
     """
@@ -119885,6 +123063,148 @@ class TemplateGeospatialPointStyleOptionsArgs:
     @selected_point_style.setter
     def selected_point_style(self, value: pulumi.Input[Optional['TemplateGeospatialSelectedPointStyle']]):
         pulumi.set(self, "selected_point_style", value)
+
+
+class TemplateGeospatialPolygonLayerArgsDict(TypedDict):
+    style: pulumi.Input['TemplateGeospatialPolygonStyleArgsDict']
+
+@pulumi.input_type
+class TemplateGeospatialPolygonLayerArgs:
+    def __init__(__self__, *,
+                 style: pulumi.Input['TemplateGeospatialPolygonStyleArgs']):
+        pulumi.set(__self__, "style", style)
+
+    @_builtins.property
+    @pulumi.getter
+    def style(self) -> pulumi.Input['TemplateGeospatialPolygonStyleArgs']:
+        return pulumi.get(self, "style")
+
+    @style.setter
+    def style(self, value: pulumi.Input['TemplateGeospatialPolygonStyleArgs']):
+        pulumi.set(self, "style", value)
+
+
+class TemplateGeospatialPolygonStyleArgsDict(TypedDict):
+    polygon_symbol_style: NotRequired[pulumi.Input[Optional['TemplateGeospatialPolygonSymbolStyleArgsDict']]]
+
+@pulumi.input_type
+class TemplateGeospatialPolygonStyleArgs:
+    def __init__(__self__, *,
+                 polygon_symbol_style: pulumi.Input[Optional['TemplateGeospatialPolygonSymbolStyleArgs']] = None):
+        if polygon_symbol_style is not None:
+            pulumi.set(__self__, "polygon_symbol_style", polygon_symbol_style)
+
+    @_builtins.property
+    @pulumi.getter(name="polygonSymbolStyle")
+    def polygon_symbol_style(self) -> pulumi.Input[Optional['TemplateGeospatialPolygonSymbolStyleArgs']]:
+        return pulumi.get(self, "polygon_symbol_style")
+
+    @polygon_symbol_style.setter
+    def polygon_symbol_style(self, value: pulumi.Input[Optional['TemplateGeospatialPolygonSymbolStyleArgs']]):
+        pulumi.set(self, "polygon_symbol_style", value)
+
+
+class TemplateGeospatialPolygonSymbolStyleArgsDict(TypedDict):
+    fill_color: NotRequired[pulumi.Input[Optional['TemplateGeospatialColorArgsDict']]]
+    stroke_color: NotRequired[pulumi.Input[Optional['TemplateGeospatialColorArgsDict']]]
+    stroke_width: NotRequired[pulumi.Input[Optional['TemplateGeospatialLineWidthArgsDict']]]
+
+@pulumi.input_type
+class TemplateGeospatialPolygonSymbolStyleArgs:
+    def __init__(__self__, *,
+                 fill_color: pulumi.Input[Optional['TemplateGeospatialColorArgs']] = None,
+                 stroke_color: pulumi.Input[Optional['TemplateGeospatialColorArgs']] = None,
+                 stroke_width: pulumi.Input[Optional['TemplateGeospatialLineWidthArgs']] = None):
+        if fill_color is not None:
+            pulumi.set(__self__, "fill_color", fill_color)
+        if stroke_color is not None:
+            pulumi.set(__self__, "stroke_color", stroke_color)
+        if stroke_width is not None:
+            pulumi.set(__self__, "stroke_width", stroke_width)
+
+    @_builtins.property
+    @pulumi.getter(name="fillColor")
+    def fill_color(self) -> pulumi.Input[Optional['TemplateGeospatialColorArgs']]:
+        return pulumi.get(self, "fill_color")
+
+    @fill_color.setter
+    def fill_color(self, value: pulumi.Input[Optional['TemplateGeospatialColorArgs']]):
+        pulumi.set(self, "fill_color", value)
+
+    @_builtins.property
+    @pulumi.getter(name="strokeColor")
+    def stroke_color(self) -> pulumi.Input[Optional['TemplateGeospatialColorArgs']]:
+        return pulumi.get(self, "stroke_color")
+
+    @stroke_color.setter
+    def stroke_color(self, value: pulumi.Input[Optional['TemplateGeospatialColorArgs']]):
+        pulumi.set(self, "stroke_color", value)
+
+    @_builtins.property
+    @pulumi.getter(name="strokeWidth")
+    def stroke_width(self) -> pulumi.Input[Optional['TemplateGeospatialLineWidthArgs']]:
+        return pulumi.get(self, "stroke_width")
+
+    @stroke_width.setter
+    def stroke_width(self, value: pulumi.Input[Optional['TemplateGeospatialLineWidthArgs']]):
+        pulumi.set(self, "stroke_width", value)
+
+
+class TemplateGeospatialSolidColorArgsDict(TypedDict):
+    """
+    Describes the properties for a solid color
+    """
+    color: pulumi.Input[_builtins.str]
+    state: NotRequired[pulumi.Input[Optional['TemplateGeospatialColorState']]]
+
+@pulumi.input_type
+class TemplateGeospatialSolidColorArgs:
+    def __init__(__self__, *,
+                 color: pulumi.Input[_builtins.str],
+                 state: pulumi.Input[Optional['TemplateGeospatialColorState']] = None):
+        """
+        Describes the properties for a solid color
+        """
+        pulumi.set(__self__, "color", color)
+        if state is not None:
+            pulumi.set(__self__, "state", state)
+
+    @_builtins.property
+    @pulumi.getter
+    def color(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "color")
+
+    @color.setter
+    def color(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "color", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def state(self) -> pulumi.Input[Optional['TemplateGeospatialColorState']]:
+        return pulumi.get(self, "state")
+
+    @state.setter
+    def state(self, value: pulumi.Input[Optional['TemplateGeospatialColorState']]):
+        pulumi.set(self, "state", value)
+
+
+class TemplateGeospatialStaticFileSourceArgsDict(TypedDict):
+    static_file_id: pulumi.Input[_builtins.str]
+
+@pulumi.input_type
+class TemplateGeospatialStaticFileSourceArgs:
+    def __init__(__self__, *,
+                 static_file_id: pulumi.Input[_builtins.str]):
+        pulumi.set(__self__, "static_file_id", static_file_id)
+
+    @_builtins.property
+    @pulumi.getter(name="staticFileId")
+    def static_file_id(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "static_file_id")
+
+    @static_file_id.setter
+    def static_file_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "static_file_id", value)
 
 
 class TemplateGeospatialWindowOptionsArgsDict(TypedDict):
@@ -120169,14 +123489,20 @@ class TemplateGridLayoutElementArgsDict(TypedDict):
     """
     The height of a grid element expressed as a number of grid rows.
     """
+    background_style: NotRequired[pulumi.Input[Optional['TemplateGridLayoutElementBackgroundStyleArgsDict']]]
+    border_radius: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    border_style: NotRequired[pulumi.Input[Optional['TemplateGridLayoutElementBorderStyleArgsDict']]]
     column_index: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     The column index for the upper left corner of an element.
     """
+    loading_animation: NotRequired[pulumi.Input[Optional['TemplateLoadingAnimationArgsDict']]]
+    padding: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     row_index: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     The row index for the upper left corner of an element.
     """
+    selected_border_style: NotRequired[pulumi.Input[Optional['TemplateGridLayoutElementBorderStyleArgsDict']]]
 
 @pulumi.input_type
 class TemplateGridLayoutElementArgs:
@@ -120185,8 +123511,14 @@ class TemplateGridLayoutElementArgs:
                  element_id: pulumi.Input[_builtins.str],
                  element_type: pulumi.Input['TemplateLayoutElementType'],
                  row_span: pulumi.Input[_builtins.float],
+                 background_style: pulumi.Input[Optional['TemplateGridLayoutElementBackgroundStyleArgs']] = None,
+                 border_radius: pulumi.Input[Optional[_builtins.str]] = None,
+                 border_style: pulumi.Input[Optional['TemplateGridLayoutElementBorderStyleArgs']] = None,
                  column_index: pulumi.Input[Optional[_builtins.float]] = None,
-                 row_index: pulumi.Input[Optional[_builtins.float]] = None):
+                 loading_animation: pulumi.Input[Optional['TemplateLoadingAnimationArgs']] = None,
+                 padding: pulumi.Input[Optional[_builtins.str]] = None,
+                 row_index: pulumi.Input[Optional[_builtins.float]] = None,
+                 selected_border_style: pulumi.Input[Optional['TemplateGridLayoutElementBorderStyleArgs']] = None):
         """
         :param pulumi.Input[_builtins.float] column_span: The width of a grid element expressed as a number of grid columns.
         :param pulumi.Input[_builtins.str] element_id: A unique identifier for an element within a grid layout.
@@ -120199,10 +123531,22 @@ class TemplateGridLayoutElementArgs:
         pulumi.set(__self__, "element_id", element_id)
         pulumi.set(__self__, "element_type", element_type)
         pulumi.set(__self__, "row_span", row_span)
+        if background_style is not None:
+            pulumi.set(__self__, "background_style", background_style)
+        if border_radius is not None:
+            pulumi.set(__self__, "border_radius", border_radius)
+        if border_style is not None:
+            pulumi.set(__self__, "border_style", border_style)
         if column_index is not None:
             pulumi.set(__self__, "column_index", column_index)
+        if loading_animation is not None:
+            pulumi.set(__self__, "loading_animation", loading_animation)
+        if padding is not None:
+            pulumi.set(__self__, "padding", padding)
         if row_index is not None:
             pulumi.set(__self__, "row_index", row_index)
+        if selected_border_style is not None:
+            pulumi.set(__self__, "selected_border_style", selected_border_style)
 
     @_builtins.property
     @pulumi.getter(name="columnSpan")
@@ -120253,6 +123597,33 @@ class TemplateGridLayoutElementArgs:
         pulumi.set(self, "row_span", value)
 
     @_builtins.property
+    @pulumi.getter(name="backgroundStyle")
+    def background_style(self) -> pulumi.Input[Optional['TemplateGridLayoutElementBackgroundStyleArgs']]:
+        return pulumi.get(self, "background_style")
+
+    @background_style.setter
+    def background_style(self, value: pulumi.Input[Optional['TemplateGridLayoutElementBackgroundStyleArgs']]):
+        pulumi.set(self, "background_style", value)
+
+    @_builtins.property
+    @pulumi.getter(name="borderRadius")
+    def border_radius(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "border_radius")
+
+    @border_radius.setter
+    def border_radius(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "border_radius", value)
+
+    @_builtins.property
+    @pulumi.getter(name="borderStyle")
+    def border_style(self) -> pulumi.Input[Optional['TemplateGridLayoutElementBorderStyleArgs']]:
+        return pulumi.get(self, "border_style")
+
+    @border_style.setter
+    def border_style(self, value: pulumi.Input[Optional['TemplateGridLayoutElementBorderStyleArgs']]):
+        pulumi.set(self, "border_style", value)
+
+    @_builtins.property
     @pulumi.getter(name="columnIndex")
     def column_index(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
@@ -120265,6 +123636,24 @@ class TemplateGridLayoutElementArgs:
         pulumi.set(self, "column_index", value)
 
     @_builtins.property
+    @pulumi.getter(name="loadingAnimation")
+    def loading_animation(self) -> pulumi.Input[Optional['TemplateLoadingAnimationArgs']]:
+        return pulumi.get(self, "loading_animation")
+
+    @loading_animation.setter
+    def loading_animation(self, value: pulumi.Input[Optional['TemplateLoadingAnimationArgs']]):
+        pulumi.set(self, "loading_animation", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def padding(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "padding")
+
+    @padding.setter
+    def padding(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "padding", value)
+
+    @_builtins.property
     @pulumi.getter(name="rowIndex")
     def row_index(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
@@ -120275,6 +123664,103 @@ class TemplateGridLayoutElementArgs:
     @row_index.setter
     def row_index(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "row_index", value)
+
+    @_builtins.property
+    @pulumi.getter(name="selectedBorderStyle")
+    def selected_border_style(self) -> pulumi.Input[Optional['TemplateGridLayoutElementBorderStyleArgs']]:
+        return pulumi.get(self, "selected_border_style")
+
+    @selected_border_style.setter
+    def selected_border_style(self, value: pulumi.Input[Optional['TemplateGridLayoutElementBorderStyleArgs']]):
+        pulumi.set(self, "selected_border_style", value)
+
+
+class TemplateGridLayoutElementBackgroundStyleArgsDict(TypedDict):
+    color: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    visibility: NotRequired[pulumi.Input[Optional['TemplateVisibility']]]
+
+@pulumi.input_type
+class TemplateGridLayoutElementBackgroundStyleArgs:
+    def __init__(__self__, *,
+                 color: pulumi.Input[Optional[_builtins.str]] = None,
+                 visibility: pulumi.Input[Optional['TemplateVisibility']] = None):
+        if color is not None:
+            pulumi.set(__self__, "color", color)
+        if visibility is not None:
+            pulumi.set(__self__, "visibility", visibility)
+
+    @_builtins.property
+    @pulumi.getter
+    def color(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "color")
+
+    @color.setter
+    def color(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "color", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def visibility(self) -> pulumi.Input[Optional['TemplateVisibility']]:
+        return pulumi.get(self, "visibility")
+
+    @visibility.setter
+    def visibility(self, value: pulumi.Input[Optional['TemplateVisibility']]):
+        pulumi.set(self, "visibility", value)
+
+
+class TemplateGridLayoutElementBorderStyleArgsDict(TypedDict):
+    color: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    visibility: NotRequired[pulumi.Input[Optional['TemplateVisibility']]]
+    width: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    String to encapsulate the most generic way Width can be formatted with whatever units (px, em etc)
+    """
+
+@pulumi.input_type
+class TemplateGridLayoutElementBorderStyleArgs:
+    def __init__(__self__, *,
+                 color: pulumi.Input[Optional[_builtins.str]] = None,
+                 visibility: pulumi.Input[Optional['TemplateVisibility']] = None,
+                 width: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] width: String to encapsulate the most generic way Width can be formatted with whatever units (px, em etc)
+        """
+        if color is not None:
+            pulumi.set(__self__, "color", color)
+        if visibility is not None:
+            pulumi.set(__self__, "visibility", visibility)
+        if width is not None:
+            pulumi.set(__self__, "width", width)
+
+    @_builtins.property
+    @pulumi.getter
+    def color(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "color")
+
+    @color.setter
+    def color(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "color", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def visibility(self) -> pulumi.Input[Optional['TemplateVisibility']]:
+        return pulumi.get(self, "visibility")
+
+    @visibility.setter
+    def visibility(self, value: pulumi.Input[Optional['TemplateVisibility']]):
+        pulumi.set(self, "visibility", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def width(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        String to encapsulate the most generic way Width can be formatted with whatever units (px, em etc)
+        """
+        return pulumi.get(self, "width")
+
+    @width.setter
+    def width(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "width", value)
 
 
 class TemplateGridLayoutScreenCanvasSizeOptionsArgsDict(TypedDict):
@@ -121727,6 +125213,38 @@ class TemplateImageMenuOptionArgs:
         pulumi.set(self, "availability_status", value)
 
 
+class TemplateImageStaticFileArgsDict(TypedDict):
+    static_file_id: pulumi.Input[_builtins.str]
+    source: NotRequired[pulumi.Input[Optional['TemplateStaticFileSourceArgsDict']]]
+
+@pulumi.input_type
+class TemplateImageStaticFileArgs:
+    def __init__(__self__, *,
+                 static_file_id: pulumi.Input[_builtins.str],
+                 source: pulumi.Input[Optional['TemplateStaticFileSourceArgs']] = None):
+        pulumi.set(__self__, "static_file_id", static_file_id)
+        if source is not None:
+            pulumi.set(__self__, "source", source)
+
+    @_builtins.property
+    @pulumi.getter(name="staticFileId")
+    def static_file_id(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "static_file_id")
+
+    @static_file_id.setter
+    def static_file_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "static_file_id", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def source(self) -> pulumi.Input[Optional['TemplateStaticFileSourceArgs']]:
+        return pulumi.get(self, "source")
+
+    @source.setter
+    def source(self, value: pulumi.Input[Optional['TemplateStaticFileSourceArgs']]):
+        pulumi.set(self, "source", value)
+
+
 class TemplateInnerFilterArgsDict(TypedDict):
     category_inner_filter: NotRequired[pulumi.Input[Optional['TemplateCategoryInnerFilterArgsDict']]]
     """
@@ -121826,10 +125344,6 @@ class TemplateInsightConfigurationArgs:
 
 
 class TemplateInsightVisualArgsDict(TypedDict):
-    data_set_identifier: pulumi.Input[_builtins.str]
-    """
-    The dataset that is used in the insight visual.
-    """
     visual_id: pulumi.Input[_builtins.str]
     """
     The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.
@@ -121837,6 +125351,10 @@ class TemplateInsightVisualArgsDict(TypedDict):
     actions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TemplateVisualCustomActionArgsDict']]]]]
     """
     The list of custom actions that are configured for a visual.
+    """
+    data_set_identifier: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The dataset that is used in the insight visual.
     """
     insight_configuration: NotRequired[pulumi.Input[Optional['TemplateInsightConfigurationArgsDict']]]
     """
@@ -121850,6 +125368,7 @@ class TemplateInsightVisualArgsDict(TypedDict):
     """
     The title that is displayed on the visual.
     """
+    topic_identifier: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     visual_content_alt_text: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The alt text for the visual.
@@ -121858,46 +125377,38 @@ class TemplateInsightVisualArgsDict(TypedDict):
 @pulumi.input_type
 class TemplateInsightVisualArgs:
     def __init__(__self__, *,
-                 data_set_identifier: pulumi.Input[_builtins.str],
                  visual_id: pulumi.Input[_builtins.str],
                  actions: pulumi.Input[Optional[Sequence[pulumi.Input['TemplateVisualCustomActionArgs']]]] = None,
+                 data_set_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                  insight_configuration: pulumi.Input[Optional['TemplateInsightConfigurationArgs']] = None,
                  subtitle: pulumi.Input[Optional['TemplateVisualSubtitleLabelOptionsArgs']] = None,
                  title: pulumi.Input[Optional['TemplateVisualTitleLabelOptionsArgs']] = None,
+                 topic_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                  visual_content_alt_text: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] data_set_identifier: The dataset that is used in the insight visual.
         :param pulumi.Input[_builtins.str] visual_id: The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.
         :param pulumi.Input[Sequence[pulumi.Input['TemplateVisualCustomActionArgs']]] actions: The list of custom actions that are configured for a visual.
+        :param pulumi.Input[_builtins.str] data_set_identifier: The dataset that is used in the insight visual.
         :param pulumi.Input['TemplateInsightConfigurationArgs'] insight_configuration: The configuration of an insight visual.
         :param pulumi.Input['TemplateVisualSubtitleLabelOptionsArgs'] subtitle: The subtitle that is displayed on the visual.
         :param pulumi.Input['TemplateVisualTitleLabelOptionsArgs'] title: The title that is displayed on the visual.
         :param pulumi.Input[_builtins.str] visual_content_alt_text: The alt text for the visual.
         """
-        pulumi.set(__self__, "data_set_identifier", data_set_identifier)
         pulumi.set(__self__, "visual_id", visual_id)
         if actions is not None:
             pulumi.set(__self__, "actions", actions)
+        if data_set_identifier is not None:
+            pulumi.set(__self__, "data_set_identifier", data_set_identifier)
         if insight_configuration is not None:
             pulumi.set(__self__, "insight_configuration", insight_configuration)
         if subtitle is not None:
             pulumi.set(__self__, "subtitle", subtitle)
         if title is not None:
             pulumi.set(__self__, "title", title)
+        if topic_identifier is not None:
+            pulumi.set(__self__, "topic_identifier", topic_identifier)
         if visual_content_alt_text is not None:
             pulumi.set(__self__, "visual_content_alt_text", visual_content_alt_text)
-
-    @_builtins.property
-    @pulumi.getter(name="dataSetIdentifier")
-    def data_set_identifier(self) -> pulumi.Input[_builtins.str]:
-        """
-        The dataset that is used in the insight visual.
-        """
-        return pulumi.get(self, "data_set_identifier")
-
-    @data_set_identifier.setter
-    def data_set_identifier(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "data_set_identifier", value)
 
     @_builtins.property
     @pulumi.getter(name="visualId")
@@ -121922,6 +125433,18 @@ class TemplateInsightVisualArgs:
     @actions.setter
     def actions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['TemplateVisualCustomActionArgs']]]]):
         pulumi.set(self, "actions", value)
+
+    @_builtins.property
+    @pulumi.getter(name="dataSetIdentifier")
+    def data_set_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The dataset that is used in the insight visual.
+        """
+        return pulumi.get(self, "data_set_identifier")
+
+    @data_set_identifier.setter
+    def data_set_identifier(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "data_set_identifier", value)
 
     @_builtins.property
     @pulumi.getter(name="insightConfiguration")
@@ -121958,6 +125481,15 @@ class TemplateInsightVisualArgs:
     @title.setter
     def title(self, value: pulumi.Input[Optional['TemplateVisualTitleLabelOptionsArgs']]):
         pulumi.set(self, "title", value)
+
+    @_builtins.property
+    @pulumi.getter(name="topicIdentifier")
+    def topic_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "topic_identifier")
+
+    @topic_identifier.setter
+    def topic_identifier(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "topic_identifier", value)
 
     @_builtins.property
     @pulumi.getter(name="visualContentAltText")
@@ -123289,6 +126821,230 @@ class TemplateLabelOptionsArgs:
         pulumi.set(self, "visibility", value)
 
 
+class TemplateLayerCustomActionArgsDict(TypedDict):
+    action_operations: pulumi.Input[Sequence[pulumi.Input['TemplateLayerCustomActionOperationArgsDict']]]
+    custom_action_id: pulumi.Input[_builtins.str]
+    name: pulumi.Input[_builtins.str]
+    trigger: pulumi.Input['TemplateLayerCustomActionTrigger']
+    status: NotRequired[pulumi.Input[Optional['TemplateWidgetStatus']]]
+
+@pulumi.input_type
+class TemplateLayerCustomActionArgs:
+    def __init__(__self__, *,
+                 action_operations: pulumi.Input[Sequence[pulumi.Input['TemplateLayerCustomActionOperationArgs']]],
+                 custom_action_id: pulumi.Input[_builtins.str],
+                 name: pulumi.Input[_builtins.str],
+                 trigger: pulumi.Input['TemplateLayerCustomActionTrigger'],
+                 status: pulumi.Input[Optional['TemplateWidgetStatus']] = None):
+        pulumi.set(__self__, "action_operations", action_operations)
+        pulumi.set(__self__, "custom_action_id", custom_action_id)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "trigger", trigger)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @_builtins.property
+    @pulumi.getter(name="actionOperations")
+    def action_operations(self) -> pulumi.Input[Sequence[pulumi.Input['TemplateLayerCustomActionOperationArgs']]]:
+        return pulumi.get(self, "action_operations")
+
+    @action_operations.setter
+    def action_operations(self, value: pulumi.Input[Sequence[pulumi.Input['TemplateLayerCustomActionOperationArgs']]]):
+        pulumi.set(self, "action_operations", value)
+
+    @_builtins.property
+    @pulumi.getter(name="customActionId")
+    def custom_action_id(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "custom_action_id")
+
+    @custom_action_id.setter
+    def custom_action_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "custom_action_id", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def trigger(self) -> pulumi.Input['TemplateLayerCustomActionTrigger']:
+        return pulumi.get(self, "trigger")
+
+    @trigger.setter
+    def trigger(self, value: pulumi.Input['TemplateLayerCustomActionTrigger']):
+        pulumi.set(self, "trigger", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> pulumi.Input[Optional['TemplateWidgetStatus']]:
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: pulumi.Input[Optional['TemplateWidgetStatus']]):
+        pulumi.set(self, "status", value)
+
+
+class TemplateLayerCustomActionOperationArgsDict(TypedDict):
+    filter_operation: NotRequired[pulumi.Input[Optional['TemplateCustomActionFilterOperationArgsDict']]]
+    navigation_operation: NotRequired[pulumi.Input[Optional['TemplateCustomActionNavigationOperationArgsDict']]]
+    set_parameters_operation: NotRequired[pulumi.Input[Optional['TemplateCustomActionSetParametersOperationArgsDict']]]
+    url_operation: NotRequired[pulumi.Input[Optional['TemplateCustomActionUrlOperationArgsDict']]]
+
+@pulumi.input_type
+class TemplateLayerCustomActionOperationArgs:
+    def __init__(__self__, *,
+                 filter_operation: pulumi.Input[Optional['TemplateCustomActionFilterOperationArgs']] = None,
+                 navigation_operation: pulumi.Input[Optional['TemplateCustomActionNavigationOperationArgs']] = None,
+                 set_parameters_operation: pulumi.Input[Optional['TemplateCustomActionSetParametersOperationArgs']] = None,
+                 url_operation: pulumi.Input[Optional['TemplateCustomActionUrlOperationArgs']] = None):
+        if filter_operation is not None:
+            pulumi.set(__self__, "filter_operation", filter_operation)
+        if navigation_operation is not None:
+            pulumi.set(__self__, "navigation_operation", navigation_operation)
+        if set_parameters_operation is not None:
+            pulumi.set(__self__, "set_parameters_operation", set_parameters_operation)
+        if url_operation is not None:
+            pulumi.set(__self__, "url_operation", url_operation)
+
+    @_builtins.property
+    @pulumi.getter(name="filterOperation")
+    def filter_operation(self) -> pulumi.Input[Optional['TemplateCustomActionFilterOperationArgs']]:
+        return pulumi.get(self, "filter_operation")
+
+    @filter_operation.setter
+    def filter_operation(self, value: pulumi.Input[Optional['TemplateCustomActionFilterOperationArgs']]):
+        pulumi.set(self, "filter_operation", value)
+
+    @_builtins.property
+    @pulumi.getter(name="navigationOperation")
+    def navigation_operation(self) -> pulumi.Input[Optional['TemplateCustomActionNavigationOperationArgs']]:
+        return pulumi.get(self, "navigation_operation")
+
+    @navigation_operation.setter
+    def navigation_operation(self, value: pulumi.Input[Optional['TemplateCustomActionNavigationOperationArgs']]):
+        pulumi.set(self, "navigation_operation", value)
+
+    @_builtins.property
+    @pulumi.getter(name="setParametersOperation")
+    def set_parameters_operation(self) -> pulumi.Input[Optional['TemplateCustomActionSetParametersOperationArgs']]:
+        return pulumi.get(self, "set_parameters_operation")
+
+    @set_parameters_operation.setter
+    def set_parameters_operation(self, value: pulumi.Input[Optional['TemplateCustomActionSetParametersOperationArgs']]):
+        pulumi.set(self, "set_parameters_operation", value)
+
+    @_builtins.property
+    @pulumi.getter(name="urlOperation")
+    def url_operation(self) -> pulumi.Input[Optional['TemplateCustomActionUrlOperationArgs']]:
+        return pulumi.get(self, "url_operation")
+
+    @url_operation.setter
+    def url_operation(self, value: pulumi.Input[Optional['TemplateCustomActionUrlOperationArgs']]):
+        pulumi.set(self, "url_operation", value)
+
+
+class TemplateLayerMapVisualArgsDict(TypedDict):
+    visual_id: pulumi.Input[_builtins.str]
+    chart_configuration: NotRequired[pulumi.Input[Optional['TemplateGeospatialLayerMapConfigurationArgsDict']]]
+    data_set_identifier: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    subtitle: NotRequired[pulumi.Input[Optional['TemplateVisualSubtitleLabelOptionsArgsDict']]]
+    title: NotRequired[pulumi.Input[Optional['TemplateVisualTitleLabelOptionsArgsDict']]]
+    topic_identifier: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    visual_content_alt_text: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+
+@pulumi.input_type
+class TemplateLayerMapVisualArgs:
+    def __init__(__self__, *,
+                 visual_id: pulumi.Input[_builtins.str],
+                 chart_configuration: pulumi.Input[Optional['TemplateGeospatialLayerMapConfigurationArgs']] = None,
+                 data_set_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 subtitle: pulumi.Input[Optional['TemplateVisualSubtitleLabelOptionsArgs']] = None,
+                 title: pulumi.Input[Optional['TemplateVisualTitleLabelOptionsArgs']] = None,
+                 topic_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 visual_content_alt_text: pulumi.Input[Optional[_builtins.str]] = None):
+        pulumi.set(__self__, "visual_id", visual_id)
+        if chart_configuration is not None:
+            pulumi.set(__self__, "chart_configuration", chart_configuration)
+        if data_set_identifier is not None:
+            pulumi.set(__self__, "data_set_identifier", data_set_identifier)
+        if subtitle is not None:
+            pulumi.set(__self__, "subtitle", subtitle)
+        if title is not None:
+            pulumi.set(__self__, "title", title)
+        if topic_identifier is not None:
+            pulumi.set(__self__, "topic_identifier", topic_identifier)
+        if visual_content_alt_text is not None:
+            pulumi.set(__self__, "visual_content_alt_text", visual_content_alt_text)
+
+    @_builtins.property
+    @pulumi.getter(name="visualId")
+    def visual_id(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "visual_id")
+
+    @visual_id.setter
+    def visual_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "visual_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="chartConfiguration")
+    def chart_configuration(self) -> pulumi.Input[Optional['TemplateGeospatialLayerMapConfigurationArgs']]:
+        return pulumi.get(self, "chart_configuration")
+
+    @chart_configuration.setter
+    def chart_configuration(self, value: pulumi.Input[Optional['TemplateGeospatialLayerMapConfigurationArgs']]):
+        pulumi.set(self, "chart_configuration", value)
+
+    @_builtins.property
+    @pulumi.getter(name="dataSetIdentifier")
+    def data_set_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "data_set_identifier")
+
+    @data_set_identifier.setter
+    def data_set_identifier(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "data_set_identifier", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def subtitle(self) -> pulumi.Input[Optional['TemplateVisualSubtitleLabelOptionsArgs']]:
+        return pulumi.get(self, "subtitle")
+
+    @subtitle.setter
+    def subtitle(self, value: pulumi.Input[Optional['TemplateVisualSubtitleLabelOptionsArgs']]):
+        pulumi.set(self, "subtitle", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def title(self) -> pulumi.Input[Optional['TemplateVisualTitleLabelOptionsArgs']]:
+        return pulumi.get(self, "title")
+
+    @title.setter
+    def title(self, value: pulumi.Input[Optional['TemplateVisualTitleLabelOptionsArgs']]):
+        pulumi.set(self, "title", value)
+
+    @_builtins.property
+    @pulumi.getter(name="topicIdentifier")
+    def topic_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "topic_identifier")
+
+    @topic_identifier.setter
+    def topic_identifier(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "topic_identifier", value)
+
+    @_builtins.property
+    @pulumi.getter(name="visualContentAltText")
+    def visual_content_alt_text(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "visual_content_alt_text")
+
+    @visual_content_alt_text.setter
+    def visual_content_alt_text(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "visual_content_alt_text", value)
+
+
 class TemplateLayoutArgsDict(TypedDict):
     configuration: pulumi.Input['TemplateLayoutConfigurationArgsDict']
     """
@@ -124039,6 +127795,7 @@ class TemplateLineChartDefaultSeriesSettingsArgsDict(TypedDict):
     """
     The axis to which you are binding all line series to.
     """
+    decal_settings: NotRequired[pulumi.Input[Optional['TemplateDecalSettingsArgsDict']]]
     line_style_settings: NotRequired[pulumi.Input[Optional['TemplateLineChartLineStyleSettingsArgsDict']]]
     """
     Line styles options for all line series in the visual.
@@ -124052,6 +127809,7 @@ class TemplateLineChartDefaultSeriesSettingsArgsDict(TypedDict):
 class TemplateLineChartDefaultSeriesSettingsArgs:
     def __init__(__self__, *,
                  axis_binding: pulumi.Input[Optional['TemplateAxisBinding']] = None,
+                 decal_settings: pulumi.Input[Optional['TemplateDecalSettingsArgs']] = None,
                  line_style_settings: pulumi.Input[Optional['TemplateLineChartLineStyleSettingsArgs']] = None,
                  marker_style_settings: pulumi.Input[Optional['TemplateLineChartMarkerStyleSettingsArgs']] = None):
         """
@@ -124061,6 +127819,8 @@ class TemplateLineChartDefaultSeriesSettingsArgs:
         """
         if axis_binding is not None:
             pulumi.set(__self__, "axis_binding", axis_binding)
+        if decal_settings is not None:
+            pulumi.set(__self__, "decal_settings", decal_settings)
         if line_style_settings is not None:
             pulumi.set(__self__, "line_style_settings", line_style_settings)
         if marker_style_settings is not None:
@@ -124077,6 +127837,15 @@ class TemplateLineChartDefaultSeriesSettingsArgs:
     @axis_binding.setter
     def axis_binding(self, value: pulumi.Input[Optional['TemplateAxisBinding']]):
         pulumi.set(self, "axis_binding", value)
+
+    @_builtins.property
+    @pulumi.getter(name="decalSettings")
+    def decal_settings(self) -> pulumi.Input[Optional['TemplateDecalSettingsArgs']]:
+        return pulumi.get(self, "decal_settings")
+
+    @decal_settings.setter
+    def decal_settings(self, value: pulumi.Input[Optional['TemplateDecalSettingsArgs']]):
+        pulumi.set(self, "decal_settings", value)
 
     @_builtins.property
     @pulumi.getter(name="lineStyleSettings")
@@ -124353,6 +128122,7 @@ class TemplateLineChartMarkerStyleSettingsArgs:
 
 
 class TemplateLineChartSeriesSettingsArgsDict(TypedDict):
+    decal_settings: NotRequired[pulumi.Input[Optional['TemplateDecalSettingsArgsDict']]]
     line_style_settings: NotRequired[pulumi.Input[Optional['TemplateLineChartLineStyleSettingsArgsDict']]]
     """
     Line styles options for a line series in `LineChartVisual` .
@@ -124365,16 +128135,28 @@ class TemplateLineChartSeriesSettingsArgsDict(TypedDict):
 @pulumi.input_type
 class TemplateLineChartSeriesSettingsArgs:
     def __init__(__self__, *,
+                 decal_settings: pulumi.Input[Optional['TemplateDecalSettingsArgs']] = None,
                  line_style_settings: pulumi.Input[Optional['TemplateLineChartLineStyleSettingsArgs']] = None,
                  marker_style_settings: pulumi.Input[Optional['TemplateLineChartMarkerStyleSettingsArgs']] = None):
         """
         :param pulumi.Input['TemplateLineChartLineStyleSettingsArgs'] line_style_settings: Line styles options for a line series in `LineChartVisual` .
         :param pulumi.Input['TemplateLineChartMarkerStyleSettingsArgs'] marker_style_settings: Marker styles options for a line series in `LineChartVisual` .
         """
+        if decal_settings is not None:
+            pulumi.set(__self__, "decal_settings", decal_settings)
         if line_style_settings is not None:
             pulumi.set(__self__, "line_style_settings", line_style_settings)
         if marker_style_settings is not None:
             pulumi.set(__self__, "marker_style_settings", marker_style_settings)
+
+    @_builtins.property
+    @pulumi.getter(name="decalSettings")
+    def decal_settings(self) -> pulumi.Input[Optional['TemplateDecalSettingsArgs']]:
+        return pulumi.get(self, "decal_settings")
+
+    @decal_settings.setter
+    def decal_settings(self, value: pulumi.Input[Optional['TemplateDecalSettingsArgs']]):
+        pulumi.set(self, "decal_settings", value)
 
     @_builtins.property
     @pulumi.getter(name="lineStyleSettings")
@@ -132914,10 +136696,10 @@ class TemplateResourcePermissionArgsDict(TypedDict):
                 following:</p>
              <ul>
                 <li>
-                   <p>The ARN of an Amazon QuickSight user or group associated with a data source or dataset. (This is common.)</p>
+                   <p>The ARN of an Amazon Quick user or group associated with a data source or dataset. (This is common.)</p>
                 </li>
                 <li>
-                   <p>The ARN of an Amazon QuickSight user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)</p>
+                   <p>The ARN of an Amazon Quick user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)</p>
                 </li>
                 <li>
                    <p>The ARN of an Amazon Web Services account root: This is an IAM ARN rather than a QuickSight
@@ -132940,10 +136722,10 @@ class TemplateResourcePermissionArgs:
                            following:</p>
                         <ul>
                            <li>
-                              <p>The ARN of an Amazon QuickSight user or group associated with a data source or dataset. (This is common.)</p>
+                              <p>The ARN of an Amazon Quick user or group associated with a data source or dataset. (This is common.)</p>
                            </li>
                            <li>
-                              <p>The ARN of an Amazon QuickSight user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)</p>
+                              <p>The ARN of an Amazon Quick user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)</p>
                            </li>
                            <li>
                               <p>The ARN of an Amazon Web Services account root: This is an IAM ARN rather than a QuickSight
@@ -132975,10 +136757,10 @@ class TemplateResourcePermissionArgs:
                     following:</p>
                  <ul>
                     <li>
-                       <p>The ARN of an Amazon QuickSight user or group associated with a data source or dataset. (This is common.)</p>
+                       <p>The ARN of an Amazon Quick user or group associated with a data source or dataset. (This is common.)</p>
                     </li>
                     <li>
-                       <p>The ARN of an Amazon QuickSight user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)</p>
+                       <p>The ARN of an Amazon Quick user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)</p>
                     </li>
                     <li>
                        <p>The ARN of an Amazon Web Services account root: This is an IAM ARN rather than a QuickSight
@@ -135599,6 +139381,68 @@ class TemplateSheetImageTooltipTextArgs:
         pulumi.set(self, "plain_text", value)
 
 
+class TemplateSheetLayoutGroupArgsDict(TypedDict):
+    id: pulumi.Input[_builtins.str]
+    members: pulumi.Input[Sequence[pulumi.Input['TemplateSheetLayoutGroupMemberArgsDict']]]
+
+@pulumi.input_type
+class TemplateSheetLayoutGroupArgs:
+    def __init__(__self__, *,
+                 id: pulumi.Input[_builtins.str],
+                 members: pulumi.Input[Sequence[pulumi.Input['TemplateSheetLayoutGroupMemberArgs']]]):
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "members", members)
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "id", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def members(self) -> pulumi.Input[Sequence[pulumi.Input['TemplateSheetLayoutGroupMemberArgs']]]:
+        return pulumi.get(self, "members")
+
+    @members.setter
+    def members(self, value: pulumi.Input[Sequence[pulumi.Input['TemplateSheetLayoutGroupMemberArgs']]]):
+        pulumi.set(self, "members", value)
+
+
+class TemplateSheetLayoutGroupMemberArgsDict(TypedDict):
+    id: pulumi.Input[_builtins.str]
+    type: Any
+
+@pulumi.input_type
+class TemplateSheetLayoutGroupMemberArgs:
+    def __init__(__self__, *,
+                 id: pulumi.Input[_builtins.str],
+                 type: Any):
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "id", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> Any:
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Any):
+        pulumi.set(self, "type", value)
+
+
 class TemplateSheetTextBoxArgsDict(TypedDict):
     sheet_text_box_id: pulumi.Input[_builtins.str]
     """
@@ -136062,12 +139906,14 @@ class TemplateSourceAnalysisArgsDict(TypedDict):
     <p>A structure containing information about the dataset references used as placeholders
                 in the template.</p>
     """
+    topic_references: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TemplateTopicReferenceArgsDict']]]]]
 
 @pulumi.input_type
 class TemplateSourceAnalysisArgs:
     def __init__(__self__, *,
                  arn: pulumi.Input[_builtins.str],
-                 data_set_references: pulumi.Input[Sequence[pulumi.Input['TemplateDataSetReferenceArgs']]]):
+                 data_set_references: pulumi.Input[Sequence[pulumi.Input['TemplateDataSetReferenceArgs']]],
+                 topic_references: pulumi.Input[Optional[Sequence[pulumi.Input['TemplateTopicReferenceArgs']]]] = None):
         """
         <p>The source analysis of the template.</p>
 
@@ -136077,6 +139923,8 @@ class TemplateSourceAnalysisArgs:
         """
         pulumi.set(__self__, "arn", arn)
         pulumi.set(__self__, "data_set_references", data_set_references)
+        if topic_references is not None:
+            pulumi.set(__self__, "topic_references", topic_references)
 
     @_builtins.property
     @pulumi.getter
@@ -136102,6 +139950,15 @@ class TemplateSourceAnalysisArgs:
     @data_set_references.setter
     def data_set_references(self, value: pulumi.Input[Sequence[pulumi.Input['TemplateDataSetReferenceArgs']]]):
         pulumi.set(self, "data_set_references", value)
+
+    @_builtins.property
+    @pulumi.getter(name="topicReferences")
+    def topic_references(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['TemplateTopicReferenceArgs']]]]:
+        return pulumi.get(self, "topic_references")
+
+    @topic_references.setter
+    def topic_references(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['TemplateTopicReferenceArgs']]]]):
+        pulumi.set(self, "topic_references", value)
 
 
 class TemplateSourceEntityArgsDict(TypedDict):
@@ -136278,6 +140135,288 @@ class TemplateSpacingArgs:
     @top.setter
     def top(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "top", value)
+
+
+class TemplateSparklinesOptionsArgsDict(TypedDict):
+    field_id: pulumi.Input[_builtins.str]
+    x_axis_field: pulumi.Input['TemplateDimensionFieldArgsDict']
+    all_points_marker: NotRequired[pulumi.Input[Optional['TemplateLineChartMarkerStyleSettingsArgsDict']]]
+    line_color: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    line_interpolation: NotRequired[pulumi.Input[Optional['TemplateLineInterpolation']]]
+    max_value_marker: NotRequired[pulumi.Input[Optional['TemplateLineChartMarkerStyleSettingsArgsDict']]]
+    min_value_marker: NotRequired[pulumi.Input[Optional['TemplateLineChartMarkerStyleSettingsArgsDict']]]
+    visual_type: NotRequired[pulumi.Input[Optional['TemplateSparklineVisualType']]]
+    y_axis_behavior: NotRequired[pulumi.Input[Optional['TemplateSparklineAxisBehavior']]]
+
+@pulumi.input_type
+class TemplateSparklinesOptionsArgs:
+    def __init__(__self__, *,
+                 field_id: pulumi.Input[_builtins.str],
+                 x_axis_field: pulumi.Input['TemplateDimensionFieldArgs'],
+                 all_points_marker: pulumi.Input[Optional['TemplateLineChartMarkerStyleSettingsArgs']] = None,
+                 line_color: pulumi.Input[Optional[_builtins.str]] = None,
+                 line_interpolation: pulumi.Input[Optional['TemplateLineInterpolation']] = None,
+                 max_value_marker: pulumi.Input[Optional['TemplateLineChartMarkerStyleSettingsArgs']] = None,
+                 min_value_marker: pulumi.Input[Optional['TemplateLineChartMarkerStyleSettingsArgs']] = None,
+                 visual_type: pulumi.Input[Optional['TemplateSparklineVisualType']] = None,
+                 y_axis_behavior: pulumi.Input[Optional['TemplateSparklineAxisBehavior']] = None):
+        pulumi.set(__self__, "field_id", field_id)
+        pulumi.set(__self__, "x_axis_field", x_axis_field)
+        if all_points_marker is not None:
+            pulumi.set(__self__, "all_points_marker", all_points_marker)
+        if line_color is not None:
+            pulumi.set(__self__, "line_color", line_color)
+        if line_interpolation is not None:
+            pulumi.set(__self__, "line_interpolation", line_interpolation)
+        if max_value_marker is not None:
+            pulumi.set(__self__, "max_value_marker", max_value_marker)
+        if min_value_marker is not None:
+            pulumi.set(__self__, "min_value_marker", min_value_marker)
+        if visual_type is not None:
+            pulumi.set(__self__, "visual_type", visual_type)
+        if y_axis_behavior is not None:
+            pulumi.set(__self__, "y_axis_behavior", y_axis_behavior)
+
+    @_builtins.property
+    @pulumi.getter(name="fieldId")
+    def field_id(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "field_id")
+
+    @field_id.setter
+    def field_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "field_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="xAxisField")
+    def x_axis_field(self) -> pulumi.Input['TemplateDimensionFieldArgs']:
+        return pulumi.get(self, "x_axis_field")
+
+    @x_axis_field.setter
+    def x_axis_field(self, value: pulumi.Input['TemplateDimensionFieldArgs']):
+        pulumi.set(self, "x_axis_field", value)
+
+    @_builtins.property
+    @pulumi.getter(name="allPointsMarker")
+    def all_points_marker(self) -> pulumi.Input[Optional['TemplateLineChartMarkerStyleSettingsArgs']]:
+        return pulumi.get(self, "all_points_marker")
+
+    @all_points_marker.setter
+    def all_points_marker(self, value: pulumi.Input[Optional['TemplateLineChartMarkerStyleSettingsArgs']]):
+        pulumi.set(self, "all_points_marker", value)
+
+    @_builtins.property
+    @pulumi.getter(name="lineColor")
+    def line_color(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "line_color")
+
+    @line_color.setter
+    def line_color(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "line_color", value)
+
+    @_builtins.property
+    @pulumi.getter(name="lineInterpolation")
+    def line_interpolation(self) -> pulumi.Input[Optional['TemplateLineInterpolation']]:
+        return pulumi.get(self, "line_interpolation")
+
+    @line_interpolation.setter
+    def line_interpolation(self, value: pulumi.Input[Optional['TemplateLineInterpolation']]):
+        pulumi.set(self, "line_interpolation", value)
+
+    @_builtins.property
+    @pulumi.getter(name="maxValueMarker")
+    def max_value_marker(self) -> pulumi.Input[Optional['TemplateLineChartMarkerStyleSettingsArgs']]:
+        return pulumi.get(self, "max_value_marker")
+
+    @max_value_marker.setter
+    def max_value_marker(self, value: pulumi.Input[Optional['TemplateLineChartMarkerStyleSettingsArgs']]):
+        pulumi.set(self, "max_value_marker", value)
+
+    @_builtins.property
+    @pulumi.getter(name="minValueMarker")
+    def min_value_marker(self) -> pulumi.Input[Optional['TemplateLineChartMarkerStyleSettingsArgs']]:
+        return pulumi.get(self, "min_value_marker")
+
+    @min_value_marker.setter
+    def min_value_marker(self, value: pulumi.Input[Optional['TemplateLineChartMarkerStyleSettingsArgs']]):
+        pulumi.set(self, "min_value_marker", value)
+
+    @_builtins.property
+    @pulumi.getter(name="visualType")
+    def visual_type(self) -> pulumi.Input[Optional['TemplateSparklineVisualType']]:
+        return pulumi.get(self, "visual_type")
+
+    @visual_type.setter
+    def visual_type(self, value: pulumi.Input[Optional['TemplateSparklineVisualType']]):
+        pulumi.set(self, "visual_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="yAxisBehavior")
+    def y_axis_behavior(self) -> pulumi.Input[Optional['TemplateSparklineAxisBehavior']]:
+        return pulumi.get(self, "y_axis_behavior")
+
+    @y_axis_behavior.setter
+    def y_axis_behavior(self, value: pulumi.Input[Optional['TemplateSparklineAxisBehavior']]):
+        pulumi.set(self, "y_axis_behavior", value)
+
+
+class TemplateSpatialStaticFileArgsDict(TypedDict):
+    static_file_id: pulumi.Input[_builtins.str]
+    source: NotRequired[pulumi.Input[Optional['TemplateStaticFileSourceArgsDict']]]
+
+@pulumi.input_type
+class TemplateSpatialStaticFileArgs:
+    def __init__(__self__, *,
+                 static_file_id: pulumi.Input[_builtins.str],
+                 source: pulumi.Input[Optional['TemplateStaticFileSourceArgs']] = None):
+        pulumi.set(__self__, "static_file_id", static_file_id)
+        if source is not None:
+            pulumi.set(__self__, "source", source)
+
+    @_builtins.property
+    @pulumi.getter(name="staticFileId")
+    def static_file_id(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "static_file_id")
+
+    @static_file_id.setter
+    def static_file_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "static_file_id", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def source(self) -> pulumi.Input[Optional['TemplateStaticFileSourceArgs']]:
+        return pulumi.get(self, "source")
+
+    @source.setter
+    def source(self, value: pulumi.Input[Optional['TemplateStaticFileSourceArgs']]):
+        pulumi.set(self, "source", value)
+
+
+class TemplateStaticFileArgsDict(TypedDict):
+    image_static_file: NotRequired[pulumi.Input[Optional['TemplateImageStaticFileArgsDict']]]
+    spatial_static_file: NotRequired[pulumi.Input[Optional['TemplateSpatialStaticFileArgsDict']]]
+
+@pulumi.input_type
+class TemplateStaticFileArgs:
+    def __init__(__self__, *,
+                 image_static_file: pulumi.Input[Optional['TemplateImageStaticFileArgs']] = None,
+                 spatial_static_file: pulumi.Input[Optional['TemplateSpatialStaticFileArgs']] = None):
+        if image_static_file is not None:
+            pulumi.set(__self__, "image_static_file", image_static_file)
+        if spatial_static_file is not None:
+            pulumi.set(__self__, "spatial_static_file", spatial_static_file)
+
+    @_builtins.property
+    @pulumi.getter(name="imageStaticFile")
+    def image_static_file(self) -> pulumi.Input[Optional['TemplateImageStaticFileArgs']]:
+        return pulumi.get(self, "image_static_file")
+
+    @image_static_file.setter
+    def image_static_file(self, value: pulumi.Input[Optional['TemplateImageStaticFileArgs']]):
+        pulumi.set(self, "image_static_file", value)
+
+    @_builtins.property
+    @pulumi.getter(name="spatialStaticFile")
+    def spatial_static_file(self) -> pulumi.Input[Optional['TemplateSpatialStaticFileArgs']]:
+        return pulumi.get(self, "spatial_static_file")
+
+    @spatial_static_file.setter
+    def spatial_static_file(self, value: pulumi.Input[Optional['TemplateSpatialStaticFileArgs']]):
+        pulumi.set(self, "spatial_static_file", value)
+
+
+class TemplateStaticFileS3SourceOptionsArgsDict(TypedDict):
+    bucket_name: pulumi.Input[_builtins.str]
+    object_key: pulumi.Input[_builtins.str]
+    region: pulumi.Input[_builtins.str]
+
+@pulumi.input_type
+class TemplateStaticFileS3SourceOptionsArgs:
+    def __init__(__self__, *,
+                 bucket_name: pulumi.Input[_builtins.str],
+                 object_key: pulumi.Input[_builtins.str],
+                 region: pulumi.Input[_builtins.str]):
+        pulumi.set(__self__, "bucket_name", bucket_name)
+        pulumi.set(__self__, "object_key", object_key)
+        pulumi.set(__self__, "region", region)
+
+    @_builtins.property
+    @pulumi.getter(name="bucketName")
+    def bucket_name(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "bucket_name")
+
+    @bucket_name.setter
+    def bucket_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "bucket_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="objectKey")
+    def object_key(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "object_key")
+
+    @object_key.setter
+    def object_key(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "object_key", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def region(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "region", value)
+
+
+class TemplateStaticFileSourceArgsDict(TypedDict):
+    s3_options: NotRequired[pulumi.Input[Optional['TemplateStaticFileS3SourceOptionsArgsDict']]]
+    url_options: NotRequired[pulumi.Input[Optional['TemplateStaticFileUrlSourceOptionsArgsDict']]]
+
+@pulumi.input_type
+class TemplateStaticFileSourceArgs:
+    def __init__(__self__, *,
+                 s3_options: pulumi.Input[Optional['TemplateStaticFileS3SourceOptionsArgs']] = None,
+                 url_options: pulumi.Input[Optional['TemplateStaticFileUrlSourceOptionsArgs']] = None):
+        if s3_options is not None:
+            pulumi.set(__self__, "s3_options", s3_options)
+        if url_options is not None:
+            pulumi.set(__self__, "url_options", url_options)
+
+    @_builtins.property
+    @pulumi.getter(name="s3Options")
+    def s3_options(self) -> pulumi.Input[Optional['TemplateStaticFileS3SourceOptionsArgs']]:
+        return pulumi.get(self, "s3_options")
+
+    @s3_options.setter
+    def s3_options(self, value: pulumi.Input[Optional['TemplateStaticFileS3SourceOptionsArgs']]):
+        pulumi.set(self, "s3_options", value)
+
+    @_builtins.property
+    @pulumi.getter(name="urlOptions")
+    def url_options(self) -> pulumi.Input[Optional['TemplateStaticFileUrlSourceOptionsArgs']]:
+        return pulumi.get(self, "url_options")
+
+    @url_options.setter
+    def url_options(self, value: pulumi.Input[Optional['TemplateStaticFileUrlSourceOptionsArgs']]):
+        pulumi.set(self, "url_options", value)
+
+
+class TemplateStaticFileUrlSourceOptionsArgsDict(TypedDict):
+    url: pulumi.Input[_builtins.str]
+
+@pulumi.input_type
+class TemplateStaticFileUrlSourceOptionsArgs:
+    def __init__(__self__, *,
+                 url: pulumi.Input[_builtins.str]):
+        pulumi.set(__self__, "url", url)
+
+    @_builtins.property
+    @pulumi.getter
+    def url(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "url")
+
+    @url.setter
+    def url(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "url", value)
 
 
 class TemplateStringDefaultValuesArgsDict(TypedDict):
@@ -137818,16 +141957,20 @@ class TemplateTableInlineVisualizationArgsDict(TypedDict):
     """
     The configuration of the inline visualization of the data bars within a chart.
     """
+    sparklines: NotRequired[pulumi.Input[Optional['TemplateSparklinesOptionsArgsDict']]]
 
 @pulumi.input_type
 class TemplateTableInlineVisualizationArgs:
     def __init__(__self__, *,
-                 data_bars: pulumi.Input[Optional['TemplateDataBarsOptionsArgs']] = None):
+                 data_bars: pulumi.Input[Optional['TemplateDataBarsOptionsArgs']] = None,
+                 sparklines: pulumi.Input[Optional['TemplateSparklinesOptionsArgs']] = None):
         """
         :param pulumi.Input['TemplateDataBarsOptionsArgs'] data_bars: The configuration of the inline visualization of the data bars within a chart.
         """
         if data_bars is not None:
             pulumi.set(__self__, "data_bars", data_bars)
+        if sparklines is not None:
+            pulumi.set(__self__, "sparklines", sparklines)
 
     @_builtins.property
     @pulumi.getter(name="dataBars")
@@ -137840,6 +141983,15 @@ class TemplateTableInlineVisualizationArgs:
     @data_bars.setter
     def data_bars(self, value: pulumi.Input[Optional['TemplateDataBarsOptionsArgs']]):
         pulumi.set(self, "data_bars", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def sparklines(self) -> pulumi.Input[Optional['TemplateSparklinesOptionsArgs']]:
+        return pulumi.get(self, "sparklines")
+
+    @sparklines.setter
+    def sparklines(self, value: pulumi.Input[Optional['TemplateSparklinesOptionsArgs']]):
+        pulumi.set(self, "sparklines", value)
 
 
 class TemplateTableOptionsArgsDict(TypedDict):
@@ -140006,6 +144158,83 @@ class TemplateTopBottomRankedComputationArgs:
         pulumi.set(self, "value", value)
 
 
+class TemplateTopicConfigurationArgsDict(TypedDict):
+    column_group_schema_list: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TemplateColumnGroupSchemaArgsDict']]]]]
+    data_set_schema: NotRequired[pulumi.Input[Optional['TemplateDataSetSchemaArgsDict']]]
+    placeholder: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+
+@pulumi.input_type
+class TemplateTopicConfigurationArgs:
+    def __init__(__self__, *,
+                 column_group_schema_list: pulumi.Input[Optional[Sequence[pulumi.Input['TemplateColumnGroupSchemaArgs']]]] = None,
+                 data_set_schema: pulumi.Input[Optional['TemplateDataSetSchemaArgs']] = None,
+                 placeholder: pulumi.Input[Optional[_builtins.str]] = None):
+        if column_group_schema_list is not None:
+            pulumi.set(__self__, "column_group_schema_list", column_group_schema_list)
+        if data_set_schema is not None:
+            pulumi.set(__self__, "data_set_schema", data_set_schema)
+        if placeholder is not None:
+            pulumi.set(__self__, "placeholder", placeholder)
+
+    @_builtins.property
+    @pulumi.getter(name="columnGroupSchemaList")
+    def column_group_schema_list(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['TemplateColumnGroupSchemaArgs']]]]:
+        return pulumi.get(self, "column_group_schema_list")
+
+    @column_group_schema_list.setter
+    def column_group_schema_list(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['TemplateColumnGroupSchemaArgs']]]]):
+        pulumi.set(self, "column_group_schema_list", value)
+
+    @_builtins.property
+    @pulumi.getter(name="dataSetSchema")
+    def data_set_schema(self) -> pulumi.Input[Optional['TemplateDataSetSchemaArgs']]:
+        return pulumi.get(self, "data_set_schema")
+
+    @data_set_schema.setter
+    def data_set_schema(self, value: pulumi.Input[Optional['TemplateDataSetSchemaArgs']]):
+        pulumi.set(self, "data_set_schema", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def placeholder(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "placeholder")
+
+    @placeholder.setter
+    def placeholder(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "placeholder", value)
+
+
+class TemplateTopicReferenceArgsDict(TypedDict):
+    topic_arn: pulumi.Input[_builtins.str]
+    topic_placeholder: pulumi.Input[_builtins.str]
+
+@pulumi.input_type
+class TemplateTopicReferenceArgs:
+    def __init__(__self__, *,
+                 topic_arn: pulumi.Input[_builtins.str],
+                 topic_placeholder: pulumi.Input[_builtins.str]):
+        pulumi.set(__self__, "topic_arn", topic_arn)
+        pulumi.set(__self__, "topic_placeholder", topic_placeholder)
+
+    @_builtins.property
+    @pulumi.getter(name="topicArn")
+    def topic_arn(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "topic_arn")
+
+    @topic_arn.setter
+    def topic_arn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "topic_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="topicPlaceholder")
+    def topic_placeholder(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "topic_placeholder")
+
+    @topic_placeholder.setter
+    def topic_placeholder(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "topic_placeholder", value)
+
+
 class TemplateTotalAggregationComputationArgsDict(TypedDict):
     computation_id: pulumi.Input[_builtins.str]
     """
@@ -141094,6 +145323,11 @@ class TemplateVersionDefinitionArgsDict(TypedDict):
     """
     An array of sheet definitions for a template.
     """
+    static_files: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TemplateStaticFileArgsDict']]]]]
+    """
+    <p>The static files for the definition.</p>
+    """
+    topic_configurations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TemplateTopicConfigurationArgsDict']]]]]
 
 @pulumi.input_type
 class TemplateVersionDefinitionArgs:
@@ -141106,7 +145340,9 @@ class TemplateVersionDefinitionArgs:
                  options: pulumi.Input[Optional['TemplateAssetOptionsArgs']] = None,
                  parameter_declarations: pulumi.Input[Optional[Sequence[pulumi.Input['TemplateParameterDeclarationArgs']]]] = None,
                  query_execution_options: pulumi.Input[Optional['TemplateQueryExecutionOptionsArgs']] = None,
-                 sheets: pulumi.Input[Optional[Sequence[pulumi.Input['TemplateSheetDefinitionArgs']]]] = None):
+                 sheets: pulumi.Input[Optional[Sequence[pulumi.Input['TemplateSheetDefinitionArgs']]]] = None,
+                 static_files: pulumi.Input[Optional[Sequence[pulumi.Input['TemplateStaticFileArgs']]]] = None,
+                 topic_configurations: pulumi.Input[Optional[Sequence[pulumi.Input['TemplateTopicConfigurationArgs']]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['TemplateDataSetConfigurationArgs']]] data_set_configurations: An array of dataset configurations. These configurations define the required columns for each dataset used within a template.
         :param pulumi.Input[Sequence[pulumi.Input['TemplateCalculatedFieldArgs']]] calculated_fields: An array of calculated field definitions for the template.
@@ -141121,6 +145357,7 @@ class TemplateVersionDefinitionArgs:
                
                For more information, see [Parameters in Amazon Quick Sight](https://docs.aws.amazon.com/quicksight/latest/user/parameters-in-quicksight.html) in the *Amazon Quick Suite User Guide* .
         :param pulumi.Input[Sequence[pulumi.Input['TemplateSheetDefinitionArgs']]] sheets: An array of sheet definitions for a template.
+        :param pulumi.Input[Sequence[pulumi.Input['TemplateStaticFileArgs']]] static_files: <p>The static files for the definition.</p>
         """
         pulumi.set(__self__, "data_set_configurations", data_set_configurations)
         if analysis_defaults is not None:
@@ -141139,6 +145376,10 @@ class TemplateVersionDefinitionArgs:
             pulumi.set(__self__, "query_execution_options", query_execution_options)
         if sheets is not None:
             pulumi.set(__self__, "sheets", sheets)
+        if static_files is not None:
+            pulumi.set(__self__, "static_files", static_files)
+        if topic_configurations is not None:
+            pulumi.set(__self__, "topic_configurations", topic_configurations)
 
     @_builtins.property
     @pulumi.getter(name="dataSetConfigurations")
@@ -141248,6 +145489,27 @@ class TemplateVersionDefinitionArgs:
     def sheets(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['TemplateSheetDefinitionArgs']]]]):
         pulumi.set(self, "sheets", value)
 
+    @_builtins.property
+    @pulumi.getter(name="staticFiles")
+    def static_files(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['TemplateStaticFileArgs']]]]:
+        """
+        <p>The static files for the definition.</p>
+        """
+        return pulumi.get(self, "static_files")
+
+    @static_files.setter
+    def static_files(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['TemplateStaticFileArgs']]]]):
+        pulumi.set(self, "static_files", value)
+
+    @_builtins.property
+    @pulumi.getter(name="topicConfigurations")
+    def topic_configurations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['TemplateTopicConfigurationArgs']]]]:
+        return pulumi.get(self, "topic_configurations")
+
+    @topic_configurations.setter
+    def topic_configurations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['TemplateTopicConfigurationArgs']]]]):
+        pulumi.set(self, "topic_configurations", value)
+
 
 class TemplateVisibleRangeOptionsArgsDict(TypedDict):
     percent_range: NotRequired[pulumi.Input[Optional['TemplatePercentVisibleRangeArgsDict']]]
@@ -141355,6 +145617,7 @@ class TemplateVisualArgsDict(TypedDict):
 
     For more information, see [Using KPIs](https://docs.aws.amazon.com/quicksight/latest/user/kpi.html) in the *Amazon Quick Suite User Guide* .
     """
+    layer_map_visual: NotRequired[pulumi.Input[Optional['TemplateLayerMapVisualArgsDict']]]
     line_chart_visual: NotRequired[pulumi.Input[Optional['TemplateLineChartVisualArgsDict']]]
     """
     A line chart.
@@ -141436,6 +145699,7 @@ class TemplateVisualArgs:
                  histogram_visual: pulumi.Input[Optional['TemplateHistogramVisualArgs']] = None,
                  insight_visual: pulumi.Input[Optional['TemplateInsightVisualArgs']] = None,
                  kpi_visual: pulumi.Input[Optional['TemplateKpiVisualArgs']] = None,
+                 layer_map_visual: pulumi.Input[Optional['TemplateLayerMapVisualArgs']] = None,
                  line_chart_visual: pulumi.Input[Optional['TemplateLineChartVisualArgs']] = None,
                  pie_chart_visual: pulumi.Input[Optional['TemplatePieChartVisualArgs']] = None,
                  pivot_table_visual: pulumi.Input[Optional['TemplatePivotTableVisualArgs']] = None,
@@ -141543,6 +145807,8 @@ class TemplateVisualArgs:
             pulumi.set(__self__, "insight_visual", insight_visual)
         if kpi_visual is not None:
             pulumi.set(__self__, "kpi_visual", kpi_visual)
+        if layer_map_visual is not None:
+            pulumi.set(__self__, "layer_map_visual", layer_map_visual)
         if line_chart_visual is not None:
             pulumi.set(__self__, "line_chart_visual", line_chart_visual)
         if pie_chart_visual is not None:
@@ -141745,6 +146011,15 @@ class TemplateVisualArgs:
     @kpi_visual.setter
     def kpi_visual(self, value: pulumi.Input[Optional['TemplateKpiVisualArgs']]):
         pulumi.set(self, "kpi_visual", value)
+
+    @_builtins.property
+    @pulumi.getter(name="layerMapVisual")
+    def layer_map_visual(self) -> pulumi.Input[Optional['TemplateLayerMapVisualArgs']]:
+        return pulumi.get(self, "layer_map_visual")
+
+    @layer_map_visual.setter
+    def layer_map_visual(self, value: pulumi.Input[Optional['TemplateLayerMapVisualArgs']]):
+        pulumi.set(self, "layer_map_visual", value)
 
     @_builtins.property
     @pulumi.getter(name="lineChartVisual")
@@ -143674,22 +147949,50 @@ class ThemeBorderStyleArgsDict(TypedDict):
     """
     <p>The display options for tile borders for visuals.</p>
     """
+    color: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    String to encapsulate the most generic way Color can be formatted (words, hexStrings etc)
+    """
     show: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     <p>The option to enable display of borders for visuals.</p>
+    """
+    width: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    String to encapsulate the most generic way Width can be formatted with whatever units (px, em etc)
     """
 
 @pulumi.input_type
 class ThemeBorderStyleArgs:
     def __init__(__self__, *,
-                 show: pulumi.Input[Optional[_builtins.bool]] = None):
+                 color: pulumi.Input[Optional[_builtins.str]] = None,
+                 show: pulumi.Input[Optional[_builtins.bool]] = None,
+                 width: pulumi.Input[Optional[_builtins.str]] = None):
         """
         <p>The display options for tile borders for visuals.</p>
 
+        :param pulumi.Input[_builtins.str] color: String to encapsulate the most generic way Color can be formatted (words, hexStrings etc)
         :param pulumi.Input[_builtins.bool] show: <p>The option to enable display of borders for visuals.</p>
+        :param pulumi.Input[_builtins.str] width: String to encapsulate the most generic way Width can be formatted with whatever units (px, em etc)
         """
+        if color is not None:
+            pulumi.set(__self__, "color", color)
         if show is not None:
             pulumi.set(__self__, "show", show)
+        if width is not None:
+            pulumi.set(__self__, "width", width)
+
+    @_builtins.property
+    @pulumi.getter
+    def color(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        String to encapsulate the most generic way Color can be formatted (words, hexStrings etc)
+        """
+        return pulumi.get(self, "color")
+
+    @color.setter
+    def color(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "color", value)
 
     @_builtins.property
     @pulumi.getter
@@ -143702,6 +148005,18 @@ class ThemeBorderStyleArgs:
     @show.setter
     def show(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "show", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def width(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        String to encapsulate the most generic way Width can be formatted with whatever units (px, em etc)
+        """
+        return pulumi.get(self, "width")
+
+    @width.setter
+    def width(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "width", value)
 
 
 class ThemeConfigurationArgsDict(TypedDict):
@@ -143910,6 +148225,149 @@ class ThemeFontArgs:
         pulumi.set(self, "font_family", value)
 
 
+class ThemeFontConfigurationArgsDict(TypedDict):
+    font_color: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    font_decoration: NotRequired[pulumi.Input[Optional['ThemeFontDecoration']]]
+    font_family: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    <p>The font family that you want to use.</p>
+    """
+    font_size: NotRequired[pulumi.Input[Optional['ThemeFontSizeArgsDict']]]
+    font_style: NotRequired[pulumi.Input[Optional['ThemeFontStyle']]]
+    font_weight: NotRequired[pulumi.Input[Optional['ThemeFontWeightArgsDict']]]
+
+@pulumi.input_type
+class ThemeFontConfigurationArgs:
+    def __init__(__self__, *,
+                 font_color: pulumi.Input[Optional[_builtins.str]] = None,
+                 font_decoration: pulumi.Input[Optional['ThemeFontDecoration']] = None,
+                 font_family: pulumi.Input[Optional[_builtins.str]] = None,
+                 font_size: pulumi.Input[Optional['ThemeFontSizeArgs']] = None,
+                 font_style: pulumi.Input[Optional['ThemeFontStyle']] = None,
+                 font_weight: pulumi.Input[Optional['ThemeFontWeightArgs']] = None):
+        """
+        :param pulumi.Input[_builtins.str] font_family: <p>The font family that you want to use.</p>
+        """
+        if font_color is not None:
+            pulumi.set(__self__, "font_color", font_color)
+        if font_decoration is not None:
+            pulumi.set(__self__, "font_decoration", font_decoration)
+        if font_family is not None:
+            pulumi.set(__self__, "font_family", font_family)
+        if font_size is not None:
+            pulumi.set(__self__, "font_size", font_size)
+        if font_style is not None:
+            pulumi.set(__self__, "font_style", font_style)
+        if font_weight is not None:
+            pulumi.set(__self__, "font_weight", font_weight)
+
+    @_builtins.property
+    @pulumi.getter(name="fontColor")
+    def font_color(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "font_color")
+
+    @font_color.setter
+    def font_color(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "font_color", value)
+
+    @_builtins.property
+    @pulumi.getter(name="fontDecoration")
+    def font_decoration(self) -> pulumi.Input[Optional['ThemeFontDecoration']]:
+        return pulumi.get(self, "font_decoration")
+
+    @font_decoration.setter
+    def font_decoration(self, value: pulumi.Input[Optional['ThemeFontDecoration']]):
+        pulumi.set(self, "font_decoration", value)
+
+    @_builtins.property
+    @pulumi.getter(name="fontFamily")
+    def font_family(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        <p>The font family that you want to use.</p>
+        """
+        return pulumi.get(self, "font_family")
+
+    @font_family.setter
+    def font_family(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "font_family", value)
+
+    @_builtins.property
+    @pulumi.getter(name="fontSize")
+    def font_size(self) -> pulumi.Input[Optional['ThemeFontSizeArgs']]:
+        return pulumi.get(self, "font_size")
+
+    @font_size.setter
+    def font_size(self, value: pulumi.Input[Optional['ThemeFontSizeArgs']]):
+        pulumi.set(self, "font_size", value)
+
+    @_builtins.property
+    @pulumi.getter(name="fontStyle")
+    def font_style(self) -> pulumi.Input[Optional['ThemeFontStyle']]:
+        return pulumi.get(self, "font_style")
+
+    @font_style.setter
+    def font_style(self, value: pulumi.Input[Optional['ThemeFontStyle']]):
+        pulumi.set(self, "font_style", value)
+
+    @_builtins.property
+    @pulumi.getter(name="fontWeight")
+    def font_weight(self) -> pulumi.Input[Optional['ThemeFontWeightArgs']]:
+        return pulumi.get(self, "font_weight")
+
+    @font_weight.setter
+    def font_weight(self, value: pulumi.Input[Optional['ThemeFontWeightArgs']]):
+        pulumi.set(self, "font_weight", value)
+
+
+class ThemeFontSizeArgsDict(TypedDict):
+    absolute: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    <p>The font size that you want to use in px.</p>
+    """
+
+@pulumi.input_type
+class ThemeFontSizeArgs:
+    def __init__(__self__, *,
+                 absolute: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] absolute: <p>The font size that you want to use in px.</p>
+        """
+        if absolute is not None:
+            pulumi.set(__self__, "absolute", absolute)
+
+    @_builtins.property
+    @pulumi.getter
+    def absolute(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        <p>The font size that you want to use in px.</p>
+        """
+        return pulumi.get(self, "absolute")
+
+    @absolute.setter
+    def absolute(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "absolute", value)
+
+
+class ThemeFontWeightArgsDict(TypedDict):
+    name: NotRequired[pulumi.Input[Optional['ThemeFontWeightName']]]
+
+@pulumi.input_type
+class ThemeFontWeightArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[Optional['ThemeFontWeightName']] = None):
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[Optional['ThemeFontWeightName']]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[Optional['ThemeFontWeightName']]):
+        pulumi.set(self, "name", value)
+
+
 class ThemeGutterStyleArgsDict(TypedDict):
     """
     <p>The display options for gutter spacing between tiles on a sheet.</p>
@@ -143995,10 +148453,10 @@ class ThemeResourcePermissionArgsDict(TypedDict):
                 following:</p>
              <ul>
                 <li>
-                   <p>The ARN of an Amazon QuickSight user or group associated with a data source or dataset. (This is common.)</p>
+                   <p>The ARN of an Amazon Quick user or group associated with a data source or dataset. (This is common.)</p>
                 </li>
                 <li>
-                   <p>The ARN of an Amazon QuickSight user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)</p>
+                   <p>The ARN of an Amazon Quick user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)</p>
                 </li>
                 <li>
                    <p>The ARN of an Amazon Web Services account root: This is an IAM ARN rather than a QuickSight
@@ -144021,10 +148479,10 @@ class ThemeResourcePermissionArgs:
                            following:</p>
                         <ul>
                            <li>
-                              <p>The ARN of an Amazon QuickSight user or group associated with a data source or dataset. (This is common.)</p>
+                              <p>The ARN of an Amazon Quick user or group associated with a data source or dataset. (This is common.)</p>
                            </li>
                            <li>
-                              <p>The ARN of an Amazon QuickSight user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)</p>
+                              <p>The ARN of an Amazon Quick user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)</p>
                            </li>
                            <li>
                               <p>The ARN of an Amazon Web Services account root: This is an IAM ARN rather than a QuickSight
@@ -144056,10 +148514,10 @@ class ThemeResourcePermissionArgs:
                     following:</p>
                  <ul>
                     <li>
-                       <p>The ARN of an Amazon QuickSight user or group associated with a data source or dataset. (This is common.)</p>
+                       <p>The ARN of an Amazon Quick user or group associated with a data source or dataset. (This is common.)</p>
                     </li>
                     <li>
-                       <p>The ARN of an Amazon QuickSight user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)</p>
+                       <p>The ARN of an Amazon Quick user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)</p>
                     </li>
                     <li>
                        <p>The ARN of an Amazon Web Services account root: This is an IAM ARN rather than a QuickSight
@@ -144075,10 +148533,53 @@ class ThemeResourcePermissionArgs:
         pulumi.set(self, "principal", value)
 
 
+class ThemeSheetBackgroundStyleArgsDict(TypedDict):
+    color: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    String to encapsulate the most generic way Color can be formatted (words, hexStrings etc)
+    """
+    gradient: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+
+@pulumi.input_type
+class ThemeSheetBackgroundStyleArgs:
+    def __init__(__self__, *,
+                 color: pulumi.Input[Optional[_builtins.str]] = None,
+                 gradient: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] color: String to encapsulate the most generic way Color can be formatted (words, hexStrings etc)
+        """
+        if color is not None:
+            pulumi.set(__self__, "color", color)
+        if gradient is not None:
+            pulumi.set(__self__, "gradient", gradient)
+
+    @_builtins.property
+    @pulumi.getter
+    def color(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        String to encapsulate the most generic way Color can be formatted (words, hexStrings etc)
+        """
+        return pulumi.get(self, "color")
+
+    @color.setter
+    def color(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "color", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def gradient(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "gradient")
+
+    @gradient.setter
+    def gradient(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "gradient", value)
+
+
 class ThemeSheetStyleArgsDict(TypedDict):
     """
     <p>The theme display options for sheets. </p>
     """
+    background: NotRequired[pulumi.Input[Optional['ThemeSheetBackgroundStyleArgsDict']]]
     tile: NotRequired[pulumi.Input[Optional['ThemeTileStyleArgsDict']]]
     """
     The display options for tiles.
@@ -144091,6 +148592,7 @@ class ThemeSheetStyleArgsDict(TypedDict):
 @pulumi.input_type
 class ThemeSheetStyleArgs:
     def __init__(__self__, *,
+                 background: pulumi.Input[Optional['ThemeSheetBackgroundStyleArgs']] = None,
                  tile: pulumi.Input[Optional['ThemeTileStyleArgs']] = None,
                  tile_layout: pulumi.Input[Optional['ThemeTileLayoutStyleArgs']] = None):
         """
@@ -144099,10 +148601,21 @@ class ThemeSheetStyleArgs:
         :param pulumi.Input['ThemeTileStyleArgs'] tile: The display options for tiles.
         :param pulumi.Input['ThemeTileLayoutStyleArgs'] tile_layout: The layout options for tiles.
         """
+        if background is not None:
+            pulumi.set(__self__, "background", background)
         if tile is not None:
             pulumi.set(__self__, "tile", tile)
         if tile_layout is not None:
             pulumi.set(__self__, "tile_layout", tile_layout)
+
+    @_builtins.property
+    @pulumi.getter
+    def background(self) -> pulumi.Input[Optional['ThemeSheetBackgroundStyleArgs']]:
+        return pulumi.get(self, "background")
+
+    @background.setter
+    def background(self, value: pulumi.Input[Optional['ThemeSheetBackgroundStyleArgs']]):
+        pulumi.set(self, "background", value)
 
     @_builtins.property
     @pulumi.getter
@@ -144187,22 +148700,50 @@ class ThemeTileStyleArgsDict(TypedDict):
     """
     <p>Display options related to tiles on a sheet.</p>
     """
+    background_color: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    String to encapsulate the most generic way Color can be formatted (words, hexStrings etc)
+    """
     border: NotRequired[pulumi.Input[Optional['ThemeBorderStyleArgsDict']]]
     """
     The border around a tile.
     """
+    border_radius: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    padding: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
 class ThemeTileStyleArgs:
     def __init__(__self__, *,
-                 border: pulumi.Input[Optional['ThemeBorderStyleArgs']] = None):
+                 background_color: pulumi.Input[Optional[_builtins.str]] = None,
+                 border: pulumi.Input[Optional['ThemeBorderStyleArgs']] = None,
+                 border_radius: pulumi.Input[Optional[_builtins.str]] = None,
+                 padding: pulumi.Input[Optional[_builtins.str]] = None):
         """
         <p>Display options related to tiles on a sheet.</p>
 
+        :param pulumi.Input[_builtins.str] background_color: String to encapsulate the most generic way Color can be formatted (words, hexStrings etc)
         :param pulumi.Input['ThemeBorderStyleArgs'] border: The border around a tile.
         """
+        if background_color is not None:
+            pulumi.set(__self__, "background_color", background_color)
         if border is not None:
             pulumi.set(__self__, "border", border)
+        if border_radius is not None:
+            pulumi.set(__self__, "border_radius", border_radius)
+        if padding is not None:
+            pulumi.set(__self__, "padding", padding)
+
+    @_builtins.property
+    @pulumi.getter(name="backgroundColor")
+    def background_color(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        String to encapsulate the most generic way Color can be formatted (words, hexStrings etc)
+        """
+        return pulumi.get(self, "background_color")
+
+    @background_color.setter
+    def background_color(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "background_color", value)
 
     @_builtins.property
     @pulumi.getter
@@ -144216,22 +148757,95 @@ class ThemeTileStyleArgs:
     def border(self, value: pulumi.Input[Optional['ThemeBorderStyleArgs']]):
         pulumi.set(self, "border", value)
 
+    @_builtins.property
+    @pulumi.getter(name="borderRadius")
+    def border_radius(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "border_radius")
+
+    @border_radius.setter
+    def border_radius(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "border_radius", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def padding(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "padding")
+
+    @padding.setter
+    def padding(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "padding", value)
+
 
 class ThemeTypographyArgsDict(TypedDict):
+    axis_label_font_configuration: NotRequired[pulumi.Input[Optional['ThemeFontConfigurationArgsDict']]]
+    axis_title_font_configuration: NotRequired[pulumi.Input[Optional['ThemeFontConfigurationArgsDict']]]
+    data_label_font_configuration: NotRequired[pulumi.Input[Optional['ThemeFontConfigurationArgsDict']]]
     font_families: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ThemeFontArgsDict']]]]]
     """
     Determines the list of font families.
     """
+    legend_title_font_configuration: NotRequired[pulumi.Input[Optional['ThemeFontConfigurationArgsDict']]]
+    legend_value_font_configuration: NotRequired[pulumi.Input[Optional['ThemeFontConfigurationArgsDict']]]
+    visual_subtitle_font_configuration: NotRequired[pulumi.Input[Optional['ThemeVisualSubtitleFontConfigurationArgsDict']]]
+    visual_title_font_configuration: NotRequired[pulumi.Input[Optional['ThemeVisualTitleFontConfigurationArgsDict']]]
 
 @pulumi.input_type
 class ThemeTypographyArgs:
     def __init__(__self__, *,
-                 font_families: pulumi.Input[Optional[Sequence[pulumi.Input['ThemeFontArgs']]]] = None):
+                 axis_label_font_configuration: pulumi.Input[Optional['ThemeFontConfigurationArgs']] = None,
+                 axis_title_font_configuration: pulumi.Input[Optional['ThemeFontConfigurationArgs']] = None,
+                 data_label_font_configuration: pulumi.Input[Optional['ThemeFontConfigurationArgs']] = None,
+                 font_families: pulumi.Input[Optional[Sequence[pulumi.Input['ThemeFontArgs']]]] = None,
+                 legend_title_font_configuration: pulumi.Input[Optional['ThemeFontConfigurationArgs']] = None,
+                 legend_value_font_configuration: pulumi.Input[Optional['ThemeFontConfigurationArgs']] = None,
+                 visual_subtitle_font_configuration: pulumi.Input[Optional['ThemeVisualSubtitleFontConfigurationArgs']] = None,
+                 visual_title_font_configuration: pulumi.Input[Optional['ThemeVisualTitleFontConfigurationArgs']] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['ThemeFontArgs']]] font_families: Determines the list of font families.
         """
+        if axis_label_font_configuration is not None:
+            pulumi.set(__self__, "axis_label_font_configuration", axis_label_font_configuration)
+        if axis_title_font_configuration is not None:
+            pulumi.set(__self__, "axis_title_font_configuration", axis_title_font_configuration)
+        if data_label_font_configuration is not None:
+            pulumi.set(__self__, "data_label_font_configuration", data_label_font_configuration)
         if font_families is not None:
             pulumi.set(__self__, "font_families", font_families)
+        if legend_title_font_configuration is not None:
+            pulumi.set(__self__, "legend_title_font_configuration", legend_title_font_configuration)
+        if legend_value_font_configuration is not None:
+            pulumi.set(__self__, "legend_value_font_configuration", legend_value_font_configuration)
+        if visual_subtitle_font_configuration is not None:
+            pulumi.set(__self__, "visual_subtitle_font_configuration", visual_subtitle_font_configuration)
+        if visual_title_font_configuration is not None:
+            pulumi.set(__self__, "visual_title_font_configuration", visual_title_font_configuration)
+
+    @_builtins.property
+    @pulumi.getter(name="axisLabelFontConfiguration")
+    def axis_label_font_configuration(self) -> pulumi.Input[Optional['ThemeFontConfigurationArgs']]:
+        return pulumi.get(self, "axis_label_font_configuration")
+
+    @axis_label_font_configuration.setter
+    def axis_label_font_configuration(self, value: pulumi.Input[Optional['ThemeFontConfigurationArgs']]):
+        pulumi.set(self, "axis_label_font_configuration", value)
+
+    @_builtins.property
+    @pulumi.getter(name="axisTitleFontConfiguration")
+    def axis_title_font_configuration(self) -> pulumi.Input[Optional['ThemeFontConfigurationArgs']]:
+        return pulumi.get(self, "axis_title_font_configuration")
+
+    @axis_title_font_configuration.setter
+    def axis_title_font_configuration(self, value: pulumi.Input[Optional['ThemeFontConfigurationArgs']]):
+        pulumi.set(self, "axis_title_font_configuration", value)
+
+    @_builtins.property
+    @pulumi.getter(name="dataLabelFontConfiguration")
+    def data_label_font_configuration(self) -> pulumi.Input[Optional['ThemeFontConfigurationArgs']]:
+        return pulumi.get(self, "data_label_font_configuration")
+
+    @data_label_font_configuration.setter
+    def data_label_font_configuration(self, value: pulumi.Input[Optional['ThemeFontConfigurationArgs']]):
+        pulumi.set(self, "data_label_font_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="fontFamilies")
@@ -144245,12 +148859,48 @@ class ThemeTypographyArgs:
     def font_families(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ThemeFontArgs']]]]):
         pulumi.set(self, "font_families", value)
 
+    @_builtins.property
+    @pulumi.getter(name="legendTitleFontConfiguration")
+    def legend_title_font_configuration(self) -> pulumi.Input[Optional['ThemeFontConfigurationArgs']]:
+        return pulumi.get(self, "legend_title_font_configuration")
+
+    @legend_title_font_configuration.setter
+    def legend_title_font_configuration(self, value: pulumi.Input[Optional['ThemeFontConfigurationArgs']]):
+        pulumi.set(self, "legend_title_font_configuration", value)
+
+    @_builtins.property
+    @pulumi.getter(name="legendValueFontConfiguration")
+    def legend_value_font_configuration(self) -> pulumi.Input[Optional['ThemeFontConfigurationArgs']]:
+        return pulumi.get(self, "legend_value_font_configuration")
+
+    @legend_value_font_configuration.setter
+    def legend_value_font_configuration(self, value: pulumi.Input[Optional['ThemeFontConfigurationArgs']]):
+        pulumi.set(self, "legend_value_font_configuration", value)
+
+    @_builtins.property
+    @pulumi.getter(name="visualSubtitleFontConfiguration")
+    def visual_subtitle_font_configuration(self) -> pulumi.Input[Optional['ThemeVisualSubtitleFontConfigurationArgs']]:
+        return pulumi.get(self, "visual_subtitle_font_configuration")
+
+    @visual_subtitle_font_configuration.setter
+    def visual_subtitle_font_configuration(self, value: pulumi.Input[Optional['ThemeVisualSubtitleFontConfigurationArgs']]):
+        pulumi.set(self, "visual_subtitle_font_configuration", value)
+
+    @_builtins.property
+    @pulumi.getter(name="visualTitleFontConfiguration")
+    def visual_title_font_configuration(self) -> pulumi.Input[Optional['ThemeVisualTitleFontConfigurationArgs']]:
+        return pulumi.get(self, "visual_title_font_configuration")
+
+    @visual_title_font_configuration.setter
+    def visual_title_font_configuration(self, value: pulumi.Input[Optional['ThemeVisualTitleFontConfigurationArgs']]):
+        pulumi.set(self, "visual_title_font_configuration", value)
+
 
 class ThemeUiColorPaletteArgsDict(TypedDict):
     """
     <p>The theme colors that apply to UI and to charts, excluding data colors. The colors
                 description is a hexadecimal color code that consists of six alphanumerical characters,
-                prefixed with <code>#</code>, for example #37BFF5. For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/themes-in-quicksight.html">Using Themes in Amazon QuickSight</a> in the <i>Amazon QuickSight User
+                prefixed with <code>#</code>, for example #37BFF5. For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/themes-in-quicksight.html">Using Themes in Amazon Quick</a> in the <i>Amazon Quick User
                     Guide.</i>
              </p>
     """
@@ -144351,7 +149001,7 @@ class ThemeUiColorPaletteArgs:
         """
         <p>The theme colors that apply to UI and to charts, excluding data colors. The colors
                     description is a hexadecimal color code that consists of six alphanumerical characters,
-                    prefixed with <code>#</code>, for example #37BFF5. For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/themes-in-quicksight.html">Using Themes in Amazon QuickSight</a> in the <i>Amazon QuickSight User
+                    prefixed with <code>#</code>, for example #37BFF5. For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/themes-in-quicksight.html">Using Themes in Amazon Quick</a> in the <i>Amazon Quick User
                         Guide.</i>
                  </p>
 
@@ -144616,6 +149266,98 @@ class ThemeUiColorPaletteArgs:
     @warning_foreground.setter
     def warning_foreground(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "warning_foreground", value)
+
+
+class ThemeVisualSubtitleFontConfigurationArgsDict(TypedDict):
+    font_configuration: NotRequired[pulumi.Input[Optional['ThemeFontConfigurationArgsDict']]]
+    text_alignment: NotRequired[pulumi.Input[Optional['ThemeHorizontalTextAlignment']]]
+    text_transform: NotRequired[pulumi.Input[Optional['ThemeTextTransform']]]
+
+@pulumi.input_type
+class ThemeVisualSubtitleFontConfigurationArgs:
+    def __init__(__self__, *,
+                 font_configuration: pulumi.Input[Optional['ThemeFontConfigurationArgs']] = None,
+                 text_alignment: pulumi.Input[Optional['ThemeHorizontalTextAlignment']] = None,
+                 text_transform: pulumi.Input[Optional['ThemeTextTransform']] = None):
+        if font_configuration is not None:
+            pulumi.set(__self__, "font_configuration", font_configuration)
+        if text_alignment is not None:
+            pulumi.set(__self__, "text_alignment", text_alignment)
+        if text_transform is not None:
+            pulumi.set(__self__, "text_transform", text_transform)
+
+    @_builtins.property
+    @pulumi.getter(name="fontConfiguration")
+    def font_configuration(self) -> pulumi.Input[Optional['ThemeFontConfigurationArgs']]:
+        return pulumi.get(self, "font_configuration")
+
+    @font_configuration.setter
+    def font_configuration(self, value: pulumi.Input[Optional['ThemeFontConfigurationArgs']]):
+        pulumi.set(self, "font_configuration", value)
+
+    @_builtins.property
+    @pulumi.getter(name="textAlignment")
+    def text_alignment(self) -> pulumi.Input[Optional['ThemeHorizontalTextAlignment']]:
+        return pulumi.get(self, "text_alignment")
+
+    @text_alignment.setter
+    def text_alignment(self, value: pulumi.Input[Optional['ThemeHorizontalTextAlignment']]):
+        pulumi.set(self, "text_alignment", value)
+
+    @_builtins.property
+    @pulumi.getter(name="textTransform")
+    def text_transform(self) -> pulumi.Input[Optional['ThemeTextTransform']]:
+        return pulumi.get(self, "text_transform")
+
+    @text_transform.setter
+    def text_transform(self, value: pulumi.Input[Optional['ThemeTextTransform']]):
+        pulumi.set(self, "text_transform", value)
+
+
+class ThemeVisualTitleFontConfigurationArgsDict(TypedDict):
+    font_configuration: NotRequired[pulumi.Input[Optional['ThemeFontConfigurationArgsDict']]]
+    text_alignment: NotRequired[pulumi.Input[Optional['ThemeHorizontalTextAlignment']]]
+    text_transform: NotRequired[pulumi.Input[Optional['ThemeTextTransform']]]
+
+@pulumi.input_type
+class ThemeVisualTitleFontConfigurationArgs:
+    def __init__(__self__, *,
+                 font_configuration: pulumi.Input[Optional['ThemeFontConfigurationArgs']] = None,
+                 text_alignment: pulumi.Input[Optional['ThemeHorizontalTextAlignment']] = None,
+                 text_transform: pulumi.Input[Optional['ThemeTextTransform']] = None):
+        if font_configuration is not None:
+            pulumi.set(__self__, "font_configuration", font_configuration)
+        if text_alignment is not None:
+            pulumi.set(__self__, "text_alignment", text_alignment)
+        if text_transform is not None:
+            pulumi.set(__self__, "text_transform", text_transform)
+
+    @_builtins.property
+    @pulumi.getter(name="fontConfiguration")
+    def font_configuration(self) -> pulumi.Input[Optional['ThemeFontConfigurationArgs']]:
+        return pulumi.get(self, "font_configuration")
+
+    @font_configuration.setter
+    def font_configuration(self, value: pulumi.Input[Optional['ThemeFontConfigurationArgs']]):
+        pulumi.set(self, "font_configuration", value)
+
+    @_builtins.property
+    @pulumi.getter(name="textAlignment")
+    def text_alignment(self) -> pulumi.Input[Optional['ThemeHorizontalTextAlignment']]:
+        return pulumi.get(self, "text_alignment")
+
+    @text_alignment.setter
+    def text_alignment(self, value: pulumi.Input[Optional['ThemeHorizontalTextAlignment']]):
+        pulumi.set(self, "text_alignment", value)
+
+    @_builtins.property
+    @pulumi.getter(name="textTransform")
+    def text_transform(self) -> pulumi.Input[Optional['ThemeTextTransform']]:
+        return pulumi.get(self, "text_transform")
+
+    @text_transform.setter
+    def text_transform(self, value: pulumi.Input[Optional['ThemeTextTransform']]):
+        pulumi.set(self, "text_transform", value)
 
 
 class TopicCalculatedFieldArgsDict(TypedDict):

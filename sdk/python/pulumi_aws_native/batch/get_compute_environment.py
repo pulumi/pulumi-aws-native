@@ -25,7 +25,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetComputeEnvironmentResult:
-    def __init__(__self__, compute_environment_arn=None, compute_resources=None, context=None, ecs_settings=None, service_role=None, state=None, unmanagedv_cpus=None):
+    def __init__(__self__, compute_environment_arn=None, compute_resources=None, context=None, ecs_settings=None, eks_configuration=None, service_role=None, state=None, unmanagedv_cpus=None):
         if compute_environment_arn and not isinstance(compute_environment_arn, str):
             raise TypeError("Expected argument 'compute_environment_arn' to be a str")
         pulumi.set(__self__, "compute_environment_arn", compute_environment_arn)
@@ -38,6 +38,9 @@ class GetComputeEnvironmentResult:
         if ecs_settings and not isinstance(ecs_settings, dict):
             raise TypeError("Expected argument 'ecs_settings' to be a dict")
         pulumi.set(__self__, "ecs_settings", ecs_settings)
+        if eks_configuration and not isinstance(eks_configuration, dict):
+            raise TypeError("Expected argument 'eks_configuration' to be a dict")
+        pulumi.set(__self__, "eks_configuration", eks_configuration)
         if service_role and not isinstance(service_role, str):
             raise TypeError("Expected argument 'service_role' to be a str")
         pulumi.set(__self__, "service_role", service_role)
@@ -76,6 +79,16 @@ class GetComputeEnvironmentResult:
     @pulumi.getter(name="ecsSettings")
     def ecs_settings(self) -> Optional['outputs.ComputeEnvironmentEcsSettings']:
         return pulumi.get(self, "ecs_settings")
+
+    @_builtins.property
+    @pulumi.getter(name="eksConfiguration")
+    def eks_configuration(self) -> Optional['outputs.ComputeEnvironmentEksConfiguration']:
+        """
+        The details for the Amazon EKS cluster that supports the compute environment.
+
+        > To create a compute environment that uses EKS resources, the caller must have permissions to call `eks:DescribeCluster` .
+        """
+        return pulumi.get(self, "eks_configuration")
 
     @_builtins.property
     @pulumi.getter(name="serviceRole")
@@ -128,6 +141,7 @@ class AwaitableGetComputeEnvironmentResult(GetComputeEnvironmentResult):
             compute_resources=self.compute_resources,
             context=self.context,
             ecs_settings=self.ecs_settings,
+            eks_configuration=self.eks_configuration,
             service_role=self.service_role,
             state=self.state,
             unmanagedv_cpus=self.unmanagedv_cpus)
@@ -150,6 +164,7 @@ def get_compute_environment(compute_environment_arn: Optional[_builtins.str] = N
         compute_resources=pulumi.get(__ret__, 'compute_resources'),
         context=pulumi.get(__ret__, 'context'),
         ecs_settings=pulumi.get(__ret__, 'ecs_settings'),
+        eks_configuration=pulumi.get(__ret__, 'eks_configuration'),
         service_role=pulumi.get(__ret__, 'service_role'),
         state=pulumi.get(__ret__, 'state'),
         unmanagedv_cpus=pulumi.get(__ret__, 'unmanagedv_cpus'))
@@ -169,6 +184,7 @@ def get_compute_environment_output(compute_environment_arn: pulumi.Input[Optiona
         compute_resources=pulumi.get(__response__, 'compute_resources'),
         context=pulumi.get(__response__, 'context'),
         ecs_settings=pulumi.get(__response__, 'ecs_settings'),
+        eks_configuration=pulumi.get(__response__, 'eks_configuration'),
         service_role=pulumi.get(__response__, 'service_role'),
         state=pulumi.get(__response__, 'state'),
         unmanagedv_cpus=pulumi.get(__response__, 'unmanagedv_cpus')))

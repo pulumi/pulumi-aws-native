@@ -37,6 +37,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ObjectType{}
 	case "aws-native:customerprofiles:Recommender":
 		r = &Recommender{}
+	case "aws-native:customerprofiles:RecommenderSchema":
+		r = &RecommenderSchema{}
 	case "aws-native:customerprofiles:SegmentDefinition":
 		r = &SegmentDefinition{}
 	default:

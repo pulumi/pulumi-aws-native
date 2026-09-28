@@ -24,15 +24,19 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// &lt;p&gt;The dataset references of the source template of an analysis.&lt;/p&gt;
         /// </summary>
         public readonly ImmutableArray<Outputs.AnalysisDataSetReference> DataSetReferences;
+        public readonly ImmutableArray<Outputs.AnalysisTopicReference> TopicReferences;
 
         [OutputConstructor]
         private AnalysisSourceTemplate(
             string arn,
 
-            ImmutableArray<Outputs.AnalysisDataSetReference> dataSetReferences)
+            ImmutableArray<Outputs.AnalysisDataSetReference> dataSetReferences,
+
+            ImmutableArray<Outputs.AnalysisTopicReference> topicReferences)
         {
             Arn = arn;
             DataSetReferences = dataSetReferences;
+            TopicReferences = topicReferences;
         }
     }
 }

@@ -13,6 +13,1991 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type AnalysisSpacing struct {
+	// String based length that is composed of value and unit
+	Bottom *string `pulumi:"bottom"`
+	// String based length that is composed of value and unit
+	Left *string `pulumi:"left"`
+	// String based length that is composed of value and unit
+	Right *string `pulumi:"right"`
+	// String based length that is composed of value and unit
+	Top *string `pulumi:"top"`
+}
+
+// AnalysisSpacingInput is an input type that accepts AnalysisSpacingArgs and AnalysisSpacingOutput values.
+// You can construct a concrete instance of `AnalysisSpacingInput` via:
+//
+//	AnalysisSpacingArgs{...}
+type AnalysisSpacingInput interface {
+	pulumi.Input
+
+	ToAnalysisSpacingOutput() AnalysisSpacingOutput
+	ToAnalysisSpacingOutputWithContext(context.Context) AnalysisSpacingOutput
+}
+
+type AnalysisSpacingArgs struct {
+	// String based length that is composed of value and unit
+	Bottom pulumi.StringPtrInput `pulumi:"bottom"`
+	// String based length that is composed of value and unit
+	Left pulumi.StringPtrInput `pulumi:"left"`
+	// String based length that is composed of value and unit
+	Right pulumi.StringPtrInput `pulumi:"right"`
+	// String based length that is composed of value and unit
+	Top pulumi.StringPtrInput `pulumi:"top"`
+}
+
+func (AnalysisSpacingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisSpacing)(nil)).Elem()
+}
+
+func (i AnalysisSpacingArgs) ToAnalysisSpacingOutput() AnalysisSpacingOutput {
+	return i.ToAnalysisSpacingOutputWithContext(context.Background())
+}
+
+func (i AnalysisSpacingArgs) ToAnalysisSpacingOutputWithContext(ctx context.Context) AnalysisSpacingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalysisSpacingOutput)
+}
+
+func (i AnalysisSpacingArgs) ToAnalysisSpacingPtrOutput() AnalysisSpacingPtrOutput {
+	return i.ToAnalysisSpacingPtrOutputWithContext(context.Background())
+}
+
+func (i AnalysisSpacingArgs) ToAnalysisSpacingPtrOutputWithContext(ctx context.Context) AnalysisSpacingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalysisSpacingOutput).ToAnalysisSpacingPtrOutputWithContext(ctx)
+}
+
+// AnalysisSpacingPtrInput is an input type that accepts AnalysisSpacingArgs, AnalysisSpacingPtr and AnalysisSpacingPtrOutput values.
+// You can construct a concrete instance of `AnalysisSpacingPtrInput` via:
+//
+//	        AnalysisSpacingArgs{...}
+//
+//	or:
+//
+//	        nil
+type AnalysisSpacingPtrInput interface {
+	pulumi.Input
+
+	ToAnalysisSpacingPtrOutput() AnalysisSpacingPtrOutput
+	ToAnalysisSpacingPtrOutputWithContext(context.Context) AnalysisSpacingPtrOutput
+}
+
+type analysisSpacingPtrType AnalysisSpacingArgs
+
+func AnalysisSpacingPtr(v *AnalysisSpacingArgs) AnalysisSpacingPtrInput {
+	return (*analysisSpacingPtrType)(v)
+}
+
+func (*analysisSpacingPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnalysisSpacing)(nil)).Elem()
+}
+
+func (i *analysisSpacingPtrType) ToAnalysisSpacingPtrOutput() AnalysisSpacingPtrOutput {
+	return i.ToAnalysisSpacingPtrOutputWithContext(context.Background())
+}
+
+func (i *analysisSpacingPtrType) ToAnalysisSpacingPtrOutputWithContext(ctx context.Context) AnalysisSpacingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalysisSpacingPtrOutput)
+}
+
+type AnalysisSpacingOutput struct{ *pulumi.OutputState }
+
+func (AnalysisSpacingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisSpacing)(nil)).Elem()
+}
+
+func (o AnalysisSpacingOutput) ToAnalysisSpacingOutput() AnalysisSpacingOutput {
+	return o
+}
+
+func (o AnalysisSpacingOutput) ToAnalysisSpacingOutputWithContext(ctx context.Context) AnalysisSpacingOutput {
+	return o
+}
+
+func (o AnalysisSpacingOutput) ToAnalysisSpacingPtrOutput() AnalysisSpacingPtrOutput {
+	return o.ToAnalysisSpacingPtrOutputWithContext(context.Background())
+}
+
+func (o AnalysisSpacingOutput) ToAnalysisSpacingPtrOutputWithContext(ctx context.Context) AnalysisSpacingPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnalysisSpacing) *AnalysisSpacing {
+		return &v
+	}).(AnalysisSpacingPtrOutput)
+}
+
+// String based length that is composed of value and unit
+func (o AnalysisSpacingOutput) Bottom() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AnalysisSpacing) *string { return v.Bottom }).(pulumi.StringPtrOutput)
+}
+
+// String based length that is composed of value and unit
+func (o AnalysisSpacingOutput) Left() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AnalysisSpacing) *string { return v.Left }).(pulumi.StringPtrOutput)
+}
+
+// String based length that is composed of value and unit
+func (o AnalysisSpacingOutput) Right() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AnalysisSpacing) *string { return v.Right }).(pulumi.StringPtrOutput)
+}
+
+// String based length that is composed of value and unit
+func (o AnalysisSpacingOutput) Top() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AnalysisSpacing) *string { return v.Top }).(pulumi.StringPtrOutput)
+}
+
+type AnalysisSpacingPtrOutput struct{ *pulumi.OutputState }
+
+func (AnalysisSpacingPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnalysisSpacing)(nil)).Elem()
+}
+
+func (o AnalysisSpacingPtrOutput) ToAnalysisSpacingPtrOutput() AnalysisSpacingPtrOutput {
+	return o
+}
+
+func (o AnalysisSpacingPtrOutput) ToAnalysisSpacingPtrOutputWithContext(ctx context.Context) AnalysisSpacingPtrOutput {
+	return o
+}
+
+func (o AnalysisSpacingPtrOutput) Elem() AnalysisSpacingOutput {
+	return o.ApplyT(func(v *AnalysisSpacing) AnalysisSpacing {
+		if v != nil {
+			return *v
+		}
+		var ret AnalysisSpacing
+		return ret
+	}).(AnalysisSpacingOutput)
+}
+
+// String based length that is composed of value and unit
+func (o AnalysisSpacingPtrOutput) Bottom() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AnalysisSpacing) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Bottom
+	}).(pulumi.StringPtrOutput)
+}
+
+// String based length that is composed of value and unit
+func (o AnalysisSpacingPtrOutput) Left() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AnalysisSpacing) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Left
+	}).(pulumi.StringPtrOutput)
+}
+
+// String based length that is composed of value and unit
+func (o AnalysisSpacingPtrOutput) Right() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AnalysisSpacing) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Right
+	}).(pulumi.StringPtrOutput)
+}
+
+// String based length that is composed of value and unit
+func (o AnalysisSpacingPtrOutput) Top() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AnalysisSpacing) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Top
+	}).(pulumi.StringPtrOutput)
+}
+
+type AnalysisSparklinesOptions struct {
+	AllPointsMarker   *AnalysisLineChartMarkerStyleSettings `pulumi:"allPointsMarker"`
+	FieldId           string                                `pulumi:"fieldId"`
+	LineColor         *string                               `pulumi:"lineColor"`
+	LineInterpolation *AnalysisLineInterpolation            `pulumi:"lineInterpolation"`
+	MaxValueMarker    *AnalysisLineChartMarkerStyleSettings `pulumi:"maxValueMarker"`
+	MinValueMarker    *AnalysisLineChartMarkerStyleSettings `pulumi:"minValueMarker"`
+	VisualType        *AnalysisSparklineVisualType          `pulumi:"visualType"`
+	XAxisField        AnalysisDimensionField                `pulumi:"xAxisField"`
+	YAxisBehavior     *AnalysisSparklineAxisBehavior        `pulumi:"yAxisBehavior"`
+}
+
+// AnalysisSparklinesOptionsInput is an input type that accepts AnalysisSparklinesOptionsArgs and AnalysisSparklinesOptionsOutput values.
+// You can construct a concrete instance of `AnalysisSparklinesOptionsInput` via:
+//
+//	AnalysisSparklinesOptionsArgs{...}
+type AnalysisSparklinesOptionsInput interface {
+	pulumi.Input
+
+	ToAnalysisSparklinesOptionsOutput() AnalysisSparklinesOptionsOutput
+	ToAnalysisSparklinesOptionsOutputWithContext(context.Context) AnalysisSparklinesOptionsOutput
+}
+
+type AnalysisSparklinesOptionsArgs struct {
+	AllPointsMarker   AnalysisLineChartMarkerStyleSettingsPtrInput `pulumi:"allPointsMarker"`
+	FieldId           pulumi.StringInput                           `pulumi:"fieldId"`
+	LineColor         pulumi.StringPtrInput                        `pulumi:"lineColor"`
+	LineInterpolation AnalysisLineInterpolationPtrInput            `pulumi:"lineInterpolation"`
+	MaxValueMarker    AnalysisLineChartMarkerStyleSettingsPtrInput `pulumi:"maxValueMarker"`
+	MinValueMarker    AnalysisLineChartMarkerStyleSettingsPtrInput `pulumi:"minValueMarker"`
+	VisualType        AnalysisSparklineVisualTypePtrInput          `pulumi:"visualType"`
+	XAxisField        AnalysisDimensionFieldInput                  `pulumi:"xAxisField"`
+	YAxisBehavior     AnalysisSparklineAxisBehaviorPtrInput        `pulumi:"yAxisBehavior"`
+}
+
+func (AnalysisSparklinesOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisSparklinesOptions)(nil)).Elem()
+}
+
+func (i AnalysisSparklinesOptionsArgs) ToAnalysisSparklinesOptionsOutput() AnalysisSparklinesOptionsOutput {
+	return i.ToAnalysisSparklinesOptionsOutputWithContext(context.Background())
+}
+
+func (i AnalysisSparklinesOptionsArgs) ToAnalysisSparklinesOptionsOutputWithContext(ctx context.Context) AnalysisSparklinesOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalysisSparklinesOptionsOutput)
+}
+
+func (i AnalysisSparklinesOptionsArgs) ToAnalysisSparklinesOptionsPtrOutput() AnalysisSparklinesOptionsPtrOutput {
+	return i.ToAnalysisSparklinesOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i AnalysisSparklinesOptionsArgs) ToAnalysisSparklinesOptionsPtrOutputWithContext(ctx context.Context) AnalysisSparklinesOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalysisSparklinesOptionsOutput).ToAnalysisSparklinesOptionsPtrOutputWithContext(ctx)
+}
+
+// AnalysisSparklinesOptionsPtrInput is an input type that accepts AnalysisSparklinesOptionsArgs, AnalysisSparklinesOptionsPtr and AnalysisSparklinesOptionsPtrOutput values.
+// You can construct a concrete instance of `AnalysisSparklinesOptionsPtrInput` via:
+//
+//	        AnalysisSparklinesOptionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type AnalysisSparklinesOptionsPtrInput interface {
+	pulumi.Input
+
+	ToAnalysisSparklinesOptionsPtrOutput() AnalysisSparklinesOptionsPtrOutput
+	ToAnalysisSparklinesOptionsPtrOutputWithContext(context.Context) AnalysisSparklinesOptionsPtrOutput
+}
+
+type analysisSparklinesOptionsPtrType AnalysisSparklinesOptionsArgs
+
+func AnalysisSparklinesOptionsPtr(v *AnalysisSparklinesOptionsArgs) AnalysisSparklinesOptionsPtrInput {
+	return (*analysisSparklinesOptionsPtrType)(v)
+}
+
+func (*analysisSparklinesOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnalysisSparklinesOptions)(nil)).Elem()
+}
+
+func (i *analysisSparklinesOptionsPtrType) ToAnalysisSparklinesOptionsPtrOutput() AnalysisSparklinesOptionsPtrOutput {
+	return i.ToAnalysisSparklinesOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *analysisSparklinesOptionsPtrType) ToAnalysisSparklinesOptionsPtrOutputWithContext(ctx context.Context) AnalysisSparklinesOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalysisSparklinesOptionsPtrOutput)
+}
+
+type AnalysisSparklinesOptionsOutput struct{ *pulumi.OutputState }
+
+func (AnalysisSparklinesOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisSparklinesOptions)(nil)).Elem()
+}
+
+func (o AnalysisSparklinesOptionsOutput) ToAnalysisSparklinesOptionsOutput() AnalysisSparklinesOptionsOutput {
+	return o
+}
+
+func (o AnalysisSparklinesOptionsOutput) ToAnalysisSparklinesOptionsOutputWithContext(ctx context.Context) AnalysisSparklinesOptionsOutput {
+	return o
+}
+
+func (o AnalysisSparklinesOptionsOutput) ToAnalysisSparklinesOptionsPtrOutput() AnalysisSparklinesOptionsPtrOutput {
+	return o.ToAnalysisSparklinesOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o AnalysisSparklinesOptionsOutput) ToAnalysisSparklinesOptionsPtrOutputWithContext(ctx context.Context) AnalysisSparklinesOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnalysisSparklinesOptions) *AnalysisSparklinesOptions {
+		return &v
+	}).(AnalysisSparklinesOptionsPtrOutput)
+}
+
+func (o AnalysisSparklinesOptionsOutput) AllPointsMarker() AnalysisLineChartMarkerStyleSettingsPtrOutput {
+	return o.ApplyT(func(v AnalysisSparklinesOptions) *AnalysisLineChartMarkerStyleSettings { return v.AllPointsMarker }).(AnalysisLineChartMarkerStyleSettingsPtrOutput)
+}
+
+func (o AnalysisSparklinesOptionsOutput) FieldId() pulumi.StringOutput {
+	return o.ApplyT(func(v AnalysisSparklinesOptions) string { return v.FieldId }).(pulumi.StringOutput)
+}
+
+func (o AnalysisSparklinesOptionsOutput) LineColor() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AnalysisSparklinesOptions) *string { return v.LineColor }).(pulumi.StringPtrOutput)
+}
+
+func (o AnalysisSparklinesOptionsOutput) LineInterpolation() AnalysisLineInterpolationPtrOutput {
+	return o.ApplyT(func(v AnalysisSparklinesOptions) *AnalysisLineInterpolation { return v.LineInterpolation }).(AnalysisLineInterpolationPtrOutput)
+}
+
+func (o AnalysisSparklinesOptionsOutput) MaxValueMarker() AnalysisLineChartMarkerStyleSettingsPtrOutput {
+	return o.ApplyT(func(v AnalysisSparklinesOptions) *AnalysisLineChartMarkerStyleSettings { return v.MaxValueMarker }).(AnalysisLineChartMarkerStyleSettingsPtrOutput)
+}
+
+func (o AnalysisSparklinesOptionsOutput) MinValueMarker() AnalysisLineChartMarkerStyleSettingsPtrOutput {
+	return o.ApplyT(func(v AnalysisSparklinesOptions) *AnalysisLineChartMarkerStyleSettings { return v.MinValueMarker }).(AnalysisLineChartMarkerStyleSettingsPtrOutput)
+}
+
+func (o AnalysisSparklinesOptionsOutput) VisualType() AnalysisSparklineVisualTypePtrOutput {
+	return o.ApplyT(func(v AnalysisSparklinesOptions) *AnalysisSparklineVisualType { return v.VisualType }).(AnalysisSparklineVisualTypePtrOutput)
+}
+
+func (o AnalysisSparklinesOptionsOutput) XAxisField() AnalysisDimensionFieldOutput {
+	return o.ApplyT(func(v AnalysisSparklinesOptions) AnalysisDimensionField { return v.XAxisField }).(AnalysisDimensionFieldOutput)
+}
+
+func (o AnalysisSparklinesOptionsOutput) YAxisBehavior() AnalysisSparklineAxisBehaviorPtrOutput {
+	return o.ApplyT(func(v AnalysisSparklinesOptions) *AnalysisSparklineAxisBehavior { return v.YAxisBehavior }).(AnalysisSparklineAxisBehaviorPtrOutput)
+}
+
+type AnalysisSparklinesOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (AnalysisSparklinesOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnalysisSparklinesOptions)(nil)).Elem()
+}
+
+func (o AnalysisSparklinesOptionsPtrOutput) ToAnalysisSparklinesOptionsPtrOutput() AnalysisSparklinesOptionsPtrOutput {
+	return o
+}
+
+func (o AnalysisSparklinesOptionsPtrOutput) ToAnalysisSparklinesOptionsPtrOutputWithContext(ctx context.Context) AnalysisSparklinesOptionsPtrOutput {
+	return o
+}
+
+func (o AnalysisSparklinesOptionsPtrOutput) Elem() AnalysisSparklinesOptionsOutput {
+	return o.ApplyT(func(v *AnalysisSparklinesOptions) AnalysisSparklinesOptions {
+		if v != nil {
+			return *v
+		}
+		var ret AnalysisSparklinesOptions
+		return ret
+	}).(AnalysisSparklinesOptionsOutput)
+}
+
+func (o AnalysisSparklinesOptionsPtrOutput) AllPointsMarker() AnalysisLineChartMarkerStyleSettingsPtrOutput {
+	return o.ApplyT(func(v *AnalysisSparklinesOptions) *AnalysisLineChartMarkerStyleSettings {
+		if v == nil {
+			return nil
+		}
+		return v.AllPointsMarker
+	}).(AnalysisLineChartMarkerStyleSettingsPtrOutput)
+}
+
+func (o AnalysisSparklinesOptionsPtrOutput) FieldId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AnalysisSparklinesOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.FieldId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o AnalysisSparklinesOptionsPtrOutput) LineColor() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AnalysisSparklinesOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LineColor
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o AnalysisSparklinesOptionsPtrOutput) LineInterpolation() AnalysisLineInterpolationPtrOutput {
+	return o.ApplyT(func(v *AnalysisSparklinesOptions) *AnalysisLineInterpolation {
+		if v == nil {
+			return nil
+		}
+		return v.LineInterpolation
+	}).(AnalysisLineInterpolationPtrOutput)
+}
+
+func (o AnalysisSparklinesOptionsPtrOutput) MaxValueMarker() AnalysisLineChartMarkerStyleSettingsPtrOutput {
+	return o.ApplyT(func(v *AnalysisSparklinesOptions) *AnalysisLineChartMarkerStyleSettings {
+		if v == nil {
+			return nil
+		}
+		return v.MaxValueMarker
+	}).(AnalysisLineChartMarkerStyleSettingsPtrOutput)
+}
+
+func (o AnalysisSparklinesOptionsPtrOutput) MinValueMarker() AnalysisLineChartMarkerStyleSettingsPtrOutput {
+	return o.ApplyT(func(v *AnalysisSparklinesOptions) *AnalysisLineChartMarkerStyleSettings {
+		if v == nil {
+			return nil
+		}
+		return v.MinValueMarker
+	}).(AnalysisLineChartMarkerStyleSettingsPtrOutput)
+}
+
+func (o AnalysisSparklinesOptionsPtrOutput) VisualType() AnalysisSparklineVisualTypePtrOutput {
+	return o.ApplyT(func(v *AnalysisSparklinesOptions) *AnalysisSparklineVisualType {
+		if v == nil {
+			return nil
+		}
+		return v.VisualType
+	}).(AnalysisSparklineVisualTypePtrOutput)
+}
+
+func (o AnalysisSparklinesOptionsPtrOutput) XAxisField() AnalysisDimensionFieldPtrOutput {
+	return o.ApplyT(func(v *AnalysisSparklinesOptions) *AnalysisDimensionField {
+		if v == nil {
+			return nil
+		}
+		return &v.XAxisField
+	}).(AnalysisDimensionFieldPtrOutput)
+}
+
+func (o AnalysisSparklinesOptionsPtrOutput) YAxisBehavior() AnalysisSparklineAxisBehaviorPtrOutput {
+	return o.ApplyT(func(v *AnalysisSparklinesOptions) *AnalysisSparklineAxisBehavior {
+		if v == nil {
+			return nil
+		}
+		return v.YAxisBehavior
+	}).(AnalysisSparklineAxisBehaviorPtrOutput)
+}
+
+type AnalysisSpatialStaticFile struct {
+	// The source of the spatial static file.
+	Source *AnalysisStaticFileSource `pulumi:"source"`
+	// The ID of the spatial static file.
+	StaticFileId string `pulumi:"staticFileId"`
+}
+
+// AnalysisSpatialStaticFileInput is an input type that accepts AnalysisSpatialStaticFileArgs and AnalysisSpatialStaticFileOutput values.
+// You can construct a concrete instance of `AnalysisSpatialStaticFileInput` via:
+//
+//	AnalysisSpatialStaticFileArgs{...}
+type AnalysisSpatialStaticFileInput interface {
+	pulumi.Input
+
+	ToAnalysisSpatialStaticFileOutput() AnalysisSpatialStaticFileOutput
+	ToAnalysisSpatialStaticFileOutputWithContext(context.Context) AnalysisSpatialStaticFileOutput
+}
+
+type AnalysisSpatialStaticFileArgs struct {
+	// The source of the spatial static file.
+	Source AnalysisStaticFileSourcePtrInput `pulumi:"source"`
+	// The ID of the spatial static file.
+	StaticFileId pulumi.StringInput `pulumi:"staticFileId"`
+}
+
+func (AnalysisSpatialStaticFileArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisSpatialStaticFile)(nil)).Elem()
+}
+
+func (i AnalysisSpatialStaticFileArgs) ToAnalysisSpatialStaticFileOutput() AnalysisSpatialStaticFileOutput {
+	return i.ToAnalysisSpatialStaticFileOutputWithContext(context.Background())
+}
+
+func (i AnalysisSpatialStaticFileArgs) ToAnalysisSpatialStaticFileOutputWithContext(ctx context.Context) AnalysisSpatialStaticFileOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalysisSpatialStaticFileOutput)
+}
+
+func (i AnalysisSpatialStaticFileArgs) ToAnalysisSpatialStaticFilePtrOutput() AnalysisSpatialStaticFilePtrOutput {
+	return i.ToAnalysisSpatialStaticFilePtrOutputWithContext(context.Background())
+}
+
+func (i AnalysisSpatialStaticFileArgs) ToAnalysisSpatialStaticFilePtrOutputWithContext(ctx context.Context) AnalysisSpatialStaticFilePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalysisSpatialStaticFileOutput).ToAnalysisSpatialStaticFilePtrOutputWithContext(ctx)
+}
+
+// AnalysisSpatialStaticFilePtrInput is an input type that accepts AnalysisSpatialStaticFileArgs, AnalysisSpatialStaticFilePtr and AnalysisSpatialStaticFilePtrOutput values.
+// You can construct a concrete instance of `AnalysisSpatialStaticFilePtrInput` via:
+//
+//	        AnalysisSpatialStaticFileArgs{...}
+//
+//	or:
+//
+//	        nil
+type AnalysisSpatialStaticFilePtrInput interface {
+	pulumi.Input
+
+	ToAnalysisSpatialStaticFilePtrOutput() AnalysisSpatialStaticFilePtrOutput
+	ToAnalysisSpatialStaticFilePtrOutputWithContext(context.Context) AnalysisSpatialStaticFilePtrOutput
+}
+
+type analysisSpatialStaticFilePtrType AnalysisSpatialStaticFileArgs
+
+func AnalysisSpatialStaticFilePtr(v *AnalysisSpatialStaticFileArgs) AnalysisSpatialStaticFilePtrInput {
+	return (*analysisSpatialStaticFilePtrType)(v)
+}
+
+func (*analysisSpatialStaticFilePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnalysisSpatialStaticFile)(nil)).Elem()
+}
+
+func (i *analysisSpatialStaticFilePtrType) ToAnalysisSpatialStaticFilePtrOutput() AnalysisSpatialStaticFilePtrOutput {
+	return i.ToAnalysisSpatialStaticFilePtrOutputWithContext(context.Background())
+}
+
+func (i *analysisSpatialStaticFilePtrType) ToAnalysisSpatialStaticFilePtrOutputWithContext(ctx context.Context) AnalysisSpatialStaticFilePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalysisSpatialStaticFilePtrOutput)
+}
+
+type AnalysisSpatialStaticFileOutput struct{ *pulumi.OutputState }
+
+func (AnalysisSpatialStaticFileOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisSpatialStaticFile)(nil)).Elem()
+}
+
+func (o AnalysisSpatialStaticFileOutput) ToAnalysisSpatialStaticFileOutput() AnalysisSpatialStaticFileOutput {
+	return o
+}
+
+func (o AnalysisSpatialStaticFileOutput) ToAnalysisSpatialStaticFileOutputWithContext(ctx context.Context) AnalysisSpatialStaticFileOutput {
+	return o
+}
+
+func (o AnalysisSpatialStaticFileOutput) ToAnalysisSpatialStaticFilePtrOutput() AnalysisSpatialStaticFilePtrOutput {
+	return o.ToAnalysisSpatialStaticFilePtrOutputWithContext(context.Background())
+}
+
+func (o AnalysisSpatialStaticFileOutput) ToAnalysisSpatialStaticFilePtrOutputWithContext(ctx context.Context) AnalysisSpatialStaticFilePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnalysisSpatialStaticFile) *AnalysisSpatialStaticFile {
+		return &v
+	}).(AnalysisSpatialStaticFilePtrOutput)
+}
+
+// The source of the spatial static file.
+func (o AnalysisSpatialStaticFileOutput) Source() AnalysisStaticFileSourcePtrOutput {
+	return o.ApplyT(func(v AnalysisSpatialStaticFile) *AnalysisStaticFileSource { return v.Source }).(AnalysisStaticFileSourcePtrOutput)
+}
+
+// The ID of the spatial static file.
+func (o AnalysisSpatialStaticFileOutput) StaticFileId() pulumi.StringOutput {
+	return o.ApplyT(func(v AnalysisSpatialStaticFile) string { return v.StaticFileId }).(pulumi.StringOutput)
+}
+
+type AnalysisSpatialStaticFilePtrOutput struct{ *pulumi.OutputState }
+
+func (AnalysisSpatialStaticFilePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnalysisSpatialStaticFile)(nil)).Elem()
+}
+
+func (o AnalysisSpatialStaticFilePtrOutput) ToAnalysisSpatialStaticFilePtrOutput() AnalysisSpatialStaticFilePtrOutput {
+	return o
+}
+
+func (o AnalysisSpatialStaticFilePtrOutput) ToAnalysisSpatialStaticFilePtrOutputWithContext(ctx context.Context) AnalysisSpatialStaticFilePtrOutput {
+	return o
+}
+
+func (o AnalysisSpatialStaticFilePtrOutput) Elem() AnalysisSpatialStaticFileOutput {
+	return o.ApplyT(func(v *AnalysisSpatialStaticFile) AnalysisSpatialStaticFile {
+		if v != nil {
+			return *v
+		}
+		var ret AnalysisSpatialStaticFile
+		return ret
+	}).(AnalysisSpatialStaticFileOutput)
+}
+
+// The source of the spatial static file.
+func (o AnalysisSpatialStaticFilePtrOutput) Source() AnalysisStaticFileSourcePtrOutput {
+	return o.ApplyT(func(v *AnalysisSpatialStaticFile) *AnalysisStaticFileSource {
+		if v == nil {
+			return nil
+		}
+		return v.Source
+	}).(AnalysisStaticFileSourcePtrOutput)
+}
+
+// The ID of the spatial static file.
+func (o AnalysisSpatialStaticFilePtrOutput) StaticFileId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AnalysisSpatialStaticFile) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.StaticFileId
+	}).(pulumi.StringPtrOutput)
+}
+
+type AnalysisStaticFile struct {
+	// The image static file.
+	ImageStaticFile *AnalysisImageStaticFile `pulumi:"imageStaticFile"`
+	// The spacial static file.
+	SpatialStaticFile *AnalysisSpatialStaticFile `pulumi:"spatialStaticFile"`
+}
+
+// AnalysisStaticFileInput is an input type that accepts AnalysisStaticFileArgs and AnalysisStaticFileOutput values.
+// You can construct a concrete instance of `AnalysisStaticFileInput` via:
+//
+//	AnalysisStaticFileArgs{...}
+type AnalysisStaticFileInput interface {
+	pulumi.Input
+
+	ToAnalysisStaticFileOutput() AnalysisStaticFileOutput
+	ToAnalysisStaticFileOutputWithContext(context.Context) AnalysisStaticFileOutput
+}
+
+type AnalysisStaticFileArgs struct {
+	// The image static file.
+	ImageStaticFile AnalysisImageStaticFilePtrInput `pulumi:"imageStaticFile"`
+	// The spacial static file.
+	SpatialStaticFile AnalysisSpatialStaticFilePtrInput `pulumi:"spatialStaticFile"`
+}
+
+func (AnalysisStaticFileArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisStaticFile)(nil)).Elem()
+}
+
+func (i AnalysisStaticFileArgs) ToAnalysisStaticFileOutput() AnalysisStaticFileOutput {
+	return i.ToAnalysisStaticFileOutputWithContext(context.Background())
+}
+
+func (i AnalysisStaticFileArgs) ToAnalysisStaticFileOutputWithContext(ctx context.Context) AnalysisStaticFileOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalysisStaticFileOutput)
+}
+
+// AnalysisStaticFileArrayInput is an input type that accepts AnalysisStaticFileArray and AnalysisStaticFileArrayOutput values.
+// You can construct a concrete instance of `AnalysisStaticFileArrayInput` via:
+//
+//	AnalysisStaticFileArray{ AnalysisStaticFileArgs{...} }
+type AnalysisStaticFileArrayInput interface {
+	pulumi.Input
+
+	ToAnalysisStaticFileArrayOutput() AnalysisStaticFileArrayOutput
+	ToAnalysisStaticFileArrayOutputWithContext(context.Context) AnalysisStaticFileArrayOutput
+}
+
+type AnalysisStaticFileArray []AnalysisStaticFileInput
+
+func (AnalysisStaticFileArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AnalysisStaticFile)(nil)).Elem()
+}
+
+func (i AnalysisStaticFileArray) ToAnalysisStaticFileArrayOutput() AnalysisStaticFileArrayOutput {
+	return i.ToAnalysisStaticFileArrayOutputWithContext(context.Background())
+}
+
+func (i AnalysisStaticFileArray) ToAnalysisStaticFileArrayOutputWithContext(ctx context.Context) AnalysisStaticFileArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalysisStaticFileArrayOutput)
+}
+
+type AnalysisStaticFileOutput struct{ *pulumi.OutputState }
+
+func (AnalysisStaticFileOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisStaticFile)(nil)).Elem()
+}
+
+func (o AnalysisStaticFileOutput) ToAnalysisStaticFileOutput() AnalysisStaticFileOutput {
+	return o
+}
+
+func (o AnalysisStaticFileOutput) ToAnalysisStaticFileOutputWithContext(ctx context.Context) AnalysisStaticFileOutput {
+	return o
+}
+
+// The image static file.
+func (o AnalysisStaticFileOutput) ImageStaticFile() AnalysisImageStaticFilePtrOutput {
+	return o.ApplyT(func(v AnalysisStaticFile) *AnalysisImageStaticFile { return v.ImageStaticFile }).(AnalysisImageStaticFilePtrOutput)
+}
+
+// The spacial static file.
+func (o AnalysisStaticFileOutput) SpatialStaticFile() AnalysisSpatialStaticFilePtrOutput {
+	return o.ApplyT(func(v AnalysisStaticFile) *AnalysisSpatialStaticFile { return v.SpatialStaticFile }).(AnalysisSpatialStaticFilePtrOutput)
+}
+
+type AnalysisStaticFileArrayOutput struct{ *pulumi.OutputState }
+
+func (AnalysisStaticFileArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AnalysisStaticFile)(nil)).Elem()
+}
+
+func (o AnalysisStaticFileArrayOutput) ToAnalysisStaticFileArrayOutput() AnalysisStaticFileArrayOutput {
+	return o
+}
+
+func (o AnalysisStaticFileArrayOutput) ToAnalysisStaticFileArrayOutputWithContext(ctx context.Context) AnalysisStaticFileArrayOutput {
+	return o
+}
+
+func (o AnalysisStaticFileArrayOutput) Index(i pulumi.IntInput) AnalysisStaticFileOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AnalysisStaticFile {
+		return vs[0].([]AnalysisStaticFile)[vs[1].(int)]
+	}).(AnalysisStaticFileOutput)
+}
+
+type AnalysisStaticFileS3SourceOptions struct {
+	// The name of the Amazon S3 bucket.
+	BucketName string `pulumi:"bucketName"`
+	// The identifier of the static file in the Amazon S3 bucket.
+	ObjectKey string `pulumi:"objectKey"`
+	// The Region of the Amazon S3 account that contains the bucket.
+	Region string `pulumi:"region"`
+}
+
+// AnalysisStaticFileS3SourceOptionsInput is an input type that accepts AnalysisStaticFileS3SourceOptionsArgs and AnalysisStaticFileS3SourceOptionsOutput values.
+// You can construct a concrete instance of `AnalysisStaticFileS3SourceOptionsInput` via:
+//
+//	AnalysisStaticFileS3SourceOptionsArgs{...}
+type AnalysisStaticFileS3SourceOptionsInput interface {
+	pulumi.Input
+
+	ToAnalysisStaticFileS3SourceOptionsOutput() AnalysisStaticFileS3SourceOptionsOutput
+	ToAnalysisStaticFileS3SourceOptionsOutputWithContext(context.Context) AnalysisStaticFileS3SourceOptionsOutput
+}
+
+type AnalysisStaticFileS3SourceOptionsArgs struct {
+	// The name of the Amazon S3 bucket.
+	BucketName pulumi.StringInput `pulumi:"bucketName"`
+	// The identifier of the static file in the Amazon S3 bucket.
+	ObjectKey pulumi.StringInput `pulumi:"objectKey"`
+	// The Region of the Amazon S3 account that contains the bucket.
+	Region pulumi.StringInput `pulumi:"region"`
+}
+
+func (AnalysisStaticFileS3SourceOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisStaticFileS3SourceOptions)(nil)).Elem()
+}
+
+func (i AnalysisStaticFileS3SourceOptionsArgs) ToAnalysisStaticFileS3SourceOptionsOutput() AnalysisStaticFileS3SourceOptionsOutput {
+	return i.ToAnalysisStaticFileS3SourceOptionsOutputWithContext(context.Background())
+}
+
+func (i AnalysisStaticFileS3SourceOptionsArgs) ToAnalysisStaticFileS3SourceOptionsOutputWithContext(ctx context.Context) AnalysisStaticFileS3SourceOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalysisStaticFileS3SourceOptionsOutput)
+}
+
+func (i AnalysisStaticFileS3SourceOptionsArgs) ToAnalysisStaticFileS3SourceOptionsPtrOutput() AnalysisStaticFileS3SourceOptionsPtrOutput {
+	return i.ToAnalysisStaticFileS3SourceOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i AnalysisStaticFileS3SourceOptionsArgs) ToAnalysisStaticFileS3SourceOptionsPtrOutputWithContext(ctx context.Context) AnalysisStaticFileS3SourceOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalysisStaticFileS3SourceOptionsOutput).ToAnalysisStaticFileS3SourceOptionsPtrOutputWithContext(ctx)
+}
+
+// AnalysisStaticFileS3SourceOptionsPtrInput is an input type that accepts AnalysisStaticFileS3SourceOptionsArgs, AnalysisStaticFileS3SourceOptionsPtr and AnalysisStaticFileS3SourceOptionsPtrOutput values.
+// You can construct a concrete instance of `AnalysisStaticFileS3SourceOptionsPtrInput` via:
+//
+//	        AnalysisStaticFileS3SourceOptionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type AnalysisStaticFileS3SourceOptionsPtrInput interface {
+	pulumi.Input
+
+	ToAnalysisStaticFileS3SourceOptionsPtrOutput() AnalysisStaticFileS3SourceOptionsPtrOutput
+	ToAnalysisStaticFileS3SourceOptionsPtrOutputWithContext(context.Context) AnalysisStaticFileS3SourceOptionsPtrOutput
+}
+
+type analysisStaticFileS3SourceOptionsPtrType AnalysisStaticFileS3SourceOptionsArgs
+
+func AnalysisStaticFileS3SourceOptionsPtr(v *AnalysisStaticFileS3SourceOptionsArgs) AnalysisStaticFileS3SourceOptionsPtrInput {
+	return (*analysisStaticFileS3SourceOptionsPtrType)(v)
+}
+
+func (*analysisStaticFileS3SourceOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnalysisStaticFileS3SourceOptions)(nil)).Elem()
+}
+
+func (i *analysisStaticFileS3SourceOptionsPtrType) ToAnalysisStaticFileS3SourceOptionsPtrOutput() AnalysisStaticFileS3SourceOptionsPtrOutput {
+	return i.ToAnalysisStaticFileS3SourceOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *analysisStaticFileS3SourceOptionsPtrType) ToAnalysisStaticFileS3SourceOptionsPtrOutputWithContext(ctx context.Context) AnalysisStaticFileS3SourceOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalysisStaticFileS3SourceOptionsPtrOutput)
+}
+
+type AnalysisStaticFileS3SourceOptionsOutput struct{ *pulumi.OutputState }
+
+func (AnalysisStaticFileS3SourceOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisStaticFileS3SourceOptions)(nil)).Elem()
+}
+
+func (o AnalysisStaticFileS3SourceOptionsOutput) ToAnalysisStaticFileS3SourceOptionsOutput() AnalysisStaticFileS3SourceOptionsOutput {
+	return o
+}
+
+func (o AnalysisStaticFileS3SourceOptionsOutput) ToAnalysisStaticFileS3SourceOptionsOutputWithContext(ctx context.Context) AnalysisStaticFileS3SourceOptionsOutput {
+	return o
+}
+
+func (o AnalysisStaticFileS3SourceOptionsOutput) ToAnalysisStaticFileS3SourceOptionsPtrOutput() AnalysisStaticFileS3SourceOptionsPtrOutput {
+	return o.ToAnalysisStaticFileS3SourceOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o AnalysisStaticFileS3SourceOptionsOutput) ToAnalysisStaticFileS3SourceOptionsPtrOutputWithContext(ctx context.Context) AnalysisStaticFileS3SourceOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnalysisStaticFileS3SourceOptions) *AnalysisStaticFileS3SourceOptions {
+		return &v
+	}).(AnalysisStaticFileS3SourceOptionsPtrOutput)
+}
+
+// The name of the Amazon S3 bucket.
+func (o AnalysisStaticFileS3SourceOptionsOutput) BucketName() pulumi.StringOutput {
+	return o.ApplyT(func(v AnalysisStaticFileS3SourceOptions) string { return v.BucketName }).(pulumi.StringOutput)
+}
+
+// The identifier of the static file in the Amazon S3 bucket.
+func (o AnalysisStaticFileS3SourceOptionsOutput) ObjectKey() pulumi.StringOutput {
+	return o.ApplyT(func(v AnalysisStaticFileS3SourceOptions) string { return v.ObjectKey }).(pulumi.StringOutput)
+}
+
+// The Region of the Amazon S3 account that contains the bucket.
+func (o AnalysisStaticFileS3SourceOptionsOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v AnalysisStaticFileS3SourceOptions) string { return v.Region }).(pulumi.StringOutput)
+}
+
+type AnalysisStaticFileS3SourceOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (AnalysisStaticFileS3SourceOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnalysisStaticFileS3SourceOptions)(nil)).Elem()
+}
+
+func (o AnalysisStaticFileS3SourceOptionsPtrOutput) ToAnalysisStaticFileS3SourceOptionsPtrOutput() AnalysisStaticFileS3SourceOptionsPtrOutput {
+	return o
+}
+
+func (o AnalysisStaticFileS3SourceOptionsPtrOutput) ToAnalysisStaticFileS3SourceOptionsPtrOutputWithContext(ctx context.Context) AnalysisStaticFileS3SourceOptionsPtrOutput {
+	return o
+}
+
+func (o AnalysisStaticFileS3SourceOptionsPtrOutput) Elem() AnalysisStaticFileS3SourceOptionsOutput {
+	return o.ApplyT(func(v *AnalysisStaticFileS3SourceOptions) AnalysisStaticFileS3SourceOptions {
+		if v != nil {
+			return *v
+		}
+		var ret AnalysisStaticFileS3SourceOptions
+		return ret
+	}).(AnalysisStaticFileS3SourceOptionsOutput)
+}
+
+// The name of the Amazon S3 bucket.
+func (o AnalysisStaticFileS3SourceOptionsPtrOutput) BucketName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AnalysisStaticFileS3SourceOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.BucketName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The identifier of the static file in the Amazon S3 bucket.
+func (o AnalysisStaticFileS3SourceOptionsPtrOutput) ObjectKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AnalysisStaticFileS3SourceOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ObjectKey
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Region of the Amazon S3 account that contains the bucket.
+func (o AnalysisStaticFileS3SourceOptionsPtrOutput) Region() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AnalysisStaticFileS3SourceOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Region
+	}).(pulumi.StringPtrOutput)
+}
+
+type AnalysisStaticFileSource struct {
+	// The structure that contains the Amazon S3 location to download the static file from.
+	S3Options *AnalysisStaticFileS3SourceOptions `pulumi:"s3Options"`
+	// The structure that contains the URL to download the static file from.
+	UrlOptions *AnalysisStaticFileUrlSourceOptions `pulumi:"urlOptions"`
+}
+
+// AnalysisStaticFileSourceInput is an input type that accepts AnalysisStaticFileSourceArgs and AnalysisStaticFileSourceOutput values.
+// You can construct a concrete instance of `AnalysisStaticFileSourceInput` via:
+//
+//	AnalysisStaticFileSourceArgs{...}
+type AnalysisStaticFileSourceInput interface {
+	pulumi.Input
+
+	ToAnalysisStaticFileSourceOutput() AnalysisStaticFileSourceOutput
+	ToAnalysisStaticFileSourceOutputWithContext(context.Context) AnalysisStaticFileSourceOutput
+}
+
+type AnalysisStaticFileSourceArgs struct {
+	// The structure that contains the Amazon S3 location to download the static file from.
+	S3Options AnalysisStaticFileS3SourceOptionsPtrInput `pulumi:"s3Options"`
+	// The structure that contains the URL to download the static file from.
+	UrlOptions AnalysisStaticFileUrlSourceOptionsPtrInput `pulumi:"urlOptions"`
+}
+
+func (AnalysisStaticFileSourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisStaticFileSource)(nil)).Elem()
+}
+
+func (i AnalysisStaticFileSourceArgs) ToAnalysisStaticFileSourceOutput() AnalysisStaticFileSourceOutput {
+	return i.ToAnalysisStaticFileSourceOutputWithContext(context.Background())
+}
+
+func (i AnalysisStaticFileSourceArgs) ToAnalysisStaticFileSourceOutputWithContext(ctx context.Context) AnalysisStaticFileSourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalysisStaticFileSourceOutput)
+}
+
+func (i AnalysisStaticFileSourceArgs) ToAnalysisStaticFileSourcePtrOutput() AnalysisStaticFileSourcePtrOutput {
+	return i.ToAnalysisStaticFileSourcePtrOutputWithContext(context.Background())
+}
+
+func (i AnalysisStaticFileSourceArgs) ToAnalysisStaticFileSourcePtrOutputWithContext(ctx context.Context) AnalysisStaticFileSourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalysisStaticFileSourceOutput).ToAnalysisStaticFileSourcePtrOutputWithContext(ctx)
+}
+
+// AnalysisStaticFileSourcePtrInput is an input type that accepts AnalysisStaticFileSourceArgs, AnalysisStaticFileSourcePtr and AnalysisStaticFileSourcePtrOutput values.
+// You can construct a concrete instance of `AnalysisStaticFileSourcePtrInput` via:
+//
+//	        AnalysisStaticFileSourceArgs{...}
+//
+//	or:
+//
+//	        nil
+type AnalysisStaticFileSourcePtrInput interface {
+	pulumi.Input
+
+	ToAnalysisStaticFileSourcePtrOutput() AnalysisStaticFileSourcePtrOutput
+	ToAnalysisStaticFileSourcePtrOutputWithContext(context.Context) AnalysisStaticFileSourcePtrOutput
+}
+
+type analysisStaticFileSourcePtrType AnalysisStaticFileSourceArgs
+
+func AnalysisStaticFileSourcePtr(v *AnalysisStaticFileSourceArgs) AnalysisStaticFileSourcePtrInput {
+	return (*analysisStaticFileSourcePtrType)(v)
+}
+
+func (*analysisStaticFileSourcePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnalysisStaticFileSource)(nil)).Elem()
+}
+
+func (i *analysisStaticFileSourcePtrType) ToAnalysisStaticFileSourcePtrOutput() AnalysisStaticFileSourcePtrOutput {
+	return i.ToAnalysisStaticFileSourcePtrOutputWithContext(context.Background())
+}
+
+func (i *analysisStaticFileSourcePtrType) ToAnalysisStaticFileSourcePtrOutputWithContext(ctx context.Context) AnalysisStaticFileSourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalysisStaticFileSourcePtrOutput)
+}
+
+type AnalysisStaticFileSourceOutput struct{ *pulumi.OutputState }
+
+func (AnalysisStaticFileSourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisStaticFileSource)(nil)).Elem()
+}
+
+func (o AnalysisStaticFileSourceOutput) ToAnalysisStaticFileSourceOutput() AnalysisStaticFileSourceOutput {
+	return o
+}
+
+func (o AnalysisStaticFileSourceOutput) ToAnalysisStaticFileSourceOutputWithContext(ctx context.Context) AnalysisStaticFileSourceOutput {
+	return o
+}
+
+func (o AnalysisStaticFileSourceOutput) ToAnalysisStaticFileSourcePtrOutput() AnalysisStaticFileSourcePtrOutput {
+	return o.ToAnalysisStaticFileSourcePtrOutputWithContext(context.Background())
+}
+
+func (o AnalysisStaticFileSourceOutput) ToAnalysisStaticFileSourcePtrOutputWithContext(ctx context.Context) AnalysisStaticFileSourcePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnalysisStaticFileSource) *AnalysisStaticFileSource {
+		return &v
+	}).(AnalysisStaticFileSourcePtrOutput)
+}
+
+// The structure that contains the Amazon S3 location to download the static file from.
+func (o AnalysisStaticFileSourceOutput) S3Options() AnalysisStaticFileS3SourceOptionsPtrOutput {
+	return o.ApplyT(func(v AnalysisStaticFileSource) *AnalysisStaticFileS3SourceOptions { return v.S3Options }).(AnalysisStaticFileS3SourceOptionsPtrOutput)
+}
+
+// The structure that contains the URL to download the static file from.
+func (o AnalysisStaticFileSourceOutput) UrlOptions() AnalysisStaticFileUrlSourceOptionsPtrOutput {
+	return o.ApplyT(func(v AnalysisStaticFileSource) *AnalysisStaticFileUrlSourceOptions { return v.UrlOptions }).(AnalysisStaticFileUrlSourceOptionsPtrOutput)
+}
+
+type AnalysisStaticFileSourcePtrOutput struct{ *pulumi.OutputState }
+
+func (AnalysisStaticFileSourcePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnalysisStaticFileSource)(nil)).Elem()
+}
+
+func (o AnalysisStaticFileSourcePtrOutput) ToAnalysisStaticFileSourcePtrOutput() AnalysisStaticFileSourcePtrOutput {
+	return o
+}
+
+func (o AnalysisStaticFileSourcePtrOutput) ToAnalysisStaticFileSourcePtrOutputWithContext(ctx context.Context) AnalysisStaticFileSourcePtrOutput {
+	return o
+}
+
+func (o AnalysisStaticFileSourcePtrOutput) Elem() AnalysisStaticFileSourceOutput {
+	return o.ApplyT(func(v *AnalysisStaticFileSource) AnalysisStaticFileSource {
+		if v != nil {
+			return *v
+		}
+		var ret AnalysisStaticFileSource
+		return ret
+	}).(AnalysisStaticFileSourceOutput)
+}
+
+// The structure that contains the Amazon S3 location to download the static file from.
+func (o AnalysisStaticFileSourcePtrOutput) S3Options() AnalysisStaticFileS3SourceOptionsPtrOutput {
+	return o.ApplyT(func(v *AnalysisStaticFileSource) *AnalysisStaticFileS3SourceOptions {
+		if v == nil {
+			return nil
+		}
+		return v.S3Options
+	}).(AnalysisStaticFileS3SourceOptionsPtrOutput)
+}
+
+// The structure that contains the URL to download the static file from.
+func (o AnalysisStaticFileSourcePtrOutput) UrlOptions() AnalysisStaticFileUrlSourceOptionsPtrOutput {
+	return o.ApplyT(func(v *AnalysisStaticFileSource) *AnalysisStaticFileUrlSourceOptions {
+		if v == nil {
+			return nil
+		}
+		return v.UrlOptions
+	}).(AnalysisStaticFileUrlSourceOptionsPtrOutput)
+}
+
+type AnalysisStaticFileUrlSourceOptions struct {
+	// The URL to download the static file from.
+	Url string `pulumi:"url"`
+}
+
+// AnalysisStaticFileUrlSourceOptionsInput is an input type that accepts AnalysisStaticFileUrlSourceOptionsArgs and AnalysisStaticFileUrlSourceOptionsOutput values.
+// You can construct a concrete instance of `AnalysisStaticFileUrlSourceOptionsInput` via:
+//
+//	AnalysisStaticFileUrlSourceOptionsArgs{...}
+type AnalysisStaticFileUrlSourceOptionsInput interface {
+	pulumi.Input
+
+	ToAnalysisStaticFileUrlSourceOptionsOutput() AnalysisStaticFileUrlSourceOptionsOutput
+	ToAnalysisStaticFileUrlSourceOptionsOutputWithContext(context.Context) AnalysisStaticFileUrlSourceOptionsOutput
+}
+
+type AnalysisStaticFileUrlSourceOptionsArgs struct {
+	// The URL to download the static file from.
+	Url pulumi.StringInput `pulumi:"url"`
+}
+
+func (AnalysisStaticFileUrlSourceOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisStaticFileUrlSourceOptions)(nil)).Elem()
+}
+
+func (i AnalysisStaticFileUrlSourceOptionsArgs) ToAnalysisStaticFileUrlSourceOptionsOutput() AnalysisStaticFileUrlSourceOptionsOutput {
+	return i.ToAnalysisStaticFileUrlSourceOptionsOutputWithContext(context.Background())
+}
+
+func (i AnalysisStaticFileUrlSourceOptionsArgs) ToAnalysisStaticFileUrlSourceOptionsOutputWithContext(ctx context.Context) AnalysisStaticFileUrlSourceOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalysisStaticFileUrlSourceOptionsOutput)
+}
+
+func (i AnalysisStaticFileUrlSourceOptionsArgs) ToAnalysisStaticFileUrlSourceOptionsPtrOutput() AnalysisStaticFileUrlSourceOptionsPtrOutput {
+	return i.ToAnalysisStaticFileUrlSourceOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i AnalysisStaticFileUrlSourceOptionsArgs) ToAnalysisStaticFileUrlSourceOptionsPtrOutputWithContext(ctx context.Context) AnalysisStaticFileUrlSourceOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalysisStaticFileUrlSourceOptionsOutput).ToAnalysisStaticFileUrlSourceOptionsPtrOutputWithContext(ctx)
+}
+
+// AnalysisStaticFileUrlSourceOptionsPtrInput is an input type that accepts AnalysisStaticFileUrlSourceOptionsArgs, AnalysisStaticFileUrlSourceOptionsPtr and AnalysisStaticFileUrlSourceOptionsPtrOutput values.
+// You can construct a concrete instance of `AnalysisStaticFileUrlSourceOptionsPtrInput` via:
+//
+//	        AnalysisStaticFileUrlSourceOptionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type AnalysisStaticFileUrlSourceOptionsPtrInput interface {
+	pulumi.Input
+
+	ToAnalysisStaticFileUrlSourceOptionsPtrOutput() AnalysisStaticFileUrlSourceOptionsPtrOutput
+	ToAnalysisStaticFileUrlSourceOptionsPtrOutputWithContext(context.Context) AnalysisStaticFileUrlSourceOptionsPtrOutput
+}
+
+type analysisStaticFileUrlSourceOptionsPtrType AnalysisStaticFileUrlSourceOptionsArgs
+
+func AnalysisStaticFileUrlSourceOptionsPtr(v *AnalysisStaticFileUrlSourceOptionsArgs) AnalysisStaticFileUrlSourceOptionsPtrInput {
+	return (*analysisStaticFileUrlSourceOptionsPtrType)(v)
+}
+
+func (*analysisStaticFileUrlSourceOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnalysisStaticFileUrlSourceOptions)(nil)).Elem()
+}
+
+func (i *analysisStaticFileUrlSourceOptionsPtrType) ToAnalysisStaticFileUrlSourceOptionsPtrOutput() AnalysisStaticFileUrlSourceOptionsPtrOutput {
+	return i.ToAnalysisStaticFileUrlSourceOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *analysisStaticFileUrlSourceOptionsPtrType) ToAnalysisStaticFileUrlSourceOptionsPtrOutputWithContext(ctx context.Context) AnalysisStaticFileUrlSourceOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalysisStaticFileUrlSourceOptionsPtrOutput)
+}
+
+type AnalysisStaticFileUrlSourceOptionsOutput struct{ *pulumi.OutputState }
+
+func (AnalysisStaticFileUrlSourceOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisStaticFileUrlSourceOptions)(nil)).Elem()
+}
+
+func (o AnalysisStaticFileUrlSourceOptionsOutput) ToAnalysisStaticFileUrlSourceOptionsOutput() AnalysisStaticFileUrlSourceOptionsOutput {
+	return o
+}
+
+func (o AnalysisStaticFileUrlSourceOptionsOutput) ToAnalysisStaticFileUrlSourceOptionsOutputWithContext(ctx context.Context) AnalysisStaticFileUrlSourceOptionsOutput {
+	return o
+}
+
+func (o AnalysisStaticFileUrlSourceOptionsOutput) ToAnalysisStaticFileUrlSourceOptionsPtrOutput() AnalysisStaticFileUrlSourceOptionsPtrOutput {
+	return o.ToAnalysisStaticFileUrlSourceOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o AnalysisStaticFileUrlSourceOptionsOutput) ToAnalysisStaticFileUrlSourceOptionsPtrOutputWithContext(ctx context.Context) AnalysisStaticFileUrlSourceOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnalysisStaticFileUrlSourceOptions) *AnalysisStaticFileUrlSourceOptions {
+		return &v
+	}).(AnalysisStaticFileUrlSourceOptionsPtrOutput)
+}
+
+// The URL to download the static file from.
+func (o AnalysisStaticFileUrlSourceOptionsOutput) Url() pulumi.StringOutput {
+	return o.ApplyT(func(v AnalysisStaticFileUrlSourceOptions) string { return v.Url }).(pulumi.StringOutput)
+}
+
+type AnalysisStaticFileUrlSourceOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (AnalysisStaticFileUrlSourceOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnalysisStaticFileUrlSourceOptions)(nil)).Elem()
+}
+
+func (o AnalysisStaticFileUrlSourceOptionsPtrOutput) ToAnalysisStaticFileUrlSourceOptionsPtrOutput() AnalysisStaticFileUrlSourceOptionsPtrOutput {
+	return o
+}
+
+func (o AnalysisStaticFileUrlSourceOptionsPtrOutput) ToAnalysisStaticFileUrlSourceOptionsPtrOutputWithContext(ctx context.Context) AnalysisStaticFileUrlSourceOptionsPtrOutput {
+	return o
+}
+
+func (o AnalysisStaticFileUrlSourceOptionsPtrOutput) Elem() AnalysisStaticFileUrlSourceOptionsOutput {
+	return o.ApplyT(func(v *AnalysisStaticFileUrlSourceOptions) AnalysisStaticFileUrlSourceOptions {
+		if v != nil {
+			return *v
+		}
+		var ret AnalysisStaticFileUrlSourceOptions
+		return ret
+	}).(AnalysisStaticFileUrlSourceOptionsOutput)
+}
+
+// The URL to download the static file from.
+func (o AnalysisStaticFileUrlSourceOptionsPtrOutput) Url() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AnalysisStaticFileUrlSourceOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Url
+	}).(pulumi.StringPtrOutput)
+}
+
+type AnalysisStringDefaultValues struct {
+	// The dynamic value of the `StringDefaultValues` . Different defaults displayed according to users, groups, and values mapping.
+	DynamicValue *AnalysisDynamicDefaultValue `pulumi:"dynamicValue"`
+	// The static values of the `DecimalDefaultValues` .
+	StaticValues []string `pulumi:"staticValues"`
+}
+
+// AnalysisStringDefaultValuesInput is an input type that accepts AnalysisStringDefaultValuesArgs and AnalysisStringDefaultValuesOutput values.
+// You can construct a concrete instance of `AnalysisStringDefaultValuesInput` via:
+//
+//	AnalysisStringDefaultValuesArgs{...}
+type AnalysisStringDefaultValuesInput interface {
+	pulumi.Input
+
+	ToAnalysisStringDefaultValuesOutput() AnalysisStringDefaultValuesOutput
+	ToAnalysisStringDefaultValuesOutputWithContext(context.Context) AnalysisStringDefaultValuesOutput
+}
+
+type AnalysisStringDefaultValuesArgs struct {
+	// The dynamic value of the `StringDefaultValues` . Different defaults displayed according to users, groups, and values mapping.
+	DynamicValue AnalysisDynamicDefaultValuePtrInput `pulumi:"dynamicValue"`
+	// The static values of the `DecimalDefaultValues` .
+	StaticValues pulumi.StringArrayInput `pulumi:"staticValues"`
+}
+
+func (AnalysisStringDefaultValuesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisStringDefaultValues)(nil)).Elem()
+}
+
+func (i AnalysisStringDefaultValuesArgs) ToAnalysisStringDefaultValuesOutput() AnalysisStringDefaultValuesOutput {
+	return i.ToAnalysisStringDefaultValuesOutputWithContext(context.Background())
+}
+
+func (i AnalysisStringDefaultValuesArgs) ToAnalysisStringDefaultValuesOutputWithContext(ctx context.Context) AnalysisStringDefaultValuesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalysisStringDefaultValuesOutput)
+}
+
+func (i AnalysisStringDefaultValuesArgs) ToAnalysisStringDefaultValuesPtrOutput() AnalysisStringDefaultValuesPtrOutput {
+	return i.ToAnalysisStringDefaultValuesPtrOutputWithContext(context.Background())
+}
+
+func (i AnalysisStringDefaultValuesArgs) ToAnalysisStringDefaultValuesPtrOutputWithContext(ctx context.Context) AnalysisStringDefaultValuesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalysisStringDefaultValuesOutput).ToAnalysisStringDefaultValuesPtrOutputWithContext(ctx)
+}
+
+// AnalysisStringDefaultValuesPtrInput is an input type that accepts AnalysisStringDefaultValuesArgs, AnalysisStringDefaultValuesPtr and AnalysisStringDefaultValuesPtrOutput values.
+// You can construct a concrete instance of `AnalysisStringDefaultValuesPtrInput` via:
+//
+//	        AnalysisStringDefaultValuesArgs{...}
+//
+//	or:
+//
+//	        nil
+type AnalysisStringDefaultValuesPtrInput interface {
+	pulumi.Input
+
+	ToAnalysisStringDefaultValuesPtrOutput() AnalysisStringDefaultValuesPtrOutput
+	ToAnalysisStringDefaultValuesPtrOutputWithContext(context.Context) AnalysisStringDefaultValuesPtrOutput
+}
+
+type analysisStringDefaultValuesPtrType AnalysisStringDefaultValuesArgs
+
+func AnalysisStringDefaultValuesPtr(v *AnalysisStringDefaultValuesArgs) AnalysisStringDefaultValuesPtrInput {
+	return (*analysisStringDefaultValuesPtrType)(v)
+}
+
+func (*analysisStringDefaultValuesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnalysisStringDefaultValues)(nil)).Elem()
+}
+
+func (i *analysisStringDefaultValuesPtrType) ToAnalysisStringDefaultValuesPtrOutput() AnalysisStringDefaultValuesPtrOutput {
+	return i.ToAnalysisStringDefaultValuesPtrOutputWithContext(context.Background())
+}
+
+func (i *analysisStringDefaultValuesPtrType) ToAnalysisStringDefaultValuesPtrOutputWithContext(ctx context.Context) AnalysisStringDefaultValuesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalysisStringDefaultValuesPtrOutput)
+}
+
+type AnalysisStringDefaultValuesOutput struct{ *pulumi.OutputState }
+
+func (AnalysisStringDefaultValuesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisStringDefaultValues)(nil)).Elem()
+}
+
+func (o AnalysisStringDefaultValuesOutput) ToAnalysisStringDefaultValuesOutput() AnalysisStringDefaultValuesOutput {
+	return o
+}
+
+func (o AnalysisStringDefaultValuesOutput) ToAnalysisStringDefaultValuesOutputWithContext(ctx context.Context) AnalysisStringDefaultValuesOutput {
+	return o
+}
+
+func (o AnalysisStringDefaultValuesOutput) ToAnalysisStringDefaultValuesPtrOutput() AnalysisStringDefaultValuesPtrOutput {
+	return o.ToAnalysisStringDefaultValuesPtrOutputWithContext(context.Background())
+}
+
+func (o AnalysisStringDefaultValuesOutput) ToAnalysisStringDefaultValuesPtrOutputWithContext(ctx context.Context) AnalysisStringDefaultValuesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnalysisStringDefaultValues) *AnalysisStringDefaultValues {
+		return &v
+	}).(AnalysisStringDefaultValuesPtrOutput)
+}
+
+// The dynamic value of the `StringDefaultValues` . Different defaults displayed according to users, groups, and values mapping.
+func (o AnalysisStringDefaultValuesOutput) DynamicValue() AnalysisDynamicDefaultValuePtrOutput {
+	return o.ApplyT(func(v AnalysisStringDefaultValues) *AnalysisDynamicDefaultValue { return v.DynamicValue }).(AnalysisDynamicDefaultValuePtrOutput)
+}
+
+// The static values of the `DecimalDefaultValues` .
+func (o AnalysisStringDefaultValuesOutput) StaticValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AnalysisStringDefaultValues) []string { return v.StaticValues }).(pulumi.StringArrayOutput)
+}
+
+type AnalysisStringDefaultValuesPtrOutput struct{ *pulumi.OutputState }
+
+func (AnalysisStringDefaultValuesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnalysisStringDefaultValues)(nil)).Elem()
+}
+
+func (o AnalysisStringDefaultValuesPtrOutput) ToAnalysisStringDefaultValuesPtrOutput() AnalysisStringDefaultValuesPtrOutput {
+	return o
+}
+
+func (o AnalysisStringDefaultValuesPtrOutput) ToAnalysisStringDefaultValuesPtrOutputWithContext(ctx context.Context) AnalysisStringDefaultValuesPtrOutput {
+	return o
+}
+
+func (o AnalysisStringDefaultValuesPtrOutput) Elem() AnalysisStringDefaultValuesOutput {
+	return o.ApplyT(func(v *AnalysisStringDefaultValues) AnalysisStringDefaultValues {
+		if v != nil {
+			return *v
+		}
+		var ret AnalysisStringDefaultValues
+		return ret
+	}).(AnalysisStringDefaultValuesOutput)
+}
+
+// The dynamic value of the `StringDefaultValues` . Different defaults displayed according to users, groups, and values mapping.
+func (o AnalysisStringDefaultValuesPtrOutput) DynamicValue() AnalysisDynamicDefaultValuePtrOutput {
+	return o.ApplyT(func(v *AnalysisStringDefaultValues) *AnalysisDynamicDefaultValue {
+		if v == nil {
+			return nil
+		}
+		return v.DynamicValue
+	}).(AnalysisDynamicDefaultValuePtrOutput)
+}
+
+// The static values of the `DecimalDefaultValues` .
+func (o AnalysisStringDefaultValuesPtrOutput) StaticValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AnalysisStringDefaultValues) []string {
+		if v == nil {
+			return nil
+		}
+		return v.StaticValues
+	}).(pulumi.StringArrayOutput)
+}
+
+type AnalysisStringFormatConfiguration struct {
+	// The options that determine the null value format configuration.
+	NullValueFormatConfiguration *AnalysisNullValueFormatConfiguration `pulumi:"nullValueFormatConfiguration"`
+	// The formatting configuration for numeric strings.
+	NumericFormatConfiguration *AnalysisNumericFormatConfiguration `pulumi:"numericFormatConfiguration"`
+}
+
+// AnalysisStringFormatConfigurationInput is an input type that accepts AnalysisStringFormatConfigurationArgs and AnalysisStringFormatConfigurationOutput values.
+// You can construct a concrete instance of `AnalysisStringFormatConfigurationInput` via:
+//
+//	AnalysisStringFormatConfigurationArgs{...}
+type AnalysisStringFormatConfigurationInput interface {
+	pulumi.Input
+
+	ToAnalysisStringFormatConfigurationOutput() AnalysisStringFormatConfigurationOutput
+	ToAnalysisStringFormatConfigurationOutputWithContext(context.Context) AnalysisStringFormatConfigurationOutput
+}
+
+type AnalysisStringFormatConfigurationArgs struct {
+	// The options that determine the null value format configuration.
+	NullValueFormatConfiguration AnalysisNullValueFormatConfigurationPtrInput `pulumi:"nullValueFormatConfiguration"`
+	// The formatting configuration for numeric strings.
+	NumericFormatConfiguration AnalysisNumericFormatConfigurationPtrInput `pulumi:"numericFormatConfiguration"`
+}
+
+func (AnalysisStringFormatConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisStringFormatConfiguration)(nil)).Elem()
+}
+
+func (i AnalysisStringFormatConfigurationArgs) ToAnalysisStringFormatConfigurationOutput() AnalysisStringFormatConfigurationOutput {
+	return i.ToAnalysisStringFormatConfigurationOutputWithContext(context.Background())
+}
+
+func (i AnalysisStringFormatConfigurationArgs) ToAnalysisStringFormatConfigurationOutputWithContext(ctx context.Context) AnalysisStringFormatConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalysisStringFormatConfigurationOutput)
+}
+
+func (i AnalysisStringFormatConfigurationArgs) ToAnalysisStringFormatConfigurationPtrOutput() AnalysisStringFormatConfigurationPtrOutput {
+	return i.ToAnalysisStringFormatConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i AnalysisStringFormatConfigurationArgs) ToAnalysisStringFormatConfigurationPtrOutputWithContext(ctx context.Context) AnalysisStringFormatConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalysisStringFormatConfigurationOutput).ToAnalysisStringFormatConfigurationPtrOutputWithContext(ctx)
+}
+
+// AnalysisStringFormatConfigurationPtrInput is an input type that accepts AnalysisStringFormatConfigurationArgs, AnalysisStringFormatConfigurationPtr and AnalysisStringFormatConfigurationPtrOutput values.
+// You can construct a concrete instance of `AnalysisStringFormatConfigurationPtrInput` via:
+//
+//	        AnalysisStringFormatConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type AnalysisStringFormatConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToAnalysisStringFormatConfigurationPtrOutput() AnalysisStringFormatConfigurationPtrOutput
+	ToAnalysisStringFormatConfigurationPtrOutputWithContext(context.Context) AnalysisStringFormatConfigurationPtrOutput
+}
+
+type analysisStringFormatConfigurationPtrType AnalysisStringFormatConfigurationArgs
+
+func AnalysisStringFormatConfigurationPtr(v *AnalysisStringFormatConfigurationArgs) AnalysisStringFormatConfigurationPtrInput {
+	return (*analysisStringFormatConfigurationPtrType)(v)
+}
+
+func (*analysisStringFormatConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnalysisStringFormatConfiguration)(nil)).Elem()
+}
+
+func (i *analysisStringFormatConfigurationPtrType) ToAnalysisStringFormatConfigurationPtrOutput() AnalysisStringFormatConfigurationPtrOutput {
+	return i.ToAnalysisStringFormatConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *analysisStringFormatConfigurationPtrType) ToAnalysisStringFormatConfigurationPtrOutputWithContext(ctx context.Context) AnalysisStringFormatConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalysisStringFormatConfigurationPtrOutput)
+}
+
+type AnalysisStringFormatConfigurationOutput struct{ *pulumi.OutputState }
+
+func (AnalysisStringFormatConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisStringFormatConfiguration)(nil)).Elem()
+}
+
+func (o AnalysisStringFormatConfigurationOutput) ToAnalysisStringFormatConfigurationOutput() AnalysisStringFormatConfigurationOutput {
+	return o
+}
+
+func (o AnalysisStringFormatConfigurationOutput) ToAnalysisStringFormatConfigurationOutputWithContext(ctx context.Context) AnalysisStringFormatConfigurationOutput {
+	return o
+}
+
+func (o AnalysisStringFormatConfigurationOutput) ToAnalysisStringFormatConfigurationPtrOutput() AnalysisStringFormatConfigurationPtrOutput {
+	return o.ToAnalysisStringFormatConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o AnalysisStringFormatConfigurationOutput) ToAnalysisStringFormatConfigurationPtrOutputWithContext(ctx context.Context) AnalysisStringFormatConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnalysisStringFormatConfiguration) *AnalysisStringFormatConfiguration {
+		return &v
+	}).(AnalysisStringFormatConfigurationPtrOutput)
+}
+
+// The options that determine the null value format configuration.
+func (o AnalysisStringFormatConfigurationOutput) NullValueFormatConfiguration() AnalysisNullValueFormatConfigurationPtrOutput {
+	return o.ApplyT(func(v AnalysisStringFormatConfiguration) *AnalysisNullValueFormatConfiguration {
+		return v.NullValueFormatConfiguration
+	}).(AnalysisNullValueFormatConfigurationPtrOutput)
+}
+
+// The formatting configuration for numeric strings.
+func (o AnalysisStringFormatConfigurationOutput) NumericFormatConfiguration() AnalysisNumericFormatConfigurationPtrOutput {
+	return o.ApplyT(func(v AnalysisStringFormatConfiguration) *AnalysisNumericFormatConfiguration {
+		return v.NumericFormatConfiguration
+	}).(AnalysisNumericFormatConfigurationPtrOutput)
+}
+
+type AnalysisStringFormatConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (AnalysisStringFormatConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnalysisStringFormatConfiguration)(nil)).Elem()
+}
+
+func (o AnalysisStringFormatConfigurationPtrOutput) ToAnalysisStringFormatConfigurationPtrOutput() AnalysisStringFormatConfigurationPtrOutput {
+	return o
+}
+
+func (o AnalysisStringFormatConfigurationPtrOutput) ToAnalysisStringFormatConfigurationPtrOutputWithContext(ctx context.Context) AnalysisStringFormatConfigurationPtrOutput {
+	return o
+}
+
+func (o AnalysisStringFormatConfigurationPtrOutput) Elem() AnalysisStringFormatConfigurationOutput {
+	return o.ApplyT(func(v *AnalysisStringFormatConfiguration) AnalysisStringFormatConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret AnalysisStringFormatConfiguration
+		return ret
+	}).(AnalysisStringFormatConfigurationOutput)
+}
+
+// The options that determine the null value format configuration.
+func (o AnalysisStringFormatConfigurationPtrOutput) NullValueFormatConfiguration() AnalysisNullValueFormatConfigurationPtrOutput {
+	return o.ApplyT(func(v *AnalysisStringFormatConfiguration) *AnalysisNullValueFormatConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.NullValueFormatConfiguration
+	}).(AnalysisNullValueFormatConfigurationPtrOutput)
+}
+
+// The formatting configuration for numeric strings.
+func (o AnalysisStringFormatConfigurationPtrOutput) NumericFormatConfiguration() AnalysisNumericFormatConfigurationPtrOutput {
+	return o.ApplyT(func(v *AnalysisStringFormatConfiguration) *AnalysisNumericFormatConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.NumericFormatConfiguration
+	}).(AnalysisNumericFormatConfigurationPtrOutput)
+}
+
+// <p>A string parameter.</p>
+type AnalysisStringParameter struct {
+	// <p>A display name for a string parameter.</p>
+	Name string `pulumi:"name"`
+	// <p>The values of a string parameter.</p>
+	Values []string `pulumi:"values"`
+}
+
+// AnalysisStringParameterInput is an input type that accepts AnalysisStringParameterArgs and AnalysisStringParameterOutput values.
+// You can construct a concrete instance of `AnalysisStringParameterInput` via:
+//
+//	AnalysisStringParameterArgs{...}
+type AnalysisStringParameterInput interface {
+	pulumi.Input
+
+	ToAnalysisStringParameterOutput() AnalysisStringParameterOutput
+	ToAnalysisStringParameterOutputWithContext(context.Context) AnalysisStringParameterOutput
+}
+
+// <p>A string parameter.</p>
+type AnalysisStringParameterArgs struct {
+	// <p>A display name for a string parameter.</p>
+	Name pulumi.StringInput `pulumi:"name"`
+	// <p>The values of a string parameter.</p>
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (AnalysisStringParameterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisStringParameter)(nil)).Elem()
+}
+
+func (i AnalysisStringParameterArgs) ToAnalysisStringParameterOutput() AnalysisStringParameterOutput {
+	return i.ToAnalysisStringParameterOutputWithContext(context.Background())
+}
+
+func (i AnalysisStringParameterArgs) ToAnalysisStringParameterOutputWithContext(ctx context.Context) AnalysisStringParameterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalysisStringParameterOutput)
+}
+
+// AnalysisStringParameterArrayInput is an input type that accepts AnalysisStringParameterArray and AnalysisStringParameterArrayOutput values.
+// You can construct a concrete instance of `AnalysisStringParameterArrayInput` via:
+//
+//	AnalysisStringParameterArray{ AnalysisStringParameterArgs{...} }
+type AnalysisStringParameterArrayInput interface {
+	pulumi.Input
+
+	ToAnalysisStringParameterArrayOutput() AnalysisStringParameterArrayOutput
+	ToAnalysisStringParameterArrayOutputWithContext(context.Context) AnalysisStringParameterArrayOutput
+}
+
+type AnalysisStringParameterArray []AnalysisStringParameterInput
+
+func (AnalysisStringParameterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AnalysisStringParameter)(nil)).Elem()
+}
+
+func (i AnalysisStringParameterArray) ToAnalysisStringParameterArrayOutput() AnalysisStringParameterArrayOutput {
+	return i.ToAnalysisStringParameterArrayOutputWithContext(context.Background())
+}
+
+func (i AnalysisStringParameterArray) ToAnalysisStringParameterArrayOutputWithContext(ctx context.Context) AnalysisStringParameterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalysisStringParameterArrayOutput)
+}
+
+// <p>A string parameter.</p>
+type AnalysisStringParameterOutput struct{ *pulumi.OutputState }
+
+func (AnalysisStringParameterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisStringParameter)(nil)).Elem()
+}
+
+func (o AnalysisStringParameterOutput) ToAnalysisStringParameterOutput() AnalysisStringParameterOutput {
+	return o
+}
+
+func (o AnalysisStringParameterOutput) ToAnalysisStringParameterOutputWithContext(ctx context.Context) AnalysisStringParameterOutput {
+	return o
+}
+
+// <p>A display name for a string parameter.</p>
+func (o AnalysisStringParameterOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v AnalysisStringParameter) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// <p>The values of a string parameter.</p>
+func (o AnalysisStringParameterOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AnalysisStringParameter) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type AnalysisStringParameterArrayOutput struct{ *pulumi.OutputState }
+
+func (AnalysisStringParameterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AnalysisStringParameter)(nil)).Elem()
+}
+
+func (o AnalysisStringParameterArrayOutput) ToAnalysisStringParameterArrayOutput() AnalysisStringParameterArrayOutput {
+	return o
+}
+
+func (o AnalysisStringParameterArrayOutput) ToAnalysisStringParameterArrayOutputWithContext(ctx context.Context) AnalysisStringParameterArrayOutput {
+	return o
+}
+
+func (o AnalysisStringParameterArrayOutput) Index(i pulumi.IntInput) AnalysisStringParameterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AnalysisStringParameter {
+		return vs[0].([]AnalysisStringParameter)[vs[1].(int)]
+	}).(AnalysisStringParameterOutput)
+}
+
+type AnalysisStringParameterDeclaration struct {
+	// The default values of a parameter. If the parameter is a single-value parameter, a maximum of one default value can be provided.
+	DefaultValues           *AnalysisStringDefaultValues     `pulumi:"defaultValues"`
+	MappedDataSetParameters []AnalysisMappedDataSetParameter `pulumi:"mappedDataSetParameters"`
+	// The name of the parameter that is being declared.
+	Name string `pulumi:"name"`
+	// The value type determines whether the parameter is a single-value or multi-value parameter.
+	ParameterValueType AnalysisParameterValueType `pulumi:"parameterValueType"`
+	// The configuration that defines the default value of a `String` parameter when a value has not been set.
+	ValueWhenUnset *AnalysisStringValueWhenUnsetConfiguration `pulumi:"valueWhenUnset"`
+}
+
+// AnalysisStringParameterDeclarationInput is an input type that accepts AnalysisStringParameterDeclarationArgs and AnalysisStringParameterDeclarationOutput values.
+// You can construct a concrete instance of `AnalysisStringParameterDeclarationInput` via:
+//
+//	AnalysisStringParameterDeclarationArgs{...}
+type AnalysisStringParameterDeclarationInput interface {
+	pulumi.Input
+
+	ToAnalysisStringParameterDeclarationOutput() AnalysisStringParameterDeclarationOutput
+	ToAnalysisStringParameterDeclarationOutputWithContext(context.Context) AnalysisStringParameterDeclarationOutput
+}
+
+type AnalysisStringParameterDeclarationArgs struct {
+	// The default values of a parameter. If the parameter is a single-value parameter, a maximum of one default value can be provided.
+	DefaultValues           AnalysisStringDefaultValuesPtrInput      `pulumi:"defaultValues"`
+	MappedDataSetParameters AnalysisMappedDataSetParameterArrayInput `pulumi:"mappedDataSetParameters"`
+	// The name of the parameter that is being declared.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The value type determines whether the parameter is a single-value or multi-value parameter.
+	ParameterValueType AnalysisParameterValueTypeInput `pulumi:"parameterValueType"`
+	// The configuration that defines the default value of a `String` parameter when a value has not been set.
+	ValueWhenUnset AnalysisStringValueWhenUnsetConfigurationPtrInput `pulumi:"valueWhenUnset"`
+}
+
+func (AnalysisStringParameterDeclarationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisStringParameterDeclaration)(nil)).Elem()
+}
+
+func (i AnalysisStringParameterDeclarationArgs) ToAnalysisStringParameterDeclarationOutput() AnalysisStringParameterDeclarationOutput {
+	return i.ToAnalysisStringParameterDeclarationOutputWithContext(context.Background())
+}
+
+func (i AnalysisStringParameterDeclarationArgs) ToAnalysisStringParameterDeclarationOutputWithContext(ctx context.Context) AnalysisStringParameterDeclarationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalysisStringParameterDeclarationOutput)
+}
+
+func (i AnalysisStringParameterDeclarationArgs) ToAnalysisStringParameterDeclarationPtrOutput() AnalysisStringParameterDeclarationPtrOutput {
+	return i.ToAnalysisStringParameterDeclarationPtrOutputWithContext(context.Background())
+}
+
+func (i AnalysisStringParameterDeclarationArgs) ToAnalysisStringParameterDeclarationPtrOutputWithContext(ctx context.Context) AnalysisStringParameterDeclarationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalysisStringParameterDeclarationOutput).ToAnalysisStringParameterDeclarationPtrOutputWithContext(ctx)
+}
+
+// AnalysisStringParameterDeclarationPtrInput is an input type that accepts AnalysisStringParameterDeclarationArgs, AnalysisStringParameterDeclarationPtr and AnalysisStringParameterDeclarationPtrOutput values.
+// You can construct a concrete instance of `AnalysisStringParameterDeclarationPtrInput` via:
+//
+//	        AnalysisStringParameterDeclarationArgs{...}
+//
+//	or:
+//
+//	        nil
+type AnalysisStringParameterDeclarationPtrInput interface {
+	pulumi.Input
+
+	ToAnalysisStringParameterDeclarationPtrOutput() AnalysisStringParameterDeclarationPtrOutput
+	ToAnalysisStringParameterDeclarationPtrOutputWithContext(context.Context) AnalysisStringParameterDeclarationPtrOutput
+}
+
+type analysisStringParameterDeclarationPtrType AnalysisStringParameterDeclarationArgs
+
+func AnalysisStringParameterDeclarationPtr(v *AnalysisStringParameterDeclarationArgs) AnalysisStringParameterDeclarationPtrInput {
+	return (*analysisStringParameterDeclarationPtrType)(v)
+}
+
+func (*analysisStringParameterDeclarationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnalysisStringParameterDeclaration)(nil)).Elem()
+}
+
+func (i *analysisStringParameterDeclarationPtrType) ToAnalysisStringParameterDeclarationPtrOutput() AnalysisStringParameterDeclarationPtrOutput {
+	return i.ToAnalysisStringParameterDeclarationPtrOutputWithContext(context.Background())
+}
+
+func (i *analysisStringParameterDeclarationPtrType) ToAnalysisStringParameterDeclarationPtrOutputWithContext(ctx context.Context) AnalysisStringParameterDeclarationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalysisStringParameterDeclarationPtrOutput)
+}
+
+type AnalysisStringParameterDeclarationOutput struct{ *pulumi.OutputState }
+
+func (AnalysisStringParameterDeclarationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisStringParameterDeclaration)(nil)).Elem()
+}
+
+func (o AnalysisStringParameterDeclarationOutput) ToAnalysisStringParameterDeclarationOutput() AnalysisStringParameterDeclarationOutput {
+	return o
+}
+
+func (o AnalysisStringParameterDeclarationOutput) ToAnalysisStringParameterDeclarationOutputWithContext(ctx context.Context) AnalysisStringParameterDeclarationOutput {
+	return o
+}
+
+func (o AnalysisStringParameterDeclarationOutput) ToAnalysisStringParameterDeclarationPtrOutput() AnalysisStringParameterDeclarationPtrOutput {
+	return o.ToAnalysisStringParameterDeclarationPtrOutputWithContext(context.Background())
+}
+
+func (o AnalysisStringParameterDeclarationOutput) ToAnalysisStringParameterDeclarationPtrOutputWithContext(ctx context.Context) AnalysisStringParameterDeclarationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnalysisStringParameterDeclaration) *AnalysisStringParameterDeclaration {
+		return &v
+	}).(AnalysisStringParameterDeclarationPtrOutput)
+}
+
+// The default values of a parameter. If the parameter is a single-value parameter, a maximum of one default value can be provided.
+func (o AnalysisStringParameterDeclarationOutput) DefaultValues() AnalysisStringDefaultValuesPtrOutput {
+	return o.ApplyT(func(v AnalysisStringParameterDeclaration) *AnalysisStringDefaultValues { return v.DefaultValues }).(AnalysisStringDefaultValuesPtrOutput)
+}
+
+func (o AnalysisStringParameterDeclarationOutput) MappedDataSetParameters() AnalysisMappedDataSetParameterArrayOutput {
+	return o.ApplyT(func(v AnalysisStringParameterDeclaration) []AnalysisMappedDataSetParameter {
+		return v.MappedDataSetParameters
+	}).(AnalysisMappedDataSetParameterArrayOutput)
+}
+
+// The name of the parameter that is being declared.
+func (o AnalysisStringParameterDeclarationOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v AnalysisStringParameterDeclaration) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The value type determines whether the parameter is a single-value or multi-value parameter.
+func (o AnalysisStringParameterDeclarationOutput) ParameterValueType() AnalysisParameterValueTypeOutput {
+	return o.ApplyT(func(v AnalysisStringParameterDeclaration) AnalysisParameterValueType { return v.ParameterValueType }).(AnalysisParameterValueTypeOutput)
+}
+
+// The configuration that defines the default value of a `String` parameter when a value has not been set.
+func (o AnalysisStringParameterDeclarationOutput) ValueWhenUnset() AnalysisStringValueWhenUnsetConfigurationPtrOutput {
+	return o.ApplyT(func(v AnalysisStringParameterDeclaration) *AnalysisStringValueWhenUnsetConfiguration {
+		return v.ValueWhenUnset
+	}).(AnalysisStringValueWhenUnsetConfigurationPtrOutput)
+}
+
+type AnalysisStringParameterDeclarationPtrOutput struct{ *pulumi.OutputState }
+
+func (AnalysisStringParameterDeclarationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnalysisStringParameterDeclaration)(nil)).Elem()
+}
+
+func (o AnalysisStringParameterDeclarationPtrOutput) ToAnalysisStringParameterDeclarationPtrOutput() AnalysisStringParameterDeclarationPtrOutput {
+	return o
+}
+
+func (o AnalysisStringParameterDeclarationPtrOutput) ToAnalysisStringParameterDeclarationPtrOutputWithContext(ctx context.Context) AnalysisStringParameterDeclarationPtrOutput {
+	return o
+}
+
+func (o AnalysisStringParameterDeclarationPtrOutput) Elem() AnalysisStringParameterDeclarationOutput {
+	return o.ApplyT(func(v *AnalysisStringParameterDeclaration) AnalysisStringParameterDeclaration {
+		if v != nil {
+			return *v
+		}
+		var ret AnalysisStringParameterDeclaration
+		return ret
+	}).(AnalysisStringParameterDeclarationOutput)
+}
+
+// The default values of a parameter. If the parameter is a single-value parameter, a maximum of one default value can be provided.
+func (o AnalysisStringParameterDeclarationPtrOutput) DefaultValues() AnalysisStringDefaultValuesPtrOutput {
+	return o.ApplyT(func(v *AnalysisStringParameterDeclaration) *AnalysisStringDefaultValues {
+		if v == nil {
+			return nil
+		}
+		return v.DefaultValues
+	}).(AnalysisStringDefaultValuesPtrOutput)
+}
+
+func (o AnalysisStringParameterDeclarationPtrOutput) MappedDataSetParameters() AnalysisMappedDataSetParameterArrayOutput {
+	return o.ApplyT(func(v *AnalysisStringParameterDeclaration) []AnalysisMappedDataSetParameter {
+		if v == nil {
+			return nil
+		}
+		return v.MappedDataSetParameters
+	}).(AnalysisMappedDataSetParameterArrayOutput)
+}
+
+// The name of the parameter that is being declared.
+func (o AnalysisStringParameterDeclarationPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AnalysisStringParameterDeclaration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// The value type determines whether the parameter is a single-value or multi-value parameter.
+func (o AnalysisStringParameterDeclarationPtrOutput) ParameterValueType() AnalysisParameterValueTypePtrOutput {
+	return o.ApplyT(func(v *AnalysisStringParameterDeclaration) *AnalysisParameterValueType {
+		if v == nil {
+			return nil
+		}
+		return &v.ParameterValueType
+	}).(AnalysisParameterValueTypePtrOutput)
+}
+
+// The configuration that defines the default value of a `String` parameter when a value has not been set.
+func (o AnalysisStringParameterDeclarationPtrOutput) ValueWhenUnset() AnalysisStringValueWhenUnsetConfigurationPtrOutput {
+	return o.ApplyT(func(v *AnalysisStringParameterDeclaration) *AnalysisStringValueWhenUnsetConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.ValueWhenUnset
+	}).(AnalysisStringValueWhenUnsetConfigurationPtrOutput)
+}
+
+type AnalysisStringValueWhenUnsetConfiguration struct {
+	// A custom value that's used when the value of a parameter isn't set.
+	CustomValue *string `pulumi:"customValue"`
+	// The built-in options for default values. The value can be one of the following:
+	//
+	// - `RECOMMENDED` : The recommended value.
+	// - `NULL` : The `NULL` value.
+	ValueWhenUnsetOption *AnalysisValueWhenUnsetOption `pulumi:"valueWhenUnsetOption"`
+}
+
+// AnalysisStringValueWhenUnsetConfigurationInput is an input type that accepts AnalysisStringValueWhenUnsetConfigurationArgs and AnalysisStringValueWhenUnsetConfigurationOutput values.
+// You can construct a concrete instance of `AnalysisStringValueWhenUnsetConfigurationInput` via:
+//
+//	AnalysisStringValueWhenUnsetConfigurationArgs{...}
+type AnalysisStringValueWhenUnsetConfigurationInput interface {
+	pulumi.Input
+
+	ToAnalysisStringValueWhenUnsetConfigurationOutput() AnalysisStringValueWhenUnsetConfigurationOutput
+	ToAnalysisStringValueWhenUnsetConfigurationOutputWithContext(context.Context) AnalysisStringValueWhenUnsetConfigurationOutput
+}
+
+type AnalysisStringValueWhenUnsetConfigurationArgs struct {
+	// A custom value that's used when the value of a parameter isn't set.
+	CustomValue pulumi.StringPtrInput `pulumi:"customValue"`
+	// The built-in options for default values. The value can be one of the following:
+	//
+	// - `RECOMMENDED` : The recommended value.
+	// - `NULL` : The `NULL` value.
+	ValueWhenUnsetOption AnalysisValueWhenUnsetOptionPtrInput `pulumi:"valueWhenUnsetOption"`
+}
+
+func (AnalysisStringValueWhenUnsetConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisStringValueWhenUnsetConfiguration)(nil)).Elem()
+}
+
+func (i AnalysisStringValueWhenUnsetConfigurationArgs) ToAnalysisStringValueWhenUnsetConfigurationOutput() AnalysisStringValueWhenUnsetConfigurationOutput {
+	return i.ToAnalysisStringValueWhenUnsetConfigurationOutputWithContext(context.Background())
+}
+
+func (i AnalysisStringValueWhenUnsetConfigurationArgs) ToAnalysisStringValueWhenUnsetConfigurationOutputWithContext(ctx context.Context) AnalysisStringValueWhenUnsetConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalysisStringValueWhenUnsetConfigurationOutput)
+}
+
+func (i AnalysisStringValueWhenUnsetConfigurationArgs) ToAnalysisStringValueWhenUnsetConfigurationPtrOutput() AnalysisStringValueWhenUnsetConfigurationPtrOutput {
+	return i.ToAnalysisStringValueWhenUnsetConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i AnalysisStringValueWhenUnsetConfigurationArgs) ToAnalysisStringValueWhenUnsetConfigurationPtrOutputWithContext(ctx context.Context) AnalysisStringValueWhenUnsetConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalysisStringValueWhenUnsetConfigurationOutput).ToAnalysisStringValueWhenUnsetConfigurationPtrOutputWithContext(ctx)
+}
+
+// AnalysisStringValueWhenUnsetConfigurationPtrInput is an input type that accepts AnalysisStringValueWhenUnsetConfigurationArgs, AnalysisStringValueWhenUnsetConfigurationPtr and AnalysisStringValueWhenUnsetConfigurationPtrOutput values.
+// You can construct a concrete instance of `AnalysisStringValueWhenUnsetConfigurationPtrInput` via:
+//
+//	        AnalysisStringValueWhenUnsetConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type AnalysisStringValueWhenUnsetConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToAnalysisStringValueWhenUnsetConfigurationPtrOutput() AnalysisStringValueWhenUnsetConfigurationPtrOutput
+	ToAnalysisStringValueWhenUnsetConfigurationPtrOutputWithContext(context.Context) AnalysisStringValueWhenUnsetConfigurationPtrOutput
+}
+
+type analysisStringValueWhenUnsetConfigurationPtrType AnalysisStringValueWhenUnsetConfigurationArgs
+
+func AnalysisStringValueWhenUnsetConfigurationPtr(v *AnalysisStringValueWhenUnsetConfigurationArgs) AnalysisStringValueWhenUnsetConfigurationPtrInput {
+	return (*analysisStringValueWhenUnsetConfigurationPtrType)(v)
+}
+
+func (*analysisStringValueWhenUnsetConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnalysisStringValueWhenUnsetConfiguration)(nil)).Elem()
+}
+
+func (i *analysisStringValueWhenUnsetConfigurationPtrType) ToAnalysisStringValueWhenUnsetConfigurationPtrOutput() AnalysisStringValueWhenUnsetConfigurationPtrOutput {
+	return i.ToAnalysisStringValueWhenUnsetConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *analysisStringValueWhenUnsetConfigurationPtrType) ToAnalysisStringValueWhenUnsetConfigurationPtrOutputWithContext(ctx context.Context) AnalysisStringValueWhenUnsetConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalysisStringValueWhenUnsetConfigurationPtrOutput)
+}
+
+type AnalysisStringValueWhenUnsetConfigurationOutput struct{ *pulumi.OutputState }
+
+func (AnalysisStringValueWhenUnsetConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisStringValueWhenUnsetConfiguration)(nil)).Elem()
+}
+
+func (o AnalysisStringValueWhenUnsetConfigurationOutput) ToAnalysisStringValueWhenUnsetConfigurationOutput() AnalysisStringValueWhenUnsetConfigurationOutput {
+	return o
+}
+
+func (o AnalysisStringValueWhenUnsetConfigurationOutput) ToAnalysisStringValueWhenUnsetConfigurationOutputWithContext(ctx context.Context) AnalysisStringValueWhenUnsetConfigurationOutput {
+	return o
+}
+
+func (o AnalysisStringValueWhenUnsetConfigurationOutput) ToAnalysisStringValueWhenUnsetConfigurationPtrOutput() AnalysisStringValueWhenUnsetConfigurationPtrOutput {
+	return o.ToAnalysisStringValueWhenUnsetConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o AnalysisStringValueWhenUnsetConfigurationOutput) ToAnalysisStringValueWhenUnsetConfigurationPtrOutputWithContext(ctx context.Context) AnalysisStringValueWhenUnsetConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnalysisStringValueWhenUnsetConfiguration) *AnalysisStringValueWhenUnsetConfiguration {
+		return &v
+	}).(AnalysisStringValueWhenUnsetConfigurationPtrOutput)
+}
+
+// A custom value that's used when the value of a parameter isn't set.
+func (o AnalysisStringValueWhenUnsetConfigurationOutput) CustomValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AnalysisStringValueWhenUnsetConfiguration) *string { return v.CustomValue }).(pulumi.StringPtrOutput)
+}
+
+// The built-in options for default values. The value can be one of the following:
+//
+// - `RECOMMENDED` : The recommended value.
+// - `NULL` : The `NULL` value.
+func (o AnalysisStringValueWhenUnsetConfigurationOutput) ValueWhenUnsetOption() AnalysisValueWhenUnsetOptionPtrOutput {
+	return o.ApplyT(func(v AnalysisStringValueWhenUnsetConfiguration) *AnalysisValueWhenUnsetOption {
+		return v.ValueWhenUnsetOption
+	}).(AnalysisValueWhenUnsetOptionPtrOutput)
+}
+
+type AnalysisStringValueWhenUnsetConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (AnalysisStringValueWhenUnsetConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnalysisStringValueWhenUnsetConfiguration)(nil)).Elem()
+}
+
+func (o AnalysisStringValueWhenUnsetConfigurationPtrOutput) ToAnalysisStringValueWhenUnsetConfigurationPtrOutput() AnalysisStringValueWhenUnsetConfigurationPtrOutput {
+	return o
+}
+
+func (o AnalysisStringValueWhenUnsetConfigurationPtrOutput) ToAnalysisStringValueWhenUnsetConfigurationPtrOutputWithContext(ctx context.Context) AnalysisStringValueWhenUnsetConfigurationPtrOutput {
+	return o
+}
+
+func (o AnalysisStringValueWhenUnsetConfigurationPtrOutput) Elem() AnalysisStringValueWhenUnsetConfigurationOutput {
+	return o.ApplyT(func(v *AnalysisStringValueWhenUnsetConfiguration) AnalysisStringValueWhenUnsetConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret AnalysisStringValueWhenUnsetConfiguration
+		return ret
+	}).(AnalysisStringValueWhenUnsetConfigurationOutput)
+}
+
+// A custom value that's used when the value of a parameter isn't set.
+func (o AnalysisStringValueWhenUnsetConfigurationPtrOutput) CustomValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AnalysisStringValueWhenUnsetConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CustomValue
+	}).(pulumi.StringPtrOutput)
+}
+
+// The built-in options for default values. The value can be one of the following:
+//
+// - `RECOMMENDED` : The recommended value.
+// - `NULL` : The `NULL` value.
+func (o AnalysisStringValueWhenUnsetConfigurationPtrOutput) ValueWhenUnsetOption() AnalysisValueWhenUnsetOptionPtrOutput {
+	return o.ApplyT(func(v *AnalysisStringValueWhenUnsetConfiguration) *AnalysisValueWhenUnsetOption {
+		if v == nil {
+			return nil
+		}
+		return v.ValueWhenUnsetOption
+	}).(AnalysisValueWhenUnsetOptionPtrOutput)
+}
+
 type AnalysisSubtotalOptions struct {
 	// The custom label string for the subtotal cells.
 	CustomLabel *string `pulumi:"customLabel"`
@@ -3097,7 +5082,8 @@ func (o AnalysisTableFieldWellsPtrOutput) TableUnaggregatedFieldWells() Analysis
 
 type AnalysisTableInlineVisualization struct {
 	// The configuration of the inline visualization of the data bars within a chart.
-	DataBars *AnalysisDataBarsOptions `pulumi:"dataBars"`
+	DataBars   *AnalysisDataBarsOptions   `pulumi:"dataBars"`
+	Sparklines *AnalysisSparklinesOptions `pulumi:"sparklines"`
 }
 
 // AnalysisTableInlineVisualizationInput is an input type that accepts AnalysisTableInlineVisualizationArgs and AnalysisTableInlineVisualizationOutput values.
@@ -3113,7 +5099,8 @@ type AnalysisTableInlineVisualizationInput interface {
 
 type AnalysisTableInlineVisualizationArgs struct {
 	// The configuration of the inline visualization of the data bars within a chart.
-	DataBars AnalysisDataBarsOptionsPtrInput `pulumi:"dataBars"`
+	DataBars   AnalysisDataBarsOptionsPtrInput   `pulumi:"dataBars"`
+	Sparklines AnalysisSparklinesOptionsPtrInput `pulumi:"sparklines"`
 }
 
 func (AnalysisTableInlineVisualizationArgs) ElementType() reflect.Type {
@@ -3170,6 +5157,10 @@ func (o AnalysisTableInlineVisualizationOutput) ToAnalysisTableInlineVisualizati
 // The configuration of the inline visualization of the data bars within a chart.
 func (o AnalysisTableInlineVisualizationOutput) DataBars() AnalysisDataBarsOptionsPtrOutput {
 	return o.ApplyT(func(v AnalysisTableInlineVisualization) *AnalysisDataBarsOptions { return v.DataBars }).(AnalysisDataBarsOptionsPtrOutput)
+}
+
+func (o AnalysisTableInlineVisualizationOutput) Sparklines() AnalysisSparklinesOptionsPtrOutput {
+	return o.ApplyT(func(v AnalysisTableInlineVisualization) *AnalysisSparklinesOptions { return v.Sparklines }).(AnalysisSparklinesOptionsPtrOutput)
 }
 
 type AnalysisTableInlineVisualizationArrayOutput struct{ *pulumi.OutputState }
@@ -7859,6 +9850,206 @@ func (o AnalysisTopBottomRankedComputationPtrOutput) Value() AnalysisMeasureFiel
 		}
 		return v.Value
 	}).(AnalysisMeasureFieldPtrOutput)
+}
+
+type AnalysisTopicIdentifierDeclaration struct {
+	Identifier string `pulumi:"identifier"`
+	TopicArn   string `pulumi:"topicArn"`
+}
+
+// AnalysisTopicIdentifierDeclarationInput is an input type that accepts AnalysisTopicIdentifierDeclarationArgs and AnalysisTopicIdentifierDeclarationOutput values.
+// You can construct a concrete instance of `AnalysisTopicIdentifierDeclarationInput` via:
+//
+//	AnalysisTopicIdentifierDeclarationArgs{...}
+type AnalysisTopicIdentifierDeclarationInput interface {
+	pulumi.Input
+
+	ToAnalysisTopicIdentifierDeclarationOutput() AnalysisTopicIdentifierDeclarationOutput
+	ToAnalysisTopicIdentifierDeclarationOutputWithContext(context.Context) AnalysisTopicIdentifierDeclarationOutput
+}
+
+type AnalysisTopicIdentifierDeclarationArgs struct {
+	Identifier pulumi.StringInput `pulumi:"identifier"`
+	TopicArn   pulumi.StringInput `pulumi:"topicArn"`
+}
+
+func (AnalysisTopicIdentifierDeclarationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisTopicIdentifierDeclaration)(nil)).Elem()
+}
+
+func (i AnalysisTopicIdentifierDeclarationArgs) ToAnalysisTopicIdentifierDeclarationOutput() AnalysisTopicIdentifierDeclarationOutput {
+	return i.ToAnalysisTopicIdentifierDeclarationOutputWithContext(context.Background())
+}
+
+func (i AnalysisTopicIdentifierDeclarationArgs) ToAnalysisTopicIdentifierDeclarationOutputWithContext(ctx context.Context) AnalysisTopicIdentifierDeclarationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalysisTopicIdentifierDeclarationOutput)
+}
+
+// AnalysisTopicIdentifierDeclarationArrayInput is an input type that accepts AnalysisTopicIdentifierDeclarationArray and AnalysisTopicIdentifierDeclarationArrayOutput values.
+// You can construct a concrete instance of `AnalysisTopicIdentifierDeclarationArrayInput` via:
+//
+//	AnalysisTopicIdentifierDeclarationArray{ AnalysisTopicIdentifierDeclarationArgs{...} }
+type AnalysisTopicIdentifierDeclarationArrayInput interface {
+	pulumi.Input
+
+	ToAnalysisTopicIdentifierDeclarationArrayOutput() AnalysisTopicIdentifierDeclarationArrayOutput
+	ToAnalysisTopicIdentifierDeclarationArrayOutputWithContext(context.Context) AnalysisTopicIdentifierDeclarationArrayOutput
+}
+
+type AnalysisTopicIdentifierDeclarationArray []AnalysisTopicIdentifierDeclarationInput
+
+func (AnalysisTopicIdentifierDeclarationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AnalysisTopicIdentifierDeclaration)(nil)).Elem()
+}
+
+func (i AnalysisTopicIdentifierDeclarationArray) ToAnalysisTopicIdentifierDeclarationArrayOutput() AnalysisTopicIdentifierDeclarationArrayOutput {
+	return i.ToAnalysisTopicIdentifierDeclarationArrayOutputWithContext(context.Background())
+}
+
+func (i AnalysisTopicIdentifierDeclarationArray) ToAnalysisTopicIdentifierDeclarationArrayOutputWithContext(ctx context.Context) AnalysisTopicIdentifierDeclarationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalysisTopicIdentifierDeclarationArrayOutput)
+}
+
+type AnalysisTopicIdentifierDeclarationOutput struct{ *pulumi.OutputState }
+
+func (AnalysisTopicIdentifierDeclarationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisTopicIdentifierDeclaration)(nil)).Elem()
+}
+
+func (o AnalysisTopicIdentifierDeclarationOutput) ToAnalysisTopicIdentifierDeclarationOutput() AnalysisTopicIdentifierDeclarationOutput {
+	return o
+}
+
+func (o AnalysisTopicIdentifierDeclarationOutput) ToAnalysisTopicIdentifierDeclarationOutputWithContext(ctx context.Context) AnalysisTopicIdentifierDeclarationOutput {
+	return o
+}
+
+func (o AnalysisTopicIdentifierDeclarationOutput) Identifier() pulumi.StringOutput {
+	return o.ApplyT(func(v AnalysisTopicIdentifierDeclaration) string { return v.Identifier }).(pulumi.StringOutput)
+}
+
+func (o AnalysisTopicIdentifierDeclarationOutput) TopicArn() pulumi.StringOutput {
+	return o.ApplyT(func(v AnalysisTopicIdentifierDeclaration) string { return v.TopicArn }).(pulumi.StringOutput)
+}
+
+type AnalysisTopicIdentifierDeclarationArrayOutput struct{ *pulumi.OutputState }
+
+func (AnalysisTopicIdentifierDeclarationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AnalysisTopicIdentifierDeclaration)(nil)).Elem()
+}
+
+func (o AnalysisTopicIdentifierDeclarationArrayOutput) ToAnalysisTopicIdentifierDeclarationArrayOutput() AnalysisTopicIdentifierDeclarationArrayOutput {
+	return o
+}
+
+func (o AnalysisTopicIdentifierDeclarationArrayOutput) ToAnalysisTopicIdentifierDeclarationArrayOutputWithContext(ctx context.Context) AnalysisTopicIdentifierDeclarationArrayOutput {
+	return o
+}
+
+func (o AnalysisTopicIdentifierDeclarationArrayOutput) Index(i pulumi.IntInput) AnalysisTopicIdentifierDeclarationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AnalysisTopicIdentifierDeclaration {
+		return vs[0].([]AnalysisTopicIdentifierDeclaration)[vs[1].(int)]
+	}).(AnalysisTopicIdentifierDeclarationOutput)
+}
+
+type AnalysisTopicReference struct {
+	TopicArn         string `pulumi:"topicArn"`
+	TopicPlaceholder string `pulumi:"topicPlaceholder"`
+}
+
+// AnalysisTopicReferenceInput is an input type that accepts AnalysisTopicReferenceArgs and AnalysisTopicReferenceOutput values.
+// You can construct a concrete instance of `AnalysisTopicReferenceInput` via:
+//
+//	AnalysisTopicReferenceArgs{...}
+type AnalysisTopicReferenceInput interface {
+	pulumi.Input
+
+	ToAnalysisTopicReferenceOutput() AnalysisTopicReferenceOutput
+	ToAnalysisTopicReferenceOutputWithContext(context.Context) AnalysisTopicReferenceOutput
+}
+
+type AnalysisTopicReferenceArgs struct {
+	TopicArn         pulumi.StringInput `pulumi:"topicArn"`
+	TopicPlaceholder pulumi.StringInput `pulumi:"topicPlaceholder"`
+}
+
+func (AnalysisTopicReferenceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisTopicReference)(nil)).Elem()
+}
+
+func (i AnalysisTopicReferenceArgs) ToAnalysisTopicReferenceOutput() AnalysisTopicReferenceOutput {
+	return i.ToAnalysisTopicReferenceOutputWithContext(context.Background())
+}
+
+func (i AnalysisTopicReferenceArgs) ToAnalysisTopicReferenceOutputWithContext(ctx context.Context) AnalysisTopicReferenceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalysisTopicReferenceOutput)
+}
+
+// AnalysisTopicReferenceArrayInput is an input type that accepts AnalysisTopicReferenceArray and AnalysisTopicReferenceArrayOutput values.
+// You can construct a concrete instance of `AnalysisTopicReferenceArrayInput` via:
+//
+//	AnalysisTopicReferenceArray{ AnalysisTopicReferenceArgs{...} }
+type AnalysisTopicReferenceArrayInput interface {
+	pulumi.Input
+
+	ToAnalysisTopicReferenceArrayOutput() AnalysisTopicReferenceArrayOutput
+	ToAnalysisTopicReferenceArrayOutputWithContext(context.Context) AnalysisTopicReferenceArrayOutput
+}
+
+type AnalysisTopicReferenceArray []AnalysisTopicReferenceInput
+
+func (AnalysisTopicReferenceArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AnalysisTopicReference)(nil)).Elem()
+}
+
+func (i AnalysisTopicReferenceArray) ToAnalysisTopicReferenceArrayOutput() AnalysisTopicReferenceArrayOutput {
+	return i.ToAnalysisTopicReferenceArrayOutputWithContext(context.Background())
+}
+
+func (i AnalysisTopicReferenceArray) ToAnalysisTopicReferenceArrayOutputWithContext(ctx context.Context) AnalysisTopicReferenceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalysisTopicReferenceArrayOutput)
+}
+
+type AnalysisTopicReferenceOutput struct{ *pulumi.OutputState }
+
+func (AnalysisTopicReferenceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisTopicReference)(nil)).Elem()
+}
+
+func (o AnalysisTopicReferenceOutput) ToAnalysisTopicReferenceOutput() AnalysisTopicReferenceOutput {
+	return o
+}
+
+func (o AnalysisTopicReferenceOutput) ToAnalysisTopicReferenceOutputWithContext(ctx context.Context) AnalysisTopicReferenceOutput {
+	return o
+}
+
+func (o AnalysisTopicReferenceOutput) TopicArn() pulumi.StringOutput {
+	return o.ApplyT(func(v AnalysisTopicReference) string { return v.TopicArn }).(pulumi.StringOutput)
+}
+
+func (o AnalysisTopicReferenceOutput) TopicPlaceholder() pulumi.StringOutput {
+	return o.ApplyT(func(v AnalysisTopicReference) string { return v.TopicPlaceholder }).(pulumi.StringOutput)
+}
+
+type AnalysisTopicReferenceArrayOutput struct{ *pulumi.OutputState }
+
+func (AnalysisTopicReferenceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AnalysisTopicReference)(nil)).Elem()
+}
+
+func (o AnalysisTopicReferenceArrayOutput) ToAnalysisTopicReferenceArrayOutput() AnalysisTopicReferenceArrayOutput {
+	return o
+}
+
+func (o AnalysisTopicReferenceArrayOutput) ToAnalysisTopicReferenceArrayOutputWithContext(ctx context.Context) AnalysisTopicReferenceArrayOutput {
+	return o
+}
+
+func (o AnalysisTopicReferenceArrayOutput) Index(i pulumi.IntInput) AnalysisTopicReferenceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AnalysisTopicReference {
+		return vs[0].([]AnalysisTopicReference)[vs[1].(int)]
+	}).(AnalysisTopicReferenceOutput)
 }
 
 type AnalysisTotalAggregationComputation struct {
@@ -22770,7 +24961,8 @@ type DashboardBarChartConfiguration struct {
 	// The contribution analysis (anomaly configuration) setup of the visual.
 	ContributionAnalysisDefaults []DashboardContributionAnalysisDefault `pulumi:"contributionAnalysisDefaults"`
 	// The options that determine if visual data labels are displayed.
-	DataLabels *DashboardDataLabelOptions `pulumi:"dataLabels"`
+	DataLabels            *DashboardDataLabelOptions              `pulumi:"dataLabels"`
+	DefaultSeriesSettings *DashboardBarChartDefaultSeriesSettings `pulumi:"defaultSeriesSettings"`
 	// The field wells of the visual.
 	FieldWells *DashboardBarChartFieldWells `pulumi:"fieldWells"`
 	// The general visual interactions setup for a visual.
@@ -22784,6 +24976,7 @@ type DashboardBarChartConfiguration struct {
 	Orientation *DashboardBarChartOrientation `pulumi:"orientation"`
 	// The reference line setup of the visual.
 	ReferenceLines []DashboardReferenceLine `pulumi:"referenceLines"`
+	Series         []DashboardBarSeriesItem `pulumi:"series"`
 	// The small multiples setup for the visual.
 	SmallMultiplesOptions *DashboardSmallMultiplesOptions `pulumi:"smallMultiplesOptions"`
 	// The sort configuration of a `BarChartVisual` .
@@ -22821,7 +25014,8 @@ type DashboardBarChartConfigurationArgs struct {
 	// The contribution analysis (anomaly configuration) setup of the visual.
 	ContributionAnalysisDefaults DashboardContributionAnalysisDefaultArrayInput `pulumi:"contributionAnalysisDefaults"`
 	// The options that determine if visual data labels are displayed.
-	DataLabels DashboardDataLabelOptionsPtrInput `pulumi:"dataLabels"`
+	DataLabels            DashboardDataLabelOptionsPtrInput              `pulumi:"dataLabels"`
+	DefaultSeriesSettings DashboardBarChartDefaultSeriesSettingsPtrInput `pulumi:"defaultSeriesSettings"`
 	// The field wells of the visual.
 	FieldWells DashboardBarChartFieldWellsPtrInput `pulumi:"fieldWells"`
 	// The general visual interactions setup for a visual.
@@ -22835,6 +25029,7 @@ type DashboardBarChartConfigurationArgs struct {
 	Orientation DashboardBarChartOrientationPtrInput `pulumi:"orientation"`
 	// The reference line setup of the visual.
 	ReferenceLines DashboardReferenceLineArrayInput `pulumi:"referenceLines"`
+	Series         DashboardBarSeriesItemArrayInput `pulumi:"series"`
 	// The small multiples setup for the visual.
 	SmallMultiplesOptions DashboardSmallMultiplesOptionsPtrInput `pulumi:"smallMultiplesOptions"`
 	// The sort configuration of a `BarChartVisual` .
@@ -22958,6 +25153,12 @@ func (o DashboardBarChartConfigurationOutput) DataLabels() DashboardDataLabelOpt
 	return o.ApplyT(func(v DashboardBarChartConfiguration) *DashboardDataLabelOptions { return v.DataLabels }).(DashboardDataLabelOptionsPtrOutput)
 }
 
+func (o DashboardBarChartConfigurationOutput) DefaultSeriesSettings() DashboardBarChartDefaultSeriesSettingsPtrOutput {
+	return o.ApplyT(func(v DashboardBarChartConfiguration) *DashboardBarChartDefaultSeriesSettings {
+		return v.DefaultSeriesSettings
+	}).(DashboardBarChartDefaultSeriesSettingsPtrOutput)
+}
+
 // The field wells of the visual.
 func (o DashboardBarChartConfigurationOutput) FieldWells() DashboardBarChartFieldWellsPtrOutput {
 	return o.ApplyT(func(v DashboardBarChartConfiguration) *DashboardBarChartFieldWells { return v.FieldWells }).(DashboardBarChartFieldWellsPtrOutput)
@@ -22984,6 +25185,10 @@ func (o DashboardBarChartConfigurationOutput) Orientation() DashboardBarChartOri
 // The reference line setup of the visual.
 func (o DashboardBarChartConfigurationOutput) ReferenceLines() DashboardReferenceLineArrayOutput {
 	return o.ApplyT(func(v DashboardBarChartConfiguration) []DashboardReferenceLine { return v.ReferenceLines }).(DashboardReferenceLineArrayOutput)
+}
+
+func (o DashboardBarChartConfigurationOutput) Series() DashboardBarSeriesItemArrayOutput {
+	return o.ApplyT(func(v DashboardBarChartConfiguration) []DashboardBarSeriesItem { return v.Series }).(DashboardBarSeriesItemArrayOutput)
 }
 
 // The small multiples setup for the visual.
@@ -23100,6 +25305,15 @@ func (o DashboardBarChartConfigurationPtrOutput) DataLabels() DashboardDataLabel
 	}).(DashboardDataLabelOptionsPtrOutput)
 }
 
+func (o DashboardBarChartConfigurationPtrOutput) DefaultSeriesSettings() DashboardBarChartDefaultSeriesSettingsPtrOutput {
+	return o.ApplyT(func(v *DashboardBarChartConfiguration) *DashboardBarChartDefaultSeriesSettings {
+		if v == nil {
+			return nil
+		}
+		return v.DefaultSeriesSettings
+	}).(DashboardBarChartDefaultSeriesSettingsPtrOutput)
+}
+
 // The field wells of the visual.
 func (o DashboardBarChartConfigurationPtrOutput) FieldWells() DashboardBarChartFieldWellsPtrOutput {
 	return o.ApplyT(func(v *DashboardBarChartConfiguration) *DashboardBarChartFieldWells {
@@ -23151,6 +25365,15 @@ func (o DashboardBarChartConfigurationPtrOutput) ReferenceLines() DashboardRefer
 		}
 		return v.ReferenceLines
 	}).(DashboardReferenceLineArrayOutput)
+}
+
+func (o DashboardBarChartConfigurationPtrOutput) Series() DashboardBarSeriesItemArrayOutput {
+	return o.ApplyT(func(v *DashboardBarChartConfiguration) []DashboardBarSeriesItem {
+		if v == nil {
+			return nil
+		}
+		return v.Series
+	}).(DashboardBarSeriesItemArrayOutput)
 }
 
 // The small multiples setup for the visual.
@@ -23211,6 +25434,154 @@ func (o DashboardBarChartConfigurationPtrOutput) VisualPalette() DashboardVisual
 		}
 		return v.VisualPalette
 	}).(DashboardVisualPalettePtrOutput)
+}
+
+type DashboardBarChartDefaultSeriesSettings struct {
+	BorderSettings *DashboardBorderSettings `pulumi:"borderSettings"`
+	DecalSettings  *DashboardDecalSettings  `pulumi:"decalSettings"`
+}
+
+// DashboardBarChartDefaultSeriesSettingsInput is an input type that accepts DashboardBarChartDefaultSeriesSettingsArgs and DashboardBarChartDefaultSeriesSettingsOutput values.
+// You can construct a concrete instance of `DashboardBarChartDefaultSeriesSettingsInput` via:
+//
+//	DashboardBarChartDefaultSeriesSettingsArgs{...}
+type DashboardBarChartDefaultSeriesSettingsInput interface {
+	pulumi.Input
+
+	ToDashboardBarChartDefaultSeriesSettingsOutput() DashboardBarChartDefaultSeriesSettingsOutput
+	ToDashboardBarChartDefaultSeriesSettingsOutputWithContext(context.Context) DashboardBarChartDefaultSeriesSettingsOutput
+}
+
+type DashboardBarChartDefaultSeriesSettingsArgs struct {
+	BorderSettings DashboardBorderSettingsPtrInput `pulumi:"borderSettings"`
+	DecalSettings  DashboardDecalSettingsPtrInput  `pulumi:"decalSettings"`
+}
+
+func (DashboardBarChartDefaultSeriesSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardBarChartDefaultSeriesSettings)(nil)).Elem()
+}
+
+func (i DashboardBarChartDefaultSeriesSettingsArgs) ToDashboardBarChartDefaultSeriesSettingsOutput() DashboardBarChartDefaultSeriesSettingsOutput {
+	return i.ToDashboardBarChartDefaultSeriesSettingsOutputWithContext(context.Background())
+}
+
+func (i DashboardBarChartDefaultSeriesSettingsArgs) ToDashboardBarChartDefaultSeriesSettingsOutputWithContext(ctx context.Context) DashboardBarChartDefaultSeriesSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardBarChartDefaultSeriesSettingsOutput)
+}
+
+func (i DashboardBarChartDefaultSeriesSettingsArgs) ToDashboardBarChartDefaultSeriesSettingsPtrOutput() DashboardBarChartDefaultSeriesSettingsPtrOutput {
+	return i.ToDashboardBarChartDefaultSeriesSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i DashboardBarChartDefaultSeriesSettingsArgs) ToDashboardBarChartDefaultSeriesSettingsPtrOutputWithContext(ctx context.Context) DashboardBarChartDefaultSeriesSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardBarChartDefaultSeriesSettingsOutput).ToDashboardBarChartDefaultSeriesSettingsPtrOutputWithContext(ctx)
+}
+
+// DashboardBarChartDefaultSeriesSettingsPtrInput is an input type that accepts DashboardBarChartDefaultSeriesSettingsArgs, DashboardBarChartDefaultSeriesSettingsPtr and DashboardBarChartDefaultSeriesSettingsPtrOutput values.
+// You can construct a concrete instance of `DashboardBarChartDefaultSeriesSettingsPtrInput` via:
+//
+//	        DashboardBarChartDefaultSeriesSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type DashboardBarChartDefaultSeriesSettingsPtrInput interface {
+	pulumi.Input
+
+	ToDashboardBarChartDefaultSeriesSettingsPtrOutput() DashboardBarChartDefaultSeriesSettingsPtrOutput
+	ToDashboardBarChartDefaultSeriesSettingsPtrOutputWithContext(context.Context) DashboardBarChartDefaultSeriesSettingsPtrOutput
+}
+
+type dashboardBarChartDefaultSeriesSettingsPtrType DashboardBarChartDefaultSeriesSettingsArgs
+
+func DashboardBarChartDefaultSeriesSettingsPtr(v *DashboardBarChartDefaultSeriesSettingsArgs) DashboardBarChartDefaultSeriesSettingsPtrInput {
+	return (*dashboardBarChartDefaultSeriesSettingsPtrType)(v)
+}
+
+func (*dashboardBarChartDefaultSeriesSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DashboardBarChartDefaultSeriesSettings)(nil)).Elem()
+}
+
+func (i *dashboardBarChartDefaultSeriesSettingsPtrType) ToDashboardBarChartDefaultSeriesSettingsPtrOutput() DashboardBarChartDefaultSeriesSettingsPtrOutput {
+	return i.ToDashboardBarChartDefaultSeriesSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *dashboardBarChartDefaultSeriesSettingsPtrType) ToDashboardBarChartDefaultSeriesSettingsPtrOutputWithContext(ctx context.Context) DashboardBarChartDefaultSeriesSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardBarChartDefaultSeriesSettingsPtrOutput)
+}
+
+type DashboardBarChartDefaultSeriesSettingsOutput struct{ *pulumi.OutputState }
+
+func (DashboardBarChartDefaultSeriesSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardBarChartDefaultSeriesSettings)(nil)).Elem()
+}
+
+func (o DashboardBarChartDefaultSeriesSettingsOutput) ToDashboardBarChartDefaultSeriesSettingsOutput() DashboardBarChartDefaultSeriesSettingsOutput {
+	return o
+}
+
+func (o DashboardBarChartDefaultSeriesSettingsOutput) ToDashboardBarChartDefaultSeriesSettingsOutputWithContext(ctx context.Context) DashboardBarChartDefaultSeriesSettingsOutput {
+	return o
+}
+
+func (o DashboardBarChartDefaultSeriesSettingsOutput) ToDashboardBarChartDefaultSeriesSettingsPtrOutput() DashboardBarChartDefaultSeriesSettingsPtrOutput {
+	return o.ToDashboardBarChartDefaultSeriesSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o DashboardBarChartDefaultSeriesSettingsOutput) ToDashboardBarChartDefaultSeriesSettingsPtrOutputWithContext(ctx context.Context) DashboardBarChartDefaultSeriesSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardBarChartDefaultSeriesSettings) *DashboardBarChartDefaultSeriesSettings {
+		return &v
+	}).(DashboardBarChartDefaultSeriesSettingsPtrOutput)
+}
+
+func (o DashboardBarChartDefaultSeriesSettingsOutput) BorderSettings() DashboardBorderSettingsPtrOutput {
+	return o.ApplyT(func(v DashboardBarChartDefaultSeriesSettings) *DashboardBorderSettings { return v.BorderSettings }).(DashboardBorderSettingsPtrOutput)
+}
+
+func (o DashboardBarChartDefaultSeriesSettingsOutput) DecalSettings() DashboardDecalSettingsPtrOutput {
+	return o.ApplyT(func(v DashboardBarChartDefaultSeriesSettings) *DashboardDecalSettings { return v.DecalSettings }).(DashboardDecalSettingsPtrOutput)
+}
+
+type DashboardBarChartDefaultSeriesSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (DashboardBarChartDefaultSeriesSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DashboardBarChartDefaultSeriesSettings)(nil)).Elem()
+}
+
+func (o DashboardBarChartDefaultSeriesSettingsPtrOutput) ToDashboardBarChartDefaultSeriesSettingsPtrOutput() DashboardBarChartDefaultSeriesSettingsPtrOutput {
+	return o
+}
+
+func (o DashboardBarChartDefaultSeriesSettingsPtrOutput) ToDashboardBarChartDefaultSeriesSettingsPtrOutputWithContext(ctx context.Context) DashboardBarChartDefaultSeriesSettingsPtrOutput {
+	return o
+}
+
+func (o DashboardBarChartDefaultSeriesSettingsPtrOutput) Elem() DashboardBarChartDefaultSeriesSettingsOutput {
+	return o.ApplyT(func(v *DashboardBarChartDefaultSeriesSettings) DashboardBarChartDefaultSeriesSettings {
+		if v != nil {
+			return *v
+		}
+		var ret DashboardBarChartDefaultSeriesSettings
+		return ret
+	}).(DashboardBarChartDefaultSeriesSettingsOutput)
+}
+
+func (o DashboardBarChartDefaultSeriesSettingsPtrOutput) BorderSettings() DashboardBorderSettingsPtrOutput {
+	return o.ApplyT(func(v *DashboardBarChartDefaultSeriesSettings) *DashboardBorderSettings {
+		if v == nil {
+			return nil
+		}
+		return v.BorderSettings
+	}).(DashboardBorderSettingsPtrOutput)
+}
+
+func (o DashboardBarChartDefaultSeriesSettingsPtrOutput) DecalSettings() DashboardDecalSettingsPtrOutput {
+	return o.ApplyT(func(v *DashboardBarChartDefaultSeriesSettings) *DashboardDecalSettings {
+		if v == nil {
+			return nil
+		}
+		return v.DecalSettings
+	}).(DashboardDecalSettingsPtrOutput)
 }
 
 type DashboardBarChartFieldWells struct {
@@ -23837,6 +26208,94 @@ func (o DashboardBarChartVisualPtrOutput) VisualId() pulumi.StringPtrOutput {
 		}
 		return &v.VisualId
 	}).(pulumi.StringPtrOutput)
+}
+
+type DashboardBarSeriesItem struct {
+}
+
+// DashboardBarSeriesItemInput is an input type that accepts DashboardBarSeriesItemArgs and DashboardBarSeriesItemOutput values.
+// You can construct a concrete instance of `DashboardBarSeriesItemInput` via:
+//
+//	DashboardBarSeriesItemArgs{...}
+type DashboardBarSeriesItemInput interface {
+	pulumi.Input
+
+	ToDashboardBarSeriesItemOutput() DashboardBarSeriesItemOutput
+	ToDashboardBarSeriesItemOutputWithContext(context.Context) DashboardBarSeriesItemOutput
+}
+
+type DashboardBarSeriesItemArgs struct {
+}
+
+func (DashboardBarSeriesItemArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardBarSeriesItem)(nil)).Elem()
+}
+
+func (i DashboardBarSeriesItemArgs) ToDashboardBarSeriesItemOutput() DashboardBarSeriesItemOutput {
+	return i.ToDashboardBarSeriesItemOutputWithContext(context.Background())
+}
+
+func (i DashboardBarSeriesItemArgs) ToDashboardBarSeriesItemOutputWithContext(ctx context.Context) DashboardBarSeriesItemOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardBarSeriesItemOutput)
+}
+
+// DashboardBarSeriesItemArrayInput is an input type that accepts DashboardBarSeriesItemArray and DashboardBarSeriesItemArrayOutput values.
+// You can construct a concrete instance of `DashboardBarSeriesItemArrayInput` via:
+//
+//	DashboardBarSeriesItemArray{ DashboardBarSeriesItemArgs{...} }
+type DashboardBarSeriesItemArrayInput interface {
+	pulumi.Input
+
+	ToDashboardBarSeriesItemArrayOutput() DashboardBarSeriesItemArrayOutput
+	ToDashboardBarSeriesItemArrayOutputWithContext(context.Context) DashboardBarSeriesItemArrayOutput
+}
+
+type DashboardBarSeriesItemArray []DashboardBarSeriesItemInput
+
+func (DashboardBarSeriesItemArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DashboardBarSeriesItem)(nil)).Elem()
+}
+
+func (i DashboardBarSeriesItemArray) ToDashboardBarSeriesItemArrayOutput() DashboardBarSeriesItemArrayOutput {
+	return i.ToDashboardBarSeriesItemArrayOutputWithContext(context.Background())
+}
+
+func (i DashboardBarSeriesItemArray) ToDashboardBarSeriesItemArrayOutputWithContext(ctx context.Context) DashboardBarSeriesItemArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardBarSeriesItemArrayOutput)
+}
+
+type DashboardBarSeriesItemOutput struct{ *pulumi.OutputState }
+
+func (DashboardBarSeriesItemOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardBarSeriesItem)(nil)).Elem()
+}
+
+func (o DashboardBarSeriesItemOutput) ToDashboardBarSeriesItemOutput() DashboardBarSeriesItemOutput {
+	return o
+}
+
+func (o DashboardBarSeriesItemOutput) ToDashboardBarSeriesItemOutputWithContext(ctx context.Context) DashboardBarSeriesItemOutput {
+	return o
+}
+
+type DashboardBarSeriesItemArrayOutput struct{ *pulumi.OutputState }
+
+func (DashboardBarSeriesItemArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DashboardBarSeriesItem)(nil)).Elem()
+}
+
+func (o DashboardBarSeriesItemArrayOutput) ToDashboardBarSeriesItemArrayOutput() DashboardBarSeriesItemArrayOutput {
+	return o
+}
+
+func (o DashboardBarSeriesItemArrayOutput) ToDashboardBarSeriesItemArrayOutputWithContext(ctx context.Context) DashboardBarSeriesItemArrayOutput {
+	return o
+}
+
+func (o DashboardBarSeriesItemArrayOutput) Index(i pulumi.IntInput) DashboardBarSeriesItemOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DashboardBarSeriesItem {
+		return vs[0].([]DashboardBarSeriesItem)[vs[1].(int)]
+	}).(DashboardBarSeriesItemOutput)
 }
 
 type DashboardBinCountOptions struct {
@@ -25093,6 +27552,173 @@ func (o DashboardBodySectionRepeatPageBreakConfigurationPtrOutput) After() Dashb
 		}
 		return v.After
 	}).(DashboardSectionAfterPageBreakPtrOutput)
+}
+
+type DashboardBorderSettings struct {
+	BorderColor      *string              `pulumi:"borderColor"`
+	BorderVisibility *DashboardVisibility `pulumi:"borderVisibility"`
+	// String based length that is composed of value and unit in px
+	BorderWidth *string `pulumi:"borderWidth"`
+}
+
+// DashboardBorderSettingsInput is an input type that accepts DashboardBorderSettingsArgs and DashboardBorderSettingsOutput values.
+// You can construct a concrete instance of `DashboardBorderSettingsInput` via:
+//
+//	DashboardBorderSettingsArgs{...}
+type DashboardBorderSettingsInput interface {
+	pulumi.Input
+
+	ToDashboardBorderSettingsOutput() DashboardBorderSettingsOutput
+	ToDashboardBorderSettingsOutputWithContext(context.Context) DashboardBorderSettingsOutput
+}
+
+type DashboardBorderSettingsArgs struct {
+	BorderColor      pulumi.StringPtrInput       `pulumi:"borderColor"`
+	BorderVisibility DashboardVisibilityPtrInput `pulumi:"borderVisibility"`
+	// String based length that is composed of value and unit in px
+	BorderWidth pulumi.StringPtrInput `pulumi:"borderWidth"`
+}
+
+func (DashboardBorderSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardBorderSettings)(nil)).Elem()
+}
+
+func (i DashboardBorderSettingsArgs) ToDashboardBorderSettingsOutput() DashboardBorderSettingsOutput {
+	return i.ToDashboardBorderSettingsOutputWithContext(context.Background())
+}
+
+func (i DashboardBorderSettingsArgs) ToDashboardBorderSettingsOutputWithContext(ctx context.Context) DashboardBorderSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardBorderSettingsOutput)
+}
+
+func (i DashboardBorderSettingsArgs) ToDashboardBorderSettingsPtrOutput() DashboardBorderSettingsPtrOutput {
+	return i.ToDashboardBorderSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i DashboardBorderSettingsArgs) ToDashboardBorderSettingsPtrOutputWithContext(ctx context.Context) DashboardBorderSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardBorderSettingsOutput).ToDashboardBorderSettingsPtrOutputWithContext(ctx)
+}
+
+// DashboardBorderSettingsPtrInput is an input type that accepts DashboardBorderSettingsArgs, DashboardBorderSettingsPtr and DashboardBorderSettingsPtrOutput values.
+// You can construct a concrete instance of `DashboardBorderSettingsPtrInput` via:
+//
+//	        DashboardBorderSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type DashboardBorderSettingsPtrInput interface {
+	pulumi.Input
+
+	ToDashboardBorderSettingsPtrOutput() DashboardBorderSettingsPtrOutput
+	ToDashboardBorderSettingsPtrOutputWithContext(context.Context) DashboardBorderSettingsPtrOutput
+}
+
+type dashboardBorderSettingsPtrType DashboardBorderSettingsArgs
+
+func DashboardBorderSettingsPtr(v *DashboardBorderSettingsArgs) DashboardBorderSettingsPtrInput {
+	return (*dashboardBorderSettingsPtrType)(v)
+}
+
+func (*dashboardBorderSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DashboardBorderSettings)(nil)).Elem()
+}
+
+func (i *dashboardBorderSettingsPtrType) ToDashboardBorderSettingsPtrOutput() DashboardBorderSettingsPtrOutput {
+	return i.ToDashboardBorderSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *dashboardBorderSettingsPtrType) ToDashboardBorderSettingsPtrOutputWithContext(ctx context.Context) DashboardBorderSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardBorderSettingsPtrOutput)
+}
+
+type DashboardBorderSettingsOutput struct{ *pulumi.OutputState }
+
+func (DashboardBorderSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardBorderSettings)(nil)).Elem()
+}
+
+func (o DashboardBorderSettingsOutput) ToDashboardBorderSettingsOutput() DashboardBorderSettingsOutput {
+	return o
+}
+
+func (o DashboardBorderSettingsOutput) ToDashboardBorderSettingsOutputWithContext(ctx context.Context) DashboardBorderSettingsOutput {
+	return o
+}
+
+func (o DashboardBorderSettingsOutput) ToDashboardBorderSettingsPtrOutput() DashboardBorderSettingsPtrOutput {
+	return o.ToDashboardBorderSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o DashboardBorderSettingsOutput) ToDashboardBorderSettingsPtrOutputWithContext(ctx context.Context) DashboardBorderSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardBorderSettings) *DashboardBorderSettings {
+		return &v
+	}).(DashboardBorderSettingsPtrOutput)
+}
+
+func (o DashboardBorderSettingsOutput) BorderColor() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DashboardBorderSettings) *string { return v.BorderColor }).(pulumi.StringPtrOutput)
+}
+
+func (o DashboardBorderSettingsOutput) BorderVisibility() DashboardVisibilityPtrOutput {
+	return o.ApplyT(func(v DashboardBorderSettings) *DashboardVisibility { return v.BorderVisibility }).(DashboardVisibilityPtrOutput)
+}
+
+// String based length that is composed of value and unit in px
+func (o DashboardBorderSettingsOutput) BorderWidth() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DashboardBorderSettings) *string { return v.BorderWidth }).(pulumi.StringPtrOutput)
+}
+
+type DashboardBorderSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (DashboardBorderSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DashboardBorderSettings)(nil)).Elem()
+}
+
+func (o DashboardBorderSettingsPtrOutput) ToDashboardBorderSettingsPtrOutput() DashboardBorderSettingsPtrOutput {
+	return o
+}
+
+func (o DashboardBorderSettingsPtrOutput) ToDashboardBorderSettingsPtrOutputWithContext(ctx context.Context) DashboardBorderSettingsPtrOutput {
+	return o
+}
+
+func (o DashboardBorderSettingsPtrOutput) Elem() DashboardBorderSettingsOutput {
+	return o.ApplyT(func(v *DashboardBorderSettings) DashboardBorderSettings {
+		if v != nil {
+			return *v
+		}
+		var ret DashboardBorderSettings
+		return ret
+	}).(DashboardBorderSettingsOutput)
+}
+
+func (o DashboardBorderSettingsPtrOutput) BorderColor() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DashboardBorderSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BorderColor
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o DashboardBorderSettingsPtrOutput) BorderVisibility() DashboardVisibilityPtrOutput {
+	return o.ApplyT(func(v *DashboardBorderSettings) *DashboardVisibility {
+		if v == nil {
+			return nil
+		}
+		return v.BorderVisibility
+	}).(DashboardVisibilityPtrOutput)
+}
+
+// String based length that is composed of value and unit in px
+func (o DashboardBorderSettingsPtrOutput) BorderWidth() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DashboardBorderSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BorderWidth
+	}).(pulumi.StringPtrOutput)
 }
 
 type DashboardBoxPlotAggregatedFieldWells struct {
@@ -26463,11 +29089,12 @@ func (o DashboardBoxPlotVisualPtrOutput) VisualId() pulumi.StringPtrOutput {
 
 type DashboardCalculatedField struct {
 	// The data set that is used in this calculated field.
-	DataSetIdentifier string `pulumi:"dataSetIdentifier"`
+	DataSetIdentifier *string `pulumi:"dataSetIdentifier"`
 	// The expression of the calculated field.
 	Expression string `pulumi:"expression"`
 	// The name of the calculated field.
-	Name string `pulumi:"name"`
+	Name            string  `pulumi:"name"`
+	TopicIdentifier *string `pulumi:"topicIdentifier"`
 }
 
 // DashboardCalculatedFieldInput is an input type that accepts DashboardCalculatedFieldArgs and DashboardCalculatedFieldOutput values.
@@ -26483,11 +29110,12 @@ type DashboardCalculatedFieldInput interface {
 
 type DashboardCalculatedFieldArgs struct {
 	// The data set that is used in this calculated field.
-	DataSetIdentifier pulumi.StringInput `pulumi:"dataSetIdentifier"`
+	DataSetIdentifier pulumi.StringPtrInput `pulumi:"dataSetIdentifier"`
 	// The expression of the calculated field.
 	Expression pulumi.StringInput `pulumi:"expression"`
 	// The name of the calculated field.
-	Name pulumi.StringInput `pulumi:"name"`
+	Name            pulumi.StringInput    `pulumi:"name"`
+	TopicIdentifier pulumi.StringPtrInput `pulumi:"topicIdentifier"`
 }
 
 func (DashboardCalculatedFieldArgs) ElementType() reflect.Type {
@@ -26542,8 +29170,8 @@ func (o DashboardCalculatedFieldOutput) ToDashboardCalculatedFieldOutputWithCont
 }
 
 // The data set that is used in this calculated field.
-func (o DashboardCalculatedFieldOutput) DataSetIdentifier() pulumi.StringOutput {
-	return o.ApplyT(func(v DashboardCalculatedField) string { return v.DataSetIdentifier }).(pulumi.StringOutput)
+func (o DashboardCalculatedFieldOutput) DataSetIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DashboardCalculatedField) *string { return v.DataSetIdentifier }).(pulumi.StringPtrOutput)
 }
 
 // The expression of the calculated field.
@@ -26554,6 +29182,10 @@ func (o DashboardCalculatedFieldOutput) Expression() pulumi.StringOutput {
 // The name of the calculated field.
 func (o DashboardCalculatedFieldOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v DashboardCalculatedField) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o DashboardCalculatedFieldOutput) TopicIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DashboardCalculatedField) *string { return v.TopicIdentifier }).(pulumi.StringPtrOutput)
 }
 
 type DashboardCalculatedFieldArrayOutput struct{ *pulumi.OutputState }
@@ -28846,7 +31478,8 @@ type DashboardColumnConfiguration struct {
 	// The color configurations of the column.
 	ColorsConfiguration *DashboardColorsConfiguration `pulumi:"colorsConfiguration"`
 	// The column.
-	Column DashboardColumnIdentifier `pulumi:"column"`
+	Column                     DashboardColumnIdentifier            `pulumi:"column"`
+	DecalSettingsConfiguration *DashboardDecalSettingsConfiguration `pulumi:"decalSettingsConfiguration"`
 	// The format configuration of a column.
 	FormatConfiguration *DashboardFormatConfiguration `pulumi:"formatConfiguration"`
 	// The role of the column.
@@ -28868,7 +31501,8 @@ type DashboardColumnConfigurationArgs struct {
 	// The color configurations of the column.
 	ColorsConfiguration DashboardColorsConfigurationPtrInput `pulumi:"colorsConfiguration"`
 	// The column.
-	Column DashboardColumnIdentifierInput `pulumi:"column"`
+	Column                     DashboardColumnIdentifierInput              `pulumi:"column"`
+	DecalSettingsConfiguration DashboardDecalSettingsConfigurationPtrInput `pulumi:"decalSettingsConfiguration"`
 	// The format configuration of a column.
 	FormatConfiguration DashboardFormatConfigurationPtrInput `pulumi:"formatConfiguration"`
 	// The role of the column.
@@ -28934,6 +31568,12 @@ func (o DashboardColumnConfigurationOutput) ColorsConfiguration() DashboardColor
 // The column.
 func (o DashboardColumnConfigurationOutput) Column() DashboardColumnIdentifierOutput {
 	return o.ApplyT(func(v DashboardColumnConfiguration) DashboardColumnIdentifier { return v.Column }).(DashboardColumnIdentifierOutput)
+}
+
+func (o DashboardColumnConfigurationOutput) DecalSettingsConfiguration() DashboardDecalSettingsConfigurationPtrOutput {
+	return o.ApplyT(func(v DashboardColumnConfiguration) *DashboardDecalSettingsConfiguration {
+		return v.DecalSettingsConfiguration
+	}).(DashboardDecalSettingsConfigurationPtrOutput)
 }
 
 // The format configuration of a column.
@@ -29085,7 +31725,8 @@ type DashboardColumnIdentifier struct {
 	// The name of the column.
 	ColumnName string `pulumi:"columnName"`
 	// The data set that the column belongs to.
-	DataSetIdentifier string `pulumi:"dataSetIdentifier"`
+	DataSetIdentifier *string `pulumi:"dataSetIdentifier"`
+	TopicIdentifier   *string `pulumi:"topicIdentifier"`
 }
 
 // DashboardColumnIdentifierInput is an input type that accepts DashboardColumnIdentifierArgs and DashboardColumnIdentifierOutput values.
@@ -29103,7 +31744,8 @@ type DashboardColumnIdentifierArgs struct {
 	// The name of the column.
 	ColumnName pulumi.StringInput `pulumi:"columnName"`
 	// The data set that the column belongs to.
-	DataSetIdentifier pulumi.StringInput `pulumi:"dataSetIdentifier"`
+	DataSetIdentifier pulumi.StringPtrInput `pulumi:"dataSetIdentifier"`
+	TopicIdentifier   pulumi.StringPtrInput `pulumi:"topicIdentifier"`
 }
 
 func (DashboardColumnIdentifierArgs) ElementType() reflect.Type {
@@ -29214,8 +31856,12 @@ func (o DashboardColumnIdentifierOutput) ColumnName() pulumi.StringOutput {
 }
 
 // The data set that the column belongs to.
-func (o DashboardColumnIdentifierOutput) DataSetIdentifier() pulumi.StringOutput {
-	return o.ApplyT(func(v DashboardColumnIdentifier) string { return v.DataSetIdentifier }).(pulumi.StringOutput)
+func (o DashboardColumnIdentifierOutput) DataSetIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DashboardColumnIdentifier) *string { return v.DataSetIdentifier }).(pulumi.StringPtrOutput)
+}
+
+func (o DashboardColumnIdentifierOutput) TopicIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DashboardColumnIdentifier) *string { return v.TopicIdentifier }).(pulumi.StringPtrOutput)
 }
 
 type DashboardColumnIdentifierPtrOutput struct{ *pulumi.OutputState }
@@ -29258,7 +31904,16 @@ func (o DashboardColumnIdentifierPtrOutput) DataSetIdentifier() pulumi.StringPtr
 		if v == nil {
 			return nil
 		}
-		return &v.DataSetIdentifier
+		return v.DataSetIdentifier
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o DashboardColumnIdentifierPtrOutput) TopicIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DashboardColumnIdentifier) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TopicIdentifier
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -29921,7 +32576,8 @@ type DashboardComboChartConfiguration struct {
 	// The label options (label text, label visibility, and sort icon visibility) of a combo chart category (group/color) field well.
 	CategoryLabelOptions *DashboardChartAxisLabelOptions `pulumi:"categoryLabelOptions"`
 	// The label options (label text, label visibility, and sort icon visibility) of a combo chart's color field well.
-	ColorLabelOptions *DashboardChartAxisLabelOptions `pulumi:"colorLabelOptions"`
+	ColorLabelOptions     *DashboardChartAxisLabelOptions           `pulumi:"colorLabelOptions"`
+	DefaultSeriesSettings *DashboardComboChartDefaultSeriesSettings `pulumi:"defaultSeriesSettings"`
 	// The field wells of the visual.
 	FieldWells *DashboardComboChartFieldWells `pulumi:"fieldWells"`
 	// The general visual interactions setup for a visual.
@@ -29942,6 +32598,7 @@ type DashboardComboChartConfiguration struct {
 	SecondaryYAxisDisplayOptions *DashboardAxisDisplayOptions `pulumi:"secondaryYAxisDisplayOptions"`
 	// The label options (label text, label visibility, and sort icon visibility) of a combo chart's secondary y-axis(line) field well.
 	SecondaryYAxisLabelOptions *DashboardChartAxisLabelOptions `pulumi:"secondaryYAxisLabelOptions"`
+	Series                     []DashboardComboSeriesItem      `pulumi:"series"`
 	SingleAxisOptions          *DashboardSingleAxisOptions     `pulumi:"singleAxisOptions"`
 	// The sort configuration of a `ComboChartVisual` .
 	SortConfiguration *DashboardComboChartSortConfiguration `pulumi:"sortConfiguration"`
@@ -29978,7 +32635,8 @@ type DashboardComboChartConfigurationArgs struct {
 	// The label options (label text, label visibility, and sort icon visibility) of a combo chart category (group/color) field well.
 	CategoryLabelOptions DashboardChartAxisLabelOptionsPtrInput `pulumi:"categoryLabelOptions"`
 	// The label options (label text, label visibility, and sort icon visibility) of a combo chart's color field well.
-	ColorLabelOptions DashboardChartAxisLabelOptionsPtrInput `pulumi:"colorLabelOptions"`
+	ColorLabelOptions     DashboardChartAxisLabelOptionsPtrInput           `pulumi:"colorLabelOptions"`
+	DefaultSeriesSettings DashboardComboChartDefaultSeriesSettingsPtrInput `pulumi:"defaultSeriesSettings"`
 	// The field wells of the visual.
 	FieldWells DashboardComboChartFieldWellsPtrInput `pulumi:"fieldWells"`
 	// The general visual interactions setup for a visual.
@@ -29999,6 +32657,7 @@ type DashboardComboChartConfigurationArgs struct {
 	SecondaryYAxisDisplayOptions DashboardAxisDisplayOptionsPtrInput `pulumi:"secondaryYAxisDisplayOptions"`
 	// The label options (label text, label visibility, and sort icon visibility) of a combo chart's secondary y-axis(line) field well.
 	SecondaryYAxisLabelOptions DashboardChartAxisLabelOptionsPtrInput `pulumi:"secondaryYAxisLabelOptions"`
+	Series                     DashboardComboSeriesItemArrayInput     `pulumi:"series"`
 	SingleAxisOptions          DashboardSingleAxisOptionsPtrInput     `pulumi:"singleAxisOptions"`
 	// The sort configuration of a `ComboChartVisual` .
 	SortConfiguration DashboardComboChartSortConfigurationPtrInput `pulumi:"sortConfiguration"`
@@ -30118,6 +32777,12 @@ func (o DashboardComboChartConfigurationOutput) ColorLabelOptions() DashboardCha
 	return o.ApplyT(func(v DashboardComboChartConfiguration) *DashboardChartAxisLabelOptions { return v.ColorLabelOptions }).(DashboardChartAxisLabelOptionsPtrOutput)
 }
 
+func (o DashboardComboChartConfigurationOutput) DefaultSeriesSettings() DashboardComboChartDefaultSeriesSettingsPtrOutput {
+	return o.ApplyT(func(v DashboardComboChartConfiguration) *DashboardComboChartDefaultSeriesSettings {
+		return v.DefaultSeriesSettings
+	}).(DashboardComboChartDefaultSeriesSettingsPtrOutput)
+}
+
 // The field wells of the visual.
 func (o DashboardComboChartConfigurationOutput) FieldWells() DashboardComboChartFieldWellsPtrOutput {
 	return o.ApplyT(func(v DashboardComboChartConfiguration) *DashboardComboChartFieldWells { return v.FieldWells }).(DashboardComboChartFieldWellsPtrOutput)
@@ -30171,6 +32836,10 @@ func (o DashboardComboChartConfigurationOutput) SecondaryYAxisLabelOptions() Das
 	return o.ApplyT(func(v DashboardComboChartConfiguration) *DashboardChartAxisLabelOptions {
 		return v.SecondaryYAxisLabelOptions
 	}).(DashboardChartAxisLabelOptionsPtrOutput)
+}
+
+func (o DashboardComboChartConfigurationOutput) Series() DashboardComboSeriesItemArrayOutput {
+	return o.ApplyT(func(v DashboardComboChartConfiguration) []DashboardComboSeriesItem { return v.Series }).(DashboardComboSeriesItemArrayOutput)
 }
 
 func (o DashboardComboChartConfigurationOutput) SingleAxisOptions() DashboardSingleAxisOptionsPtrOutput {
@@ -30274,6 +32943,15 @@ func (o DashboardComboChartConfigurationPtrOutput) ColorLabelOptions() Dashboard
 	}).(DashboardChartAxisLabelOptionsPtrOutput)
 }
 
+func (o DashboardComboChartConfigurationPtrOutput) DefaultSeriesSettings() DashboardComboChartDefaultSeriesSettingsPtrOutput {
+	return o.ApplyT(func(v *DashboardComboChartConfiguration) *DashboardComboChartDefaultSeriesSettings {
+		if v == nil {
+			return nil
+		}
+		return v.DefaultSeriesSettings
+	}).(DashboardComboChartDefaultSeriesSettingsPtrOutput)
+}
+
 // The field wells of the visual.
 func (o DashboardComboChartConfigurationPtrOutput) FieldWells() DashboardComboChartFieldWellsPtrOutput {
 	return o.ApplyT(func(v *DashboardComboChartConfiguration) *DashboardComboChartFieldWells {
@@ -30366,6 +33044,15 @@ func (o DashboardComboChartConfigurationPtrOutput) SecondaryYAxisLabelOptions() 
 	}).(DashboardChartAxisLabelOptionsPtrOutput)
 }
 
+func (o DashboardComboChartConfigurationPtrOutput) Series() DashboardComboSeriesItemArrayOutput {
+	return o.ApplyT(func(v *DashboardComboChartConfiguration) []DashboardComboSeriesItem {
+		if v == nil {
+			return nil
+		}
+		return v.Series
+	}).(DashboardComboSeriesItemArrayOutput)
+}
+
 func (o DashboardComboChartConfigurationPtrOutput) SingleAxisOptions() DashboardSingleAxisOptionsPtrOutput {
 	return o.ApplyT(func(v *DashboardComboChartConfiguration) *DashboardSingleAxisOptions {
 		if v == nil {
@@ -30403,6 +33090,188 @@ func (o DashboardComboChartConfigurationPtrOutput) VisualPalette() DashboardVisu
 		}
 		return v.VisualPalette
 	}).(DashboardVisualPalettePtrOutput)
+}
+
+type DashboardComboChartDefaultSeriesSettings struct {
+	BorderSettings      *DashboardBorderSettings               `pulumi:"borderSettings"`
+	DecalSettings       *DashboardDecalSettings                `pulumi:"decalSettings"`
+	LineStyleSettings   *DashboardLineChartLineStyleSettings   `pulumi:"lineStyleSettings"`
+	MarkerStyleSettings *DashboardLineChartMarkerStyleSettings `pulumi:"markerStyleSettings"`
+}
+
+// DashboardComboChartDefaultSeriesSettingsInput is an input type that accepts DashboardComboChartDefaultSeriesSettingsArgs and DashboardComboChartDefaultSeriesSettingsOutput values.
+// You can construct a concrete instance of `DashboardComboChartDefaultSeriesSettingsInput` via:
+//
+//	DashboardComboChartDefaultSeriesSettingsArgs{...}
+type DashboardComboChartDefaultSeriesSettingsInput interface {
+	pulumi.Input
+
+	ToDashboardComboChartDefaultSeriesSettingsOutput() DashboardComboChartDefaultSeriesSettingsOutput
+	ToDashboardComboChartDefaultSeriesSettingsOutputWithContext(context.Context) DashboardComboChartDefaultSeriesSettingsOutput
+}
+
+type DashboardComboChartDefaultSeriesSettingsArgs struct {
+	BorderSettings      DashboardBorderSettingsPtrInput               `pulumi:"borderSettings"`
+	DecalSettings       DashboardDecalSettingsPtrInput                `pulumi:"decalSettings"`
+	LineStyleSettings   DashboardLineChartLineStyleSettingsPtrInput   `pulumi:"lineStyleSettings"`
+	MarkerStyleSettings DashboardLineChartMarkerStyleSettingsPtrInput `pulumi:"markerStyleSettings"`
+}
+
+func (DashboardComboChartDefaultSeriesSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardComboChartDefaultSeriesSettings)(nil)).Elem()
+}
+
+func (i DashboardComboChartDefaultSeriesSettingsArgs) ToDashboardComboChartDefaultSeriesSettingsOutput() DashboardComboChartDefaultSeriesSettingsOutput {
+	return i.ToDashboardComboChartDefaultSeriesSettingsOutputWithContext(context.Background())
+}
+
+func (i DashboardComboChartDefaultSeriesSettingsArgs) ToDashboardComboChartDefaultSeriesSettingsOutputWithContext(ctx context.Context) DashboardComboChartDefaultSeriesSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardComboChartDefaultSeriesSettingsOutput)
+}
+
+func (i DashboardComboChartDefaultSeriesSettingsArgs) ToDashboardComboChartDefaultSeriesSettingsPtrOutput() DashboardComboChartDefaultSeriesSettingsPtrOutput {
+	return i.ToDashboardComboChartDefaultSeriesSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i DashboardComboChartDefaultSeriesSettingsArgs) ToDashboardComboChartDefaultSeriesSettingsPtrOutputWithContext(ctx context.Context) DashboardComboChartDefaultSeriesSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardComboChartDefaultSeriesSettingsOutput).ToDashboardComboChartDefaultSeriesSettingsPtrOutputWithContext(ctx)
+}
+
+// DashboardComboChartDefaultSeriesSettingsPtrInput is an input type that accepts DashboardComboChartDefaultSeriesSettingsArgs, DashboardComboChartDefaultSeriesSettingsPtr and DashboardComboChartDefaultSeriesSettingsPtrOutput values.
+// You can construct a concrete instance of `DashboardComboChartDefaultSeriesSettingsPtrInput` via:
+//
+//	        DashboardComboChartDefaultSeriesSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type DashboardComboChartDefaultSeriesSettingsPtrInput interface {
+	pulumi.Input
+
+	ToDashboardComboChartDefaultSeriesSettingsPtrOutput() DashboardComboChartDefaultSeriesSettingsPtrOutput
+	ToDashboardComboChartDefaultSeriesSettingsPtrOutputWithContext(context.Context) DashboardComboChartDefaultSeriesSettingsPtrOutput
+}
+
+type dashboardComboChartDefaultSeriesSettingsPtrType DashboardComboChartDefaultSeriesSettingsArgs
+
+func DashboardComboChartDefaultSeriesSettingsPtr(v *DashboardComboChartDefaultSeriesSettingsArgs) DashboardComboChartDefaultSeriesSettingsPtrInput {
+	return (*dashboardComboChartDefaultSeriesSettingsPtrType)(v)
+}
+
+func (*dashboardComboChartDefaultSeriesSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DashboardComboChartDefaultSeriesSettings)(nil)).Elem()
+}
+
+func (i *dashboardComboChartDefaultSeriesSettingsPtrType) ToDashboardComboChartDefaultSeriesSettingsPtrOutput() DashboardComboChartDefaultSeriesSettingsPtrOutput {
+	return i.ToDashboardComboChartDefaultSeriesSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *dashboardComboChartDefaultSeriesSettingsPtrType) ToDashboardComboChartDefaultSeriesSettingsPtrOutputWithContext(ctx context.Context) DashboardComboChartDefaultSeriesSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardComboChartDefaultSeriesSettingsPtrOutput)
+}
+
+type DashboardComboChartDefaultSeriesSettingsOutput struct{ *pulumi.OutputState }
+
+func (DashboardComboChartDefaultSeriesSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardComboChartDefaultSeriesSettings)(nil)).Elem()
+}
+
+func (o DashboardComboChartDefaultSeriesSettingsOutput) ToDashboardComboChartDefaultSeriesSettingsOutput() DashboardComboChartDefaultSeriesSettingsOutput {
+	return o
+}
+
+func (o DashboardComboChartDefaultSeriesSettingsOutput) ToDashboardComboChartDefaultSeriesSettingsOutputWithContext(ctx context.Context) DashboardComboChartDefaultSeriesSettingsOutput {
+	return o
+}
+
+func (o DashboardComboChartDefaultSeriesSettingsOutput) ToDashboardComboChartDefaultSeriesSettingsPtrOutput() DashboardComboChartDefaultSeriesSettingsPtrOutput {
+	return o.ToDashboardComboChartDefaultSeriesSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o DashboardComboChartDefaultSeriesSettingsOutput) ToDashboardComboChartDefaultSeriesSettingsPtrOutputWithContext(ctx context.Context) DashboardComboChartDefaultSeriesSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardComboChartDefaultSeriesSettings) *DashboardComboChartDefaultSeriesSettings {
+		return &v
+	}).(DashboardComboChartDefaultSeriesSettingsPtrOutput)
+}
+
+func (o DashboardComboChartDefaultSeriesSettingsOutput) BorderSettings() DashboardBorderSettingsPtrOutput {
+	return o.ApplyT(func(v DashboardComboChartDefaultSeriesSettings) *DashboardBorderSettings { return v.BorderSettings }).(DashboardBorderSettingsPtrOutput)
+}
+
+func (o DashboardComboChartDefaultSeriesSettingsOutput) DecalSettings() DashboardDecalSettingsPtrOutput {
+	return o.ApplyT(func(v DashboardComboChartDefaultSeriesSettings) *DashboardDecalSettings { return v.DecalSettings }).(DashboardDecalSettingsPtrOutput)
+}
+
+func (o DashboardComboChartDefaultSeriesSettingsOutput) LineStyleSettings() DashboardLineChartLineStyleSettingsPtrOutput {
+	return o.ApplyT(func(v DashboardComboChartDefaultSeriesSettings) *DashboardLineChartLineStyleSettings {
+		return v.LineStyleSettings
+	}).(DashboardLineChartLineStyleSettingsPtrOutput)
+}
+
+func (o DashboardComboChartDefaultSeriesSettingsOutput) MarkerStyleSettings() DashboardLineChartMarkerStyleSettingsPtrOutput {
+	return o.ApplyT(func(v DashboardComboChartDefaultSeriesSettings) *DashboardLineChartMarkerStyleSettings {
+		return v.MarkerStyleSettings
+	}).(DashboardLineChartMarkerStyleSettingsPtrOutput)
+}
+
+type DashboardComboChartDefaultSeriesSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (DashboardComboChartDefaultSeriesSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DashboardComboChartDefaultSeriesSettings)(nil)).Elem()
+}
+
+func (o DashboardComboChartDefaultSeriesSettingsPtrOutput) ToDashboardComboChartDefaultSeriesSettingsPtrOutput() DashboardComboChartDefaultSeriesSettingsPtrOutput {
+	return o
+}
+
+func (o DashboardComboChartDefaultSeriesSettingsPtrOutput) ToDashboardComboChartDefaultSeriesSettingsPtrOutputWithContext(ctx context.Context) DashboardComboChartDefaultSeriesSettingsPtrOutput {
+	return o
+}
+
+func (o DashboardComboChartDefaultSeriesSettingsPtrOutput) Elem() DashboardComboChartDefaultSeriesSettingsOutput {
+	return o.ApplyT(func(v *DashboardComboChartDefaultSeriesSettings) DashboardComboChartDefaultSeriesSettings {
+		if v != nil {
+			return *v
+		}
+		var ret DashboardComboChartDefaultSeriesSettings
+		return ret
+	}).(DashboardComboChartDefaultSeriesSettingsOutput)
+}
+
+func (o DashboardComboChartDefaultSeriesSettingsPtrOutput) BorderSettings() DashboardBorderSettingsPtrOutput {
+	return o.ApplyT(func(v *DashboardComboChartDefaultSeriesSettings) *DashboardBorderSettings {
+		if v == nil {
+			return nil
+		}
+		return v.BorderSettings
+	}).(DashboardBorderSettingsPtrOutput)
+}
+
+func (o DashboardComboChartDefaultSeriesSettingsPtrOutput) DecalSettings() DashboardDecalSettingsPtrOutput {
+	return o.ApplyT(func(v *DashboardComboChartDefaultSeriesSettings) *DashboardDecalSettings {
+		if v == nil {
+			return nil
+		}
+		return v.DecalSettings
+	}).(DashboardDecalSettingsPtrOutput)
+}
+
+func (o DashboardComboChartDefaultSeriesSettingsPtrOutput) LineStyleSettings() DashboardLineChartLineStyleSettingsPtrOutput {
+	return o.ApplyT(func(v *DashboardComboChartDefaultSeriesSettings) *DashboardLineChartLineStyleSettings {
+		if v == nil {
+			return nil
+		}
+		return v.LineStyleSettings
+	}).(DashboardLineChartLineStyleSettingsPtrOutput)
+}
+
+func (o DashboardComboChartDefaultSeriesSettingsPtrOutput) MarkerStyleSettings() DashboardLineChartMarkerStyleSettingsPtrOutput {
+	return o.ApplyT(func(v *DashboardComboChartDefaultSeriesSettings) *DashboardLineChartMarkerStyleSettings {
+		if v == nil {
+			return nil
+		}
+		return v.MarkerStyleSettings
+	}).(DashboardLineChartMarkerStyleSettingsPtrOutput)
 }
 
 type DashboardComboChartFieldWells struct {
@@ -30991,6 +33860,94 @@ func (o DashboardComboChartVisualPtrOutput) VisualId() pulumi.StringPtrOutput {
 		}
 		return &v.VisualId
 	}).(pulumi.StringPtrOutput)
+}
+
+type DashboardComboSeriesItem struct {
+}
+
+// DashboardComboSeriesItemInput is an input type that accepts DashboardComboSeriesItemArgs and DashboardComboSeriesItemOutput values.
+// You can construct a concrete instance of `DashboardComboSeriesItemInput` via:
+//
+//	DashboardComboSeriesItemArgs{...}
+type DashboardComboSeriesItemInput interface {
+	pulumi.Input
+
+	ToDashboardComboSeriesItemOutput() DashboardComboSeriesItemOutput
+	ToDashboardComboSeriesItemOutputWithContext(context.Context) DashboardComboSeriesItemOutput
+}
+
+type DashboardComboSeriesItemArgs struct {
+}
+
+func (DashboardComboSeriesItemArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardComboSeriesItem)(nil)).Elem()
+}
+
+func (i DashboardComboSeriesItemArgs) ToDashboardComboSeriesItemOutput() DashboardComboSeriesItemOutput {
+	return i.ToDashboardComboSeriesItemOutputWithContext(context.Background())
+}
+
+func (i DashboardComboSeriesItemArgs) ToDashboardComboSeriesItemOutputWithContext(ctx context.Context) DashboardComboSeriesItemOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardComboSeriesItemOutput)
+}
+
+// DashboardComboSeriesItemArrayInput is an input type that accepts DashboardComboSeriesItemArray and DashboardComboSeriesItemArrayOutput values.
+// You can construct a concrete instance of `DashboardComboSeriesItemArrayInput` via:
+//
+//	DashboardComboSeriesItemArray{ DashboardComboSeriesItemArgs{...} }
+type DashboardComboSeriesItemArrayInput interface {
+	pulumi.Input
+
+	ToDashboardComboSeriesItemArrayOutput() DashboardComboSeriesItemArrayOutput
+	ToDashboardComboSeriesItemArrayOutputWithContext(context.Context) DashboardComboSeriesItemArrayOutput
+}
+
+type DashboardComboSeriesItemArray []DashboardComboSeriesItemInput
+
+func (DashboardComboSeriesItemArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DashboardComboSeriesItem)(nil)).Elem()
+}
+
+func (i DashboardComboSeriesItemArray) ToDashboardComboSeriesItemArrayOutput() DashboardComboSeriesItemArrayOutput {
+	return i.ToDashboardComboSeriesItemArrayOutputWithContext(context.Background())
+}
+
+func (i DashboardComboSeriesItemArray) ToDashboardComboSeriesItemArrayOutputWithContext(ctx context.Context) DashboardComboSeriesItemArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardComboSeriesItemArrayOutput)
+}
+
+type DashboardComboSeriesItemOutput struct{ *pulumi.OutputState }
+
+func (DashboardComboSeriesItemOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardComboSeriesItem)(nil)).Elem()
+}
+
+func (o DashboardComboSeriesItemOutput) ToDashboardComboSeriesItemOutput() DashboardComboSeriesItemOutput {
+	return o
+}
+
+func (o DashboardComboSeriesItemOutput) ToDashboardComboSeriesItemOutputWithContext(ctx context.Context) DashboardComboSeriesItemOutput {
+	return o
+}
+
+type DashboardComboSeriesItemArrayOutput struct{ *pulumi.OutputState }
+
+func (DashboardComboSeriesItemArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DashboardComboSeriesItem)(nil)).Elem()
+}
+
+func (o DashboardComboSeriesItemArrayOutput) ToDashboardComboSeriesItemArrayOutput() DashboardComboSeriesItemArrayOutput {
+	return o
+}
+
+func (o DashboardComboSeriesItemArrayOutput) ToDashboardComboSeriesItemArrayOutputWithContext(ctx context.Context) DashboardComboSeriesItemArrayOutput {
+	return o
+}
+
+func (o DashboardComboSeriesItemArrayOutput) Index(i pulumi.IntInput) DashboardComboSeriesItemOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DashboardComboSeriesItem {
+		return vs[0].([]DashboardComboSeriesItem)[vs[1].(int)]
+	}).(DashboardComboSeriesItemOutput)
 }
 
 type DashboardComparisonConfiguration struct {
@@ -34242,11 +37199,12 @@ type DashboardCustomContentVisual struct {
 	// The configuration of a `CustomContentVisual` .
 	ChartConfiguration *DashboardCustomContentConfiguration `pulumi:"chartConfiguration"`
 	// The dataset that is used to create the custom content visual. You can't create a visual without a dataset.
-	DataSetIdentifier string `pulumi:"dataSetIdentifier"`
+	DataSetIdentifier *string `pulumi:"dataSetIdentifier"`
 	// The subtitle that is displayed on the visual.
 	Subtitle *DashboardVisualSubtitleLabelOptions `pulumi:"subtitle"`
 	// The title that is displayed on the visual.
-	Title *DashboardVisualTitleLabelOptions `pulumi:"title"`
+	Title           *DashboardVisualTitleLabelOptions `pulumi:"title"`
+	TopicIdentifier *string                           `pulumi:"topicIdentifier"`
 	// The alt text for the visual.
 	VisualContentAltText *string `pulumi:"visualContentAltText"`
 	// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.
@@ -34270,11 +37228,12 @@ type DashboardCustomContentVisualArgs struct {
 	// The configuration of a `CustomContentVisual` .
 	ChartConfiguration DashboardCustomContentConfigurationPtrInput `pulumi:"chartConfiguration"`
 	// The dataset that is used to create the custom content visual. You can't create a visual without a dataset.
-	DataSetIdentifier pulumi.StringInput `pulumi:"dataSetIdentifier"`
+	DataSetIdentifier pulumi.StringPtrInput `pulumi:"dataSetIdentifier"`
 	// The subtitle that is displayed on the visual.
 	Subtitle DashboardVisualSubtitleLabelOptionsPtrInput `pulumi:"subtitle"`
 	// The title that is displayed on the visual.
-	Title DashboardVisualTitleLabelOptionsPtrInput `pulumi:"title"`
+	Title           DashboardVisualTitleLabelOptionsPtrInput `pulumi:"title"`
+	TopicIdentifier pulumi.StringPtrInput                    `pulumi:"topicIdentifier"`
 	// The alt text for the visual.
 	VisualContentAltText pulumi.StringPtrInput `pulumi:"visualContentAltText"`
 	// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.
@@ -34369,8 +37328,8 @@ func (o DashboardCustomContentVisualOutput) ChartConfiguration() DashboardCustom
 }
 
 // The dataset that is used to create the custom content visual. You can't create a visual without a dataset.
-func (o DashboardCustomContentVisualOutput) DataSetIdentifier() pulumi.StringOutput {
-	return o.ApplyT(func(v DashboardCustomContentVisual) string { return v.DataSetIdentifier }).(pulumi.StringOutput)
+func (o DashboardCustomContentVisualOutput) DataSetIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DashboardCustomContentVisual) *string { return v.DataSetIdentifier }).(pulumi.StringPtrOutput)
 }
 
 // The subtitle that is displayed on the visual.
@@ -34381,6 +37340,10 @@ func (o DashboardCustomContentVisualOutput) Subtitle() DashboardVisualSubtitleLa
 // The title that is displayed on the visual.
 func (o DashboardCustomContentVisualOutput) Title() DashboardVisualTitleLabelOptionsPtrOutput {
 	return o.ApplyT(func(v DashboardCustomContentVisual) *DashboardVisualTitleLabelOptions { return v.Title }).(DashboardVisualTitleLabelOptionsPtrOutput)
+}
+
+func (o DashboardCustomContentVisualOutput) TopicIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DashboardCustomContentVisual) *string { return v.TopicIdentifier }).(pulumi.StringPtrOutput)
 }
 
 // The alt text for the visual.
@@ -34443,7 +37406,7 @@ func (o DashboardCustomContentVisualPtrOutput) DataSetIdentifier() pulumi.String
 		if v == nil {
 			return nil
 		}
-		return &v.DataSetIdentifier
+		return v.DataSetIdentifier
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -34465,6 +37428,15 @@ func (o DashboardCustomContentVisualPtrOutput) Title() DashboardVisualTitleLabel
 		}
 		return v.Title
 	}).(DashboardVisualTitleLabelOptionsPtrOutput)
+}
+
+func (o DashboardCustomContentVisualPtrOutput) TopicIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DashboardCustomContentVisual) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TopicIdentifier
+	}).(pulumi.StringPtrOutput)
 }
 
 // The alt text for the visual.
@@ -37598,6 +40570,7 @@ func (o DashboardDataPointTooltipOptionPtrOutput) AvailabilityStatus() Dashboard
 	}).(DashboardBehaviorPtrOutput)
 }
 
+// <p>Adds Q&A capabilities to a dashboard. If no topic is linked, Dashboard Q&A uses the data values that are rendered on the dashboard. End users can use Dashboard Q&A to ask for different slices of the data that they see on the dashboard. If a topic is linked, Topic Q&A is enabled.</p>
 type DashboardDataQaEnabledOption struct {
 	// The status of the Data Q&A option on the dashboard.
 	AvailabilityStatus *DashboardBehavior `pulumi:"availabilityStatus"`
@@ -37614,6 +40587,7 @@ type DashboardDataQaEnabledOptionInput interface {
 	ToDashboardDataQaEnabledOptionOutputWithContext(context.Context) DashboardDataQaEnabledOptionOutput
 }
 
+// <p>Adds Q&A capabilities to a dashboard. If no topic is linked, Dashboard Q&A uses the data values that are rendered on the dashboard. End users can use Dashboard Q&A to ask for different slices of the data that they see on the dashboard. If a topic is linked, Topic Q&A is enabled.</p>
 type DashboardDataQaEnabledOptionArgs struct {
 	// The status of the Data Q&A option on the dashboard.
 	AvailabilityStatus DashboardBehaviorPtrInput `pulumi:"availabilityStatus"`
@@ -37672,6 +40646,7 @@ func (i *dashboardDataQaEnabledOptionPtrType) ToDashboardDataQaEnabledOptionPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(DashboardDataQaEnabledOptionPtrOutput)
 }
 
+// <p>Adds Q&A capabilities to a dashboard. If no topic is linked, Dashboard Q&A uses the data values that are rendered on the dashboard. End users can use Dashboard Q&A to ask for different slices of the data that they see on the dashboard. If a topic is linked, Topic Q&A is enabled.</p>
 type DashboardDataQaEnabledOptionOutput struct{ *pulumi.OutputState }
 
 func (DashboardDataQaEnabledOptionOutput) ElementType() reflect.Type {
@@ -39890,6 +42865,377 @@ func (o DashboardDateTimeValueWhenUnsetConfigurationPtrOutput) ValueWhenUnsetOpt
 		}
 		return v.ValueWhenUnsetOption
 	}).(DashboardValueWhenUnsetOptionPtrOutput)
+}
+
+type DashboardDecalSettings struct {
+	DecalColor       *string                    `pulumi:"decalColor"`
+	DecalPatternType *DashboardDecalPatternType `pulumi:"decalPatternType"`
+	DecalStyleType   *DashboardDecalStyleType   `pulumi:"decalStyleType"`
+	DecalVisibility  *DashboardVisibility       `pulumi:"decalVisibility"`
+	ElementValue     *string                    `pulumi:"elementValue"`
+}
+
+// DashboardDecalSettingsInput is an input type that accepts DashboardDecalSettingsArgs and DashboardDecalSettingsOutput values.
+// You can construct a concrete instance of `DashboardDecalSettingsInput` via:
+//
+//	DashboardDecalSettingsArgs{...}
+type DashboardDecalSettingsInput interface {
+	pulumi.Input
+
+	ToDashboardDecalSettingsOutput() DashboardDecalSettingsOutput
+	ToDashboardDecalSettingsOutputWithContext(context.Context) DashboardDecalSettingsOutput
+}
+
+type DashboardDecalSettingsArgs struct {
+	DecalColor       pulumi.StringPtrInput             `pulumi:"decalColor"`
+	DecalPatternType DashboardDecalPatternTypePtrInput `pulumi:"decalPatternType"`
+	DecalStyleType   DashboardDecalStyleTypePtrInput   `pulumi:"decalStyleType"`
+	DecalVisibility  DashboardVisibilityPtrInput       `pulumi:"decalVisibility"`
+	ElementValue     pulumi.StringPtrInput             `pulumi:"elementValue"`
+}
+
+func (DashboardDecalSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardDecalSettings)(nil)).Elem()
+}
+
+func (i DashboardDecalSettingsArgs) ToDashboardDecalSettingsOutput() DashboardDecalSettingsOutput {
+	return i.ToDashboardDecalSettingsOutputWithContext(context.Background())
+}
+
+func (i DashboardDecalSettingsArgs) ToDashboardDecalSettingsOutputWithContext(ctx context.Context) DashboardDecalSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardDecalSettingsOutput)
+}
+
+func (i DashboardDecalSettingsArgs) ToDashboardDecalSettingsPtrOutput() DashboardDecalSettingsPtrOutput {
+	return i.ToDashboardDecalSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i DashboardDecalSettingsArgs) ToDashboardDecalSettingsPtrOutputWithContext(ctx context.Context) DashboardDecalSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardDecalSettingsOutput).ToDashboardDecalSettingsPtrOutputWithContext(ctx)
+}
+
+// DashboardDecalSettingsPtrInput is an input type that accepts DashboardDecalSettingsArgs, DashboardDecalSettingsPtr and DashboardDecalSettingsPtrOutput values.
+// You can construct a concrete instance of `DashboardDecalSettingsPtrInput` via:
+//
+//	        DashboardDecalSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type DashboardDecalSettingsPtrInput interface {
+	pulumi.Input
+
+	ToDashboardDecalSettingsPtrOutput() DashboardDecalSettingsPtrOutput
+	ToDashboardDecalSettingsPtrOutputWithContext(context.Context) DashboardDecalSettingsPtrOutput
+}
+
+type dashboardDecalSettingsPtrType DashboardDecalSettingsArgs
+
+func DashboardDecalSettingsPtr(v *DashboardDecalSettingsArgs) DashboardDecalSettingsPtrInput {
+	return (*dashboardDecalSettingsPtrType)(v)
+}
+
+func (*dashboardDecalSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DashboardDecalSettings)(nil)).Elem()
+}
+
+func (i *dashboardDecalSettingsPtrType) ToDashboardDecalSettingsPtrOutput() DashboardDecalSettingsPtrOutput {
+	return i.ToDashboardDecalSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *dashboardDecalSettingsPtrType) ToDashboardDecalSettingsPtrOutputWithContext(ctx context.Context) DashboardDecalSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardDecalSettingsPtrOutput)
+}
+
+// DashboardDecalSettingsArrayInput is an input type that accepts DashboardDecalSettingsArray and DashboardDecalSettingsArrayOutput values.
+// You can construct a concrete instance of `DashboardDecalSettingsArrayInput` via:
+//
+//	DashboardDecalSettingsArray{ DashboardDecalSettingsArgs{...} }
+type DashboardDecalSettingsArrayInput interface {
+	pulumi.Input
+
+	ToDashboardDecalSettingsArrayOutput() DashboardDecalSettingsArrayOutput
+	ToDashboardDecalSettingsArrayOutputWithContext(context.Context) DashboardDecalSettingsArrayOutput
+}
+
+type DashboardDecalSettingsArray []DashboardDecalSettingsInput
+
+func (DashboardDecalSettingsArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DashboardDecalSettings)(nil)).Elem()
+}
+
+func (i DashboardDecalSettingsArray) ToDashboardDecalSettingsArrayOutput() DashboardDecalSettingsArrayOutput {
+	return i.ToDashboardDecalSettingsArrayOutputWithContext(context.Background())
+}
+
+func (i DashboardDecalSettingsArray) ToDashboardDecalSettingsArrayOutputWithContext(ctx context.Context) DashboardDecalSettingsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardDecalSettingsArrayOutput)
+}
+
+type DashboardDecalSettingsOutput struct{ *pulumi.OutputState }
+
+func (DashboardDecalSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardDecalSettings)(nil)).Elem()
+}
+
+func (o DashboardDecalSettingsOutput) ToDashboardDecalSettingsOutput() DashboardDecalSettingsOutput {
+	return o
+}
+
+func (o DashboardDecalSettingsOutput) ToDashboardDecalSettingsOutputWithContext(ctx context.Context) DashboardDecalSettingsOutput {
+	return o
+}
+
+func (o DashboardDecalSettingsOutput) ToDashboardDecalSettingsPtrOutput() DashboardDecalSettingsPtrOutput {
+	return o.ToDashboardDecalSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o DashboardDecalSettingsOutput) ToDashboardDecalSettingsPtrOutputWithContext(ctx context.Context) DashboardDecalSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardDecalSettings) *DashboardDecalSettings {
+		return &v
+	}).(DashboardDecalSettingsPtrOutput)
+}
+
+func (o DashboardDecalSettingsOutput) DecalColor() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DashboardDecalSettings) *string { return v.DecalColor }).(pulumi.StringPtrOutput)
+}
+
+func (o DashboardDecalSettingsOutput) DecalPatternType() DashboardDecalPatternTypePtrOutput {
+	return o.ApplyT(func(v DashboardDecalSettings) *DashboardDecalPatternType { return v.DecalPatternType }).(DashboardDecalPatternTypePtrOutput)
+}
+
+func (o DashboardDecalSettingsOutput) DecalStyleType() DashboardDecalStyleTypePtrOutput {
+	return o.ApplyT(func(v DashboardDecalSettings) *DashboardDecalStyleType { return v.DecalStyleType }).(DashboardDecalStyleTypePtrOutput)
+}
+
+func (o DashboardDecalSettingsOutput) DecalVisibility() DashboardVisibilityPtrOutput {
+	return o.ApplyT(func(v DashboardDecalSettings) *DashboardVisibility { return v.DecalVisibility }).(DashboardVisibilityPtrOutput)
+}
+
+func (o DashboardDecalSettingsOutput) ElementValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DashboardDecalSettings) *string { return v.ElementValue }).(pulumi.StringPtrOutput)
+}
+
+type DashboardDecalSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (DashboardDecalSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DashboardDecalSettings)(nil)).Elem()
+}
+
+func (o DashboardDecalSettingsPtrOutput) ToDashboardDecalSettingsPtrOutput() DashboardDecalSettingsPtrOutput {
+	return o
+}
+
+func (o DashboardDecalSettingsPtrOutput) ToDashboardDecalSettingsPtrOutputWithContext(ctx context.Context) DashboardDecalSettingsPtrOutput {
+	return o
+}
+
+func (o DashboardDecalSettingsPtrOutput) Elem() DashboardDecalSettingsOutput {
+	return o.ApplyT(func(v *DashboardDecalSettings) DashboardDecalSettings {
+		if v != nil {
+			return *v
+		}
+		var ret DashboardDecalSettings
+		return ret
+	}).(DashboardDecalSettingsOutput)
+}
+
+func (o DashboardDecalSettingsPtrOutput) DecalColor() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DashboardDecalSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DecalColor
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o DashboardDecalSettingsPtrOutput) DecalPatternType() DashboardDecalPatternTypePtrOutput {
+	return o.ApplyT(func(v *DashboardDecalSettings) *DashboardDecalPatternType {
+		if v == nil {
+			return nil
+		}
+		return v.DecalPatternType
+	}).(DashboardDecalPatternTypePtrOutput)
+}
+
+func (o DashboardDecalSettingsPtrOutput) DecalStyleType() DashboardDecalStyleTypePtrOutput {
+	return o.ApplyT(func(v *DashboardDecalSettings) *DashboardDecalStyleType {
+		if v == nil {
+			return nil
+		}
+		return v.DecalStyleType
+	}).(DashboardDecalStyleTypePtrOutput)
+}
+
+func (o DashboardDecalSettingsPtrOutput) DecalVisibility() DashboardVisibilityPtrOutput {
+	return o.ApplyT(func(v *DashboardDecalSettings) *DashboardVisibility {
+		if v == nil {
+			return nil
+		}
+		return v.DecalVisibility
+	}).(DashboardVisibilityPtrOutput)
+}
+
+func (o DashboardDecalSettingsPtrOutput) ElementValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DashboardDecalSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ElementValue
+	}).(pulumi.StringPtrOutput)
+}
+
+type DashboardDecalSettingsArrayOutput struct{ *pulumi.OutputState }
+
+func (DashboardDecalSettingsArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DashboardDecalSettings)(nil)).Elem()
+}
+
+func (o DashboardDecalSettingsArrayOutput) ToDashboardDecalSettingsArrayOutput() DashboardDecalSettingsArrayOutput {
+	return o
+}
+
+func (o DashboardDecalSettingsArrayOutput) ToDashboardDecalSettingsArrayOutputWithContext(ctx context.Context) DashboardDecalSettingsArrayOutput {
+	return o
+}
+
+func (o DashboardDecalSettingsArrayOutput) Index(i pulumi.IntInput) DashboardDecalSettingsOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DashboardDecalSettings {
+		return vs[0].([]DashboardDecalSettings)[vs[1].(int)]
+	}).(DashboardDecalSettingsOutput)
+}
+
+type DashboardDecalSettingsConfiguration struct {
+	CustomDecalSettings []DashboardDecalSettings `pulumi:"customDecalSettings"`
+}
+
+// DashboardDecalSettingsConfigurationInput is an input type that accepts DashboardDecalSettingsConfigurationArgs and DashboardDecalSettingsConfigurationOutput values.
+// You can construct a concrete instance of `DashboardDecalSettingsConfigurationInput` via:
+//
+//	DashboardDecalSettingsConfigurationArgs{...}
+type DashboardDecalSettingsConfigurationInput interface {
+	pulumi.Input
+
+	ToDashboardDecalSettingsConfigurationOutput() DashboardDecalSettingsConfigurationOutput
+	ToDashboardDecalSettingsConfigurationOutputWithContext(context.Context) DashboardDecalSettingsConfigurationOutput
+}
+
+type DashboardDecalSettingsConfigurationArgs struct {
+	CustomDecalSettings DashboardDecalSettingsArrayInput `pulumi:"customDecalSettings"`
+}
+
+func (DashboardDecalSettingsConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardDecalSettingsConfiguration)(nil)).Elem()
+}
+
+func (i DashboardDecalSettingsConfigurationArgs) ToDashboardDecalSettingsConfigurationOutput() DashboardDecalSettingsConfigurationOutput {
+	return i.ToDashboardDecalSettingsConfigurationOutputWithContext(context.Background())
+}
+
+func (i DashboardDecalSettingsConfigurationArgs) ToDashboardDecalSettingsConfigurationOutputWithContext(ctx context.Context) DashboardDecalSettingsConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardDecalSettingsConfigurationOutput)
+}
+
+func (i DashboardDecalSettingsConfigurationArgs) ToDashboardDecalSettingsConfigurationPtrOutput() DashboardDecalSettingsConfigurationPtrOutput {
+	return i.ToDashboardDecalSettingsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i DashboardDecalSettingsConfigurationArgs) ToDashboardDecalSettingsConfigurationPtrOutputWithContext(ctx context.Context) DashboardDecalSettingsConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardDecalSettingsConfigurationOutput).ToDashboardDecalSettingsConfigurationPtrOutputWithContext(ctx)
+}
+
+// DashboardDecalSettingsConfigurationPtrInput is an input type that accepts DashboardDecalSettingsConfigurationArgs, DashboardDecalSettingsConfigurationPtr and DashboardDecalSettingsConfigurationPtrOutput values.
+// You can construct a concrete instance of `DashboardDecalSettingsConfigurationPtrInput` via:
+//
+//	        DashboardDecalSettingsConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type DashboardDecalSettingsConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToDashboardDecalSettingsConfigurationPtrOutput() DashboardDecalSettingsConfigurationPtrOutput
+	ToDashboardDecalSettingsConfigurationPtrOutputWithContext(context.Context) DashboardDecalSettingsConfigurationPtrOutput
+}
+
+type dashboardDecalSettingsConfigurationPtrType DashboardDecalSettingsConfigurationArgs
+
+func DashboardDecalSettingsConfigurationPtr(v *DashboardDecalSettingsConfigurationArgs) DashboardDecalSettingsConfigurationPtrInput {
+	return (*dashboardDecalSettingsConfigurationPtrType)(v)
+}
+
+func (*dashboardDecalSettingsConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DashboardDecalSettingsConfiguration)(nil)).Elem()
+}
+
+func (i *dashboardDecalSettingsConfigurationPtrType) ToDashboardDecalSettingsConfigurationPtrOutput() DashboardDecalSettingsConfigurationPtrOutput {
+	return i.ToDashboardDecalSettingsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *dashboardDecalSettingsConfigurationPtrType) ToDashboardDecalSettingsConfigurationPtrOutputWithContext(ctx context.Context) DashboardDecalSettingsConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardDecalSettingsConfigurationPtrOutput)
+}
+
+type DashboardDecalSettingsConfigurationOutput struct{ *pulumi.OutputState }
+
+func (DashboardDecalSettingsConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardDecalSettingsConfiguration)(nil)).Elem()
+}
+
+func (o DashboardDecalSettingsConfigurationOutput) ToDashboardDecalSettingsConfigurationOutput() DashboardDecalSettingsConfigurationOutput {
+	return o
+}
+
+func (o DashboardDecalSettingsConfigurationOutput) ToDashboardDecalSettingsConfigurationOutputWithContext(ctx context.Context) DashboardDecalSettingsConfigurationOutput {
+	return o
+}
+
+func (o DashboardDecalSettingsConfigurationOutput) ToDashboardDecalSettingsConfigurationPtrOutput() DashboardDecalSettingsConfigurationPtrOutput {
+	return o.ToDashboardDecalSettingsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o DashboardDecalSettingsConfigurationOutput) ToDashboardDecalSettingsConfigurationPtrOutputWithContext(ctx context.Context) DashboardDecalSettingsConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardDecalSettingsConfiguration) *DashboardDecalSettingsConfiguration {
+		return &v
+	}).(DashboardDecalSettingsConfigurationPtrOutput)
+}
+
+func (o DashboardDecalSettingsConfigurationOutput) CustomDecalSettings() DashboardDecalSettingsArrayOutput {
+	return o.ApplyT(func(v DashboardDecalSettingsConfiguration) []DashboardDecalSettings { return v.CustomDecalSettings }).(DashboardDecalSettingsArrayOutput)
+}
+
+type DashboardDecalSettingsConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (DashboardDecalSettingsConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DashboardDecalSettingsConfiguration)(nil)).Elem()
+}
+
+func (o DashboardDecalSettingsConfigurationPtrOutput) ToDashboardDecalSettingsConfigurationPtrOutput() DashboardDecalSettingsConfigurationPtrOutput {
+	return o
+}
+
+func (o DashboardDecalSettingsConfigurationPtrOutput) ToDashboardDecalSettingsConfigurationPtrOutputWithContext(ctx context.Context) DashboardDecalSettingsConfigurationPtrOutput {
+	return o
+}
+
+func (o DashboardDecalSettingsConfigurationPtrOutput) Elem() DashboardDecalSettingsConfigurationOutput {
+	return o.ApplyT(func(v *DashboardDecalSettingsConfiguration) DashboardDecalSettingsConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret DashboardDecalSettingsConfiguration
+		return ret
+	}).(DashboardDecalSettingsConfigurationOutput)
+}
+
+func (o DashboardDecalSettingsConfigurationPtrOutput) CustomDecalSettings() DashboardDecalSettingsArrayOutput {
+	return o.ApplyT(func(v *DashboardDecalSettingsConfiguration) []DashboardDecalSettings {
+		if v == nil {
+			return nil
+		}
+		return v.CustomDecalSettings
+	}).(DashboardDecalSettingsArrayOutput)
 }
 
 type DashboardDecimalDefaultValues struct {
@@ -44373,7 +47719,8 @@ type DashboardEmptyVisual struct {
 	// The list of custom actions that are configured for a visual.
 	Actions []DashboardVisualCustomAction `pulumi:"actions"`
 	// The data set that is used in the empty visual. Every visual requires a dataset to render.
-	DataSetIdentifier string `pulumi:"dataSetIdentifier"`
+	DataSetIdentifier *string `pulumi:"dataSetIdentifier"`
+	TopicIdentifier   *string `pulumi:"topicIdentifier"`
 	// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.
 	VisualId string `pulumi:"visualId"`
 }
@@ -44393,7 +47740,8 @@ type DashboardEmptyVisualArgs struct {
 	// The list of custom actions that are configured for a visual.
 	Actions DashboardVisualCustomActionArrayInput `pulumi:"actions"`
 	// The data set that is used in the empty visual. Every visual requires a dataset to render.
-	DataSetIdentifier pulumi.StringInput `pulumi:"dataSetIdentifier"`
+	DataSetIdentifier pulumi.StringPtrInput `pulumi:"dataSetIdentifier"`
+	TopicIdentifier   pulumi.StringPtrInput `pulumi:"topicIdentifier"`
 	// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.
 	VisualId pulumi.StringInput `pulumi:"visualId"`
 }
@@ -44481,8 +47829,12 @@ func (o DashboardEmptyVisualOutput) Actions() DashboardVisualCustomActionArrayOu
 }
 
 // The data set that is used in the empty visual. Every visual requires a dataset to render.
-func (o DashboardEmptyVisualOutput) DataSetIdentifier() pulumi.StringOutput {
-	return o.ApplyT(func(v DashboardEmptyVisual) string { return v.DataSetIdentifier }).(pulumi.StringOutput)
+func (o DashboardEmptyVisualOutput) DataSetIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DashboardEmptyVisual) *string { return v.DataSetIdentifier }).(pulumi.StringPtrOutput)
+}
+
+func (o DashboardEmptyVisualOutput) TopicIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DashboardEmptyVisual) *string { return v.TopicIdentifier }).(pulumi.StringPtrOutput)
 }
 
 // The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.
@@ -44530,7 +47882,16 @@ func (o DashboardEmptyVisualPtrOutput) DataSetIdentifier() pulumi.StringPtrOutpu
 		if v == nil {
 			return nil
 		}
-		return &v.DataSetIdentifier
+		return v.DataSetIdentifier
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o DashboardEmptyVisualPtrOutput) TopicIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DashboardEmptyVisual) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TopicIdentifier
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -50926,7 +54287,7 @@ type DashboardFontConfiguration struct {
 	FontColor *string `pulumi:"fontColor"`
 	// Determines the appearance of decorative lines on the text.
 	FontDecoration *DashboardFontDecoration `pulumi:"fontDecoration"`
-	// The font family that you want to use.
+	// <p>The font family that you want to use.</p>
 	FontFamily *string `pulumi:"fontFamily"`
 	// The option that determines the text display size.
 	FontSize *DashboardFontSize `pulumi:"fontSize"`
@@ -50952,7 +54313,7 @@ type DashboardFontConfigurationArgs struct {
 	FontColor pulumi.StringPtrInput `pulumi:"fontColor"`
 	// Determines the appearance of decorative lines on the text.
 	FontDecoration DashboardFontDecorationPtrInput `pulumi:"fontDecoration"`
-	// The font family that you want to use.
+	// <p>The font family that you want to use.</p>
 	FontFamily pulumi.StringPtrInput `pulumi:"fontFamily"`
 	// The option that determines the text display size.
 	FontSize DashboardFontSizePtrInput `pulumi:"fontSize"`
@@ -51049,7 +54410,7 @@ func (o DashboardFontConfigurationOutput) FontDecoration() DashboardFontDecorati
 	return o.ApplyT(func(v DashboardFontConfiguration) *DashboardFontDecoration { return v.FontDecoration }).(DashboardFontDecorationPtrOutput)
 }
 
-// The font family that you want to use.
+// <p>The font family that you want to use.</p>
 func (o DashboardFontConfigurationOutput) FontFamily() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DashboardFontConfiguration) *string { return v.FontFamily }).(pulumi.StringPtrOutput)
 }
@@ -51113,7 +54474,7 @@ func (o DashboardFontConfigurationPtrOutput) FontDecoration() DashboardFontDecor
 	}).(DashboardFontDecorationPtrOutput)
 }
 
-// The font family that you want to use.
+// <p>The font family that you want to use.</p>
 func (o DashboardFontConfigurationPtrOutput) FontFamily() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DashboardFontConfiguration) *string {
 		if v == nil {
@@ -51154,7 +54515,7 @@ func (o DashboardFontConfigurationPtrOutput) FontWeight() DashboardFontWeightPtr
 }
 
 type DashboardFontSize struct {
-	// String based length that is composed of value and unit in px
+	// <p>The font size that you want to use in px.</p>
 	Absolute *string `pulumi:"absolute"`
 	// The lexical name for the text size, proportional to its surrounding context.
 	Relative *DashboardRelativeFontSize `pulumi:"relative"`
@@ -51172,7 +54533,7 @@ type DashboardFontSizeInput interface {
 }
 
 type DashboardFontSizeArgs struct {
-	// String based length that is composed of value and unit in px
+	// <p>The font size that you want to use in px.</p>
 	Absolute pulumi.StringPtrInput `pulumi:"absolute"`
 	// The lexical name for the text size, proportional to its surrounding context.
 	Relative DashboardRelativeFontSizePtrInput `pulumi:"relative"`
@@ -51255,7 +54616,7 @@ func (o DashboardFontSizeOutput) ToDashboardFontSizePtrOutputWithContext(ctx con
 	}).(DashboardFontSizePtrOutput)
 }
 
-// String based length that is composed of value and unit in px
+// <p>The font size that you want to use in px.</p>
 func (o DashboardFontSizeOutput) Absolute() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DashboardFontSize) *string { return v.Absolute }).(pulumi.StringPtrOutput)
 }
@@ -51289,7 +54650,7 @@ func (o DashboardFontSizePtrOutput) Elem() DashboardFontSizeOutput {
 	}).(DashboardFontSizeOutput)
 }
 
-// String based length that is composed of value and unit in px
+// <p>The font size that you want to use in px.</p>
 func (o DashboardFontSizePtrOutput) Absolute() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DashboardFontSize) *string {
 		if v == nil {
@@ -52373,6 +55734,7 @@ type DashboardFreeFormLayoutConfiguration struct {
 	CanvasSizeOptions *DashboardFreeFormLayoutCanvasSizeOptions `pulumi:"canvasSizeOptions"`
 	// The elements that are included in a free-form layout.
 	Elements []DashboardFreeFormLayoutElement `pulumi:"elements"`
+	Groups   []DashboardSheetLayoutGroup      `pulumi:"groups"`
 }
 
 // DashboardFreeFormLayoutConfigurationInput is an input type that accepts DashboardFreeFormLayoutConfigurationArgs and DashboardFreeFormLayoutConfigurationOutput values.
@@ -52390,6 +55752,7 @@ type DashboardFreeFormLayoutConfigurationArgs struct {
 	CanvasSizeOptions DashboardFreeFormLayoutCanvasSizeOptionsPtrInput `pulumi:"canvasSizeOptions"`
 	// The elements that are included in a free-form layout.
 	Elements DashboardFreeFormLayoutElementArrayInput `pulumi:"elements"`
+	Groups   DashboardSheetLayoutGroupArrayInput      `pulumi:"groups"`
 }
 
 func (DashboardFreeFormLayoutConfigurationArgs) ElementType() reflect.Type {
@@ -52480,6 +55843,10 @@ func (o DashboardFreeFormLayoutConfigurationOutput) Elements() DashboardFreeForm
 	return o.ApplyT(func(v DashboardFreeFormLayoutConfiguration) []DashboardFreeFormLayoutElement { return v.Elements }).(DashboardFreeFormLayoutElementArrayOutput)
 }
 
+func (o DashboardFreeFormLayoutConfigurationOutput) Groups() DashboardSheetLayoutGroupArrayOutput {
+	return o.ApplyT(func(v DashboardFreeFormLayoutConfiguration) []DashboardSheetLayoutGroup { return v.Groups }).(DashboardSheetLayoutGroupArrayOutput)
+}
+
 type DashboardFreeFormLayoutConfigurationPtrOutput struct{ *pulumi.OutputState }
 
 func (DashboardFreeFormLayoutConfigurationPtrOutput) ElementType() reflect.Type {
@@ -52521,6 +55888,15 @@ func (o DashboardFreeFormLayoutConfigurationPtrOutput) Elements() DashboardFreeF
 		}
 		return v.Elements
 	}).(DashboardFreeFormLayoutElementArrayOutput)
+}
+
+func (o DashboardFreeFormLayoutConfigurationPtrOutput) Groups() DashboardSheetLayoutGroupArrayOutput {
+	return o.ApplyT(func(v *DashboardFreeFormLayoutConfiguration) []DashboardSheetLayoutGroup {
+		if v == nil {
+			return nil
+		}
+		return v.Groups
+	}).(DashboardSheetLayoutGroupArrayOutput)
 }
 
 type DashboardFreeFormLayoutElement struct {
@@ -67185,13 +70561,14 @@ type DashboardInsightVisual struct {
 	// The list of custom actions that are configured for a visual.
 	Actions []DashboardVisualCustomAction `pulumi:"actions"`
 	// The dataset that is used in the insight visual.
-	DataSetIdentifier string `pulumi:"dataSetIdentifier"`
+	DataSetIdentifier *string `pulumi:"dataSetIdentifier"`
 	// The configuration of an insight visual.
 	InsightConfiguration *DashboardInsightConfiguration `pulumi:"insightConfiguration"`
 	// The subtitle that is displayed on the visual.
 	Subtitle *DashboardVisualSubtitleLabelOptions `pulumi:"subtitle"`
 	// The title that is displayed on the visual.
-	Title *DashboardVisualTitleLabelOptions `pulumi:"title"`
+	Title           *DashboardVisualTitleLabelOptions `pulumi:"title"`
+	TopicIdentifier *string                           `pulumi:"topicIdentifier"`
 	// The alt text for the visual.
 	VisualContentAltText *string `pulumi:"visualContentAltText"`
 	// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.
@@ -67213,13 +70590,14 @@ type DashboardInsightVisualArgs struct {
 	// The list of custom actions that are configured for a visual.
 	Actions DashboardVisualCustomActionArrayInput `pulumi:"actions"`
 	// The dataset that is used in the insight visual.
-	DataSetIdentifier pulumi.StringInput `pulumi:"dataSetIdentifier"`
+	DataSetIdentifier pulumi.StringPtrInput `pulumi:"dataSetIdentifier"`
 	// The configuration of an insight visual.
 	InsightConfiguration DashboardInsightConfigurationPtrInput `pulumi:"insightConfiguration"`
 	// The subtitle that is displayed on the visual.
 	Subtitle DashboardVisualSubtitleLabelOptionsPtrInput `pulumi:"subtitle"`
 	// The title that is displayed on the visual.
-	Title DashboardVisualTitleLabelOptionsPtrInput `pulumi:"title"`
+	Title           DashboardVisualTitleLabelOptionsPtrInput `pulumi:"title"`
+	TopicIdentifier pulumi.StringPtrInput                    `pulumi:"topicIdentifier"`
 	// The alt text for the visual.
 	VisualContentAltText pulumi.StringPtrInput `pulumi:"visualContentAltText"`
 	// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.
@@ -67309,8 +70687,8 @@ func (o DashboardInsightVisualOutput) Actions() DashboardVisualCustomActionArray
 }
 
 // The dataset that is used in the insight visual.
-func (o DashboardInsightVisualOutput) DataSetIdentifier() pulumi.StringOutput {
-	return o.ApplyT(func(v DashboardInsightVisual) string { return v.DataSetIdentifier }).(pulumi.StringOutput)
+func (o DashboardInsightVisualOutput) DataSetIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DashboardInsightVisual) *string { return v.DataSetIdentifier }).(pulumi.StringPtrOutput)
 }
 
 // The configuration of an insight visual.
@@ -67326,6 +70704,10 @@ func (o DashboardInsightVisualOutput) Subtitle() DashboardVisualSubtitleLabelOpt
 // The title that is displayed on the visual.
 func (o DashboardInsightVisualOutput) Title() DashboardVisualTitleLabelOptionsPtrOutput {
 	return o.ApplyT(func(v DashboardInsightVisual) *DashboardVisualTitleLabelOptions { return v.Title }).(DashboardVisualTitleLabelOptionsPtrOutput)
+}
+
+func (o DashboardInsightVisualOutput) TopicIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DashboardInsightVisual) *string { return v.TopicIdentifier }).(pulumi.StringPtrOutput)
 }
 
 // The alt text for the visual.
@@ -67378,7 +70760,7 @@ func (o DashboardInsightVisualPtrOutput) DataSetIdentifier() pulumi.StringPtrOut
 		if v == nil {
 			return nil
 		}
-		return &v.DataSetIdentifier
+		return v.DataSetIdentifier
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -67410,6 +70792,15 @@ func (o DashboardInsightVisualPtrOutput) Title() DashboardVisualTitleLabelOption
 		}
 		return v.Title
 	}).(DashboardVisualTitleLabelOptionsPtrOutput)
+}
+
+func (o DashboardInsightVisualPtrOutput) TopicIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DashboardInsightVisual) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TopicIdentifier
+	}).(pulumi.StringPtrOutput)
 }
 
 // The alt text for the visual.
@@ -71122,9 +74513,10 @@ type DashboardLayerMapVisual struct {
 	// The configuration settings of the visual.
 	ChartConfiguration *DashboardGeospatialLayerMapConfiguration `pulumi:"chartConfiguration"`
 	// The dataset that is used to create the layer map visual. You can't create a visual without a dataset.
-	DataSetIdentifier string                               `pulumi:"dataSetIdentifier"`
+	DataSetIdentifier *string                              `pulumi:"dataSetIdentifier"`
 	Subtitle          *DashboardVisualSubtitleLabelOptions `pulumi:"subtitle"`
 	Title             *DashboardVisualTitleLabelOptions    `pulumi:"title"`
+	TopicIdentifier   *string                              `pulumi:"topicIdentifier"`
 	// The alt text for the visual.
 	VisualContentAltText *string `pulumi:"visualContentAltText"`
 	// The ID of the visual.
@@ -71146,9 +74538,10 @@ type DashboardLayerMapVisualArgs struct {
 	// The configuration settings of the visual.
 	ChartConfiguration DashboardGeospatialLayerMapConfigurationPtrInput `pulumi:"chartConfiguration"`
 	// The dataset that is used to create the layer map visual. You can't create a visual without a dataset.
-	DataSetIdentifier pulumi.StringInput                          `pulumi:"dataSetIdentifier"`
+	DataSetIdentifier pulumi.StringPtrInput                       `pulumi:"dataSetIdentifier"`
 	Subtitle          DashboardVisualSubtitleLabelOptionsPtrInput `pulumi:"subtitle"`
 	Title             DashboardVisualTitleLabelOptionsPtrInput    `pulumi:"title"`
+	TopicIdentifier   pulumi.StringPtrInput                       `pulumi:"topicIdentifier"`
 	// The alt text for the visual.
 	VisualContentAltText pulumi.StringPtrInput `pulumi:"visualContentAltText"`
 	// The ID of the visual.
@@ -71238,8 +74631,8 @@ func (o DashboardLayerMapVisualOutput) ChartConfiguration() DashboardGeospatialL
 }
 
 // The dataset that is used to create the layer map visual. You can't create a visual without a dataset.
-func (o DashboardLayerMapVisualOutput) DataSetIdentifier() pulumi.StringOutput {
-	return o.ApplyT(func(v DashboardLayerMapVisual) string { return v.DataSetIdentifier }).(pulumi.StringOutput)
+func (o DashboardLayerMapVisualOutput) DataSetIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DashboardLayerMapVisual) *string { return v.DataSetIdentifier }).(pulumi.StringPtrOutput)
 }
 
 func (o DashboardLayerMapVisualOutput) Subtitle() DashboardVisualSubtitleLabelOptionsPtrOutput {
@@ -71248,6 +74641,10 @@ func (o DashboardLayerMapVisualOutput) Subtitle() DashboardVisualSubtitleLabelOp
 
 func (o DashboardLayerMapVisualOutput) Title() DashboardVisualTitleLabelOptionsPtrOutput {
 	return o.ApplyT(func(v DashboardLayerMapVisual) *DashboardVisualTitleLabelOptions { return v.Title }).(DashboardVisualTitleLabelOptionsPtrOutput)
+}
+
+func (o DashboardLayerMapVisualOutput) TopicIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DashboardLayerMapVisual) *string { return v.TopicIdentifier }).(pulumi.StringPtrOutput)
 }
 
 // The alt text for the visual.
@@ -71300,7 +74697,7 @@ func (o DashboardLayerMapVisualPtrOutput) DataSetIdentifier() pulumi.StringPtrOu
 		if v == nil {
 			return nil
 		}
-		return &v.DataSetIdentifier
+		return v.DataSetIdentifier
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -71320,6 +74717,15 @@ func (o DashboardLayerMapVisualPtrOutput) Title() DashboardVisualTitleLabelOptio
 		}
 		return v.Title
 	}).(DashboardVisualTitleLabelOptionsPtrOutput)
+}
+
+func (o DashboardLayerMapVisualPtrOutput) TopicIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DashboardLayerMapVisual) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TopicIdentifier
+	}).(pulumi.StringPtrOutput)
 }
 
 // The alt text for the visual.
@@ -72486,7 +75892,8 @@ func (o DashboardLineChartConfigurationPtrOutput) XAxisLabelOptions() DashboardC
 
 type DashboardLineChartDefaultSeriesSettings struct {
 	// The axis to which you are binding all line series to.
-	AxisBinding *DashboardAxisBinding `pulumi:"axisBinding"`
+	AxisBinding   *DashboardAxisBinding   `pulumi:"axisBinding"`
+	DecalSettings *DashboardDecalSettings `pulumi:"decalSettings"`
 	// Line styles options for all line series in the visual.
 	LineStyleSettings *DashboardLineChartLineStyleSettings `pulumi:"lineStyleSettings"`
 	// Marker styles options for all line series in the visual.
@@ -72506,7 +75913,8 @@ type DashboardLineChartDefaultSeriesSettingsInput interface {
 
 type DashboardLineChartDefaultSeriesSettingsArgs struct {
 	// The axis to which you are binding all line series to.
-	AxisBinding DashboardAxisBindingPtrInput `pulumi:"axisBinding"`
+	AxisBinding   DashboardAxisBindingPtrInput   `pulumi:"axisBinding"`
+	DecalSettings DashboardDecalSettingsPtrInput `pulumi:"decalSettings"`
 	// Line styles options for all line series in the visual.
 	LineStyleSettings DashboardLineChartLineStyleSettingsPtrInput `pulumi:"lineStyleSettings"`
 	// Marker styles options for all line series in the visual.
@@ -72595,6 +76003,10 @@ func (o DashboardLineChartDefaultSeriesSettingsOutput) AxisBinding() DashboardAx
 	return o.ApplyT(func(v DashboardLineChartDefaultSeriesSettings) *DashboardAxisBinding { return v.AxisBinding }).(DashboardAxisBindingPtrOutput)
 }
 
+func (o DashboardLineChartDefaultSeriesSettingsOutput) DecalSettings() DashboardDecalSettingsPtrOutput {
+	return o.ApplyT(func(v DashboardLineChartDefaultSeriesSettings) *DashboardDecalSettings { return v.DecalSettings }).(DashboardDecalSettingsPtrOutput)
+}
+
 // Line styles options for all line series in the visual.
 func (o DashboardLineChartDefaultSeriesSettingsOutput) LineStyleSettings() DashboardLineChartLineStyleSettingsPtrOutput {
 	return o.ApplyT(func(v DashboardLineChartDefaultSeriesSettings) *DashboardLineChartLineStyleSettings {
@@ -72641,6 +76053,15 @@ func (o DashboardLineChartDefaultSeriesSettingsPtrOutput) AxisBinding() Dashboar
 		}
 		return v.AxisBinding
 	}).(DashboardAxisBindingPtrOutput)
+}
+
+func (o DashboardLineChartDefaultSeriesSettingsPtrOutput) DecalSettings() DashboardDecalSettingsPtrOutput {
+	return o.ApplyT(func(v *DashboardLineChartDefaultSeriesSettings) *DashboardDecalSettings {
+		if v == nil {
+			return nil
+		}
+		return v.DecalSettings
+	}).(DashboardDecalSettingsPtrOutput)
 }
 
 // Line styles options for all line series in the visual.
@@ -73247,6 +76668,7 @@ func (o DashboardLineChartMarkerStyleSettingsPtrOutput) MarkerVisibility() Dashb
 }
 
 type DashboardLineChartSeriesSettings struct {
+	DecalSettings *DashboardDecalSettings `pulumi:"decalSettings"`
 	// Line styles options for a line series in `LineChartVisual` .
 	LineStyleSettings *DashboardLineChartLineStyleSettings `pulumi:"lineStyleSettings"`
 	// Marker styles options for a line series in `LineChartVisual` .
@@ -73265,6 +76687,7 @@ type DashboardLineChartSeriesSettingsInput interface {
 }
 
 type DashboardLineChartSeriesSettingsArgs struct {
+	DecalSettings DashboardDecalSettingsPtrInput `pulumi:"decalSettings"`
 	// Line styles options for a line series in `LineChartVisual` .
 	LineStyleSettings DashboardLineChartLineStyleSettingsPtrInput `pulumi:"lineStyleSettings"`
 	// Marker styles options for a line series in `LineChartVisual` .
@@ -73348,6 +76771,10 @@ func (o DashboardLineChartSeriesSettingsOutput) ToDashboardLineChartSeriesSettin
 	}).(DashboardLineChartSeriesSettingsPtrOutput)
 }
 
+func (o DashboardLineChartSeriesSettingsOutput) DecalSettings() DashboardDecalSettingsPtrOutput {
+	return o.ApplyT(func(v DashboardLineChartSeriesSettings) *DashboardDecalSettings { return v.DecalSettings }).(DashboardDecalSettingsPtrOutput)
+}
+
 // Line styles options for a line series in `LineChartVisual` .
 func (o DashboardLineChartSeriesSettingsOutput) LineStyleSettings() DashboardLineChartLineStyleSettingsPtrOutput {
 	return o.ApplyT(func(v DashboardLineChartSeriesSettings) *DashboardLineChartLineStyleSettings {
@@ -73384,6 +76811,15 @@ func (o DashboardLineChartSeriesSettingsPtrOutput) Elem() DashboardLineChartSeri
 		var ret DashboardLineChartSeriesSettings
 		return ret
 	}).(DashboardLineChartSeriesSettingsOutput)
+}
+
+func (o DashboardLineChartSeriesSettingsPtrOutput) DecalSettings() DashboardDecalSettingsPtrOutput {
+	return o.ApplyT(func(v *DashboardLineChartSeriesSettings) *DashboardDecalSettings {
+		if v == nil {
+			return nil
+		}
+		return v.DecalSettings
+	}).(DashboardDecalSettingsPtrOutput)
 }
 
 // Line styles options for a line series in `LineChartVisual` .
@@ -81602,7 +85038,7 @@ func (o DashboardParameterTextFieldControlPtrOutput) Title() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// <p>A list of Amazon QuickSight parameters and the list's override values.</p>
+// <p>A list of Quick parameters and the list's override values.</p>
 type DashboardParameters struct {
 	// <p>The parameters that have a data type of date-time.</p>
 	DateTimeParameters []DashboardDateTimeParameter `pulumi:"dateTimeParameters"`
@@ -81625,7 +85061,7 @@ type DashboardParametersInput interface {
 	ToDashboardParametersOutputWithContext(context.Context) DashboardParametersOutput
 }
 
-// <p>A list of Amazon QuickSight parameters and the list's override values.</p>
+// <p>A list of Quick parameters and the list's override values.</p>
 type DashboardParametersArgs struct {
 	// <p>The parameters that have a data type of date-time.</p>
 	DateTimeParameters DashboardDateTimeParameterArrayInput `pulumi:"dateTimeParameters"`
@@ -81690,7 +85126,7 @@ func (i *dashboardParametersPtrType) ToDashboardParametersPtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(DashboardParametersPtrOutput)
 }
 
-// <p>A list of Amazon QuickSight parameters and the list's override values.</p>
+// <p>A list of Quick parameters and the list's override values.</p>
 type DashboardParametersOutput struct{ *pulumi.OutputState }
 
 func (DashboardParametersOutput) ElementType() reflect.Type {
@@ -86742,4003 +90178,31 @@ func (o DashboardPivotTableSortConfigurationPtrOutput) FieldSortOptions() Dashbo
 	}).(DashboardPivotFieldSortOptionsArrayOutput)
 }
 
-type DashboardPivotTableTotalOptions struct {
-	// The column subtotal options.
-	ColumnSubtotalOptions *DashboardSubtotalOptions `pulumi:"columnSubtotalOptions"`
-	// The column total options.
-	ColumnTotalOptions *DashboardPivotTotalOptions `pulumi:"columnTotalOptions"`
-	// The row subtotal options.
-	RowSubtotalOptions *DashboardSubtotalOptions `pulumi:"rowSubtotalOptions"`
-	// The row total options.
-	RowTotalOptions *DashboardPivotTotalOptions `pulumi:"rowTotalOptions"`
-}
-
-// DashboardPivotTableTotalOptionsInput is an input type that accepts DashboardPivotTableTotalOptionsArgs and DashboardPivotTableTotalOptionsOutput values.
-// You can construct a concrete instance of `DashboardPivotTableTotalOptionsInput` via:
-//
-//	DashboardPivotTableTotalOptionsArgs{...}
-type DashboardPivotTableTotalOptionsInput interface {
-	pulumi.Input
-
-	ToDashboardPivotTableTotalOptionsOutput() DashboardPivotTableTotalOptionsOutput
-	ToDashboardPivotTableTotalOptionsOutputWithContext(context.Context) DashboardPivotTableTotalOptionsOutput
-}
-
-type DashboardPivotTableTotalOptionsArgs struct {
-	// The column subtotal options.
-	ColumnSubtotalOptions DashboardSubtotalOptionsPtrInput `pulumi:"columnSubtotalOptions"`
-	// The column total options.
-	ColumnTotalOptions DashboardPivotTotalOptionsPtrInput `pulumi:"columnTotalOptions"`
-	// The row subtotal options.
-	RowSubtotalOptions DashboardSubtotalOptionsPtrInput `pulumi:"rowSubtotalOptions"`
-	// The row total options.
-	RowTotalOptions DashboardPivotTotalOptionsPtrInput `pulumi:"rowTotalOptions"`
-}
-
-func (DashboardPivotTableTotalOptionsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardPivotTableTotalOptions)(nil)).Elem()
-}
-
-func (i DashboardPivotTableTotalOptionsArgs) ToDashboardPivotTableTotalOptionsOutput() DashboardPivotTableTotalOptionsOutput {
-	return i.ToDashboardPivotTableTotalOptionsOutputWithContext(context.Background())
-}
-
-func (i DashboardPivotTableTotalOptionsArgs) ToDashboardPivotTableTotalOptionsOutputWithContext(ctx context.Context) DashboardPivotTableTotalOptionsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardPivotTableTotalOptionsOutput)
-}
-
-func (i DashboardPivotTableTotalOptionsArgs) ToDashboardPivotTableTotalOptionsPtrOutput() DashboardPivotTableTotalOptionsPtrOutput {
-	return i.ToDashboardPivotTableTotalOptionsPtrOutputWithContext(context.Background())
-}
-
-func (i DashboardPivotTableTotalOptionsArgs) ToDashboardPivotTableTotalOptionsPtrOutputWithContext(ctx context.Context) DashboardPivotTableTotalOptionsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardPivotTableTotalOptionsOutput).ToDashboardPivotTableTotalOptionsPtrOutputWithContext(ctx)
-}
-
-// DashboardPivotTableTotalOptionsPtrInput is an input type that accepts DashboardPivotTableTotalOptionsArgs, DashboardPivotTableTotalOptionsPtr and DashboardPivotTableTotalOptionsPtrOutput values.
-// You can construct a concrete instance of `DashboardPivotTableTotalOptionsPtrInput` via:
-//
-//	        DashboardPivotTableTotalOptionsArgs{...}
-//
-//	or:
-//
-//	        nil
-type DashboardPivotTableTotalOptionsPtrInput interface {
-	pulumi.Input
-
-	ToDashboardPivotTableTotalOptionsPtrOutput() DashboardPivotTableTotalOptionsPtrOutput
-	ToDashboardPivotTableTotalOptionsPtrOutputWithContext(context.Context) DashboardPivotTableTotalOptionsPtrOutput
-}
-
-type dashboardPivotTableTotalOptionsPtrType DashboardPivotTableTotalOptionsArgs
-
-func DashboardPivotTableTotalOptionsPtr(v *DashboardPivotTableTotalOptionsArgs) DashboardPivotTableTotalOptionsPtrInput {
-	return (*dashboardPivotTableTotalOptionsPtrType)(v)
-}
-
-func (*dashboardPivotTableTotalOptionsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardPivotTableTotalOptions)(nil)).Elem()
-}
-
-func (i *dashboardPivotTableTotalOptionsPtrType) ToDashboardPivotTableTotalOptionsPtrOutput() DashboardPivotTableTotalOptionsPtrOutput {
-	return i.ToDashboardPivotTableTotalOptionsPtrOutputWithContext(context.Background())
-}
-
-func (i *dashboardPivotTableTotalOptionsPtrType) ToDashboardPivotTableTotalOptionsPtrOutputWithContext(ctx context.Context) DashboardPivotTableTotalOptionsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardPivotTableTotalOptionsPtrOutput)
-}
-
-type DashboardPivotTableTotalOptionsOutput struct{ *pulumi.OutputState }
-
-func (DashboardPivotTableTotalOptionsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardPivotTableTotalOptions)(nil)).Elem()
-}
-
-func (o DashboardPivotTableTotalOptionsOutput) ToDashboardPivotTableTotalOptionsOutput() DashboardPivotTableTotalOptionsOutput {
-	return o
-}
-
-func (o DashboardPivotTableTotalOptionsOutput) ToDashboardPivotTableTotalOptionsOutputWithContext(ctx context.Context) DashboardPivotTableTotalOptionsOutput {
-	return o
-}
-
-func (o DashboardPivotTableTotalOptionsOutput) ToDashboardPivotTableTotalOptionsPtrOutput() DashboardPivotTableTotalOptionsPtrOutput {
-	return o.ToDashboardPivotTableTotalOptionsPtrOutputWithContext(context.Background())
-}
-
-func (o DashboardPivotTableTotalOptionsOutput) ToDashboardPivotTableTotalOptionsPtrOutputWithContext(ctx context.Context) DashboardPivotTableTotalOptionsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardPivotTableTotalOptions) *DashboardPivotTableTotalOptions {
-		return &v
-	}).(DashboardPivotTableTotalOptionsPtrOutput)
-}
-
-// The column subtotal options.
-func (o DashboardPivotTableTotalOptionsOutput) ColumnSubtotalOptions() DashboardSubtotalOptionsPtrOutput {
-	return o.ApplyT(func(v DashboardPivotTableTotalOptions) *DashboardSubtotalOptions { return v.ColumnSubtotalOptions }).(DashboardSubtotalOptionsPtrOutput)
-}
-
-// The column total options.
-func (o DashboardPivotTableTotalOptionsOutput) ColumnTotalOptions() DashboardPivotTotalOptionsPtrOutput {
-	return o.ApplyT(func(v DashboardPivotTableTotalOptions) *DashboardPivotTotalOptions { return v.ColumnTotalOptions }).(DashboardPivotTotalOptionsPtrOutput)
-}
-
-// The row subtotal options.
-func (o DashboardPivotTableTotalOptionsOutput) RowSubtotalOptions() DashboardSubtotalOptionsPtrOutput {
-	return o.ApplyT(func(v DashboardPivotTableTotalOptions) *DashboardSubtotalOptions { return v.RowSubtotalOptions }).(DashboardSubtotalOptionsPtrOutput)
-}
-
-// The row total options.
-func (o DashboardPivotTableTotalOptionsOutput) RowTotalOptions() DashboardPivotTotalOptionsPtrOutput {
-	return o.ApplyT(func(v DashboardPivotTableTotalOptions) *DashboardPivotTotalOptions { return v.RowTotalOptions }).(DashboardPivotTotalOptionsPtrOutput)
-}
-
-type DashboardPivotTableTotalOptionsPtrOutput struct{ *pulumi.OutputState }
-
-func (DashboardPivotTableTotalOptionsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardPivotTableTotalOptions)(nil)).Elem()
-}
-
-func (o DashboardPivotTableTotalOptionsPtrOutput) ToDashboardPivotTableTotalOptionsPtrOutput() DashboardPivotTableTotalOptionsPtrOutput {
-	return o
-}
-
-func (o DashboardPivotTableTotalOptionsPtrOutput) ToDashboardPivotTableTotalOptionsPtrOutputWithContext(ctx context.Context) DashboardPivotTableTotalOptionsPtrOutput {
-	return o
-}
-
-func (o DashboardPivotTableTotalOptionsPtrOutput) Elem() DashboardPivotTableTotalOptionsOutput {
-	return o.ApplyT(func(v *DashboardPivotTableTotalOptions) DashboardPivotTableTotalOptions {
-		if v != nil {
-			return *v
-		}
-		var ret DashboardPivotTableTotalOptions
-		return ret
-	}).(DashboardPivotTableTotalOptionsOutput)
-}
-
-// The column subtotal options.
-func (o DashboardPivotTableTotalOptionsPtrOutput) ColumnSubtotalOptions() DashboardSubtotalOptionsPtrOutput {
-	return o.ApplyT(func(v *DashboardPivotTableTotalOptions) *DashboardSubtotalOptions {
-		if v == nil {
-			return nil
-		}
-		return v.ColumnSubtotalOptions
-	}).(DashboardSubtotalOptionsPtrOutput)
-}
-
-// The column total options.
-func (o DashboardPivotTableTotalOptionsPtrOutput) ColumnTotalOptions() DashboardPivotTotalOptionsPtrOutput {
-	return o.ApplyT(func(v *DashboardPivotTableTotalOptions) *DashboardPivotTotalOptions {
-		if v == nil {
-			return nil
-		}
-		return v.ColumnTotalOptions
-	}).(DashboardPivotTotalOptionsPtrOutput)
-}
-
-// The row subtotal options.
-func (o DashboardPivotTableTotalOptionsPtrOutput) RowSubtotalOptions() DashboardSubtotalOptionsPtrOutput {
-	return o.ApplyT(func(v *DashboardPivotTableTotalOptions) *DashboardSubtotalOptions {
-		if v == nil {
-			return nil
-		}
-		return v.RowSubtotalOptions
-	}).(DashboardSubtotalOptionsPtrOutput)
-}
-
-// The row total options.
-func (o DashboardPivotTableTotalOptionsPtrOutput) RowTotalOptions() DashboardPivotTotalOptionsPtrOutput {
-	return o.ApplyT(func(v *DashboardPivotTableTotalOptions) *DashboardPivotTotalOptions {
-		if v == nil {
-			return nil
-		}
-		return v.RowTotalOptions
-	}).(DashboardPivotTotalOptionsPtrOutput)
-}
-
-type DashboardPivotTableVisual struct {
-	// The list of custom actions that are configured for a visual.
-	Actions []DashboardVisualCustomAction `pulumi:"actions"`
-	// The configuration settings of the visual.
-	ChartConfiguration *DashboardPivotTableConfiguration `pulumi:"chartConfiguration"`
-	// The conditional formatting for a `PivotTableVisual` .
-	ConditionalFormatting *DashboardPivotTableConditionalFormatting `pulumi:"conditionalFormatting"`
-	// The subtitle that is displayed on the visual.
-	Subtitle *DashboardVisualSubtitleLabelOptions `pulumi:"subtitle"`
-	// The title that is displayed on the visual.
-	Title *DashboardVisualTitleLabelOptions `pulumi:"title"`
-	// The alt text for the visual.
-	VisualContentAltText *string `pulumi:"visualContentAltText"`
-	// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers..
-	VisualId string `pulumi:"visualId"`
-}
-
-// DashboardPivotTableVisualInput is an input type that accepts DashboardPivotTableVisualArgs and DashboardPivotTableVisualOutput values.
-// You can construct a concrete instance of `DashboardPivotTableVisualInput` via:
-//
-//	DashboardPivotTableVisualArgs{...}
-type DashboardPivotTableVisualInput interface {
-	pulumi.Input
-
-	ToDashboardPivotTableVisualOutput() DashboardPivotTableVisualOutput
-	ToDashboardPivotTableVisualOutputWithContext(context.Context) DashboardPivotTableVisualOutput
-}
-
-type DashboardPivotTableVisualArgs struct {
-	// The list of custom actions that are configured for a visual.
-	Actions DashboardVisualCustomActionArrayInput `pulumi:"actions"`
-	// The configuration settings of the visual.
-	ChartConfiguration DashboardPivotTableConfigurationPtrInput `pulumi:"chartConfiguration"`
-	// The conditional formatting for a `PivotTableVisual` .
-	ConditionalFormatting DashboardPivotTableConditionalFormattingPtrInput `pulumi:"conditionalFormatting"`
-	// The subtitle that is displayed on the visual.
-	Subtitle DashboardVisualSubtitleLabelOptionsPtrInput `pulumi:"subtitle"`
-	// The title that is displayed on the visual.
-	Title DashboardVisualTitleLabelOptionsPtrInput `pulumi:"title"`
-	// The alt text for the visual.
-	VisualContentAltText pulumi.StringPtrInput `pulumi:"visualContentAltText"`
-	// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers..
-	VisualId pulumi.StringInput `pulumi:"visualId"`
-}
-
-func (DashboardPivotTableVisualArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardPivotTableVisual)(nil)).Elem()
-}
-
-func (i DashboardPivotTableVisualArgs) ToDashboardPivotTableVisualOutput() DashboardPivotTableVisualOutput {
-	return i.ToDashboardPivotTableVisualOutputWithContext(context.Background())
-}
-
-func (i DashboardPivotTableVisualArgs) ToDashboardPivotTableVisualOutputWithContext(ctx context.Context) DashboardPivotTableVisualOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardPivotTableVisualOutput)
-}
-
-func (i DashboardPivotTableVisualArgs) ToDashboardPivotTableVisualPtrOutput() DashboardPivotTableVisualPtrOutput {
-	return i.ToDashboardPivotTableVisualPtrOutputWithContext(context.Background())
-}
-
-func (i DashboardPivotTableVisualArgs) ToDashboardPivotTableVisualPtrOutputWithContext(ctx context.Context) DashboardPivotTableVisualPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardPivotTableVisualOutput).ToDashboardPivotTableVisualPtrOutputWithContext(ctx)
-}
-
-// DashboardPivotTableVisualPtrInput is an input type that accepts DashboardPivotTableVisualArgs, DashboardPivotTableVisualPtr and DashboardPivotTableVisualPtrOutput values.
-// You can construct a concrete instance of `DashboardPivotTableVisualPtrInput` via:
-//
-//	        DashboardPivotTableVisualArgs{...}
-//
-//	or:
-//
-//	        nil
-type DashboardPivotTableVisualPtrInput interface {
-	pulumi.Input
-
-	ToDashboardPivotTableVisualPtrOutput() DashboardPivotTableVisualPtrOutput
-	ToDashboardPivotTableVisualPtrOutputWithContext(context.Context) DashboardPivotTableVisualPtrOutput
-}
-
-type dashboardPivotTableVisualPtrType DashboardPivotTableVisualArgs
-
-func DashboardPivotTableVisualPtr(v *DashboardPivotTableVisualArgs) DashboardPivotTableVisualPtrInput {
-	return (*dashboardPivotTableVisualPtrType)(v)
-}
-
-func (*dashboardPivotTableVisualPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardPivotTableVisual)(nil)).Elem()
-}
-
-func (i *dashboardPivotTableVisualPtrType) ToDashboardPivotTableVisualPtrOutput() DashboardPivotTableVisualPtrOutput {
-	return i.ToDashboardPivotTableVisualPtrOutputWithContext(context.Background())
-}
-
-func (i *dashboardPivotTableVisualPtrType) ToDashboardPivotTableVisualPtrOutputWithContext(ctx context.Context) DashboardPivotTableVisualPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardPivotTableVisualPtrOutput)
-}
-
-type DashboardPivotTableVisualOutput struct{ *pulumi.OutputState }
-
-func (DashboardPivotTableVisualOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardPivotTableVisual)(nil)).Elem()
-}
-
-func (o DashboardPivotTableVisualOutput) ToDashboardPivotTableVisualOutput() DashboardPivotTableVisualOutput {
-	return o
-}
-
-func (o DashboardPivotTableVisualOutput) ToDashboardPivotTableVisualOutputWithContext(ctx context.Context) DashboardPivotTableVisualOutput {
-	return o
-}
-
-func (o DashboardPivotTableVisualOutput) ToDashboardPivotTableVisualPtrOutput() DashboardPivotTableVisualPtrOutput {
-	return o.ToDashboardPivotTableVisualPtrOutputWithContext(context.Background())
-}
-
-func (o DashboardPivotTableVisualOutput) ToDashboardPivotTableVisualPtrOutputWithContext(ctx context.Context) DashboardPivotTableVisualPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardPivotTableVisual) *DashboardPivotTableVisual {
-		return &v
-	}).(DashboardPivotTableVisualPtrOutput)
-}
-
-// The list of custom actions that are configured for a visual.
-func (o DashboardPivotTableVisualOutput) Actions() DashboardVisualCustomActionArrayOutput {
-	return o.ApplyT(func(v DashboardPivotTableVisual) []DashboardVisualCustomAction { return v.Actions }).(DashboardVisualCustomActionArrayOutput)
-}
-
-// The configuration settings of the visual.
-func (o DashboardPivotTableVisualOutput) ChartConfiguration() DashboardPivotTableConfigurationPtrOutput {
-	return o.ApplyT(func(v DashboardPivotTableVisual) *DashboardPivotTableConfiguration { return v.ChartConfiguration }).(DashboardPivotTableConfigurationPtrOutput)
-}
-
-// The conditional formatting for a `PivotTableVisual` .
-func (o DashboardPivotTableVisualOutput) ConditionalFormatting() DashboardPivotTableConditionalFormattingPtrOutput {
-	return o.ApplyT(func(v DashboardPivotTableVisual) *DashboardPivotTableConditionalFormatting {
-		return v.ConditionalFormatting
-	}).(DashboardPivotTableConditionalFormattingPtrOutput)
-}
-
-// The subtitle that is displayed on the visual.
-func (o DashboardPivotTableVisualOutput) Subtitle() DashboardVisualSubtitleLabelOptionsPtrOutput {
-	return o.ApplyT(func(v DashboardPivotTableVisual) *DashboardVisualSubtitleLabelOptions { return v.Subtitle }).(DashboardVisualSubtitleLabelOptionsPtrOutput)
-}
-
-// The title that is displayed on the visual.
-func (o DashboardPivotTableVisualOutput) Title() DashboardVisualTitleLabelOptionsPtrOutput {
-	return o.ApplyT(func(v DashboardPivotTableVisual) *DashboardVisualTitleLabelOptions { return v.Title }).(DashboardVisualTitleLabelOptionsPtrOutput)
-}
-
-// The alt text for the visual.
-func (o DashboardPivotTableVisualOutput) VisualContentAltText() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DashboardPivotTableVisual) *string { return v.VisualContentAltText }).(pulumi.StringPtrOutput)
-}
-
-// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers..
-func (o DashboardPivotTableVisualOutput) VisualId() pulumi.StringOutput {
-	return o.ApplyT(func(v DashboardPivotTableVisual) string { return v.VisualId }).(pulumi.StringOutput)
-}
-
-type DashboardPivotTableVisualPtrOutput struct{ *pulumi.OutputState }
-
-func (DashboardPivotTableVisualPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardPivotTableVisual)(nil)).Elem()
-}
-
-func (o DashboardPivotTableVisualPtrOutput) ToDashboardPivotTableVisualPtrOutput() DashboardPivotTableVisualPtrOutput {
-	return o
-}
-
-func (o DashboardPivotTableVisualPtrOutput) ToDashboardPivotTableVisualPtrOutputWithContext(ctx context.Context) DashboardPivotTableVisualPtrOutput {
-	return o
-}
-
-func (o DashboardPivotTableVisualPtrOutput) Elem() DashboardPivotTableVisualOutput {
-	return o.ApplyT(func(v *DashboardPivotTableVisual) DashboardPivotTableVisual {
-		if v != nil {
-			return *v
-		}
-		var ret DashboardPivotTableVisual
-		return ret
-	}).(DashboardPivotTableVisualOutput)
-}
-
-// The list of custom actions that are configured for a visual.
-func (o DashboardPivotTableVisualPtrOutput) Actions() DashboardVisualCustomActionArrayOutput {
-	return o.ApplyT(func(v *DashboardPivotTableVisual) []DashboardVisualCustomAction {
-		if v == nil {
-			return nil
-		}
-		return v.Actions
-	}).(DashboardVisualCustomActionArrayOutput)
-}
-
-// The configuration settings of the visual.
-func (o DashboardPivotTableVisualPtrOutput) ChartConfiguration() DashboardPivotTableConfigurationPtrOutput {
-	return o.ApplyT(func(v *DashboardPivotTableVisual) *DashboardPivotTableConfiguration {
-		if v == nil {
-			return nil
-		}
-		return v.ChartConfiguration
-	}).(DashboardPivotTableConfigurationPtrOutput)
-}
-
-// The conditional formatting for a `PivotTableVisual` .
-func (o DashboardPivotTableVisualPtrOutput) ConditionalFormatting() DashboardPivotTableConditionalFormattingPtrOutput {
-	return o.ApplyT(func(v *DashboardPivotTableVisual) *DashboardPivotTableConditionalFormatting {
-		if v == nil {
-			return nil
-		}
-		return v.ConditionalFormatting
-	}).(DashboardPivotTableConditionalFormattingPtrOutput)
-}
-
-// The subtitle that is displayed on the visual.
-func (o DashboardPivotTableVisualPtrOutput) Subtitle() DashboardVisualSubtitleLabelOptionsPtrOutput {
-	return o.ApplyT(func(v *DashboardPivotTableVisual) *DashboardVisualSubtitleLabelOptions {
-		if v == nil {
-			return nil
-		}
-		return v.Subtitle
-	}).(DashboardVisualSubtitleLabelOptionsPtrOutput)
-}
-
-// The title that is displayed on the visual.
-func (o DashboardPivotTableVisualPtrOutput) Title() DashboardVisualTitleLabelOptionsPtrOutput {
-	return o.ApplyT(func(v *DashboardPivotTableVisual) *DashboardVisualTitleLabelOptions {
-		if v == nil {
-			return nil
-		}
-		return v.Title
-	}).(DashboardVisualTitleLabelOptionsPtrOutput)
-}
-
-// The alt text for the visual.
-func (o DashboardPivotTableVisualPtrOutput) VisualContentAltText() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DashboardPivotTableVisual) *string {
-		if v == nil {
-			return nil
-		}
-		return v.VisualContentAltText
-	}).(pulumi.StringPtrOutput)
-}
-
-// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers..
-func (o DashboardPivotTableVisualPtrOutput) VisualId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DashboardPivotTableVisual) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.VisualId
-	}).(pulumi.StringPtrOutput)
-}
-
-type DashboardPivotTotalOptions struct {
-	// The custom label string for the total cells.
-	CustomLabel *string `pulumi:"customLabel"`
-	// The cell styling options for the total of header cells.
-	MetricHeaderCellStyle *DashboardTableCellStyle `pulumi:"metricHeaderCellStyle"`
-	// The placement (start, end) for the total cells.
-	Placement *DashboardTableTotalsPlacement `pulumi:"placement"`
-	// The scroll status (pinned, scrolled) for the total cells.
-	ScrollStatus *DashboardTableTotalsScrollStatus `pulumi:"scrollStatus"`
-	// The total aggregation options for each value field.
-	TotalAggregationOptions []DashboardTotalAggregationOption `pulumi:"totalAggregationOptions"`
-	// The cell styling options for the total cells.
-	TotalCellStyle *DashboardTableCellStyle `pulumi:"totalCellStyle"`
-	// The visibility configuration for the total cells.
-	TotalsVisibility *DashboardVisibility `pulumi:"totalsVisibility"`
-	// The cell styling options for the totals of value cells.
-	ValueCellStyle *DashboardTableCellStyle `pulumi:"valueCellStyle"`
-}
-
-// DashboardPivotTotalOptionsInput is an input type that accepts DashboardPivotTotalOptionsArgs and DashboardPivotTotalOptionsOutput values.
-// You can construct a concrete instance of `DashboardPivotTotalOptionsInput` via:
-//
-//	DashboardPivotTotalOptionsArgs{...}
-type DashboardPivotTotalOptionsInput interface {
-	pulumi.Input
-
-	ToDashboardPivotTotalOptionsOutput() DashboardPivotTotalOptionsOutput
-	ToDashboardPivotTotalOptionsOutputWithContext(context.Context) DashboardPivotTotalOptionsOutput
-}
-
-type DashboardPivotTotalOptionsArgs struct {
-	// The custom label string for the total cells.
-	CustomLabel pulumi.StringPtrInput `pulumi:"customLabel"`
-	// The cell styling options for the total of header cells.
-	MetricHeaderCellStyle DashboardTableCellStylePtrInput `pulumi:"metricHeaderCellStyle"`
-	// The placement (start, end) for the total cells.
-	Placement DashboardTableTotalsPlacementPtrInput `pulumi:"placement"`
-	// The scroll status (pinned, scrolled) for the total cells.
-	ScrollStatus DashboardTableTotalsScrollStatusPtrInput `pulumi:"scrollStatus"`
-	// The total aggregation options for each value field.
-	TotalAggregationOptions DashboardTotalAggregationOptionArrayInput `pulumi:"totalAggregationOptions"`
-	// The cell styling options for the total cells.
-	TotalCellStyle DashboardTableCellStylePtrInput `pulumi:"totalCellStyle"`
-	// The visibility configuration for the total cells.
-	TotalsVisibility DashboardVisibilityPtrInput `pulumi:"totalsVisibility"`
-	// The cell styling options for the totals of value cells.
-	ValueCellStyle DashboardTableCellStylePtrInput `pulumi:"valueCellStyle"`
-}
-
-func (DashboardPivotTotalOptionsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardPivotTotalOptions)(nil)).Elem()
-}
-
-func (i DashboardPivotTotalOptionsArgs) ToDashboardPivotTotalOptionsOutput() DashboardPivotTotalOptionsOutput {
-	return i.ToDashboardPivotTotalOptionsOutputWithContext(context.Background())
-}
-
-func (i DashboardPivotTotalOptionsArgs) ToDashboardPivotTotalOptionsOutputWithContext(ctx context.Context) DashboardPivotTotalOptionsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardPivotTotalOptionsOutput)
-}
-
-func (i DashboardPivotTotalOptionsArgs) ToDashboardPivotTotalOptionsPtrOutput() DashboardPivotTotalOptionsPtrOutput {
-	return i.ToDashboardPivotTotalOptionsPtrOutputWithContext(context.Background())
-}
-
-func (i DashboardPivotTotalOptionsArgs) ToDashboardPivotTotalOptionsPtrOutputWithContext(ctx context.Context) DashboardPivotTotalOptionsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardPivotTotalOptionsOutput).ToDashboardPivotTotalOptionsPtrOutputWithContext(ctx)
-}
-
-// DashboardPivotTotalOptionsPtrInput is an input type that accepts DashboardPivotTotalOptionsArgs, DashboardPivotTotalOptionsPtr and DashboardPivotTotalOptionsPtrOutput values.
-// You can construct a concrete instance of `DashboardPivotTotalOptionsPtrInput` via:
-//
-//	        DashboardPivotTotalOptionsArgs{...}
-//
-//	or:
-//
-//	        nil
-type DashboardPivotTotalOptionsPtrInput interface {
-	pulumi.Input
-
-	ToDashboardPivotTotalOptionsPtrOutput() DashboardPivotTotalOptionsPtrOutput
-	ToDashboardPivotTotalOptionsPtrOutputWithContext(context.Context) DashboardPivotTotalOptionsPtrOutput
-}
-
-type dashboardPivotTotalOptionsPtrType DashboardPivotTotalOptionsArgs
-
-func DashboardPivotTotalOptionsPtr(v *DashboardPivotTotalOptionsArgs) DashboardPivotTotalOptionsPtrInput {
-	return (*dashboardPivotTotalOptionsPtrType)(v)
-}
-
-func (*dashboardPivotTotalOptionsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardPivotTotalOptions)(nil)).Elem()
-}
-
-func (i *dashboardPivotTotalOptionsPtrType) ToDashboardPivotTotalOptionsPtrOutput() DashboardPivotTotalOptionsPtrOutput {
-	return i.ToDashboardPivotTotalOptionsPtrOutputWithContext(context.Background())
-}
-
-func (i *dashboardPivotTotalOptionsPtrType) ToDashboardPivotTotalOptionsPtrOutputWithContext(ctx context.Context) DashboardPivotTotalOptionsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardPivotTotalOptionsPtrOutput)
-}
-
-type DashboardPivotTotalOptionsOutput struct{ *pulumi.OutputState }
-
-func (DashboardPivotTotalOptionsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardPivotTotalOptions)(nil)).Elem()
-}
-
-func (o DashboardPivotTotalOptionsOutput) ToDashboardPivotTotalOptionsOutput() DashboardPivotTotalOptionsOutput {
-	return o
-}
-
-func (o DashboardPivotTotalOptionsOutput) ToDashboardPivotTotalOptionsOutputWithContext(ctx context.Context) DashboardPivotTotalOptionsOutput {
-	return o
-}
-
-func (o DashboardPivotTotalOptionsOutput) ToDashboardPivotTotalOptionsPtrOutput() DashboardPivotTotalOptionsPtrOutput {
-	return o.ToDashboardPivotTotalOptionsPtrOutputWithContext(context.Background())
-}
-
-func (o DashboardPivotTotalOptionsOutput) ToDashboardPivotTotalOptionsPtrOutputWithContext(ctx context.Context) DashboardPivotTotalOptionsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardPivotTotalOptions) *DashboardPivotTotalOptions {
-		return &v
-	}).(DashboardPivotTotalOptionsPtrOutput)
-}
-
-// The custom label string for the total cells.
-func (o DashboardPivotTotalOptionsOutput) CustomLabel() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DashboardPivotTotalOptions) *string { return v.CustomLabel }).(pulumi.StringPtrOutput)
-}
-
-// The cell styling options for the total of header cells.
-func (o DashboardPivotTotalOptionsOutput) MetricHeaderCellStyle() DashboardTableCellStylePtrOutput {
-	return o.ApplyT(func(v DashboardPivotTotalOptions) *DashboardTableCellStyle { return v.MetricHeaderCellStyle }).(DashboardTableCellStylePtrOutput)
-}
-
-// The placement (start, end) for the total cells.
-func (o DashboardPivotTotalOptionsOutput) Placement() DashboardTableTotalsPlacementPtrOutput {
-	return o.ApplyT(func(v DashboardPivotTotalOptions) *DashboardTableTotalsPlacement { return v.Placement }).(DashboardTableTotalsPlacementPtrOutput)
-}
-
-// The scroll status (pinned, scrolled) for the total cells.
-func (o DashboardPivotTotalOptionsOutput) ScrollStatus() DashboardTableTotalsScrollStatusPtrOutput {
-	return o.ApplyT(func(v DashboardPivotTotalOptions) *DashboardTableTotalsScrollStatus { return v.ScrollStatus }).(DashboardTableTotalsScrollStatusPtrOutput)
-}
-
-// The total aggregation options for each value field.
-func (o DashboardPivotTotalOptionsOutput) TotalAggregationOptions() DashboardTotalAggregationOptionArrayOutput {
-	return o.ApplyT(func(v DashboardPivotTotalOptions) []DashboardTotalAggregationOption { return v.TotalAggregationOptions }).(DashboardTotalAggregationOptionArrayOutput)
-}
-
-// The cell styling options for the total cells.
-func (o DashboardPivotTotalOptionsOutput) TotalCellStyle() DashboardTableCellStylePtrOutput {
-	return o.ApplyT(func(v DashboardPivotTotalOptions) *DashboardTableCellStyle { return v.TotalCellStyle }).(DashboardTableCellStylePtrOutput)
-}
-
-// The visibility configuration for the total cells.
-func (o DashboardPivotTotalOptionsOutput) TotalsVisibility() DashboardVisibilityPtrOutput {
-	return o.ApplyT(func(v DashboardPivotTotalOptions) *DashboardVisibility { return v.TotalsVisibility }).(DashboardVisibilityPtrOutput)
-}
-
-// The cell styling options for the totals of value cells.
-func (o DashboardPivotTotalOptionsOutput) ValueCellStyle() DashboardTableCellStylePtrOutput {
-	return o.ApplyT(func(v DashboardPivotTotalOptions) *DashboardTableCellStyle { return v.ValueCellStyle }).(DashboardTableCellStylePtrOutput)
-}
-
-type DashboardPivotTotalOptionsPtrOutput struct{ *pulumi.OutputState }
-
-func (DashboardPivotTotalOptionsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardPivotTotalOptions)(nil)).Elem()
-}
-
-func (o DashboardPivotTotalOptionsPtrOutput) ToDashboardPivotTotalOptionsPtrOutput() DashboardPivotTotalOptionsPtrOutput {
-	return o
-}
-
-func (o DashboardPivotTotalOptionsPtrOutput) ToDashboardPivotTotalOptionsPtrOutputWithContext(ctx context.Context) DashboardPivotTotalOptionsPtrOutput {
-	return o
-}
-
-func (o DashboardPivotTotalOptionsPtrOutput) Elem() DashboardPivotTotalOptionsOutput {
-	return o.ApplyT(func(v *DashboardPivotTotalOptions) DashboardPivotTotalOptions {
-		if v != nil {
-			return *v
-		}
-		var ret DashboardPivotTotalOptions
-		return ret
-	}).(DashboardPivotTotalOptionsOutput)
-}
-
-// The custom label string for the total cells.
-func (o DashboardPivotTotalOptionsPtrOutput) CustomLabel() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DashboardPivotTotalOptions) *string {
-		if v == nil {
-			return nil
-		}
-		return v.CustomLabel
-	}).(pulumi.StringPtrOutput)
-}
-
-// The cell styling options for the total of header cells.
-func (o DashboardPivotTotalOptionsPtrOutput) MetricHeaderCellStyle() DashboardTableCellStylePtrOutput {
-	return o.ApplyT(func(v *DashboardPivotTotalOptions) *DashboardTableCellStyle {
-		if v == nil {
-			return nil
-		}
-		return v.MetricHeaderCellStyle
-	}).(DashboardTableCellStylePtrOutput)
-}
-
-// The placement (start, end) for the total cells.
-func (o DashboardPivotTotalOptionsPtrOutput) Placement() DashboardTableTotalsPlacementPtrOutput {
-	return o.ApplyT(func(v *DashboardPivotTotalOptions) *DashboardTableTotalsPlacement {
-		if v == nil {
-			return nil
-		}
-		return v.Placement
-	}).(DashboardTableTotalsPlacementPtrOutput)
-}
-
-// The scroll status (pinned, scrolled) for the total cells.
-func (o DashboardPivotTotalOptionsPtrOutput) ScrollStatus() DashboardTableTotalsScrollStatusPtrOutput {
-	return o.ApplyT(func(v *DashboardPivotTotalOptions) *DashboardTableTotalsScrollStatus {
-		if v == nil {
-			return nil
-		}
-		return v.ScrollStatus
-	}).(DashboardTableTotalsScrollStatusPtrOutput)
-}
-
-// The total aggregation options for each value field.
-func (o DashboardPivotTotalOptionsPtrOutput) TotalAggregationOptions() DashboardTotalAggregationOptionArrayOutput {
-	return o.ApplyT(func(v *DashboardPivotTotalOptions) []DashboardTotalAggregationOption {
-		if v == nil {
-			return nil
-		}
-		return v.TotalAggregationOptions
-	}).(DashboardTotalAggregationOptionArrayOutput)
-}
-
-// The cell styling options for the total cells.
-func (o DashboardPivotTotalOptionsPtrOutput) TotalCellStyle() DashboardTableCellStylePtrOutput {
-	return o.ApplyT(func(v *DashboardPivotTotalOptions) *DashboardTableCellStyle {
-		if v == nil {
-			return nil
-		}
-		return v.TotalCellStyle
-	}).(DashboardTableCellStylePtrOutput)
-}
-
-// The visibility configuration for the total cells.
-func (o DashboardPivotTotalOptionsPtrOutput) TotalsVisibility() DashboardVisibilityPtrOutput {
-	return o.ApplyT(func(v *DashboardPivotTotalOptions) *DashboardVisibility {
-		if v == nil {
-			return nil
-		}
-		return v.TotalsVisibility
-	}).(DashboardVisibilityPtrOutput)
-}
-
-// The cell styling options for the totals of value cells.
-func (o DashboardPivotTotalOptionsPtrOutput) ValueCellStyle() DashboardTableCellStylePtrOutput {
-	return o.ApplyT(func(v *DashboardPivotTotalOptions) *DashboardTableCellStyle {
-		if v == nil {
-			return nil
-		}
-		return v.ValueCellStyle
-	}).(DashboardTableCellStylePtrOutput)
-}
-
-type DashboardPluginVisual struct {
-	// A description of the plugin field wells and their persisted properties.
-	ChartConfiguration *DashboardPluginVisualConfiguration `pulumi:"chartConfiguration"`
-	// The Amazon Resource Name (ARN) that reflects the plugin and version.
-	PluginArn string                               `pulumi:"pluginArn"`
-	Subtitle  *DashboardVisualSubtitleLabelOptions `pulumi:"subtitle"`
-	Title     *DashboardVisualTitleLabelOptions    `pulumi:"title"`
-	// The alt text for the visual.
-	VisualContentAltText *string `pulumi:"visualContentAltText"`
-	// The ID of the visual that you want to use.
-	VisualId string `pulumi:"visualId"`
-}
-
-// DashboardPluginVisualInput is an input type that accepts DashboardPluginVisualArgs and DashboardPluginVisualOutput values.
-// You can construct a concrete instance of `DashboardPluginVisualInput` via:
-//
-//	DashboardPluginVisualArgs{...}
-type DashboardPluginVisualInput interface {
-	pulumi.Input
-
-	ToDashboardPluginVisualOutput() DashboardPluginVisualOutput
-	ToDashboardPluginVisualOutputWithContext(context.Context) DashboardPluginVisualOutput
-}
-
-type DashboardPluginVisualArgs struct {
-	// A description of the plugin field wells and their persisted properties.
-	ChartConfiguration DashboardPluginVisualConfigurationPtrInput `pulumi:"chartConfiguration"`
-	// The Amazon Resource Name (ARN) that reflects the plugin and version.
-	PluginArn pulumi.StringInput                          `pulumi:"pluginArn"`
-	Subtitle  DashboardVisualSubtitleLabelOptionsPtrInput `pulumi:"subtitle"`
-	Title     DashboardVisualTitleLabelOptionsPtrInput    `pulumi:"title"`
-	// The alt text for the visual.
-	VisualContentAltText pulumi.StringPtrInput `pulumi:"visualContentAltText"`
-	// The ID of the visual that you want to use.
-	VisualId pulumi.StringInput `pulumi:"visualId"`
-}
-
-func (DashboardPluginVisualArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardPluginVisual)(nil)).Elem()
-}
-
-func (i DashboardPluginVisualArgs) ToDashboardPluginVisualOutput() DashboardPluginVisualOutput {
-	return i.ToDashboardPluginVisualOutputWithContext(context.Background())
-}
-
-func (i DashboardPluginVisualArgs) ToDashboardPluginVisualOutputWithContext(ctx context.Context) DashboardPluginVisualOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardPluginVisualOutput)
-}
-
-func (i DashboardPluginVisualArgs) ToDashboardPluginVisualPtrOutput() DashboardPluginVisualPtrOutput {
-	return i.ToDashboardPluginVisualPtrOutputWithContext(context.Background())
-}
-
-func (i DashboardPluginVisualArgs) ToDashboardPluginVisualPtrOutputWithContext(ctx context.Context) DashboardPluginVisualPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardPluginVisualOutput).ToDashboardPluginVisualPtrOutputWithContext(ctx)
-}
-
-// DashboardPluginVisualPtrInput is an input type that accepts DashboardPluginVisualArgs, DashboardPluginVisualPtr and DashboardPluginVisualPtrOutput values.
-// You can construct a concrete instance of `DashboardPluginVisualPtrInput` via:
-//
-//	        DashboardPluginVisualArgs{...}
-//
-//	or:
-//
-//	        nil
-type DashboardPluginVisualPtrInput interface {
-	pulumi.Input
-
-	ToDashboardPluginVisualPtrOutput() DashboardPluginVisualPtrOutput
-	ToDashboardPluginVisualPtrOutputWithContext(context.Context) DashboardPluginVisualPtrOutput
-}
-
-type dashboardPluginVisualPtrType DashboardPluginVisualArgs
-
-func DashboardPluginVisualPtr(v *DashboardPluginVisualArgs) DashboardPluginVisualPtrInput {
-	return (*dashboardPluginVisualPtrType)(v)
-}
-
-func (*dashboardPluginVisualPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardPluginVisual)(nil)).Elem()
-}
-
-func (i *dashboardPluginVisualPtrType) ToDashboardPluginVisualPtrOutput() DashboardPluginVisualPtrOutput {
-	return i.ToDashboardPluginVisualPtrOutputWithContext(context.Background())
-}
-
-func (i *dashboardPluginVisualPtrType) ToDashboardPluginVisualPtrOutputWithContext(ctx context.Context) DashboardPluginVisualPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardPluginVisualPtrOutput)
-}
-
-type DashboardPluginVisualOutput struct{ *pulumi.OutputState }
-
-func (DashboardPluginVisualOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardPluginVisual)(nil)).Elem()
-}
-
-func (o DashboardPluginVisualOutput) ToDashboardPluginVisualOutput() DashboardPluginVisualOutput {
-	return o
-}
-
-func (o DashboardPluginVisualOutput) ToDashboardPluginVisualOutputWithContext(ctx context.Context) DashboardPluginVisualOutput {
-	return o
-}
-
-func (o DashboardPluginVisualOutput) ToDashboardPluginVisualPtrOutput() DashboardPluginVisualPtrOutput {
-	return o.ToDashboardPluginVisualPtrOutputWithContext(context.Background())
-}
-
-func (o DashboardPluginVisualOutput) ToDashboardPluginVisualPtrOutputWithContext(ctx context.Context) DashboardPluginVisualPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardPluginVisual) *DashboardPluginVisual {
-		return &v
-	}).(DashboardPluginVisualPtrOutput)
-}
-
-// A description of the plugin field wells and their persisted properties.
-func (o DashboardPluginVisualOutput) ChartConfiguration() DashboardPluginVisualConfigurationPtrOutput {
-	return o.ApplyT(func(v DashboardPluginVisual) *DashboardPluginVisualConfiguration { return v.ChartConfiguration }).(DashboardPluginVisualConfigurationPtrOutput)
-}
-
-// The Amazon Resource Name (ARN) that reflects the plugin and version.
-func (o DashboardPluginVisualOutput) PluginArn() pulumi.StringOutput {
-	return o.ApplyT(func(v DashboardPluginVisual) string { return v.PluginArn }).(pulumi.StringOutput)
-}
-
-func (o DashboardPluginVisualOutput) Subtitle() DashboardVisualSubtitleLabelOptionsPtrOutput {
-	return o.ApplyT(func(v DashboardPluginVisual) *DashboardVisualSubtitleLabelOptions { return v.Subtitle }).(DashboardVisualSubtitleLabelOptionsPtrOutput)
-}
-
-func (o DashboardPluginVisualOutput) Title() DashboardVisualTitleLabelOptionsPtrOutput {
-	return o.ApplyT(func(v DashboardPluginVisual) *DashboardVisualTitleLabelOptions { return v.Title }).(DashboardVisualTitleLabelOptionsPtrOutput)
-}
-
-// The alt text for the visual.
-func (o DashboardPluginVisualOutput) VisualContentAltText() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DashboardPluginVisual) *string { return v.VisualContentAltText }).(pulumi.StringPtrOutput)
-}
-
-// The ID of the visual that you want to use.
-func (o DashboardPluginVisualOutput) VisualId() pulumi.StringOutput {
-	return o.ApplyT(func(v DashboardPluginVisual) string { return v.VisualId }).(pulumi.StringOutput)
-}
-
-type DashboardPluginVisualPtrOutput struct{ *pulumi.OutputState }
-
-func (DashboardPluginVisualPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardPluginVisual)(nil)).Elem()
-}
-
-func (o DashboardPluginVisualPtrOutput) ToDashboardPluginVisualPtrOutput() DashboardPluginVisualPtrOutput {
-	return o
-}
-
-func (o DashboardPluginVisualPtrOutput) ToDashboardPluginVisualPtrOutputWithContext(ctx context.Context) DashboardPluginVisualPtrOutput {
-	return o
-}
-
-func (o DashboardPluginVisualPtrOutput) Elem() DashboardPluginVisualOutput {
-	return o.ApplyT(func(v *DashboardPluginVisual) DashboardPluginVisual {
-		if v != nil {
-			return *v
-		}
-		var ret DashboardPluginVisual
-		return ret
-	}).(DashboardPluginVisualOutput)
-}
-
-// A description of the plugin field wells and their persisted properties.
-func (o DashboardPluginVisualPtrOutput) ChartConfiguration() DashboardPluginVisualConfigurationPtrOutput {
-	return o.ApplyT(func(v *DashboardPluginVisual) *DashboardPluginVisualConfiguration {
-		if v == nil {
-			return nil
-		}
-		return v.ChartConfiguration
-	}).(DashboardPluginVisualConfigurationPtrOutput)
-}
-
-// The Amazon Resource Name (ARN) that reflects the plugin and version.
-func (o DashboardPluginVisualPtrOutput) PluginArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DashboardPluginVisual) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.PluginArn
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o DashboardPluginVisualPtrOutput) Subtitle() DashboardVisualSubtitleLabelOptionsPtrOutput {
-	return o.ApplyT(func(v *DashboardPluginVisual) *DashboardVisualSubtitleLabelOptions {
-		if v == nil {
-			return nil
-		}
-		return v.Subtitle
-	}).(DashboardVisualSubtitleLabelOptionsPtrOutput)
-}
-
-func (o DashboardPluginVisualPtrOutput) Title() DashboardVisualTitleLabelOptionsPtrOutput {
-	return o.ApplyT(func(v *DashboardPluginVisual) *DashboardVisualTitleLabelOptions {
-		if v == nil {
-			return nil
-		}
-		return v.Title
-	}).(DashboardVisualTitleLabelOptionsPtrOutput)
-}
-
-// The alt text for the visual.
-func (o DashboardPluginVisualPtrOutput) VisualContentAltText() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DashboardPluginVisual) *string {
-		if v == nil {
-			return nil
-		}
-		return v.VisualContentAltText
-	}).(pulumi.StringPtrOutput)
-}
-
-// The ID of the visual that you want to use.
-func (o DashboardPluginVisualPtrOutput) VisualId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DashboardPluginVisual) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.VisualId
-	}).(pulumi.StringPtrOutput)
-}
-
-type DashboardPluginVisualConfiguration struct {
-	// The field wells configuration of the plugin visual.
-	FieldWells []DashboardPluginVisualFieldWell `pulumi:"fieldWells"`
-	// The sort configuration of the plugin visual.
-	SortConfiguration *DashboardPluginVisualSortConfiguration `pulumi:"sortConfiguration"`
-	// The persisted properties of the plugin visual.
-	VisualOptions *DashboardPluginVisualOptions `pulumi:"visualOptions"`
-}
-
-// DashboardPluginVisualConfigurationInput is an input type that accepts DashboardPluginVisualConfigurationArgs and DashboardPluginVisualConfigurationOutput values.
-// You can construct a concrete instance of `DashboardPluginVisualConfigurationInput` via:
-//
-//	DashboardPluginVisualConfigurationArgs{...}
-type DashboardPluginVisualConfigurationInput interface {
-	pulumi.Input
-
-	ToDashboardPluginVisualConfigurationOutput() DashboardPluginVisualConfigurationOutput
-	ToDashboardPluginVisualConfigurationOutputWithContext(context.Context) DashboardPluginVisualConfigurationOutput
-}
-
-type DashboardPluginVisualConfigurationArgs struct {
-	// The field wells configuration of the plugin visual.
-	FieldWells DashboardPluginVisualFieldWellArrayInput `pulumi:"fieldWells"`
-	// The sort configuration of the plugin visual.
-	SortConfiguration DashboardPluginVisualSortConfigurationPtrInput `pulumi:"sortConfiguration"`
-	// The persisted properties of the plugin visual.
-	VisualOptions DashboardPluginVisualOptionsPtrInput `pulumi:"visualOptions"`
-}
-
-func (DashboardPluginVisualConfigurationArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardPluginVisualConfiguration)(nil)).Elem()
-}
-
-func (i DashboardPluginVisualConfigurationArgs) ToDashboardPluginVisualConfigurationOutput() DashboardPluginVisualConfigurationOutput {
-	return i.ToDashboardPluginVisualConfigurationOutputWithContext(context.Background())
-}
-
-func (i DashboardPluginVisualConfigurationArgs) ToDashboardPluginVisualConfigurationOutputWithContext(ctx context.Context) DashboardPluginVisualConfigurationOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardPluginVisualConfigurationOutput)
-}
-
-func (i DashboardPluginVisualConfigurationArgs) ToDashboardPluginVisualConfigurationPtrOutput() DashboardPluginVisualConfigurationPtrOutput {
-	return i.ToDashboardPluginVisualConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (i DashboardPluginVisualConfigurationArgs) ToDashboardPluginVisualConfigurationPtrOutputWithContext(ctx context.Context) DashboardPluginVisualConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardPluginVisualConfigurationOutput).ToDashboardPluginVisualConfigurationPtrOutputWithContext(ctx)
-}
-
-// DashboardPluginVisualConfigurationPtrInput is an input type that accepts DashboardPluginVisualConfigurationArgs, DashboardPluginVisualConfigurationPtr and DashboardPluginVisualConfigurationPtrOutput values.
-// You can construct a concrete instance of `DashboardPluginVisualConfigurationPtrInput` via:
-//
-//	        DashboardPluginVisualConfigurationArgs{...}
-//
-//	or:
-//
-//	        nil
-type DashboardPluginVisualConfigurationPtrInput interface {
-	pulumi.Input
-
-	ToDashboardPluginVisualConfigurationPtrOutput() DashboardPluginVisualConfigurationPtrOutput
-	ToDashboardPluginVisualConfigurationPtrOutputWithContext(context.Context) DashboardPluginVisualConfigurationPtrOutput
-}
-
-type dashboardPluginVisualConfigurationPtrType DashboardPluginVisualConfigurationArgs
-
-func DashboardPluginVisualConfigurationPtr(v *DashboardPluginVisualConfigurationArgs) DashboardPluginVisualConfigurationPtrInput {
-	return (*dashboardPluginVisualConfigurationPtrType)(v)
-}
-
-func (*dashboardPluginVisualConfigurationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardPluginVisualConfiguration)(nil)).Elem()
-}
-
-func (i *dashboardPluginVisualConfigurationPtrType) ToDashboardPluginVisualConfigurationPtrOutput() DashboardPluginVisualConfigurationPtrOutput {
-	return i.ToDashboardPluginVisualConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (i *dashboardPluginVisualConfigurationPtrType) ToDashboardPluginVisualConfigurationPtrOutputWithContext(ctx context.Context) DashboardPluginVisualConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardPluginVisualConfigurationPtrOutput)
-}
-
-type DashboardPluginVisualConfigurationOutput struct{ *pulumi.OutputState }
-
-func (DashboardPluginVisualConfigurationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardPluginVisualConfiguration)(nil)).Elem()
-}
-
-func (o DashboardPluginVisualConfigurationOutput) ToDashboardPluginVisualConfigurationOutput() DashboardPluginVisualConfigurationOutput {
-	return o
-}
-
-func (o DashboardPluginVisualConfigurationOutput) ToDashboardPluginVisualConfigurationOutputWithContext(ctx context.Context) DashboardPluginVisualConfigurationOutput {
-	return o
-}
-
-func (o DashboardPluginVisualConfigurationOutput) ToDashboardPluginVisualConfigurationPtrOutput() DashboardPluginVisualConfigurationPtrOutput {
-	return o.ToDashboardPluginVisualConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (o DashboardPluginVisualConfigurationOutput) ToDashboardPluginVisualConfigurationPtrOutputWithContext(ctx context.Context) DashboardPluginVisualConfigurationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardPluginVisualConfiguration) *DashboardPluginVisualConfiguration {
-		return &v
-	}).(DashboardPluginVisualConfigurationPtrOutput)
-}
-
-// The field wells configuration of the plugin visual.
-func (o DashboardPluginVisualConfigurationOutput) FieldWells() DashboardPluginVisualFieldWellArrayOutput {
-	return o.ApplyT(func(v DashboardPluginVisualConfiguration) []DashboardPluginVisualFieldWell { return v.FieldWells }).(DashboardPluginVisualFieldWellArrayOutput)
-}
-
-// The sort configuration of the plugin visual.
-func (o DashboardPluginVisualConfigurationOutput) SortConfiguration() DashboardPluginVisualSortConfigurationPtrOutput {
-	return o.ApplyT(func(v DashboardPluginVisualConfiguration) *DashboardPluginVisualSortConfiguration {
-		return v.SortConfiguration
-	}).(DashboardPluginVisualSortConfigurationPtrOutput)
-}
-
-// The persisted properties of the plugin visual.
-func (o DashboardPluginVisualConfigurationOutput) VisualOptions() DashboardPluginVisualOptionsPtrOutput {
-	return o.ApplyT(func(v DashboardPluginVisualConfiguration) *DashboardPluginVisualOptions { return v.VisualOptions }).(DashboardPluginVisualOptionsPtrOutput)
-}
-
-type DashboardPluginVisualConfigurationPtrOutput struct{ *pulumi.OutputState }
-
-func (DashboardPluginVisualConfigurationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardPluginVisualConfiguration)(nil)).Elem()
-}
-
-func (o DashboardPluginVisualConfigurationPtrOutput) ToDashboardPluginVisualConfigurationPtrOutput() DashboardPluginVisualConfigurationPtrOutput {
-	return o
-}
-
-func (o DashboardPluginVisualConfigurationPtrOutput) ToDashboardPluginVisualConfigurationPtrOutputWithContext(ctx context.Context) DashboardPluginVisualConfigurationPtrOutput {
-	return o
-}
-
-func (o DashboardPluginVisualConfigurationPtrOutput) Elem() DashboardPluginVisualConfigurationOutput {
-	return o.ApplyT(func(v *DashboardPluginVisualConfiguration) DashboardPluginVisualConfiguration {
-		if v != nil {
-			return *v
-		}
-		var ret DashboardPluginVisualConfiguration
-		return ret
-	}).(DashboardPluginVisualConfigurationOutput)
-}
-
-// The field wells configuration of the plugin visual.
-func (o DashboardPluginVisualConfigurationPtrOutput) FieldWells() DashboardPluginVisualFieldWellArrayOutput {
-	return o.ApplyT(func(v *DashboardPluginVisualConfiguration) []DashboardPluginVisualFieldWell {
-		if v == nil {
-			return nil
-		}
-		return v.FieldWells
-	}).(DashboardPluginVisualFieldWellArrayOutput)
-}
-
-// The sort configuration of the plugin visual.
-func (o DashboardPluginVisualConfigurationPtrOutput) SortConfiguration() DashboardPluginVisualSortConfigurationPtrOutput {
-	return o.ApplyT(func(v *DashboardPluginVisualConfiguration) *DashboardPluginVisualSortConfiguration {
-		if v == nil {
-			return nil
-		}
-		return v.SortConfiguration
-	}).(DashboardPluginVisualSortConfigurationPtrOutput)
-}
-
-// The persisted properties of the plugin visual.
-func (o DashboardPluginVisualConfigurationPtrOutput) VisualOptions() DashboardPluginVisualOptionsPtrOutput {
-	return o.ApplyT(func(v *DashboardPluginVisualConfiguration) *DashboardPluginVisualOptions {
-		if v == nil {
-			return nil
-		}
-		return v.VisualOptions
-	}).(DashboardPluginVisualOptionsPtrOutput)
-}
-
-type DashboardPluginVisualFieldWell struct {
-	// The semantic axis name for the field well.
-	AxisName *DashboardPluginVisualAxisName `pulumi:"axisName"`
-	// A list of dimensions for the field well.
-	Dimensions []DashboardDimensionField `pulumi:"dimensions"`
-	// A list of measures that exist in the field well.
-	Measures []DashboardMeasureField `pulumi:"measures"`
-	// A list of unaggregated fields that exist in the field well.
-	Unaggregated []DashboardUnaggregatedField `pulumi:"unaggregated"`
-}
-
-// DashboardPluginVisualFieldWellInput is an input type that accepts DashboardPluginVisualFieldWellArgs and DashboardPluginVisualFieldWellOutput values.
-// You can construct a concrete instance of `DashboardPluginVisualFieldWellInput` via:
-//
-//	DashboardPluginVisualFieldWellArgs{...}
-type DashboardPluginVisualFieldWellInput interface {
-	pulumi.Input
-
-	ToDashboardPluginVisualFieldWellOutput() DashboardPluginVisualFieldWellOutput
-	ToDashboardPluginVisualFieldWellOutputWithContext(context.Context) DashboardPluginVisualFieldWellOutput
-}
-
-type DashboardPluginVisualFieldWellArgs struct {
-	// The semantic axis name for the field well.
-	AxisName DashboardPluginVisualAxisNamePtrInput `pulumi:"axisName"`
-	// A list of dimensions for the field well.
-	Dimensions DashboardDimensionFieldArrayInput `pulumi:"dimensions"`
-	// A list of measures that exist in the field well.
-	Measures DashboardMeasureFieldArrayInput `pulumi:"measures"`
-	// A list of unaggregated fields that exist in the field well.
-	Unaggregated DashboardUnaggregatedFieldArrayInput `pulumi:"unaggregated"`
-}
-
-func (DashboardPluginVisualFieldWellArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardPluginVisualFieldWell)(nil)).Elem()
-}
-
-func (i DashboardPluginVisualFieldWellArgs) ToDashboardPluginVisualFieldWellOutput() DashboardPluginVisualFieldWellOutput {
-	return i.ToDashboardPluginVisualFieldWellOutputWithContext(context.Background())
-}
-
-func (i DashboardPluginVisualFieldWellArgs) ToDashboardPluginVisualFieldWellOutputWithContext(ctx context.Context) DashboardPluginVisualFieldWellOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardPluginVisualFieldWellOutput)
-}
-
-// DashboardPluginVisualFieldWellArrayInput is an input type that accepts DashboardPluginVisualFieldWellArray and DashboardPluginVisualFieldWellArrayOutput values.
-// You can construct a concrete instance of `DashboardPluginVisualFieldWellArrayInput` via:
-//
-//	DashboardPluginVisualFieldWellArray{ DashboardPluginVisualFieldWellArgs{...} }
-type DashboardPluginVisualFieldWellArrayInput interface {
-	pulumi.Input
-
-	ToDashboardPluginVisualFieldWellArrayOutput() DashboardPluginVisualFieldWellArrayOutput
-	ToDashboardPluginVisualFieldWellArrayOutputWithContext(context.Context) DashboardPluginVisualFieldWellArrayOutput
-}
-
-type DashboardPluginVisualFieldWellArray []DashboardPluginVisualFieldWellInput
-
-func (DashboardPluginVisualFieldWellArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DashboardPluginVisualFieldWell)(nil)).Elem()
-}
-
-func (i DashboardPluginVisualFieldWellArray) ToDashboardPluginVisualFieldWellArrayOutput() DashboardPluginVisualFieldWellArrayOutput {
-	return i.ToDashboardPluginVisualFieldWellArrayOutputWithContext(context.Background())
-}
-
-func (i DashboardPluginVisualFieldWellArray) ToDashboardPluginVisualFieldWellArrayOutputWithContext(ctx context.Context) DashboardPluginVisualFieldWellArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardPluginVisualFieldWellArrayOutput)
-}
-
-type DashboardPluginVisualFieldWellOutput struct{ *pulumi.OutputState }
-
-func (DashboardPluginVisualFieldWellOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardPluginVisualFieldWell)(nil)).Elem()
-}
-
-func (o DashboardPluginVisualFieldWellOutput) ToDashboardPluginVisualFieldWellOutput() DashboardPluginVisualFieldWellOutput {
-	return o
-}
-
-func (o DashboardPluginVisualFieldWellOutput) ToDashboardPluginVisualFieldWellOutputWithContext(ctx context.Context) DashboardPluginVisualFieldWellOutput {
-	return o
-}
-
-// The semantic axis name for the field well.
-func (o DashboardPluginVisualFieldWellOutput) AxisName() DashboardPluginVisualAxisNamePtrOutput {
-	return o.ApplyT(func(v DashboardPluginVisualFieldWell) *DashboardPluginVisualAxisName { return v.AxisName }).(DashboardPluginVisualAxisNamePtrOutput)
-}
-
-// A list of dimensions for the field well.
-func (o DashboardPluginVisualFieldWellOutput) Dimensions() DashboardDimensionFieldArrayOutput {
-	return o.ApplyT(func(v DashboardPluginVisualFieldWell) []DashboardDimensionField { return v.Dimensions }).(DashboardDimensionFieldArrayOutput)
-}
-
-// A list of measures that exist in the field well.
-func (o DashboardPluginVisualFieldWellOutput) Measures() DashboardMeasureFieldArrayOutput {
-	return o.ApplyT(func(v DashboardPluginVisualFieldWell) []DashboardMeasureField { return v.Measures }).(DashboardMeasureFieldArrayOutput)
-}
-
-// A list of unaggregated fields that exist in the field well.
-func (o DashboardPluginVisualFieldWellOutput) Unaggregated() DashboardUnaggregatedFieldArrayOutput {
-	return o.ApplyT(func(v DashboardPluginVisualFieldWell) []DashboardUnaggregatedField { return v.Unaggregated }).(DashboardUnaggregatedFieldArrayOutput)
-}
-
-type DashboardPluginVisualFieldWellArrayOutput struct{ *pulumi.OutputState }
-
-func (DashboardPluginVisualFieldWellArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DashboardPluginVisualFieldWell)(nil)).Elem()
-}
-
-func (o DashboardPluginVisualFieldWellArrayOutput) ToDashboardPluginVisualFieldWellArrayOutput() DashboardPluginVisualFieldWellArrayOutput {
-	return o
-}
-
-func (o DashboardPluginVisualFieldWellArrayOutput) ToDashboardPluginVisualFieldWellArrayOutputWithContext(ctx context.Context) DashboardPluginVisualFieldWellArrayOutput {
-	return o
-}
-
-func (o DashboardPluginVisualFieldWellArrayOutput) Index(i pulumi.IntInput) DashboardPluginVisualFieldWellOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DashboardPluginVisualFieldWell {
-		return vs[0].([]DashboardPluginVisualFieldWell)[vs[1].(int)]
-	}).(DashboardPluginVisualFieldWellOutput)
-}
-
-type DashboardPluginVisualItemsLimitConfiguration struct {
-	// Determines how many values are be fetched at once.
-	ItemsLimit *float64 `pulumi:"itemsLimit"`
-}
-
-// DashboardPluginVisualItemsLimitConfigurationInput is an input type that accepts DashboardPluginVisualItemsLimitConfigurationArgs and DashboardPluginVisualItemsLimitConfigurationOutput values.
-// You can construct a concrete instance of `DashboardPluginVisualItemsLimitConfigurationInput` via:
-//
-//	DashboardPluginVisualItemsLimitConfigurationArgs{...}
-type DashboardPluginVisualItemsLimitConfigurationInput interface {
-	pulumi.Input
-
-	ToDashboardPluginVisualItemsLimitConfigurationOutput() DashboardPluginVisualItemsLimitConfigurationOutput
-	ToDashboardPluginVisualItemsLimitConfigurationOutputWithContext(context.Context) DashboardPluginVisualItemsLimitConfigurationOutput
-}
-
-type DashboardPluginVisualItemsLimitConfigurationArgs struct {
-	// Determines how many values are be fetched at once.
-	ItemsLimit pulumi.Float64PtrInput `pulumi:"itemsLimit"`
-}
-
-func (DashboardPluginVisualItemsLimitConfigurationArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardPluginVisualItemsLimitConfiguration)(nil)).Elem()
-}
-
-func (i DashboardPluginVisualItemsLimitConfigurationArgs) ToDashboardPluginVisualItemsLimitConfigurationOutput() DashboardPluginVisualItemsLimitConfigurationOutput {
-	return i.ToDashboardPluginVisualItemsLimitConfigurationOutputWithContext(context.Background())
-}
-
-func (i DashboardPluginVisualItemsLimitConfigurationArgs) ToDashboardPluginVisualItemsLimitConfigurationOutputWithContext(ctx context.Context) DashboardPluginVisualItemsLimitConfigurationOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardPluginVisualItemsLimitConfigurationOutput)
-}
-
-func (i DashboardPluginVisualItemsLimitConfigurationArgs) ToDashboardPluginVisualItemsLimitConfigurationPtrOutput() DashboardPluginVisualItemsLimitConfigurationPtrOutput {
-	return i.ToDashboardPluginVisualItemsLimitConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (i DashboardPluginVisualItemsLimitConfigurationArgs) ToDashboardPluginVisualItemsLimitConfigurationPtrOutputWithContext(ctx context.Context) DashboardPluginVisualItemsLimitConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardPluginVisualItemsLimitConfigurationOutput).ToDashboardPluginVisualItemsLimitConfigurationPtrOutputWithContext(ctx)
-}
-
-// DashboardPluginVisualItemsLimitConfigurationPtrInput is an input type that accepts DashboardPluginVisualItemsLimitConfigurationArgs, DashboardPluginVisualItemsLimitConfigurationPtr and DashboardPluginVisualItemsLimitConfigurationPtrOutput values.
-// You can construct a concrete instance of `DashboardPluginVisualItemsLimitConfigurationPtrInput` via:
-//
-//	        DashboardPluginVisualItemsLimitConfigurationArgs{...}
-//
-//	or:
-//
-//	        nil
-type DashboardPluginVisualItemsLimitConfigurationPtrInput interface {
-	pulumi.Input
-
-	ToDashboardPluginVisualItemsLimitConfigurationPtrOutput() DashboardPluginVisualItemsLimitConfigurationPtrOutput
-	ToDashboardPluginVisualItemsLimitConfigurationPtrOutputWithContext(context.Context) DashboardPluginVisualItemsLimitConfigurationPtrOutput
-}
-
-type dashboardPluginVisualItemsLimitConfigurationPtrType DashboardPluginVisualItemsLimitConfigurationArgs
-
-func DashboardPluginVisualItemsLimitConfigurationPtr(v *DashboardPluginVisualItemsLimitConfigurationArgs) DashboardPluginVisualItemsLimitConfigurationPtrInput {
-	return (*dashboardPluginVisualItemsLimitConfigurationPtrType)(v)
-}
-
-func (*dashboardPluginVisualItemsLimitConfigurationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardPluginVisualItemsLimitConfiguration)(nil)).Elem()
-}
-
-func (i *dashboardPluginVisualItemsLimitConfigurationPtrType) ToDashboardPluginVisualItemsLimitConfigurationPtrOutput() DashboardPluginVisualItemsLimitConfigurationPtrOutput {
-	return i.ToDashboardPluginVisualItemsLimitConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (i *dashboardPluginVisualItemsLimitConfigurationPtrType) ToDashboardPluginVisualItemsLimitConfigurationPtrOutputWithContext(ctx context.Context) DashboardPluginVisualItemsLimitConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardPluginVisualItemsLimitConfigurationPtrOutput)
-}
-
-type DashboardPluginVisualItemsLimitConfigurationOutput struct{ *pulumi.OutputState }
-
-func (DashboardPluginVisualItemsLimitConfigurationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardPluginVisualItemsLimitConfiguration)(nil)).Elem()
-}
-
-func (o DashboardPluginVisualItemsLimitConfigurationOutput) ToDashboardPluginVisualItemsLimitConfigurationOutput() DashboardPluginVisualItemsLimitConfigurationOutput {
-	return o
-}
-
-func (o DashboardPluginVisualItemsLimitConfigurationOutput) ToDashboardPluginVisualItemsLimitConfigurationOutputWithContext(ctx context.Context) DashboardPluginVisualItemsLimitConfigurationOutput {
-	return o
-}
-
-func (o DashboardPluginVisualItemsLimitConfigurationOutput) ToDashboardPluginVisualItemsLimitConfigurationPtrOutput() DashboardPluginVisualItemsLimitConfigurationPtrOutput {
-	return o.ToDashboardPluginVisualItemsLimitConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (o DashboardPluginVisualItemsLimitConfigurationOutput) ToDashboardPluginVisualItemsLimitConfigurationPtrOutputWithContext(ctx context.Context) DashboardPluginVisualItemsLimitConfigurationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardPluginVisualItemsLimitConfiguration) *DashboardPluginVisualItemsLimitConfiguration {
-		return &v
-	}).(DashboardPluginVisualItemsLimitConfigurationPtrOutput)
-}
-
-// Determines how many values are be fetched at once.
-func (o DashboardPluginVisualItemsLimitConfigurationOutput) ItemsLimit() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v DashboardPluginVisualItemsLimitConfiguration) *float64 { return v.ItemsLimit }).(pulumi.Float64PtrOutput)
-}
-
-type DashboardPluginVisualItemsLimitConfigurationPtrOutput struct{ *pulumi.OutputState }
-
-func (DashboardPluginVisualItemsLimitConfigurationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardPluginVisualItemsLimitConfiguration)(nil)).Elem()
-}
-
-func (o DashboardPluginVisualItemsLimitConfigurationPtrOutput) ToDashboardPluginVisualItemsLimitConfigurationPtrOutput() DashboardPluginVisualItemsLimitConfigurationPtrOutput {
-	return o
-}
-
-func (o DashboardPluginVisualItemsLimitConfigurationPtrOutput) ToDashboardPluginVisualItemsLimitConfigurationPtrOutputWithContext(ctx context.Context) DashboardPluginVisualItemsLimitConfigurationPtrOutput {
-	return o
-}
-
-func (o DashboardPluginVisualItemsLimitConfigurationPtrOutput) Elem() DashboardPluginVisualItemsLimitConfigurationOutput {
-	return o.ApplyT(func(v *DashboardPluginVisualItemsLimitConfiguration) DashboardPluginVisualItemsLimitConfiguration {
-		if v != nil {
-			return *v
-		}
-		var ret DashboardPluginVisualItemsLimitConfiguration
-		return ret
-	}).(DashboardPluginVisualItemsLimitConfigurationOutput)
-}
-
-// Determines how many values are be fetched at once.
-func (o DashboardPluginVisualItemsLimitConfigurationPtrOutput) ItemsLimit() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v *DashboardPluginVisualItemsLimitConfiguration) *float64 {
-		if v == nil {
-			return nil
-		}
-		return v.ItemsLimit
-	}).(pulumi.Float64PtrOutput)
-}
-
-type DashboardPluginVisualOptions struct {
-	// The persisted properties and their values.
-	VisualProperties []DashboardPluginVisualProperty `pulumi:"visualProperties"`
-}
-
-// DashboardPluginVisualOptionsInput is an input type that accepts DashboardPluginVisualOptionsArgs and DashboardPluginVisualOptionsOutput values.
-// You can construct a concrete instance of `DashboardPluginVisualOptionsInput` via:
-//
-//	DashboardPluginVisualOptionsArgs{...}
-type DashboardPluginVisualOptionsInput interface {
-	pulumi.Input
-
-	ToDashboardPluginVisualOptionsOutput() DashboardPluginVisualOptionsOutput
-	ToDashboardPluginVisualOptionsOutputWithContext(context.Context) DashboardPluginVisualOptionsOutput
-}
-
-type DashboardPluginVisualOptionsArgs struct {
-	// The persisted properties and their values.
-	VisualProperties DashboardPluginVisualPropertyArrayInput `pulumi:"visualProperties"`
-}
-
-func (DashboardPluginVisualOptionsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardPluginVisualOptions)(nil)).Elem()
-}
-
-func (i DashboardPluginVisualOptionsArgs) ToDashboardPluginVisualOptionsOutput() DashboardPluginVisualOptionsOutput {
-	return i.ToDashboardPluginVisualOptionsOutputWithContext(context.Background())
-}
-
-func (i DashboardPluginVisualOptionsArgs) ToDashboardPluginVisualOptionsOutputWithContext(ctx context.Context) DashboardPluginVisualOptionsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardPluginVisualOptionsOutput)
-}
-
-func (i DashboardPluginVisualOptionsArgs) ToDashboardPluginVisualOptionsPtrOutput() DashboardPluginVisualOptionsPtrOutput {
-	return i.ToDashboardPluginVisualOptionsPtrOutputWithContext(context.Background())
-}
-
-func (i DashboardPluginVisualOptionsArgs) ToDashboardPluginVisualOptionsPtrOutputWithContext(ctx context.Context) DashboardPluginVisualOptionsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardPluginVisualOptionsOutput).ToDashboardPluginVisualOptionsPtrOutputWithContext(ctx)
-}
-
-// DashboardPluginVisualOptionsPtrInput is an input type that accepts DashboardPluginVisualOptionsArgs, DashboardPluginVisualOptionsPtr and DashboardPluginVisualOptionsPtrOutput values.
-// You can construct a concrete instance of `DashboardPluginVisualOptionsPtrInput` via:
-//
-//	        DashboardPluginVisualOptionsArgs{...}
-//
-//	or:
-//
-//	        nil
-type DashboardPluginVisualOptionsPtrInput interface {
-	pulumi.Input
-
-	ToDashboardPluginVisualOptionsPtrOutput() DashboardPluginVisualOptionsPtrOutput
-	ToDashboardPluginVisualOptionsPtrOutputWithContext(context.Context) DashboardPluginVisualOptionsPtrOutput
-}
-
-type dashboardPluginVisualOptionsPtrType DashboardPluginVisualOptionsArgs
-
-func DashboardPluginVisualOptionsPtr(v *DashboardPluginVisualOptionsArgs) DashboardPluginVisualOptionsPtrInput {
-	return (*dashboardPluginVisualOptionsPtrType)(v)
-}
-
-func (*dashboardPluginVisualOptionsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardPluginVisualOptions)(nil)).Elem()
-}
-
-func (i *dashboardPluginVisualOptionsPtrType) ToDashboardPluginVisualOptionsPtrOutput() DashboardPluginVisualOptionsPtrOutput {
-	return i.ToDashboardPluginVisualOptionsPtrOutputWithContext(context.Background())
-}
-
-func (i *dashboardPluginVisualOptionsPtrType) ToDashboardPluginVisualOptionsPtrOutputWithContext(ctx context.Context) DashboardPluginVisualOptionsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardPluginVisualOptionsPtrOutput)
-}
-
-type DashboardPluginVisualOptionsOutput struct{ *pulumi.OutputState }
-
-func (DashboardPluginVisualOptionsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardPluginVisualOptions)(nil)).Elem()
-}
-
-func (o DashboardPluginVisualOptionsOutput) ToDashboardPluginVisualOptionsOutput() DashboardPluginVisualOptionsOutput {
-	return o
-}
-
-func (o DashboardPluginVisualOptionsOutput) ToDashboardPluginVisualOptionsOutputWithContext(ctx context.Context) DashboardPluginVisualOptionsOutput {
-	return o
-}
-
-func (o DashboardPluginVisualOptionsOutput) ToDashboardPluginVisualOptionsPtrOutput() DashboardPluginVisualOptionsPtrOutput {
-	return o.ToDashboardPluginVisualOptionsPtrOutputWithContext(context.Background())
-}
-
-func (o DashboardPluginVisualOptionsOutput) ToDashboardPluginVisualOptionsPtrOutputWithContext(ctx context.Context) DashboardPluginVisualOptionsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardPluginVisualOptions) *DashboardPluginVisualOptions {
-		return &v
-	}).(DashboardPluginVisualOptionsPtrOutput)
-}
-
-// The persisted properties and their values.
-func (o DashboardPluginVisualOptionsOutput) VisualProperties() DashboardPluginVisualPropertyArrayOutput {
-	return o.ApplyT(func(v DashboardPluginVisualOptions) []DashboardPluginVisualProperty { return v.VisualProperties }).(DashboardPluginVisualPropertyArrayOutput)
-}
-
-type DashboardPluginVisualOptionsPtrOutput struct{ *pulumi.OutputState }
-
-func (DashboardPluginVisualOptionsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardPluginVisualOptions)(nil)).Elem()
-}
-
-func (o DashboardPluginVisualOptionsPtrOutput) ToDashboardPluginVisualOptionsPtrOutput() DashboardPluginVisualOptionsPtrOutput {
-	return o
-}
-
-func (o DashboardPluginVisualOptionsPtrOutput) ToDashboardPluginVisualOptionsPtrOutputWithContext(ctx context.Context) DashboardPluginVisualOptionsPtrOutput {
-	return o
-}
-
-func (o DashboardPluginVisualOptionsPtrOutput) Elem() DashboardPluginVisualOptionsOutput {
-	return o.ApplyT(func(v *DashboardPluginVisualOptions) DashboardPluginVisualOptions {
-		if v != nil {
-			return *v
-		}
-		var ret DashboardPluginVisualOptions
-		return ret
-	}).(DashboardPluginVisualOptionsOutput)
-}
-
-// The persisted properties and their values.
-func (o DashboardPluginVisualOptionsPtrOutput) VisualProperties() DashboardPluginVisualPropertyArrayOutput {
-	return o.ApplyT(func(v *DashboardPluginVisualOptions) []DashboardPluginVisualProperty {
-		if v == nil {
-			return nil
-		}
-		return v.VisualProperties
-	}).(DashboardPluginVisualPropertyArrayOutput)
-}
-
-type DashboardPluginVisualProperty struct {
-	// The name of the plugin visual property.
-	Name *string `pulumi:"name"`
-	// The value of the plugin visual property.
-	Value *string `pulumi:"value"`
-}
-
-// DashboardPluginVisualPropertyInput is an input type that accepts DashboardPluginVisualPropertyArgs and DashboardPluginVisualPropertyOutput values.
-// You can construct a concrete instance of `DashboardPluginVisualPropertyInput` via:
-//
-//	DashboardPluginVisualPropertyArgs{...}
-type DashboardPluginVisualPropertyInput interface {
-	pulumi.Input
-
-	ToDashboardPluginVisualPropertyOutput() DashboardPluginVisualPropertyOutput
-	ToDashboardPluginVisualPropertyOutputWithContext(context.Context) DashboardPluginVisualPropertyOutput
-}
-
-type DashboardPluginVisualPropertyArgs struct {
-	// The name of the plugin visual property.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// The value of the plugin visual property.
-	Value pulumi.StringPtrInput `pulumi:"value"`
-}
-
-func (DashboardPluginVisualPropertyArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardPluginVisualProperty)(nil)).Elem()
-}
-
-func (i DashboardPluginVisualPropertyArgs) ToDashboardPluginVisualPropertyOutput() DashboardPluginVisualPropertyOutput {
-	return i.ToDashboardPluginVisualPropertyOutputWithContext(context.Background())
-}
-
-func (i DashboardPluginVisualPropertyArgs) ToDashboardPluginVisualPropertyOutputWithContext(ctx context.Context) DashboardPluginVisualPropertyOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardPluginVisualPropertyOutput)
-}
-
-// DashboardPluginVisualPropertyArrayInput is an input type that accepts DashboardPluginVisualPropertyArray and DashboardPluginVisualPropertyArrayOutput values.
-// You can construct a concrete instance of `DashboardPluginVisualPropertyArrayInput` via:
-//
-//	DashboardPluginVisualPropertyArray{ DashboardPluginVisualPropertyArgs{...} }
-type DashboardPluginVisualPropertyArrayInput interface {
-	pulumi.Input
-
-	ToDashboardPluginVisualPropertyArrayOutput() DashboardPluginVisualPropertyArrayOutput
-	ToDashboardPluginVisualPropertyArrayOutputWithContext(context.Context) DashboardPluginVisualPropertyArrayOutput
-}
-
-type DashboardPluginVisualPropertyArray []DashboardPluginVisualPropertyInput
-
-func (DashboardPluginVisualPropertyArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DashboardPluginVisualProperty)(nil)).Elem()
-}
-
-func (i DashboardPluginVisualPropertyArray) ToDashboardPluginVisualPropertyArrayOutput() DashboardPluginVisualPropertyArrayOutput {
-	return i.ToDashboardPluginVisualPropertyArrayOutputWithContext(context.Background())
-}
-
-func (i DashboardPluginVisualPropertyArray) ToDashboardPluginVisualPropertyArrayOutputWithContext(ctx context.Context) DashboardPluginVisualPropertyArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardPluginVisualPropertyArrayOutput)
-}
-
-type DashboardPluginVisualPropertyOutput struct{ *pulumi.OutputState }
-
-func (DashboardPluginVisualPropertyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardPluginVisualProperty)(nil)).Elem()
-}
-
-func (o DashboardPluginVisualPropertyOutput) ToDashboardPluginVisualPropertyOutput() DashboardPluginVisualPropertyOutput {
-	return o
-}
-
-func (o DashboardPluginVisualPropertyOutput) ToDashboardPluginVisualPropertyOutputWithContext(ctx context.Context) DashboardPluginVisualPropertyOutput {
-	return o
-}
-
-// The name of the plugin visual property.
-func (o DashboardPluginVisualPropertyOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DashboardPluginVisualProperty) *string { return v.Name }).(pulumi.StringPtrOutput)
-}
-
-// The value of the plugin visual property.
-func (o DashboardPluginVisualPropertyOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DashboardPluginVisualProperty) *string { return v.Value }).(pulumi.StringPtrOutput)
-}
-
-type DashboardPluginVisualPropertyArrayOutput struct{ *pulumi.OutputState }
-
-func (DashboardPluginVisualPropertyArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DashboardPluginVisualProperty)(nil)).Elem()
-}
-
-func (o DashboardPluginVisualPropertyArrayOutput) ToDashboardPluginVisualPropertyArrayOutput() DashboardPluginVisualPropertyArrayOutput {
-	return o
-}
-
-func (o DashboardPluginVisualPropertyArrayOutput) ToDashboardPluginVisualPropertyArrayOutputWithContext(ctx context.Context) DashboardPluginVisualPropertyArrayOutput {
-	return o
-}
-
-func (o DashboardPluginVisualPropertyArrayOutput) Index(i pulumi.IntInput) DashboardPluginVisualPropertyOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DashboardPluginVisualProperty {
-		return vs[0].([]DashboardPluginVisualProperty)[vs[1].(int)]
-	}).(DashboardPluginVisualPropertyOutput)
-}
-
-type DashboardPluginVisualSortConfiguration struct {
-	// The table query sorting options for the plugin visual.
-	PluginVisualTableQuerySort *DashboardPluginVisualTableQuerySort `pulumi:"pluginVisualTableQuerySort"`
-}
-
-// DashboardPluginVisualSortConfigurationInput is an input type that accepts DashboardPluginVisualSortConfigurationArgs and DashboardPluginVisualSortConfigurationOutput values.
-// You can construct a concrete instance of `DashboardPluginVisualSortConfigurationInput` via:
-//
-//	DashboardPluginVisualSortConfigurationArgs{...}
-type DashboardPluginVisualSortConfigurationInput interface {
-	pulumi.Input
-
-	ToDashboardPluginVisualSortConfigurationOutput() DashboardPluginVisualSortConfigurationOutput
-	ToDashboardPluginVisualSortConfigurationOutputWithContext(context.Context) DashboardPluginVisualSortConfigurationOutput
-}
-
-type DashboardPluginVisualSortConfigurationArgs struct {
-	// The table query sorting options for the plugin visual.
-	PluginVisualTableQuerySort DashboardPluginVisualTableQuerySortPtrInput `pulumi:"pluginVisualTableQuerySort"`
-}
-
-func (DashboardPluginVisualSortConfigurationArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardPluginVisualSortConfiguration)(nil)).Elem()
-}
-
-func (i DashboardPluginVisualSortConfigurationArgs) ToDashboardPluginVisualSortConfigurationOutput() DashboardPluginVisualSortConfigurationOutput {
-	return i.ToDashboardPluginVisualSortConfigurationOutputWithContext(context.Background())
-}
-
-func (i DashboardPluginVisualSortConfigurationArgs) ToDashboardPluginVisualSortConfigurationOutputWithContext(ctx context.Context) DashboardPluginVisualSortConfigurationOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardPluginVisualSortConfigurationOutput)
-}
-
-func (i DashboardPluginVisualSortConfigurationArgs) ToDashboardPluginVisualSortConfigurationPtrOutput() DashboardPluginVisualSortConfigurationPtrOutput {
-	return i.ToDashboardPluginVisualSortConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (i DashboardPluginVisualSortConfigurationArgs) ToDashboardPluginVisualSortConfigurationPtrOutputWithContext(ctx context.Context) DashboardPluginVisualSortConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardPluginVisualSortConfigurationOutput).ToDashboardPluginVisualSortConfigurationPtrOutputWithContext(ctx)
-}
-
-// DashboardPluginVisualSortConfigurationPtrInput is an input type that accepts DashboardPluginVisualSortConfigurationArgs, DashboardPluginVisualSortConfigurationPtr and DashboardPluginVisualSortConfigurationPtrOutput values.
-// You can construct a concrete instance of `DashboardPluginVisualSortConfigurationPtrInput` via:
-//
-//	        DashboardPluginVisualSortConfigurationArgs{...}
-//
-//	or:
-//
-//	        nil
-type DashboardPluginVisualSortConfigurationPtrInput interface {
-	pulumi.Input
-
-	ToDashboardPluginVisualSortConfigurationPtrOutput() DashboardPluginVisualSortConfigurationPtrOutput
-	ToDashboardPluginVisualSortConfigurationPtrOutputWithContext(context.Context) DashboardPluginVisualSortConfigurationPtrOutput
-}
-
-type dashboardPluginVisualSortConfigurationPtrType DashboardPluginVisualSortConfigurationArgs
-
-func DashboardPluginVisualSortConfigurationPtr(v *DashboardPluginVisualSortConfigurationArgs) DashboardPluginVisualSortConfigurationPtrInput {
-	return (*dashboardPluginVisualSortConfigurationPtrType)(v)
-}
-
-func (*dashboardPluginVisualSortConfigurationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardPluginVisualSortConfiguration)(nil)).Elem()
-}
-
-func (i *dashboardPluginVisualSortConfigurationPtrType) ToDashboardPluginVisualSortConfigurationPtrOutput() DashboardPluginVisualSortConfigurationPtrOutput {
-	return i.ToDashboardPluginVisualSortConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (i *dashboardPluginVisualSortConfigurationPtrType) ToDashboardPluginVisualSortConfigurationPtrOutputWithContext(ctx context.Context) DashboardPluginVisualSortConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardPluginVisualSortConfigurationPtrOutput)
-}
-
-type DashboardPluginVisualSortConfigurationOutput struct{ *pulumi.OutputState }
-
-func (DashboardPluginVisualSortConfigurationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardPluginVisualSortConfiguration)(nil)).Elem()
-}
-
-func (o DashboardPluginVisualSortConfigurationOutput) ToDashboardPluginVisualSortConfigurationOutput() DashboardPluginVisualSortConfigurationOutput {
-	return o
-}
-
-func (o DashboardPluginVisualSortConfigurationOutput) ToDashboardPluginVisualSortConfigurationOutputWithContext(ctx context.Context) DashboardPluginVisualSortConfigurationOutput {
-	return o
-}
-
-func (o DashboardPluginVisualSortConfigurationOutput) ToDashboardPluginVisualSortConfigurationPtrOutput() DashboardPluginVisualSortConfigurationPtrOutput {
-	return o.ToDashboardPluginVisualSortConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (o DashboardPluginVisualSortConfigurationOutput) ToDashboardPluginVisualSortConfigurationPtrOutputWithContext(ctx context.Context) DashboardPluginVisualSortConfigurationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardPluginVisualSortConfiguration) *DashboardPluginVisualSortConfiguration {
-		return &v
-	}).(DashboardPluginVisualSortConfigurationPtrOutput)
-}
-
-// The table query sorting options for the plugin visual.
-func (o DashboardPluginVisualSortConfigurationOutput) PluginVisualTableQuerySort() DashboardPluginVisualTableQuerySortPtrOutput {
-	return o.ApplyT(func(v DashboardPluginVisualSortConfiguration) *DashboardPluginVisualTableQuerySort {
-		return v.PluginVisualTableQuerySort
-	}).(DashboardPluginVisualTableQuerySortPtrOutput)
-}
-
-type DashboardPluginVisualSortConfigurationPtrOutput struct{ *pulumi.OutputState }
-
-func (DashboardPluginVisualSortConfigurationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardPluginVisualSortConfiguration)(nil)).Elem()
-}
-
-func (o DashboardPluginVisualSortConfigurationPtrOutput) ToDashboardPluginVisualSortConfigurationPtrOutput() DashboardPluginVisualSortConfigurationPtrOutput {
-	return o
-}
-
-func (o DashboardPluginVisualSortConfigurationPtrOutput) ToDashboardPluginVisualSortConfigurationPtrOutputWithContext(ctx context.Context) DashboardPluginVisualSortConfigurationPtrOutput {
-	return o
-}
-
-func (o DashboardPluginVisualSortConfigurationPtrOutput) Elem() DashboardPluginVisualSortConfigurationOutput {
-	return o.ApplyT(func(v *DashboardPluginVisualSortConfiguration) DashboardPluginVisualSortConfiguration {
-		if v != nil {
-			return *v
-		}
-		var ret DashboardPluginVisualSortConfiguration
-		return ret
-	}).(DashboardPluginVisualSortConfigurationOutput)
-}
-
-// The table query sorting options for the plugin visual.
-func (o DashboardPluginVisualSortConfigurationPtrOutput) PluginVisualTableQuerySort() DashboardPluginVisualTableQuerySortPtrOutput {
-	return o.ApplyT(func(v *DashboardPluginVisualSortConfiguration) *DashboardPluginVisualTableQuerySort {
-		if v == nil {
-			return nil
-		}
-		return v.PluginVisualTableQuerySort
-	}).(DashboardPluginVisualTableQuerySortPtrOutput)
-}
-
-type DashboardPluginVisualTableQuerySort struct {
-	// The maximum amount of data to be returned by a query.
-	ItemsLimitConfiguration *DashboardPluginVisualItemsLimitConfiguration `pulumi:"itemsLimitConfiguration"`
-	// Determines how data is sorted in the response.
-	RowSort []DashboardFieldSortOptions `pulumi:"rowSort"`
-}
-
-// DashboardPluginVisualTableQuerySortInput is an input type that accepts DashboardPluginVisualTableQuerySortArgs and DashboardPluginVisualTableQuerySortOutput values.
-// You can construct a concrete instance of `DashboardPluginVisualTableQuerySortInput` via:
-//
-//	DashboardPluginVisualTableQuerySortArgs{...}
-type DashboardPluginVisualTableQuerySortInput interface {
-	pulumi.Input
-
-	ToDashboardPluginVisualTableQuerySortOutput() DashboardPluginVisualTableQuerySortOutput
-	ToDashboardPluginVisualTableQuerySortOutputWithContext(context.Context) DashboardPluginVisualTableQuerySortOutput
-}
-
-type DashboardPluginVisualTableQuerySortArgs struct {
-	// The maximum amount of data to be returned by a query.
-	ItemsLimitConfiguration DashboardPluginVisualItemsLimitConfigurationPtrInput `pulumi:"itemsLimitConfiguration"`
-	// Determines how data is sorted in the response.
-	RowSort DashboardFieldSortOptionsArrayInput `pulumi:"rowSort"`
-}
-
-func (DashboardPluginVisualTableQuerySortArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardPluginVisualTableQuerySort)(nil)).Elem()
-}
-
-func (i DashboardPluginVisualTableQuerySortArgs) ToDashboardPluginVisualTableQuerySortOutput() DashboardPluginVisualTableQuerySortOutput {
-	return i.ToDashboardPluginVisualTableQuerySortOutputWithContext(context.Background())
-}
-
-func (i DashboardPluginVisualTableQuerySortArgs) ToDashboardPluginVisualTableQuerySortOutputWithContext(ctx context.Context) DashboardPluginVisualTableQuerySortOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardPluginVisualTableQuerySortOutput)
-}
-
-func (i DashboardPluginVisualTableQuerySortArgs) ToDashboardPluginVisualTableQuerySortPtrOutput() DashboardPluginVisualTableQuerySortPtrOutput {
-	return i.ToDashboardPluginVisualTableQuerySortPtrOutputWithContext(context.Background())
-}
-
-func (i DashboardPluginVisualTableQuerySortArgs) ToDashboardPluginVisualTableQuerySortPtrOutputWithContext(ctx context.Context) DashboardPluginVisualTableQuerySortPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardPluginVisualTableQuerySortOutput).ToDashboardPluginVisualTableQuerySortPtrOutputWithContext(ctx)
-}
-
-// DashboardPluginVisualTableQuerySortPtrInput is an input type that accepts DashboardPluginVisualTableQuerySortArgs, DashboardPluginVisualTableQuerySortPtr and DashboardPluginVisualTableQuerySortPtrOutput values.
-// You can construct a concrete instance of `DashboardPluginVisualTableQuerySortPtrInput` via:
-//
-//	        DashboardPluginVisualTableQuerySortArgs{...}
-//
-//	or:
-//
-//	        nil
-type DashboardPluginVisualTableQuerySortPtrInput interface {
-	pulumi.Input
-
-	ToDashboardPluginVisualTableQuerySortPtrOutput() DashboardPluginVisualTableQuerySortPtrOutput
-	ToDashboardPluginVisualTableQuerySortPtrOutputWithContext(context.Context) DashboardPluginVisualTableQuerySortPtrOutput
-}
-
-type dashboardPluginVisualTableQuerySortPtrType DashboardPluginVisualTableQuerySortArgs
-
-func DashboardPluginVisualTableQuerySortPtr(v *DashboardPluginVisualTableQuerySortArgs) DashboardPluginVisualTableQuerySortPtrInput {
-	return (*dashboardPluginVisualTableQuerySortPtrType)(v)
-}
-
-func (*dashboardPluginVisualTableQuerySortPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardPluginVisualTableQuerySort)(nil)).Elem()
-}
-
-func (i *dashboardPluginVisualTableQuerySortPtrType) ToDashboardPluginVisualTableQuerySortPtrOutput() DashboardPluginVisualTableQuerySortPtrOutput {
-	return i.ToDashboardPluginVisualTableQuerySortPtrOutputWithContext(context.Background())
-}
-
-func (i *dashboardPluginVisualTableQuerySortPtrType) ToDashboardPluginVisualTableQuerySortPtrOutputWithContext(ctx context.Context) DashboardPluginVisualTableQuerySortPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardPluginVisualTableQuerySortPtrOutput)
-}
-
-type DashboardPluginVisualTableQuerySortOutput struct{ *pulumi.OutputState }
-
-func (DashboardPluginVisualTableQuerySortOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardPluginVisualTableQuerySort)(nil)).Elem()
-}
-
-func (o DashboardPluginVisualTableQuerySortOutput) ToDashboardPluginVisualTableQuerySortOutput() DashboardPluginVisualTableQuerySortOutput {
-	return o
-}
-
-func (o DashboardPluginVisualTableQuerySortOutput) ToDashboardPluginVisualTableQuerySortOutputWithContext(ctx context.Context) DashboardPluginVisualTableQuerySortOutput {
-	return o
-}
-
-func (o DashboardPluginVisualTableQuerySortOutput) ToDashboardPluginVisualTableQuerySortPtrOutput() DashboardPluginVisualTableQuerySortPtrOutput {
-	return o.ToDashboardPluginVisualTableQuerySortPtrOutputWithContext(context.Background())
-}
-
-func (o DashboardPluginVisualTableQuerySortOutput) ToDashboardPluginVisualTableQuerySortPtrOutputWithContext(ctx context.Context) DashboardPluginVisualTableQuerySortPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardPluginVisualTableQuerySort) *DashboardPluginVisualTableQuerySort {
-		return &v
-	}).(DashboardPluginVisualTableQuerySortPtrOutput)
-}
-
-// The maximum amount of data to be returned by a query.
-func (o DashboardPluginVisualTableQuerySortOutput) ItemsLimitConfiguration() DashboardPluginVisualItemsLimitConfigurationPtrOutput {
-	return o.ApplyT(func(v DashboardPluginVisualTableQuerySort) *DashboardPluginVisualItemsLimitConfiguration {
-		return v.ItemsLimitConfiguration
-	}).(DashboardPluginVisualItemsLimitConfigurationPtrOutput)
-}
-
-// Determines how data is sorted in the response.
-func (o DashboardPluginVisualTableQuerySortOutput) RowSort() DashboardFieldSortOptionsArrayOutput {
-	return o.ApplyT(func(v DashboardPluginVisualTableQuerySort) []DashboardFieldSortOptions { return v.RowSort }).(DashboardFieldSortOptionsArrayOutput)
-}
-
-type DashboardPluginVisualTableQuerySortPtrOutput struct{ *pulumi.OutputState }
-
-func (DashboardPluginVisualTableQuerySortPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardPluginVisualTableQuerySort)(nil)).Elem()
-}
-
-func (o DashboardPluginVisualTableQuerySortPtrOutput) ToDashboardPluginVisualTableQuerySortPtrOutput() DashboardPluginVisualTableQuerySortPtrOutput {
-	return o
-}
-
-func (o DashboardPluginVisualTableQuerySortPtrOutput) ToDashboardPluginVisualTableQuerySortPtrOutputWithContext(ctx context.Context) DashboardPluginVisualTableQuerySortPtrOutput {
-	return o
-}
-
-func (o DashboardPluginVisualTableQuerySortPtrOutput) Elem() DashboardPluginVisualTableQuerySortOutput {
-	return o.ApplyT(func(v *DashboardPluginVisualTableQuerySort) DashboardPluginVisualTableQuerySort {
-		if v != nil {
-			return *v
-		}
-		var ret DashboardPluginVisualTableQuerySort
-		return ret
-	}).(DashboardPluginVisualTableQuerySortOutput)
-}
-
-// The maximum amount of data to be returned by a query.
-func (o DashboardPluginVisualTableQuerySortPtrOutput) ItemsLimitConfiguration() DashboardPluginVisualItemsLimitConfigurationPtrOutput {
-	return o.ApplyT(func(v *DashboardPluginVisualTableQuerySort) *DashboardPluginVisualItemsLimitConfiguration {
-		if v == nil {
-			return nil
-		}
-		return v.ItemsLimitConfiguration
-	}).(DashboardPluginVisualItemsLimitConfigurationPtrOutput)
-}
-
-// Determines how data is sorted in the response.
-func (o DashboardPluginVisualTableQuerySortPtrOutput) RowSort() DashboardFieldSortOptionsArrayOutput {
-	return o.ApplyT(func(v *DashboardPluginVisualTableQuerySort) []DashboardFieldSortOptions {
-		if v == nil {
-			return nil
-		}
-		return v.RowSort
-	}).(DashboardFieldSortOptionsArrayOutput)
-}
-
-type DashboardPredefinedHierarchy struct {
-	// The list of columns that define the predefined hierarchy.
-	Columns []DashboardColumnIdentifier `pulumi:"columns"`
-	// The option that determines the drill down filters for the predefined hierarchy.
-	DrillDownFilters []DashboardDrillDownFilter `pulumi:"drillDownFilters"`
-	// The hierarchy ID of the predefined hierarchy.
-	HierarchyId string `pulumi:"hierarchyId"`
-}
-
-// DashboardPredefinedHierarchyInput is an input type that accepts DashboardPredefinedHierarchyArgs and DashboardPredefinedHierarchyOutput values.
-// You can construct a concrete instance of `DashboardPredefinedHierarchyInput` via:
-//
-//	DashboardPredefinedHierarchyArgs{...}
-type DashboardPredefinedHierarchyInput interface {
-	pulumi.Input
-
-	ToDashboardPredefinedHierarchyOutput() DashboardPredefinedHierarchyOutput
-	ToDashboardPredefinedHierarchyOutputWithContext(context.Context) DashboardPredefinedHierarchyOutput
-}
-
-type DashboardPredefinedHierarchyArgs struct {
-	// The list of columns that define the predefined hierarchy.
-	Columns DashboardColumnIdentifierArrayInput `pulumi:"columns"`
-	// The option that determines the drill down filters for the predefined hierarchy.
-	DrillDownFilters DashboardDrillDownFilterArrayInput `pulumi:"drillDownFilters"`
-	// The hierarchy ID of the predefined hierarchy.
-	HierarchyId pulumi.StringInput `pulumi:"hierarchyId"`
-}
-
-func (DashboardPredefinedHierarchyArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardPredefinedHierarchy)(nil)).Elem()
-}
-
-func (i DashboardPredefinedHierarchyArgs) ToDashboardPredefinedHierarchyOutput() DashboardPredefinedHierarchyOutput {
-	return i.ToDashboardPredefinedHierarchyOutputWithContext(context.Background())
-}
-
-func (i DashboardPredefinedHierarchyArgs) ToDashboardPredefinedHierarchyOutputWithContext(ctx context.Context) DashboardPredefinedHierarchyOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardPredefinedHierarchyOutput)
-}
-
-func (i DashboardPredefinedHierarchyArgs) ToDashboardPredefinedHierarchyPtrOutput() DashboardPredefinedHierarchyPtrOutput {
-	return i.ToDashboardPredefinedHierarchyPtrOutputWithContext(context.Background())
-}
-
-func (i DashboardPredefinedHierarchyArgs) ToDashboardPredefinedHierarchyPtrOutputWithContext(ctx context.Context) DashboardPredefinedHierarchyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardPredefinedHierarchyOutput).ToDashboardPredefinedHierarchyPtrOutputWithContext(ctx)
-}
-
-// DashboardPredefinedHierarchyPtrInput is an input type that accepts DashboardPredefinedHierarchyArgs, DashboardPredefinedHierarchyPtr and DashboardPredefinedHierarchyPtrOutput values.
-// You can construct a concrete instance of `DashboardPredefinedHierarchyPtrInput` via:
-//
-//	        DashboardPredefinedHierarchyArgs{...}
-//
-//	or:
-//
-//	        nil
-type DashboardPredefinedHierarchyPtrInput interface {
-	pulumi.Input
-
-	ToDashboardPredefinedHierarchyPtrOutput() DashboardPredefinedHierarchyPtrOutput
-	ToDashboardPredefinedHierarchyPtrOutputWithContext(context.Context) DashboardPredefinedHierarchyPtrOutput
-}
-
-type dashboardPredefinedHierarchyPtrType DashboardPredefinedHierarchyArgs
-
-func DashboardPredefinedHierarchyPtr(v *DashboardPredefinedHierarchyArgs) DashboardPredefinedHierarchyPtrInput {
-	return (*dashboardPredefinedHierarchyPtrType)(v)
-}
-
-func (*dashboardPredefinedHierarchyPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardPredefinedHierarchy)(nil)).Elem()
-}
-
-func (i *dashboardPredefinedHierarchyPtrType) ToDashboardPredefinedHierarchyPtrOutput() DashboardPredefinedHierarchyPtrOutput {
-	return i.ToDashboardPredefinedHierarchyPtrOutputWithContext(context.Background())
-}
-
-func (i *dashboardPredefinedHierarchyPtrType) ToDashboardPredefinedHierarchyPtrOutputWithContext(ctx context.Context) DashboardPredefinedHierarchyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardPredefinedHierarchyPtrOutput)
-}
-
-type DashboardPredefinedHierarchyOutput struct{ *pulumi.OutputState }
-
-func (DashboardPredefinedHierarchyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardPredefinedHierarchy)(nil)).Elem()
-}
-
-func (o DashboardPredefinedHierarchyOutput) ToDashboardPredefinedHierarchyOutput() DashboardPredefinedHierarchyOutput {
-	return o
-}
-
-func (o DashboardPredefinedHierarchyOutput) ToDashboardPredefinedHierarchyOutputWithContext(ctx context.Context) DashboardPredefinedHierarchyOutput {
-	return o
-}
-
-func (o DashboardPredefinedHierarchyOutput) ToDashboardPredefinedHierarchyPtrOutput() DashboardPredefinedHierarchyPtrOutput {
-	return o.ToDashboardPredefinedHierarchyPtrOutputWithContext(context.Background())
-}
-
-func (o DashboardPredefinedHierarchyOutput) ToDashboardPredefinedHierarchyPtrOutputWithContext(ctx context.Context) DashboardPredefinedHierarchyPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardPredefinedHierarchy) *DashboardPredefinedHierarchy {
-		return &v
-	}).(DashboardPredefinedHierarchyPtrOutput)
-}
-
-// The list of columns that define the predefined hierarchy.
-func (o DashboardPredefinedHierarchyOutput) Columns() DashboardColumnIdentifierArrayOutput {
-	return o.ApplyT(func(v DashboardPredefinedHierarchy) []DashboardColumnIdentifier { return v.Columns }).(DashboardColumnIdentifierArrayOutput)
-}
-
-// The option that determines the drill down filters for the predefined hierarchy.
-func (o DashboardPredefinedHierarchyOutput) DrillDownFilters() DashboardDrillDownFilterArrayOutput {
-	return o.ApplyT(func(v DashboardPredefinedHierarchy) []DashboardDrillDownFilter { return v.DrillDownFilters }).(DashboardDrillDownFilterArrayOutput)
-}
-
-// The hierarchy ID of the predefined hierarchy.
-func (o DashboardPredefinedHierarchyOutput) HierarchyId() pulumi.StringOutput {
-	return o.ApplyT(func(v DashboardPredefinedHierarchy) string { return v.HierarchyId }).(pulumi.StringOutput)
-}
-
-type DashboardPredefinedHierarchyPtrOutput struct{ *pulumi.OutputState }
-
-func (DashboardPredefinedHierarchyPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardPredefinedHierarchy)(nil)).Elem()
-}
-
-func (o DashboardPredefinedHierarchyPtrOutput) ToDashboardPredefinedHierarchyPtrOutput() DashboardPredefinedHierarchyPtrOutput {
-	return o
-}
-
-func (o DashboardPredefinedHierarchyPtrOutput) ToDashboardPredefinedHierarchyPtrOutputWithContext(ctx context.Context) DashboardPredefinedHierarchyPtrOutput {
-	return o
-}
-
-func (o DashboardPredefinedHierarchyPtrOutput) Elem() DashboardPredefinedHierarchyOutput {
-	return o.ApplyT(func(v *DashboardPredefinedHierarchy) DashboardPredefinedHierarchy {
-		if v != nil {
-			return *v
-		}
-		var ret DashboardPredefinedHierarchy
-		return ret
-	}).(DashboardPredefinedHierarchyOutput)
-}
-
-// The list of columns that define the predefined hierarchy.
-func (o DashboardPredefinedHierarchyPtrOutput) Columns() DashboardColumnIdentifierArrayOutput {
-	return o.ApplyT(func(v *DashboardPredefinedHierarchy) []DashboardColumnIdentifier {
-		if v == nil {
-			return nil
-		}
-		return v.Columns
-	}).(DashboardColumnIdentifierArrayOutput)
-}
-
-// The option that determines the drill down filters for the predefined hierarchy.
-func (o DashboardPredefinedHierarchyPtrOutput) DrillDownFilters() DashboardDrillDownFilterArrayOutput {
-	return o.ApplyT(func(v *DashboardPredefinedHierarchy) []DashboardDrillDownFilter {
-		if v == nil {
-			return nil
-		}
-		return v.DrillDownFilters
-	}).(DashboardDrillDownFilterArrayOutput)
-}
-
-// The hierarchy ID of the predefined hierarchy.
-func (o DashboardPredefinedHierarchyPtrOutput) HierarchyId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DashboardPredefinedHierarchy) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.HierarchyId
-	}).(pulumi.StringPtrOutput)
-}
-
-type DashboardProgressBarOptions struct {
-	// The visibility of the progress bar.
-	Visibility *DashboardVisibility `pulumi:"visibility"`
-}
-
-// DashboardProgressBarOptionsInput is an input type that accepts DashboardProgressBarOptionsArgs and DashboardProgressBarOptionsOutput values.
-// You can construct a concrete instance of `DashboardProgressBarOptionsInput` via:
-//
-//	DashboardProgressBarOptionsArgs{...}
-type DashboardProgressBarOptionsInput interface {
-	pulumi.Input
-
-	ToDashboardProgressBarOptionsOutput() DashboardProgressBarOptionsOutput
-	ToDashboardProgressBarOptionsOutputWithContext(context.Context) DashboardProgressBarOptionsOutput
-}
-
-type DashboardProgressBarOptionsArgs struct {
-	// The visibility of the progress bar.
-	Visibility DashboardVisibilityPtrInput `pulumi:"visibility"`
-}
-
-func (DashboardProgressBarOptionsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardProgressBarOptions)(nil)).Elem()
-}
-
-func (i DashboardProgressBarOptionsArgs) ToDashboardProgressBarOptionsOutput() DashboardProgressBarOptionsOutput {
-	return i.ToDashboardProgressBarOptionsOutputWithContext(context.Background())
-}
-
-func (i DashboardProgressBarOptionsArgs) ToDashboardProgressBarOptionsOutputWithContext(ctx context.Context) DashboardProgressBarOptionsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardProgressBarOptionsOutput)
-}
-
-func (i DashboardProgressBarOptionsArgs) ToDashboardProgressBarOptionsPtrOutput() DashboardProgressBarOptionsPtrOutput {
-	return i.ToDashboardProgressBarOptionsPtrOutputWithContext(context.Background())
-}
-
-func (i DashboardProgressBarOptionsArgs) ToDashboardProgressBarOptionsPtrOutputWithContext(ctx context.Context) DashboardProgressBarOptionsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardProgressBarOptionsOutput).ToDashboardProgressBarOptionsPtrOutputWithContext(ctx)
-}
-
-// DashboardProgressBarOptionsPtrInput is an input type that accepts DashboardProgressBarOptionsArgs, DashboardProgressBarOptionsPtr and DashboardProgressBarOptionsPtrOutput values.
-// You can construct a concrete instance of `DashboardProgressBarOptionsPtrInput` via:
-//
-//	        DashboardProgressBarOptionsArgs{...}
-//
-//	or:
-//
-//	        nil
-type DashboardProgressBarOptionsPtrInput interface {
-	pulumi.Input
-
-	ToDashboardProgressBarOptionsPtrOutput() DashboardProgressBarOptionsPtrOutput
-	ToDashboardProgressBarOptionsPtrOutputWithContext(context.Context) DashboardProgressBarOptionsPtrOutput
-}
-
-type dashboardProgressBarOptionsPtrType DashboardProgressBarOptionsArgs
-
-func DashboardProgressBarOptionsPtr(v *DashboardProgressBarOptionsArgs) DashboardProgressBarOptionsPtrInput {
-	return (*dashboardProgressBarOptionsPtrType)(v)
-}
-
-func (*dashboardProgressBarOptionsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardProgressBarOptions)(nil)).Elem()
-}
-
-func (i *dashboardProgressBarOptionsPtrType) ToDashboardProgressBarOptionsPtrOutput() DashboardProgressBarOptionsPtrOutput {
-	return i.ToDashboardProgressBarOptionsPtrOutputWithContext(context.Background())
-}
-
-func (i *dashboardProgressBarOptionsPtrType) ToDashboardProgressBarOptionsPtrOutputWithContext(ctx context.Context) DashboardProgressBarOptionsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardProgressBarOptionsPtrOutput)
-}
-
-type DashboardProgressBarOptionsOutput struct{ *pulumi.OutputState }
-
-func (DashboardProgressBarOptionsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardProgressBarOptions)(nil)).Elem()
-}
-
-func (o DashboardProgressBarOptionsOutput) ToDashboardProgressBarOptionsOutput() DashboardProgressBarOptionsOutput {
-	return o
-}
-
-func (o DashboardProgressBarOptionsOutput) ToDashboardProgressBarOptionsOutputWithContext(ctx context.Context) DashboardProgressBarOptionsOutput {
-	return o
-}
-
-func (o DashboardProgressBarOptionsOutput) ToDashboardProgressBarOptionsPtrOutput() DashboardProgressBarOptionsPtrOutput {
-	return o.ToDashboardProgressBarOptionsPtrOutputWithContext(context.Background())
-}
-
-func (o DashboardProgressBarOptionsOutput) ToDashboardProgressBarOptionsPtrOutputWithContext(ctx context.Context) DashboardProgressBarOptionsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardProgressBarOptions) *DashboardProgressBarOptions {
-		return &v
-	}).(DashboardProgressBarOptionsPtrOutput)
-}
-
-// The visibility of the progress bar.
-func (o DashboardProgressBarOptionsOutput) Visibility() DashboardVisibilityPtrOutput {
-	return o.ApplyT(func(v DashboardProgressBarOptions) *DashboardVisibility { return v.Visibility }).(DashboardVisibilityPtrOutput)
-}
-
-type DashboardProgressBarOptionsPtrOutput struct{ *pulumi.OutputState }
-
-func (DashboardProgressBarOptionsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardProgressBarOptions)(nil)).Elem()
-}
-
-func (o DashboardProgressBarOptionsPtrOutput) ToDashboardProgressBarOptionsPtrOutput() DashboardProgressBarOptionsPtrOutput {
-	return o
-}
-
-func (o DashboardProgressBarOptionsPtrOutput) ToDashboardProgressBarOptionsPtrOutputWithContext(ctx context.Context) DashboardProgressBarOptionsPtrOutput {
-	return o
-}
-
-func (o DashboardProgressBarOptionsPtrOutput) Elem() DashboardProgressBarOptionsOutput {
-	return o.ApplyT(func(v *DashboardProgressBarOptions) DashboardProgressBarOptions {
-		if v != nil {
-			return *v
-		}
-		var ret DashboardProgressBarOptions
-		return ret
-	}).(DashboardProgressBarOptionsOutput)
-}
-
-// The visibility of the progress bar.
-func (o DashboardProgressBarOptionsPtrOutput) Visibility() DashboardVisibilityPtrOutput {
-	return o.ApplyT(func(v *DashboardProgressBarOptions) *DashboardVisibility {
-		if v == nil {
-			return nil
-		}
-		return v.Visibility
-	}).(DashboardVisibilityPtrOutput)
-}
-
-// <p>Dashboard publish options.</p>
-type DashboardPublishOptions struct {
-	// Ad hoc (one-time) filtering option.
-	AdHocFilteringOption *DashboardAdHocFilteringOption `pulumi:"adHocFilteringOption"`
-	// The drill-down options of data points in a dashboard.
-	DataPointDrillUpDownOption *DashboardDataPointDrillUpDownOption `pulumi:"dataPointDrillUpDownOption"`
-	// The data point menu label options of a dashboard.
-	DataPointMenuLabelOption *DashboardDataPointMenuLabelOption `pulumi:"dataPointMenuLabelOption"`
-	// The data point tool tip options of a dashboard.
-	DataPointTooltipOption *DashboardDataPointTooltipOption `pulumi:"dataPointTooltipOption"`
-	// Adds Q&A capabilities to an Quick Sight dashboard. If no topic is linked, Dashboard Q&A uses the data values that are rendered on the dashboard. End users can use Dashboard Q&A to ask for different slices of the data that they see on the dashboard. If a topic is linked, Topic Q&A is used.
-	DataQaEnabledOption *DashboardDataQaEnabledOption `pulumi:"dataQaEnabledOption"`
-	// Data stories sharing option.
-	DataStoriesSharingOption *DashboardDataStoriesSharingOption `pulumi:"dataStoriesSharingOption"`
-	// Executive summary option.
-	ExecutiveSummaryOption *DashboardExecutiveSummaryOption `pulumi:"executiveSummaryOption"`
-	// Export to .csv option.
-	ExportToCsvOption *DashboardExportToCsvOption `pulumi:"exportToCsvOption"`
-	// Determines if hidden fields are exported with a dashboard.
-	ExportWithHiddenFieldsOption *DashboardExportWithHiddenFieldsOption `pulumi:"exportWithHiddenFieldsOption"`
-	// Determines if Actions in Amazon Quick Suite are enabled in a dashboard.
-	QuickSuiteActionsOption *DashboardQuickSuiteActionsOption `pulumi:"quickSuiteActionsOption"`
-	// Sheet controls option.
-	SheetControlsOption *DashboardSheetControlsOption `pulumi:"sheetControlsOption"`
-	// The sheet layout maximization options of a dashbaord.
-	SheetLayoutElementMaximizationOption *DashboardSheetLayoutElementMaximizationOption `pulumi:"sheetLayoutElementMaximizationOption"`
-	// The axis sort options of a dashboard.
-	VisualAxisSortOption *DashboardVisualAxisSortOption `pulumi:"visualAxisSortOption"`
-	// The menu options of a visual in a dashboard.
-	VisualMenuOption *DashboardVisualMenuOption `pulumi:"visualMenuOption"`
-	// The visual publish options of a visual in a dashboard.
-	VisualPublishOptions *DashboardVisualPublishOptions `pulumi:"visualPublishOptions"`
-}
-
-// DashboardPublishOptionsInput is an input type that accepts DashboardPublishOptionsArgs and DashboardPublishOptionsOutput values.
-// You can construct a concrete instance of `DashboardPublishOptionsInput` via:
-//
-//	DashboardPublishOptionsArgs{...}
-type DashboardPublishOptionsInput interface {
-	pulumi.Input
-
-	ToDashboardPublishOptionsOutput() DashboardPublishOptionsOutput
-	ToDashboardPublishOptionsOutputWithContext(context.Context) DashboardPublishOptionsOutput
-}
-
-// <p>Dashboard publish options.</p>
-type DashboardPublishOptionsArgs struct {
-	// Ad hoc (one-time) filtering option.
-	AdHocFilteringOption DashboardAdHocFilteringOptionPtrInput `pulumi:"adHocFilteringOption"`
-	// The drill-down options of data points in a dashboard.
-	DataPointDrillUpDownOption DashboardDataPointDrillUpDownOptionPtrInput `pulumi:"dataPointDrillUpDownOption"`
-	// The data point menu label options of a dashboard.
-	DataPointMenuLabelOption DashboardDataPointMenuLabelOptionPtrInput `pulumi:"dataPointMenuLabelOption"`
-	// The data point tool tip options of a dashboard.
-	DataPointTooltipOption DashboardDataPointTooltipOptionPtrInput `pulumi:"dataPointTooltipOption"`
-	// Adds Q&A capabilities to an Quick Sight dashboard. If no topic is linked, Dashboard Q&A uses the data values that are rendered on the dashboard. End users can use Dashboard Q&A to ask for different slices of the data that they see on the dashboard. If a topic is linked, Topic Q&A is used.
-	DataQaEnabledOption DashboardDataQaEnabledOptionPtrInput `pulumi:"dataQaEnabledOption"`
-	// Data stories sharing option.
-	DataStoriesSharingOption DashboardDataStoriesSharingOptionPtrInput `pulumi:"dataStoriesSharingOption"`
-	// Executive summary option.
-	ExecutiveSummaryOption DashboardExecutiveSummaryOptionPtrInput `pulumi:"executiveSummaryOption"`
-	// Export to .csv option.
-	ExportToCsvOption DashboardExportToCsvOptionPtrInput `pulumi:"exportToCsvOption"`
-	// Determines if hidden fields are exported with a dashboard.
-	ExportWithHiddenFieldsOption DashboardExportWithHiddenFieldsOptionPtrInput `pulumi:"exportWithHiddenFieldsOption"`
-	// Determines if Actions in Amazon Quick Suite are enabled in a dashboard.
-	QuickSuiteActionsOption DashboardQuickSuiteActionsOptionPtrInput `pulumi:"quickSuiteActionsOption"`
-	// Sheet controls option.
-	SheetControlsOption DashboardSheetControlsOptionPtrInput `pulumi:"sheetControlsOption"`
-	// The sheet layout maximization options of a dashbaord.
-	SheetLayoutElementMaximizationOption DashboardSheetLayoutElementMaximizationOptionPtrInput `pulumi:"sheetLayoutElementMaximizationOption"`
-	// The axis sort options of a dashboard.
-	VisualAxisSortOption DashboardVisualAxisSortOptionPtrInput `pulumi:"visualAxisSortOption"`
-	// The menu options of a visual in a dashboard.
-	VisualMenuOption DashboardVisualMenuOptionPtrInput `pulumi:"visualMenuOption"`
-	// The visual publish options of a visual in a dashboard.
-	VisualPublishOptions DashboardVisualPublishOptionsPtrInput `pulumi:"visualPublishOptions"`
-}
-
-func (DashboardPublishOptionsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardPublishOptions)(nil)).Elem()
-}
-
-func (i DashboardPublishOptionsArgs) ToDashboardPublishOptionsOutput() DashboardPublishOptionsOutput {
-	return i.ToDashboardPublishOptionsOutputWithContext(context.Background())
-}
-
-func (i DashboardPublishOptionsArgs) ToDashboardPublishOptionsOutputWithContext(ctx context.Context) DashboardPublishOptionsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardPublishOptionsOutput)
-}
-
-func (i DashboardPublishOptionsArgs) ToDashboardPublishOptionsPtrOutput() DashboardPublishOptionsPtrOutput {
-	return i.ToDashboardPublishOptionsPtrOutputWithContext(context.Background())
-}
-
-func (i DashboardPublishOptionsArgs) ToDashboardPublishOptionsPtrOutputWithContext(ctx context.Context) DashboardPublishOptionsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardPublishOptionsOutput).ToDashboardPublishOptionsPtrOutputWithContext(ctx)
-}
-
-// DashboardPublishOptionsPtrInput is an input type that accepts DashboardPublishOptionsArgs, DashboardPublishOptionsPtr and DashboardPublishOptionsPtrOutput values.
-// You can construct a concrete instance of `DashboardPublishOptionsPtrInput` via:
-//
-//	        DashboardPublishOptionsArgs{...}
-//
-//	or:
-//
-//	        nil
-type DashboardPublishOptionsPtrInput interface {
-	pulumi.Input
-
-	ToDashboardPublishOptionsPtrOutput() DashboardPublishOptionsPtrOutput
-	ToDashboardPublishOptionsPtrOutputWithContext(context.Context) DashboardPublishOptionsPtrOutput
-}
-
-type dashboardPublishOptionsPtrType DashboardPublishOptionsArgs
-
-func DashboardPublishOptionsPtr(v *DashboardPublishOptionsArgs) DashboardPublishOptionsPtrInput {
-	return (*dashboardPublishOptionsPtrType)(v)
-}
-
-func (*dashboardPublishOptionsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardPublishOptions)(nil)).Elem()
-}
-
-func (i *dashboardPublishOptionsPtrType) ToDashboardPublishOptionsPtrOutput() DashboardPublishOptionsPtrOutput {
-	return i.ToDashboardPublishOptionsPtrOutputWithContext(context.Background())
-}
-
-func (i *dashboardPublishOptionsPtrType) ToDashboardPublishOptionsPtrOutputWithContext(ctx context.Context) DashboardPublishOptionsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardPublishOptionsPtrOutput)
-}
-
-// <p>Dashboard publish options.</p>
-type DashboardPublishOptionsOutput struct{ *pulumi.OutputState }
-
-func (DashboardPublishOptionsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardPublishOptions)(nil)).Elem()
-}
-
-func (o DashboardPublishOptionsOutput) ToDashboardPublishOptionsOutput() DashboardPublishOptionsOutput {
-	return o
-}
-
-func (o DashboardPublishOptionsOutput) ToDashboardPublishOptionsOutputWithContext(ctx context.Context) DashboardPublishOptionsOutput {
-	return o
-}
-
-func (o DashboardPublishOptionsOutput) ToDashboardPublishOptionsPtrOutput() DashboardPublishOptionsPtrOutput {
-	return o.ToDashboardPublishOptionsPtrOutputWithContext(context.Background())
-}
-
-func (o DashboardPublishOptionsOutput) ToDashboardPublishOptionsPtrOutputWithContext(ctx context.Context) DashboardPublishOptionsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardPublishOptions) *DashboardPublishOptions {
-		return &v
-	}).(DashboardPublishOptionsPtrOutput)
-}
-
-// Ad hoc (one-time) filtering option.
-func (o DashboardPublishOptionsOutput) AdHocFilteringOption() DashboardAdHocFilteringOptionPtrOutput {
-	return o.ApplyT(func(v DashboardPublishOptions) *DashboardAdHocFilteringOption { return v.AdHocFilteringOption }).(DashboardAdHocFilteringOptionPtrOutput)
-}
-
-// The drill-down options of data points in a dashboard.
-func (o DashboardPublishOptionsOutput) DataPointDrillUpDownOption() DashboardDataPointDrillUpDownOptionPtrOutput {
-	return o.ApplyT(func(v DashboardPublishOptions) *DashboardDataPointDrillUpDownOption {
-		return v.DataPointDrillUpDownOption
-	}).(DashboardDataPointDrillUpDownOptionPtrOutput)
-}
-
-// The data point menu label options of a dashboard.
-func (o DashboardPublishOptionsOutput) DataPointMenuLabelOption() DashboardDataPointMenuLabelOptionPtrOutput {
-	return o.ApplyT(func(v DashboardPublishOptions) *DashboardDataPointMenuLabelOption { return v.DataPointMenuLabelOption }).(DashboardDataPointMenuLabelOptionPtrOutput)
-}
-
-// The data point tool tip options of a dashboard.
-func (o DashboardPublishOptionsOutput) DataPointTooltipOption() DashboardDataPointTooltipOptionPtrOutput {
-	return o.ApplyT(func(v DashboardPublishOptions) *DashboardDataPointTooltipOption { return v.DataPointTooltipOption }).(DashboardDataPointTooltipOptionPtrOutput)
-}
-
-// Adds Q&A capabilities to an Quick Sight dashboard. If no topic is linked, Dashboard Q&A uses the data values that are rendered on the dashboard. End users can use Dashboard Q&A to ask for different slices of the data that they see on the dashboard. If a topic is linked, Topic Q&A is used.
-func (o DashboardPublishOptionsOutput) DataQaEnabledOption() DashboardDataQaEnabledOptionPtrOutput {
-	return o.ApplyT(func(v DashboardPublishOptions) *DashboardDataQaEnabledOption { return v.DataQaEnabledOption }).(DashboardDataQaEnabledOptionPtrOutput)
-}
-
-// Data stories sharing option.
-func (o DashboardPublishOptionsOutput) DataStoriesSharingOption() DashboardDataStoriesSharingOptionPtrOutput {
-	return o.ApplyT(func(v DashboardPublishOptions) *DashboardDataStoriesSharingOption { return v.DataStoriesSharingOption }).(DashboardDataStoriesSharingOptionPtrOutput)
-}
-
-// Executive summary option.
-func (o DashboardPublishOptionsOutput) ExecutiveSummaryOption() DashboardExecutiveSummaryOptionPtrOutput {
-	return o.ApplyT(func(v DashboardPublishOptions) *DashboardExecutiveSummaryOption { return v.ExecutiveSummaryOption }).(DashboardExecutiveSummaryOptionPtrOutput)
-}
-
-// Export to .csv option.
-func (o DashboardPublishOptionsOutput) ExportToCsvOption() DashboardExportToCsvOptionPtrOutput {
-	return o.ApplyT(func(v DashboardPublishOptions) *DashboardExportToCsvOption { return v.ExportToCsvOption }).(DashboardExportToCsvOptionPtrOutput)
-}
-
-// Determines if hidden fields are exported with a dashboard.
-func (o DashboardPublishOptionsOutput) ExportWithHiddenFieldsOption() DashboardExportWithHiddenFieldsOptionPtrOutput {
-	return o.ApplyT(func(v DashboardPublishOptions) *DashboardExportWithHiddenFieldsOption {
-		return v.ExportWithHiddenFieldsOption
-	}).(DashboardExportWithHiddenFieldsOptionPtrOutput)
-}
-
-// Determines if Actions in Amazon Quick Suite are enabled in a dashboard.
-func (o DashboardPublishOptionsOutput) QuickSuiteActionsOption() DashboardQuickSuiteActionsOptionPtrOutput {
-	return o.ApplyT(func(v DashboardPublishOptions) *DashboardQuickSuiteActionsOption { return v.QuickSuiteActionsOption }).(DashboardQuickSuiteActionsOptionPtrOutput)
-}
-
-// Sheet controls option.
-func (o DashboardPublishOptionsOutput) SheetControlsOption() DashboardSheetControlsOptionPtrOutput {
-	return o.ApplyT(func(v DashboardPublishOptions) *DashboardSheetControlsOption { return v.SheetControlsOption }).(DashboardSheetControlsOptionPtrOutput)
-}
-
-// The sheet layout maximization options of a dashbaord.
-func (o DashboardPublishOptionsOutput) SheetLayoutElementMaximizationOption() DashboardSheetLayoutElementMaximizationOptionPtrOutput {
-	return o.ApplyT(func(v DashboardPublishOptions) *DashboardSheetLayoutElementMaximizationOption {
-		return v.SheetLayoutElementMaximizationOption
-	}).(DashboardSheetLayoutElementMaximizationOptionPtrOutput)
-}
-
-// The axis sort options of a dashboard.
-func (o DashboardPublishOptionsOutput) VisualAxisSortOption() DashboardVisualAxisSortOptionPtrOutput {
-	return o.ApplyT(func(v DashboardPublishOptions) *DashboardVisualAxisSortOption { return v.VisualAxisSortOption }).(DashboardVisualAxisSortOptionPtrOutput)
-}
-
-// The menu options of a visual in a dashboard.
-func (o DashboardPublishOptionsOutput) VisualMenuOption() DashboardVisualMenuOptionPtrOutput {
-	return o.ApplyT(func(v DashboardPublishOptions) *DashboardVisualMenuOption { return v.VisualMenuOption }).(DashboardVisualMenuOptionPtrOutput)
-}
-
-// The visual publish options of a visual in a dashboard.
-func (o DashboardPublishOptionsOutput) VisualPublishOptions() DashboardVisualPublishOptionsPtrOutput {
-	return o.ApplyT(func(v DashboardPublishOptions) *DashboardVisualPublishOptions { return v.VisualPublishOptions }).(DashboardVisualPublishOptionsPtrOutput)
-}
-
-type DashboardPublishOptionsPtrOutput struct{ *pulumi.OutputState }
-
-func (DashboardPublishOptionsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardPublishOptions)(nil)).Elem()
-}
-
-func (o DashboardPublishOptionsPtrOutput) ToDashboardPublishOptionsPtrOutput() DashboardPublishOptionsPtrOutput {
-	return o
-}
-
-func (o DashboardPublishOptionsPtrOutput) ToDashboardPublishOptionsPtrOutputWithContext(ctx context.Context) DashboardPublishOptionsPtrOutput {
-	return o
-}
-
-func (o DashboardPublishOptionsPtrOutput) Elem() DashboardPublishOptionsOutput {
-	return o.ApplyT(func(v *DashboardPublishOptions) DashboardPublishOptions {
-		if v != nil {
-			return *v
-		}
-		var ret DashboardPublishOptions
-		return ret
-	}).(DashboardPublishOptionsOutput)
-}
-
-// Ad hoc (one-time) filtering option.
-func (o DashboardPublishOptionsPtrOutput) AdHocFilteringOption() DashboardAdHocFilteringOptionPtrOutput {
-	return o.ApplyT(func(v *DashboardPublishOptions) *DashboardAdHocFilteringOption {
-		if v == nil {
-			return nil
-		}
-		return v.AdHocFilteringOption
-	}).(DashboardAdHocFilteringOptionPtrOutput)
-}
-
-// The drill-down options of data points in a dashboard.
-func (o DashboardPublishOptionsPtrOutput) DataPointDrillUpDownOption() DashboardDataPointDrillUpDownOptionPtrOutput {
-	return o.ApplyT(func(v *DashboardPublishOptions) *DashboardDataPointDrillUpDownOption {
-		if v == nil {
-			return nil
-		}
-		return v.DataPointDrillUpDownOption
-	}).(DashboardDataPointDrillUpDownOptionPtrOutput)
-}
-
-// The data point menu label options of a dashboard.
-func (o DashboardPublishOptionsPtrOutput) DataPointMenuLabelOption() DashboardDataPointMenuLabelOptionPtrOutput {
-	return o.ApplyT(func(v *DashboardPublishOptions) *DashboardDataPointMenuLabelOption {
-		if v == nil {
-			return nil
-		}
-		return v.DataPointMenuLabelOption
-	}).(DashboardDataPointMenuLabelOptionPtrOutput)
-}
-
-// The data point tool tip options of a dashboard.
-func (o DashboardPublishOptionsPtrOutput) DataPointTooltipOption() DashboardDataPointTooltipOptionPtrOutput {
-	return o.ApplyT(func(v *DashboardPublishOptions) *DashboardDataPointTooltipOption {
-		if v == nil {
-			return nil
-		}
-		return v.DataPointTooltipOption
-	}).(DashboardDataPointTooltipOptionPtrOutput)
-}
-
-// Adds Q&A capabilities to an Quick Sight dashboard. If no topic is linked, Dashboard Q&A uses the data values that are rendered on the dashboard. End users can use Dashboard Q&A to ask for different slices of the data that they see on the dashboard. If a topic is linked, Topic Q&A is used.
-func (o DashboardPublishOptionsPtrOutput) DataQaEnabledOption() DashboardDataQaEnabledOptionPtrOutput {
-	return o.ApplyT(func(v *DashboardPublishOptions) *DashboardDataQaEnabledOption {
-		if v == nil {
-			return nil
-		}
-		return v.DataQaEnabledOption
-	}).(DashboardDataQaEnabledOptionPtrOutput)
-}
-
-// Data stories sharing option.
-func (o DashboardPublishOptionsPtrOutput) DataStoriesSharingOption() DashboardDataStoriesSharingOptionPtrOutput {
-	return o.ApplyT(func(v *DashboardPublishOptions) *DashboardDataStoriesSharingOption {
-		if v == nil {
-			return nil
-		}
-		return v.DataStoriesSharingOption
-	}).(DashboardDataStoriesSharingOptionPtrOutput)
-}
-
-// Executive summary option.
-func (o DashboardPublishOptionsPtrOutput) ExecutiveSummaryOption() DashboardExecutiveSummaryOptionPtrOutput {
-	return o.ApplyT(func(v *DashboardPublishOptions) *DashboardExecutiveSummaryOption {
-		if v == nil {
-			return nil
-		}
-		return v.ExecutiveSummaryOption
-	}).(DashboardExecutiveSummaryOptionPtrOutput)
-}
-
-// Export to .csv option.
-func (o DashboardPublishOptionsPtrOutput) ExportToCsvOption() DashboardExportToCsvOptionPtrOutput {
-	return o.ApplyT(func(v *DashboardPublishOptions) *DashboardExportToCsvOption {
-		if v == nil {
-			return nil
-		}
-		return v.ExportToCsvOption
-	}).(DashboardExportToCsvOptionPtrOutput)
-}
-
-// Determines if hidden fields are exported with a dashboard.
-func (o DashboardPublishOptionsPtrOutput) ExportWithHiddenFieldsOption() DashboardExportWithHiddenFieldsOptionPtrOutput {
-	return o.ApplyT(func(v *DashboardPublishOptions) *DashboardExportWithHiddenFieldsOption {
-		if v == nil {
-			return nil
-		}
-		return v.ExportWithHiddenFieldsOption
-	}).(DashboardExportWithHiddenFieldsOptionPtrOutput)
-}
-
-// Determines if Actions in Amazon Quick Suite are enabled in a dashboard.
-func (o DashboardPublishOptionsPtrOutput) QuickSuiteActionsOption() DashboardQuickSuiteActionsOptionPtrOutput {
-	return o.ApplyT(func(v *DashboardPublishOptions) *DashboardQuickSuiteActionsOption {
-		if v == nil {
-			return nil
-		}
-		return v.QuickSuiteActionsOption
-	}).(DashboardQuickSuiteActionsOptionPtrOutput)
-}
-
-// Sheet controls option.
-func (o DashboardPublishOptionsPtrOutput) SheetControlsOption() DashboardSheetControlsOptionPtrOutput {
-	return o.ApplyT(func(v *DashboardPublishOptions) *DashboardSheetControlsOption {
-		if v == nil {
-			return nil
-		}
-		return v.SheetControlsOption
-	}).(DashboardSheetControlsOptionPtrOutput)
-}
-
-// The sheet layout maximization options of a dashbaord.
-func (o DashboardPublishOptionsPtrOutput) SheetLayoutElementMaximizationOption() DashboardSheetLayoutElementMaximizationOptionPtrOutput {
-	return o.ApplyT(func(v *DashboardPublishOptions) *DashboardSheetLayoutElementMaximizationOption {
-		if v == nil {
-			return nil
-		}
-		return v.SheetLayoutElementMaximizationOption
-	}).(DashboardSheetLayoutElementMaximizationOptionPtrOutput)
-}
-
-// The axis sort options of a dashboard.
-func (o DashboardPublishOptionsPtrOutput) VisualAxisSortOption() DashboardVisualAxisSortOptionPtrOutput {
-	return o.ApplyT(func(v *DashboardPublishOptions) *DashboardVisualAxisSortOption {
-		if v == nil {
-			return nil
-		}
-		return v.VisualAxisSortOption
-	}).(DashboardVisualAxisSortOptionPtrOutput)
-}
-
-// The menu options of a visual in a dashboard.
-func (o DashboardPublishOptionsPtrOutput) VisualMenuOption() DashboardVisualMenuOptionPtrOutput {
-	return o.ApplyT(func(v *DashboardPublishOptions) *DashboardVisualMenuOption {
-		if v == nil {
-			return nil
-		}
-		return v.VisualMenuOption
-	}).(DashboardVisualMenuOptionPtrOutput)
-}
-
-// The visual publish options of a visual in a dashboard.
-func (o DashboardPublishOptionsPtrOutput) VisualPublishOptions() DashboardVisualPublishOptionsPtrOutput {
-	return o.ApplyT(func(v *DashboardPublishOptions) *DashboardVisualPublishOptions {
-		if v == nil {
-			return nil
-		}
-		return v.VisualPublishOptions
-	}).(DashboardVisualPublishOptionsPtrOutput)
-}
-
-type DashboardQuickSuiteActionsOption struct {
-	// Availability status.
-	AvailabilityStatus *DashboardBehavior `pulumi:"availabilityStatus"`
-}
-
-// DashboardQuickSuiteActionsOptionInput is an input type that accepts DashboardQuickSuiteActionsOptionArgs and DashboardQuickSuiteActionsOptionOutput values.
-// You can construct a concrete instance of `DashboardQuickSuiteActionsOptionInput` via:
-//
-//	DashboardQuickSuiteActionsOptionArgs{...}
-type DashboardQuickSuiteActionsOptionInput interface {
-	pulumi.Input
-
-	ToDashboardQuickSuiteActionsOptionOutput() DashboardQuickSuiteActionsOptionOutput
-	ToDashboardQuickSuiteActionsOptionOutputWithContext(context.Context) DashboardQuickSuiteActionsOptionOutput
-}
-
-type DashboardQuickSuiteActionsOptionArgs struct {
-	// Availability status.
-	AvailabilityStatus DashboardBehaviorPtrInput `pulumi:"availabilityStatus"`
-}
-
-func (DashboardQuickSuiteActionsOptionArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardQuickSuiteActionsOption)(nil)).Elem()
-}
-
-func (i DashboardQuickSuiteActionsOptionArgs) ToDashboardQuickSuiteActionsOptionOutput() DashboardQuickSuiteActionsOptionOutput {
-	return i.ToDashboardQuickSuiteActionsOptionOutputWithContext(context.Background())
-}
-
-func (i DashboardQuickSuiteActionsOptionArgs) ToDashboardQuickSuiteActionsOptionOutputWithContext(ctx context.Context) DashboardQuickSuiteActionsOptionOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardQuickSuiteActionsOptionOutput)
-}
-
-func (i DashboardQuickSuiteActionsOptionArgs) ToDashboardQuickSuiteActionsOptionPtrOutput() DashboardQuickSuiteActionsOptionPtrOutput {
-	return i.ToDashboardQuickSuiteActionsOptionPtrOutputWithContext(context.Background())
-}
-
-func (i DashboardQuickSuiteActionsOptionArgs) ToDashboardQuickSuiteActionsOptionPtrOutputWithContext(ctx context.Context) DashboardQuickSuiteActionsOptionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardQuickSuiteActionsOptionOutput).ToDashboardQuickSuiteActionsOptionPtrOutputWithContext(ctx)
-}
-
-// DashboardQuickSuiteActionsOptionPtrInput is an input type that accepts DashboardQuickSuiteActionsOptionArgs, DashboardQuickSuiteActionsOptionPtr and DashboardQuickSuiteActionsOptionPtrOutput values.
-// You can construct a concrete instance of `DashboardQuickSuiteActionsOptionPtrInput` via:
-//
-//	        DashboardQuickSuiteActionsOptionArgs{...}
-//
-//	or:
-//
-//	        nil
-type DashboardQuickSuiteActionsOptionPtrInput interface {
-	pulumi.Input
-
-	ToDashboardQuickSuiteActionsOptionPtrOutput() DashboardQuickSuiteActionsOptionPtrOutput
-	ToDashboardQuickSuiteActionsOptionPtrOutputWithContext(context.Context) DashboardQuickSuiteActionsOptionPtrOutput
-}
-
-type dashboardQuickSuiteActionsOptionPtrType DashboardQuickSuiteActionsOptionArgs
-
-func DashboardQuickSuiteActionsOptionPtr(v *DashboardQuickSuiteActionsOptionArgs) DashboardQuickSuiteActionsOptionPtrInput {
-	return (*dashboardQuickSuiteActionsOptionPtrType)(v)
-}
-
-func (*dashboardQuickSuiteActionsOptionPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardQuickSuiteActionsOption)(nil)).Elem()
-}
-
-func (i *dashboardQuickSuiteActionsOptionPtrType) ToDashboardQuickSuiteActionsOptionPtrOutput() DashboardQuickSuiteActionsOptionPtrOutput {
-	return i.ToDashboardQuickSuiteActionsOptionPtrOutputWithContext(context.Background())
-}
-
-func (i *dashboardQuickSuiteActionsOptionPtrType) ToDashboardQuickSuiteActionsOptionPtrOutputWithContext(ctx context.Context) DashboardQuickSuiteActionsOptionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardQuickSuiteActionsOptionPtrOutput)
-}
-
-type DashboardQuickSuiteActionsOptionOutput struct{ *pulumi.OutputState }
-
-func (DashboardQuickSuiteActionsOptionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardQuickSuiteActionsOption)(nil)).Elem()
-}
-
-func (o DashboardQuickSuiteActionsOptionOutput) ToDashboardQuickSuiteActionsOptionOutput() DashboardQuickSuiteActionsOptionOutput {
-	return o
-}
-
-func (o DashboardQuickSuiteActionsOptionOutput) ToDashboardQuickSuiteActionsOptionOutputWithContext(ctx context.Context) DashboardQuickSuiteActionsOptionOutput {
-	return o
-}
-
-func (o DashboardQuickSuiteActionsOptionOutput) ToDashboardQuickSuiteActionsOptionPtrOutput() DashboardQuickSuiteActionsOptionPtrOutput {
-	return o.ToDashboardQuickSuiteActionsOptionPtrOutputWithContext(context.Background())
-}
-
-func (o DashboardQuickSuiteActionsOptionOutput) ToDashboardQuickSuiteActionsOptionPtrOutputWithContext(ctx context.Context) DashboardQuickSuiteActionsOptionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardQuickSuiteActionsOption) *DashboardQuickSuiteActionsOption {
-		return &v
-	}).(DashboardQuickSuiteActionsOptionPtrOutput)
-}
-
-// Availability status.
-func (o DashboardQuickSuiteActionsOptionOutput) AvailabilityStatus() DashboardBehaviorPtrOutput {
-	return o.ApplyT(func(v DashboardQuickSuiteActionsOption) *DashboardBehavior { return v.AvailabilityStatus }).(DashboardBehaviorPtrOutput)
-}
-
-type DashboardQuickSuiteActionsOptionPtrOutput struct{ *pulumi.OutputState }
-
-func (DashboardQuickSuiteActionsOptionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardQuickSuiteActionsOption)(nil)).Elem()
-}
-
-func (o DashboardQuickSuiteActionsOptionPtrOutput) ToDashboardQuickSuiteActionsOptionPtrOutput() DashboardQuickSuiteActionsOptionPtrOutput {
-	return o
-}
-
-func (o DashboardQuickSuiteActionsOptionPtrOutput) ToDashboardQuickSuiteActionsOptionPtrOutputWithContext(ctx context.Context) DashboardQuickSuiteActionsOptionPtrOutput {
-	return o
-}
-
-func (o DashboardQuickSuiteActionsOptionPtrOutput) Elem() DashboardQuickSuiteActionsOptionOutput {
-	return o.ApplyT(func(v *DashboardQuickSuiteActionsOption) DashboardQuickSuiteActionsOption {
-		if v != nil {
-			return *v
-		}
-		var ret DashboardQuickSuiteActionsOption
-		return ret
-	}).(DashboardQuickSuiteActionsOptionOutput)
-}
-
-// Availability status.
-func (o DashboardQuickSuiteActionsOptionPtrOutput) AvailabilityStatus() DashboardBehaviorPtrOutput {
-	return o.ApplyT(func(v *DashboardQuickSuiteActionsOption) *DashboardBehavior {
-		if v == nil {
-			return nil
-		}
-		return v.AvailabilityStatus
-	}).(DashboardBehaviorPtrOutput)
-}
-
-type DashboardRadarChartAggregatedFieldWells struct {
-	// The aggregated field well categories of a radar chart.
-	Category []DashboardDimensionField `pulumi:"category"`
-	// The color that are assigned to the aggregated field wells of a radar chart.
-	Color []DashboardDimensionField `pulumi:"color"`
-	// The values that are assigned to the aggregated field wells of a radar chart.
-	Values []DashboardMeasureField `pulumi:"values"`
-}
-
-// DashboardRadarChartAggregatedFieldWellsInput is an input type that accepts DashboardRadarChartAggregatedFieldWellsArgs and DashboardRadarChartAggregatedFieldWellsOutput values.
-// You can construct a concrete instance of `DashboardRadarChartAggregatedFieldWellsInput` via:
-//
-//	DashboardRadarChartAggregatedFieldWellsArgs{...}
-type DashboardRadarChartAggregatedFieldWellsInput interface {
-	pulumi.Input
-
-	ToDashboardRadarChartAggregatedFieldWellsOutput() DashboardRadarChartAggregatedFieldWellsOutput
-	ToDashboardRadarChartAggregatedFieldWellsOutputWithContext(context.Context) DashboardRadarChartAggregatedFieldWellsOutput
-}
-
-type DashboardRadarChartAggregatedFieldWellsArgs struct {
-	// The aggregated field well categories of a radar chart.
-	Category DashboardDimensionFieldArrayInput `pulumi:"category"`
-	// The color that are assigned to the aggregated field wells of a radar chart.
-	Color DashboardDimensionFieldArrayInput `pulumi:"color"`
-	// The values that are assigned to the aggregated field wells of a radar chart.
-	Values DashboardMeasureFieldArrayInput `pulumi:"values"`
-}
-
-func (DashboardRadarChartAggregatedFieldWellsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardRadarChartAggregatedFieldWells)(nil)).Elem()
-}
-
-func (i DashboardRadarChartAggregatedFieldWellsArgs) ToDashboardRadarChartAggregatedFieldWellsOutput() DashboardRadarChartAggregatedFieldWellsOutput {
-	return i.ToDashboardRadarChartAggregatedFieldWellsOutputWithContext(context.Background())
-}
-
-func (i DashboardRadarChartAggregatedFieldWellsArgs) ToDashboardRadarChartAggregatedFieldWellsOutputWithContext(ctx context.Context) DashboardRadarChartAggregatedFieldWellsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardRadarChartAggregatedFieldWellsOutput)
-}
-
-func (i DashboardRadarChartAggregatedFieldWellsArgs) ToDashboardRadarChartAggregatedFieldWellsPtrOutput() DashboardRadarChartAggregatedFieldWellsPtrOutput {
-	return i.ToDashboardRadarChartAggregatedFieldWellsPtrOutputWithContext(context.Background())
-}
-
-func (i DashboardRadarChartAggregatedFieldWellsArgs) ToDashboardRadarChartAggregatedFieldWellsPtrOutputWithContext(ctx context.Context) DashboardRadarChartAggregatedFieldWellsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardRadarChartAggregatedFieldWellsOutput).ToDashboardRadarChartAggregatedFieldWellsPtrOutputWithContext(ctx)
-}
-
-// DashboardRadarChartAggregatedFieldWellsPtrInput is an input type that accepts DashboardRadarChartAggregatedFieldWellsArgs, DashboardRadarChartAggregatedFieldWellsPtr and DashboardRadarChartAggregatedFieldWellsPtrOutput values.
-// You can construct a concrete instance of `DashboardRadarChartAggregatedFieldWellsPtrInput` via:
-//
-//	        DashboardRadarChartAggregatedFieldWellsArgs{...}
-//
-//	or:
-//
-//	        nil
-type DashboardRadarChartAggregatedFieldWellsPtrInput interface {
-	pulumi.Input
-
-	ToDashboardRadarChartAggregatedFieldWellsPtrOutput() DashboardRadarChartAggregatedFieldWellsPtrOutput
-	ToDashboardRadarChartAggregatedFieldWellsPtrOutputWithContext(context.Context) DashboardRadarChartAggregatedFieldWellsPtrOutput
-}
-
-type dashboardRadarChartAggregatedFieldWellsPtrType DashboardRadarChartAggregatedFieldWellsArgs
-
-func DashboardRadarChartAggregatedFieldWellsPtr(v *DashboardRadarChartAggregatedFieldWellsArgs) DashboardRadarChartAggregatedFieldWellsPtrInput {
-	return (*dashboardRadarChartAggregatedFieldWellsPtrType)(v)
-}
-
-func (*dashboardRadarChartAggregatedFieldWellsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardRadarChartAggregatedFieldWells)(nil)).Elem()
-}
-
-func (i *dashboardRadarChartAggregatedFieldWellsPtrType) ToDashboardRadarChartAggregatedFieldWellsPtrOutput() DashboardRadarChartAggregatedFieldWellsPtrOutput {
-	return i.ToDashboardRadarChartAggregatedFieldWellsPtrOutputWithContext(context.Background())
-}
-
-func (i *dashboardRadarChartAggregatedFieldWellsPtrType) ToDashboardRadarChartAggregatedFieldWellsPtrOutputWithContext(ctx context.Context) DashboardRadarChartAggregatedFieldWellsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardRadarChartAggregatedFieldWellsPtrOutput)
-}
-
-type DashboardRadarChartAggregatedFieldWellsOutput struct{ *pulumi.OutputState }
-
-func (DashboardRadarChartAggregatedFieldWellsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardRadarChartAggregatedFieldWells)(nil)).Elem()
-}
-
-func (o DashboardRadarChartAggregatedFieldWellsOutput) ToDashboardRadarChartAggregatedFieldWellsOutput() DashboardRadarChartAggregatedFieldWellsOutput {
-	return o
-}
-
-func (o DashboardRadarChartAggregatedFieldWellsOutput) ToDashboardRadarChartAggregatedFieldWellsOutputWithContext(ctx context.Context) DashboardRadarChartAggregatedFieldWellsOutput {
-	return o
-}
-
-func (o DashboardRadarChartAggregatedFieldWellsOutput) ToDashboardRadarChartAggregatedFieldWellsPtrOutput() DashboardRadarChartAggregatedFieldWellsPtrOutput {
-	return o.ToDashboardRadarChartAggregatedFieldWellsPtrOutputWithContext(context.Background())
-}
-
-func (o DashboardRadarChartAggregatedFieldWellsOutput) ToDashboardRadarChartAggregatedFieldWellsPtrOutputWithContext(ctx context.Context) DashboardRadarChartAggregatedFieldWellsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardRadarChartAggregatedFieldWells) *DashboardRadarChartAggregatedFieldWells {
-		return &v
-	}).(DashboardRadarChartAggregatedFieldWellsPtrOutput)
-}
-
-// The aggregated field well categories of a radar chart.
-func (o DashboardRadarChartAggregatedFieldWellsOutput) Category() DashboardDimensionFieldArrayOutput {
-	return o.ApplyT(func(v DashboardRadarChartAggregatedFieldWells) []DashboardDimensionField { return v.Category }).(DashboardDimensionFieldArrayOutput)
-}
-
-// The color that are assigned to the aggregated field wells of a radar chart.
-func (o DashboardRadarChartAggregatedFieldWellsOutput) Color() DashboardDimensionFieldArrayOutput {
-	return o.ApplyT(func(v DashboardRadarChartAggregatedFieldWells) []DashboardDimensionField { return v.Color }).(DashboardDimensionFieldArrayOutput)
-}
-
-// The values that are assigned to the aggregated field wells of a radar chart.
-func (o DashboardRadarChartAggregatedFieldWellsOutput) Values() DashboardMeasureFieldArrayOutput {
-	return o.ApplyT(func(v DashboardRadarChartAggregatedFieldWells) []DashboardMeasureField { return v.Values }).(DashboardMeasureFieldArrayOutput)
-}
-
-type DashboardRadarChartAggregatedFieldWellsPtrOutput struct{ *pulumi.OutputState }
-
-func (DashboardRadarChartAggregatedFieldWellsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardRadarChartAggregatedFieldWells)(nil)).Elem()
-}
-
-func (o DashboardRadarChartAggregatedFieldWellsPtrOutput) ToDashboardRadarChartAggregatedFieldWellsPtrOutput() DashboardRadarChartAggregatedFieldWellsPtrOutput {
-	return o
-}
-
-func (o DashboardRadarChartAggregatedFieldWellsPtrOutput) ToDashboardRadarChartAggregatedFieldWellsPtrOutputWithContext(ctx context.Context) DashboardRadarChartAggregatedFieldWellsPtrOutput {
-	return o
-}
-
-func (o DashboardRadarChartAggregatedFieldWellsPtrOutput) Elem() DashboardRadarChartAggregatedFieldWellsOutput {
-	return o.ApplyT(func(v *DashboardRadarChartAggregatedFieldWells) DashboardRadarChartAggregatedFieldWells {
-		if v != nil {
-			return *v
-		}
-		var ret DashboardRadarChartAggregatedFieldWells
-		return ret
-	}).(DashboardRadarChartAggregatedFieldWellsOutput)
-}
-
-// The aggregated field well categories of a radar chart.
-func (o DashboardRadarChartAggregatedFieldWellsPtrOutput) Category() DashboardDimensionFieldArrayOutput {
-	return o.ApplyT(func(v *DashboardRadarChartAggregatedFieldWells) []DashboardDimensionField {
-		if v == nil {
-			return nil
-		}
-		return v.Category
-	}).(DashboardDimensionFieldArrayOutput)
-}
-
-// The color that are assigned to the aggregated field wells of a radar chart.
-func (o DashboardRadarChartAggregatedFieldWellsPtrOutput) Color() DashboardDimensionFieldArrayOutput {
-	return o.ApplyT(func(v *DashboardRadarChartAggregatedFieldWells) []DashboardDimensionField {
-		if v == nil {
-			return nil
-		}
-		return v.Color
-	}).(DashboardDimensionFieldArrayOutput)
-}
-
-// The values that are assigned to the aggregated field wells of a radar chart.
-func (o DashboardRadarChartAggregatedFieldWellsPtrOutput) Values() DashboardMeasureFieldArrayOutput {
-	return o.ApplyT(func(v *DashboardRadarChartAggregatedFieldWells) []DashboardMeasureField {
-		if v == nil {
-			return nil
-		}
-		return v.Values
-	}).(DashboardMeasureFieldArrayOutput)
-}
-
-type DashboardRadarChartAreaStyleSettings struct {
-	// The visibility settings of a radar chart.
-	Visibility *DashboardVisibility `pulumi:"visibility"`
-}
-
-// DashboardRadarChartAreaStyleSettingsInput is an input type that accepts DashboardRadarChartAreaStyleSettingsArgs and DashboardRadarChartAreaStyleSettingsOutput values.
-// You can construct a concrete instance of `DashboardRadarChartAreaStyleSettingsInput` via:
-//
-//	DashboardRadarChartAreaStyleSettingsArgs{...}
-type DashboardRadarChartAreaStyleSettingsInput interface {
-	pulumi.Input
-
-	ToDashboardRadarChartAreaStyleSettingsOutput() DashboardRadarChartAreaStyleSettingsOutput
-	ToDashboardRadarChartAreaStyleSettingsOutputWithContext(context.Context) DashboardRadarChartAreaStyleSettingsOutput
-}
-
-type DashboardRadarChartAreaStyleSettingsArgs struct {
-	// The visibility settings of a radar chart.
-	Visibility DashboardVisibilityPtrInput `pulumi:"visibility"`
-}
-
-func (DashboardRadarChartAreaStyleSettingsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardRadarChartAreaStyleSettings)(nil)).Elem()
-}
-
-func (i DashboardRadarChartAreaStyleSettingsArgs) ToDashboardRadarChartAreaStyleSettingsOutput() DashboardRadarChartAreaStyleSettingsOutput {
-	return i.ToDashboardRadarChartAreaStyleSettingsOutputWithContext(context.Background())
-}
-
-func (i DashboardRadarChartAreaStyleSettingsArgs) ToDashboardRadarChartAreaStyleSettingsOutputWithContext(ctx context.Context) DashboardRadarChartAreaStyleSettingsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardRadarChartAreaStyleSettingsOutput)
-}
-
-func (i DashboardRadarChartAreaStyleSettingsArgs) ToDashboardRadarChartAreaStyleSettingsPtrOutput() DashboardRadarChartAreaStyleSettingsPtrOutput {
-	return i.ToDashboardRadarChartAreaStyleSettingsPtrOutputWithContext(context.Background())
-}
-
-func (i DashboardRadarChartAreaStyleSettingsArgs) ToDashboardRadarChartAreaStyleSettingsPtrOutputWithContext(ctx context.Context) DashboardRadarChartAreaStyleSettingsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardRadarChartAreaStyleSettingsOutput).ToDashboardRadarChartAreaStyleSettingsPtrOutputWithContext(ctx)
-}
-
-// DashboardRadarChartAreaStyleSettingsPtrInput is an input type that accepts DashboardRadarChartAreaStyleSettingsArgs, DashboardRadarChartAreaStyleSettingsPtr and DashboardRadarChartAreaStyleSettingsPtrOutput values.
-// You can construct a concrete instance of `DashboardRadarChartAreaStyleSettingsPtrInput` via:
-//
-//	        DashboardRadarChartAreaStyleSettingsArgs{...}
-//
-//	or:
-//
-//	        nil
-type DashboardRadarChartAreaStyleSettingsPtrInput interface {
-	pulumi.Input
-
-	ToDashboardRadarChartAreaStyleSettingsPtrOutput() DashboardRadarChartAreaStyleSettingsPtrOutput
-	ToDashboardRadarChartAreaStyleSettingsPtrOutputWithContext(context.Context) DashboardRadarChartAreaStyleSettingsPtrOutput
-}
-
-type dashboardRadarChartAreaStyleSettingsPtrType DashboardRadarChartAreaStyleSettingsArgs
-
-func DashboardRadarChartAreaStyleSettingsPtr(v *DashboardRadarChartAreaStyleSettingsArgs) DashboardRadarChartAreaStyleSettingsPtrInput {
-	return (*dashboardRadarChartAreaStyleSettingsPtrType)(v)
-}
-
-func (*dashboardRadarChartAreaStyleSettingsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardRadarChartAreaStyleSettings)(nil)).Elem()
-}
-
-func (i *dashboardRadarChartAreaStyleSettingsPtrType) ToDashboardRadarChartAreaStyleSettingsPtrOutput() DashboardRadarChartAreaStyleSettingsPtrOutput {
-	return i.ToDashboardRadarChartAreaStyleSettingsPtrOutputWithContext(context.Background())
-}
-
-func (i *dashboardRadarChartAreaStyleSettingsPtrType) ToDashboardRadarChartAreaStyleSettingsPtrOutputWithContext(ctx context.Context) DashboardRadarChartAreaStyleSettingsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardRadarChartAreaStyleSettingsPtrOutput)
-}
-
-type DashboardRadarChartAreaStyleSettingsOutput struct{ *pulumi.OutputState }
-
-func (DashboardRadarChartAreaStyleSettingsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardRadarChartAreaStyleSettings)(nil)).Elem()
-}
-
-func (o DashboardRadarChartAreaStyleSettingsOutput) ToDashboardRadarChartAreaStyleSettingsOutput() DashboardRadarChartAreaStyleSettingsOutput {
-	return o
-}
-
-func (o DashboardRadarChartAreaStyleSettingsOutput) ToDashboardRadarChartAreaStyleSettingsOutputWithContext(ctx context.Context) DashboardRadarChartAreaStyleSettingsOutput {
-	return o
-}
-
-func (o DashboardRadarChartAreaStyleSettingsOutput) ToDashboardRadarChartAreaStyleSettingsPtrOutput() DashboardRadarChartAreaStyleSettingsPtrOutput {
-	return o.ToDashboardRadarChartAreaStyleSettingsPtrOutputWithContext(context.Background())
-}
-
-func (o DashboardRadarChartAreaStyleSettingsOutput) ToDashboardRadarChartAreaStyleSettingsPtrOutputWithContext(ctx context.Context) DashboardRadarChartAreaStyleSettingsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardRadarChartAreaStyleSettings) *DashboardRadarChartAreaStyleSettings {
-		return &v
-	}).(DashboardRadarChartAreaStyleSettingsPtrOutput)
-}
-
-// The visibility settings of a radar chart.
-func (o DashboardRadarChartAreaStyleSettingsOutput) Visibility() DashboardVisibilityPtrOutput {
-	return o.ApplyT(func(v DashboardRadarChartAreaStyleSettings) *DashboardVisibility { return v.Visibility }).(DashboardVisibilityPtrOutput)
-}
-
-type DashboardRadarChartAreaStyleSettingsPtrOutput struct{ *pulumi.OutputState }
-
-func (DashboardRadarChartAreaStyleSettingsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardRadarChartAreaStyleSettings)(nil)).Elem()
-}
-
-func (o DashboardRadarChartAreaStyleSettingsPtrOutput) ToDashboardRadarChartAreaStyleSettingsPtrOutput() DashboardRadarChartAreaStyleSettingsPtrOutput {
-	return o
-}
-
-func (o DashboardRadarChartAreaStyleSettingsPtrOutput) ToDashboardRadarChartAreaStyleSettingsPtrOutputWithContext(ctx context.Context) DashboardRadarChartAreaStyleSettingsPtrOutput {
-	return o
-}
-
-func (o DashboardRadarChartAreaStyleSettingsPtrOutput) Elem() DashboardRadarChartAreaStyleSettingsOutput {
-	return o.ApplyT(func(v *DashboardRadarChartAreaStyleSettings) DashboardRadarChartAreaStyleSettings {
-		if v != nil {
-			return *v
-		}
-		var ret DashboardRadarChartAreaStyleSettings
-		return ret
-	}).(DashboardRadarChartAreaStyleSettingsOutput)
-}
-
-// The visibility settings of a radar chart.
-func (o DashboardRadarChartAreaStyleSettingsPtrOutput) Visibility() DashboardVisibilityPtrOutput {
-	return o.ApplyT(func(v *DashboardRadarChartAreaStyleSettings) *DashboardVisibility {
-		if v == nil {
-			return nil
-		}
-		return v.Visibility
-	}).(DashboardVisibilityPtrOutput)
-}
-
-type DashboardRadarChartConfiguration struct {
-	// Determines the visibility of the colors of alternatign bands in a radar chart.
-	AlternateBandColorsVisibility *DashboardVisibility `pulumi:"alternateBandColorsVisibility"`
-	// The color of the even-numbered alternate bands of a radar chart.
-	AlternateBandEvenColor *string `pulumi:"alternateBandEvenColor"`
-	// The color of the odd-numbered alternate bands of a radar chart.
-	AlternateBandOddColor *string `pulumi:"alternateBandOddColor"`
-	// The axis behavior options of a radar chart.
-	AxesRangeScale *DashboardRadarChartAxesRangeScale `pulumi:"axesRangeScale"`
-	// The base sreies settings of a radar chart.
-	BaseSeriesSettings *DashboardRadarChartSeriesSettings `pulumi:"baseSeriesSettings"`
-	// The category axis of a radar chart.
-	CategoryAxis *DashboardAxisDisplayOptions `pulumi:"categoryAxis"`
-	// The category label options of a radar chart.
-	CategoryLabelOptions *DashboardChartAxisLabelOptions `pulumi:"categoryLabelOptions"`
-	// The color axis of a radar chart.
-	ColorAxis *DashboardAxisDisplayOptions `pulumi:"colorAxis"`
-	// The color label options of a radar chart.
-	ColorLabelOptions *DashboardChartAxisLabelOptions `pulumi:"colorLabelOptions"`
-	// The field well configuration of a `RadarChartVisual` .
-	FieldWells *DashboardRadarChartFieldWells `pulumi:"fieldWells"`
-	// The general visual interactions setup for a visual.
-	Interactions *DashboardVisualInteractionOptions `pulumi:"interactions"`
-	// The legend display setup of the visual.
-	Legend *DashboardLegendOptions `pulumi:"legend"`
-	// The shape of the radar chart.
-	Shape *DashboardRadarChartShape `pulumi:"shape"`
-	// The sort configuration of a `RadarChartVisual` .
-	SortConfiguration *DashboardRadarChartSortConfiguration `pulumi:"sortConfiguration"`
-	// The start angle of a radar chart's axis.
-	StartAngle *float64 `pulumi:"startAngle"`
-	// The palette (chart color) display setup of the visual.
-	VisualPalette *DashboardVisualPalette `pulumi:"visualPalette"`
-}
-
-// DashboardRadarChartConfigurationInput is an input type that accepts DashboardRadarChartConfigurationArgs and DashboardRadarChartConfigurationOutput values.
-// You can construct a concrete instance of `DashboardRadarChartConfigurationInput` via:
-//
-//	DashboardRadarChartConfigurationArgs{...}
-type DashboardRadarChartConfigurationInput interface {
-	pulumi.Input
-
-	ToDashboardRadarChartConfigurationOutput() DashboardRadarChartConfigurationOutput
-	ToDashboardRadarChartConfigurationOutputWithContext(context.Context) DashboardRadarChartConfigurationOutput
-}
-
-type DashboardRadarChartConfigurationArgs struct {
-	// Determines the visibility of the colors of alternatign bands in a radar chart.
-	AlternateBandColorsVisibility DashboardVisibilityPtrInput `pulumi:"alternateBandColorsVisibility"`
-	// The color of the even-numbered alternate bands of a radar chart.
-	AlternateBandEvenColor pulumi.StringPtrInput `pulumi:"alternateBandEvenColor"`
-	// The color of the odd-numbered alternate bands of a radar chart.
-	AlternateBandOddColor pulumi.StringPtrInput `pulumi:"alternateBandOddColor"`
-	// The axis behavior options of a radar chart.
-	AxesRangeScale DashboardRadarChartAxesRangeScalePtrInput `pulumi:"axesRangeScale"`
-	// The base sreies settings of a radar chart.
-	BaseSeriesSettings DashboardRadarChartSeriesSettingsPtrInput `pulumi:"baseSeriesSettings"`
-	// The category axis of a radar chart.
-	CategoryAxis DashboardAxisDisplayOptionsPtrInput `pulumi:"categoryAxis"`
-	// The category label options of a radar chart.
-	CategoryLabelOptions DashboardChartAxisLabelOptionsPtrInput `pulumi:"categoryLabelOptions"`
-	// The color axis of a radar chart.
-	ColorAxis DashboardAxisDisplayOptionsPtrInput `pulumi:"colorAxis"`
-	// The color label options of a radar chart.
-	ColorLabelOptions DashboardChartAxisLabelOptionsPtrInput `pulumi:"colorLabelOptions"`
-	// The field well configuration of a `RadarChartVisual` .
-	FieldWells DashboardRadarChartFieldWellsPtrInput `pulumi:"fieldWells"`
-	// The general visual interactions setup for a visual.
-	Interactions DashboardVisualInteractionOptionsPtrInput `pulumi:"interactions"`
-	// The legend display setup of the visual.
-	Legend DashboardLegendOptionsPtrInput `pulumi:"legend"`
-	// The shape of the radar chart.
-	Shape DashboardRadarChartShapePtrInput `pulumi:"shape"`
-	// The sort configuration of a `RadarChartVisual` .
-	SortConfiguration DashboardRadarChartSortConfigurationPtrInput `pulumi:"sortConfiguration"`
-	// The start angle of a radar chart's axis.
-	StartAngle pulumi.Float64PtrInput `pulumi:"startAngle"`
-	// The palette (chart color) display setup of the visual.
-	VisualPalette DashboardVisualPalettePtrInput `pulumi:"visualPalette"`
-}
-
-func (DashboardRadarChartConfigurationArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardRadarChartConfiguration)(nil)).Elem()
-}
-
-func (i DashboardRadarChartConfigurationArgs) ToDashboardRadarChartConfigurationOutput() DashboardRadarChartConfigurationOutput {
-	return i.ToDashboardRadarChartConfigurationOutputWithContext(context.Background())
-}
-
-func (i DashboardRadarChartConfigurationArgs) ToDashboardRadarChartConfigurationOutputWithContext(ctx context.Context) DashboardRadarChartConfigurationOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardRadarChartConfigurationOutput)
-}
-
-func (i DashboardRadarChartConfigurationArgs) ToDashboardRadarChartConfigurationPtrOutput() DashboardRadarChartConfigurationPtrOutput {
-	return i.ToDashboardRadarChartConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (i DashboardRadarChartConfigurationArgs) ToDashboardRadarChartConfigurationPtrOutputWithContext(ctx context.Context) DashboardRadarChartConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardRadarChartConfigurationOutput).ToDashboardRadarChartConfigurationPtrOutputWithContext(ctx)
-}
-
-// DashboardRadarChartConfigurationPtrInput is an input type that accepts DashboardRadarChartConfigurationArgs, DashboardRadarChartConfigurationPtr and DashboardRadarChartConfigurationPtrOutput values.
-// You can construct a concrete instance of `DashboardRadarChartConfigurationPtrInput` via:
-//
-//	        DashboardRadarChartConfigurationArgs{...}
-//
-//	or:
-//
-//	        nil
-type DashboardRadarChartConfigurationPtrInput interface {
-	pulumi.Input
-
-	ToDashboardRadarChartConfigurationPtrOutput() DashboardRadarChartConfigurationPtrOutput
-	ToDashboardRadarChartConfigurationPtrOutputWithContext(context.Context) DashboardRadarChartConfigurationPtrOutput
-}
-
-type dashboardRadarChartConfigurationPtrType DashboardRadarChartConfigurationArgs
-
-func DashboardRadarChartConfigurationPtr(v *DashboardRadarChartConfigurationArgs) DashboardRadarChartConfigurationPtrInput {
-	return (*dashboardRadarChartConfigurationPtrType)(v)
-}
-
-func (*dashboardRadarChartConfigurationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardRadarChartConfiguration)(nil)).Elem()
-}
-
-func (i *dashboardRadarChartConfigurationPtrType) ToDashboardRadarChartConfigurationPtrOutput() DashboardRadarChartConfigurationPtrOutput {
-	return i.ToDashboardRadarChartConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (i *dashboardRadarChartConfigurationPtrType) ToDashboardRadarChartConfigurationPtrOutputWithContext(ctx context.Context) DashboardRadarChartConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardRadarChartConfigurationPtrOutput)
-}
-
-type DashboardRadarChartConfigurationOutput struct{ *pulumi.OutputState }
-
-func (DashboardRadarChartConfigurationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardRadarChartConfiguration)(nil)).Elem()
-}
-
-func (o DashboardRadarChartConfigurationOutput) ToDashboardRadarChartConfigurationOutput() DashboardRadarChartConfigurationOutput {
-	return o
-}
-
-func (o DashboardRadarChartConfigurationOutput) ToDashboardRadarChartConfigurationOutputWithContext(ctx context.Context) DashboardRadarChartConfigurationOutput {
-	return o
-}
-
-func (o DashboardRadarChartConfigurationOutput) ToDashboardRadarChartConfigurationPtrOutput() DashboardRadarChartConfigurationPtrOutput {
-	return o.ToDashboardRadarChartConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (o DashboardRadarChartConfigurationOutput) ToDashboardRadarChartConfigurationPtrOutputWithContext(ctx context.Context) DashboardRadarChartConfigurationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardRadarChartConfiguration) *DashboardRadarChartConfiguration {
-		return &v
-	}).(DashboardRadarChartConfigurationPtrOutput)
-}
-
-// Determines the visibility of the colors of alternatign bands in a radar chart.
-func (o DashboardRadarChartConfigurationOutput) AlternateBandColorsVisibility() DashboardVisibilityPtrOutput {
-	return o.ApplyT(func(v DashboardRadarChartConfiguration) *DashboardVisibility { return v.AlternateBandColorsVisibility }).(DashboardVisibilityPtrOutput)
-}
-
-// The color of the even-numbered alternate bands of a radar chart.
-func (o DashboardRadarChartConfigurationOutput) AlternateBandEvenColor() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DashboardRadarChartConfiguration) *string { return v.AlternateBandEvenColor }).(pulumi.StringPtrOutput)
-}
-
-// The color of the odd-numbered alternate bands of a radar chart.
-func (o DashboardRadarChartConfigurationOutput) AlternateBandOddColor() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DashboardRadarChartConfiguration) *string { return v.AlternateBandOddColor }).(pulumi.StringPtrOutput)
-}
-
-// The axis behavior options of a radar chart.
-func (o DashboardRadarChartConfigurationOutput) AxesRangeScale() DashboardRadarChartAxesRangeScalePtrOutput {
-	return o.ApplyT(func(v DashboardRadarChartConfiguration) *DashboardRadarChartAxesRangeScale { return v.AxesRangeScale }).(DashboardRadarChartAxesRangeScalePtrOutput)
-}
-
-// The base sreies settings of a radar chart.
-func (o DashboardRadarChartConfigurationOutput) BaseSeriesSettings() DashboardRadarChartSeriesSettingsPtrOutput {
-	return o.ApplyT(func(v DashboardRadarChartConfiguration) *DashboardRadarChartSeriesSettings {
-		return v.BaseSeriesSettings
-	}).(DashboardRadarChartSeriesSettingsPtrOutput)
-}
-
-// The category axis of a radar chart.
-func (o DashboardRadarChartConfigurationOutput) CategoryAxis() DashboardAxisDisplayOptionsPtrOutput {
-	return o.ApplyT(func(v DashboardRadarChartConfiguration) *DashboardAxisDisplayOptions { return v.CategoryAxis }).(DashboardAxisDisplayOptionsPtrOutput)
-}
-
-// The category label options of a radar chart.
-func (o DashboardRadarChartConfigurationOutput) CategoryLabelOptions() DashboardChartAxisLabelOptionsPtrOutput {
-	return o.ApplyT(func(v DashboardRadarChartConfiguration) *DashboardChartAxisLabelOptions {
-		return v.CategoryLabelOptions
-	}).(DashboardChartAxisLabelOptionsPtrOutput)
-}
-
-// The color axis of a radar chart.
-func (o DashboardRadarChartConfigurationOutput) ColorAxis() DashboardAxisDisplayOptionsPtrOutput {
-	return o.ApplyT(func(v DashboardRadarChartConfiguration) *DashboardAxisDisplayOptions { return v.ColorAxis }).(DashboardAxisDisplayOptionsPtrOutput)
-}
-
-// The color label options of a radar chart.
-func (o DashboardRadarChartConfigurationOutput) ColorLabelOptions() DashboardChartAxisLabelOptionsPtrOutput {
-	return o.ApplyT(func(v DashboardRadarChartConfiguration) *DashboardChartAxisLabelOptions { return v.ColorLabelOptions }).(DashboardChartAxisLabelOptionsPtrOutput)
-}
-
-// The field well configuration of a `RadarChartVisual` .
-func (o DashboardRadarChartConfigurationOutput) FieldWells() DashboardRadarChartFieldWellsPtrOutput {
-	return o.ApplyT(func(v DashboardRadarChartConfiguration) *DashboardRadarChartFieldWells { return v.FieldWells }).(DashboardRadarChartFieldWellsPtrOutput)
-}
-
-// The general visual interactions setup for a visual.
-func (o DashboardRadarChartConfigurationOutput) Interactions() DashboardVisualInteractionOptionsPtrOutput {
-	return o.ApplyT(func(v DashboardRadarChartConfiguration) *DashboardVisualInteractionOptions { return v.Interactions }).(DashboardVisualInteractionOptionsPtrOutput)
-}
-
-// The legend display setup of the visual.
-func (o DashboardRadarChartConfigurationOutput) Legend() DashboardLegendOptionsPtrOutput {
-	return o.ApplyT(func(v DashboardRadarChartConfiguration) *DashboardLegendOptions { return v.Legend }).(DashboardLegendOptionsPtrOutput)
-}
-
-// The shape of the radar chart.
-func (o DashboardRadarChartConfigurationOutput) Shape() DashboardRadarChartShapePtrOutput {
-	return o.ApplyT(func(v DashboardRadarChartConfiguration) *DashboardRadarChartShape { return v.Shape }).(DashboardRadarChartShapePtrOutput)
-}
-
-// The sort configuration of a `RadarChartVisual` .
-func (o DashboardRadarChartConfigurationOutput) SortConfiguration() DashboardRadarChartSortConfigurationPtrOutput {
-	return o.ApplyT(func(v DashboardRadarChartConfiguration) *DashboardRadarChartSortConfiguration {
-		return v.SortConfiguration
-	}).(DashboardRadarChartSortConfigurationPtrOutput)
-}
-
-// The start angle of a radar chart's axis.
-func (o DashboardRadarChartConfigurationOutput) StartAngle() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v DashboardRadarChartConfiguration) *float64 { return v.StartAngle }).(pulumi.Float64PtrOutput)
-}
-
-// The palette (chart color) display setup of the visual.
-func (o DashboardRadarChartConfigurationOutput) VisualPalette() DashboardVisualPalettePtrOutput {
-	return o.ApplyT(func(v DashboardRadarChartConfiguration) *DashboardVisualPalette { return v.VisualPalette }).(DashboardVisualPalettePtrOutput)
-}
-
-type DashboardRadarChartConfigurationPtrOutput struct{ *pulumi.OutputState }
-
-func (DashboardRadarChartConfigurationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardRadarChartConfiguration)(nil)).Elem()
-}
-
-func (o DashboardRadarChartConfigurationPtrOutput) ToDashboardRadarChartConfigurationPtrOutput() DashboardRadarChartConfigurationPtrOutput {
-	return o
-}
-
-func (o DashboardRadarChartConfigurationPtrOutput) ToDashboardRadarChartConfigurationPtrOutputWithContext(ctx context.Context) DashboardRadarChartConfigurationPtrOutput {
-	return o
-}
-
-func (o DashboardRadarChartConfigurationPtrOutput) Elem() DashboardRadarChartConfigurationOutput {
-	return o.ApplyT(func(v *DashboardRadarChartConfiguration) DashboardRadarChartConfiguration {
-		if v != nil {
-			return *v
-		}
-		var ret DashboardRadarChartConfiguration
-		return ret
-	}).(DashboardRadarChartConfigurationOutput)
-}
-
-// Determines the visibility of the colors of alternatign bands in a radar chart.
-func (o DashboardRadarChartConfigurationPtrOutput) AlternateBandColorsVisibility() DashboardVisibilityPtrOutput {
-	return o.ApplyT(func(v *DashboardRadarChartConfiguration) *DashboardVisibility {
-		if v == nil {
-			return nil
-		}
-		return v.AlternateBandColorsVisibility
-	}).(DashboardVisibilityPtrOutput)
-}
-
-// The color of the even-numbered alternate bands of a radar chart.
-func (o DashboardRadarChartConfigurationPtrOutput) AlternateBandEvenColor() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DashboardRadarChartConfiguration) *string {
-		if v == nil {
-			return nil
-		}
-		return v.AlternateBandEvenColor
-	}).(pulumi.StringPtrOutput)
-}
-
-// The color of the odd-numbered alternate bands of a radar chart.
-func (o DashboardRadarChartConfigurationPtrOutput) AlternateBandOddColor() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DashboardRadarChartConfiguration) *string {
-		if v == nil {
-			return nil
-		}
-		return v.AlternateBandOddColor
-	}).(pulumi.StringPtrOutput)
-}
-
-// The axis behavior options of a radar chart.
-func (o DashboardRadarChartConfigurationPtrOutput) AxesRangeScale() DashboardRadarChartAxesRangeScalePtrOutput {
-	return o.ApplyT(func(v *DashboardRadarChartConfiguration) *DashboardRadarChartAxesRangeScale {
-		if v == nil {
-			return nil
-		}
-		return v.AxesRangeScale
-	}).(DashboardRadarChartAxesRangeScalePtrOutput)
-}
-
-// The base sreies settings of a radar chart.
-func (o DashboardRadarChartConfigurationPtrOutput) BaseSeriesSettings() DashboardRadarChartSeriesSettingsPtrOutput {
-	return o.ApplyT(func(v *DashboardRadarChartConfiguration) *DashboardRadarChartSeriesSettings {
-		if v == nil {
-			return nil
-		}
-		return v.BaseSeriesSettings
-	}).(DashboardRadarChartSeriesSettingsPtrOutput)
-}
-
-// The category axis of a radar chart.
-func (o DashboardRadarChartConfigurationPtrOutput) CategoryAxis() DashboardAxisDisplayOptionsPtrOutput {
-	return o.ApplyT(func(v *DashboardRadarChartConfiguration) *DashboardAxisDisplayOptions {
-		if v == nil {
-			return nil
-		}
-		return v.CategoryAxis
-	}).(DashboardAxisDisplayOptionsPtrOutput)
-}
-
-// The category label options of a radar chart.
-func (o DashboardRadarChartConfigurationPtrOutput) CategoryLabelOptions() DashboardChartAxisLabelOptionsPtrOutput {
-	return o.ApplyT(func(v *DashboardRadarChartConfiguration) *DashboardChartAxisLabelOptions {
-		if v == nil {
-			return nil
-		}
-		return v.CategoryLabelOptions
-	}).(DashboardChartAxisLabelOptionsPtrOutput)
-}
-
-// The color axis of a radar chart.
-func (o DashboardRadarChartConfigurationPtrOutput) ColorAxis() DashboardAxisDisplayOptionsPtrOutput {
-	return o.ApplyT(func(v *DashboardRadarChartConfiguration) *DashboardAxisDisplayOptions {
-		if v == nil {
-			return nil
-		}
-		return v.ColorAxis
-	}).(DashboardAxisDisplayOptionsPtrOutput)
-}
-
-// The color label options of a radar chart.
-func (o DashboardRadarChartConfigurationPtrOutput) ColorLabelOptions() DashboardChartAxisLabelOptionsPtrOutput {
-	return o.ApplyT(func(v *DashboardRadarChartConfiguration) *DashboardChartAxisLabelOptions {
-		if v == nil {
-			return nil
-		}
-		return v.ColorLabelOptions
-	}).(DashboardChartAxisLabelOptionsPtrOutput)
-}
-
-// The field well configuration of a `RadarChartVisual` .
-func (o DashboardRadarChartConfigurationPtrOutput) FieldWells() DashboardRadarChartFieldWellsPtrOutput {
-	return o.ApplyT(func(v *DashboardRadarChartConfiguration) *DashboardRadarChartFieldWells {
-		if v == nil {
-			return nil
-		}
-		return v.FieldWells
-	}).(DashboardRadarChartFieldWellsPtrOutput)
-}
-
-// The general visual interactions setup for a visual.
-func (o DashboardRadarChartConfigurationPtrOutput) Interactions() DashboardVisualInteractionOptionsPtrOutput {
-	return o.ApplyT(func(v *DashboardRadarChartConfiguration) *DashboardVisualInteractionOptions {
-		if v == nil {
-			return nil
-		}
-		return v.Interactions
-	}).(DashboardVisualInteractionOptionsPtrOutput)
-}
-
-// The legend display setup of the visual.
-func (o DashboardRadarChartConfigurationPtrOutput) Legend() DashboardLegendOptionsPtrOutput {
-	return o.ApplyT(func(v *DashboardRadarChartConfiguration) *DashboardLegendOptions {
-		if v == nil {
-			return nil
-		}
-		return v.Legend
-	}).(DashboardLegendOptionsPtrOutput)
-}
-
-// The shape of the radar chart.
-func (o DashboardRadarChartConfigurationPtrOutput) Shape() DashboardRadarChartShapePtrOutput {
-	return o.ApplyT(func(v *DashboardRadarChartConfiguration) *DashboardRadarChartShape {
-		if v == nil {
-			return nil
-		}
-		return v.Shape
-	}).(DashboardRadarChartShapePtrOutput)
-}
-
-// The sort configuration of a `RadarChartVisual` .
-func (o DashboardRadarChartConfigurationPtrOutput) SortConfiguration() DashboardRadarChartSortConfigurationPtrOutput {
-	return o.ApplyT(func(v *DashboardRadarChartConfiguration) *DashboardRadarChartSortConfiguration {
-		if v == nil {
-			return nil
-		}
-		return v.SortConfiguration
-	}).(DashboardRadarChartSortConfigurationPtrOutput)
-}
-
-// The start angle of a radar chart's axis.
-func (o DashboardRadarChartConfigurationPtrOutput) StartAngle() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v *DashboardRadarChartConfiguration) *float64 {
-		if v == nil {
-			return nil
-		}
-		return v.StartAngle
-	}).(pulumi.Float64PtrOutput)
-}
-
-// The palette (chart color) display setup of the visual.
-func (o DashboardRadarChartConfigurationPtrOutput) VisualPalette() DashboardVisualPalettePtrOutput {
-	return o.ApplyT(func(v *DashboardRadarChartConfiguration) *DashboardVisualPalette {
-		if v == nil {
-			return nil
-		}
-		return v.VisualPalette
-	}).(DashboardVisualPalettePtrOutput)
-}
-
-type DashboardRadarChartFieldWells struct {
-	// The aggregated field wells of a radar chart visual.
-	RadarChartAggregatedFieldWells *DashboardRadarChartAggregatedFieldWells `pulumi:"radarChartAggregatedFieldWells"`
-}
-
-// DashboardRadarChartFieldWellsInput is an input type that accepts DashboardRadarChartFieldWellsArgs and DashboardRadarChartFieldWellsOutput values.
-// You can construct a concrete instance of `DashboardRadarChartFieldWellsInput` via:
-//
-//	DashboardRadarChartFieldWellsArgs{...}
-type DashboardRadarChartFieldWellsInput interface {
-	pulumi.Input
-
-	ToDashboardRadarChartFieldWellsOutput() DashboardRadarChartFieldWellsOutput
-	ToDashboardRadarChartFieldWellsOutputWithContext(context.Context) DashboardRadarChartFieldWellsOutput
-}
-
-type DashboardRadarChartFieldWellsArgs struct {
-	// The aggregated field wells of a radar chart visual.
-	RadarChartAggregatedFieldWells DashboardRadarChartAggregatedFieldWellsPtrInput `pulumi:"radarChartAggregatedFieldWells"`
-}
-
-func (DashboardRadarChartFieldWellsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardRadarChartFieldWells)(nil)).Elem()
-}
-
-func (i DashboardRadarChartFieldWellsArgs) ToDashboardRadarChartFieldWellsOutput() DashboardRadarChartFieldWellsOutput {
-	return i.ToDashboardRadarChartFieldWellsOutputWithContext(context.Background())
-}
-
-func (i DashboardRadarChartFieldWellsArgs) ToDashboardRadarChartFieldWellsOutputWithContext(ctx context.Context) DashboardRadarChartFieldWellsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardRadarChartFieldWellsOutput)
-}
-
-func (i DashboardRadarChartFieldWellsArgs) ToDashboardRadarChartFieldWellsPtrOutput() DashboardRadarChartFieldWellsPtrOutput {
-	return i.ToDashboardRadarChartFieldWellsPtrOutputWithContext(context.Background())
-}
-
-func (i DashboardRadarChartFieldWellsArgs) ToDashboardRadarChartFieldWellsPtrOutputWithContext(ctx context.Context) DashboardRadarChartFieldWellsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardRadarChartFieldWellsOutput).ToDashboardRadarChartFieldWellsPtrOutputWithContext(ctx)
-}
-
-// DashboardRadarChartFieldWellsPtrInput is an input type that accepts DashboardRadarChartFieldWellsArgs, DashboardRadarChartFieldWellsPtr and DashboardRadarChartFieldWellsPtrOutput values.
-// You can construct a concrete instance of `DashboardRadarChartFieldWellsPtrInput` via:
-//
-//	        DashboardRadarChartFieldWellsArgs{...}
-//
-//	or:
-//
-//	        nil
-type DashboardRadarChartFieldWellsPtrInput interface {
-	pulumi.Input
-
-	ToDashboardRadarChartFieldWellsPtrOutput() DashboardRadarChartFieldWellsPtrOutput
-	ToDashboardRadarChartFieldWellsPtrOutputWithContext(context.Context) DashboardRadarChartFieldWellsPtrOutput
-}
-
-type dashboardRadarChartFieldWellsPtrType DashboardRadarChartFieldWellsArgs
-
-func DashboardRadarChartFieldWellsPtr(v *DashboardRadarChartFieldWellsArgs) DashboardRadarChartFieldWellsPtrInput {
-	return (*dashboardRadarChartFieldWellsPtrType)(v)
-}
-
-func (*dashboardRadarChartFieldWellsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardRadarChartFieldWells)(nil)).Elem()
-}
-
-func (i *dashboardRadarChartFieldWellsPtrType) ToDashboardRadarChartFieldWellsPtrOutput() DashboardRadarChartFieldWellsPtrOutput {
-	return i.ToDashboardRadarChartFieldWellsPtrOutputWithContext(context.Background())
-}
-
-func (i *dashboardRadarChartFieldWellsPtrType) ToDashboardRadarChartFieldWellsPtrOutputWithContext(ctx context.Context) DashboardRadarChartFieldWellsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardRadarChartFieldWellsPtrOutput)
-}
-
-type DashboardRadarChartFieldWellsOutput struct{ *pulumi.OutputState }
-
-func (DashboardRadarChartFieldWellsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardRadarChartFieldWells)(nil)).Elem()
-}
-
-func (o DashboardRadarChartFieldWellsOutput) ToDashboardRadarChartFieldWellsOutput() DashboardRadarChartFieldWellsOutput {
-	return o
-}
-
-func (o DashboardRadarChartFieldWellsOutput) ToDashboardRadarChartFieldWellsOutputWithContext(ctx context.Context) DashboardRadarChartFieldWellsOutput {
-	return o
-}
-
-func (o DashboardRadarChartFieldWellsOutput) ToDashboardRadarChartFieldWellsPtrOutput() DashboardRadarChartFieldWellsPtrOutput {
-	return o.ToDashboardRadarChartFieldWellsPtrOutputWithContext(context.Background())
-}
-
-func (o DashboardRadarChartFieldWellsOutput) ToDashboardRadarChartFieldWellsPtrOutputWithContext(ctx context.Context) DashboardRadarChartFieldWellsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardRadarChartFieldWells) *DashboardRadarChartFieldWells {
-		return &v
-	}).(DashboardRadarChartFieldWellsPtrOutput)
-}
-
-// The aggregated field wells of a radar chart visual.
-func (o DashboardRadarChartFieldWellsOutput) RadarChartAggregatedFieldWells() DashboardRadarChartAggregatedFieldWellsPtrOutput {
-	return o.ApplyT(func(v DashboardRadarChartFieldWells) *DashboardRadarChartAggregatedFieldWells {
-		return v.RadarChartAggregatedFieldWells
-	}).(DashboardRadarChartAggregatedFieldWellsPtrOutput)
-}
-
-type DashboardRadarChartFieldWellsPtrOutput struct{ *pulumi.OutputState }
-
-func (DashboardRadarChartFieldWellsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardRadarChartFieldWells)(nil)).Elem()
-}
-
-func (o DashboardRadarChartFieldWellsPtrOutput) ToDashboardRadarChartFieldWellsPtrOutput() DashboardRadarChartFieldWellsPtrOutput {
-	return o
-}
-
-func (o DashboardRadarChartFieldWellsPtrOutput) ToDashboardRadarChartFieldWellsPtrOutputWithContext(ctx context.Context) DashboardRadarChartFieldWellsPtrOutput {
-	return o
-}
-
-func (o DashboardRadarChartFieldWellsPtrOutput) Elem() DashboardRadarChartFieldWellsOutput {
-	return o.ApplyT(func(v *DashboardRadarChartFieldWells) DashboardRadarChartFieldWells {
-		if v != nil {
-			return *v
-		}
-		var ret DashboardRadarChartFieldWells
-		return ret
-	}).(DashboardRadarChartFieldWellsOutput)
-}
-
-// The aggregated field wells of a radar chart visual.
-func (o DashboardRadarChartFieldWellsPtrOutput) RadarChartAggregatedFieldWells() DashboardRadarChartAggregatedFieldWellsPtrOutput {
-	return o.ApplyT(func(v *DashboardRadarChartFieldWells) *DashboardRadarChartAggregatedFieldWells {
-		if v == nil {
-			return nil
-		}
-		return v.RadarChartAggregatedFieldWells
-	}).(DashboardRadarChartAggregatedFieldWellsPtrOutput)
-}
-
-type DashboardRadarChartSeriesSettings struct {
-	// The area style settings of a radar chart.
-	AreaStyleSettings *DashboardRadarChartAreaStyleSettings `pulumi:"areaStyleSettings"`
-}
-
-// DashboardRadarChartSeriesSettingsInput is an input type that accepts DashboardRadarChartSeriesSettingsArgs and DashboardRadarChartSeriesSettingsOutput values.
-// You can construct a concrete instance of `DashboardRadarChartSeriesSettingsInput` via:
-//
-//	DashboardRadarChartSeriesSettingsArgs{...}
-type DashboardRadarChartSeriesSettingsInput interface {
-	pulumi.Input
-
-	ToDashboardRadarChartSeriesSettingsOutput() DashboardRadarChartSeriesSettingsOutput
-	ToDashboardRadarChartSeriesSettingsOutputWithContext(context.Context) DashboardRadarChartSeriesSettingsOutput
-}
-
-type DashboardRadarChartSeriesSettingsArgs struct {
-	// The area style settings of a radar chart.
-	AreaStyleSettings DashboardRadarChartAreaStyleSettingsPtrInput `pulumi:"areaStyleSettings"`
-}
-
-func (DashboardRadarChartSeriesSettingsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardRadarChartSeriesSettings)(nil)).Elem()
-}
-
-func (i DashboardRadarChartSeriesSettingsArgs) ToDashboardRadarChartSeriesSettingsOutput() DashboardRadarChartSeriesSettingsOutput {
-	return i.ToDashboardRadarChartSeriesSettingsOutputWithContext(context.Background())
-}
-
-func (i DashboardRadarChartSeriesSettingsArgs) ToDashboardRadarChartSeriesSettingsOutputWithContext(ctx context.Context) DashboardRadarChartSeriesSettingsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardRadarChartSeriesSettingsOutput)
-}
-
-func (i DashboardRadarChartSeriesSettingsArgs) ToDashboardRadarChartSeriesSettingsPtrOutput() DashboardRadarChartSeriesSettingsPtrOutput {
-	return i.ToDashboardRadarChartSeriesSettingsPtrOutputWithContext(context.Background())
-}
-
-func (i DashboardRadarChartSeriesSettingsArgs) ToDashboardRadarChartSeriesSettingsPtrOutputWithContext(ctx context.Context) DashboardRadarChartSeriesSettingsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardRadarChartSeriesSettingsOutput).ToDashboardRadarChartSeriesSettingsPtrOutputWithContext(ctx)
-}
-
-// DashboardRadarChartSeriesSettingsPtrInput is an input type that accepts DashboardRadarChartSeriesSettingsArgs, DashboardRadarChartSeriesSettingsPtr and DashboardRadarChartSeriesSettingsPtrOutput values.
-// You can construct a concrete instance of `DashboardRadarChartSeriesSettingsPtrInput` via:
-//
-//	        DashboardRadarChartSeriesSettingsArgs{...}
-//
-//	or:
-//
-//	        nil
-type DashboardRadarChartSeriesSettingsPtrInput interface {
-	pulumi.Input
-
-	ToDashboardRadarChartSeriesSettingsPtrOutput() DashboardRadarChartSeriesSettingsPtrOutput
-	ToDashboardRadarChartSeriesSettingsPtrOutputWithContext(context.Context) DashboardRadarChartSeriesSettingsPtrOutput
-}
-
-type dashboardRadarChartSeriesSettingsPtrType DashboardRadarChartSeriesSettingsArgs
-
-func DashboardRadarChartSeriesSettingsPtr(v *DashboardRadarChartSeriesSettingsArgs) DashboardRadarChartSeriesSettingsPtrInput {
-	return (*dashboardRadarChartSeriesSettingsPtrType)(v)
-}
-
-func (*dashboardRadarChartSeriesSettingsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardRadarChartSeriesSettings)(nil)).Elem()
-}
-
-func (i *dashboardRadarChartSeriesSettingsPtrType) ToDashboardRadarChartSeriesSettingsPtrOutput() DashboardRadarChartSeriesSettingsPtrOutput {
-	return i.ToDashboardRadarChartSeriesSettingsPtrOutputWithContext(context.Background())
-}
-
-func (i *dashboardRadarChartSeriesSettingsPtrType) ToDashboardRadarChartSeriesSettingsPtrOutputWithContext(ctx context.Context) DashboardRadarChartSeriesSettingsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardRadarChartSeriesSettingsPtrOutput)
-}
-
-type DashboardRadarChartSeriesSettingsOutput struct{ *pulumi.OutputState }
-
-func (DashboardRadarChartSeriesSettingsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardRadarChartSeriesSettings)(nil)).Elem()
-}
-
-func (o DashboardRadarChartSeriesSettingsOutput) ToDashboardRadarChartSeriesSettingsOutput() DashboardRadarChartSeriesSettingsOutput {
-	return o
-}
-
-func (o DashboardRadarChartSeriesSettingsOutput) ToDashboardRadarChartSeriesSettingsOutputWithContext(ctx context.Context) DashboardRadarChartSeriesSettingsOutput {
-	return o
-}
-
-func (o DashboardRadarChartSeriesSettingsOutput) ToDashboardRadarChartSeriesSettingsPtrOutput() DashboardRadarChartSeriesSettingsPtrOutput {
-	return o.ToDashboardRadarChartSeriesSettingsPtrOutputWithContext(context.Background())
-}
-
-func (o DashboardRadarChartSeriesSettingsOutput) ToDashboardRadarChartSeriesSettingsPtrOutputWithContext(ctx context.Context) DashboardRadarChartSeriesSettingsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardRadarChartSeriesSettings) *DashboardRadarChartSeriesSettings {
-		return &v
-	}).(DashboardRadarChartSeriesSettingsPtrOutput)
-}
-
-// The area style settings of a radar chart.
-func (o DashboardRadarChartSeriesSettingsOutput) AreaStyleSettings() DashboardRadarChartAreaStyleSettingsPtrOutput {
-	return o.ApplyT(func(v DashboardRadarChartSeriesSettings) *DashboardRadarChartAreaStyleSettings {
-		return v.AreaStyleSettings
-	}).(DashboardRadarChartAreaStyleSettingsPtrOutput)
-}
-
-type DashboardRadarChartSeriesSettingsPtrOutput struct{ *pulumi.OutputState }
-
-func (DashboardRadarChartSeriesSettingsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardRadarChartSeriesSettings)(nil)).Elem()
-}
-
-func (o DashboardRadarChartSeriesSettingsPtrOutput) ToDashboardRadarChartSeriesSettingsPtrOutput() DashboardRadarChartSeriesSettingsPtrOutput {
-	return o
-}
-
-func (o DashboardRadarChartSeriesSettingsPtrOutput) ToDashboardRadarChartSeriesSettingsPtrOutputWithContext(ctx context.Context) DashboardRadarChartSeriesSettingsPtrOutput {
-	return o
-}
-
-func (o DashboardRadarChartSeriesSettingsPtrOutput) Elem() DashboardRadarChartSeriesSettingsOutput {
-	return o.ApplyT(func(v *DashboardRadarChartSeriesSettings) DashboardRadarChartSeriesSettings {
-		if v != nil {
-			return *v
-		}
-		var ret DashboardRadarChartSeriesSettings
-		return ret
-	}).(DashboardRadarChartSeriesSettingsOutput)
-}
-
-// The area style settings of a radar chart.
-func (o DashboardRadarChartSeriesSettingsPtrOutput) AreaStyleSettings() DashboardRadarChartAreaStyleSettingsPtrOutput {
-	return o.ApplyT(func(v *DashboardRadarChartSeriesSettings) *DashboardRadarChartAreaStyleSettings {
-		if v == nil {
-			return nil
-		}
-		return v.AreaStyleSettings
-	}).(DashboardRadarChartAreaStyleSettingsPtrOutput)
-}
-
-type DashboardRadarChartSortConfiguration struct {
-	// The category items limit for a radar chart.
-	CategoryItemsLimit *DashboardItemsLimitConfiguration `pulumi:"categoryItemsLimit"`
-	// The category sort options of a radar chart.
-	CategorySort []DashboardFieldSortOptions `pulumi:"categorySort"`
-	// The color items limit of a radar chart.
-	ColorItemsLimit *DashboardItemsLimitConfiguration `pulumi:"colorItemsLimit"`
-	// The color sort configuration of a radar chart.
-	ColorSort []DashboardFieldSortOptions `pulumi:"colorSort"`
-}
-
-// DashboardRadarChartSortConfigurationInput is an input type that accepts DashboardRadarChartSortConfigurationArgs and DashboardRadarChartSortConfigurationOutput values.
-// You can construct a concrete instance of `DashboardRadarChartSortConfigurationInput` via:
-//
-//	DashboardRadarChartSortConfigurationArgs{...}
-type DashboardRadarChartSortConfigurationInput interface {
-	pulumi.Input
-
-	ToDashboardRadarChartSortConfigurationOutput() DashboardRadarChartSortConfigurationOutput
-	ToDashboardRadarChartSortConfigurationOutputWithContext(context.Context) DashboardRadarChartSortConfigurationOutput
-}
-
-type DashboardRadarChartSortConfigurationArgs struct {
-	// The category items limit for a radar chart.
-	CategoryItemsLimit DashboardItemsLimitConfigurationPtrInput `pulumi:"categoryItemsLimit"`
-	// The category sort options of a radar chart.
-	CategorySort DashboardFieldSortOptionsArrayInput `pulumi:"categorySort"`
-	// The color items limit of a radar chart.
-	ColorItemsLimit DashboardItemsLimitConfigurationPtrInput `pulumi:"colorItemsLimit"`
-	// The color sort configuration of a radar chart.
-	ColorSort DashboardFieldSortOptionsArrayInput `pulumi:"colorSort"`
-}
-
-func (DashboardRadarChartSortConfigurationArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardRadarChartSortConfiguration)(nil)).Elem()
-}
-
-func (i DashboardRadarChartSortConfigurationArgs) ToDashboardRadarChartSortConfigurationOutput() DashboardRadarChartSortConfigurationOutput {
-	return i.ToDashboardRadarChartSortConfigurationOutputWithContext(context.Background())
-}
-
-func (i DashboardRadarChartSortConfigurationArgs) ToDashboardRadarChartSortConfigurationOutputWithContext(ctx context.Context) DashboardRadarChartSortConfigurationOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardRadarChartSortConfigurationOutput)
-}
-
-func (i DashboardRadarChartSortConfigurationArgs) ToDashboardRadarChartSortConfigurationPtrOutput() DashboardRadarChartSortConfigurationPtrOutput {
-	return i.ToDashboardRadarChartSortConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (i DashboardRadarChartSortConfigurationArgs) ToDashboardRadarChartSortConfigurationPtrOutputWithContext(ctx context.Context) DashboardRadarChartSortConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardRadarChartSortConfigurationOutput).ToDashboardRadarChartSortConfigurationPtrOutputWithContext(ctx)
-}
-
-// DashboardRadarChartSortConfigurationPtrInput is an input type that accepts DashboardRadarChartSortConfigurationArgs, DashboardRadarChartSortConfigurationPtr and DashboardRadarChartSortConfigurationPtrOutput values.
-// You can construct a concrete instance of `DashboardRadarChartSortConfigurationPtrInput` via:
-//
-//	        DashboardRadarChartSortConfigurationArgs{...}
-//
-//	or:
-//
-//	        nil
-type DashboardRadarChartSortConfigurationPtrInput interface {
-	pulumi.Input
-
-	ToDashboardRadarChartSortConfigurationPtrOutput() DashboardRadarChartSortConfigurationPtrOutput
-	ToDashboardRadarChartSortConfigurationPtrOutputWithContext(context.Context) DashboardRadarChartSortConfigurationPtrOutput
-}
-
-type dashboardRadarChartSortConfigurationPtrType DashboardRadarChartSortConfigurationArgs
-
-func DashboardRadarChartSortConfigurationPtr(v *DashboardRadarChartSortConfigurationArgs) DashboardRadarChartSortConfigurationPtrInput {
-	return (*dashboardRadarChartSortConfigurationPtrType)(v)
-}
-
-func (*dashboardRadarChartSortConfigurationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardRadarChartSortConfiguration)(nil)).Elem()
-}
-
-func (i *dashboardRadarChartSortConfigurationPtrType) ToDashboardRadarChartSortConfigurationPtrOutput() DashboardRadarChartSortConfigurationPtrOutput {
-	return i.ToDashboardRadarChartSortConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (i *dashboardRadarChartSortConfigurationPtrType) ToDashboardRadarChartSortConfigurationPtrOutputWithContext(ctx context.Context) DashboardRadarChartSortConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardRadarChartSortConfigurationPtrOutput)
-}
-
-type DashboardRadarChartSortConfigurationOutput struct{ *pulumi.OutputState }
-
-func (DashboardRadarChartSortConfigurationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardRadarChartSortConfiguration)(nil)).Elem()
-}
-
-func (o DashboardRadarChartSortConfigurationOutput) ToDashboardRadarChartSortConfigurationOutput() DashboardRadarChartSortConfigurationOutput {
-	return o
-}
-
-func (o DashboardRadarChartSortConfigurationOutput) ToDashboardRadarChartSortConfigurationOutputWithContext(ctx context.Context) DashboardRadarChartSortConfigurationOutput {
-	return o
-}
-
-func (o DashboardRadarChartSortConfigurationOutput) ToDashboardRadarChartSortConfigurationPtrOutput() DashboardRadarChartSortConfigurationPtrOutput {
-	return o.ToDashboardRadarChartSortConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (o DashboardRadarChartSortConfigurationOutput) ToDashboardRadarChartSortConfigurationPtrOutputWithContext(ctx context.Context) DashboardRadarChartSortConfigurationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardRadarChartSortConfiguration) *DashboardRadarChartSortConfiguration {
-		return &v
-	}).(DashboardRadarChartSortConfigurationPtrOutput)
-}
-
-// The category items limit for a radar chart.
-func (o DashboardRadarChartSortConfigurationOutput) CategoryItemsLimit() DashboardItemsLimitConfigurationPtrOutput {
-	return o.ApplyT(func(v DashboardRadarChartSortConfiguration) *DashboardItemsLimitConfiguration {
-		return v.CategoryItemsLimit
-	}).(DashboardItemsLimitConfigurationPtrOutput)
-}
-
-// The category sort options of a radar chart.
-func (o DashboardRadarChartSortConfigurationOutput) CategorySort() DashboardFieldSortOptionsArrayOutput {
-	return o.ApplyT(func(v DashboardRadarChartSortConfiguration) []DashboardFieldSortOptions { return v.CategorySort }).(DashboardFieldSortOptionsArrayOutput)
-}
-
-// The color items limit of a radar chart.
-func (o DashboardRadarChartSortConfigurationOutput) ColorItemsLimit() DashboardItemsLimitConfigurationPtrOutput {
-	return o.ApplyT(func(v DashboardRadarChartSortConfiguration) *DashboardItemsLimitConfiguration {
-		return v.ColorItemsLimit
-	}).(DashboardItemsLimitConfigurationPtrOutput)
-}
-
-// The color sort configuration of a radar chart.
-func (o DashboardRadarChartSortConfigurationOutput) ColorSort() DashboardFieldSortOptionsArrayOutput {
-	return o.ApplyT(func(v DashboardRadarChartSortConfiguration) []DashboardFieldSortOptions { return v.ColorSort }).(DashboardFieldSortOptionsArrayOutput)
-}
-
-type DashboardRadarChartSortConfigurationPtrOutput struct{ *pulumi.OutputState }
-
-func (DashboardRadarChartSortConfigurationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardRadarChartSortConfiguration)(nil)).Elem()
-}
-
-func (o DashboardRadarChartSortConfigurationPtrOutput) ToDashboardRadarChartSortConfigurationPtrOutput() DashboardRadarChartSortConfigurationPtrOutput {
-	return o
-}
-
-func (o DashboardRadarChartSortConfigurationPtrOutput) ToDashboardRadarChartSortConfigurationPtrOutputWithContext(ctx context.Context) DashboardRadarChartSortConfigurationPtrOutput {
-	return o
-}
-
-func (o DashboardRadarChartSortConfigurationPtrOutput) Elem() DashboardRadarChartSortConfigurationOutput {
-	return o.ApplyT(func(v *DashboardRadarChartSortConfiguration) DashboardRadarChartSortConfiguration {
-		if v != nil {
-			return *v
-		}
-		var ret DashboardRadarChartSortConfiguration
-		return ret
-	}).(DashboardRadarChartSortConfigurationOutput)
-}
-
-// The category items limit for a radar chart.
-func (o DashboardRadarChartSortConfigurationPtrOutput) CategoryItemsLimit() DashboardItemsLimitConfigurationPtrOutput {
-	return o.ApplyT(func(v *DashboardRadarChartSortConfiguration) *DashboardItemsLimitConfiguration {
-		if v == nil {
-			return nil
-		}
-		return v.CategoryItemsLimit
-	}).(DashboardItemsLimitConfigurationPtrOutput)
-}
-
-// The category sort options of a radar chart.
-func (o DashboardRadarChartSortConfigurationPtrOutput) CategorySort() DashboardFieldSortOptionsArrayOutput {
-	return o.ApplyT(func(v *DashboardRadarChartSortConfiguration) []DashboardFieldSortOptions {
-		if v == nil {
-			return nil
-		}
-		return v.CategorySort
-	}).(DashboardFieldSortOptionsArrayOutput)
-}
-
-// The color items limit of a radar chart.
-func (o DashboardRadarChartSortConfigurationPtrOutput) ColorItemsLimit() DashboardItemsLimitConfigurationPtrOutput {
-	return o.ApplyT(func(v *DashboardRadarChartSortConfiguration) *DashboardItemsLimitConfiguration {
-		if v == nil {
-			return nil
-		}
-		return v.ColorItemsLimit
-	}).(DashboardItemsLimitConfigurationPtrOutput)
-}
-
-// The color sort configuration of a radar chart.
-func (o DashboardRadarChartSortConfigurationPtrOutput) ColorSort() DashboardFieldSortOptionsArrayOutput {
-	return o.ApplyT(func(v *DashboardRadarChartSortConfiguration) []DashboardFieldSortOptions {
-		if v == nil {
-			return nil
-		}
-		return v.ColorSort
-	}).(DashboardFieldSortOptionsArrayOutput)
-}
-
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisSpacingInput)(nil)).Elem(), AnalysisSpacingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisSpacingPtrInput)(nil)).Elem(), AnalysisSpacingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisSparklinesOptionsInput)(nil)).Elem(), AnalysisSparklinesOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisSparklinesOptionsPtrInput)(nil)).Elem(), AnalysisSparklinesOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisSpatialStaticFileInput)(nil)).Elem(), AnalysisSpatialStaticFileArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisSpatialStaticFilePtrInput)(nil)).Elem(), AnalysisSpatialStaticFileArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisStaticFileInput)(nil)).Elem(), AnalysisStaticFileArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisStaticFileArrayInput)(nil)).Elem(), AnalysisStaticFileArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisStaticFileS3SourceOptionsInput)(nil)).Elem(), AnalysisStaticFileS3SourceOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisStaticFileS3SourceOptionsPtrInput)(nil)).Elem(), AnalysisStaticFileS3SourceOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisStaticFileSourceInput)(nil)).Elem(), AnalysisStaticFileSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisStaticFileSourcePtrInput)(nil)).Elem(), AnalysisStaticFileSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisStaticFileUrlSourceOptionsInput)(nil)).Elem(), AnalysisStaticFileUrlSourceOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisStaticFileUrlSourceOptionsPtrInput)(nil)).Elem(), AnalysisStaticFileUrlSourceOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisStringDefaultValuesInput)(nil)).Elem(), AnalysisStringDefaultValuesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisStringDefaultValuesPtrInput)(nil)).Elem(), AnalysisStringDefaultValuesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisStringFormatConfigurationInput)(nil)).Elem(), AnalysisStringFormatConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisStringFormatConfigurationPtrInput)(nil)).Elem(), AnalysisStringFormatConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisStringParameterInput)(nil)).Elem(), AnalysisStringParameterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisStringParameterArrayInput)(nil)).Elem(), AnalysisStringParameterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisStringParameterDeclarationInput)(nil)).Elem(), AnalysisStringParameterDeclarationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisStringParameterDeclarationPtrInput)(nil)).Elem(), AnalysisStringParameterDeclarationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisStringValueWhenUnsetConfigurationInput)(nil)).Elem(), AnalysisStringValueWhenUnsetConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisStringValueWhenUnsetConfigurationPtrInput)(nil)).Elem(), AnalysisStringValueWhenUnsetConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisSubtotalOptionsInput)(nil)).Elem(), AnalysisSubtotalOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisSubtotalOptionsPtrInput)(nil)).Elem(), AnalysisSubtotalOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisTableAggregatedFieldWellsInput)(nil)).Elem(), AnalysisTableAggregatedFieldWellsArgs{})
@@ -90825,6 +90289,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisTopBottomMoversComputationPtrInput)(nil)).Elem(), AnalysisTopBottomMoversComputationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisTopBottomRankedComputationInput)(nil)).Elem(), AnalysisTopBottomRankedComputationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisTopBottomRankedComputationPtrInput)(nil)).Elem(), AnalysisTopBottomRankedComputationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisTopicIdentifierDeclarationInput)(nil)).Elem(), AnalysisTopicIdentifierDeclarationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisTopicIdentifierDeclarationArrayInput)(nil)).Elem(), AnalysisTopicIdentifierDeclarationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisTopicReferenceInput)(nil)).Elem(), AnalysisTopicReferenceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisTopicReferenceArrayInput)(nil)).Elem(), AnalysisTopicReferenceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisTotalAggregationComputationInput)(nil)).Elem(), AnalysisTotalAggregationComputationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisTotalAggregationComputationPtrInput)(nil)).Elem(), AnalysisTotalAggregationComputationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisTotalAggregationFunctionInput)(nil)).Elem(), AnalysisTotalAggregationFunctionArgs{})
@@ -90958,12 +90426,16 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardBarChartAggregatedFieldWellsPtrInput)(nil)).Elem(), DashboardBarChartAggregatedFieldWellsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardBarChartConfigurationInput)(nil)).Elem(), DashboardBarChartConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardBarChartConfigurationPtrInput)(nil)).Elem(), DashboardBarChartConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardBarChartDefaultSeriesSettingsInput)(nil)).Elem(), DashboardBarChartDefaultSeriesSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardBarChartDefaultSeriesSettingsPtrInput)(nil)).Elem(), DashboardBarChartDefaultSeriesSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardBarChartFieldWellsInput)(nil)).Elem(), DashboardBarChartFieldWellsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardBarChartFieldWellsPtrInput)(nil)).Elem(), DashboardBarChartFieldWellsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardBarChartSortConfigurationInput)(nil)).Elem(), DashboardBarChartSortConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardBarChartSortConfigurationPtrInput)(nil)).Elem(), DashboardBarChartSortConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardBarChartVisualInput)(nil)).Elem(), DashboardBarChartVisualArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardBarChartVisualPtrInput)(nil)).Elem(), DashboardBarChartVisualArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardBarSeriesItemInput)(nil)).Elem(), DashboardBarSeriesItemArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardBarSeriesItemArrayInput)(nil)).Elem(), DashboardBarSeriesItemArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardBinCountOptionsInput)(nil)).Elem(), DashboardBinCountOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardBinCountOptionsPtrInput)(nil)).Elem(), DashboardBinCountOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardBinWidthOptionsInput)(nil)).Elem(), DashboardBinWidthOptionsArgs{})
@@ -90981,6 +90453,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardBodySectionRepeatDimensionConfigurationArrayInput)(nil)).Elem(), DashboardBodySectionRepeatDimensionConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardBodySectionRepeatPageBreakConfigurationInput)(nil)).Elem(), DashboardBodySectionRepeatPageBreakConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardBodySectionRepeatPageBreakConfigurationPtrInput)(nil)).Elem(), DashboardBodySectionRepeatPageBreakConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardBorderSettingsInput)(nil)).Elem(), DashboardBorderSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardBorderSettingsPtrInput)(nil)).Elem(), DashboardBorderSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardBoxPlotAggregatedFieldWellsInput)(nil)).Elem(), DashboardBoxPlotAggregatedFieldWellsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardBoxPlotAggregatedFieldWellsPtrInput)(nil)).Elem(), DashboardBoxPlotAggregatedFieldWellsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardBoxPlotChartConfigurationInput)(nil)).Elem(), DashboardBoxPlotChartConfigurationArgs{})
@@ -91041,12 +90515,16 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardComboChartAggregatedFieldWellsPtrInput)(nil)).Elem(), DashboardComboChartAggregatedFieldWellsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardComboChartConfigurationInput)(nil)).Elem(), DashboardComboChartConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardComboChartConfigurationPtrInput)(nil)).Elem(), DashboardComboChartConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardComboChartDefaultSeriesSettingsInput)(nil)).Elem(), DashboardComboChartDefaultSeriesSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardComboChartDefaultSeriesSettingsPtrInput)(nil)).Elem(), DashboardComboChartDefaultSeriesSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardComboChartFieldWellsInput)(nil)).Elem(), DashboardComboChartFieldWellsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardComboChartFieldWellsPtrInput)(nil)).Elem(), DashboardComboChartFieldWellsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardComboChartSortConfigurationInput)(nil)).Elem(), DashboardComboChartSortConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardComboChartSortConfigurationPtrInput)(nil)).Elem(), DashboardComboChartSortConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardComboChartVisualInput)(nil)).Elem(), DashboardComboChartVisualArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardComboChartVisualPtrInput)(nil)).Elem(), DashboardComboChartVisualArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardComboSeriesItemInput)(nil)).Elem(), DashboardComboSeriesItemArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardComboSeriesItemArrayInput)(nil)).Elem(), DashboardComboSeriesItemArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardComparisonConfigurationInput)(nil)).Elem(), DashboardComparisonConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardComparisonConfigurationPtrInput)(nil)).Elem(), DashboardComparisonConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardComparisonFormatConfigurationInput)(nil)).Elem(), DashboardComparisonFormatConfigurationArgs{})
@@ -91154,6 +90632,11 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardDateTimePickerControlDisplayOptionsPtrInput)(nil)).Elem(), DashboardDateTimePickerControlDisplayOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardDateTimeValueWhenUnsetConfigurationInput)(nil)).Elem(), DashboardDateTimeValueWhenUnsetConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardDateTimeValueWhenUnsetConfigurationPtrInput)(nil)).Elem(), DashboardDateTimeValueWhenUnsetConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardDecalSettingsInput)(nil)).Elem(), DashboardDecalSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardDecalSettingsPtrInput)(nil)).Elem(), DashboardDecalSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardDecalSettingsArrayInput)(nil)).Elem(), DashboardDecalSettingsArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardDecalSettingsConfigurationInput)(nil)).Elem(), DashboardDecalSettingsConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardDecalSettingsConfigurationPtrInput)(nil)).Elem(), DashboardDecalSettingsConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardDecimalDefaultValuesInput)(nil)).Elem(), DashboardDecimalDefaultValuesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardDecimalDefaultValuesPtrInput)(nil)).Elem(), DashboardDecimalDefaultValuesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardDecimalParameterInput)(nil)).Elem(), DashboardDecimalParameterArgs{})
@@ -91687,48 +91170,30 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardPivotTableSortByInput)(nil)).Elem(), DashboardPivotTableSortByArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardPivotTableSortConfigurationInput)(nil)).Elem(), DashboardPivotTableSortConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardPivotTableSortConfigurationPtrInput)(nil)).Elem(), DashboardPivotTableSortConfigurationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardPivotTableTotalOptionsInput)(nil)).Elem(), DashboardPivotTableTotalOptionsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardPivotTableTotalOptionsPtrInput)(nil)).Elem(), DashboardPivotTableTotalOptionsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardPivotTableVisualInput)(nil)).Elem(), DashboardPivotTableVisualArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardPivotTableVisualPtrInput)(nil)).Elem(), DashboardPivotTableVisualArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardPivotTotalOptionsInput)(nil)).Elem(), DashboardPivotTotalOptionsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardPivotTotalOptionsPtrInput)(nil)).Elem(), DashboardPivotTotalOptionsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardPluginVisualInput)(nil)).Elem(), DashboardPluginVisualArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardPluginVisualPtrInput)(nil)).Elem(), DashboardPluginVisualArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardPluginVisualConfigurationInput)(nil)).Elem(), DashboardPluginVisualConfigurationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardPluginVisualConfigurationPtrInput)(nil)).Elem(), DashboardPluginVisualConfigurationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardPluginVisualFieldWellInput)(nil)).Elem(), DashboardPluginVisualFieldWellArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardPluginVisualFieldWellArrayInput)(nil)).Elem(), DashboardPluginVisualFieldWellArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardPluginVisualItemsLimitConfigurationInput)(nil)).Elem(), DashboardPluginVisualItemsLimitConfigurationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardPluginVisualItemsLimitConfigurationPtrInput)(nil)).Elem(), DashboardPluginVisualItemsLimitConfigurationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardPluginVisualOptionsInput)(nil)).Elem(), DashboardPluginVisualOptionsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardPluginVisualOptionsPtrInput)(nil)).Elem(), DashboardPluginVisualOptionsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardPluginVisualPropertyInput)(nil)).Elem(), DashboardPluginVisualPropertyArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardPluginVisualPropertyArrayInput)(nil)).Elem(), DashboardPluginVisualPropertyArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardPluginVisualSortConfigurationInput)(nil)).Elem(), DashboardPluginVisualSortConfigurationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardPluginVisualSortConfigurationPtrInput)(nil)).Elem(), DashboardPluginVisualSortConfigurationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardPluginVisualTableQuerySortInput)(nil)).Elem(), DashboardPluginVisualTableQuerySortArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardPluginVisualTableQuerySortPtrInput)(nil)).Elem(), DashboardPluginVisualTableQuerySortArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardPredefinedHierarchyInput)(nil)).Elem(), DashboardPredefinedHierarchyArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardPredefinedHierarchyPtrInput)(nil)).Elem(), DashboardPredefinedHierarchyArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardProgressBarOptionsInput)(nil)).Elem(), DashboardProgressBarOptionsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardProgressBarOptionsPtrInput)(nil)).Elem(), DashboardProgressBarOptionsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardPublishOptionsInput)(nil)).Elem(), DashboardPublishOptionsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardPublishOptionsPtrInput)(nil)).Elem(), DashboardPublishOptionsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardQuickSuiteActionsOptionInput)(nil)).Elem(), DashboardQuickSuiteActionsOptionArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardQuickSuiteActionsOptionPtrInput)(nil)).Elem(), DashboardQuickSuiteActionsOptionArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardRadarChartAggregatedFieldWellsInput)(nil)).Elem(), DashboardRadarChartAggregatedFieldWellsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardRadarChartAggregatedFieldWellsPtrInput)(nil)).Elem(), DashboardRadarChartAggregatedFieldWellsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardRadarChartAreaStyleSettingsInput)(nil)).Elem(), DashboardRadarChartAreaStyleSettingsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardRadarChartAreaStyleSettingsPtrInput)(nil)).Elem(), DashboardRadarChartAreaStyleSettingsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardRadarChartConfigurationInput)(nil)).Elem(), DashboardRadarChartConfigurationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardRadarChartConfigurationPtrInput)(nil)).Elem(), DashboardRadarChartConfigurationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardRadarChartFieldWellsInput)(nil)).Elem(), DashboardRadarChartFieldWellsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardRadarChartFieldWellsPtrInput)(nil)).Elem(), DashboardRadarChartFieldWellsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardRadarChartSeriesSettingsInput)(nil)).Elem(), DashboardRadarChartSeriesSettingsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardRadarChartSeriesSettingsPtrInput)(nil)).Elem(), DashboardRadarChartSeriesSettingsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardRadarChartSortConfigurationInput)(nil)).Elem(), DashboardRadarChartSortConfigurationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardRadarChartSortConfigurationPtrInput)(nil)).Elem(), DashboardRadarChartSortConfigurationArgs{})
+	pulumi.RegisterOutputType(AnalysisSpacingOutput{})
+	pulumi.RegisterOutputType(AnalysisSpacingPtrOutput{})
+	pulumi.RegisterOutputType(AnalysisSparklinesOptionsOutput{})
+	pulumi.RegisterOutputType(AnalysisSparklinesOptionsPtrOutput{})
+	pulumi.RegisterOutputType(AnalysisSpatialStaticFileOutput{})
+	pulumi.RegisterOutputType(AnalysisSpatialStaticFilePtrOutput{})
+	pulumi.RegisterOutputType(AnalysisStaticFileOutput{})
+	pulumi.RegisterOutputType(AnalysisStaticFileArrayOutput{})
+	pulumi.RegisterOutputType(AnalysisStaticFileS3SourceOptionsOutput{})
+	pulumi.RegisterOutputType(AnalysisStaticFileS3SourceOptionsPtrOutput{})
+	pulumi.RegisterOutputType(AnalysisStaticFileSourceOutput{})
+	pulumi.RegisterOutputType(AnalysisStaticFileSourcePtrOutput{})
+	pulumi.RegisterOutputType(AnalysisStaticFileUrlSourceOptionsOutput{})
+	pulumi.RegisterOutputType(AnalysisStaticFileUrlSourceOptionsPtrOutput{})
+	pulumi.RegisterOutputType(AnalysisStringDefaultValuesOutput{})
+	pulumi.RegisterOutputType(AnalysisStringDefaultValuesPtrOutput{})
+	pulumi.RegisterOutputType(AnalysisStringFormatConfigurationOutput{})
+	pulumi.RegisterOutputType(AnalysisStringFormatConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(AnalysisStringParameterOutput{})
+	pulumi.RegisterOutputType(AnalysisStringParameterArrayOutput{})
+	pulumi.RegisterOutputType(AnalysisStringParameterDeclarationOutput{})
+	pulumi.RegisterOutputType(AnalysisStringParameterDeclarationPtrOutput{})
+	pulumi.RegisterOutputType(AnalysisStringValueWhenUnsetConfigurationOutput{})
+	pulumi.RegisterOutputType(AnalysisStringValueWhenUnsetConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(AnalysisSubtotalOptionsOutput{})
 	pulumi.RegisterOutputType(AnalysisSubtotalOptionsPtrOutput{})
 	pulumi.RegisterOutputType(AnalysisTableAggregatedFieldWellsOutput{})
@@ -91815,6 +91280,10 @@ func init() {
 	pulumi.RegisterOutputType(AnalysisTopBottomMoversComputationPtrOutput{})
 	pulumi.RegisterOutputType(AnalysisTopBottomRankedComputationOutput{})
 	pulumi.RegisterOutputType(AnalysisTopBottomRankedComputationPtrOutput{})
+	pulumi.RegisterOutputType(AnalysisTopicIdentifierDeclarationOutput{})
+	pulumi.RegisterOutputType(AnalysisTopicIdentifierDeclarationArrayOutput{})
+	pulumi.RegisterOutputType(AnalysisTopicReferenceOutput{})
+	pulumi.RegisterOutputType(AnalysisTopicReferenceArrayOutput{})
 	pulumi.RegisterOutputType(AnalysisTotalAggregationComputationOutput{})
 	pulumi.RegisterOutputType(AnalysisTotalAggregationComputationPtrOutput{})
 	pulumi.RegisterOutputType(AnalysisTotalAggregationFunctionOutput{})
@@ -91949,12 +91418,16 @@ func init() {
 	pulumi.RegisterOutputType(DashboardBarChartAggregatedFieldWellsPtrOutput{})
 	pulumi.RegisterOutputType(DashboardBarChartConfigurationOutput{})
 	pulumi.RegisterOutputType(DashboardBarChartConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(DashboardBarChartDefaultSeriesSettingsOutput{})
+	pulumi.RegisterOutputType(DashboardBarChartDefaultSeriesSettingsPtrOutput{})
 	pulumi.RegisterOutputType(DashboardBarChartFieldWellsOutput{})
 	pulumi.RegisterOutputType(DashboardBarChartFieldWellsPtrOutput{})
 	pulumi.RegisterOutputType(DashboardBarChartSortConfigurationOutput{})
 	pulumi.RegisterOutputType(DashboardBarChartSortConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DashboardBarChartVisualOutput{})
 	pulumi.RegisterOutputType(DashboardBarChartVisualPtrOutput{})
+	pulumi.RegisterOutputType(DashboardBarSeriesItemOutput{})
+	pulumi.RegisterOutputType(DashboardBarSeriesItemArrayOutput{})
 	pulumi.RegisterOutputType(DashboardBinCountOptionsOutput{})
 	pulumi.RegisterOutputType(DashboardBinCountOptionsPtrOutput{})
 	pulumi.RegisterOutputType(DashboardBinWidthOptionsOutput{})
@@ -91972,6 +91445,8 @@ func init() {
 	pulumi.RegisterOutputType(DashboardBodySectionRepeatDimensionConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(DashboardBodySectionRepeatPageBreakConfigurationOutput{})
 	pulumi.RegisterOutputType(DashboardBodySectionRepeatPageBreakConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(DashboardBorderSettingsOutput{})
+	pulumi.RegisterOutputType(DashboardBorderSettingsPtrOutput{})
 	pulumi.RegisterOutputType(DashboardBoxPlotAggregatedFieldWellsOutput{})
 	pulumi.RegisterOutputType(DashboardBoxPlotAggregatedFieldWellsPtrOutput{})
 	pulumi.RegisterOutputType(DashboardBoxPlotChartConfigurationOutput{})
@@ -92032,12 +91507,16 @@ func init() {
 	pulumi.RegisterOutputType(DashboardComboChartAggregatedFieldWellsPtrOutput{})
 	pulumi.RegisterOutputType(DashboardComboChartConfigurationOutput{})
 	pulumi.RegisterOutputType(DashboardComboChartConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(DashboardComboChartDefaultSeriesSettingsOutput{})
+	pulumi.RegisterOutputType(DashboardComboChartDefaultSeriesSettingsPtrOutput{})
 	pulumi.RegisterOutputType(DashboardComboChartFieldWellsOutput{})
 	pulumi.RegisterOutputType(DashboardComboChartFieldWellsPtrOutput{})
 	pulumi.RegisterOutputType(DashboardComboChartSortConfigurationOutput{})
 	pulumi.RegisterOutputType(DashboardComboChartSortConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DashboardComboChartVisualOutput{})
 	pulumi.RegisterOutputType(DashboardComboChartVisualPtrOutput{})
+	pulumi.RegisterOutputType(DashboardComboSeriesItemOutput{})
+	pulumi.RegisterOutputType(DashboardComboSeriesItemArrayOutput{})
 	pulumi.RegisterOutputType(DashboardComparisonConfigurationOutput{})
 	pulumi.RegisterOutputType(DashboardComparisonConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DashboardComparisonFormatConfigurationOutput{})
@@ -92145,6 +91624,11 @@ func init() {
 	pulumi.RegisterOutputType(DashboardDateTimePickerControlDisplayOptionsPtrOutput{})
 	pulumi.RegisterOutputType(DashboardDateTimeValueWhenUnsetConfigurationOutput{})
 	pulumi.RegisterOutputType(DashboardDateTimeValueWhenUnsetConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(DashboardDecalSettingsOutput{})
+	pulumi.RegisterOutputType(DashboardDecalSettingsPtrOutput{})
+	pulumi.RegisterOutputType(DashboardDecalSettingsArrayOutput{})
+	pulumi.RegisterOutputType(DashboardDecalSettingsConfigurationOutput{})
+	pulumi.RegisterOutputType(DashboardDecalSettingsConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DashboardDecimalDefaultValuesOutput{})
 	pulumi.RegisterOutputType(DashboardDecimalDefaultValuesPtrOutput{})
 	pulumi.RegisterOutputType(DashboardDecimalParameterOutput{})
@@ -92682,46 +92166,4 @@ func init() {
 	pulumi.RegisterOutputType(DashboardPivotTableSortByOutput{})
 	pulumi.RegisterOutputType(DashboardPivotTableSortConfigurationOutput{})
 	pulumi.RegisterOutputType(DashboardPivotTableSortConfigurationPtrOutput{})
-	pulumi.RegisterOutputType(DashboardPivotTableTotalOptionsOutput{})
-	pulumi.RegisterOutputType(DashboardPivotTableTotalOptionsPtrOutput{})
-	pulumi.RegisterOutputType(DashboardPivotTableVisualOutput{})
-	pulumi.RegisterOutputType(DashboardPivotTableVisualPtrOutput{})
-	pulumi.RegisterOutputType(DashboardPivotTotalOptionsOutput{})
-	pulumi.RegisterOutputType(DashboardPivotTotalOptionsPtrOutput{})
-	pulumi.RegisterOutputType(DashboardPluginVisualOutput{})
-	pulumi.RegisterOutputType(DashboardPluginVisualPtrOutput{})
-	pulumi.RegisterOutputType(DashboardPluginVisualConfigurationOutput{})
-	pulumi.RegisterOutputType(DashboardPluginVisualConfigurationPtrOutput{})
-	pulumi.RegisterOutputType(DashboardPluginVisualFieldWellOutput{})
-	pulumi.RegisterOutputType(DashboardPluginVisualFieldWellArrayOutput{})
-	pulumi.RegisterOutputType(DashboardPluginVisualItemsLimitConfigurationOutput{})
-	pulumi.RegisterOutputType(DashboardPluginVisualItemsLimitConfigurationPtrOutput{})
-	pulumi.RegisterOutputType(DashboardPluginVisualOptionsOutput{})
-	pulumi.RegisterOutputType(DashboardPluginVisualOptionsPtrOutput{})
-	pulumi.RegisterOutputType(DashboardPluginVisualPropertyOutput{})
-	pulumi.RegisterOutputType(DashboardPluginVisualPropertyArrayOutput{})
-	pulumi.RegisterOutputType(DashboardPluginVisualSortConfigurationOutput{})
-	pulumi.RegisterOutputType(DashboardPluginVisualSortConfigurationPtrOutput{})
-	pulumi.RegisterOutputType(DashboardPluginVisualTableQuerySortOutput{})
-	pulumi.RegisterOutputType(DashboardPluginVisualTableQuerySortPtrOutput{})
-	pulumi.RegisterOutputType(DashboardPredefinedHierarchyOutput{})
-	pulumi.RegisterOutputType(DashboardPredefinedHierarchyPtrOutput{})
-	pulumi.RegisterOutputType(DashboardProgressBarOptionsOutput{})
-	pulumi.RegisterOutputType(DashboardProgressBarOptionsPtrOutput{})
-	pulumi.RegisterOutputType(DashboardPublishOptionsOutput{})
-	pulumi.RegisterOutputType(DashboardPublishOptionsPtrOutput{})
-	pulumi.RegisterOutputType(DashboardQuickSuiteActionsOptionOutput{})
-	pulumi.RegisterOutputType(DashboardQuickSuiteActionsOptionPtrOutput{})
-	pulumi.RegisterOutputType(DashboardRadarChartAggregatedFieldWellsOutput{})
-	pulumi.RegisterOutputType(DashboardRadarChartAggregatedFieldWellsPtrOutput{})
-	pulumi.RegisterOutputType(DashboardRadarChartAreaStyleSettingsOutput{})
-	pulumi.RegisterOutputType(DashboardRadarChartAreaStyleSettingsPtrOutput{})
-	pulumi.RegisterOutputType(DashboardRadarChartConfigurationOutput{})
-	pulumi.RegisterOutputType(DashboardRadarChartConfigurationPtrOutput{})
-	pulumi.RegisterOutputType(DashboardRadarChartFieldWellsOutput{})
-	pulumi.RegisterOutputType(DashboardRadarChartFieldWellsPtrOutput{})
-	pulumi.RegisterOutputType(DashboardRadarChartSeriesSettingsOutput{})
-	pulumi.RegisterOutputType(DashboardRadarChartSeriesSettingsPtrOutput{})
-	pulumi.RegisterOutputType(DashboardRadarChartSortConfigurationOutput{})
-	pulumi.RegisterOutputType(DashboardRadarChartSortConfigurationPtrOutput{})
 }

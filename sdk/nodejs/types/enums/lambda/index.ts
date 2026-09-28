@@ -75,6 +75,16 @@ export const CodeSigningConfigCodeSigningPoliciesUntrustedArtifactOnDeployment =
  */
 export type CodeSigningConfigCodeSigningPoliciesUntrustedArtifactOnDeployment = (typeof CodeSigningConfigCodeSigningPoliciesUntrustedArtifactOnDeployment)[keyof typeof CodeSigningConfigCodeSigningPoliciesUntrustedArtifactOnDeployment];
 
+export const EventSourceMappingConsumptionMode = {
+    Stream: "Stream",
+    Queue: "Queue",
+} as const;
+
+/**
+ * The mode that determines how Lambda reads from a Kafka topic. Use Stream for ordered processing or Queue for higher throughput when ordering is not required.
+ */
+export type EventSourceMappingConsumptionMode = (typeof EventSourceMappingConsumptionMode)[keyof typeof EventSourceMappingConsumptionMode];
+
 export const EventSourceMappingDocumentDbEventSourceConfigFullDocument = {
     UpdateLookup: "UpdateLookup",
     Default: "Default",
@@ -114,6 +124,7 @@ export const EventSourceMappingSchemaRegistryAccessConfigType = {
     BasicAuth: "BASIC_AUTH",
     ClientCertificateTlsAuth: "CLIENT_CERTIFICATE_TLS_AUTH",
     ServerRootCaCertificate: "SERVER_ROOT_CA_CERTIFICATE",
+    OauthbearerAuth: "OAUTHBEARER_AUTH",
 } as const;
 
 /**
@@ -152,6 +163,13 @@ export const EventSourceMappingSourceAccessConfigurationType = {
     VirtualHost: "VIRTUAL_HOST",
     ClientCertificateTlsAuth: "CLIENT_CERTIFICATE_TLS_AUTH",
     ServerRootCaCertificate: "SERVER_ROOT_CA_CERTIFICATE",
+    OauthbearerAuth: "OAUTHBEARER_AUTH",
+    OauthbearerScope: "OAUTHBEARER_SCOPE",
+    OauthbearerAudience: "OAUTHBEARER_AUDIENCE",
+    OauthbearerLogicalCluster: "OAUTHBEARER_LOGICAL_CLUSTER",
+    OauthbearerIdentityPool: "OAUTHBEARER_IDENTITY_POOL",
+    IamAuth: "IAM_AUTH",
+    IamOauthbearerAuth: "IAM_OAUTHBEARER_AUTH",
 } as const;
 
 /**
@@ -263,7 +281,12 @@ export const FunctionS3FilesConfigDirectS3Read = {
 } as const;
 
 /**
- * Specifies if a function reads from the file system for the lowest latency, or through Amazon S3 Files feature "direct Amazon S3 bucket reads" for the highest throughput
+ * Specifies if a function reads from the file system for the lowest latency, or through Amazon S3 Files feature "direct Amazon S3 bucket reads" for the highest throughput. Valid values:
+ *   +  ``AUTO`` (default) – Direct reads are active for functions you configure with 512 MB or more of memory.
+ *   +  ``ENABLED`` – Enforces all reads are directly from the Amazon S3 bucket, regardless of available memory (less than 512 MB).
+ *   +  ``DISABLED`` – Routes all reads through the file system, regardless of memory configuration.
+ *
+ *  To use direct reads, you must grant the execution role the ``s3:GetObject`` and ``s3:GetObjectVersion`` permissions. If a direct read fails, Lambda automatically falls back to reading through the file system.
  */
 export type FunctionS3FilesConfigDirectS3Read = (typeof FunctionS3FilesConfigDirectS3Read)[keyof typeof FunctionS3FilesConfigDirectS3Read];
 

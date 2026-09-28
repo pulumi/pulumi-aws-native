@@ -8,6 +8,8 @@ import typing
 # Export this package's modules as members:
 from ._enums import *
 from .get_monitor import *
+from .get_scope import *
 from .monitor import *
+from .scope import *
 from ._inputs import *
 from . import outputs

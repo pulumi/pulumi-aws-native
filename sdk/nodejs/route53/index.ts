@@ -10,6 +10,11 @@ export type CidrCollection = import("./cidrCollection").CidrCollection;
 export const CidrCollection: typeof import("./cidrCollection").CidrCollection = null as any;
 utilities.lazyLoad(exports, ["CidrCollection"], () => require("./cidrCollection"));
 
+export { DelegationSetArgs } from "./delegationSet";
+export type DelegationSet = import("./delegationSet").DelegationSet;
+export const DelegationSet: typeof import("./delegationSet").DelegationSet = null as any;
+utilities.lazyLoad(exports, ["DelegationSet"], () => require("./delegationSet"));
+
 export { DnssecArgs } from "./dnssec";
 export type Dnssec = import("./dnssec").Dnssec;
 export const Dnssec: typeof import("./dnssec").Dnssec = null as any;
@@ -19,6 +24,11 @@ export { GetCidrCollectionArgs, GetCidrCollectionResult, GetCidrCollectionOutput
 export const getCidrCollection: typeof import("./getCidrCollection").getCidrCollection = null as any;
 export const getCidrCollectionOutput: typeof import("./getCidrCollection").getCidrCollectionOutput = null as any;
 utilities.lazyLoad(exports, ["getCidrCollection","getCidrCollectionOutput"], () => require("./getCidrCollection"));
+
+export { GetDelegationSetArgs, GetDelegationSetResult, GetDelegationSetOutputArgs } from "./getDelegationSet";
+export const getDelegationSet: typeof import("./getDelegationSet").getDelegationSet = null as any;
+export const getDelegationSetOutput: typeof import("./getDelegationSet").getDelegationSetOutput = null as any;
+utilities.lazyLoad(exports, ["getDelegationSet","getDelegationSetOutput"], () => require("./getDelegationSet"));
 
 export { GetHealthCheckArgs, GetHealthCheckResult, GetHealthCheckOutputArgs } from "./getHealthCheck";
 export const getHealthCheck: typeof import("./getHealthCheck").getHealthCheck = null as any;
@@ -80,6 +90,8 @@ const _module = {
         switch (type) {
             case "aws-native:route53:CidrCollection":
                 return new CidrCollection(name, <any>undefined, { urn })
+            case "aws-native:route53:DelegationSet":
+                return new DelegationSet(name, <any>undefined, { urn })
             case "aws-native:route53:Dnssec":
                 return new Dnssec(name, <any>undefined, { urn })
             case "aws-native:route53:HealthCheck":

@@ -18,6 +18,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         [Input("dataBars")]
         public Input<Inputs.AnalysisDataBarsOptionsArgs>? DataBars { get; set; }
 
+        [Input("sparklines")]
+        public Input<Inputs.AnalysisSparklinesOptionsArgs>? Sparklines { get; set; }
+
         public AnalysisTableInlineVisualizationArgs()
         {
         }

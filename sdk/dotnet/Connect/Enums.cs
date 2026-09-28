@@ -494,6 +494,36 @@ namespace Pulumi.AwsNative.Connect
     }
 
     /// <summary>
+    /// The type of the metric.
+    /// </summary>
+    [EnumType]
+    public readonly struct EvaluationFormMetricConfigurationMetricType : IEquatable<EvaluationFormMetricConfigurationMetricType>
+    {
+        private readonly string _value;
+
+        private EvaluationFormMetricConfigurationMetricType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static EvaluationFormMetricConfigurationMetricType BusinessOutcome { get; } = new EvaluationFormMetricConfigurationMetricType("BUSINESS_OUTCOME");
+
+        public static bool operator ==(EvaluationFormMetricConfigurationMetricType left, EvaluationFormMetricConfigurationMetricType right) => left.Equals(right);
+        public static bool operator !=(EvaluationFormMetricConfigurationMetricType left, EvaluationFormMetricConfigurationMetricType right) => !left.Equals(right);
+
+        public static explicit operator string(EvaluationFormMetricConfigurationMetricType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is EvaluationFormMetricConfigurationMetricType other && Equals(other);
+        public bool Equals(EvaluationFormMetricConfigurationMetricType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Display format for the multi-select question.
     /// </summary>
     [EnumType]
@@ -2311,6 +2341,101 @@ namespace Pulumi.AwsNative.Connect
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is UserVoiceEnhancementMode other && Equals(other);
         public bool Equals(UserVoiceEnhancementMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The language code of the vocabulary entries.
+    /// </summary>
+    [EnumType]
+    public readonly struct VocabularyLanguageCode : IEquatable<VocabularyLanguageCode>
+    {
+        private readonly string _value;
+
+        private VocabularyLanguageCode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static VocabularyLanguageCode ArAe { get; } = new VocabularyLanguageCode("ar-AE");
+        public static VocabularyLanguageCode DeCh { get; } = new VocabularyLanguageCode("de-CH");
+        public static VocabularyLanguageCode DeDe { get; } = new VocabularyLanguageCode("de-DE");
+        public static VocabularyLanguageCode EnAb { get; } = new VocabularyLanguageCode("en-AB");
+        public static VocabularyLanguageCode EnAu { get; } = new VocabularyLanguageCode("en-AU");
+        public static VocabularyLanguageCode EnGb { get; } = new VocabularyLanguageCode("en-GB");
+        public static VocabularyLanguageCode EnIe { get; } = new VocabularyLanguageCode("en-IE");
+        public static VocabularyLanguageCode EnIn { get; } = new VocabularyLanguageCode("en-IN");
+        public static VocabularyLanguageCode EnUs { get; } = new VocabularyLanguageCode("en-US");
+        public static VocabularyLanguageCode EnWl { get; } = new VocabularyLanguageCode("en-WL");
+        public static VocabularyLanguageCode EsEs { get; } = new VocabularyLanguageCode("es-ES");
+        public static VocabularyLanguageCode EsUs { get; } = new VocabularyLanguageCode("es-US");
+        public static VocabularyLanguageCode FrCa { get; } = new VocabularyLanguageCode("fr-CA");
+        public static VocabularyLanguageCode FrFr { get; } = new VocabularyLanguageCode("fr-FR");
+        public static VocabularyLanguageCode HiIn { get; } = new VocabularyLanguageCode("hi-IN");
+        public static VocabularyLanguageCode ItIt { get; } = new VocabularyLanguageCode("it-IT");
+        public static VocabularyLanguageCode JaJp { get; } = new VocabularyLanguageCode("ja-JP");
+        public static VocabularyLanguageCode KoKr { get; } = new VocabularyLanguageCode("ko-KR");
+        public static VocabularyLanguageCode PtBr { get; } = new VocabularyLanguageCode("pt-BR");
+        public static VocabularyLanguageCode PtPt { get; } = new VocabularyLanguageCode("pt-PT");
+        public static VocabularyLanguageCode ZhCn { get; } = new VocabularyLanguageCode("zh-CN");
+        public static VocabularyLanguageCode EnNz { get; } = new VocabularyLanguageCode("en-NZ");
+        public static VocabularyLanguageCode EnZa { get; } = new VocabularyLanguageCode("en-ZA");
+        public static VocabularyLanguageCode CaEs { get; } = new VocabularyLanguageCode("ca-ES");
+        public static VocabularyLanguageCode DaDk { get; } = new VocabularyLanguageCode("da-DK");
+        public static VocabularyLanguageCode FiFi { get; } = new VocabularyLanguageCode("fi-FI");
+        public static VocabularyLanguageCode IdId { get; } = new VocabularyLanguageCode("id-ID");
+        public static VocabularyLanguageCode MsMy { get; } = new VocabularyLanguageCode("ms-MY");
+        public static VocabularyLanguageCode NlNl { get; } = new VocabularyLanguageCode("nl-NL");
+        public static VocabularyLanguageCode NoNo { get; } = new VocabularyLanguageCode("no-NO");
+        public static VocabularyLanguageCode PlPl { get; } = new VocabularyLanguageCode("pl-PL");
+        public static VocabularyLanguageCode SvSe { get; } = new VocabularyLanguageCode("sv-SE");
+        public static VocabularyLanguageCode TlPh { get; } = new VocabularyLanguageCode("tl-PH");
+
+        public static bool operator ==(VocabularyLanguageCode left, VocabularyLanguageCode right) => left.Equals(right);
+        public static bool operator !=(VocabularyLanguageCode left, VocabularyLanguageCode right) => !left.Equals(right);
+
+        public static explicit operator string(VocabularyLanguageCode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is VocabularyLanguageCode other && Equals(other);
+        public bool Equals(VocabularyLanguageCode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The current state of the custom vocabulary.
+    /// </summary>
+    [EnumType]
+    public readonly struct VocabularyState : IEquatable<VocabularyState>
+    {
+        private readonly string _value;
+
+        private VocabularyState(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static VocabularyState CreationInProgress { get; } = new VocabularyState("CREATION_IN_PROGRESS");
+        public static VocabularyState Active { get; } = new VocabularyState("ACTIVE");
+        public static VocabularyState CreationFailed { get; } = new VocabularyState("CREATION_FAILED");
+        public static VocabularyState DeleteInProgress { get; } = new VocabularyState("DELETE_IN_PROGRESS");
+
+        public static bool operator ==(VocabularyState left, VocabularyState right) => left.Equals(right);
+        public static bool operator !=(VocabularyState left, VocabularyState right) => !left.Equals(right);
+
+        public static explicit operator string(VocabularyState value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is VocabularyState other && Equals(other);
+        public bool Equals(VocabularyState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

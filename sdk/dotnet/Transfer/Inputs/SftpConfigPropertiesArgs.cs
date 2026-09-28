@@ -21,6 +21,18 @@ namespace Pulumi.AwsNative.Transfer.Inputs
         [Input("maxConcurrentConnections")]
         public Input<int>? MaxConcurrentConnections { get; set; }
 
+        [Input("orderedUserSecretVersionStages")]
+        private InputList<string>? _orderedUserSecretVersionStages;
+
+        /// <summary>
+        /// Specifies the order in which the connector attempts to use secret versions during authentication. This enables fallback to alternative credentials if the primary version fails.
+        /// </summary>
+        public InputList<string> OrderedUserSecretVersionStages
+        {
+            get => _orderedUserSecretVersionStages ?? (_orderedUserSecretVersionStages = new InputList<string>());
+            set => _orderedUserSecretVersionStages = value;
+        }
+
         [Input("trustedHostKeys")]
         private InputList<string>? _trustedHostKeys;
 

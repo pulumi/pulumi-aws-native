@@ -24,14 +24,13 @@
     "CustomAmiId" : {
       "type" : "string"
     },
-    "Id" : {
+    "InstanceGroupId" : {
       "type" : "string"
     },
     "Configurations" : {
       "type" : "array",
-      "uniqueItems" : true,
       "items" : {
-        "$ref" : "#/definitions/Configuration"
+        "$ref" : "#/definitions/AppConfiguration"
       }
     },
     "InstanceType" : {
@@ -51,7 +50,6 @@
       "properties" : {
         "Rules" : {
           "type" : "array",
-          "uniqueItems" : true,
           "items" : {
             "$ref" : "#/definitions/ScalingRule"
           }
@@ -96,7 +94,6 @@
         },
         "Dimensions" : {
           "type" : "array",
-          "uniqueItems" : true,
           "items" : {
             "$ref" : "#/definitions/MetricDimension"
           }
@@ -125,7 +122,8 @@
       "properties" : {
         "EbsBlockDeviceConfigs" : {
           "type" : "array",
-          "uniqueItems" : true,
+          "uniqueItems" : false,
+          "insertionOrder" : false,
           "items" : {
             "$ref" : "#/definitions/EbsBlockDeviceConfig"
           }
@@ -135,23 +133,23 @@
         }
       }
     },
-    "Configuration" : {
+    "AppConfiguration" : {
       "type" : "object",
       "additionalProperties" : false,
       "properties" : {
         "ConfigurationProperties" : {
           "type" : "object",
           "patternProperties" : {
-            "[a-zA-Z0-9]+" : {
+            "^.*$" : {
               "type" : "string"
             }
-          }
+          },
+          "additionalProperties" : false
         },
         "Configurations" : {
           "type" : "array",
-          "uniqueItems" : true,
           "items" : {
-            "$ref" : "#/definitions/Configuration"
+            "$ref" : "#/definitions/AppConfiguration"
           }
         },
         "Classification" : {
@@ -209,7 +207,8 @@
           "$ref" : "#/definitions/VolumeSpecification"
         },
         "VolumesPerInstance" : {
-          "type" : "integer"
+          "type" : "integer",
+          "description" : "Use of this property can confuse CloudFormation drift detection. The EbsBlockDeviceConfigs read from the system may return a list with one entry per volume, replacing any entry specified in the template with a VolumesPerInstance greater than one by that many entries containing only the VolumeSpecification. Thus to avoid false drift detection, it is recommended to supply repeated entries in EbsBlockDeviceConfigs for any VolumeSpecification which is intended to be repeated and not to use this property.\n"
         }
       },
       "required" : [ "VolumeSpecification" ]
@@ -259,6 +258,35 @@
   },
   "required" : [ "JobFlowId", "InstanceCount", "InstanceRole", "InstanceType" ],
   "createOnlyProperties" : [ "/properties/InstanceRole", "/properties/JobFlowId", "/properties/Name", "/properties/InstanceType", "/properties/CustomAmiId", "/properties/Configurations", "/properties/EbsConfiguration", "/properties/Market", "/properties/BidPrice" ],
-  "primaryIdentifier" : [ "/properties/Id" ],
-  "readOnlyProperties" : [ "/properties/Id" ]
+  "primaryIdentifier" : [ "/properties/InstanceGroupId", "/properties/JobFlowId" ],
+  "readOnlyProperties" : [ "/properties/InstanceGroupId" ],
+  "writeOnlyProperties" : [ "/properties/EbsConfiguration/EbsBlockDeviceConfigs/*/VolumesPerInstance" ],
+  "tagging" : {
+    "taggable" : false
+  },
+  "handlers" : {
+    "create" : {
+      "permissions" : [ "elasticmapreduce:AddInstanceGroups", "elasticmapreduce:ListInstanceGroups", "elasticmapreduce:DescribeCluster" ]
+    },
+    "read" : {
+      "permissions" : [ "elasticmapreduce:ListInstanceGroups", "elasticmapreduce:ListClusters" ]
+    },
+    "update" : {
+      "permissions" : [ "elasticmapreduce:ModifyInstanceGroups", "elasticmapreduce:PutAutoScalingPolicy", "elasticmapreduce:RemoveAutoScalingPolicy", "elasticmapreduce:ListInstanceGroups", "elasticmapreduce:DescribeCluster" ]
+    },
+    "delete" : {
+      "permissions" : [ "elasticmapreduce:ModifyInstanceGroups", "elasticmapreduce:RemoveAutoScalingPolicy", "elasticmapreduce:ListInstanceGroups", "elasticmapreduce:DescribeCluster" ]
+    },
+    "list" : {
+      "permissions" : [ "elasticmapreduce:ListInstanceGroups" ],
+      "handlerSchema" : {
+        "properties" : {
+          "JobFlowId" : {
+            "type" : "string"
+          }
+        },
+        "required" : [ "JobFlowId" ]
+      }
+    }
+  }
 }

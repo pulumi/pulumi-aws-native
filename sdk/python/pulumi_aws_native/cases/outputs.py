@@ -38,6 +38,8 @@ __all__ = [
     'LayoutFieldItem',
     'LayoutSectionProperties',
     'LayoutSections',
+    'RelatedItemCommentContent',
+    'RelatedItemContent',
     'TemplateLayoutConfiguration',
     'TemplateRequiredField',
     'TemplateRule',
@@ -752,6 +754,76 @@ class LayoutSections(dict):
         Defines the sections within a panel or tab. Contains field groups that organize related fields together.
         """
         return pulumi.get(self, "sections")
+
+
+@pulumi.output_type
+class RelatedItemCommentContent(dict):
+    """
+    Represents a comment.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "contentType":
+            suggest = "content_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RelatedItemCommentContent. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RelatedItemCommentContent.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RelatedItemCommentContent.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 body: _builtins.str,
+                 content_type: 'RelatedItemCommentContentContentType'):
+        """
+        Represents a comment.
+
+        :param _builtins.str body: Text in the body of a comment.
+        :param 'RelatedItemCommentContentContentType' content_type: Type of the text in the comment.
+        """
+        pulumi.set(__self__, "body", body)
+        pulumi.set(__self__, "content_type", content_type)
+
+    @_builtins.property
+    @pulumi.getter
+    def body(self) -> _builtins.str:
+        """
+        Text in the body of a comment.
+        """
+        return pulumi.get(self, "body")
+
+    @_builtins.property
+    @pulumi.getter(name="contentType")
+    def content_type(self) -> 'RelatedItemCommentContentContentType':
+        """
+        Type of the text in the comment.
+        """
+        return pulumi.get(self, "content_type")
+
+
+@pulumi.output_type
+class RelatedItemContent(dict):
+    """
+    Represents the content of a related item.
+    """
+    def __init__(__self__, *,
+                 comment: Optional['outputs.RelatedItemCommentContent'] = None):
+        """
+        Represents the content of a related item.
+        """
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+
+    @_builtins.property
+    @pulumi.getter
+    def comment(self) -> Optional['outputs.RelatedItemCommentContent']:
+        return pulumi.get(self, "comment")
 
 
 @pulumi.output_type

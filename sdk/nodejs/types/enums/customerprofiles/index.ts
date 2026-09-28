@@ -408,6 +408,27 @@ export const ObjectTypeKeyStandardIdentifiersItem = {
 
 export type ObjectTypeKeyStandardIdentifiersItem = (typeof ObjectTypeKeyStandardIdentifiersItem)[keyof typeof ObjectTypeKeyStandardIdentifiersItem];
 
+export const RecommenderSchemaFieldContentType = {
+    String: "STRING",
+    Number: "NUMBER",
+} as const;
+
+export type RecommenderSchemaFieldContentType = (typeof RecommenderSchemaFieldContentType)[keyof typeof RecommenderSchemaFieldContentType];
+
+export const RecommenderSchemaFieldFeatureType = {
+    Textual: "TEXTUAL",
+    Categorical: "CATEGORICAL",
+} as const;
+
+export type RecommenderSchemaFieldFeatureType = (typeof RecommenderSchemaFieldFeatureType)[keyof typeof RecommenderSchemaFieldFeatureType];
+
+export const RecommenderSchemaStatus = {
+    Active: "ACTIVE",
+    Deleting: "DELETING",
+} as const;
+
+export type RecommenderSchemaStatus = (typeof RecommenderSchemaStatus)[keyof typeof RecommenderSchemaStatus];
+
 export const RecommenderStatus = {
     Pending: "PENDING",
     InProgress: "IN_PROGRESS",

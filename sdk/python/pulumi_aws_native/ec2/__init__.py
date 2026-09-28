@@ -38,8 +38,10 @@ from .get_flow_log import *
 from .get_fpga_image import *
 from .get_gateway_route_table_association import *
 from .get_host import *
+from .get_i_pv4_pool import *
 from .get_instance import *
 from .get_instance_connect_endpoint import *
+from .get_instance_event_window import *
 from .get_internet_gateway import *
 from .get_ip_pool_route_table_association import *
 from .get_ipam import *
@@ -84,6 +86,7 @@ from .get_spot_fleet import *
 from .get_sql_ha_standby_detected_instance import *
 from .get_subnet import *
 from .get_subnet_cidr_block import *
+from .get_subnet_cidr_reservation import *
 from .get_subnet_network_acl_association import *
 from .get_subnet_route_table_association import *
 from .get_traffic_mirror_filter import *
@@ -126,8 +129,10 @@ from .get_vpn_concentrator import *
 from .get_vpn_connection import *
 from .get_vpn_gateway import *
 from .host import *
+from .i_pv4_pool import *
 from .instance import *
 from .instance_connect_endpoint import *
+from .instance_event_window import *
 from .internet_gateway import *
 from .ip_pool_route_table_association import *
 from .ipam import *
@@ -175,6 +180,7 @@ from .spot_fleet import *
 from .sql_ha_standby_detected_instance import *
 from .subnet import *
 from .subnet_cidr_block import *
+from .subnet_cidr_reservation import *
 from .subnet_network_acl_association import *
 from .subnet_route_table_association import *
 from .traffic_mirror_filter import *

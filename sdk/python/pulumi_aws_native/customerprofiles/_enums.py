@@ -35,6 +35,9 @@ __all__ = [
     'IntegrationZendeskConnectorOperator',
     'ObjectTypeFieldContentType',
     'ObjectTypeKeyStandardIdentifiersItem',
+    'RecommenderSchemaFieldContentType',
+    'RecommenderSchemaFieldFeatureType',
+    'RecommenderSchemaStatus',
     'RecommenderStatus',
     'SegmentDefinitionAttributeDimensionType',
     'SegmentDefinitionDateDimensionType',
@@ -426,6 +429,24 @@ class ObjectTypeKeyStandardIdentifiersItem(_builtins.str, Enum):
     WEB_ANALYTICS = "WEB_ANALYTICS"
     DEVICE = "DEVICE"
     COMMUNICATION_RECORD = "COMMUNICATION_RECORD"
+
+
+@pulumi.type_token("aws-native:customerprofiles:RecommenderSchemaFieldContentType")
+class RecommenderSchemaFieldContentType(_builtins.str, Enum):
+    STRING = "STRING"
+    NUMBER = "NUMBER"
+
+
+@pulumi.type_token("aws-native:customerprofiles:RecommenderSchemaFieldFeatureType")
+class RecommenderSchemaFieldFeatureType(_builtins.str, Enum):
+    TEXTUAL = "TEXTUAL"
+    CATEGORICAL = "CATEGORICAL"
+
+
+@pulumi.type_token("aws-native:customerprofiles:RecommenderSchemaStatus")
+class RecommenderSchemaStatus(_builtins.str, Enum):
+    ACTIVE = "ACTIVE"
+    DELETING = "DELETING"
 
 
 @pulumi.type_token("aws-native:customerprofiles:RecommenderStatus")

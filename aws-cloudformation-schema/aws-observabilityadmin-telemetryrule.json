@@ -14,7 +14,7 @@
     "ResourceType" : {
       "description" : "Resource Type associated with the Telemetry Rule",
       "type" : "string",
-      "enum" : [ "AWS::EC2::VPC", "AWS::WAFv2::WebACL", "AWS::CloudTrail", "AWS::EKS::Cluster", "AWS::ElasticLoadBalancingV2::LoadBalancer", "AWS::EC2::Instance", "AWS::BedrockAgentCore::Runtime", "AWS::BedrockAgentCore::Browser", "AWS::BedrockAgentCore::CodeInterpreter", "AWS::SecurityHub::Hub" ]
+      "enum" : [ "AWS::EC2::VPC", "AWS::WAFv2::WebACL", "AWS::CloudTrail", "AWS::EKS::Cluster", "AWS::ElasticLoadBalancingV2::LoadBalancer", "AWS::EC2::Instance", "AWS::BedrockAgentCore::Runtime", "AWS::BedrockAgentCore::Browser", "AWS::BedrockAgentCore::CodeInterpreter", "AWS::SecurityHub::Hub", "AWS::SecurityHub::HubV2", "AWS::S3::Bucket", "AWS::MSK::Cluster", "AWS::CloudFront::Distribution", "AWS::CloudWatch::OTelEnrichment", "AWS::Bedrock::KnowledgeBase", "AWS::BedrockAgentCore::Memory", "AWS::BedrockAgentCore::Gateway", "AWS::BedrockAgentCore::WorkloadIdentity" ]
     },
     "TelemetryType" : {
       "description" : "Telemetry Type associated with the Telemetry Rule",
@@ -142,6 +142,18 @@
         }
       }
     },
+    "MskMonitoringParameters" : {
+      "description" : "Configuration parameters for Amazon MSK cluster monitoring.",
+      "type" : "object",
+      "properties" : {
+        "EnhancedMonitoring" : {
+          "description" : "The level of enhanced monitoring for the MSK cluster.",
+          "type" : "string",
+          "enum" : [ "DEFAULT", "PER_BROKER", "PER_TOPIC_PER_BROKER", "PER_TOPIC_PER_PARTITION" ]
+        }
+      },
+      "additionalProperties" : false
+    },
     "TelemetryDestinationConfiguration" : {
       "description" : "The destination configuration for telemetry data",
       "type" : "object",
@@ -170,6 +182,9 @@
         "WAFLoggingParameters" : {
           "$ref" : "#/definitions/WAFLoggingParameters"
         },
+        "MskMonitoringParameters" : {
+          "$ref" : "#/definitions/MskMonitoringParameters"
+        },
         "LogDeliveryParameters" : {
           "description" : "Parameters for log delivery configuration",
           "type" : "object",
@@ -182,7 +197,7 @@
               "minItems" : 1,
               "items" : {
                 "type" : "string",
-                "enum" : [ "APPLICATION_LOGS", "USAGE_LOGS", "SECURITY_FINDING_LOGS", "ALB_ACCESS_LOGS", "ALB_CONNECTION_LOGS", "ALB_HEALTH_CHECK_LOGS" ]
+                "enum" : [ "APPLICATION_LOGS", "USAGE_LOGS", "SECURITY_FINDING_LOGS", "S3_SERVER_ACCESS_LOGS", "ACCESS_LOGS", "CONNECTION_LOGS", "ALB_ACCESS_LOGS", "ALB_CONNECTION_LOGS", "ALB_HEALTH_CHECK_LOGS" ]
               }
             }
           },
@@ -536,6 +551,7 @@
   "additionalProperties" : false,
   "required" : [ "RuleName", "Rule" ],
   "createOnlyProperties" : [ "/properties/RuleName", "/properties/Rule/AllRegions" ],
+  "writeOnlyProperties" : [ "/properties/Rule/Regions" ],
   "readOnlyProperties" : [ "/properties/RuleArn", "/properties/RegionStatuses" ],
   "primaryIdentifier" : [ "/properties/RuleArn" ],
   "handlers" : {
@@ -549,7 +565,7 @@
       "permissions" : [ "observabilityadmin:UpdateTelemetryRule", "observabilityadmin:GetTelemetryRule", "observabilityadmin:TagResource", "observabilityadmin:UntagResource", "observabilityadmin:ListTagsForResource", "observabilityadmin:GetTelemetryEvaluationStatus", "xray:GetTraceSegmentDestination", "kms:DescribeKey" ]
     },
     "delete" : {
-      "permissions" : [ "observabilityadmin:DeleteTelemetryRule", "observabilityadmin:GetTelemetryEvaluationStatus" ]
+      "permissions" : [ "observabilityadmin:DeleteTelemetryRule", "observabilityadmin:GetTelemetryRule", "observabilityadmin:GetTelemetryEvaluationStatus" ]
     },
     "list" : {
       "permissions" : [ "observabilityadmin:ListTelemetryRules", "observabilityadmin:GetTelemetryEvaluationStatus" ]

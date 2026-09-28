@@ -517,6 +517,146 @@ func (o AgentSpaceOperatorAppPtrOutput) Idc() AgentSpaceIdcAuthConfigurationPtrO
 	}).(AgentSpaceIdcAuthConfigurationPtrOutput)
 }
 
+// Preferences that configure behavior of this AgentSpace. This container fully owns the AgentSpace preferences: the properties supplied here replace the stored preferences in their entirety, and omitting the Preferences container reverts all preferences to their service defaults.
+type AgentSpacePreferences struct {
+	// Indicates whether elevated directed actions are permitted in this AgentSpace. Defaults to false when not set.
+	ElevatedActionsEnabled *bool `pulumi:"elevatedActionsEnabled"`
+}
+
+// AgentSpacePreferencesInput is an input type that accepts AgentSpacePreferencesArgs and AgentSpacePreferencesOutput values.
+// You can construct a concrete instance of `AgentSpacePreferencesInput` via:
+//
+//	AgentSpacePreferencesArgs{...}
+type AgentSpacePreferencesInput interface {
+	pulumi.Input
+
+	ToAgentSpacePreferencesOutput() AgentSpacePreferencesOutput
+	ToAgentSpacePreferencesOutputWithContext(context.Context) AgentSpacePreferencesOutput
+}
+
+// Preferences that configure behavior of this AgentSpace. This container fully owns the AgentSpace preferences: the properties supplied here replace the stored preferences in their entirety, and omitting the Preferences container reverts all preferences to their service defaults.
+type AgentSpacePreferencesArgs struct {
+	// Indicates whether elevated directed actions are permitted in this AgentSpace. Defaults to false when not set.
+	ElevatedActionsEnabled pulumi.BoolPtrInput `pulumi:"elevatedActionsEnabled"`
+}
+
+func (AgentSpacePreferencesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentSpacePreferences)(nil)).Elem()
+}
+
+func (i AgentSpacePreferencesArgs) ToAgentSpacePreferencesOutput() AgentSpacePreferencesOutput {
+	return i.ToAgentSpacePreferencesOutputWithContext(context.Background())
+}
+
+func (i AgentSpacePreferencesArgs) ToAgentSpacePreferencesOutputWithContext(ctx context.Context) AgentSpacePreferencesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentSpacePreferencesOutput)
+}
+
+func (i AgentSpacePreferencesArgs) ToAgentSpacePreferencesPtrOutput() AgentSpacePreferencesPtrOutput {
+	return i.ToAgentSpacePreferencesPtrOutputWithContext(context.Background())
+}
+
+func (i AgentSpacePreferencesArgs) ToAgentSpacePreferencesPtrOutputWithContext(ctx context.Context) AgentSpacePreferencesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentSpacePreferencesOutput).ToAgentSpacePreferencesPtrOutputWithContext(ctx)
+}
+
+// AgentSpacePreferencesPtrInput is an input type that accepts AgentSpacePreferencesArgs, AgentSpacePreferencesPtr and AgentSpacePreferencesPtrOutput values.
+// You can construct a concrete instance of `AgentSpacePreferencesPtrInput` via:
+//
+//	        AgentSpacePreferencesArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentSpacePreferencesPtrInput interface {
+	pulumi.Input
+
+	ToAgentSpacePreferencesPtrOutput() AgentSpacePreferencesPtrOutput
+	ToAgentSpacePreferencesPtrOutputWithContext(context.Context) AgentSpacePreferencesPtrOutput
+}
+
+type agentSpacePreferencesPtrType AgentSpacePreferencesArgs
+
+func AgentSpacePreferencesPtr(v *AgentSpacePreferencesArgs) AgentSpacePreferencesPtrInput {
+	return (*agentSpacePreferencesPtrType)(v)
+}
+
+func (*agentSpacePreferencesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentSpacePreferences)(nil)).Elem()
+}
+
+func (i *agentSpacePreferencesPtrType) ToAgentSpacePreferencesPtrOutput() AgentSpacePreferencesPtrOutput {
+	return i.ToAgentSpacePreferencesPtrOutputWithContext(context.Background())
+}
+
+func (i *agentSpacePreferencesPtrType) ToAgentSpacePreferencesPtrOutputWithContext(ctx context.Context) AgentSpacePreferencesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentSpacePreferencesPtrOutput)
+}
+
+// Preferences that configure behavior of this AgentSpace. This container fully owns the AgentSpace preferences: the properties supplied here replace the stored preferences in their entirety, and omitting the Preferences container reverts all preferences to their service defaults.
+type AgentSpacePreferencesOutput struct{ *pulumi.OutputState }
+
+func (AgentSpacePreferencesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentSpacePreferences)(nil)).Elem()
+}
+
+func (o AgentSpacePreferencesOutput) ToAgentSpacePreferencesOutput() AgentSpacePreferencesOutput {
+	return o
+}
+
+func (o AgentSpacePreferencesOutput) ToAgentSpacePreferencesOutputWithContext(ctx context.Context) AgentSpacePreferencesOutput {
+	return o
+}
+
+func (o AgentSpacePreferencesOutput) ToAgentSpacePreferencesPtrOutput() AgentSpacePreferencesPtrOutput {
+	return o.ToAgentSpacePreferencesPtrOutputWithContext(context.Background())
+}
+
+func (o AgentSpacePreferencesOutput) ToAgentSpacePreferencesPtrOutputWithContext(ctx context.Context) AgentSpacePreferencesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentSpacePreferences) *AgentSpacePreferences {
+		return &v
+	}).(AgentSpacePreferencesPtrOutput)
+}
+
+// Indicates whether elevated directed actions are permitted in this AgentSpace. Defaults to false when not set.
+func (o AgentSpacePreferencesOutput) ElevatedActionsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AgentSpacePreferences) *bool { return v.ElevatedActionsEnabled }).(pulumi.BoolPtrOutput)
+}
+
+type AgentSpacePreferencesPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentSpacePreferencesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentSpacePreferences)(nil)).Elem()
+}
+
+func (o AgentSpacePreferencesPtrOutput) ToAgentSpacePreferencesPtrOutput() AgentSpacePreferencesPtrOutput {
+	return o
+}
+
+func (o AgentSpacePreferencesPtrOutput) ToAgentSpacePreferencesPtrOutputWithContext(ctx context.Context) AgentSpacePreferencesPtrOutput {
+	return o
+}
+
+func (o AgentSpacePreferencesPtrOutput) Elem() AgentSpacePreferencesOutput {
+	return o.ApplyT(func(v *AgentSpacePreferences) AgentSpacePreferences {
+		if v != nil {
+			return *v
+		}
+		var ret AgentSpacePreferences
+		return ret
+	}).(AgentSpacePreferencesOutput)
+}
+
+// Indicates whether elevated directed actions are permitted in this AgentSpace. Defaults to false when not set.
+func (o AgentSpacePreferencesPtrOutput) ElevatedActionsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AgentSpacePreferences) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.ElevatedActionsEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
 // A key-value pair to associate with a resource.
 type AgentSpaceTag struct {
 	// The key name of the tag.
@@ -7287,7 +7427,7 @@ type ServiceMcpServerSigV4AuthorizationConfig struct {
 	McpRoleArn *string `pulumi:"mcpRoleArn"`
 	// AWS region for SigV4 signing. Use '*' for SigV4a multi-region signing.
 	Region string `pulumi:"region"`
-	// Deprecated - use McpRoleArn instead. IAM role ARN to assume for SigV4 signing
+	// Deprecated - use McpRoleArn instead. IAM role ARN to assume for SigV4 signing. Set to an empty string to remove a previously configured role and make the server role-less (cross-account).
 	RoleArn *string `pulumi:"roleArn"`
 	// AWS service name for SigV4 signing
 	Service string `pulumi:"service"`
@@ -7312,7 +7452,7 @@ type ServiceMcpServerSigV4AuthorizationConfigArgs struct {
 	McpRoleArn pulumi.StringPtrInput `pulumi:"mcpRoleArn"`
 	// AWS region for SigV4 signing. Use '*' for SigV4a multi-region signing.
 	Region pulumi.StringInput `pulumi:"region"`
-	// Deprecated - use McpRoleArn instead. IAM role ARN to assume for SigV4 signing
+	// Deprecated - use McpRoleArn instead. IAM role ARN to assume for SigV4 signing. Set to an empty string to remove a previously configured role and make the server role-less (cross-account).
 	RoleArn pulumi.StringPtrInput `pulumi:"roleArn"`
 	// AWS service name for SigV4 signing
 	Service pulumi.StringInput `pulumi:"service"`
@@ -7411,7 +7551,7 @@ func (o ServiceMcpServerSigV4AuthorizationConfigOutput) Region() pulumi.StringOu
 	return o.ApplyT(func(v ServiceMcpServerSigV4AuthorizationConfig) string { return v.Region }).(pulumi.StringOutput)
 }
 
-// Deprecated - use McpRoleArn instead. IAM role ARN to assume for SigV4 signing
+// Deprecated - use McpRoleArn instead. IAM role ARN to assume for SigV4 signing. Set to an empty string to remove a previously configured role and make the server role-less (cross-account).
 func (o ServiceMcpServerSigV4AuthorizationConfigOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceMcpServerSigV4AuthorizationConfig) *string { return v.RoleArn }).(pulumi.StringPtrOutput)
 }
@@ -7475,7 +7615,7 @@ func (o ServiceMcpServerSigV4AuthorizationConfigPtrOutput) Region() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// Deprecated - use McpRoleArn instead. IAM role ARN to assume for SigV4 signing
+// Deprecated - use McpRoleArn instead. IAM role ARN to assume for SigV4 signing. Set to an empty string to remove a previously configured role and make the server role-less (cross-account).
 func (o ServiceMcpServerSigV4AuthorizationConfigPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceMcpServerSigV4AuthorizationConfig) *string {
 		if v == nil {
@@ -10334,6 +10474,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentSpaceIdcAuthConfigurationPtrInput)(nil)).Elem(), AgentSpaceIdcAuthConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentSpaceOperatorAppInput)(nil)).Elem(), AgentSpaceOperatorAppArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentSpaceOperatorAppPtrInput)(nil)).Elem(), AgentSpaceOperatorAppArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentSpacePreferencesInput)(nil)).Elem(), AgentSpacePreferencesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentSpacePreferencesPtrInput)(nil)).Elem(), AgentSpacePreferencesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AssetFileInput)(nil)).Elem(), AssetFileArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AssetFileArrayInput)(nil)).Elem(), AssetFileArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AssociationAwsConfigurationInput)(nil)).Elem(), AssociationAwsConfigurationArgs{})
@@ -10438,6 +10580,8 @@ func init() {
 	pulumi.RegisterOutputType(AgentSpaceIdcAuthConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(AgentSpaceOperatorAppOutput{})
 	pulumi.RegisterOutputType(AgentSpaceOperatorAppPtrOutput{})
+	pulumi.RegisterOutputType(AgentSpacePreferencesOutput{})
+	pulumi.RegisterOutputType(AgentSpacePreferencesPtrOutput{})
 	pulumi.RegisterOutputType(AssetFileOutput{})
 	pulumi.RegisterOutputType(AssetFileArrayOutput{})
 	pulumi.RegisterOutputType(AssociationAwsConfigurationOutput{})
