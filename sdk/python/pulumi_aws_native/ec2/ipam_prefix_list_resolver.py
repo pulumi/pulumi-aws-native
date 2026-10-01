@@ -114,8 +114,8 @@ class IpamPrefixListResolver(pulumi.CustomResource):
                  address_family: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  ipam_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IpamPrefixListResolverRuleArgs', 'IpamPrefixListResolverRuleArgsDict']]]]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IpamPrefixListResolverRuleArgs', 'IpamPrefixListResolverRuleArgsDict', 'outputs.IpamPrefixListResolverRule']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::EC2::IPAMPrefixListResolver
@@ -124,8 +124,8 @@ class IpamPrefixListResolver(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] address_family: The address family of the address space in this Prefix List Resolver. Either IPv4 or IPv6.
         :param pulumi.Input[_builtins.str] ipam_id: The Id of the IPAM this Prefix List Resolver is a part of.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['IpamPrefixListResolverRuleArgs', 'IpamPrefixListResolverRuleArgsDict']]]] rules: Rules define the business logic for selecting CIDRs from IPAM.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['IpamPrefixListResolverRuleArgs', 'IpamPrefixListResolverRuleArgsDict', 'outputs.IpamPrefixListResolverRule']]]] rules: Rules define the business logic for selecting CIDRs from IPAM.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
     @overload
@@ -154,8 +154,8 @@ class IpamPrefixListResolver(pulumi.CustomResource):
                  address_family: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  ipam_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IpamPrefixListResolverRuleArgs', 'IpamPrefixListResolverRuleArgsDict']]]]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IpamPrefixListResolverRuleArgs', 'IpamPrefixListResolverRuleArgsDict', 'outputs.IpamPrefixListResolverRule']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -159,13 +159,13 @@ class SoftwarePackageVersion(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 artifact: pulumi.Input[Optional[Union['SoftwarePackageVersionPackageVersionArtifactArgs', 'SoftwarePackageVersionPackageVersionArtifactArgsDict']]] = None,
+                 artifact: pulumi.Input[Optional[Union['SoftwarePackageVersionPackageVersionArtifactArgs', 'SoftwarePackageVersionPackageVersionArtifactArgsDict', 'outputs.SoftwarePackageVersionPackageVersionArtifact']]] = None,
                  attributes: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  package_name: pulumi.Input[Optional[_builtins.str]] = None,
                  recipe: pulumi.Input[Optional[_builtins.str]] = None,
-                 sbom: pulumi.Input[Optional[Union['SoftwarePackageVersionSbomArgs', 'SoftwarePackageVersionSbomArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 sbom: pulumi.Input[Optional[Union['SoftwarePackageVersionSbomArgs', 'SoftwarePackageVersionSbomArgsDict', 'outputs.SoftwarePackageVersionSbom']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  version_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -179,7 +179,7 @@ class SoftwarePackageVersion(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] description: A summary of the package version being created. This can be used to outline the package's contents or purpose.
         :param pulumi.Input[_builtins.str] package_name: The name of the associated software package.
         :param pulumi.Input[_builtins.str] recipe: The inline json job document associated with a software package version
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: An array of key-value pairs to apply to this resource.
         :param pulumi.Input[_builtins.str] version_name: The name of the new package version.
         """
         ...
@@ -206,13 +206,13 @@ class SoftwarePackageVersion(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 artifact: pulumi.Input[Optional[Union['SoftwarePackageVersionPackageVersionArtifactArgs', 'SoftwarePackageVersionPackageVersionArtifactArgsDict']]] = None,
+                 artifact: pulumi.Input[Optional[Union['SoftwarePackageVersionPackageVersionArtifactArgs', 'SoftwarePackageVersionPackageVersionArtifactArgsDict', 'outputs.SoftwarePackageVersionPackageVersionArtifact']]] = None,
                  attributes: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  package_name: pulumi.Input[Optional[_builtins.str]] = None,
                  recipe: pulumi.Input[Optional[_builtins.str]] = None,
-                 sbom: pulumi.Input[Optional[Union['SoftwarePackageVersionSbomArgs', 'SoftwarePackageVersionSbomArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 sbom: pulumi.Input[Optional[Union['SoftwarePackageVersionSbomArgs', 'SoftwarePackageVersionSbomArgsDict', 'outputs.SoftwarePackageVersionSbom']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  version_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

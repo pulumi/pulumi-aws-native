@@ -130,10 +130,10 @@ class DlpSetting(pulumi.CustomResource):
                  dlp_setting_id: pulumi.Input[Optional[_builtins.str]] = None,
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 provider_config: pulumi.Input[Optional[Union['DlpSettingProviderConfigPropertiesArgs', 'DlpSettingProviderConfigPropertiesArgsDict']]] = None,
+                 provider_config: pulumi.Input[Optional[Union['DlpSettingProviderConfigPropertiesArgs', 'DlpSettingProviderConfigPropertiesArgsDict', 'outputs.DlpSettingProviderConfigProperties']]] = None,
                  provider_outage_action: pulumi.Input[Optional['DlpSettingDlpAction']] = None,
                  provider_type: pulumi.Input[Optional['DlpSettingDlpProviderType']] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Definition of the AWS::QuickSight::DLPSetting Resource Type.
@@ -169,10 +169,10 @@ class DlpSetting(pulumi.CustomResource):
                  dlp_setting_id: pulumi.Input[Optional[_builtins.str]] = None,
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 provider_config: pulumi.Input[Optional[Union['DlpSettingProviderConfigPropertiesArgs', 'DlpSettingProviderConfigPropertiesArgsDict']]] = None,
+                 provider_config: pulumi.Input[Optional[Union['DlpSettingProviderConfigPropertiesArgs', 'DlpSettingProviderConfigPropertiesArgsDict', 'outputs.DlpSettingProviderConfigProperties']]] = None,
                  provider_outage_action: pulumi.Input[Optional['DlpSettingDlpAction']] = None,
                  provider_type: pulumi.Input[Optional['DlpSettingDlpProviderType']] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -130,9 +130,9 @@ class Workteam(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 member_definitions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WorkteamMemberDefinitionArgs', 'WorkteamMemberDefinitionArgsDict']]]]] = None,
-                 notification_configuration: pulumi.Input[Optional[Union['WorkteamNotificationConfigurationArgs', 'WorkteamNotificationConfigurationArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 member_definitions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WorkteamMemberDefinitionArgs', 'WorkteamMemberDefinitionArgsDict', 'outputs.WorkteamMemberDefinition']]]]] = None,
+                 notification_configuration: pulumi.Input[Optional[Union['WorkteamNotificationConfigurationArgs', 'WorkteamNotificationConfigurationArgsDict', 'outputs.WorkteamNotificationConfiguration']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  workforce_name: pulumi.Input[Optional[_builtins.str]] = None,
                  workteam_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -142,9 +142,9 @@ class Workteam(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: A description of the work team.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['WorkteamMemberDefinitionArgs', 'WorkteamMemberDefinitionArgsDict']]]] member_definitions: A list of MemberDefinition objects that contains objects that identify the workers that make up the work team.
-        :param pulumi.Input[Union['WorkteamNotificationConfigurationArgs', 'WorkteamNotificationConfigurationArgsDict']] notification_configuration: Configures SNS notifications of available or expiring work items for work teams.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['WorkteamMemberDefinitionArgs', 'WorkteamMemberDefinitionArgsDict', 'outputs.WorkteamMemberDefinition']]]] member_definitions: A list of MemberDefinition objects that contains objects that identify the workers that make up the work team.
+        :param pulumi.Input[Union['WorkteamNotificationConfigurationArgs', 'WorkteamNotificationConfigurationArgsDict', 'outputs.WorkteamNotificationConfiguration']] notification_configuration: Configures SNS notifications of available or expiring work items for work teams.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: An array of key-value pairs.
         :param pulumi.Input[_builtins.str] workforce_name: The name of the Workforce
         :param pulumi.Input[_builtins.str] workteam_name: The name of the work team.
         """
@@ -173,9 +173,9 @@ class Workteam(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 member_definitions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WorkteamMemberDefinitionArgs', 'WorkteamMemberDefinitionArgsDict']]]]] = None,
-                 notification_configuration: pulumi.Input[Optional[Union['WorkteamNotificationConfigurationArgs', 'WorkteamNotificationConfigurationArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 member_definitions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WorkteamMemberDefinitionArgs', 'WorkteamMemberDefinitionArgsDict', 'outputs.WorkteamMemberDefinition']]]]] = None,
+                 notification_configuration: pulumi.Input[Optional[Union['WorkteamNotificationConfigurationArgs', 'WorkteamNotificationConfigurationArgsDict', 'outputs.WorkteamNotificationConfiguration']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  workforce_name: pulumi.Input[Optional[_builtins.str]] = None,
                  workteam_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):

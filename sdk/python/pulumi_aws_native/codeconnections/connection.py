@@ -100,7 +100,7 @@ class Connection(pulumi.CustomResource):
                  connection_name: pulumi.Input[Optional[_builtins.str]] = None,
                  host_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  provider_type: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Schema for AWS::CodeConnections::Connection resource which can be used to connect external source providers with other AWS services (i.e. AWS CodePipeline)
@@ -110,7 +110,7 @@ class Connection(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] connection_name: The name of the connection. Connection names must be unique in an AWS user account.
         :param pulumi.Input[_builtins.str] host_arn: The host arn configured to represent the infrastructure where your third-party provider is installed. You must specify either a ProviderType or a HostArn.
         :param pulumi.Input[_builtins.str] provider_type: The name of the external provider where your third-party code repository is configured. You must specify either a ProviderType or a HostArn.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Specifies the tags applied to a connection.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: Specifies the tags applied to a connection.
         """
         ...
     @overload
@@ -139,7 +139,7 @@ class Connection(pulumi.CustomResource):
                  connection_name: pulumi.Input[Optional[_builtins.str]] = None,
                  host_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  provider_type: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

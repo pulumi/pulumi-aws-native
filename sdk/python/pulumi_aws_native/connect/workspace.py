@@ -198,11 +198,11 @@ class Workspace(pulumi.CustomResource):
                  associations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  instance_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 media: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WorkspaceMediaItemArgs', 'WorkspaceMediaItemArgsDict']]]]] = None,
+                 media: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WorkspaceMediaItemArgs', 'WorkspaceMediaItemArgsDict', 'outputs.WorkspaceMediaItem']]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 pages: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WorkspacePageArgs', 'WorkspacePageArgsDict']]]]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 theme: pulumi.Input[Optional[Union['WorkspaceThemeArgs', 'WorkspaceThemeArgsDict']]] = None,
+                 pages: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WorkspacePageArgs', 'WorkspacePageArgsDict', 'outputs.WorkspacePage']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
+                 theme: pulumi.Input[Optional[Union['WorkspaceThemeArgs', 'WorkspaceThemeArgsDict', 'outputs.WorkspaceTheme']]] = None,
                  title: pulumi.Input[Optional[_builtins.str]] = None,
                  visibility: pulumi.Input[Optional['WorkspaceVisibility']] = None,
                  __props__=None):
@@ -214,11 +214,11 @@ class Workspace(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] associations: The resource ARNs associated with the workspace
         :param pulumi.Input[_builtins.str] description: The description of the workspace
         :param pulumi.Input[_builtins.str] instance_arn: The identifier of the Amazon Connect instance.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['WorkspaceMediaItemArgs', 'WorkspaceMediaItemArgsDict']]]] media: The media items for the workspace
+        :param pulumi.Input[Sequence[pulumi.Input[Union['WorkspaceMediaItemArgs', 'WorkspaceMediaItemArgsDict', 'outputs.WorkspaceMediaItem']]]] media: The media items for the workspace
         :param pulumi.Input[_builtins.str] name: The name of the workspace.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['WorkspacePageArgs', 'WorkspacePageArgsDict']]]] pages: The pages associated with the workspace
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
-        :param pulumi.Input[Union['WorkspaceThemeArgs', 'WorkspaceThemeArgsDict']] theme: The theme configuration for the workspace
+        :param pulumi.Input[Sequence[pulumi.Input[Union['WorkspacePageArgs', 'WorkspacePageArgsDict', 'outputs.WorkspacePage']]]] pages: The pages associated with the workspace
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Union['WorkspaceThemeArgs', 'WorkspaceThemeArgsDict', 'outputs.WorkspaceTheme']] theme: The theme configuration for the workspace
         :param pulumi.Input[_builtins.str] title: The title of the workspace
         :param pulumi.Input['WorkspaceVisibility'] visibility: The visibility of the workspace. Will always be set to ASSIGNED oninitial creation.
         """
@@ -249,11 +249,11 @@ class Workspace(pulumi.CustomResource):
                  associations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  instance_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 media: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WorkspaceMediaItemArgs', 'WorkspaceMediaItemArgsDict']]]]] = None,
+                 media: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WorkspaceMediaItemArgs', 'WorkspaceMediaItemArgsDict', 'outputs.WorkspaceMediaItem']]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 pages: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WorkspacePageArgs', 'WorkspacePageArgsDict']]]]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 theme: pulumi.Input[Optional[Union['WorkspaceThemeArgs', 'WorkspaceThemeArgsDict']]] = None,
+                 pages: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WorkspacePageArgs', 'WorkspacePageArgsDict', 'outputs.WorkspacePage']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
+                 theme: pulumi.Input[Optional[Union['WorkspaceThemeArgs', 'WorkspaceThemeArgsDict', 'outputs.WorkspaceTheme']]] = None,
                  title: pulumi.Input[Optional[_builtins.str]] = None,
                  visibility: pulumi.Input[Optional['WorkspaceVisibility']] = None,
                  __props__=None):

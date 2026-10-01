@@ -115,22 +115,22 @@ class Monitor(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 local_resources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MonitorLocalResourceArgs', 'MonitorLocalResourceArgsDict']]]]] = None,
+                 local_resources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MonitorLocalResourceArgs', 'MonitorLocalResourceArgsDict', 'outputs.MonitorLocalResource']]]]] = None,
                  monitor_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 remote_resources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MonitorRemoteResourceArgs', 'MonitorRemoteResourceArgsDict']]]]] = None,
+                 remote_resources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MonitorRemoteResourceArgs', 'MonitorRemoteResourceArgsDict', 'outputs.MonitorRemoteResource']]]]] = None,
                  scope_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Creates a monitor for specific network flows between local and remote resources to monitor network performance for workloads.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['MonitorLocalResourceArgs', 'MonitorLocalResourceArgsDict']]]] local_resources: The local resources to monitor.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['MonitorLocalResourceArgs', 'MonitorLocalResourceArgsDict', 'outputs.MonitorLocalResource']]]] local_resources: The local resources to monitor.
         :param pulumi.Input[_builtins.str] monitor_name: The name of the monitor.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['MonitorRemoteResourceArgs', 'MonitorRemoteResourceArgsDict']]]] remote_resources: The remote resources to monitor.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['MonitorRemoteResourceArgs', 'MonitorRemoteResourceArgsDict', 'outputs.MonitorRemoteResource']]]] remote_resources: The remote resources to monitor.
         :param pulumi.Input[_builtins.str] scope_arn: The Amazon Resource Name (ARN) of the scope for the monitor.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags for the monitor.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: The tags for the monitor.
         """
         ...
     @overload
@@ -156,11 +156,11 @@ class Monitor(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 local_resources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MonitorLocalResourceArgs', 'MonitorLocalResourceArgsDict']]]]] = None,
+                 local_resources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MonitorLocalResourceArgs', 'MonitorLocalResourceArgsDict', 'outputs.MonitorLocalResource']]]]] = None,
                  monitor_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 remote_resources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MonitorRemoteResourceArgs', 'MonitorRemoteResourceArgsDict']]]]] = None,
+                 remote_resources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MonitorRemoteResourceArgs', 'MonitorRemoteResourceArgsDict', 'outputs.MonitorRemoteResource']]]]] = None,
                  scope_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -104,18 +104,18 @@ class SamplingRule(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  rule_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 sampling_rule: pulumi.Input[Optional[Union['SamplingRuleArgs', 'SamplingRuleArgsDict']]] = None,
-                 sampling_rule_record: pulumi.Input[Optional[Union['SamplingRuleRecordArgs', 'SamplingRuleRecordArgsDict']]] = None,
-                 sampling_rule_update: pulumi.Input[Optional[Union['SamplingRuleUpdateArgs', 'SamplingRuleUpdateArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 sampling_rule: pulumi.Input[Optional[Union['SamplingRuleArgs', 'SamplingRuleArgsDict', 'outputs.SamplingRule']]] = None,
+                 sampling_rule_record: pulumi.Input[Optional[Union['SamplingRuleRecordArgs', 'SamplingRuleRecordArgsDict', 'outputs.SamplingRuleRecord']]] = None,
+                 sampling_rule_update: pulumi.Input[Optional[Union['SamplingRuleUpdateArgs', 'SamplingRuleUpdateArgsDict', 'outputs.SamplingRuleUpdate']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         This schema provides construct and validation rules for AWS-XRay SamplingRule resource parameters.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['SamplingRuleArgs', 'SamplingRuleArgsDict']] sampling_rule: The sampling rule to be created or updated.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Union['SamplingRuleArgs', 'SamplingRuleArgsDict', 'outputs.SamplingRule']] sampling_rule: The sampling rule to be created or updated.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
     @overload
@@ -142,10 +142,10 @@ class SamplingRule(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  rule_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 sampling_rule: pulumi.Input[Optional[Union['SamplingRuleArgs', 'SamplingRuleArgsDict']]] = None,
-                 sampling_rule_record: pulumi.Input[Optional[Union['SamplingRuleRecordArgs', 'SamplingRuleRecordArgsDict']]] = None,
-                 sampling_rule_update: pulumi.Input[Optional[Union['SamplingRuleUpdateArgs', 'SamplingRuleUpdateArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 sampling_rule: pulumi.Input[Optional[Union['SamplingRuleArgs', 'SamplingRuleArgsDict', 'outputs.SamplingRule']]] = None,
+                 sampling_rule_record: pulumi.Input[Optional[Union['SamplingRuleRecordArgs', 'SamplingRuleRecordArgsDict', 'outputs.SamplingRuleRecord']]] = None,
+                 sampling_rule_update: pulumi.Input[Optional[Union['SamplingRuleUpdateArgs', 'SamplingRuleUpdateArgsDict', 'outputs.SamplingRuleUpdate']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -181,10 +181,10 @@ class Service(pulumi.CustomResource):
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  endpoint_type: pulumi.Input[Optional['ServiceEndpointType']] = None,
                  environment_identifier: pulumi.Input[Optional[_builtins.str]] = None,
-                 lambda_endpoint: pulumi.Input[Optional[Union['ServiceLambdaEndpointInputArgs', 'ServiceLambdaEndpointInputArgsDict']]] = None,
+                 lambda_endpoint: pulumi.Input[Optional[Union['ServiceLambdaEndpointInputArgs', 'ServiceLambdaEndpointInputArgsDict', 'outputs.ServiceLambdaEndpointInput']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 url_endpoint: pulumi.Input[Optional[Union['ServiceUrlEndpointInputArgs', 'ServiceUrlEndpointInputArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
+                 url_endpoint: pulumi.Input[Optional[Union['ServiceUrlEndpointInputArgs', 'ServiceUrlEndpointInputArgsDict', 'outputs.ServiceUrlEndpointInput']]] = None,
                  vpc_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -196,10 +196,10 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] description: A description of the service.
         :param pulumi.Input['ServiceEndpointType'] endpoint_type: The endpoint type of the service.
         :param pulumi.Input[_builtins.str] environment_identifier: The unique identifier of the environment.
-        :param pulumi.Input[Union['ServiceLambdaEndpointInputArgs', 'ServiceLambdaEndpointInputArgsDict']] lambda_endpoint: A summary of the configuration for the AWS Lambda endpoint type.
+        :param pulumi.Input[Union['ServiceLambdaEndpointInputArgs', 'ServiceLambdaEndpointInputArgsDict', 'outputs.ServiceLambdaEndpointInput']] lambda_endpoint: A summary of the configuration for the AWS Lambda endpoint type.
         :param pulumi.Input[_builtins.str] name: The name of the service.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Metadata that you can assign to help organize the frameworks that you create. Each tag is a key-value pair.
-        :param pulumi.Input[Union['ServiceUrlEndpointInputArgs', 'ServiceUrlEndpointInputArgsDict']] url_endpoint: The summary of the configuration for the URL endpoint type.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: Metadata that you can assign to help organize the frameworks that you create. Each tag is a key-value pair.
+        :param pulumi.Input[Union['ServiceUrlEndpointInputArgs', 'ServiceUrlEndpointInputArgsDict', 'outputs.ServiceUrlEndpointInput']] url_endpoint: The summary of the configuration for the URL endpoint type.
         :param pulumi.Input[_builtins.str] vpc_id: The ID of the virtual private cloud (VPC).
         """
         ...
@@ -230,10 +230,10 @@ class Service(pulumi.CustomResource):
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  endpoint_type: pulumi.Input[Optional['ServiceEndpointType']] = None,
                  environment_identifier: pulumi.Input[Optional[_builtins.str]] = None,
-                 lambda_endpoint: pulumi.Input[Optional[Union['ServiceLambdaEndpointInputArgs', 'ServiceLambdaEndpointInputArgsDict']]] = None,
+                 lambda_endpoint: pulumi.Input[Optional[Union['ServiceLambdaEndpointInputArgs', 'ServiceLambdaEndpointInputArgsDict', 'outputs.ServiceLambdaEndpointInput']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 url_endpoint: pulumi.Input[Optional[Union['ServiceUrlEndpointInputArgs', 'ServiceUrlEndpointInputArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
+                 url_endpoint: pulumi.Input[Optional[Union['ServiceUrlEndpointInputArgs', 'ServiceUrlEndpointInputArgsDict', 'outputs.ServiceUrlEndpointInput']]] = None,
                  vpc_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

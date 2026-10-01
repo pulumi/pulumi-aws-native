@@ -91,11 +91,11 @@ class LinkRoutingRule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 conditions: pulumi.Input[Optional[Union['LinkRoutingRuleRuleConditionArgs', 'LinkRoutingRuleRuleConditionArgsDict']]] = None,
+                 conditions: pulumi.Input[Optional[Union['LinkRoutingRuleRuleConditionArgs', 'LinkRoutingRuleRuleConditionArgsDict', 'outputs.LinkRoutingRuleRuleCondition']]] = None,
                  gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
                  link_id: pulumi.Input[Optional[_builtins.str]] = None,
                  priority: pulumi.Input[Optional[_builtins.int]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::RTBFabric::LinkRoutingRule. A routing rule on a link within RTB Fabric that controls request routing based on conditions such as host headers, path matching, and query string parameters.
@@ -127,11 +127,11 @@ class LinkRoutingRule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 conditions: pulumi.Input[Optional[Union['LinkRoutingRuleRuleConditionArgs', 'LinkRoutingRuleRuleConditionArgsDict']]] = None,
+                 conditions: pulumi.Input[Optional[Union['LinkRoutingRuleRuleConditionArgs', 'LinkRoutingRuleRuleConditionArgsDict', 'outputs.LinkRoutingRuleRuleCondition']]] = None,
                  gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
                  link_id: pulumi.Input[Optional[_builtins.str]] = None,
                  priority: pulumi.Input[Optional[_builtins.int]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

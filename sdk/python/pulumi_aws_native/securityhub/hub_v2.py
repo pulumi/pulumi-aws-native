@@ -62,7 +62,7 @@ class HubV2(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 network_scanning: pulumi.Input[Optional[Union['HubV2NetworkScanningArgs', 'HubV2NetworkScanningArgsDict']]] = None,
+                 network_scanning: pulumi.Input[Optional[Union['HubV2NetworkScanningArgs', 'HubV2NetworkScanningArgsDict', 'outputs.HubV2NetworkScanning']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
@@ -96,7 +96,7 @@ class HubV2(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 network_scanning: pulumi.Input[Optional[Union['HubV2NetworkScanningArgs', 'HubV2NetworkScanningArgsDict']]] = None,
+                 network_scanning: pulumi.Input[Optional[Union['HubV2NetworkScanningArgs', 'HubV2NetworkScanningArgsDict', 'outputs.HubV2NetworkScanning']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

@@ -99,9 +99,9 @@ class SchemaMapping(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 mapped_input_fields: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SchemaMappingSchemaInputAttributeArgs', 'SchemaMappingSchemaInputAttributeArgsDict']]]]] = None,
+                 mapped_input_fields: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SchemaMappingSchemaInputAttributeArgs', 'SchemaMappingSchemaInputAttributeArgsDict', 'outputs.SchemaMappingSchemaInputAttribute']]]]] = None,
                  schema_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         SchemaMapping defined in AWS Entity Resolution service
@@ -109,9 +109,9 @@ class SchemaMapping(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: The description of the SchemaMapping
-        :param pulumi.Input[Sequence[pulumi.Input[Union['SchemaMappingSchemaInputAttributeArgs', 'SchemaMappingSchemaInputAttributeArgsDict']]]] mapped_input_fields: The SchemaMapping attributes input
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SchemaMappingSchemaInputAttributeArgs', 'SchemaMappingSchemaInputAttributeArgsDict', 'outputs.SchemaMappingSchemaInputAttribute']]]] mapped_input_fields: The SchemaMapping attributes input
         :param pulumi.Input[_builtins.str] schema_name: The name of the SchemaMapping
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags used to organize, track, or control access for this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: The tags used to organize, track, or control access for this resource.
         """
         ...
     @overload
@@ -138,9 +138,9 @@ class SchemaMapping(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 mapped_input_fields: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SchemaMappingSchemaInputAttributeArgs', 'SchemaMappingSchemaInputAttributeArgsDict']]]]] = None,
+                 mapped_input_fields: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SchemaMappingSchemaInputAttributeArgs', 'SchemaMappingSchemaInputAttributeArgsDict', 'outputs.SchemaMappingSchemaInputAttribute']]]]] = None,
                  schema_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

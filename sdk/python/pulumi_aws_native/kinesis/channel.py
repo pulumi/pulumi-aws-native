@@ -163,13 +163,13 @@ class Channel(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  channel_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 encryption_configuration: pulumi.Input[Optional[Union['ChannelEncryptionConfigurationArgs', 'ChannelEncryptionConfigurationArgsDict']]] = None,
-                 logging_configuration: pulumi.Input[Optional[Union['ChannelLoggingConfigurationArgs', 'ChannelLoggingConfigurationArgsDict']]] = None,
-                 s3_destination_configuration: pulumi.Input[Optional[Union['ChannelS3DestinationConfigurationArgs', 'ChannelS3DestinationConfigurationArgsDict']]] = None,
-                 s3_tables_destination_configuration: pulumi.Input[Optional[Union['ChannelS3TablesDestinationConfigurationArgs', 'ChannelS3TablesDestinationConfigurationArgsDict']]] = None,
+                 encryption_configuration: pulumi.Input[Optional[Union['ChannelEncryptionConfigurationArgs', 'ChannelEncryptionConfigurationArgsDict', 'outputs.ChannelEncryptionConfiguration']]] = None,
+                 logging_configuration: pulumi.Input[Optional[Union['ChannelLoggingConfigurationArgs', 'ChannelLoggingConfigurationArgsDict', 'outputs.ChannelLoggingConfiguration']]] = None,
+                 s3_destination_configuration: pulumi.Input[Optional[Union['ChannelS3DestinationConfigurationArgs', 'ChannelS3DestinationConfigurationArgsDict', 'outputs.ChannelS3DestinationConfiguration']]] = None,
+                 s3_tables_destination_configuration: pulumi.Input[Optional[Union['ChannelS3TablesDestinationConfigurationArgs', 'ChannelS3TablesDestinationConfigurationArgsDict', 'outputs.ChannelS3TablesDestinationConfiguration']]] = None,
                  service_execution_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 stream_configuration_list: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ChannelStreamConfigurationArgs', 'ChannelStreamConfigurationArgsDict']]]]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 stream_configuration_list: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ChannelStreamConfigurationArgs', 'ChannelStreamConfigurationArgsDict', 'outputs.ChannelStreamConfiguration']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::Kinesis::Channel
@@ -177,13 +177,13 @@ class Channel(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] channel_name: The name of the channel. The name's uniqueness is scoped per AWS account and region.
-        :param pulumi.Input[Union['ChannelEncryptionConfigurationArgs', 'ChannelEncryptionConfigurationArgsDict']] encryption_configuration: Server-side encryption configuration for data at rest.
-        :param pulumi.Input[Union['ChannelLoggingConfigurationArgs', 'ChannelLoggingConfigurationArgsDict']] logging_configuration: Configuration for delivering channel operational logs. Defaults to CloudWatch Logs disabled.
-        :param pulumi.Input[Union['ChannelS3DestinationConfigurationArgs', 'ChannelS3DestinationConfigurationArgsDict']] s3_destination_configuration: Configuration for delivery to a vanilla S3 bucket destination. Exactly one of S3DestinationConfiguration and S3TablesDestinationConfiguration must be specified.
-        :param pulumi.Input[Union['ChannelS3TablesDestinationConfigurationArgs', 'ChannelS3TablesDestinationConfigurationArgsDict']] s3_tables_destination_configuration: Configuration for delivery to S3 Tables destinations. Exactly one of S3DestinationConfiguration and S3TablesDestinationConfiguration must be specified.
+        :param pulumi.Input[Union['ChannelEncryptionConfigurationArgs', 'ChannelEncryptionConfigurationArgsDict', 'outputs.ChannelEncryptionConfiguration']] encryption_configuration: Server-side encryption configuration for data at rest.
+        :param pulumi.Input[Union['ChannelLoggingConfigurationArgs', 'ChannelLoggingConfigurationArgsDict', 'outputs.ChannelLoggingConfiguration']] logging_configuration: Configuration for delivering channel operational logs. Defaults to CloudWatch Logs disabled.
+        :param pulumi.Input[Union['ChannelS3DestinationConfigurationArgs', 'ChannelS3DestinationConfigurationArgsDict', 'outputs.ChannelS3DestinationConfiguration']] s3_destination_configuration: Configuration for delivery to a vanilla S3 bucket destination. Exactly one of S3DestinationConfiguration and S3TablesDestinationConfiguration must be specified.
+        :param pulumi.Input[Union['ChannelS3TablesDestinationConfigurationArgs', 'ChannelS3TablesDestinationConfigurationArgsDict', 'outputs.ChannelS3TablesDestinationConfiguration']] s3_tables_destination_configuration: Configuration for delivery to S3 Tables destinations. Exactly one of S3DestinationConfiguration and S3TablesDestinationConfiguration must be specified.
         :param pulumi.Input[_builtins.str] service_execution_role_arn: The ARN of the IAM role that the channel assumes to read from the source stream, deliver records to the destination, and (when enabled) write CloudWatch Logs.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ChannelStreamConfigurationArgs', 'ChannelStreamConfigurationArgsDict']]]] stream_configuration_list: List of stream configurations associated with the channel. v1 supports a single element; the list shape allows future extensibility to fan in from multiple streams.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An arbitrary set of tags (key-value pairs) to associate with the Kinesis channel.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ChannelStreamConfigurationArgs', 'ChannelStreamConfigurationArgsDict', 'outputs.ChannelStreamConfiguration']]]] stream_configuration_list: List of stream configurations associated with the channel. v1 supports a single element; the list shape allows future extensibility to fan in from multiple streams.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: An arbitrary set of tags (key-value pairs) to associate with the Kinesis channel.
         """
         ...
     @overload
@@ -210,13 +210,13 @@ class Channel(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  channel_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 encryption_configuration: pulumi.Input[Optional[Union['ChannelEncryptionConfigurationArgs', 'ChannelEncryptionConfigurationArgsDict']]] = None,
-                 logging_configuration: pulumi.Input[Optional[Union['ChannelLoggingConfigurationArgs', 'ChannelLoggingConfigurationArgsDict']]] = None,
-                 s3_destination_configuration: pulumi.Input[Optional[Union['ChannelS3DestinationConfigurationArgs', 'ChannelS3DestinationConfigurationArgsDict']]] = None,
-                 s3_tables_destination_configuration: pulumi.Input[Optional[Union['ChannelS3TablesDestinationConfigurationArgs', 'ChannelS3TablesDestinationConfigurationArgsDict']]] = None,
+                 encryption_configuration: pulumi.Input[Optional[Union['ChannelEncryptionConfigurationArgs', 'ChannelEncryptionConfigurationArgsDict', 'outputs.ChannelEncryptionConfiguration']]] = None,
+                 logging_configuration: pulumi.Input[Optional[Union['ChannelLoggingConfigurationArgs', 'ChannelLoggingConfigurationArgsDict', 'outputs.ChannelLoggingConfiguration']]] = None,
+                 s3_destination_configuration: pulumi.Input[Optional[Union['ChannelS3DestinationConfigurationArgs', 'ChannelS3DestinationConfigurationArgsDict', 'outputs.ChannelS3DestinationConfiguration']]] = None,
+                 s3_tables_destination_configuration: pulumi.Input[Optional[Union['ChannelS3TablesDestinationConfigurationArgs', 'ChannelS3TablesDestinationConfigurationArgsDict', 'outputs.ChannelS3TablesDestinationConfiguration']]] = None,
                  service_execution_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 stream_configuration_list: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ChannelStreamConfigurationArgs', 'ChannelStreamConfigurationArgsDict']]]]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 stream_configuration_list: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ChannelStreamConfigurationArgs', 'ChannelStreamConfigurationArgsDict', 'outputs.ChannelStreamConfiguration']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

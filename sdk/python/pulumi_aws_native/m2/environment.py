@@ -263,7 +263,7 @@ class Environment(pulumi.CustomResource):
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  engine_type: pulumi.Input[Optional['EnvironmentEngineType']] = None,
                  engine_version: pulumi.Input[Optional[_builtins.str]] = None,
-                 high_availability_config: pulumi.Input[Optional[Union['EnvironmentHighAvailabilityConfigArgs', 'EnvironmentHighAvailabilityConfigArgsDict']]] = None,
+                 high_availability_config: pulumi.Input[Optional[Union['EnvironmentHighAvailabilityConfigArgs', 'EnvironmentHighAvailabilityConfigArgsDict', 'outputs.EnvironmentHighAvailabilityConfig']]] = None,
                  instance_type: pulumi.Input[Optional[_builtins.str]] = None,
                  kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -271,7 +271,7 @@ class Environment(pulumi.CustomResource):
                  preferred_maintenance_window: pulumi.Input[Optional[_builtins.str]] = None,
                  publicly_accessible: pulumi.Input[Optional[_builtins.bool]] = None,
                  security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 storage_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EnvironmentStorageConfigurationArgs', 'EnvironmentStorageConfigurationArgsDict']]]]] = None,
+                 storage_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EnvironmentStorageConfigurationArgs', 'EnvironmentStorageConfigurationArgsDict', 'outputs.EnvironmentStorageConfiguration']]]]] = None,
                  subnet_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
@@ -283,7 +283,7 @@ class Environment(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] description: The description of the environment.
         :param pulumi.Input['EnvironmentEngineType'] engine_type: The target platform for the runtime environment.
         :param pulumi.Input[_builtins.str] engine_version: The version of the runtime engine for the environment.
-        :param pulumi.Input[Union['EnvironmentHighAvailabilityConfigArgs', 'EnvironmentHighAvailabilityConfigArgsDict']] high_availability_config: > AWS Mainframe Modernization Service (Managed Runtime Environment experience) will no longer be open to new customers starting on November 7, 2025. If you would like to use the service, please sign up prior to November 7, 2025. For capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Environment experience) explore AWS Mainframe Modernization Service (Self-Managed Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization availability change](https://docs.aws.amazon.com/m2/latest/userguide/mainframe-modernization-availability-change.html) .
+        :param pulumi.Input[Union['EnvironmentHighAvailabilityConfigArgs', 'EnvironmentHighAvailabilityConfigArgsDict', 'outputs.EnvironmentHighAvailabilityConfig']] high_availability_config: > AWS Mainframe Modernization Service (Managed Runtime Environment experience) will no longer be open to new customers starting on November 7, 2025. If you would like to use the service, please sign up prior to November 7, 2025. For capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Environment experience) explore AWS Mainframe Modernization Service (Self-Managed Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization availability change](https://docs.aws.amazon.com/m2/latest/userguide/mainframe-modernization-availability-change.html) .
                
                Defines the details of a high availability configuration.
         :param pulumi.Input[_builtins.str] instance_type: The type of instance underlying the environment.
@@ -293,7 +293,7 @@ class Environment(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] preferred_maintenance_window: Configures a desired maintenance window for the environment. If you do not provide a value, a random system-generated value will be assigned.
         :param pulumi.Input[_builtins.bool] publicly_accessible: Specifies whether the environment is publicly accessible.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: The list of security groups for the VPC associated with this environment.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentStorageConfigurationArgs', 'EnvironmentStorageConfigurationArgsDict']]]] storage_configurations: The storage configurations defined for the runtime environment.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentStorageConfigurationArgs', 'EnvironmentStorageConfigurationArgsDict', 'outputs.EnvironmentStorageConfiguration']]]] storage_configurations: The storage configurations defined for the runtime environment.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: The unique identifiers of the subnets assigned to this runtime environment.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Tags associated to this environment.
         """
@@ -324,7 +324,7 @@ class Environment(pulumi.CustomResource):
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  engine_type: pulumi.Input[Optional['EnvironmentEngineType']] = None,
                  engine_version: pulumi.Input[Optional[_builtins.str]] = None,
-                 high_availability_config: pulumi.Input[Optional[Union['EnvironmentHighAvailabilityConfigArgs', 'EnvironmentHighAvailabilityConfigArgsDict']]] = None,
+                 high_availability_config: pulumi.Input[Optional[Union['EnvironmentHighAvailabilityConfigArgs', 'EnvironmentHighAvailabilityConfigArgsDict', 'outputs.EnvironmentHighAvailabilityConfig']]] = None,
                  instance_type: pulumi.Input[Optional[_builtins.str]] = None,
                  kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -332,7 +332,7 @@ class Environment(pulumi.CustomResource):
                  preferred_maintenance_window: pulumi.Input[Optional[_builtins.str]] = None,
                  publicly_accessible: pulumi.Input[Optional[_builtins.bool]] = None,
                  security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 storage_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EnvironmentStorageConfigurationArgs', 'EnvironmentStorageConfigurationArgsDict']]]]] = None,
+                 storage_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EnvironmentStorageConfigurationArgs', 'EnvironmentStorageConfigurationArgsDict', 'outputs.EnvironmentStorageConfiguration']]]]] = None,
                  subnet_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):

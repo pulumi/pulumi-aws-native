@@ -105,7 +105,7 @@ class ComponentVersion(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  inline_recipe: pulumi.Input[Optional[_builtins.str]] = None,
-                 lambda_function: pulumi.Input[Optional[Union['ComponentVersionLambdaFunctionRecipeSourceArgs', 'ComponentVersionLambdaFunctionRecipeSourceArgsDict']]] = None,
+                 lambda_function: pulumi.Input[Optional[Union['ComponentVersionLambdaFunctionRecipeSourceArgs', 'ComponentVersionLambdaFunctionRecipeSourceArgsDict', 'outputs.ComponentVersionLambdaFunctionRecipeSource']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
@@ -116,7 +116,7 @@ class ComponentVersion(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] inline_recipe: The recipe to use to create the component. The recipe defines the component's metadata, parameters, dependencies, lifecycle, artifacts, and platform compatibility.
                
                You must specify either `InlineRecipe` or `LambdaFunction` .
-        :param pulumi.Input[Union['ComponentVersionLambdaFunctionRecipeSourceArgs', 'ComponentVersionLambdaFunctionRecipeSourceArgsDict']] lambda_function: The parameters to create a component from a Lambda function.
+        :param pulumi.Input[Union['ComponentVersionLambdaFunctionRecipeSourceArgs', 'ComponentVersionLambdaFunctionRecipeSourceArgsDict', 'outputs.ComponentVersionLambdaFunctionRecipeSource']] lambda_function: The parameters to create a component from a Lambda function.
                
                You must specify either `InlineRecipe` or `LambdaFunction` .
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Application-specific metadata to attach to the component version. You can use tags in IAM policies to control access to AWS IoT Greengrass resources. You can also use tags to categorize your resources. For more information, see [Tag your AWS IoT Greengrass Version 2 resources](https://docs.aws.amazon.com/greengrass/v2/developerguide/tag-resources.html) in the *AWS IoT Greengrass V2 Developer Guide* .
@@ -153,7 +153,7 @@ class ComponentVersion(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  inline_recipe: pulumi.Input[Optional[_builtins.str]] = None,
-                 lambda_function: pulumi.Input[Optional[Union['ComponentVersionLambdaFunctionRecipeSourceArgs', 'ComponentVersionLambdaFunctionRecipeSourceArgsDict']]] = None,
+                 lambda_function: pulumi.Input[Optional[Union['ComponentVersionLambdaFunctionRecipeSourceArgs', 'ComponentVersionLambdaFunctionRecipeSourceArgsDict', 'outputs.ComponentVersionLambdaFunctionRecipeSource']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

@@ -63,16 +63,16 @@ class TagAssociation(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 lf_tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TagAssociationLfTagPairArgs', 'TagAssociationLfTagPairArgsDict']]]]] = None,
-                 resource: pulumi.Input[Optional[Union['TagAssociationResourceArgs', 'TagAssociationResourceArgsDict']]] = None,
+                 lf_tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TagAssociationLfTagPairArgs', 'TagAssociationLfTagPairArgsDict', 'outputs.TagAssociationLfTagPair']]]]] = None,
+                 resource: pulumi.Input[Optional[Union['TagAssociationResourceArgs', 'TagAssociationResourceArgsDict', 'outputs.TagAssociationResource']]] = None,
                  __props__=None):
         """
         A resource schema representing a Lake Formation Tag Association. While tag associations are not explicit Lake Formation resources, this CloudFormation resource can be used to associate tags with Lake Formation entities.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['TagAssociationLfTagPairArgs', 'TagAssociationLfTagPairArgsDict']]]] lf_tags: List of Lake Formation Tags to associate with the Lake Formation Resource
-        :param pulumi.Input[Union['TagAssociationResourceArgs', 'TagAssociationResourceArgsDict']] resource: Resource to tag with the Lake Formation Tags
+        :param pulumi.Input[Sequence[pulumi.Input[Union['TagAssociationLfTagPairArgs', 'TagAssociationLfTagPairArgsDict', 'outputs.TagAssociationLfTagPair']]]] lf_tags: List of Lake Formation Tags to associate with the Lake Formation Resource
+        :param pulumi.Input[Union['TagAssociationResourceArgs', 'TagAssociationResourceArgsDict', 'outputs.TagAssociationResource']] resource: Resource to tag with the Lake Formation Tags
         """
         ...
     @overload
@@ -98,8 +98,8 @@ class TagAssociation(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 lf_tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TagAssociationLfTagPairArgs', 'TagAssociationLfTagPairArgsDict']]]]] = None,
-                 resource: pulumi.Input[Optional[Union['TagAssociationResourceArgs', 'TagAssociationResourceArgsDict']]] = None,
+                 lf_tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TagAssociationLfTagPairArgs', 'TagAssociationLfTagPairArgsDict', 'outputs.TagAssociationLfTagPair']]]]] = None,
+                 resource: pulumi.Input[Optional[Union['TagAssociationResourceArgs', 'TagAssociationResourceArgsDict', 'outputs.TagAssociationResource']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

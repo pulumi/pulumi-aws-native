@@ -203,32 +203,32 @@ class Transformer(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 edi_type: pulumi.Input[Optional[Union['TransformerEdiTypePropertiesArgs', 'TransformerEdiTypePropertiesArgsDict']]] = None,
+                 edi_type: pulumi.Input[Optional[Union['TransformerEdiTypePropertiesArgs', 'TransformerEdiTypePropertiesArgsDict', 'outputs.TransformerEdiTypeProperties']]] = None,
                  file_format: pulumi.Input[Optional['TransformerFileFormat']] = None,
-                 input_conversion: pulumi.Input[Optional[Union['TransformerInputConversionArgs', 'TransformerInputConversionArgsDict']]] = None,
-                 mapping: pulumi.Input[Optional[Union['TransformerMappingArgs', 'TransformerMappingArgsDict']]] = None,
+                 input_conversion: pulumi.Input[Optional[Union['TransformerInputConversionArgs', 'TransformerInputConversionArgsDict', 'outputs.TransformerInputConversion']]] = None,
+                 mapping: pulumi.Input[Optional[Union['TransformerMappingArgs', 'TransformerMappingArgsDict', 'outputs.TransformerMapping']]] = None,
                  mapping_template: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 output_conversion: pulumi.Input[Optional[Union['TransformerOutputConversionArgs', 'TransformerOutputConversionArgsDict']]] = None,
+                 output_conversion: pulumi.Input[Optional[Union['TransformerOutputConversionArgs', 'TransformerOutputConversionArgsDict', 'outputs.TransformerOutputConversion']]] = None,
                  sample_document: pulumi.Input[Optional[_builtins.str]] = None,
-                 sample_documents: pulumi.Input[Optional[Union['TransformerSampleDocumentsArgs', 'TransformerSampleDocumentsArgsDict']]] = None,
+                 sample_documents: pulumi.Input[Optional[Union['TransformerSampleDocumentsArgs', 'TransformerSampleDocumentsArgsDict', 'outputs.TransformerSampleDocuments']]] = None,
                  status: pulumi.Input[Optional['TransformerStatus']] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Definition of AWS::B2BI::Transformer Resource Type
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['TransformerInputConversionArgs', 'TransformerInputConversionArgsDict']] input_conversion: Returns a structure that contains the format options for the transformation.
-        :param pulumi.Input[Union['TransformerMappingArgs', 'TransformerMappingArgsDict']] mapping: Returns the structure that contains the mapping template and its language (either XSLT or JSONATA).
+        :param pulumi.Input[Union['TransformerInputConversionArgs', 'TransformerInputConversionArgsDict', 'outputs.TransformerInputConversion']] input_conversion: Returns a structure that contains the format options for the transformation.
+        :param pulumi.Input[Union['TransformerMappingArgs', 'TransformerMappingArgsDict', 'outputs.TransformerMapping']] mapping: Returns the structure that contains the mapping template and its language (either XSLT or JSONATA).
         :param pulumi.Input[_builtins.str] mapping_template: This shape is deprecated: This is a legacy trait. Please use input-conversion or output-conversion.
         :param pulumi.Input[_builtins.str] name: Returns the descriptive name for the transformer.
-        :param pulumi.Input[Union['TransformerOutputConversionArgs', 'TransformerOutputConversionArgsDict']] output_conversion: Returns the `OutputConversion` object, which contains the format options for the outbound transformation.
+        :param pulumi.Input[Union['TransformerOutputConversionArgs', 'TransformerOutputConversionArgsDict', 'outputs.TransformerOutputConversion']] output_conversion: Returns the `OutputConversion` object, which contains the format options for the outbound transformation.
         :param pulumi.Input[_builtins.str] sample_document: This shape is deprecated: This is a legacy trait. Please use input-conversion or output-conversion.
-        :param pulumi.Input[Union['TransformerSampleDocumentsArgs', 'TransformerSampleDocumentsArgsDict']] sample_documents: Returns a structure that contains the Amazon S3 bucket and an array of the corresponding keys used to identify the location for your sample documents.
+        :param pulumi.Input[Union['TransformerSampleDocumentsArgs', 'TransformerSampleDocumentsArgsDict', 'outputs.TransformerSampleDocuments']] sample_documents: Returns a structure that contains the Amazon S3 bucket and an array of the corresponding keys used to identify the location for your sample documents.
         :param pulumi.Input['TransformerStatus'] status: Returns the state of the newly created transformer. The transformer can be either `active` or `inactive` . For the transformer to be used in a capability, its status must `active` .
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: A key-value pair for a specific transformer. Tags are metadata that you can use to search for and group capabilities for various purposes.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: A key-value pair for a specific transformer. Tags are metadata that you can use to search for and group capabilities for various purposes.
         """
         ...
     @overload
@@ -254,17 +254,17 @@ class Transformer(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 edi_type: pulumi.Input[Optional[Union['TransformerEdiTypePropertiesArgs', 'TransformerEdiTypePropertiesArgsDict']]] = None,
+                 edi_type: pulumi.Input[Optional[Union['TransformerEdiTypePropertiesArgs', 'TransformerEdiTypePropertiesArgsDict', 'outputs.TransformerEdiTypeProperties']]] = None,
                  file_format: pulumi.Input[Optional['TransformerFileFormat']] = None,
-                 input_conversion: pulumi.Input[Optional[Union['TransformerInputConversionArgs', 'TransformerInputConversionArgsDict']]] = None,
-                 mapping: pulumi.Input[Optional[Union['TransformerMappingArgs', 'TransformerMappingArgsDict']]] = None,
+                 input_conversion: pulumi.Input[Optional[Union['TransformerInputConversionArgs', 'TransformerInputConversionArgsDict', 'outputs.TransformerInputConversion']]] = None,
+                 mapping: pulumi.Input[Optional[Union['TransformerMappingArgs', 'TransformerMappingArgsDict', 'outputs.TransformerMapping']]] = None,
                  mapping_template: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 output_conversion: pulumi.Input[Optional[Union['TransformerOutputConversionArgs', 'TransformerOutputConversionArgsDict']]] = None,
+                 output_conversion: pulumi.Input[Optional[Union['TransformerOutputConversionArgs', 'TransformerOutputConversionArgsDict', 'outputs.TransformerOutputConversion']]] = None,
                  sample_document: pulumi.Input[Optional[_builtins.str]] = None,
-                 sample_documents: pulumi.Input[Optional[Union['TransformerSampleDocumentsArgs', 'TransformerSampleDocumentsArgsDict']]] = None,
+                 sample_documents: pulumi.Input[Optional[Union['TransformerSampleDocumentsArgs', 'TransformerSampleDocumentsArgsDict', 'outputs.TransformerSampleDocuments']]] = None,
                  status: pulumi.Input[Optional['TransformerStatus']] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

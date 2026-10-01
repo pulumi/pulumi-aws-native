@@ -146,9 +146,9 @@ class ConnectAttachment(pulumi.CustomResource):
                  core_network_id: pulumi.Input[Optional[_builtins.str]] = None,
                  edge_location: pulumi.Input[Optional[_builtins.str]] = None,
                  network_function_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 options: pulumi.Input[Optional[Union['ConnectAttachmentOptionsArgs', 'ConnectAttachmentOptionsArgsDict']]] = None,
+                 options: pulumi.Input[Optional[Union['ConnectAttachmentOptionsArgs', 'ConnectAttachmentOptionsArgsDict', 'outputs.ConnectAttachmentOptions']]] = None,
                  routing_policy_label: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  transport_attachment_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -159,9 +159,9 @@ class ConnectAttachment(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] core_network_id: ID of the CoreNetwork that the attachment will be attached to.
         :param pulumi.Input[_builtins.str] edge_location: Edge location of the attachment.
         :param pulumi.Input[_builtins.str] network_function_group_name: The name of the network function group attachment.
-        :param pulumi.Input[Union['ConnectAttachmentOptionsArgs', 'ConnectAttachmentOptionsArgsDict']] options: Protocol options for connect attachment
+        :param pulumi.Input[Union['ConnectAttachmentOptionsArgs', 'ConnectAttachmentOptionsArgsDict', 'outputs.ConnectAttachmentOptions']] options: Protocol options for connect attachment
         :param pulumi.Input[_builtins.str] routing_policy_label: Routing policy label
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Tags for the attachment.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: Tags for the attachment.
         :param pulumi.Input[_builtins.str] transport_attachment_id: Id of transport attachment
         """
         ...
@@ -191,9 +191,9 @@ class ConnectAttachment(pulumi.CustomResource):
                  core_network_id: pulumi.Input[Optional[_builtins.str]] = None,
                  edge_location: pulumi.Input[Optional[_builtins.str]] = None,
                  network_function_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 options: pulumi.Input[Optional[Union['ConnectAttachmentOptionsArgs', 'ConnectAttachmentOptionsArgsDict']]] = None,
+                 options: pulumi.Input[Optional[Union['ConnectAttachmentOptionsArgs', 'ConnectAttachmentOptionsArgsDict', 'outputs.ConnectAttachmentOptions']]] = None,
                  routing_policy_label: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  transport_attachment_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

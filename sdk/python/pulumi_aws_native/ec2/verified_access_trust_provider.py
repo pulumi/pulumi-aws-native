@@ -194,13 +194,13 @@ class VerifiedAccessTrustProvider(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 device_options: pulumi.Input[Optional[Union['VerifiedAccessTrustProviderDeviceOptionsArgs', 'VerifiedAccessTrustProviderDeviceOptionsArgsDict']]] = None,
+                 device_options: pulumi.Input[Optional[Union['VerifiedAccessTrustProviderDeviceOptionsArgs', 'VerifiedAccessTrustProviderDeviceOptionsArgsDict', 'outputs.VerifiedAccessTrustProviderDeviceOptions']]] = None,
                  device_trust_provider_type: pulumi.Input[Optional[_builtins.str]] = None,
-                 native_application_oidc_options: pulumi.Input[Optional[Union['VerifiedAccessTrustProviderNativeApplicationOidcOptionsArgs', 'VerifiedAccessTrustProviderNativeApplicationOidcOptionsArgsDict']]] = None,
-                 oidc_options: pulumi.Input[Optional[Union['VerifiedAccessTrustProviderOidcOptionsArgs', 'VerifiedAccessTrustProviderOidcOptionsArgsDict']]] = None,
+                 native_application_oidc_options: pulumi.Input[Optional[Union['VerifiedAccessTrustProviderNativeApplicationOidcOptionsArgs', 'VerifiedAccessTrustProviderNativeApplicationOidcOptionsArgsDict', 'outputs.VerifiedAccessTrustProviderNativeApplicationOidcOptions']]] = None,
+                 oidc_options: pulumi.Input[Optional[Union['VerifiedAccessTrustProviderOidcOptionsArgs', 'VerifiedAccessTrustProviderOidcOptionsArgsDict', 'outputs.VerifiedAccessTrustProviderOidcOptions']]] = None,
                  policy_reference_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 sse_specification: pulumi.Input[Optional[Union['SseSpecificationPropertiesArgs', 'SseSpecificationPropertiesArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 sse_specification: pulumi.Input[Optional[Union['SseSpecificationPropertiesArgs', 'SseSpecificationPropertiesArgsDict', 'outputs.SseSpecificationProperties']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  trust_provider_type: pulumi.Input[Optional[_builtins.str]] = None,
                  user_trust_provider_type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -210,13 +210,13 @@ class VerifiedAccessTrustProvider(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: A description for the Amazon Web Services Verified Access trust provider.
-        :param pulumi.Input[Union['VerifiedAccessTrustProviderDeviceOptionsArgs', 'VerifiedAccessTrustProviderDeviceOptionsArgsDict']] device_options: The options for device-identity trust provider.
+        :param pulumi.Input[Union['VerifiedAccessTrustProviderDeviceOptionsArgs', 'VerifiedAccessTrustProviderDeviceOptionsArgsDict', 'outputs.VerifiedAccessTrustProviderDeviceOptions']] device_options: The options for device-identity trust provider.
         :param pulumi.Input[_builtins.str] device_trust_provider_type: The type of device-based trust provider. Possible values: jamf|crowdstrike
-        :param pulumi.Input[Union['VerifiedAccessTrustProviderNativeApplicationOidcOptionsArgs', 'VerifiedAccessTrustProviderNativeApplicationOidcOptionsArgsDict']] native_application_oidc_options: The OpenID Connect (OIDC) options.
-        :param pulumi.Input[Union['VerifiedAccessTrustProviderOidcOptionsArgs', 'VerifiedAccessTrustProviderOidcOptionsArgsDict']] oidc_options: The options for an OpenID Connect-compatible user-identity trust provider.
+        :param pulumi.Input[Union['VerifiedAccessTrustProviderNativeApplicationOidcOptionsArgs', 'VerifiedAccessTrustProviderNativeApplicationOidcOptionsArgsDict', 'outputs.VerifiedAccessTrustProviderNativeApplicationOidcOptions']] native_application_oidc_options: The OpenID Connect (OIDC) options.
+        :param pulumi.Input[Union['VerifiedAccessTrustProviderOidcOptionsArgs', 'VerifiedAccessTrustProviderOidcOptionsArgsDict', 'outputs.VerifiedAccessTrustProviderOidcOptions']] oidc_options: The options for an OpenID Connect-compatible user-identity trust provider.
         :param pulumi.Input[_builtins.str] policy_reference_name: The identifier to be used when working with policy rules.
-        :param pulumi.Input[Union['SseSpecificationPropertiesArgs', 'SseSpecificationPropertiesArgsDict']] sse_specification: The configuration options for customer provided KMS encryption.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Union['SseSpecificationPropertiesArgs', 'SseSpecificationPropertiesArgsDict', 'outputs.SseSpecificationProperties']] sse_specification: The configuration options for customer provided KMS encryption.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: An array of key-value pairs to apply to this resource.
         :param pulumi.Input[_builtins.str] trust_provider_type: Type of trust provider. Possible values: user|device
         :param pulumi.Input[_builtins.str] user_trust_provider_type: The type of device-based trust provider. Possible values: oidc|iam-identity-center
         """
@@ -245,13 +245,13 @@ class VerifiedAccessTrustProvider(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 device_options: pulumi.Input[Optional[Union['VerifiedAccessTrustProviderDeviceOptionsArgs', 'VerifiedAccessTrustProviderDeviceOptionsArgsDict']]] = None,
+                 device_options: pulumi.Input[Optional[Union['VerifiedAccessTrustProviderDeviceOptionsArgs', 'VerifiedAccessTrustProviderDeviceOptionsArgsDict', 'outputs.VerifiedAccessTrustProviderDeviceOptions']]] = None,
                  device_trust_provider_type: pulumi.Input[Optional[_builtins.str]] = None,
-                 native_application_oidc_options: pulumi.Input[Optional[Union['VerifiedAccessTrustProviderNativeApplicationOidcOptionsArgs', 'VerifiedAccessTrustProviderNativeApplicationOidcOptionsArgsDict']]] = None,
-                 oidc_options: pulumi.Input[Optional[Union['VerifiedAccessTrustProviderOidcOptionsArgs', 'VerifiedAccessTrustProviderOidcOptionsArgsDict']]] = None,
+                 native_application_oidc_options: pulumi.Input[Optional[Union['VerifiedAccessTrustProviderNativeApplicationOidcOptionsArgs', 'VerifiedAccessTrustProviderNativeApplicationOidcOptionsArgsDict', 'outputs.VerifiedAccessTrustProviderNativeApplicationOidcOptions']]] = None,
+                 oidc_options: pulumi.Input[Optional[Union['VerifiedAccessTrustProviderOidcOptionsArgs', 'VerifiedAccessTrustProviderOidcOptionsArgsDict', 'outputs.VerifiedAccessTrustProviderOidcOptions']]] = None,
                  policy_reference_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 sse_specification: pulumi.Input[Optional[Union['SseSpecificationPropertiesArgs', 'SseSpecificationPropertiesArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 sse_specification: pulumi.Input[Optional[Union['SseSpecificationPropertiesArgs', 'SseSpecificationPropertiesArgsDict', 'outputs.SseSpecificationProperties']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  trust_provider_type: pulumi.Input[Optional[_builtins.str]] = None,
                  user_trust_provider_type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):

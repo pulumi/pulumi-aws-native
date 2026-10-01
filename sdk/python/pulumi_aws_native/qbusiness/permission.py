@@ -108,7 +108,7 @@ class Permission(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  actions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  application_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 conditions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PermissionConditionArgs', 'PermissionConditionArgsDict']]]]] = None,
+                 conditions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PermissionConditionArgs', 'PermissionConditionArgsDict', 'outputs.PermissionCondition']]]]] = None,
                  principal: pulumi.Input[Optional[_builtins.str]] = None,
                  statement_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -148,7 +148,7 @@ class Permission(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  actions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  application_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 conditions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PermissionConditionArgs', 'PermissionConditionArgsDict']]]]] = None,
+                 conditions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PermissionConditionArgs', 'PermissionConditionArgsDict', 'outputs.PermissionCondition']]]]] = None,
                  principal: pulumi.Input[Optional[_builtins.str]] = None,
                  statement_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):

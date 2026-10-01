@@ -137,10 +137,10 @@ class FhirDatastore(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  datastore_name: pulumi.Input[Optional[_builtins.str]] = None,
                  datastore_type_version: pulumi.Input[Optional['FhirDatastoreDatastoreTypeVersion']] = None,
-                 identity_provider_configuration: pulumi.Input[Optional[Union['FhirDatastoreIdentityProviderConfigurationArgs', 'FhirDatastoreIdentityProviderConfigurationArgsDict']]] = None,
-                 preload_data_config: pulumi.Input[Optional[Union['FhirDatastorePreloadDataConfigArgs', 'FhirDatastorePreloadDataConfigArgsDict']]] = None,
-                 sse_configuration: pulumi.Input[Optional[Union['FhirDatastoreSseConfigurationArgs', 'FhirDatastoreSseConfigurationArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 identity_provider_configuration: pulumi.Input[Optional[Union['FhirDatastoreIdentityProviderConfigurationArgs', 'FhirDatastoreIdentityProviderConfigurationArgsDict', 'outputs.FhirDatastoreIdentityProviderConfiguration']]] = None,
+                 preload_data_config: pulumi.Input[Optional[Union['FhirDatastorePreloadDataConfigArgs', 'FhirDatastorePreloadDataConfigArgsDict', 'outputs.FhirDatastorePreloadDataConfig']]] = None,
+                 sse_configuration: pulumi.Input[Optional[Union['FhirDatastoreSseConfigurationArgs', 'FhirDatastoreSseConfigurationArgsDict', 'outputs.FhirDatastoreSseConfiguration']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         HealthLake FHIR Datastore
@@ -149,10 +149,10 @@ class FhirDatastore(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] datastore_name: The data store name (user-generated).
         :param pulumi.Input['FhirDatastoreDatastoreTypeVersion'] datastore_type_version: The FHIR release version supported by the data store. Current support is for version `R4` .
-        :param pulumi.Input[Union['FhirDatastoreIdentityProviderConfigurationArgs', 'FhirDatastoreIdentityProviderConfigurationArgsDict']] identity_provider_configuration: The identity provider configuration selected when the data store was created.
-        :param pulumi.Input[Union['FhirDatastorePreloadDataConfigArgs', 'FhirDatastorePreloadDataConfigArgsDict']] preload_data_config: The preloaded Synthea data configuration for the data store.
-        :param pulumi.Input[Union['FhirDatastoreSseConfigurationArgs', 'FhirDatastoreSseConfigurationArgsDict']] sse_configuration: The server-side encryption key configuration for a customer-provided encryption key specified for creating a data store.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Union['FhirDatastoreIdentityProviderConfigurationArgs', 'FhirDatastoreIdentityProviderConfigurationArgsDict', 'outputs.FhirDatastoreIdentityProviderConfiguration']] identity_provider_configuration: The identity provider configuration selected when the data store was created.
+        :param pulumi.Input[Union['FhirDatastorePreloadDataConfigArgs', 'FhirDatastorePreloadDataConfigArgsDict', 'outputs.FhirDatastorePreloadDataConfig']] preload_data_config: The preloaded Synthea data configuration for the data store.
+        :param pulumi.Input[Union['FhirDatastoreSseConfigurationArgs', 'FhirDatastoreSseConfigurationArgsDict', 'outputs.FhirDatastoreSseConfiguration']] sse_configuration: The server-side encryption key configuration for a customer-provided encryption key specified for creating a data store.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: An array of key-value pairs to apply to this resource.
                
                For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
         """
@@ -182,10 +182,10 @@ class FhirDatastore(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  datastore_name: pulumi.Input[Optional[_builtins.str]] = None,
                  datastore_type_version: pulumi.Input[Optional['FhirDatastoreDatastoreTypeVersion']] = None,
-                 identity_provider_configuration: pulumi.Input[Optional[Union['FhirDatastoreIdentityProviderConfigurationArgs', 'FhirDatastoreIdentityProviderConfigurationArgsDict']]] = None,
-                 preload_data_config: pulumi.Input[Optional[Union['FhirDatastorePreloadDataConfigArgs', 'FhirDatastorePreloadDataConfigArgsDict']]] = None,
-                 sse_configuration: pulumi.Input[Optional[Union['FhirDatastoreSseConfigurationArgs', 'FhirDatastoreSseConfigurationArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 identity_provider_configuration: pulumi.Input[Optional[Union['FhirDatastoreIdentityProviderConfigurationArgs', 'FhirDatastoreIdentityProviderConfigurationArgsDict', 'outputs.FhirDatastoreIdentityProviderConfiguration']]] = None,
+                 preload_data_config: pulumi.Input[Optional[Union['FhirDatastorePreloadDataConfigArgs', 'FhirDatastorePreloadDataConfigArgsDict', 'outputs.FhirDatastorePreloadDataConfig']]] = None,
+                 sse_configuration: pulumi.Input[Optional[Union['FhirDatastoreSseConfigurationArgs', 'FhirDatastoreSseConfigurationArgsDict', 'outputs.FhirDatastoreSseConfiguration']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

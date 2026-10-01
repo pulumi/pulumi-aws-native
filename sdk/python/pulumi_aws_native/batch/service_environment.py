@@ -111,7 +111,7 @@ class ServiceEnvironment(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 capacity_limits: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServiceEnvironmentCapacityLimitArgs', 'ServiceEnvironmentCapacityLimitArgsDict']]]]] = None,
+                 capacity_limits: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServiceEnvironmentCapacityLimitArgs', 'ServiceEnvironmentCapacityLimitArgsDict', 'outputs.ServiceEnvironmentCapacityLimit']]]]] = None,
                  service_environment_name: pulumi.Input[Optional[_builtins.str]] = None,
                  service_environment_type: pulumi.Input[Optional[_builtins.str]] = None,
                  state: pulumi.Input[Optional[_builtins.str]] = None,
@@ -122,7 +122,7 @@ class ServiceEnvironment(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ServiceEnvironmentCapacityLimitArgs', 'ServiceEnvironmentCapacityLimitArgsDict']]]] capacity_limits: The capacity limits for the service environment. This defines the maximum resources that can be used by service jobs in this environment.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ServiceEnvironmentCapacityLimitArgs', 'ServiceEnvironmentCapacityLimitArgsDict', 'outputs.ServiceEnvironmentCapacityLimit']]]] capacity_limits: The capacity limits for the service environment. This defines the maximum resources that can be used by service jobs in this environment.
         :param pulumi.Input[_builtins.str] service_environment_name: The name of the service environment.
         :param pulumi.Input[_builtins.str] service_environment_type: The type of service environment. For SageMaker Training jobs, this value is `SAGEMAKER_TRAINING` .
         :param pulumi.Input[_builtins.str] state: The state of the service environment. Valid values are `ENABLED` and `DISABLED` .
@@ -152,7 +152,7 @@ class ServiceEnvironment(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 capacity_limits: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServiceEnvironmentCapacityLimitArgs', 'ServiceEnvironmentCapacityLimitArgsDict']]]]] = None,
+                 capacity_limits: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServiceEnvironmentCapacityLimitArgs', 'ServiceEnvironmentCapacityLimitArgsDict', 'outputs.ServiceEnvironmentCapacityLimit']]]]] = None,
                  service_environment_name: pulumi.Input[Optional[_builtins.str]] = None,
                  service_environment_type: pulumi.Input[Optional[_builtins.str]] = None,
                  state: pulumi.Input[Optional[_builtins.str]] = None,

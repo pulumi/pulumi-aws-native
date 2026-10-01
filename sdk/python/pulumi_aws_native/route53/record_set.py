@@ -289,11 +289,11 @@ class RecordSet(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 alias_target: pulumi.Input[Optional[Union['RecordSetAliasTargetArgs', 'RecordSetAliasTargetArgsDict']]] = None,
-                 cidr_routing_config: pulumi.Input[Optional[Union['RecordSetCidrRoutingConfigArgs', 'RecordSetCidrRoutingConfigArgsDict']]] = None,
+                 alias_target: pulumi.Input[Optional[Union['RecordSetAliasTargetArgs', 'RecordSetAliasTargetArgsDict', 'outputs.RecordSetAliasTarget']]] = None,
+                 cidr_routing_config: pulumi.Input[Optional[Union['RecordSetCidrRoutingConfigArgs', 'RecordSetCidrRoutingConfigArgsDict', 'outputs.RecordSetCidrRoutingConfig']]] = None,
                  comment: pulumi.Input[Optional[_builtins.str]] = None,
                  failover: pulumi.Input[Optional['RecordSetFailover']] = None,
-                 geo_location: pulumi.Input[Optional[Union['RecordSetGeoLocationArgs', 'RecordSetGeoLocationArgsDict']]] = None,
+                 geo_location: pulumi.Input[Optional[Union['RecordSetGeoLocationArgs', 'RecordSetGeoLocationArgsDict', 'outputs.RecordSetGeoLocation']]] = None,
                  health_check_id: pulumi.Input[Optional[_builtins.str]] = None,
                  hosted_zone_id: pulumi.Input[Optional[_builtins.str]] = None,
                  hosted_zone_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -311,11 +311,11 @@ class RecordSet(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['RecordSetAliasTargetArgs', 'RecordSetAliasTargetArgsDict']] alias_target: Alias resource record sets only: Information about the AWS resource, such as a CloudFront distribution or an Amazon S3 bucket, that you want to route traffic to.
-        :param pulumi.Input[Union['RecordSetCidrRoutingConfigArgs', 'RecordSetCidrRoutingConfigArgsDict']] cidr_routing_config: The object that is specified in resource record set object when you are linking a resource record set to a CIDR location.
+        :param pulumi.Input[Union['RecordSetAliasTargetArgs', 'RecordSetAliasTargetArgsDict', 'outputs.RecordSetAliasTarget']] alias_target: Alias resource record sets only: Information about the AWS resource, such as a CloudFront distribution or an Amazon S3 bucket, that you want to route traffic to.
+        :param pulumi.Input[Union['RecordSetCidrRoutingConfigArgs', 'RecordSetCidrRoutingConfigArgsDict', 'outputs.RecordSetCidrRoutingConfig']] cidr_routing_config: The object that is specified in resource record set object when you are linking a resource record set to a CIDR location.
         :param pulumi.Input[_builtins.str] comment: Optional: Any comments you want to include about a change batch request.
         :param pulumi.Input['RecordSetFailover'] failover: To configure failover, you add the Failover element to two resource record sets. For one resource record set, you specify PRIMARY as the value for Failover; for the other resource record set, you specify SECONDARY. In addition, you include the HealthCheckId element and specify the health check that you want Amazon Route 53 to perform for each resource record set.
-        :param pulumi.Input[Union['RecordSetGeoLocationArgs', 'RecordSetGeoLocationArgsDict']] geo_location: A complex type that lets you control how Amazon Route 53 responds to DNS queries based on the geographic origin of the query.
+        :param pulumi.Input[Union['RecordSetGeoLocationArgs', 'RecordSetGeoLocationArgsDict', 'outputs.RecordSetGeoLocation']] geo_location: A complex type that lets you control how Amazon Route 53 responds to DNS queries based on the geographic origin of the query.
         :param pulumi.Input[_builtins.str] health_check_id: If you want Amazon Route 53 to return this resource record set in response to a DNS query only when the status of a health check is healthy, include the HealthCheckId element and specify the ID of the applicable health check.
         :param pulumi.Input[_builtins.str] hosted_zone_id: The ID of the hosted zone that you want to create records in.
         :param pulumi.Input[_builtins.str] hosted_zone_name: The name of the hosted zone that you want to create records in. You must include a trailing dot (for example, www.example.com.) as part of the HostedZoneName.
@@ -352,11 +352,11 @@ class RecordSet(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 alias_target: pulumi.Input[Optional[Union['RecordSetAliasTargetArgs', 'RecordSetAliasTargetArgsDict']]] = None,
-                 cidr_routing_config: pulumi.Input[Optional[Union['RecordSetCidrRoutingConfigArgs', 'RecordSetCidrRoutingConfigArgsDict']]] = None,
+                 alias_target: pulumi.Input[Optional[Union['RecordSetAliasTargetArgs', 'RecordSetAliasTargetArgsDict', 'outputs.RecordSetAliasTarget']]] = None,
+                 cidr_routing_config: pulumi.Input[Optional[Union['RecordSetCidrRoutingConfigArgs', 'RecordSetCidrRoutingConfigArgsDict', 'outputs.RecordSetCidrRoutingConfig']]] = None,
                  comment: pulumi.Input[Optional[_builtins.str]] = None,
                  failover: pulumi.Input[Optional['RecordSetFailover']] = None,
-                 geo_location: pulumi.Input[Optional[Union['RecordSetGeoLocationArgs', 'RecordSetGeoLocationArgsDict']]] = None,
+                 geo_location: pulumi.Input[Optional[Union['RecordSetGeoLocationArgs', 'RecordSetGeoLocationArgsDict', 'outputs.RecordSetGeoLocation']]] = None,
                  health_check_id: pulumi.Input[Optional[_builtins.str]] = None,
                  hosted_zone_id: pulumi.Input[Optional[_builtins.str]] = None,
                  hosted_zone_name: pulumi.Input[Optional[_builtins.str]] = None,

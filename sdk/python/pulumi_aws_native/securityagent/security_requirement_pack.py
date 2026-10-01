@@ -135,9 +135,9 @@ class SecurityRequirementPack(pulumi.CustomResource):
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 security_requirements: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SecurityRequirementPackSecurityRequirementArgs', 'SecurityRequirementPackSecurityRequirementArgsDict']]]]] = None,
+                 security_requirements: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SecurityRequirementPackSecurityRequirementArgs', 'SecurityRequirementPackSecurityRequirementArgsDict', 'outputs.SecurityRequirementPackSecurityRequirement']]]]] = None,
                  status: pulumi.Input[Optional['SecurityRequirementPackStatus']] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::SecurityAgent::SecurityRequirementPack
@@ -147,9 +147,9 @@ class SecurityRequirementPack(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] description: Description of the pack
         :param pulumi.Input[_builtins.str] kms_key_id: KMS key for client-side encryption of pack contents
         :param pulumi.Input[_builtins.str] name: Name of the security requirement pack
-        :param pulumi.Input[Sequence[pulumi.Input[Union['SecurityRequirementPackSecurityRequirementArgs', 'SecurityRequirementPackSecurityRequirementArgsDict']]]] security_requirements: Security requirements within this pack
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SecurityRequirementPackSecurityRequirementArgs', 'SecurityRequirementPackSecurityRequirementArgsDict', 'outputs.SecurityRequirementPackSecurityRequirement']]]] security_requirements: Security requirements within this pack
         :param pulumi.Input['SecurityRequirementPackStatus'] status: Whether the pack is enabled or disabled
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Tags for the security requirement pack
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: Tags for the security requirement pack
         """
         ...
     @overload
@@ -178,9 +178,9 @@ class SecurityRequirementPack(pulumi.CustomResource):
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 security_requirements: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SecurityRequirementPackSecurityRequirementArgs', 'SecurityRequirementPackSecurityRequirementArgsDict']]]]] = None,
+                 security_requirements: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SecurityRequirementPackSecurityRequirementArgs', 'SecurityRequirementPackSecurityRequirementArgsDict', 'outputs.SecurityRequirementPackSecurityRequirement']]]]] = None,
                  status: pulumi.Input[Optional['SecurityRequirementPackStatus']] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

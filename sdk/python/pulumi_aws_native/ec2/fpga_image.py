@@ -116,10 +116,10 @@ class FpgaImage(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 input_storage_location: pulumi.Input[Optional[Union['FpgaImageStorageLocationArgs', 'FpgaImageStorageLocationArgsDict']]] = None,
-                 logs_storage_location: pulumi.Input[Optional[Union['FpgaImageStorageLocationArgs', 'FpgaImageStorageLocationArgsDict']]] = None,
+                 input_storage_location: pulumi.Input[Optional[Union['FpgaImageStorageLocationArgs', 'FpgaImageStorageLocationArgsDict', 'outputs.FpgaImageStorageLocation']]] = None,
+                 logs_storage_location: pulumi.Input[Optional[Union['FpgaImageStorageLocationArgs', 'FpgaImageStorageLocationArgsDict', 'outputs.FpgaImageStorageLocation']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Creates and manages an Amazon FPGA Image (AFI) from a design checkpoint (DCP).
@@ -127,10 +127,10 @@ class FpgaImage(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: A description for the AFI.
-        :param pulumi.Input[Union['FpgaImageStorageLocationArgs', 'FpgaImageStorageLocationArgsDict']] input_storage_location: The location of the encrypted design checkpoint in Amazon S3. The input must be a tarball.
-        :param pulumi.Input[Union['FpgaImageStorageLocationArgs', 'FpgaImageStorageLocationArgsDict']] logs_storage_location: The location in Amazon S3 for the output logs.
+        :param pulumi.Input[Union['FpgaImageStorageLocationArgs', 'FpgaImageStorageLocationArgsDict', 'outputs.FpgaImageStorageLocation']] input_storage_location: The location of the encrypted design checkpoint in Amazon S3. The input must be a tarball.
+        :param pulumi.Input[Union['FpgaImageStorageLocationArgs', 'FpgaImageStorageLocationArgsDict', 'outputs.FpgaImageStorageLocation']] logs_storage_location: The location in Amazon S3 for the output logs.
         :param pulumi.Input[_builtins.str] name: A name for the AFI.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags assigned to the FPGA image.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: The tags assigned to the FPGA image.
         """
         ...
     @overload
@@ -157,10 +157,10 @@ class FpgaImage(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 input_storage_location: pulumi.Input[Optional[Union['FpgaImageStorageLocationArgs', 'FpgaImageStorageLocationArgsDict']]] = None,
-                 logs_storage_location: pulumi.Input[Optional[Union['FpgaImageStorageLocationArgs', 'FpgaImageStorageLocationArgsDict']]] = None,
+                 input_storage_location: pulumi.Input[Optional[Union['FpgaImageStorageLocationArgs', 'FpgaImageStorageLocationArgsDict', 'outputs.FpgaImageStorageLocation']]] = None,
+                 logs_storage_location: pulumi.Input[Optional[Union['FpgaImageStorageLocationArgs', 'FpgaImageStorageLocationArgsDict', 'outputs.FpgaImageStorageLocation']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

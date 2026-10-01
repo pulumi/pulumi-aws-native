@@ -313,7 +313,7 @@ class MatchmakingConfiguration(pulumi.CustomResource):
                  custom_event_data: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  flex_match_mode: pulumi.Input[Optional['MatchmakingConfigurationFlexMatchMode']] = None,
-                 game_properties: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MatchmakingConfigurationGamePropertyArgs', 'MatchmakingConfigurationGamePropertyArgsDict']]]]] = None,
+                 game_properties: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MatchmakingConfigurationGamePropertyArgs', 'MatchmakingConfigurationGamePropertyArgsDict', 'outputs.MatchmakingConfigurationGameProperty']]]]] = None,
                  game_session_data: pulumi.Input[Optional[_builtins.str]] = None,
                  game_session_queue_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -321,7 +321,7 @@ class MatchmakingConfiguration(pulumi.CustomResource):
                  request_timeout_seconds: pulumi.Input[Optional[_builtins.int]] = None,
                  rule_set_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  rule_set_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         The AWS::GameLift::MatchmakingConfiguration resource creates an Amazon GameLift (GameLift) matchmaking configuration.
@@ -336,7 +336,7 @@ class MatchmakingConfiguration(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] custom_event_data: Information to attach to all events related to the matchmaking configuration.
         :param pulumi.Input[_builtins.str] description: A descriptive label that is associated with matchmaking configuration.
         :param pulumi.Input['MatchmakingConfigurationFlexMatchMode'] flex_match_mode: Indicates whether this matchmaking configuration is being used with Amazon GameLift hosting or as a standalone matchmaking solution.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['MatchmakingConfigurationGamePropertyArgs', 'MatchmakingConfigurationGamePropertyArgsDict']]]] game_properties: A set of custom properties for a game session, formatted as key:value pairs.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['MatchmakingConfigurationGamePropertyArgs', 'MatchmakingConfigurationGamePropertyArgsDict', 'outputs.MatchmakingConfigurationGameProperty']]]] game_properties: A set of custom properties for a game session, formatted as key:value pairs.
         :param pulumi.Input[_builtins.str] game_session_data: A set of custom game session properties, formatted as a single string value.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] game_session_queue_arns: The Amazon Resource Name (ARN) that is assigned to a Amazon GameLift game session queue resource and uniquely identifies it.
         :param pulumi.Input[_builtins.str] name: A unique identifier for the matchmaking configuration.
@@ -344,7 +344,7 @@ class MatchmakingConfiguration(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] request_timeout_seconds: The maximum duration, in seconds, that a matchmaking ticket can remain in process before timing out.
         :param pulumi.Input[_builtins.str] rule_set_arn: The Amazon Resource Name (ARN) associated with the GameLift matchmaking rule set resource that this configuration uses.
         :param pulumi.Input[_builtins.str] rule_set_name: A unique identifier for the matchmaking rule set to use with this configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
     @overload
@@ -378,7 +378,7 @@ class MatchmakingConfiguration(pulumi.CustomResource):
                  custom_event_data: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  flex_match_mode: pulumi.Input[Optional['MatchmakingConfigurationFlexMatchMode']] = None,
-                 game_properties: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MatchmakingConfigurationGamePropertyArgs', 'MatchmakingConfigurationGamePropertyArgsDict']]]]] = None,
+                 game_properties: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MatchmakingConfigurationGamePropertyArgs', 'MatchmakingConfigurationGamePropertyArgsDict', 'outputs.MatchmakingConfigurationGameProperty']]]]] = None,
                  game_session_data: pulumi.Input[Optional[_builtins.str]] = None,
                  game_session_queue_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -386,7 +386,7 @@ class MatchmakingConfiguration(pulumi.CustomResource):
                  request_timeout_seconds: pulumi.Input[Optional[_builtins.int]] = None,
                  rule_set_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  rule_set_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

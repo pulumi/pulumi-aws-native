@@ -101,8 +101,8 @@ class CallAnalyticsCategory(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  category_name: pulumi.Input[Optional[_builtins.str]] = None,
                  input_type: pulumi.Input[Optional['CallAnalyticsCategoryInputType']] = None,
-                 rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CallAnalyticsCategoryRuleArgs', 'CallAnalyticsCategoryRuleArgsDict']]]]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CallAnalyticsCategoryRuleArgs', 'CallAnalyticsCategoryRuleArgsDict', 'outputs.CallAnalyticsCategoryRule']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Resource type definition for AWS::Transcribe::CallAnalyticsCategory
@@ -111,8 +111,8 @@ class CallAnalyticsCategory(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] category_name: A unique name, chosen by you, for your Call Analytics category.
         :param pulumi.Input['CallAnalyticsCategoryInputType'] input_type: The input type associated with the specified category.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['CallAnalyticsCategoryRuleArgs', 'CallAnalyticsCategoryRuleArgsDict']]]] rules: Rules define a Call Analytics category.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Tags associated with the Call Analytics category.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CallAnalyticsCategoryRuleArgs', 'CallAnalyticsCategoryRuleArgsDict', 'outputs.CallAnalyticsCategoryRule']]]] rules: Rules define a Call Analytics category.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: Tags associated with the Call Analytics category.
         """
         ...
     @overload
@@ -140,8 +140,8 @@ class CallAnalyticsCategory(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  category_name: pulumi.Input[Optional[_builtins.str]] = None,
                  input_type: pulumi.Input[Optional['CallAnalyticsCategoryInputType']] = None,
-                 rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CallAnalyticsCategoryRuleArgs', 'CallAnalyticsCategoryRuleArgsDict']]]]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CallAnalyticsCategoryRuleArgs', 'CallAnalyticsCategoryRuleArgsDict', 'outputs.CallAnalyticsCategoryRule']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

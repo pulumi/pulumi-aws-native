@@ -220,17 +220,17 @@ class License(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  beneficiary: pulumi.Input[Optional[_builtins.str]] = None,
-                 consumption_configuration: pulumi.Input[Optional[Union['LicenseConsumptionConfigurationArgs', 'LicenseConsumptionConfigurationArgsDict']]] = None,
-                 entitlements: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LicenseEntitlementArgs', 'LicenseEntitlementArgsDict']]]]] = None,
+                 consumption_configuration: pulumi.Input[Optional[Union['LicenseConsumptionConfigurationArgs', 'LicenseConsumptionConfigurationArgsDict', 'outputs.LicenseConsumptionConfiguration']]] = None,
+                 entitlements: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LicenseEntitlementArgs', 'LicenseEntitlementArgsDict', 'outputs.LicenseEntitlement']]]]] = None,
                  home_region: pulumi.Input[Optional[_builtins.str]] = None,
-                 issuer: pulumi.Input[Optional[Union['LicenseIssuerDataArgs', 'LicenseIssuerDataArgsDict']]] = None,
-                 license_metadata: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LicenseMetadataArgs', 'LicenseMetadataArgsDict']]]]] = None,
+                 issuer: pulumi.Input[Optional[Union['LicenseIssuerDataArgs', 'LicenseIssuerDataArgsDict', 'outputs.LicenseIssuerData']]] = None,
+                 license_metadata: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LicenseMetadataArgs', 'LicenseMetadataArgsDict', 'outputs.LicenseMetadata']]]]] = None,
                  license_name: pulumi.Input[Optional[_builtins.str]] = None,
                  product_name: pulumi.Input[Optional[_builtins.str]] = None,
                  product_sku: pulumi.Input[Optional[_builtins.str]] = None,
                  status: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 validity: pulumi.Input[Optional[Union['LicenseValidityDateFormatArgs', 'LicenseValidityDateFormatArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
+                 validity: pulumi.Input[Optional[Union['LicenseValidityDateFormatArgs', 'LicenseValidityDateFormatArgsDict', 'outputs.LicenseValidityDateFormat']]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::LicenseManager::License
@@ -238,17 +238,17 @@ class License(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] beneficiary: Beneficiary of the license.
-        :param pulumi.Input[Union['LicenseConsumptionConfigurationArgs', 'LicenseConsumptionConfigurationArgsDict']] consumption_configuration: Configuration for consumption of the license.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['LicenseEntitlementArgs', 'LicenseEntitlementArgsDict']]]] entitlements: License entitlements.
+        :param pulumi.Input[Union['LicenseConsumptionConfigurationArgs', 'LicenseConsumptionConfigurationArgsDict', 'outputs.LicenseConsumptionConfiguration']] consumption_configuration: Configuration for consumption of the license.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['LicenseEntitlementArgs', 'LicenseEntitlementArgsDict', 'outputs.LicenseEntitlement']]]] entitlements: License entitlements.
         :param pulumi.Input[_builtins.str] home_region: Home region for the created license.
-        :param pulumi.Input[Union['LicenseIssuerDataArgs', 'LicenseIssuerDataArgsDict']] issuer: License issuer.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['LicenseMetadataArgs', 'LicenseMetadataArgsDict']]]] license_metadata: License metadata.
+        :param pulumi.Input[Union['LicenseIssuerDataArgs', 'LicenseIssuerDataArgsDict', 'outputs.LicenseIssuerData']] issuer: License issuer.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['LicenseMetadataArgs', 'LicenseMetadataArgsDict', 'outputs.LicenseMetadata']]]] license_metadata: License metadata.
         :param pulumi.Input[_builtins.str] license_name: Name for the created license.
         :param pulumi.Input[_builtins.str] product_name: Product name for the created license.
         :param pulumi.Input[_builtins.str] product_sku: ProductSKU of the license.
         :param pulumi.Input[_builtins.str] status: License status.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: A list of tags to attach.
-        :param pulumi.Input[Union['LicenseValidityDateFormatArgs', 'LicenseValidityDateFormatArgsDict']] validity: Date and time range during which the license is valid, in ISO8601-UTC format.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: A list of tags to attach.
+        :param pulumi.Input[Union['LicenseValidityDateFormatArgs', 'LicenseValidityDateFormatArgsDict', 'outputs.LicenseValidityDateFormat']] validity: Date and time range during which the license is valid, in ISO8601-UTC format.
         """
         ...
     @overload
@@ -275,17 +275,17 @@ class License(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  beneficiary: pulumi.Input[Optional[_builtins.str]] = None,
-                 consumption_configuration: pulumi.Input[Optional[Union['LicenseConsumptionConfigurationArgs', 'LicenseConsumptionConfigurationArgsDict']]] = None,
-                 entitlements: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LicenseEntitlementArgs', 'LicenseEntitlementArgsDict']]]]] = None,
+                 consumption_configuration: pulumi.Input[Optional[Union['LicenseConsumptionConfigurationArgs', 'LicenseConsumptionConfigurationArgsDict', 'outputs.LicenseConsumptionConfiguration']]] = None,
+                 entitlements: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LicenseEntitlementArgs', 'LicenseEntitlementArgsDict', 'outputs.LicenseEntitlement']]]]] = None,
                  home_region: pulumi.Input[Optional[_builtins.str]] = None,
-                 issuer: pulumi.Input[Optional[Union['LicenseIssuerDataArgs', 'LicenseIssuerDataArgsDict']]] = None,
-                 license_metadata: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LicenseMetadataArgs', 'LicenseMetadataArgsDict']]]]] = None,
+                 issuer: pulumi.Input[Optional[Union['LicenseIssuerDataArgs', 'LicenseIssuerDataArgsDict', 'outputs.LicenseIssuerData']]] = None,
+                 license_metadata: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LicenseMetadataArgs', 'LicenseMetadataArgsDict', 'outputs.LicenseMetadata']]]]] = None,
                  license_name: pulumi.Input[Optional[_builtins.str]] = None,
                  product_name: pulumi.Input[Optional[_builtins.str]] = None,
                  product_sku: pulumi.Input[Optional[_builtins.str]] = None,
                  status: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 validity: pulumi.Input[Optional[Union['LicenseValidityDateFormatArgs', 'LicenseValidityDateFormatArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
+                 validity: pulumi.Input[Optional[Union['LicenseValidityDateFormatArgs', 'LicenseValidityDateFormatArgsDict', 'outputs.LicenseValidityDateFormat']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -648,7 +648,7 @@ class LinkOpenRtbAttributeModuleParameters(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 action: Any,
+                 action: Union['outputs.LinkOpenRtbAttributeModuleParametersAction0Properties', 'outputs.LinkOpenRtbAttributeModuleParametersAction1Properties'],
                  filter_configuration: Sequence['outputs.LinkFilter'],
                  filter_type: 'LinkOpenRtbAttributeModuleParametersFilterType',
                  holdback_percentage: _builtins.float):
@@ -659,7 +659,7 @@ class LinkOpenRtbAttributeModuleParameters(dict):
 
     @_builtins.property
     @pulumi.getter
-    def action(self) -> Any:
+    def action(self) -> Union['outputs.LinkOpenRtbAttributeModuleParametersAction0Properties', 'outputs.LinkOpenRtbAttributeModuleParametersAction1Properties']:
         return pulumi.get(self, "action")
 
     @_builtins.property

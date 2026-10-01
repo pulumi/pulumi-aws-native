@@ -84,18 +84,18 @@ class NetworkInsightsAccessScope(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 exclude_paths: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NetworkInsightsAccessScopeAccessScopePathRequestArgs', 'NetworkInsightsAccessScopeAccessScopePathRequestArgsDict']]]]] = None,
-                 match_paths: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NetworkInsightsAccessScopeAccessScopePathRequestArgs', 'NetworkInsightsAccessScopeAccessScopePathRequestArgsDict']]]]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 exclude_paths: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NetworkInsightsAccessScopeAccessScopePathRequestArgs', 'NetworkInsightsAccessScopeAccessScopePathRequestArgsDict', 'outputs.NetworkInsightsAccessScopeAccessScopePathRequest']]]]] = None,
+                 match_paths: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NetworkInsightsAccessScopeAccessScopePathRequestArgs', 'NetworkInsightsAccessScopeAccessScopePathRequestArgsDict', 'outputs.NetworkInsightsAccessScopeAccessScopePathRequest']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Resource schema for AWS::EC2::NetworkInsightsAccessScope
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['NetworkInsightsAccessScopeAccessScopePathRequestArgs', 'NetworkInsightsAccessScopeAccessScopePathRequestArgsDict']]]] exclude_paths: The paths to exclude.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['NetworkInsightsAccessScopeAccessScopePathRequestArgs', 'NetworkInsightsAccessScopeAccessScopePathRequestArgsDict']]]] match_paths: The paths to match.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['NetworkInsightsAccessScopeAccessScopePathRequestArgs', 'NetworkInsightsAccessScopeAccessScopePathRequestArgsDict', 'outputs.NetworkInsightsAccessScopeAccessScopePathRequest']]]] exclude_paths: The paths to exclude.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['NetworkInsightsAccessScopeAccessScopePathRequestArgs', 'NetworkInsightsAccessScopeAccessScopePathRequestArgsDict', 'outputs.NetworkInsightsAccessScopeAccessScopePathRequest']]]] match_paths: The paths to match.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: The tags.
         """
         ...
     @overload
@@ -121,9 +121,9 @@ class NetworkInsightsAccessScope(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 exclude_paths: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NetworkInsightsAccessScopeAccessScopePathRequestArgs', 'NetworkInsightsAccessScopeAccessScopePathRequestArgsDict']]]]] = None,
-                 match_paths: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NetworkInsightsAccessScopeAccessScopePathRequestArgs', 'NetworkInsightsAccessScopeAccessScopePathRequestArgsDict']]]]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 exclude_paths: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NetworkInsightsAccessScopeAccessScopePathRequestArgs', 'NetworkInsightsAccessScopeAccessScopePathRequestArgsDict', 'outputs.NetworkInsightsAccessScopeAccessScopePathRequest']]]]] = None,
+                 match_paths: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NetworkInsightsAccessScopeAccessScopePathRequestArgs', 'NetworkInsightsAccessScopeAccessScopePathRequestArgsDict', 'outputs.NetworkInsightsAccessScopeAccessScopePathRequest']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

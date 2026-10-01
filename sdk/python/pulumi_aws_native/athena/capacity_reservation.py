@@ -99,9 +99,9 @@ class CapacityReservation(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 capacity_assignment_configuration: pulumi.Input[Optional[Union['CapacityReservationCapacityAssignmentConfigurationArgs', 'CapacityReservationCapacityAssignmentConfigurationArgsDict']]] = None,
+                 capacity_assignment_configuration: pulumi.Input[Optional[Union['CapacityReservationCapacityAssignmentConfigurationArgs', 'CapacityReservationCapacityAssignmentConfigurationArgsDict', 'outputs.CapacityReservationCapacityAssignmentConfiguration']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  target_dpus: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         """
@@ -109,9 +109,9 @@ class CapacityReservation(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['CapacityReservationCapacityAssignmentConfigurationArgs', 'CapacityReservationCapacityAssignmentConfigurationArgsDict']] capacity_assignment_configuration: Assigns Athena workgroups (and hence their queries) to capacity reservations. A capacity reservation can have only one capacity assignment configuration, but the capacity assignment configuration can be made up of multiple individual assignments. Each assignment specifies how Athena queries can consume capacity from the capacity reservation that their workgroup is mapped to.
+        :param pulumi.Input[Union['CapacityReservationCapacityAssignmentConfigurationArgs', 'CapacityReservationCapacityAssignmentConfigurationArgsDict', 'outputs.CapacityReservationCapacityAssignmentConfiguration']] capacity_assignment_configuration: Assigns Athena workgroups (and hence their queries) to capacity reservations. A capacity reservation can have only one capacity assignment configuration, but the capacity assignment configuration can be made up of multiple individual assignments. Each assignment specifies how Athena queries can consume capacity from the capacity reservation that their workgroup is mapped to.
         :param pulumi.Input[_builtins.str] name: The reservation name.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: An array of key-value pairs to apply to this resource.
         :param pulumi.Input[_builtins.int] target_dpus: The number of DPUs to request to be allocated to the reservation.
         """
         ...
@@ -138,9 +138,9 @@ class CapacityReservation(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 capacity_assignment_configuration: pulumi.Input[Optional[Union['CapacityReservationCapacityAssignmentConfigurationArgs', 'CapacityReservationCapacityAssignmentConfigurationArgsDict']]] = None,
+                 capacity_assignment_configuration: pulumi.Input[Optional[Union['CapacityReservationCapacityAssignmentConfigurationArgs', 'CapacityReservationCapacityAssignmentConfigurationArgsDict', 'outputs.CapacityReservationCapacityAssignmentConfiguration']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  target_dpus: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

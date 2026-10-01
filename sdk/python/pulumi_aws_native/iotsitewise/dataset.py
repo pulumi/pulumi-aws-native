@@ -148,12 +148,12 @@ class Dataset(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 dataset_config: pulumi.Input[Optional[Union['DatasetConfigArgs', 'DatasetConfigArgsDict']]] = None,
+                 dataset_config: pulumi.Input[Optional[Union['DatasetConfigArgs', 'DatasetConfigArgsDict', 'outputs.DatasetConfig']]] = None,
                  dataset_description: pulumi.Input[Optional[_builtins.str]] = None,
                  dataset_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 dataset_source: pulumi.Input[Optional[Union['DatasetSourceArgs', 'DatasetSourceArgsDict']]] = None,
+                 dataset_source: pulumi.Input[Optional[Union['DatasetSourceArgs', 'DatasetSourceArgsDict', 'outputs.DatasetSource']]] = None,
                  dataset_type: pulumi.Input[Optional['DatasetType']] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -161,12 +161,12 @@ class Dataset(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['DatasetConfigArgs', 'DatasetConfigArgsDict']] dataset_config: The configuration for the dataset.
+        :param pulumi.Input[Union['DatasetConfigArgs', 'DatasetConfigArgsDict', 'outputs.DatasetConfig']] dataset_config: The configuration for the dataset.
         :param pulumi.Input[_builtins.str] dataset_description: A description about the dataset, and its functionality.
         :param pulumi.Input[_builtins.str] dataset_name: The name of the dataset.
-        :param pulumi.Input[Union['DatasetSourceArgs', 'DatasetSourceArgsDict']] dataset_source: The data source for the dataset.
+        :param pulumi.Input[Union['DatasetSourceArgs', 'DatasetSourceArgsDict', 'outputs.DatasetSource']] dataset_source: The data source for the dataset.
         :param pulumi.Input['DatasetType'] dataset_type: The type of the dataset.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: An array of key-value pairs to apply to this resource.
         :param pulumi.Input[_builtins.str] workspace_name: The name of the workspace associated with the dataset.
         """
         ...
@@ -193,12 +193,12 @@ class Dataset(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 dataset_config: pulumi.Input[Optional[Union['DatasetConfigArgs', 'DatasetConfigArgsDict']]] = None,
+                 dataset_config: pulumi.Input[Optional[Union['DatasetConfigArgs', 'DatasetConfigArgsDict', 'outputs.DatasetConfig']]] = None,
                  dataset_description: pulumi.Input[Optional[_builtins.str]] = None,
                  dataset_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 dataset_source: pulumi.Input[Optional[Union['DatasetSourceArgs', 'DatasetSourceArgsDict']]] = None,
+                 dataset_source: pulumi.Input[Optional[Union['DatasetSourceArgs', 'DatasetSourceArgsDict', 'outputs.DatasetSource']]] = None,
                  dataset_type: pulumi.Input[Optional['DatasetType']] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

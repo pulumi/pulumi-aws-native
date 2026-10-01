@@ -124,10 +124,10 @@ class SupportPermit(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 permit: pulumi.Input[Optional[Union['SupportPermitPermitArgs', 'SupportPermitPermitArgsDict']]] = None,
-                 signing_key_info: pulumi.Input[Optional[Union['SupportPermitSigningKeyInfoArgs', 'SupportPermitSigningKeyInfoArgsDict']]] = None,
+                 permit: pulumi.Input[Optional[Union['SupportPermitPermitArgs', 'SupportPermitPermitArgsDict', 'outputs.SupportPermitPermit']]] = None,
+                 signing_key_info: pulumi.Input[Optional[Union['SupportPermitSigningKeyInfoArgs', 'SupportPermitSigningKeyInfoArgsDict', 'outputs.SupportPermitSigningKeyInfo']]] = None,
                  support_case_display_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::SupportAuthZ::SupportPermit. Represents a support permit that grants AWS support time-bounded access to one or more resources for a set of actions.
@@ -137,7 +137,7 @@ class SupportPermit(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] description: An optional description of the support permit.
         :param pulumi.Input[_builtins.str] name: The name of the support permit.
         :param pulumi.Input[_builtins.str] support_case_display_id: The support case display identifier associated with the permit. When provided, the permit is linked to the specified AWS Support case.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: A list of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: A list of key-value pairs to apply to this resource.
         """
         ...
     @overload
@@ -165,10 +165,10 @@ class SupportPermit(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 permit: pulumi.Input[Optional[Union['SupportPermitPermitArgs', 'SupportPermitPermitArgsDict']]] = None,
-                 signing_key_info: pulumi.Input[Optional[Union['SupportPermitSigningKeyInfoArgs', 'SupportPermitSigningKeyInfoArgsDict']]] = None,
+                 permit: pulumi.Input[Optional[Union['SupportPermitPermitArgs', 'SupportPermitPermitArgsDict', 'outputs.SupportPermitPermit']]] = None,
+                 signing_key_info: pulumi.Input[Optional[Union['SupportPermitSigningKeyInfoArgs', 'SupportPermitSigningKeyInfoArgsDict', 'outputs.SupportPermitSigningKeyInfo']]] = None,
                  support_case_display_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

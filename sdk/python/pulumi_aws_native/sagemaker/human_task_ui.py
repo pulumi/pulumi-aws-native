@@ -84,8 +84,8 @@ class HumanTaskUi(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  human_task_ui_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 ui_template: pulumi.Input[Optional[Union['HumanTaskUiUiTemplateArgs', 'HumanTaskUiUiTemplateArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
+                 ui_template: pulumi.Input[Optional[Union['HumanTaskUiUiTemplateArgs', 'HumanTaskUiUiTemplateArgsDict', 'outputs.HumanTaskUiUiTemplate']]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::SageMaker::HumanTaskUi
@@ -93,8 +93,8 @@ class HumanTaskUi(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] human_task_ui_name: The name of the human task user interface.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs that contain metadata to help you categorize and organize a human review workflow user interface.
-        :param pulumi.Input[Union['HumanTaskUiUiTemplateArgs', 'HumanTaskUiUiTemplateArgsDict']] ui_template: The Liquid template for the worker user interface.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: An array of key-value pairs that contain metadata to help you categorize and organize a human review workflow user interface.
+        :param pulumi.Input[Union['HumanTaskUiUiTemplateArgs', 'HumanTaskUiUiTemplateArgsDict', 'outputs.HumanTaskUiUiTemplate']] ui_template: The Liquid template for the worker user interface.
         """
         ...
     @overload
@@ -121,8 +121,8 @@ class HumanTaskUi(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  human_task_ui_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 ui_template: pulumi.Input[Optional[Union['HumanTaskUiUiTemplateArgs', 'HumanTaskUiUiTemplateArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
+                 ui_template: pulumi.Input[Optional[Union['HumanTaskUiUiTemplateArgs', 'HumanTaskUiUiTemplateArgsDict', 'outputs.HumanTaskUiUiTemplate']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -155,13 +155,13 @@ class RegistryRecord(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 descriptors: pulumi.Input[Optional[Union['RegistryRecordDescriptorsArgs', 'RegistryRecordDescriptorsArgsDict']]] = None,
+                 descriptors: pulumi.Input[Optional[Union['RegistryRecordDescriptorsArgs', 'RegistryRecordDescriptorsArgsDict', 'outputs.RegistryRecordDescriptors']]] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  record_type: pulumi.Input[Optional['RegistryRecordRecordType']] = None,
                  record_version: pulumi.Input[Optional[_builtins.str]] = None,
                  registry_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Definition of AWS::AgentRegistry::RegistryRecord Resource Type
@@ -173,7 +173,7 @@ class RegistryRecord(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] name: The name of the registry record.
         :param pulumi.Input[_builtins.str] record_version: The version of the registry record.
         :param pulumi.Input[_builtins.str] registry_id: The identifier of the registry in which to create the record. You can specify either the registry ID or the registry Amazon Resource Name (ARN). Use the ARN form to reference a registry shared from another account via AWS Resource Access Manager (RAM).
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Tags to assign to the registry record.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: Tags to assign to the registry record.
         """
         ...
     @overload
@@ -200,13 +200,13 @@ class RegistryRecord(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 descriptors: pulumi.Input[Optional[Union['RegistryRecordDescriptorsArgs', 'RegistryRecordDescriptorsArgsDict']]] = None,
+                 descriptors: pulumi.Input[Optional[Union['RegistryRecordDescriptorsArgs', 'RegistryRecordDescriptorsArgsDict', 'outputs.RegistryRecordDescriptors']]] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  record_type: pulumi.Input[Optional['RegistryRecordRecordType']] = None,
                  record_version: pulumi.Input[Optional[_builtins.str]] = None,
                  registry_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

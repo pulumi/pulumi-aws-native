@@ -290,21 +290,21 @@ class Subscriber(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 batch_configuration: pulumi.Input[Optional[Union['SubscriberBatchConfigurationArgs', 'SubscriberBatchConfigurationArgsDict']]] = None,
+                 batch_configuration: pulumi.Input[Optional[Union['SubscriberBatchConfigurationArgs', 'SubscriberBatchConfigurationArgsDict', 'outputs.SubscriberBatchConfiguration']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  event_bus_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 filter_configuration: pulumi.Input[Optional[Union['SubscriberFilterConfigurationArgs', 'SubscriberFilterConfigurationArgsDict']]] = None,
-                 invoke_configuration: pulumi.Input[Optional[Union['SubscriberInvokeConfigurationPropertiesArgs', 'SubscriberInvokeConfigurationPropertiesArgsDict']]] = None,
-                 log_configuration: pulumi.Input[Optional[Union['SubscriberLogConfigurationArgs', 'SubscriberLogConfigurationArgsDict']]] = None,
+                 filter_configuration: pulumi.Input[Optional[Union['SubscriberFilterConfigurationArgs', 'SubscriberFilterConfigurationArgsDict', 'outputs.SubscriberFilterConfiguration']]] = None,
+                 invoke_configuration: pulumi.Input[Optional[Union['SubscriberInvokeConfigurationPropertiesArgs', 'SubscriberInvokeConfigurationPropertiesArgsDict', 'outputs.SubscriberInvokeConfigurationProperties']]] = None,
+                 log_configuration: pulumi.Input[Optional[Union['SubscriberLogConfigurationArgs', 'SubscriberLogConfigurationArgsDict', 'outputs.SubscriberLogConfiguration']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 on_failure_configuration: pulumi.Input[Optional[Union['SubscriberOnFailureConfigurationArgs', 'SubscriberOnFailureConfigurationArgsDict']]] = None,
-                 point_in_time_configuration: pulumi.Input[Optional[Union['SubscriberPointInTimeConfigurationArgs', 'SubscriberPointInTimeConfigurationArgsDict']]] = None,
+                 on_failure_configuration: pulumi.Input[Optional[Union['SubscriberOnFailureConfigurationArgs', 'SubscriberOnFailureConfigurationArgsDict', 'outputs.SubscriberOnFailureConfiguration']]] = None,
+                 point_in_time_configuration: pulumi.Input[Optional[Union['SubscriberPointInTimeConfigurationArgs', 'SubscriberPointInTimeConfigurationArgsDict', 'outputs.SubscriberPointInTimeConfiguration']]] = None,
                  resume_position: pulumi.Input[Optional['SubscriberResumePosition']] = None,
-                 retry_policy: pulumi.Input[Optional[Union['SubscriberRetryPolicyArgs', 'SubscriberRetryPolicyArgsDict']]] = None,
+                 retry_policy: pulumi.Input[Optional[Union['SubscriberRetryPolicyArgs', 'SubscriberRetryPolicyArgsDict', 'outputs.SubscriberRetryPolicy']]] = None,
                  starting_position: pulumi.Input[Optional['SubscriberStartingPosition']] = None,
                  state: pulumi.Input[Optional['SubscriberState']] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 transformer: pulumi.Input[Optional[Union['SubscriberTransformerArgs', 'SubscriberTransformerArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
+                 transformer: pulumi.Input[Optional[Union['SubscriberTransformerArgs', 'SubscriberTransformerArgsDict', 'outputs.SubscriberTransformer']]] = None,
                  type: pulumi.Input[Optional['SubscriberType']] = None,
                  __props__=None):
         """
@@ -312,21 +312,21 @@ class Subscriber(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['SubscriberBatchConfigurationArgs', 'SubscriberBatchConfigurationArgsDict']] batch_configuration: Configuration for batching events into a single delivery to the target.
+        :param pulumi.Input[Union['SubscriberBatchConfigurationArgs', 'SubscriberBatchConfigurationArgsDict', 'outputs.SubscriberBatchConfiguration']] batch_configuration: Configuration for batching events into a single delivery to the target.
         :param pulumi.Input[_builtins.str] description: A description of the subscriber. Control characters and Unicode line separators are not allowed.
         :param pulumi.Input[_builtins.str] event_bus_arn: The ARN of the event bus this subscriber belongs to.
-        :param pulumi.Input[Union['SubscriberFilterConfigurationArgs', 'SubscriberFilterConfigurationArgsDict']] filter_configuration: Configuration for filtering which events are delivered to the target. An event must match every filter to be delivered.
-        :param pulumi.Input[Union['SubscriberInvokeConfigurationPropertiesArgs', 'SubscriberInvokeConfigurationPropertiesArgsDict']] invoke_configuration: Configuration for how the subscriber invokes its target, including the target ARN, the IAM role used to invoke it, and, optionally, the target-specific parameters object that matches the target type.
-        :param pulumi.Input[Union['SubscriberLogConfigurationArgs', 'SubscriberLogConfigurationArgsDict']] log_configuration: Delivery logging configuration for the subscriber.
+        :param pulumi.Input[Union['SubscriberFilterConfigurationArgs', 'SubscriberFilterConfigurationArgsDict', 'outputs.SubscriberFilterConfiguration']] filter_configuration: Configuration for filtering which events are delivered to the target. An event must match every filter to be delivered.
+        :param pulumi.Input[Union['SubscriberInvokeConfigurationPropertiesArgs', 'SubscriberInvokeConfigurationPropertiesArgsDict', 'outputs.SubscriberInvokeConfigurationProperties']] invoke_configuration: Configuration for how the subscriber invokes its target, including the target ARN, the IAM role used to invoke it, and, optionally, the target-specific parameters object that matches the target type.
+        :param pulumi.Input[Union['SubscriberLogConfigurationArgs', 'SubscriberLogConfigurationArgsDict', 'outputs.SubscriberLogConfiguration']] log_configuration: Delivery logging configuration for the subscriber.
         :param pulumi.Input[_builtins.str] name: The name of the subscriber. The first character must be alphanumeric; the remaining characters may also include '.', '-', and '_'.
-        :param pulumi.Input[Union['SubscriberOnFailureConfigurationArgs', 'SubscriberOnFailureConfigurationArgsDict']] on_failure_configuration: The destination for events that could not be delivered to the target.
-        :param pulumi.Input[Union['SubscriberPointInTimeConfigurationArgs', 'SubscriberPointInTimeConfigurationArgsDict']] point_in_time_configuration: The point in time to start delivering events from. Used when StartingPosition is POINT_IN_TIME.
+        :param pulumi.Input[Union['SubscriberOnFailureConfigurationArgs', 'SubscriberOnFailureConfigurationArgsDict', 'outputs.SubscriberOnFailureConfiguration']] on_failure_configuration: The destination for events that could not be delivered to the target.
+        :param pulumi.Input[Union['SubscriberPointInTimeConfigurationArgs', 'SubscriberPointInTimeConfigurationArgsDict', 'outputs.SubscriberPointInTimeConfiguration']] point_in_time_configuration: The point in time to start delivering events from. Used when StartingPosition is POINT_IN_TIME.
         :param pulumi.Input['SubscriberResumePosition'] resume_position: Resume-time control, never returned by the service. Applied only when an update transitions State from STOPPED to RUNNING: LAST_PROCESSED (default) resumes from the last processed event, LATEST skips to the newest. Ignored on create and on any update that does not perform that transition.
-        :param pulumi.Input[Union['SubscriberRetryPolicyArgs', 'SubscriberRetryPolicyArgsDict']] retry_policy: The retry policy for failed deliveries to the target.
+        :param pulumi.Input[Union['SubscriberRetryPolicyArgs', 'SubscriberRetryPolicyArgsDict', 'outputs.SubscriberRetryPolicy']] retry_policy: The retry policy for failed deliveries to the target.
         :param pulumi.Input['SubscriberStartingPosition'] starting_position: Where the subscriber starts reading events: LATEST starts from the newest events; POINT_IN_TIME starts from the point specified in PointInTimeConfiguration.
         :param pulumi.Input['SubscriberState'] state: The run state of the subscriber. Events are delivered only while the state is RUNNING. Setting the state to STOPPED pauses delivery. When an update sets a stopped subscriber back to RUNNING, ResumePosition controls where delivery resumes.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags assigned to the subscriber.
-        :param pulumi.Input[Union['SubscriberTransformerArgs', 'SubscriberTransformerArgsDict']] transformer: Configuration for transforming events before delivery to the target.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: The tags assigned to the subscriber.
+        :param pulumi.Input[Union['SubscriberTransformerArgs', 'SubscriberTransformerArgsDict', 'outputs.SubscriberTransformer']] transformer: Configuration for transforming events before delivery to the target.
         :param pulumi.Input['SubscriberType'] type: The delivery ordering mode of the subscriber. FIFO delivers events in order within an event group; UNORDERED delivers without an ordering guarantee.
         """
         ...
@@ -353,21 +353,21 @@ class Subscriber(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 batch_configuration: pulumi.Input[Optional[Union['SubscriberBatchConfigurationArgs', 'SubscriberBatchConfigurationArgsDict']]] = None,
+                 batch_configuration: pulumi.Input[Optional[Union['SubscriberBatchConfigurationArgs', 'SubscriberBatchConfigurationArgsDict', 'outputs.SubscriberBatchConfiguration']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  event_bus_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 filter_configuration: pulumi.Input[Optional[Union['SubscriberFilterConfigurationArgs', 'SubscriberFilterConfigurationArgsDict']]] = None,
-                 invoke_configuration: pulumi.Input[Optional[Union['SubscriberInvokeConfigurationPropertiesArgs', 'SubscriberInvokeConfigurationPropertiesArgsDict']]] = None,
-                 log_configuration: pulumi.Input[Optional[Union['SubscriberLogConfigurationArgs', 'SubscriberLogConfigurationArgsDict']]] = None,
+                 filter_configuration: pulumi.Input[Optional[Union['SubscriberFilterConfigurationArgs', 'SubscriberFilterConfigurationArgsDict', 'outputs.SubscriberFilterConfiguration']]] = None,
+                 invoke_configuration: pulumi.Input[Optional[Union['SubscriberInvokeConfigurationPropertiesArgs', 'SubscriberInvokeConfigurationPropertiesArgsDict', 'outputs.SubscriberInvokeConfigurationProperties']]] = None,
+                 log_configuration: pulumi.Input[Optional[Union['SubscriberLogConfigurationArgs', 'SubscriberLogConfigurationArgsDict', 'outputs.SubscriberLogConfiguration']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 on_failure_configuration: pulumi.Input[Optional[Union['SubscriberOnFailureConfigurationArgs', 'SubscriberOnFailureConfigurationArgsDict']]] = None,
-                 point_in_time_configuration: pulumi.Input[Optional[Union['SubscriberPointInTimeConfigurationArgs', 'SubscriberPointInTimeConfigurationArgsDict']]] = None,
+                 on_failure_configuration: pulumi.Input[Optional[Union['SubscriberOnFailureConfigurationArgs', 'SubscriberOnFailureConfigurationArgsDict', 'outputs.SubscriberOnFailureConfiguration']]] = None,
+                 point_in_time_configuration: pulumi.Input[Optional[Union['SubscriberPointInTimeConfigurationArgs', 'SubscriberPointInTimeConfigurationArgsDict', 'outputs.SubscriberPointInTimeConfiguration']]] = None,
                  resume_position: pulumi.Input[Optional['SubscriberResumePosition']] = None,
-                 retry_policy: pulumi.Input[Optional[Union['SubscriberRetryPolicyArgs', 'SubscriberRetryPolicyArgsDict']]] = None,
+                 retry_policy: pulumi.Input[Optional[Union['SubscriberRetryPolicyArgs', 'SubscriberRetryPolicyArgsDict', 'outputs.SubscriberRetryPolicy']]] = None,
                  starting_position: pulumi.Input[Optional['SubscriberStartingPosition']] = None,
                  state: pulumi.Input[Optional['SubscriberState']] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 transformer: pulumi.Input[Optional[Union['SubscriberTransformerArgs', 'SubscriberTransformerArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
+                 transformer: pulumi.Input[Optional[Union['SubscriberTransformerArgs', 'SubscriberTransformerArgsDict', 'outputs.SubscriberTransformer']]] = None,
                  type: pulumi.Input[Optional['SubscriberType']] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

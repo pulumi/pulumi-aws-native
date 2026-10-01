@@ -41,7 +41,7 @@ class GetIdentitySourceResult:
 
     @_builtins.property
     @pulumi.getter
-    def configuration(self) -> Optional[Any]:
+    def configuration(self) -> Optional[Union['outputs.IdentitySourceConfiguration0Properties', 'outputs.IdentitySourceConfiguration1Properties']]:
         """
         Contains configuration information used when creating a new identity source.
         """

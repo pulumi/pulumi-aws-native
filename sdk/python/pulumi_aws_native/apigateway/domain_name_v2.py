@@ -171,11 +171,11 @@ class DomainNameV2(pulumi.CustomResource):
                  certificate_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  domain_name: pulumi.Input[Optional[_builtins.str]] = None,
                  endpoint_access_mode: pulumi.Input[Optional[_builtins.str]] = None,
-                 endpoint_configuration: pulumi.Input[Optional[Union['DomainNameV2EndpointConfigurationArgs', 'DomainNameV2EndpointConfigurationArgsDict']]] = None,
+                 endpoint_configuration: pulumi.Input[Optional[Union['DomainNameV2EndpointConfigurationArgs', 'DomainNameV2EndpointConfigurationArgsDict', 'outputs.DomainNameV2EndpointConfiguration']]] = None,
                  policy: Optional[Any] = None,
                  routing_mode: pulumi.Input[Optional['DomainNameV2RoutingMode']] = None,
                  security_policy: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::ApiGateway::DomainNameV2.
@@ -185,13 +185,13 @@ class DomainNameV2(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] certificate_arn: The reference to an AWS -managed certificate that will be used by the private endpoint for this domain name. AWS Certificate Manager is the only supported source.
         :param pulumi.Input[_builtins.str] domain_name: Represents a custom domain name as a user-friendly host name of an API (RestApi).
         :param pulumi.Input[_builtins.str] endpoint_access_mode: The endpoint access mode for your DomainName.
-        :param pulumi.Input[Union['DomainNameV2EndpointConfigurationArgs', 'DomainNameV2EndpointConfigurationArgsDict']] endpoint_configuration: The endpoint configuration to indicate the types of endpoints an API (RestApi) or its custom domain name (DomainName) has and the IP address types that can invoke it.
+        :param pulumi.Input[Union['DomainNameV2EndpointConfigurationArgs', 'DomainNameV2EndpointConfigurationArgsDict', 'outputs.DomainNameV2EndpointConfiguration']] endpoint_configuration: The endpoint configuration to indicate the types of endpoints an API (RestApi) or its custom domain name (DomainName) has and the IP address types that can invoke it.
         :param Any policy: A stringified JSON policy document that applies to the `execute-api` service for this DomainName regardless of the caller and Method configuration. You can use `Fn::ToJsonString` to enter your `policy` . For more information, see [Fn::ToJsonString](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ToJsonString.html) .
                
                Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGateway::DomainNameV2` for more information about the expected schema for this property.
         :param pulumi.Input['DomainNameV2RoutingMode'] routing_mode: The valid routing modes are [BASE_PATH_MAPPING_ONLY], [ROUTING_RULE_THEN_BASE_PATH_MAPPING] and [ROUTING_RULE_ONLY]. All other inputs are invalid.
         :param pulumi.Input[_builtins.str] security_policy: The Transport Layer Security (TLS) version + cipher suite for this DomainName.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The collection of tags. Each tag element is associated with a given resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: The collection of tags. Each tag element is associated with a given resource.
         """
         ...
     @overload
@@ -220,11 +220,11 @@ class DomainNameV2(pulumi.CustomResource):
                  certificate_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  domain_name: pulumi.Input[Optional[_builtins.str]] = None,
                  endpoint_access_mode: pulumi.Input[Optional[_builtins.str]] = None,
-                 endpoint_configuration: pulumi.Input[Optional[Union['DomainNameV2EndpointConfigurationArgs', 'DomainNameV2EndpointConfigurationArgsDict']]] = None,
+                 endpoint_configuration: pulumi.Input[Optional[Union['DomainNameV2EndpointConfigurationArgs', 'DomainNameV2EndpointConfigurationArgsDict', 'outputs.DomainNameV2EndpointConfiguration']]] = None,
                  policy: Optional[Any] = None,
                  routing_mode: pulumi.Input[Optional['DomainNameV2RoutingMode']] = None,
                  security_policy: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

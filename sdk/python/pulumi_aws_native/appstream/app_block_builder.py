@@ -216,7 +216,7 @@ class AppBlockBuilder(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_endpoints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AppBlockBuilderAccessEndpointArgs', 'AppBlockBuilderAccessEndpointArgsDict']]]]] = None,
+                 access_endpoints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AppBlockBuilderAccessEndpointArgs', 'AppBlockBuilderAccessEndpointArgsDict', 'outputs.AppBlockBuilderAccessEndpoint']]]]] = None,
                  app_block_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -225,15 +225,15 @@ class AppBlockBuilder(pulumi.CustomResource):
                  instance_type: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  platform: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 vpc_config: pulumi.Input[Optional[Union['AppBlockBuilderVpcConfigArgs', 'AppBlockBuilderVpcConfigArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
+                 vpc_config: pulumi.Input[Optional[Union['AppBlockBuilderVpcConfigArgs', 'AppBlockBuilderVpcConfigArgsDict', 'outputs.AppBlockBuilderVpcConfig']]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::AppStream::AppBlockBuilder.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AppBlockBuilderAccessEndpointArgs', 'AppBlockBuilderAccessEndpointArgsDict']]]] access_endpoints: The access endpoints of the app block builder.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AppBlockBuilderAccessEndpointArgs', 'AppBlockBuilderAccessEndpointArgsDict', 'outputs.AppBlockBuilderAccessEndpoint']]]] access_endpoints: The access endpoints of the app block builder.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] app_block_arns: The ARN of the app block.
                
                *Maximum* : `1`
@@ -246,8 +246,8 @@ class AppBlockBuilder(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] platform: The platform of the app block builder.
                
                *Allowed values* : `WINDOWS_SERVER_2019`
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags of the app block builder.
-        :param pulumi.Input[Union['AppBlockBuilderVpcConfigArgs', 'AppBlockBuilderVpcConfigArgsDict']] vpc_config: The VPC configuration for the app block builder.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: The tags of the app block builder.
+        :param pulumi.Input[Union['AppBlockBuilderVpcConfigArgs', 'AppBlockBuilderVpcConfigArgsDict', 'outputs.AppBlockBuilderVpcConfig']] vpc_config: The VPC configuration for the app block builder.
         """
         ...
     @overload
@@ -273,7 +273,7 @@ class AppBlockBuilder(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_endpoints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AppBlockBuilderAccessEndpointArgs', 'AppBlockBuilderAccessEndpointArgsDict']]]]] = None,
+                 access_endpoints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AppBlockBuilderAccessEndpointArgs', 'AppBlockBuilderAccessEndpointArgsDict', 'outputs.AppBlockBuilderAccessEndpoint']]]]] = None,
                  app_block_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -282,8 +282,8 @@ class AppBlockBuilder(pulumi.CustomResource):
                  instance_type: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  platform: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 vpc_config: pulumi.Input[Optional[Union['AppBlockBuilderVpcConfigArgs', 'AppBlockBuilderVpcConfigArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
+                 vpc_config: pulumi.Input[Optional[Union['AppBlockBuilderVpcConfigArgs', 'AppBlockBuilderVpcConfigArgsDict', 'outputs.AppBlockBuilderVpcConfig']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

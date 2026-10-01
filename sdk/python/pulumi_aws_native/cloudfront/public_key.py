@@ -48,7 +48,7 @@ class PublicKey(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 public_key_config: pulumi.Input[Optional[Union['PublicKeyConfigArgs', 'PublicKeyConfigArgsDict']]] = None,
+                 public_key_config: pulumi.Input[Optional[Union['PublicKeyConfigArgs', 'PublicKeyConfigArgsDict', 'outputs.PublicKeyConfig']]] = None,
                  __props__=None):
         """
         A public key that you can use with [signed URLs and signed cookies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html), or with [field-level encryption](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/field-level-encryption.html).
@@ -56,7 +56,7 @@ class PublicKey(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['PublicKeyConfigArgs', 'PublicKeyConfigArgsDict']] public_key_config: Configuration information about a public key that you can use with [signed URLs and signed cookies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html), or with [field-level encryption](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/field-level-encryption.html).
+        :param pulumi.Input[Union['PublicKeyConfigArgs', 'PublicKeyConfigArgsDict', 'outputs.PublicKeyConfig']] public_key_config: Configuration information about a public key that you can use with [signed URLs and signed cookies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html), or with [field-level encryption](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/field-level-encryption.html).
         """
         ...
     @overload
@@ -83,7 +83,7 @@ class PublicKey(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 public_key_config: pulumi.Input[Optional[Union['PublicKeyConfigArgs', 'PublicKeyConfigArgsDict']]] = None,
+                 public_key_config: pulumi.Input[Optional[Union['PublicKeyConfigArgs', 'PublicKeyConfigArgsDict', 'outputs.PublicKeyConfig']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

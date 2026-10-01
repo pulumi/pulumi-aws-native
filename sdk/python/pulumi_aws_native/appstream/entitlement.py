@@ -111,7 +111,7 @@ class Entitlement(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  app_visibility: pulumi.Input[Optional[_builtins.str]] = None,
-                 attributes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EntitlementAttributeArgs', 'EntitlementAttributeArgsDict']]]]] = None,
+                 attributes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EntitlementAttributeArgs', 'EntitlementAttributeArgsDict', 'outputs.EntitlementAttribute']]]]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  stack_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -122,7 +122,7 @@ class Entitlement(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] app_visibility: Specifies whether to entitle all apps or only selected apps.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['EntitlementAttributeArgs', 'EntitlementAttributeArgsDict']]]] attributes: The attributes of the entitlement.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['EntitlementAttributeArgs', 'EntitlementAttributeArgsDict', 'outputs.EntitlementAttribute']]]] attributes: The attributes of the entitlement.
         :param pulumi.Input[_builtins.str] description: The description of the entitlement.
         :param pulumi.Input[_builtins.str] name: The name of the entitlement.
         :param pulumi.Input[_builtins.str] stack_name: The name of the stack.
@@ -152,7 +152,7 @@ class Entitlement(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  app_visibility: pulumi.Input[Optional[_builtins.str]] = None,
-                 attributes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EntitlementAttributeArgs', 'EntitlementAttributeArgsDict']]]]] = None,
+                 attributes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EntitlementAttributeArgs', 'EntitlementAttributeArgsDict', 'outputs.EntitlementAttribute']]]]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  stack_name: pulumi.Input[Optional[_builtins.str]] = None,

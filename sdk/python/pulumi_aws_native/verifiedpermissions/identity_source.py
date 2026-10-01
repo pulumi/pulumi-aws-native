@@ -80,7 +80,7 @@ class IdentitySource(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 configuration: pulumi.Input[Optional[Union[Union['IdentitySourceConfiguration0PropertiesArgs', 'IdentitySourceConfiguration0PropertiesArgsDict'], Union['IdentitySourceConfiguration1PropertiesArgs', 'IdentitySourceConfiguration1PropertiesArgsDict']]]] = None,
+                 configuration: pulumi.Input[Optional[Union[Union['IdentitySourceConfiguration0PropertiesArgs', 'IdentitySourceConfiguration0PropertiesArgsDict', 'outputs.IdentitySourceConfiguration0Properties'], Union['IdentitySourceConfiguration1PropertiesArgs', 'IdentitySourceConfiguration1PropertiesArgsDict', 'outputs.IdentitySourceConfiguration1Properties']]]] = None,
                  policy_store_id: pulumi.Input[Optional[_builtins.str]] = None,
                  principal_entity_type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -115,7 +115,7 @@ class IdentitySource(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union[Union['IdentitySourceConfiguration0PropertiesArgs', 'IdentitySourceConfiguration0PropertiesArgsDict'], Union['IdentitySourceConfiguration1PropertiesArgs', 'IdentitySourceConfiguration1PropertiesArgsDict']]] configuration: Contains configuration information used when creating a new identity source.
+        :param pulumi.Input[Union[Union['IdentitySourceConfiguration0PropertiesArgs', 'IdentitySourceConfiguration0PropertiesArgsDict', 'outputs.IdentitySourceConfiguration0Properties'], Union['IdentitySourceConfiguration1PropertiesArgs', 'IdentitySourceConfiguration1PropertiesArgsDict', 'outputs.IdentitySourceConfiguration1Properties']]] configuration: Contains configuration information used when creating a new identity source.
         :param pulumi.Input[_builtins.str] policy_store_id: Specifies the ID of the policy store in which you want to store this identity source. Only policies and requests made using this policy store can reference identities from the identity provider configured in the new identity source.
         :param pulumi.Input[_builtins.str] principal_entity_type: Specifies the namespace and data type of the principals generated for identities authenticated by the new identity source.
         """
@@ -169,7 +169,7 @@ class IdentitySource(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 configuration: pulumi.Input[Optional[Union[Union['IdentitySourceConfiguration0PropertiesArgs', 'IdentitySourceConfiguration0PropertiesArgsDict'], Union['IdentitySourceConfiguration1PropertiesArgs', 'IdentitySourceConfiguration1PropertiesArgsDict']]]] = None,
+                 configuration: pulumi.Input[Optional[Union[Union['IdentitySourceConfiguration0PropertiesArgs', 'IdentitySourceConfiguration0PropertiesArgsDict', 'outputs.IdentitySourceConfiguration0Properties'], Union['IdentitySourceConfiguration1PropertiesArgs', 'IdentitySourceConfiguration1PropertiesArgsDict', 'outputs.IdentitySourceConfiguration1Properties']]]] = None,
                  policy_store_id: pulumi.Input[Optional[_builtins.str]] = None,
                  principal_entity_type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -223,7 +223,7 @@ class IdentitySource(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def configuration(self) -> pulumi.Output[Any]:
+    def configuration(self) -> pulumi.Output[Union['outputs.IdentitySourceConfiguration0Properties', 'outputs.IdentitySourceConfiguration1Properties']]:
         """
         Contains configuration information used when creating a new identity source.
         """

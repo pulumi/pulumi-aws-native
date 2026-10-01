@@ -150,10 +150,10 @@ class Pipeline(pulumi.CustomResource):
                  activate: pulumi.Input[Optional[_builtins.bool]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 parameter_objects: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PipelineParameterObjectArgs', 'PipelineParameterObjectArgsDict']]]]] = None,
-                 parameter_values: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PipelineParameterValueArgs', 'PipelineParameterValueArgsDict']]]]] = None,
-                 pipeline_objects: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PipelineObjectArgs', 'PipelineObjectArgsDict']]]]] = None,
-                 pipeline_tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 parameter_objects: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PipelineParameterObjectArgs', 'PipelineParameterObjectArgsDict', 'outputs.PipelineParameterObject']]]]] = None,
+                 parameter_values: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PipelineParameterValueArgs', 'PipelineParameterValueArgsDict', 'outputs.PipelineParameterValue']]]]] = None,
+                 pipeline_objects: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PipelineObjectArgs', 'PipelineObjectArgsDict', 'outputs.PipelineObject']]]]] = None,
+                 pipeline_tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         An example resource schema demonstrating some basic constructs and validation rules.
@@ -163,10 +163,10 @@ class Pipeline(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] activate: Indicates whether to validate and start the pipeline or stop an active pipeline. By default, the value is set to true.
         :param pulumi.Input[_builtins.str] description: A description of the pipeline.
         :param pulumi.Input[_builtins.str] name: The name of the pipeline.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['PipelineParameterObjectArgs', 'PipelineParameterObjectArgsDict']]]] parameter_objects: The parameter objects used with the pipeline.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['PipelineParameterValueArgs', 'PipelineParameterValueArgsDict']]]] parameter_values: The parameter values used with the pipeline.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['PipelineObjectArgs', 'PipelineObjectArgsDict']]]] pipeline_objects: The objects that define the pipeline. These objects overwrite the existing pipeline definition. Not all objects, fields, and values can be updated. For information about restrictions, see Editing Your Pipeline in the AWS Data Pipeline Developer Guide.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] pipeline_tags: A list of arbitrary tags (key-value pairs) to associate with the pipeline, which you can use to control permissions. For more information, see Controlling Access to Pipelines and Resources in the AWS Data Pipeline Developer Guide.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['PipelineParameterObjectArgs', 'PipelineParameterObjectArgsDict', 'outputs.PipelineParameterObject']]]] parameter_objects: The parameter objects used with the pipeline.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['PipelineParameterValueArgs', 'PipelineParameterValueArgsDict', 'outputs.PipelineParameterValue']]]] parameter_values: The parameter values used with the pipeline.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['PipelineObjectArgs', 'PipelineObjectArgsDict', 'outputs.PipelineObject']]]] pipeline_objects: The objects that define the pipeline. These objects overwrite the existing pipeline definition. Not all objects, fields, and values can be updated. For information about restrictions, see Editing Your Pipeline in the AWS Data Pipeline Developer Guide.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] pipeline_tags: A list of arbitrary tags (key-value pairs) to associate with the pipeline, which you can use to control permissions. For more information, see Controlling Access to Pipelines and Resources in the AWS Data Pipeline Developer Guide.
         """
         ...
     @overload
@@ -195,10 +195,10 @@ class Pipeline(pulumi.CustomResource):
                  activate: pulumi.Input[Optional[_builtins.bool]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 parameter_objects: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PipelineParameterObjectArgs', 'PipelineParameterObjectArgsDict']]]]] = None,
-                 parameter_values: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PipelineParameterValueArgs', 'PipelineParameterValueArgsDict']]]]] = None,
-                 pipeline_objects: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PipelineObjectArgs', 'PipelineObjectArgsDict']]]]] = None,
-                 pipeline_tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 parameter_objects: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PipelineParameterObjectArgs', 'PipelineParameterObjectArgsDict', 'outputs.PipelineParameterObject']]]]] = None,
+                 parameter_values: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PipelineParameterValueArgs', 'PipelineParameterValueArgsDict', 'outputs.PipelineParameterValue']]]]] = None,
+                 pipeline_objects: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PipelineObjectArgs', 'PipelineObjectArgsDict', 'outputs.PipelineObject']]]]] = None,
+                 pipeline_tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

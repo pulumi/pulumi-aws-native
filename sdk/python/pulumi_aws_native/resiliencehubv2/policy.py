@@ -148,14 +148,14 @@ class Policy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 availability_slo: pulumi.Input[Optional[Union['PolicyAvailabilitySloArgs', 'PolicyAvailabilitySloArgsDict']]] = None,
-                 data_recovery: pulumi.Input[Optional[Union['PolicyDataRecoveryTargetsArgs', 'PolicyDataRecoveryTargetsArgsDict']]] = None,
+                 availability_slo: pulumi.Input[Optional[Union['PolicyAvailabilitySloArgs', 'PolicyAvailabilitySloArgsDict', 'outputs.PolicyAvailabilitySlo']]] = None,
+                 data_recovery: pulumi.Input[Optional[Union['PolicyDataRecoveryTargetsArgs', 'PolicyDataRecoveryTargetsArgsDict', 'outputs.PolicyDataRecoveryTargets']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 multi_az: pulumi.Input[Optional[Union['PolicyMultiAzTargetsArgs', 'PolicyMultiAzTargetsArgsDict']]] = None,
-                 multi_region: pulumi.Input[Optional[Union['PolicyMultiRegionTargetsArgs', 'PolicyMultiRegionTargetsArgsDict']]] = None,
+                 multi_az: pulumi.Input[Optional[Union['PolicyMultiAzTargetsArgs', 'PolicyMultiAzTargetsArgsDict', 'outputs.PolicyMultiAzTargets']]] = None,
+                 multi_region: pulumi.Input[Optional[Union['PolicyMultiRegionTargetsArgs', 'PolicyMultiRegionTargetsArgsDict', 'outputs.PolicyMultiRegionTargets']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Creates a resilience policy that defines availability and disaster recovery requirements.
@@ -165,7 +165,7 @@ class Policy(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] description: The description of the policy.
         :param pulumi.Input[_builtins.str] kms_key_id: The KMS key ID for encrypting policy data.
         :param pulumi.Input[_builtins.str] name: The name of the policy.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Tags assigned to the policy.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: Tags assigned to the policy.
         """
         ...
     @overload
@@ -191,14 +191,14 @@ class Policy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 availability_slo: pulumi.Input[Optional[Union['PolicyAvailabilitySloArgs', 'PolicyAvailabilitySloArgsDict']]] = None,
-                 data_recovery: pulumi.Input[Optional[Union['PolicyDataRecoveryTargetsArgs', 'PolicyDataRecoveryTargetsArgsDict']]] = None,
+                 availability_slo: pulumi.Input[Optional[Union['PolicyAvailabilitySloArgs', 'PolicyAvailabilitySloArgsDict', 'outputs.PolicyAvailabilitySlo']]] = None,
+                 data_recovery: pulumi.Input[Optional[Union['PolicyDataRecoveryTargetsArgs', 'PolicyDataRecoveryTargetsArgsDict', 'outputs.PolicyDataRecoveryTargets']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 multi_az: pulumi.Input[Optional[Union['PolicyMultiAzTargetsArgs', 'PolicyMultiAzTargetsArgsDict']]] = None,
-                 multi_region: pulumi.Input[Optional[Union['PolicyMultiRegionTargetsArgs', 'PolicyMultiRegionTargetsArgsDict']]] = None,
+                 multi_az: pulumi.Input[Optional[Union['PolicyMultiAzTargetsArgs', 'PolicyMultiAzTargetsArgsDict', 'outputs.PolicyMultiAzTargets']]] = None,
+                 multi_region: pulumi.Input[Optional[Union['PolicyMultiRegionTargetsArgs', 'PolicyMultiRegionTargetsArgsDict', 'outputs.PolicyMultiRegionTargets']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

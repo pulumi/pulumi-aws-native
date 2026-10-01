@@ -213,13 +213,13 @@ class Graph(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  deletion_protection: pulumi.Input[Optional[_builtins.bool]] = None,
                  graph_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 import_task: pulumi.Input[Optional[Union['GraphImportTaskArgs', 'GraphImportTaskArgsDict']]] = None,
+                 import_task: pulumi.Input[Optional[Union['GraphImportTaskArgs', 'GraphImportTaskArgsDict', 'outputs.GraphImportTask']]] = None,
                  kms_key_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                  provisioned_memory: pulumi.Input[Optional[_builtins.int]] = None,
                  public_connectivity: pulumi.Input[Optional[_builtins.bool]] = None,
                  replica_count: pulumi.Input[Optional[_builtins.int]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 vector_search_configuration: pulumi.Input[Optional[Union['GraphVectorSearchConfigurationArgs', 'GraphVectorSearchConfigurationArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
+                 vector_search_configuration: pulumi.Input[Optional[Union['GraphVectorSearchConfigurationArgs', 'GraphVectorSearchConfigurationArgsDict', 'outputs.GraphVectorSearchConfiguration']]] = None,
                  __props__=None):
         """
         The AWS::NeptuneGraph::Graph resource creates an Amazon NeptuneGraph Graph.
@@ -234,7 +234,7 @@ class Graph(pulumi.CustomResource):
                If you don't specify a name, we generate a unique Graph Name using a combination of Stack Name and a UUID comprising of 4 characters.
                
                _Important_: If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
-        :param pulumi.Input[Union['GraphImportTaskArgs', 'GraphImportTaskArgsDict']] import_task: The details of the import task to use to create the graph. When specified, the graph is created using CreateGraphUsingImportTask and data is imported from the supplied source.
+        :param pulumi.Input[Union['GraphImportTaskArgs', 'GraphImportTaskArgsDict', 'outputs.GraphImportTask']] import_task: The details of the import task to use to create the graph. When specified, the graph is created using CreateGraphUsingImportTask and data is imported from the supplied source.
         :param pulumi.Input[_builtins.str] kms_key_identifier: The ARN of the KMS key used to encrypt data in the Neptune Analytics graph. If not specified, the graph is encrypted with an AWS managed key.
         :param pulumi.Input[_builtins.int] provisioned_memory: Memory for the Graph.
         :param pulumi.Input[_builtins.bool] public_connectivity: Specifies whether the Graph can be reached over the internet. Access to all graphs requires IAM authentication.
@@ -249,8 +249,8 @@ class Graph(pulumi.CustomResource):
                Replica Count should always be less than or equal to 2.
                
                _Default_: If not specified, the default value is 1.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags associated with this graph.
-        :param pulumi.Input[Union['GraphVectorSearchConfigurationArgs', 'GraphVectorSearchConfigurationArgsDict']] vector_search_configuration: Vector Search Configuration
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: The tags associated with this graph.
+        :param pulumi.Input[Union['GraphVectorSearchConfigurationArgs', 'GraphVectorSearchConfigurationArgsDict', 'outputs.GraphVectorSearchConfiguration']] vector_search_configuration: Vector Search Configuration
         """
         ...
     @overload
@@ -278,13 +278,13 @@ class Graph(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  deletion_protection: pulumi.Input[Optional[_builtins.bool]] = None,
                  graph_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 import_task: pulumi.Input[Optional[Union['GraphImportTaskArgs', 'GraphImportTaskArgsDict']]] = None,
+                 import_task: pulumi.Input[Optional[Union['GraphImportTaskArgs', 'GraphImportTaskArgsDict', 'outputs.GraphImportTask']]] = None,
                  kms_key_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                  provisioned_memory: pulumi.Input[Optional[_builtins.int]] = None,
                  public_connectivity: pulumi.Input[Optional[_builtins.bool]] = None,
                  replica_count: pulumi.Input[Optional[_builtins.int]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 vector_search_configuration: pulumi.Input[Optional[Union['GraphVectorSearchConfigurationArgs', 'GraphVectorSearchConfigurationArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
+                 vector_search_configuration: pulumi.Input[Optional[Union['GraphVectorSearchConfigurationArgs', 'GraphVectorSearchConfigurationArgsDict', 'outputs.GraphVectorSearchConfiguration']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

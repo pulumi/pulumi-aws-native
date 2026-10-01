@@ -201,8 +201,8 @@ class GlobalReplicationGroup(pulumi.CustomResource):
                  global_node_group_count: pulumi.Input[Optional[_builtins.int]] = None,
                  global_replication_group_description: pulumi.Input[Optional[_builtins.str]] = None,
                  global_replication_group_id_suffix: pulumi.Input[Optional[_builtins.str]] = None,
-                 members: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GlobalReplicationGroupMemberArgs', 'GlobalReplicationGroupMemberArgsDict']]]]] = None,
-                 regional_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GlobalReplicationGroupRegionalConfigurationArgs', 'GlobalReplicationGroupRegionalConfigurationArgsDict']]]]] = None,
+                 members: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GlobalReplicationGroupMemberArgs', 'GlobalReplicationGroupMemberArgsDict', 'outputs.GlobalReplicationGroupMember']]]]] = None,
+                 regional_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GlobalReplicationGroupRegionalConfigurationArgs', 'GlobalReplicationGroupRegionalConfigurationArgsDict', 'outputs.GlobalReplicationGroupRegionalConfiguration']]]]] = None,
                  __props__=None):
         """
         The AWS::ElastiCache::GlobalReplicationGroup resource creates an Amazon ElastiCache Global Replication Group.
@@ -217,8 +217,8 @@ class GlobalReplicationGroup(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] global_node_group_count: Indicates the number of node groups in the Global Datastore.
         :param pulumi.Input[_builtins.str] global_replication_group_description: The optional description of the Global Datastore
         :param pulumi.Input[_builtins.str] global_replication_group_id_suffix: The suffix name of a Global Datastore. Amazon ElastiCache automatically applies a prefix to the Global Datastore ID when it is created. Each AWS Region has its own prefix.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['GlobalReplicationGroupMemberArgs', 'GlobalReplicationGroupMemberArgsDict']]]] members: The replication groups that comprise the Global Datastore.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['GlobalReplicationGroupRegionalConfigurationArgs', 'GlobalReplicationGroupRegionalConfigurationArgsDict']]]] regional_configurations: Describes the replication group IDs, the AWS regions where they are stored and the shard configuration for each that comprise the Global Datastore
+        :param pulumi.Input[Sequence[pulumi.Input[Union['GlobalReplicationGroupMemberArgs', 'GlobalReplicationGroupMemberArgsDict', 'outputs.GlobalReplicationGroupMember']]]] members: The replication groups that comprise the Global Datastore.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['GlobalReplicationGroupRegionalConfigurationArgs', 'GlobalReplicationGroupRegionalConfigurationArgsDict', 'outputs.GlobalReplicationGroupRegionalConfiguration']]]] regional_configurations: Describes the replication group IDs, the AWS regions where they are stored and the shard configuration for each that comprise the Global Datastore
         """
         ...
     @overload
@@ -252,8 +252,8 @@ class GlobalReplicationGroup(pulumi.CustomResource):
                  global_node_group_count: pulumi.Input[Optional[_builtins.int]] = None,
                  global_replication_group_description: pulumi.Input[Optional[_builtins.str]] = None,
                  global_replication_group_id_suffix: pulumi.Input[Optional[_builtins.str]] = None,
-                 members: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GlobalReplicationGroupMemberArgs', 'GlobalReplicationGroupMemberArgsDict']]]]] = None,
-                 regional_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GlobalReplicationGroupRegionalConfigurationArgs', 'GlobalReplicationGroupRegionalConfigurationArgsDict']]]]] = None,
+                 members: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GlobalReplicationGroupMemberArgs', 'GlobalReplicationGroupMemberArgsDict', 'outputs.GlobalReplicationGroupMember']]]]] = None,
+                 regional_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GlobalReplicationGroupRegionalConfigurationArgs', 'GlobalReplicationGroupRegionalConfigurationArgsDict', 'outputs.GlobalReplicationGroupRegionalConfiguration']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

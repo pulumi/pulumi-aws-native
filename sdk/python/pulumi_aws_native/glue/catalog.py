@@ -201,16 +201,16 @@ class Catalog(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  allow_full_table_external_data_access: pulumi.Input[Optional['CatalogAllowFullTableExternalDataAccess']] = None,
-                 catalog_properties: pulumi.Input[Optional[Union['CatalogPropertiesArgs', 'CatalogPropertiesArgsDict']]] = None,
-                 create_database_default_permissions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CatalogPrincipalPermissionsArgs', 'CatalogPrincipalPermissionsArgsDict']]]]] = None,
-                 create_table_default_permissions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CatalogPrincipalPermissionsArgs', 'CatalogPrincipalPermissionsArgsDict']]]]] = None,
+                 catalog_properties: pulumi.Input[Optional[Union['CatalogPropertiesArgs', 'CatalogPropertiesArgsDict', 'outputs.CatalogProperties']]] = None,
+                 create_database_default_permissions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CatalogPrincipalPermissionsArgs', 'CatalogPrincipalPermissionsArgsDict', 'outputs.CatalogPrincipalPermissions']]]]] = None,
+                 create_table_default_permissions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CatalogPrincipalPermissionsArgs', 'CatalogPrincipalPermissionsArgsDict', 'outputs.CatalogPrincipalPermissions']]]]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 federated_catalog: pulumi.Input[Optional[Union['CatalogFederatedCatalogArgs', 'CatalogFederatedCatalogArgsDict']]] = None,
+                 federated_catalog: pulumi.Input[Optional[Union['CatalogFederatedCatalogArgs', 'CatalogFederatedCatalogArgsDict', 'outputs.CatalogFederatedCatalog']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  overwrite_child_resource_permissions_with_default: pulumi.Input[Optional['CatalogOverwriteChildResourcePermissionsWithDefault']] = None,
                  parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 target_redshift_catalog: pulumi.Input[Optional[Union['CatalogTargetRedshiftCatalogArgs', 'CatalogTargetRedshiftCatalogArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
+                 target_redshift_catalog: pulumi.Input[Optional[Union['CatalogTargetRedshiftCatalogArgs', 'CatalogTargetRedshiftCatalogArgsDict', 'outputs.CatalogTargetRedshiftCatalog']]] = None,
                  __props__=None):
         """
         Creates a catalog in the Glue Data Catalog.
@@ -218,13 +218,13 @@ class Catalog(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input['CatalogAllowFullTableExternalDataAccess'] allow_full_table_external_data_access: Allows third-party engines to access data in Amazon S3 locations that are registered with Lake Formation.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['CatalogPrincipalPermissionsArgs', 'CatalogPrincipalPermissionsArgsDict']]]] create_database_default_permissions: An array of PrincipalPermissions objects for default database permissions.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['CatalogPrincipalPermissionsArgs', 'CatalogPrincipalPermissionsArgsDict']]]] create_table_default_permissions: An array of PrincipalPermissions objects for default table permissions.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CatalogPrincipalPermissionsArgs', 'CatalogPrincipalPermissionsArgsDict', 'outputs.CatalogPrincipalPermissions']]]] create_database_default_permissions: An array of PrincipalPermissions objects for default database permissions.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CatalogPrincipalPermissionsArgs', 'CatalogPrincipalPermissionsArgsDict', 'outputs.CatalogPrincipalPermissions']]]] create_table_default_permissions: An array of PrincipalPermissions objects for default table permissions.
         :param pulumi.Input[_builtins.str] description: A description of the catalog.
         :param pulumi.Input[_builtins.str] name: The name of the catalog to create.
         :param pulumi.Input['CatalogOverwriteChildResourcePermissionsWithDefault'] overwrite_child_resource_permissions_with_default: Specifies whether to overwrite child resource permissions with the default permissions.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] parameters: A map of key-value pairs that define parameters and properties of the catalog.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
     @overload
@@ -251,16 +251,16 @@ class Catalog(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  allow_full_table_external_data_access: pulumi.Input[Optional['CatalogAllowFullTableExternalDataAccess']] = None,
-                 catalog_properties: pulumi.Input[Optional[Union['CatalogPropertiesArgs', 'CatalogPropertiesArgsDict']]] = None,
-                 create_database_default_permissions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CatalogPrincipalPermissionsArgs', 'CatalogPrincipalPermissionsArgsDict']]]]] = None,
-                 create_table_default_permissions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CatalogPrincipalPermissionsArgs', 'CatalogPrincipalPermissionsArgsDict']]]]] = None,
+                 catalog_properties: pulumi.Input[Optional[Union['CatalogPropertiesArgs', 'CatalogPropertiesArgsDict', 'outputs.CatalogProperties']]] = None,
+                 create_database_default_permissions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CatalogPrincipalPermissionsArgs', 'CatalogPrincipalPermissionsArgsDict', 'outputs.CatalogPrincipalPermissions']]]]] = None,
+                 create_table_default_permissions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CatalogPrincipalPermissionsArgs', 'CatalogPrincipalPermissionsArgsDict', 'outputs.CatalogPrincipalPermissions']]]]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 federated_catalog: pulumi.Input[Optional[Union['CatalogFederatedCatalogArgs', 'CatalogFederatedCatalogArgsDict']]] = None,
+                 federated_catalog: pulumi.Input[Optional[Union['CatalogFederatedCatalogArgs', 'CatalogFederatedCatalogArgsDict', 'outputs.CatalogFederatedCatalog']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  overwrite_child_resource_permissions_with_default: pulumi.Input[Optional['CatalogOverwriteChildResourcePermissionsWithDefault']] = None,
                  parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 target_redshift_catalog: pulumi.Input[Optional[Union['CatalogTargetRedshiftCatalogArgs', 'CatalogTargetRedshiftCatalogArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
+                 target_redshift_catalog: pulumi.Input[Optional[Union['CatalogTargetRedshiftCatalogArgs', 'CatalogTargetRedshiftCatalogArgsDict', 'outputs.CatalogTargetRedshiftCatalog']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

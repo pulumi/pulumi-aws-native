@@ -82,7 +82,7 @@ class StreamConsumer(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  consumer_name: pulumi.Input[Optional[_builtins.str]] = None,
                  stream_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict', '_root_outputs.CreateOnlyTag']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::Kinesis::StreamConsumer
@@ -91,7 +91,7 @@ class StreamConsumer(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] consumer_name: The name of the Kinesis Stream Consumer. For a given Kinesis data stream, each consumer must have a unique name. However, consumer names don't have to be unique across data streams.
         :param pulumi.Input[_builtins.str] stream_arn: The Amazon resource name (ARN) of the Kinesis data stream that you want to register the consumer with.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]] tags: An arbitrary set of tags (key–value pairs) to associate with the Kinesis consumer.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict', '_root_outputs.CreateOnlyTag']]]] tags: An arbitrary set of tags (key–value pairs) to associate with the Kinesis consumer.
         """
         ...
     @overload
@@ -119,7 +119,7 @@ class StreamConsumer(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  consumer_name: pulumi.Input[Optional[_builtins.str]] = None,
                  stream_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict', '_root_outputs.CreateOnlyTag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

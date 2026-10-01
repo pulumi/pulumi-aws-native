@@ -235,7 +235,7 @@ class Route(pulumi.CustomResource):
                  model_selection_expression: pulumi.Input[Optional[_builtins.str]] = None,
                  operation_name: pulumi.Input[Optional[_builtins.str]] = None,
                  request_models: Optional[Any] = None,
-                 request_parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RouteParameterConstraintsArgs', 'RouteParameterConstraintsArgsDict']]]]] = None,
+                 request_parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RouteParameterConstraintsArgs', 'RouteParameterConstraintsArgsDict', 'outputs.RouteParameterConstraints']]]]] = None,
                  route_key: pulumi.Input[Optional[_builtins.str]] = None,
                  route_response_selection_expression: pulumi.Input[Optional[_builtins.str]] = None,
                  target: pulumi.Input[Optional[_builtins.str]] = None,
@@ -255,7 +255,7 @@ class Route(pulumi.CustomResource):
         :param Any request_models: The request models for the route. Supported only for WebSocket APIs.
                
                Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::Route` for more information about the expected schema for this property.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['RouteParameterConstraintsArgs', 'RouteParameterConstraintsArgsDict']]]] request_parameters: The request parameters for the route. Supported only for WebSocket APIs.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['RouteParameterConstraintsArgs', 'RouteParameterConstraintsArgsDict', 'outputs.RouteParameterConstraints']]]] request_parameters: The request parameters for the route. Supported only for WebSocket APIs.
         :param pulumi.Input[_builtins.str] route_key: The route key for the route. For HTTP APIs, the route key can be either ``$default``, or a combination of an HTTP method and resource path, for example, ``GET /pets``.
         :param pulumi.Input[_builtins.str] route_response_selection_expression: The route response selection expression for the route. Supported only for WebSocket APIs.
         :param pulumi.Input[_builtins.str] target: The target for the route.
@@ -292,7 +292,7 @@ class Route(pulumi.CustomResource):
                  model_selection_expression: pulumi.Input[Optional[_builtins.str]] = None,
                  operation_name: pulumi.Input[Optional[_builtins.str]] = None,
                  request_models: Optional[Any] = None,
-                 request_parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RouteParameterConstraintsArgs', 'RouteParameterConstraintsArgsDict']]]]] = None,
+                 request_parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RouteParameterConstraintsArgs', 'RouteParameterConstraintsArgsDict', 'outputs.RouteParameterConstraints']]]]] = None,
                  route_key: pulumi.Input[Optional[_builtins.str]] = None,
                  route_response_selection_expression: pulumi.Input[Optional[_builtins.str]] = None,
                  target: pulumi.Input[Optional[_builtins.str]] = None,

@@ -65,7 +65,7 @@ class TrustStoreRevocation(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 revocation_contents: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TrustStoreRevocationRevocationContentArgs', 'TrustStoreRevocationRevocationContentArgsDict']]]]] = None,
+                 revocation_contents: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TrustStoreRevocationRevocationContentArgs', 'TrustStoreRevocationRevocationContentArgsDict', 'outputs.TrustStoreRevocationRevocationContent']]]]] = None,
                  trust_store_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -73,7 +73,7 @@ class TrustStoreRevocation(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['TrustStoreRevocationRevocationContentArgs', 'TrustStoreRevocationRevocationContentArgsDict']]]] revocation_contents: The attributes required to create a trust store revocation.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['TrustStoreRevocationRevocationContentArgs', 'TrustStoreRevocationRevocationContentArgsDict', 'outputs.TrustStoreRevocationRevocationContent']]]] revocation_contents: The attributes required to create a trust store revocation.
         :param pulumi.Input[_builtins.str] trust_store_arn: The Amazon Resource Name (ARN) of the trust store.
         """
         ...
@@ -100,7 +100,7 @@ class TrustStoreRevocation(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 revocation_contents: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TrustStoreRevocationRevocationContentArgs', 'TrustStoreRevocationRevocationContentArgsDict']]]]] = None,
+                 revocation_contents: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TrustStoreRevocationRevocationContentArgs', 'TrustStoreRevocationRevocationContentArgsDict', 'outputs.TrustStoreRevocationRevocationContent']]]]] = None,
                  trust_store_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

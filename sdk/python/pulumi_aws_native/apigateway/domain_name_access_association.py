@@ -98,7 +98,7 @@ class DomainNameAccessAssociation(pulumi.CustomResource):
                  access_association_source: pulumi.Input[Optional[_builtins.str]] = None,
                  access_association_source_type: pulumi.Input[Optional['DomainNameAccessAssociationAccessAssociationSourceType']] = None,
                  domain_name_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict', '_root_outputs.CreateOnlyTag']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::ApiGateway::DomainNameAccessAssociation.
@@ -108,7 +108,7 @@ class DomainNameAccessAssociation(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] access_association_source: The source of the domain name access association resource.
         :param pulumi.Input['DomainNameAccessAssociationAccessAssociationSourceType'] access_association_source_type: The source type of the domain name access association resource.
         :param pulumi.Input[_builtins.str] domain_name_arn: The amazon resource name (ARN) of the domain name resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]] tags: An array of arbitrary tags (key-value pairs) to associate with the domainname access association.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict', '_root_outputs.CreateOnlyTag']]]] tags: An array of arbitrary tags (key-value pairs) to associate with the domainname access association.
         """
         ...
     @overload
@@ -137,7 +137,7 @@ class DomainNameAccessAssociation(pulumi.CustomResource):
                  access_association_source: pulumi.Input[Optional[_builtins.str]] = None,
                  access_association_source_type: pulumi.Input[Optional['DomainNameAccessAssociationAccessAssociationSourceType']] = None,
                  domain_name_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict', '_root_outputs.CreateOnlyTag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

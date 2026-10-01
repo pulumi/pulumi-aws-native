@@ -111,8 +111,8 @@ class AccountAuditConfiguration(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 audit_check_configurations: pulumi.Input[Optional[Union['AccountAuditConfigurationAuditCheckConfigurationsArgs', 'AccountAuditConfigurationAuditCheckConfigurationsArgsDict']]] = None,
-                 audit_notification_target_configurations: pulumi.Input[Optional[Union['AccountAuditConfigurationAuditNotificationTargetConfigurationsArgs', 'AccountAuditConfigurationAuditNotificationTargetConfigurationsArgsDict']]] = None,
+                 audit_check_configurations: pulumi.Input[Optional[Union['AccountAuditConfigurationAuditCheckConfigurationsArgs', 'AccountAuditConfigurationAuditCheckConfigurationsArgsDict', 'outputs.AccountAuditConfigurationAuditCheckConfigurations']]] = None,
+                 audit_notification_target_configurations: pulumi.Input[Optional[Union['AccountAuditConfigurationAuditNotificationTargetConfigurationsArgs', 'AccountAuditConfigurationAuditNotificationTargetConfigurationsArgsDict', 'outputs.AccountAuditConfigurationAuditNotificationTargetConfigurations']]] = None,
                  role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -121,7 +121,7 @@ class AccountAuditConfiguration(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_id: Your 12-digit account ID (used as the primary identifier for the CloudFormation resource).
-        :param pulumi.Input[Union['AccountAuditConfigurationAuditCheckConfigurationsArgs', 'AccountAuditConfigurationAuditCheckConfigurationsArgsDict']] audit_check_configurations: Specifies which audit checks are enabled and disabled for this account.
+        :param pulumi.Input[Union['AccountAuditConfigurationAuditCheckConfigurationsArgs', 'AccountAuditConfigurationAuditCheckConfigurationsArgsDict', 'outputs.AccountAuditConfigurationAuditCheckConfigurations']] audit_check_configurations: Specifies which audit checks are enabled and disabled for this account.
                
                Some data collection might start immediately when certain checks are enabled. When a check is disabled, any data collected so far in relation to the check is deleted. To disable a check, set the value of the `Enabled:` key to `false` .
                
@@ -130,7 +130,7 @@ class AccountAuditConfiguration(pulumi.CustomResource):
                You can't disable a check if it's used by any scheduled audit. You must delete the check from the scheduled audit or delete the scheduled audit itself to disable the check.
                
                For more information on available audit checks see [AWS::IoT::AccountAuditConfiguration AuditCheckConfigurations](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditcheckconfigurations.html)
-        :param pulumi.Input[Union['AccountAuditConfigurationAuditNotificationTargetConfigurationsArgs', 'AccountAuditConfigurationAuditNotificationTargetConfigurationsArgsDict']] audit_notification_target_configurations: Information about the targets to which audit notifications are sent.
+        :param pulumi.Input[Union['AccountAuditConfigurationAuditNotificationTargetConfigurationsArgs', 'AccountAuditConfigurationAuditNotificationTargetConfigurationsArgsDict', 'outputs.AccountAuditConfigurationAuditNotificationTargetConfigurations']] audit_notification_target_configurations: Information about the targets to which audit notifications are sent.
         :param pulumi.Input[_builtins.str] role_arn: The ARN of the role that grants permission to AWS IoT to access information about your devices, policies, certificates and other items as required when performing an audit.
         """
         ...
@@ -158,8 +158,8 @@ class AccountAuditConfiguration(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 audit_check_configurations: pulumi.Input[Optional[Union['AccountAuditConfigurationAuditCheckConfigurationsArgs', 'AccountAuditConfigurationAuditCheckConfigurationsArgsDict']]] = None,
-                 audit_notification_target_configurations: pulumi.Input[Optional[Union['AccountAuditConfigurationAuditNotificationTargetConfigurationsArgs', 'AccountAuditConfigurationAuditNotificationTargetConfigurationsArgsDict']]] = None,
+                 audit_check_configurations: pulumi.Input[Optional[Union['AccountAuditConfigurationAuditCheckConfigurationsArgs', 'AccountAuditConfigurationAuditCheckConfigurationsArgsDict', 'outputs.AccountAuditConfigurationAuditCheckConfigurations']]] = None,
+                 audit_notification_target_configurations: pulumi.Input[Optional[Union['AccountAuditConfigurationAuditNotificationTargetConfigurationsArgs', 'AccountAuditConfigurationAuditNotificationTargetConfigurationsArgsDict', 'outputs.AccountAuditConfigurationAuditNotificationTargetConfigurations']]] = None,
                  role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

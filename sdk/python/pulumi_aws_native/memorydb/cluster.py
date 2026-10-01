@@ -508,7 +508,7 @@ class Cluster(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  acl_name: pulumi.Input[Optional[_builtins.str]] = None,
                  auto_minor_version_upgrade: pulumi.Input[Optional[_builtins.bool]] = None,
-                 cluster_endpoint: pulumi.Input[Optional[Union['ClusterEndpointArgs', 'ClusterEndpointArgsDict']]] = None,
+                 cluster_endpoint: pulumi.Input[Optional[Union['ClusterEndpointArgs', 'ClusterEndpointArgsDict', 'outputs.ClusterEndpoint']]] = None,
                  cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
                  data_tiering: pulumi.Input[Optional['ClusterDataTieringStatus']] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
@@ -533,7 +533,7 @@ class Cluster(pulumi.CustomResource):
                  sns_topic_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  sns_topic_status: pulumi.Input[Optional[_builtins.str]] = None,
                  subnet_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  tls_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         """
@@ -545,7 +545,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] auto_minor_version_upgrade: A flag that enables automatic minor version upgrade when set to true.
                
                You cannot modify the value of AutoMinorVersionUpgrade after the cluster is created. To enable AutoMinorVersionUpgrade on a cluster you must set AutoMinorVersionUpgrade to true when you create a cluster.
-        :param pulumi.Input[Union['ClusterEndpointArgs', 'ClusterEndpointArgsDict']] cluster_endpoint: The cluster endpoint.
+        :param pulumi.Input[Union['ClusterEndpointArgs', 'ClusterEndpointArgsDict', 'outputs.ClusterEndpoint']] cluster_endpoint: The cluster endpoint.
         :param pulumi.Input[_builtins.str] cluster_name: The name of the cluster. This value must be unique as it also serves as the cluster identifier.
         :param pulumi.Input['ClusterDataTieringStatus'] data_tiering: Enables data tiering. Data tiering is only supported for clusters using the r6gd node type. This parameter must be set when using r6gd nodes.
         :param pulumi.Input[_builtins.str] description: An optional description of the cluster.
@@ -570,7 +570,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] sns_topic_arn: The Amazon Resource Name (ARN) of the Amazon Simple Notification Service (SNS) topic to which notifications are sent.
         :param pulumi.Input[_builtins.str] sns_topic_status: The status of the Amazon SNS notification topic. Notifications are sent only if the status is enabled.
         :param pulumi.Input[_builtins.str] subnet_group_name: The name of the subnet group to be used for the cluster.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this cluster.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: An array of key-value pairs to apply to this cluster.
         :param pulumi.Input[_builtins.bool] tls_enabled: A flag that enables in-transit encryption when set to true.
                
                You cannot modify the value of TransitEncryptionEnabled after the cluster is created. To enable in-transit encryption on a cluster you must set TransitEncryptionEnabled to true when you create a cluster.
@@ -601,7 +601,7 @@ class Cluster(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  acl_name: pulumi.Input[Optional[_builtins.str]] = None,
                  auto_minor_version_upgrade: pulumi.Input[Optional[_builtins.bool]] = None,
-                 cluster_endpoint: pulumi.Input[Optional[Union['ClusterEndpointArgs', 'ClusterEndpointArgsDict']]] = None,
+                 cluster_endpoint: pulumi.Input[Optional[Union['ClusterEndpointArgs', 'ClusterEndpointArgsDict', 'outputs.ClusterEndpoint']]] = None,
                  cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
                  data_tiering: pulumi.Input[Optional['ClusterDataTieringStatus']] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
@@ -626,7 +626,7 @@ class Cluster(pulumi.CustomResource):
                  sns_topic_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  sns_topic_status: pulumi.Input[Optional[_builtins.str]] = None,
                  subnet_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  tls_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

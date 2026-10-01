@@ -180,11 +180,11 @@ class Integration(pulumi.CustomResource):
                  additional_encryption_context: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  data_filter: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 integration_config: pulumi.Input[Optional[Union['IntegrationConfigArgs', 'IntegrationConfigArgsDict']]] = None,
+                 integration_config: pulumi.Input[Optional[Union['IntegrationConfigArgs', 'IntegrationConfigArgsDict', 'outputs.IntegrationConfig']]] = None,
                  integration_name: pulumi.Input[Optional[_builtins.str]] = None,
                  kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
                  source_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  target_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -195,11 +195,11 @@ class Integration(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] additional_encryption_context: An optional set of non-secret key–value pairs that contains additional contextual information for encryption. This can only be provided if `KMSKeyId` is provided.
         :param pulumi.Input[_builtins.str] data_filter: Selects source tables for the integration using Maxwell filter syntax.
         :param pulumi.Input[_builtins.str] description: A description for the integration.
-        :param pulumi.Input[Union['IntegrationConfigArgs', 'IntegrationConfigArgsDict']] integration_config: The structure used to define properties associated with the zero-ETL integration. For more information, see [IntegrationConfig structure.](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-integrations.html#aws-glue-api-integrations-IntegrationConfig)
+        :param pulumi.Input[Union['IntegrationConfigArgs', 'IntegrationConfigArgsDict', 'outputs.IntegrationConfig']] integration_config: The structure used to define properties associated with the zero-ETL integration. For more information, see [IntegrationConfig structure.](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-integrations.html#aws-glue-api-integrations-IntegrationConfig)
         :param pulumi.Input[_builtins.str] integration_name: The name of the integration.
         :param pulumi.Input[_builtins.str] kms_key_id: An KMS key identifier for the key to use to encrypt the integration. If you don't specify an encryption key, the default AWS owned KMS key is used.
         :param pulumi.Input[_builtins.str] source_arn: The Amazon Resource Name (ARN) of the database to use as the source for replication
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: An array of key-value pairs to apply to this resource.
         :param pulumi.Input[_builtins.str] target_arn: The Amazon Resource Name (ARN) of the Glue data warehouse to use as the target for replication
         """
         ...
@@ -229,11 +229,11 @@ class Integration(pulumi.CustomResource):
                  additional_encryption_context: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  data_filter: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 integration_config: pulumi.Input[Optional[Union['IntegrationConfigArgs', 'IntegrationConfigArgsDict']]] = None,
+                 integration_config: pulumi.Input[Optional[Union['IntegrationConfigArgs', 'IntegrationConfigArgsDict', 'outputs.IntegrationConfig']]] = None,
                  integration_name: pulumi.Input[Optional[_builtins.str]] = None,
                  kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
                  source_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  target_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

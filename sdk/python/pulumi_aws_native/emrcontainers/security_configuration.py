@@ -99,20 +99,20 @@ class SecurityConfiguration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 container_provider: pulumi.Input[Optional[Union['SecurityConfigurationContainerProviderArgs', 'SecurityConfigurationContainerProviderArgsDict']]] = None,
+                 container_provider: pulumi.Input[Optional[Union['SecurityConfigurationContainerProviderArgs', 'SecurityConfigurationContainerProviderArgsDict', 'outputs.SecurityConfigurationContainerProvider']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 security_configuration_data: pulumi.Input[Optional[Union['SecurityConfigurationDataArgs', 'SecurityConfigurationDataArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 security_configuration_data: pulumi.Input[Optional[Union['SecurityConfigurationDataArgs', 'SecurityConfigurationDataArgsDict', 'outputs.SecurityConfigurationData']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Resource Schema of AWS::EMRContainers::SecurityConfiguration Type
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['SecurityConfigurationContainerProviderArgs', 'SecurityConfigurationContainerProviderArgsDict']] container_provider: Container provider for the security configuration.
+        :param pulumi.Input[Union['SecurityConfigurationContainerProviderArgs', 'SecurityConfigurationContainerProviderArgsDict', 'outputs.SecurityConfigurationContainerProvider']] container_provider: Container provider for the security configuration.
         :param pulumi.Input[_builtins.str] name: The name of the security configuration.
-        :param pulumi.Input[Union['SecurityConfigurationDataArgs', 'SecurityConfigurationDataArgsDict']] security_configuration_data: Security configuration input for the security configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this security configuration.
+        :param pulumi.Input[Union['SecurityConfigurationDataArgs', 'SecurityConfigurationDataArgsDict', 'outputs.SecurityConfigurationData']] security_configuration_data: Security configuration input for the security configuration.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: An array of key-value pairs to apply to this security configuration.
         """
         ...
     @overload
@@ -138,10 +138,10 @@ class SecurityConfiguration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 container_provider: pulumi.Input[Optional[Union['SecurityConfigurationContainerProviderArgs', 'SecurityConfigurationContainerProviderArgsDict']]] = None,
+                 container_provider: pulumi.Input[Optional[Union['SecurityConfigurationContainerProviderArgs', 'SecurityConfigurationContainerProviderArgsDict', 'outputs.SecurityConfigurationContainerProvider']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 security_configuration_data: pulumi.Input[Optional[Union['SecurityConfigurationDataArgs', 'SecurityConfigurationDataArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 security_configuration_data: pulumi.Input[Optional[Union['SecurityConfigurationDataArgs', 'SecurityConfigurationDataArgsDict', 'outputs.SecurityConfigurationData']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

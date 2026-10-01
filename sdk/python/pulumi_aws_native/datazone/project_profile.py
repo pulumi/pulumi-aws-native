@@ -182,9 +182,9 @@ class ProjectProfile(pulumi.CustomResource):
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  domain_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                  domain_unit_identifier: pulumi.Input[Optional[_builtins.str]] = None,
-                 environment_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ProjectProfileEnvironmentConfigurationArgs', 'ProjectProfileEnvironmentConfigurationArgsDict']]]]] = None,
+                 environment_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ProjectProfileEnvironmentConfigurationArgs', 'ProjectProfileEnvironmentConfigurationArgsDict', 'outputs.ProjectProfileEnvironmentConfiguration']]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 project_resource_tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ProjectProfileResourceTagParameterArgs', 'ProjectProfileResourceTagParameterArgsDict']]]]] = None,
+                 project_resource_tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ProjectProfileResourceTagParameterArgs', 'ProjectProfileResourceTagParameterArgsDict', 'outputs.ProjectProfileResourceTagParameter']]]]] = None,
                  project_resource_tags_description: pulumi.Input[Optional[_builtins.str]] = None,
                  status: pulumi.Input[Optional['ProjectProfileStatus']] = None,
                  use_default_configurations: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -197,7 +197,7 @@ class ProjectProfile(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] description: The description of the project profile.
         :param pulumi.Input[_builtins.str] domain_identifier: A domain ID of the project profile.
         :param pulumi.Input[_builtins.str] domain_unit_identifier: A domain unit ID of the project profile.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ProjectProfileEnvironmentConfigurationArgs', 'ProjectProfileEnvironmentConfigurationArgsDict']]]] environment_configurations: Environment configurations of a project profile.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ProjectProfileEnvironmentConfigurationArgs', 'ProjectProfileEnvironmentConfigurationArgsDict', 'outputs.ProjectProfileEnvironmentConfiguration']]]] environment_configurations: Environment configurations of a project profile.
         :param pulumi.Input[_builtins.str] name: The name of a project profile.
         :param pulumi.Input['ProjectProfileStatus'] status: The status of a project profile.
         """
@@ -229,9 +229,9 @@ class ProjectProfile(pulumi.CustomResource):
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  domain_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                  domain_unit_identifier: pulumi.Input[Optional[_builtins.str]] = None,
-                 environment_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ProjectProfileEnvironmentConfigurationArgs', 'ProjectProfileEnvironmentConfigurationArgsDict']]]]] = None,
+                 environment_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ProjectProfileEnvironmentConfigurationArgs', 'ProjectProfileEnvironmentConfigurationArgsDict', 'outputs.ProjectProfileEnvironmentConfiguration']]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 project_resource_tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ProjectProfileResourceTagParameterArgs', 'ProjectProfileResourceTagParameterArgsDict']]]]] = None,
+                 project_resource_tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ProjectProfileResourceTagParameterArgs', 'ProjectProfileResourceTagParameterArgsDict', 'outputs.ProjectProfileResourceTagParameter']]]]] = None,
                  project_resource_tags_description: pulumi.Input[Optional[_builtins.str]] = None,
                  status: pulumi.Input[Optional['ProjectProfileStatus']] = None,
                  use_default_configurations: pulumi.Input[Optional[_builtins.bool]] = None,
