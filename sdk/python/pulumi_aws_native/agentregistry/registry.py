@@ -120,12 +120,12 @@ class Registry(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 approval_configuration: pulumi.Input[Optional[Union['RegistryApprovalConfigurationArgs', 'RegistryApprovalConfigurationArgsDict']]] = None,
+                 approval_configuration: pulumi.Input[Optional[Union['RegistryApprovalConfigurationArgs', 'RegistryApprovalConfigurationArgsDict', 'outputs.RegistryApprovalConfiguration']]] = None,
                  authorizer_type: pulumi.Input[Optional['RegistryAuthorizerType']] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 discovery_configuration: pulumi.Input[Optional[Union['RegistryDiscoveryConfigurationArgs', 'RegistryDiscoveryConfigurationArgsDict']]] = None,
+                 discovery_configuration: pulumi.Input[Optional[Union['RegistryDiscoveryConfigurationArgs', 'RegistryDiscoveryConfigurationArgsDict', 'outputs.RegistryDiscoveryConfiguration']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Definition of AWS::AgentRegistry::Registry Resource Type
@@ -134,7 +134,7 @@ class Registry(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: The description of the registry.
         :param pulumi.Input[_builtins.str] name: The name of the registry.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Tags to assign to the registry.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: Tags to assign to the registry.
         """
         ...
     @overload
@@ -160,12 +160,12 @@ class Registry(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 approval_configuration: pulumi.Input[Optional[Union['RegistryApprovalConfigurationArgs', 'RegistryApprovalConfigurationArgsDict']]] = None,
+                 approval_configuration: pulumi.Input[Optional[Union['RegistryApprovalConfigurationArgs', 'RegistryApprovalConfigurationArgsDict', 'outputs.RegistryApprovalConfiguration']]] = None,
                  authorizer_type: pulumi.Input[Optional['RegistryAuthorizerType']] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 discovery_configuration: pulumi.Input[Optional[Union['RegistryDiscoveryConfigurationArgs', 'RegistryDiscoveryConfigurationArgsDict']]] = None,
+                 discovery_configuration: pulumi.Input[Optional[Union['RegistryDiscoveryConfigurationArgs', 'RegistryDiscoveryConfigurationArgsDict', 'outputs.RegistryDiscoveryConfiguration']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

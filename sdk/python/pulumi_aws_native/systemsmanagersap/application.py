@@ -180,13 +180,13 @@ class Application(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  application_id: pulumi.Input[Optional[_builtins.str]] = None,
                  application_type: pulumi.Input[Optional['ApplicationType']] = None,
-                 components_info: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApplicationComponentInfoArgs', 'ApplicationComponentInfoArgsDict']]]]] = None,
-                 credentials: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApplicationCredentialArgs', 'ApplicationCredentialArgsDict']]]]] = None,
+                 components_info: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApplicationComponentInfoArgs', 'ApplicationComponentInfoArgsDict', 'outputs.ApplicationComponentInfo']]]]] = None,
+                 credentials: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApplicationCredentialArgs', 'ApplicationCredentialArgsDict', 'outputs.ApplicationCredential']]]]] = None,
                  database_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  instances: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  sap_instance_number: pulumi.Input[Optional[_builtins.str]] = None,
                  sid: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Resource schema for AWS::SystemsManagerSAP::Application
@@ -195,13 +195,13 @@ class Application(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] application_id: The ID of the application.
         :param pulumi.Input['ApplicationType'] application_type: The type of the application.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ApplicationComponentInfoArgs', 'ApplicationComponentInfoArgsDict']]]] components_info: This is an optional parameter for component details to which the SAP ABAP application is attached, such as Web Dispatcher.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ApplicationCredentialArgs', 'ApplicationCredentialArgsDict']]]] credentials: The credentials of the SAP application.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ApplicationComponentInfoArgs', 'ApplicationComponentInfoArgsDict', 'outputs.ApplicationComponentInfo']]]] components_info: This is an optional parameter for component details to which the SAP ABAP application is attached, such as Web Dispatcher.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ApplicationCredentialArgs', 'ApplicationCredentialArgsDict', 'outputs.ApplicationCredential']]]] credentials: The credentials of the SAP application.
         :param pulumi.Input[_builtins.str] database_arn: The ARN of the SAP HANA database
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] instances: The Amazon EC2 instances on which your SAP application is running.
         :param pulumi.Input[_builtins.str] sap_instance_number: The SAP instance number of the application.
         :param pulumi.Input[_builtins.str] sid: The System ID of the application.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags of a SystemsManagerSAP application.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: The tags of a SystemsManagerSAP application.
         """
         ...
     @overload
@@ -229,13 +229,13 @@ class Application(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  application_id: pulumi.Input[Optional[_builtins.str]] = None,
                  application_type: pulumi.Input[Optional['ApplicationType']] = None,
-                 components_info: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApplicationComponentInfoArgs', 'ApplicationComponentInfoArgsDict']]]]] = None,
-                 credentials: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApplicationCredentialArgs', 'ApplicationCredentialArgsDict']]]]] = None,
+                 components_info: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApplicationComponentInfoArgs', 'ApplicationComponentInfoArgsDict', 'outputs.ApplicationComponentInfo']]]]] = None,
+                 credentials: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApplicationCredentialArgs', 'ApplicationCredentialArgsDict', 'outputs.ApplicationCredential']]]]] = None,
                  database_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  instances: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  sap_instance_number: pulumi.Input[Optional[_builtins.str]] = None,
                  sid: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

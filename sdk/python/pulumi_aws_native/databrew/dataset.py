@@ -148,12 +148,12 @@ class Dataset(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  format: pulumi.Input[Optional['DatasetFormat']] = None,
-                 format_options: pulumi.Input[Optional[Union['DatasetFormatOptionsArgs', 'DatasetFormatOptionsArgsDict']]] = None,
-                 input: pulumi.Input[Optional[Union['DatasetInputArgs', 'DatasetInputArgsDict']]] = None,
+                 format_options: pulumi.Input[Optional[Union['DatasetFormatOptionsArgs', 'DatasetFormatOptionsArgsDict', 'outputs.DatasetFormatOptions']]] = None,
+                 input: pulumi.Input[Optional[Union['DatasetInputArgs', 'DatasetInputArgsDict', 'outputs.DatasetInput']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 path_options: pulumi.Input[Optional[Union['DatasetPathOptionsArgs', 'DatasetPathOptionsArgsDict']]] = None,
+                 path_options: pulumi.Input[Optional[Union['DatasetPathOptionsArgs', 'DatasetPathOptionsArgsDict', 'outputs.DatasetPathOptions']]] = None,
                  source: pulumi.Input[Optional['DatasetSource']] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Resource schema for AWS::DataBrew::Dataset.
@@ -189,12 +189,12 @@ class Dataset(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input['DatasetFormat'] format: Dataset format
-        :param pulumi.Input[Union['DatasetFormatOptionsArgs', 'DatasetFormatOptionsArgsDict']] format_options: Format options for dataset
-        :param pulumi.Input[Union['DatasetInputArgs', 'DatasetInputArgsDict']] input: Input
+        :param pulumi.Input[Union['DatasetFormatOptionsArgs', 'DatasetFormatOptionsArgsDict', 'outputs.DatasetFormatOptions']] format_options: Format options for dataset
+        :param pulumi.Input[Union['DatasetInputArgs', 'DatasetInputArgsDict', 'outputs.DatasetInput']] input: Input
         :param pulumi.Input[_builtins.str] name: Dataset name
-        :param pulumi.Input[Union['DatasetPathOptionsArgs', 'DatasetPathOptionsArgsDict']] path_options: PathOptions
+        :param pulumi.Input[Union['DatasetPathOptionsArgs', 'DatasetPathOptionsArgsDict', 'outputs.DatasetPathOptions']] path_options: PathOptions
         :param pulumi.Input['DatasetSource'] source: Source type of the dataset
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Metadata tags that have been applied to the dataset.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: Metadata tags that have been applied to the dataset.
         """
         ...
     @overload
@@ -249,12 +249,12 @@ class Dataset(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  format: pulumi.Input[Optional['DatasetFormat']] = None,
-                 format_options: pulumi.Input[Optional[Union['DatasetFormatOptionsArgs', 'DatasetFormatOptionsArgsDict']]] = None,
-                 input: pulumi.Input[Optional[Union['DatasetInputArgs', 'DatasetInputArgsDict']]] = None,
+                 format_options: pulumi.Input[Optional[Union['DatasetFormatOptionsArgs', 'DatasetFormatOptionsArgsDict', 'outputs.DatasetFormatOptions']]] = None,
+                 input: pulumi.Input[Optional[Union['DatasetInputArgs', 'DatasetInputArgsDict', 'outputs.DatasetInput']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 path_options: pulumi.Input[Optional[Union['DatasetPathOptionsArgs', 'DatasetPathOptionsArgsDict']]] = None,
+                 path_options: pulumi.Input[Optional[Union['DatasetPathOptionsArgs', 'DatasetPathOptionsArgsDict', 'outputs.DatasetPathOptions']]] = None,
                  source: pulumi.Input[Optional['DatasetSource']] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

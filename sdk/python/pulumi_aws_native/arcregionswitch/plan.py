@@ -218,7 +218,7 @@ class Plan(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 associated_alarms: pulumi.Input[Optional[Mapping[str, pulumi.Input[Union['PlanAssociatedAlarmArgs', 'PlanAssociatedAlarmArgsDict']]]]] = None,
+                 associated_alarms: pulumi.Input[Optional[Mapping[str, pulumi.Input[Union['PlanAssociatedAlarmArgs', 'PlanAssociatedAlarmArgsDict', 'outputs.PlanAssociatedAlarm']]]]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  execution_role: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -226,17 +226,17 @@ class Plan(pulumi.CustomResource):
                  recovery_approach: pulumi.Input[Optional['PlanRecoveryApproach']] = None,
                  recovery_time_objective_minutes: pulumi.Input[Optional[_builtins.float]] = None,
                  regions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 report_configuration: pulumi.Input[Optional[Union['PlanReportConfigurationArgs', 'PlanReportConfigurationArgsDict']]] = None,
+                 report_configuration: pulumi.Input[Optional[Union['PlanReportConfigurationArgs', 'PlanReportConfigurationArgsDict', 'outputs.PlanReportConfiguration']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 triggers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PlanTriggerArgs', 'PlanTriggerArgsDict']]]]] = None,
-                 workflows: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PlanWorkflowArgs', 'PlanWorkflowArgsDict']]]]] = None,
+                 triggers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PlanTriggerArgs', 'PlanTriggerArgsDict', 'outputs.PlanTrigger']]]]] = None,
+                 workflows: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PlanWorkflowArgs', 'PlanWorkflowArgsDict', 'outputs.PlanWorkflow']]]]] = None,
                  __props__=None):
         """
         Represents a plan that specifies Regions, IAM roles, and workflows of logic required to perform the desired change to your multi-Region application
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Mapping[str, pulumi.Input[Union['PlanAssociatedAlarmArgs', 'PlanAssociatedAlarmArgsDict']]]] associated_alarms: The associated application health alarms for a plan.
+        :param pulumi.Input[Mapping[str, pulumi.Input[Union['PlanAssociatedAlarmArgs', 'PlanAssociatedAlarmArgsDict', 'outputs.PlanAssociatedAlarm']]]] associated_alarms: The associated application health alarms for a plan.
         :param pulumi.Input[_builtins.str] description: The description for a plan.
         :param pulumi.Input[_builtins.str] execution_role: The execution role for a plan.
         :param pulumi.Input[_builtins.str] name: The name for a plan.
@@ -244,9 +244,9 @@ class Plan(pulumi.CustomResource):
         :param pulumi.Input['PlanRecoveryApproach'] recovery_approach: The recovery approach for a Region switch plan, which can be active/active (activeActive) or active/passive (activePassive).
         :param pulumi.Input[_builtins.float] recovery_time_objective_minutes: The recovery time objective for a plan.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] regions: The AWS Regions for a plan.
-        :param pulumi.Input[Union['PlanReportConfigurationArgs', 'PlanReportConfigurationArgsDict']] report_configuration: The report configuration for a plan.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['PlanTriggerArgs', 'PlanTriggerArgsDict']]]] triggers: The triggers for a plan.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['PlanWorkflowArgs', 'PlanWorkflowArgsDict']]]] workflows: The workflows for a plan.
+        :param pulumi.Input[Union['PlanReportConfigurationArgs', 'PlanReportConfigurationArgsDict', 'outputs.PlanReportConfiguration']] report_configuration: The report configuration for a plan.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['PlanTriggerArgs', 'PlanTriggerArgsDict', 'outputs.PlanTrigger']]]] triggers: The triggers for a plan.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['PlanWorkflowArgs', 'PlanWorkflowArgsDict', 'outputs.PlanWorkflow']]]] workflows: The workflows for a plan.
         """
         ...
     @overload
@@ -272,7 +272,7 @@ class Plan(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 associated_alarms: pulumi.Input[Optional[Mapping[str, pulumi.Input[Union['PlanAssociatedAlarmArgs', 'PlanAssociatedAlarmArgsDict']]]]] = None,
+                 associated_alarms: pulumi.Input[Optional[Mapping[str, pulumi.Input[Union['PlanAssociatedAlarmArgs', 'PlanAssociatedAlarmArgsDict', 'outputs.PlanAssociatedAlarm']]]]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  execution_role: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -280,10 +280,10 @@ class Plan(pulumi.CustomResource):
                  recovery_approach: pulumi.Input[Optional['PlanRecoveryApproach']] = None,
                  recovery_time_objective_minutes: pulumi.Input[Optional[_builtins.float]] = None,
                  regions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 report_configuration: pulumi.Input[Optional[Union['PlanReportConfigurationArgs', 'PlanReportConfigurationArgsDict']]] = None,
+                 report_configuration: pulumi.Input[Optional[Union['PlanReportConfigurationArgs', 'PlanReportConfigurationArgsDict', 'outputs.PlanReportConfiguration']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 triggers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PlanTriggerArgs', 'PlanTriggerArgsDict']]]]] = None,
-                 workflows: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PlanWorkflowArgs', 'PlanWorkflowArgsDict']]]]] = None,
+                 triggers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PlanTriggerArgs', 'PlanTriggerArgsDict', 'outputs.PlanTrigger']]]]] = None,
+                 workflows: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PlanWorkflowArgs', 'PlanWorkflowArgsDict', 'outputs.PlanWorkflow']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

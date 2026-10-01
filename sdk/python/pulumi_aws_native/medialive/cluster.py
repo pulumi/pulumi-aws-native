@@ -111,8 +111,8 @@ class Cluster(pulumi.CustomResource):
                  cluster_type: pulumi.Input[Optional['ClusterType']] = None,
                  instance_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 network_settings: pulumi.Input[Optional[Union['ClusterNetworkSettingsArgs', 'ClusterNetworkSettingsArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 network_settings: pulumi.Input[Optional[Union['ClusterNetworkSettingsArgs', 'ClusterNetworkSettingsArgsDict', 'outputs.ClusterNetworkSettings']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Definition of AWS::MediaLive::Cluster Resource Type
@@ -121,7 +121,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] instance_role_arn: The IAM role your nodes will use.
         :param pulumi.Input[_builtins.str] name: The user-specified name of the Cluster to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: A collection of key-value pairs.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: A collection of key-value pairs.
         """
         ...
     @overload
@@ -150,8 +150,8 @@ class Cluster(pulumi.CustomResource):
                  cluster_type: pulumi.Input[Optional['ClusterType']] = None,
                  instance_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 network_settings: pulumi.Input[Optional[Union['ClusterNetworkSettingsArgs', 'ClusterNetworkSettingsArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 network_settings: pulumi.Input[Optional[Union['ClusterNetworkSettingsArgs', 'ClusterNetworkSettingsArgsDict', 'outputs.ClusterNetworkSettings']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

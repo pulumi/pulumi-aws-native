@@ -101,7 +101,7 @@ class FirewallDomainList(pulumi.CustomResource):
                  domain_file_url: pulumi.Input[Optional[_builtins.str]] = None,
                  domains: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Resource schema for AWS::Route53Resolver::FirewallDomainList.
@@ -111,7 +111,7 @@ class FirewallDomainList(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] domain_file_url: S3 URL to import domains from.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] domains: A list of the domain lists that you have defined.
         :param pulumi.Input[_builtins.str] name: FirewallDomainListName
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Tags
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: Tags
         """
         ...
     @overload
@@ -140,7 +140,7 @@ class FirewallDomainList(pulumi.CustomResource):
                  domain_file_url: pulumi.Input[Optional[_builtins.str]] = None,
                  domains: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

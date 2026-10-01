@@ -133,10 +133,10 @@ class ConfigurationSet(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  configuration_set_name: pulumi.Input[Optional[_builtins.str]] = None,
                  default_sender_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 event_destinations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ConfigurationSetEventDestinationArgs', 'ConfigurationSetEventDestinationArgsDict']]]]] = None,
+                 event_destinations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ConfigurationSetEventDestinationArgs', 'ConfigurationSetEventDestinationArgsDict', 'outputs.ConfigurationSetEventDestination']]]]] = None,
                  message_feedback_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  protect_configuration_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::SMSVOICE::ConfigurationSet
@@ -145,10 +145,10 @@ class ConfigurationSet(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] configuration_set_name: The name to use for the configuration set.
         :param pulumi.Input[_builtins.str] default_sender_id: The default sender ID to set for the ConfigurationSet.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ConfigurationSetEventDestinationArgs', 'ConfigurationSetEventDestinationArgsDict']]]] event_destinations: An event destination is a location where you send message events.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ConfigurationSetEventDestinationArgs', 'ConfigurationSetEventDestinationArgsDict', 'outputs.ConfigurationSetEventDestination']]]] event_destinations: An event destination is a location where you send message events.
         :param pulumi.Input[_builtins.bool] message_feedback_enabled: Set to true to enable message feedback.
         :param pulumi.Input[_builtins.str] protect_configuration_id: The unique identifier for the protect configuration to be associated to the configuration set.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
     @overload
@@ -176,10 +176,10 @@ class ConfigurationSet(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  configuration_set_name: pulumi.Input[Optional[_builtins.str]] = None,
                  default_sender_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 event_destinations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ConfigurationSetEventDestinationArgs', 'ConfigurationSetEventDestinationArgsDict']]]]] = None,
+                 event_destinations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ConfigurationSetEventDestinationArgs', 'ConfigurationSetEventDestinationArgsDict', 'outputs.ConfigurationSetEventDestination']]]]] = None,
                  message_feedback_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  protect_configuration_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

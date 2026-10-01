@@ -519,13 +519,13 @@ class Environment(pulumi.CustomResource):
                  environment_class: pulumi.Input[Optional[_builtins.str]] = None,
                  execution_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  kms_key: pulumi.Input[Optional[_builtins.str]] = None,
-                 logging_configuration: pulumi.Input[Optional[Union['EnvironmentLoggingConfigurationArgs', 'EnvironmentLoggingConfigurationArgsDict']]] = None,
+                 logging_configuration: pulumi.Input[Optional[Union['EnvironmentLoggingConfigurationArgs', 'EnvironmentLoggingConfigurationArgsDict', 'outputs.EnvironmentLoggingConfiguration']]] = None,
                  max_webservers: pulumi.Input[Optional[_builtins.int]] = None,
                  max_workers: pulumi.Input[Optional[_builtins.int]] = None,
                  min_webservers: pulumi.Input[Optional[_builtins.int]] = None,
                  min_workers: pulumi.Input[Optional[_builtins.int]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 network_configuration: pulumi.Input[Optional[Union['EnvironmentNetworkConfigurationArgs', 'EnvironmentNetworkConfigurationArgsDict']]] = None,
+                 network_configuration: pulumi.Input[Optional[Union['EnvironmentNetworkConfigurationArgs', 'EnvironmentNetworkConfigurationArgsDict', 'outputs.EnvironmentNetworkConfiguration']]] = None,
                  plugins_s3_object_version: pulumi.Input[Optional[_builtins.str]] = None,
                  plugins_s3_path: pulumi.Input[Optional[_builtins.str]] = None,
                  requirements_s3_object_version: pulumi.Input[Optional[_builtins.str]] = None,
@@ -565,7 +565,7 @@ class Environment(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] environment_class: The environment class type. Valid values: `mw1.micro` , `mw1.small` , `mw1.medium` , `mw1.large` , `mw1.1large` , and `mw1.2large` . To learn more, see [Amazon MWAA environment class](https://docs.aws.amazon.com/mwaa/latest/userguide/environment-class.html) .
         :param pulumi.Input[_builtins.str] execution_role_arn: The Amazon Resource Name (ARN) of the execution role in IAM that allows MWAA to access AWS resources in your environment. For example, `arn:aws:iam::123456789:role/my-execution-role` . To learn more, see [Amazon MWAA Execution role](https://docs.aws.amazon.com/mwaa/latest/userguide/mwaa-create-role.html) .
         :param pulumi.Input[_builtins.str] kms_key: The AWS Key Management Service (KMS) key to encrypt and decrypt the data in your environment. You can use an AWS KMS key managed by MWAA, or a customer-managed KMS key (advanced).
-        :param pulumi.Input[Union['EnvironmentLoggingConfigurationArgs', 'EnvironmentLoggingConfigurationArgsDict']] logging_configuration: The Apache Airflow logs being sent to CloudWatch Logs: `DagProcessingLogs` , `SchedulerLogs` , `TaskLogs` , `WebserverLogs` , `WorkerLogs` .
+        :param pulumi.Input[Union['EnvironmentLoggingConfigurationArgs', 'EnvironmentLoggingConfigurationArgsDict', 'outputs.EnvironmentLoggingConfiguration']] logging_configuration: The Apache Airflow logs being sent to CloudWatch Logs: `DagProcessingLogs` , `SchedulerLogs` , `TaskLogs` , `WebserverLogs` , `WorkerLogs` .
         :param pulumi.Input[_builtins.int] max_webservers: The maximum number of web servers that you want to run in your environment. Amazon MWAA scales the number of Apache Airflow web servers up to the number you specify for `MaxWebservers` when you interact with your Apache Airflow environment using Apache Airflow REST API, or the Apache Airflow CLI. For example, in scenarios where your workload requires network calls to the Apache Airflow REST API with a high transaction-per-second (TPS) rate, Amazon MWAA will increase the number of web servers up to the number set in `MaxWebserers` . As TPS rates decrease Amazon MWAA disposes of the additional web servers, and scales down to the number set in `MinxWebserers` .
                
                Valid values: For environments larger than mw1.micro, accepts values from `2` to `5` . Defaults to `2` for all environment sizes except mw1.micro, which defaults to `1` .
@@ -575,7 +575,7 @@ class Environment(pulumi.CustomResource):
                Valid values: For environments larger than mw1.micro, accepts values from `2` to `5` . Defaults to `2` for all environment sizes except mw1.micro, which defaults to `1` .
         :param pulumi.Input[_builtins.int] min_workers: The minimum number of workers that you want to run in your environment. MWAA scales the number of Apache Airflow workers up to the number you specify in the `MaxWorkers` field. When there are no more tasks running, and no more in the queue, MWAA disposes of the extra workers leaving the worker count you specify in the `MinWorkers` field. For example, `2` .
         :param pulumi.Input[_builtins.str] name: The name of your Amazon MWAA environment.
-        :param pulumi.Input[Union['EnvironmentNetworkConfigurationArgs', 'EnvironmentNetworkConfigurationArgsDict']] network_configuration: The VPC networking components used to secure and enable network traffic between the AWS resources for your environment. To learn more, see [About networking on Amazon MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/networking-about.html) .
+        :param pulumi.Input[Union['EnvironmentNetworkConfigurationArgs', 'EnvironmentNetworkConfigurationArgsDict', 'outputs.EnvironmentNetworkConfiguration']] network_configuration: The VPC networking components used to secure and enable network traffic between the AWS resources for your environment. To learn more, see [About networking on Amazon MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/networking-about.html) .
         :param pulumi.Input[_builtins.str] plugins_s3_object_version: The version of the plugins.zip file on your Amazon S3 bucket. To learn more, see [Installing custom plugins](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import-plugins.html) .
         :param pulumi.Input[_builtins.str] plugins_s3_path: The relative path to the `plugins.zip` file on your Amazon S3 bucket. For example, `plugins.zip` . To learn more, see [Installing custom plugins](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import-plugins.html) .
         :param pulumi.Input[_builtins.str] requirements_s3_object_version: The version of the requirements.txt file on your Amazon S3 bucket. To learn more, see [Installing Python dependencies](https://docs.aws.amazon.com/mwaa/latest/userguide/working-dags-dependencies.html) .
@@ -634,13 +634,13 @@ class Environment(pulumi.CustomResource):
                  environment_class: pulumi.Input[Optional[_builtins.str]] = None,
                  execution_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  kms_key: pulumi.Input[Optional[_builtins.str]] = None,
-                 logging_configuration: pulumi.Input[Optional[Union['EnvironmentLoggingConfigurationArgs', 'EnvironmentLoggingConfigurationArgsDict']]] = None,
+                 logging_configuration: pulumi.Input[Optional[Union['EnvironmentLoggingConfigurationArgs', 'EnvironmentLoggingConfigurationArgsDict', 'outputs.EnvironmentLoggingConfiguration']]] = None,
                  max_webservers: pulumi.Input[Optional[_builtins.int]] = None,
                  max_workers: pulumi.Input[Optional[_builtins.int]] = None,
                  min_webservers: pulumi.Input[Optional[_builtins.int]] = None,
                  min_workers: pulumi.Input[Optional[_builtins.int]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 network_configuration: pulumi.Input[Optional[Union['EnvironmentNetworkConfigurationArgs', 'EnvironmentNetworkConfigurationArgsDict']]] = None,
+                 network_configuration: pulumi.Input[Optional[Union['EnvironmentNetworkConfigurationArgs', 'EnvironmentNetworkConfigurationArgsDict', 'outputs.EnvironmentNetworkConfiguration']]] = None,
                  plugins_s3_object_version: pulumi.Input[Optional[_builtins.str]] = None,
                  plugins_s3_path: pulumi.Input[Optional[_builtins.str]] = None,
                  requirements_s3_object_version: pulumi.Input[Optional[_builtins.str]] = None,

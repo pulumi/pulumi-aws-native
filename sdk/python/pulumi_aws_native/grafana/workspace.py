@@ -344,17 +344,17 @@ class Workspace(pulumi.CustomResource):
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  grafana_version: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 network_access_control: pulumi.Input[Optional[Union['WorkspaceNetworkAccessControlArgs', 'WorkspaceNetworkAccessControlArgsDict']]] = None,
+                 network_access_control: pulumi.Input[Optional[Union['WorkspaceNetworkAccessControlArgs', 'WorkspaceNetworkAccessControlArgsDict', 'outputs.WorkspaceNetworkAccessControl']]] = None,
                  notification_destinations: pulumi.Input[Optional[Sequence[pulumi.Input['WorkspaceNotificationDestinationType']]]] = None,
                  organization_role_name: pulumi.Input[Optional[_builtins.str]] = None,
                  organizational_units: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  permission_type: pulumi.Input[Optional['WorkspacePermissionType']] = None,
                  plugin_admin_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  role_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 saml_configuration: pulumi.Input[Optional[Union['WorkspaceSamlConfigurationArgs', 'WorkspaceSamlConfigurationArgsDict']]] = None,
+                 saml_configuration: pulumi.Input[Optional[Union['WorkspaceSamlConfigurationArgs', 'WorkspaceSamlConfigurationArgsDict', 'outputs.WorkspaceSamlConfiguration']]] = None,
                  stack_set_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 vpc_configuration: pulumi.Input[Optional[Union['WorkspaceVpcConfigurationArgs', 'WorkspaceVpcConfigurationArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
+                 vpc_configuration: pulumi.Input[Optional[Union['WorkspaceVpcConfigurationArgs', 'WorkspaceVpcConfigurationArgsDict', 'outputs.WorkspaceVpcConfiguration']]] = None,
                  __props__=None):
         """
         Definition of AWS::Grafana::Workspace Resource Type
@@ -368,7 +368,7 @@ class Workspace(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] description: Description of a workspace.
         :param pulumi.Input[_builtins.str] grafana_version: The version of Grafana to support in your workspace.
         :param pulumi.Input[_builtins.str] name: The user friendly name of a workspace.
-        :param pulumi.Input[Union['WorkspaceNetworkAccessControlArgs', 'WorkspaceNetworkAccessControlArgsDict']] network_access_control: The configuration settings for network access to your workspace.
+        :param pulumi.Input[Union['WorkspaceNetworkAccessControlArgs', 'WorkspaceNetworkAccessControlArgsDict', 'outputs.WorkspaceNetworkAccessControl']] network_access_control: The configuration settings for network access to your workspace.
         :param pulumi.Input[Sequence[pulumi.Input['WorkspaceNotificationDestinationType']]] notification_destinations: List of notification destinations on the customers service managed IAM role that the Grafana workspace can query.
         :param pulumi.Input[_builtins.str] organization_role_name: The name of an IAM role that already exists to use with AWS Organizations to access AWS data sources and notification channels in other accounts in an organization.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] organizational_units: List of Organizational Units containing AWS accounts the Grafana workspace can pull data from.
@@ -381,10 +381,10 @@ class Workspace(pulumi.CustomResource):
                For more information about converting between customer and service managed, see [Managing permissions for data sources and notification channels](https://docs.aws.amazon.com/grafana/latest/userguide/AMG-datasource-and-notification.html) . For more information about the roles and permissions that must be managed for customer managed workspaces, see [Amazon Managed Grafana permissions and policies for AWS data sources and notification channels](https://docs.aws.amazon.com/grafana/latest/userguide/AMG-manage-permissions.html)
         :param pulumi.Input[_builtins.bool] plugin_admin_enabled: Allow workspace admins to install plugins
         :param pulumi.Input[_builtins.str] role_arn: IAM Role that will be used to grant the Grafana workspace access to a customers AWS resources.
-        :param pulumi.Input[Union['WorkspaceSamlConfigurationArgs', 'WorkspaceSamlConfigurationArgsDict']] saml_configuration: If the workspace uses SAML, use this structure to map SAML assertion attributes to workspace user information and define which groups in the assertion attribute are to have the `Admin` and `Editor` roles in the workspace.
+        :param pulumi.Input[Union['WorkspaceSamlConfigurationArgs', 'WorkspaceSamlConfigurationArgsDict', 'outputs.WorkspaceSamlConfiguration']] saml_configuration: If the workspace uses SAML, use this structure to map SAML assertion attributes to workspace user information and define which groups in the assertion attribute are to have the `Admin` and `Editor` roles in the workspace.
         :param pulumi.Input[_builtins.str] stack_set_name: The name of the AWS CloudFormation stack set to use to generate IAM roles to be used for this workspace.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The list of tags associated with the workspace.
-        :param pulumi.Input[Union['WorkspaceVpcConfigurationArgs', 'WorkspaceVpcConfigurationArgsDict']] vpc_configuration: The configuration settings for an Amazon VPC that contains data sources for your Grafana workspace to connect to.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: The list of tags associated with the workspace.
+        :param pulumi.Input[Union['WorkspaceVpcConfigurationArgs', 'WorkspaceVpcConfigurationArgsDict', 'outputs.WorkspaceVpcConfiguration']] vpc_configuration: The configuration settings for an Amazon VPC that contains data sources for your Grafana workspace to connect to.
                
                > Connecting to a private VPC is not yet available in the Asia Pacific (Seoul) Region (ap-northeast-2).
         """
@@ -419,17 +419,17 @@ class Workspace(pulumi.CustomResource):
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  grafana_version: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 network_access_control: pulumi.Input[Optional[Union['WorkspaceNetworkAccessControlArgs', 'WorkspaceNetworkAccessControlArgsDict']]] = None,
+                 network_access_control: pulumi.Input[Optional[Union['WorkspaceNetworkAccessControlArgs', 'WorkspaceNetworkAccessControlArgsDict', 'outputs.WorkspaceNetworkAccessControl']]] = None,
                  notification_destinations: pulumi.Input[Optional[Sequence[pulumi.Input['WorkspaceNotificationDestinationType']]]] = None,
                  organization_role_name: pulumi.Input[Optional[_builtins.str]] = None,
                  organizational_units: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  permission_type: pulumi.Input[Optional['WorkspacePermissionType']] = None,
                  plugin_admin_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  role_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 saml_configuration: pulumi.Input[Optional[Union['WorkspaceSamlConfigurationArgs', 'WorkspaceSamlConfigurationArgsDict']]] = None,
+                 saml_configuration: pulumi.Input[Optional[Union['WorkspaceSamlConfigurationArgs', 'WorkspaceSamlConfigurationArgsDict', 'outputs.WorkspaceSamlConfiguration']]] = None,
                  stack_set_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 vpc_configuration: pulumi.Input[Optional[Union['WorkspaceVpcConfigurationArgs', 'WorkspaceVpcConfigurationArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
+                 vpc_configuration: pulumi.Input[Optional[Union['WorkspaceVpcConfigurationArgs', 'WorkspaceVpcConfigurationArgsDict', 'outputs.WorkspaceVpcConfiguration']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

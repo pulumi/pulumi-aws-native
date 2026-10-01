@@ -128,24 +128,24 @@ class DataAccessor(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 action_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DataAccessorActionConfigurationArgs', 'DataAccessorActionConfigurationArgsDict']]]]] = None,
+                 action_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DataAccessorActionConfigurationArgs', 'DataAccessorActionConfigurationArgsDict', 'outputs.DataAccessorActionConfiguration']]]]] = None,
                  application_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 authentication_detail: pulumi.Input[Optional[Union['DataAccessorAuthenticationDetailArgs', 'DataAccessorAuthenticationDetailArgsDict']]] = None,
+                 authentication_detail: pulumi.Input[Optional[Union['DataAccessorAuthenticationDetailArgs', 'DataAccessorAuthenticationDetailArgsDict', 'outputs.DataAccessorAuthenticationDetail']]] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
                  principal: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Definition of AWS::QBusiness::DataAccessor Resource Type
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['DataAccessorActionConfigurationArgs', 'DataAccessorActionConfigurationArgsDict']]]] action_configurations: A list of action configurations specifying the allowed actions and any associated filters.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DataAccessorActionConfigurationArgs', 'DataAccessorActionConfigurationArgsDict', 'outputs.DataAccessorActionConfiguration']]]] action_configurations: A list of action configurations specifying the allowed actions and any associated filters.
         :param pulumi.Input[_builtins.str] application_id: The unique identifier of the Amazon Q Business application.
-        :param pulumi.Input[Union['DataAccessorAuthenticationDetailArgs', 'DataAccessorAuthenticationDetailArgsDict']] authentication_detail: The authentication configuration details for the data accessor. This specifies how the ISV authenticates when accessing data through this data accessor.
+        :param pulumi.Input[Union['DataAccessorAuthenticationDetailArgs', 'DataAccessorAuthenticationDetailArgsDict', 'outputs.DataAccessorAuthenticationDetail']] authentication_detail: The authentication configuration details for the data accessor. This specifies how the ISV authenticates when accessing data through this data accessor.
         :param pulumi.Input[_builtins.str] display_name: The friendly name of the data accessor.
         :param pulumi.Input[_builtins.str] principal: The Amazon Resource Name (ARN) of the IAM role for the ISV associated with this data accessor.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags to associate with the data accessor.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: The tags to associate with the data accessor.
         """
         ...
     @overload
@@ -171,12 +171,12 @@ class DataAccessor(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 action_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DataAccessorActionConfigurationArgs', 'DataAccessorActionConfigurationArgsDict']]]]] = None,
+                 action_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DataAccessorActionConfigurationArgs', 'DataAccessorActionConfigurationArgsDict', 'outputs.DataAccessorActionConfiguration']]]]] = None,
                  application_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 authentication_detail: pulumi.Input[Optional[Union['DataAccessorAuthenticationDetailArgs', 'DataAccessorAuthenticationDetailArgsDict']]] = None,
+                 authentication_detail: pulumi.Input[Optional[Union['DataAccessorAuthenticationDetailArgs', 'DataAccessorAuthenticationDetailArgsDict', 'outputs.DataAccessorAuthenticationDetail']]] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
                  principal: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

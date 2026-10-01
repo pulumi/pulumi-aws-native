@@ -129,8 +129,8 @@ class ExperimentRun(pulumi.CustomResource):
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  experiment_definition_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                  exposure_percentage: pulumi.Input[Optional[_builtins.float]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 treatment_overrides: pulumi.Input[Optional[Union['ExperimentRunTreatmentOverridesArgs', 'ExperimentRunTreatmentOverridesArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
+                 treatment_overrides: pulumi.Input[Optional[Union['ExperimentRunTreatmentOverridesArgs', 'ExperimentRunTreatmentOverridesArgsDict', 'outputs.ExperimentRunTreatmentOverrides']]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::AppConfig::ExperimentRun
@@ -141,7 +141,7 @@ class ExperimentRun(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] description: Description of the experiment run.
         :param pulumi.Input[_builtins.str] experiment_definition_identifier: The experiment definition name or ID used to create the experiment run.
         :param pulumi.Input[_builtins.float] exposure_percentage: Percentage of traffic exposed to the experiment (0-100).
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Tags to associate with the experiment run.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: Tags to associate with the experiment run.
         """
         ...
     @overload
@@ -171,8 +171,8 @@ class ExperimentRun(pulumi.CustomResource):
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  experiment_definition_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                  exposure_percentage: pulumi.Input[Optional[_builtins.float]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 treatment_overrides: pulumi.Input[Optional[Union['ExperimentRunTreatmentOverridesArgs', 'ExperimentRunTreatmentOverridesArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
+                 treatment_overrides: pulumi.Input[Optional[Union['ExperimentRunTreatmentOverridesArgs', 'ExperimentRunTreatmentOverridesArgsDict', 'outputs.ExperimentRunTreatmentOverrides']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

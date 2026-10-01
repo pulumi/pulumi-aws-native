@@ -290,44 +290,44 @@ class LoadBalancer(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_logging_policy: pulumi.Input[Optional[Union['LoadBalancerAccessLoggingPolicyArgs', 'LoadBalancerAccessLoggingPolicyArgsDict']]] = None,
-                 app_cookie_stickiness_policy: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LoadBalancerAppCookieStickinessPolicyArgs', 'LoadBalancerAppCookieStickinessPolicyArgsDict']]]]] = None,
+                 access_logging_policy: pulumi.Input[Optional[Union['LoadBalancerAccessLoggingPolicyArgs', 'LoadBalancerAccessLoggingPolicyArgsDict', 'outputs.LoadBalancerAccessLoggingPolicy']]] = None,
+                 app_cookie_stickiness_policy: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LoadBalancerAppCookieStickinessPolicyArgs', 'LoadBalancerAppCookieStickinessPolicyArgsDict', 'outputs.LoadBalancerAppCookieStickinessPolicy']]]]] = None,
                  availability_zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 connection_draining_policy: pulumi.Input[Optional[Union['LoadBalancerConnectionDrainingPolicyArgs', 'LoadBalancerConnectionDrainingPolicyArgsDict']]] = None,
-                 connection_settings: pulumi.Input[Optional[Union['LoadBalancerConnectionSettingsArgs', 'LoadBalancerConnectionSettingsArgsDict']]] = None,
+                 connection_draining_policy: pulumi.Input[Optional[Union['LoadBalancerConnectionDrainingPolicyArgs', 'LoadBalancerConnectionDrainingPolicyArgsDict', 'outputs.LoadBalancerConnectionDrainingPolicy']]] = None,
+                 connection_settings: pulumi.Input[Optional[Union['LoadBalancerConnectionSettingsArgs', 'LoadBalancerConnectionSettingsArgsDict', 'outputs.LoadBalancerConnectionSettings']]] = None,
                  cross_zone: pulumi.Input[Optional[_builtins.bool]] = None,
-                 health_check: pulumi.Input[Optional[Union['LoadBalancerHealthCheckArgs', 'LoadBalancerHealthCheckArgsDict']]] = None,
+                 health_check: pulumi.Input[Optional[Union['LoadBalancerHealthCheckArgs', 'LoadBalancerHealthCheckArgsDict', 'outputs.LoadBalancerHealthCheck']]] = None,
                  instances: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 lb_cookie_stickiness_policy: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LoadBalancerLbCookieStickinessPolicyArgs', 'LoadBalancerLbCookieStickinessPolicyArgsDict']]]]] = None,
-                 listeners: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LoadBalancerListenersArgs', 'LoadBalancerListenersArgsDict']]]]] = None,
+                 lb_cookie_stickiness_policy: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LoadBalancerLbCookieStickinessPolicyArgs', 'LoadBalancerLbCookieStickinessPolicyArgsDict', 'outputs.LoadBalancerLbCookieStickinessPolicy']]]]] = None,
+                 listeners: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LoadBalancerListenersArgs', 'LoadBalancerListenersArgsDict', 'outputs.LoadBalancerListeners']]]]] = None,
                  load_balancer_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 policies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LoadBalancerPoliciesArgs', 'LoadBalancerPoliciesArgsDict']]]]] = None,
+                 policies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LoadBalancerPoliciesArgs', 'LoadBalancerPoliciesArgsDict', 'outputs.LoadBalancerPolicies']]]]] = None,
                  scheme: pulumi.Input[Optional[_builtins.str]] = None,
                  security_groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  subnets: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::ElasticLoadBalancing::LoadBalancer
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['LoadBalancerAccessLoggingPolicyArgs', 'LoadBalancerAccessLoggingPolicyArgsDict']] access_logging_policy: Information about where and how access logs are stored for the load balancer.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['LoadBalancerAppCookieStickinessPolicyArgs', 'LoadBalancerAppCookieStickinessPolicyArgsDict']]]] app_cookie_stickiness_policy: Information about a policy for application-controlled session stickiness.
+        :param pulumi.Input[Union['LoadBalancerAccessLoggingPolicyArgs', 'LoadBalancerAccessLoggingPolicyArgsDict', 'outputs.LoadBalancerAccessLoggingPolicy']] access_logging_policy: Information about where and how access logs are stored for the load balancer.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['LoadBalancerAppCookieStickinessPolicyArgs', 'LoadBalancerAppCookieStickinessPolicyArgsDict', 'outputs.LoadBalancerAppCookieStickinessPolicy']]]] app_cookie_stickiness_policy: Information about a policy for application-controlled session stickiness.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] availability_zones: The Availability Zones for a load balancer in a default VPC. For a load balancer in a nondefault VPC, specify Subnets instead.
-        :param pulumi.Input[Union['LoadBalancerConnectionDrainingPolicyArgs', 'LoadBalancerConnectionDrainingPolicyArgsDict']] connection_draining_policy: If enabled, the load balancer allows existing requests to complete before the load balancer shifts traffic away from a deregistered or unhealthy instance.
-        :param pulumi.Input[Union['LoadBalancerConnectionSettingsArgs', 'LoadBalancerConnectionSettingsArgsDict']] connection_settings: If enabled, the load balancer allows the connections to remain idle (no data is sent over the connection) for the specified duration.
+        :param pulumi.Input[Union['LoadBalancerConnectionDrainingPolicyArgs', 'LoadBalancerConnectionDrainingPolicyArgsDict', 'outputs.LoadBalancerConnectionDrainingPolicy']] connection_draining_policy: If enabled, the load balancer allows existing requests to complete before the load balancer shifts traffic away from a deregistered or unhealthy instance.
+        :param pulumi.Input[Union['LoadBalancerConnectionSettingsArgs', 'LoadBalancerConnectionSettingsArgsDict', 'outputs.LoadBalancerConnectionSettings']] connection_settings: If enabled, the load balancer allows the connections to remain idle (no data is sent over the connection) for the specified duration.
         :param pulumi.Input[_builtins.bool] cross_zone: If enabled, the load balancer routes the request traffic evenly across all instances regardless of the Availability Zones.
-        :param pulumi.Input[Union['LoadBalancerHealthCheckArgs', 'LoadBalancerHealthCheckArgsDict']] health_check: The health check settings to use when evaluating the health of your EC2 instances.
+        :param pulumi.Input[Union['LoadBalancerHealthCheckArgs', 'LoadBalancerHealthCheckArgsDict', 'outputs.LoadBalancerHealthCheck']] health_check: The health check settings to use when evaluating the health of your EC2 instances.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] instances: The IDs of the instances for the load balancer.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['LoadBalancerLbCookieStickinessPolicyArgs', 'LoadBalancerLbCookieStickinessPolicyArgsDict']]]] lb_cookie_stickiness_policy: Information about a policy for duration-based session stickiness.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['LoadBalancerListenersArgs', 'LoadBalancerListenersArgsDict']]]] listeners: The Listeners for the load balancer. You can specify at most one listener per port.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['LoadBalancerLbCookieStickinessPolicyArgs', 'LoadBalancerLbCookieStickinessPolicyArgsDict', 'outputs.LoadBalancerLbCookieStickinessPolicy']]]] lb_cookie_stickiness_policy: Information about a policy for duration-based session stickiness.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['LoadBalancerListenersArgs', 'LoadBalancerListenersArgsDict', 'outputs.LoadBalancerListeners']]]] listeners: The Listeners for the load balancer. You can specify at most one listener per port.
         :param pulumi.Input[_builtins.str] load_balancer_name: The name of the load balancer. This name must be unique within your set of load balancers for the region.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['LoadBalancerPoliciesArgs', 'LoadBalancerPoliciesArgsDict']]]] policies: The policies defined for your Classic Load Balancer. Specify only back-end server policies.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['LoadBalancerPoliciesArgs', 'LoadBalancerPoliciesArgsDict', 'outputs.LoadBalancerPolicies']]]] policies: The policies defined for your Classic Load Balancer. Specify only back-end server policies.
         :param pulumi.Input[_builtins.str] scheme: The type of load balancer. Valid only for load balancers in a VPC.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_groups: The security groups for the load balancer. Valid only for load balancers in a VPC.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnets: The IDs of the subnets for the load balancer. You can specify at most one subnet per Availability Zone.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags associated with a load balancer.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: The tags associated with a load balancer.
         """
         ...
     @overload
@@ -353,22 +353,22 @@ class LoadBalancer(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_logging_policy: pulumi.Input[Optional[Union['LoadBalancerAccessLoggingPolicyArgs', 'LoadBalancerAccessLoggingPolicyArgsDict']]] = None,
-                 app_cookie_stickiness_policy: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LoadBalancerAppCookieStickinessPolicyArgs', 'LoadBalancerAppCookieStickinessPolicyArgsDict']]]]] = None,
+                 access_logging_policy: pulumi.Input[Optional[Union['LoadBalancerAccessLoggingPolicyArgs', 'LoadBalancerAccessLoggingPolicyArgsDict', 'outputs.LoadBalancerAccessLoggingPolicy']]] = None,
+                 app_cookie_stickiness_policy: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LoadBalancerAppCookieStickinessPolicyArgs', 'LoadBalancerAppCookieStickinessPolicyArgsDict', 'outputs.LoadBalancerAppCookieStickinessPolicy']]]]] = None,
                  availability_zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 connection_draining_policy: pulumi.Input[Optional[Union['LoadBalancerConnectionDrainingPolicyArgs', 'LoadBalancerConnectionDrainingPolicyArgsDict']]] = None,
-                 connection_settings: pulumi.Input[Optional[Union['LoadBalancerConnectionSettingsArgs', 'LoadBalancerConnectionSettingsArgsDict']]] = None,
+                 connection_draining_policy: pulumi.Input[Optional[Union['LoadBalancerConnectionDrainingPolicyArgs', 'LoadBalancerConnectionDrainingPolicyArgsDict', 'outputs.LoadBalancerConnectionDrainingPolicy']]] = None,
+                 connection_settings: pulumi.Input[Optional[Union['LoadBalancerConnectionSettingsArgs', 'LoadBalancerConnectionSettingsArgsDict', 'outputs.LoadBalancerConnectionSettings']]] = None,
                  cross_zone: pulumi.Input[Optional[_builtins.bool]] = None,
-                 health_check: pulumi.Input[Optional[Union['LoadBalancerHealthCheckArgs', 'LoadBalancerHealthCheckArgsDict']]] = None,
+                 health_check: pulumi.Input[Optional[Union['LoadBalancerHealthCheckArgs', 'LoadBalancerHealthCheckArgsDict', 'outputs.LoadBalancerHealthCheck']]] = None,
                  instances: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 lb_cookie_stickiness_policy: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LoadBalancerLbCookieStickinessPolicyArgs', 'LoadBalancerLbCookieStickinessPolicyArgsDict']]]]] = None,
-                 listeners: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LoadBalancerListenersArgs', 'LoadBalancerListenersArgsDict']]]]] = None,
+                 lb_cookie_stickiness_policy: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LoadBalancerLbCookieStickinessPolicyArgs', 'LoadBalancerLbCookieStickinessPolicyArgsDict', 'outputs.LoadBalancerLbCookieStickinessPolicy']]]]] = None,
+                 listeners: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LoadBalancerListenersArgs', 'LoadBalancerListenersArgsDict', 'outputs.LoadBalancerListeners']]]]] = None,
                  load_balancer_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 policies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LoadBalancerPoliciesArgs', 'LoadBalancerPoliciesArgsDict']]]]] = None,
+                 policies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LoadBalancerPoliciesArgs', 'LoadBalancerPoliciesArgsDict', 'outputs.LoadBalancerPolicies']]]]] = None,
                  scheme: pulumi.Input[Optional[_builtins.str]] = None,
                  security_groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  subnets: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

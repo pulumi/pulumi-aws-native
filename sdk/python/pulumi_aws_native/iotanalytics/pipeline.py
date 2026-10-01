@@ -94,9 +94,9 @@ class Pipeline(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 pipeline_activities: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PipelineActivityArgs', 'PipelineActivityArgsDict']]]]] = None,
+                 pipeline_activities: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PipelineActivityArgs', 'PipelineActivityArgsDict', 'outputs.PipelineActivity']]]]] = None,
                  pipeline_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::IoTAnalytics::Pipeline
@@ -300,13 +300,13 @@ class Pipeline(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['PipelineActivityArgs', 'PipelineActivityArgsDict']]]] pipeline_activities: A list of "PipelineActivity" objects. Activities perform transformations on your messages, such as removing, renaming or adding message attributes; filtering messages based on attribute values; invoking your Lambda functions on messages for advanced processing; or performing mathematical transformations to normalize device data.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['PipelineActivityArgs', 'PipelineActivityArgsDict', 'outputs.PipelineActivity']]]] pipeline_activities: A list of "PipelineActivity" objects. Activities perform transformations on your messages, such as removing, renaming or adding message attributes; filtering messages based on attribute values; invoking your Lambda functions on messages for advanced processing; or performing mathematical transformations to normalize device data.
                
                The list can be 2-25 *PipelineActivity* objects and must contain both a `channel` and a `datastore` activity. Each entry in the list must contain only one activity, for example:
                
                `pipelineActivities = [ { "channel": { ... } }, { "lambda": { ... } }, ... ]`
         :param pulumi.Input[_builtins.str] pipeline_name: The name of the pipeline.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Metadata which can be used to manage the pipeline.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: Metadata which can be used to manage the pipeline.
                
                For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
         """
@@ -531,9 +531,9 @@ class Pipeline(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 pipeline_activities: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PipelineActivityArgs', 'PipelineActivityArgsDict']]]]] = None,
+                 pipeline_activities: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PipelineActivityArgs', 'PipelineActivityArgsDict', 'outputs.PipelineActivity']]]]] = None,
                  pipeline_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

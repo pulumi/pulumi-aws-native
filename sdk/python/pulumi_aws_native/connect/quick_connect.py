@@ -117,8 +117,8 @@ class QuickConnect(pulumi.CustomResource):
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  instance_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 quick_connect_config: pulumi.Input[Optional[Union['QuickConnectConfigArgs', 'QuickConnectConfigArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 quick_connect_config: pulumi.Input[Optional[Union['QuickConnectConfigArgs', 'QuickConnectConfigArgsDict', 'outputs.QuickConnectConfig']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::Connect::QuickConnect
@@ -128,8 +128,8 @@ class QuickConnect(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] description: The description of the quick connect.
         :param pulumi.Input[_builtins.str] instance_arn: The identifier of the Amazon Connect instance.
         :param pulumi.Input[_builtins.str] name: The name of the quick connect.
-        :param pulumi.Input[Union['QuickConnectConfigArgs', 'QuickConnectConfigArgsDict']] quick_connect_config: Configuration settings for the quick connect.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: One or more tags.
+        :param pulumi.Input[Union['QuickConnectConfigArgs', 'QuickConnectConfigArgsDict', 'outputs.QuickConnectConfig']] quick_connect_config: Configuration settings for the quick connect.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: One or more tags.
         """
         ...
     @overload
@@ -158,8 +158,8 @@ class QuickConnect(pulumi.CustomResource):
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  instance_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 quick_connect_config: pulumi.Input[Optional[Union['QuickConnectConfigArgs', 'QuickConnectConfigArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 quick_connect_config: pulumi.Input[Optional[Union['QuickConnectConfigArgs', 'QuickConnectConfigArgsDict', 'outputs.QuickConnectConfig']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -44,7 +44,7 @@ class GetUserProfileResult:
 
     @_builtins.property
     @pulumi.getter
-    def details(self) -> Optional[Any]:
+    def details(self) -> Optional[Union['outputs.UserProfileDetails0Properties', 'outputs.UserProfileDetails1Properties']]:
         return pulumi.get(self, "details")
 
     @_builtins.property

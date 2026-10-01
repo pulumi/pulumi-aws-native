@@ -134,13 +134,13 @@ class ConnectionType(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 connection_properties: pulumi.Input[Optional[Union['ConnectionTypeConnectionPropertiesConfigurationArgs', 'ConnectionTypeConnectionPropertiesConfigurationArgsDict']]] = None,
+                 connection_properties: pulumi.Input[Optional[Union['ConnectionTypeConnectionPropertiesConfigurationArgs', 'ConnectionTypeConnectionPropertiesConfigurationArgsDict', 'outputs.ConnectionTypeConnectionPropertiesConfiguration']]] = None,
                  connection_type: pulumi.Input[Optional[_builtins.str]] = None,
-                 connector_authentication_configuration: pulumi.Input[Optional[Union['ConnectionTypeConnectorAuthenticationConfigurationArgs', 'ConnectionTypeConnectorAuthenticationConfigurationArgsDict']]] = None,
+                 connector_authentication_configuration: pulumi.Input[Optional[Union['ConnectionTypeConnectorAuthenticationConfigurationArgs', 'ConnectionTypeConnectorAuthenticationConfigurationArgsDict', 'outputs.ConnectionTypeConnectorAuthenticationConfiguration']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  integration_type: pulumi.Input[Optional['ConnectionTypeIntegrationType']] = None,
-                 rest_configuration: pulumi.Input[Optional[Union['ConnectionTypeRestConfigurationArgs', 'ConnectionTypeRestConfigurationArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 rest_configuration: pulumi.Input[Optional[Union['ConnectionTypeRestConfigurationArgs', 'ConnectionTypeRestConfigurationArgsDict', 'outputs.ConnectionTypeRestConfiguration']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Registers a custom connection type in Glue based on the configuration provided. This enables customers to configure custom connectors for any data source with REST-based APIs.
@@ -150,7 +150,7 @@ class ConnectionType(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] connection_type: The name of the connection type. Must be prefixed with REST-.
         :param pulumi.Input[_builtins.str] description: A description of the connection type.
         :param pulumi.Input['ConnectionTypeIntegrationType'] integration_type: The integration type for the connection. Currently only REST is supported.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Tags to assign to the connection type.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: Tags to assign to the connection type.
         """
         ...
     @overload
@@ -176,13 +176,13 @@ class ConnectionType(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 connection_properties: pulumi.Input[Optional[Union['ConnectionTypeConnectionPropertiesConfigurationArgs', 'ConnectionTypeConnectionPropertiesConfigurationArgsDict']]] = None,
+                 connection_properties: pulumi.Input[Optional[Union['ConnectionTypeConnectionPropertiesConfigurationArgs', 'ConnectionTypeConnectionPropertiesConfigurationArgsDict', 'outputs.ConnectionTypeConnectionPropertiesConfiguration']]] = None,
                  connection_type: pulumi.Input[Optional[_builtins.str]] = None,
-                 connector_authentication_configuration: pulumi.Input[Optional[Union['ConnectionTypeConnectorAuthenticationConfigurationArgs', 'ConnectionTypeConnectorAuthenticationConfigurationArgsDict']]] = None,
+                 connector_authentication_configuration: pulumi.Input[Optional[Union['ConnectionTypeConnectorAuthenticationConfigurationArgs', 'ConnectionTypeConnectorAuthenticationConfigurationArgsDict', 'outputs.ConnectionTypeConnectorAuthenticationConfiguration']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  integration_type: pulumi.Input[Optional['ConnectionTypeIntegrationType']] = None,
-                 rest_configuration: pulumi.Input[Optional[Union['ConnectionTypeRestConfigurationArgs', 'ConnectionTypeRestConfigurationArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 rest_configuration: pulumi.Input[Optional[Union['ConnectionTypeRestConfigurationArgs', 'ConnectionTypeRestConfigurationArgsDict', 'outputs.ConnectionTypeRestConfiguration']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

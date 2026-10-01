@@ -179,7 +179,7 @@ class Volume(pulumi.CustomResource):
                  network_interface_id: pulumi.Input[Optional[_builtins.str]] = None,
                  snapshot_id: pulumi.Input[Optional[_builtins.str]] = None,
                  source_volume_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  target_name: pulumi.Input[Optional[_builtins.str]] = None,
                  volume_size_in_bytes: pulumi.Input[Optional[_builtins.float]] = None,
                  __props__=None):
@@ -194,7 +194,7 @@ class Volume(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] network_interface_id: The network interface of the gateway on which to expose the iSCSI target. Only IPv4 addresses are accepted.
         :param pulumi.Input[_builtins.str] snapshot_id: The snapshot ID of the snapshot to restore as the new cached volume (e.g., snap-1122aabb).
         :param pulumi.Input[_builtins.str] source_volume_arn: The ARN of an existing volume from which to create the new volume.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: A list of up to 50 tags to assign to the volume.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: A list of up to 50 tags to assign to the volume.
         :param pulumi.Input[_builtins.str] target_name: The name of the iSCSI target used by an initiator to connect to a volume and used as a suffix for the target ARN.
         :param pulumi.Input[_builtins.float] volume_size_in_bytes: The size of the volume in bytes.
         """
@@ -228,7 +228,7 @@ class Volume(pulumi.CustomResource):
                  network_interface_id: pulumi.Input[Optional[_builtins.str]] = None,
                  snapshot_id: pulumi.Input[Optional[_builtins.str]] = None,
                  source_volume_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  target_name: pulumi.Input[Optional[_builtins.str]] = None,
                  volume_size_in_bytes: pulumi.Input[Optional[_builtins.float]] = None,
                  __props__=None):

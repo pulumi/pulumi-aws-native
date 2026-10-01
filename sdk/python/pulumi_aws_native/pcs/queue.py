@@ -114,9 +114,9 @@ class Queue(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cluster_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 compute_node_group_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['QueueComputeNodeGroupConfigurationArgs', 'QueueComputeNodeGroupConfigurationArgsDict']]]]] = None,
+                 compute_node_group_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['QueueComputeNodeGroupConfigurationArgs', 'QueueComputeNodeGroupConfigurationArgsDict', 'outputs.QueueComputeNodeGroupConfiguration']]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 slurm_configuration: pulumi.Input[Optional[Union['SlurmConfigurationPropertiesArgs', 'SlurmConfigurationPropertiesArgsDict']]] = None,
+                 slurm_configuration: pulumi.Input[Optional[Union['SlurmConfigurationPropertiesArgs', 'SlurmConfigurationPropertiesArgsDict', 'outputs.SlurmConfigurationProperties']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
@@ -125,9 +125,9 @@ class Queue(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] cluster_id: The ID of the cluster of the queue.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['QueueComputeNodeGroupConfigurationArgs', 'QueueComputeNodeGroupConfigurationArgsDict']]]] compute_node_group_configurations: The list of compute node group configurations associated with the queue. Queues assign jobs to associated compute node groups.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['QueueComputeNodeGroupConfigurationArgs', 'QueueComputeNodeGroupConfigurationArgsDict', 'outputs.QueueComputeNodeGroupConfiguration']]]] compute_node_group_configurations: The list of compute node group configurations associated with the queue. Queues assign jobs to associated compute node groups.
         :param pulumi.Input[_builtins.str] name: The name that identifies the queue.
-        :param pulumi.Input[Union['SlurmConfigurationPropertiesArgs', 'SlurmConfigurationPropertiesArgsDict']] slurm_configuration: The Slurm configuration for the queue.
+        :param pulumi.Input[Union['SlurmConfigurationPropertiesArgs', 'SlurmConfigurationPropertiesArgsDict', 'outputs.SlurmConfigurationProperties']] slurm_configuration: The Slurm configuration for the queue.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: 1 or more tags added to the resource. Each tag consists of a tag key and tag value. The tag value is optional and can be an empty string.
         """
         ...
@@ -155,9 +155,9 @@ class Queue(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cluster_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 compute_node_group_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['QueueComputeNodeGroupConfigurationArgs', 'QueueComputeNodeGroupConfigurationArgsDict']]]]] = None,
+                 compute_node_group_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['QueueComputeNodeGroupConfigurationArgs', 'QueueComputeNodeGroupConfigurationArgsDict', 'outputs.QueueComputeNodeGroupConfiguration']]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 slurm_configuration: pulumi.Input[Optional[Union['SlurmConfigurationPropertiesArgs', 'SlurmConfigurationPropertiesArgsDict']]] = None,
+                 slurm_configuration: pulumi.Input[Optional[Union['SlurmConfigurationPropertiesArgs', 'SlurmConfigurationPropertiesArgsDict', 'outputs.SlurmConfigurationProperties']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

@@ -95,9 +95,9 @@ class Connector(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 ssm_command_config: pulumi.Input[Optional[Union['ConnectorSsmCommandConfigArgs', 'ConnectorSsmCommandConfigArgsDict']]] = None,
+                 ssm_command_config: pulumi.Input[Optional[Union['ConnectorSsmCommandConfigArgs', 'ConnectorSsmCommandConfigArgsDict', 'outputs.ConnectorSsmCommandConfig']]] = None,
                  ssm_instance_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Resource schema for AWS::MGN::Connector. A Connector provides connectivity between a source environment and Application Migration Service (MGN) via AWS Systems Manager (SSM).
@@ -106,7 +106,7 @@ class Connector(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: The name of the connector.
         :param pulumi.Input[_builtins.str] ssm_instance_id: The SSM instance ID associated with this connector.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Tags to assign to the connector.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: Tags to assign to the connector.
         """
         ...
     @overload
@@ -133,9 +133,9 @@ class Connector(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 ssm_command_config: pulumi.Input[Optional[Union['ConnectorSsmCommandConfigArgs', 'ConnectorSsmCommandConfigArgsDict']]] = None,
+                 ssm_command_config: pulumi.Input[Optional[Union['ConnectorSsmCommandConfigArgs', 'ConnectorSsmCommandConfigArgsDict', 'outputs.ConnectorSsmCommandConfig']]] = None,
                  ssm_instance_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

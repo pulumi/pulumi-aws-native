@@ -238,17 +238,17 @@ class Instance(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 add_ons: pulumi.Input[Optional[Sequence[pulumi.Input[Union['InstanceAddOnArgs', 'InstanceAddOnArgsDict']]]]] = None,
+                 add_ons: pulumi.Input[Optional[Sequence[pulumi.Input[Union['InstanceAddOnArgs', 'InstanceAddOnArgsDict', 'outputs.InstanceAddOn']]]]] = None,
                  availability_zone: pulumi.Input[Optional[_builtins.str]] = None,
                  blueprint_id: pulumi.Input[Optional[_builtins.str]] = None,
                  bundle_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 hardware: pulumi.Input[Optional[Union['InstanceHardwareArgs', 'InstanceHardwareArgsDict']]] = None,
+                 hardware: pulumi.Input[Optional[Union['InstanceHardwareArgs', 'InstanceHardwareArgsDict', 'outputs.InstanceHardware']]] = None,
                  instance_name: pulumi.Input[Optional[_builtins.str]] = None,
                  key_pair_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 location: pulumi.Input[Optional[Union['InstanceLocationArgs', 'InstanceLocationArgsDict']]] = None,
-                 networking: pulumi.Input[Optional[Union['InstanceNetworkingArgs', 'InstanceNetworkingArgsDict']]] = None,
-                 state: pulumi.Input[Optional[Union['InstanceStateArgs', 'InstanceStateArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 location: pulumi.Input[Optional[Union['InstanceLocationArgs', 'InstanceLocationArgsDict', 'outputs.InstanceLocation']]] = None,
+                 networking: pulumi.Input[Optional[Union['InstanceNetworkingArgs', 'InstanceNetworkingArgsDict', 'outputs.InstanceNetworking']]] = None,
+                 state: pulumi.Input[Optional[Union['InstanceStateArgs', 'InstanceStateArgsDict', 'outputs.InstanceState']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  user_data: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -256,23 +256,23 @@ class Instance(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['InstanceAddOnArgs', 'InstanceAddOnArgsDict']]]] add_ons: An array of objects representing the add-ons to enable for the new instance.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['InstanceAddOnArgs', 'InstanceAddOnArgsDict', 'outputs.InstanceAddOn']]]] add_ons: An array of objects representing the add-ons to enable for the new instance.
         :param pulumi.Input[_builtins.str] availability_zone: The Availability Zone in which to create your instance. Use the following format: us-east-2a (case sensitive). Be sure to add the include Availability Zones parameter to your request.
         :param pulumi.Input[_builtins.str] blueprint_id: The ID for a virtual private server image (e.g., app_wordpress_4_4 or app_lamp_7_0 ). Use the get blueprints operation to return a list of available images (or blueprints ).
         :param pulumi.Input[_builtins.str] bundle_id: The bundle of specification information for your virtual private server (or instance ), including the pricing plan (e.g., micro_1_0 ).
-        :param pulumi.Input[Union['InstanceHardwareArgs', 'InstanceHardwareArgsDict']] hardware: The hardware properties for the instance, such as the vCPU count, attached disks, and amount of RAM.
+        :param pulumi.Input[Union['InstanceHardwareArgs', 'InstanceHardwareArgsDict', 'outputs.InstanceHardware']] hardware: The hardware properties for the instance, such as the vCPU count, attached disks, and amount of RAM.
                
                > The instance restarts when performing an attach disk or detach disk request. This resets the public IP address of your instance if a static IP isn't attached to it.
         :param pulumi.Input[_builtins.str] instance_name: The names to use for your new Lightsail instance.
         :param pulumi.Input[_builtins.str] key_pair_name: The name of your key pair.
-        :param pulumi.Input[Union['InstanceLocationArgs', 'InstanceLocationArgsDict']] location: The location for the instance, such as the AWS Region and Availability Zone.
+        :param pulumi.Input[Union['InstanceLocationArgs', 'InstanceLocationArgsDict', 'outputs.InstanceLocation']] location: The location for the instance, such as the AWS Region and Availability Zone.
                
                > The `Location` property is read-only and should not be specified in a create instance or update instance request.
-        :param pulumi.Input[Union['InstanceNetworkingArgs', 'InstanceNetworkingArgsDict']] networking: The public ports and the monthly amount of data transfer allocated for the instance.
-        :param pulumi.Input[Union['InstanceStateArgs', 'InstanceStateArgsDict']] state: The status code and the state (for example, `running` ) of the instance.
+        :param pulumi.Input[Union['InstanceNetworkingArgs', 'InstanceNetworkingArgsDict', 'outputs.InstanceNetworking']] networking: The public ports and the monthly amount of data transfer allocated for the instance.
+        :param pulumi.Input[Union['InstanceStateArgs', 'InstanceStateArgsDict', 'outputs.InstanceState']] state: The status code and the state (for example, `running` ) of the instance.
                
                > The `State` property is read-only and should not be specified in a create instance or update instance request.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: An array of key-value pairs to apply to this resource.
         :param pulumi.Input[_builtins.str] user_data: A launch script you can create that configures a server with additional user data. For example, you might want to run apt-get -y update.
         """
         ...
@@ -299,17 +299,17 @@ class Instance(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 add_ons: pulumi.Input[Optional[Sequence[pulumi.Input[Union['InstanceAddOnArgs', 'InstanceAddOnArgsDict']]]]] = None,
+                 add_ons: pulumi.Input[Optional[Sequence[pulumi.Input[Union['InstanceAddOnArgs', 'InstanceAddOnArgsDict', 'outputs.InstanceAddOn']]]]] = None,
                  availability_zone: pulumi.Input[Optional[_builtins.str]] = None,
                  blueprint_id: pulumi.Input[Optional[_builtins.str]] = None,
                  bundle_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 hardware: pulumi.Input[Optional[Union['InstanceHardwareArgs', 'InstanceHardwareArgsDict']]] = None,
+                 hardware: pulumi.Input[Optional[Union['InstanceHardwareArgs', 'InstanceHardwareArgsDict', 'outputs.InstanceHardware']]] = None,
                  instance_name: pulumi.Input[Optional[_builtins.str]] = None,
                  key_pair_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 location: pulumi.Input[Optional[Union['InstanceLocationArgs', 'InstanceLocationArgsDict']]] = None,
-                 networking: pulumi.Input[Optional[Union['InstanceNetworkingArgs', 'InstanceNetworkingArgsDict']]] = None,
-                 state: pulumi.Input[Optional[Union['InstanceStateArgs', 'InstanceStateArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 location: pulumi.Input[Optional[Union['InstanceLocationArgs', 'InstanceLocationArgsDict', 'outputs.InstanceLocation']]] = None,
+                 networking: pulumi.Input[Optional[Union['InstanceNetworkingArgs', 'InstanceNetworkingArgsDict', 'outputs.InstanceNetworking']]] = None,
+                 state: pulumi.Input[Optional[Union['InstanceStateArgs', 'InstanceStateArgsDict', 'outputs.InstanceState']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  user_data: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

@@ -119,7 +119,7 @@ class BillScenario(pulumi.CustomResource):
                  expires_at: pulumi.Input[Optional[_builtins.str]] = None,
                  group_sharing_preference: pulumi.Input[Optional['BillScenarioGroupSharingPreference']] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::BcmPricingCalculator::BillScenario
@@ -130,7 +130,7 @@ class BillScenario(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] expires_at: The timestamp when the bill scenario expires
         :param pulumi.Input['BillScenarioGroupSharingPreference'] group_sharing_preference: The group sharing preference for the bill scenario
         :param pulumi.Input[_builtins.str] name: The name of the bill scenario
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: An array of key-value pairs to apply to this resource
         """
         ...
     @overload
@@ -160,7 +160,7 @@ class BillScenario(pulumi.CustomResource):
                  expires_at: pulumi.Input[Optional[_builtins.str]] = None,
                  group_sharing_preference: pulumi.Input[Optional['BillScenarioGroupSharingPreference']] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

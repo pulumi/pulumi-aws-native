@@ -198,15 +198,15 @@ class Listener(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  alpn_policy: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 certificates: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ListenerCertificateArgs', 'ListenerCertificateArgsDict']]]]] = None,
-                 default_actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ListenerActionArgs', 'ListenerActionArgsDict']]]]] = None,
-                 listener_attributes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ListenerAttributeArgs', 'ListenerAttributeArgsDict']]]]] = None,
+                 certificates: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ListenerCertificateArgs', 'ListenerCertificateArgsDict', 'outputs.ListenerCertificate']]]]] = None,
+                 default_actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ListenerActionArgs', 'ListenerActionArgsDict', 'outputs.ListenerAction']]]]] = None,
+                 listener_attributes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ListenerAttributeArgs', 'ListenerAttributeArgsDict', 'outputs.ListenerAttribute']]]]] = None,
                  load_balancer_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 mutual_authentication: pulumi.Input[Optional[Union['ListenerMutualAuthenticationArgs', 'ListenerMutualAuthenticationArgsDict']]] = None,
+                 mutual_authentication: pulumi.Input[Optional[Union['ListenerMutualAuthenticationArgs', 'ListenerMutualAuthenticationArgsDict', 'outputs.ListenerMutualAuthentication']]] = None,
                  port: pulumi.Input[Optional[_builtins.int]] = None,
                  protocol: pulumi.Input[Optional[_builtins.str]] = None,
                  ssl_policy: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Specifies a listener for an Application Load Balancer, Network Load Balancer, or Gateway Load Balancer.
@@ -214,14 +214,14 @@ class Listener(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] alpn_policy: [TLS listener] The name of the Application-Layer Protocol Negotiation (ALPN) policy.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ListenerCertificateArgs', 'ListenerCertificateArgsDict']]]] certificates: The default SSL server certificate for a secure listener. You must provide exactly one certificate if the listener protocol is HTTPS or TLS.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ListenerCertificateArgs', 'ListenerCertificateArgsDict', 'outputs.ListenerCertificate']]]] certificates: The default SSL server certificate for a secure listener. You must provide exactly one certificate if the listener protocol is HTTPS or TLS.
                 For an HTTPS listener, update requires some interruptions. For a TLS listener, update requires no interruption.
                 To create a certificate list for a secure listener, use [AWS::ElasticLoadBalancingV2::ListenerCertificate](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenercertificate.html).
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ListenerActionArgs', 'ListenerActionArgsDict']]]] default_actions: The actions for the default rule. You cannot define a condition for a default rule.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ListenerActionArgs', 'ListenerActionArgsDict', 'outputs.ListenerAction']]]] default_actions: The actions for the default rule. You cannot define a condition for a default rule.
                 To create additional rules for an Application Load Balancer, use [AWS::ElasticLoadBalancingV2::ListenerRule](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenerrule.html).
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ListenerAttributeArgs', 'ListenerAttributeArgsDict']]]] listener_attributes: The listener attributes. Attributes that you do not modify retain their current values.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ListenerAttributeArgs', 'ListenerAttributeArgsDict', 'outputs.ListenerAttribute']]]] listener_attributes: The listener attributes. Attributes that you do not modify retain their current values.
         :param pulumi.Input[_builtins.str] load_balancer_arn: The Amazon Resource Name (ARN) of the load balancer.
-        :param pulumi.Input[Union['ListenerMutualAuthenticationArgs', 'ListenerMutualAuthenticationArgsDict']] mutual_authentication: The mutual authentication configuration information.
+        :param pulumi.Input[Union['ListenerMutualAuthenticationArgs', 'ListenerMutualAuthenticationArgsDict', 'outputs.ListenerMutualAuthentication']] mutual_authentication: The mutual authentication configuration information.
         :param pulumi.Input[_builtins.int] port: The port on which the load balancer is listening. You can't specify a port for a Gateway Load Balancer.
         :param pulumi.Input[_builtins.str] protocol: The protocol for connections from clients to the load balancer. For Application Load Balancers, the supported protocols are HTTP and HTTPS. For Network Load Balancers, the supported protocols are TCP, TLS, UDP, TCP_UDP, QUIC, and TCP_QUIC. You can’t specify the UDP, TCP_UDP, QUIC, or TCP_QUIC protocol if dual-stack mode is enabled. You can't specify a protocol for a Gateway Load Balancer.
         :param pulumi.Input[_builtins.str] ssl_policy: [HTTPS and TLS listeners] The security policy that defines which protocols and ciphers are supported. For more information, see [Security policies](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/describe-ssl-policies.html) in the *Application Load Balancers Guide* and [Security policies](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/describe-ssl-policies.html) in the *Network Load Balancers Guide*.
@@ -252,15 +252,15 @@ class Listener(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  alpn_policy: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 certificates: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ListenerCertificateArgs', 'ListenerCertificateArgsDict']]]]] = None,
-                 default_actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ListenerActionArgs', 'ListenerActionArgsDict']]]]] = None,
-                 listener_attributes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ListenerAttributeArgs', 'ListenerAttributeArgsDict']]]]] = None,
+                 certificates: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ListenerCertificateArgs', 'ListenerCertificateArgsDict', 'outputs.ListenerCertificate']]]]] = None,
+                 default_actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ListenerActionArgs', 'ListenerActionArgsDict', 'outputs.ListenerAction']]]]] = None,
+                 listener_attributes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ListenerAttributeArgs', 'ListenerAttributeArgsDict', 'outputs.ListenerAttribute']]]]] = None,
                  load_balancer_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 mutual_authentication: pulumi.Input[Optional[Union['ListenerMutualAuthenticationArgs', 'ListenerMutualAuthenticationArgsDict']]] = None,
+                 mutual_authentication: pulumi.Input[Optional[Union['ListenerMutualAuthenticationArgs', 'ListenerMutualAuthenticationArgsDict', 'outputs.ListenerMutualAuthentication']]] = None,
                  port: pulumi.Input[Optional[_builtins.int]] = None,
                  protocol: pulumi.Input[Optional[_builtins.str]] = None,
                  ssl_policy: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

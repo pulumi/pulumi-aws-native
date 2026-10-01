@@ -128,8 +128,8 @@ class QuerySuggestionsBlockList(pulumi.CustomResource):
                  index_id: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  role_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 source_s3_path: pulumi.Input[Optional[Union['QuerySuggestionsBlockListS3PathArgs', 'QuerySuggestionsBlockListS3PathArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 source_s3_path: pulumi.Input[Optional[Union['QuerySuggestionsBlockListS3PathArgs', 'QuerySuggestionsBlockListS3PathArgsDict', 'outputs.QuerySuggestionsBlockListS3Path']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         A block list used for query suggestions for an Amazon Kendra index. A block list contains words or phrases that should not appear as query suggestions.
@@ -140,7 +140,7 @@ class QuerySuggestionsBlockList(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] index_id: The identifier of the index for the block list.
         :param pulumi.Input[_builtins.str] name: The name of the block list.
         :param pulumi.Input[_builtins.str] role_arn: The Amazon Resource Name (ARN) of an IAM role with permission to access the S3 bucket that contains the block list text file.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: A list of key-value pairs that identify or categorize the block list.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: A list of key-value pairs that identify or categorize the block list.
         """
         ...
     @overload
@@ -170,8 +170,8 @@ class QuerySuggestionsBlockList(pulumi.CustomResource):
                  index_id: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  role_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 source_s3_path: pulumi.Input[Optional[Union['QuerySuggestionsBlockListS3PathArgs', 'QuerySuggestionsBlockListS3PathArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 source_s3_path: pulumi.Input[Optional[Union['QuerySuggestionsBlockListS3PathArgs', 'QuerySuggestionsBlockListS3PathArgsDict', 'outputs.QuerySuggestionsBlockListS3Path']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

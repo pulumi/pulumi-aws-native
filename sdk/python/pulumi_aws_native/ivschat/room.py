@@ -135,9 +135,9 @@ class Room(pulumi.CustomResource):
                  logging_configuration_identifiers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  maximum_message_length: pulumi.Input[Optional[_builtins.int]] = None,
                  maximum_message_rate_per_second: pulumi.Input[Optional[_builtins.int]] = None,
-                 message_review_handler: pulumi.Input[Optional[Union['RoomMessageReviewHandlerArgs', 'RoomMessageReviewHandlerArgsDict']]] = None,
+                 message_review_handler: pulumi.Input[Optional[Union['RoomMessageReviewHandlerArgs', 'RoomMessageReviewHandlerArgsDict', 'outputs.RoomMessageReviewHandler']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Resource type definition for AWS::IVSChat::Room.
@@ -182,9 +182,9 @@ class Room(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] logging_configuration_identifiers: Array of logging configuration identifiers attached to the room.
         :param pulumi.Input[_builtins.int] maximum_message_length: The maximum number of characters in a single message.
         :param pulumi.Input[_builtins.int] maximum_message_rate_per_second: The maximum number of messages per second that can be sent to the room.
-        :param pulumi.Input[Union['RoomMessageReviewHandlerArgs', 'RoomMessageReviewHandlerArgsDict']] message_review_handler: Configuration information for optional review of messages.
+        :param pulumi.Input[Union['RoomMessageReviewHandlerArgs', 'RoomMessageReviewHandlerArgsDict', 'outputs.RoomMessageReviewHandler']] message_review_handler: Configuration information for optional review of messages.
         :param pulumi.Input[_builtins.str] name: The name of the room. The value does not need to be unique.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
     @overload
@@ -248,9 +248,9 @@ class Room(pulumi.CustomResource):
                  logging_configuration_identifiers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  maximum_message_length: pulumi.Input[Optional[_builtins.int]] = None,
                  maximum_message_rate_per_second: pulumi.Input[Optional[_builtins.int]] = None,
-                 message_review_handler: pulumi.Input[Optional[Union['RoomMessageReviewHandlerArgs', 'RoomMessageReviewHandlerArgsDict']]] = None,
+                 message_review_handler: pulumi.Input[Optional[Union['RoomMessageReviewHandlerArgs', 'RoomMessageReviewHandlerArgsDict', 'outputs.RoomMessageReviewHandler']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

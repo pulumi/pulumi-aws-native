@@ -131,11 +131,11 @@ class Field(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 attributes: pulumi.Input[Optional[Union['FieldAttributesArgs', 'FieldAttributesArgsDict']]] = None,
+                 attributes: pulumi.Input[Optional[Union['FieldAttributesArgs', 'FieldAttributesArgsDict', 'outputs.FieldAttributes']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  domain_id: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  type: pulumi.Input[Optional['FieldType']] = None,
                  __props__=None):
         """
@@ -143,11 +143,11 @@ class Field(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['FieldAttributesArgs', 'FieldAttributesArgsDict']] attributes: Field-type specific attributes that control rendering and validation behavior
+        :param pulumi.Input[Union['FieldAttributesArgs', 'FieldAttributesArgsDict', 'outputs.FieldAttributes']] attributes: Field-type specific attributes that control rendering and validation behavior
         :param pulumi.Input[_builtins.str] description: A description explaining the purpose and usage of this field in cases. Helps agents and administrators understand what information should be captured in this field.
         :param pulumi.Input[_builtins.str] domain_id: The unique identifier of the Cases domain.
         :param pulumi.Input[_builtins.str] name: The display name of the field as it appears to agents in the case interface. Should be descriptive and user-friendly (e.g., 'Customer Priority Level', 'Issue Category').
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: An array of key-value pairs to apply to this resource.
         :param pulumi.Input['FieldType'] type: Type of the field.
         """
         ...
@@ -174,11 +174,11 @@ class Field(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 attributes: pulumi.Input[Optional[Union['FieldAttributesArgs', 'FieldAttributesArgsDict']]] = None,
+                 attributes: pulumi.Input[Optional[Union['FieldAttributesArgs', 'FieldAttributesArgsDict', 'outputs.FieldAttributes']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  domain_id: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  type: pulumi.Input[Optional['FieldType']] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

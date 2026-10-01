@@ -177,7 +177,7 @@ class AgentProfile(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 aggregation_configuration: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AgentProfileAggregationConfigurationArgs', 'AgentProfileAggregationConfigurationArgsDict']]]]] = None,
+                 aggregation_configuration: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AgentProfileAggregationConfigurationArgs', 'AgentProfileAggregationConfigurationArgsDict', 'outputs.AgentProfileAggregationConfiguration']]]]] = None,
                  business_overview: pulumi.Input[Optional[_builtins.str]] = None,
                  deletion_protection: pulumi.Input[Optional[_builtins.bool]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
@@ -185,14 +185,14 @@ class AgentProfile(pulumi.CustomResource):
                  execution_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  pillars: pulumi.Input[Optional[Sequence[pulumi.Input['AgentProfilePillar']]]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::WellArchitected::AgentProfile. An Agent Profile defines the execution role, account/region scope (via aggregation configuration access roles), and Well-Architected pillar focus used to generate Well-Architected Agent recommendations.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AgentProfileAggregationConfigurationArgs', 'AgentProfileAggregationConfigurationArgsDict']]]] aggregation_configuration: The aggregation configuration entries (account, regions, access role) associated with this profile.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AgentProfileAggregationConfigurationArgs', 'AgentProfileAggregationConfigurationArgsDict', 'outputs.AgentProfileAggregationConfiguration']]]] aggregation_configuration: The aggregation configuration entries (account, regions, access role) associated with this profile.
         :param pulumi.Input[_builtins.str] business_overview: A business overview for the profile used to improve recommendation quality.
         :param pulumi.Input[_builtins.bool] deletion_protection: Whether deletion protection is enabled for the profile. When enabled, the profile cannot be deleted until deletion protection is disabled.
         :param pulumi.Input[_builtins.str] description: A description of the profile.
@@ -200,7 +200,7 @@ class AgentProfile(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] execution_role_arn: The ARN of the IAM role assumed to execute recommendation actions.
         :param pulumi.Input[_builtins.str] name: The name of the profile. Unique within the account and used as the last component of the ARN.
         :param pulumi.Input[Sequence[pulumi.Input['AgentProfilePillar']]] pillars: The list of Well-Architected pillars to focus on.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Key-value pairs to associate with the Agent Profile.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: Key-value pairs to associate with the Agent Profile.
         """
         ...
     @overload
@@ -226,7 +226,7 @@ class AgentProfile(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 aggregation_configuration: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AgentProfileAggregationConfigurationArgs', 'AgentProfileAggregationConfigurationArgsDict']]]]] = None,
+                 aggregation_configuration: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AgentProfileAggregationConfigurationArgs', 'AgentProfileAggregationConfigurationArgsDict', 'outputs.AgentProfileAggregationConfiguration']]]]] = None,
                  business_overview: pulumi.Input[Optional[_builtins.str]] = None,
                  deletion_protection: pulumi.Input[Optional[_builtins.bool]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
@@ -234,7 +234,7 @@ class AgentProfile(pulumi.CustomResource):
                  execution_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  pillars: pulumi.Input[Optional[Sequence[pulumi.Input['AgentProfilePillar']]]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

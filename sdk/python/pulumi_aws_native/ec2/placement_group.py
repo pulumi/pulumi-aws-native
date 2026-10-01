@@ -117,7 +117,7 @@ class PlacementGroup(pulumi.CustomResource):
                  partition_count: pulumi.Input[Optional[_builtins.int]] = None,
                  spread_level: pulumi.Input[Optional[_builtins.str]] = None,
                  strategy: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict', '_root_outputs.CreateOnlyTag']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::EC2::PlacementGroup
@@ -128,7 +128,7 @@ class PlacementGroup(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] partition_count: The number of partitions. Valid only when **Strategy** is set to `partition`
         :param pulumi.Input[_builtins.str] spread_level: The Spread Level of Placement Group is an enum where it accepts either host or rack when strategy is spread
         :param pulumi.Input[_builtins.str] strategy: The placement strategy.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict', '_root_outputs.CreateOnlyTag']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
     @overload
@@ -158,7 +158,7 @@ class PlacementGroup(pulumi.CustomResource):
                  partition_count: pulumi.Input[Optional[_builtins.int]] = None,
                  spread_level: pulumi.Input[Optional[_builtins.str]] = None,
                  strategy: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict', '_root_outputs.CreateOnlyTag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

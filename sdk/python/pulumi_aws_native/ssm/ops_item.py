@@ -147,7 +147,7 @@ class OpsItem(pulumi.CustomResource):
                  priority: pulumi.Input[Optional[_builtins.int]] = None,
                  severity: pulumi.Input[Optional[_builtins.str]] = None,
                  source: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  title: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -160,7 +160,7 @@ class OpsItem(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] priority: The priority of the OpsItem.
         :param pulumi.Input[_builtins.str] severity: The severity of the OpsItem.
         :param pulumi.Input[_builtins.str] source: The origin of the OpsItem.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Tags for the OpsItem.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: Tags for the OpsItem.
         :param pulumi.Input[_builtins.str] title: The title of the OpsItem.
         """
         ...
@@ -192,7 +192,7 @@ class OpsItem(pulumi.CustomResource):
                  priority: pulumi.Input[Optional[_builtins.int]] = None,
                  severity: pulumi.Input[Optional[_builtins.str]] = None,
                  source: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  title: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

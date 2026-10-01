@@ -115,7 +115,7 @@ class ReviewTemplate(pulumi.CustomResource):
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  lenses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  notes: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  template_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -126,7 +126,7 @@ class ReviewTemplate(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] description: The review template description.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] lenses: The lenses applied to the review template.
         :param pulumi.Input[_builtins.str] notes: The notes associated with the review template.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags assigned to the review template.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: The tags assigned to the review template.
         :param pulumi.Input[_builtins.str] template_name: The name of the review template.
         """
         ...
@@ -156,7 +156,7 @@ class ReviewTemplate(pulumi.CustomResource):
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  lenses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  notes: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  template_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

@@ -150,8 +150,8 @@ class DataRepositoryAssociation(pulumi.CustomResource):
                  file_system_id: pulumi.Input[Optional[_builtins.str]] = None,
                  file_system_path: pulumi.Input[Optional[_builtins.str]] = None,
                  imported_file_chunk_size: pulumi.Input[Optional[_builtins.int]] = None,
-                 s3: pulumi.Input[Optional[Union['DataRepositoryAssociationS3Args', 'DataRepositoryAssociationS3ArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 s3: pulumi.Input[Optional[Union['DataRepositoryAssociationS3Args', 'DataRepositoryAssociationS3ArgsDict', 'outputs.DataRepositoryAssociationS3']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::FSx::DataRepositoryAssociation
@@ -206,8 +206,8 @@ class DataRepositoryAssociation(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] file_system_id: The globally unique ID of the file system, assigned by Amazon FSx.
         :param pulumi.Input[_builtins.str] file_system_path: This path specifies where in your file system files will be exported from or imported to. This file system directory can be linked to only one Amazon S3 bucket, and no other S3 bucket can be linked to the directory.
         :param pulumi.Input[_builtins.int] imported_file_chunk_size: For files imported from a data repository, this value determines the stripe count and maximum amount of data per file (in MiB) stored on a single physical disk. The maximum number of disks that a single file can be striped across is limited by the total number of disks that make up the file system.
-        :param pulumi.Input[Union['DataRepositoryAssociationS3Args', 'DataRepositoryAssociationS3ArgsDict']] s3: The configuration for an Amazon S3 data repository linked to an Amazon FSx Lustre file system with a data repository association. The configuration defines which file events (new, changed, or deleted files or directories) are automatically imported from the linked data repository to the file system or automatically exported from the file system to the data repository.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: A list of Tag values, with a maximum of 50 elements.
+        :param pulumi.Input[Union['DataRepositoryAssociationS3Args', 'DataRepositoryAssociationS3ArgsDict', 'outputs.DataRepositoryAssociationS3']] s3: The configuration for an Amazon S3 data repository linked to an Amazon FSx Lustre file system with a data repository association. The configuration defines which file events (new, changed, or deleted files or directories) are automatically imported from the linked data repository to the file system or automatically exported from the file system to the data repository.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: A list of Tag values, with a maximum of 50 elements.
         """
         ...
     @overload
@@ -281,8 +281,8 @@ class DataRepositoryAssociation(pulumi.CustomResource):
                  file_system_id: pulumi.Input[Optional[_builtins.str]] = None,
                  file_system_path: pulumi.Input[Optional[_builtins.str]] = None,
                  imported_file_chunk_size: pulumi.Input[Optional[_builtins.int]] = None,
-                 s3: pulumi.Input[Optional[Union['DataRepositoryAssociationS3Args', 'DataRepositoryAssociationS3ArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 s3: pulumi.Input[Optional[Union['DataRepositoryAssociationS3Args', 'DataRepositoryAssociationS3ArgsDict', 'outputs.DataRepositoryAssociationS3']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

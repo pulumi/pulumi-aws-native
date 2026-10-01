@@ -99,8 +99,8 @@ class Index(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  collection_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
                  index_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 mappings: pulumi.Input[Optional[Union['MappingsPropertiesArgs', 'MappingsPropertiesArgsDict']]] = None,
-                 settings: pulumi.Input[Optional[Union['IndexSettingsArgs', 'IndexSettingsArgsDict']]] = None,
+                 mappings: pulumi.Input[Optional[Union['MappingsPropertiesArgs', 'MappingsPropertiesArgsDict', 'outputs.MappingsProperties']]] = None,
+                 settings: pulumi.Input[Optional[Union['IndexSettingsArgs', 'IndexSettingsArgsDict', 'outputs.IndexSettings']]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::OpenSearchServerless::Index
@@ -109,8 +109,8 @@ class Index(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] collection_endpoint: The endpoint for the collection.
         :param pulumi.Input[_builtins.str] index_name: The name of the OpenSearch Serverless index.
-        :param pulumi.Input[Union['MappingsPropertiesArgs', 'MappingsPropertiesArgsDict']] mappings: Index Mappings
-        :param pulumi.Input[Union['IndexSettingsArgs', 'IndexSettingsArgsDict']] settings: Index settings
+        :param pulumi.Input[Union['MappingsPropertiesArgs', 'MappingsPropertiesArgsDict', 'outputs.MappingsProperties']] mappings: Index Mappings
+        :param pulumi.Input[Union['IndexSettingsArgs', 'IndexSettingsArgsDict', 'outputs.IndexSettings']] settings: Index settings
         """
         ...
     @overload
@@ -138,8 +138,8 @@ class Index(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  collection_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
                  index_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 mappings: pulumi.Input[Optional[Union['MappingsPropertiesArgs', 'MappingsPropertiesArgsDict']]] = None,
-                 settings: pulumi.Input[Optional[Union['IndexSettingsArgs', 'IndexSettingsArgsDict']]] = None,
+                 mappings: pulumi.Input[Optional[Union['MappingsPropertiesArgs', 'MappingsPropertiesArgsDict', 'outputs.MappingsProperties']]] = None,
+                 settings: pulumi.Input[Optional[Union['IndexSettingsArgs', 'IndexSettingsArgsDict', 'outputs.IndexSettings']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

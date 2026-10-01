@@ -117,8 +117,8 @@ class CaseRule(pulumi.CustomResource):
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  domain_id: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 rule: pulumi.Input[Optional[Union[Union['CaseRuleDetails0PropertiesArgs', 'CaseRuleDetails0PropertiesArgsDict'], Union['CaseRuleDetails1PropertiesArgs', 'CaseRuleDetails1PropertiesArgsDict']]]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 rule: pulumi.Input[Optional[Union[Union['CaseRuleDetails0PropertiesArgs', 'CaseRuleDetails0PropertiesArgsDict', 'outputs.CaseRuleDetails0Properties'], Union['CaseRuleDetails1PropertiesArgs', 'CaseRuleDetails1PropertiesArgsDict', 'outputs.CaseRuleDetails1Properties']]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         A case rule. In the Amazon Connect admin website, case rules are known as case field conditions. Case rules are used to define the situations under which fields should have certain effects (such as required).
@@ -128,8 +128,8 @@ class CaseRule(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] description: A description explaining the purpose and behavior of this case rule. Helps administrators understand when and why this rule applies to case fields.
         :param pulumi.Input[_builtins.str] domain_id: The unique identifier of the Cases domain.
         :param pulumi.Input[_builtins.str] name: A descriptive name for the case rule. Must be unique within the domain and should clearly indicate the rule's purpose (e.g., 'Priority Field Required for Urgent Cases').
-        :param pulumi.Input[Union[Union['CaseRuleDetails0PropertiesArgs', 'CaseRuleDetails0PropertiesArgsDict'], Union['CaseRuleDetails1PropertiesArgs', 'CaseRuleDetails1PropertiesArgsDict']]] rule: Represents what rule type should take place, under what conditions.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags that you attach to this case rule.
+        :param pulumi.Input[Union[Union['CaseRuleDetails0PropertiesArgs', 'CaseRuleDetails0PropertiesArgsDict', 'outputs.CaseRuleDetails0Properties'], Union['CaseRuleDetails1PropertiesArgs', 'CaseRuleDetails1PropertiesArgsDict', 'outputs.CaseRuleDetails1Properties']]] rule: Represents what rule type should take place, under what conditions.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: The tags that you attach to this case rule.
         """
         ...
     @overload
@@ -158,8 +158,8 @@ class CaseRule(pulumi.CustomResource):
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  domain_id: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 rule: pulumi.Input[Optional[Union[Union['CaseRuleDetails0PropertiesArgs', 'CaseRuleDetails0PropertiesArgsDict'], Union['CaseRuleDetails1PropertiesArgs', 'CaseRuleDetails1PropertiesArgsDict']]]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 rule: pulumi.Input[Optional[Union[Union['CaseRuleDetails0PropertiesArgs', 'CaseRuleDetails0PropertiesArgsDict', 'outputs.CaseRuleDetails0Properties'], Union['CaseRuleDetails1PropertiesArgs', 'CaseRuleDetails1PropertiesArgsDict', 'outputs.CaseRuleDetails1Properties']]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -273,7 +273,7 @@ class CaseRule(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def rule(self) -> pulumi.Output[Any]:
+    def rule(self) -> pulumi.Output[Union['outputs.CaseRuleDetails0Properties', 'outputs.CaseRuleDetails1Properties']]:
         """
         Represents what rule type should take place, under what conditions.
         """

@@ -189,9 +189,9 @@ class ResourceShare(pulumi.CustomResource):
                  permission_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  principals: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  resource_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 resource_share_configuration: pulumi.Input[Optional[Union['ResourceShareConfigurationArgs', 'ResourceShareConfigurationArgsDict']]] = None,
+                 resource_share_configuration: pulumi.Input[Optional[Union['ResourceShareConfigurationArgs', 'ResourceShareConfigurationArgsDict', 'outputs.ResourceShareConfiguration']]] = None,
                  sources: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Resource type definition for AWS::RAM::ResourceShare
@@ -260,9 +260,9 @@ class ResourceShare(pulumi.CustomResource):
                
                - An ARN of an IAM user
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] resource_arns: Specifies a list of one or more ARNs of the resources to associate with the resource share.
-        :param pulumi.Input[Union['ResourceShareConfigurationArgs', 'ResourceShareConfigurationArgsDict']] resource_share_configuration: Specifies the configuration for the resource share
+        :param pulumi.Input[Union['ResourceShareConfigurationArgs', 'ResourceShareConfigurationArgsDict', 'outputs.ResourceShareConfiguration']] resource_share_configuration: Specifies the configuration for the resource share
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] sources: Specifies from which source accounts the service principal has access to the resources in this resource share.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Specifies one or more tags to attach to the resource share itself. It doesn't attach the tags to the resources associated with the resource share.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: Specifies one or more tags to attach to the resource share itself. It doesn't attach the tags to the resources associated with the resource share.
         """
         ...
     @overload
@@ -340,9 +340,9 @@ class ResourceShare(pulumi.CustomResource):
                  permission_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  principals: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  resource_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 resource_share_configuration: pulumi.Input[Optional[Union['ResourceShareConfigurationArgs', 'ResourceShareConfigurationArgsDict']]] = None,
+                 resource_share_configuration: pulumi.Input[Optional[Union['ResourceShareConfigurationArgs', 'ResourceShareConfigurationArgsDict', 'outputs.ResourceShareConfiguration']]] = None,
                  sources: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

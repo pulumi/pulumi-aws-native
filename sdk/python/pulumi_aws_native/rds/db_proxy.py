@@ -241,7 +241,7 @@ class DbProxy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auth: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DbProxyAuthFormatArgs', 'DbProxyAuthFormatArgsDict']]]]] = None,
+                 auth: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DbProxyAuthFormatArgs', 'DbProxyAuthFormatArgsDict', 'outputs.DbProxyAuthFormat']]]]] = None,
                  db_proxy_name: pulumi.Input[Optional[_builtins.str]] = None,
                  debug_logging: pulumi.Input[Optional[_builtins.bool]] = None,
                  default_auth_scheme: pulumi.Input[Optional['DbProxyDefaultAuthScheme']] = None,
@@ -250,7 +250,7 @@ class DbProxy(pulumi.CustomResource):
                  idle_client_timeout: pulumi.Input[Optional[_builtins.int]] = None,
                  require_tls: pulumi.Input[Optional[_builtins.bool]] = None,
                  role_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  target_connection_network_type: pulumi.Input[Optional['DbProxyTargetConnectionNetworkType']] = None,
                  vpc_security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  vpc_subnet_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -260,7 +260,7 @@ class DbProxy(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['DbProxyAuthFormatArgs', 'DbProxyAuthFormatArgsDict']]]] auth: The authorization mechanism that the proxy uses.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DbProxyAuthFormatArgs', 'DbProxyAuthFormatArgsDict', 'outputs.DbProxyAuthFormat']]]] auth: The authorization mechanism that the proxy uses.
         :param pulumi.Input[_builtins.str] db_proxy_name: The identifier for the proxy. This name must be unique for all proxies owned by your AWS account in the specified AWS Region.
         :param pulumi.Input[_builtins.bool] debug_logging: Whether the proxy includes detailed information about SQL statements in its logs.
         :param pulumi.Input['DbProxyDefaultAuthScheme'] default_auth_scheme: The default authentication scheme that the proxy uses for client connections to the proxy and connections from the proxy to the underlying database.
@@ -269,7 +269,7 @@ class DbProxy(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] idle_client_timeout: The number of seconds that a connection to the proxy can be inactive before the proxy disconnects it.
         :param pulumi.Input[_builtins.bool] require_tls: A Boolean parameter that specifies whether Transport Layer Security (TLS) encryption is required for connections to the proxy.
         :param pulumi.Input[_builtins.str] role_arn: The Amazon Resource Name (ARN) of the IAM role that the proxy uses to access secrets in AWS Secrets Manager.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An optional set of key-value pairs to associate arbitrary data of your choosing with the proxy.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: An optional set of key-value pairs to associate arbitrary data of your choosing with the proxy.
         :param pulumi.Input['DbProxyTargetConnectionNetworkType'] target_connection_network_type: The network type that the proxy uses to connect to the target database. The network type determines the IP version that the proxy uses for connections to the database.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] vpc_security_group_ids: VPC security group IDs to associate with the new proxy.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] vpc_subnet_ids: VPC subnet IDs to associate with the new proxy.
@@ -298,7 +298,7 @@ class DbProxy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auth: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DbProxyAuthFormatArgs', 'DbProxyAuthFormatArgsDict']]]]] = None,
+                 auth: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DbProxyAuthFormatArgs', 'DbProxyAuthFormatArgsDict', 'outputs.DbProxyAuthFormat']]]]] = None,
                  db_proxy_name: pulumi.Input[Optional[_builtins.str]] = None,
                  debug_logging: pulumi.Input[Optional[_builtins.bool]] = None,
                  default_auth_scheme: pulumi.Input[Optional['DbProxyDefaultAuthScheme']] = None,
@@ -307,7 +307,7 @@ class DbProxy(pulumi.CustomResource):
                  idle_client_timeout: pulumi.Input[Optional[_builtins.int]] = None,
                  require_tls: pulumi.Input[Optional[_builtins.bool]] = None,
                  role_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  target_connection_network_type: pulumi.Input[Optional['DbProxyTargetConnectionNetworkType']] = None,
                  vpc_security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  vpc_subnet_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,

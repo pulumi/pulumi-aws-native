@@ -129,10 +129,10 @@ class Node(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cluster_id: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 node_interface_mappings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NodeInterfaceMappingArgs', 'NodeInterfaceMappingArgsDict']]]]] = None,
+                 node_interface_mappings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NodeInterfaceMappingArgs', 'NodeInterfaceMappingArgsDict', 'outputs.NodeInterfaceMapping']]]]] = None,
                  role: pulumi.Input[Optional['NodeRole']] = None,
-                 sdi_source_mappings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NodeSdiSourceMappingArgs', 'NodeSdiSourceMappingArgsDict']]]]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 sdi_source_mappings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NodeSdiSourceMappingArgs', 'NodeSdiSourceMappingArgsDict', 'outputs.NodeSdiSourceMapping']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Definition of AWS::MediaLive::Node Resource Type
@@ -141,9 +141,9 @@ class Node(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] cluster_id: The ID of the Cluster that the Node belongs to.
         :param pulumi.Input[_builtins.str] name: The user-specified name of the Node.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['NodeInterfaceMappingArgs', 'NodeInterfaceMappingArgsDict']]]] node_interface_mappings: An array of interface mappings for the Node.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['NodeSdiSourceMappingArgs', 'NodeSdiSourceMappingArgsDict']]]] sdi_source_mappings: An array of SDI source mappings.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: A collection of key-value pairs.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['NodeInterfaceMappingArgs', 'NodeInterfaceMappingArgsDict', 'outputs.NodeInterfaceMapping']]]] node_interface_mappings: An array of interface mappings for the Node.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['NodeSdiSourceMappingArgs', 'NodeSdiSourceMappingArgsDict', 'outputs.NodeSdiSourceMapping']]]] sdi_source_mappings: An array of SDI source mappings.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: A collection of key-value pairs.
         """
         ...
     @overload
@@ -171,10 +171,10 @@ class Node(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cluster_id: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 node_interface_mappings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NodeInterfaceMappingArgs', 'NodeInterfaceMappingArgsDict']]]]] = None,
+                 node_interface_mappings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NodeInterfaceMappingArgs', 'NodeInterfaceMappingArgsDict', 'outputs.NodeInterfaceMapping']]]]] = None,
                  role: pulumi.Input[Optional['NodeRole']] = None,
-                 sdi_source_mappings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NodeSdiSourceMappingArgs', 'NodeSdiSourceMappingArgsDict']]]]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 sdi_source_mappings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NodeSdiSourceMappingArgs', 'NodeSdiSourceMappingArgsDict', 'outputs.NodeSdiSourceMapping']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

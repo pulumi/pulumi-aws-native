@@ -371,13 +371,13 @@ class Association(pulumi.CustomResource):
                  max_concurrency: pulumi.Input[Optional[_builtins.str]] = None,
                  max_errors: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 output_location: pulumi.Input[Optional[Union['AssociationInstanceAssociationOutputLocationArgs', 'AssociationInstanceAssociationOutputLocationArgsDict']]] = None,
+                 output_location: pulumi.Input[Optional[Union['AssociationInstanceAssociationOutputLocationArgs', 'AssociationInstanceAssociationOutputLocationArgsDict', 'outputs.AssociationInstanceAssociationOutputLocation']]] = None,
                  parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]]] = None,
                  schedule_expression: pulumi.Input[Optional[_builtins.str]] = None,
                  schedule_offset: pulumi.Input[Optional[_builtins.int]] = None,
                  sync_compliance: pulumi.Input[Optional['AssociationSyncCompliance']] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 targets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AssociationTargetArgs', 'AssociationTargetArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
+                 targets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AssociationTargetArgs', 'AssociationTargetArgsDict', 'outputs.AssociationTarget']]]]] = None,
                  wait_for_success_timeout_seconds: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         """
@@ -503,7 +503,7 @@ class Association(pulumi.CustomResource):
                
                Executions that are already running an association when `MaxErrors` is reached are allowed to complete, but some of these executions may fail as well. If you need to ensure that there won't be more than max-errors failed executions, set `MaxConcurrency` to 1 so that executions proceed one at a time.
         :param pulumi.Input[_builtins.str] name: The name of the SSM document.
-        :param pulumi.Input[Union['AssociationInstanceAssociationOutputLocationArgs', 'AssociationInstanceAssociationOutputLocationArgsDict']] output_location: An Amazon Simple Storage Service (Amazon S3) bucket where you want to store the output details of the request.
+        :param pulumi.Input[Union['AssociationInstanceAssociationOutputLocationArgs', 'AssociationInstanceAssociationOutputLocationArgsDict', 'outputs.AssociationInstanceAssociationOutputLocation']] output_location: An Amazon Simple Storage Service (Amazon S3) bucket where you want to store the output details of the request.
         :param pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]] parameters: Parameter values that the SSM document uses at runtime.
         :param pulumi.Input[_builtins.str] schedule_expression: A Cron or Rate expression that specifies when the association is applied to the target.
         :param pulumi.Input[_builtins.int] schedule_offset: Number of days to wait after the scheduled day to run an association.
@@ -512,8 +512,8 @@ class Association(pulumi.CustomResource):
                In `MANUAL` mode, you must specify the `AssociationId` as a parameter for the `PutComplianceItems` API action. In this case, compliance data is not managed by State Manager. It is managed by your direct call to the `PutComplianceItems` API action.
                
                By default, all associations use `AUTO` mode.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: A key-value pair to associate with a resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AssociationTargetArgs', 'AssociationTargetArgsDict']]]] targets: The targets that the SSM document sends commands to.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: A key-value pair to associate with a resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AssociationTargetArgs', 'AssociationTargetArgsDict', 'outputs.AssociationTarget']]]] targets: The targets that the SSM document sends commands to.
         :param pulumi.Input[_builtins.int] wait_for_success_timeout_seconds: The number of seconds the service should wait for the association status to show "Success" before proceeding with the stack execution. If the association status doesn't show "Success" after the specified number of seconds, then stack creation fails.
                
                > When you specify a value for the `WaitForSuccessTimeoutSeconds` , [drift detection](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.html) for your CloudFormation stack’s configuration might yield inaccurate results. If drift detection is important in your scenario, we recommend that you don’t include `WaitForSuccessTimeoutSeconds` in your template.
@@ -656,13 +656,13 @@ class Association(pulumi.CustomResource):
                  max_concurrency: pulumi.Input[Optional[_builtins.str]] = None,
                  max_errors: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 output_location: pulumi.Input[Optional[Union['AssociationInstanceAssociationOutputLocationArgs', 'AssociationInstanceAssociationOutputLocationArgsDict']]] = None,
+                 output_location: pulumi.Input[Optional[Union['AssociationInstanceAssociationOutputLocationArgs', 'AssociationInstanceAssociationOutputLocationArgsDict', 'outputs.AssociationInstanceAssociationOutputLocation']]] = None,
                  parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]]] = None,
                  schedule_expression: pulumi.Input[Optional[_builtins.str]] = None,
                  schedule_offset: pulumi.Input[Optional[_builtins.int]] = None,
                  sync_compliance: pulumi.Input[Optional['AssociationSyncCompliance']] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 targets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AssociationTargetArgs', 'AssociationTargetArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
+                 targets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AssociationTargetArgs', 'AssociationTargetArgsDict', 'outputs.AssociationTarget']]]]] = None,
                  wait_for_success_timeout_seconds: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

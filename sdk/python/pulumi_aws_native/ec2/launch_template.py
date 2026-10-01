@@ -99,9 +99,9 @@ class LaunchTemplate(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 launch_template_data: pulumi.Input[Optional[Union['LaunchTemplateDataArgs', 'LaunchTemplateDataArgsDict']]] = None,
+                 launch_template_data: pulumi.Input[Optional[Union['LaunchTemplateDataArgs', 'LaunchTemplateDataArgsDict', 'outputs.LaunchTemplateData']]] = None,
                  launch_template_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tag_specifications: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LaunchTemplateTagSpecificationArgs', 'LaunchTemplateTagSpecificationArgsDict']]]]] = None,
+                 tag_specifications: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LaunchTemplateTagSpecificationArgs', 'LaunchTemplateTagSpecificationArgsDict', 'outputs.LaunchTemplateTagSpecification']]]]] = None,
                  version_description: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -115,9 +115,9 @@ class LaunchTemplate(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['LaunchTemplateDataArgs', 'LaunchTemplateDataArgsDict']] launch_template_data: The information for the launch template.
+        :param pulumi.Input[Union['LaunchTemplateDataArgs', 'LaunchTemplateDataArgsDict', 'outputs.LaunchTemplateData']] launch_template_data: The information for the launch template.
         :param pulumi.Input[_builtins.str] launch_template_name: A name for the launch template.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['LaunchTemplateTagSpecificationArgs', 'LaunchTemplateTagSpecificationArgsDict']]]] tag_specifications: The tags to apply to the launch template on creation. To tag the launch template, the resource type must be ``launch-template``.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['LaunchTemplateTagSpecificationArgs', 'LaunchTemplateTagSpecificationArgsDict', 'outputs.LaunchTemplateTagSpecification']]]] tag_specifications: The tags to apply to the launch template on creation. To tag the launch template, the resource type must be ``launch-template``.
                 To specify the tags for resources that are created during instance launch, use [TagSpecifications](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-tagspecifications).
         :param pulumi.Input[_builtins.str] version_description: A description for the first version of the launch template.
         """
@@ -151,9 +151,9 @@ class LaunchTemplate(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 launch_template_data: pulumi.Input[Optional[Union['LaunchTemplateDataArgs', 'LaunchTemplateDataArgsDict']]] = None,
+                 launch_template_data: pulumi.Input[Optional[Union['LaunchTemplateDataArgs', 'LaunchTemplateDataArgsDict', 'outputs.LaunchTemplateData']]] = None,
                  launch_template_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tag_specifications: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LaunchTemplateTagSpecificationArgs', 'LaunchTemplateTagSpecificationArgsDict']]]]] = None,
+                 tag_specifications: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LaunchTemplateTagSpecificationArgs', 'LaunchTemplateTagSpecificationArgsDict', 'outputs.LaunchTemplateTagSpecification']]]]] = None,
                  version_description: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

@@ -226,13 +226,13 @@ class Agent(pulumi.CustomResource):
                  agent_id: pulumi.Input[Optional[_builtins.str]] = None,
                  agent_lifecycle: pulumi.Input[Optional['AgentLifecycle']] = None,
                  aws_account_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 custom_prompt_input: pulumi.Input[Optional[Union['AgentCustomPromptInputArgs', 'AgentCustomPromptInputArgsDict']]] = None,
+                 custom_prompt_input: pulumi.Input[Optional[Union['AgentCustomPromptInputArgs', 'AgentCustomPromptInputArgsDict', 'outputs.AgentCustomPromptInput']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  icon_id: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  spaces: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  starter_prompts: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  welcome_message: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -249,7 +249,7 @@ class Agent(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] name: The display name of the agent.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] spaces: A list of Space ARNs (max 10) attached to the agent.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] starter_prompts: A list of up to 3 starter prompts displayed to users.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: A list of key-value pairs to associate with the agent resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: A list of key-value pairs to associate with the agent resource.
         :param pulumi.Input[_builtins.str] welcome_message: The welcome message displayed when a user opens the agent.
         """
         ...
@@ -280,13 +280,13 @@ class Agent(pulumi.CustomResource):
                  agent_id: pulumi.Input[Optional[_builtins.str]] = None,
                  agent_lifecycle: pulumi.Input[Optional['AgentLifecycle']] = None,
                  aws_account_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 custom_prompt_input: pulumi.Input[Optional[Union['AgentCustomPromptInputArgs', 'AgentCustomPromptInputArgsDict']]] = None,
+                 custom_prompt_input: pulumi.Input[Optional[Union['AgentCustomPromptInputArgs', 'AgentCustomPromptInputArgsDict', 'outputs.AgentCustomPromptInput']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  icon_id: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  spaces: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  starter_prompts: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  welcome_message: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

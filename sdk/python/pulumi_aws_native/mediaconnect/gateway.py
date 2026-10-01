@@ -82,7 +82,7 @@ class Gateway(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  egress_cidr_blocks: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 networks: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GatewayNetworkArgs', 'GatewayNetworkArgsDict']]]]] = None,
+                 networks: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GatewayNetworkArgs', 'GatewayNetworkArgsDict', 'outputs.GatewayNetwork']]]]] = None,
                  __props__=None):
         """
         Resource schema for AWS::MediaConnect::Gateway
@@ -91,7 +91,7 @@ class Gateway(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] egress_cidr_blocks: The range of IP addresses that contribute content or initiate output requests for flows communicating with this gateway. These IP addresses should be in the form of a Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0/16.
         :param pulumi.Input[_builtins.str] name: The name of the gateway. This name can not be modified after the gateway is created.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['GatewayNetworkArgs', 'GatewayNetworkArgsDict']]]] networks: The list of networks in the gateway.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['GatewayNetworkArgs', 'GatewayNetworkArgsDict', 'outputs.GatewayNetwork']]]] networks: The list of networks in the gateway.
         """
         ...
     @overload
@@ -119,7 +119,7 @@ class Gateway(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  egress_cidr_blocks: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 networks: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GatewayNetworkArgs', 'GatewayNetworkArgsDict']]]]] = None,
+                 networks: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GatewayNetworkArgs', 'GatewayNetworkArgsDict', 'outputs.GatewayNetwork']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

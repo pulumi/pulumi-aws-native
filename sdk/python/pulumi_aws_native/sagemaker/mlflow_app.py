@@ -132,7 +132,7 @@ class MlflowApp(pulumi.CustomResource):
                  model_registration_mode: pulumi.Input[Optional['MlflowAppModelRegistrationMode']] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  role_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  weekly_maintenance_window_start: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -144,7 +144,7 @@ class MlflowApp(pulumi.CustomResource):
         :param pulumi.Input['MlflowAppModelRegistrationMode'] model_registration_mode: Whether to enable or disable automatic registration of new MLflow models to the SageMaker Model Registry.
         :param pulumi.Input[_builtins.str] name: The name of the MLflow App.
         :param pulumi.Input[_builtins.str] role_arn: The Amazon Resource Name (ARN) for an IAM role in your account that the MLflow App uses to access the artifact store in Amazon S3.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Tags to associate with the MLflow App.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: Tags to associate with the MLflow App.
         :param pulumi.Input[_builtins.str] weekly_maintenance_window_start: The day and time of the week in Coordinated Universal Time (UTC) 24-hour standard time that weekly maintenance updates are scheduled. For example: Tue:03:30.
         """
         ...
@@ -175,7 +175,7 @@ class MlflowApp(pulumi.CustomResource):
                  model_registration_mode: pulumi.Input[Optional['MlflowAppModelRegistrationMode']] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  role_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  weekly_maintenance_window_start: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

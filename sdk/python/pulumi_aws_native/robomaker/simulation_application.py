@@ -163,10 +163,10 @@ class SimulationApplication(pulumi.CustomResource):
                  current_revision_id: pulumi.Input[Optional[_builtins.str]] = None,
                  environment: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 rendering_engine: pulumi.Input[Optional[Union['SimulationApplicationRenderingEngineArgs', 'SimulationApplicationRenderingEngineArgsDict']]] = None,
-                 robot_software_suite: pulumi.Input[Optional[Union['SimulationApplicationRobotSoftwareSuiteArgs', 'SimulationApplicationRobotSoftwareSuiteArgsDict']]] = None,
-                 simulation_software_suite: pulumi.Input[Optional[Union['SimulationApplicationSimulationSoftwareSuiteArgs', 'SimulationApplicationSimulationSoftwareSuiteArgsDict']]] = None,
-                 sources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SimulationApplicationSourceConfigArgs', 'SimulationApplicationSourceConfigArgsDict']]]]] = None,
+                 rendering_engine: pulumi.Input[Optional[Union['SimulationApplicationRenderingEngineArgs', 'SimulationApplicationRenderingEngineArgsDict', 'outputs.SimulationApplicationRenderingEngine']]] = None,
+                 robot_software_suite: pulumi.Input[Optional[Union['SimulationApplicationRobotSoftwareSuiteArgs', 'SimulationApplicationRobotSoftwareSuiteArgsDict', 'outputs.SimulationApplicationRobotSoftwareSuite']]] = None,
+                 simulation_software_suite: pulumi.Input[Optional[Union['SimulationApplicationSimulationSoftwareSuiteArgs', 'SimulationApplicationSimulationSoftwareSuiteArgsDict', 'outputs.SimulationApplicationSimulationSoftwareSuite']]] = None,
+                 sources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SimulationApplicationSourceConfigArgs', 'SimulationApplicationSourceConfigArgsDict', 'outputs.SimulationApplicationSourceConfig']]]]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
@@ -266,10 +266,10 @@ class SimulationApplication(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] current_revision_id: The current revision id.
         :param pulumi.Input[_builtins.str] environment: The URI of the Docker image for the robot application.
         :param pulumi.Input[_builtins.str] name: The name of the simulation application.
-        :param pulumi.Input[Union['SimulationApplicationRenderingEngineArgs', 'SimulationApplicationRenderingEngineArgsDict']] rendering_engine: The rendering engine for the simulation application.
-        :param pulumi.Input[Union['SimulationApplicationRobotSoftwareSuiteArgs', 'SimulationApplicationRobotSoftwareSuiteArgsDict']] robot_software_suite: The robot software suite used by the simulation application.
-        :param pulumi.Input[Union['SimulationApplicationSimulationSoftwareSuiteArgs', 'SimulationApplicationSimulationSoftwareSuiteArgsDict']] simulation_software_suite: The simulation software suite used by the simulation application.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['SimulationApplicationSourceConfigArgs', 'SimulationApplicationSourceConfigArgsDict']]]] sources: The sources of the simulation application.
+        :param pulumi.Input[Union['SimulationApplicationRenderingEngineArgs', 'SimulationApplicationRenderingEngineArgsDict', 'outputs.SimulationApplicationRenderingEngine']] rendering_engine: The rendering engine for the simulation application.
+        :param pulumi.Input[Union['SimulationApplicationRobotSoftwareSuiteArgs', 'SimulationApplicationRobotSoftwareSuiteArgsDict', 'outputs.SimulationApplicationRobotSoftwareSuite']] robot_software_suite: The robot software suite used by the simulation application.
+        :param pulumi.Input[Union['SimulationApplicationSimulationSoftwareSuiteArgs', 'SimulationApplicationSimulationSoftwareSuiteArgsDict', 'outputs.SimulationApplicationSimulationSoftwareSuite']] simulation_software_suite: The simulation software suite used by the simulation application.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SimulationApplicationSourceConfigArgs', 'SimulationApplicationSourceConfigArgsDict', 'outputs.SimulationApplicationSourceConfig']]]] sources: The sources of the simulation application.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map that contains tag keys and tag values that are attached to the simulation application.
         """
         ...
@@ -388,10 +388,10 @@ class SimulationApplication(pulumi.CustomResource):
                  current_revision_id: pulumi.Input[Optional[_builtins.str]] = None,
                  environment: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 rendering_engine: pulumi.Input[Optional[Union['SimulationApplicationRenderingEngineArgs', 'SimulationApplicationRenderingEngineArgsDict']]] = None,
-                 robot_software_suite: pulumi.Input[Optional[Union['SimulationApplicationRobotSoftwareSuiteArgs', 'SimulationApplicationRobotSoftwareSuiteArgsDict']]] = None,
-                 simulation_software_suite: pulumi.Input[Optional[Union['SimulationApplicationSimulationSoftwareSuiteArgs', 'SimulationApplicationSimulationSoftwareSuiteArgsDict']]] = None,
-                 sources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SimulationApplicationSourceConfigArgs', 'SimulationApplicationSourceConfigArgsDict']]]]] = None,
+                 rendering_engine: pulumi.Input[Optional[Union['SimulationApplicationRenderingEngineArgs', 'SimulationApplicationRenderingEngineArgsDict', 'outputs.SimulationApplicationRenderingEngine']]] = None,
+                 robot_software_suite: pulumi.Input[Optional[Union['SimulationApplicationRobotSoftwareSuiteArgs', 'SimulationApplicationRobotSoftwareSuiteArgsDict', 'outputs.SimulationApplicationRobotSoftwareSuite']]] = None,
+                 simulation_software_suite: pulumi.Input[Optional[Union['SimulationApplicationSimulationSoftwareSuiteArgs', 'SimulationApplicationSimulationSoftwareSuiteArgsDict', 'outputs.SimulationApplicationSimulationSoftwareSuite']]] = None,
+                 sources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SimulationApplicationSourceConfigArgs', 'SimulationApplicationSourceConfigArgsDict', 'outputs.SimulationApplicationSourceConfig']]]]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

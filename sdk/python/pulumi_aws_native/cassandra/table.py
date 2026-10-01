@@ -306,21 +306,21 @@ class Table(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auto_scaling_specifications: pulumi.Input[Optional[Union['TableAutoScalingSpecificationArgs', 'TableAutoScalingSpecificationArgsDict']]] = None,
-                 billing_mode: pulumi.Input[Optional[Union['TableBillingModeArgs', 'TableBillingModeArgsDict']]] = None,
-                 cdc_specification: pulumi.Input[Optional[Union['TableCdcSpecificationArgs', 'TableCdcSpecificationArgsDict']]] = None,
+                 auto_scaling_specifications: pulumi.Input[Optional[Union['TableAutoScalingSpecificationArgs', 'TableAutoScalingSpecificationArgsDict', 'outputs.TableAutoScalingSpecification']]] = None,
+                 billing_mode: pulumi.Input[Optional[Union['TableBillingModeArgs', 'TableBillingModeArgsDict', 'outputs.TableBillingMode']]] = None,
+                 cdc_specification: pulumi.Input[Optional[Union['TableCdcSpecificationArgs', 'TableCdcSpecificationArgsDict', 'outputs.TableCdcSpecification']]] = None,
                  client_side_timestamps_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 clustering_key_columns: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TableClusteringKeyColumnArgs', 'TableClusteringKeyColumnArgsDict']]]]] = None,
+                 clustering_key_columns: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TableClusteringKeyColumnArgs', 'TableClusteringKeyColumnArgsDict', 'outputs.TableClusteringKeyColumn']]]]] = None,
                  default_time_to_live: pulumi.Input[Optional[_builtins.int]] = None,
-                 encryption_specification: pulumi.Input[Optional[Union['TableEncryptionSpecificationArgs', 'TableEncryptionSpecificationArgsDict']]] = None,
+                 encryption_specification: pulumi.Input[Optional[Union['TableEncryptionSpecificationArgs', 'TableEncryptionSpecificationArgsDict', 'outputs.TableEncryptionSpecification']]] = None,
                  keyspace_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 partition_key_columns: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TableColumnArgs', 'TableColumnArgsDict']]]]] = None,
+                 partition_key_columns: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TableColumnArgs', 'TableColumnArgsDict', 'outputs.TableColumn']]]]] = None,
                  point_in_time_recovery_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 regular_columns: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TableColumnArgs', 'TableColumnArgsDict']]]]] = None,
-                 replica_specifications: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TableReplicaSpecificationArgs', 'TableReplicaSpecificationArgsDict']]]]] = None,
+                 regular_columns: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TableColumnArgs', 'TableColumnArgsDict', 'outputs.TableColumn']]]]] = None,
+                 replica_specifications: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TableReplicaSpecificationArgs', 'TableReplicaSpecificationArgsDict', 'outputs.TableReplicaSpecification']]]]] = None,
                  table_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 warm_throughput: pulumi.Input[Optional[Union['TableWarmThroughputArgs', 'TableWarmThroughputArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
+                 warm_throughput: pulumi.Input[Optional[Union['TableWarmThroughputArgs', 'TableWarmThroughputArgsDict', 'outputs.TableWarmThroughput']]] = None,
                  __props__=None):
         """
         Resource schema for AWS::Cassandra::Table
@@ -794,18 +794,18 @@ class Table(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['TableAutoScalingSpecificationArgs', 'TableAutoScalingSpecificationArgsDict']] auto_scaling_specifications: The optional auto scaling capacity settings for a table in provisioned capacity mode.
-        :param pulumi.Input[Union['TableBillingModeArgs', 'TableBillingModeArgsDict']] billing_mode: The billing mode for the table, which determines how you'll be charged for reads and writes:
+        :param pulumi.Input[Union['TableAutoScalingSpecificationArgs', 'TableAutoScalingSpecificationArgsDict', 'outputs.TableAutoScalingSpecification']] auto_scaling_specifications: The optional auto scaling capacity settings for a table in provisioned capacity mode.
+        :param pulumi.Input[Union['TableBillingModeArgs', 'TableBillingModeArgsDict', 'outputs.TableBillingMode']] billing_mode: The billing mode for the table, which determines how you'll be charged for reads and writes:
                
                - *On-demand mode* (default) - You pay based on the actual reads and writes your application performs.
                - *Provisioned mode* - Lets you specify the number of reads and writes per second that you need for your application.
                
                If you don't specify a value for this property, then the table will use on-demand mode.
-        :param pulumi.Input[Union['TableCdcSpecificationArgs', 'TableCdcSpecificationArgsDict']] cdc_specification: The settings for the CDC stream of a table. For more information about CDC streams, see [Working with change data capture (CDC) streams in Amazon Keyspaces](https://docs.aws.amazon.com/keyspaces/latest/devguide/cdc.html) in the *Amazon Keyspaces Developer Guide* .
+        :param pulumi.Input[Union['TableCdcSpecificationArgs', 'TableCdcSpecificationArgsDict', 'outputs.TableCdcSpecification']] cdc_specification: The settings for the CDC stream of a table. For more information about CDC streams, see [Working with change data capture (CDC) streams in Amazon Keyspaces](https://docs.aws.amazon.com/keyspaces/latest/devguide/cdc.html) in the *Amazon Keyspaces Developer Guide* .
         :param pulumi.Input[_builtins.bool] client_side_timestamps_enabled: Indicates whether client side timestamps are enabled (true) or disabled (false) on the table. False by default, once it is enabled it cannot be disabled again.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['TableClusteringKeyColumnArgs', 'TableClusteringKeyColumnArgsDict']]]] clustering_key_columns: Clustering key columns of the table
+        :param pulumi.Input[Sequence[pulumi.Input[Union['TableClusteringKeyColumnArgs', 'TableClusteringKeyColumnArgsDict', 'outputs.TableClusteringKeyColumn']]]] clustering_key_columns: Clustering key columns of the table
         :param pulumi.Input[_builtins.int] default_time_to_live: Default TTL (Time To Live) in seconds, where zero is disabled. If the value is greater than zero, TTL is enabled for the entire table and an expiration timestamp is added to each column.
-        :param pulumi.Input[Union['TableEncryptionSpecificationArgs', 'TableEncryptionSpecificationArgsDict']] encryption_specification: The encryption at rest options for the table.
+        :param pulumi.Input[Union['TableEncryptionSpecificationArgs', 'TableEncryptionSpecificationArgsDict', 'outputs.TableEncryptionSpecification']] encryption_specification: The encryption at rest options for the table.
                
                - *AWS owned key* (default) - The key is owned by Amazon Keyspaces .
                - *Customer managed key* - The key is stored in your account and is created, owned, and managed by you.
@@ -814,10 +814,10 @@ class Table(pulumi.CustomResource):
                
                For more information, see [Encryption at rest in Amazon Keyspaces](https://docs.aws.amazon.com/keyspaces/latest/devguide/EncryptionAtRest.html) in the *Amazon Keyspaces Developer Guide* .
         :param pulumi.Input[_builtins.str] keyspace_name: Name for Cassandra keyspace
-        :param pulumi.Input[Sequence[pulumi.Input[Union['TableColumnArgs', 'TableColumnArgsDict']]]] partition_key_columns: Partition key columns of the table
+        :param pulumi.Input[Sequence[pulumi.Input[Union['TableColumnArgs', 'TableColumnArgsDict', 'outputs.TableColumn']]]] partition_key_columns: Partition key columns of the table
         :param pulumi.Input[_builtins.bool] point_in_time_recovery_enabled: Indicates whether point in time recovery is enabled (true) or disabled (false) on the table
-        :param pulumi.Input[Sequence[pulumi.Input[Union['TableColumnArgs', 'TableColumnArgsDict']]]] regular_columns: Non-key columns of the table
-        :param pulumi.Input[Sequence[pulumi.Input[Union['TableReplicaSpecificationArgs', 'TableReplicaSpecificationArgsDict']]]] replica_specifications: The AWS Region specific settings of a multi-Region table.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['TableColumnArgs', 'TableColumnArgsDict', 'outputs.TableColumn']]]] regular_columns: Non-key columns of the table
+        :param pulumi.Input[Sequence[pulumi.Input[Union['TableReplicaSpecificationArgs', 'TableReplicaSpecificationArgsDict', 'outputs.TableReplicaSpecification']]]] replica_specifications: The AWS Region specific settings of a multi-Region table.
                
                For a multi-Region table, you can configure the table's read capacity differently per AWS Region. You can do this by configuring the following parameters.
                
@@ -825,7 +825,7 @@ class Table(pulumi.CustomResource):
                - `readCapacityUnits` : The provisioned read capacity units. (Optional)
                - `readCapacityAutoScaling` : The read capacity auto scaling settings for the table. (Optional)
         :param pulumi.Input[_builtins.str] table_name: Name for Cassandra table
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: An array of key-value pairs to apply to this resource
         """
         ...
     @overload
@@ -1318,21 +1318,21 @@ class Table(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auto_scaling_specifications: pulumi.Input[Optional[Union['TableAutoScalingSpecificationArgs', 'TableAutoScalingSpecificationArgsDict']]] = None,
-                 billing_mode: pulumi.Input[Optional[Union['TableBillingModeArgs', 'TableBillingModeArgsDict']]] = None,
-                 cdc_specification: pulumi.Input[Optional[Union['TableCdcSpecificationArgs', 'TableCdcSpecificationArgsDict']]] = None,
+                 auto_scaling_specifications: pulumi.Input[Optional[Union['TableAutoScalingSpecificationArgs', 'TableAutoScalingSpecificationArgsDict', 'outputs.TableAutoScalingSpecification']]] = None,
+                 billing_mode: pulumi.Input[Optional[Union['TableBillingModeArgs', 'TableBillingModeArgsDict', 'outputs.TableBillingMode']]] = None,
+                 cdc_specification: pulumi.Input[Optional[Union['TableCdcSpecificationArgs', 'TableCdcSpecificationArgsDict', 'outputs.TableCdcSpecification']]] = None,
                  client_side_timestamps_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 clustering_key_columns: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TableClusteringKeyColumnArgs', 'TableClusteringKeyColumnArgsDict']]]]] = None,
+                 clustering_key_columns: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TableClusteringKeyColumnArgs', 'TableClusteringKeyColumnArgsDict', 'outputs.TableClusteringKeyColumn']]]]] = None,
                  default_time_to_live: pulumi.Input[Optional[_builtins.int]] = None,
-                 encryption_specification: pulumi.Input[Optional[Union['TableEncryptionSpecificationArgs', 'TableEncryptionSpecificationArgsDict']]] = None,
+                 encryption_specification: pulumi.Input[Optional[Union['TableEncryptionSpecificationArgs', 'TableEncryptionSpecificationArgsDict', 'outputs.TableEncryptionSpecification']]] = None,
                  keyspace_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 partition_key_columns: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TableColumnArgs', 'TableColumnArgsDict']]]]] = None,
+                 partition_key_columns: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TableColumnArgs', 'TableColumnArgsDict', 'outputs.TableColumn']]]]] = None,
                  point_in_time_recovery_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 regular_columns: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TableColumnArgs', 'TableColumnArgsDict']]]]] = None,
-                 replica_specifications: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TableReplicaSpecificationArgs', 'TableReplicaSpecificationArgsDict']]]]] = None,
+                 regular_columns: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TableColumnArgs', 'TableColumnArgsDict', 'outputs.TableColumn']]]]] = None,
+                 replica_specifications: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TableReplicaSpecificationArgs', 'TableReplicaSpecificationArgsDict', 'outputs.TableReplicaSpecification']]]]] = None,
                  table_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 warm_throughput: pulumi.Input[Optional[Union['TableWarmThroughputArgs', 'TableWarmThroughputArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
+                 warm_throughput: pulumi.Input[Optional[Union['TableWarmThroughputArgs', 'TableWarmThroughputArgsDict', 'outputs.TableWarmThroughput']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

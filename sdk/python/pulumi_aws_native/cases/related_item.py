@@ -113,9 +113,9 @@ class RelatedItem(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  case_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 content: pulumi.Input[Optional[Union['RelatedItemContentArgs', 'RelatedItemContentArgsDict']]] = None,
+                 content: pulumi.Input[Optional[Union['RelatedItemContentArgs', 'RelatedItemContentArgsDict', 'outputs.RelatedItemContent']]] = None,
                  domain_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  type: pulumi.Input[Optional['RelatedItemType']] = None,
                  __props__=None):
         """
@@ -124,9 +124,9 @@ class RelatedItem(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] case_id: A unique identifier of the case.
-        :param pulumi.Input[Union['RelatedItemContentArgs', 'RelatedItemContentArgsDict']] content: The content of a related item to be created.
+        :param pulumi.Input[Union['RelatedItemContentArgs', 'RelatedItemContentArgsDict', 'outputs.RelatedItemContent']] content: The content of a related item to be created.
         :param pulumi.Input[_builtins.str] domain_id: The unique identifier of the Cases domain.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: A list of tags on the related item.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: A list of tags on the related item.
         :param pulumi.Input['RelatedItemType'] type: The type of a related item.
         """
         ...
@@ -154,9 +154,9 @@ class RelatedItem(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  case_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 content: pulumi.Input[Optional[Union['RelatedItemContentArgs', 'RelatedItemContentArgsDict']]] = None,
+                 content: pulumi.Input[Optional[Union['RelatedItemContentArgs', 'RelatedItemContentArgsDict', 'outputs.RelatedItemContent']]] = None,
                  domain_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  type: pulumi.Input[Optional['RelatedItemType']] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

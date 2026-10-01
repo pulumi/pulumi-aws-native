@@ -102,7 +102,7 @@ class AccessPoint(pulumi.CustomResource):
                  bucket: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  policy: Optional[Any] = None,
-                 vpc_configuration: pulumi.Input[Optional[Union['AccessPointVpcConfigurationArgs', 'AccessPointVpcConfigurationArgsDict']]] = None,
+                 vpc_configuration: pulumi.Input[Optional[Union['AccessPointVpcConfigurationArgs', 'AccessPointVpcConfigurationArgsDict', 'outputs.AccessPointVpcConfiguration']]] = None,
                  __props__=None):
         """
         Resource Type Definition for AWS::S3Outposts::AccessPoint
@@ -114,7 +114,7 @@ class AccessPoint(pulumi.CustomResource):
         :param Any policy: The access point policy associated with this access point.
                
                Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::S3Outposts::AccessPoint` for more information about the expected schema for this property.
-        :param pulumi.Input[Union['AccessPointVpcConfigurationArgs', 'AccessPointVpcConfigurationArgsDict']] vpc_configuration: Virtual Private Cloud (VPC) from which requests can be made to the AccessPoint.
+        :param pulumi.Input[Union['AccessPointVpcConfigurationArgs', 'AccessPointVpcConfigurationArgsDict', 'outputs.AccessPointVpcConfiguration']] vpc_configuration: Virtual Private Cloud (VPC) from which requests can be made to the AccessPoint.
         """
         ...
     @overload
@@ -143,7 +143,7 @@ class AccessPoint(pulumi.CustomResource):
                  bucket: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  policy: Optional[Any] = None,
-                 vpc_configuration: pulumi.Input[Optional[Union['AccessPointVpcConfigurationArgs', 'AccessPointVpcConfigurationArgsDict']]] = None,
+                 vpc_configuration: pulumi.Input[Optional[Union['AccessPointVpcConfigurationArgs', 'AccessPointVpcConfigurationArgsDict', 'outputs.AccessPointVpcConfiguration']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

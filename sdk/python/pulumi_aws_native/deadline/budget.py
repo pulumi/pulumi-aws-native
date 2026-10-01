@@ -150,26 +150,26 @@ class Budget(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BudgetActionToAddArgs', 'BudgetActionToAddArgsDict']]]]] = None,
+                 actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BudgetActionToAddArgs', 'BudgetActionToAddArgsDict', 'outputs.BudgetActionToAdd']]]]] = None,
                  approximate_dollar_limit: pulumi.Input[Optional[_builtins.float]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
                  farm_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 schedule: pulumi.Input[Optional[Union['BudgetScheduleArgs', 'BudgetScheduleArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 usage_tracking_resource: pulumi.Input[Optional[Union['BudgetUsageTrackingResourceArgs', 'BudgetUsageTrackingResourceArgsDict']]] = None,
+                 schedule: pulumi.Input[Optional[Union['BudgetScheduleArgs', 'BudgetScheduleArgsDict', 'outputs.BudgetSchedule']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
+                 usage_tracking_resource: pulumi.Input[Optional[Union['BudgetUsageTrackingResourceArgs', 'BudgetUsageTrackingResourceArgsDict', 'outputs.BudgetUsageTrackingResource']]] = None,
                  __props__=None):
         """
         Creates a budget to set spending thresholds for your rendering activity.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['BudgetActionToAddArgs', 'BudgetActionToAddArgsDict']]]] actions: The budget actions to specify what happens when the budget runs out.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['BudgetActionToAddArgs', 'BudgetActionToAddArgsDict', 'outputs.BudgetActionToAdd']]]] actions: The budget actions to specify what happens when the budget runs out.
         :param pulumi.Input[_builtins.float] approximate_dollar_limit: The dollar limit based on consumed usage.
         :param pulumi.Input[_builtins.str] description: The description of the budget.
         :param pulumi.Input[_builtins.str] display_name: The display name of the budget.
         :param pulumi.Input[_builtins.str] farm_id: The farm ID.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
     @overload
@@ -195,14 +195,14 @@ class Budget(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BudgetActionToAddArgs', 'BudgetActionToAddArgsDict']]]]] = None,
+                 actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BudgetActionToAddArgs', 'BudgetActionToAddArgsDict', 'outputs.BudgetActionToAdd']]]]] = None,
                  approximate_dollar_limit: pulumi.Input[Optional[_builtins.float]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
                  farm_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 schedule: pulumi.Input[Optional[Union['BudgetScheduleArgs', 'BudgetScheduleArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 usage_tracking_resource: pulumi.Input[Optional[Union['BudgetUsageTrackingResourceArgs', 'BudgetUsageTrackingResourceArgsDict']]] = None,
+                 schedule: pulumi.Input[Optional[Union['BudgetScheduleArgs', 'BudgetScheduleArgsDict', 'outputs.BudgetSchedule']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
+                 usage_tracking_resource: pulumi.Input[Optional[Union['BudgetUsageTrackingResourceArgs', 'BudgetUsageTrackingResourceArgsDict', 'outputs.BudgetUsageTrackingResource']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -263,42 +263,42 @@ class Application(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 attachments_configuration: pulumi.Input[Optional[Union['ApplicationAttachmentsConfigurationArgs', 'ApplicationAttachmentsConfigurationArgsDict']]] = None,
-                 auto_subscription_configuration: pulumi.Input[Optional[Union['ApplicationAutoSubscriptionConfigurationArgs', 'ApplicationAutoSubscriptionConfigurationArgsDict']]] = None,
+                 attachments_configuration: pulumi.Input[Optional[Union['ApplicationAttachmentsConfigurationArgs', 'ApplicationAttachmentsConfigurationArgsDict', 'outputs.ApplicationAttachmentsConfiguration']]] = None,
+                 auto_subscription_configuration: pulumi.Input[Optional[Union['ApplicationAutoSubscriptionConfigurationArgs', 'ApplicationAutoSubscriptionConfigurationArgsDict', 'outputs.ApplicationAutoSubscriptionConfiguration']]] = None,
                  client_ids_for_oidc: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 encryption_configuration: pulumi.Input[Optional[Union['ApplicationEncryptionConfigurationArgs', 'ApplicationEncryptionConfigurationArgsDict']]] = None,
+                 encryption_configuration: pulumi.Input[Optional[Union['ApplicationEncryptionConfigurationArgs', 'ApplicationEncryptionConfigurationArgsDict', 'outputs.ApplicationEncryptionConfiguration']]] = None,
                  iam_identity_provider_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  identity_center_instance_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  identity_type: pulumi.Input[Optional['ApplicationIdentityType']] = None,
-                 personalization_configuration: pulumi.Input[Optional[Union['ApplicationPersonalizationConfigurationArgs', 'ApplicationPersonalizationConfigurationArgsDict']]] = None,
-                 q_apps_configuration: pulumi.Input[Optional[Union['ApplicationQAppsConfigurationArgs', 'ApplicationQAppsConfigurationArgsDict']]] = None,
-                 quick_sight_configuration: pulumi.Input[Optional[Union['ApplicationQuickSightConfigurationArgs', 'ApplicationQuickSightConfigurationArgsDict']]] = None,
+                 personalization_configuration: pulumi.Input[Optional[Union['ApplicationPersonalizationConfigurationArgs', 'ApplicationPersonalizationConfigurationArgsDict', 'outputs.ApplicationPersonalizationConfiguration']]] = None,
+                 q_apps_configuration: pulumi.Input[Optional[Union['ApplicationQAppsConfigurationArgs', 'ApplicationQAppsConfigurationArgsDict', 'outputs.ApplicationQAppsConfiguration']]] = None,
+                 quick_sight_configuration: pulumi.Input[Optional[Union['ApplicationQuickSightConfigurationArgs', 'ApplicationQuickSightConfigurationArgsDict', 'outputs.ApplicationQuickSightConfiguration']]] = None,
                  role_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Definition of AWS::QBusiness::Application Resource Type
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['ApplicationAttachmentsConfigurationArgs', 'ApplicationAttachmentsConfigurationArgsDict']] attachments_configuration: Configuration information for the file upload during chat feature.
-        :param pulumi.Input[Union['ApplicationAutoSubscriptionConfigurationArgs', 'ApplicationAutoSubscriptionConfigurationArgsDict']] auto_subscription_configuration: Subscription configuration information for an Amazon Q Business application using IAM identity federation for user management.
+        :param pulumi.Input[Union['ApplicationAttachmentsConfigurationArgs', 'ApplicationAttachmentsConfigurationArgsDict', 'outputs.ApplicationAttachmentsConfiguration']] attachments_configuration: Configuration information for the file upload during chat feature.
+        :param pulumi.Input[Union['ApplicationAutoSubscriptionConfigurationArgs', 'ApplicationAutoSubscriptionConfigurationArgsDict', 'outputs.ApplicationAutoSubscriptionConfiguration']] auto_subscription_configuration: Subscription configuration information for an Amazon Q Business application using IAM identity federation for user management.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] client_ids_for_oidc: The OIDC client ID for a Amazon Q Business application.
         :param pulumi.Input[_builtins.str] description: A description for the Amazon Q Business application.
         :param pulumi.Input[_builtins.str] display_name: The name of the Amazon Q Business application.
-        :param pulumi.Input[Union['ApplicationEncryptionConfigurationArgs', 'ApplicationEncryptionConfigurationArgsDict']] encryption_configuration: Provides the identifier of the AWS  key used to encrypt data indexed by Amazon Q Business. Amazon Q Business doesn't support asymmetric keys.
+        :param pulumi.Input[Union['ApplicationEncryptionConfigurationArgs', 'ApplicationEncryptionConfigurationArgsDict', 'outputs.ApplicationEncryptionConfiguration']] encryption_configuration: Provides the identifier of the AWS  key used to encrypt data indexed by Amazon Q Business. Amazon Q Business doesn't support asymmetric keys.
         :param pulumi.Input[_builtins.str] iam_identity_provider_arn: The Amazon Resource Name (ARN) of an identity provider being used by an Amazon Q Business application.
         :param pulumi.Input[_builtins.str] identity_center_instance_arn: The Amazon Resource Name (ARN) of the IAM Identity Center instance you are either creating for—or connecting to—your Amazon Q Business application.
                
                *Required* : `Yes`
         :param pulumi.Input['ApplicationIdentityType'] identity_type: The authentication type being used by a Amazon Q Business application.
-        :param pulumi.Input[Union['ApplicationPersonalizationConfigurationArgs', 'ApplicationPersonalizationConfigurationArgsDict']] personalization_configuration: Configuration information about chat response personalization. For more information, see [Personalizing chat responses](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/personalizing-chat-responses.html) .
-        :param pulumi.Input[Union['ApplicationQAppsConfigurationArgs', 'ApplicationQAppsConfigurationArgsDict']] q_apps_configuration: Configuration information about Amazon Q Apps.
-        :param pulumi.Input[Union['ApplicationQuickSightConfigurationArgs', 'ApplicationQuickSightConfigurationArgsDict']] quick_sight_configuration: The Amazon Quick Suite configuration for an Amazon Q Business application that uses Quick Suite as the identity provider.
+        :param pulumi.Input[Union['ApplicationPersonalizationConfigurationArgs', 'ApplicationPersonalizationConfigurationArgsDict', 'outputs.ApplicationPersonalizationConfiguration']] personalization_configuration: Configuration information about chat response personalization. For more information, see [Personalizing chat responses](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/personalizing-chat-responses.html) .
+        :param pulumi.Input[Union['ApplicationQAppsConfigurationArgs', 'ApplicationQAppsConfigurationArgsDict', 'outputs.ApplicationQAppsConfiguration']] q_apps_configuration: Configuration information about Amazon Q Apps.
+        :param pulumi.Input[Union['ApplicationQuickSightConfigurationArgs', 'ApplicationQuickSightConfigurationArgsDict', 'outputs.ApplicationQuickSightConfiguration']] quick_sight_configuration: The Amazon Quick Suite configuration for an Amazon Q Business application that uses Quick Suite as the identity provider.
         :param pulumi.Input[_builtins.str] role_arn: The Amazon Resource Name (ARN) of an IAM role with permissions to access your Amazon CloudWatch logs and metrics. If this property is not specified, Amazon Q Business will create a [service linked role (SLR)](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/using-service-linked-roles.html#slr-permissions) and use it as the application's role.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: A list of key-value pairs that identify or categorize your Amazon Q Business application. You can also use tags to help control access to the application. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: A list of key-value pairs that identify or categorize your Amazon Q Business application. You can also use tags to help control access to the application. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
         """
         ...
     @overload
@@ -324,20 +324,20 @@ class Application(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 attachments_configuration: pulumi.Input[Optional[Union['ApplicationAttachmentsConfigurationArgs', 'ApplicationAttachmentsConfigurationArgsDict']]] = None,
-                 auto_subscription_configuration: pulumi.Input[Optional[Union['ApplicationAutoSubscriptionConfigurationArgs', 'ApplicationAutoSubscriptionConfigurationArgsDict']]] = None,
+                 attachments_configuration: pulumi.Input[Optional[Union['ApplicationAttachmentsConfigurationArgs', 'ApplicationAttachmentsConfigurationArgsDict', 'outputs.ApplicationAttachmentsConfiguration']]] = None,
+                 auto_subscription_configuration: pulumi.Input[Optional[Union['ApplicationAutoSubscriptionConfigurationArgs', 'ApplicationAutoSubscriptionConfigurationArgsDict', 'outputs.ApplicationAutoSubscriptionConfiguration']]] = None,
                  client_ids_for_oidc: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 encryption_configuration: pulumi.Input[Optional[Union['ApplicationEncryptionConfigurationArgs', 'ApplicationEncryptionConfigurationArgsDict']]] = None,
+                 encryption_configuration: pulumi.Input[Optional[Union['ApplicationEncryptionConfigurationArgs', 'ApplicationEncryptionConfigurationArgsDict', 'outputs.ApplicationEncryptionConfiguration']]] = None,
                  iam_identity_provider_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  identity_center_instance_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  identity_type: pulumi.Input[Optional['ApplicationIdentityType']] = None,
-                 personalization_configuration: pulumi.Input[Optional[Union['ApplicationPersonalizationConfigurationArgs', 'ApplicationPersonalizationConfigurationArgsDict']]] = None,
-                 q_apps_configuration: pulumi.Input[Optional[Union['ApplicationQAppsConfigurationArgs', 'ApplicationQAppsConfigurationArgsDict']]] = None,
-                 quick_sight_configuration: pulumi.Input[Optional[Union['ApplicationQuickSightConfigurationArgs', 'ApplicationQuickSightConfigurationArgsDict']]] = None,
+                 personalization_configuration: pulumi.Input[Optional[Union['ApplicationPersonalizationConfigurationArgs', 'ApplicationPersonalizationConfigurationArgsDict', 'outputs.ApplicationPersonalizationConfiguration']]] = None,
+                 q_apps_configuration: pulumi.Input[Optional[Union['ApplicationQAppsConfigurationArgs', 'ApplicationQAppsConfigurationArgsDict', 'outputs.ApplicationQAppsConfiguration']]] = None,
+                 quick_sight_configuration: pulumi.Input[Optional[Union['ApplicationQuickSightConfigurationArgs', 'ApplicationQuickSightConfigurationArgsDict', 'outputs.ApplicationQuickSightConfiguration']]] = None,
                  role_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

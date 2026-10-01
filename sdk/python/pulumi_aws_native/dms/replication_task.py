@@ -247,7 +247,7 @@ class ReplicationTask(pulumi.CustomResource):
                  resource_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                  source_endpoint_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  table_mappings: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  target_endpoint_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  task_data: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -297,7 +297,7 @@ class ReplicationTask(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] resource_identifier: A friendly name for the resource identifier at the end of the EndpointArn response parameter that is returned in the created Endpoint object.
         :param pulumi.Input[_builtins.str] source_endpoint_arn: An Amazon Resource Name (ARN) that uniquely identifies the source endpoint.
         :param pulumi.Input[_builtins.str] table_mappings: The table mappings for the task, in JSON format.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: One or more tags to be assigned to the replication task.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: One or more tags to be assigned to the replication task.
         :param pulumi.Input[_builtins.str] target_endpoint_arn: An Amazon Resource Name (ARN) that uniquely identifies the target endpoint.
         :param pulumi.Input[_builtins.str] task_data: Supplemental information that the task requires to migrate the data for certain source and target endpoints.
         """
@@ -366,7 +366,7 @@ class ReplicationTask(pulumi.CustomResource):
                  resource_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                  source_endpoint_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  table_mappings: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  target_endpoint_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  task_data: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):

@@ -233,17 +233,17 @@ class Experiment(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 metric_goals: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ExperimentMetricGoalObjectArgs', 'ExperimentMetricGoalObjectArgsDict']]]]] = None,
+                 metric_goals: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ExperimentMetricGoalObjectArgs', 'ExperimentMetricGoalObjectArgsDict', 'outputs.ExperimentMetricGoalObject']]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 online_ab_config: pulumi.Input[Optional[Union['ExperimentOnlineAbConfigObjectArgs', 'ExperimentOnlineAbConfigObjectArgsDict']]] = None,
+                 online_ab_config: pulumi.Input[Optional[Union['ExperimentOnlineAbConfigObjectArgs', 'ExperimentOnlineAbConfigObjectArgsDict', 'outputs.ExperimentOnlineAbConfigObject']]] = None,
                  project: pulumi.Input[Optional[_builtins.str]] = None,
                  randomization_salt: pulumi.Input[Optional[_builtins.str]] = None,
                  remove_segment: pulumi.Input[Optional[_builtins.bool]] = None,
-                 running_status: pulumi.Input[Optional[Union['ExperimentRunningStatusObjectArgs', 'ExperimentRunningStatusObjectArgsDict']]] = None,
+                 running_status: pulumi.Input[Optional[Union['ExperimentRunningStatusObjectArgs', 'ExperimentRunningStatusObjectArgsDict', 'outputs.ExperimentRunningStatusObject']]] = None,
                  sampling_rate: pulumi.Input[Optional[_builtins.int]] = None,
                  segment: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 treatments: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ExperimentTreatmentObjectArgs', 'ExperimentTreatmentObjectArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
+                 treatments: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ExperimentTreatmentObjectArgs', 'ExperimentTreatmentObjectArgsDict', 'outputs.ExperimentTreatmentObject']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::Evidently::Experiment.
@@ -251,21 +251,21 @@ class Experiment(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: An optional description of the experiment.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ExperimentMetricGoalObjectArgs', 'ExperimentMetricGoalObjectArgsDict']]]] metric_goals: An array of structures that defines the metrics used for the experiment, and whether a higher or lower value for each metric is the goal. You can use up to three metrics in an experiment.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ExperimentMetricGoalObjectArgs', 'ExperimentMetricGoalObjectArgsDict', 'outputs.ExperimentMetricGoalObject']]]] metric_goals: An array of structures that defines the metrics used for the experiment, and whether a higher or lower value for each metric is the goal. You can use up to three metrics in an experiment.
         :param pulumi.Input[_builtins.str] name: A name for the new experiment.
-        :param pulumi.Input[Union['ExperimentOnlineAbConfigObjectArgs', 'ExperimentOnlineAbConfigObjectArgsDict']] online_ab_config: A structure that contains the configuration of which variation to use as the "control" version. The "control" version is used for comparison with other variations. This structure also specifies how much experiment traffic is allocated to each variation.
+        :param pulumi.Input[Union['ExperimentOnlineAbConfigObjectArgs', 'ExperimentOnlineAbConfigObjectArgsDict', 'outputs.ExperimentOnlineAbConfigObject']] online_ab_config: A structure that contains the configuration of which variation to use as the "control" version. The "control" version is used for comparison with other variations. This structure also specifies how much experiment traffic is allocated to each variation.
         :param pulumi.Input[_builtins.str] project: The name or the ARN of the project where this experiment is to be created.
         :param pulumi.Input[_builtins.str] randomization_salt: When Evidently assigns a particular user session to an experiment, it must use a randomization ID to determine which variation the user session is served. This randomization ID is a combination of the entity ID and `randomizationSalt` . If you omit `randomizationSalt` , Evidently uses the experiment name as the `randomizationSalt` .
         :param pulumi.Input[_builtins.bool] remove_segment: Set this to `true` to remove the segment that is associated with this experiment. You can't use this parameter if the experiment is currently running.
-        :param pulumi.Input[Union['ExperimentRunningStatusObjectArgs', 'ExperimentRunningStatusObjectArgsDict']] running_status: Start Experiment. Default is False
+        :param pulumi.Input[Union['ExperimentRunningStatusObjectArgs', 'ExperimentRunningStatusObjectArgsDict', 'outputs.ExperimentRunningStatusObject']] running_status: Start Experiment. Default is False
         :param pulumi.Input[_builtins.int] sampling_rate: The portion of the available audience that you want to allocate to this experiment, in thousandths of a percent. The available audience is the total audience minus the audience that you have allocated to overrides or current launches of this feature.
                
                This is represented in thousandths of a percent. For example, specify 10,000 to allocate 10% of the available audience.
         :param pulumi.Input[_builtins.str] segment: Specifies an audience *segment* to use in the experiment. When a segment is used in an experiment, only user sessions that match the segment pattern are used in the experiment.
                
                For more information, see [Segment rule pattern syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Evidently-segments.html#CloudWatch-Evidently-segments-syntax) .
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ExperimentTreatmentObjectArgs', 'ExperimentTreatmentObjectArgsDict']]]] treatments: An array of structures that describe the configuration of each feature variation used in the experiment.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ExperimentTreatmentObjectArgs', 'ExperimentTreatmentObjectArgsDict', 'outputs.ExperimentTreatmentObject']]]] treatments: An array of structures that describe the configuration of each feature variation used in the experiment.
         """
         ...
     @overload
@@ -292,17 +292,17 @@ class Experiment(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 metric_goals: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ExperimentMetricGoalObjectArgs', 'ExperimentMetricGoalObjectArgsDict']]]]] = None,
+                 metric_goals: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ExperimentMetricGoalObjectArgs', 'ExperimentMetricGoalObjectArgsDict', 'outputs.ExperimentMetricGoalObject']]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 online_ab_config: pulumi.Input[Optional[Union['ExperimentOnlineAbConfigObjectArgs', 'ExperimentOnlineAbConfigObjectArgsDict']]] = None,
+                 online_ab_config: pulumi.Input[Optional[Union['ExperimentOnlineAbConfigObjectArgs', 'ExperimentOnlineAbConfigObjectArgsDict', 'outputs.ExperimentOnlineAbConfigObject']]] = None,
                  project: pulumi.Input[Optional[_builtins.str]] = None,
                  randomization_salt: pulumi.Input[Optional[_builtins.str]] = None,
                  remove_segment: pulumi.Input[Optional[_builtins.bool]] = None,
-                 running_status: pulumi.Input[Optional[Union['ExperimentRunningStatusObjectArgs', 'ExperimentRunningStatusObjectArgsDict']]] = None,
+                 running_status: pulumi.Input[Optional[Union['ExperimentRunningStatusObjectArgs', 'ExperimentRunningStatusObjectArgsDict', 'outputs.ExperimentRunningStatusObject']]] = None,
                  sampling_rate: pulumi.Input[Optional[_builtins.int]] = None,
                  segment: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 treatments: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ExperimentTreatmentObjectArgs', 'ExperimentTreatmentObjectArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
+                 treatments: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ExperimentTreatmentObjectArgs', 'ExperimentTreatmentObjectArgsDict', 'outputs.ExperimentTreatmentObject']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

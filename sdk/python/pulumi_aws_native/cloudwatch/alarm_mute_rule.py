@@ -149,11 +149,11 @@ class AlarmMuteRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  expire_date: pulumi.Input[Optional[_builtins.str]] = None,
-                 mute_targets: pulumi.Input[Optional[Union['MuteTargetsPropertiesArgs', 'MuteTargetsPropertiesArgsDict']]] = None,
+                 mute_targets: pulumi.Input[Optional[Union['MuteTargetsPropertiesArgs', 'MuteTargetsPropertiesArgsDict', 'outputs.MuteTargetsProperties']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 rule: pulumi.Input[Optional[Union['RulePropertiesArgs', 'RulePropertiesArgsDict']]] = None,
+                 rule: pulumi.Input[Optional[Union['RulePropertiesArgs', 'RulePropertiesArgsDict', 'outputs.RuleProperties']]] = None,
                  start_date: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::CloudWatch::AlarmMuteRule that allows defining a rule and targeting alarms to mute their actions during the specified window.
@@ -162,11 +162,11 @@ class AlarmMuteRule(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: The description of the AlarmMuteRule
         :param pulumi.Input[_builtins.str] expire_date: The date, with the same timezone offset as "ScheduleTimezone" after which the alarm mute rule will be expired.
-        :param pulumi.Input[Union['MuteTargetsPropertiesArgs', 'MuteTargetsPropertiesArgsDict']] mute_targets: Targets to be muted
+        :param pulumi.Input[Union['MuteTargetsPropertiesArgs', 'MuteTargetsPropertiesArgsDict', 'outputs.MuteTargetsProperties']] mute_targets: Targets to be muted
         :param pulumi.Input[_builtins.str] name: The name of the AlarmMuteRule
-        :param pulumi.Input[Union['RulePropertiesArgs', 'RulePropertiesArgsDict']] rule: The rule for the mute
+        :param pulumi.Input[Union['RulePropertiesArgs', 'RulePropertiesArgsDict', 'outputs.RuleProperties']] rule: The rule for the mute
         :param pulumi.Input[_builtins.str] start_date: The date, with the same timezone offset as "ScheduleTimezone", after which the alarm mute rule will become active.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
     @overload
@@ -194,11 +194,11 @@ class AlarmMuteRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  expire_date: pulumi.Input[Optional[_builtins.str]] = None,
-                 mute_targets: pulumi.Input[Optional[Union['MuteTargetsPropertiesArgs', 'MuteTargetsPropertiesArgsDict']]] = None,
+                 mute_targets: pulumi.Input[Optional[Union['MuteTargetsPropertiesArgs', 'MuteTargetsPropertiesArgsDict', 'outputs.MuteTargetsProperties']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 rule: pulumi.Input[Optional[Union['RulePropertiesArgs', 'RulePropertiesArgsDict']]] = None,
+                 rule: pulumi.Input[Optional[Union['RulePropertiesArgs', 'RulePropertiesArgsDict', 'outputs.RuleProperties']]] = None,
                  start_date: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

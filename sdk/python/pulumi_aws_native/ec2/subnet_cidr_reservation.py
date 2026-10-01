@@ -115,7 +115,7 @@ class SubnetCidrReservation(pulumi.CustomResource):
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  reservation_type: pulumi.Input[Optional['SubnetCidrReservationReservationType']] = None,
                  subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for a CIDR range reserved inside an Amazon EC2 subnet.
@@ -126,7 +126,7 @@ class SubnetCidrReservation(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] description: The description of the subnet CIDR reservation.
         :param pulumi.Input['SubnetCidrReservationReservationType'] reservation_type: The type of reservation. A prefix reservation is used for an IPv6 prefix delegated to a network interface; an explicit reservation is used for a range that Amazon EC2 must not assign automatically.
         :param pulumi.Input[_builtins.str] subnet_id: The identifier of the subnet the CIDR range is reserved in.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags assigned to the subnet CIDR reservation.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: The tags assigned to the subnet CIDR reservation.
         """
         ...
     @overload
@@ -156,7 +156,7 @@ class SubnetCidrReservation(pulumi.CustomResource):
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  reservation_type: pulumi.Input[Optional['SubnetCidrReservationReservationType']] = None,
                  subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

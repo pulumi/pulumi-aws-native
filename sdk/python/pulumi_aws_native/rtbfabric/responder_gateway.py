@@ -231,14 +231,14 @@ class ResponderGateway(pulumi.CustomResource):
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  domain_name: pulumi.Input[Optional[_builtins.str]] = None,
                  gateway_type: pulumi.Input[Optional['ResponderGatewayGatewayType']] = None,
-                 listener_config: pulumi.Input[Optional[Union['ResponderGatewayListenerConfigArgs', 'ResponderGatewayListenerConfigArgsDict']]] = None,
-                 managed_endpoint_configuration: pulumi.Input[Optional[Union['ResponderGatewayManagedEndpointConfigurationArgs', 'ResponderGatewayManagedEndpointConfigurationArgsDict']]] = None,
+                 listener_config: pulumi.Input[Optional[Union['ResponderGatewayListenerConfigArgs', 'ResponderGatewayListenerConfigArgsDict', 'outputs.ResponderGatewayListenerConfig']]] = None,
+                 managed_endpoint_configuration: pulumi.Input[Optional[Union['ResponderGatewayManagedEndpointConfigurationArgs', 'ResponderGatewayManagedEndpointConfigurationArgsDict', 'outputs.ResponderGatewayManagedEndpointConfiguration']]] = None,
                  port: pulumi.Input[Optional[_builtins.int]] = None,
                  protocol: pulumi.Input[Optional['ResponderGatewayProtocol']] = None,
                  security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  subnet_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 trust_store_configuration: pulumi.Input[Optional[Union['ResponderGatewayTrustStoreConfigurationArgs', 'ResponderGatewayTrustStoreConfigurationArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
+                 trust_store_configuration: pulumi.Input[Optional[Union['ResponderGatewayTrustStoreConfigurationArgs', 'ResponderGatewayTrustStoreConfigurationArgsDict', 'outputs.ResponderGatewayTrustStoreConfiguration']]] = None,
                  vpc_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -248,13 +248,13 @@ class ResponderGateway(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: An optional description for the responder gateway.
         :param pulumi.Input[_builtins.str] domain_name: The domain name for the responder gateway.
-        :param pulumi.Input[Union['ResponderGatewayManagedEndpointConfigurationArgs', 'ResponderGatewayManagedEndpointConfigurationArgsDict']] managed_endpoint_configuration: The configuration for the managed endpoint.
+        :param pulumi.Input[Union['ResponderGatewayManagedEndpointConfigurationArgs', 'ResponderGatewayManagedEndpointConfigurationArgsDict', 'outputs.ResponderGatewayManagedEndpointConfiguration']] managed_endpoint_configuration: The configuration for the managed endpoint.
         :param pulumi.Input[_builtins.int] port: The networking port to use.
         :param pulumi.Input['ResponderGatewayProtocol'] protocol: The networking protocol to use.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: The unique identifiers of the security groups.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: The unique identifiers of the subnets.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: A map of the key-value pairs of the tag or tags to assign to the resource.
-        :param pulumi.Input[Union['ResponderGatewayTrustStoreConfigurationArgs', 'ResponderGatewayTrustStoreConfigurationArgsDict']] trust_store_configuration: The configuration of the trust store.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: A map of the key-value pairs of the tag or tags to assign to the resource.
+        :param pulumi.Input[Union['ResponderGatewayTrustStoreConfigurationArgs', 'ResponderGatewayTrustStoreConfigurationArgsDict', 'outputs.ResponderGatewayTrustStoreConfiguration']] trust_store_configuration: The configuration of the trust store.
         :param pulumi.Input[_builtins.str] vpc_id: The unique identifier of the Virtual Private Cloud (VPC).
         """
         ...
@@ -285,14 +285,14 @@ class ResponderGateway(pulumi.CustomResource):
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  domain_name: pulumi.Input[Optional[_builtins.str]] = None,
                  gateway_type: pulumi.Input[Optional['ResponderGatewayGatewayType']] = None,
-                 listener_config: pulumi.Input[Optional[Union['ResponderGatewayListenerConfigArgs', 'ResponderGatewayListenerConfigArgsDict']]] = None,
-                 managed_endpoint_configuration: pulumi.Input[Optional[Union['ResponderGatewayManagedEndpointConfigurationArgs', 'ResponderGatewayManagedEndpointConfigurationArgsDict']]] = None,
+                 listener_config: pulumi.Input[Optional[Union['ResponderGatewayListenerConfigArgs', 'ResponderGatewayListenerConfigArgsDict', 'outputs.ResponderGatewayListenerConfig']]] = None,
+                 managed_endpoint_configuration: pulumi.Input[Optional[Union['ResponderGatewayManagedEndpointConfigurationArgs', 'ResponderGatewayManagedEndpointConfigurationArgsDict', 'outputs.ResponderGatewayManagedEndpointConfiguration']]] = None,
                  port: pulumi.Input[Optional[_builtins.int]] = None,
                  protocol: pulumi.Input[Optional['ResponderGatewayProtocol']] = None,
                  security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  subnet_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 trust_store_configuration: pulumi.Input[Optional[Union['ResponderGatewayTrustStoreConfigurationArgs', 'ResponderGatewayTrustStoreConfigurationArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
+                 trust_store_configuration: pulumi.Input[Optional[Union['ResponderGatewayTrustStoreConfigurationArgs', 'ResponderGatewayTrustStoreConfigurationArgsDict', 'outputs.ResponderGatewayTrustStoreConfiguration']]] = None,
                  vpc_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

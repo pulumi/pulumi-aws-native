@@ -272,9 +272,9 @@ class Monitor(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 health_events_config: pulumi.Input[Optional[Union['MonitorHealthEventsConfigArgs', 'MonitorHealthEventsConfigArgsDict']]] = None,
+                 health_events_config: pulumi.Input[Optional[Union['MonitorHealthEventsConfigArgs', 'MonitorHealthEventsConfigArgsDict', 'outputs.MonitorHealthEventsConfig']]] = None,
                  include_linked_accounts: pulumi.Input[Optional[_builtins.bool]] = None,
-                 internet_measurements_log_delivery: pulumi.Input[Optional[Union['MonitorInternetMeasurementsLogDeliveryArgs', 'MonitorInternetMeasurementsLogDeliveryArgsDict']]] = None,
+                 internet_measurements_log_delivery: pulumi.Input[Optional[Union['MonitorInternetMeasurementsLogDeliveryArgs', 'MonitorInternetMeasurementsLogDeliveryArgsDict', 'outputs.MonitorInternetMeasurementsLogDelivery']]] = None,
                  linked_account_id: pulumi.Input[Optional[_builtins.str]] = None,
                  max_city_networks_to_monitor: pulumi.Input[Optional[_builtins.int]] = None,
                  monitor_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -282,7 +282,7 @@ class Monitor(pulumi.CustomResource):
                  resources_to_add: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  resources_to_remove: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  status: pulumi.Input[Optional['MonitorConfigState']] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  traffic_percentage_to_monitor: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         """
@@ -290,7 +290,7 @@ class Monitor(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['MonitorHealthEventsConfigArgs', 'MonitorHealthEventsConfigArgsDict']] health_events_config: A complex type with the configuration information that determines the threshold and other conditions for when Internet Monitor creates a health event for an overall performance or availability issue, across an application's geographies.
+        :param pulumi.Input[Union['MonitorHealthEventsConfigArgs', 'MonitorHealthEventsConfigArgsDict', 'outputs.MonitorHealthEventsConfig']] health_events_config: A complex type with the configuration information that determines the threshold and other conditions for when Internet Monitor creates a health event for an overall performance or availability issue, across an application's geographies.
                
                Defines the percentages, for overall performance scores and availability scores for an application, that are the thresholds for when Internet Monitor creates a health event. You can override the defaults to set a custom threshold for overall performance or availability scores, or both.
                
@@ -302,7 +302,7 @@ class Monitor(pulumi.CustomResource):
                
                For more information, see [Change health event thresholds](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-IM-overview.html#IMUpdateThresholdFromOverview) in the Internet Monitor section of the *CloudWatch User Guide* .
         :param pulumi.Input[_builtins.bool] include_linked_accounts: A boolean option that you can set to `TRUE` to include monitors for linked accounts in a list of monitors, when you've set up cross-account sharing in Internet Monitor. You configure cross-account sharing by using Amazon CloudWatch Observability Access Manager. For more information, see [Internet Monitor cross-account observability](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cwim-cross-account.html) in the Amazon CloudWatch User Guide.
-        :param pulumi.Input[Union['MonitorInternetMeasurementsLogDeliveryArgs', 'MonitorInternetMeasurementsLogDeliveryArgsDict']] internet_measurements_log_delivery: Publish internet measurements for a monitor for all city-networks (up to the 500,000 service limit) to another location, such as an Amazon S3 bucket. Measurements are also published to Amazon CloudWatch Logs for the first 500 (by traffic volume) city-networks (client locations and ASNs, typically internet service providers or ISPs).
+        :param pulumi.Input[Union['MonitorInternetMeasurementsLogDeliveryArgs', 'MonitorInternetMeasurementsLogDeliveryArgsDict', 'outputs.MonitorInternetMeasurementsLogDelivery']] internet_measurements_log_delivery: Publish internet measurements for a monitor for all city-networks (up to the 500,000 service limit) to another location, such as an Amazon S3 bucket. Measurements are also published to Amazon CloudWatch Logs for the first 500 (by traffic volume) city-networks (client locations and ASNs, typically internet service providers or ISPs).
         :param pulumi.Input[_builtins.str] linked_account_id: The account ID for an account that you've set up cross-account sharing for in Internet Monitor. You configure cross-account sharing by using Amazon CloudWatch Observability Access Manager. For more information, see [Internet Monitor cross-account observability](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cwim-cross-account.html) in the Amazon CloudWatch User Guide.
         :param pulumi.Input[_builtins.int] max_city_networks_to_monitor: The maximum number of city-networks to monitor for your resources. A city-network is the location (city) where clients access your application resources from and the network, such as an internet service provider, that clients access the resources through.
                
@@ -322,7 +322,7 @@ class Monitor(pulumi.CustomResource):
                
                > You can specify this field for a monitor update only if the `Resources` field is empty.
         :param pulumi.Input['MonitorConfigState'] status: The status of a monitor. The accepted values that you can specify for `Status` are `ACTIVE` and `INACTIVE` .
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags for a monitor, listed as a set of *key:value* pairs.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: The tags for a monitor, listed as a set of *key:value* pairs.
         :param pulumi.Input[_builtins.int] traffic_percentage_to_monitor: The percentage of the internet-facing traffic for your application that you want to monitor. You can also, optionally, set a limit for the number of city-networks (client locations and ASNs, typically internet service providers) that Internet Monitor will monitor traffic for. The city-networks maximum limit caps the number of city-networks that Internet Monitor monitors for your application, regardless of the percentage of traffic that you choose to monitor.
         """
         ...
@@ -349,9 +349,9 @@ class Monitor(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 health_events_config: pulumi.Input[Optional[Union['MonitorHealthEventsConfigArgs', 'MonitorHealthEventsConfigArgsDict']]] = None,
+                 health_events_config: pulumi.Input[Optional[Union['MonitorHealthEventsConfigArgs', 'MonitorHealthEventsConfigArgsDict', 'outputs.MonitorHealthEventsConfig']]] = None,
                  include_linked_accounts: pulumi.Input[Optional[_builtins.bool]] = None,
-                 internet_measurements_log_delivery: pulumi.Input[Optional[Union['MonitorInternetMeasurementsLogDeliveryArgs', 'MonitorInternetMeasurementsLogDeliveryArgsDict']]] = None,
+                 internet_measurements_log_delivery: pulumi.Input[Optional[Union['MonitorInternetMeasurementsLogDeliveryArgs', 'MonitorInternetMeasurementsLogDeliveryArgsDict', 'outputs.MonitorInternetMeasurementsLogDelivery']]] = None,
                  linked_account_id: pulumi.Input[Optional[_builtins.str]] = None,
                  max_city_networks_to_monitor: pulumi.Input[Optional[_builtins.int]] = None,
                  monitor_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -359,7 +359,7 @@ class Monitor(pulumi.CustomResource):
                  resources_to_add: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  resources_to_remove: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  status: pulumi.Input[Optional['MonitorConfigState']] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  traffic_percentage_to_monitor: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

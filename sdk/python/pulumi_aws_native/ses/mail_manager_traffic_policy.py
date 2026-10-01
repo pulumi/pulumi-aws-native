@@ -120,8 +120,8 @@ class MailManagerTrafficPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  default_action: pulumi.Input[Optional['MailManagerTrafficPolicyAcceptAction']] = None,
                  max_message_size_bytes: pulumi.Input[Optional[_builtins.float]] = None,
-                 policy_statements: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MailManagerTrafficPolicyPolicyStatementArgs', 'MailManagerTrafficPolicyPolicyStatementArgsDict']]]]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 policy_statements: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MailManagerTrafficPolicyPolicyStatementArgs', 'MailManagerTrafficPolicyPolicyStatementArgsDict', 'outputs.MailManagerTrafficPolicyPolicyStatement']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  traffic_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -131,8 +131,8 @@ class MailManagerTrafficPolicy(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input['MailManagerTrafficPolicyAcceptAction'] default_action: Default action instructs the traﬃc policy to either Allow or Deny (block) messages that fall outside of (or not addressed by) the conditions of your policy statements
         :param pulumi.Input[_builtins.float] max_message_size_bytes: The maximum message size in bytes of email which is allowed in by this traffic policy—anything larger will be blocked.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['MailManagerTrafficPolicyPolicyStatementArgs', 'MailManagerTrafficPolicyPolicyStatementArgsDict']]]] policy_statements: Conditional statements for filtering email traffic.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags used to organize, track, or control access for the resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['MailManagerTrafficPolicyPolicyStatementArgs', 'MailManagerTrafficPolicyPolicyStatementArgsDict', 'outputs.MailManagerTrafficPolicyPolicyStatement']]]] policy_statements: Conditional statements for filtering email traffic.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: The tags used to organize, track, or control access for the resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.
         :param pulumi.Input[_builtins.str] traffic_policy_name: The name of the policy.
                
                The policy name cannot exceed 64 characters and can only include alphanumeric characters, dashes, and underscores.
@@ -163,8 +163,8 @@ class MailManagerTrafficPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  default_action: pulumi.Input[Optional['MailManagerTrafficPolicyAcceptAction']] = None,
                  max_message_size_bytes: pulumi.Input[Optional[_builtins.float]] = None,
-                 policy_statements: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MailManagerTrafficPolicyPolicyStatementArgs', 'MailManagerTrafficPolicyPolicyStatementArgsDict']]]]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 policy_statements: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MailManagerTrafficPolicyPolicyStatementArgs', 'MailManagerTrafficPolicyPolicyStatementArgsDict', 'outputs.MailManagerTrafficPolicyPolicyStatement']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  traffic_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

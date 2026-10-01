@@ -112,22 +112,22 @@ class PredefinedAttribute(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 attribute_configuration: pulumi.Input[Optional[Union['AttributeConfigurationPropertiesArgs', 'AttributeConfigurationPropertiesArgsDict']]] = None,
+                 attribute_configuration: pulumi.Input[Optional[Union['AttributeConfigurationPropertiesArgs', 'AttributeConfigurationPropertiesArgsDict', 'outputs.AttributeConfigurationProperties']]] = None,
                  instance_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  purposes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 values: pulumi.Input[Optional[Union['ValuesPropertiesArgs', 'ValuesPropertiesArgsDict']]] = None,
+                 values: pulumi.Input[Optional[Union['ValuesPropertiesArgs', 'ValuesPropertiesArgsDict', 'outputs.ValuesProperties']]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::Connect::PredefinedAttribute
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['AttributeConfigurationPropertiesArgs', 'AttributeConfigurationPropertiesArgsDict']] attribute_configuration: Custom metadata associated to a Predefined attribute that controls how the attribute behaves when used by upstream services.
+        :param pulumi.Input[Union['AttributeConfigurationPropertiesArgs', 'AttributeConfigurationPropertiesArgsDict', 'outputs.AttributeConfigurationProperties']] attribute_configuration: Custom metadata associated to a Predefined attribute that controls how the attribute behaves when used by upstream services.
         :param pulumi.Input[_builtins.str] instance_arn: The identifier of the Amazon Connect instance.
         :param pulumi.Input[_builtins.str] name: The name of the predefined attribute.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] purposes: The assigned purposes of the predefined attribute.
-        :param pulumi.Input[Union['ValuesPropertiesArgs', 'ValuesPropertiesArgsDict']] values: The values of a predefined attribute.
+        :param pulumi.Input[Union['ValuesPropertiesArgs', 'ValuesPropertiesArgsDict', 'outputs.ValuesProperties']] values: The values of a predefined attribute.
         """
         ...
     @overload
@@ -153,11 +153,11 @@ class PredefinedAttribute(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 attribute_configuration: pulumi.Input[Optional[Union['AttributeConfigurationPropertiesArgs', 'AttributeConfigurationPropertiesArgsDict']]] = None,
+                 attribute_configuration: pulumi.Input[Optional[Union['AttributeConfigurationPropertiesArgs', 'AttributeConfigurationPropertiesArgsDict', 'outputs.AttributeConfigurationProperties']]] = None,
                  instance_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  purposes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 values: pulumi.Input[Optional[Union['ValuesPropertiesArgs', 'ValuesPropertiesArgsDict']]] = None,
+                 values: pulumi.Input[Optional[Union['ValuesPropertiesArgs', 'ValuesPropertiesArgsDict', 'outputs.ValuesProperties']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

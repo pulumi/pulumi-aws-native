@@ -93,8 +93,8 @@ class PaymentCredentialProvider(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  credential_provider_vendor: pulumi.Input[Optional['PaymentCredentialProviderVendorType']] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 provider_configuration_input: pulumi.Input[Optional[Union['PaymentCredentialProviderPaymentProviderConfigurationInputArgs', 'PaymentCredentialProviderPaymentProviderConfigurationInputArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 provider_configuration_input: pulumi.Input[Optional[Union['PaymentCredentialProviderPaymentProviderConfigurationInputArgs', 'PaymentCredentialProviderPaymentProviderConfigurationInputArgsDict', 'outputs.PaymentCredentialProviderPaymentProviderConfigurationInput']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::BedrockAgentCore::PaymentCredentialProvider
@@ -102,7 +102,7 @@ class PaymentCredentialProvider(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: Unique name for the payment credential provider
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Tags for the payment credential provider
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: Tags for the payment credential provider
         """
         ...
     @overload
@@ -130,8 +130,8 @@ class PaymentCredentialProvider(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  credential_provider_vendor: pulumi.Input[Optional['PaymentCredentialProviderVendorType']] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 provider_configuration_input: pulumi.Input[Optional[Union['PaymentCredentialProviderPaymentProviderConfigurationInputArgs', 'PaymentCredentialProviderPaymentProviderConfigurationInputArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 provider_configuration_input: pulumi.Input[Optional[Union['PaymentCredentialProviderPaymentProviderConfigurationInputArgs', 'PaymentCredentialProviderPaymentProviderConfigurationInputArgsDict', 'outputs.PaymentCredentialProviderPaymentProviderConfigurationInput']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
