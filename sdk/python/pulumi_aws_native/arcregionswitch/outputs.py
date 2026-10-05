@@ -589,6 +589,8 @@ class PlanEc2AsgCapacityIncreaseConfiguration(dict):
             suggest = "target_percent"
         elif key == "timeoutMinutes":
             suggest = "timeout_minutes"
+        elif key == "waitElbTargetGroupHealthy":
+            suggest = "wait_elb_target_group_healthy"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in PlanEc2AsgCapacityIncreaseConfiguration. Access the value via the '{suggest}' property getter instead.")
@@ -606,7 +608,8 @@ class PlanEc2AsgCapacityIncreaseConfiguration(dict):
                  capacity_monitoring_approach: Optional[Any] = None,
                  target_percent: Optional[_builtins.float] = None,
                  timeout_minutes: Optional[_builtins.float] = None,
-                 ungraceful: Optional['outputs.PlanEc2Ungraceful'] = None):
+                 ungraceful: Optional['outputs.PlanEc2Ungraceful'] = None,
+                 wait_elb_target_group_healthy: Optional['PlanWaitElbTargetGroupHealthy'] = None):
         pulumi.set(__self__, "asgs", asgs)
         if capacity_monitoring_approach is not None:
             pulumi.set(__self__, "capacity_monitoring_approach", capacity_monitoring_approach)
@@ -616,6 +619,8 @@ class PlanEc2AsgCapacityIncreaseConfiguration(dict):
             pulumi.set(__self__, "timeout_minutes", timeout_minutes)
         if ungraceful is not None:
             pulumi.set(__self__, "ungraceful", ungraceful)
+        if wait_elb_target_group_healthy is not None:
+            pulumi.set(__self__, "wait_elb_target_group_healthy", wait_elb_target_group_healthy)
 
     @_builtins.property
     @pulumi.getter
@@ -641,6 +646,11 @@ class PlanEc2AsgCapacityIncreaseConfiguration(dict):
     @pulumi.getter
     def ungraceful(self) -> Optional['outputs.PlanEc2Ungraceful']:
         return pulumi.get(self, "ungraceful")
+
+    @_builtins.property
+    @pulumi.getter(name="waitElbTargetGroupHealthy")
+    def wait_elb_target_group_healthy(self) -> Optional['PlanWaitElbTargetGroupHealthy']:
+        return pulumi.get(self, "wait_elb_target_group_healthy")
 
 
 @pulumi.output_type
@@ -683,6 +693,8 @@ class PlanEcsCapacityIncreaseConfiguration(dict):
             suggest = "target_percent"
         elif key == "timeoutMinutes":
             suggest = "timeout_minutes"
+        elif key == "waitElbTargetGroupHealthy":
+            suggest = "wait_elb_target_group_healthy"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in PlanEcsCapacityIncreaseConfiguration. Access the value via the '{suggest}' property getter instead.")
@@ -700,7 +712,8 @@ class PlanEcsCapacityIncreaseConfiguration(dict):
                  capacity_monitoring_approach: Optional[Any] = None,
                  target_percent: Optional[_builtins.float] = None,
                  timeout_minutes: Optional[_builtins.float] = None,
-                 ungraceful: Optional['outputs.PlanEcsUngraceful'] = None):
+                 ungraceful: Optional['outputs.PlanEcsUngraceful'] = None,
+                 wait_elb_target_group_healthy: Optional['PlanWaitElbTargetGroupHealthy'] = None):
         pulumi.set(__self__, "services", services)
         if capacity_monitoring_approach is not None:
             pulumi.set(__self__, "capacity_monitoring_approach", capacity_monitoring_approach)
@@ -710,6 +723,8 @@ class PlanEcsCapacityIncreaseConfiguration(dict):
             pulumi.set(__self__, "timeout_minutes", timeout_minutes)
         if ungraceful is not None:
             pulumi.set(__self__, "ungraceful", ungraceful)
+        if wait_elb_target_group_healthy is not None:
+            pulumi.set(__self__, "wait_elb_target_group_healthy", wait_elb_target_group_healthy)
 
     @_builtins.property
     @pulumi.getter
@@ -735,6 +750,11 @@ class PlanEcsCapacityIncreaseConfiguration(dict):
     @pulumi.getter
     def ungraceful(self) -> Optional['outputs.PlanEcsUngraceful']:
         return pulumi.get(self, "ungraceful")
+
+    @_builtins.property
+    @pulumi.getter(name="waitElbTargetGroupHealthy")
+    def wait_elb_target_group_healthy(self) -> Optional['PlanWaitElbTargetGroupHealthy']:
+        return pulumi.get(self, "wait_elb_target_group_healthy")
 
 
 @pulumi.output_type

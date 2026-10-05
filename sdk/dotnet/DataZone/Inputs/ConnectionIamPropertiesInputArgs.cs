@@ -18,6 +18,12 @@ namespace Pulumi.AwsNative.DataZone.Inputs
         [Input("glueLineageSyncEnabled")]
         public Input<bool>? GlueLineageSyncEnabled { get; set; }
 
+        /// <summary>
+        /// The ARN of the IAM role to associate with the connection as the project user role.
+        /// </summary>
+        [Input("roleArn")]
+        public Input<string>? RoleArn { get; set; }
+
         public ConnectionIamPropertiesInputArgs()
         {
         }

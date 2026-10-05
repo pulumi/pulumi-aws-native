@@ -22,6 +22,12 @@ __all__ = [
     'AliasRoutingConfigurationArgsDict',
     'AliasVersionWeightArgs',
     'AliasVersionWeightArgsDict',
+    'BuildConfigPropertiesArgs',
+    'BuildConfigPropertiesArgsDict',
+    'BuildConfigPropertiesCodeConfigPropertiesArgs',
+    'BuildConfigPropertiesCodeConfigPropertiesArgsDict',
+    'BuildConfigPropertiesRuntimeConfigPropertiesArgs',
+    'BuildConfigPropertiesRuntimeConfigPropertiesArgsDict',
     'CapacityProviderInstanceRequirementsArgs',
     'CapacityProviderInstanceRequirementsArgsDict',
     'CapacityProviderLoggingConfigArgs',
@@ -142,6 +148,10 @@ __all__ = [
     'NetworkConnectorConfigArgsDict',
     'NetworkConnectorVpcEgressConfigurationArgs',
     'NetworkConnectorVpcEgressConfigurationArgsDict',
+    'ServiceConfigPropertiesArgs',
+    'ServiceConfigPropertiesArgsDict',
+    'ServiceConfigPropertiesTelemetryConfigPropertiesArgs',
+    'ServiceConfigPropertiesTelemetryConfigPropertiesArgsDict',
     'UrlCorsArgs',
     'UrlCorsArgsDict',
     'VersionFunctionScalingConfigArgs',
@@ -150,6 +160,16 @@ __all__ = [
     'VersionProvisionedConcurrencyConfigurationArgsDict',
     'VersionRuntimePolicyArgs',
     'VersionRuntimePolicyArgsDict',
+    'WebFunctionEndpointRevisionWeightArgs',
+    'WebFunctionEndpointRevisionWeightArgsDict',
+    'WebFunctionEndpointScalingConfigArgs',
+    'WebFunctionEndpointScalingConfigArgsDict',
+    'WebFunctionEndpointThrottleConfigArgs',
+    'WebFunctionEndpointThrottleConfigArgsDict',
+    'WebFunctionRevisionLoggingConfigArgs',
+    'WebFunctionRevisionLoggingConfigArgsDict',
+    'WebFunctionRevisionS3ObjectArgs',
+    'WebFunctionRevisionS3ObjectArgsDict',
 ]
 
 class AliasProvisionedConcurrencyConfigurationArgsDict(TypedDict):
@@ -269,6 +289,124 @@ class AliasVersionWeightArgs:
     @function_weight.setter
     def function_weight(self, value: pulumi.Input[_builtins.float]):
         pulumi.set(self, "function_weight", value)
+
+
+class BuildConfigPropertiesArgsDict(TypedDict):
+    """
+    The build configuration for the revision.
+    """
+    code_config: pulumi.Input['BuildConfigPropertiesCodeConfigPropertiesArgsDict']
+    """
+    The code configuration for the revision.
+    """
+    runtime_config: pulumi.Input['BuildConfigPropertiesRuntimeConfigPropertiesArgsDict']
+    """
+    The runtime configuration for the revision.
+    """
+
+@pulumi.input_type
+class BuildConfigPropertiesArgs:
+    def __init__(__self__, *,
+                 code_config: pulumi.Input['BuildConfigPropertiesCodeConfigPropertiesArgs'],
+                 runtime_config: pulumi.Input['BuildConfigPropertiesRuntimeConfigPropertiesArgs']):
+        """
+        The build configuration for the revision.
+
+        :param pulumi.Input['BuildConfigPropertiesCodeConfigPropertiesArgs'] code_config: The code configuration for the revision.
+        :param pulumi.Input['BuildConfigPropertiesRuntimeConfigPropertiesArgs'] runtime_config: The runtime configuration for the revision.
+        """
+        pulumi.set(__self__, "code_config", code_config)
+        pulumi.set(__self__, "runtime_config", runtime_config)
+
+    @_builtins.property
+    @pulumi.getter(name="codeConfig")
+    def code_config(self) -> pulumi.Input['BuildConfigPropertiesCodeConfigPropertiesArgs']:
+        """
+        The code configuration for the revision.
+        """
+        return pulumi.get(self, "code_config")
+
+    @code_config.setter
+    def code_config(self, value: pulumi.Input['BuildConfigPropertiesCodeConfigPropertiesArgs']):
+        pulumi.set(self, "code_config", value)
+
+    @_builtins.property
+    @pulumi.getter(name="runtimeConfig")
+    def runtime_config(self) -> pulumi.Input['BuildConfigPropertiesRuntimeConfigPropertiesArgs']:
+        """
+        The runtime configuration for the revision.
+        """
+        return pulumi.get(self, "runtime_config")
+
+    @runtime_config.setter
+    def runtime_config(self, value: pulumi.Input['BuildConfigPropertiesRuntimeConfigPropertiesArgs']):
+        pulumi.set(self, "runtime_config", value)
+
+
+class BuildConfigPropertiesCodeConfigPropertiesArgsDict(TypedDict):
+    """
+    The code configuration for the revision.
+    """
+    s3_object: pulumi.Input['WebFunctionRevisionS3ObjectArgsDict']
+    """
+    The Amazon S3 location of the deployment artifact.
+    """
+
+@pulumi.input_type
+class BuildConfigPropertiesCodeConfigPropertiesArgs:
+    def __init__(__self__, *,
+                 s3_object: pulumi.Input['WebFunctionRevisionS3ObjectArgs']):
+        """
+        The code configuration for the revision.
+
+        :param pulumi.Input['WebFunctionRevisionS3ObjectArgs'] s3_object: The Amazon S3 location of the deployment artifact.
+        """
+        pulumi.set(__self__, "s3_object", s3_object)
+
+    @_builtins.property
+    @pulumi.getter(name="s3Object")
+    def s3_object(self) -> pulumi.Input['WebFunctionRevisionS3ObjectArgs']:
+        """
+        The Amazon S3 location of the deployment artifact.
+        """
+        return pulumi.get(self, "s3_object")
+
+    @s3_object.setter
+    def s3_object(self, value: pulumi.Input['WebFunctionRevisionS3ObjectArgs']):
+        pulumi.set(self, "s3_object", value)
+
+
+class BuildConfigPropertiesRuntimeConfigPropertiesArgsDict(TypedDict):
+    """
+    The runtime configuration for the revision.
+    """
+    runtime: pulumi.Input[_builtins.str]
+    """
+    The runtime identifier.
+    """
+
+@pulumi.input_type
+class BuildConfigPropertiesRuntimeConfigPropertiesArgs:
+    def __init__(__self__, *,
+                 runtime: pulumi.Input[_builtins.str]):
+        """
+        The runtime configuration for the revision.
+
+        :param pulumi.Input[_builtins.str] runtime: The runtime identifier.
+        """
+        pulumi.set(__self__, "runtime", runtime)
+
+    @_builtins.property
+    @pulumi.getter
+    def runtime(self) -> pulumi.Input[_builtins.str]:
+        """
+        The runtime identifier.
+        """
+        return pulumi.get(self, "runtime")
+
+    @runtime.setter
+    def runtime(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "runtime", value)
 
 
 class CapacityProviderInstanceRequirementsArgsDict(TypedDict):
@@ -3360,54 +3498,76 @@ class NetworkConnectorVpcEgressConfigurationArgsDict(TypedDict):
     """
     associated_compute_resource_types: pulumi.Input[Sequence[pulumi.Input['NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItem']]]
     """
-    The types of Lambda compute resources that can use this connector. Currently, only MicroVm is supported.
+    The types of Lambda compute resources that can use this connector. Supported values are MicroVm and WebFunction.
+    """
+    network_protocol: pulumi.Input['NetworkConnectorVpcEgressConfigurationNetworkProtocol']
+    """
+    The network protocol for the connector. Specify IPv4 for IPv4-only networking, or DualStack for both IPv4 and IPv6.
+    """
+    security_group_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    The IDs of the VPC security groups to attach to the ENIs. Specify 0 to 5 security groups. All security groups must be in the same VPC as the subnets.
     """
     subnet_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
     """
     The IDs of the VPC subnets where Lambda provisions elastic network interfaces (ENIs). Specify 1 to 16 subnets. All subnets must be in the same VPC.
-    """
-    network_protocol: NotRequired[pulumi.Input[Optional['NetworkConnectorVpcEgressConfigurationNetworkProtocol']]]
-    """
-    The network protocol for the connector. Specify IPv4 for IPv4-only networking, or DualStack for both IPv4 and IPv6.
-    """
-    security_group_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
-    """
-    The IDs of the VPC security groups to attach to the ENIs. Specify 0 to 5 security groups. All security groups must be in the same VPC as the subnets.
     """
 
 @pulumi.input_type
 class NetworkConnectorVpcEgressConfigurationArgs:
     def __init__(__self__, *,
                  associated_compute_resource_types: pulumi.Input[Sequence[pulumi.Input['NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItem']]],
-                 subnet_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
-                 network_protocol: pulumi.Input[Optional['NetworkConnectorVpcEgressConfigurationNetworkProtocol']] = None,
-                 security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 network_protocol: pulumi.Input['NetworkConnectorVpcEgressConfigurationNetworkProtocol'],
+                 security_group_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
+                 subnet_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
         """
         The VPC egress configuration for the network connector. Specifies the subnets, security groups, and network protocol for routing outbound traffic through your VPC.
 
-        :param pulumi.Input[Sequence[pulumi.Input['NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItem']]] associated_compute_resource_types: The types of Lambda compute resources that can use this connector. Currently, only MicroVm is supported.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: The IDs of the VPC subnets where Lambda provisions elastic network interfaces (ENIs). Specify 1 to 16 subnets. All subnets must be in the same VPC.
+        :param pulumi.Input[Sequence[pulumi.Input['NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItem']]] associated_compute_resource_types: The types of Lambda compute resources that can use this connector. Supported values are MicroVm and WebFunction.
         :param pulumi.Input['NetworkConnectorVpcEgressConfigurationNetworkProtocol'] network_protocol: The network protocol for the connector. Specify IPv4 for IPv4-only networking, or DualStack for both IPv4 and IPv6.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: The IDs of the VPC security groups to attach to the ENIs. Specify 0 to 5 security groups. All security groups must be in the same VPC as the subnets.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: The IDs of the VPC subnets where Lambda provisions elastic network interfaces (ENIs). Specify 1 to 16 subnets. All subnets must be in the same VPC.
         """
         pulumi.set(__self__, "associated_compute_resource_types", associated_compute_resource_types)
+        pulumi.set(__self__, "network_protocol", network_protocol)
+        pulumi.set(__self__, "security_group_ids", security_group_ids)
         pulumi.set(__self__, "subnet_ids", subnet_ids)
-        if network_protocol is not None:
-            pulumi.set(__self__, "network_protocol", network_protocol)
-        if security_group_ids is not None:
-            pulumi.set(__self__, "security_group_ids", security_group_ids)
 
     @_builtins.property
     @pulumi.getter(name="associatedComputeResourceTypes")
     def associated_compute_resource_types(self) -> pulumi.Input[Sequence[pulumi.Input['NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItem']]]:
         """
-        The types of Lambda compute resources that can use this connector. Currently, only MicroVm is supported.
+        The types of Lambda compute resources that can use this connector. Supported values are MicroVm and WebFunction.
         """
         return pulumi.get(self, "associated_compute_resource_types")
 
     @associated_compute_resource_types.setter
     def associated_compute_resource_types(self, value: pulumi.Input[Sequence[pulumi.Input['NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItem']]]):
         pulumi.set(self, "associated_compute_resource_types", value)
+
+    @_builtins.property
+    @pulumi.getter(name="networkProtocol")
+    def network_protocol(self) -> pulumi.Input['NetworkConnectorVpcEgressConfigurationNetworkProtocol']:
+        """
+        The network protocol for the connector. Specify IPv4 for IPv4-only networking, or DualStack for both IPv4 and IPv6.
+        """
+        return pulumi.get(self, "network_protocol")
+
+    @network_protocol.setter
+    def network_protocol(self, value: pulumi.Input['NetworkConnectorVpcEgressConfigurationNetworkProtocol']):
+        pulumi.set(self, "network_protocol", value)
+
+    @_builtins.property
+    @pulumi.getter(name="securityGroupIds")
+    def security_group_ids(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        """
+        The IDs of the VPC security groups to attach to the ENIs. Specify 0 to 5 security groups. All security groups must be in the same VPC as the subnets.
+        """
+        return pulumi.get(self, "security_group_ids")
+
+    @security_group_ids.setter
+    def security_group_ids(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "security_group_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="subnetIds")
@@ -3421,29 +3581,152 @@ class NetworkConnectorVpcEgressConfigurationArgs:
     def subnet_ids(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
         pulumi.set(self, "subnet_ids", value)
 
+
+class ServiceConfigPropertiesArgsDict(TypedDict):
+    """
+    The service configuration for the revision.
+    """
+    execution_role_arn: pulumi.Input[_builtins.str]
+    """
+    The ARN of the execution role.
+    """
+    environment_variables: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
+    """
+    Environment variables for the function.
+    """
+    max_concurrency_per_environment: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    The maximum concurrency per environment.
+    """
+    telemetry_config: NotRequired[pulumi.Input[Optional['ServiceConfigPropertiesTelemetryConfigPropertiesArgsDict']]]
+    """
+    The telemetry configuration.
+    """
+    timeout_seconds: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    The function timeout in seconds.
+    """
+
+@pulumi.input_type
+class ServiceConfigPropertiesArgs:
+    def __init__(__self__, *,
+                 execution_role_arn: pulumi.Input[_builtins.str],
+                 environment_variables: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 max_concurrency_per_environment: pulumi.Input[Optional[_builtins.int]] = None,
+                 telemetry_config: pulumi.Input[Optional['ServiceConfigPropertiesTelemetryConfigPropertiesArgs']] = None,
+                 timeout_seconds: pulumi.Input[Optional[_builtins.int]] = None):
+        """
+        The service configuration for the revision.
+
+        :param pulumi.Input[_builtins.str] execution_role_arn: The ARN of the execution role.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] environment_variables: Environment variables for the function.
+        :param pulumi.Input[_builtins.int] max_concurrency_per_environment: The maximum concurrency per environment.
+        :param pulumi.Input['ServiceConfigPropertiesTelemetryConfigPropertiesArgs'] telemetry_config: The telemetry configuration.
+        :param pulumi.Input[_builtins.int] timeout_seconds: The function timeout in seconds.
+        """
+        pulumi.set(__self__, "execution_role_arn", execution_role_arn)
+        if environment_variables is not None:
+            pulumi.set(__self__, "environment_variables", environment_variables)
+        if max_concurrency_per_environment is not None:
+            pulumi.set(__self__, "max_concurrency_per_environment", max_concurrency_per_environment)
+        if telemetry_config is not None:
+            pulumi.set(__self__, "telemetry_config", telemetry_config)
+        if timeout_seconds is not None:
+            pulumi.set(__self__, "timeout_seconds", timeout_seconds)
+
     @_builtins.property
-    @pulumi.getter(name="networkProtocol")
-    def network_protocol(self) -> pulumi.Input[Optional['NetworkConnectorVpcEgressConfigurationNetworkProtocol']]:
+    @pulumi.getter(name="executionRoleArn")
+    def execution_role_arn(self) -> pulumi.Input[_builtins.str]:
         """
-        The network protocol for the connector. Specify IPv4 for IPv4-only networking, or DualStack for both IPv4 and IPv6.
+        The ARN of the execution role.
         """
-        return pulumi.get(self, "network_protocol")
+        return pulumi.get(self, "execution_role_arn")
 
-    @network_protocol.setter
-    def network_protocol(self, value: pulumi.Input[Optional['NetworkConnectorVpcEgressConfigurationNetworkProtocol']]):
-        pulumi.set(self, "network_protocol", value)
+    @execution_role_arn.setter
+    def execution_role_arn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "execution_role_arn", value)
 
     @_builtins.property
-    @pulumi.getter(name="securityGroupIds")
-    def security_group_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+    @pulumi.getter(name="environmentVariables")
+    def environment_variables(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        The IDs of the VPC security groups to attach to the ENIs. Specify 0 to 5 security groups. All security groups must be in the same VPC as the subnets.
+        Environment variables for the function.
         """
-        return pulumi.get(self, "security_group_ids")
+        return pulumi.get(self, "environment_variables")
 
-    @security_group_ids.setter
-    def security_group_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
-        pulumi.set(self, "security_group_ids", value)
+    @environment_variables.setter
+    def environment_variables(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "environment_variables", value)
+
+    @_builtins.property
+    @pulumi.getter(name="maxConcurrencyPerEnvironment")
+    def max_concurrency_per_environment(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        The maximum concurrency per environment.
+        """
+        return pulumi.get(self, "max_concurrency_per_environment")
+
+    @max_concurrency_per_environment.setter
+    def max_concurrency_per_environment(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "max_concurrency_per_environment", value)
+
+    @_builtins.property
+    @pulumi.getter(name="telemetryConfig")
+    def telemetry_config(self) -> pulumi.Input[Optional['ServiceConfigPropertiesTelemetryConfigPropertiesArgs']]:
+        """
+        The telemetry configuration.
+        """
+        return pulumi.get(self, "telemetry_config")
+
+    @telemetry_config.setter
+    def telemetry_config(self, value: pulumi.Input[Optional['ServiceConfigPropertiesTelemetryConfigPropertiesArgs']]):
+        pulumi.set(self, "telemetry_config", value)
+
+    @_builtins.property
+    @pulumi.getter(name="timeoutSeconds")
+    def timeout_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        The function timeout in seconds.
+        """
+        return pulumi.get(self, "timeout_seconds")
+
+    @timeout_seconds.setter
+    def timeout_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "timeout_seconds", value)
+
+
+class ServiceConfigPropertiesTelemetryConfigPropertiesArgsDict(TypedDict):
+    """
+    The telemetry configuration.
+    """
+    logging_config: NotRequired[pulumi.Input[Optional['WebFunctionRevisionLoggingConfigArgsDict']]]
+    """
+    The logging configuration for the web function.
+    """
+
+@pulumi.input_type
+class ServiceConfigPropertiesTelemetryConfigPropertiesArgs:
+    def __init__(__self__, *,
+                 logging_config: pulumi.Input[Optional['WebFunctionRevisionLoggingConfigArgs']] = None):
+        """
+        The telemetry configuration.
+
+        :param pulumi.Input['WebFunctionRevisionLoggingConfigArgs'] logging_config: The logging configuration for the web function.
+        """
+        if logging_config is not None:
+            pulumi.set(__self__, "logging_config", logging_config)
+
+    @_builtins.property
+    @pulumi.getter(name="loggingConfig")
+    def logging_config(self) -> pulumi.Input[Optional['WebFunctionRevisionLoggingConfigArgs']]:
+        """
+        The logging configuration for the web function.
+        """
+        return pulumi.get(self, "logging_config")
+
+    @logging_config.setter
+    def logging_config(self, value: pulumi.Input[Optional['WebFunctionRevisionLoggingConfigArgs']]):
+        pulumi.set(self, "logging_config", value)
 
 
 class UrlCorsArgsDict(TypedDict):
@@ -3713,5 +3996,271 @@ class VersionRuntimePolicyArgs:
     @runtime_version_arn.setter
     def runtime_version_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "runtime_version_arn", value)
+
+
+class WebFunctionEndpointRevisionWeightArgsDict(TypedDict):
+    """
+    A revision routing entry.
+    """
+    revision_id: pulumi.Input[_builtins.str]
+    """
+    The revision identifier.
+    """
+    weight: pulumi.Input[_builtins.int]
+    """
+    The traffic weight for this revision.
+    """
+
+@pulumi.input_type
+class WebFunctionEndpointRevisionWeightArgs:
+    def __init__(__self__, *,
+                 revision_id: pulumi.Input[_builtins.str],
+                 weight: pulumi.Input[_builtins.int]):
+        """
+        A revision routing entry.
+
+        :param pulumi.Input[_builtins.str] revision_id: The revision identifier.
+        :param pulumi.Input[_builtins.int] weight: The traffic weight for this revision.
+        """
+        pulumi.set(__self__, "revision_id", revision_id)
+        pulumi.set(__self__, "weight", weight)
+
+    @_builtins.property
+    @pulumi.getter(name="revisionId")
+    def revision_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        The revision identifier.
+        """
+        return pulumi.get(self, "revision_id")
+
+    @revision_id.setter
+    def revision_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "revision_id", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def weight(self) -> pulumi.Input[_builtins.int]:
+        """
+        The traffic weight for this revision.
+        """
+        return pulumi.get(self, "weight")
+
+    @weight.setter
+    def weight(self, value: pulumi.Input[_builtins.int]):
+        pulumi.set(self, "weight", value)
+
+
+class WebFunctionEndpointScalingConfigArgsDict(TypedDict):
+    """
+    The scaling configuration for the endpoint. Optionally constrains how many concurrent execution environments the endpoint can use, in addition to your account's vCPU quota.
+    """
+    max_environments: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    The maximum number of concurrent execution environments for the endpoint. This optional limit further constrains the endpoint's scaling. When omitted, the endpoint's scaling is limited only by your account's vCPU quota.
+    """
+
+@pulumi.input_type
+class WebFunctionEndpointScalingConfigArgs:
+    def __init__(__self__, *,
+                 max_environments: pulumi.Input[Optional[_builtins.int]] = None):
+        """
+        The scaling configuration for the endpoint. Optionally constrains how many concurrent execution environments the endpoint can use, in addition to your account's vCPU quota.
+
+        :param pulumi.Input[_builtins.int] max_environments: The maximum number of concurrent execution environments for the endpoint. This optional limit further constrains the endpoint's scaling. When omitted, the endpoint's scaling is limited only by your account's vCPU quota.
+        """
+        if max_environments is not None:
+            pulumi.set(__self__, "max_environments", max_environments)
+
+    @_builtins.property
+    @pulumi.getter(name="maxEnvironments")
+    def max_environments(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        The maximum number of concurrent execution environments for the endpoint. This optional limit further constrains the endpoint's scaling. When omitted, the endpoint's scaling is limited only by your account's vCPU quota.
+        """
+        return pulumi.get(self, "max_environments")
+
+    @max_environments.setter
+    def max_environments(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "max_environments", value)
+
+
+class WebFunctionEndpointThrottleConfigArgsDict(TypedDict):
+    """
+    The throttling configuration for the endpoint. Optionally constrains the request rate that the endpoint accepts, in addition to your account's rate limit quota.
+    """
+    rate_limit: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    The maximum request rate per second for the endpoint, up to a maximum of 10000. This optional limit further constrains the endpoint's request rate. When omitted, the endpoint's request rate is limited only by your account's rate limit quota. Specify 0 to reject all new requests. Other supported values are 100 through 1000 in increments of 100, and 2000 through 10000 in increments of 1000. Supported values can vary by Region; if you specify an unsupported value, the error lists the values available in that Region.
+    """
+
+@pulumi.input_type
+class WebFunctionEndpointThrottleConfigArgs:
+    def __init__(__self__, *,
+                 rate_limit: pulumi.Input[Optional[_builtins.int]] = None):
+        """
+        The throttling configuration for the endpoint. Optionally constrains the request rate that the endpoint accepts, in addition to your account's rate limit quota.
+
+        :param pulumi.Input[_builtins.int] rate_limit: The maximum request rate per second for the endpoint, up to a maximum of 10000. This optional limit further constrains the endpoint's request rate. When omitted, the endpoint's request rate is limited only by your account's rate limit quota. Specify 0 to reject all new requests. Other supported values are 100 through 1000 in increments of 100, and 2000 through 10000 in increments of 1000. Supported values can vary by Region; if you specify an unsupported value, the error lists the values available in that Region.
+        """
+        if rate_limit is not None:
+            pulumi.set(__self__, "rate_limit", rate_limit)
+
+    @_builtins.property
+    @pulumi.getter(name="rateLimit")
+    def rate_limit(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        The maximum request rate per second for the endpoint, up to a maximum of 10000. This optional limit further constrains the endpoint's request rate. When omitted, the endpoint's request rate is limited only by your account's rate limit quota. Specify 0 to reject all new requests. Other supported values are 100 through 1000 in increments of 100, and 2000 through 10000 in increments of 1000. Supported values can vary by Region; if you specify an unsupported value, the error lists the values available in that Region.
+        """
+        return pulumi.get(self, "rate_limit")
+
+    @rate_limit.setter
+    def rate_limit(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "rate_limit", value)
+
+
+class WebFunctionRevisionLoggingConfigArgsDict(TypedDict):
+    """
+    The logging configuration.
+    """
+    application_log_level: NotRequired[pulumi.Input[Optional['WebFunctionRevisionLoggingConfigApplicationLogLevel']]]
+    """
+    The application log level.
+    """
+    log_group: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The CloudWatch log group name.
+    """
+    system_log_level: NotRequired[pulumi.Input[Optional['WebFunctionRevisionLoggingConfigSystemLogLevel']]]
+    """
+    The system log level.
+    """
+
+@pulumi.input_type
+class WebFunctionRevisionLoggingConfigArgs:
+    def __init__(__self__, *,
+                 application_log_level: pulumi.Input[Optional['WebFunctionRevisionLoggingConfigApplicationLogLevel']] = None,
+                 log_group: pulumi.Input[Optional[_builtins.str]] = None,
+                 system_log_level: pulumi.Input[Optional['WebFunctionRevisionLoggingConfigSystemLogLevel']] = None):
+        """
+        The logging configuration.
+
+        :param pulumi.Input['WebFunctionRevisionLoggingConfigApplicationLogLevel'] application_log_level: The application log level.
+        :param pulumi.Input[_builtins.str] log_group: The CloudWatch log group name.
+        :param pulumi.Input['WebFunctionRevisionLoggingConfigSystemLogLevel'] system_log_level: The system log level.
+        """
+        if application_log_level is not None:
+            pulumi.set(__self__, "application_log_level", application_log_level)
+        if log_group is not None:
+            pulumi.set(__self__, "log_group", log_group)
+        if system_log_level is not None:
+            pulumi.set(__self__, "system_log_level", system_log_level)
+
+    @_builtins.property
+    @pulumi.getter(name="applicationLogLevel")
+    def application_log_level(self) -> pulumi.Input[Optional['WebFunctionRevisionLoggingConfigApplicationLogLevel']]:
+        """
+        The application log level.
+        """
+        return pulumi.get(self, "application_log_level")
+
+    @application_log_level.setter
+    def application_log_level(self, value: pulumi.Input[Optional['WebFunctionRevisionLoggingConfigApplicationLogLevel']]):
+        pulumi.set(self, "application_log_level", value)
+
+    @_builtins.property
+    @pulumi.getter(name="logGroup")
+    def log_group(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The CloudWatch log group name.
+        """
+        return pulumi.get(self, "log_group")
+
+    @log_group.setter
+    def log_group(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "log_group", value)
+
+    @_builtins.property
+    @pulumi.getter(name="systemLogLevel")
+    def system_log_level(self) -> pulumi.Input[Optional['WebFunctionRevisionLoggingConfigSystemLogLevel']]:
+        """
+        The system log level.
+        """
+        return pulumi.get(self, "system_log_level")
+
+    @system_log_level.setter
+    def system_log_level(self, value: pulumi.Input[Optional['WebFunctionRevisionLoggingConfigSystemLogLevel']]):
+        pulumi.set(self, "system_log_level", value)
+
+
+class WebFunctionRevisionS3ObjectArgsDict(TypedDict):
+    """
+    The S3 location of the function code.
+    """
+    bucket: pulumi.Input[_builtins.str]
+    """
+    The S3 bucket name.
+    """
+    key: pulumi.Input[_builtins.str]
+    """
+    The S3 object key.
+    """
+    version_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The S3 object version ID.
+    """
+
+@pulumi.input_type
+class WebFunctionRevisionS3ObjectArgs:
+    def __init__(__self__, *,
+                 bucket: pulumi.Input[_builtins.str],
+                 key: pulumi.Input[_builtins.str],
+                 version_id: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        The S3 location of the function code.
+
+        :param pulumi.Input[_builtins.str] bucket: The S3 bucket name.
+        :param pulumi.Input[_builtins.str] key: The S3 object key.
+        :param pulumi.Input[_builtins.str] version_id: The S3 object version ID.
+        """
+        pulumi.set(__self__, "bucket", bucket)
+        pulumi.set(__self__, "key", key)
+        if version_id is not None:
+            pulumi.set(__self__, "version_id", version_id)
+
+    @_builtins.property
+    @pulumi.getter
+    def bucket(self) -> pulumi.Input[_builtins.str]:
+        """
+        The S3 bucket name.
+        """
+        return pulumi.get(self, "bucket")
+
+    @bucket.setter
+    def bucket(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "bucket", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[_builtins.str]:
+        """
+        The S3 object key.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "key", value)
+
+    @_builtins.property
+    @pulumi.getter(name="versionId")
+    def version_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The S3 object version ID.
+        """
+        return pulumi.get(self, "version_id")
+
+    @version_id.setter
+    def version_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "version_id", value)
 
 

@@ -1168,6 +1168,7 @@ namespace Pulumi.AwsNative.Lambda
         }
 
         public static NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItem MicroVm { get; } = new NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItem("MicroVm");
+        public static NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItem WebFunction { get; } = new NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItem("WebFunction");
 
         public static bool operator ==(NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItem left, NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItem right) => left.Equals(right);
         public static bool operator !=(NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItem left, NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItem right) => !left.Equals(right);
@@ -1334,6 +1335,362 @@ namespace Pulumi.AwsNative.Lambda
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is UrlInvokeMode other && Equals(other);
         public bool Equals(UrlInvokeMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The authentication type for the endpoint.
+    /// </summary>
+    [EnumType]
+    public readonly struct WebFunctionEndpointAuthType : IEquatable<WebFunctionEndpointAuthType>
+    {
+        private readonly string _value;
+
+        private WebFunctionEndpointAuthType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static WebFunctionEndpointAuthType ApplicationManaged { get; } = new WebFunctionEndpointAuthType("ApplicationManaged");
+        public static WebFunctionEndpointAuthType IamAuth { get; } = new WebFunctionEndpointAuthType("IamAuth");
+
+        public static bool operator ==(WebFunctionEndpointAuthType left, WebFunctionEndpointAuthType right) => left.Equals(right);
+        public static bool operator !=(WebFunctionEndpointAuthType left, WebFunctionEndpointAuthType right) => !left.Equals(right);
+
+        public static explicit operator string(WebFunctionEndpointAuthType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is WebFunctionEndpointAuthType other && Equals(other);
+        public bool Equals(WebFunctionEndpointAuthType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The type of the endpoint.
+    /// </summary>
+    [EnumType]
+    public readonly struct WebFunctionEndpointEndpointType : IEquatable<WebFunctionEndpointEndpointType>
+    {
+        private readonly string _value;
+
+        private WebFunctionEndpointEndpointType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static WebFunctionEndpointEndpointType HomeRegion { get; } = new WebFunctionEndpointEndpointType("HomeRegion");
+        public static WebFunctionEndpointEndpointType MultiRegion { get; } = new WebFunctionEndpointEndpointType("MultiRegion");
+        public static WebFunctionEndpointEndpointType PerRegion { get; } = new WebFunctionEndpointEndpointType("PerRegion");
+
+        public static bool operator ==(WebFunctionEndpointEndpointType left, WebFunctionEndpointEndpointType right) => left.Equals(right);
+        public static bool operator !=(WebFunctionEndpointEndpointType left, WebFunctionEndpointEndpointType right) => !left.Equals(right);
+
+        public static explicit operator string(WebFunctionEndpointEndpointType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is WebFunctionEndpointEndpointType other && Equals(other);
+        public bool Equals(WebFunctionEndpointEndpointType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The authentication type for the endpoint.
+    /// </summary>
+    [EnumType]
+    public readonly struct WebFunctionEndpointRegionalEndpointAuthType : IEquatable<WebFunctionEndpointRegionalEndpointAuthType>
+    {
+        private readonly string _value;
+
+        private WebFunctionEndpointRegionalEndpointAuthType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static WebFunctionEndpointRegionalEndpointAuthType ApplicationManaged { get; } = new WebFunctionEndpointRegionalEndpointAuthType("ApplicationManaged");
+        public static WebFunctionEndpointRegionalEndpointAuthType IamAuth { get; } = new WebFunctionEndpointRegionalEndpointAuthType("IamAuth");
+
+        public static bool operator ==(WebFunctionEndpointRegionalEndpointAuthType left, WebFunctionEndpointRegionalEndpointAuthType right) => left.Equals(right);
+        public static bool operator !=(WebFunctionEndpointRegionalEndpointAuthType left, WebFunctionEndpointRegionalEndpointAuthType right) => !left.Equals(right);
+
+        public static explicit operator string(WebFunctionEndpointRegionalEndpointAuthType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is WebFunctionEndpointRegionalEndpointAuthType other && Equals(other);
+        public bool Equals(WebFunctionEndpointRegionalEndpointAuthType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The current state of the endpoint.
+    /// </summary>
+    [EnumType]
+    public readonly struct WebFunctionEndpointRegionalEndpointState : IEquatable<WebFunctionEndpointRegionalEndpointState>
+    {
+        private readonly string _value;
+
+        private WebFunctionEndpointRegionalEndpointState(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static WebFunctionEndpointRegionalEndpointState Pending { get; } = new WebFunctionEndpointRegionalEndpointState("Pending");
+        public static WebFunctionEndpointRegionalEndpointState Active { get; } = new WebFunctionEndpointRegionalEndpointState("Active");
+        public static WebFunctionEndpointRegionalEndpointState Failed { get; } = new WebFunctionEndpointRegionalEndpointState("Failed");
+        public static WebFunctionEndpointRegionalEndpointState Deleting { get; } = new WebFunctionEndpointRegionalEndpointState("Deleting");
+
+        public static bool operator ==(WebFunctionEndpointRegionalEndpointState left, WebFunctionEndpointRegionalEndpointState right) => left.Equals(right);
+        public static bool operator !=(WebFunctionEndpointRegionalEndpointState left, WebFunctionEndpointRegionalEndpointState right) => !left.Equals(right);
+
+        public static explicit operator string(WebFunctionEndpointRegionalEndpointState value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is WebFunctionEndpointRegionalEndpointState other && Equals(other);
+        public bool Equals(WebFunctionEndpointRegionalEndpointState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The status of the most recent update to the endpoint.
+    /// </summary>
+    [EnumType]
+    public readonly struct WebFunctionEndpointRegionalEndpointUpdateStatus : IEquatable<WebFunctionEndpointRegionalEndpointUpdateStatus>
+    {
+        private readonly string _value;
+
+        private WebFunctionEndpointRegionalEndpointUpdateStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static WebFunctionEndpointRegionalEndpointUpdateStatus InProgress { get; } = new WebFunctionEndpointRegionalEndpointUpdateStatus("InProgress");
+        public static WebFunctionEndpointRegionalEndpointUpdateStatus Successful { get; } = new WebFunctionEndpointRegionalEndpointUpdateStatus("Successful");
+        public static WebFunctionEndpointRegionalEndpointUpdateStatus Failed { get; } = new WebFunctionEndpointRegionalEndpointUpdateStatus("Failed");
+
+        public static bool operator ==(WebFunctionEndpointRegionalEndpointUpdateStatus left, WebFunctionEndpointRegionalEndpointUpdateStatus right) => left.Equals(right);
+        public static bool operator !=(WebFunctionEndpointRegionalEndpointUpdateStatus left, WebFunctionEndpointRegionalEndpointUpdateStatus right) => !left.Equals(right);
+
+        public static explicit operator string(WebFunctionEndpointRegionalEndpointUpdateStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is WebFunctionEndpointRegionalEndpointUpdateStatus other && Equals(other);
+        public bool Equals(WebFunctionEndpointRegionalEndpointUpdateStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The current state of the endpoint.
+    /// </summary>
+    [EnumType]
+    public readonly struct WebFunctionEndpointState : IEquatable<WebFunctionEndpointState>
+    {
+        private readonly string _value;
+
+        private WebFunctionEndpointState(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static WebFunctionEndpointState Pending { get; } = new WebFunctionEndpointState("Pending");
+        public static WebFunctionEndpointState Active { get; } = new WebFunctionEndpointState("Active");
+        public static WebFunctionEndpointState Failed { get; } = new WebFunctionEndpointState("Failed");
+        public static WebFunctionEndpointState Deleting { get; } = new WebFunctionEndpointState("Deleting");
+
+        public static bool operator ==(WebFunctionEndpointState left, WebFunctionEndpointState right) => left.Equals(right);
+        public static bool operator !=(WebFunctionEndpointState left, WebFunctionEndpointState right) => !left.Equals(right);
+
+        public static explicit operator string(WebFunctionEndpointState value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is WebFunctionEndpointState other && Equals(other);
+        public bool Equals(WebFunctionEndpointState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The status of the last update operation.
+    /// </summary>
+    [EnumType]
+    public readonly struct WebFunctionEndpointUpdateStatus : IEquatable<WebFunctionEndpointUpdateStatus>
+    {
+        private readonly string _value;
+
+        private WebFunctionEndpointUpdateStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static WebFunctionEndpointUpdateStatus InProgress { get; } = new WebFunctionEndpointUpdateStatus("InProgress");
+        public static WebFunctionEndpointUpdateStatus Successful { get; } = new WebFunctionEndpointUpdateStatus("Successful");
+        public static WebFunctionEndpointUpdateStatus Failed { get; } = new WebFunctionEndpointUpdateStatus("Failed");
+
+        public static bool operator ==(WebFunctionEndpointUpdateStatus left, WebFunctionEndpointUpdateStatus right) => left.Equals(right);
+        public static bool operator !=(WebFunctionEndpointUpdateStatus left, WebFunctionEndpointUpdateStatus right) => !left.Equals(right);
+
+        public static explicit operator string(WebFunctionEndpointUpdateStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is WebFunctionEndpointUpdateStatus other && Equals(other);
+        public bool Equals(WebFunctionEndpointUpdateStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The application log level.
+    /// </summary>
+    [EnumType]
+    public readonly struct WebFunctionRevisionLoggingConfigApplicationLogLevel : IEquatable<WebFunctionRevisionLoggingConfigApplicationLogLevel>
+    {
+        private readonly string _value;
+
+        private WebFunctionRevisionLoggingConfigApplicationLogLevel(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static WebFunctionRevisionLoggingConfigApplicationLogLevel Trace { get; } = new WebFunctionRevisionLoggingConfigApplicationLogLevel("TRACE");
+        public static WebFunctionRevisionLoggingConfigApplicationLogLevel Debug { get; } = new WebFunctionRevisionLoggingConfigApplicationLogLevel("DEBUG");
+        public static WebFunctionRevisionLoggingConfigApplicationLogLevel Info { get; } = new WebFunctionRevisionLoggingConfigApplicationLogLevel("INFO");
+        public static WebFunctionRevisionLoggingConfigApplicationLogLevel Warn { get; } = new WebFunctionRevisionLoggingConfigApplicationLogLevel("WARN");
+        public static WebFunctionRevisionLoggingConfigApplicationLogLevel Error { get; } = new WebFunctionRevisionLoggingConfigApplicationLogLevel("ERROR");
+        public static WebFunctionRevisionLoggingConfigApplicationLogLevel Fatal { get; } = new WebFunctionRevisionLoggingConfigApplicationLogLevel("FATAL");
+
+        public static bool operator ==(WebFunctionRevisionLoggingConfigApplicationLogLevel left, WebFunctionRevisionLoggingConfigApplicationLogLevel right) => left.Equals(right);
+        public static bool operator !=(WebFunctionRevisionLoggingConfigApplicationLogLevel left, WebFunctionRevisionLoggingConfigApplicationLogLevel right) => !left.Equals(right);
+
+        public static explicit operator string(WebFunctionRevisionLoggingConfigApplicationLogLevel value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is WebFunctionRevisionLoggingConfigApplicationLogLevel other && Equals(other);
+        public bool Equals(WebFunctionRevisionLoggingConfigApplicationLogLevel other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The system log level.
+    /// </summary>
+    [EnumType]
+    public readonly struct WebFunctionRevisionLoggingConfigSystemLogLevel : IEquatable<WebFunctionRevisionLoggingConfigSystemLogLevel>
+    {
+        private readonly string _value;
+
+        private WebFunctionRevisionLoggingConfigSystemLogLevel(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static WebFunctionRevisionLoggingConfigSystemLogLevel Debug { get; } = new WebFunctionRevisionLoggingConfigSystemLogLevel("DEBUG");
+        public static WebFunctionRevisionLoggingConfigSystemLogLevel Info { get; } = new WebFunctionRevisionLoggingConfigSystemLogLevel("INFO");
+        public static WebFunctionRevisionLoggingConfigSystemLogLevel Warn { get; } = new WebFunctionRevisionLoggingConfigSystemLogLevel("WARN");
+
+        public static bool operator ==(WebFunctionRevisionLoggingConfigSystemLogLevel left, WebFunctionRevisionLoggingConfigSystemLogLevel right) => left.Equals(right);
+        public static bool operator !=(WebFunctionRevisionLoggingConfigSystemLogLevel left, WebFunctionRevisionLoggingConfigSystemLogLevel right) => !left.Equals(right);
+
+        public static explicit operator string(WebFunctionRevisionLoggingConfigSystemLogLevel value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is WebFunctionRevisionLoggingConfigSystemLogLevel other && Equals(other);
+        public bool Equals(WebFunctionRevisionLoggingConfigSystemLogLevel other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The current state of the revision.
+    /// </summary>
+    [EnumType]
+    public readonly struct WebFunctionRevisionState : IEquatable<WebFunctionRevisionState>
+    {
+        private readonly string _value;
+
+        private WebFunctionRevisionState(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static WebFunctionRevisionState Pending { get; } = new WebFunctionRevisionState("Pending");
+        public static WebFunctionRevisionState Active { get; } = new WebFunctionRevisionState("Active");
+        public static WebFunctionRevisionState Failed { get; } = new WebFunctionRevisionState("Failed");
+
+        public static bool operator ==(WebFunctionRevisionState left, WebFunctionRevisionState right) => left.Equals(right);
+        public static bool operator !=(WebFunctionRevisionState left, WebFunctionRevisionState right) => !left.Equals(right);
+
+        public static explicit operator string(WebFunctionRevisionState value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is WebFunctionRevisionState other && Equals(other);
+        public bool Equals(WebFunctionRevisionState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The current state of the function.
+    /// </summary>
+    [EnumType]
+    public readonly struct WebFunctionState : IEquatable<WebFunctionState>
+    {
+        private readonly string _value;
+
+        private WebFunctionState(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static WebFunctionState Pending { get; } = new WebFunctionState("Pending");
+        public static WebFunctionState Active { get; } = new WebFunctionState("Active");
+        public static WebFunctionState Failed { get; } = new WebFunctionState("Failed");
+        public static WebFunctionState Deleting { get; } = new WebFunctionState("Deleting");
+
+        public static bool operator ==(WebFunctionState left, WebFunctionState right) => left.Equals(right);
+        public static bool operator !=(WebFunctionState left, WebFunctionState right) => !left.Equals(right);
+
+        public static explicit operator string(WebFunctionState value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is WebFunctionState other && Equals(other);
+        public bool Equals(WebFunctionState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

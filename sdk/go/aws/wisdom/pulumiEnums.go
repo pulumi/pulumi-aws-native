@@ -2924,6 +2924,266 @@ func (in *assistantTypePtr) ToAssistantTypePtrOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, in).(AssistantTypePtrOutput)
 }
 
+// The type of association.
+type ContentAssociationAssociationType string
+
+const (
+	ContentAssociationAssociationTypeAmazonConnectGuide = ContentAssociationAssociationType("AMAZON_CONNECT_GUIDE")
+)
+
+func (ContentAssociationAssociationType) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContentAssociationAssociationType)(nil)).Elem()
+}
+
+func (e ContentAssociationAssociationType) ToContentAssociationAssociationTypeOutput() ContentAssociationAssociationTypeOutput {
+	return pulumi.ToOutput(e).(ContentAssociationAssociationTypeOutput)
+}
+
+func (e ContentAssociationAssociationType) ToContentAssociationAssociationTypeOutputWithContext(ctx context.Context) ContentAssociationAssociationTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ContentAssociationAssociationTypeOutput)
+}
+
+func (e ContentAssociationAssociationType) ToContentAssociationAssociationTypePtrOutput() ContentAssociationAssociationTypePtrOutput {
+	return e.ToContentAssociationAssociationTypePtrOutputWithContext(context.Background())
+}
+
+func (e ContentAssociationAssociationType) ToContentAssociationAssociationTypePtrOutputWithContext(ctx context.Context) ContentAssociationAssociationTypePtrOutput {
+	return ContentAssociationAssociationType(e).ToContentAssociationAssociationTypeOutputWithContext(ctx).ToContentAssociationAssociationTypePtrOutputWithContext(ctx)
+}
+
+func (e ContentAssociationAssociationType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ContentAssociationAssociationType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ContentAssociationAssociationType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ContentAssociationAssociationType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ContentAssociationAssociationTypeOutput struct{ *pulumi.OutputState }
+
+func (ContentAssociationAssociationTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContentAssociationAssociationType)(nil)).Elem()
+}
+
+func (o ContentAssociationAssociationTypeOutput) ToContentAssociationAssociationTypeOutput() ContentAssociationAssociationTypeOutput {
+	return o
+}
+
+func (o ContentAssociationAssociationTypeOutput) ToContentAssociationAssociationTypeOutputWithContext(ctx context.Context) ContentAssociationAssociationTypeOutput {
+	return o
+}
+
+func (o ContentAssociationAssociationTypeOutput) ToContentAssociationAssociationTypePtrOutput() ContentAssociationAssociationTypePtrOutput {
+	return o.ToContentAssociationAssociationTypePtrOutputWithContext(context.Background())
+}
+
+func (o ContentAssociationAssociationTypeOutput) ToContentAssociationAssociationTypePtrOutputWithContext(ctx context.Context) ContentAssociationAssociationTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContentAssociationAssociationType) *ContentAssociationAssociationType {
+		return &v
+	}).(ContentAssociationAssociationTypePtrOutput)
+}
+
+func (o ContentAssociationAssociationTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ContentAssociationAssociationTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ContentAssociationAssociationType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ContentAssociationAssociationTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ContentAssociationAssociationTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ContentAssociationAssociationType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ContentAssociationAssociationTypePtrOutput struct{ *pulumi.OutputState }
+
+func (ContentAssociationAssociationTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ContentAssociationAssociationType)(nil)).Elem()
+}
+
+func (o ContentAssociationAssociationTypePtrOutput) ToContentAssociationAssociationTypePtrOutput() ContentAssociationAssociationTypePtrOutput {
+	return o
+}
+
+func (o ContentAssociationAssociationTypePtrOutput) ToContentAssociationAssociationTypePtrOutputWithContext(ctx context.Context) ContentAssociationAssociationTypePtrOutput {
+	return o
+}
+
+func (o ContentAssociationAssociationTypePtrOutput) Elem() ContentAssociationAssociationTypeOutput {
+	return o.ApplyT(func(v *ContentAssociationAssociationType) ContentAssociationAssociationType {
+		if v != nil {
+			return *v
+		}
+		var ret ContentAssociationAssociationType
+		return ret
+	}).(ContentAssociationAssociationTypeOutput)
+}
+
+func (o ContentAssociationAssociationTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ContentAssociationAssociationTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ContentAssociationAssociationType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ContentAssociationAssociationTypeInput is an input type that accepts values of the ContentAssociationAssociationType enum
+// A concrete instance of `ContentAssociationAssociationTypeInput` can be one of the following:
+//
+//	ContentAssociationAssociationTypeAmazonConnectGuide
+type ContentAssociationAssociationTypeInput interface {
+	pulumi.Input
+
+	ToContentAssociationAssociationTypeOutput() ContentAssociationAssociationTypeOutput
+	ToContentAssociationAssociationTypeOutputWithContext(context.Context) ContentAssociationAssociationTypeOutput
+}
+
+var contentAssociationAssociationTypePtrType = reflect.TypeOf((**ContentAssociationAssociationType)(nil)).Elem()
+
+type ContentAssociationAssociationTypePtrInput interface {
+	pulumi.Input
+
+	ToContentAssociationAssociationTypePtrOutput() ContentAssociationAssociationTypePtrOutput
+	ToContentAssociationAssociationTypePtrOutputWithContext(context.Context) ContentAssociationAssociationTypePtrOutput
+}
+
+type contentAssociationAssociationTypePtr string
+
+func ContentAssociationAssociationTypePtr(v string) ContentAssociationAssociationTypePtrInput {
+	return (*contentAssociationAssociationTypePtr)(&v)
+}
+
+func (*contentAssociationAssociationTypePtr) ElementType() reflect.Type {
+	return contentAssociationAssociationTypePtrType
+}
+
+func (in *contentAssociationAssociationTypePtr) ToContentAssociationAssociationTypePtrOutput() ContentAssociationAssociationTypePtrOutput {
+	return pulumi.ToOutput(in).(ContentAssociationAssociationTypePtrOutput)
+}
+
+func (in *contentAssociationAssociationTypePtr) ToContentAssociationAssociationTypePtrOutputWithContext(ctx context.Context) ContentAssociationAssociationTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ContentAssociationAssociationTypePtrOutput)
+}
+
+// The status of the content.
+type ContentStatus string
+
+const (
+	ContentStatusCreateInProgress = ContentStatus("CREATE_IN_PROGRESS")
+	ContentStatusCreateFailed     = ContentStatus("CREATE_FAILED")
+	ContentStatusActive           = ContentStatus("ACTIVE")
+	ContentStatusDeleteInProgress = ContentStatus("DELETE_IN_PROGRESS")
+	ContentStatusDeleteFailed     = ContentStatus("DELETE_FAILED")
+	ContentStatusDeleted          = ContentStatus("DELETED")
+	ContentStatusUpdateFailed     = ContentStatus("UPDATE_FAILED")
+)
+
+type ContentStatusOutput struct{ *pulumi.OutputState }
+
+func (ContentStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContentStatus)(nil)).Elem()
+}
+
+func (o ContentStatusOutput) ToContentStatusOutput() ContentStatusOutput {
+	return o
+}
+
+func (o ContentStatusOutput) ToContentStatusOutputWithContext(ctx context.Context) ContentStatusOutput {
+	return o
+}
+
+func (o ContentStatusOutput) ToContentStatusPtrOutput() ContentStatusPtrOutput {
+	return o.ToContentStatusPtrOutputWithContext(context.Background())
+}
+
+func (o ContentStatusOutput) ToContentStatusPtrOutputWithContext(ctx context.Context) ContentStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContentStatus) *ContentStatus {
+		return &v
+	}).(ContentStatusPtrOutput)
+}
+
+func (o ContentStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ContentStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ContentStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ContentStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ContentStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ContentStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ContentStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (ContentStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ContentStatus)(nil)).Elem()
+}
+
+func (o ContentStatusPtrOutput) ToContentStatusPtrOutput() ContentStatusPtrOutput {
+	return o
+}
+
+func (o ContentStatusPtrOutput) ToContentStatusPtrOutputWithContext(ctx context.Context) ContentStatusPtrOutput {
+	return o
+}
+
+func (o ContentStatusPtrOutput) Elem() ContentStatusOutput {
+	return o.ApplyT(func(v *ContentStatus) ContentStatus {
+		if v != nil {
+			return *v
+		}
+		var ret ContentStatus
+		return ret
+	}).(ContentStatusOutput)
+}
+
+func (o ContentStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ContentStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ContentStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
 type KnowledgeBaseType string
 
 const (
@@ -4100,6 +4360,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AssistantAssociationAssociationTypePtrInput)(nil)).Elem(), AssistantAssociationAssociationType("KNOWLEDGE_BASE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AssistantTypeInput)(nil)).Elem(), AssistantType("AGENT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AssistantTypePtrInput)(nil)).Elem(), AssistantType("AGENT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ContentAssociationAssociationTypeInput)(nil)).Elem(), ContentAssociationAssociationType("AMAZON_CONNECT_GUIDE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ContentAssociationAssociationTypePtrInput)(nil)).Elem(), ContentAssociationAssociationType("AMAZON_CONNECT_GUIDE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseTypeInput)(nil)).Elem(), KnowledgeBaseType("EXTERNAL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseTypePtrInput)(nil)).Elem(), KnowledgeBaseType("EXTERNAL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseVectorIngestionConfigurationChunkingConfigurationPropertiesChunkingStrategyInput)(nil)).Elem(), KnowledgeBaseVectorIngestionConfigurationChunkingConfigurationPropertiesChunkingStrategy("FIXED_SIZE"))
@@ -4147,6 +4409,10 @@ func init() {
 	pulumi.RegisterOutputType(AssistantAssociationAssociationTypePtrOutput{})
 	pulumi.RegisterOutputType(AssistantTypeOutput{})
 	pulumi.RegisterOutputType(AssistantTypePtrOutput{})
+	pulumi.RegisterOutputType(ContentAssociationAssociationTypeOutput{})
+	pulumi.RegisterOutputType(ContentAssociationAssociationTypePtrOutput{})
+	pulumi.RegisterOutputType(ContentStatusOutput{})
+	pulumi.RegisterOutputType(ContentStatusPtrOutput{})
 	pulumi.RegisterOutputType(KnowledgeBaseTypeOutput{})
 	pulumi.RegisterOutputType(KnowledgeBaseTypePtrOutput{})
 	pulumi.RegisterOutputType(KnowledgeBaseVectorIngestionConfigurationChunkingConfigurationPropertiesChunkingStrategyOutput{})

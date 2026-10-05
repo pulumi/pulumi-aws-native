@@ -25,6 +25,9 @@ export interface GetEvaluationFormArgs {
 }
 
 export interface GetEvaluationFormResult {
+    /**
+     * The AI version to use for the evaluation form. This specifies which AI model version is used for automated evaluations.
+     */
     readonly aiVersion?: string;
     /**
      * The automatic evaluation configuration of an evaluation form.

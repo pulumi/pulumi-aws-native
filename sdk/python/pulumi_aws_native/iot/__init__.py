@@ -54,6 +54,7 @@ from .job_template import *
 from .logging import *
 from .mitigation_action import *
 from .policy import *
+from .policy_principal_attachment import *
 from .provisioning_template import *
 from .resource_specific_logging import *
 from .role_alias import *

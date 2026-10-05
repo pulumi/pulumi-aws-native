@@ -5914,7 +5914,8 @@ func (o NetworkConnectorStateEnumPtrOutput) ToStringPtrOutputWithContext(ctx con
 type NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItem string
 
 const (
-	NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItemMicroVm = NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItem("MicroVm")
+	NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItemMicroVm     = NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItem("MicroVm")
+	NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItemWebFunction = NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItem("WebFunction")
 )
 
 func (NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItem) ElementType() reflect.Type {
@@ -6040,6 +6041,7 @@ func (o NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItem
 // A concrete instance of `NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItemInput` can be one of the following:
 //
 //	NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItemMicroVm
+//	NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItemWebFunction
 type NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItemInput interface {
 	pulumi.Input
 
@@ -7003,6 +7005,1328 @@ func (in *urlInvokeModePtr) ToUrlInvokeModePtrOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, in).(UrlInvokeModePtrOutput)
 }
 
+// The authentication type for the endpoint.
+type WebFunctionEndpointAuthType string
+
+const (
+	WebFunctionEndpointAuthTypeApplicationManaged = WebFunctionEndpointAuthType("ApplicationManaged")
+	WebFunctionEndpointAuthTypeIamAuth            = WebFunctionEndpointAuthType("IamAuth")
+)
+
+func (WebFunctionEndpointAuthType) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebFunctionEndpointAuthType)(nil)).Elem()
+}
+
+func (e WebFunctionEndpointAuthType) ToWebFunctionEndpointAuthTypeOutput() WebFunctionEndpointAuthTypeOutput {
+	return pulumi.ToOutput(e).(WebFunctionEndpointAuthTypeOutput)
+}
+
+func (e WebFunctionEndpointAuthType) ToWebFunctionEndpointAuthTypeOutputWithContext(ctx context.Context) WebFunctionEndpointAuthTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(WebFunctionEndpointAuthTypeOutput)
+}
+
+func (e WebFunctionEndpointAuthType) ToWebFunctionEndpointAuthTypePtrOutput() WebFunctionEndpointAuthTypePtrOutput {
+	return e.ToWebFunctionEndpointAuthTypePtrOutputWithContext(context.Background())
+}
+
+func (e WebFunctionEndpointAuthType) ToWebFunctionEndpointAuthTypePtrOutputWithContext(ctx context.Context) WebFunctionEndpointAuthTypePtrOutput {
+	return WebFunctionEndpointAuthType(e).ToWebFunctionEndpointAuthTypeOutputWithContext(ctx).ToWebFunctionEndpointAuthTypePtrOutputWithContext(ctx)
+}
+
+func (e WebFunctionEndpointAuthType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e WebFunctionEndpointAuthType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e WebFunctionEndpointAuthType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e WebFunctionEndpointAuthType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type WebFunctionEndpointAuthTypeOutput struct{ *pulumi.OutputState }
+
+func (WebFunctionEndpointAuthTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebFunctionEndpointAuthType)(nil)).Elem()
+}
+
+func (o WebFunctionEndpointAuthTypeOutput) ToWebFunctionEndpointAuthTypeOutput() WebFunctionEndpointAuthTypeOutput {
+	return o
+}
+
+func (o WebFunctionEndpointAuthTypeOutput) ToWebFunctionEndpointAuthTypeOutputWithContext(ctx context.Context) WebFunctionEndpointAuthTypeOutput {
+	return o
+}
+
+func (o WebFunctionEndpointAuthTypeOutput) ToWebFunctionEndpointAuthTypePtrOutput() WebFunctionEndpointAuthTypePtrOutput {
+	return o.ToWebFunctionEndpointAuthTypePtrOutputWithContext(context.Background())
+}
+
+func (o WebFunctionEndpointAuthTypeOutput) ToWebFunctionEndpointAuthTypePtrOutputWithContext(ctx context.Context) WebFunctionEndpointAuthTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebFunctionEndpointAuthType) *WebFunctionEndpointAuthType {
+		return &v
+	}).(WebFunctionEndpointAuthTypePtrOutput)
+}
+
+func (o WebFunctionEndpointAuthTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o WebFunctionEndpointAuthTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e WebFunctionEndpointAuthType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o WebFunctionEndpointAuthTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o WebFunctionEndpointAuthTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e WebFunctionEndpointAuthType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type WebFunctionEndpointAuthTypePtrOutput struct{ *pulumi.OutputState }
+
+func (WebFunctionEndpointAuthTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebFunctionEndpointAuthType)(nil)).Elem()
+}
+
+func (o WebFunctionEndpointAuthTypePtrOutput) ToWebFunctionEndpointAuthTypePtrOutput() WebFunctionEndpointAuthTypePtrOutput {
+	return o
+}
+
+func (o WebFunctionEndpointAuthTypePtrOutput) ToWebFunctionEndpointAuthTypePtrOutputWithContext(ctx context.Context) WebFunctionEndpointAuthTypePtrOutput {
+	return o
+}
+
+func (o WebFunctionEndpointAuthTypePtrOutput) Elem() WebFunctionEndpointAuthTypeOutput {
+	return o.ApplyT(func(v *WebFunctionEndpointAuthType) WebFunctionEndpointAuthType {
+		if v != nil {
+			return *v
+		}
+		var ret WebFunctionEndpointAuthType
+		return ret
+	}).(WebFunctionEndpointAuthTypeOutput)
+}
+
+func (o WebFunctionEndpointAuthTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o WebFunctionEndpointAuthTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *WebFunctionEndpointAuthType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// WebFunctionEndpointAuthTypeInput is an input type that accepts values of the WebFunctionEndpointAuthType enum
+// A concrete instance of `WebFunctionEndpointAuthTypeInput` can be one of the following:
+//
+//	WebFunctionEndpointAuthTypeApplicationManaged
+//	WebFunctionEndpointAuthTypeIamAuth
+type WebFunctionEndpointAuthTypeInput interface {
+	pulumi.Input
+
+	ToWebFunctionEndpointAuthTypeOutput() WebFunctionEndpointAuthTypeOutput
+	ToWebFunctionEndpointAuthTypeOutputWithContext(context.Context) WebFunctionEndpointAuthTypeOutput
+}
+
+var webFunctionEndpointAuthTypePtrType = reflect.TypeOf((**WebFunctionEndpointAuthType)(nil)).Elem()
+
+type WebFunctionEndpointAuthTypePtrInput interface {
+	pulumi.Input
+
+	ToWebFunctionEndpointAuthTypePtrOutput() WebFunctionEndpointAuthTypePtrOutput
+	ToWebFunctionEndpointAuthTypePtrOutputWithContext(context.Context) WebFunctionEndpointAuthTypePtrOutput
+}
+
+type webFunctionEndpointAuthTypePtr string
+
+func WebFunctionEndpointAuthTypePtr(v string) WebFunctionEndpointAuthTypePtrInput {
+	return (*webFunctionEndpointAuthTypePtr)(&v)
+}
+
+func (*webFunctionEndpointAuthTypePtr) ElementType() reflect.Type {
+	return webFunctionEndpointAuthTypePtrType
+}
+
+func (in *webFunctionEndpointAuthTypePtr) ToWebFunctionEndpointAuthTypePtrOutput() WebFunctionEndpointAuthTypePtrOutput {
+	return pulumi.ToOutput(in).(WebFunctionEndpointAuthTypePtrOutput)
+}
+
+func (in *webFunctionEndpointAuthTypePtr) ToWebFunctionEndpointAuthTypePtrOutputWithContext(ctx context.Context) WebFunctionEndpointAuthTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(WebFunctionEndpointAuthTypePtrOutput)
+}
+
+// The type of the endpoint.
+type WebFunctionEndpointEndpointType string
+
+const (
+	WebFunctionEndpointEndpointTypeHomeRegion  = WebFunctionEndpointEndpointType("HomeRegion")
+	WebFunctionEndpointEndpointTypeMultiRegion = WebFunctionEndpointEndpointType("MultiRegion")
+	WebFunctionEndpointEndpointTypePerRegion   = WebFunctionEndpointEndpointType("PerRegion")
+)
+
+func (WebFunctionEndpointEndpointType) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebFunctionEndpointEndpointType)(nil)).Elem()
+}
+
+func (e WebFunctionEndpointEndpointType) ToWebFunctionEndpointEndpointTypeOutput() WebFunctionEndpointEndpointTypeOutput {
+	return pulumi.ToOutput(e).(WebFunctionEndpointEndpointTypeOutput)
+}
+
+func (e WebFunctionEndpointEndpointType) ToWebFunctionEndpointEndpointTypeOutputWithContext(ctx context.Context) WebFunctionEndpointEndpointTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(WebFunctionEndpointEndpointTypeOutput)
+}
+
+func (e WebFunctionEndpointEndpointType) ToWebFunctionEndpointEndpointTypePtrOutput() WebFunctionEndpointEndpointTypePtrOutput {
+	return e.ToWebFunctionEndpointEndpointTypePtrOutputWithContext(context.Background())
+}
+
+func (e WebFunctionEndpointEndpointType) ToWebFunctionEndpointEndpointTypePtrOutputWithContext(ctx context.Context) WebFunctionEndpointEndpointTypePtrOutput {
+	return WebFunctionEndpointEndpointType(e).ToWebFunctionEndpointEndpointTypeOutputWithContext(ctx).ToWebFunctionEndpointEndpointTypePtrOutputWithContext(ctx)
+}
+
+func (e WebFunctionEndpointEndpointType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e WebFunctionEndpointEndpointType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e WebFunctionEndpointEndpointType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e WebFunctionEndpointEndpointType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type WebFunctionEndpointEndpointTypeOutput struct{ *pulumi.OutputState }
+
+func (WebFunctionEndpointEndpointTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebFunctionEndpointEndpointType)(nil)).Elem()
+}
+
+func (o WebFunctionEndpointEndpointTypeOutput) ToWebFunctionEndpointEndpointTypeOutput() WebFunctionEndpointEndpointTypeOutput {
+	return o
+}
+
+func (o WebFunctionEndpointEndpointTypeOutput) ToWebFunctionEndpointEndpointTypeOutputWithContext(ctx context.Context) WebFunctionEndpointEndpointTypeOutput {
+	return o
+}
+
+func (o WebFunctionEndpointEndpointTypeOutput) ToWebFunctionEndpointEndpointTypePtrOutput() WebFunctionEndpointEndpointTypePtrOutput {
+	return o.ToWebFunctionEndpointEndpointTypePtrOutputWithContext(context.Background())
+}
+
+func (o WebFunctionEndpointEndpointTypeOutput) ToWebFunctionEndpointEndpointTypePtrOutputWithContext(ctx context.Context) WebFunctionEndpointEndpointTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebFunctionEndpointEndpointType) *WebFunctionEndpointEndpointType {
+		return &v
+	}).(WebFunctionEndpointEndpointTypePtrOutput)
+}
+
+func (o WebFunctionEndpointEndpointTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o WebFunctionEndpointEndpointTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e WebFunctionEndpointEndpointType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o WebFunctionEndpointEndpointTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o WebFunctionEndpointEndpointTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e WebFunctionEndpointEndpointType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type WebFunctionEndpointEndpointTypePtrOutput struct{ *pulumi.OutputState }
+
+func (WebFunctionEndpointEndpointTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebFunctionEndpointEndpointType)(nil)).Elem()
+}
+
+func (o WebFunctionEndpointEndpointTypePtrOutput) ToWebFunctionEndpointEndpointTypePtrOutput() WebFunctionEndpointEndpointTypePtrOutput {
+	return o
+}
+
+func (o WebFunctionEndpointEndpointTypePtrOutput) ToWebFunctionEndpointEndpointTypePtrOutputWithContext(ctx context.Context) WebFunctionEndpointEndpointTypePtrOutput {
+	return o
+}
+
+func (o WebFunctionEndpointEndpointTypePtrOutput) Elem() WebFunctionEndpointEndpointTypeOutput {
+	return o.ApplyT(func(v *WebFunctionEndpointEndpointType) WebFunctionEndpointEndpointType {
+		if v != nil {
+			return *v
+		}
+		var ret WebFunctionEndpointEndpointType
+		return ret
+	}).(WebFunctionEndpointEndpointTypeOutput)
+}
+
+func (o WebFunctionEndpointEndpointTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o WebFunctionEndpointEndpointTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *WebFunctionEndpointEndpointType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// WebFunctionEndpointEndpointTypeInput is an input type that accepts values of the WebFunctionEndpointEndpointType enum
+// A concrete instance of `WebFunctionEndpointEndpointTypeInput` can be one of the following:
+//
+//	WebFunctionEndpointEndpointTypeHomeRegion
+//	WebFunctionEndpointEndpointTypeMultiRegion
+//	WebFunctionEndpointEndpointTypePerRegion
+type WebFunctionEndpointEndpointTypeInput interface {
+	pulumi.Input
+
+	ToWebFunctionEndpointEndpointTypeOutput() WebFunctionEndpointEndpointTypeOutput
+	ToWebFunctionEndpointEndpointTypeOutputWithContext(context.Context) WebFunctionEndpointEndpointTypeOutput
+}
+
+var webFunctionEndpointEndpointTypePtrType = reflect.TypeOf((**WebFunctionEndpointEndpointType)(nil)).Elem()
+
+type WebFunctionEndpointEndpointTypePtrInput interface {
+	pulumi.Input
+
+	ToWebFunctionEndpointEndpointTypePtrOutput() WebFunctionEndpointEndpointTypePtrOutput
+	ToWebFunctionEndpointEndpointTypePtrOutputWithContext(context.Context) WebFunctionEndpointEndpointTypePtrOutput
+}
+
+type webFunctionEndpointEndpointTypePtr string
+
+func WebFunctionEndpointEndpointTypePtr(v string) WebFunctionEndpointEndpointTypePtrInput {
+	return (*webFunctionEndpointEndpointTypePtr)(&v)
+}
+
+func (*webFunctionEndpointEndpointTypePtr) ElementType() reflect.Type {
+	return webFunctionEndpointEndpointTypePtrType
+}
+
+func (in *webFunctionEndpointEndpointTypePtr) ToWebFunctionEndpointEndpointTypePtrOutput() WebFunctionEndpointEndpointTypePtrOutput {
+	return pulumi.ToOutput(in).(WebFunctionEndpointEndpointTypePtrOutput)
+}
+
+func (in *webFunctionEndpointEndpointTypePtr) ToWebFunctionEndpointEndpointTypePtrOutputWithContext(ctx context.Context) WebFunctionEndpointEndpointTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(WebFunctionEndpointEndpointTypePtrOutput)
+}
+
+// The authentication type for the endpoint.
+type WebFunctionEndpointRegionalEndpointAuthType string
+
+const (
+	WebFunctionEndpointRegionalEndpointAuthTypeApplicationManaged = WebFunctionEndpointRegionalEndpointAuthType("ApplicationManaged")
+	WebFunctionEndpointRegionalEndpointAuthTypeIamAuth            = WebFunctionEndpointRegionalEndpointAuthType("IamAuth")
+)
+
+type WebFunctionEndpointRegionalEndpointAuthTypeOutput struct{ *pulumi.OutputState }
+
+func (WebFunctionEndpointRegionalEndpointAuthTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebFunctionEndpointRegionalEndpointAuthType)(nil)).Elem()
+}
+
+func (o WebFunctionEndpointRegionalEndpointAuthTypeOutput) ToWebFunctionEndpointRegionalEndpointAuthTypeOutput() WebFunctionEndpointRegionalEndpointAuthTypeOutput {
+	return o
+}
+
+func (o WebFunctionEndpointRegionalEndpointAuthTypeOutput) ToWebFunctionEndpointRegionalEndpointAuthTypeOutputWithContext(ctx context.Context) WebFunctionEndpointRegionalEndpointAuthTypeOutput {
+	return o
+}
+
+func (o WebFunctionEndpointRegionalEndpointAuthTypeOutput) ToWebFunctionEndpointRegionalEndpointAuthTypePtrOutput() WebFunctionEndpointRegionalEndpointAuthTypePtrOutput {
+	return o.ToWebFunctionEndpointRegionalEndpointAuthTypePtrOutputWithContext(context.Background())
+}
+
+func (o WebFunctionEndpointRegionalEndpointAuthTypeOutput) ToWebFunctionEndpointRegionalEndpointAuthTypePtrOutputWithContext(ctx context.Context) WebFunctionEndpointRegionalEndpointAuthTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebFunctionEndpointRegionalEndpointAuthType) *WebFunctionEndpointRegionalEndpointAuthType {
+		return &v
+	}).(WebFunctionEndpointRegionalEndpointAuthTypePtrOutput)
+}
+
+func (o WebFunctionEndpointRegionalEndpointAuthTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o WebFunctionEndpointRegionalEndpointAuthTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e WebFunctionEndpointRegionalEndpointAuthType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o WebFunctionEndpointRegionalEndpointAuthTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o WebFunctionEndpointRegionalEndpointAuthTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e WebFunctionEndpointRegionalEndpointAuthType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type WebFunctionEndpointRegionalEndpointAuthTypePtrOutput struct{ *pulumi.OutputState }
+
+func (WebFunctionEndpointRegionalEndpointAuthTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebFunctionEndpointRegionalEndpointAuthType)(nil)).Elem()
+}
+
+func (o WebFunctionEndpointRegionalEndpointAuthTypePtrOutput) ToWebFunctionEndpointRegionalEndpointAuthTypePtrOutput() WebFunctionEndpointRegionalEndpointAuthTypePtrOutput {
+	return o
+}
+
+func (o WebFunctionEndpointRegionalEndpointAuthTypePtrOutput) ToWebFunctionEndpointRegionalEndpointAuthTypePtrOutputWithContext(ctx context.Context) WebFunctionEndpointRegionalEndpointAuthTypePtrOutput {
+	return o
+}
+
+func (o WebFunctionEndpointRegionalEndpointAuthTypePtrOutput) Elem() WebFunctionEndpointRegionalEndpointAuthTypeOutput {
+	return o.ApplyT(func(v *WebFunctionEndpointRegionalEndpointAuthType) WebFunctionEndpointRegionalEndpointAuthType {
+		if v != nil {
+			return *v
+		}
+		var ret WebFunctionEndpointRegionalEndpointAuthType
+		return ret
+	}).(WebFunctionEndpointRegionalEndpointAuthTypeOutput)
+}
+
+func (o WebFunctionEndpointRegionalEndpointAuthTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o WebFunctionEndpointRegionalEndpointAuthTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *WebFunctionEndpointRegionalEndpointAuthType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// The current state of the endpoint.
+type WebFunctionEndpointRegionalEndpointState string
+
+const (
+	WebFunctionEndpointRegionalEndpointStatePending  = WebFunctionEndpointRegionalEndpointState("Pending")
+	WebFunctionEndpointRegionalEndpointStateActive   = WebFunctionEndpointRegionalEndpointState("Active")
+	WebFunctionEndpointRegionalEndpointStateFailed   = WebFunctionEndpointRegionalEndpointState("Failed")
+	WebFunctionEndpointRegionalEndpointStateDeleting = WebFunctionEndpointRegionalEndpointState("Deleting")
+)
+
+type WebFunctionEndpointRegionalEndpointStateOutput struct{ *pulumi.OutputState }
+
+func (WebFunctionEndpointRegionalEndpointStateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebFunctionEndpointRegionalEndpointState)(nil)).Elem()
+}
+
+func (o WebFunctionEndpointRegionalEndpointStateOutput) ToWebFunctionEndpointRegionalEndpointStateOutput() WebFunctionEndpointRegionalEndpointStateOutput {
+	return o
+}
+
+func (o WebFunctionEndpointRegionalEndpointStateOutput) ToWebFunctionEndpointRegionalEndpointStateOutputWithContext(ctx context.Context) WebFunctionEndpointRegionalEndpointStateOutput {
+	return o
+}
+
+func (o WebFunctionEndpointRegionalEndpointStateOutput) ToWebFunctionEndpointRegionalEndpointStatePtrOutput() WebFunctionEndpointRegionalEndpointStatePtrOutput {
+	return o.ToWebFunctionEndpointRegionalEndpointStatePtrOutputWithContext(context.Background())
+}
+
+func (o WebFunctionEndpointRegionalEndpointStateOutput) ToWebFunctionEndpointRegionalEndpointStatePtrOutputWithContext(ctx context.Context) WebFunctionEndpointRegionalEndpointStatePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebFunctionEndpointRegionalEndpointState) *WebFunctionEndpointRegionalEndpointState {
+		return &v
+	}).(WebFunctionEndpointRegionalEndpointStatePtrOutput)
+}
+
+func (o WebFunctionEndpointRegionalEndpointStateOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o WebFunctionEndpointRegionalEndpointStateOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e WebFunctionEndpointRegionalEndpointState) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o WebFunctionEndpointRegionalEndpointStateOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o WebFunctionEndpointRegionalEndpointStateOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e WebFunctionEndpointRegionalEndpointState) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type WebFunctionEndpointRegionalEndpointStatePtrOutput struct{ *pulumi.OutputState }
+
+func (WebFunctionEndpointRegionalEndpointStatePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebFunctionEndpointRegionalEndpointState)(nil)).Elem()
+}
+
+func (o WebFunctionEndpointRegionalEndpointStatePtrOutput) ToWebFunctionEndpointRegionalEndpointStatePtrOutput() WebFunctionEndpointRegionalEndpointStatePtrOutput {
+	return o
+}
+
+func (o WebFunctionEndpointRegionalEndpointStatePtrOutput) ToWebFunctionEndpointRegionalEndpointStatePtrOutputWithContext(ctx context.Context) WebFunctionEndpointRegionalEndpointStatePtrOutput {
+	return o
+}
+
+func (o WebFunctionEndpointRegionalEndpointStatePtrOutput) Elem() WebFunctionEndpointRegionalEndpointStateOutput {
+	return o.ApplyT(func(v *WebFunctionEndpointRegionalEndpointState) WebFunctionEndpointRegionalEndpointState {
+		if v != nil {
+			return *v
+		}
+		var ret WebFunctionEndpointRegionalEndpointState
+		return ret
+	}).(WebFunctionEndpointRegionalEndpointStateOutput)
+}
+
+func (o WebFunctionEndpointRegionalEndpointStatePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o WebFunctionEndpointRegionalEndpointStatePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *WebFunctionEndpointRegionalEndpointState) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// The status of the most recent update to the endpoint.
+type WebFunctionEndpointRegionalEndpointUpdateStatus string
+
+const (
+	WebFunctionEndpointRegionalEndpointUpdateStatusInProgress = WebFunctionEndpointRegionalEndpointUpdateStatus("InProgress")
+	WebFunctionEndpointRegionalEndpointUpdateStatusSuccessful = WebFunctionEndpointRegionalEndpointUpdateStatus("Successful")
+	WebFunctionEndpointRegionalEndpointUpdateStatusFailed     = WebFunctionEndpointRegionalEndpointUpdateStatus("Failed")
+)
+
+type WebFunctionEndpointRegionalEndpointUpdateStatusOutput struct{ *pulumi.OutputState }
+
+func (WebFunctionEndpointRegionalEndpointUpdateStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebFunctionEndpointRegionalEndpointUpdateStatus)(nil)).Elem()
+}
+
+func (o WebFunctionEndpointRegionalEndpointUpdateStatusOutput) ToWebFunctionEndpointRegionalEndpointUpdateStatusOutput() WebFunctionEndpointRegionalEndpointUpdateStatusOutput {
+	return o
+}
+
+func (o WebFunctionEndpointRegionalEndpointUpdateStatusOutput) ToWebFunctionEndpointRegionalEndpointUpdateStatusOutputWithContext(ctx context.Context) WebFunctionEndpointRegionalEndpointUpdateStatusOutput {
+	return o
+}
+
+func (o WebFunctionEndpointRegionalEndpointUpdateStatusOutput) ToWebFunctionEndpointRegionalEndpointUpdateStatusPtrOutput() WebFunctionEndpointRegionalEndpointUpdateStatusPtrOutput {
+	return o.ToWebFunctionEndpointRegionalEndpointUpdateStatusPtrOutputWithContext(context.Background())
+}
+
+func (o WebFunctionEndpointRegionalEndpointUpdateStatusOutput) ToWebFunctionEndpointRegionalEndpointUpdateStatusPtrOutputWithContext(ctx context.Context) WebFunctionEndpointRegionalEndpointUpdateStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebFunctionEndpointRegionalEndpointUpdateStatus) *WebFunctionEndpointRegionalEndpointUpdateStatus {
+		return &v
+	}).(WebFunctionEndpointRegionalEndpointUpdateStatusPtrOutput)
+}
+
+func (o WebFunctionEndpointRegionalEndpointUpdateStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o WebFunctionEndpointRegionalEndpointUpdateStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e WebFunctionEndpointRegionalEndpointUpdateStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o WebFunctionEndpointRegionalEndpointUpdateStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o WebFunctionEndpointRegionalEndpointUpdateStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e WebFunctionEndpointRegionalEndpointUpdateStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type WebFunctionEndpointRegionalEndpointUpdateStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (WebFunctionEndpointRegionalEndpointUpdateStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebFunctionEndpointRegionalEndpointUpdateStatus)(nil)).Elem()
+}
+
+func (o WebFunctionEndpointRegionalEndpointUpdateStatusPtrOutput) ToWebFunctionEndpointRegionalEndpointUpdateStatusPtrOutput() WebFunctionEndpointRegionalEndpointUpdateStatusPtrOutput {
+	return o
+}
+
+func (o WebFunctionEndpointRegionalEndpointUpdateStatusPtrOutput) ToWebFunctionEndpointRegionalEndpointUpdateStatusPtrOutputWithContext(ctx context.Context) WebFunctionEndpointRegionalEndpointUpdateStatusPtrOutput {
+	return o
+}
+
+func (o WebFunctionEndpointRegionalEndpointUpdateStatusPtrOutput) Elem() WebFunctionEndpointRegionalEndpointUpdateStatusOutput {
+	return o.ApplyT(func(v *WebFunctionEndpointRegionalEndpointUpdateStatus) WebFunctionEndpointRegionalEndpointUpdateStatus {
+		if v != nil {
+			return *v
+		}
+		var ret WebFunctionEndpointRegionalEndpointUpdateStatus
+		return ret
+	}).(WebFunctionEndpointRegionalEndpointUpdateStatusOutput)
+}
+
+func (o WebFunctionEndpointRegionalEndpointUpdateStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o WebFunctionEndpointRegionalEndpointUpdateStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *WebFunctionEndpointRegionalEndpointUpdateStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// The current state of the endpoint.
+type WebFunctionEndpointStateEnum string
+
+const (
+	WebFunctionEndpointStateEnumPending  = WebFunctionEndpointStateEnum("Pending")
+	WebFunctionEndpointStateEnumActive   = WebFunctionEndpointStateEnum("Active")
+	WebFunctionEndpointStateEnumFailed   = WebFunctionEndpointStateEnum("Failed")
+	WebFunctionEndpointStateEnumDeleting = WebFunctionEndpointStateEnum("Deleting")
+)
+
+type WebFunctionEndpointStateEnumOutput struct{ *pulumi.OutputState }
+
+func (WebFunctionEndpointStateEnumOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebFunctionEndpointStateEnum)(nil)).Elem()
+}
+
+func (o WebFunctionEndpointStateEnumOutput) ToWebFunctionEndpointStateEnumOutput() WebFunctionEndpointStateEnumOutput {
+	return o
+}
+
+func (o WebFunctionEndpointStateEnumOutput) ToWebFunctionEndpointStateEnumOutputWithContext(ctx context.Context) WebFunctionEndpointStateEnumOutput {
+	return o
+}
+
+func (o WebFunctionEndpointStateEnumOutput) ToWebFunctionEndpointStateEnumPtrOutput() WebFunctionEndpointStateEnumPtrOutput {
+	return o.ToWebFunctionEndpointStateEnumPtrOutputWithContext(context.Background())
+}
+
+func (o WebFunctionEndpointStateEnumOutput) ToWebFunctionEndpointStateEnumPtrOutputWithContext(ctx context.Context) WebFunctionEndpointStateEnumPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebFunctionEndpointStateEnum) *WebFunctionEndpointStateEnum {
+		return &v
+	}).(WebFunctionEndpointStateEnumPtrOutput)
+}
+
+func (o WebFunctionEndpointStateEnumOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o WebFunctionEndpointStateEnumOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e WebFunctionEndpointStateEnum) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o WebFunctionEndpointStateEnumOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o WebFunctionEndpointStateEnumOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e WebFunctionEndpointStateEnum) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type WebFunctionEndpointStateEnumPtrOutput struct{ *pulumi.OutputState }
+
+func (WebFunctionEndpointStateEnumPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebFunctionEndpointStateEnum)(nil)).Elem()
+}
+
+func (o WebFunctionEndpointStateEnumPtrOutput) ToWebFunctionEndpointStateEnumPtrOutput() WebFunctionEndpointStateEnumPtrOutput {
+	return o
+}
+
+func (o WebFunctionEndpointStateEnumPtrOutput) ToWebFunctionEndpointStateEnumPtrOutputWithContext(ctx context.Context) WebFunctionEndpointStateEnumPtrOutput {
+	return o
+}
+
+func (o WebFunctionEndpointStateEnumPtrOutput) Elem() WebFunctionEndpointStateEnumOutput {
+	return o.ApplyT(func(v *WebFunctionEndpointStateEnum) WebFunctionEndpointStateEnum {
+		if v != nil {
+			return *v
+		}
+		var ret WebFunctionEndpointStateEnum
+		return ret
+	}).(WebFunctionEndpointStateEnumOutput)
+}
+
+func (o WebFunctionEndpointStateEnumPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o WebFunctionEndpointStateEnumPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *WebFunctionEndpointStateEnum) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// The status of the last update operation.
+type WebFunctionEndpointUpdateStatus string
+
+const (
+	WebFunctionEndpointUpdateStatusInProgress = WebFunctionEndpointUpdateStatus("InProgress")
+	WebFunctionEndpointUpdateStatusSuccessful = WebFunctionEndpointUpdateStatus("Successful")
+	WebFunctionEndpointUpdateStatusFailed     = WebFunctionEndpointUpdateStatus("Failed")
+)
+
+type WebFunctionEndpointUpdateStatusOutput struct{ *pulumi.OutputState }
+
+func (WebFunctionEndpointUpdateStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebFunctionEndpointUpdateStatus)(nil)).Elem()
+}
+
+func (o WebFunctionEndpointUpdateStatusOutput) ToWebFunctionEndpointUpdateStatusOutput() WebFunctionEndpointUpdateStatusOutput {
+	return o
+}
+
+func (o WebFunctionEndpointUpdateStatusOutput) ToWebFunctionEndpointUpdateStatusOutputWithContext(ctx context.Context) WebFunctionEndpointUpdateStatusOutput {
+	return o
+}
+
+func (o WebFunctionEndpointUpdateStatusOutput) ToWebFunctionEndpointUpdateStatusPtrOutput() WebFunctionEndpointUpdateStatusPtrOutput {
+	return o.ToWebFunctionEndpointUpdateStatusPtrOutputWithContext(context.Background())
+}
+
+func (o WebFunctionEndpointUpdateStatusOutput) ToWebFunctionEndpointUpdateStatusPtrOutputWithContext(ctx context.Context) WebFunctionEndpointUpdateStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebFunctionEndpointUpdateStatus) *WebFunctionEndpointUpdateStatus {
+		return &v
+	}).(WebFunctionEndpointUpdateStatusPtrOutput)
+}
+
+func (o WebFunctionEndpointUpdateStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o WebFunctionEndpointUpdateStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e WebFunctionEndpointUpdateStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o WebFunctionEndpointUpdateStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o WebFunctionEndpointUpdateStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e WebFunctionEndpointUpdateStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type WebFunctionEndpointUpdateStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (WebFunctionEndpointUpdateStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebFunctionEndpointUpdateStatus)(nil)).Elem()
+}
+
+func (o WebFunctionEndpointUpdateStatusPtrOutput) ToWebFunctionEndpointUpdateStatusPtrOutput() WebFunctionEndpointUpdateStatusPtrOutput {
+	return o
+}
+
+func (o WebFunctionEndpointUpdateStatusPtrOutput) ToWebFunctionEndpointUpdateStatusPtrOutputWithContext(ctx context.Context) WebFunctionEndpointUpdateStatusPtrOutput {
+	return o
+}
+
+func (o WebFunctionEndpointUpdateStatusPtrOutput) Elem() WebFunctionEndpointUpdateStatusOutput {
+	return o.ApplyT(func(v *WebFunctionEndpointUpdateStatus) WebFunctionEndpointUpdateStatus {
+		if v != nil {
+			return *v
+		}
+		var ret WebFunctionEndpointUpdateStatus
+		return ret
+	}).(WebFunctionEndpointUpdateStatusOutput)
+}
+
+func (o WebFunctionEndpointUpdateStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o WebFunctionEndpointUpdateStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *WebFunctionEndpointUpdateStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// The application log level.
+type WebFunctionRevisionLoggingConfigApplicationLogLevel string
+
+const (
+	WebFunctionRevisionLoggingConfigApplicationLogLevelTrace = WebFunctionRevisionLoggingConfigApplicationLogLevel("TRACE")
+	WebFunctionRevisionLoggingConfigApplicationLogLevelDebug = WebFunctionRevisionLoggingConfigApplicationLogLevel("DEBUG")
+	WebFunctionRevisionLoggingConfigApplicationLogLevelInfo  = WebFunctionRevisionLoggingConfigApplicationLogLevel("INFO")
+	WebFunctionRevisionLoggingConfigApplicationLogLevelWarn  = WebFunctionRevisionLoggingConfigApplicationLogLevel("WARN")
+	WebFunctionRevisionLoggingConfigApplicationLogLevelError = WebFunctionRevisionLoggingConfigApplicationLogLevel("ERROR")
+	WebFunctionRevisionLoggingConfigApplicationLogLevelFatal = WebFunctionRevisionLoggingConfigApplicationLogLevel("FATAL")
+)
+
+func (WebFunctionRevisionLoggingConfigApplicationLogLevel) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebFunctionRevisionLoggingConfigApplicationLogLevel)(nil)).Elem()
+}
+
+func (e WebFunctionRevisionLoggingConfigApplicationLogLevel) ToWebFunctionRevisionLoggingConfigApplicationLogLevelOutput() WebFunctionRevisionLoggingConfigApplicationLogLevelOutput {
+	return pulumi.ToOutput(e).(WebFunctionRevisionLoggingConfigApplicationLogLevelOutput)
+}
+
+func (e WebFunctionRevisionLoggingConfigApplicationLogLevel) ToWebFunctionRevisionLoggingConfigApplicationLogLevelOutputWithContext(ctx context.Context) WebFunctionRevisionLoggingConfigApplicationLogLevelOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(WebFunctionRevisionLoggingConfigApplicationLogLevelOutput)
+}
+
+func (e WebFunctionRevisionLoggingConfigApplicationLogLevel) ToWebFunctionRevisionLoggingConfigApplicationLogLevelPtrOutput() WebFunctionRevisionLoggingConfigApplicationLogLevelPtrOutput {
+	return e.ToWebFunctionRevisionLoggingConfigApplicationLogLevelPtrOutputWithContext(context.Background())
+}
+
+func (e WebFunctionRevisionLoggingConfigApplicationLogLevel) ToWebFunctionRevisionLoggingConfigApplicationLogLevelPtrOutputWithContext(ctx context.Context) WebFunctionRevisionLoggingConfigApplicationLogLevelPtrOutput {
+	return WebFunctionRevisionLoggingConfigApplicationLogLevel(e).ToWebFunctionRevisionLoggingConfigApplicationLogLevelOutputWithContext(ctx).ToWebFunctionRevisionLoggingConfigApplicationLogLevelPtrOutputWithContext(ctx)
+}
+
+func (e WebFunctionRevisionLoggingConfigApplicationLogLevel) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e WebFunctionRevisionLoggingConfigApplicationLogLevel) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e WebFunctionRevisionLoggingConfigApplicationLogLevel) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e WebFunctionRevisionLoggingConfigApplicationLogLevel) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type WebFunctionRevisionLoggingConfigApplicationLogLevelOutput struct{ *pulumi.OutputState }
+
+func (WebFunctionRevisionLoggingConfigApplicationLogLevelOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebFunctionRevisionLoggingConfigApplicationLogLevel)(nil)).Elem()
+}
+
+func (o WebFunctionRevisionLoggingConfigApplicationLogLevelOutput) ToWebFunctionRevisionLoggingConfigApplicationLogLevelOutput() WebFunctionRevisionLoggingConfigApplicationLogLevelOutput {
+	return o
+}
+
+func (o WebFunctionRevisionLoggingConfigApplicationLogLevelOutput) ToWebFunctionRevisionLoggingConfigApplicationLogLevelOutputWithContext(ctx context.Context) WebFunctionRevisionLoggingConfigApplicationLogLevelOutput {
+	return o
+}
+
+func (o WebFunctionRevisionLoggingConfigApplicationLogLevelOutput) ToWebFunctionRevisionLoggingConfigApplicationLogLevelPtrOutput() WebFunctionRevisionLoggingConfigApplicationLogLevelPtrOutput {
+	return o.ToWebFunctionRevisionLoggingConfigApplicationLogLevelPtrOutputWithContext(context.Background())
+}
+
+func (o WebFunctionRevisionLoggingConfigApplicationLogLevelOutput) ToWebFunctionRevisionLoggingConfigApplicationLogLevelPtrOutputWithContext(ctx context.Context) WebFunctionRevisionLoggingConfigApplicationLogLevelPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebFunctionRevisionLoggingConfigApplicationLogLevel) *WebFunctionRevisionLoggingConfigApplicationLogLevel {
+		return &v
+	}).(WebFunctionRevisionLoggingConfigApplicationLogLevelPtrOutput)
+}
+
+func (o WebFunctionRevisionLoggingConfigApplicationLogLevelOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o WebFunctionRevisionLoggingConfigApplicationLogLevelOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e WebFunctionRevisionLoggingConfigApplicationLogLevel) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o WebFunctionRevisionLoggingConfigApplicationLogLevelOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o WebFunctionRevisionLoggingConfigApplicationLogLevelOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e WebFunctionRevisionLoggingConfigApplicationLogLevel) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type WebFunctionRevisionLoggingConfigApplicationLogLevelPtrOutput struct{ *pulumi.OutputState }
+
+func (WebFunctionRevisionLoggingConfigApplicationLogLevelPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebFunctionRevisionLoggingConfigApplicationLogLevel)(nil)).Elem()
+}
+
+func (o WebFunctionRevisionLoggingConfigApplicationLogLevelPtrOutput) ToWebFunctionRevisionLoggingConfigApplicationLogLevelPtrOutput() WebFunctionRevisionLoggingConfigApplicationLogLevelPtrOutput {
+	return o
+}
+
+func (o WebFunctionRevisionLoggingConfigApplicationLogLevelPtrOutput) ToWebFunctionRevisionLoggingConfigApplicationLogLevelPtrOutputWithContext(ctx context.Context) WebFunctionRevisionLoggingConfigApplicationLogLevelPtrOutput {
+	return o
+}
+
+func (o WebFunctionRevisionLoggingConfigApplicationLogLevelPtrOutput) Elem() WebFunctionRevisionLoggingConfigApplicationLogLevelOutput {
+	return o.ApplyT(func(v *WebFunctionRevisionLoggingConfigApplicationLogLevel) WebFunctionRevisionLoggingConfigApplicationLogLevel {
+		if v != nil {
+			return *v
+		}
+		var ret WebFunctionRevisionLoggingConfigApplicationLogLevel
+		return ret
+	}).(WebFunctionRevisionLoggingConfigApplicationLogLevelOutput)
+}
+
+func (o WebFunctionRevisionLoggingConfigApplicationLogLevelPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o WebFunctionRevisionLoggingConfigApplicationLogLevelPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *WebFunctionRevisionLoggingConfigApplicationLogLevel) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// WebFunctionRevisionLoggingConfigApplicationLogLevelInput is an input type that accepts values of the WebFunctionRevisionLoggingConfigApplicationLogLevel enum
+// A concrete instance of `WebFunctionRevisionLoggingConfigApplicationLogLevelInput` can be one of the following:
+//
+//	WebFunctionRevisionLoggingConfigApplicationLogLevelTrace
+//	WebFunctionRevisionLoggingConfigApplicationLogLevelDebug
+//	WebFunctionRevisionLoggingConfigApplicationLogLevelInfo
+//	WebFunctionRevisionLoggingConfigApplicationLogLevelWarn
+//	WebFunctionRevisionLoggingConfigApplicationLogLevelError
+//	WebFunctionRevisionLoggingConfigApplicationLogLevelFatal
+type WebFunctionRevisionLoggingConfigApplicationLogLevelInput interface {
+	pulumi.Input
+
+	ToWebFunctionRevisionLoggingConfigApplicationLogLevelOutput() WebFunctionRevisionLoggingConfigApplicationLogLevelOutput
+	ToWebFunctionRevisionLoggingConfigApplicationLogLevelOutputWithContext(context.Context) WebFunctionRevisionLoggingConfigApplicationLogLevelOutput
+}
+
+var webFunctionRevisionLoggingConfigApplicationLogLevelPtrType = reflect.TypeOf((**WebFunctionRevisionLoggingConfigApplicationLogLevel)(nil)).Elem()
+
+type WebFunctionRevisionLoggingConfigApplicationLogLevelPtrInput interface {
+	pulumi.Input
+
+	ToWebFunctionRevisionLoggingConfigApplicationLogLevelPtrOutput() WebFunctionRevisionLoggingConfigApplicationLogLevelPtrOutput
+	ToWebFunctionRevisionLoggingConfigApplicationLogLevelPtrOutputWithContext(context.Context) WebFunctionRevisionLoggingConfigApplicationLogLevelPtrOutput
+}
+
+type webFunctionRevisionLoggingConfigApplicationLogLevelPtr string
+
+func WebFunctionRevisionLoggingConfigApplicationLogLevelPtr(v string) WebFunctionRevisionLoggingConfigApplicationLogLevelPtrInput {
+	return (*webFunctionRevisionLoggingConfigApplicationLogLevelPtr)(&v)
+}
+
+func (*webFunctionRevisionLoggingConfigApplicationLogLevelPtr) ElementType() reflect.Type {
+	return webFunctionRevisionLoggingConfigApplicationLogLevelPtrType
+}
+
+func (in *webFunctionRevisionLoggingConfigApplicationLogLevelPtr) ToWebFunctionRevisionLoggingConfigApplicationLogLevelPtrOutput() WebFunctionRevisionLoggingConfigApplicationLogLevelPtrOutput {
+	return pulumi.ToOutput(in).(WebFunctionRevisionLoggingConfigApplicationLogLevelPtrOutput)
+}
+
+func (in *webFunctionRevisionLoggingConfigApplicationLogLevelPtr) ToWebFunctionRevisionLoggingConfigApplicationLogLevelPtrOutputWithContext(ctx context.Context) WebFunctionRevisionLoggingConfigApplicationLogLevelPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(WebFunctionRevisionLoggingConfigApplicationLogLevelPtrOutput)
+}
+
+// The system log level.
+type WebFunctionRevisionLoggingConfigSystemLogLevel string
+
+const (
+	WebFunctionRevisionLoggingConfigSystemLogLevelDebug = WebFunctionRevisionLoggingConfigSystemLogLevel("DEBUG")
+	WebFunctionRevisionLoggingConfigSystemLogLevelInfo  = WebFunctionRevisionLoggingConfigSystemLogLevel("INFO")
+	WebFunctionRevisionLoggingConfigSystemLogLevelWarn  = WebFunctionRevisionLoggingConfigSystemLogLevel("WARN")
+)
+
+func (WebFunctionRevisionLoggingConfigSystemLogLevel) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebFunctionRevisionLoggingConfigSystemLogLevel)(nil)).Elem()
+}
+
+func (e WebFunctionRevisionLoggingConfigSystemLogLevel) ToWebFunctionRevisionLoggingConfigSystemLogLevelOutput() WebFunctionRevisionLoggingConfigSystemLogLevelOutput {
+	return pulumi.ToOutput(e).(WebFunctionRevisionLoggingConfigSystemLogLevelOutput)
+}
+
+func (e WebFunctionRevisionLoggingConfigSystemLogLevel) ToWebFunctionRevisionLoggingConfigSystemLogLevelOutputWithContext(ctx context.Context) WebFunctionRevisionLoggingConfigSystemLogLevelOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(WebFunctionRevisionLoggingConfigSystemLogLevelOutput)
+}
+
+func (e WebFunctionRevisionLoggingConfigSystemLogLevel) ToWebFunctionRevisionLoggingConfigSystemLogLevelPtrOutput() WebFunctionRevisionLoggingConfigSystemLogLevelPtrOutput {
+	return e.ToWebFunctionRevisionLoggingConfigSystemLogLevelPtrOutputWithContext(context.Background())
+}
+
+func (e WebFunctionRevisionLoggingConfigSystemLogLevel) ToWebFunctionRevisionLoggingConfigSystemLogLevelPtrOutputWithContext(ctx context.Context) WebFunctionRevisionLoggingConfigSystemLogLevelPtrOutput {
+	return WebFunctionRevisionLoggingConfigSystemLogLevel(e).ToWebFunctionRevisionLoggingConfigSystemLogLevelOutputWithContext(ctx).ToWebFunctionRevisionLoggingConfigSystemLogLevelPtrOutputWithContext(ctx)
+}
+
+func (e WebFunctionRevisionLoggingConfigSystemLogLevel) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e WebFunctionRevisionLoggingConfigSystemLogLevel) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e WebFunctionRevisionLoggingConfigSystemLogLevel) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e WebFunctionRevisionLoggingConfigSystemLogLevel) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type WebFunctionRevisionLoggingConfigSystemLogLevelOutput struct{ *pulumi.OutputState }
+
+func (WebFunctionRevisionLoggingConfigSystemLogLevelOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebFunctionRevisionLoggingConfigSystemLogLevel)(nil)).Elem()
+}
+
+func (o WebFunctionRevisionLoggingConfigSystemLogLevelOutput) ToWebFunctionRevisionLoggingConfigSystemLogLevelOutput() WebFunctionRevisionLoggingConfigSystemLogLevelOutput {
+	return o
+}
+
+func (o WebFunctionRevisionLoggingConfigSystemLogLevelOutput) ToWebFunctionRevisionLoggingConfigSystemLogLevelOutputWithContext(ctx context.Context) WebFunctionRevisionLoggingConfigSystemLogLevelOutput {
+	return o
+}
+
+func (o WebFunctionRevisionLoggingConfigSystemLogLevelOutput) ToWebFunctionRevisionLoggingConfigSystemLogLevelPtrOutput() WebFunctionRevisionLoggingConfigSystemLogLevelPtrOutput {
+	return o.ToWebFunctionRevisionLoggingConfigSystemLogLevelPtrOutputWithContext(context.Background())
+}
+
+func (o WebFunctionRevisionLoggingConfigSystemLogLevelOutput) ToWebFunctionRevisionLoggingConfigSystemLogLevelPtrOutputWithContext(ctx context.Context) WebFunctionRevisionLoggingConfigSystemLogLevelPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebFunctionRevisionLoggingConfigSystemLogLevel) *WebFunctionRevisionLoggingConfigSystemLogLevel {
+		return &v
+	}).(WebFunctionRevisionLoggingConfigSystemLogLevelPtrOutput)
+}
+
+func (o WebFunctionRevisionLoggingConfigSystemLogLevelOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o WebFunctionRevisionLoggingConfigSystemLogLevelOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e WebFunctionRevisionLoggingConfigSystemLogLevel) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o WebFunctionRevisionLoggingConfigSystemLogLevelOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o WebFunctionRevisionLoggingConfigSystemLogLevelOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e WebFunctionRevisionLoggingConfigSystemLogLevel) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type WebFunctionRevisionLoggingConfigSystemLogLevelPtrOutput struct{ *pulumi.OutputState }
+
+func (WebFunctionRevisionLoggingConfigSystemLogLevelPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebFunctionRevisionLoggingConfigSystemLogLevel)(nil)).Elem()
+}
+
+func (o WebFunctionRevisionLoggingConfigSystemLogLevelPtrOutput) ToWebFunctionRevisionLoggingConfigSystemLogLevelPtrOutput() WebFunctionRevisionLoggingConfigSystemLogLevelPtrOutput {
+	return o
+}
+
+func (o WebFunctionRevisionLoggingConfigSystemLogLevelPtrOutput) ToWebFunctionRevisionLoggingConfigSystemLogLevelPtrOutputWithContext(ctx context.Context) WebFunctionRevisionLoggingConfigSystemLogLevelPtrOutput {
+	return o
+}
+
+func (o WebFunctionRevisionLoggingConfigSystemLogLevelPtrOutput) Elem() WebFunctionRevisionLoggingConfigSystemLogLevelOutput {
+	return o.ApplyT(func(v *WebFunctionRevisionLoggingConfigSystemLogLevel) WebFunctionRevisionLoggingConfigSystemLogLevel {
+		if v != nil {
+			return *v
+		}
+		var ret WebFunctionRevisionLoggingConfigSystemLogLevel
+		return ret
+	}).(WebFunctionRevisionLoggingConfigSystemLogLevelOutput)
+}
+
+func (o WebFunctionRevisionLoggingConfigSystemLogLevelPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o WebFunctionRevisionLoggingConfigSystemLogLevelPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *WebFunctionRevisionLoggingConfigSystemLogLevel) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// WebFunctionRevisionLoggingConfigSystemLogLevelInput is an input type that accepts values of the WebFunctionRevisionLoggingConfigSystemLogLevel enum
+// A concrete instance of `WebFunctionRevisionLoggingConfigSystemLogLevelInput` can be one of the following:
+//
+//	WebFunctionRevisionLoggingConfigSystemLogLevelDebug
+//	WebFunctionRevisionLoggingConfigSystemLogLevelInfo
+//	WebFunctionRevisionLoggingConfigSystemLogLevelWarn
+type WebFunctionRevisionLoggingConfigSystemLogLevelInput interface {
+	pulumi.Input
+
+	ToWebFunctionRevisionLoggingConfigSystemLogLevelOutput() WebFunctionRevisionLoggingConfigSystemLogLevelOutput
+	ToWebFunctionRevisionLoggingConfigSystemLogLevelOutputWithContext(context.Context) WebFunctionRevisionLoggingConfigSystemLogLevelOutput
+}
+
+var webFunctionRevisionLoggingConfigSystemLogLevelPtrType = reflect.TypeOf((**WebFunctionRevisionLoggingConfigSystemLogLevel)(nil)).Elem()
+
+type WebFunctionRevisionLoggingConfigSystemLogLevelPtrInput interface {
+	pulumi.Input
+
+	ToWebFunctionRevisionLoggingConfigSystemLogLevelPtrOutput() WebFunctionRevisionLoggingConfigSystemLogLevelPtrOutput
+	ToWebFunctionRevisionLoggingConfigSystemLogLevelPtrOutputWithContext(context.Context) WebFunctionRevisionLoggingConfigSystemLogLevelPtrOutput
+}
+
+type webFunctionRevisionLoggingConfigSystemLogLevelPtr string
+
+func WebFunctionRevisionLoggingConfigSystemLogLevelPtr(v string) WebFunctionRevisionLoggingConfigSystemLogLevelPtrInput {
+	return (*webFunctionRevisionLoggingConfigSystemLogLevelPtr)(&v)
+}
+
+func (*webFunctionRevisionLoggingConfigSystemLogLevelPtr) ElementType() reflect.Type {
+	return webFunctionRevisionLoggingConfigSystemLogLevelPtrType
+}
+
+func (in *webFunctionRevisionLoggingConfigSystemLogLevelPtr) ToWebFunctionRevisionLoggingConfigSystemLogLevelPtrOutput() WebFunctionRevisionLoggingConfigSystemLogLevelPtrOutput {
+	return pulumi.ToOutput(in).(WebFunctionRevisionLoggingConfigSystemLogLevelPtrOutput)
+}
+
+func (in *webFunctionRevisionLoggingConfigSystemLogLevelPtr) ToWebFunctionRevisionLoggingConfigSystemLogLevelPtrOutputWithContext(ctx context.Context) WebFunctionRevisionLoggingConfigSystemLogLevelPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(WebFunctionRevisionLoggingConfigSystemLogLevelPtrOutput)
+}
+
+// The current state of the revision.
+type WebFunctionRevisionStateEnum string
+
+const (
+	WebFunctionRevisionStateEnumPending = WebFunctionRevisionStateEnum("Pending")
+	WebFunctionRevisionStateEnumActive  = WebFunctionRevisionStateEnum("Active")
+	WebFunctionRevisionStateEnumFailed  = WebFunctionRevisionStateEnum("Failed")
+)
+
+type WebFunctionRevisionStateEnumOutput struct{ *pulumi.OutputState }
+
+func (WebFunctionRevisionStateEnumOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebFunctionRevisionStateEnum)(nil)).Elem()
+}
+
+func (o WebFunctionRevisionStateEnumOutput) ToWebFunctionRevisionStateEnumOutput() WebFunctionRevisionStateEnumOutput {
+	return o
+}
+
+func (o WebFunctionRevisionStateEnumOutput) ToWebFunctionRevisionStateEnumOutputWithContext(ctx context.Context) WebFunctionRevisionStateEnumOutput {
+	return o
+}
+
+func (o WebFunctionRevisionStateEnumOutput) ToWebFunctionRevisionStateEnumPtrOutput() WebFunctionRevisionStateEnumPtrOutput {
+	return o.ToWebFunctionRevisionStateEnumPtrOutputWithContext(context.Background())
+}
+
+func (o WebFunctionRevisionStateEnumOutput) ToWebFunctionRevisionStateEnumPtrOutputWithContext(ctx context.Context) WebFunctionRevisionStateEnumPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebFunctionRevisionStateEnum) *WebFunctionRevisionStateEnum {
+		return &v
+	}).(WebFunctionRevisionStateEnumPtrOutput)
+}
+
+func (o WebFunctionRevisionStateEnumOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o WebFunctionRevisionStateEnumOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e WebFunctionRevisionStateEnum) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o WebFunctionRevisionStateEnumOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o WebFunctionRevisionStateEnumOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e WebFunctionRevisionStateEnum) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type WebFunctionRevisionStateEnumPtrOutput struct{ *pulumi.OutputState }
+
+func (WebFunctionRevisionStateEnumPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebFunctionRevisionStateEnum)(nil)).Elem()
+}
+
+func (o WebFunctionRevisionStateEnumPtrOutput) ToWebFunctionRevisionStateEnumPtrOutput() WebFunctionRevisionStateEnumPtrOutput {
+	return o
+}
+
+func (o WebFunctionRevisionStateEnumPtrOutput) ToWebFunctionRevisionStateEnumPtrOutputWithContext(ctx context.Context) WebFunctionRevisionStateEnumPtrOutput {
+	return o
+}
+
+func (o WebFunctionRevisionStateEnumPtrOutput) Elem() WebFunctionRevisionStateEnumOutput {
+	return o.ApplyT(func(v *WebFunctionRevisionStateEnum) WebFunctionRevisionStateEnum {
+		if v != nil {
+			return *v
+		}
+		var ret WebFunctionRevisionStateEnum
+		return ret
+	}).(WebFunctionRevisionStateEnumOutput)
+}
+
+func (o WebFunctionRevisionStateEnumPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o WebFunctionRevisionStateEnumPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *WebFunctionRevisionStateEnum) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// The current state of the function.
+type WebFunctionStateEnum string
+
+const (
+	WebFunctionStateEnumPending  = WebFunctionStateEnum("Pending")
+	WebFunctionStateEnumActive   = WebFunctionStateEnum("Active")
+	WebFunctionStateEnumFailed   = WebFunctionStateEnum("Failed")
+	WebFunctionStateEnumDeleting = WebFunctionStateEnum("Deleting")
+)
+
+type WebFunctionStateEnumOutput struct{ *pulumi.OutputState }
+
+func (WebFunctionStateEnumOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebFunctionStateEnum)(nil)).Elem()
+}
+
+func (o WebFunctionStateEnumOutput) ToWebFunctionStateEnumOutput() WebFunctionStateEnumOutput {
+	return o
+}
+
+func (o WebFunctionStateEnumOutput) ToWebFunctionStateEnumOutputWithContext(ctx context.Context) WebFunctionStateEnumOutput {
+	return o
+}
+
+func (o WebFunctionStateEnumOutput) ToWebFunctionStateEnumPtrOutput() WebFunctionStateEnumPtrOutput {
+	return o.ToWebFunctionStateEnumPtrOutputWithContext(context.Background())
+}
+
+func (o WebFunctionStateEnumOutput) ToWebFunctionStateEnumPtrOutputWithContext(ctx context.Context) WebFunctionStateEnumPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebFunctionStateEnum) *WebFunctionStateEnum {
+		return &v
+	}).(WebFunctionStateEnumPtrOutput)
+}
+
+func (o WebFunctionStateEnumOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o WebFunctionStateEnumOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e WebFunctionStateEnum) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o WebFunctionStateEnumOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o WebFunctionStateEnumOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e WebFunctionStateEnum) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type WebFunctionStateEnumPtrOutput struct{ *pulumi.OutputState }
+
+func (WebFunctionStateEnumPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebFunctionStateEnum)(nil)).Elem()
+}
+
+func (o WebFunctionStateEnumPtrOutput) ToWebFunctionStateEnumPtrOutput() WebFunctionStateEnumPtrOutput {
+	return o
+}
+
+func (o WebFunctionStateEnumPtrOutput) ToWebFunctionStateEnumPtrOutputWithContext(ctx context.Context) WebFunctionStateEnumPtrOutput {
+	return o
+}
+
+func (o WebFunctionStateEnumPtrOutput) Elem() WebFunctionStateEnumOutput {
+	return o.ApplyT(func(v *WebFunctionStateEnum) WebFunctionStateEnum {
+		if v != nil {
+			return *v
+		}
+		var ret WebFunctionStateEnum
+		return ret
+	}).(WebFunctionStateEnumOutput)
+}
+
+func (o WebFunctionStateEnumPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o WebFunctionStateEnumPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *WebFunctionStateEnum) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderArchitectureInput)(nil)).Elem(), CapacityProviderArchitecture("x86_64"))
 	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderArchitecturePtrInput)(nil)).Elem(), CapacityProviderArchitecture("x86_64"))
@@ -7085,6 +8409,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*UrlAuthTypePtrInput)(nil)).Elem(), UrlAuthType("AWS_IAM"))
 	pulumi.RegisterInputType(reflect.TypeOf((*UrlInvokeModeInput)(nil)).Elem(), UrlInvokeMode("BUFFERED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*UrlInvokeModePtrInput)(nil)).Elem(), UrlInvokeMode("BUFFERED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*WebFunctionEndpointAuthTypeInput)(nil)).Elem(), WebFunctionEndpointAuthType("ApplicationManaged"))
+	pulumi.RegisterInputType(reflect.TypeOf((*WebFunctionEndpointAuthTypePtrInput)(nil)).Elem(), WebFunctionEndpointAuthType("ApplicationManaged"))
+	pulumi.RegisterInputType(reflect.TypeOf((*WebFunctionEndpointEndpointTypeInput)(nil)).Elem(), WebFunctionEndpointEndpointType("HomeRegion"))
+	pulumi.RegisterInputType(reflect.TypeOf((*WebFunctionEndpointEndpointTypePtrInput)(nil)).Elem(), WebFunctionEndpointEndpointType("HomeRegion"))
+	pulumi.RegisterInputType(reflect.TypeOf((*WebFunctionRevisionLoggingConfigApplicationLogLevelInput)(nil)).Elem(), WebFunctionRevisionLoggingConfigApplicationLogLevel("TRACE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*WebFunctionRevisionLoggingConfigApplicationLogLevelPtrInput)(nil)).Elem(), WebFunctionRevisionLoggingConfigApplicationLogLevel("TRACE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*WebFunctionRevisionLoggingConfigSystemLogLevelInput)(nil)).Elem(), WebFunctionRevisionLoggingConfigSystemLogLevel("DEBUG"))
+	pulumi.RegisterInputType(reflect.TypeOf((*WebFunctionRevisionLoggingConfigSystemLogLevelPtrInput)(nil)).Elem(), WebFunctionRevisionLoggingConfigSystemLogLevel("DEBUG"))
 	pulumi.RegisterOutputType(CapacityProviderArchitectureOutput{})
 	pulumi.RegisterOutputType(CapacityProviderArchitecturePtrOutput{})
 	pulumi.RegisterOutputType(CapacityProviderArchitectureArrayOutput{})
@@ -7176,4 +8508,26 @@ func init() {
 	pulumi.RegisterOutputType(UrlAuthTypePtrOutput{})
 	pulumi.RegisterOutputType(UrlInvokeModeOutput{})
 	pulumi.RegisterOutputType(UrlInvokeModePtrOutput{})
+	pulumi.RegisterOutputType(WebFunctionEndpointAuthTypeOutput{})
+	pulumi.RegisterOutputType(WebFunctionEndpointAuthTypePtrOutput{})
+	pulumi.RegisterOutputType(WebFunctionEndpointEndpointTypeOutput{})
+	pulumi.RegisterOutputType(WebFunctionEndpointEndpointTypePtrOutput{})
+	pulumi.RegisterOutputType(WebFunctionEndpointRegionalEndpointAuthTypeOutput{})
+	pulumi.RegisterOutputType(WebFunctionEndpointRegionalEndpointAuthTypePtrOutput{})
+	pulumi.RegisterOutputType(WebFunctionEndpointRegionalEndpointStateOutput{})
+	pulumi.RegisterOutputType(WebFunctionEndpointRegionalEndpointStatePtrOutput{})
+	pulumi.RegisterOutputType(WebFunctionEndpointRegionalEndpointUpdateStatusOutput{})
+	pulumi.RegisterOutputType(WebFunctionEndpointRegionalEndpointUpdateStatusPtrOutput{})
+	pulumi.RegisterOutputType(WebFunctionEndpointStateEnumOutput{})
+	pulumi.RegisterOutputType(WebFunctionEndpointStateEnumPtrOutput{})
+	pulumi.RegisterOutputType(WebFunctionEndpointUpdateStatusOutput{})
+	pulumi.RegisterOutputType(WebFunctionEndpointUpdateStatusPtrOutput{})
+	pulumi.RegisterOutputType(WebFunctionRevisionLoggingConfigApplicationLogLevelOutput{})
+	pulumi.RegisterOutputType(WebFunctionRevisionLoggingConfigApplicationLogLevelPtrOutput{})
+	pulumi.RegisterOutputType(WebFunctionRevisionLoggingConfigSystemLogLevelOutput{})
+	pulumi.RegisterOutputType(WebFunctionRevisionLoggingConfigSystemLogLevelPtrOutput{})
+	pulumi.RegisterOutputType(WebFunctionRevisionStateEnumOutput{})
+	pulumi.RegisterOutputType(WebFunctionRevisionStateEnumPtrOutput{})
+	pulumi.RegisterOutputType(WebFunctionStateEnumOutput{})
+	pulumi.RegisterOutputType(WebFunctionStateEnumPtrOutput{})
 }

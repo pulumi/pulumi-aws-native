@@ -62,6 +62,10 @@ export interface GetHarnessResult {
      */
     readonly harnessId?: string;
     /**
+     * Lifecycle hooks that fire at well-defined points in the agent loop for policy enforcement, audit, and governance.
+     */
+    readonly hooks?: outputs.bedrockagentcore.HarnessHook[];
+    /**
      * The maximum number of iterations the agent loop can execute per invocation.
      */
     readonly maxIterations?: number;

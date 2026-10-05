@@ -32,6 +32,9 @@ namespace Pulumi.AwsNative.ArcRegionSwitch.Inputs
         [Input("ungraceful")]
         public Input<Inputs.PlanEcsUngracefulArgs>? Ungraceful { get; set; }
 
+        [Input("waitElbTargetGroupHealthy")]
+        public Input<Pulumi.AwsNative.ArcRegionSwitch.PlanWaitElbTargetGroupHealthy>? WaitElbTargetGroupHealthy { get; set; }
+
         public PlanEcsCapacityIncreaseConfigurationArgs()
         {
         }

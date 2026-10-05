@@ -104,6 +104,9 @@ export class IntegrationAssociation extends pulumi.CustomResource {
      * *Allowed Values* : `LEX_BOT` | `LAMBDA_FUNCTION`
      */
     declare public readonly integrationType: pulumi.Output<enums.connect.IntegrationAssociationIntegrationType>;
+    declare public readonly sourceApplicationName: pulumi.Output<string | undefined>;
+    declare public readonly sourceApplicationUrl: pulumi.Output<string | undefined>;
+    declare public readonly sourceType: pulumi.Output<enums.connect.IntegrationAssociationSourceType | undefined>;
     /**
      * The tags used to organize, track, or control access for this resource.
      */
@@ -132,6 +135,9 @@ export class IntegrationAssociation extends pulumi.CustomResource {
             resourceInputs["instanceId"] = args?.instanceId;
             resourceInputs["integrationArn"] = args?.integrationArn;
             resourceInputs["integrationType"] = args?.integrationType;
+            resourceInputs["sourceApplicationName"] = args?.sourceApplicationName;
+            resourceInputs["sourceApplicationUrl"] = args?.sourceApplicationUrl;
+            resourceInputs["sourceType"] = args?.sourceType;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["integrationAssociationId"] = undefined /*out*/;
         } else {
@@ -139,10 +145,13 @@ export class IntegrationAssociation extends pulumi.CustomResource {
             resourceInputs["integrationArn"] = undefined /*out*/;
             resourceInputs["integrationAssociationId"] = undefined /*out*/;
             resourceInputs["integrationType"] = undefined /*out*/;
+            resourceInputs["sourceApplicationName"] = undefined /*out*/;
+            resourceInputs["sourceApplicationUrl"] = undefined /*out*/;
+            resourceInputs["sourceType"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["instanceId", "integrationArn", "integrationType"] };
+        const replaceOnChanges = { replaceOnChanges: ["instanceId", "integrationArn", "integrationType", "sourceApplicationName", "sourceApplicationUrl", "sourceType"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(IntegrationAssociation.__pulumiType, name, resourceInputs, opts);
     }
@@ -174,6 +183,9 @@ export interface IntegrationAssociationArgs {
      * *Allowed Values* : `LEX_BOT` | `LAMBDA_FUNCTION`
      */
     integrationType: pulumi.Input<enums.connect.IntegrationAssociationIntegrationType>;
+    sourceApplicationName?: pulumi.Input<string | undefined>;
+    sourceApplicationUrl?: pulumi.Input<string | undefined>;
+    sourceType?: pulumi.Input<enums.connect.IntegrationAssociationSourceType | undefined>;
     /**
      * The tags used to organize, track, or control access for this resource.
      */

@@ -18,6 +18,10 @@ from ._enums import *
 __all__ = [
     'AgentSpaceAwsResourcesArgs',
     'AgentSpaceAwsResourcesArgsDict',
+    'AgentSpaceAzureDevOpsCapabilitiesResourceArgs',
+    'AgentSpaceAzureDevOpsCapabilitiesResourceArgsDict',
+    'AgentSpaceAzureDevOpsRepositoryResourceArgs',
+    'AgentSpaceAzureDevOpsRepositoryResourceArgsDict',
     'AgentSpaceBitbucketCapabilitiesResourceArgs',
     'AgentSpaceBitbucketCapabilitiesResourceArgsDict',
     'AgentSpaceBitbucketRepositoryResourceArgs',
@@ -208,6 +212,132 @@ class AgentSpaceAwsResourcesArgs:
     @vpcs.setter
     def vpcs(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AgentSpaceVpcConfigArgs']]]]):
         pulumi.set(self, "vpcs", value)
+
+
+class AgentSpaceAzureDevOpsCapabilitiesResourceArgsDict(TypedDict):
+    """
+    Azure DevOps repository capabilities
+    """
+    leave_comments: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    Enables Code Review in the repository
+    """
+    remediate_code: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    Enables creation of pull requests with automated fixes
+    """
+
+@pulumi.input_type
+class AgentSpaceAzureDevOpsCapabilitiesResourceArgs:
+    def __init__(__self__, *,
+                 leave_comments: pulumi.Input[Optional[_builtins.bool]] = None,
+                 remediate_code: pulumi.Input[Optional[_builtins.bool]] = None):
+        """
+        Azure DevOps repository capabilities
+
+        :param pulumi.Input[_builtins.bool] leave_comments: Enables Code Review in the repository
+        :param pulumi.Input[_builtins.bool] remediate_code: Enables creation of pull requests with automated fixes
+        """
+        if leave_comments is not None:
+            pulumi.set(__self__, "leave_comments", leave_comments)
+        if remediate_code is not None:
+            pulumi.set(__self__, "remediate_code", remediate_code)
+
+    @_builtins.property
+    @pulumi.getter(name="leaveComments")
+    def leave_comments(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Enables Code Review in the repository
+        """
+        return pulumi.get(self, "leave_comments")
+
+    @leave_comments.setter
+    def leave_comments(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "leave_comments", value)
+
+    @_builtins.property
+    @pulumi.getter(name="remediateCode")
+    def remediate_code(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Enables creation of pull requests with automated fixes
+        """
+        return pulumi.get(self, "remediate_code")
+
+    @remediate_code.setter
+    def remediate_code(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "remediate_code", value)
+
+
+class AgentSpaceAzureDevOpsRepositoryResourceArgsDict(TypedDict):
+    """
+    Azure DevOps repository details
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    Azure DevOps repository name
+    """
+    project: pulumi.Input[_builtins.str]
+    """
+    Azure DevOps project that owns the repository
+    """
+    organization: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Read-only Azure DevOps organization that owns the repository, populated from service-side metadata
+    """
+
+@pulumi.input_type
+class AgentSpaceAzureDevOpsRepositoryResourceArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[_builtins.str],
+                 project: pulumi.Input[_builtins.str],
+                 organization: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        Azure DevOps repository details
+
+        :param pulumi.Input[_builtins.str] name: Azure DevOps repository name
+        :param pulumi.Input[_builtins.str] project: Azure DevOps project that owns the repository
+        :param pulumi.Input[_builtins.str] organization: Read-only Azure DevOps organization that owns the repository, populated from service-side metadata
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "project", project)
+        if organization is not None:
+            pulumi.set(__self__, "organization", organization)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Azure DevOps repository name
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def project(self) -> pulumi.Input[_builtins.str]:
+        """
+        Azure DevOps project that owns the repository
+        """
+        return pulumi.get(self, "project")
+
+    @project.setter
+    def project(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "project", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def organization(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Read-only Azure DevOps organization that owns the repository, populated from service-side metadata
+        """
+        return pulumi.get(self, "organization")
+
+    @organization.setter
+    def organization(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "organization", value)
 
 
 class AgentSpaceBitbucketCapabilitiesResourceArgsDict(TypedDict):
@@ -819,6 +949,8 @@ class AgentSpaceProviderResourceArgsDict(TypedDict):
     """
     Selected Resource (eg: Code Repository, Document) from an Integration
     """
+    azure_dev_ops_capabilities: NotRequired[pulumi.Input[Optional['AgentSpaceAzureDevOpsCapabilitiesResourceArgsDict']]]
+    azure_dev_ops_repository: NotRequired[pulumi.Input[Optional['AgentSpaceAzureDevOpsRepositoryResourceArgsDict']]]
     bitbucket_capabilities: NotRequired[pulumi.Input[Optional['AgentSpaceBitbucketCapabilitiesResourceArgsDict']]]
     bitbucket_repository: NotRequired[pulumi.Input[Optional['AgentSpaceBitbucketRepositoryResourceArgsDict']]]
     confluence_capabilities: NotRequired[pulumi.Input[Optional['AgentSpaceConfluenceCapabilitiesResourceArgsDict']]]
@@ -831,6 +963,8 @@ class AgentSpaceProviderResourceArgsDict(TypedDict):
 @pulumi.input_type
 class AgentSpaceProviderResourceArgs:
     def __init__(__self__, *,
+                 azure_dev_ops_capabilities: pulumi.Input[Optional['AgentSpaceAzureDevOpsCapabilitiesResourceArgs']] = None,
+                 azure_dev_ops_repository: pulumi.Input[Optional['AgentSpaceAzureDevOpsRepositoryResourceArgs']] = None,
                  bitbucket_capabilities: pulumi.Input[Optional['AgentSpaceBitbucketCapabilitiesResourceArgs']] = None,
                  bitbucket_repository: pulumi.Input[Optional['AgentSpaceBitbucketRepositoryResourceArgs']] = None,
                  confluence_capabilities: pulumi.Input[Optional['AgentSpaceConfluenceCapabilitiesResourceArgs']] = None,
@@ -842,6 +976,10 @@ class AgentSpaceProviderResourceArgs:
         """
         Selected Resource (eg: Code Repository, Document) from an Integration
         """
+        if azure_dev_ops_capabilities is not None:
+            pulumi.set(__self__, "azure_dev_ops_capabilities", azure_dev_ops_capabilities)
+        if azure_dev_ops_repository is not None:
+            pulumi.set(__self__, "azure_dev_ops_repository", azure_dev_ops_repository)
         if bitbucket_capabilities is not None:
             pulumi.set(__self__, "bitbucket_capabilities", bitbucket_capabilities)
         if bitbucket_repository is not None:
@@ -858,6 +996,24 @@ class AgentSpaceProviderResourceArgs:
             pulumi.set(__self__, "git_lab_capabilities", git_lab_capabilities)
         if git_lab_repository is not None:
             pulumi.set(__self__, "git_lab_repository", git_lab_repository)
+
+    @_builtins.property
+    @pulumi.getter(name="azureDevOpsCapabilities")
+    def azure_dev_ops_capabilities(self) -> pulumi.Input[Optional['AgentSpaceAzureDevOpsCapabilitiesResourceArgs']]:
+        return pulumi.get(self, "azure_dev_ops_capabilities")
+
+    @azure_dev_ops_capabilities.setter
+    def azure_dev_ops_capabilities(self, value: pulumi.Input[Optional['AgentSpaceAzureDevOpsCapabilitiesResourceArgs']]):
+        pulumi.set(self, "azure_dev_ops_capabilities", value)
+
+    @_builtins.property
+    @pulumi.getter(name="azureDevOpsRepository")
+    def azure_dev_ops_repository(self) -> pulumi.Input[Optional['AgentSpaceAzureDevOpsRepositoryResourceArgs']]:
+        return pulumi.get(self, "azure_dev_ops_repository")
+
+    @azure_dev_ops_repository.setter
+    def azure_dev_ops_repository(self, value: pulumi.Input[Optional['AgentSpaceAzureDevOpsRepositoryResourceArgs']]):
+        pulumi.set(self, "azure_dev_ops_repository", value)
 
     @_builtins.property
     @pulumi.getter(name="bitbucketCapabilities")

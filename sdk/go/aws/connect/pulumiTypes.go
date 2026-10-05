@@ -2544,10 +2544,16 @@ func (o EvaluationFormLanguageConfigurationPtrOutput) FormLanguage() EvaluationF
 	}).(EvaluationFormLanguageConfigurationFormLanguagePtrOutput)
 }
 
+// Information about the metric configuration for an evaluation form question. Use this to associate a business outcome metric with a question.
 type EvaluationFormMetricConfiguration struct {
-	// The name of the metric.
+	// The name of the metric. Valid values are:
+	//   +  ``SALE_SUCCESS`` – Sale success.
+	//   +  ``CSAT`` – Customer satisfaction.
+	//   +  ``CHURN_PROPENSITY`` – Churn propensity.
+	//   +  ``SELF_SERVICE_SUCCESS`` – Self-service success.
+	//   +  ``PARTIAL_SELF_SERVICE_SUCCESS`` – Partial self-service success.
 	MetricName string `pulumi:"metricName"`
-	// The type of the metric.
+	// The type of metric. Currently, only ``BUSINESS_OUTCOME`` is supported.
 	MetricType EvaluationFormMetricConfigurationMetricType `pulumi:"metricType"`
 }
 
@@ -2562,10 +2568,16 @@ type EvaluationFormMetricConfigurationInput interface {
 	ToEvaluationFormMetricConfigurationOutputWithContext(context.Context) EvaluationFormMetricConfigurationOutput
 }
 
+// Information about the metric configuration for an evaluation form question. Use this to associate a business outcome metric with a question.
 type EvaluationFormMetricConfigurationArgs struct {
-	// The name of the metric.
+	// The name of the metric. Valid values are:
+	//   +  ``SALE_SUCCESS`` – Sale success.
+	//   +  ``CSAT`` – Customer satisfaction.
+	//   +  ``CHURN_PROPENSITY`` – Churn propensity.
+	//   +  ``SELF_SERVICE_SUCCESS`` – Self-service success.
+	//   +  ``PARTIAL_SELF_SERVICE_SUCCESS`` – Partial self-service success.
 	MetricName pulumi.StringInput `pulumi:"metricName"`
-	// The type of the metric.
+	// The type of metric. Currently, only ``BUSINESS_OUTCOME`` is supported.
 	MetricType EvaluationFormMetricConfigurationMetricTypeInput `pulumi:"metricType"`
 }
 
@@ -2622,6 +2634,7 @@ func (i *evaluationFormMetricConfigurationPtrType) ToEvaluationFormMetricConfigu
 	return pulumi.ToOutputWithContext(ctx, i).(EvaluationFormMetricConfigurationPtrOutput)
 }
 
+// Information about the metric configuration for an evaluation form question. Use this to associate a business outcome metric with a question.
 type EvaluationFormMetricConfigurationOutput struct{ *pulumi.OutputState }
 
 func (EvaluationFormMetricConfigurationOutput) ElementType() reflect.Type {
@@ -2646,12 +2659,17 @@ func (o EvaluationFormMetricConfigurationOutput) ToEvaluationFormMetricConfigura
 	}).(EvaluationFormMetricConfigurationPtrOutput)
 }
 
-// The name of the metric.
+// The name of the metric. Valid values are:
+//   - “SALE_SUCCESS“ – Sale success.
+//   - “CSAT“ – Customer satisfaction.
+//   - “CHURN_PROPENSITY“ – Churn propensity.
+//   - “SELF_SERVICE_SUCCESS“ – Self-service success.
+//   - “PARTIAL_SELF_SERVICE_SUCCESS“ – Partial self-service success.
 func (o EvaluationFormMetricConfigurationOutput) MetricName() pulumi.StringOutput {
 	return o.ApplyT(func(v EvaluationFormMetricConfiguration) string { return v.MetricName }).(pulumi.StringOutput)
 }
 
-// The type of the metric.
+// The type of metric. Currently, only “BUSINESS_OUTCOME“ is supported.
 func (o EvaluationFormMetricConfigurationOutput) MetricType() EvaluationFormMetricConfigurationMetricTypeOutput {
 	return o.ApplyT(func(v EvaluationFormMetricConfiguration) EvaluationFormMetricConfigurationMetricType {
 		return v.MetricType
@@ -2682,7 +2700,12 @@ func (o EvaluationFormMetricConfigurationPtrOutput) Elem() EvaluationFormMetricC
 	}).(EvaluationFormMetricConfigurationOutput)
 }
 
-// The name of the metric.
+// The name of the metric. Valid values are:
+//   - “SALE_SUCCESS“ – Sale success.
+//   - “CSAT“ – Customer satisfaction.
+//   - “CHURN_PROPENSITY“ – Churn propensity.
+//   - “SELF_SERVICE_SUCCESS“ – Self-service success.
+//   - “PARTIAL_SELF_SERVICE_SUCCESS“ – Partial self-service success.
 func (o EvaluationFormMetricConfigurationPtrOutput) MetricName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EvaluationFormMetricConfiguration) *string {
 		if v == nil {
@@ -2692,7 +2715,7 @@ func (o EvaluationFormMetricConfigurationPtrOutput) MetricName() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of the metric.
+// The type of metric. Currently, only “BUSINESS_OUTCOME“ is supported.
 func (o EvaluationFormMetricConfigurationPtrOutput) MetricType() EvaluationFormMetricConfigurationMetricTypePtrOutput {
 	return o.ApplyT(func(v *EvaluationFormMetricConfiguration) *EvaluationFormMetricConfigurationMetricType {
 		if v == nil {
@@ -4055,7 +4078,8 @@ type EvaluationFormQuestion struct {
 	Enablement *EvaluationFormItemEnablementConfiguration `pulumi:"enablement"`
 	// The instructions of the section.
 	//  *Length Constraints*: Minimum length of 0. Maximum length of 1024.
-	Instructions        *string                            `pulumi:"instructions"`
+	Instructions *string `pulumi:"instructions"`
+	// The metric configuration for the question. Use this to associate a business outcome metric with the question.
 	MetricConfiguration *EvaluationFormMetricConfiguration `pulumi:"metricConfiguration"`
 	// The flag to enable not applicable answers to the question.
 	NotApplicableEnabled *bool `pulumi:"notApplicableEnabled"`
@@ -4095,7 +4119,8 @@ type EvaluationFormQuestionArgs struct {
 	Enablement EvaluationFormItemEnablementConfigurationPtrInput `pulumi:"enablement"`
 	// The instructions of the section.
 	//  *Length Constraints*: Minimum length of 0. Maximum length of 1024.
-	Instructions        pulumi.StringPtrInput                     `pulumi:"instructions"`
+	Instructions pulumi.StringPtrInput `pulumi:"instructions"`
+	// The metric configuration for the question. Use this to associate a business outcome metric with the question.
 	MetricConfiguration EvaluationFormMetricConfigurationPtrInput `pulumi:"metricConfiguration"`
 	// The flag to enable not applicable answers to the question.
 	NotApplicableEnabled pulumi.BoolPtrInput `pulumi:"notApplicableEnabled"`
@@ -4208,6 +4233,7 @@ func (o EvaluationFormQuestionOutput) Instructions() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EvaluationFormQuestion) *string { return v.Instructions }).(pulumi.StringPtrOutput)
 }
 
+// The metric configuration for the question. Use this to associate a business outcome metric with the question.
 func (o EvaluationFormQuestionOutput) MetricConfiguration() EvaluationFormMetricConfigurationPtrOutput {
 	return o.ApplyT(func(v EvaluationFormQuestion) *EvaluationFormMetricConfiguration { return v.MetricConfiguration }).(EvaluationFormMetricConfigurationPtrOutput)
 }
@@ -4304,6 +4330,7 @@ func (o EvaluationFormQuestionPtrOutput) Instructions() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The metric configuration for the question. Use this to associate a business outcome metric with the question.
 func (o EvaluationFormQuestionPtrOutput) MetricConfiguration() EvaluationFormMetricConfigurationPtrOutput {
 	return o.ApplyT(func(v *EvaluationFormQuestion) *EvaluationFormMetricConfiguration {
 		if v == nil {
@@ -16219,6 +16246,13 @@ type TrafficDistributionGroupTag struct {
 	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
 	Key string `pulumi:"key"`
 	// The value for the tag. You can specify a value that is 1 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value string `pulumi:"value"`
+}
+
+type UseCaseTag struct {
+	// The key name of the tag.
+	Key string `pulumi:"key"`
+	// The value for the tag.
 	Value string `pulumi:"value"`
 }
 

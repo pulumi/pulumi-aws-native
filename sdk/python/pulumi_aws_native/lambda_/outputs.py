@@ -20,6 +20,9 @@ __all__ = [
     'AliasProvisionedConcurrencyConfiguration',
     'AliasRoutingConfiguration',
     'AliasVersionWeight',
+    'BuildConfigProperties',
+    'BuildConfigPropertiesCodeConfigProperties',
+    'BuildConfigPropertiesRuntimeConfigProperties',
     'CapacityProviderInstanceRequirements',
     'CapacityProviderLoggingConfig',
     'CapacityProviderPermissionsConfig',
@@ -81,10 +84,18 @@ __all__ = [
     'MicrovmImageResources',
     'NetworkConnectorConfig',
     'NetworkConnectorVpcEgressConfiguration',
+    'ServiceConfigProperties',
+    'ServiceConfigPropertiesTelemetryConfigProperties',
     'UrlCors',
     'VersionFunctionScalingConfig',
     'VersionProvisionedConcurrencyConfiguration',
     'VersionRuntimePolicy',
+    'WebFunctionEndpointRegionalEndpoint',
+    'WebFunctionEndpointRevisionWeight',
+    'WebFunctionEndpointScalingConfig',
+    'WebFunctionEndpointThrottleConfig',
+    'WebFunctionRevisionLoggingConfig',
+    'WebFunctionRevisionS3Object',
 ]
 
 @pulumi.output_type
@@ -219,6 +230,122 @@ class AliasVersionWeight(dict):
         The percentage of traffic that the alias routes to the second version.
         """
         return pulumi.get(self, "function_weight")
+
+
+@pulumi.output_type
+class BuildConfigProperties(dict):
+    """
+    The build configuration for the revision.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "codeConfig":
+            suggest = "code_config"
+        elif key == "runtimeConfig":
+            suggest = "runtime_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BuildConfigProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BuildConfigProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BuildConfigProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 code_config: 'outputs.BuildConfigPropertiesCodeConfigProperties',
+                 runtime_config: 'outputs.BuildConfigPropertiesRuntimeConfigProperties'):
+        """
+        The build configuration for the revision.
+
+        :param 'BuildConfigPropertiesCodeConfigProperties' code_config: The code configuration for the revision.
+        :param 'BuildConfigPropertiesRuntimeConfigProperties' runtime_config: The runtime configuration for the revision.
+        """
+        pulumi.set(__self__, "code_config", code_config)
+        pulumi.set(__self__, "runtime_config", runtime_config)
+
+    @_builtins.property
+    @pulumi.getter(name="codeConfig")
+    def code_config(self) -> 'outputs.BuildConfigPropertiesCodeConfigProperties':
+        """
+        The code configuration for the revision.
+        """
+        return pulumi.get(self, "code_config")
+
+    @_builtins.property
+    @pulumi.getter(name="runtimeConfig")
+    def runtime_config(self) -> 'outputs.BuildConfigPropertiesRuntimeConfigProperties':
+        """
+        The runtime configuration for the revision.
+        """
+        return pulumi.get(self, "runtime_config")
+
+
+@pulumi.output_type
+class BuildConfigPropertiesCodeConfigProperties(dict):
+    """
+    The code configuration for the revision.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "s3Object":
+            suggest = "s3_object"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BuildConfigPropertiesCodeConfigProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BuildConfigPropertiesCodeConfigProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BuildConfigPropertiesCodeConfigProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 s3_object: 'outputs.WebFunctionRevisionS3Object'):
+        """
+        The code configuration for the revision.
+
+        :param 'WebFunctionRevisionS3Object' s3_object: The Amazon S3 location of the deployment artifact.
+        """
+        pulumi.set(__self__, "s3_object", s3_object)
+
+    @_builtins.property
+    @pulumi.getter(name="s3Object")
+    def s3_object(self) -> 'outputs.WebFunctionRevisionS3Object':
+        """
+        The Amazon S3 location of the deployment artifact.
+        """
+        return pulumi.get(self, "s3_object")
+
+
+@pulumi.output_type
+class BuildConfigPropertiesRuntimeConfigProperties(dict):
+    """
+    The runtime configuration for the revision.
+    """
+    def __init__(__self__, *,
+                 runtime: _builtins.str):
+        """
+        The runtime configuration for the revision.
+
+        :param _builtins.str runtime: The runtime identifier.
+        """
+        pulumi.set(__self__, "runtime", runtime)
+
+    @_builtins.property
+    @pulumi.getter
+    def runtime(self) -> _builtins.str:
+        """
+        The runtime identifier.
+        """
+        return pulumi.get(self, "runtime")
 
 
 @pulumi.output_type
@@ -3132,12 +3259,12 @@ class NetworkConnectorVpcEgressConfiguration(dict):
         suggest = None
         if key == "associatedComputeResourceTypes":
             suggest = "associated_compute_resource_types"
-        elif key == "subnetIds":
-            suggest = "subnet_ids"
         elif key == "networkProtocol":
             suggest = "network_protocol"
         elif key == "securityGroupIds":
             suggest = "security_group_ids"
+        elif key == "subnetIds":
+            suggest = "subnet_ids"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in NetworkConnectorVpcEgressConfiguration. Access the value via the '{suggest}' property getter instead.")
@@ -3152,31 +3279,45 @@ class NetworkConnectorVpcEgressConfiguration(dict):
 
     def __init__(__self__, *,
                  associated_compute_resource_types: Sequence['NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItem'],
-                 subnet_ids: Sequence[_builtins.str],
-                 network_protocol: Optional['NetworkConnectorVpcEgressConfigurationNetworkProtocol'] = None,
-                 security_group_ids: Optional[Sequence[_builtins.str]] = None):
+                 network_protocol: 'NetworkConnectorVpcEgressConfigurationNetworkProtocol',
+                 security_group_ids: Sequence[_builtins.str],
+                 subnet_ids: Sequence[_builtins.str]):
         """
         The VPC egress configuration for the network connector. Specifies the subnets, security groups, and network protocol for routing outbound traffic through your VPC.
 
-        :param Sequence['NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItem'] associated_compute_resource_types: The types of Lambda compute resources that can use this connector. Currently, only MicroVm is supported.
-        :param Sequence[_builtins.str] subnet_ids: The IDs of the VPC subnets where Lambda provisions elastic network interfaces (ENIs). Specify 1 to 16 subnets. All subnets must be in the same VPC.
+        :param Sequence['NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItem'] associated_compute_resource_types: The types of Lambda compute resources that can use this connector. Supported values are MicroVm and WebFunction.
         :param 'NetworkConnectorVpcEgressConfigurationNetworkProtocol' network_protocol: The network protocol for the connector. Specify IPv4 for IPv4-only networking, or DualStack for both IPv4 and IPv6.
         :param Sequence[_builtins.str] security_group_ids: The IDs of the VPC security groups to attach to the ENIs. Specify 0 to 5 security groups. All security groups must be in the same VPC as the subnets.
+        :param Sequence[_builtins.str] subnet_ids: The IDs of the VPC subnets where Lambda provisions elastic network interfaces (ENIs). Specify 1 to 16 subnets. All subnets must be in the same VPC.
         """
         pulumi.set(__self__, "associated_compute_resource_types", associated_compute_resource_types)
+        pulumi.set(__self__, "network_protocol", network_protocol)
+        pulumi.set(__self__, "security_group_ids", security_group_ids)
         pulumi.set(__self__, "subnet_ids", subnet_ids)
-        if network_protocol is not None:
-            pulumi.set(__self__, "network_protocol", network_protocol)
-        if security_group_ids is not None:
-            pulumi.set(__self__, "security_group_ids", security_group_ids)
 
     @_builtins.property
     @pulumi.getter(name="associatedComputeResourceTypes")
     def associated_compute_resource_types(self) -> Sequence['NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItem']:
         """
-        The types of Lambda compute resources that can use this connector. Currently, only MicroVm is supported.
+        The types of Lambda compute resources that can use this connector. Supported values are MicroVm and WebFunction.
         """
         return pulumi.get(self, "associated_compute_resource_types")
+
+    @_builtins.property
+    @pulumi.getter(name="networkProtocol")
+    def network_protocol(self) -> 'NetworkConnectorVpcEgressConfigurationNetworkProtocol':
+        """
+        The network protocol for the connector. Specify IPv4 for IPv4-only networking, or DualStack for both IPv4 and IPv6.
+        """
+        return pulumi.get(self, "network_protocol")
+
+    @_builtins.property
+    @pulumi.getter(name="securityGroupIds")
+    def security_group_ids(self) -> Sequence[_builtins.str]:
+        """
+        The IDs of the VPC security groups to attach to the ENIs. Specify 0 to 5 security groups. All security groups must be in the same VPC as the subnets.
+        """
+        return pulumi.get(self, "security_group_ids")
 
     @_builtins.property
     @pulumi.getter(name="subnetIds")
@@ -3186,21 +3327,142 @@ class NetworkConnectorVpcEgressConfiguration(dict):
         """
         return pulumi.get(self, "subnet_ids")
 
-    @_builtins.property
-    @pulumi.getter(name="networkProtocol")
-    def network_protocol(self) -> Optional['NetworkConnectorVpcEgressConfigurationNetworkProtocol']:
+
+@pulumi.output_type
+class ServiceConfigProperties(dict):
+    """
+    The service configuration for the revision.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "executionRoleArn":
+            suggest = "execution_role_arn"
+        elif key == "environmentVariables":
+            suggest = "environment_variables"
+        elif key == "maxConcurrencyPerEnvironment":
+            suggest = "max_concurrency_per_environment"
+        elif key == "telemetryConfig":
+            suggest = "telemetry_config"
+        elif key == "timeoutSeconds":
+            suggest = "timeout_seconds"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServiceConfigProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServiceConfigProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServiceConfigProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 execution_role_arn: _builtins.str,
+                 environment_variables: Optional[Mapping[str, _builtins.str]] = None,
+                 max_concurrency_per_environment: Optional[_builtins.int] = None,
+                 telemetry_config: Optional['outputs.ServiceConfigPropertiesTelemetryConfigProperties'] = None,
+                 timeout_seconds: Optional[_builtins.int] = None):
         """
-        The network protocol for the connector. Specify IPv4 for IPv4-only networking, or DualStack for both IPv4 and IPv6.
+        The service configuration for the revision.
+
+        :param _builtins.str execution_role_arn: The ARN of the execution role.
+        :param Mapping[str, _builtins.str] environment_variables: Environment variables for the function.
+        :param _builtins.int max_concurrency_per_environment: The maximum concurrency per environment.
+        :param 'ServiceConfigPropertiesTelemetryConfigProperties' telemetry_config: The telemetry configuration.
+        :param _builtins.int timeout_seconds: The function timeout in seconds.
         """
-        return pulumi.get(self, "network_protocol")
+        pulumi.set(__self__, "execution_role_arn", execution_role_arn)
+        if environment_variables is not None:
+            pulumi.set(__self__, "environment_variables", environment_variables)
+        if max_concurrency_per_environment is not None:
+            pulumi.set(__self__, "max_concurrency_per_environment", max_concurrency_per_environment)
+        if telemetry_config is not None:
+            pulumi.set(__self__, "telemetry_config", telemetry_config)
+        if timeout_seconds is not None:
+            pulumi.set(__self__, "timeout_seconds", timeout_seconds)
 
     @_builtins.property
-    @pulumi.getter(name="securityGroupIds")
-    def security_group_ids(self) -> Optional[Sequence[_builtins.str]]:
+    @pulumi.getter(name="executionRoleArn")
+    def execution_role_arn(self) -> _builtins.str:
         """
-        The IDs of the VPC security groups to attach to the ENIs. Specify 0 to 5 security groups. All security groups must be in the same VPC as the subnets.
+        The ARN of the execution role.
         """
-        return pulumi.get(self, "security_group_ids")
+        return pulumi.get(self, "execution_role_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="environmentVariables")
+    def environment_variables(self) -> Optional[Mapping[str, _builtins.str]]:
+        """
+        Environment variables for the function.
+        """
+        return pulumi.get(self, "environment_variables")
+
+    @_builtins.property
+    @pulumi.getter(name="maxConcurrencyPerEnvironment")
+    def max_concurrency_per_environment(self) -> Optional[_builtins.int]:
+        """
+        The maximum concurrency per environment.
+        """
+        return pulumi.get(self, "max_concurrency_per_environment")
+
+    @_builtins.property
+    @pulumi.getter(name="telemetryConfig")
+    def telemetry_config(self) -> Optional['outputs.ServiceConfigPropertiesTelemetryConfigProperties']:
+        """
+        The telemetry configuration.
+        """
+        return pulumi.get(self, "telemetry_config")
+
+    @_builtins.property
+    @pulumi.getter(name="timeoutSeconds")
+    def timeout_seconds(self) -> Optional[_builtins.int]:
+        """
+        The function timeout in seconds.
+        """
+        return pulumi.get(self, "timeout_seconds")
+
+
+@pulumi.output_type
+class ServiceConfigPropertiesTelemetryConfigProperties(dict):
+    """
+    The telemetry configuration.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "loggingConfig":
+            suggest = "logging_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServiceConfigPropertiesTelemetryConfigProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServiceConfigPropertiesTelemetryConfigProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServiceConfigPropertiesTelemetryConfigProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 logging_config: Optional['outputs.WebFunctionRevisionLoggingConfig'] = None):
+        """
+        The telemetry configuration.
+
+        :param 'WebFunctionRevisionLoggingConfig' logging_config: The logging configuration for the web function.
+        """
+        if logging_config is not None:
+            pulumi.set(__self__, "logging_config", logging_config)
+
+    @_builtins.property
+    @pulumi.getter(name="loggingConfig")
+    def logging_config(self) -> Optional['outputs.WebFunctionRevisionLoggingConfig']:
+        """
+        The logging configuration for the web function.
+        """
+        return pulumi.get(self, "logging_config")
 
 
 @pulumi.output_type
@@ -3456,5 +3718,421 @@ class VersionRuntimePolicy(dict):
         The ARN of the runtime the function is configured to use. If the runtime update mode is manual, the ARN is returned, otherwise null is returned.
         """
         return pulumi.get(self, "runtime_version_arn")
+
+
+@pulumi.output_type
+class WebFunctionEndpointRegionalEndpoint(dict):
+    """
+    Per-region endpoint information.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "authType":
+            suggest = "auth_type"
+        elif key == "domainName":
+            suggest = "domain_name"
+        elif key == "revisionWeights":
+            suggest = "revision_weights"
+        elif key == "scalingConfig":
+            suggest = "scaling_config"
+        elif key == "stateReason":
+            suggest = "state_reason"
+        elif key == "throttleConfig":
+            suggest = "throttle_config"
+        elif key == "updateStatus":
+            suggest = "update_status"
+        elif key == "updateStatusReason":
+            suggest = "update_status_reason"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebFunctionEndpointRegionalEndpoint. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebFunctionEndpointRegionalEndpoint.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebFunctionEndpointRegionalEndpoint.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 auth_type: Optional['WebFunctionEndpointRegionalEndpointAuthType'] = None,
+                 domain_name: Optional[_builtins.str] = None,
+                 revision_weights: Optional[Sequence['outputs.WebFunctionEndpointRevisionWeight']] = None,
+                 scaling_config: Optional['outputs.WebFunctionEndpointScalingConfig'] = None,
+                 state: Optional['WebFunctionEndpointRegionalEndpointState'] = None,
+                 state_reason: Optional[_builtins.str] = None,
+                 throttle_config: Optional['outputs.WebFunctionEndpointThrottleConfig'] = None,
+                 update_status: Optional['WebFunctionEndpointRegionalEndpointUpdateStatus'] = None,
+                 update_status_reason: Optional[_builtins.str] = None):
+        """
+        Per-region endpoint information.
+
+        :param 'WebFunctionEndpointRegionalEndpointAuthType' auth_type: The authentication type for the endpoint.
+        :param _builtins.str domain_name: The domain name of the endpoint.
+        :param Sequence['WebFunctionEndpointRevisionWeight'] revision_weights: The revision weights for the endpoint.
+        :param 'WebFunctionEndpointScalingConfig' scaling_config: The scaling configuration for the endpoint.
+        :param 'WebFunctionEndpointRegionalEndpointState' state: The current state of the endpoint.
+        :param _builtins.str state_reason: The reason for the current state of the endpoint.
+        :param 'WebFunctionEndpointThrottleConfig' throttle_config: The throttling configuration for the endpoint.
+        :param 'WebFunctionEndpointRegionalEndpointUpdateStatus' update_status: The status of the most recent update to the endpoint.
+        :param _builtins.str update_status_reason: The reason for the current update status of the endpoint.
+        """
+        if auth_type is not None:
+            pulumi.set(__self__, "auth_type", auth_type)
+        if domain_name is not None:
+            pulumi.set(__self__, "domain_name", domain_name)
+        if revision_weights is not None:
+            pulumi.set(__self__, "revision_weights", revision_weights)
+        if scaling_config is not None:
+            pulumi.set(__self__, "scaling_config", scaling_config)
+        if state is not None:
+            pulumi.set(__self__, "state", state)
+        if state_reason is not None:
+            pulumi.set(__self__, "state_reason", state_reason)
+        if throttle_config is not None:
+            pulumi.set(__self__, "throttle_config", throttle_config)
+        if update_status is not None:
+            pulumi.set(__self__, "update_status", update_status)
+        if update_status_reason is not None:
+            pulumi.set(__self__, "update_status_reason", update_status_reason)
+
+    @_builtins.property
+    @pulumi.getter(name="authType")
+    def auth_type(self) -> Optional['WebFunctionEndpointRegionalEndpointAuthType']:
+        """
+        The authentication type for the endpoint.
+        """
+        return pulumi.get(self, "auth_type")
+
+    @_builtins.property
+    @pulumi.getter(name="domainName")
+    def domain_name(self) -> Optional[_builtins.str]:
+        """
+        The domain name of the endpoint.
+        """
+        return pulumi.get(self, "domain_name")
+
+    @_builtins.property
+    @pulumi.getter(name="revisionWeights")
+    def revision_weights(self) -> Optional[Sequence['outputs.WebFunctionEndpointRevisionWeight']]:
+        """
+        The revision weights for the endpoint.
+        """
+        return pulumi.get(self, "revision_weights")
+
+    @_builtins.property
+    @pulumi.getter(name="scalingConfig")
+    def scaling_config(self) -> Optional['outputs.WebFunctionEndpointScalingConfig']:
+        """
+        The scaling configuration for the endpoint.
+        """
+        return pulumi.get(self, "scaling_config")
+
+    @_builtins.property
+    @pulumi.getter
+    def state(self) -> Optional['WebFunctionEndpointRegionalEndpointState']:
+        """
+        The current state of the endpoint.
+        """
+        return pulumi.get(self, "state")
+
+    @_builtins.property
+    @pulumi.getter(name="stateReason")
+    def state_reason(self) -> Optional[_builtins.str]:
+        """
+        The reason for the current state of the endpoint.
+        """
+        return pulumi.get(self, "state_reason")
+
+    @_builtins.property
+    @pulumi.getter(name="throttleConfig")
+    def throttle_config(self) -> Optional['outputs.WebFunctionEndpointThrottleConfig']:
+        """
+        The throttling configuration for the endpoint.
+        """
+        return pulumi.get(self, "throttle_config")
+
+    @_builtins.property
+    @pulumi.getter(name="updateStatus")
+    def update_status(self) -> Optional['WebFunctionEndpointRegionalEndpointUpdateStatus']:
+        """
+        The status of the most recent update to the endpoint.
+        """
+        return pulumi.get(self, "update_status")
+
+    @_builtins.property
+    @pulumi.getter(name="updateStatusReason")
+    def update_status_reason(self) -> Optional[_builtins.str]:
+        """
+        The reason for the current update status of the endpoint.
+        """
+        return pulumi.get(self, "update_status_reason")
+
+
+@pulumi.output_type
+class WebFunctionEndpointRevisionWeight(dict):
+    """
+    A revision routing entry.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "revisionId":
+            suggest = "revision_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebFunctionEndpointRevisionWeight. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebFunctionEndpointRevisionWeight.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebFunctionEndpointRevisionWeight.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 revision_id: _builtins.str,
+                 weight: _builtins.int):
+        """
+        A revision routing entry.
+
+        :param _builtins.str revision_id: The revision identifier.
+        :param _builtins.int weight: The traffic weight for this revision.
+        """
+        pulumi.set(__self__, "revision_id", revision_id)
+        pulumi.set(__self__, "weight", weight)
+
+    @_builtins.property
+    @pulumi.getter(name="revisionId")
+    def revision_id(self) -> _builtins.str:
+        """
+        The revision identifier.
+        """
+        return pulumi.get(self, "revision_id")
+
+    @_builtins.property
+    @pulumi.getter
+    def weight(self) -> _builtins.int:
+        """
+        The traffic weight for this revision.
+        """
+        return pulumi.get(self, "weight")
+
+
+@pulumi.output_type
+class WebFunctionEndpointScalingConfig(dict):
+    """
+    The scaling configuration for the endpoint. Optionally constrains how many concurrent execution environments the endpoint can use, in addition to your account's vCPU quota.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maxEnvironments":
+            suggest = "max_environments"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebFunctionEndpointScalingConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebFunctionEndpointScalingConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebFunctionEndpointScalingConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 max_environments: Optional[_builtins.int] = None):
+        """
+        The scaling configuration for the endpoint. Optionally constrains how many concurrent execution environments the endpoint can use, in addition to your account's vCPU quota.
+
+        :param _builtins.int max_environments: The maximum number of concurrent execution environments for the endpoint. This optional limit further constrains the endpoint's scaling. When omitted, the endpoint's scaling is limited only by your account's vCPU quota.
+        """
+        if max_environments is not None:
+            pulumi.set(__self__, "max_environments", max_environments)
+
+    @_builtins.property
+    @pulumi.getter(name="maxEnvironments")
+    def max_environments(self) -> Optional[_builtins.int]:
+        """
+        The maximum number of concurrent execution environments for the endpoint. This optional limit further constrains the endpoint's scaling. When omitted, the endpoint's scaling is limited only by your account's vCPU quota.
+        """
+        return pulumi.get(self, "max_environments")
+
+
+@pulumi.output_type
+class WebFunctionEndpointThrottleConfig(dict):
+    """
+    The throttling configuration for the endpoint. Optionally constrains the request rate that the endpoint accepts, in addition to your account's rate limit quota.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "rateLimit":
+            suggest = "rate_limit"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebFunctionEndpointThrottleConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebFunctionEndpointThrottleConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebFunctionEndpointThrottleConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 rate_limit: Optional[_builtins.int] = None):
+        """
+        The throttling configuration for the endpoint. Optionally constrains the request rate that the endpoint accepts, in addition to your account's rate limit quota.
+
+        :param _builtins.int rate_limit: The maximum request rate per second for the endpoint, up to a maximum of 10000. This optional limit further constrains the endpoint's request rate. When omitted, the endpoint's request rate is limited only by your account's rate limit quota. Specify 0 to reject all new requests. Other supported values are 100 through 1000 in increments of 100, and 2000 through 10000 in increments of 1000. Supported values can vary by Region; if you specify an unsupported value, the error lists the values available in that Region.
+        """
+        if rate_limit is not None:
+            pulumi.set(__self__, "rate_limit", rate_limit)
+
+    @_builtins.property
+    @pulumi.getter(name="rateLimit")
+    def rate_limit(self) -> Optional[_builtins.int]:
+        """
+        The maximum request rate per second for the endpoint, up to a maximum of 10000. This optional limit further constrains the endpoint's request rate. When omitted, the endpoint's request rate is limited only by your account's rate limit quota. Specify 0 to reject all new requests. Other supported values are 100 through 1000 in increments of 100, and 2000 through 10000 in increments of 1000. Supported values can vary by Region; if you specify an unsupported value, the error lists the values available in that Region.
+        """
+        return pulumi.get(self, "rate_limit")
+
+
+@pulumi.output_type
+class WebFunctionRevisionLoggingConfig(dict):
+    """
+    The logging configuration.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "applicationLogLevel":
+            suggest = "application_log_level"
+        elif key == "logGroup":
+            suggest = "log_group"
+        elif key == "systemLogLevel":
+            suggest = "system_log_level"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebFunctionRevisionLoggingConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebFunctionRevisionLoggingConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebFunctionRevisionLoggingConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 application_log_level: Optional['WebFunctionRevisionLoggingConfigApplicationLogLevel'] = None,
+                 log_group: Optional[_builtins.str] = None,
+                 system_log_level: Optional['WebFunctionRevisionLoggingConfigSystemLogLevel'] = None):
+        """
+        The logging configuration.
+
+        :param 'WebFunctionRevisionLoggingConfigApplicationLogLevel' application_log_level: The application log level.
+        :param _builtins.str log_group: The CloudWatch log group name.
+        :param 'WebFunctionRevisionLoggingConfigSystemLogLevel' system_log_level: The system log level.
+        """
+        if application_log_level is not None:
+            pulumi.set(__self__, "application_log_level", application_log_level)
+        if log_group is not None:
+            pulumi.set(__self__, "log_group", log_group)
+        if system_log_level is not None:
+            pulumi.set(__self__, "system_log_level", system_log_level)
+
+    @_builtins.property
+    @pulumi.getter(name="applicationLogLevel")
+    def application_log_level(self) -> Optional['WebFunctionRevisionLoggingConfigApplicationLogLevel']:
+        """
+        The application log level.
+        """
+        return pulumi.get(self, "application_log_level")
+
+    @_builtins.property
+    @pulumi.getter(name="logGroup")
+    def log_group(self) -> Optional[_builtins.str]:
+        """
+        The CloudWatch log group name.
+        """
+        return pulumi.get(self, "log_group")
+
+    @_builtins.property
+    @pulumi.getter(name="systemLogLevel")
+    def system_log_level(self) -> Optional['WebFunctionRevisionLoggingConfigSystemLogLevel']:
+        """
+        The system log level.
+        """
+        return pulumi.get(self, "system_log_level")
+
+
+@pulumi.output_type
+class WebFunctionRevisionS3Object(dict):
+    """
+    The S3 location of the function code.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "versionId":
+            suggest = "version_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebFunctionRevisionS3Object. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebFunctionRevisionS3Object.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebFunctionRevisionS3Object.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 bucket: _builtins.str,
+                 key: _builtins.str,
+                 version_id: Optional[_builtins.str] = None):
+        """
+        The S3 location of the function code.
+
+        :param _builtins.str bucket: The S3 bucket name.
+        :param _builtins.str key: The S3 object key.
+        :param _builtins.str version_id: The S3 object version ID.
+        """
+        pulumi.set(__self__, "bucket", bucket)
+        pulumi.set(__self__, "key", key)
+        if version_id is not None:
+            pulumi.set(__self__, "version_id", version_id)
+
+    @_builtins.property
+    @pulumi.getter
+    def bucket(self) -> _builtins.str:
+        """
+        The S3 bucket name.
+        """
+        return pulumi.get(self, "bucket")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        """
+        The S3 object key.
+        """
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter(name="versionId")
+    def version_id(self) -> Optional[_builtins.str]:
+        """
+        The S3 object version ID.
+        """
+        return pulumi.get(self, "version_id")
 
 

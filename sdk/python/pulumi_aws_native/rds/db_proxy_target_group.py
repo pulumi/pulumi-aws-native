@@ -14,6 +14,8 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._enums import *
 from ._inputs import *
 
@@ -26,7 +28,8 @@ class DbProxyTargetGroupArgs:
                  target_group_name: pulumi.Input['DbProxyTargetGroupTargetGroupName'],
                  connection_pool_configuration_info: pulumi.Input[Optional['DbProxyTargetGroupConnectionPoolConfigurationInfoFormatArgs']] = None,
                  db_cluster_identifiers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 db_instance_identifiers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 db_instance_identifiers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a DbProxyTargetGroup resource.
 
@@ -35,6 +38,7 @@ class DbProxyTargetGroupArgs:
         :param pulumi.Input['DbProxyTargetGroupConnectionPoolConfigurationInfoFormatArgs'] connection_pool_configuration_info: Displays the settings that control the size and behavior of the connection pool associated with a `DBProxyTarget` .
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] db_cluster_identifiers: One or more DB cluster identifiers.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] db_instance_identifiers: One or more DB instance identifiers.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
         pulumi.set(__self__, "db_proxy_name", db_proxy_name)
         pulumi.set(__self__, "target_group_name", target_group_name)
@@ -44,6 +48,8 @@ class DbProxyTargetGroupArgs:
             pulumi.set(__self__, "db_cluster_identifiers", db_cluster_identifiers)
         if db_instance_identifiers is not None:
             pulumi.set(__self__, "db_instance_identifiers", db_instance_identifiers)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
 
     @_builtins.property
     @pulumi.getter(name="dbProxyName")
@@ -105,6 +111,18 @@ class DbProxyTargetGroupArgs:
     def db_instance_identifiers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "db_instance_identifiers", value)
 
+    @_builtins.property
+    @pulumi.getter
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        An array of key-value pairs to apply to this resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+        pulumi.set(self, "tags", value)
+
 
 @pulumi.type_token("aws-native:rds:DbProxyTargetGroup")
 class DbProxyTargetGroup(pulumi.CustomResource):
@@ -116,6 +134,7 @@ class DbProxyTargetGroup(pulumi.CustomResource):
                  db_cluster_identifiers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  db_instance_identifiers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  db_proxy_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  target_group_name: pulumi.Input[Optional['DbProxyTargetGroupTargetGroupName']] = None,
                  __props__=None):
         """
@@ -127,6 +146,7 @@ class DbProxyTargetGroup(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] db_cluster_identifiers: One or more DB cluster identifiers.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] db_instance_identifiers: One or more DB instance identifiers.
         :param pulumi.Input[_builtins.str] db_proxy_name: The identifier for the proxy.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
         :param pulumi.Input['DbProxyTargetGroupTargetGroupName'] target_group_name: The identifier for the DBProxyTargetGroup
         """
         ...
@@ -157,6 +177,7 @@ class DbProxyTargetGroup(pulumi.CustomResource):
                  db_cluster_identifiers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  db_instance_identifiers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  db_proxy_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  target_group_name: pulumi.Input[Optional['DbProxyTargetGroupTargetGroupName']] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -173,6 +194,7 @@ class DbProxyTargetGroup(pulumi.CustomResource):
             if db_proxy_name is None and not opts.urn:
                 raise TypeError("Missing required property 'db_proxy_name'")
             __props__.__dict__["db_proxy_name"] = db_proxy_name
+            __props__.__dict__["tags"] = tags
             if target_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'target_group_name'")
             __props__.__dict__["target_group_name"] = target_group_name
@@ -205,6 +227,7 @@ class DbProxyTargetGroup(pulumi.CustomResource):
         __props__.__dict__["db_cluster_identifiers"] = None
         __props__.__dict__["db_instance_identifiers"] = None
         __props__.__dict__["db_proxy_name"] = None
+        __props__.__dict__["tags"] = None
         __props__.__dict__["target_group_arn"] = None
         __props__.__dict__["target_group_name"] = None
         return DbProxyTargetGroup(resource_name, opts=opts, __props__=__props__)
@@ -240,6 +263,14 @@ class DbProxyTargetGroup(pulumi.CustomResource):
         The identifier for the proxy.
         """
         return pulumi.get(self, "db_proxy_name")
+
+    @_builtins.property
+    @pulumi.getter
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        """
+        An array of key-value pairs to apply to this resource.
+        """
+        return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="targetGroupArn")

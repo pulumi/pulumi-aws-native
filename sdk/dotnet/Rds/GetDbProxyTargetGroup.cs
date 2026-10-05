@@ -76,6 +76,10 @@ namespace Pulumi.AwsNative.Rds
         /// </summary>
         public readonly ImmutableArray<string> DbInstanceIdentifiers;
         /// <summary>
+        /// An array of key-value pairs to apply to this resource.
+        /// </summary>
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
+        /// <summary>
         /// The Amazon Resource Name (ARN) representing the target group.
         /// </summary>
         public readonly string? TargetGroupArn;
@@ -88,11 +92,14 @@ namespace Pulumi.AwsNative.Rds
 
             ImmutableArray<string> dbInstanceIdentifiers,
 
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
+
             string? targetGroupArn)
         {
             ConnectionPoolConfigurationInfo = connectionPoolConfigurationInfo;
             DbClusterIdentifiers = dbClusterIdentifiers;
             DbInstanceIdentifiers = dbInstanceIdentifiers;
+            Tags = tags;
             TargetGroupArn = targetGroupArn;
         }
     }

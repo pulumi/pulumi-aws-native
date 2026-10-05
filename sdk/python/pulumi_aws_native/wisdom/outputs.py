@@ -71,6 +71,8 @@ __all__ = [
     'AssistantAssociationAssociationData1Properties',
     'AssistantAssociationExternalBedrockKnowledgeBaseConfig',
     'AssistantServerSideEncryptionConfiguration',
+    'ContentAssociationAmazonConnectGuideAssociationData',
+    'ContentAssociationContents',
     'KnowledgeBaseAppIntegrationsConfiguration',
     'KnowledgeBaseBedrockFoundationModelConfiguration',
     'KnowledgeBaseBedrockFoundationModelConfigurationParsingPromptProperties',
@@ -2438,6 +2440,65 @@ class AssistantServerSideEncryptionConfiguration(dict):
         The customer managed key used for encryption. The customer managed key must have a policy that allows `kms:CreateGrant` and `kms:DescribeKey` permissions to the IAM identity using the key to invoke Wisdom. To use Wisdom with chat, the key policy must also allow `kms:Decrypt` , `kms:GenerateDataKey*` , and `kms:DescribeKey` permissions to the `connect.amazonaws.com` service principal. For more information about setting up a customer managed key for Wisdom, see [Enable Connect Customer Wisdom for your instance](https://docs.aws.amazon.com/connect/latest/adminguide/enable-wisdom.html) . For information about valid ID values, see [Key identifiers (KeyId)](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id) in the *AWS Key Management Service Developer Guide* .
         """
         return pulumi.get(self, "kms_key_id")
+
+
+@pulumi.output_type
+class ContentAssociationAmazonConnectGuideAssociationData(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "flowId":
+            suggest = "flow_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ContentAssociationAmazonConnectGuideAssociationData. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ContentAssociationAmazonConnectGuideAssociationData.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ContentAssociationAmazonConnectGuideAssociationData.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 flow_id: Optional[_builtins.str] = None):
+        if flow_id is not None:
+            pulumi.set(__self__, "flow_id", flow_id)
+
+    @_builtins.property
+    @pulumi.getter(name="flowId")
+    def flow_id(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "flow_id")
+
+
+@pulumi.output_type
+class ContentAssociationContents(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "amazonConnectGuideAssociation":
+            suggest = "amazon_connect_guide_association"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ContentAssociationContents. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ContentAssociationContents.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ContentAssociationContents.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 amazon_connect_guide_association: 'outputs.ContentAssociationAmazonConnectGuideAssociationData'):
+        pulumi.set(__self__, "amazon_connect_guide_association", amazon_connect_guide_association)
+
+    @_builtins.property
+    @pulumi.getter(name="amazonConnectGuideAssociation")
+    def amazon_connect_guide_association(self) -> 'outputs.ContentAssociationAmazonConnectGuideAssociationData':
+        return pulumi.get(self, "amazon_connect_guide_association")
 
 
 @pulumi.output_type

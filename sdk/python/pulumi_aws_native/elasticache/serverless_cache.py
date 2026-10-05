@@ -26,6 +26,7 @@ class ServerlessCacheArgs:
     def __init__(__self__, *,
                  engine: pulumi.Input[_builtins.str],
                  cache_usage_limits: pulumi.Input[Optional['ServerlessCacheCacheUsageLimitsArgs']] = None,
+                 connection_type: pulumi.Input[Optional['ServerlessCacheConnectionType']] = None,
                  daily_snapshot_time: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  endpoint: pulumi.Input[Optional['ServerlessCacheEndpointArgs']] = None,
@@ -64,6 +65,8 @@ class ServerlessCacheArgs:
         pulumi.set(__self__, "engine", engine)
         if cache_usage_limits is not None:
             pulumi.set(__self__, "cache_usage_limits", cache_usage_limits)
+        if connection_type is not None:
+            pulumi.set(__self__, "connection_type", connection_type)
         if daily_snapshot_time is not None:
             pulumi.set(__self__, "daily_snapshot_time", daily_snapshot_time)
         if description is not None:
@@ -118,6 +121,15 @@ class ServerlessCacheArgs:
     @cache_usage_limits.setter
     def cache_usage_limits(self, value: pulumi.Input[Optional['ServerlessCacheCacheUsageLimitsArgs']]):
         pulumi.set(self, "cache_usage_limits", value)
+
+    @_builtins.property
+    @pulumi.getter(name="connectionType")
+    def connection_type(self) -> pulumi.Input[Optional['ServerlessCacheConnectionType']]:
+        return pulumi.get(self, "connection_type")
+
+    @connection_type.setter
+    def connection_type(self, value: pulumi.Input[Optional['ServerlessCacheConnectionType']]):
+        pulumi.set(self, "connection_type", value)
 
     @_builtins.property
     @pulumi.getter(name="dailySnapshotTime")
@@ -304,6 +316,7 @@ class ServerlessCache(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cache_usage_limits: pulumi.Input[Optional[Union['ServerlessCacheCacheUsageLimitsArgs', 'ServerlessCacheCacheUsageLimitsArgsDict']]] = None,
+                 connection_type: pulumi.Input[Optional['ServerlessCacheConnectionType']] = None,
                  daily_snapshot_time: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  endpoint: pulumi.Input[Optional[Union['ServerlessCacheEndpointArgs', 'ServerlessCacheEndpointArgsDict']]] = None,
@@ -368,6 +381,7 @@ class ServerlessCache(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cache_usage_limits: pulumi.Input[Optional[Union['ServerlessCacheCacheUsageLimitsArgs', 'ServerlessCacheCacheUsageLimitsArgsDict']]] = None,
+                 connection_type: pulumi.Input[Optional['ServerlessCacheConnectionType']] = None,
                  daily_snapshot_time: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  endpoint: pulumi.Input[Optional[Union['ServerlessCacheEndpointArgs', 'ServerlessCacheEndpointArgsDict']]] = None,
@@ -394,6 +408,7 @@ class ServerlessCache(pulumi.CustomResource):
             __props__ = ServerlessCacheArgs.__new__(ServerlessCacheArgs)
 
             __props__.__dict__["cache_usage_limits"] = cache_usage_limits
+            __props__.__dict__["connection_type"] = connection_type
             __props__.__dict__["daily_snapshot_time"] = daily_snapshot_time
             __props__.__dict__["description"] = description
             __props__.__dict__["endpoint"] = endpoint
@@ -416,7 +431,7 @@ class ServerlessCache(pulumi.CustomResource):
             __props__.__dict__["create_time"] = None
             __props__.__dict__["full_engine_version"] = None
             __props__.__dict__["status"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["kmsKeyId", "networkType", "serverlessCacheName", "snapshotArnsToRestore[*]", "subnetIds[*]"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["connectionType", "kmsKeyId", "networkType", "serverlessCacheName", "snapshotArnsToRestore[*]", "subnetIds[*]"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(ServerlessCache, __self__).__init__(
             'aws-native:elasticache:ServerlessCache',
@@ -442,6 +457,7 @@ class ServerlessCache(pulumi.CustomResource):
 
         __props__.__dict__["arn"] = None
         __props__.__dict__["cache_usage_limits"] = None
+        __props__.__dict__["connection_type"] = None
         __props__.__dict__["create_time"] = None
         __props__.__dict__["daily_snapshot_time"] = None
         __props__.__dict__["description"] = None
@@ -478,6 +494,11 @@ class ServerlessCache(pulumi.CustomResource):
         The cache usage limit for the serverless cache.
         """
         return pulumi.get(self, "cache_usage_limits")
+
+    @_builtins.property
+    @pulumi.getter(name="connectionType")
+    def connection_type(self) -> pulumi.Output[Optional['ServerlessCacheConnectionType']]:
+        return pulumi.get(self, "connection_type")
 
     @_builtins.property
     @pulumi.getter(name="createTime")

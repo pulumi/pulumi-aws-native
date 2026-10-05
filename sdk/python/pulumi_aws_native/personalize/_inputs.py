@@ -16,6 +16,8 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
+    'CampaignConfigArgs',
+    'CampaignConfigArgsDict',
     'DatasetImportJobArgs',
     'DatasetImportJobArgsDict',
     'DatasetImportJobDataSourcePropertiesArgs',
@@ -45,6 +47,100 @@ __all__ = [
     'SolutionIntegerHyperParameterRangeArgs',
     'SolutionIntegerHyperParameterRangeArgsDict',
 ]
+
+class CampaignConfigArgsDict(TypedDict):
+    """
+    The configuration details of a campaign.
+    """
+    enable_metadata_with_recommendations: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    Whether metadata with recommendations is enabled for the campaign.
+    """
+    item_exploration_config: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
+    """
+    Specifies the exploration configuration hyperparameters.
+    """
+    ranking_influence: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.float]]]]]
+    """
+    A map of ranking influence values for POPULARITY and FRESHNESS.
+    """
+    sync_with_latest_solution_version: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    Whether the campaign automatically updates to use the latest solution version.
+    """
+
+@pulumi.input_type
+class CampaignConfigArgs:
+    def __init__(__self__, *,
+                 enable_metadata_with_recommendations: pulumi.Input[Optional[_builtins.bool]] = None,
+                 item_exploration_config: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 ranking_influence: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.float]]]] = None,
+                 sync_with_latest_solution_version: pulumi.Input[Optional[_builtins.bool]] = None):
+        """
+        The configuration details of a campaign.
+
+        :param pulumi.Input[_builtins.bool] enable_metadata_with_recommendations: Whether metadata with recommendations is enabled for the campaign.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] item_exploration_config: Specifies the exploration configuration hyperparameters.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.float]]] ranking_influence: A map of ranking influence values for POPULARITY and FRESHNESS.
+        :param pulumi.Input[_builtins.bool] sync_with_latest_solution_version: Whether the campaign automatically updates to use the latest solution version.
+        """
+        if enable_metadata_with_recommendations is not None:
+            pulumi.set(__self__, "enable_metadata_with_recommendations", enable_metadata_with_recommendations)
+        if item_exploration_config is not None:
+            pulumi.set(__self__, "item_exploration_config", item_exploration_config)
+        if ranking_influence is not None:
+            pulumi.set(__self__, "ranking_influence", ranking_influence)
+        if sync_with_latest_solution_version is not None:
+            pulumi.set(__self__, "sync_with_latest_solution_version", sync_with_latest_solution_version)
+
+    @_builtins.property
+    @pulumi.getter(name="enableMetadataWithRecommendations")
+    def enable_metadata_with_recommendations(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Whether metadata with recommendations is enabled for the campaign.
+        """
+        return pulumi.get(self, "enable_metadata_with_recommendations")
+
+    @enable_metadata_with_recommendations.setter
+    def enable_metadata_with_recommendations(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "enable_metadata_with_recommendations", value)
+
+    @_builtins.property
+    @pulumi.getter(name="itemExplorationConfig")
+    def item_exploration_config(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
+        """
+        Specifies the exploration configuration hyperparameters.
+        """
+        return pulumi.get(self, "item_exploration_config")
+
+    @item_exploration_config.setter
+    def item_exploration_config(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "item_exploration_config", value)
+
+    @_builtins.property
+    @pulumi.getter(name="rankingInfluence")
+    def ranking_influence(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.float]]]]:
+        """
+        A map of ranking influence values for POPULARITY and FRESHNESS.
+        """
+        return pulumi.get(self, "ranking_influence")
+
+    @ranking_influence.setter
+    def ranking_influence(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.float]]]]):
+        pulumi.set(self, "ranking_influence", value)
+
+    @_builtins.property
+    @pulumi.getter(name="syncWithLatestSolutionVersion")
+    def sync_with_latest_solution_version(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Whether the campaign automatically updates to use the latest solution version.
+        """
+        return pulumi.get(self, "sync_with_latest_solution_version")
+
+    @sync_with_latest_solution_version.setter
+    def sync_with_latest_solution_version(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "sync_with_latest_solution_version", value)
+
 
 class DatasetImportJobArgsDict(TypedDict):
     """

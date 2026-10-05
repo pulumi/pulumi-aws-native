@@ -84,6 +84,7 @@ export class Plan extends pulumi.CustomResource {
      */
     declare public readonly reportConfiguration: pulumi.Output<outputs.arcregionswitch.PlanReportConfiguration | undefined>;
     declare public /*out*/ readonly route53HealthChecks: pulumi.Output<outputs.arcregionswitch.Route53HealthChecksProperties>;
+    declare public readonly serviceQuotaChecksEnabled: pulumi.Output<boolean | undefined>;
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The triggers for a plan.
@@ -130,6 +131,7 @@ export class Plan extends pulumi.CustomResource {
             resourceInputs["recoveryTimeObjectiveMinutes"] = args?.recoveryTimeObjectiveMinutes;
             resourceInputs["regions"] = args?.regions;
             resourceInputs["reportConfiguration"] = args?.reportConfiguration;
+            resourceInputs["serviceQuotaChecksEnabled"] = args?.serviceQuotaChecksEnabled;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["triggers"] = args?.triggers;
             resourceInputs["workflows"] = args?.workflows;
@@ -154,6 +156,7 @@ export class Plan extends pulumi.CustomResource {
             resourceInputs["regions"] = undefined /*out*/;
             resourceInputs["reportConfiguration"] = undefined /*out*/;
             resourceInputs["route53HealthChecks"] = undefined /*out*/;
+            resourceInputs["serviceQuotaChecksEnabled"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["triggers"] = undefined /*out*/;
             resourceInputs["version"] = undefined /*out*/;
@@ -206,6 +209,7 @@ export interface PlanArgs {
      * The report configuration for a plan.
      */
     reportConfiguration?: pulumi.Input<inputs.arcregionswitch.PlanReportConfigurationArgs | undefined>;
+    serviceQuotaChecksEnabled?: pulumi.Input<boolean | undefined>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The triggers for a plan.

@@ -1,10 +1,13 @@
 {
   "typeName" : "AWS::AppStream::Fleet",
   "description" : "Resource Type definition for AWS::AppStream::Fleet",
+  "sourceUrl" : "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-appstream.git",
   "additionalProperties" : false,
   "properties" : {
     "Description" : {
-      "type" : "string"
+      "type" : "string",
+      "minLength" : 1,
+      "maxLength" : 256
     },
     "ComputeCapacity" : {
       "$ref" : "#/definitions/ComputeCapacity"
@@ -15,36 +18,70 @@
     "VpcConfig" : {
       "$ref" : "#/definitions/VpcConfig"
     },
-    "RootVolumeConfig" : {
-      "$ref" : "#/definitions/VolumeConfig"
+    "FleetType" : {
+      "type" : "string",
+      "pattern" : "^ALWAYS_ON$|^ON_DEMAND$|^ELASTIC$"
+    },
+    "EnableDefaultInternetAccess" : {
+      "type" : "boolean"
+    },
+    "DomainJoinInfo" : {
+      "$ref" : "#/definitions/DomainJoinInfo"
     },
     "SessionScriptS3Location" : {
       "$ref" : "#/definitions/S3Location"
     },
     "Name" : {
-      "type" : "string"
+      "type" : "string",
+      "minLength" : 1,
+      "maxLength" : 100
+    },
+    "ImageName" : {
+      "type" : "string",
+      "minLength" : 1,
+      "maxLength" : 100
+    },
+    "MaxUserDurationInSeconds" : {
+      "type" : "integer",
+      "minimum" : 600,
+      "maximum" : 432000
     },
     "IdleDisconnectTimeoutInSeconds" : {
-      "type" : "integer"
+      "type" : "integer",
+      "minimum" : 0,
+      "maximum" : 36000
     },
     "UsbDeviceFilterStrings" : {
       "type" : "array",
       "uniqueItems" : false,
+      "insertionOrder" : false,
       "items" : {
         "type" : "string"
       }
     },
     "DisconnectTimeoutInSeconds" : {
-      "type" : "integer"
+      "type" : "integer",
+      "minimum" : 60,
+      "maximum" : 432000
     },
     "DisplayName" : {
+      "type" : "string",
+      "minLength" : 1,
+      "maxLength" : 100
+    },
+    "StreamView" : {
       "type" : "string"
     },
     "IamRoleArn" : {
-      "type" : "string"
+      "type" : "string",
+      "pattern" : "^arn:aws(?:\\-cn|\\-iso\\-b|\\-iso|\\-us\\-gov)?:iam::[0-9]{12}:role/.+$"
     },
     "MaxSessionsPerInstance" : {
       "type" : "integer"
+    },
+    "Arn" : {
+      "type" : "string",
+      "pattern" : "^arn:[a-z-]+:[a-z-]+:(([a-z]+-)+[0-9])?:([0-9]{12})?:.+$"
     },
     "InstanceType" : {
       "type" : "string"
@@ -55,36 +92,32 @@
     "Tags" : {
       "type" : "array",
       "uniqueItems" : false,
+      "insertionOrder" : false,
+      "minItems" : 1,
+      "maxItems" : 50,
       "items" : {
         "$ref" : "#/definitions/Tag"
       }
     },
-    "FleetType" : {
-      "type" : "string"
+    "ImageArn" : {
+      "type" : "string",
+      "maxLength" : 1024,
+      "pattern" : "^arn:[a-z-]+:[a-z-]+:(([a-z]+-)+[0-9])?:([0-9]{12})?:.+$"
+    },
+    "RootVolumeConfig" : {
+      "$ref" : "#/definitions/VolumeConfig"
     },
     "DisableIMDSV1" : {
       "type" : "boolean"
     },
-    "EnableDefaultInternetAccess" : {
-      "type" : "boolean"
-    },
-    "DomainJoinInfo" : {
-      "$ref" : "#/definitions/DomainJoinInfo"
-    },
-    "ImageName" : {
-      "type" : "string"
-    },
-    "MaxUserDurationInSeconds" : {
-      "type" : "integer"
-    },
-    "StreamView" : {
-      "type" : "string"
-    },
-    "Id" : {
-      "type" : "string"
-    },
-    "ImageArn" : {
-      "type" : "string"
+    "AttributesToDelete" : {
+      "type" : "array",
+      "uniqueItems" : true,
+      "insertionOrder" : false,
+      "items" : {
+        "type" : "string",
+        "enum" : [ "VPC_CONFIGURATION", "VPC_CONFIGURATION_SECURITY_GROUP_IDS", "DOMAIN_JOIN_INFO", "IAM_ROLE_ARN", "USB_DEVICE_FILTER_STRINGS", "SESSION_SCRIPT_S3_LOCATION", "MAX_SESSIONS_PER_INSTANCE" ]
+      }
     }
   },
   "definitions" : {
@@ -107,6 +140,7 @@
         "SubnetIds" : {
           "type" : "array",
           "uniqueItems" : false,
+          "insertionOrder" : false,
           "items" : {
             "type" : "string"
           }
@@ -114,6 +148,7 @@
         "SecurityGroupIds" : {
           "type" : "array",
           "uniqueItems" : false,
+          "insertionOrder" : false,
           "items" : {
             "type" : "string"
           }
@@ -136,14 +171,19 @@
       "type" : "object",
       "additionalProperties" : false,
       "properties" : {
-        "Value" : {
-          "type" : "string"
-        },
         "Key" : {
-          "type" : "string"
+          "type" : "string",
+          "pattern" : "^(?!aws:)[\\S\\s]+$",
+          "minLength" : 1,
+          "maxLength" : 128
+        },
+        "Value" : {
+          "type" : "string",
+          "pattern" : "^[\\S\\s]*$",
+          "maxLength" : 256
         }
       },
-      "required" : [ "Value", "Key" ]
+      "required" : [ "Key" ]
     },
     "S3Location" : {
       "type" : "object",
@@ -170,6 +210,32 @@
   },
   "required" : [ "InstanceType", "Name" ],
   "createOnlyProperties" : [ "/properties/Name", "/properties/FleetType" ],
-  "primaryIdentifier" : [ "/properties/Id" ],
-  "readOnlyProperties" : [ "/properties/Id" ]
+  "primaryIdentifier" : [ "/properties/Name" ],
+  "readOnlyProperties" : [ "/properties/Arn" ],
+  "writeOnlyProperties" : [ "/properties/AttributesToDelete" ],
+  "tagging" : {
+    "taggable" : true,
+    "tagOnCreate" : true,
+    "tagUpdatable" : true,
+    "cloudFormationSystemTags" : false,
+    "tagProperty" : "/properties/Tags",
+    "permissions" : [ "appstream:TagResource", "appstream:ListTagsForResource", "appstream:UntagResource" ]
+  },
+  "handlers" : {
+    "create" : {
+      "permissions" : [ "appstream:CreateFleet", "appstream:StartFleet", "appstream:DescribeFleets", "appstream:TagResource", "appstream:ListTagsForResource", "iam:PassRole", "s3:ListBucket", "s3:GetObject" ]
+    },
+    "read" : {
+      "permissions" : [ "appstream:DescribeFleets", "appstream:ListTagsForResource" ]
+    },
+    "update" : {
+      "permissions" : [ "appstream:UpdateFleet", "appstream:DescribeFleets", "appstream:StopFleet", "appstream:StartFleet", "appstream:TagResource", "appstream:UntagResource", "appstream:ListTagsForResource", "iam:PassRole", "s3:ListBucket", "s3:GetObject" ]
+    },
+    "delete" : {
+      "permissions" : [ "appstream:StopFleet", "appstream:DescribeFleets", "appstream:DeleteFleet" ]
+    },
+    "list" : {
+      "permissions" : [ "appstream:DescribeFleets" ]
+    }
+  }
 }

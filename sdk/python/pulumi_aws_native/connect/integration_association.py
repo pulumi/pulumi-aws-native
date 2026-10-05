@@ -25,6 +25,9 @@ class IntegrationAssociationArgs:
                  instance_id: pulumi.Input[_builtins.str],
                  integration_arn: pulumi.Input[_builtins.str],
                  integration_type: pulumi.Input['IntegrationAssociationIntegrationType'],
+                 source_application_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_application_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_type: pulumi.Input[Optional['IntegrationAssociationSourceType']] = None,
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a IntegrationAssociation resource.
@@ -47,6 +50,12 @@ class IntegrationAssociationArgs:
         pulumi.set(__self__, "instance_id", instance_id)
         pulumi.set(__self__, "integration_arn", integration_arn)
         pulumi.set(__self__, "integration_type", integration_type)
+        if source_application_name is not None:
+            pulumi.set(__self__, "source_application_name", source_application_name)
+        if source_application_url is not None:
+            pulumi.set(__self__, "source_application_url", source_application_url)
+        if source_type is not None:
+            pulumi.set(__self__, "source_type", source_type)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -97,6 +106,33 @@ class IntegrationAssociationArgs:
         pulumi.set(self, "integration_type", value)
 
     @_builtins.property
+    @pulumi.getter(name="sourceApplicationName")
+    def source_application_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "source_application_name")
+
+    @source_application_name.setter
+    def source_application_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "source_application_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="sourceApplicationUrl")
+    def source_application_url(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "source_application_url")
+
+    @source_application_url.setter
+    def source_application_url(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "source_application_url", value)
+
+    @_builtins.property
+    @pulumi.getter(name="sourceType")
+    def source_type(self) -> pulumi.Input[Optional['IntegrationAssociationSourceType']]:
+        return pulumi.get(self, "source_type")
+
+    @source_type.setter
+    def source_type(self, value: pulumi.Input[Optional['IntegrationAssociationSourceType']]):
+        pulumi.set(self, "source_type", value)
+
+    @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
@@ -118,6 +154,9 @@ class IntegrationAssociation(pulumi.CustomResource):
                  instance_id: pulumi.Input[Optional[_builtins.str]] = None,
                  integration_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  integration_type: pulumi.Input[Optional['IntegrationAssociationIntegrationType']] = None,
+                 source_application_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_application_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_type: pulumi.Input[Optional['IntegrationAssociationSourceType']] = None,
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
@@ -245,6 +284,9 @@ class IntegrationAssociation(pulumi.CustomResource):
                  instance_id: pulumi.Input[Optional[_builtins.str]] = None,
                  integration_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  integration_type: pulumi.Input[Optional['IntegrationAssociationIntegrationType']] = None,
+                 source_application_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_application_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_type: pulumi.Input[Optional['IntegrationAssociationSourceType']] = None,
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -264,9 +306,12 @@ class IntegrationAssociation(pulumi.CustomResource):
             if integration_type is None and not opts.urn:
                 raise TypeError("Missing required property 'integration_type'")
             __props__.__dict__["integration_type"] = integration_type
+            __props__.__dict__["source_application_name"] = source_application_name
+            __props__.__dict__["source_application_url"] = source_application_url
+            __props__.__dict__["source_type"] = source_type
             __props__.__dict__["tags"] = tags
             __props__.__dict__["integration_association_id"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["instanceId", "integrationArn", "integrationType"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["instanceId", "integrationArn", "integrationType", "sourceApplicationName", "sourceApplicationUrl", "sourceType"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(IntegrationAssociation, __self__).__init__(
             'aws-native:connect:IntegrationAssociation',
@@ -294,6 +339,9 @@ class IntegrationAssociation(pulumi.CustomResource):
         __props__.__dict__["integration_arn"] = None
         __props__.__dict__["integration_association_id"] = None
         __props__.__dict__["integration_type"] = None
+        __props__.__dict__["source_application_name"] = None
+        __props__.__dict__["source_application_url"] = None
+        __props__.__dict__["source_type"] = None
         __props__.__dict__["tags"] = None
         return IntegrationAssociation(resource_name, opts=opts, __props__=__props__)
 
@@ -338,6 +386,21 @@ class IntegrationAssociation(pulumi.CustomResource):
         *Allowed Values* : `LEX_BOT` | `LAMBDA_FUNCTION`
         """
         return pulumi.get(self, "integration_type")
+
+    @_builtins.property
+    @pulumi.getter(name="sourceApplicationName")
+    def source_application_name(self) -> pulumi.Output[Optional[_builtins.str]]:
+        return pulumi.get(self, "source_application_name")
+
+    @_builtins.property
+    @pulumi.getter(name="sourceApplicationUrl")
+    def source_application_url(self) -> pulumi.Output[Optional[_builtins.str]]:
+        return pulumi.get(self, "source_application_url")
+
+    @_builtins.property
+    @pulumi.getter(name="sourceType")
+    def source_type(self) -> pulumi.Output[Optional['IntegrationAssociationSourceType']]:
+        return pulumi.get(self, "source_type")
 
     @_builtins.property
     @pulumi.getter

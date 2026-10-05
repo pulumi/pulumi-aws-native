@@ -10,6 +10,12 @@ __all__ = [
     'ParallelDataConfigPropertiesFormat',
     'ParallelDataEncryptionKeyPropertiesType',
     'ParallelDataStatus',
+    'TerminologyDataPropertiesDirectionality',
+    'TerminologyDataPropertiesFormat',
+    'TerminologyDirectionality',
+    'TerminologyEncryptionKeyPropertiesType',
+    'TerminologyFormat',
+    'TerminologyMergeStrategy',
 ]
 
 
@@ -41,3 +47,57 @@ class ParallelDataStatus(_builtins.str, Enum):
     ACTIVE = "ACTIVE"
     DELETING = "DELETING"
     FAILED = "FAILED"
+
+
+@pulumi.type_token("aws-native:translate:TerminologyDataPropertiesDirectionality")
+class TerminologyDataPropertiesDirectionality(_builtins.str, Enum):
+    """
+    The directionality of the terminology resource.
+    """
+    UNI = "UNI"
+    MULTI = "MULTI"
+
+
+@pulumi.type_token("aws-native:translate:TerminologyDataPropertiesFormat")
+class TerminologyDataPropertiesFormat(_builtins.str, Enum):
+    """
+    The data format of the custom terminology.
+    """
+    CSV = "CSV"
+    TMX = "TMX"
+    TSV = "TSV"
+
+
+@pulumi.type_token("aws-native:translate:TerminologyDirectionality")
+class TerminologyDirectionality(_builtins.str, Enum):
+    """
+    The directionality of the terminology.
+    """
+    UNI = "UNI"
+    MULTI = "MULTI"
+
+
+@pulumi.type_token("aws-native:translate:TerminologyEncryptionKeyPropertiesType")
+class TerminologyEncryptionKeyPropertiesType(_builtins.str, Enum):
+    """
+    The type of encryption key.
+    """
+    KMS = "KMS"
+
+
+@pulumi.type_token("aws-native:translate:TerminologyFormat")
+class TerminologyFormat(_builtins.str, Enum):
+    """
+    The format of the terminology data.
+    """
+    CSV = "CSV"
+    TMX = "TMX"
+    TSV = "TSV"
+
+
+@pulumi.type_token("aws-native:translate:TerminologyMergeStrategy")
+class TerminologyMergeStrategy(_builtins.str, Enum):
+    """
+    The merge strategy for the custom terminology. Currently only OVERWRITE is supported.
+    """
+    OVERWRITE = "OVERWRITE"

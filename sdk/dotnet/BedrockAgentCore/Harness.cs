@@ -76,6 +76,12 @@ namespace Pulumi.AwsNative.BedrockAgentCore
         public Output<string> HarnessName { get; private set; } = null!;
 
         /// <summary>
+        /// Lifecycle hooks that fire at well-defined points in the agent loop for policy enforcement, audit, and governance.
+        /// </summary>
+        [Output("hooks")]
+        public Output<ImmutableArray<Outputs.HarnessHook>> Hooks { get; private set; } = null!;
+
+        /// <summary>
         /// The maximum number of iterations the agent loop can execute per invocation.
         /// </summary>
         [Output("maxIterations")]
@@ -256,6 +262,18 @@ namespace Pulumi.AwsNative.BedrockAgentCore
         /// </summary>
         [Input("harnessName")]
         public Input<string>? HarnessName { get; set; }
+
+        [Input("hooks")]
+        private InputList<Inputs.HarnessHookArgs>? _hooks;
+
+        /// <summary>
+        /// Lifecycle hooks that fire at well-defined points in the agent loop for policy enforcement, audit, and governance.
+        /// </summary>
+        public InputList<Inputs.HarnessHookArgs> Hooks
+        {
+            get => _hooks ?? (_hooks = new InputList<Inputs.HarnessHookArgs>());
+            set => _hooks = value;
+        }
 
         /// <summary>
         /// The maximum number of iterations the agent loop can execute per invocation.

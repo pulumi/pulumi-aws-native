@@ -40,6 +40,11 @@ export const getServerlessCacheSnapshot: typeof import("./getServerlessCacheSnap
 export const getServerlessCacheSnapshotOutput: typeof import("./getServerlessCacheSnapshot").getServerlessCacheSnapshotOutput = null as any;
 utilities.lazyLoad(exports, ["getServerlessCacheSnapshot","getServerlessCacheSnapshotOutput"], () => require("./getServerlessCacheSnapshot"));
 
+export { GetSnapshotArgs, GetSnapshotResult, GetSnapshotOutputArgs } from "./getSnapshot";
+export const getSnapshot: typeof import("./getSnapshot").getSnapshot = null as any;
+export const getSnapshotOutput: typeof import("./getSnapshot").getSnapshotOutput = null as any;
+utilities.lazyLoad(exports, ["getSnapshot","getSnapshotOutput"], () => require("./getSnapshot"));
+
 export { GetSubnetGroupArgs, GetSubnetGroupResult, GetSubnetGroupOutputArgs } from "./getSubnetGroup";
 export const getSubnetGroup: typeof import("./getSubnetGroup").getSubnetGroup = null as any;
 export const getSubnetGroupOutput: typeof import("./getSubnetGroup").getSubnetGroupOutput = null as any;
@@ -80,6 +85,11 @@ export type ServerlessCacheSnapshot = import("./serverlessCacheSnapshot").Server
 export const ServerlessCacheSnapshot: typeof import("./serverlessCacheSnapshot").ServerlessCacheSnapshot = null as any;
 utilities.lazyLoad(exports, ["ServerlessCacheSnapshot"], () => require("./serverlessCacheSnapshot"));
 
+export { SnapshotArgs } from "./snapshot";
+export type Snapshot = import("./snapshot").Snapshot;
+export const Snapshot: typeof import("./snapshot").Snapshot = null as any;
+utilities.lazyLoad(exports, ["Snapshot"], () => require("./snapshot"));
+
 export { SubnetGroupArgs } from "./subnetGroup";
 export type SubnetGroup = import("./subnetGroup").SubnetGroup;
 export const SubnetGroup: typeof import("./subnetGroup").SubnetGroup = null as any;
@@ -115,6 +125,8 @@ const _module = {
                 return new ServerlessCache(name, <any>undefined, { urn })
             case "aws-native:elasticache:ServerlessCacheSnapshot":
                 return new ServerlessCacheSnapshot(name, <any>undefined, { urn })
+            case "aws-native:elasticache:Snapshot":
+                return new Snapshot(name, <any>undefined, { urn })
             case "aws-native:elasticache:SubnetGroup":
                 return new SubnetGroup(name, <any>undefined, { urn })
             case "aws-native:elasticache:User":

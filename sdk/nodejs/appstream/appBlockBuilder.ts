@@ -59,6 +59,7 @@ export class AppBlockBuilder extends pulumi.CustomResource {
      * The description of the app block builder.
      */
     declare public readonly description: pulumi.Output<string | undefined>;
+    declare public readonly disableImdsv1: pulumi.Output<boolean | undefined>;
     /**
      * The display name of the app block builder.
      */
@@ -117,6 +118,7 @@ export class AppBlockBuilder extends pulumi.CustomResource {
             resourceInputs["accessEndpoints"] = args?.accessEndpoints;
             resourceInputs["appBlockArns"] = args?.appBlockArns;
             resourceInputs["description"] = args?.description;
+            resourceInputs["disableImdsv1"] = args?.disableImdsv1;
             resourceInputs["displayName"] = args?.displayName;
             resourceInputs["enableDefaultInternetAccess"] = args?.enableDefaultInternetAccess;
             resourceInputs["iamRoleArn"] = args?.iamRoleArn;
@@ -133,6 +135,7 @@ export class AppBlockBuilder extends pulumi.CustomResource {
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["createdTime"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["disableImdsv1"] = undefined /*out*/;
             resourceInputs["displayName"] = undefined /*out*/;
             resourceInputs["enableDefaultInternetAccess"] = undefined /*out*/;
             resourceInputs["iamRoleArn"] = undefined /*out*/;
@@ -167,6 +170,7 @@ export interface AppBlockBuilderArgs {
      * The description of the app block builder.
      */
     description?: pulumi.Input<string | undefined>;
+    disableImdsv1?: pulumi.Input<boolean | undefined>;
     /**
      * The display name of the app block builder.
      */

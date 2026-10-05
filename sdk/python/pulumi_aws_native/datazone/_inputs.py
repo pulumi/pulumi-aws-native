@@ -956,16 +956,25 @@ class ConnectionIamPropertiesInputArgsDict(TypedDict):
     IAM Properties Input
     """
     glue_lineage_sync_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    role_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The ARN of the IAM role to associate with the connection as the project user role.
+    """
 
 @pulumi.input_type
 class ConnectionIamPropertiesInputArgs:
     def __init__(__self__, *,
-                 glue_lineage_sync_enabled: pulumi.Input[Optional[_builtins.bool]] = None):
+                 glue_lineage_sync_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None):
         """
         IAM Properties Input
+
+        :param pulumi.Input[_builtins.str] role_arn: The ARN of the IAM role to associate with the connection as the project user role.
         """
         if glue_lineage_sync_enabled is not None:
             pulumi.set(__self__, "glue_lineage_sync_enabled", glue_lineage_sync_enabled)
+        if role_arn is not None:
+            pulumi.set(__self__, "role_arn", role_arn)
 
     @_builtins.property
     @pulumi.getter(name="glueLineageSyncEnabled")
@@ -975,6 +984,18 @@ class ConnectionIamPropertiesInputArgs:
     @glue_lineage_sync_enabled.setter
     def glue_lineage_sync_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "glue_lineage_sync_enabled", value)
+
+    @_builtins.property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The ARN of the IAM role to associate with the connection as the project user role.
+        """
+        return pulumi.get(self, "role_arn")
+
+    @role_arn.setter
+    def role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "role_arn", value)
 
 
 class ConnectionLakehousePropertiesInputArgsDict(TypedDict):
@@ -4003,14 +4024,14 @@ class PolicyGrantProjectGrantFilterPropertiesArgs:
 
 
 class PolicyGrantProjectPolicyGrantPrincipalArgsDict(TypedDict):
-    project_designation: NotRequired[pulumi.Input[Optional['PolicyGrantProjectDesignation']]]
+    project_designation: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     project_grant_filter: NotRequired[pulumi.Input[Optional['PolicyGrantProjectGrantFilterPropertiesArgsDict']]]
     project_identifier: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
 class PolicyGrantProjectPolicyGrantPrincipalArgs:
     def __init__(__self__, *,
-                 project_designation: pulumi.Input[Optional['PolicyGrantProjectDesignation']] = None,
+                 project_designation: pulumi.Input[Optional[_builtins.str]] = None,
                  project_grant_filter: pulumi.Input[Optional['PolicyGrantProjectGrantFilterPropertiesArgs']] = None,
                  project_identifier: pulumi.Input[Optional[_builtins.str]] = None):
         if project_designation is not None:
@@ -4022,11 +4043,11 @@ class PolicyGrantProjectPolicyGrantPrincipalArgs:
 
     @_builtins.property
     @pulumi.getter(name="projectDesignation")
-    def project_designation(self) -> pulumi.Input[Optional['PolicyGrantProjectDesignation']]:
+    def project_designation(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "project_designation")
 
     @project_designation.setter
-    def project_designation(self, value: pulumi.Input[Optional['PolicyGrantProjectDesignation']]):
+    def project_designation(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "project_designation", value)
 
     @_builtins.property
@@ -4256,13 +4277,13 @@ class ProjectMembershipAssignmentArgsDict(TypedDict):
     """
     The project membership assignment.
     """
-    designation: pulumi.Input['ProjectUserDesignation']
+    designation: pulumi.Input[_builtins.str]
     member: pulumi.Input['ProjectMemberArgsDict']
 
 @pulumi.input_type
 class ProjectMembershipAssignmentArgs:
     def __init__(__self__, *,
-                 designation: pulumi.Input['ProjectUserDesignation'],
+                 designation: pulumi.Input[_builtins.str],
                  member: pulumi.Input['ProjectMemberArgs']):
         """
         The project membership assignment.
@@ -4272,11 +4293,11 @@ class ProjectMembershipAssignmentArgs:
 
     @_builtins.property
     @pulumi.getter
-    def designation(self) -> pulumi.Input['ProjectUserDesignation']:
+    def designation(self) -> pulumi.Input[_builtins.str]:
         return pulumi.get(self, "designation")
 
     @designation.setter
-    def designation(self, value: pulumi.Input['ProjectUserDesignation']):
+    def designation(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "designation", value)
 
     @_builtins.property

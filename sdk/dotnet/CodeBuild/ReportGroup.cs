@@ -21,9 +21,6 @@ namespace Pulumi.AwsNative.CodeBuild
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        [Output("awsId")]
-        public Output<string> AwsId { get; private set; } = null!;
-
         /// <summary>
         /// When deleting a report group, specifies if reports within the report group should be deleted.
         /// 
@@ -60,7 +57,7 @@ namespace Pulumi.AwsNative.CodeBuild
         /// - **TEST** - The report group contains test reports.
         /// </summary>
         [Output("type")]
-        public Output<string> Type { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.CodeBuild.ReportGroupType> Type { get; private set; } = null!;
 
 
         /// <summary>
@@ -154,7 +151,7 @@ namespace Pulumi.AwsNative.CodeBuild
         /// - **TEST** - The report group contains test reports.
         /// </summary>
         [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
+        public Input<Pulumi.AwsNative.CodeBuild.ReportGroupType> Type { get; set; } = null!;
 
         public ReportGroupArgs()
         {

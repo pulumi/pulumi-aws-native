@@ -88,7 +88,7 @@ export class ContainerGroupDefinition extends pulumi.CustomResource {
     /**
      * The total amount of virtual CPUs on the container group definition
      */
-    declare public readonly totalVcpuLimit: pulumi.Output<number>;
+    declare public readonly totalVcpuLimit: pulumi.Output<number | undefined>;
     /**
      * The description of this version
      */
@@ -114,9 +114,6 @@ export class ContainerGroupDefinition extends pulumi.CustomResource {
             }
             if (args?.totalMemoryLimitMebibytes === undefined && !opts.urn) {
                 throw new Error("Missing required property 'totalMemoryLimitMebibytes'");
-            }
-            if (args?.totalVcpuLimit === undefined && !opts.urn) {
-                throw new Error("Missing required property 'totalVcpuLimit'");
             }
             resourceInputs["containerGroupType"] = args?.containerGroupType;
             resourceInputs["gameServerContainerDefinition"] = args?.gameServerContainerDefinition;
@@ -196,7 +193,7 @@ export interface ContainerGroupDefinitionArgs {
     /**
      * The total amount of virtual CPUs on the container group definition
      */
-    totalVcpuLimit: pulumi.Input<number>;
+    totalVcpuLimit?: pulumi.Input<number | undefined>;
     /**
      * The description of this version
      */

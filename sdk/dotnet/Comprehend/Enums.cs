@@ -367,6 +367,40 @@ namespace Pulumi.AwsNative.Comprehend
     }
 
     /// <summary>
+    /// The current status of the endpoint. Because the endpoint updates and creation are asynchronous, wait for the endpoint to be IN_SERVICE before making inference requests.
+    /// </summary>
+    [EnumType]
+    public readonly struct EntityRecognizerEndpointEndpointStatus : IEquatable<EntityRecognizerEndpointEndpointStatus>
+    {
+        private readonly string _value;
+
+        private EntityRecognizerEndpointEndpointStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static EntityRecognizerEndpointEndpointStatus Creating { get; } = new EntityRecognizerEndpointEndpointStatus("CREATING");
+        public static EntityRecognizerEndpointEndpointStatus Deleting { get; } = new EntityRecognizerEndpointEndpointStatus("DELETING");
+        public static EntityRecognizerEndpointEndpointStatus Failed { get; } = new EntityRecognizerEndpointEndpointStatus("FAILED");
+        public static EntityRecognizerEndpointEndpointStatus InService { get; } = new EntityRecognizerEndpointEndpointStatus("IN_SERVICE");
+        public static EntityRecognizerEndpointEndpointStatus Updating { get; } = new EntityRecognizerEndpointEndpointStatus("UPDATING");
+
+        public static bool operator ==(EntityRecognizerEndpointEndpointStatus left, EntityRecognizerEndpointEndpointStatus right) => left.Equals(right);
+        public static bool operator !=(EntityRecognizerEndpointEndpointStatus left, EntityRecognizerEndpointEndpointStatus right) => !left.Equals(right);
+
+        public static explicit operator string(EntityRecognizerEndpointEndpointStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is EntityRecognizerEndpointEndpointStatus other && Equals(other);
+        public bool Equals(EntityRecognizerEndpointEndpointStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The format of your training data.
     /// </summary>
     [EnumType]

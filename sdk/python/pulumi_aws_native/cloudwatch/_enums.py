@@ -10,6 +10,7 @@ __all__ = [
     'AlarmMuteRuleStatus',
     'InsightRuleRuleState',
     'OTelEnrichmentStatus',
+    'ViewType',
 ]
 
 
@@ -39,3 +40,12 @@ class OTelEnrichmentStatus(_builtins.str, Enum):
     """
     RUNNING = "RUNNING"
     STOPPED = "STOPPED"
+
+
+@pulumi.type_token("aws-native:cloudwatch:ViewType")
+class ViewType(_builtins.str, Enum):
+    """
+    The ownership category of the view. Views created through CloudFormation are always USER views; MANAGED views are provisioned by AWS.
+    """
+    USER = "USER"
+    MANAGED = "MANAGED"

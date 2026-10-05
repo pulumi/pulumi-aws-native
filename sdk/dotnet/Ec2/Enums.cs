@@ -2397,6 +2397,71 @@ namespace Pulumi.AwsNative.Ec2
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// The state of the CIDR block association.
+    /// </summary>
+    [EnumType]
+    public readonly struct SecondaryNetworkIpv4CidrBlockAssociationState : IEquatable<SecondaryNetworkIpv4CidrBlockAssociationState>
+    {
+        private readonly string _value;
+
+        private SecondaryNetworkIpv4CidrBlockAssociationState(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SecondaryNetworkIpv4CidrBlockAssociationState Associating { get; } = new SecondaryNetworkIpv4CidrBlockAssociationState("associating");
+        public static SecondaryNetworkIpv4CidrBlockAssociationState Associated { get; } = new SecondaryNetworkIpv4CidrBlockAssociationState("associated");
+        public static SecondaryNetworkIpv4CidrBlockAssociationState AssociationFailed { get; } = new SecondaryNetworkIpv4CidrBlockAssociationState("association-failed");
+        public static SecondaryNetworkIpv4CidrBlockAssociationState Disassociating { get; } = new SecondaryNetworkIpv4CidrBlockAssociationState("disassociating");
+        public static SecondaryNetworkIpv4CidrBlockAssociationState Disassociated { get; } = new SecondaryNetworkIpv4CidrBlockAssociationState("disassociated");
+        public static SecondaryNetworkIpv4CidrBlockAssociationState DisassociationFailed { get; } = new SecondaryNetworkIpv4CidrBlockAssociationState("disassociation-failed");
+
+        public static bool operator ==(SecondaryNetworkIpv4CidrBlockAssociationState left, SecondaryNetworkIpv4CidrBlockAssociationState right) => left.Equals(right);
+        public static bool operator !=(SecondaryNetworkIpv4CidrBlockAssociationState left, SecondaryNetworkIpv4CidrBlockAssociationState right) => !left.Equals(right);
+
+        public static explicit operator string(SecondaryNetworkIpv4CidrBlockAssociationState value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SecondaryNetworkIpv4CidrBlockAssociationState other && Equals(other);
+        public bool Equals(SecondaryNetworkIpv4CidrBlockAssociationState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The type of secondary network.
+    /// </summary>
+    [EnumType]
+    public readonly struct SecondaryNetworkNetworkType : IEquatable<SecondaryNetworkNetworkType>
+    {
+        private readonly string _value;
+
+        private SecondaryNetworkNetworkType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SecondaryNetworkNetworkType Rdma { get; } = new SecondaryNetworkNetworkType("rdma");
+
+        public static bool operator ==(SecondaryNetworkNetworkType left, SecondaryNetworkNetworkType right) => left.Equals(right);
+        public static bool operator !=(SecondaryNetworkNetworkType left, SecondaryNetworkNetworkType right) => !left.Equals(right);
+
+        public static explicit operator string(SecondaryNetworkNetworkType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SecondaryNetworkNetworkType other && Equals(other);
+        public bool Equals(SecondaryNetworkNetworkType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     [EnumType]
     public readonly struct SecurityGroupVpcAssociationState : IEquatable<SecurityGroupVpcAssociationState>
     {

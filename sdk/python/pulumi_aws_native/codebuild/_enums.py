@@ -16,6 +16,9 @@ __all__ = [
     'FleetProxyRuleType',
     'FleetScalingConfigurationInputScalingType',
     'FleetTargetTrackingScalingConfigurationMetricType',
+    'ReportGroupReportExportConfigExportConfigType',
+    'ReportGroupS3ReportExportConfigPackaging',
+    'ReportGroupType',
 ]
 
 
@@ -153,3 +156,39 @@ class FleetTargetTrackingScalingConfigurationMetricType(_builtins.str, Enum):
     The metric type to determine auto-scaling.
     """
     FLEET_UTILIZATION_RATE = "FLEET_UTILIZATION_RATE"
+
+
+@pulumi.type_token("aws-native:codebuild:ReportGroupReportExportConfigExportConfigType")
+class ReportGroupReportExportConfigExportConfigType(_builtins.str, Enum):
+    """
+    The export configuration type. Valid values are:
+
+    - `S3` : The report results are exported to an S3 bucket.
+    - `NO_EXPORT` : The report results are not exported.
+    """
+    S3 = "S3"
+    NO_EXPORT = "NO_EXPORT"
+
+
+@pulumi.type_token("aws-native:codebuild:ReportGroupS3ReportExportConfigPackaging")
+class ReportGroupS3ReportExportConfigPackaging(_builtins.str, Enum):
+    """
+    The type of build output artifact to create. Valid values include:
+
+    - `NONE` : CodeBuild creates the raw data in the output bucket. This is the default if packaging is not specified.
+    - `ZIP` : CodeBuild creates a ZIP file with the raw data in the output bucket.
+    """
+    NONE = "NONE"
+    ZIP = "ZIP"
+
+
+@pulumi.type_token("aws-native:codebuild:ReportGroupType")
+class ReportGroupType(_builtins.str, Enum):
+    """
+    The type of the `ReportGroup` . This can be one of the following values:
+
+    - **CODE_COVERAGE** - The report group contains code coverage reports.
+    - **TEST** - The report group contains test reports.
+    """
+    TEST = "TEST"
+    CODE_COVERAGE = "CODE_COVERAGE"

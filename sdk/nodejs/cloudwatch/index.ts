@@ -65,6 +65,16 @@ export const getOTelEnrichment: typeof import("./getOTelEnrichment").getOTelEnri
 export const getOTelEnrichmentOutput: typeof import("./getOTelEnrichment").getOTelEnrichmentOutput = null as any;
 utilities.lazyLoad(exports, ["getOTelEnrichment","getOTelEnrichmentOutput"], () => require("./getOTelEnrichment"));
 
+export { GetResourceMetricsConfigurationArgs, GetResourceMetricsConfigurationResult, GetResourceMetricsConfigurationOutputArgs } from "./getResourceMetricsConfiguration";
+export const getResourceMetricsConfiguration: typeof import("./getResourceMetricsConfiguration").getResourceMetricsConfiguration = null as any;
+export const getResourceMetricsConfigurationOutput: typeof import("./getResourceMetricsConfiguration").getResourceMetricsConfigurationOutput = null as any;
+utilities.lazyLoad(exports, ["getResourceMetricsConfiguration","getResourceMetricsConfigurationOutput"], () => require("./getResourceMetricsConfiguration"));
+
+export { GetViewArgs, GetViewResult, GetViewOutputArgs } from "./getView";
+export const getView: typeof import("./getView").getView = null as any;
+export const getViewOutput: typeof import("./getView").getViewOutput = null as any;
+utilities.lazyLoad(exports, ["getView","getViewOutput"], () => require("./getView"));
+
 export { InsightRuleArgs } from "./insightRule";
 export type InsightRule = import("./insightRule").InsightRule;
 export const InsightRule: typeof import("./insightRule").InsightRule = null as any;
@@ -84,6 +94,16 @@ export { OTelEnrichmentArgs } from "./otelEnrichment";
 export type OTelEnrichment = import("./otelEnrichment").OTelEnrichment;
 export const OTelEnrichment: typeof import("./otelEnrichment").OTelEnrichment = null as any;
 utilities.lazyLoad(exports, ["OTelEnrichment"], () => require("./otelEnrichment"));
+
+export { ResourceMetricsConfigurationArgs } from "./resourceMetricsConfiguration";
+export type ResourceMetricsConfiguration = import("./resourceMetricsConfiguration").ResourceMetricsConfiguration;
+export const ResourceMetricsConfiguration: typeof import("./resourceMetricsConfiguration").ResourceMetricsConfiguration = null as any;
+utilities.lazyLoad(exports, ["ResourceMetricsConfiguration"], () => require("./resourceMetricsConfiguration"));
+
+export { ViewArgs } from "./view";
+export type View = import("./view").View;
+export const View: typeof import("./view").View = null as any;
+utilities.lazyLoad(exports, ["View"], () => require("./view"));
 
 
 // Export enums:
@@ -109,6 +129,10 @@ const _module = {
                 return new MetricStream(name, <any>undefined, { urn })
             case "aws-native:cloudwatch:OTelEnrichment":
                 return new OTelEnrichment(name, <any>undefined, { urn })
+            case "aws-native:cloudwatch:ResourceMetricsConfiguration":
+                return new ResourceMetricsConfiguration(name, <any>undefined, { urn })
+            case "aws-native:cloudwatch:View":
+                return new View(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

@@ -16,6 +16,7 @@ namespace Pulumi.AwsNative.Ecs.Outputs
     [OutputType]
     public sealed class ServiceVpcLatticeConfiguration
     {
+        public readonly Outputs.ServiceVpcLatticeAdvancedConfiguration? AdvancedConfiguration;
         /// <summary>
         /// The name of the port mapping to register in the VPC Lattice target group. This is the name of the ``portMapping`` you defined in your task definition.
         /// </summary>
@@ -31,12 +32,15 @@ namespace Pulumi.AwsNative.Ecs.Outputs
 
         [OutputConstructor]
         private ServiceVpcLatticeConfiguration(
+            Outputs.ServiceVpcLatticeAdvancedConfiguration? advancedConfiguration,
+
             string portName,
 
             string roleArn,
 
             string targetGroupArn)
         {
+            AdvancedConfiguration = advancedConfiguration;
             PortName = portName;
             RoleArn = roleArn;
             TargetGroupArn = targetGroupArn;

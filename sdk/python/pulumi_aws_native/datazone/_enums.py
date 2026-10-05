@@ -25,14 +25,11 @@ __all__ = [
     'OwnerType',
     'PolicyGrantDomainUnitDesignation',
     'PolicyGrantManagedPolicyType',
-    'PolicyGrantProjectDesignation',
     'PolicyGrantTargetEntityType',
     'ProjectMembershipMemberIdentifierType',
-    'ProjectMembershipUserDesignation',
     'ProjectProfileDeploymentMode',
     'ProjectProfileStatus',
     'ProjectStatus',
-    'ProjectUserDesignation',
     'UserProfileStatus',
     'UserProfileType',
     'UserProfileUserType',
@@ -227,13 +224,6 @@ class PolicyGrantManagedPolicyType(_builtins.str, Enum):
     CREATE_PROJECT_FROM_PROJECT_PROFILE = "CREATE_PROJECT_FROM_PROJECT_PROFILE"
 
 
-@pulumi.type_token("aws-native:datazone:PolicyGrantProjectDesignation")
-class PolicyGrantProjectDesignation(_builtins.str, Enum):
-    OWNER = "OWNER"
-    CONTRIBUTOR = "CONTRIBUTOR"
-    PROJECT_CATALOG_STEWARD = "PROJECT_CATALOG_STEWARD"
-
-
 @pulumi.type_token("aws-native:datazone:PolicyGrantTargetEntityType")
 class PolicyGrantTargetEntityType(_builtins.str, Enum):
     DOMAIN_UNIT = "DOMAIN_UNIT"
@@ -246,15 +236,6 @@ class PolicyGrantTargetEntityType(_builtins.str, Enum):
 class ProjectMembershipMemberIdentifierType(_builtins.str, Enum):
     USER_IDENTIFIER = "USER_IDENTIFIER"
     GROUP_IDENTIFIER = "GROUP_IDENTIFIER"
-
-
-@pulumi.type_token("aws-native:datazone:ProjectMembershipUserDesignation")
-class ProjectMembershipUserDesignation(_builtins.str, Enum):
-    PROJECT_OWNER = "PROJECT_OWNER"
-    PROJECT_CONTRIBUTOR = "PROJECT_CONTRIBUTOR"
-    PROJECT_CATALOG_VIEWER = "PROJECT_CATALOG_VIEWER"
-    PROJECT_CATALOG_CONSUMER = "PROJECT_CATALOG_CONSUMER"
-    PROJECT_CATALOG_STEWARD = "PROJECT_CATALOG_STEWARD"
 
 
 @pulumi.type_token("aws-native:datazone:ProjectProfileDeploymentMode")
@@ -277,12 +258,6 @@ class ProjectStatus(_builtins.str, Enum):
     DELETE_FAILED = "DELETE_FAILED"
     UPDATING = "UPDATING"
     UPDATE_FAILED = "UPDATE_FAILED"
-
-
-@pulumi.type_token("aws-native:datazone:ProjectUserDesignation")
-class ProjectUserDesignation(_builtins.str, Enum):
-    PROJECT_OWNER = "PROJECT_OWNER"
-    PROJECT_CONTRIBUTOR = "PROJECT_CONTRIBUTOR"
 
 
 @pulumi.type_token("aws-native:datazone:UserProfileStatus")

@@ -1091,9 +1091,11 @@ type FunctionType string
 
 const (
 	FunctionTypeHttpRequest        = FunctionType("HTTP_REQUEST")
+	FunctionTypeAwsServiceRequest  = FunctionType("AWS_SERVICE_REQUEST")
 	FunctionTypeCustomOutput       = FunctionType("CUSTOM_OUTPUT")
 	FunctionTypeConcurrentExecutor = FunctionType("CONCURRENT_EXECUTOR")
 	FunctionTypeSequentialExecutor = FunctionType("SEQUENTIAL_EXECUTOR")
+	FunctionTypeVastRequest        = FunctionType("VAST_REQUEST")
 )
 
 func (FunctionType) ElementType() reflect.Type {
@@ -1219,9 +1221,11 @@ func (o FunctionTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context)
 // A concrete instance of `FunctionTypeInput` can be one of the following:
 //
 //	FunctionTypeHttpRequest
+//	FunctionTypeAwsServiceRequest
 //	FunctionTypeCustomOutput
 //	FunctionTypeConcurrentExecutor
 //	FunctionTypeSequentialExecutor
+//	FunctionTypeVastRequest
 type FunctionTypeInput interface {
 	pulumi.Input
 
@@ -3581,6 +3585,338 @@ func (in *prefetchScheduleScheduleTypePtr) ToPrefetchScheduleScheduleTypePtrOutp
 	return pulumi.ToOutputWithContext(ctx, in).(PrefetchScheduleScheduleTypePtrOutput)
 }
 
+// The SCTE-35 ad insertion type.
+type ProgramAdBreakMessageType string
+
+const (
+	ProgramAdBreakMessageTypeSpliceInsert = ProgramAdBreakMessageType("SPLICE_INSERT")
+	ProgramAdBreakMessageTypeTimeSignal   = ProgramAdBreakMessageType("TIME_SIGNAL")
+)
+
+func (ProgramAdBreakMessageType) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProgramAdBreakMessageType)(nil)).Elem()
+}
+
+func (e ProgramAdBreakMessageType) ToProgramAdBreakMessageTypeOutput() ProgramAdBreakMessageTypeOutput {
+	return pulumi.ToOutput(e).(ProgramAdBreakMessageTypeOutput)
+}
+
+func (e ProgramAdBreakMessageType) ToProgramAdBreakMessageTypeOutputWithContext(ctx context.Context) ProgramAdBreakMessageTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ProgramAdBreakMessageTypeOutput)
+}
+
+func (e ProgramAdBreakMessageType) ToProgramAdBreakMessageTypePtrOutput() ProgramAdBreakMessageTypePtrOutput {
+	return e.ToProgramAdBreakMessageTypePtrOutputWithContext(context.Background())
+}
+
+func (e ProgramAdBreakMessageType) ToProgramAdBreakMessageTypePtrOutputWithContext(ctx context.Context) ProgramAdBreakMessageTypePtrOutput {
+	return ProgramAdBreakMessageType(e).ToProgramAdBreakMessageTypeOutputWithContext(ctx).ToProgramAdBreakMessageTypePtrOutputWithContext(ctx)
+}
+
+func (e ProgramAdBreakMessageType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ProgramAdBreakMessageType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ProgramAdBreakMessageType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ProgramAdBreakMessageType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ProgramAdBreakMessageTypeOutput struct{ *pulumi.OutputState }
+
+func (ProgramAdBreakMessageTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProgramAdBreakMessageType)(nil)).Elem()
+}
+
+func (o ProgramAdBreakMessageTypeOutput) ToProgramAdBreakMessageTypeOutput() ProgramAdBreakMessageTypeOutput {
+	return o
+}
+
+func (o ProgramAdBreakMessageTypeOutput) ToProgramAdBreakMessageTypeOutputWithContext(ctx context.Context) ProgramAdBreakMessageTypeOutput {
+	return o
+}
+
+func (o ProgramAdBreakMessageTypeOutput) ToProgramAdBreakMessageTypePtrOutput() ProgramAdBreakMessageTypePtrOutput {
+	return o.ToProgramAdBreakMessageTypePtrOutputWithContext(context.Background())
+}
+
+func (o ProgramAdBreakMessageTypeOutput) ToProgramAdBreakMessageTypePtrOutputWithContext(ctx context.Context) ProgramAdBreakMessageTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProgramAdBreakMessageType) *ProgramAdBreakMessageType {
+		return &v
+	}).(ProgramAdBreakMessageTypePtrOutput)
+}
+
+func (o ProgramAdBreakMessageTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ProgramAdBreakMessageTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ProgramAdBreakMessageType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ProgramAdBreakMessageTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ProgramAdBreakMessageTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ProgramAdBreakMessageType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ProgramAdBreakMessageTypePtrOutput struct{ *pulumi.OutputState }
+
+func (ProgramAdBreakMessageTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProgramAdBreakMessageType)(nil)).Elem()
+}
+
+func (o ProgramAdBreakMessageTypePtrOutput) ToProgramAdBreakMessageTypePtrOutput() ProgramAdBreakMessageTypePtrOutput {
+	return o
+}
+
+func (o ProgramAdBreakMessageTypePtrOutput) ToProgramAdBreakMessageTypePtrOutputWithContext(ctx context.Context) ProgramAdBreakMessageTypePtrOutput {
+	return o
+}
+
+func (o ProgramAdBreakMessageTypePtrOutput) Elem() ProgramAdBreakMessageTypeOutput {
+	return o.ApplyT(func(v *ProgramAdBreakMessageType) ProgramAdBreakMessageType {
+		if v != nil {
+			return *v
+		}
+		var ret ProgramAdBreakMessageType
+		return ret
+	}).(ProgramAdBreakMessageTypeOutput)
+}
+
+func (o ProgramAdBreakMessageTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ProgramAdBreakMessageTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ProgramAdBreakMessageType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ProgramAdBreakMessageTypeInput is an input type that accepts values of the ProgramAdBreakMessageType enum
+// A concrete instance of `ProgramAdBreakMessageTypeInput` can be one of the following:
+//
+//	ProgramAdBreakMessageTypeSpliceInsert
+//	ProgramAdBreakMessageTypeTimeSignal
+type ProgramAdBreakMessageTypeInput interface {
+	pulumi.Input
+
+	ToProgramAdBreakMessageTypeOutput() ProgramAdBreakMessageTypeOutput
+	ToProgramAdBreakMessageTypeOutputWithContext(context.Context) ProgramAdBreakMessageTypeOutput
+}
+
+var programAdBreakMessageTypePtrType = reflect.TypeOf((**ProgramAdBreakMessageType)(nil)).Elem()
+
+type ProgramAdBreakMessageTypePtrInput interface {
+	pulumi.Input
+
+	ToProgramAdBreakMessageTypePtrOutput() ProgramAdBreakMessageTypePtrOutput
+	ToProgramAdBreakMessageTypePtrOutputWithContext(context.Context) ProgramAdBreakMessageTypePtrOutput
+}
+
+type programAdBreakMessageTypePtr string
+
+func ProgramAdBreakMessageTypePtr(v string) ProgramAdBreakMessageTypePtrInput {
+	return (*programAdBreakMessageTypePtr)(&v)
+}
+
+func (*programAdBreakMessageTypePtr) ElementType() reflect.Type {
+	return programAdBreakMessageTypePtrType
+}
+
+func (in *programAdBreakMessageTypePtr) ToProgramAdBreakMessageTypePtrOutput() ProgramAdBreakMessageTypePtrOutput {
+	return pulumi.ToOutput(in).(ProgramAdBreakMessageTypePtrOutput)
+}
+
+func (in *programAdBreakMessageTypePtr) ToProgramAdBreakMessageTypePtrOutputWithContext(ctx context.Context) ProgramAdBreakMessageTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ProgramAdBreakMessageTypePtrOutput)
+}
+
+// The position where this program will be inserted relative to the RelativePosition.
+type ProgramTransitionRelativePosition string
+
+const (
+	ProgramTransitionRelativePositionBeforeProgram = ProgramTransitionRelativePosition("BEFORE_PROGRAM")
+	ProgramTransitionRelativePositionAfterProgram  = ProgramTransitionRelativePosition("AFTER_PROGRAM")
+)
+
+func (ProgramTransitionRelativePosition) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProgramTransitionRelativePosition)(nil)).Elem()
+}
+
+func (e ProgramTransitionRelativePosition) ToProgramTransitionRelativePositionOutput() ProgramTransitionRelativePositionOutput {
+	return pulumi.ToOutput(e).(ProgramTransitionRelativePositionOutput)
+}
+
+func (e ProgramTransitionRelativePosition) ToProgramTransitionRelativePositionOutputWithContext(ctx context.Context) ProgramTransitionRelativePositionOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ProgramTransitionRelativePositionOutput)
+}
+
+func (e ProgramTransitionRelativePosition) ToProgramTransitionRelativePositionPtrOutput() ProgramTransitionRelativePositionPtrOutput {
+	return e.ToProgramTransitionRelativePositionPtrOutputWithContext(context.Background())
+}
+
+func (e ProgramTransitionRelativePosition) ToProgramTransitionRelativePositionPtrOutputWithContext(ctx context.Context) ProgramTransitionRelativePositionPtrOutput {
+	return ProgramTransitionRelativePosition(e).ToProgramTransitionRelativePositionOutputWithContext(ctx).ToProgramTransitionRelativePositionPtrOutputWithContext(ctx)
+}
+
+func (e ProgramTransitionRelativePosition) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ProgramTransitionRelativePosition) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ProgramTransitionRelativePosition) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ProgramTransitionRelativePosition) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ProgramTransitionRelativePositionOutput struct{ *pulumi.OutputState }
+
+func (ProgramTransitionRelativePositionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProgramTransitionRelativePosition)(nil)).Elem()
+}
+
+func (o ProgramTransitionRelativePositionOutput) ToProgramTransitionRelativePositionOutput() ProgramTransitionRelativePositionOutput {
+	return o
+}
+
+func (o ProgramTransitionRelativePositionOutput) ToProgramTransitionRelativePositionOutputWithContext(ctx context.Context) ProgramTransitionRelativePositionOutput {
+	return o
+}
+
+func (o ProgramTransitionRelativePositionOutput) ToProgramTransitionRelativePositionPtrOutput() ProgramTransitionRelativePositionPtrOutput {
+	return o.ToProgramTransitionRelativePositionPtrOutputWithContext(context.Background())
+}
+
+func (o ProgramTransitionRelativePositionOutput) ToProgramTransitionRelativePositionPtrOutputWithContext(ctx context.Context) ProgramTransitionRelativePositionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProgramTransitionRelativePosition) *ProgramTransitionRelativePosition {
+		return &v
+	}).(ProgramTransitionRelativePositionPtrOutput)
+}
+
+func (o ProgramTransitionRelativePositionOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ProgramTransitionRelativePositionOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ProgramTransitionRelativePosition) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ProgramTransitionRelativePositionOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ProgramTransitionRelativePositionOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ProgramTransitionRelativePosition) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ProgramTransitionRelativePositionPtrOutput struct{ *pulumi.OutputState }
+
+func (ProgramTransitionRelativePositionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProgramTransitionRelativePosition)(nil)).Elem()
+}
+
+func (o ProgramTransitionRelativePositionPtrOutput) ToProgramTransitionRelativePositionPtrOutput() ProgramTransitionRelativePositionPtrOutput {
+	return o
+}
+
+func (o ProgramTransitionRelativePositionPtrOutput) ToProgramTransitionRelativePositionPtrOutputWithContext(ctx context.Context) ProgramTransitionRelativePositionPtrOutput {
+	return o
+}
+
+func (o ProgramTransitionRelativePositionPtrOutput) Elem() ProgramTransitionRelativePositionOutput {
+	return o.ApplyT(func(v *ProgramTransitionRelativePosition) ProgramTransitionRelativePosition {
+		if v != nil {
+			return *v
+		}
+		var ret ProgramTransitionRelativePosition
+		return ret
+	}).(ProgramTransitionRelativePositionOutput)
+}
+
+func (o ProgramTransitionRelativePositionPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ProgramTransitionRelativePositionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ProgramTransitionRelativePosition) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ProgramTransitionRelativePositionInput is an input type that accepts values of the ProgramTransitionRelativePosition enum
+// A concrete instance of `ProgramTransitionRelativePositionInput` can be one of the following:
+//
+//	ProgramTransitionRelativePositionBeforeProgram
+//	ProgramTransitionRelativePositionAfterProgram
+type ProgramTransitionRelativePositionInput interface {
+	pulumi.Input
+
+	ToProgramTransitionRelativePositionOutput() ProgramTransitionRelativePositionOutput
+	ToProgramTransitionRelativePositionOutputWithContext(context.Context) ProgramTransitionRelativePositionOutput
+}
+
+var programTransitionRelativePositionPtrType = reflect.TypeOf((**ProgramTransitionRelativePosition)(nil)).Elem()
+
+type ProgramTransitionRelativePositionPtrInput interface {
+	pulumi.Input
+
+	ToProgramTransitionRelativePositionPtrOutput() ProgramTransitionRelativePositionPtrOutput
+	ToProgramTransitionRelativePositionPtrOutputWithContext(context.Context) ProgramTransitionRelativePositionPtrOutput
+}
+
+type programTransitionRelativePositionPtr string
+
+func ProgramTransitionRelativePositionPtr(v string) ProgramTransitionRelativePositionPtrInput {
+	return (*programTransitionRelativePositionPtr)(&v)
+}
+
+func (*programTransitionRelativePositionPtr) ElementType() reflect.Type {
+	return programTransitionRelativePositionPtrType
+}
+
+func (in *programTransitionRelativePositionPtr) ToProgramTransitionRelativePositionPtrOutput() ProgramTransitionRelativePositionPtrOutput {
+	return pulumi.ToOutput(in).(ProgramTransitionRelativePositionPtrOutput)
+}
+
+func (in *programTransitionRelativePositionPtr) ToProgramTransitionRelativePositionPtrOutputWithContext(ctx context.Context) ProgramTransitionRelativePositionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ProgramTransitionRelativePositionPtrOutput)
+}
+
 type SourceLocationAccessType string
 
 const (
@@ -3958,6 +4294,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PrefetchScheduleRecurringRetrievalTrafficShapingTypePtrInput)(nil)).Elem(), PrefetchScheduleRecurringRetrievalTrafficShapingType("RETRIEVAL_WINDOW"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PrefetchScheduleScheduleTypeInput)(nil)).Elem(), PrefetchScheduleScheduleType("SINGLE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PrefetchScheduleScheduleTypePtrInput)(nil)).Elem(), PrefetchScheduleScheduleType("SINGLE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ProgramAdBreakMessageTypeInput)(nil)).Elem(), ProgramAdBreakMessageType("SPLICE_INSERT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ProgramAdBreakMessageTypePtrInput)(nil)).Elem(), ProgramAdBreakMessageType("SPLICE_INSERT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ProgramTransitionRelativePositionInput)(nil)).Elem(), ProgramTransitionRelativePosition("BEFORE_PROGRAM"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ProgramTransitionRelativePositionPtrInput)(nil)).Elem(), ProgramTransitionRelativePosition("BEFORE_PROGRAM"))
 	pulumi.RegisterInputType(reflect.TypeOf((*SourceLocationAccessTypeInput)(nil)).Elem(), SourceLocationAccessType("S3_SIGV4"))
 	pulumi.RegisterInputType(reflect.TypeOf((*SourceLocationAccessTypePtrInput)(nil)).Elem(), SourceLocationAccessType("S3_SIGV4"))
 	pulumi.RegisterInputType(reflect.TypeOf((*VodSourceTypeInput)(nil)).Elem(), VodSourceType("DASH"))
@@ -4006,6 +4346,10 @@ func init() {
 	pulumi.RegisterOutputType(PrefetchScheduleRecurringRetrievalTrafficShapingTypePtrOutput{})
 	pulumi.RegisterOutputType(PrefetchScheduleScheduleTypeOutput{})
 	pulumi.RegisterOutputType(PrefetchScheduleScheduleTypePtrOutput{})
+	pulumi.RegisterOutputType(ProgramAdBreakMessageTypeOutput{})
+	pulumi.RegisterOutputType(ProgramAdBreakMessageTypePtrOutput{})
+	pulumi.RegisterOutputType(ProgramTransitionRelativePositionOutput{})
+	pulumi.RegisterOutputType(ProgramTransitionRelativePositionPtrOutput{})
 	pulumi.RegisterOutputType(SourceLocationAccessTypeOutput{})
 	pulumi.RegisterOutputType(SourceLocationAccessTypePtrOutput{})
 	pulumi.RegisterOutputType(VodSourceTypeOutput{})

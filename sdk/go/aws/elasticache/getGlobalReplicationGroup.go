@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -28,6 +29,8 @@ type LookupGlobalReplicationGroupArgs struct {
 }
 
 type LookupGlobalReplicationGroupResult struct {
+	// The ARN (Amazon Resource Name) of the Global Datastore.
+	Arn *string `pulumi:"arn"`
 	// The engine of the Global Datastore.
 	Engine *string `pulumi:"engine"`
 	// The optional description of the Global Datastore
@@ -38,6 +41,8 @@ type LookupGlobalReplicationGroupResult struct {
 	Members []GlobalReplicationGroupMember `pulumi:"members"`
 	// The status of the Global Datastore
 	Status *string `pulumi:"status"`
+	// An array of key-value pairs to apply to this Global Datastore.
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupGlobalReplicationGroupOutput(ctx *pulumi.Context, args LookupGlobalReplicationGroupOutputArgs, opts ...pulumi.InvokeOption) LookupGlobalReplicationGroupResultOutput {
@@ -68,6 +73,11 @@ func (o LookupGlobalReplicationGroupResultOutput) ToLookupGlobalReplicationGroup
 	return o
 }
 
+// The ARN (Amazon Resource Name) of the Global Datastore.
+func (o LookupGlobalReplicationGroupResultOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupGlobalReplicationGroupResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
+}
+
 // The engine of the Global Datastore.
 func (o LookupGlobalReplicationGroupResultOutput) Engine() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupGlobalReplicationGroupResult) *string { return v.Engine }).(pulumi.StringPtrOutput)
@@ -91,6 +101,11 @@ func (o LookupGlobalReplicationGroupResultOutput) Members() GlobalReplicationGro
 // The status of the Global Datastore
 func (o LookupGlobalReplicationGroupResultOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupGlobalReplicationGroupResult) *string { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+// An array of key-value pairs to apply to this Global Datastore.
+func (o LookupGlobalReplicationGroupResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupGlobalReplicationGroupResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

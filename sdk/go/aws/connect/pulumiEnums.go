@@ -2542,7 +2542,7 @@ func (in *evaluationFormLanguageConfigurationFormLanguagePtr) ToEvaluationFormLa
 	return pulumi.ToOutputWithContext(ctx, in).(EvaluationFormLanguageConfigurationFormLanguagePtrOutput)
 }
 
-// The type of the metric.
+// The type of metric. Currently, only “BUSINESS_OUTCOME“ is supported.
 type EvaluationFormMetricConfigurationMetricType string
 
 const (
@@ -6228,6 +6228,7 @@ const (
 	IntegrationAssociationIntegrationTypeMessageProcessor     = IntegrationAssociationIntegrationType("MESSAGE_PROCESSOR")
 	IntegrationAssociationIntegrationTypeQMessageTemplates    = IntegrationAssociationIntegrationType("Q_MESSAGE_TEMPLATES")
 	IntegrationAssociationIntegrationTypeSesIdentity          = IntegrationAssociationIntegrationType("SES_IDENTITY")
+	IntegrationAssociationIntegrationTypeEvent                = IntegrationAssociationIntegrationType("EVENT")
 )
 
 func (IntegrationAssociationIntegrationType) ElementType() reflect.Type {
@@ -6363,6 +6364,7 @@ func (o IntegrationAssociationIntegrationTypePtrOutput) ToStringPtrOutputWithCon
 //	IntegrationAssociationIntegrationTypeMessageProcessor
 //	IntegrationAssociationIntegrationTypeQMessageTemplates
 //	IntegrationAssociationIntegrationTypeSesIdentity
+//	IntegrationAssociationIntegrationTypeEvent
 type IntegrationAssociationIntegrationTypeInput interface {
 	pulumi.Input
 
@@ -6395,6 +6397,174 @@ func (in *integrationAssociationIntegrationTypePtr) ToIntegrationAssociationInte
 
 func (in *integrationAssociationIntegrationTypePtr) ToIntegrationAssociationIntegrationTypePtrOutputWithContext(ctx context.Context) IntegrationAssociationIntegrationTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(IntegrationAssociationIntegrationTypePtrOutput)
+}
+
+// The type of the data source. This is only supported for the EVENT integration type
+type IntegrationAssociationSourceType string
+
+const (
+	IntegrationAssociationSourceTypeSalesforce = IntegrationAssociationSourceType("SALESFORCE")
+	IntegrationAssociationSourceTypeZendesk    = IntegrationAssociationSourceType("ZENDESK")
+	IntegrationAssociationSourceTypeCases      = IntegrationAssociationSourceType("CASES")
+)
+
+func (IntegrationAssociationSourceType) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationAssociationSourceType)(nil)).Elem()
+}
+
+func (e IntegrationAssociationSourceType) ToIntegrationAssociationSourceTypeOutput() IntegrationAssociationSourceTypeOutput {
+	return pulumi.ToOutput(e).(IntegrationAssociationSourceTypeOutput)
+}
+
+func (e IntegrationAssociationSourceType) ToIntegrationAssociationSourceTypeOutputWithContext(ctx context.Context) IntegrationAssociationSourceTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(IntegrationAssociationSourceTypeOutput)
+}
+
+func (e IntegrationAssociationSourceType) ToIntegrationAssociationSourceTypePtrOutput() IntegrationAssociationSourceTypePtrOutput {
+	return e.ToIntegrationAssociationSourceTypePtrOutputWithContext(context.Background())
+}
+
+func (e IntegrationAssociationSourceType) ToIntegrationAssociationSourceTypePtrOutputWithContext(ctx context.Context) IntegrationAssociationSourceTypePtrOutput {
+	return IntegrationAssociationSourceType(e).ToIntegrationAssociationSourceTypeOutputWithContext(ctx).ToIntegrationAssociationSourceTypePtrOutputWithContext(ctx)
+}
+
+func (e IntegrationAssociationSourceType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e IntegrationAssociationSourceType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e IntegrationAssociationSourceType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e IntegrationAssociationSourceType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type IntegrationAssociationSourceTypeOutput struct{ *pulumi.OutputState }
+
+func (IntegrationAssociationSourceTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationAssociationSourceType)(nil)).Elem()
+}
+
+func (o IntegrationAssociationSourceTypeOutput) ToIntegrationAssociationSourceTypeOutput() IntegrationAssociationSourceTypeOutput {
+	return o
+}
+
+func (o IntegrationAssociationSourceTypeOutput) ToIntegrationAssociationSourceTypeOutputWithContext(ctx context.Context) IntegrationAssociationSourceTypeOutput {
+	return o
+}
+
+func (o IntegrationAssociationSourceTypeOutput) ToIntegrationAssociationSourceTypePtrOutput() IntegrationAssociationSourceTypePtrOutput {
+	return o.ToIntegrationAssociationSourceTypePtrOutputWithContext(context.Background())
+}
+
+func (o IntegrationAssociationSourceTypeOutput) ToIntegrationAssociationSourceTypePtrOutputWithContext(ctx context.Context) IntegrationAssociationSourceTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IntegrationAssociationSourceType) *IntegrationAssociationSourceType {
+		return &v
+	}).(IntegrationAssociationSourceTypePtrOutput)
+}
+
+func (o IntegrationAssociationSourceTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o IntegrationAssociationSourceTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e IntegrationAssociationSourceType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o IntegrationAssociationSourceTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o IntegrationAssociationSourceTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e IntegrationAssociationSourceType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type IntegrationAssociationSourceTypePtrOutput struct{ *pulumi.OutputState }
+
+func (IntegrationAssociationSourceTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IntegrationAssociationSourceType)(nil)).Elem()
+}
+
+func (o IntegrationAssociationSourceTypePtrOutput) ToIntegrationAssociationSourceTypePtrOutput() IntegrationAssociationSourceTypePtrOutput {
+	return o
+}
+
+func (o IntegrationAssociationSourceTypePtrOutput) ToIntegrationAssociationSourceTypePtrOutputWithContext(ctx context.Context) IntegrationAssociationSourceTypePtrOutput {
+	return o
+}
+
+func (o IntegrationAssociationSourceTypePtrOutput) Elem() IntegrationAssociationSourceTypeOutput {
+	return o.ApplyT(func(v *IntegrationAssociationSourceType) IntegrationAssociationSourceType {
+		if v != nil {
+			return *v
+		}
+		var ret IntegrationAssociationSourceType
+		return ret
+	}).(IntegrationAssociationSourceTypeOutput)
+}
+
+func (o IntegrationAssociationSourceTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o IntegrationAssociationSourceTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *IntegrationAssociationSourceType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// IntegrationAssociationSourceTypeInput is an input type that accepts values of the IntegrationAssociationSourceType enum
+// A concrete instance of `IntegrationAssociationSourceTypeInput` can be one of the following:
+//
+//	IntegrationAssociationSourceTypeSalesforce
+//	IntegrationAssociationSourceTypeZendesk
+//	IntegrationAssociationSourceTypeCases
+type IntegrationAssociationSourceTypeInput interface {
+	pulumi.Input
+
+	ToIntegrationAssociationSourceTypeOutput() IntegrationAssociationSourceTypeOutput
+	ToIntegrationAssociationSourceTypeOutputWithContext(context.Context) IntegrationAssociationSourceTypeOutput
+}
+
+var integrationAssociationSourceTypePtrType = reflect.TypeOf((**IntegrationAssociationSourceType)(nil)).Elem()
+
+type IntegrationAssociationSourceTypePtrInput interface {
+	pulumi.Input
+
+	ToIntegrationAssociationSourceTypePtrOutput() IntegrationAssociationSourceTypePtrOutput
+	ToIntegrationAssociationSourceTypePtrOutputWithContext(context.Context) IntegrationAssociationSourceTypePtrOutput
+}
+
+type integrationAssociationSourceTypePtr string
+
+func IntegrationAssociationSourceTypePtr(v string) IntegrationAssociationSourceTypePtrInput {
+	return (*integrationAssociationSourceTypePtr)(&v)
+}
+
+func (*integrationAssociationSourceTypePtr) ElementType() reflect.Type {
+	return integrationAssociationSourceTypePtrType
+}
+
+func (in *integrationAssociationSourceTypePtr) ToIntegrationAssociationSourceTypePtrOutput() IntegrationAssociationSourceTypePtrOutput {
+	return pulumi.ToOutput(in).(IntegrationAssociationSourceTypePtrOutput)
+}
+
+func (in *integrationAssociationSourceTypePtr) ToIntegrationAssociationSourceTypePtrOutputWithContext(ctx context.Context) IntegrationAssociationSourceTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(IntegrationAssociationSourceTypePtrOutput)
 }
 
 type MetricAvailableFilterType string
@@ -11077,6 +11247,172 @@ func (o TrafficDistributionGroupStatusPtrOutput) ToStringPtrOutputWithContext(ct
 	}).(pulumi.StringPtrOutput)
 }
 
+// The type of use case to associate to the integration association.
+type UseCaseType string
+
+const (
+	UseCaseTypeRulesEvaluation  = UseCaseType("RULES_EVALUATION")
+	UseCaseTypeConnectCampaigns = UseCaseType("CONNECT_CAMPAIGNS")
+)
+
+func (UseCaseType) ElementType() reflect.Type {
+	return reflect.TypeOf((*UseCaseType)(nil)).Elem()
+}
+
+func (e UseCaseType) ToUseCaseTypeOutput() UseCaseTypeOutput {
+	return pulumi.ToOutput(e).(UseCaseTypeOutput)
+}
+
+func (e UseCaseType) ToUseCaseTypeOutputWithContext(ctx context.Context) UseCaseTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(UseCaseTypeOutput)
+}
+
+func (e UseCaseType) ToUseCaseTypePtrOutput() UseCaseTypePtrOutput {
+	return e.ToUseCaseTypePtrOutputWithContext(context.Background())
+}
+
+func (e UseCaseType) ToUseCaseTypePtrOutputWithContext(ctx context.Context) UseCaseTypePtrOutput {
+	return UseCaseType(e).ToUseCaseTypeOutputWithContext(ctx).ToUseCaseTypePtrOutputWithContext(ctx)
+}
+
+func (e UseCaseType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e UseCaseType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e UseCaseType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e UseCaseType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type UseCaseTypeOutput struct{ *pulumi.OutputState }
+
+func (UseCaseTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UseCaseType)(nil)).Elem()
+}
+
+func (o UseCaseTypeOutput) ToUseCaseTypeOutput() UseCaseTypeOutput {
+	return o
+}
+
+func (o UseCaseTypeOutput) ToUseCaseTypeOutputWithContext(ctx context.Context) UseCaseTypeOutput {
+	return o
+}
+
+func (o UseCaseTypeOutput) ToUseCaseTypePtrOutput() UseCaseTypePtrOutput {
+	return o.ToUseCaseTypePtrOutputWithContext(context.Background())
+}
+
+func (o UseCaseTypeOutput) ToUseCaseTypePtrOutputWithContext(ctx context.Context) UseCaseTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UseCaseType) *UseCaseType {
+		return &v
+	}).(UseCaseTypePtrOutput)
+}
+
+func (o UseCaseTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o UseCaseTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e UseCaseType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o UseCaseTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o UseCaseTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e UseCaseType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type UseCaseTypePtrOutput struct{ *pulumi.OutputState }
+
+func (UseCaseTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UseCaseType)(nil)).Elem()
+}
+
+func (o UseCaseTypePtrOutput) ToUseCaseTypePtrOutput() UseCaseTypePtrOutput {
+	return o
+}
+
+func (o UseCaseTypePtrOutput) ToUseCaseTypePtrOutputWithContext(ctx context.Context) UseCaseTypePtrOutput {
+	return o
+}
+
+func (o UseCaseTypePtrOutput) Elem() UseCaseTypeOutput {
+	return o.ApplyT(func(v *UseCaseType) UseCaseType {
+		if v != nil {
+			return *v
+		}
+		var ret UseCaseType
+		return ret
+	}).(UseCaseTypeOutput)
+}
+
+func (o UseCaseTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o UseCaseTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *UseCaseType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// UseCaseTypeInput is an input type that accepts values of the UseCaseType enum
+// A concrete instance of `UseCaseTypeInput` can be one of the following:
+//
+//	UseCaseTypeRulesEvaluation
+//	UseCaseTypeConnectCampaigns
+type UseCaseTypeInput interface {
+	pulumi.Input
+
+	ToUseCaseTypeOutput() UseCaseTypeOutput
+	ToUseCaseTypeOutputWithContext(context.Context) UseCaseTypeOutput
+}
+
+var useCaseTypePtrType = reflect.TypeOf((**UseCaseType)(nil)).Elem()
+
+type UseCaseTypePtrInput interface {
+	pulumi.Input
+
+	ToUseCaseTypePtrOutput() UseCaseTypePtrOutput
+	ToUseCaseTypePtrOutputWithContext(context.Context) UseCaseTypePtrOutput
+}
+
+type useCaseTypePtr string
+
+func UseCaseTypePtr(v string) UseCaseTypePtrInput {
+	return (*useCaseTypePtr)(&v)
+}
+
+func (*useCaseTypePtr) ElementType() reflect.Type {
+	return useCaseTypePtrType
+}
+
+func (in *useCaseTypePtr) ToUseCaseTypePtrOutput() UseCaseTypePtrOutput {
+	return pulumi.ToOutput(in).(UseCaseTypePtrOutput)
+}
+
+func (in *useCaseTypePtr) ToUseCaseTypePtrOutputWithContext(ctx context.Context) UseCaseTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(UseCaseTypePtrOutput)
+}
+
 // The after contact work (ACW) mode for the channel.
 type UserAfterContactWorkMode string
 
@@ -12656,6 +12992,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceStorageConfigStorageTypePtrInput)(nil)).Elem(), InstanceStorageConfigStorageType("S3"))
 	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationAssociationIntegrationTypeInput)(nil)).Elem(), IntegrationAssociationIntegrationType("LEX_BOT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationAssociationIntegrationTypePtrInput)(nil)).Elem(), IntegrationAssociationIntegrationType("LEX_BOT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationAssociationSourceTypeInput)(nil)).Elem(), IntegrationAssociationSourceType("SALESFORCE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationAssociationSourceTypePtrInput)(nil)).Elem(), IntegrationAssociationSourceType("SALESFORCE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*MetricFilterBooleanConditionComparisonInput)(nil)).Elem(), MetricFilterBooleanConditionComparison("IS_TRUE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*MetricFilterBooleanConditionComparisonPtrInput)(nil)).Elem(), MetricFilterBooleanConditionComparison("IS_TRUE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*MetricFilterNumberConditionComparisonInput)(nil)).Elem(), MetricFilterNumberConditionComparison("LESSER"))
@@ -12706,6 +13044,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TestCaseEntryPointTypePtrInput)(nil)).Elem(), TestCaseEntryPointType("VOICE_CALL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TestCaseStatusInput)(nil)).Elem(), TestCaseStatus("SAVED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TestCaseStatusPtrInput)(nil)).Elem(), TestCaseStatus("SAVED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*UseCaseTypeInput)(nil)).Elem(), UseCaseType("RULES_EVALUATION"))
+	pulumi.RegisterInputType(reflect.TypeOf((*UseCaseTypePtrInput)(nil)).Elem(), UseCaseType("RULES_EVALUATION"))
 	pulumi.RegisterInputType(reflect.TypeOf((*UserAfterContactWorkModeInput)(nil)).Elem(), UserAfterContactWorkMode("ON"))
 	pulumi.RegisterInputType(reflect.TypeOf((*UserAfterContactWorkModePtrInput)(nil)).Elem(), UserAfterContactWorkMode("ON"))
 	pulumi.RegisterInputType(reflect.TypeOf((*UserChannelInput)(nil)).Elem(), UserChannel("VOICE"))
@@ -12798,6 +13138,8 @@ func init() {
 	pulumi.RegisterOutputType(InstanceStorageConfigStorageTypePtrOutput{})
 	pulumi.RegisterOutputType(IntegrationAssociationIntegrationTypeOutput{})
 	pulumi.RegisterOutputType(IntegrationAssociationIntegrationTypePtrOutput{})
+	pulumi.RegisterOutputType(IntegrationAssociationSourceTypeOutput{})
+	pulumi.RegisterOutputType(IntegrationAssociationSourceTypePtrOutput{})
 	pulumi.RegisterOutputType(MetricAvailableFilterTypeOutput{})
 	pulumi.RegisterOutputType(MetricAvailableFilterTypePtrOutput{})
 	pulumi.RegisterOutputType(MetricCreationMethodOutput{})
@@ -12858,6 +13200,8 @@ func init() {
 	pulumi.RegisterOutputType(TestCaseStatusPtrOutput{})
 	pulumi.RegisterOutputType(TrafficDistributionGroupStatusOutput{})
 	pulumi.RegisterOutputType(TrafficDistributionGroupStatusPtrOutput{})
+	pulumi.RegisterOutputType(UseCaseTypeOutput{})
+	pulumi.RegisterOutputType(UseCaseTypePtrOutput{})
 	pulumi.RegisterOutputType(UserAfterContactWorkModeOutput{})
 	pulumi.RegisterOutputType(UserAfterContactWorkModePtrOutput{})
 	pulumi.RegisterOutputType(UserChannelOutput{})

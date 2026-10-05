@@ -36,7 +36,8 @@ type LookupAppBlockBuilderResult struct {
 	// The time when the app block builder was created.
 	CreatedTime *string `pulumi:"createdTime"`
 	// The description of the app block builder.
-	Description *string `pulumi:"description"`
+	Description   *string `pulumi:"description"`
+	DisableImdsv1 *bool   `pulumi:"disableImdsv1"`
 	// The display name of the app block builder.
 	DisplayName *string `pulumi:"displayName"`
 	// Indicates whether default internet access is enabled for the app block builder.
@@ -101,6 +102,10 @@ func (o LookupAppBlockBuilderResultOutput) CreatedTime() pulumi.StringPtrOutput 
 // The description of the app block builder.
 func (o LookupAppBlockBuilderResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAppBlockBuilderResult) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupAppBlockBuilderResultOutput) DisableImdsv1() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupAppBlockBuilderResult) *bool { return v.DisableImdsv1 }).(pulumi.BoolPtrOutput)
 }
 
 // The display name of the app block builder.

@@ -65,6 +65,12 @@ namespace Pulumi.AwsNative.AgentRegistry
     {
         public readonly Outputs.RegistryApprovalConfiguration? ApprovalConfiguration;
         /// <summary>
+        /// Specifies whether auto-detection is requested for the registry. Must be specified together with AutoDetectionScope. Setting this to true is necessary but not sufficient for auto-detection to become active; the preconditions of the configured scope must also be met. To turn auto-detection off, explicitly set this to false - removing AutoDetectionEnabled and AutoDetectionScope from the template is a no-op and leaves the existing auto-detection settings unchanged. A registry cannot be deleted while auto-detection is enabled: set this to false and update the stack before deleting the registry.
+        /// </summary>
+        public readonly bool? AutoDetectionEnabled;
+        public readonly Pulumi.AwsNative.AgentRegistry.RegistryAutoDetectionScope? AutoDetectionScope;
+        public readonly Pulumi.AwsNative.AgentRegistry.RegistryAutoDetectionStatus? AutoDetectionStatus;
+        /// <summary>
         /// The timestamp when the registry was created.
         /// </summary>
         public readonly string? CreatedAt;
@@ -99,6 +105,12 @@ namespace Pulumi.AwsNative.AgentRegistry
         private GetRegistryResult(
             Outputs.RegistryApprovalConfiguration? approvalConfiguration,
 
+            bool? autoDetectionEnabled,
+
+            Pulumi.AwsNative.AgentRegistry.RegistryAutoDetectionScope? autoDetectionScope,
+
+            Pulumi.AwsNative.AgentRegistry.RegistryAutoDetectionStatus? autoDetectionStatus,
+
             string? createdAt,
 
             string? description,
@@ -118,6 +130,9 @@ namespace Pulumi.AwsNative.AgentRegistry
             string? updatedAt)
         {
             ApprovalConfiguration = approvalConfiguration;
+            AutoDetectionEnabled = autoDetectionEnabled;
+            AutoDetectionScope = autoDetectionScope;
+            AutoDetectionStatus = autoDetectionStatus;
             CreatedAt = createdAt;
             Description = description;
             DiscoveryConfiguration = discoveryConfiguration;

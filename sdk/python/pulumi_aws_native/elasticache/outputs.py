@@ -38,6 +38,7 @@ __all__ = [
     'ServerlessCacheEcpuPerSecond',
     'ServerlessCacheEndpoint',
     'ServerlessCacheSnapshotServerlessCacheConfiguration',
+    'SnapshotNodeSnapshot',
 ]
 
 @pulumi.output_type
@@ -1114,5 +1115,111 @@ class ServerlessCacheSnapshotServerlessCacheConfiguration(dict):
         The identifier of the serverless cache.
         """
         return pulumi.get(self, "serverless_cache_name")
+
+
+@pulumi.output_type
+class SnapshotNodeSnapshot(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cacheClusterId":
+            suggest = "cache_cluster_id"
+        elif key == "cacheNodeCreateTime":
+            suggest = "cache_node_create_time"
+        elif key == "cacheNodeId":
+            suggest = "cache_node_id"
+        elif key == "cacheSize":
+            suggest = "cache_size"
+        elif key == "nodeGroupId":
+            suggest = "node_group_id"
+        elif key == "snapshotCreateTime":
+            suggest = "snapshot_create_time"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SnapshotNodeSnapshot. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SnapshotNodeSnapshot.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SnapshotNodeSnapshot.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 cache_cluster_id: Optional[_builtins.str] = None,
+                 cache_node_create_time: Optional[_builtins.str] = None,
+                 cache_node_id: Optional[_builtins.str] = None,
+                 cache_size: Optional[_builtins.str] = None,
+                 node_group_id: Optional[_builtins.str] = None,
+                 snapshot_create_time: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str cache_cluster_id: A unique identifier for the source cluster.
+        :param _builtins.str cache_node_create_time: The date and time when the cache node was created in the source cluster.
+        :param _builtins.str cache_node_id: The cache node identifier for the node in the source cluster.
+        :param _builtins.str cache_size: The size of the cache on the source cache node.
+        :param _builtins.str node_group_id: A unique identifier for the source node group (shard).
+        :param _builtins.str snapshot_create_time: The date and time when the source node's metadata and cache data set was obtained for the snapshot.
+        """
+        if cache_cluster_id is not None:
+            pulumi.set(__self__, "cache_cluster_id", cache_cluster_id)
+        if cache_node_create_time is not None:
+            pulumi.set(__self__, "cache_node_create_time", cache_node_create_time)
+        if cache_node_id is not None:
+            pulumi.set(__self__, "cache_node_id", cache_node_id)
+        if cache_size is not None:
+            pulumi.set(__self__, "cache_size", cache_size)
+        if node_group_id is not None:
+            pulumi.set(__self__, "node_group_id", node_group_id)
+        if snapshot_create_time is not None:
+            pulumi.set(__self__, "snapshot_create_time", snapshot_create_time)
+
+    @_builtins.property
+    @pulumi.getter(name="cacheClusterId")
+    def cache_cluster_id(self) -> Optional[_builtins.str]:
+        """
+        A unique identifier for the source cluster.
+        """
+        return pulumi.get(self, "cache_cluster_id")
+
+    @_builtins.property
+    @pulumi.getter(name="cacheNodeCreateTime")
+    def cache_node_create_time(self) -> Optional[_builtins.str]:
+        """
+        The date and time when the cache node was created in the source cluster.
+        """
+        return pulumi.get(self, "cache_node_create_time")
+
+    @_builtins.property
+    @pulumi.getter(name="cacheNodeId")
+    def cache_node_id(self) -> Optional[_builtins.str]:
+        """
+        The cache node identifier for the node in the source cluster.
+        """
+        return pulumi.get(self, "cache_node_id")
+
+    @_builtins.property
+    @pulumi.getter(name="cacheSize")
+    def cache_size(self) -> Optional[_builtins.str]:
+        """
+        The size of the cache on the source cache node.
+        """
+        return pulumi.get(self, "cache_size")
+
+    @_builtins.property
+    @pulumi.getter(name="nodeGroupId")
+    def node_group_id(self) -> Optional[_builtins.str]:
+        """
+        A unique identifier for the source node group (shard).
+        """
+        return pulumi.get(self, "node_group_id")
+
+    @_builtins.property
+    @pulumi.getter(name="snapshotCreateTime")
+    def snapshot_create_time(self) -> Optional[_builtins.str]:
+        """
+        The date and time when the source node's metadata and cache data set was obtained for the snapshot.
+        """
+        return pulumi.get(self, "snapshot_create_time")
 
 

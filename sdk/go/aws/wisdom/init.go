@@ -37,6 +37,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Assistant{}
 	case "aws-native:wisdom:AssistantAssociation":
 		r = &AssistantAssociation{}
+	case "aws-native:wisdom:Content":
+		r = &Content{}
+	case "aws-native:wisdom:ContentAssociation":
+		r = &ContentAssociation{}
 	case "aws-native:wisdom:KnowledgeBase":
 		r = &KnowledgeBase{}
 	case "aws-native:wisdom:MessageTemplate":

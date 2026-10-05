@@ -100,4 +100,35 @@ namespace Pulumi.AwsNative.CloudWatch
 
         public override string ToString() => _value;
     }
+
+    /// <summary>
+    /// The ownership category of the view. Views created through CloudFormation are always USER views; MANAGED views are provisioned by AWS.
+    /// </summary>
+    [EnumType]
+    public readonly struct ViewType : IEquatable<ViewType>
+    {
+        private readonly string _value;
+
+        private ViewType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ViewType User { get; } = new ViewType("USER");
+        public static ViewType Managed { get; } = new ViewType("MANAGED");
+
+        public static bool operator ==(ViewType left, ViewType right) => left.Equals(right);
+        public static bool operator !=(ViewType left, ViewType right) => !left.Equals(right);
+
+        public static explicit operator string(ViewType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ViewType other && Equals(other);
+        public bool Equals(ViewType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
 }

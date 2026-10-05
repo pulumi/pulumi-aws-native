@@ -187,9 +187,11 @@ namespace Pulumi.AwsNative.MediaTailor
         }
 
         public static FunctionType HttpRequest { get; } = new FunctionType("HTTP_REQUEST");
+        public static FunctionType AwsServiceRequest { get; } = new FunctionType("AWS_SERVICE_REQUEST");
         public static FunctionType CustomOutput { get; } = new FunctionType("CUSTOM_OUTPUT");
         public static FunctionType ConcurrentExecutor { get; } = new FunctionType("CONCURRENT_EXECUTOR");
         public static FunctionType SequentialExecutor { get; } = new FunctionType("SEQUENTIAL_EXECUTOR");
+        public static FunctionType VastRequest { get; } = new FunctionType("VAST_REQUEST");
 
         public static bool operator ==(FunctionType left, FunctionType right) => left.Equals(right);
         public static bool operator !=(FunctionType left, FunctionType right) => !left.Equals(right);
@@ -626,6 +628,68 @@ namespace Pulumi.AwsNative.MediaTailor
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is PrefetchScheduleScheduleType other && Equals(other);
         public bool Equals(PrefetchScheduleScheduleType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The SCTE-35 ad insertion type.
+    /// </summary>
+    [EnumType]
+    public readonly struct ProgramAdBreakMessageType : IEquatable<ProgramAdBreakMessageType>
+    {
+        private readonly string _value;
+
+        private ProgramAdBreakMessageType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ProgramAdBreakMessageType SpliceInsert { get; } = new ProgramAdBreakMessageType("SPLICE_INSERT");
+        public static ProgramAdBreakMessageType TimeSignal { get; } = new ProgramAdBreakMessageType("TIME_SIGNAL");
+
+        public static bool operator ==(ProgramAdBreakMessageType left, ProgramAdBreakMessageType right) => left.Equals(right);
+        public static bool operator !=(ProgramAdBreakMessageType left, ProgramAdBreakMessageType right) => !left.Equals(right);
+
+        public static explicit operator string(ProgramAdBreakMessageType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ProgramAdBreakMessageType other && Equals(other);
+        public bool Equals(ProgramAdBreakMessageType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The position where this program will be inserted relative to the RelativePosition.
+    /// </summary>
+    [EnumType]
+    public readonly struct ProgramTransitionRelativePosition : IEquatable<ProgramTransitionRelativePosition>
+    {
+        private readonly string _value;
+
+        private ProgramTransitionRelativePosition(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ProgramTransitionRelativePosition BeforeProgram { get; } = new ProgramTransitionRelativePosition("BEFORE_PROGRAM");
+        public static ProgramTransitionRelativePosition AfterProgram { get; } = new ProgramTransitionRelativePosition("AFTER_PROGRAM");
+
+        public static bool operator ==(ProgramTransitionRelativePosition left, ProgramTransitionRelativePosition right) => left.Equals(right);
+        public static bool operator !=(ProgramTransitionRelativePosition left, ProgramTransitionRelativePosition right) => !left.Equals(right);
+
+        public static explicit operator string(ProgramTransitionRelativePosition value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ProgramTransitionRelativePosition other && Equals(other);
+        public bool Equals(ProgramTransitionRelativePosition other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

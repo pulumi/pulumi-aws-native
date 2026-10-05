@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.Ecs.Inputs
     /// </summary>
     public sealed class ServiceVpcLatticeConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        [Input("advancedConfiguration")]
+        public Input<Inputs.ServiceVpcLatticeAdvancedConfigurationArgs>? AdvancedConfiguration { get; set; }
+
         /// <summary>
         /// The name of the port mapping to register in the VPC Lattice target group. This is the name of the ``portMapping`` you defined in your task definition.
         /// </summary>

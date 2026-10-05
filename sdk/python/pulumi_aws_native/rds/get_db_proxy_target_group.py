@@ -14,6 +14,7 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from .. import outputs as _root_outputs
 
 __all__ = [
     'GetDbProxyTargetGroupResult',
@@ -24,7 +25,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetDbProxyTargetGroupResult:
-    def __init__(__self__, connection_pool_configuration_info=None, db_cluster_identifiers=None, db_instance_identifiers=None, target_group_arn=None):
+    def __init__(__self__, connection_pool_configuration_info=None, db_cluster_identifiers=None, db_instance_identifiers=None, tags=None, target_group_arn=None):
         if connection_pool_configuration_info and not isinstance(connection_pool_configuration_info, dict):
             raise TypeError("Expected argument 'connection_pool_configuration_info' to be a dict")
         pulumi.set(__self__, "connection_pool_configuration_info", connection_pool_configuration_info)
@@ -34,6 +35,9 @@ class GetDbProxyTargetGroupResult:
         if db_instance_identifiers and not isinstance(db_instance_identifiers, list):
             raise TypeError("Expected argument 'db_instance_identifiers' to be a list")
         pulumi.set(__self__, "db_instance_identifiers", db_instance_identifiers)
+        if tags and not isinstance(tags, list):
+            raise TypeError("Expected argument 'tags' to be a list")
+        pulumi.set(__self__, "tags", tags)
         if target_group_arn and not isinstance(target_group_arn, str):
             raise TypeError("Expected argument 'target_group_arn' to be a str")
         pulumi.set(__self__, "target_group_arn", target_group_arn)
@@ -63,6 +67,14 @@ class GetDbProxyTargetGroupResult:
         return pulumi.get(self, "db_instance_identifiers")
 
     @_builtins.property
+    @pulumi.getter
+    def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        An array of key-value pairs to apply to this resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @_builtins.property
     @pulumi.getter(name="targetGroupArn")
     def target_group_arn(self) -> Optional[_builtins.str]:
         """
@@ -80,6 +92,7 @@ class AwaitableGetDbProxyTargetGroupResult(GetDbProxyTargetGroupResult):
             connection_pool_configuration_info=self.connection_pool_configuration_info,
             db_cluster_identifiers=self.db_cluster_identifiers,
             db_instance_identifiers=self.db_instance_identifiers,
+            tags=self.tags,
             target_group_arn=self.target_group_arn)
 
 
@@ -99,6 +112,7 @@ def get_db_proxy_target_group(target_group_arn: Optional[_builtins.str] = None,
         connection_pool_configuration_info=pulumi.get(__ret__, 'connection_pool_configuration_info'),
         db_cluster_identifiers=pulumi.get(__ret__, 'db_cluster_identifiers'),
         db_instance_identifiers=pulumi.get(__ret__, 'db_instance_identifiers'),
+        tags=pulumi.get(__ret__, 'tags'),
         target_group_arn=pulumi.get(__ret__, 'target_group_arn'))
 def get_db_proxy_target_group_output(target_group_arn: pulumi.Input[Optional[_builtins.str]] = None,
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDbProxyTargetGroupResult]:
@@ -115,4 +129,5 @@ def get_db_proxy_target_group_output(target_group_arn: pulumi.Input[Optional[_bu
         connection_pool_configuration_info=pulumi.get(__response__, 'connection_pool_configuration_info'),
         db_cluster_identifiers=pulumi.get(__response__, 'db_cluster_identifiers'),
         db_instance_identifiers=pulumi.get(__response__, 'db_instance_identifiers'),
+        tags=pulumi.get(__response__, 'tags'),
         target_group_arn=pulumi.get(__response__, 'target_group_arn')))

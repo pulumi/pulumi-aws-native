@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     public sealed class TemplateSheetLayoutGroupMember
     {
         public readonly string Id;
-        public readonly object Type;
+        public readonly Pulumi.AwsNative.QuickSight.TemplateSheetLayoutGroupMemberType Type;
 
         [OutputConstructor]
         private TemplateSheetLayoutGroupMember(
             string id,
 
-            object type)
+            Pulumi.AwsNative.QuickSight.TemplateSheetLayoutGroupMemberType type)
         {
             Id = id;
             Type = type;

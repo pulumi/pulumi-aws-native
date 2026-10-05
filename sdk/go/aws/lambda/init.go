@@ -49,6 +49,12 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Url{}
 	case "aws-native:lambda:Version":
 		r = &Version{}
+	case "aws-native:lambda:WebFunction":
+		r = &WebFunction{}
+	case "aws-native:lambda:WebFunctionEndpoint":
+		r = &WebFunctionEndpoint{}
+	case "aws-native:lambda:WebFunctionRevision":
+		r = &WebFunctionRevision{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}

@@ -30,7 +30,8 @@ class DataProviderArgs:
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  exact_settings: pulumi.Input[Optional[_builtins.bool]] = None,
                  settings: pulumi.Input[Optional['SettingsPropertiesArgs']] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 virtual: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a DataProvider resource.
 
@@ -41,6 +42,7 @@ class DataProviderArgs:
         :param pulumi.Input[_builtins.bool] exact_settings: The property describes the exact settings which can be modified
         :param pulumi.Input['SettingsPropertiesArgs'] settings: The property identifies the exact type of settings for the data provider.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[_builtins.bool] virtual: Indicates whether the data provider is virtual.
         """
         pulumi.set(__self__, "engine", engine)
         if data_provider_identifier is not None:
@@ -55,6 +57,8 @@ class DataProviderArgs:
             pulumi.set(__self__, "settings", settings)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if virtual is not None:
+            pulumi.set(__self__, "virtual", virtual)
 
     @_builtins.property
     @pulumi.getter
@@ -140,6 +144,18 @@ class DataProviderArgs:
     def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
+    @_builtins.property
+    @pulumi.getter
+    def virtual(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Indicates whether the data provider is virtual.
+        """
+        return pulumi.get(self, "virtual")
+
+    @virtual.setter
+    def virtual(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "virtual", value)
+
 
 @pulumi.type_token("aws-native:dms:DataProvider")
 class DataProvider(pulumi.CustomResource):
@@ -154,6 +170,7 @@ class DataProvider(pulumi.CustomResource):
                  exact_settings: pulumi.Input[Optional[_builtins.bool]] = None,
                  settings: pulumi.Input[Optional[Union['SettingsPropertiesArgs', 'SettingsPropertiesArgsDict']]] = None,
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 virtual: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         """
         Resource schema for AWS::DMS::DataProvider
@@ -167,6 +184,7 @@ class DataProvider(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] exact_settings: The property describes the exact settings which can be modified
         :param pulumi.Input[Union['SettingsPropertiesArgs', 'SettingsPropertiesArgsDict']] settings: The property identifies the exact type of settings for the data provider.
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[_builtins.bool] virtual: Indicates whether the data provider is virtual.
         """
         ...
     @overload
@@ -199,6 +217,7 @@ class DataProvider(pulumi.CustomResource):
                  exact_settings: pulumi.Input[Optional[_builtins.bool]] = None,
                  settings: pulumi.Input[Optional[Union['SettingsPropertiesArgs', 'SettingsPropertiesArgsDict']]] = None,
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 virtual: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -217,6 +236,7 @@ class DataProvider(pulumi.CustomResource):
             __props__.__dict__["exact_settings"] = exact_settings
             __props__.__dict__["settings"] = settings
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["virtual"] = virtual
             __props__.__dict__["data_provider_arn"] = None
             __props__.__dict__["data_provider_creation_time"] = None
         super(DataProvider, __self__).__init__(
@@ -250,6 +270,7 @@ class DataProvider(pulumi.CustomResource):
         __props__.__dict__["exact_settings"] = None
         __props__.__dict__["settings"] = None
         __props__.__dict__["tags"] = None
+        __props__.__dict__["virtual"] = None
         return DataProvider(resource_name, opts=opts, __props__=__props__)
 
     @_builtins.property
@@ -323,4 +344,12 @@ class DataProvider(pulumi.CustomResource):
         An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
+
+    @_builtins.property
+    @pulumi.getter
+    def virtual(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Indicates whether the data provider is virtual.
+        """
+        return pulumi.get(self, "virtual")
 

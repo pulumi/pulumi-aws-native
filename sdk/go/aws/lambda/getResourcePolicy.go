@@ -36,7 +36,6 @@ func LookupResourcePolicy(ctx *pulumi.Context, args *LookupResourcePolicyArgs, o
 }
 
 type LookupResourcePolicyArgs struct {
-	// The Amazon Resource Name (ARN) of the LAM resource you want to add the policy to. For a function, you can use a qualified or an unqualified ARN. The value must be a complete ARN, and the operation does not accept wildcard characters.
 	ResourceArn string `pulumi:"resourceArn"`
 }
 
@@ -54,7 +53,6 @@ func LookupResourcePolicyOutput(ctx *pulumi.Context, args LookupResourcePolicyOu
 }
 
 type LookupResourcePolicyOutputArgs struct {
-	// The Amazon Resource Name (ARN) of the LAM resource you want to add the policy to. For a function, you can use a qualified or an unqualified ARN. The value must be a complete ARN, and the operation does not accept wildcard characters.
 	ResourceArn pulumi.StringInput `pulumi:"resourceArn"`
 }
 

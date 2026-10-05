@@ -202,6 +202,8 @@ __all__ = [
     'ServiceTimeoutConfigurationArgsDict',
     'ServiceVolumeConfigurationArgs',
     'ServiceVolumeConfigurationArgsDict',
+    'ServiceVpcLatticeAdvancedConfigurationArgs',
+    'ServiceVpcLatticeAdvancedConfigurationArgsDict',
     'ServiceVpcLatticeConfigurationArgs',
     'ServiceVpcLatticeConfigurationArgsDict',
     'TaskDefinitionAuthorizationConfigArgs',
@@ -8570,6 +8572,52 @@ class ServiceVolumeConfigurationArgs:
         pulumi.set(self, "managed_ebs_volume", value)
 
 
+class ServiceVpcLatticeAdvancedConfigurationArgsDict(TypedDict):
+    alternate_target_group_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    production_listener_rule: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    test_listener_rule: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+
+@pulumi.input_type
+class ServiceVpcLatticeAdvancedConfigurationArgs:
+    def __init__(__self__, *,
+                 alternate_target_group_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 production_listener_rule: pulumi.Input[Optional[_builtins.str]] = None,
+                 test_listener_rule: pulumi.Input[Optional[_builtins.str]] = None):
+        if alternate_target_group_arn is not None:
+            pulumi.set(__self__, "alternate_target_group_arn", alternate_target_group_arn)
+        if production_listener_rule is not None:
+            pulumi.set(__self__, "production_listener_rule", production_listener_rule)
+        if test_listener_rule is not None:
+            pulumi.set(__self__, "test_listener_rule", test_listener_rule)
+
+    @_builtins.property
+    @pulumi.getter(name="alternateTargetGroupArn")
+    def alternate_target_group_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "alternate_target_group_arn")
+
+    @alternate_target_group_arn.setter
+    def alternate_target_group_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "alternate_target_group_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="productionListenerRule")
+    def production_listener_rule(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "production_listener_rule")
+
+    @production_listener_rule.setter
+    def production_listener_rule(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "production_listener_rule", value)
+
+    @_builtins.property
+    @pulumi.getter(name="testListenerRule")
+    def test_listener_rule(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "test_listener_rule")
+
+    @test_listener_rule.setter
+    def test_listener_rule(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "test_listener_rule", value)
+
+
 class ServiceVpcLatticeConfigurationArgsDict(TypedDict):
     """
     The VPC Lattice configuration for your service that holds the information for the target group(s) Amazon ECS tasks will be registered to.
@@ -8586,13 +8634,15 @@ class ServiceVpcLatticeConfigurationArgsDict(TypedDict):
     """
     The full Amazon Resource Name (ARN) of the target group or groups associated with the VPC Lattice configuration that the Amazon ECS tasks will be registered to.
     """
+    advanced_configuration: NotRequired[pulumi.Input[Optional['ServiceVpcLatticeAdvancedConfigurationArgsDict']]]
 
 @pulumi.input_type
 class ServiceVpcLatticeConfigurationArgs:
     def __init__(__self__, *,
                  port_name: pulumi.Input[_builtins.str],
                  role_arn: pulumi.Input[_builtins.str],
-                 target_group_arn: pulumi.Input[_builtins.str]):
+                 target_group_arn: pulumi.Input[_builtins.str],
+                 advanced_configuration: pulumi.Input[Optional['ServiceVpcLatticeAdvancedConfigurationArgs']] = None):
         """
         The VPC Lattice configuration for your service that holds the information for the target group(s) Amazon ECS tasks will be registered to.
 
@@ -8603,6 +8653,8 @@ class ServiceVpcLatticeConfigurationArgs:
         pulumi.set(__self__, "port_name", port_name)
         pulumi.set(__self__, "role_arn", role_arn)
         pulumi.set(__self__, "target_group_arn", target_group_arn)
+        if advanced_configuration is not None:
+            pulumi.set(__self__, "advanced_configuration", advanced_configuration)
 
     @_builtins.property
     @pulumi.getter(name="portName")
@@ -8639,6 +8691,15 @@ class ServiceVpcLatticeConfigurationArgs:
     @target_group_arn.setter
     def target_group_arn(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "target_group_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="advancedConfiguration")
+    def advanced_configuration(self) -> pulumi.Input[Optional['ServiceVpcLatticeAdvancedConfigurationArgs']]:
+        return pulumi.get(self, "advanced_configuration")
+
+    @advanced_configuration.setter
+    def advanced_configuration(self, value: pulumi.Input[Optional['ServiceVpcLatticeAdvancedConfigurationArgs']]):
+        pulumi.set(self, "advanced_configuration", value)
 
 
 class TaskDefinitionAuthorizationConfigArgsDict(TypedDict):

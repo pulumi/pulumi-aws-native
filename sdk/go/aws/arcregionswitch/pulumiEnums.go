@@ -1858,6 +1858,171 @@ const (
 	PlanRoutingControlStateChangeOff = PlanRoutingControlStateChange("Off")
 )
 
+type PlanWaitElbTargetGroupHealthy string
+
+const (
+	PlanWaitElbTargetGroupHealthyEnabled  = PlanWaitElbTargetGroupHealthy("enabled")
+	PlanWaitElbTargetGroupHealthyDisabled = PlanWaitElbTargetGroupHealthy("disabled")
+)
+
+func (PlanWaitElbTargetGroupHealthy) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlanWaitElbTargetGroupHealthy)(nil)).Elem()
+}
+
+func (e PlanWaitElbTargetGroupHealthy) ToPlanWaitElbTargetGroupHealthyOutput() PlanWaitElbTargetGroupHealthyOutput {
+	return pulumi.ToOutput(e).(PlanWaitElbTargetGroupHealthyOutput)
+}
+
+func (e PlanWaitElbTargetGroupHealthy) ToPlanWaitElbTargetGroupHealthyOutputWithContext(ctx context.Context) PlanWaitElbTargetGroupHealthyOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(PlanWaitElbTargetGroupHealthyOutput)
+}
+
+func (e PlanWaitElbTargetGroupHealthy) ToPlanWaitElbTargetGroupHealthyPtrOutput() PlanWaitElbTargetGroupHealthyPtrOutput {
+	return e.ToPlanWaitElbTargetGroupHealthyPtrOutputWithContext(context.Background())
+}
+
+func (e PlanWaitElbTargetGroupHealthy) ToPlanWaitElbTargetGroupHealthyPtrOutputWithContext(ctx context.Context) PlanWaitElbTargetGroupHealthyPtrOutput {
+	return PlanWaitElbTargetGroupHealthy(e).ToPlanWaitElbTargetGroupHealthyOutputWithContext(ctx).ToPlanWaitElbTargetGroupHealthyPtrOutputWithContext(ctx)
+}
+
+func (e PlanWaitElbTargetGroupHealthy) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PlanWaitElbTargetGroupHealthy) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PlanWaitElbTargetGroupHealthy) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e PlanWaitElbTargetGroupHealthy) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type PlanWaitElbTargetGroupHealthyOutput struct{ *pulumi.OutputState }
+
+func (PlanWaitElbTargetGroupHealthyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlanWaitElbTargetGroupHealthy)(nil)).Elem()
+}
+
+func (o PlanWaitElbTargetGroupHealthyOutput) ToPlanWaitElbTargetGroupHealthyOutput() PlanWaitElbTargetGroupHealthyOutput {
+	return o
+}
+
+func (o PlanWaitElbTargetGroupHealthyOutput) ToPlanWaitElbTargetGroupHealthyOutputWithContext(ctx context.Context) PlanWaitElbTargetGroupHealthyOutput {
+	return o
+}
+
+func (o PlanWaitElbTargetGroupHealthyOutput) ToPlanWaitElbTargetGroupHealthyPtrOutput() PlanWaitElbTargetGroupHealthyPtrOutput {
+	return o.ToPlanWaitElbTargetGroupHealthyPtrOutputWithContext(context.Background())
+}
+
+func (o PlanWaitElbTargetGroupHealthyOutput) ToPlanWaitElbTargetGroupHealthyPtrOutputWithContext(ctx context.Context) PlanWaitElbTargetGroupHealthyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PlanWaitElbTargetGroupHealthy) *PlanWaitElbTargetGroupHealthy {
+		return &v
+	}).(PlanWaitElbTargetGroupHealthyPtrOutput)
+}
+
+func (o PlanWaitElbTargetGroupHealthyOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o PlanWaitElbTargetGroupHealthyOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PlanWaitElbTargetGroupHealthy) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o PlanWaitElbTargetGroupHealthyOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PlanWaitElbTargetGroupHealthyOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PlanWaitElbTargetGroupHealthy) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type PlanWaitElbTargetGroupHealthyPtrOutput struct{ *pulumi.OutputState }
+
+func (PlanWaitElbTargetGroupHealthyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PlanWaitElbTargetGroupHealthy)(nil)).Elem()
+}
+
+func (o PlanWaitElbTargetGroupHealthyPtrOutput) ToPlanWaitElbTargetGroupHealthyPtrOutput() PlanWaitElbTargetGroupHealthyPtrOutput {
+	return o
+}
+
+func (o PlanWaitElbTargetGroupHealthyPtrOutput) ToPlanWaitElbTargetGroupHealthyPtrOutputWithContext(ctx context.Context) PlanWaitElbTargetGroupHealthyPtrOutput {
+	return o
+}
+
+func (o PlanWaitElbTargetGroupHealthyPtrOutput) Elem() PlanWaitElbTargetGroupHealthyOutput {
+	return o.ApplyT(func(v *PlanWaitElbTargetGroupHealthy) PlanWaitElbTargetGroupHealthy {
+		if v != nil {
+			return *v
+		}
+		var ret PlanWaitElbTargetGroupHealthy
+		return ret
+	}).(PlanWaitElbTargetGroupHealthyOutput)
+}
+
+func (o PlanWaitElbTargetGroupHealthyPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PlanWaitElbTargetGroupHealthyPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *PlanWaitElbTargetGroupHealthy) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// PlanWaitElbTargetGroupHealthyInput is an input type that accepts values of the PlanWaitElbTargetGroupHealthy enum
+// A concrete instance of `PlanWaitElbTargetGroupHealthyInput` can be one of the following:
+//
+//	PlanWaitElbTargetGroupHealthyEnabled
+//	PlanWaitElbTargetGroupHealthyDisabled
+type PlanWaitElbTargetGroupHealthyInput interface {
+	pulumi.Input
+
+	ToPlanWaitElbTargetGroupHealthyOutput() PlanWaitElbTargetGroupHealthyOutput
+	ToPlanWaitElbTargetGroupHealthyOutputWithContext(context.Context) PlanWaitElbTargetGroupHealthyOutput
+}
+
+var planWaitElbTargetGroupHealthyPtrType = reflect.TypeOf((**PlanWaitElbTargetGroupHealthy)(nil)).Elem()
+
+type PlanWaitElbTargetGroupHealthyPtrInput interface {
+	pulumi.Input
+
+	ToPlanWaitElbTargetGroupHealthyPtrOutput() PlanWaitElbTargetGroupHealthyPtrOutput
+	ToPlanWaitElbTargetGroupHealthyPtrOutputWithContext(context.Context) PlanWaitElbTargetGroupHealthyPtrOutput
+}
+
+type planWaitElbTargetGroupHealthyPtr string
+
+func PlanWaitElbTargetGroupHealthyPtr(v string) PlanWaitElbTargetGroupHealthyPtrInput {
+	return (*planWaitElbTargetGroupHealthyPtr)(&v)
+}
+
+func (*planWaitElbTargetGroupHealthyPtr) ElementType() reflect.Type {
+	return planWaitElbTargetGroupHealthyPtrType
+}
+
+func (in *planWaitElbTargetGroupHealthyPtr) ToPlanWaitElbTargetGroupHealthyPtrOutput() PlanWaitElbTargetGroupHealthyPtrOutput {
+	return pulumi.ToOutput(in).(PlanWaitElbTargetGroupHealthyPtrOutput)
+}
+
+func (in *planWaitElbTargetGroupHealthyPtr) ToPlanWaitElbTargetGroupHealthyPtrOutputWithContext(ctx context.Context) PlanWaitElbTargetGroupHealthyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(PlanWaitElbTargetGroupHealthyPtrOutput)
+}
+
 type PlanWorkflowTargetAction string
 
 const (
@@ -2048,6 +2213,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PlanRecoveryApproachPtrInput)(nil)).Elem(), PlanRecoveryApproach("activeActive"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PlanRegionToRunInInput)(nil)).Elem(), PlanRegionToRunIn("activatingRegion"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PlanRegionToRunInPtrInput)(nil)).Elem(), PlanRegionToRunIn("activatingRegion"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PlanWaitElbTargetGroupHealthyInput)(nil)).Elem(), PlanWaitElbTargetGroupHealthy("enabled"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PlanWaitElbTargetGroupHealthyPtrInput)(nil)).Elem(), PlanWaitElbTargetGroupHealthy("enabled"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PlanWorkflowTargetActionInput)(nil)).Elem(), PlanWorkflowTargetAction("activate"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PlanWorkflowTargetActionPtrInput)(nil)).Elem(), PlanWorkflowTargetAction("activate"))
 	pulumi.RegisterOutputType(PlanAlarmConditionOutput{})
@@ -2072,6 +2239,8 @@ func init() {
 	pulumi.RegisterOutputType(PlanRecoveryApproachPtrOutput{})
 	pulumi.RegisterOutputType(PlanRegionToRunInOutput{})
 	pulumi.RegisterOutputType(PlanRegionToRunInPtrOutput{})
+	pulumi.RegisterOutputType(PlanWaitElbTargetGroupHealthyOutput{})
+	pulumi.RegisterOutputType(PlanWaitElbTargetGroupHealthyPtrOutput{})
 	pulumi.RegisterOutputType(PlanWorkflowTargetActionOutput{})
 	pulumi.RegisterOutputType(PlanWorkflowTargetActionPtrOutput{})
 }

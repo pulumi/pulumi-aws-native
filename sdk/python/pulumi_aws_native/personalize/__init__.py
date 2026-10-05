@@ -7,10 +7,12 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from ._enums import *
+from .campaign import *
 from .dataset import *
 from .dataset_group import *
 from .event_tracker import *
 from .filter import *
+from .get_campaign import *
 from .get_dataset import *
 from .get_dataset_group import *
 from .get_event_tracker import *

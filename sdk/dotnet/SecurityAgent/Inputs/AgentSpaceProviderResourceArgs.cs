@@ -15,6 +15,12 @@ namespace Pulumi.AwsNative.SecurityAgent.Inputs
     /// </summary>
     public sealed class AgentSpaceProviderResourceArgs : global::Pulumi.ResourceArgs
     {
+        [Input("azureDevOpsCapabilities")]
+        public Input<Inputs.AgentSpaceAzureDevOpsCapabilitiesResourceArgs>? AzureDevOpsCapabilities { get; set; }
+
+        [Input("azureDevOpsRepository")]
+        public Input<Inputs.AgentSpaceAzureDevOpsRepositoryResourceArgs>? AzureDevOpsRepository { get; set; }
+
         [Input("bitbucketCapabilities")]
         public Input<Inputs.AgentSpaceBitbucketCapabilitiesResourceArgs>? BitbucketCapabilities { get; set; }
 

@@ -865,6 +865,16 @@ export namespace agentregistry {
     }
 
     /**
+     * The server-side encryption configuration for a registry. Specifies a customer managed key used to encrypt the registry's content. When omitted, the registry's content is encrypted with an AWS owned key. You cannot change the encryption configuration after registry creation. Specifying a different KMS key, adding this property to an existing registry, or removing it replaces the registry: CloudFormation creates a new registry with a new Amazon Resource Name (ARN) and then deletes the original, including all registry records it contains. Registry records that are not managed by the stack are not re-created in the new registry, and if any remain in the original registry its deletion fails and it is left behind.
+     */
+    export interface RegistryEncryptionConfiguration {
+        /**
+         * The Amazon Resource Name (ARN) of the customer-managed AWS KMS key used to encrypt the registry's content. The key must be a symmetric encryption key in the same AWS account and Region as the registry. Multi-Region keys are not supported.
+         */
+        kmsKeyArn: string;
+    }
+
+    /**
      * The A2A agent card descriptor, populated when the record type is AGENT.
      */
     export interface RegistryRecordA2aAgentCardDescriptor {
@@ -6615,6 +6625,56 @@ export namespace appstream {
         value: string;
     }
 
+    export interface FleetComputeCapacity {
+        /**
+         * The desired number of streaming instances.
+         */
+        desiredInstances?: number;
+        /**
+         * The desired capacity in terms of number of user sessions, for the multi-session fleet. This is not allowed for single-session fleets.
+         *
+         * When you create a fleet, you must set define either the DesiredSessions or DesiredInstances attribute, based on the type of fleet you create. You can’t define both attributes or leave both attributes blank.
+         */
+        desiredSessions?: number;
+    }
+
+    export interface FleetDomainJoinInfo {
+        /**
+         * The fully qualified name of the directory (for example, corp.example.com).
+         */
+        directoryName?: string;
+        /**
+         * The distinguished name of the organizational unit for computer accounts.
+         */
+        organizationalUnitDistinguishedName?: string;
+    }
+
+    export interface FleetS3Location {
+        /**
+         * The S3 bucket of the S3 object.
+         */
+        s3Bucket: string;
+        /**
+         * The S3 key of the S3 object.
+         */
+        s3Key: string;
+    }
+
+    export interface FleetVolumeConfig {
+        volumeSizeInGb?: number;
+    }
+
+    export interface FleetVpcConfig {
+        /**
+         * The identifiers of the security groups for the fleet.
+         */
+        securityGroupIds?: string[];
+        /**
+         * The identifiers of the subnets to which a network interface is attached from the fleet instance. Fleet instances can use one or two subnets.
+         */
+        subnetIds?: string[];
+    }
+
     export interface ImageBuilderAccessEndpoint {
         /**
          * The type of interface endpoint.
@@ -7735,6 +7795,7 @@ export namespace arcregionswitch {
         targetPercent?: number;
         timeoutMinutes?: number;
         ungraceful?: outputs.arcregionswitch.PlanEc2Ungraceful;
+        waitElbTargetGroupHealthy?: enums.arcregionswitch.PlanWaitElbTargetGroupHealthy;
     }
 
     export interface PlanEc2Ungraceful {
@@ -7747,6 +7808,7 @@ export namespace arcregionswitch {
         targetPercent?: number;
         timeoutMinutes?: number;
         ungraceful?: outputs.arcregionswitch.PlanEcsUngraceful;
+        waitElbTargetGroupHealthy?: enums.arcregionswitch.PlanWaitElbTargetGroupHealthy;
     }
 
     export interface PlanEcsUngraceful {
@@ -18545,6 +18607,28 @@ export namespace bedrockagentcore {
         workloadIdentityArn: string;
     }
 
+    /**
+     * A hook that runs after an agent invocation.
+     */
+    export interface HarnessAfterInvocationHook {
+        /**
+         * The unique name of the hook.
+         */
+        name: string;
+        target: outputs.bedrockagentcore.HarnessHookTarget;
+    }
+
+    /**
+     * A hook that runs after each tool call.
+     */
+    export interface HarnessAfterToolCallHook {
+        /**
+         * The unique name of the hook.
+         */
+        name: string;
+        target: outputs.bedrockagentcore.HarnessHookTarget;
+    }
+
     export interface HarnessAgentCoreBrowserConfig {
         browserArn?: string;
     }
@@ -18608,12 +18692,34 @@ export namespace bedrockagentcore {
         /**
          * Provider-specific parameters passed through to the model provider unchanged.
          */
-        additionalParams?: {[key: string]: any};
+        additionalParams?: any;
         apiFormat?: enums.bedrockagentcore.HarnessBedrockModelConfigApiFormat;
         maxTokens?: number;
         modelId: string;
         temperature?: number;
         topP?: number;
+    }
+
+    /**
+     * A hook that runs before an agent invocation.
+     */
+    export interface HarnessBeforeInvocationHook {
+        /**
+         * The unique name of the hook.
+         */
+        name: string;
+        target: outputs.bedrockagentcore.HarnessHookTarget;
+    }
+
+    /**
+     * A hook that runs before each tool call.
+     */
+    export interface HarnessBeforeToolCallHook {
+        /**
+         * The unique name of the hook.
+         */
+        name: string;
+        target: outputs.bedrockagentcore.HarnessHookTarget;
     }
 
     export interface HarnessClaimMatchValueType {
@@ -18687,6 +18793,63 @@ export namespace bedrockagentcore {
         topP?: number;
     }
 
+    /**
+     * A lifecycle hook configured for one phase of the agent loop.
+     */
+    export interface HarnessHook {
+        afterInvocation?: outputs.bedrockagentcore.HarnessAfterInvocationHook;
+        afterToolCall?: outputs.bedrockagentcore.HarnessAfterToolCallHook;
+        beforeInvocation?: outputs.bedrockagentcore.HarnessBeforeInvocationHook;
+        beforeToolCall?: outputs.bedrockagentcore.HarnessBeforeToolCallHook;
+    }
+
+    /**
+     * An EventBridge event bus that receives lifecycle hook events asynchronously.
+     */
+    export interface HarnessHookEventBridgeTarget {
+        /**
+         * The ARN of the EventBridge event bus.
+         */
+        arn: string;
+    }
+
+    /**
+     * A Lambda function invoked synchronously for a lifecycle hook.
+     */
+    export interface HarnessHookLambdaTarget {
+        /**
+         * The ARN of the Lambda function.
+         */
+        arn: string;
+        /**
+         * Whether the agent loop continues or stops when the Lambda invocation fails. Defaults to deny.
+         */
+        failureMode?: enums.bedrockagentcore.HarnessHookLambdaTargetFailureMode;
+        /**
+         * The maximum number of seconds to wait for the Lambda response. Defaults to 60.
+         */
+        timeoutSeconds?: number;
+    }
+
+    /**
+     * An SNS topic that receives lifecycle hook events asynchronously.
+     */
+    export interface HarnessHookSnsTarget {
+        /**
+         * The ARN of the SNS topic.
+         */
+        arn: string;
+    }
+
+    /**
+     * The destination that receives lifecycle hook events.
+     */
+    export interface HarnessHookTarget {
+        eventBridge?: outputs.bedrockagentcore.HarnessHookEventBridgeTarget;
+        lambda?: outputs.bedrockagentcore.HarnessHookLambdaTarget;
+        sns?: outputs.bedrockagentcore.HarnessHookSnsTarget;
+    }
+
     export interface HarnessInlineFunctionConfig {
         description: string;
         /**
@@ -18704,7 +18867,7 @@ export namespace bedrockagentcore {
         /**
          * Provider-specific parameters passed through to LiteLLM unchanged.
          */
-        additionalParams?: {[key: string]: any};
+        additionalParams?: any;
         apiBase?: string;
         apiKeyArn?: string;
         maxTokens?: number;
@@ -18777,7 +18940,7 @@ export namespace bedrockagentcore {
         /**
          * Provider-specific parameters passed through to the model provider unchanged.
          */
-        additionalParams?: {[key: string]: any};
+        additionalParams?: any;
         apiFormat?: enums.bedrockagentcore.HarnessOpenAiModelConfigApiFormat;
         apiKeyArn: string;
         maxTokens?: number;
@@ -19617,9 +19780,13 @@ export namespace bedrockagentcore {
      */
     export interface OnlineEvaluationConfigCloudWatchLogsInputConfig {
         /**
+         * The list of CloudWatch log group name prefixes to monitor for agent traces. Mutually exclusive with LogGroupNames; specify exactly one of the two selectors.
+         */
+        logGroupNamePrefixes?: string[];
+        /**
          * The list of CloudWatch log group names to monitor for agent traces.
          */
-        logGroupNames: string[];
+        logGroupNames?: string[];
         /**
          * The list of service names to filter traces within the specified log groups.
          */
@@ -19631,9 +19798,17 @@ export namespace bedrockagentcore {
      */
     export interface OnlineEvaluationConfigCloudWatchOutputConfig {
         /**
-         * The CloudWatch log group name for evaluation results.
+         * The CloudWatch log group name for evaluation results. Omit to use the service-managed default log group.
          */
         logGroupName?: string;
+        /**
+         * The CloudWatch metrics namespace for evaluation result metrics. Omit to use the service-managed default namespace.
+         */
+        metricsNamespace?: string;
+        /**
+         * Where evaluation results are written. DEDICATED_LOG_GROUP, the default when omitted, writes to a dedicated result log group. SOURCE_LOG_GROUP writes results back to the trace source log group; LogGroupName must not be specified with SOURCE_LOG_GROUP.
+         */
+        resultDestination?: enums.bedrockagentcore.OnlineEvaluationConfigCloudWatchOutputConfigResultDestination;
     }
 
     /**
@@ -22171,6 +22346,20 @@ export namespace cleanroomsml {
          * The Glue table that contains the training data.
          */
         tableName: string;
+    }
+
+}
+
+export namespace cloud9 {
+    export interface EnvironmentEc2Repository {
+        /**
+         * The path within the development environment's default file system location to clone the AWS CodeCommit repository into.
+         */
+        pathComponent: string;
+        /**
+         * The clone URL of the AWS CodeCommit repository to be cloned.
+         */
+        repositoryUrl: string;
     }
 
 }
@@ -25094,13 +25283,18 @@ export namespace cloudwatch {
         timezone?: string;
     }
 
+    /**
+     * The configuration settings that define the warm-up behavior for an alarm. Use these settings to delay alarm evaluation after you create or update the alarm, which reduces alarm noise while a new resource or service starts publishing data.
+     *  During the warm-up period, the alarm stays in ``INSUFFICIENT_DATA`` and does not perform alarm actions.
+     */
     export interface AlarmWarmUpConfiguration {
         /**
-         * Specifies whether the alarm waits for the full warm-up period before it starts evaluating. If true, the alarm waits the entire WarmUpPeriodDurationInMinutes before it starts evaluating, even if metric data arrives earlier. If false, the alarm ends the warm-up period early and starts evaluating as soon as it has enough metric data to fill its evaluation window. This is the default behavior.
+         * Specifies whether the alarm waits for the full warm-up period before it starts to evaluate. The default is ``false``. If ``true``, the alarm waits the entire ``WarmUpPeriodDurationInMinutes`` before it starts to evaluate, even if metric data arrives earlier. If ``false``, the alarm ends the warm-up period early. Evaluation begins as soon as the alarm has enough metric data to fill its evaluation window.
          */
         onlyStartEvaluatingAfterWarmUpPeriodEnds?: boolean;
         /**
-         * The length of the warm-up period, in minutes. For this duration after you create or update the alarm, the alarm stays in INSUFFICIENT_DATA and doesn't perform alarm actions. Valid values range from 1 to 2880 minutes (2 days). You can change this value while the alarm is still in its warm-up period. Changes have no effect after the warm-up period ends.
+         * The length of the warm-up period, in minutes. After you create or update the alarm, the alarm stays in ``INSUFFICIENT_DATA`` for this duration. During this time, the alarm does not perform alarm actions.
+         *  You can change this value at any time, including after the warm-up period ends. If you change it after the warm-up period ends, the new value does not restart the warm-up period.
          */
         warmUpPeriodDurationInMinutes?: number;
     }
@@ -25231,6 +25425,30 @@ export namespace cloudwatch {
          * The alarm names to be mute by the AlarmMuteRule
          */
         alarmNames: string[];
+    }
+
+    /**
+     * Selects metrics within one namespace. The same shape serves both the include and the exclude direction. Namespaces are compared byte-for-byte and case-sensitively; no wildcards, prefixes or normalization.
+     */
+    export interface OTelEnrichmentMetricSelector {
+        /**
+         * Absent or empty means every metric in this namespace, in whichever direction this selector appears. Present means only these metric names.
+         */
+        metricNames?: string[];
+        /**
+         * The CloudWatch namespace this selector applies to.
+         */
+        namespace: string;
+    }
+
+    /**
+     * Defines which metrics are enabled for detailed monitoring on the resource.
+     */
+    export interface ResourceMetricsConfigurationResourceMetricSelection {
+        /**
+         * The list of metric names to include in detailed monitoring for the resource.
+         */
+        includeMetrics: string[];
     }
 
     /**
@@ -25391,7 +25609,7 @@ export namespace codebuild {
          * - `S3` : The report results are exported to an S3 bucket.
          * - `NO_EXPORT` : The report results are not exported.
          */
-        exportConfigType: string;
+        exportConfigType: enums.codebuild.ReportGroupReportExportConfigExportConfigType;
         /**
          * A `S3ReportExportConfig` object that contains information about the S3 bucket where the run of a report is exported.
          */
@@ -25421,7 +25639,7 @@ export namespace codebuild {
          * - `NONE` : CodeBuild creates the raw data in the output bucket. This is the default if packaging is not specified.
          * - `ZIP` : CodeBuild creates a ZIP file with the raw data in the output bucket.
          */
-        packaging?: string;
+        packaging?: enums.codebuild.ReportGroupS3ReportExportConfigPackaging;
         /**
          * The path to the exported report's raw data results.
          */
@@ -28199,6 +28417,123 @@ export namespace configuration {
         deliveryFrequency?: enums.configuration.DeliveryChannelConfigSnapshotDeliveryPropertiesDeliveryFrequency;
     }
 
+    export interface OrganizationConfigRuleOrganizationCustomPolicyRuleMetadata {
+        /**
+         * A list of accounts that you can enable debug logging for your organization AWS Config Custom Policy rule.
+         */
+        debugLogDeliveryAccounts?: string[];
+        /**
+         * The description that you provide for your organization AWS Config rule.
+         */
+        description?: string;
+        /**
+         * A string, in JSON format, that is passed to your organization AWS Config Custom Policy rule.
+         */
+        inputParameters?: string;
+        /**
+         * The type of notification that initiates AWS Config to run an evaluation for a rule.
+         */
+        organizationConfigRuleTriggerTypes?: string[];
+        /**
+         * The policy definition containing the logic for your organization AWS Config Custom Policy rule.
+         */
+        policyText: string;
+        /**
+         * The ID of the AWS resource that was evaluated.
+         */
+        resourceIdScope?: string;
+        /**
+         * The type of the AWS resource that was evaluated.
+         */
+        resourceTypesScope?: string[];
+        /**
+         * The runtime system for your organization AWS Config Custom Policy rules.
+         */
+        runtime: string;
+        /**
+         * One part of a key-value pair that make up a tag. A key is a general label that acts like a category for more specific tag values.
+         */
+        tagKeyScope?: string;
+        /**
+         * The optional part of a key-value pair that make up a tag. A value acts as a descriptor within a tag category (key).
+         */
+        tagValueScope?: string;
+    }
+
+    export interface OrganizationConfigRuleOrganizationCustomRuleMetadata {
+        /**
+         * The description that you provide for your organization AWS Config rule.
+         */
+        description?: string;
+        /**
+         * A string, in JSON format, that is passed to your organization AWS Config rule Lambda function.
+         */
+        inputParameters?: string;
+        /**
+         * The lambda function ARN.
+         */
+        lambdaFunctionArn: string;
+        /**
+         * The maximum frequency with which AWS Config runs evaluations for a rule.Allowed values: One_Hour | Three_Hours | Six_Hours | Twelve_Hours | TwentyFour_Hours.
+         */
+        maximumExecutionFrequency?: string;
+        /**
+         * The type of notification that triggers AWS Config to run an evaluation for a rule. You can specify the following notification types:
+         */
+        organizationConfigRuleTriggerTypes: string[];
+        /**
+         * The ID of the AWS resource that was evaluated.
+         */
+        resourceIdScope?: string;
+        /**
+         * The type of the AWS resource that was evaluated.
+         */
+        resourceTypesScope?: string[];
+        /**
+         * One part of a key-value pair that make up a tag. A key is a general label that acts like a category for more specific tag values.
+         */
+        tagKeyScope?: string;
+        /**
+         * The optional part of a key-value pair that make up a tag. A value acts as a descriptor within a tag category (key).
+         */
+        tagValueScope?: string;
+    }
+
+    export interface OrganizationConfigRuleOrganizationManagedRuleMetadata {
+        /**
+         * The description that you provide for your organization AWS Config rule.
+         */
+        description?: string;
+        /**
+         * A string, in JSON format, that is passed to your organization AWS Config rule Lambda function.
+         */
+        inputParameters?: string;
+        /**
+         * The maximum frequency with which AWS Config runs evaluations for a rule. Valid Values: One_Hour | Three_Hours | Six_Hours | Twelve_Hours | TwentyFour_Hours.
+         */
+        maximumExecutionFrequency?: string;
+        /**
+         * The ID of the AWS resource that was evaluated.
+         */
+        resourceIdScope?: string;
+        /**
+         * The type of the AWS resource that was evaluated.
+         */
+        resourceTypesScope?: string[];
+        /**
+         * Required. For organization config managed rules, a predefined identifier from a list. For example, IAM_PASSWORD_POLICY is a managed rule.
+         */
+        ruleIdentifier: string;
+        /**
+         * One part of a key-value pair that make up a tag. A key is a general label that acts like a category for more specific tag values.
+         */
+        tagKeyScope?: string;
+        /**
+         * The optional part of a key-value pair that make up a tag. A value acts as a descriptor within a tag category (key).
+         */
+        tagValueScope?: string;
+    }
+
     /**
      * Input parameters in the form of key-value pairs for the conformance pack.
      */
@@ -28479,13 +28814,21 @@ export namespace connect {
         formLanguage?: enums.connect.EvaluationFormLanguageConfigurationFormLanguage;
     }
 
+    /**
+     * Information about the metric configuration for an evaluation form question. Use this to associate a business outcome metric with a question.
+     */
     export interface EvaluationFormMetricConfiguration {
         /**
-         * The name of the metric.
+         * The name of the metric. Valid values are:
+         *   +  ``SALE_SUCCESS`` – Sale success.
+         *   +  ``CSAT`` – Customer satisfaction.
+         *   +  ``CHURN_PROPENSITY`` – Churn propensity.
+         *   +  ``SELF_SERVICE_SUCCESS`` – Self-service success.
+         *   +  ``PARTIAL_SELF_SERVICE_SUCCESS`` – Partial self-service success.
          */
         metricName: string;
         /**
-         * The type of the metric.
+         * The type of metric. Currently, only ``BUSINESS_OUTCOME`` is supported.
          */
         metricType: enums.connect.EvaluationFormMetricConfigurationMetricType;
     }
@@ -28669,6 +29012,9 @@ export namespace connect {
          *  *Length Constraints*: Minimum length of 0. Maximum length of 1024.
          */
         instructions?: string;
+        /**
+         * The metric configuration for the question. Use this to associate a business outcome metric with the question.
+         */
         metricConfiguration?: outputs.connect.EvaluationFormMetricConfiguration;
         /**
          * The flag to enable not applicable answers to the question.
@@ -33803,6 +34149,10 @@ export namespace datazone {
      */
     export interface ConnectionIamPropertiesInput {
         glueLineageSyncEnabled?: boolean;
+        /**
+         * The ARN of the IAM role to associate with the connection as the project user role.
+         */
+        roleArn?: string;
     }
 
     /**
@@ -34462,7 +34812,7 @@ export namespace datazone {
     }
 
     export interface PolicyGrantProjectPolicyGrantPrincipal {
-        projectDesignation?: enums.datazone.PolicyGrantProjectDesignation;
+        projectDesignation?: string;
         projectGrantFilter?: outputs.datazone.PolicyGrantProjectGrantFilterProperties;
         projectIdentifier?: string;
     }
@@ -34516,7 +34866,7 @@ export namespace datazone {
      * The project membership assignment.
      */
     export interface ProjectMembershipAssignment {
-        designation: enums.datazone.ProjectUserDesignation;
+        designation: string;
         member: outputs.datazone.ProjectMember;
     }
 
@@ -36313,6 +36663,20 @@ export namespace directconnect {
 }
 
 export namespace directoryservice {
+    /**
+     * Contains VPC information for the CreateDirectory or CreateMicrosoftAD operation
+     */
+    export interface MicrosoftAdVpcSettings {
+        /**
+         * The identifiers of the subnets for the directory servers. The two subnets must be in different Availability Zones. AWS Directory Service specifies a directory server and a DNS server in each of these subnets.
+         */
+        subnetIds: string[];
+        /**
+         * The identifier of the VPC in which to create the directory.
+         */
+        vpcId: string;
+    }
+
     export interface SimpleAdVpcSettings {
         /**
          * The identifiers of the subnets for the directory servers. The two subnets must be in different Availability Zones. AWS Directory Service specifies a directory server and a DNS server in each of these subnets.
@@ -38079,7 +38443,9 @@ export namespace dms {
     export interface SettingsPropertiesIbmDb2LuwSettingsProperties {
         certificateArn?: string;
         databaseName: string;
+        encryptionAlgorithm?: number;
         port: number;
+        securityMechanism?: number;
         serverName: string;
         sslMode: enums.dms.DataProviderDb2SslModeValue;
     }
@@ -38112,6 +38478,14 @@ export namespace dms {
         certificateArn?: string;
         databaseName: string;
         port: number;
+        /**
+         * The ARN for the role the application uses to access its Amazon S3 bucket.
+         */
+        s3AccessRoleArn?: string;
+        /**
+         * The path for the Amazon S3 bucket that the application uses for accessing the user-defined schema.
+         */
+        s3Path?: string;
         serverName: string;
         sslMode: enums.dms.DataProviderDmsSslModeValue;
     }
@@ -42592,6 +42966,21 @@ export namespace ec2 {
         peerLivenessDetection?: enums.ec2.RouteServerPeerBgpOptionsPeerLivenessDetection;
     }
 
+    export interface SecondaryNetworkIpv4CidrBlockAssociation {
+        /**
+         * The association ID for the IPv4 CIDR block.
+         */
+        associationId?: string;
+        /**
+         * The IPv4 CIDR block.
+         */
+        cidrBlock?: string;
+        /**
+         * The state of the CIDR block association.
+         */
+        state?: enums.ec2.SecondaryNetworkIpv4CidrBlockAssociationState;
+    }
+
     export interface SecurityGroupEgress {
         /**
          * The IPv4 address range, in CIDR format.
@@ -46902,10 +47291,17 @@ export namespace ecs {
         name: string;
     }
 
+    export interface ServiceVpcLatticeAdvancedConfiguration {
+        alternateTargetGroupArn?: string;
+        productionListenerRule?: string;
+        testListenerRule?: string;
+    }
+
     /**
      * The VPC Lattice configuration for your service that holds the information for the target group(s) Amazon ECS tasks will be registered to.
      */
     export interface ServiceVpcLatticeConfiguration {
+        advancedConfiguration?: outputs.ecs.ServiceVpcLatticeAdvancedConfiguration;
         /**
          * The name of the port mapping to register in the VPC Lattice target group. This is the name of the ``portMapping`` you defined in your task definition.
          */
@@ -49309,6 +49705,33 @@ export namespace elasticache {
          * The identifier of the serverless cache.
          */
         serverlessCacheName?: string;
+    }
+
+    export interface SnapshotNodeSnapshot {
+        /**
+         * A unique identifier for the source cluster.
+         */
+        cacheClusterId?: string;
+        /**
+         * The date and time when the cache node was created in the source cluster.
+         */
+        cacheNodeCreateTime?: string;
+        /**
+         * The cache node identifier for the node in the source cluster.
+         */
+        cacheNodeId?: string;
+        /**
+         * The size of the cache on the source cache node.
+         */
+        cacheSize?: string;
+        /**
+         * A unique identifier for the source node group (shard).
+         */
+        nodeGroupId?: string;
+        /**
+         * The date and time when the source node's metadata and cache data set was obtained for the snapshot.
+         */
+        snapshotCreateTime?: string;
     }
 
 }
@@ -54641,13 +55064,7 @@ export namespace fsx {
 
     export interface VolumeAggregateConfiguration {
         /**
-         * The list of aggregates that this volume resides on. Aggregates are storage pools which make up your primary storage tier. Each high-availability (HA) pair has one aggregate. The names of the aggregates map to the names of the aggregates in the ONTAP CLI and REST API. For FlexVols, there will always be a single entry.
-         *
-         * Amazon FSx responds with an HTTP status code 400 (Bad Request) for the following conditions:
-         *
-         * - The strings in the value of `Aggregates` are not are not formatted as `aggrX` , where X is a number between 1 and 12.
-         * - The value of `Aggregates` contains aggregates that are not present.
-         * - One or more of the aggregates supplied are too close to the volume limit to support adding more volumes.
+         * The list of aggregates that this volume resides on. Aggregates are storage pools which make up your primary storage tier.
          */
         aggregates?: string[];
         /**
@@ -54658,38 +55075,29 @@ export namespace fsx {
 
     export interface VolumeAutocommitPeriod {
         /**
-         * Defines the type of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume. Setting this value to `NONE` disables autocommit. The default value is `NONE` .
+         * Defines the type of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume. Setting this value to NONE disables autocommit. The default value is NONE.
          */
         type: string;
         /**
-         * Defines the amount of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume. The following ranges are valid:
-         *
-         * - `Minutes` : 5 - 65,535
-         * - `Hours` : 1 - 65,535
-         * - `Days` : 1 - 3,650
-         * - `Months` : 1 - 120
-         * - `Years` : 1 - 10
+         * Defines the amount of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume.
          */
         value?: number;
     }
 
     export interface VolumeClientConfigurations {
         /**
-         * A value that specifies who can mount the file system. You can provide a wildcard character ( `*` ), an IP address ( `0.0.0.0` ), or a CIDR address ( `192.0.2.0/24` ). By default, Amazon FSx uses the wildcard character when specifying the client.
+         * A value that specifies who can mount the file system. You can provide a wildcard character (*), an IP address (0.0.0.0), or a CIDR address (192.0.2.0/24). By default, Amazon FSx uses the wildcard character when specifying the client.
          */
         clients: string;
         /**
-         * The options to use when mounting the file system. For a list of options that you can use with Network File System (NFS), see the [exports(5) - Linux man page](https://docs.aws.amazon.com/https://linux.die.net/man/5/exports) . When choosing your options, consider the following:
-         *
-         * - `crossmnt` is used by default. If you don't specify `crossmnt` when changing the client configuration, you won't be able to see or access snapshots in your file system's snapshot directory.
-         * - `sync` is used by default. If you instead specify `async` , the system acknowledges writes before writing to disk. If the system crashes before the writes are finished, you lose the unwritten data.
+         * The configuration object for mounting a Network File System (NFS) file system.
          */
         options: string[];
     }
 
     export interface VolumeNfsExports {
         /**
-         * A list of configuration objects that contain the client and options for mounting the OpenZFS file system.
+         * The configuration object for mounting a Network File System (NFS) file system.
          */
         clientConfigurations: outputs.fsx.VolumeClientConfigurations[];
     }
@@ -54700,30 +55108,19 @@ export namespace fsx {
          */
         aggregateConfiguration?: outputs.fsx.VolumeAggregateConfiguration;
         /**
-         * A boolean flag indicating whether tags for the volume should be copied to backups. This value defaults to false. If it's set to true, all tags for the volume are copied to all automatic and user-initiated backups where the user doesn't specify tags. If this value is true, and you specify one or more tags, only the specified tags are copied to backups. If you specify one or more tags when creating a user-initiated backup, no tags are copied from the volume, regardless of this value.
+         * A boolean flag indicating whether tags for the volume should be copied to backups.
          */
         copyTagsToBackups?: string;
         /**
-         * Specifies the location in the SVM's namespace where the volume is mounted. This parameter is required. The `JunctionPath` must have a leading forward slash, such as `/vol3` .
+         * Specifies the location in the SVM's namespace where the volume is mounted. This parameter is required. The JunctionPath must have a leading forward slash, such as /vol3.
          */
         junctionPath?: string;
         /**
-         * Specifies the type of volume you are creating. Valid values are the following:
-         *
-         * - `RW` specifies a read/write volume. `RW` is the default.
-         * - `DP` specifies a data-protection volume. A `DP` volume is read-only and can be used as the destination of a NetApp SnapMirror relationship.
-         *
-         * For more information, see [Volume types](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/managing-volumes.html#volume-types) in the Amazon FSx for NetApp ONTAP User Guide.
+         * Specifies the type of volume you are creating. Valid values are the following: RW or DP
          */
         ontapVolumeType?: string;
         /**
-         * Specifies the security style for the volume. If a volume's security style is not specified, it is automatically set to the root volume's security style. The security style determines the type of permissions that FSx for ONTAP uses to control data access. Specify one of the following values:
-         *
-         * - `UNIX` if the file system is managed by a UNIX administrator, the majority of users are NFS clients, and an application accessing the data uses a UNIX user as the service account.
-         * - `NTFS` if the file system is managed by a Windows administrator, the majority of users are SMB clients, and an application accessing the data uses a Windows user as the service account.
-         * - `MIXED` This is an advanced setting. For more information, see the topic [What the security styles and their effects are](https://docs.aws.amazon.com/https://docs.netapp.com/us-en/ontap/nfs-admin/security-styles-their-effects-concept.html) in the NetApp Documentation Center.
-         *
-         * For more information, see [Volume security style](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/managing-volumes.html#volume-security-style) in the FSx for ONTAP User Guide.
+         * Specifies the security style for the volume. If a volume's security style is not specified, it is automatically set to the root volume's security style.
          */
         securityStyle?: string;
         /**
@@ -54731,7 +55128,7 @@ export namespace fsx {
          */
         sizeInBytes?: string;
         /**
-         * Use `SizeInBytes` instead. Specifies the size of the volume, in megabytes (MB), that you are creating.
+         * Use SizeInBytes instead. Specifies the size of the volume, in megabytes (MB), that you are creating
          */
         sizeInMegabytes?: string;
         /**
@@ -54739,21 +55136,11 @@ export namespace fsx {
          */
         snaplockConfiguration?: outputs.fsx.VolumeSnaplockConfiguration;
         /**
-         * Specifies the snapshot policy for the volume. There are three built-in snapshot policies:
-         *
-         * - `default` : This is the default policy. A maximum of six hourly snapshots taken five minutes past the hour. A maximum of two daily snapshots taken Monday through Saturday at 10 minutes after midnight. A maximum of two weekly snapshots taken every Sunday at 15 minutes after midnight.
-         * - `default-1weekly` : This policy is the same as the `default` policy except that it only retains one snapshot from the weekly schedule.
-         * - `none` : This policy does not take any snapshots. This policy can be assigned to volumes to prevent automatic snapshots from being taken.
-         *
-         * You can also provide the name of a custom policy that you created with the ONTAP CLI or REST API.
-         *
-         * For more information, see [Snapshot policies](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/snapshots-ontap.html#snapshot-policies) in the Amazon FSx for NetApp ONTAP User Guide.
+         * Specifies the snapshot policy for the volume. There are three built-in snapshot policies: default, default-1weekly, none.
          */
         snapshotPolicy?: string;
         /**
          * Set to true to enable deduplication, compression, and compaction storage efficiency features on the volume, or set to false to disable them.
-         *
-         * `StorageEfficiencyEnabled` is required when creating a `RW` volume ( `OntapVolumeType` set to `RW` ).
          */
         storageEfficiencyEnabled?: string;
         /**
@@ -54761,36 +55148,22 @@ export namespace fsx {
          */
         storageVirtualMachineId: string;
         /**
-         * Describes the data tiering policy for an ONTAP volume. When enabled, Amazon FSx for ONTAP's intelligent tiering automatically transitions a volume's data between the file system's primary storage and capacity pool storage based on your access patterns.
-         *
-         * Valid tiering policies are the following:
-         *
-         * - `SNAPSHOT_ONLY` - (Default value) moves cold snapshots to the capacity pool storage tier.
-         *
-         * - `AUTO` - moves cold user data and snapshots to the capacity pool storage tier based on your access patterns.
-         *
-         * - `ALL` - moves all user data blocks in both the active file system and Snapshot copies to the storage pool tier.
-         *
-         * - `NONE` - keeps a volume's data in the primary storage tier, preventing it from being moved to the capacity pool tier.
+         * Describes the data tiering policy for an ONTAP volume.
          */
         tieringPolicy?: outputs.fsx.VolumeTieringPolicy;
         /**
-         * Use to specify the style of an ONTAP volume. FSx for ONTAP offers two styles of volumes that you can use for different purposes, FlexVol and FlexGroup volumes. For more information, see [Volume styles](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/managing-volumes.html#volume-styles) in the Amazon FSx for NetApp ONTAP User Guide.
+         * Use to specify the style of an ONTAP volume.
          */
         volumeStyle?: string;
     }
 
     export interface VolumeOpenZfsConfiguration {
         /**
-         * A Boolean value indicating whether tags for the volume should be copied to snapshots. This value defaults to `false` . If this value is set to `true` , and you do not specify any tags, all tags for the original volume are copied over to snapshots. If this value is set to `true` , and you do specify one or more tags, only the specified tags for the original volume are copied over to snapshots. If you specify one or more tags when creating a new snapshot, no tags are copied over from the original volume, regardless of this value.
+         * A Boolean value indicating whether tags for the volume should be copied to snapshots. This value defaults to false. If this value is set to true, and you do not specify any tags, all tags for the original volume are copied over to snapshots. If this value is set to true, and you do specify one or more tags, only the specified tags for the original volume are copied over to snapshots. If you specify one or more tags when creating a new snapshot, no tags are copied over from the original volume, regardless of this value.
          */
         copyTagsToSnapshots?: boolean;
         /**
-         * Specifies the method used to compress the data on the volume. The compression type is `NONE` by default.
-         *
-         * - `NONE` - Doesn't compress the data on the volume. `NONE` is the default.
-         * - `ZSTD` - Compresses the data in the volume using the Zstandard (ZSTD) compression algorithm. Compared to LZ4, Z-Standard provides a better compression ratio to minimize on-disk storage utilization.
-         * - `LZ4` - Compresses the data in the volume using the LZ4 compression algorithm. Compared to Z-Standard, LZ4 is less compute-intensive and delivers higher write throughput speeds.
+         * Specifies the method used to compress the data on the volume
          */
         dataCompressionType?: string;
         /**
@@ -54798,11 +55171,11 @@ export namespace fsx {
          */
         nfsExports?: outputs.fsx.VolumeNfsExports[];
         /**
-         * To delete the volume's child volumes, snapshots, and clones, use the string `DELETE_CHILD_VOLUMES_AND_SNAPSHOTS` .
+         * The configuration object for mounting a Network File System (NFS) file system.
          */
         options?: string[];
         /**
-         * The configuration object that specifies the snapshot to use as the origin of the data for the volume.
+         * The configuration of an Amazon FSx for OpenZFS volume.
          */
         originSnapshot?: outputs.fsx.VolumeOriginSnapshot;
         /**
@@ -54814,17 +55187,15 @@ export namespace fsx {
          */
         readOnly?: boolean;
         /**
-         * Specifies the suggested block size for a volume in a ZFS dataset, in kibibytes (KiB). For file systems using the Intelligent-Tiering storage class, valid values are 128, 256, 512, 1024, 2048, or 4096 KiB, with a default of 1024 KiB. For all other file systems, valid values are 4, 8, 16, 32, 64, 128, 256, 512, or 1024 KiB, with a default of 128 KiB. We recommend using the default setting for the majority of use cases. Generally, workloads that write in fixed small or large record sizes may benefit from setting a custom record size, like database workloads (small record size) or media streaming workloads (large record size). For additional guidance on when to set a custom record size, see [ZFS Record size](https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/performance.html#record-size-performance) in the *Amazon FSx for OpenZFS User Guide* .
+         * Specifies the suggested block size for a volume in a ZFS dataset, in kibibytes (KiB).
          */
         recordSizeKiB?: number;
         /**
-         * Sets the maximum storage size in gibibytes (GiB) for the volume. You can specify a quota that is larger than the storage on the parent volume. A volume quota limits the amount of storage that the volume can consume to the configured amount, but does not guarantee the space will be available on the parent volume. To guarantee quota space, you must also set `StorageCapacityReservationGiB` . To *not* specify a storage capacity quota, set this to `-1` .
-         *
-         * For more information, see [Volume properties](https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/managing-volumes.html#volume-properties) in the *Amazon FSx for OpenZFS User Guide* .
+         * Sets the maximum storage size in gibibytes (GiB) for the volume. You can specify a quota that is larger than the storage on the parent volume. A volume quota limits the amount of storage that the volume can consume to the configured amount, but does not guarantee the space will be available on the parent volume. To guarantee quota space, you must also set StorageCapacityReservationGiB. To not specify a storage capacity quota, set this to -1.
          */
         storageCapacityQuotaGiB?: number;
         /**
-         * Specifies the amount of storage in gibibytes (GiB) to reserve from the parent volume. Setting `StorageCapacityReservationGiB` guarantees that the specified amount of storage space on the parent volume will always be available for the volume. You can't reserve more storage than the parent volume has. To *not* specify a storage capacity reservation, set this to `0` or `-1` . For more information, see [Volume properties](https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/managing-volumes.html#volume-properties) in the *Amazon FSx for OpenZFS User Guide* .
+         * Specifies the amount of storage in gibibytes (GiB) to reserve from the parent volume. Setting StorageCapacityReservationGiB guarantees that the specified amount of storage space on the parent volume will always be available for the volume. You can't reserve more storage than the parent volume has. To not specify a storage capacity reservation, set this to 0 or -1. For more information, see Volume properties in the Amazon FSx for OpenZFS User Guide.
          */
         storageCapacityReservationGiB?: number;
         /**
@@ -54835,14 +55206,7 @@ export namespace fsx {
 
     export interface VolumeOriginSnapshot {
         /**
-         * Specifies the strategy used when copying data from the snapshot to the new volume.
-         *
-         * - `CLONE` - The new volume references the data in the origin snapshot. Cloning a snapshot is faster than copying data from the snapshot to a new volume and doesn't consume disk throughput. However, the origin snapshot can't be deleted if there is a volume using its copied data.
-         * - `FULL_COPY` - Copies all data from the snapshot to the new volume.
-         *
-         * Specify this option to create the volume from a snapshot on another FSx for OpenZFS file system.
-         *
-         * > The `INCREMENTAL_COPY` option is only for updating an existing volume by using a snapshot from another FSx for OpenZFS file system. For more information, see [CopySnapshotAndUpdateVolume](https://docs.aws.amazon.com/fsx/latest/APIReference/API_CopySnapshotAndUpdateVolume.html) .
+         * The configuration object for mounting a Network File System (NFS) file system.
          */
         copyStrategy: string;
         /**
@@ -54853,27 +55217,18 @@ export namespace fsx {
 
     export interface VolumeRetentionPeriod {
         /**
-         * Defines the type of time for the retention period of an FSx for ONTAP SnapLock volume. Set it to one of the valid types. If you set it to `INFINITE` , the files are retained forever. If you set it to `UNSPECIFIED` , the files are retained until you set an explicit retention period.
+         * Defines the type of time for the retention period of an FSx for ONTAP SnapLock volume. Set it to one of the valid types. If you set it to INFINITE, the files are retained forever. If you set it to UNSPECIFIED, the files are retained until you set an explicit retention period.
          */
         type: string;
         /**
-         * Defines the amount of time for the retention period of an FSx for ONTAP SnapLock volume. You can't set a value for `INFINITE` or `UNSPECIFIED` . For all other options, the following ranges are valid:
-         *
-         * - `Seconds` : 0 - 65,535
-         * - `Minutes` : 0 - 65,535
-         * - `Hours` : 0 - 24
-         * - `Days` : 0 - 365
-         * - `Months` : 0 - 12
-         * - `Years` : 0 - 100
+         * Defines the amount of time for the retention period of an FSx for ONTAP SnapLock volume. You can't set a value for INFINITE or UNSPECIFIED.
          */
         value?: number;
     }
 
     export interface VolumeSnaplockConfiguration {
         /**
-         * Enables or disables the audit log volume for an FSx for ONTAP SnapLock volume. The default value is `false` . If you set `AuditLogVolume` to `true` , the SnapLock volume is created as an audit log volume. The minimum retention period for an audit log volume is six months.
-         *
-         * For more information, see [SnapLock audit log volumes](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/how-snaplock-works.html#snaplock-audit-log-volume) .
+         * Enables or disables the audit log volume for an FSx for ONTAP SnapLock volume
          */
         auditLogVolume?: string;
         /**
@@ -54881,9 +55236,7 @@ export namespace fsx {
          */
         autocommitPeriod?: outputs.fsx.VolumeAutocommitPeriod;
         /**
-         * Enables, disables, or permanently disables privileged delete on an FSx for ONTAP SnapLock Enterprise volume. Enabling privileged delete allows SnapLock administrators to delete write once, read many (WORM) files even if they have active retention periods. `PERMANENTLY_DISABLED` is a terminal state. If privileged delete is permanently disabled on a SnapLock volume, you can't re-enable it. The default value is `DISABLED` .
-         *
-         * For more information, see [Privileged delete](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/snaplock-enterprise.html#privileged-delete) .
+         * Enables, disables, or permanently disables privileged delete on an FSx for ONTAP SnapLock Enterprise volume.
          */
         privilegedDelete?: string;
         /**
@@ -54891,23 +55244,18 @@ export namespace fsx {
          */
         retentionPeriod?: outputs.fsx.VolumeSnaplockRetentionPeriod;
         /**
-         * Specifies the retention mode of an FSx for ONTAP SnapLock volume. After it is set, it can't be changed. You can choose one of the following retention modes:
-         *
-         * - `COMPLIANCE` : Files transitioned to write once, read many (WORM) on a Compliance volume can't be deleted until their retention periods expire. This retention mode is used to address government or industry-specific mandates or to protect against ransomware attacks. For more information, see [SnapLock Compliance](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/snaplock-compliance.html) .
-         * - `ENTERPRISE` : Files transitioned to WORM on an Enterprise volume can be deleted by authorized users before their retention periods expire using privileged delete. This retention mode is used to advance an organization's data integrity and internal compliance or to test retention settings before using SnapLock Compliance. For more information, see [SnapLock Enterprise](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/snaplock-enterprise.html) .
+         * Specifies the retention mode of an FSx for ONTAP SnapLock volume. After it is set, it can't be changed.
          */
         snaplockType: string;
         /**
-         * Enables or disables volume-append mode on an FSx for ONTAP SnapLock volume. Volume-append mode allows you to create WORM-appendable files and write data to them incrementally. The default value is `false` .
-         *
-         * For more information, see [Volume-append mode](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/worm-state.html#worm-state-append) .
+         * Enables or disables volume-append mode on an FSx for ONTAP SnapLock volume.
          */
         volumeAppendModeEnabled?: string;
     }
 
     export interface VolumeSnaplockRetentionPeriod {
         /**
-         * The retention period assigned to a write once, read many (WORM) file by default if an explicit retention period is not set for an FSx for ONTAP SnapLock volume. The default retention period must be greater than or equal to the minimum retention period and less than or equal to the maximum retention period.
+         * The retention period assigned to a write once, read many (WORM) file by default if an explicit retention period is not set for an FSx for ONTAP SnapLock volume.
          */
         defaultRetention: outputs.fsx.VolumeRetentionPeriod;
         /**
@@ -54920,18 +55268,16 @@ export namespace fsx {
         minimumRetention: outputs.fsx.VolumeRetentionPeriod;
     }
 
+    /**
+     * Describes the data tiering policy for an ONTAP volume. When enabled, Amazon FSx for ONTAP's intelligent tiering automatically transitions a volume's data between the file system's primary storage and capacity pool storage based on your access patterns.
+     */
     export interface VolumeTieringPolicy {
         /**
-         * Specifies the number of days that user data in a volume must remain inactive before it is considered "cold" and moved to the capacity pool. Used with the `AUTO` and `SNAPSHOT_ONLY` tiering policies. Enter a whole number between 2 and 183. Default values are 31 days for `AUTO` and 2 days for `SNAPSHOT_ONLY` .
+         * Specifies the number of days that user data in a volume must remain inactive before it is considered "cold" and moved to the capacity pool.
          */
         coolingPeriod?: number;
         /**
-         * Specifies the tiering policy used to transition data. Default value is `SNAPSHOT_ONLY` .
-         *
-         * - `SNAPSHOT_ONLY` - moves cold snapshots to the capacity pool storage tier.
-         * - `AUTO` - moves cold user data and snapshots to the capacity pool storage tier based on your access patterns.
-         * - `ALL` - moves all user data blocks in both the active file system and Snapshot copies to the storage pool tier.
-         * - `NONE` - keeps a volume's data in the primary storage tier, preventing it from being moved to the capacity pool tier.
+         * Specifies the tiering policy used to transition data. Default value is SNAPSHOT_ONLY.
          */
         name?: string;
     }
@@ -70145,6 +70491,40 @@ export namespace lambda {
     }
 
     /**
+     * The build configuration for the revision.
+     */
+    export interface BuildConfigProperties {
+        /**
+         * The code configuration for the revision.
+         */
+        codeConfig: outputs.lambda.BuildConfigPropertiesCodeConfigProperties;
+        /**
+         * The runtime configuration for the revision.
+         */
+        runtimeConfig: outputs.lambda.BuildConfigPropertiesRuntimeConfigProperties;
+    }
+
+    /**
+     * The code configuration for the revision.
+     */
+    export interface BuildConfigPropertiesCodeConfigProperties {
+        /**
+         * The Amazon S3 location of the deployment artifact.
+         */
+        s3Object: outputs.lambda.WebFunctionRevisionS3Object;
+    }
+
+    /**
+     * The runtime configuration for the revision.
+     */
+    export interface BuildConfigPropertiesRuntimeConfigProperties {
+        /**
+         * The runtime identifier.
+         */
+        runtime: string;
+    }
+
+    /**
      * Specifications that define the characteristics and constraints for compute instances used by the capacity provider.
      */
     export interface CapacityProviderInstanceRequirements {
@@ -70936,21 +71316,57 @@ export namespace lambda {
      */
     export interface NetworkConnectorVpcEgressConfiguration {
         /**
-         * The types of Lambda compute resources that can use this connector. Currently, only MicroVm is supported.
+         * The types of Lambda compute resources that can use this connector. Supported values are MicroVm and WebFunction.
          */
         associatedComputeResourceTypes: enums.lambda.NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItem[];
         /**
          * The network protocol for the connector. Specify IPv4 for IPv4-only networking, or DualStack for both IPv4 and IPv6.
          */
-        networkProtocol?: enums.lambda.NetworkConnectorVpcEgressConfigurationNetworkProtocol;
+        networkProtocol: enums.lambda.NetworkConnectorVpcEgressConfigurationNetworkProtocol;
         /**
          * The IDs of the VPC security groups to attach to the ENIs. Specify 0 to 5 security groups. All security groups must be in the same VPC as the subnets.
          */
-        securityGroupIds?: string[];
+        securityGroupIds: string[];
         /**
          * The IDs of the VPC subnets where Lambda provisions elastic network interfaces (ENIs). Specify 1 to 16 subnets. All subnets must be in the same VPC.
          */
         subnetIds: string[];
+    }
+
+    /**
+     * The service configuration for the revision.
+     */
+    export interface ServiceConfigProperties {
+        /**
+         * Environment variables for the function.
+         */
+        environmentVariables?: {[key: string]: string};
+        /**
+         * The ARN of the execution role.
+         */
+        executionRoleArn: string;
+        /**
+         * The maximum concurrency per environment.
+         */
+        maxConcurrencyPerEnvironment?: number;
+        /**
+         * The telemetry configuration.
+         */
+        telemetryConfig?: outputs.lambda.ServiceConfigPropertiesTelemetryConfigProperties;
+        /**
+         * The function timeout in seconds.
+         */
+        timeoutSeconds?: number;
+    }
+
+    /**
+     * The telemetry configuration.
+     */
+    export interface ServiceConfigPropertiesTelemetryConfigProperties {
+        /**
+         * The logging configuration for the web function.
+         */
+        loggingConfig?: outputs.lambda.WebFunctionRevisionLoggingConfig;
     }
 
     export interface UrlCors {
@@ -71016,6 +71432,118 @@ export namespace lambda {
          * The runtime update mode.
          */
         updateRuntimeOn: string;
+    }
+
+    /**
+     * Per-region endpoint information.
+     */
+    export interface WebFunctionEndpointRegionalEndpoint {
+        /**
+         * The authentication type for the endpoint.
+         */
+        authType?: enums.lambda.WebFunctionEndpointRegionalEndpointAuthType;
+        /**
+         * The domain name of the endpoint.
+         */
+        domainName?: string;
+        /**
+         * The revision weights for the endpoint.
+         */
+        revisionWeights?: outputs.lambda.WebFunctionEndpointRevisionWeight[];
+        /**
+         * The scaling configuration for the endpoint.
+         */
+        scalingConfig?: outputs.lambda.WebFunctionEndpointScalingConfig;
+        /**
+         * The current state of the endpoint.
+         */
+        state?: enums.lambda.WebFunctionEndpointRegionalEndpointState;
+        /**
+         * The reason for the current state of the endpoint.
+         */
+        stateReason?: string;
+        /**
+         * The throttling configuration for the endpoint.
+         */
+        throttleConfig?: outputs.lambda.WebFunctionEndpointThrottleConfig;
+        /**
+         * The status of the most recent update to the endpoint.
+         */
+        updateStatus?: enums.lambda.WebFunctionEndpointRegionalEndpointUpdateStatus;
+        /**
+         * The reason for the current update status of the endpoint.
+         */
+        updateStatusReason?: string;
+    }
+
+    /**
+     * A revision routing entry.
+     */
+    export interface WebFunctionEndpointRevisionWeight {
+        /**
+         * The revision identifier.
+         */
+        revisionId: string;
+        /**
+         * The traffic weight for this revision.
+         */
+        weight: number;
+    }
+
+    /**
+     * The scaling configuration for the endpoint. Optionally constrains how many concurrent execution environments the endpoint can use, in addition to your account's vCPU quota.
+     */
+    export interface WebFunctionEndpointScalingConfig {
+        /**
+         * The maximum number of concurrent execution environments for the endpoint. This optional limit further constrains the endpoint's scaling. When omitted, the endpoint's scaling is limited only by your account's vCPU quota.
+         */
+        maxEnvironments?: number;
+    }
+
+    /**
+     * The throttling configuration for the endpoint. Optionally constrains the request rate that the endpoint accepts, in addition to your account's rate limit quota.
+     */
+    export interface WebFunctionEndpointThrottleConfig {
+        /**
+         * The maximum request rate per second for the endpoint, up to a maximum of 10000. This optional limit further constrains the endpoint's request rate. When omitted, the endpoint's request rate is limited only by your account's rate limit quota. Specify 0 to reject all new requests. Other supported values are 100 through 1000 in increments of 100, and 2000 through 10000 in increments of 1000. Supported values can vary by Region; if you specify an unsupported value, the error lists the values available in that Region.
+         */
+        rateLimit?: number;
+    }
+
+    /**
+     * The logging configuration.
+     */
+    export interface WebFunctionRevisionLoggingConfig {
+        /**
+         * The application log level.
+         */
+        applicationLogLevel?: enums.lambda.WebFunctionRevisionLoggingConfigApplicationLogLevel;
+        /**
+         * The CloudWatch log group name.
+         */
+        logGroup?: string;
+        /**
+         * The system log level.
+         */
+        systemLogLevel?: enums.lambda.WebFunctionRevisionLoggingConfigSystemLogLevel;
+    }
+
+    /**
+     * The S3 location of the function code.
+     */
+    export interface WebFunctionRevisionS3Object {
+        /**
+         * The S3 bucket name.
+         */
+        bucket: string;
+        /**
+         * The S3 object key.
+         */
+        key: string;
+        /**
+         * The S3 object version ID.
+         */
+        versionId?: string;
     }
 
 }
@@ -77586,6 +78114,42 @@ export namespace mediatailor {
     }
 
     /**
+     * The configuration for an AWS_SERVICE_REQUEST function. Contains the target service, target Region, and request parameters that the function uses to call an AWS service API. For more information, see AWS_SERVICE_REQUEST (https://docs.aws.amazon.com/mediatailor/latest/ug/monetization-functions-types-aws-service-request.html) in the MediaTailor User Guide.
+     */
+    export interface FunctionAwsServiceRequestConfiguration {
+        /**
+         * An expression that evaluates to the request body for the AWS service API call. The body must conform to the input format that the target service operation expects. Applies only when the target operation accepts a request body. The maximum size after evaluation is 64 KB.
+         */
+        body?: string;
+        /**
+         * A map of HTTP header names to expression values. MediaTailor evaluates each header value expression at runtime and includes the result in the outbound request to the AWS service. Use this to pass any headers required by the target service operation. You can include a maximum of 50 headers.
+         */
+        headers?: {[key: string]: string};
+        methodType: enums.mediatailor.FunctionMethodType;
+        /**
+         * A map of output bindings. Each key is a namespaced output path, such as player_params.device_type. Each value is an expression that MediaTailor evaluates at runtime and can reference the response object from the target service. For more information, see JSONata expression reference (https://docs.aws.amazon.com/mediatailor/latest/ug/monetization-functions-jsonata.html) in the MediaTailor User Guide.
+         */
+        output?: {[key: string]: string};
+        /**
+         * The maximum time, in milliseconds, that MediaTailor waits for a response from the AWS service. If the call exceeds this timeout, MediaTailor sets the response status code to null and proceeds with output expression evaluation. Valid values are 100 to 2000.
+         */
+        requestTimeoutMilliseconds: number;
+        runtime: enums.mediatailor.FunctionRuntimeType;
+        /**
+         * The AWS Region for the target service. Specify a static Region code (for example, us-east-1) or a JSONata expression that resolves to a Region code at runtime (for example, {%inference.region%}).
+         */
+        targetRegion: string;
+        /**
+         * The AWS service to call. Valid value: elemental-inference (AWS Elemental Inference).
+         */
+        targetService: string;
+        /**
+         * An expression that evaluates to the endpoint URL for the target AWS service API operation. Use {%...%} delimiters for dynamic expressions. The URL must correspond to a valid endpoint for the service specified in TargetService. The maximum length after evaluation is 2,048 characters.
+         */
+        url: string;
+    }
+
+    /**
      * The configuration for a CONCURRENT_EXECUTOR function. A CONCURRENT_EXECUTOR runs a set of child functions in parallel, up to a maximum concurrency, and combines their output when all functions complete. For more information about functions, see Working with functions (https://docs.aws.amazon.com/mediatailor/latest/ug/monetization-functions.html) in the MediaTailor User Guide.
      */
     export interface FunctionConcurrentExecutorConfiguration {
@@ -77694,6 +78258,34 @@ export namespace mediatailor {
     }
 
     /**
+     * The configuration for a VAST_REQUEST function. Specifies the HTTP method, URL, headers, body, timeout, and output expressions for a request to a VAST endpoint. MediaTailor parses the response as VAST and resolves wrapper redirects, then makes the parsed ads available to the function's output expressions. For more information, see Function types and composition (https://docs.aws.amazon.com/mediatailor/latest/ug/monetization-functions-types.html) in the MediaTailor User Guide.
+     */
+    export interface FunctionVastRequestConfiguration {
+        /**
+         * An expression that evaluates to the request body, for example to send an OpenRTB bid request. The expression can be up to 100,000 characters, and the body after evaluation can be up to 64 KB.
+         */
+        body?: string;
+        /**
+         * A map of HTTP header names to expression values. MediaTailor evaluates each header value expression at runtime and includes the result in the outbound request. Headers beginning with X-Amz- are reserved by the service, and method override headers are not allowed.
+         */
+        headers?: {[key: string]: string};
+        methodType: enums.mediatailor.FunctionMethodType;
+        /**
+         * A map of output bindings. Each key is a namespaced output path (such as temp.wrappedAds), and each value is an expression that MediaTailor evaluates at runtime. Output expressions in a VAST_REQUEST function can reference the response object, which exposes response.parsedAds, the ads parsed from the VAST response after schema validation and wrapper resolution, and response.statusCode. For more information about expression syntax, see JSONata expression reference (https://docs.aws.amazon.com/mediatailor/latest/ug/monetization-functions-jsonata.html) in the MediaTailor User Guide.
+         */
+        output?: {[key: string]: string};
+        /**
+         * The maximum time, in milliseconds, that MediaTailor waits for a response from the VAST endpoint. The timeout covers the entire response, including any wrapper redirects that MediaTailor follows. If the call exceeds this timeout, MediaTailor proceeds with an empty ad list and continues output expression evaluation. Valid values are 100 to 2000.
+         */
+        requestTimeoutMilliseconds: number;
+        runtime: enums.mediatailor.FunctionRuntimeType;
+        /**
+         * An expression that evaluates to the VAST endpoint URL. Use {%...%} delimiters for dynamic expressions. A literal value must be an https:// URL. The expression can be up to 25,000 characters, and the URL after evaluation can be up to 2,048 characters.
+         */
+        url: string;
+    }
+
+    /**
      * <p>The HTTP package configuration properties for the requested VOD source.</p>
      */
     export interface LiveSourceHttpPackageConfiguration {
@@ -77725,7 +78317,7 @@ export namespace mediatailor {
      * The configuration for the request to the specified Ad Decision Server URL.
      */
     export interface PlaybackConfigurationAdDecisionServerConfiguration {
-        httpRequest: outputs.mediatailor.PlaybackConfigurationHttpRequest;
+        httpRequest?: outputs.mediatailor.PlaybackConfigurationHttpRequest;
         vastResponse?: outputs.mediatailor.PlaybackConfigurationVastResponse;
     }
 
@@ -78062,6 +78654,218 @@ export namespace mediatailor {
          * The maximum number of transactions per second (TPS) that your ad decision server (ADS) can handle.
          */
         peakTps?: number;
+    }
+
+    /**
+     * Ad break configuration parameters.
+     */
+    export interface ProgramAdBreak {
+        /**
+         * Defines a list of key/value pairs that MediaTailor generates within the EXT-X-ASSET tag for SCTE35_ENHANCED output.
+         */
+        adBreakMetadata?: outputs.mediatailor.ProgramKeyValuePair[];
+        /**
+         * The SCTE-35 ad insertion type.
+         */
+        messageType?: enums.mediatailor.ProgramAdBreakMessageType;
+        /**
+         * How long (in milliseconds) after the beginning of the program that an ad starts.
+         */
+        offsetMillis: number;
+        slate?: outputs.mediatailor.ProgramSlateSource;
+        spliceInsertMessage?: outputs.mediatailor.ProgramSpliceInsertMessage;
+        timeSignalMessage?: outputs.mediatailor.ProgramTimeSignalMessage;
+    }
+
+    /**
+     * A playlist of media to be played instead of the default media on a particular program.
+     */
+    export interface ProgramAlternateMedia {
+        /**
+         * Ad break configuration parameters defined in AlternateMedia.
+         */
+        adBreaks?: outputs.mediatailor.ProgramAdBreak[];
+        clipRange?: outputs.mediatailor.ProgramClipRange;
+        /**
+         * The duration of the alternateMedia in milliseconds.
+         */
+        durationMillis?: number;
+        /**
+         * The name of the live source for alternateMedia.
+         */
+        liveSourceName?: string;
+        /**
+         * The date and time that the alternateMedia is scheduled to start, in epoch milliseconds.
+         */
+        scheduledStartTimeMillis?: number;
+        /**
+         * The name of the source location for alternateMedia.
+         */
+        sourceLocationName?: string;
+        /**
+         * The name of the VOD source for alternateMedia.
+         */
+        vodSourceName?: string;
+    }
+
+    /**
+     * An AudienceMedia object contains an Audience and a list of AlternateMedia.
+     */
+    export interface ProgramAudienceMedia {
+        /**
+         * The list of AlternateMedia defined in AudienceMedia.
+         */
+        alternateMedia?: outputs.mediatailor.ProgramAlternateMedia[];
+        /**
+         * The Audience defined in AudienceMedia.
+         */
+        audience?: string;
+    }
+
+    /**
+     * Clip range configuration for the VOD source associated with the program.
+     */
+    export interface ProgramClipRange {
+        /**
+         * The end offset of the clip range, in milliseconds.
+         */
+        endOffsetMillis?: number;
+        /**
+         * The start offset of the clip range, in milliseconds.
+         */
+        startOffsetMillis?: number;
+    }
+
+    /**
+     * For SCTE35_ENHANCED output, defines a key and corresponding value.
+     */
+    export interface ProgramKeyValuePair {
+        /**
+         * The key.
+         */
+        key: string;
+        /**
+         * The value.
+         */
+        value: string;
+    }
+
+    /**
+     * Schedule configuration parameters.
+     */
+    export interface ProgramScheduleConfiguration {
+        clipRange?: outputs.mediatailor.ProgramClipRange;
+        transition: outputs.mediatailor.ProgramTransition;
+    }
+
+    /**
+     * The segmentation_descriptor message configuration.
+     */
+    export interface ProgramSegmentationDescriptor {
+        /**
+         * The segment number to assign.
+         */
+        segmentNum?: number;
+        /**
+         * The Event Identifier to assign.
+         */
+        segmentationEventId?: number;
+        /**
+         * The Type Identifier to assign.
+         */
+        segmentationTypeId?: number;
+        /**
+         * The Upid to assign.
+         */
+        segmentationUpid?: string;
+        /**
+         * The Upid Type to assign.
+         */
+        segmentationUpidType?: number;
+        /**
+         * The number of segments expected.
+         */
+        segmentsExpected?: number;
+        /**
+         * The sub-segment number to assign.
+         */
+        subSegmentNum?: number;
+        /**
+         * The number of sub-segments expected.
+         */
+        subSegmentsExpected?: number;
+    }
+
+    /**
+     * Slate VOD source configuration.
+     */
+    export interface ProgramSlateSource {
+        /**
+         * The name of the source location where the slate VOD source is stored.
+         */
+        sourceLocationName?: string;
+        /**
+         * The slate VOD source name.
+         */
+        vodSourceName?: string;
+    }
+
+    /**
+     * Splice insert message configuration.
+     */
+    export interface ProgramSpliceInsertMessage {
+        /**
+         * This is written to splice_insert.avail_num.
+         */
+        availNum?: number;
+        /**
+         * This is written to splice_insert.avails_expected.
+         */
+        availsExpected?: number;
+        /**
+         * This is written to splice_insert.splice_event_id.
+         */
+        spliceEventId?: number;
+        /**
+         * This is written to splice_insert.unique_program_id.
+         */
+        uniqueProgramId?: number;
+    }
+
+    /**
+     * The SCTE-35 time_signal message configuration.
+     */
+    export interface ProgramTimeSignalMessage {
+        /**
+         * The configurations for the SCTE-35 segmentation_descriptor message(s).
+         */
+        segmentationDescriptors?: outputs.mediatailor.ProgramSegmentationDescriptor[];
+    }
+
+    /**
+     * Program transition configuration.
+     */
+    export interface ProgramTransition {
+        /**
+         * The duration of the live program in seconds.
+         */
+        durationMillis?: number;
+        /**
+         * The position where this program will be inserted relative to the RelativePosition.
+         */
+        relativePosition: enums.mediatailor.ProgramTransitionRelativePosition;
+        /**
+         * The name of the program that this program will be inserted next to.
+         */
+        relativeProgram?: string;
+        /**
+         * The date and time that the program is scheduled to start, in epoch milliseconds.
+         */
+        scheduledStartTimeMillis?: number;
+        /**
+         * Defines when the program plays in the schedule. You can set the value to ABSOLUTE or RELATIVE.
+         */
+        type: string;
     }
 
     /**
@@ -84166,6 +84970,28 @@ export namespace pcs {
 }
 
 export namespace personalize {
+    /**
+     * The configuration details of a campaign.
+     */
+    export interface CampaignConfig {
+        /**
+         * Whether metadata with recommendations is enabled for the campaign.
+         */
+        enableMetadataWithRecommendations?: boolean;
+        /**
+         * Specifies the exploration configuration hyperparameters.
+         */
+        itemExplorationConfig?: {[key: string]: string};
+        /**
+         * A map of ranking influence values for POPULARITY and FRESHNESS.
+         */
+        rankingInfluence?: {[key: string]: number};
+        /**
+         * Whether the campaign automatically updates to use the latest solution version.
+         */
+        syncWithLatestSolutionVersion?: boolean;
+    }
+
     /**
      * Initial DatasetImportJob for the created dataset
      */
@@ -93977,7 +94803,7 @@ export namespace quicksight {
 
     export interface AnalysisSheetLayoutGroupMember {
         id: string;
-        type: any;
+        type: enums.quicksight.AnalysisSheetLayoutGroupMemberType;
     }
 
     export interface AnalysisSheetTextBox {
@@ -103917,7 +104743,7 @@ export namespace quicksight {
 
     export interface DashboardSheetLayoutGroupMember {
         id: string;
-        type: any;
+        type: enums.quicksight.DashboardSheetLayoutGroupMemberType;
     }
 
     export interface DashboardSheetTextBox {
@@ -115668,7 +116494,7 @@ export namespace quicksight {
 
     export interface TemplateSheetLayoutGroupMember {
         id: string;
-        type: any;
+        type: enums.quicksight.TemplateSheetLayoutGroupMemberType;
     }
 
     export interface TemplateSheetTextBox {
@@ -131039,6 +131865,38 @@ export namespace securityagent {
     }
 
     /**
+     * Azure DevOps repository capabilities
+     */
+    export interface AgentSpaceAzureDevOpsCapabilitiesResource {
+        /**
+         * Enables Code Review in the repository
+         */
+        leaveComments?: boolean;
+        /**
+         * Enables creation of pull requests with automated fixes
+         */
+        remediateCode?: boolean;
+    }
+
+    /**
+     * Azure DevOps repository details
+     */
+    export interface AgentSpaceAzureDevOpsRepositoryResource {
+        /**
+         * Azure DevOps repository name
+         */
+        name: string;
+        /**
+         * Read-only Azure DevOps organization that owns the repository, populated from service-side metadata
+         */
+        organization?: string;
+        /**
+         * Azure DevOps project that owns the repository
+         */
+        project: string;
+    }
+
+    /**
      * Bitbucket repository capabilities
      */
     export interface AgentSpaceBitbucketCapabilitiesResource {
@@ -131198,6 +132056,8 @@ export namespace securityagent {
      * Selected Resource (eg: Code Repository, Document) from an Integration
      */
     export interface AgentSpaceProviderResource {
+        azureDevOpsCapabilities?: outputs.securityagent.AgentSpaceAzureDevOpsCapabilitiesResource;
+        azureDevOpsRepository?: outputs.securityagent.AgentSpaceAzureDevOpsRepositoryResource;
         bitbucketCapabilities?: outputs.securityagent.AgentSpaceBitbucketCapabilitiesResource;
         bitbucketRepository?: outputs.securityagent.AgentSpaceBitbucketRepositoryResource;
         confluenceCapabilities?: outputs.securityagent.AgentSpaceConfluenceCapabilitiesResource;
@@ -137595,7 +138455,7 @@ export namespace transfer {
 
 export namespace translate {
     /**
-     * The encryption key used to encrypt this object.
+     * The encryption key for the custom terminology.
      */
     export interface EncryptionKeyProperties {
         /**
@@ -137605,7 +138465,7 @@ export namespace translate {
         /**
          * The type of encryption key.
          */
-        type: enums.translate.ParallelDataEncryptionKeyPropertiesType;
+        type: enums.translate.TerminologyEncryptionKeyPropertiesType;
     }
 
     /**
@@ -137620,6 +138480,24 @@ export namespace translate {
          * The URI of the Amazon S3 folder that contains the parallel data input file.
          */
         s3Uri: string;
+    }
+
+    /**
+     * The terminology data for the custom terminology being imported.
+     */
+    export interface TerminologyDataProperties {
+        /**
+         * The directionality of the terminology resource.
+         */
+        directionality?: enums.translate.TerminologyDataPropertiesDirectionality;
+        /**
+         * The file containing the custom terminology data, base64-encoded.
+         */
+        file: string;
+        /**
+         * The data format of the custom terminology.
+         */
+        format: enums.translate.TerminologyDataPropertiesFormat;
     }
 
 }
@@ -142126,6 +143004,14 @@ export namespace wisdom {
          * The customer managed key used for encryption. The customer managed key must have a policy that allows `kms:CreateGrant` and `kms:DescribeKey` permissions to the IAM identity using the key to invoke Wisdom. To use Wisdom with chat, the key policy must also allow `kms:Decrypt` , `kms:GenerateDataKey*` , and `kms:DescribeKey` permissions to the `connect.amazonaws.com` service principal. For more information about setting up a customer managed key for Wisdom, see [Enable Connect Customer Wisdom for your instance](https://docs.aws.amazon.com/connect/latest/adminguide/enable-wisdom.html) . For information about valid ID values, see [Key identifiers (KeyId)](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id) in the *AWS Key Management Service Developer Guide* .
          */
         kmsKeyId?: string;
+    }
+
+    export interface ContentAssociationAmazonConnectGuideAssociationData {
+        flowId?: string;
+    }
+
+    export interface ContentAssociationContents {
+        amazonConnectGuideAssociation: outputs.wisdom.ContentAssociationAmazonConnectGuideAssociationData;
     }
 
     export interface KnowledgeBaseAppIntegrationsConfiguration {

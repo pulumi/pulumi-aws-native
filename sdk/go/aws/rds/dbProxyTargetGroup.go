@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -24,6 +25,8 @@ type DbProxyTargetGroup struct {
 	DbInstanceIdentifiers pulumi.StringArrayOutput `pulumi:"dbInstanceIdentifiers"`
 	// The identifier for the proxy.
 	DbProxyName pulumi.StringOutput `pulumi:"dbProxyName"`
+	// An array of key-value pairs to apply to this resource.
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// The Amazon Resource Name (ARN) representing the target group.
 	TargetGroupArn pulumi.StringOutput `pulumi:"targetGroupArn"`
 	// The identifier for the DBProxyTargetGroup
@@ -89,6 +92,8 @@ type dbProxyTargetGroupArgs struct {
 	DbInstanceIdentifiers []string `pulumi:"dbInstanceIdentifiers"`
 	// The identifier for the proxy.
 	DbProxyName string `pulumi:"dbProxyName"`
+	// An array of key-value pairs to apply to this resource.
+	Tags []aws.Tag `pulumi:"tags"`
 	// The identifier for the DBProxyTargetGroup
 	TargetGroupName DbProxyTargetGroupTargetGroupName `pulumi:"targetGroupName"`
 }
@@ -103,6 +108,8 @@ type DbProxyTargetGroupArgs struct {
 	DbInstanceIdentifiers pulumi.StringArrayInput
 	// The identifier for the proxy.
 	DbProxyName pulumi.StringInput
+	// An array of key-value pairs to apply to this resource.
+	Tags aws.TagArrayInput
 	// The identifier for the DBProxyTargetGroup
 	TargetGroupName DbProxyTargetGroupTargetGroupNameInput
 }
@@ -164,6 +171,11 @@ func (o DbProxyTargetGroupOutput) DbInstanceIdentifiers() pulumi.StringArrayOutp
 // The identifier for the proxy.
 func (o DbProxyTargetGroupOutput) DbProxyName() pulumi.StringOutput {
 	return o.ApplyT(func(v *DbProxyTargetGroup) pulumi.StringOutput { return v.DbProxyName }).(pulumi.StringOutput)
+}
+
+// An array of key-value pairs to apply to this resource.
+func (o DbProxyTargetGroupOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *DbProxyTargetGroup) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // The Amazon Resource Name (ARN) representing the target group.

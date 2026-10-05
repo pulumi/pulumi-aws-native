@@ -8,6 +8,8 @@ import typing
 # Export this package's modules as members:
 from ._enums import *
 from .get_parallel_data import *
+from .get_terminology import *
 from .parallel_data import *
+from .terminology import *
 from ._inputs import *
 from . import outputs

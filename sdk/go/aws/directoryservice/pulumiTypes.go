@@ -13,6 +13,70 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+// Contains VPC information for the CreateDirectory or CreateMicrosoftAD operation
+type MicrosoftAdVpcSettings struct {
+	// The identifiers of the subnets for the directory servers. The two subnets must be in different Availability Zones. AWS Directory Service specifies a directory server and a DNS server in each of these subnets.
+	SubnetIds []string `pulumi:"subnetIds"`
+	// The identifier of the VPC in which to create the directory.
+	VpcId string `pulumi:"vpcId"`
+}
+
+// MicrosoftAdVpcSettingsInput is an input type that accepts MicrosoftAdVpcSettingsArgs and MicrosoftAdVpcSettingsOutput values.
+// You can construct a concrete instance of `MicrosoftAdVpcSettingsInput` via:
+//
+//	MicrosoftAdVpcSettingsArgs{...}
+type MicrosoftAdVpcSettingsInput interface {
+	pulumi.Input
+
+	ToMicrosoftAdVpcSettingsOutput() MicrosoftAdVpcSettingsOutput
+	ToMicrosoftAdVpcSettingsOutputWithContext(context.Context) MicrosoftAdVpcSettingsOutput
+}
+
+// Contains VPC information for the CreateDirectory or CreateMicrosoftAD operation
+type MicrosoftAdVpcSettingsArgs struct {
+	// The identifiers of the subnets for the directory servers. The two subnets must be in different Availability Zones. AWS Directory Service specifies a directory server and a DNS server in each of these subnets.
+	SubnetIds pulumi.StringArrayInput `pulumi:"subnetIds"`
+	// The identifier of the VPC in which to create the directory.
+	VpcId pulumi.StringInput `pulumi:"vpcId"`
+}
+
+func (MicrosoftAdVpcSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MicrosoftAdVpcSettings)(nil)).Elem()
+}
+
+func (i MicrosoftAdVpcSettingsArgs) ToMicrosoftAdVpcSettingsOutput() MicrosoftAdVpcSettingsOutput {
+	return i.ToMicrosoftAdVpcSettingsOutputWithContext(context.Background())
+}
+
+func (i MicrosoftAdVpcSettingsArgs) ToMicrosoftAdVpcSettingsOutputWithContext(ctx context.Context) MicrosoftAdVpcSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MicrosoftAdVpcSettingsOutput)
+}
+
+// Contains VPC information for the CreateDirectory or CreateMicrosoftAD operation
+type MicrosoftAdVpcSettingsOutput struct{ *pulumi.OutputState }
+
+func (MicrosoftAdVpcSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MicrosoftAdVpcSettings)(nil)).Elem()
+}
+
+func (o MicrosoftAdVpcSettingsOutput) ToMicrosoftAdVpcSettingsOutput() MicrosoftAdVpcSettingsOutput {
+	return o
+}
+
+func (o MicrosoftAdVpcSettingsOutput) ToMicrosoftAdVpcSettingsOutputWithContext(ctx context.Context) MicrosoftAdVpcSettingsOutput {
+	return o
+}
+
+// The identifiers of the subnets for the directory servers. The two subnets must be in different Availability Zones. AWS Directory Service specifies a directory server and a DNS server in each of these subnets.
+func (o MicrosoftAdVpcSettingsOutput) SubnetIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v MicrosoftAdVpcSettings) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
+}
+
+// The identifier of the VPC in which to create the directory.
+func (o MicrosoftAdVpcSettingsOutput) VpcId() pulumi.StringOutput {
+	return o.ApplyT(func(v MicrosoftAdVpcSettings) string { return v.VpcId }).(pulumi.StringOutput)
+}
+
 // A key-value pair to associate with a resource.
 type SimpleAdTag struct {
 	// The key name of the tag
@@ -83,6 +147,8 @@ func (o SimpleAdVpcSettingsOutput) VpcId() pulumi.StringOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*MicrosoftAdVpcSettingsInput)(nil)).Elem(), MicrosoftAdVpcSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SimpleAdVpcSettingsInput)(nil)).Elem(), SimpleAdVpcSettingsArgs{})
+	pulumi.RegisterOutputType(MicrosoftAdVpcSettingsOutput{})
 	pulumi.RegisterOutputType(SimpleAdVpcSettingsOutput{})
 }

@@ -40,7 +40,7 @@ type OnlineEvaluationConfig struct {
 	// The name of the online evaluation configuration. Must be unique within your account.
 	OnlineEvaluationConfigName pulumi.StringOutput `pulumi:"onlineEvaluationConfigName"`
 	// The configuration that specifies where evaluation results should be written.
-	OutputConfig OnlineEvaluationConfigOutputConfigOutput `pulumi:"outputConfig"`
+	OutputConfig OnlineEvaluationConfigOutputConfigPtrOutput `pulumi:"outputConfig"`
 	// The evaluation rule that defines sampling configuration, filters, and session detection settings.
 	Rule OnlineEvaluationConfigRuleOutput `pulumi:"rule"`
 	// The status of the online evaluation configuration.
@@ -120,6 +120,8 @@ type onlineEvaluationConfigArgs struct {
 	Insights []OnlineEvaluationConfigInsight `pulumi:"insights"`
 	// The name of the online evaluation configuration. Must be unique within your account.
 	OnlineEvaluationConfigName *string `pulumi:"onlineEvaluationConfigName"`
+	// The configuration that specifies where evaluation results should be written.
+	OutputConfig *OnlineEvaluationConfigOutputConfig `pulumi:"outputConfig"`
 	// The evaluation rule that defines sampling configuration, filters, and session detection settings.
 	Rule OnlineEvaluationConfigRule `pulumi:"rule"`
 	// A list of tags to assign to the online evaluation configuration.
@@ -144,6 +146,8 @@ type OnlineEvaluationConfigArgs struct {
 	Insights OnlineEvaluationConfigInsightArrayInput
 	// The name of the online evaluation configuration. Must be unique within your account.
 	OnlineEvaluationConfigName pulumi.StringPtrInput
+	// The configuration that specifies where evaluation results should be written.
+	OutputConfig OnlineEvaluationConfigOutputConfigPtrInput
 	// The evaluation rule that defines sampling configuration, filters, and session detection settings.
 	Rule OnlineEvaluationConfigRuleInput
 	// A list of tags to assign to the online evaluation configuration.
@@ -251,8 +255,8 @@ func (o OnlineEvaluationConfigOutput) OnlineEvaluationConfigName() pulumi.String
 }
 
 // The configuration that specifies where evaluation results should be written.
-func (o OnlineEvaluationConfigOutput) OutputConfig() OnlineEvaluationConfigOutputConfigOutput {
-	return o.ApplyT(func(v *OnlineEvaluationConfig) OnlineEvaluationConfigOutputConfigOutput { return v.OutputConfig }).(OnlineEvaluationConfigOutputConfigOutput)
+func (o OnlineEvaluationConfigOutput) OutputConfig() OnlineEvaluationConfigOutputConfigPtrOutput {
+	return o.ApplyT(func(v *OnlineEvaluationConfig) OnlineEvaluationConfigOutputConfigPtrOutput { return v.OutputConfig }).(OnlineEvaluationConfigOutputConfigPtrOutput)
 }
 
 // The evaluation rule that defines sampling configuration, filters, and session detection settings.

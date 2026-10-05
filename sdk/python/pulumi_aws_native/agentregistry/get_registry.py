@@ -26,10 +26,19 @@ __all__ = [
 
 @pulumi.output_type
 class GetRegistryResult:
-    def __init__(__self__, approval_configuration=None, created_at=None, description=None, discovery_configuration=None, name=None, registry_arn=None, registry_id=None, status=None, tags=None, updated_at=None):
+    def __init__(__self__, approval_configuration=None, auto_detection_enabled=None, auto_detection_scope=None, auto_detection_status=None, created_at=None, description=None, discovery_configuration=None, name=None, registry_arn=None, registry_id=None, status=None, tags=None, updated_at=None):
         if approval_configuration and not isinstance(approval_configuration, dict):
             raise TypeError("Expected argument 'approval_configuration' to be a dict")
         pulumi.set(__self__, "approval_configuration", approval_configuration)
+        if auto_detection_enabled and not isinstance(auto_detection_enabled, bool):
+            raise TypeError("Expected argument 'auto_detection_enabled' to be a bool")
+        pulumi.set(__self__, "auto_detection_enabled", auto_detection_enabled)
+        if auto_detection_scope and not isinstance(auto_detection_scope, str):
+            raise TypeError("Expected argument 'auto_detection_scope' to be a str")
+        pulumi.set(__self__, "auto_detection_scope", auto_detection_scope)
+        if auto_detection_status and not isinstance(auto_detection_status, str):
+            raise TypeError("Expected argument 'auto_detection_status' to be a str")
+        pulumi.set(__self__, "auto_detection_status", auto_detection_status)
         if created_at and not isinstance(created_at, str):
             raise TypeError("Expected argument 'created_at' to be a str")
         pulumi.set(__self__, "created_at", created_at)
@@ -62,6 +71,24 @@ class GetRegistryResult:
     @pulumi.getter(name="approvalConfiguration")
     def approval_configuration(self) -> Optional['outputs.RegistryApprovalConfiguration']:
         return pulumi.get(self, "approval_configuration")
+
+    @_builtins.property
+    @pulumi.getter(name="autoDetectionEnabled")
+    def auto_detection_enabled(self) -> Optional[_builtins.bool]:
+        """
+        Specifies whether auto-detection is requested for the registry. Must be specified together with AutoDetectionScope. Setting this to true is necessary but not sufficient for auto-detection to become active; the preconditions of the configured scope must also be met. To turn auto-detection off, explicitly set this to false - removing AutoDetectionEnabled and AutoDetectionScope from the template is a no-op and leaves the existing auto-detection settings unchanged. A registry cannot be deleted while auto-detection is enabled: set this to false and update the stack before deleting the registry.
+        """
+        return pulumi.get(self, "auto_detection_enabled")
+
+    @_builtins.property
+    @pulumi.getter(name="autoDetectionScope")
+    def auto_detection_scope(self) -> Optional['RegistryAutoDetectionScope']:
+        return pulumi.get(self, "auto_detection_scope")
+
+    @_builtins.property
+    @pulumi.getter(name="autoDetectionStatus")
+    def auto_detection_status(self) -> Optional['RegistryAutoDetectionStatus']:
+        return pulumi.get(self, "auto_detection_status")
 
     @_builtins.property
     @pulumi.getter(name="createdAt")
@@ -137,6 +164,9 @@ class AwaitableGetRegistryResult(GetRegistryResult):
             yield self
         return GetRegistryResult(
             approval_configuration=self.approval_configuration,
+            auto_detection_enabled=self.auto_detection_enabled,
+            auto_detection_scope=self.auto_detection_scope,
+            auto_detection_status=self.auto_detection_status,
             created_at=self.created_at,
             description=self.description,
             discovery_configuration=self.discovery_configuration,
@@ -162,6 +192,9 @@ def get_registry(registry_arn: Optional[_builtins.str] = None,
 
     return AwaitableGetRegistryResult(
         approval_configuration=pulumi.get(__ret__, 'approval_configuration'),
+        auto_detection_enabled=pulumi.get(__ret__, 'auto_detection_enabled'),
+        auto_detection_scope=pulumi.get(__ret__, 'auto_detection_scope'),
+        auto_detection_status=pulumi.get(__ret__, 'auto_detection_status'),
         created_at=pulumi.get(__ret__, 'created_at'),
         description=pulumi.get(__ret__, 'description'),
         discovery_configuration=pulumi.get(__ret__, 'discovery_configuration'),
@@ -184,6 +217,9 @@ def get_registry_output(registry_arn: pulumi.Input[Optional[_builtins.str]] = No
     __ret__ = pulumi.runtime.invoke_output('aws-native:agentregistry:getRegistry', __args__, opts=opts, typ=GetRegistryResult)
     return __ret__.apply(lambda __response__: GetRegistryResult(
         approval_configuration=pulumi.get(__response__, 'approval_configuration'),
+        auto_detection_enabled=pulumi.get(__response__, 'auto_detection_enabled'),
+        auto_detection_scope=pulumi.get(__response__, 'auto_detection_scope'),
+        auto_detection_status=pulumi.get(__response__, 'auto_detection_status'),
         created_at=pulumi.get(__response__, 'created_at'),
         description=pulumi.get(__response__, 'description'),
         discovery_configuration=pulumi.get(__response__, 'discovery_configuration'),

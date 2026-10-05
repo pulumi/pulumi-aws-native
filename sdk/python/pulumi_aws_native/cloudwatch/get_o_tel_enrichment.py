@@ -13,6 +13,7 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
 from ._enums import *
 
 __all__ = [
@@ -24,10 +25,16 @@ __all__ = [
 
 @pulumi.output_type
 class GetOTelEnrichmentResult:
-    def __init__(__self__, account_id=None, status=None):
+    def __init__(__self__, account_id=None, exclude_filters=None, include_filters=None, status=None):
         if account_id and not isinstance(account_id, str):
             raise TypeError("Expected argument 'account_id' to be a str")
         pulumi.set(__self__, "account_id", account_id)
+        if exclude_filters and not isinstance(exclude_filters, list):
+            raise TypeError("Expected argument 'exclude_filters' to be a list")
+        pulumi.set(__self__, "exclude_filters", exclude_filters)
+        if include_filters and not isinstance(include_filters, list):
+            raise TypeError("Expected argument 'include_filters' to be a list")
+        pulumi.set(__self__, "include_filters", include_filters)
         if status and not isinstance(status, str):
             raise TypeError("Expected argument 'status' to be a str")
         pulumi.set(__self__, "status", status)
@@ -39,6 +46,22 @@ class GetOTelEnrichmentResult:
         The AWS account ID. This is the primary identifier for this singleton resource.
         """
         return pulumi.get(self, "account_id")
+
+    @_builtins.property
+    @pulumi.getter(name="excludeFilters")
+    def exclude_filters(self) -> Optional[Sequence['outputs.OTelEnrichmentMetricSelector']]:
+        """
+        Removes metrics from the include set. Absent or empty means nothing is removed. Evaluated after IncludeFilters, so ExcludeFilters always wins.
+        """
+        return pulumi.get(self, "exclude_filters")
+
+    @_builtins.property
+    @pulumi.getter(name="includeFilters")
+    def include_filters(self) -> Optional[Sequence['outputs.OTelEnrichmentMetricSelector']]:
+        """
+        Scopes enrichment to a subset of the account's telemetry. Absent or empty means all namespaces are in scope. Present means only these are. The service enforces a combined cap of 100 selectors across IncludeFilters and ExcludeFilters, and rejects more than one selector for the same namespace within a direction.
+        """
+        return pulumi.get(self, "include_filters")
 
     @_builtins.property
     @pulumi.getter
@@ -53,6 +76,8 @@ class AwaitableGetOTelEnrichmentResult(GetOTelEnrichmentResult):
             yield self
         return GetOTelEnrichmentResult(
             account_id=self.account_id,
+            exclude_filters=self.exclude_filters,
+            include_filters=self.include_filters,
             status=self.status)
 
 
@@ -70,6 +95,8 @@ def get_o_tel_enrichment(account_id: Optional[_builtins.str] = None,
 
     return AwaitableGetOTelEnrichmentResult(
         account_id=pulumi.get(__ret__, 'account_id'),
+        exclude_filters=pulumi.get(__ret__, 'exclude_filters'),
+        include_filters=pulumi.get(__ret__, 'include_filters'),
         status=pulumi.get(__ret__, 'status'))
 def get_o_tel_enrichment_output(account_id: pulumi.Input[Optional[_builtins.str]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOTelEnrichmentResult]:
@@ -84,4 +111,6 @@ def get_o_tel_enrichment_output(account_id: pulumi.Input[Optional[_builtins.str]
     __ret__ = pulumi.runtime.invoke_output('aws-native:cloudwatch:getOTelEnrichment', __args__, opts=opts, typ=GetOTelEnrichmentResult)
     return __ret__.apply(lambda __response__: GetOTelEnrichmentResult(
         account_id=pulumi.get(__response__, 'account_id'),
+        exclude_filters=pulumi.get(__response__, 'exclude_filters'),
+        include_filters=pulumi.get(__response__, 'include_filters'),
         status=pulumi.get(__response__, 'status')))

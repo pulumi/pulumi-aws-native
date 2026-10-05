@@ -70,6 +70,9 @@ class GetEvaluationFormResult:
     @_builtins.property
     @pulumi.getter(name="aiVersion")
     def ai_version(self) -> Optional[_builtins.str]:
+        """
+        The AI version to use for the evaluation form. This specifies which AI model version is used for automated evaluations.
+        """
         return pulumi.get(self, "ai_version")
 
     @_builtins.property

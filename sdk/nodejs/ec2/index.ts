@@ -30,6 +30,11 @@ export type CarrierGateway = import("./carrierGateway").CarrierGateway;
 export const CarrierGateway: typeof import("./carrierGateway").CarrierGateway = null as any;
 utilities.lazyLoad(exports, ["CarrierGateway"], () => require("./carrierGateway"));
 
+export { ClientVpnAuthorizationRuleArgs } from "./clientVpnAuthorizationRule";
+export type ClientVpnAuthorizationRule = import("./clientVpnAuthorizationRule").ClientVpnAuthorizationRule;
+export const ClientVpnAuthorizationRule: typeof import("./clientVpnAuthorizationRule").ClientVpnAuthorizationRule = null as any;
+utilities.lazyLoad(exports, ["ClientVpnAuthorizationRule"], () => require("./clientVpnAuthorizationRule"));
+
 export { CustomerGatewayArgs } from "./customerGateway";
 export type CustomerGateway = import("./customerGateway").CustomerGateway;
 export const CustomerGateway: typeof import("./customerGateway").CustomerGateway = null as any;
@@ -104,6 +109,11 @@ export { GetCarrierGatewayArgs, GetCarrierGatewayResult, GetCarrierGatewayOutput
 export const getCarrierGateway: typeof import("./getCarrierGateway").getCarrierGateway = null as any;
 export const getCarrierGatewayOutput: typeof import("./getCarrierGateway").getCarrierGatewayOutput = null as any;
 utilities.lazyLoad(exports, ["getCarrierGateway","getCarrierGatewayOutput"], () => require("./getCarrierGateway"));
+
+export { GetClientVpnAuthorizationRuleArgs, GetClientVpnAuthorizationRuleResult, GetClientVpnAuthorizationRuleOutputArgs } from "./getClientVpnAuthorizationRule";
+export const getClientVpnAuthorizationRule: typeof import("./getClientVpnAuthorizationRule").getClientVpnAuthorizationRule = null as any;
+export const getClientVpnAuthorizationRuleOutput: typeof import("./getClientVpnAuthorizationRule").getClientVpnAuthorizationRuleOutput = null as any;
+utilities.lazyLoad(exports, ["getClientVpnAuthorizationRule","getClientVpnAuthorizationRuleOutput"], () => require("./getClientVpnAuthorizationRule"));
 
 export { GetCustomerGatewayArgs, GetCustomerGatewayResult, GetCustomerGatewayOutputArgs } from "./getCustomerGateway";
 export const getCustomerGateway: typeof import("./getCustomerGateway").getCustomerGateway = null as any;
@@ -354,6 +364,11 @@ export { GetRouteTableArgs, GetRouteTableResult, GetRouteTableOutputArgs } from 
 export const getRouteTable: typeof import("./getRouteTable").getRouteTable = null as any;
 export const getRouteTableOutput: typeof import("./getRouteTable").getRouteTableOutput = null as any;
 utilities.lazyLoad(exports, ["getRouteTable","getRouteTableOutput"], () => require("./getRouteTable"));
+
+export { GetSecondaryNetworkArgs, GetSecondaryNetworkResult, GetSecondaryNetworkOutputArgs } from "./getSecondaryNetwork";
+export const getSecondaryNetwork: typeof import("./getSecondaryNetwork").getSecondaryNetwork = null as any;
+export const getSecondaryNetworkOutput: typeof import("./getSecondaryNetwork").getSecondaryNetworkOutput = null as any;
+utilities.lazyLoad(exports, ["getSecondaryNetwork","getSecondaryNetworkOutput"], () => require("./getSecondaryNetwork"));
 
 export { GetSecurityGroupArgs, GetSecurityGroupResult, GetSecurityGroupOutputArgs } from "./getSecurityGroup";
 export const getSecurityGroup: typeof import("./getSecurityGroup").getSecurityGroup = null as any;
@@ -825,6 +840,11 @@ export type RouteTable = import("./routeTable").RouteTable;
 export const RouteTable: typeof import("./routeTable").RouteTable = null as any;
 utilities.lazyLoad(exports, ["RouteTable"], () => require("./routeTable"));
 
+export { SecondaryNetworkArgs } from "./secondaryNetwork";
+export type SecondaryNetwork = import("./secondaryNetwork").SecondaryNetwork;
+export const SecondaryNetwork: typeof import("./secondaryNetwork").SecondaryNetwork = null as any;
+utilities.lazyLoad(exports, ["SecondaryNetwork"], () => require("./secondaryNetwork"));
+
 export { SecurityGroupArgs } from "./securityGroup";
 export type SecurityGroup = import("./securityGroup").SecurityGroup;
 export const SecurityGroup: typeof import("./securityGroup").SecurityGroup = null as any;
@@ -1128,6 +1148,8 @@ const _module = {
                 return new CapacityReservationFleet(name, <any>undefined, { urn })
             case "aws-native:ec2:CarrierGateway":
                 return new CarrierGateway(name, <any>undefined, { urn })
+            case "aws-native:ec2:ClientVpnAuthorizationRule":
+                return new ClientVpnAuthorizationRule(name, <any>undefined, { urn })
             case "aws-native:ec2:CustomerGateway":
                 return new CustomerGateway(name, <any>undefined, { urn })
             case "aws-native:ec2:DhcpOptions":
@@ -1234,6 +1256,8 @@ const _module = {
                 return new RouteServerPropagation(name, <any>undefined, { urn })
             case "aws-native:ec2:RouteTable":
                 return new RouteTable(name, <any>undefined, { urn })
+            case "aws-native:ec2:SecondaryNetwork":
+                return new SecondaryNetwork(name, <any>undefined, { urn })
             case "aws-native:ec2:SecurityGroup":
                 return new SecurityGroup(name, <any>undefined, { urn })
             case "aws-native:ec2:SecurityGroupEgress":

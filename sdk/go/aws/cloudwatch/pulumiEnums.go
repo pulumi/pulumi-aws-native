@@ -359,6 +359,97 @@ func (o OTelEnrichmentStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.
 	}).(pulumi.StringPtrOutput)
 }
 
+// The ownership category of the view. Views created through CloudFormation are always USER views; MANAGED views are provisioned by AWS.
+type ViewType string
+
+const (
+	ViewTypeUser    = ViewType("USER")
+	ViewTypeManaged = ViewType("MANAGED")
+)
+
+type ViewTypeOutput struct{ *pulumi.OutputState }
+
+func (ViewTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ViewType)(nil)).Elem()
+}
+
+func (o ViewTypeOutput) ToViewTypeOutput() ViewTypeOutput {
+	return o
+}
+
+func (o ViewTypeOutput) ToViewTypeOutputWithContext(ctx context.Context) ViewTypeOutput {
+	return o
+}
+
+func (o ViewTypeOutput) ToViewTypePtrOutput() ViewTypePtrOutput {
+	return o.ToViewTypePtrOutputWithContext(context.Background())
+}
+
+func (o ViewTypeOutput) ToViewTypePtrOutputWithContext(ctx context.Context) ViewTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ViewType) *ViewType {
+		return &v
+	}).(ViewTypePtrOutput)
+}
+
+func (o ViewTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ViewTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ViewType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ViewTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ViewTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ViewType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ViewTypePtrOutput struct{ *pulumi.OutputState }
+
+func (ViewTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ViewType)(nil)).Elem()
+}
+
+func (o ViewTypePtrOutput) ToViewTypePtrOutput() ViewTypePtrOutput {
+	return o
+}
+
+func (o ViewTypePtrOutput) ToViewTypePtrOutputWithContext(ctx context.Context) ViewTypePtrOutput {
+	return o
+}
+
+func (o ViewTypePtrOutput) Elem() ViewTypeOutput {
+	return o.ApplyT(func(v *ViewType) ViewType {
+		if v != nil {
+			return *v
+		}
+		var ret ViewType
+		return ret
+	}).(ViewTypeOutput)
+}
+
+func (o ViewTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ViewTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ViewType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*InsightRuleRuleStateInput)(nil)).Elem(), InsightRuleRuleState("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*InsightRuleRuleStatePtrInput)(nil)).Elem(), InsightRuleRuleState("ENABLED"))
@@ -368,4 +459,6 @@ func init() {
 	pulumi.RegisterOutputType(InsightRuleRuleStatePtrOutput{})
 	pulumi.RegisterOutputType(OTelEnrichmentStatusOutput{})
 	pulumi.RegisterOutputType(OTelEnrichmentStatusPtrOutput{})
+	pulumi.RegisterOutputType(ViewTypeOutput{})
+	pulumi.RegisterOutputType(ViewTypePtrOutput{})
 }

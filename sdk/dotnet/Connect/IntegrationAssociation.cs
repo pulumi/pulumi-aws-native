@@ -111,6 +111,15 @@ namespace Pulumi.AwsNative.Connect
         [Output("integrationType")]
         public Output<Pulumi.AwsNative.Connect.IntegrationAssociationIntegrationType> IntegrationType { get; private set; } = null!;
 
+        [Output("sourceApplicationName")]
+        public Output<string?> SourceApplicationName { get; private set; } = null!;
+
+        [Output("sourceApplicationUrl")]
+        public Output<string?> SourceApplicationUrl { get; private set; } = null!;
+
+        [Output("sourceType")]
+        public Output<Pulumi.AwsNative.Connect.IntegrationAssociationSourceType?> SourceType { get; private set; } = null!;
+
         /// <summary>
         /// The tags used to organize, track, or control access for this resource.
         /// </summary>
@@ -145,6 +154,9 @@ namespace Pulumi.AwsNative.Connect
                     "instanceId",
                     "integrationArn",
                     "integrationType",
+                    "sourceApplicationName",
+                    "sourceApplicationUrl",
+                    "sourceType",
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -195,6 +207,15 @@ namespace Pulumi.AwsNative.Connect
         /// </summary>
         [Input("integrationType", required: true)]
         public Input<Pulumi.AwsNative.Connect.IntegrationAssociationIntegrationType> IntegrationType { get; set; } = null!;
+
+        [Input("sourceApplicationName")]
+        public Input<string>? SourceApplicationName { get; set; }
+
+        [Input("sourceApplicationUrl")]
+        public Input<string>? SourceApplicationUrl { get; set; }
+
+        [Input("sourceType")]
+        public Input<Pulumi.AwsNative.Connect.IntegrationAssociationSourceType>? SourceType { get; set; }
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;

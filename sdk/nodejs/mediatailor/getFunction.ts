@@ -29,6 +29,7 @@ export interface GetFunctionResult {
      * The ARN of the function.
      */
     readonly arn?: string;
+    readonly awsServiceRequestConfiguration?: outputs.mediatailor.FunctionAwsServiceRequestConfiguration;
     /**
      * The configuration for a CONCURRENT_EXECUTOR function. Required when FunctionType is CONCURRENT_EXECUTOR.
      */
@@ -48,6 +49,7 @@ export interface GetFunctionResult {
      * The tags to assign to the function resource.
      */
     readonly tags?: outputs.Tag[];
+    readonly vastRequestConfiguration?: outputs.mediatailor.FunctionVastRequestConfiguration;
 }
 /**
  * Resource Type definition for AWS::MediaTailor::Function

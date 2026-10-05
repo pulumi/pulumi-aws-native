@@ -91,6 +91,10 @@ namespace Pulumi.AwsNative.Dms
         /// An array of key-value pairs to apply to this resource.
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
+        /// <summary>
+        /// Indicates whether the data provider is virtual.
+        /// </summary>
+        public readonly bool? Virtual;
 
         [OutputConstructor]
         private GetDataProviderResult(
@@ -106,7 +110,9 @@ namespace Pulumi.AwsNative.Dms
 
             Outputs.SettingsProperties? settings,
 
-            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
+
+            bool? @virtual)
         {
             DataProviderArn = dataProviderArn;
             DataProviderCreationTime = dataProviderCreationTime;
@@ -115,6 +121,7 @@ namespace Pulumi.AwsNative.Dms
             Engine = engine;
             Settings = settings;
             Tags = tags;
+            Virtual = @virtual;
         }
     }
 }

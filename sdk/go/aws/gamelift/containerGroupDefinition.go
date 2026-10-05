@@ -42,7 +42,7 @@ type ContainerGroupDefinition struct {
 	// The total memory limit of container groups following this definition in MiB
 	TotalMemoryLimitMebibytes pulumi.IntOutput `pulumi:"totalMemoryLimitMebibytes"`
 	// The total amount of virtual CPUs on the container group definition
-	TotalVcpuLimit pulumi.Float64Output `pulumi:"totalVcpuLimit"`
+	TotalVcpuLimit pulumi.Float64PtrOutput `pulumi:"totalVcpuLimit"`
 	// The description of this version
 	VersionDescription pulumi.StringPtrOutput `pulumi:"versionDescription"`
 	// The version of this ContainerGroupDefinition
@@ -61,9 +61,6 @@ func NewContainerGroupDefinition(ctx *pulumi.Context,
 	}
 	if args.TotalMemoryLimitMebibytes == nil {
 		return nil, errors.New("invalid value for required argument 'TotalMemoryLimitMebibytes'")
-	}
-	if args.TotalVcpuLimit == nil {
-		return nil, errors.New("invalid value for required argument 'TotalVcpuLimit'")
 	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"containerGroupType",
@@ -120,7 +117,7 @@ type containerGroupDefinitionArgs struct {
 	// The total memory limit of container groups following this definition in MiB
 	TotalMemoryLimitMebibytes int `pulumi:"totalMemoryLimitMebibytes"`
 	// The total amount of virtual CPUs on the container group definition
-	TotalVcpuLimit float64 `pulumi:"totalVcpuLimit"`
+	TotalVcpuLimit *float64 `pulumi:"totalVcpuLimit"`
 	// The description of this version
 	VersionDescription *string `pulumi:"versionDescription"`
 }
@@ -144,7 +141,7 @@ type ContainerGroupDefinitionArgs struct {
 	// The total memory limit of container groups following this definition in MiB
 	TotalMemoryLimitMebibytes pulumi.IntInput
 	// The total amount of virtual CPUs on the container group definition
-	TotalVcpuLimit pulumi.Float64Input
+	TotalVcpuLimit pulumi.Float64PtrInput
 	// The description of this version
 	VersionDescription pulumi.StringPtrInput
 }
@@ -255,8 +252,8 @@ func (o ContainerGroupDefinitionOutput) TotalMemoryLimitMebibytes() pulumi.IntOu
 }
 
 // The total amount of virtual CPUs on the container group definition
-func (o ContainerGroupDefinitionOutput) TotalVcpuLimit() pulumi.Float64Output {
-	return o.ApplyT(func(v *ContainerGroupDefinition) pulumi.Float64Output { return v.TotalVcpuLimit }).(pulumi.Float64Output)
+func (o ContainerGroupDefinitionOutput) TotalVcpuLimit() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *ContainerGroupDefinition) pulumi.Float64PtrOutput { return v.TotalVcpuLimit }).(pulumi.Float64PtrOutput)
 }
 
 // The description of this version

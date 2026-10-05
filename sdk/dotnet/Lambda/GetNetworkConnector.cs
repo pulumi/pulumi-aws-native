@@ -59,6 +59,8 @@ namespace Pulumi.AwsNative.Lambda
     {
         public readonly string? Arn;
         public readonly Outputs.NetworkConnectorConfig? Configuration;
+        public readonly int? LatestVersion;
+        public readonly string? LatestVersionArn;
         public readonly string? OperatorRole;
         public readonly Pulumi.AwsNative.Lambda.NetworkConnectorState? State;
         /// <summary>
@@ -72,6 +74,10 @@ namespace Pulumi.AwsNative.Lambda
 
             Outputs.NetworkConnectorConfig? configuration,
 
+            int? latestVersion,
+
+            string? latestVersionArn,
+
             string? operatorRole,
 
             Pulumi.AwsNative.Lambda.NetworkConnectorState? state,
@@ -80,6 +86,8 @@ namespace Pulumi.AwsNative.Lambda
         {
             Arn = arn;
             Configuration = configuration;
+            LatestVersion = latestVersion;
+            LatestVersionArn = latestVersionArn;
             OperatorRole = operatorRole;
             State = state;
             Tags = tags;

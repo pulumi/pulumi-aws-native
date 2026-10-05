@@ -220,6 +220,11 @@ export const getTrafficDistributionGroup: typeof import("./getTrafficDistributio
 export const getTrafficDistributionGroupOutput: typeof import("./getTrafficDistributionGroup").getTrafficDistributionGroupOutput = null as any;
 utilities.lazyLoad(exports, ["getTrafficDistributionGroup","getTrafficDistributionGroupOutput"], () => require("./getTrafficDistributionGroup"));
 
+export { GetUseCaseArgs, GetUseCaseResult, GetUseCaseOutputArgs } from "./getUseCase";
+export const getUseCase: typeof import("./getUseCase").getUseCase = null as any;
+export const getUseCaseOutput: typeof import("./getUseCase").getUseCaseOutput = null as any;
+utilities.lazyLoad(exports, ["getUseCase","getUseCaseOutput"], () => require("./getUseCase"));
+
 export { GetUserArgs, GetUserResult, GetUserOutputArgs } from "./getUser";
 export const getUser: typeof import("./getUser").getUser = null as any;
 export const getUserOutput: typeof import("./getUser").getUserOutput = null as any;
@@ -345,6 +350,11 @@ export type TrafficDistributionGroup = import("./trafficDistributionGroup").Traf
 export const TrafficDistributionGroup: typeof import("./trafficDistributionGroup").TrafficDistributionGroup = null as any;
 utilities.lazyLoad(exports, ["TrafficDistributionGroup"], () => require("./trafficDistributionGroup"));
 
+export { UseCaseArgs } from "./useCase";
+export type UseCase = import("./useCase").UseCase;
+export const UseCase: typeof import("./useCase").UseCase = null as any;
+utilities.lazyLoad(exports, ["UseCase"], () => require("./useCase"));
+
 export { UserArgs } from "./user";
 export type User = import("./user").User;
 export const User: typeof import("./user").User = null as any;
@@ -450,6 +460,8 @@ const _module = {
                 return new TestCase(name, <any>undefined, { urn })
             case "aws-native:connect:TrafficDistributionGroup":
                 return new TrafficDistributionGroup(name, <any>undefined, { urn })
+            case "aws-native:connect:UseCase":
+                return new UseCase(name, <any>undefined, { urn })
             case "aws-native:connect:User":
                 return new User(name, <any>undefined, { urn })
             case "aws-native:connect:UserHierarchyGroup":

@@ -29,8 +29,12 @@ type LookupOTelEnrichmentArgs struct {
 
 type LookupOTelEnrichmentResult struct {
 	// The AWS account ID. This is the primary identifier for this singleton resource.
-	AccountId *string               `pulumi:"accountId"`
-	Status    *OTelEnrichmentStatus `pulumi:"status"`
+	AccountId *string `pulumi:"accountId"`
+	// Removes metrics from the include set. Absent or empty means nothing is removed. Evaluated after IncludeFilters, so ExcludeFilters always wins.
+	ExcludeFilters []OTelEnrichmentMetricSelector `pulumi:"excludeFilters"`
+	// Scopes enrichment to a subset of the account's telemetry. Absent or empty means all namespaces are in scope. Present means only these are. The service enforces a combined cap of 100 selectors across IncludeFilters and ExcludeFilters, and rejects more than one selector for the same namespace within a direction.
+	IncludeFilters []OTelEnrichmentMetricSelector `pulumi:"includeFilters"`
+	Status         *OTelEnrichmentStatus          `pulumi:"status"`
 }
 
 func LookupOTelEnrichmentOutput(ctx *pulumi.Context, args LookupOTelEnrichmentOutputArgs, opts ...pulumi.InvokeOption) LookupOTelEnrichmentResultOutput {
@@ -64,6 +68,16 @@ func (o LookupOTelEnrichmentResultOutput) ToLookupOTelEnrichmentResultOutputWith
 // The AWS account ID. This is the primary identifier for this singleton resource.
 func (o LookupOTelEnrichmentResultOutput) AccountId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupOTelEnrichmentResult) *string { return v.AccountId }).(pulumi.StringPtrOutput)
+}
+
+// Removes metrics from the include set. Absent or empty means nothing is removed. Evaluated after IncludeFilters, so ExcludeFilters always wins.
+func (o LookupOTelEnrichmentResultOutput) ExcludeFilters() OTelEnrichmentMetricSelectorArrayOutput {
+	return o.ApplyT(func(v LookupOTelEnrichmentResult) []OTelEnrichmentMetricSelector { return v.ExcludeFilters }).(OTelEnrichmentMetricSelectorArrayOutput)
+}
+
+// Scopes enrichment to a subset of the account's telemetry. Absent or empty means all namespaces are in scope. Present means only these are. The service enforces a combined cap of 100 selectors across IncludeFilters and ExcludeFilters, and rejects more than one selector for the same namespace within a direction.
+func (o LookupOTelEnrichmentResultOutput) IncludeFilters() OTelEnrichmentMetricSelectorArrayOutput {
+	return o.ApplyT(func(v LookupOTelEnrichmentResult) []OTelEnrichmentMetricSelector { return v.IncludeFilters }).(OTelEnrichmentMetricSelectorArrayOutput)
 }
 
 func (o LookupOTelEnrichmentResultOutput) Status() OTelEnrichmentStatusPtrOutput {

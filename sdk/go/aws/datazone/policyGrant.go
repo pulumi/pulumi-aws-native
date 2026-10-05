@@ -43,6 +43,9 @@ func NewPolicyGrant(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.Detail == nil {
+		return nil, errors.New("invalid value for required argument 'Detail'")
+	}
 	if args.DomainIdentifier == nil {
 		return nil, errors.New("invalid value for required argument 'DomainIdentifier'")
 	}
@@ -54,6 +57,9 @@ func NewPolicyGrant(ctx *pulumi.Context,
 	}
 	if args.PolicyType == nil {
 		return nil, errors.New("invalid value for required argument 'PolicyType'")
+	}
+	if args.Principal == nil {
+		return nil, errors.New("invalid value for required argument 'Principal'")
 	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"detail",

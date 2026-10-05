@@ -34,3 +34,63 @@ export const ParallelDataStatus = {
  * The status of the parallel data resource.
  */
 export type ParallelDataStatus = (typeof ParallelDataStatus)[keyof typeof ParallelDataStatus];
+
+export const TerminologyDataPropertiesDirectionality = {
+    Uni: "UNI",
+    Multi: "MULTI",
+} as const;
+
+/**
+ * The directionality of the terminology resource.
+ */
+export type TerminologyDataPropertiesDirectionality = (typeof TerminologyDataPropertiesDirectionality)[keyof typeof TerminologyDataPropertiesDirectionality];
+
+export const TerminologyDataPropertiesFormat = {
+    Csv: "CSV",
+    Tmx: "TMX",
+    Tsv: "TSV",
+} as const;
+
+/**
+ * The data format of the custom terminology.
+ */
+export type TerminologyDataPropertiesFormat = (typeof TerminologyDataPropertiesFormat)[keyof typeof TerminologyDataPropertiesFormat];
+
+export const TerminologyDirectionality = {
+    Uni: "UNI",
+    Multi: "MULTI",
+} as const;
+
+/**
+ * The directionality of the terminology.
+ */
+export type TerminologyDirectionality = (typeof TerminologyDirectionality)[keyof typeof TerminologyDirectionality];
+
+export const TerminologyEncryptionKeyPropertiesType = {
+    Kms: "KMS",
+} as const;
+
+/**
+ * The type of encryption key.
+ */
+export type TerminologyEncryptionKeyPropertiesType = (typeof TerminologyEncryptionKeyPropertiesType)[keyof typeof TerminologyEncryptionKeyPropertiesType];
+
+export const TerminologyFormat = {
+    Csv: "CSV",
+    Tmx: "TMX",
+    Tsv: "TSV",
+} as const;
+
+/**
+ * The format of the terminology data.
+ */
+export type TerminologyFormat = (typeof TerminologyFormat)[keyof typeof TerminologyFormat];
+
+export const TerminologyMergeStrategy = {
+    Overwrite: "OVERWRITE",
+} as const;
+
+/**
+ * The merge strategy for the custom terminology. Currently only OVERWRITE is supported.
+ */
+export type TerminologyMergeStrategy = (typeof TerminologyMergeStrategy)[keyof typeof TerminologyMergeStrategy];

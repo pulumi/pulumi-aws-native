@@ -17,11 +17,19 @@ namespace Pulumi.AwsNative.DataZone.Outputs
     public sealed class ConnectionIamPropertiesInput
     {
         public readonly bool? GlueLineageSyncEnabled;
+        /// <summary>
+        /// The ARN of the IAM role to associate with the connection as the project user role.
+        /// </summary>
+        public readonly string? RoleArn;
 
         [OutputConstructor]
-        private ConnectionIamPropertiesInput(bool? glueLineageSyncEnabled)
+        private ConnectionIamPropertiesInput(
+            bool? glueLineageSyncEnabled,
+
+            string? roleArn)
         {
             GlueLineageSyncEnabled = glueLineageSyncEnabled;
+            RoleArn = roleArn;
         }
     }
 }

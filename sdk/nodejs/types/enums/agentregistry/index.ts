@@ -29,6 +29,25 @@ export const RegistryAutoApprovalRule = {
  */
 export type RegistryAutoApprovalRule = (typeof RegistryAutoApprovalRule)[keyof typeof RegistryAutoApprovalRule];
 
+export const RegistryAutoDetectionScope = {
+    Organization: "ORGANIZATION",
+} as const;
+
+/**
+ * The source from which resources are detected. ORGANIZATION sources resources from all member accounts of an AWS Organization.
+ */
+export type RegistryAutoDetectionScope = (typeof RegistryAutoDetectionScope)[keyof typeof RegistryAutoDetectionScope];
+
+export const RegistryAutoDetectionStatus = {
+    Active: "ACTIVE",
+    Inactive: "INACTIVE",
+} as const;
+
+/**
+ * The current auto-detection status. ACTIVE indicates that the registry is actively being populated with detected resources. INACTIVE indicates that the preconditions required at the configured scope are not currently met.
+ */
+export type RegistryAutoDetectionStatus = (typeof RegistryAutoDetectionStatus)[keyof typeof RegistryAutoDetectionStatus];
+
 export const RegistryCustomClaimValidationTypeInboundTokenClaimValueType = {
     String: "STRING",
     StringArray: "STRING_ARRAY",

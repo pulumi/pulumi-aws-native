@@ -494,7 +494,7 @@ namespace Pulumi.AwsNative.Connect
     }
 
     /// <summary>
-    /// The type of the metric.
+    /// The type of metric. Currently, only ``BUSINESS_OUTCOME`` is supported.
     /// </summary>
     [EnumType]
     public readonly struct EvaluationFormMetricConfigurationMetricType : IEquatable<EvaluationFormMetricConfigurationMetricType>
@@ -1247,6 +1247,7 @@ namespace Pulumi.AwsNative.Connect
         public static IntegrationAssociationIntegrationType MessageProcessor { get; } = new IntegrationAssociationIntegrationType("MESSAGE_PROCESSOR");
         public static IntegrationAssociationIntegrationType QMessageTemplates { get; } = new IntegrationAssociationIntegrationType("Q_MESSAGE_TEMPLATES");
         public static IntegrationAssociationIntegrationType SesIdentity { get; } = new IntegrationAssociationIntegrationType("SES_IDENTITY");
+        public static IntegrationAssociationIntegrationType Event { get; } = new IntegrationAssociationIntegrationType("EVENT");
 
         public static bool operator ==(IntegrationAssociationIntegrationType left, IntegrationAssociationIntegrationType right) => left.Equals(right);
         public static bool operator !=(IntegrationAssociationIntegrationType left, IntegrationAssociationIntegrationType right) => !left.Equals(right);
@@ -1256,6 +1257,38 @@ namespace Pulumi.AwsNative.Connect
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is IntegrationAssociationIntegrationType other && Equals(other);
         public bool Equals(IntegrationAssociationIntegrationType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The type of the data source. This is only supported for the EVENT integration type
+    /// </summary>
+    [EnumType]
+    public readonly struct IntegrationAssociationSourceType : IEquatable<IntegrationAssociationSourceType>
+    {
+        private readonly string _value;
+
+        private IntegrationAssociationSourceType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static IntegrationAssociationSourceType Salesforce { get; } = new IntegrationAssociationSourceType("SALESFORCE");
+        public static IntegrationAssociationSourceType Zendesk { get; } = new IntegrationAssociationSourceType("ZENDESK");
+        public static IntegrationAssociationSourceType Cases { get; } = new IntegrationAssociationSourceType("CASES");
+
+        public static bool operator ==(IntegrationAssociationSourceType left, IntegrationAssociationSourceType right) => left.Equals(right);
+        public static bool operator !=(IntegrationAssociationSourceType left, IntegrationAssociationSourceType right) => !left.Equals(right);
+
+        public static explicit operator string(IntegrationAssociationSourceType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is IntegrationAssociationSourceType other && Equals(other);
+        public bool Equals(IntegrationAssociationSourceType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -2213,6 +2246,37 @@ namespace Pulumi.AwsNative.Connect
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is TrafficDistributionGroupStatus other && Equals(other);
         public bool Equals(TrafficDistributionGroupStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The type of use case to associate to the integration association.
+    /// </summary>
+    [EnumType]
+    public readonly struct UseCaseType : IEquatable<UseCaseType>
+    {
+        private readonly string _value;
+
+        private UseCaseType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static UseCaseType RulesEvaluation { get; } = new UseCaseType("RULES_EVALUATION");
+        public static UseCaseType ConnectCampaigns { get; } = new UseCaseType("CONNECT_CAMPAIGNS");
+
+        public static bool operator ==(UseCaseType left, UseCaseType right) => left.Equals(right);
+        public static bool operator !=(UseCaseType left, UseCaseType right) => !left.Equals(right);
+
+        public static explicit operator string(UseCaseType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is UseCaseType other && Equals(other);
+        public bool Equals(UseCaseType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

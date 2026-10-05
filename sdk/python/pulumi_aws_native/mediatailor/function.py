@@ -26,12 +26,14 @@ class FunctionArgs:
     def __init__(__self__, *,
                  function_id: pulumi.Input[_builtins.str],
                  function_type: pulumi.Input['FunctionType'],
+                 aws_service_request_configuration: pulumi.Input[Optional['FunctionAwsServiceRequestConfigurationArgs']] = None,
                  concurrent_executor_configuration: pulumi.Input[Optional['FunctionConcurrentExecutorConfigurationArgs']] = None,
                  custom_output_configuration: pulumi.Input[Optional['FunctionCustomOutputConfigurationArgs']] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  http_request_configuration: pulumi.Input[Optional['FunctionHttpRequestConfigurationArgs']] = None,
                  sequential_executor_configuration: pulumi.Input[Optional['FunctionSequentialExecutorConfigurationArgs']] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 vast_request_configuration: pulumi.Input[Optional['FunctionVastRequestConfigurationArgs']] = None):
         """
         The set of arguments for constructing a Function resource.
 
@@ -43,6 +45,8 @@ class FunctionArgs:
         """
         pulumi.set(__self__, "function_id", function_id)
         pulumi.set(__self__, "function_type", function_type)
+        if aws_service_request_configuration is not None:
+            pulumi.set(__self__, "aws_service_request_configuration", aws_service_request_configuration)
         if concurrent_executor_configuration is not None:
             pulumi.set(__self__, "concurrent_executor_configuration", concurrent_executor_configuration)
         if custom_output_configuration is not None:
@@ -55,6 +59,8 @@ class FunctionArgs:
             pulumi.set(__self__, "sequential_executor_configuration", sequential_executor_configuration)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if vast_request_configuration is not None:
+            pulumi.set(__self__, "vast_request_configuration", vast_request_configuration)
 
     @_builtins.property
     @pulumi.getter(name="functionId")
@@ -79,6 +85,15 @@ class FunctionArgs:
     @function_type.setter
     def function_type(self, value: pulumi.Input['FunctionType']):
         pulumi.set(self, "function_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="awsServiceRequestConfiguration")
+    def aws_service_request_configuration(self) -> pulumi.Input[Optional['FunctionAwsServiceRequestConfigurationArgs']]:
+        return pulumi.get(self, "aws_service_request_configuration")
+
+    @aws_service_request_configuration.setter
+    def aws_service_request_configuration(self, value: pulumi.Input[Optional['FunctionAwsServiceRequestConfigurationArgs']]):
+        pulumi.set(self, "aws_service_request_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="concurrentExecutorConfiguration")
@@ -143,6 +158,15 @@ class FunctionArgs:
     def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
+    @_builtins.property
+    @pulumi.getter(name="vastRequestConfiguration")
+    def vast_request_configuration(self) -> pulumi.Input[Optional['FunctionVastRequestConfigurationArgs']]:
+        return pulumi.get(self, "vast_request_configuration")
+
+    @vast_request_configuration.setter
+    def vast_request_configuration(self, value: pulumi.Input[Optional['FunctionVastRequestConfigurationArgs']]):
+        pulumi.set(self, "vast_request_configuration", value)
+
 
 @pulumi.type_token("aws-native:mediatailor:Function")
 class Function(pulumi.CustomResource):
@@ -150,6 +174,7 @@ class Function(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 aws_service_request_configuration: pulumi.Input[Optional[Union['FunctionAwsServiceRequestConfigurationArgs', 'FunctionAwsServiceRequestConfigurationArgsDict']]] = None,
                  concurrent_executor_configuration: pulumi.Input[Optional[Union['FunctionConcurrentExecutorConfigurationArgs', 'FunctionConcurrentExecutorConfigurationArgsDict']]] = None,
                  custom_output_configuration: pulumi.Input[Optional[Union['FunctionCustomOutputConfigurationArgs', 'FunctionCustomOutputConfigurationArgsDict']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
@@ -158,6 +183,7 @@ class Function(pulumi.CustomResource):
                  http_request_configuration: pulumi.Input[Optional[Union['FunctionHttpRequestConfigurationArgs', 'FunctionHttpRequestConfigurationArgsDict']]] = None,
                  sequential_executor_configuration: pulumi.Input[Optional[Union['FunctionSequentialExecutorConfigurationArgs', 'FunctionSequentialExecutorConfigurationArgsDict']]] = None,
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 vast_request_configuration: pulumi.Input[Optional[Union['FunctionVastRequestConfigurationArgs', 'FunctionVastRequestConfigurationArgsDict']]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::MediaTailor::Function
@@ -194,6 +220,7 @@ class Function(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 aws_service_request_configuration: pulumi.Input[Optional[Union['FunctionAwsServiceRequestConfigurationArgs', 'FunctionAwsServiceRequestConfigurationArgsDict']]] = None,
                  concurrent_executor_configuration: pulumi.Input[Optional[Union['FunctionConcurrentExecutorConfigurationArgs', 'FunctionConcurrentExecutorConfigurationArgsDict']]] = None,
                  custom_output_configuration: pulumi.Input[Optional[Union['FunctionCustomOutputConfigurationArgs', 'FunctionCustomOutputConfigurationArgsDict']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
@@ -202,6 +229,7 @@ class Function(pulumi.CustomResource):
                  http_request_configuration: pulumi.Input[Optional[Union['FunctionHttpRequestConfigurationArgs', 'FunctionHttpRequestConfigurationArgsDict']]] = None,
                  sequential_executor_configuration: pulumi.Input[Optional[Union['FunctionSequentialExecutorConfigurationArgs', 'FunctionSequentialExecutorConfigurationArgsDict']]] = None,
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 vast_request_configuration: pulumi.Input[Optional[Union['FunctionVastRequestConfigurationArgs', 'FunctionVastRequestConfigurationArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -211,6 +239,7 @@ class Function(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = FunctionArgs.__new__(FunctionArgs)
 
+            __props__.__dict__["aws_service_request_configuration"] = aws_service_request_configuration
             __props__.__dict__["concurrent_executor_configuration"] = concurrent_executor_configuration
             __props__.__dict__["custom_output_configuration"] = custom_output_configuration
             __props__.__dict__["description"] = description
@@ -223,6 +252,7 @@ class Function(pulumi.CustomResource):
             __props__.__dict__["http_request_configuration"] = http_request_configuration
             __props__.__dict__["sequential_executor_configuration"] = sequential_executor_configuration
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["vast_request_configuration"] = vast_request_configuration
             __props__.__dict__["arn"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["functionId"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
@@ -249,6 +279,7 @@ class Function(pulumi.CustomResource):
         __props__ = FunctionArgs.__new__(FunctionArgs)
 
         __props__.__dict__["arn"] = None
+        __props__.__dict__["aws_service_request_configuration"] = None
         __props__.__dict__["concurrent_executor_configuration"] = None
         __props__.__dict__["custom_output_configuration"] = None
         __props__.__dict__["description"] = None
@@ -257,6 +288,7 @@ class Function(pulumi.CustomResource):
         __props__.__dict__["http_request_configuration"] = None
         __props__.__dict__["sequential_executor_configuration"] = None
         __props__.__dict__["tags"] = None
+        __props__.__dict__["vast_request_configuration"] = None
         return Function(resource_name, opts=opts, __props__=__props__)
 
     @_builtins.property
@@ -266,6 +298,11 @@ class Function(pulumi.CustomResource):
         The ARN of the function.
         """
         return pulumi.get(self, "arn")
+
+    @_builtins.property
+    @pulumi.getter(name="awsServiceRequestConfiguration")
+    def aws_service_request_configuration(self) -> pulumi.Output[Optional['outputs.FunctionAwsServiceRequestConfiguration']]:
+        return pulumi.get(self, "aws_service_request_configuration")
 
     @_builtins.property
     @pulumi.getter(name="concurrentExecutorConfiguration")
@@ -321,4 +358,9 @@ class Function(pulumi.CustomResource):
         The tags to assign to the function resource.
         """
         return pulumi.get(self, "tags")
+
+    @_builtins.property
+    @pulumi.getter(name="vastRequestConfiguration")
+    def vast_request_configuration(self) -> pulumi.Output[Optional['outputs.FunctionVastRequestConfiguration']]:
+        return pulumi.get(self, "vast_request_configuration")
 

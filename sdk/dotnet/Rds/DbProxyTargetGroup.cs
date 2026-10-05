@@ -40,6 +40,12 @@ namespace Pulumi.AwsNative.Rds
         public Output<string> DbProxyName { get; private set; } = null!;
 
         /// <summary>
+        /// An array of key-value pairs to apply to this resource.
+        /// </summary>
+        [Output("tags")]
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
+
+        /// <summary>
         /// The Amazon Resource Name (ARN) representing the target group.
         /// </summary>
         [Output("targetGroupArn")]
@@ -136,6 +142,18 @@ namespace Pulumi.AwsNative.Rds
         /// </summary>
         [Input("dbProxyName", required: true)]
         public Input<string> DbProxyName { get; set; } = null!;
+
+        [Input("tags")]
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+
+        /// <summary>
+        /// An array of key-value pairs to apply to this resource.
+        /// </summary>
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
+        {
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            set => _tags = value;
+        }
 
         /// <summary>
         /// The identifier for the DBProxyTargetGroup

@@ -55582,8 +55582,8 @@ func (o TemplateSheetLayoutGroupArrayOutput) Index(i pulumi.IntInput) TemplateSh
 }
 
 type TemplateSheetLayoutGroupMember struct {
-	Id   string      `pulumi:"id"`
-	Type interface{} `pulumi:"type"`
+	Id   string                             `pulumi:"id"`
+	Type TemplateSheetLayoutGroupMemberType `pulumi:"type"`
 }
 
 // TemplateSheetLayoutGroupMemberInput is an input type that accepts TemplateSheetLayoutGroupMemberArgs and TemplateSheetLayoutGroupMemberOutput values.
@@ -55598,8 +55598,8 @@ type TemplateSheetLayoutGroupMemberInput interface {
 }
 
 type TemplateSheetLayoutGroupMemberArgs struct {
-	Id   pulumi.StringInput `pulumi:"id"`
-	Type pulumi.Input       `pulumi:"type"`
+	Id   pulumi.StringInput                      `pulumi:"id"`
+	Type TemplateSheetLayoutGroupMemberTypeInput `pulumi:"type"`
 }
 
 func (TemplateSheetLayoutGroupMemberArgs) ElementType() reflect.Type {
@@ -55657,8 +55657,8 @@ func (o TemplateSheetLayoutGroupMemberOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v TemplateSheetLayoutGroupMember) string { return v.Id }).(pulumi.StringOutput)
 }
 
-func (o TemplateSheetLayoutGroupMemberOutput) Type() pulumi.AnyOutput {
-	return o.ApplyT(func(v TemplateSheetLayoutGroupMember) interface{} { return v.Type }).(pulumi.AnyOutput)
+func (o TemplateSheetLayoutGroupMemberOutput) Type() TemplateSheetLayoutGroupMemberTypeOutput {
+	return o.ApplyT(func(v TemplateSheetLayoutGroupMember) TemplateSheetLayoutGroupMemberType { return v.Type }).(TemplateSheetLayoutGroupMemberTypeOutput)
 }
 
 type TemplateSheetLayoutGroupMemberArrayOutput struct{ *pulumi.OutputState }

@@ -39,9 +39,10 @@ type Plan struct {
 	// The AWS Regions for a plan.
 	Regions pulumi.StringArrayOutput `pulumi:"regions"`
 	// The report configuration for a plan.
-	ReportConfiguration PlanReportConfigurationPtrOutput    `pulumi:"reportConfiguration"`
-	Route53HealthChecks Route53HealthChecksPropertiesOutput `pulumi:"route53HealthChecks"`
-	Tags                pulumi.StringMapOutput              `pulumi:"tags"`
+	ReportConfiguration       PlanReportConfigurationPtrOutput    `pulumi:"reportConfiguration"`
+	Route53HealthChecks       Route53HealthChecksPropertiesOutput `pulumi:"route53HealthChecks"`
+	ServiceQuotaChecksEnabled pulumi.BoolPtrOutput                `pulumi:"serviceQuotaChecksEnabled"`
+	Tags                      pulumi.StringMapOutput              `pulumi:"tags"`
 	// The triggers for a plan.
 	Triggers PlanTriggerArrayOutput `pulumi:"triggers"`
 	// The version for the plan.
@@ -126,8 +127,9 @@ type planArgs struct {
 	// The AWS Regions for a plan.
 	Regions []string `pulumi:"regions"`
 	// The report configuration for a plan.
-	ReportConfiguration *PlanReportConfiguration `pulumi:"reportConfiguration"`
-	Tags                map[string]string        `pulumi:"tags"`
+	ReportConfiguration       *PlanReportConfiguration `pulumi:"reportConfiguration"`
+	ServiceQuotaChecksEnabled *bool                    `pulumi:"serviceQuotaChecksEnabled"`
+	Tags                      map[string]string        `pulumi:"tags"`
 	// The triggers for a plan.
 	Triggers []PlanTrigger `pulumi:"triggers"`
 	// The workflows for a plan.
@@ -153,8 +155,9 @@ type PlanArgs struct {
 	// The AWS Regions for a plan.
 	Regions pulumi.StringArrayInput
 	// The report configuration for a plan.
-	ReportConfiguration PlanReportConfigurationPtrInput
-	Tags                pulumi.StringMapInput
+	ReportConfiguration       PlanReportConfigurationPtrInput
+	ServiceQuotaChecksEnabled pulumi.BoolPtrInput
+	Tags                      pulumi.StringMapInput
 	// The triggers for a plan.
 	Triggers PlanTriggerArrayInput
 	// The workflows for a plan.
@@ -263,6 +266,10 @@ func (o PlanOutput) ReportConfiguration() PlanReportConfigurationPtrOutput {
 
 func (o PlanOutput) Route53HealthChecks() Route53HealthChecksPropertiesOutput {
 	return o.ApplyT(func(v *Plan) Route53HealthChecksPropertiesOutput { return v.Route53HealthChecks }).(Route53HealthChecksPropertiesOutput)
+}
+
+func (o PlanOutput) ServiceQuotaChecksEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Plan) pulumi.BoolPtrOutput { return v.ServiceQuotaChecksEnabled }).(pulumi.BoolPtrOutput)
 }
 
 func (o PlanOutput) Tags() pulumi.StringMapOutput {

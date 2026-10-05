@@ -10,16 +10,24 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Connect.Inputs
 {
 
+    /// <summary>
+    /// Information about the metric configuration for an evaluation form question. Use this to associate a business outcome metric with a question.
+    /// </summary>
     public sealed class EvaluationFormMetricConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the metric.
+        /// The name of the metric. Valid values are:
+        ///   +  ``SALE_SUCCESS`` – Sale success.
+        ///   +  ``CSAT`` – Customer satisfaction.
+        ///   +  ``CHURN_PROPENSITY`` – Churn propensity.
+        ///   +  ``SELF_SERVICE_SUCCESS`` – Self-service success.
+        ///   +  ``PARTIAL_SELF_SERVICE_SUCCESS`` – Partial self-service success.
         /// </summary>
         [Input("metricName", required: true)]
         public Input<string> MetricName { get; set; } = null!;
 
         /// <summary>
-        /// The type of the metric.
+        /// The type of metric. Currently, only ``BUSINESS_OUTCOME`` is supported.
         /// </summary>
         [Input("metricType", required: true)]
         public Input<Pulumi.AwsNative.Connect.EvaluationFormMetricConfigurationMetricType> MetricType { get; set; } = null!;

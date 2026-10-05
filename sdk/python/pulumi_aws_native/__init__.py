@@ -117,6 +117,8 @@ if typing.TYPE_CHECKING:
     cleanrooms = __cleanrooms
     import pulumi_aws_native.cleanroomsml as __cleanroomsml
     cleanroomsml = __cleanroomsml
+    import pulumi_aws_native.cloud9 as __cloud9
+    cloud9 = __cloud9
     import pulumi_aws_native.cloudformation as __cloudformation
     cloudformation = __cloudformation
     import pulumi_aws_native.cloudfront as __cloudfront
@@ -639,6 +641,7 @@ else:
     chime = _utilities.lazy_import('pulumi_aws_native.chime')
     cleanrooms = _utilities.lazy_import('pulumi_aws_native.cleanrooms')
     cleanroomsml = _utilities.lazy_import('pulumi_aws_native.cleanroomsml')
+    cloud9 = _utilities.lazy_import('pulumi_aws_native.cloud9')
     cloudformation = _utilities.lazy_import('pulumi_aws_native.cloudformation')
     cloudfront = _utilities.lazy_import('pulumi_aws_native.cloudfront')
     cloudhsm = _utilities.lazy_import('pulumi_aws_native.cloudhsm')
@@ -1095,6 +1098,7 @@ _utilities.register(
    "aws-native:appstream:ApplicationFleetAssociation": "ApplicationFleetAssociation",
    "aws-native:appstream:DirectoryConfig": "DirectoryConfig",
    "aws-native:appstream:Entitlement": "Entitlement",
+   "aws-native:appstream:Fleet": "Fleet",
    "aws-native:appstream:ImageBuilder": "ImageBuilder",
    "aws-native:appstream:Stack": "Stack",
    "aws-native:appstream:StackFleetAssociation": "StackFleetAssociation",
@@ -1108,6 +1112,7 @@ _utilities.register(
   "fqn": "pulumi_aws_native.appsync",
   "classes": {
    "aws-native:appsync:Api": "Api",
+   "aws-native:appsync:ApiCache": "ApiCache",
    "aws-native:appsync:ApiKey": "ApiKey",
    "aws-native:appsync:ChannelNamespace": "ChannelNamespace",
    "aws-native:appsync:DataSource": "DataSource",
@@ -1287,6 +1292,7 @@ _utilities.register(
    "aws-native:bedrock:GuardrailVersion": "GuardrailVersion",
    "aws-native:bedrock:IntelligentPromptRouter": "IntelligentPromptRouter",
    "aws-native:bedrock:KnowledgeBase": "KnowledgeBase",
+   "aws-native:bedrock:KnowledgeBasePolicy": "KnowledgeBasePolicy",
    "aws-native:bedrock:Prompt": "Prompt",
    "aws-native:bedrock:PromptVersion": "PromptVersion",
    "aws-native:bedrock:ResourcePolicy": "ResourcePolicy",
@@ -1451,6 +1457,14 @@ _utilities.register(
  },
  {
   "pkg": "aws-native",
+  "mod": "cloud9",
+  "fqn": "pulumi_aws_native.cloud9",
+  "classes": {
+   "aws-native:cloud9:EnvironmentEc2": "EnvironmentEc2"
+  }
+ },
+ {
+  "pkg": "aws-native",
   "mod": "cloudformation",
   "fqn": "pulumi_aws_native.cloudformation",
   "classes": {
@@ -1530,7 +1544,9 @@ _utilities.register(
    "aws-native:cloudwatch:InsightRule": "InsightRule",
    "aws-native:cloudwatch:LogAlarm": "LogAlarm",
    "aws-native:cloudwatch:MetricStream": "MetricStream",
-   "aws-native:cloudwatch:OTelEnrichment": "OTelEnrichment"
+   "aws-native:cloudwatch:OTelEnrichment": "OTelEnrichment",
+   "aws-native:cloudwatch:ResourceMetricsConfiguration": "ResourceMetricsConfiguration",
+   "aws-native:cloudwatch:View": "View"
   }
  },
  {
@@ -1657,6 +1673,7 @@ _utilities.register(
    "aws-native:comprehend:DocumentClassifier": "DocumentClassifier",
    "aws-native:comprehend:DocumentClassifierEndpoint": "DocumentClassifierEndpoint",
    "aws-native:comprehend:EntityRecognizer": "EntityRecognizer",
+   "aws-native:comprehend:EntityRecognizerEndpoint": "EntityRecognizerEndpoint",
    "aws-native:comprehend:Flywheel": "Flywheel"
   }
  },
@@ -1680,6 +1697,7 @@ _utilities.register(
    "aws-native:configuration:ConformancePack": "ConformancePack",
    "aws-native:configuration:Connector": "Connector",
    "aws-native:configuration:DeliveryChannel": "DeliveryChannel",
+   "aws-native:configuration:OrganizationConfigRule": "OrganizationConfigRule",
    "aws-native:configuration:OrganizationConformancePack": "OrganizationConformancePack",
    "aws-native:configuration:RemediationConfiguration": "RemediationConfiguration",
    "aws-native:configuration:StoredQuery": "StoredQuery"
@@ -1721,6 +1739,7 @@ _utilities.register(
    "aws-native:connect:TaskTemplate": "TaskTemplate",
    "aws-native:connect:TestCase": "TestCase",
    "aws-native:connect:TrafficDistributionGroup": "TrafficDistributionGroup",
+   "aws-native:connect:UseCase": "UseCase",
    "aws-native:connect:User": "User",
    "aws-native:connect:UserHierarchyGroup": "UserHierarchyGroup",
    "aws-native:connect:UserHierarchyStructure": "UserHierarchyStructure",
@@ -1943,6 +1962,7 @@ _utilities.register(
   "mod": "directoryservice",
   "fqn": "pulumi_aws_native.directoryservice",
   "classes": {
+   "aws-native:directoryservice:MicrosoftAd": "MicrosoftAd",
    "aws-native:directoryservice:SimpleAd": "SimpleAd"
   }
  },
@@ -2029,6 +2049,7 @@ _utilities.register(
    "aws-native:ec2:CapacityReservation": "CapacityReservation",
    "aws-native:ec2:CapacityReservationFleet": "CapacityReservationFleet",
    "aws-native:ec2:CarrierGateway": "CarrierGateway",
+   "aws-native:ec2:ClientVpnAuthorizationRule": "ClientVpnAuthorizationRule",
    "aws-native:ec2:CustomerGateway": "CustomerGateway",
    "aws-native:ec2:DhcpOptions": "DhcpOptions",
    "aws-native:ec2:Ec2Fleet": "Ec2Fleet",
@@ -2082,6 +2103,7 @@ _utilities.register(
    "aws-native:ec2:RouteServerPeer": "RouteServerPeer",
    "aws-native:ec2:RouteServerPropagation": "RouteServerPropagation",
    "aws-native:ec2:RouteTable": "RouteTable",
+   "aws-native:ec2:SecondaryNetwork": "SecondaryNetwork",
    "aws-native:ec2:SecurityGroup": "SecurityGroup",
    "aws-native:ec2:SecurityGroupEgress": "SecurityGroupEgress",
    "aws-native:ec2:SecurityGroupIngress": "SecurityGroupIngress",
@@ -2210,6 +2232,7 @@ _utilities.register(
    "aws-native:elasticache:ReplicationGroup": "ReplicationGroup",
    "aws-native:elasticache:ServerlessCache": "ServerlessCache",
    "aws-native:elasticache:ServerlessCacheSnapshot": "ServerlessCacheSnapshot",
+   "aws-native:elasticache:Snapshot": "Snapshot",
    "aws-native:elasticache:SubnetGroup": "SubnetGroup",
    "aws-native:elasticache:User": "User",
    "aws-native:elasticache:UserGroup": "UserGroup"
@@ -2685,6 +2708,7 @@ _utilities.register(
    "aws-native:iot:Logging": "Logging",
    "aws-native:iot:MitigationAction": "MitigationAction",
    "aws-native:iot:Policy": "Policy",
+   "aws-native:iot:PolicyPrincipalAttachment": "PolicyPrincipalAttachment",
    "aws-native:iot:ProvisioningTemplate": "ProvisioningTemplate",
    "aws-native:iot:ResourceSpecificLogging": "ResourceSpecificLogging",
    "aws-native:iot:RoleAlias": "RoleAlias",
@@ -2921,7 +2945,10 @@ _utilities.register(
    "aws-native:lambda:Permission": "Permission",
    "aws-native:lambda:ResourcePolicy": "ResourcePolicy",
    "aws-native:lambda:Url": "Url",
-   "aws-native:lambda:Version": "Version"
+   "aws-native:lambda:Version": "Version",
+   "aws-native:lambda:WebFunction": "WebFunction",
+   "aws-native:lambda:WebFunctionEndpoint": "WebFunctionEndpoint",
+   "aws-native:lambda:WebFunctionRevision": "WebFunctionRevision"
   }
  },
  {
@@ -3127,6 +3154,7 @@ _utilities.register(
    "aws-native:mediatailor:LiveSource": "LiveSource",
    "aws-native:mediatailor:PlaybackConfiguration": "PlaybackConfiguration",
    "aws-native:mediatailor:PrefetchSchedule": "PrefetchSchedule",
+   "aws-native:mediatailor:Program": "Program",
    "aws-native:mediatailor:SourceLocation": "SourceLocation",
    "aws-native:mediatailor:VodSource": "VodSource"
   }
@@ -3291,6 +3319,7 @@ _utilities.register(
   "mod": "observabilityadmin",
   "fqn": "pulumi_aws_native.observabilityadmin",
   "classes": {
+   "aws-native:observabilityadmin:DatasetIntegration": "DatasetIntegration",
    "aws-native:observabilityadmin:OrganizationCentralizationRule": "OrganizationCentralizationRule",
    "aws-native:observabilityadmin:OrganizationTelemetryRule": "OrganizationTelemetryRule",
    "aws-native:observabilityadmin:S3TableIntegration": "S3TableIntegration",
@@ -3452,6 +3481,7 @@ _utilities.register(
   "mod": "personalize",
   "fqn": "pulumi_aws_native.personalize",
   "classes": {
+   "aws-native:personalize:Campaign": "Campaign",
    "aws-native:personalize:Dataset": "Dataset",
    "aws-native:personalize:DatasetGroup": "DatasetGroup",
    "aws-native:personalize:EventTracker": "EventTracker",
@@ -3560,7 +3590,11 @@ _utilities.register(
   "fqn": "pulumi_aws_native.ram",
   "classes": {
    "aws-native:ram:Permission": "Permission",
-   "aws-native:ram:ResourceShare": "ResourceShare"
+   "aws-native:ram:PermissionAssociation": "PermissionAssociation",
+   "aws-native:ram:PrincipalAssociation": "PrincipalAssociation",
+   "aws-native:ram:ResourceAssociation": "ResourceAssociation",
+   "aws-native:ram:ResourceShare": "ResourceShare",
+   "aws-native:ram:SourceAssociation": "SourceAssociation"
   }
  },
  {
@@ -4340,7 +4374,8 @@ _utilities.register(
   "mod": "translate",
   "fqn": "pulumi_aws_native.translate",
   "classes": {
-   "aws-native:translate:ParallelData": "ParallelData"
+   "aws-native:translate:ParallelData": "ParallelData",
+   "aws-native:translate:Terminology": "Terminology"
   }
  },
  {
@@ -4432,6 +4467,8 @@ _utilities.register(
    "aws-native:wisdom:AiPromptVersion": "AiPromptVersion",
    "aws-native:wisdom:Assistant": "Assistant",
    "aws-native:wisdom:AssistantAssociation": "AssistantAssociation",
+   "aws-native:wisdom:Content": "Content",
+   "aws-native:wisdom:ContentAssociation": "ContentAssociation",
    "aws-native:wisdom:KnowledgeBase": "KnowledgeBase",
    "aws-native:wisdom:MessageTemplate": "MessageTemplate",
    "aws-native:wisdom:MessageTemplateVersion": "MessageTemplateVersion",

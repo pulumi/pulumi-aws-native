@@ -17,11 +17,13 @@ import (
 type NetworkConnector struct {
 	pulumi.CustomResourceState
 
-	Arn           pulumi.StringOutput             `pulumi:"arn"`
-	Configuration NetworkConnectorConfigOutput    `pulumi:"configuration"`
-	Name          pulumi.StringPtrOutput          `pulumi:"name"`
-	OperatorRole  pulumi.StringPtrOutput          `pulumi:"operatorRole"`
-	State         NetworkConnectorStateEnumOutput `pulumi:"state"`
+	Arn              pulumi.StringOutput             `pulumi:"arn"`
+	Configuration    NetworkConnectorConfigOutput    `pulumi:"configuration"`
+	LatestVersion    pulumi.IntOutput                `pulumi:"latestVersion"`
+	LatestVersionArn pulumi.StringOutput             `pulumi:"latestVersionArn"`
+	Name             pulumi.StringPtrOutput          `pulumi:"name"`
+	OperatorRole     pulumi.StringPtrOutput          `pulumi:"operatorRole"`
+	State            NetworkConnectorStateEnumOutput `pulumi:"state"`
 	// A list of tags to apply to the network connector. Use tags to categorize network connectors for cost allocation, access control, or operational management.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
@@ -132,6 +134,14 @@ func (o NetworkConnectorOutput) Arn() pulumi.StringOutput {
 
 func (o NetworkConnectorOutput) Configuration() NetworkConnectorConfigOutput {
 	return o.ApplyT(func(v *NetworkConnector) NetworkConnectorConfigOutput { return v.Configuration }).(NetworkConnectorConfigOutput)
+}
+
+func (o NetworkConnectorOutput) LatestVersion() pulumi.IntOutput {
+	return o.ApplyT(func(v *NetworkConnector) pulumi.IntOutput { return v.LatestVersion }).(pulumi.IntOutput)
+}
+
+func (o NetworkConnectorOutput) LatestVersionArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *NetworkConnector) pulumi.StringOutput { return v.LatestVersionArn }).(pulumi.StringOutput)
 }
 
 func (o NetworkConnectorOutput) Name() pulumi.StringPtrOutput {

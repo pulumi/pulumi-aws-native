@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.Lambda.Inputs
         private InputList<Pulumi.AwsNative.Lambda.NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItem>? _associatedComputeResourceTypes;
 
         /// <summary>
-        /// The types of Lambda compute resources that can use this connector. Currently, only MicroVm is supported.
+        /// The types of Lambda compute resources that can use this connector. Supported values are MicroVm and WebFunction.
         /// </summary>
         public InputList<Pulumi.AwsNative.Lambda.NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItem> AssociatedComputeResourceTypes
         {
@@ -30,10 +30,10 @@ namespace Pulumi.AwsNative.Lambda.Inputs
         /// <summary>
         /// The network protocol for the connector. Specify IPv4 for IPv4-only networking, or DualStack for both IPv4 and IPv6.
         /// </summary>
-        [Input("networkProtocol")]
-        public Input<Pulumi.AwsNative.Lambda.NetworkConnectorVpcEgressConfigurationNetworkProtocol>? NetworkProtocol { get; set; }
+        [Input("networkProtocol", required: true)]
+        public Input<Pulumi.AwsNative.Lambda.NetworkConnectorVpcEgressConfigurationNetworkProtocol> NetworkProtocol { get; set; } = null!;
 
-        [Input("securityGroupIds")]
+        [Input("securityGroupIds", required: true)]
         private InputList<string>? _securityGroupIds;
 
         /// <summary>

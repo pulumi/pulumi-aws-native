@@ -53,6 +53,7 @@ __all__ = [
     'HarnessBedrockModelConfigApiFormat',
     'HarnessCustomClaimValidationTypeInboundTokenClaimValueType',
     'HarnessEndpointStatus',
+    'HarnessHookLambdaTargetFailureMode',
     'HarnessManagedMemoryConfigurationStrategiesItem',
     'HarnessManagedVpcResourceEndpointIpAddressType',
     'HarnessNetworkConfigurationNetworkMode',
@@ -94,6 +95,7 @@ __all__ = [
     'OAuth2CredentialProviderSlackOauth2ProviderConfigInputClientSecretSource',
     'OAuth2CredentialProviderStatus',
     'OAuth2CredentialProviderTokenExchangeGrantTypeConfigActorTokenContent',
+    'OnlineEvaluationConfigCloudWatchOutputConfigResultDestination',
     'OnlineEvaluationConfigClusteringFrequency',
     'OnlineEvaluationConfigExecutionStatus',
     'OnlineEvaluationConfigFilterOperator',
@@ -531,6 +533,15 @@ class HarnessEndpointStatus(_builtins.str, Enum):
     DELETE_FAILED = "DELETE_FAILED"
 
 
+@pulumi.type_token("aws-native:bedrockagentcore:HarnessHookLambdaTargetFailureMode")
+class HarnessHookLambdaTargetFailureMode(_builtins.str, Enum):
+    """
+    Whether the agent loop continues or stops when the Lambda invocation fails. Defaults to deny.
+    """
+    ALLOW = "allow"
+    DENY = "deny"
+
+
 @pulumi.type_token("aws-native:bedrockagentcore:HarnessManagedMemoryConfigurationStrategiesItem")
 class HarnessManagedMemoryConfigurationStrategiesItem(_builtins.str, Enum):
     SEMANTIC = "SEMANTIC"
@@ -922,6 +933,15 @@ class OAuth2CredentialProviderTokenExchangeGrantTypeConfigActorTokenContent(_bui
     NONE = "NONE"
     M2M = "M2M"
     AWS_IAM_ID_TOKEN_JWT = "AWS_IAM_ID_TOKEN_JWT"
+
+
+@pulumi.type_token("aws-native:bedrockagentcore:OnlineEvaluationConfigCloudWatchOutputConfigResultDestination")
+class OnlineEvaluationConfigCloudWatchOutputConfigResultDestination(_builtins.str, Enum):
+    """
+    Where evaluation results are written. DEDICATED_LOG_GROUP, the default when omitted, writes to a dedicated result log group. SOURCE_LOG_GROUP writes results back to the trace source log group; LogGroupName must not be specified with SOURCE_LOG_GROUP.
+    """
+    DEDICATED_LOG_GROUP = "DEDICATED_LOG_GROUP"
+    SOURCE_LOG_GROUP = "SOURCE_LOG_GROUP"
 
 
 @pulumi.type_token("aws-native:bedrockagentcore:OnlineEvaluationConfigClusteringFrequency")

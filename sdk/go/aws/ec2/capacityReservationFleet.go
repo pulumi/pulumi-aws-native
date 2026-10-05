@@ -104,7 +104,6 @@ func NewCapacityReservationFleet(ctx *pulumi.Context,
 		"endDate",
 		"instanceMatchCriteria",
 		"instanceTypeSpecifications[*]",
-		"tagSpecifications[*]",
 		"tenancy",
 	})
 	opts = append(opts, replaceOnChanges)

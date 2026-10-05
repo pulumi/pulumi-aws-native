@@ -38,6 +38,10 @@ export class GlobalReplicationGroup extends pulumi.CustomResource {
     }
 
     /**
+     * The ARN (Amazon Resource Name) of the Global Datastore.
+     */
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    /**
      * AutomaticFailoverEnabled
      */
     declare public readonly automaticFailoverEnabled: pulumi.Output<boolean | undefined>;
@@ -85,6 +89,10 @@ export class GlobalReplicationGroup extends pulumi.CustomResource {
      * The status of the Global Datastore
      */
     declare public /*out*/ readonly status: pulumi.Output<string>;
+    /**
+     * An array of key-value pairs to apply to this Global Datastore.
+     */
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a GlobalReplicationGroup resource with the given unique name, arguments, and options.
@@ -110,9 +118,12 @@ export class GlobalReplicationGroup extends pulumi.CustomResource {
             resourceInputs["globalReplicationGroupIdSuffix"] = args?.globalReplicationGroupIdSuffix;
             resourceInputs["members"] = args?.members;
             resourceInputs["regionalConfigurations"] = args?.regionalConfigurations;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["globalReplicationGroupId"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
         } else {
+            resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["automaticFailoverEnabled"] = undefined /*out*/;
             resourceInputs["cacheNodeType"] = undefined /*out*/;
             resourceInputs["cacheParameterGroupName"] = undefined /*out*/;
@@ -125,6 +136,7 @@ export class GlobalReplicationGroup extends pulumi.CustomResource {
             resourceInputs["members"] = undefined /*out*/;
             resourceInputs["regionalConfigurations"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(GlobalReplicationGroup.__pulumiType, name, resourceInputs, opts);
@@ -175,4 +187,8 @@ export interface GlobalReplicationGroupArgs {
      * Describes the replication group IDs, the AWS regions where they are stored and the shard configuration for each that comprise the Global Datastore
      */
     regionalConfigurations?: pulumi.Input<pulumi.Input<inputs.elasticache.GlobalReplicationGroupRegionalConfigurationArgs>[] | undefined>;
+    /**
+     * An array of key-value pairs to apply to this Global Datastore.
+     */
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

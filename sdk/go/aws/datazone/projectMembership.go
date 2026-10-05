@@ -17,7 +17,7 @@ type ProjectMembership struct {
 	pulumi.CustomResourceState
 
 	// The designated role of a project member.
-	Designation ProjectMembershipUserDesignationOutput `pulumi:"designation"`
+	Designation pulumi.StringOutput `pulumi:"designation"`
 	// The ID of the Amazon DataZone domain in which project membership is created.
 	DomainIdentifier pulumi.StringOutput `pulumi:"domainIdentifier"`
 	// The details about a project member.
@@ -87,7 +87,7 @@ func (ProjectMembershipState) ElementType() reflect.Type {
 
 type projectMembershipArgs struct {
 	// The designated role of a project member.
-	Designation ProjectMembershipUserDesignation `pulumi:"designation"`
+	Designation string `pulumi:"designation"`
 	// The ID of the Amazon DataZone domain in which project membership is created.
 	DomainIdentifier string `pulumi:"domainIdentifier"`
 	// The details about a project member.
@@ -99,7 +99,7 @@ type projectMembershipArgs struct {
 // The set of arguments for constructing a ProjectMembership resource.
 type ProjectMembershipArgs struct {
 	// The designated role of a project member.
-	Designation ProjectMembershipUserDesignationInput
+	Designation pulumi.StringInput
 	// The ID of the Amazon DataZone domain in which project membership is created.
 	DomainIdentifier pulumi.StringInput
 	// The details about a project member.
@@ -146,8 +146,8 @@ func (o ProjectMembershipOutput) ToProjectMembershipOutputWithContext(ctx contex
 }
 
 // The designated role of a project member.
-func (o ProjectMembershipOutput) Designation() ProjectMembershipUserDesignationOutput {
-	return o.ApplyT(func(v *ProjectMembership) ProjectMembershipUserDesignationOutput { return v.Designation }).(ProjectMembershipUserDesignationOutput)
+func (o ProjectMembershipOutput) Designation() pulumi.StringOutput {
+	return o.ApplyT(func(v *ProjectMembership) pulumi.StringOutput { return v.Designation }).(pulumi.StringOutput)
 }
 
 // The ID of the Amazon DataZone domain in which project membership is created.

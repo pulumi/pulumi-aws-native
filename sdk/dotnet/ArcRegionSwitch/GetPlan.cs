@@ -94,6 +94,7 @@ namespace Pulumi.AwsNative.ArcRegionSwitch
         /// </summary>
         public readonly Outputs.PlanReportConfiguration? ReportConfiguration;
         public readonly Outputs.Route53HealthChecksProperties? Route53HealthChecks;
+        public readonly bool? ServiceQuotaChecksEnabled;
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
         /// The triggers for a plan.
@@ -130,6 +131,8 @@ namespace Pulumi.AwsNative.ArcRegionSwitch
 
             Outputs.Route53HealthChecksProperties? route53HealthChecks,
 
+            bool? serviceQuotaChecksEnabled,
+
             ImmutableDictionary<string, string>? tags,
 
             ImmutableArray<Outputs.PlanTrigger> triggers,
@@ -148,6 +151,7 @@ namespace Pulumi.AwsNative.ArcRegionSwitch
             RecoveryTimeObjectiveMinutes = recoveryTimeObjectiveMinutes;
             ReportConfiguration = reportConfiguration;
             Route53HealthChecks = route53HealthChecks;
+            ServiceQuotaChecksEnabled = serviceQuotaChecksEnabled;
             Tags = tags;
             Triggers = triggers;
             Version = version;

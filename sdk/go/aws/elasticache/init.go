@@ -33,6 +33,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ServerlessCache{}
 	case "aws-native:elasticache:ServerlessCacheSnapshot":
 		r = &ServerlessCacheSnapshot{}
+	case "aws-native:elasticache:Snapshot":
+		r = &Snapshot{}
 	case "aws-native:elasticache:SubnetGroup":
 		r = &SubnetGroup{}
 	case "aws-native:elasticache:User":

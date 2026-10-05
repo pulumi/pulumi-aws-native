@@ -26,10 +26,13 @@ __all__ = [
 
 @pulumi.output_type
 class GetFunctionResult:
-    def __init__(__self__, arn=None, concurrent_executor_configuration=None, custom_output_configuration=None, description=None, function_type=None, http_request_configuration=None, sequential_executor_configuration=None, tags=None):
+    def __init__(__self__, arn=None, aws_service_request_configuration=None, concurrent_executor_configuration=None, custom_output_configuration=None, description=None, function_type=None, http_request_configuration=None, sequential_executor_configuration=None, tags=None, vast_request_configuration=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
+        if aws_service_request_configuration and not isinstance(aws_service_request_configuration, dict):
+            raise TypeError("Expected argument 'aws_service_request_configuration' to be a dict")
+        pulumi.set(__self__, "aws_service_request_configuration", aws_service_request_configuration)
         if concurrent_executor_configuration and not isinstance(concurrent_executor_configuration, dict):
             raise TypeError("Expected argument 'concurrent_executor_configuration' to be a dict")
         pulumi.set(__self__, "concurrent_executor_configuration", concurrent_executor_configuration)
@@ -51,6 +54,9 @@ class GetFunctionResult:
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
+        if vast_request_configuration and not isinstance(vast_request_configuration, dict):
+            raise TypeError("Expected argument 'vast_request_configuration' to be a dict")
+        pulumi.set(__self__, "vast_request_configuration", vast_request_configuration)
 
     @_builtins.property
     @pulumi.getter
@@ -59,6 +65,11 @@ class GetFunctionResult:
         The ARN of the function.
         """
         return pulumi.get(self, "arn")
+
+    @_builtins.property
+    @pulumi.getter(name="awsServiceRequestConfiguration")
+    def aws_service_request_configuration(self) -> Optional['outputs.FunctionAwsServiceRequestConfiguration']:
+        return pulumi.get(self, "aws_service_request_configuration")
 
     @_builtins.property
     @pulumi.getter(name="concurrentExecutorConfiguration")
@@ -107,6 +118,11 @@ class GetFunctionResult:
         """
         return pulumi.get(self, "tags")
 
+    @_builtins.property
+    @pulumi.getter(name="vastRequestConfiguration")
+    def vast_request_configuration(self) -> Optional['outputs.FunctionVastRequestConfiguration']:
+        return pulumi.get(self, "vast_request_configuration")
+
 
 class AwaitableGetFunctionResult(GetFunctionResult):
     # pylint: disable=using-constant-test
@@ -115,13 +131,15 @@ class AwaitableGetFunctionResult(GetFunctionResult):
             yield self
         return GetFunctionResult(
             arn=self.arn,
+            aws_service_request_configuration=self.aws_service_request_configuration,
             concurrent_executor_configuration=self.concurrent_executor_configuration,
             custom_output_configuration=self.custom_output_configuration,
             description=self.description,
             function_type=self.function_type,
             http_request_configuration=self.http_request_configuration,
             sequential_executor_configuration=self.sequential_executor_configuration,
-            tags=self.tags)
+            tags=self.tags,
+            vast_request_configuration=self.vast_request_configuration)
 
 
 def get_function(function_id: Optional[_builtins.str] = None,
@@ -138,13 +156,15 @@ def get_function(function_id: Optional[_builtins.str] = None,
 
     return AwaitableGetFunctionResult(
         arn=pulumi.get(__ret__, 'arn'),
+        aws_service_request_configuration=pulumi.get(__ret__, 'aws_service_request_configuration'),
         concurrent_executor_configuration=pulumi.get(__ret__, 'concurrent_executor_configuration'),
         custom_output_configuration=pulumi.get(__ret__, 'custom_output_configuration'),
         description=pulumi.get(__ret__, 'description'),
         function_type=pulumi.get(__ret__, 'function_type'),
         http_request_configuration=pulumi.get(__ret__, 'http_request_configuration'),
         sequential_executor_configuration=pulumi.get(__ret__, 'sequential_executor_configuration'),
-        tags=pulumi.get(__ret__, 'tags'))
+        tags=pulumi.get(__ret__, 'tags'),
+        vast_request_configuration=pulumi.get(__ret__, 'vast_request_configuration'))
 def get_function_output(function_id: pulumi.Input[Optional[_builtins.str]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFunctionResult]:
     """
@@ -158,10 +178,12 @@ def get_function_output(function_id: pulumi.Input[Optional[_builtins.str]] = Non
     __ret__ = pulumi.runtime.invoke_output('aws-native:mediatailor:getFunction', __args__, opts=opts, typ=GetFunctionResult)
     return __ret__.apply(lambda __response__: GetFunctionResult(
         arn=pulumi.get(__response__, 'arn'),
+        aws_service_request_configuration=pulumi.get(__response__, 'aws_service_request_configuration'),
         concurrent_executor_configuration=pulumi.get(__response__, 'concurrent_executor_configuration'),
         custom_output_configuration=pulumi.get(__response__, 'custom_output_configuration'),
         description=pulumi.get(__response__, 'description'),
         function_type=pulumi.get(__response__, 'function_type'),
         http_request_configuration=pulumi.get(__response__, 'http_request_configuration'),
         sequential_executor_configuration=pulumi.get(__response__, 'sequential_executor_configuration'),
-        tags=pulumi.get(__response__, 'tags')))
+        tags=pulumi.get(__response__, 'tags'),
+        vast_request_configuration=pulumi.get(__response__, 'vast_request_configuration')))

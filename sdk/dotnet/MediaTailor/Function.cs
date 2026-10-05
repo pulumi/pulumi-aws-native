@@ -21,6 +21,9 @@ namespace Pulumi.AwsNative.MediaTailor
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        [Output("awsServiceRequestConfiguration")]
+        public Output<Outputs.FunctionAwsServiceRequestConfiguration?> AwsServiceRequestConfiguration { get; private set; } = null!;
+
         /// <summary>
         /// The configuration for a CONCURRENT_EXECUTOR function. Required when FunctionType is CONCURRENT_EXECUTOR.
         /// </summary>
@@ -59,6 +62,9 @@ namespace Pulumi.AwsNative.MediaTailor
         /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
+
+        [Output("vastRequestConfiguration")]
+        public Output<Outputs.FunctionVastRequestConfiguration?> VastRequestConfiguration { get; private set; } = null!;
 
 
         /// <summary>
@@ -109,6 +115,9 @@ namespace Pulumi.AwsNative.MediaTailor
 
     public sealed class FunctionArgs : global::Pulumi.ResourceArgs
     {
+        [Input("awsServiceRequestConfiguration")]
+        public Input<Inputs.FunctionAwsServiceRequestConfigurationArgs>? AwsServiceRequestConfiguration { get; set; }
+
         /// <summary>
         /// The configuration for a CONCURRENT_EXECUTOR function. Required when FunctionType is CONCURRENT_EXECUTOR.
         /// </summary>
@@ -153,6 +162,9 @@ namespace Pulumi.AwsNative.MediaTailor
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
+
+        [Input("vastRequestConfiguration")]
+        public Input<Inputs.FunctionVastRequestConfigurationArgs>? VastRequestConfiguration { get; set; }
 
         public FunctionArgs()
         {

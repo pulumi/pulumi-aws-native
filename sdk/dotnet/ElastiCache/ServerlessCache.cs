@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.ElastiCache
         [Output("cacheUsageLimits")]
         public Output<Outputs.ServerlessCacheCacheUsageLimits?> CacheUsageLimits { get; private set; } = null!;
 
+        [Output("connectionType")]
+        public Output<Pulumi.AwsNative.ElastiCache.ServerlessCacheConnectionType?> ConnectionType { get; private set; } = null!;
+
         /// <summary>
         /// The creation time of the Serverless Cache.
         /// </summary>
@@ -163,6 +166,7 @@ namespace Pulumi.AwsNative.ElastiCache
                 Version = Utilities.Version,
                 ReplaceOnChanges =
                 {
+                    "connectionType",
                     "kmsKeyId",
                     "networkType",
                     "serverlessCacheName",
@@ -196,6 +200,9 @@ namespace Pulumi.AwsNative.ElastiCache
         /// </summary>
         [Input("cacheUsageLimits")]
         public Input<Inputs.ServerlessCacheCacheUsageLimitsArgs>? CacheUsageLimits { get; set; }
+
+        [Input("connectionType")]
+        public Input<Pulumi.AwsNative.ElastiCache.ServerlessCacheConnectionType>? ConnectionType { get; set; }
 
         /// <summary>
         /// The daily time range (in UTC) during which the service takes automatic snapshot of the Serverless Cache.

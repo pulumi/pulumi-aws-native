@@ -32,6 +32,7 @@ class HarnessArgs:
                  environment_artifact: pulumi.Input[Optional['HarnessEnvironmentArtifactArgs']] = None,
                  environment_variables: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  harness_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 hooks: pulumi.Input[Optional[Sequence[pulumi.Input['HarnessHookArgs']]]] = None,
                  max_iterations: pulumi.Input[Optional[_builtins.int]] = None,
                  max_tokens: pulumi.Input[Optional[_builtins.int]] = None,
                  memory: pulumi.Input[Optional['HarnessMemoryConfigurationArgs']] = None,
@@ -52,6 +53,7 @@ class HarnessArgs:
         :param pulumi.Input['HarnessEnvironmentArtifactArgs'] environment_artifact: The environment artifact for the harness, such as a custom container image.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] environment_variables: Environment variables to set in the harness runtime environment.
         :param pulumi.Input[_builtins.str] harness_name: The name of the harness.
+        :param pulumi.Input[Sequence[pulumi.Input['HarnessHookArgs']]] hooks: Lifecycle hooks that fire at well-defined points in the agent loop for policy enforcement, audit, and governance.
         :param pulumi.Input[_builtins.int] max_iterations: The maximum number of iterations the agent loop can execute per invocation.
         :param pulumi.Input[_builtins.int] max_tokens: The maximum number of tokens the agent can generate per iteration.
         :param pulumi.Input['HarnessMemoryConfigurationArgs'] memory: The AgentCore Memory configuration for persisting conversation context.
@@ -76,6 +78,8 @@ class HarnessArgs:
             pulumi.set(__self__, "environment_variables", environment_variables)
         if harness_name is not None:
             pulumi.set(__self__, "harness_name", harness_name)
+        if hooks is not None:
+            pulumi.set(__self__, "hooks", hooks)
         if max_iterations is not None:
             pulumi.set(__self__, "max_iterations", max_iterations)
         if max_tokens is not None:
@@ -190,6 +194,18 @@ class HarnessArgs:
     @harness_name.setter
     def harness_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "harness_name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def hooks(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['HarnessHookArgs']]]]:
+        """
+        Lifecycle hooks that fire at well-defined points in the agent loop for policy enforcement, audit, and governance.
+        """
+        return pulumi.get(self, "hooks")
+
+    @hooks.setter
+    def hooks(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['HarnessHookArgs']]]]):
+        pulumi.set(self, "hooks", value)
 
     @_builtins.property
     @pulumi.getter(name="maxIterations")
@@ -313,6 +329,7 @@ class Harness(pulumi.CustomResource):
                  environment_variables: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  execution_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  harness_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 hooks: pulumi.Input[Optional[Sequence[pulumi.Input[Union['HarnessHookArgs', 'HarnessHookArgsDict']]]]] = None,
                  max_iterations: pulumi.Input[Optional[_builtins.int]] = None,
                  max_tokens: pulumi.Input[Optional[_builtins.int]] = None,
                  memory: pulumi.Input[Optional[Union['HarnessMemoryConfigurationArgs', 'HarnessMemoryConfigurationArgsDict']]] = None,
@@ -336,6 +353,7 @@ class Harness(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] environment_variables: Environment variables to set in the harness runtime environment.
         :param pulumi.Input[_builtins.str] execution_role_arn: The ARN of the IAM role that the harness assumes when running.
         :param pulumi.Input[_builtins.str] harness_name: The name of the harness.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['HarnessHookArgs', 'HarnessHookArgsDict']]]] hooks: Lifecycle hooks that fire at well-defined points in the agent loop for policy enforcement, audit, and governance.
         :param pulumi.Input[_builtins.int] max_iterations: The maximum number of iterations the agent loop can execute per invocation.
         :param pulumi.Input[_builtins.int] max_tokens: The maximum number of tokens the agent can generate per iteration.
         :param pulumi.Input[Union['HarnessMemoryConfigurationArgs', 'HarnessMemoryConfigurationArgsDict']] memory: The AgentCore Memory configuration for persisting conversation context.
@@ -378,6 +396,7 @@ class Harness(pulumi.CustomResource):
                  environment_variables: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  execution_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  harness_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 hooks: pulumi.Input[Optional[Sequence[pulumi.Input[Union['HarnessHookArgs', 'HarnessHookArgsDict']]]]] = None,
                  max_iterations: pulumi.Input[Optional[_builtins.int]] = None,
                  max_tokens: pulumi.Input[Optional[_builtins.int]] = None,
                  memory: pulumi.Input[Optional[Union['HarnessMemoryConfigurationArgs', 'HarnessMemoryConfigurationArgsDict']]] = None,
@@ -406,6 +425,7 @@ class Harness(pulumi.CustomResource):
                 raise TypeError("Missing required property 'execution_role_arn'")
             __props__.__dict__["execution_role_arn"] = execution_role_arn
             __props__.__dict__["harness_name"] = harness_name
+            __props__.__dict__["hooks"] = hooks
             __props__.__dict__["max_iterations"] = max_iterations
             __props__.__dict__["max_tokens"] = max_tokens
             __props__.__dict__["memory"] = memory
@@ -458,6 +478,7 @@ class Harness(pulumi.CustomResource):
         __props__.__dict__["execution_role_arn"] = None
         __props__.__dict__["harness_id"] = None
         __props__.__dict__["harness_name"] = None
+        __props__.__dict__["hooks"] = None
         __props__.__dict__["max_iterations"] = None
         __props__.__dict__["max_tokens"] = None
         __props__.__dict__["memory"] = None
@@ -552,6 +573,14 @@ class Harness(pulumi.CustomResource):
         The name of the harness.
         """
         return pulumi.get(self, "harness_name")
+
+    @_builtins.property
+    @pulumi.getter
+    def hooks(self) -> pulumi.Output[Optional[Sequence['outputs.HarnessHook']]]:
+        """
+        Lifecycle hooks that fire at well-defined points in the agent loop for policy enforcement, audit, and governance.
+        """
+        return pulumi.get(self, "hooks")
 
     @_builtins.property
     @pulumi.getter(name="maxIterations")

@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.DataZone
         /// The designated role of a project member.
         /// </summary>
         [Output("designation")]
-        public Output<Pulumi.AwsNative.DataZone.ProjectMembershipUserDesignation> Designation { get; private set; } = null!;
+        public Output<string> Designation { get; private set; } = null!;
 
         /// <summary>
         /// The ID of the Amazon DataZone domain in which project membership is created.
@@ -100,7 +100,7 @@ namespace Pulumi.AwsNative.DataZone
         /// The designated role of a project member.
         /// </summary>
         [Input("designation", required: true)]
-        public Input<Pulumi.AwsNative.DataZone.ProjectMembershipUserDesignation> Designation { get; set; } = null!;
+        public Input<string> Designation { get; set; } = null!;
 
         /// <summary>
         /// The ID of the Amazon DataZone domain in which project membership is created.

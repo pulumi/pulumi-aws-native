@@ -155,6 +155,11 @@ export const getKnowledgeBase: typeof import("./getKnowledgeBase").getKnowledgeB
 export const getKnowledgeBaseOutput: typeof import("./getKnowledgeBase").getKnowledgeBaseOutput = null as any;
 utilities.lazyLoad(exports, ["getKnowledgeBase","getKnowledgeBaseOutput"], () => require("./getKnowledgeBase"));
 
+export { GetKnowledgeBasePolicyArgs, GetKnowledgeBasePolicyResult, GetKnowledgeBasePolicyOutputArgs } from "./getKnowledgeBasePolicy";
+export const getKnowledgeBasePolicy: typeof import("./getKnowledgeBasePolicy").getKnowledgeBasePolicy = null as any;
+export const getKnowledgeBasePolicyOutput: typeof import("./getKnowledgeBasePolicy").getKnowledgeBasePolicyOutput = null as any;
+utilities.lazyLoad(exports, ["getKnowledgeBasePolicy","getKnowledgeBasePolicyOutput"], () => require("./getKnowledgeBasePolicy"));
+
 export { GetPromptArgs, GetPromptResult, GetPromptOutputArgs } from "./getPrompt";
 export const getPrompt: typeof import("./getPrompt").getPrompt = null as any;
 export const getPromptOutput: typeof import("./getPrompt").getPromptOutput = null as any;
@@ -194,6 +199,11 @@ export { KnowledgeBaseArgs } from "./knowledgeBase";
 export type KnowledgeBase = import("./knowledgeBase").KnowledgeBase;
 export const KnowledgeBase: typeof import("./knowledgeBase").KnowledgeBase = null as any;
 utilities.lazyLoad(exports, ["KnowledgeBase"], () => require("./knowledgeBase"));
+
+export { KnowledgeBasePolicyArgs } from "./knowledgeBasePolicy";
+export type KnowledgeBasePolicy = import("./knowledgeBasePolicy").KnowledgeBasePolicy;
+export const KnowledgeBasePolicy: typeof import("./knowledgeBasePolicy").KnowledgeBasePolicy = null as any;
+utilities.lazyLoad(exports, ["KnowledgeBasePolicy"], () => require("./knowledgeBasePolicy"));
 
 export { PromptArgs } from "./prompt";
 export type Prompt = import("./prompt").Prompt;
@@ -257,6 +267,8 @@ const _module = {
                 return new IntelligentPromptRouter(name, <any>undefined, { urn })
             case "aws-native:bedrock:KnowledgeBase":
                 return new KnowledgeBase(name, <any>undefined, { urn })
+            case "aws-native:bedrock:KnowledgeBasePolicy":
+                return new KnowledgeBasePolicy(name, <any>undefined, { urn })
             case "aws-native:bedrock:Prompt":
                 return new Prompt(name, <any>undefined, { urn })
             case "aws-native:bedrock:PromptVersion":

@@ -143,6 +143,8 @@ class NetworkConnector(pulumi.CustomResource):
             __props__.__dict__["operator_role"] = operator_role
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
+            __props__.__dict__["latest_version"] = None
+            __props__.__dict__["latest_version_arn"] = None
             __props__.__dict__["state"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["name"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
@@ -170,6 +172,8 @@ class NetworkConnector(pulumi.CustomResource):
 
         __props__.__dict__["arn"] = None
         __props__.__dict__["configuration"] = None
+        __props__.__dict__["latest_version"] = None
+        __props__.__dict__["latest_version_arn"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["operator_role"] = None
         __props__.__dict__["state"] = None
@@ -185,6 +189,16 @@ class NetworkConnector(pulumi.CustomResource):
     @pulumi.getter
     def configuration(self) -> pulumi.Output['outputs.NetworkConnectorConfig']:
         return pulumi.get(self, "configuration")
+
+    @_builtins.property
+    @pulumi.getter(name="latestVersion")
+    def latest_version(self) -> pulumi.Output[_builtins.int]:
+        return pulumi.get(self, "latest_version")
+
+    @_builtins.property
+    @pulumi.getter(name="latestVersionArn")
+    def latest_version_arn(self) -> pulumi.Output[_builtins.str]:
+        return pulumi.get(self, "latest_version_arn")
 
     @_builtins.property
     @pulumi.getter

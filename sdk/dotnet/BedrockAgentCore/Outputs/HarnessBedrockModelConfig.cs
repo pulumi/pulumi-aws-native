@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Outputs
         /// <summary>
         /// Provider-specific parameters passed through to the model provider unchanged.
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? AdditionalParams;
+        public readonly object? AdditionalParams;
         public readonly Pulumi.AwsNative.BedrockAgentCore.HarnessBedrockModelConfigApiFormat? ApiFormat;
         public readonly int? MaxTokens;
         public readonly string ModelId;
@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Outputs
 
         [OutputConstructor]
         private HarnessBedrockModelConfig(
-            ImmutableDictionary<string, object>? additionalParams,
+            object? additionalParams,
 
             Pulumi.AwsNative.BedrockAgentCore.HarnessBedrockModelConfigApiFormat? apiFormat,
 

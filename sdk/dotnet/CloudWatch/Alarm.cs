@@ -187,6 +187,10 @@ namespace Pulumi.AwsNative.CloudWatch
         [Output("unit")]
         public Output<string?> Unit { get; private set; } = null!;
 
+        /// <summary>
+        /// The warm-up configuration for the alarm. A warm-up period delays alarm evaluation after you create or update the alarm. During the warm-up period, the alarm stays in ``INSUFFICIENT_DATA`` and does not perform alarm actions.
+        ///  For more information, see [Alarm warm-up periods](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/alarm-warm-up.html) in the *Amazon CloudWatch User Guide*.
+        /// </summary>
         [Output("warmUpConfiguration")]
         public Output<Outputs.AlarmWarmUpConfiguration?> WarmUpConfiguration { get; private set; } = null!;
 
@@ -439,6 +443,10 @@ namespace Pulumi.AwsNative.CloudWatch
         [Input("unit")]
         public Input<string>? Unit { get; set; }
 
+        /// <summary>
+        /// The warm-up configuration for the alarm. A warm-up period delays alarm evaluation after you create or update the alarm. During the warm-up period, the alarm stays in ``INSUFFICIENT_DATA`` and does not perform alarm actions.
+        ///  For more information, see [Alarm warm-up periods](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/alarm-warm-up.html) in the *Amazon CloudWatch User Guide*.
+        /// </summary>
         [Input("warmUpConfiguration")]
         public Input<Inputs.AlarmWarmUpConfigurationArgs>? WarmUpConfiguration { get; set; }
 

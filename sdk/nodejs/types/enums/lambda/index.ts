@@ -398,6 +398,7 @@ export type NetworkConnectorState = (typeof NetworkConnectorState)[keyof typeof 
 
 export const NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItem = {
     MicroVm: "MicroVm",
+    WebFunction: "WebFunction",
 } as const;
 
 export type NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItem = (typeof NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItem)[keyof typeof NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItem];
@@ -453,3 +454,128 @@ export const UrlInvokeMode = {
  * The invocation mode for the function's URL. Set to BUFFERED if you want to buffer responses before returning them to the client. Set to RESPONSE_STREAM if you want to stream responses, allowing faster time to first byte and larger response payload sizes. If not set, defaults to BUFFERED.
  */
 export type UrlInvokeMode = (typeof UrlInvokeMode)[keyof typeof UrlInvokeMode];
+
+export const WebFunctionEndpointAuthType = {
+    ApplicationManaged: "ApplicationManaged",
+    IamAuth: "IamAuth",
+} as const;
+
+/**
+ * The authentication type for the endpoint.
+ */
+export type WebFunctionEndpointAuthType = (typeof WebFunctionEndpointAuthType)[keyof typeof WebFunctionEndpointAuthType];
+
+export const WebFunctionEndpointEndpointType = {
+    HomeRegion: "HomeRegion",
+    MultiRegion: "MultiRegion",
+    PerRegion: "PerRegion",
+} as const;
+
+/**
+ * The type of the endpoint.
+ */
+export type WebFunctionEndpointEndpointType = (typeof WebFunctionEndpointEndpointType)[keyof typeof WebFunctionEndpointEndpointType];
+
+export const WebFunctionEndpointRegionalEndpointAuthType = {
+    ApplicationManaged: "ApplicationManaged",
+    IamAuth: "IamAuth",
+} as const;
+
+/**
+ * The authentication type for the endpoint.
+ */
+export type WebFunctionEndpointRegionalEndpointAuthType = (typeof WebFunctionEndpointRegionalEndpointAuthType)[keyof typeof WebFunctionEndpointRegionalEndpointAuthType];
+
+export const WebFunctionEndpointRegionalEndpointState = {
+    Pending: "Pending",
+    Active: "Active",
+    Failed: "Failed",
+    Deleting: "Deleting",
+} as const;
+
+/**
+ * The current state of the endpoint.
+ */
+export type WebFunctionEndpointRegionalEndpointState = (typeof WebFunctionEndpointRegionalEndpointState)[keyof typeof WebFunctionEndpointRegionalEndpointState];
+
+export const WebFunctionEndpointRegionalEndpointUpdateStatus = {
+    InProgress: "InProgress",
+    Successful: "Successful",
+    Failed: "Failed",
+} as const;
+
+/**
+ * The status of the most recent update to the endpoint.
+ */
+export type WebFunctionEndpointRegionalEndpointUpdateStatus = (typeof WebFunctionEndpointRegionalEndpointUpdateStatus)[keyof typeof WebFunctionEndpointRegionalEndpointUpdateStatus];
+
+export const WebFunctionEndpointState = {
+    Pending: "Pending",
+    Active: "Active",
+    Failed: "Failed",
+    Deleting: "Deleting",
+} as const;
+
+/**
+ * The current state of the endpoint.
+ */
+export type WebFunctionEndpointState = (typeof WebFunctionEndpointState)[keyof typeof WebFunctionEndpointState];
+
+export const WebFunctionEndpointUpdateStatus = {
+    InProgress: "InProgress",
+    Successful: "Successful",
+    Failed: "Failed",
+} as const;
+
+/**
+ * The status of the last update operation.
+ */
+export type WebFunctionEndpointUpdateStatus = (typeof WebFunctionEndpointUpdateStatus)[keyof typeof WebFunctionEndpointUpdateStatus];
+
+export const WebFunctionRevisionLoggingConfigApplicationLogLevel = {
+    Trace: "TRACE",
+    Debug: "DEBUG",
+    Info: "INFO",
+    Warn: "WARN",
+    Error: "ERROR",
+    Fatal: "FATAL",
+} as const;
+
+/**
+ * The application log level.
+ */
+export type WebFunctionRevisionLoggingConfigApplicationLogLevel = (typeof WebFunctionRevisionLoggingConfigApplicationLogLevel)[keyof typeof WebFunctionRevisionLoggingConfigApplicationLogLevel];
+
+export const WebFunctionRevisionLoggingConfigSystemLogLevel = {
+    Debug: "DEBUG",
+    Info: "INFO",
+    Warn: "WARN",
+} as const;
+
+/**
+ * The system log level.
+ */
+export type WebFunctionRevisionLoggingConfigSystemLogLevel = (typeof WebFunctionRevisionLoggingConfigSystemLogLevel)[keyof typeof WebFunctionRevisionLoggingConfigSystemLogLevel];
+
+export const WebFunctionRevisionState = {
+    Pending: "Pending",
+    Active: "Active",
+    Failed: "Failed",
+} as const;
+
+/**
+ * The current state of the revision.
+ */
+export type WebFunctionRevisionState = (typeof WebFunctionRevisionState)[keyof typeof WebFunctionRevisionState];
+
+export const WebFunctionState = {
+    Pending: "Pending",
+    Active: "Active",
+    Failed: "Failed",
+    Deleting: "Deleting",
+} as const;
+
+/**
+ * The current state of the function.
+ */
+export type WebFunctionState = (typeof WebFunctionState)[keyof typeof WebFunctionState];

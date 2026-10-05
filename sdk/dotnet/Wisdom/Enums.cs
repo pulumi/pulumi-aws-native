@@ -555,6 +555,72 @@ namespace Pulumi.AwsNative.Wisdom
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// The type of association.
+    /// </summary>
+    [EnumType]
+    public readonly struct ContentAssociationAssociationType : IEquatable<ContentAssociationAssociationType>
+    {
+        private readonly string _value;
+
+        private ContentAssociationAssociationType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ContentAssociationAssociationType AmazonConnectGuide { get; } = new ContentAssociationAssociationType("AMAZON_CONNECT_GUIDE");
+
+        public static bool operator ==(ContentAssociationAssociationType left, ContentAssociationAssociationType right) => left.Equals(right);
+        public static bool operator !=(ContentAssociationAssociationType left, ContentAssociationAssociationType right) => !left.Equals(right);
+
+        public static explicit operator string(ContentAssociationAssociationType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ContentAssociationAssociationType other && Equals(other);
+        public bool Equals(ContentAssociationAssociationType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The status of the content.
+    /// </summary>
+    [EnumType]
+    public readonly struct ContentStatus : IEquatable<ContentStatus>
+    {
+        private readonly string _value;
+
+        private ContentStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ContentStatus CreateInProgress { get; } = new ContentStatus("CREATE_IN_PROGRESS");
+        public static ContentStatus CreateFailed { get; } = new ContentStatus("CREATE_FAILED");
+        public static ContentStatus Active { get; } = new ContentStatus("ACTIVE");
+        public static ContentStatus DeleteInProgress { get; } = new ContentStatus("DELETE_IN_PROGRESS");
+        public static ContentStatus DeleteFailed { get; } = new ContentStatus("DELETE_FAILED");
+        public static ContentStatus Deleted { get; } = new ContentStatus("DELETED");
+        public static ContentStatus UpdateFailed { get; } = new ContentStatus("UPDATE_FAILED");
+
+        public static bool operator ==(ContentStatus left, ContentStatus right) => left.Equals(right);
+        public static bool operator !=(ContentStatus left, ContentStatus right) => !left.Equals(right);
+
+        public static explicit operator string(ContentStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ContentStatus other && Equals(other);
+        public bool Equals(ContentStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     [EnumType]
     public readonly struct KnowledgeBaseType : IEquatable<KnowledgeBaseType>
     {

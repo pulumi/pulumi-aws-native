@@ -12,6 +12,7 @@ from .capacity_manager_data_export import *
 from .capacity_reservation import *
 from .capacity_reservation_fleet import *
 from .carrier_gateway import *
+from .client_vpn_authorization_rule import *
 from .customer_gateway import *
 from .dhcp_options import *
 from .ec2_fleet import *
@@ -27,6 +28,7 @@ from .get_capacity_manager_data_export import *
 from .get_capacity_reservation import *
 from .get_capacity_reservation_fleet import *
 from .get_carrier_gateway import *
+from .get_client_vpn_authorization_rule import *
 from .get_customer_gateway import *
 from .get_dhcp_options import *
 from .get_ec2_fleet import *
@@ -77,6 +79,7 @@ from .get_route_server import *
 from .get_route_server_endpoint import *
 from .get_route_server_peer import *
 from .get_route_table import *
+from .get_secondary_network import *
 from .get_security_group import *
 from .get_security_group_egress import *
 from .get_security_group_ingress import *
@@ -171,6 +174,7 @@ from .route_server_endpoint import *
 from .route_server_peer import *
 from .route_server_propagation import *
 from .route_table import *
+from .secondary_network import *
 from .security_group import *
 from .security_group_egress import *
 from .security_group_ingress import *

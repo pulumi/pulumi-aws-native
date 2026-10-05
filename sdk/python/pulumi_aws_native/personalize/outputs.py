@@ -17,6 +17,7 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'CampaignConfig',
     'DatasetImportJob',
     'DatasetImportJobDataSourceProperties',
     'MetricAttributionMetricAttribute',
@@ -32,6 +33,89 @@ __all__ = [
     'SolutionContinuousHyperParameterRange',
     'SolutionIntegerHyperParameterRange',
 ]
+
+@pulumi.output_type
+class CampaignConfig(dict):
+    """
+    The configuration details of a campaign.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "enableMetadataWithRecommendations":
+            suggest = "enable_metadata_with_recommendations"
+        elif key == "itemExplorationConfig":
+            suggest = "item_exploration_config"
+        elif key == "rankingInfluence":
+            suggest = "ranking_influence"
+        elif key == "syncWithLatestSolutionVersion":
+            suggest = "sync_with_latest_solution_version"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CampaignConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CampaignConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CampaignConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enable_metadata_with_recommendations: Optional[_builtins.bool] = None,
+                 item_exploration_config: Optional[Mapping[str, _builtins.str]] = None,
+                 ranking_influence: Optional[Mapping[str, _builtins.float]] = None,
+                 sync_with_latest_solution_version: Optional[_builtins.bool] = None):
+        """
+        The configuration details of a campaign.
+
+        :param _builtins.bool enable_metadata_with_recommendations: Whether metadata with recommendations is enabled for the campaign.
+        :param Mapping[str, _builtins.str] item_exploration_config: Specifies the exploration configuration hyperparameters.
+        :param Mapping[str, _builtins.float] ranking_influence: A map of ranking influence values for POPULARITY and FRESHNESS.
+        :param _builtins.bool sync_with_latest_solution_version: Whether the campaign automatically updates to use the latest solution version.
+        """
+        if enable_metadata_with_recommendations is not None:
+            pulumi.set(__self__, "enable_metadata_with_recommendations", enable_metadata_with_recommendations)
+        if item_exploration_config is not None:
+            pulumi.set(__self__, "item_exploration_config", item_exploration_config)
+        if ranking_influence is not None:
+            pulumi.set(__self__, "ranking_influence", ranking_influence)
+        if sync_with_latest_solution_version is not None:
+            pulumi.set(__self__, "sync_with_latest_solution_version", sync_with_latest_solution_version)
+
+    @_builtins.property
+    @pulumi.getter(name="enableMetadataWithRecommendations")
+    def enable_metadata_with_recommendations(self) -> Optional[_builtins.bool]:
+        """
+        Whether metadata with recommendations is enabled for the campaign.
+        """
+        return pulumi.get(self, "enable_metadata_with_recommendations")
+
+    @_builtins.property
+    @pulumi.getter(name="itemExplorationConfig")
+    def item_exploration_config(self) -> Optional[Mapping[str, _builtins.str]]:
+        """
+        Specifies the exploration configuration hyperparameters.
+        """
+        return pulumi.get(self, "item_exploration_config")
+
+    @_builtins.property
+    @pulumi.getter(name="rankingInfluence")
+    def ranking_influence(self) -> Optional[Mapping[str, _builtins.float]]:
+        """
+        A map of ranking influence values for POPULARITY and FRESHNESS.
+        """
+        return pulumi.get(self, "ranking_influence")
+
+    @_builtins.property
+    @pulumi.getter(name="syncWithLatestSolutionVersion")
+    def sync_with_latest_solution_version(self) -> Optional[_builtins.bool]:
+        """
+        Whether the campaign automatically updates to use the latest solution version.
+        """
+        return pulumi.get(self, "sync_with_latest_solution_version")
+
 
 @pulumi.output_type
 class DatasetImportJob(dict):

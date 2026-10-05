@@ -233,6 +233,12 @@
         },
         "ConfluenceCapabilities" : {
           "$ref" : "#/definitions/ConfluenceCapabilitiesResource"
+        },
+        "AzureDevOpsRepository" : {
+          "$ref" : "#/definitions/AzureDevOpsRepositoryResource"
+        },
+        "AzureDevOpsCapabilities" : {
+          "$ref" : "#/definitions/AzureDevOpsCapabilitiesResource"
         }
       },
       "allOf" : [ {
@@ -244,6 +250,8 @@
           "required" : [ "BitbucketRepository" ]
         }, {
           "required" : [ "ConfluenceDocument" ]
+        }, {
+          "required" : [ "AzureDevOpsRepository" ]
         } ]
       }, {
         "oneOf" : [ {
@@ -254,6 +262,8 @@
           "required" : [ "BitbucketCapabilities" ]
         }, {
           "required" : [ "ConfluenceCapabilities" ]
+        }, {
+          "required" : [ "AzureDevOpsCapabilities" ]
         } ]
       } ]
     },
@@ -351,6 +361,41 @@
         }
       }
     },
+    "AzureDevOpsRepositoryResource" : {
+      "type" : "object",
+      "description" : "Azure DevOps repository details",
+      "additionalProperties" : false,
+      "properties" : {
+        "Name" : {
+          "type" : "string",
+          "description" : "Azure DevOps repository name"
+        },
+        "Project" : {
+          "type" : "string",
+          "description" : "Azure DevOps project that owns the repository"
+        },
+        "Organization" : {
+          "type" : "string",
+          "description" : "Read-only Azure DevOps organization that owns the repository, populated from service-side metadata"
+        }
+      },
+      "required" : [ "Name", "Project" ]
+    },
+    "AzureDevOpsCapabilitiesResource" : {
+      "type" : "object",
+      "description" : "Azure DevOps repository capabilities",
+      "additionalProperties" : false,
+      "properties" : {
+        "LeaveComments" : {
+          "type" : "boolean",
+          "description" : "Enables Code Review in the repository"
+        },
+        "RemediateCode" : {
+          "type" : "boolean",
+          "description" : "Enables creation of pull requests with automated fixes"
+        }
+      }
+    },
     "ConfluenceDocumentResource" : {
       "type" : "object",
       "description" : "Confluence document details",
@@ -410,7 +455,7 @@
   },
   "primaryIdentifier" : [ "/properties/AgentSpaceId" ],
   "createOnlyProperties" : [ "/properties/KmsKeyId" ],
-  "readOnlyProperties" : [ "/properties/AgentSpaceId", "/properties/CreatedAt", "/properties/UpdatedAt", "/properties/IntegratedResources/*/ProviderResources/*/ConfluenceDocument/Title", "/properties/IntegratedResources/*/ProviderResources/*/ConfluenceDocument/SpaceTitle" ],
+  "readOnlyProperties" : [ "/properties/AgentSpaceId", "/properties/CreatedAt", "/properties/UpdatedAt", "/properties/IntegratedResources/*/ProviderResources/*/ConfluenceDocument/Title", "/properties/IntegratedResources/*/ProviderResources/*/ConfluenceDocument/SpaceTitle", "/properties/IntegratedResources/*/ProviderResources/*/AzureDevOpsRepository/Organization" ],
   "handlers" : {
     "create" : {
       "permissions" : [ "securityagent:CreateAgentSpace", "securityagent:BatchGetAgentSpaces", "securityagent:TagResource", "securityagent:ListTagsForResource", "securityagent:UpdateIntegratedResources", "securityagent:ListIntegratedResources", "iam:PassRole", "kms:DescribeKey", "kms:GenerateDataKeyWithoutPlaintext", "kms:Decrypt", "kms:ReEncryptFrom", "kms:ReEncryptTo" ]

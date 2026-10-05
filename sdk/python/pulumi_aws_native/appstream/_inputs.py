@@ -13,6 +13,7 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from ._enums import *
 
 __all__ = [
     'AppBlockBuilderAccessEndpointArgs',
@@ -39,6 +40,16 @@ __all__ = [
     'DirectoryConfigServiceAccountCredentialsArgsDict',
     'EntitlementAttributeArgs',
     'EntitlementAttributeArgsDict',
+    'FleetComputeCapacityArgs',
+    'FleetComputeCapacityArgsDict',
+    'FleetDomainJoinInfoArgs',
+    'FleetDomainJoinInfoArgsDict',
+    'FleetS3LocationArgs',
+    'FleetS3LocationArgsDict',
+    'FleetVolumeConfigArgs',
+    'FleetVolumeConfigArgsDict',
+    'FleetVpcConfigArgs',
+    'FleetVpcConfigArgsDict',
     'ImageBuilderAccessEndpointArgs',
     'ImageBuilderAccessEndpointArgsDict',
     'ImageBuilderDomainJoinInfoArgs',
@@ -645,6 +656,226 @@ class EntitlementAttributeArgs:
     @value.setter
     def value(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "value", value)
+
+
+class FleetComputeCapacityArgsDict(TypedDict):
+    desired_instances: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    The desired number of streaming instances.
+    """
+    desired_sessions: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    The desired capacity in terms of number of user sessions, for the multi-session fleet. This is not allowed for single-session fleets.
+
+    When you create a fleet, you must set define either the DesiredSessions or DesiredInstances attribute, based on the type of fleet you create. You can’t define both attributes or leave both attributes blank.
+    """
+
+@pulumi.input_type
+class FleetComputeCapacityArgs:
+    def __init__(__self__, *,
+                 desired_instances: pulumi.Input[Optional[_builtins.int]] = None,
+                 desired_sessions: pulumi.Input[Optional[_builtins.int]] = None):
+        """
+        :param pulumi.Input[_builtins.int] desired_instances: The desired number of streaming instances.
+        :param pulumi.Input[_builtins.int] desired_sessions: The desired capacity in terms of number of user sessions, for the multi-session fleet. This is not allowed for single-session fleets.
+               
+               When you create a fleet, you must set define either the DesiredSessions or DesiredInstances attribute, based on the type of fleet you create. You can’t define both attributes or leave both attributes blank.
+        """
+        if desired_instances is not None:
+            pulumi.set(__self__, "desired_instances", desired_instances)
+        if desired_sessions is not None:
+            pulumi.set(__self__, "desired_sessions", desired_sessions)
+
+    @_builtins.property
+    @pulumi.getter(name="desiredInstances")
+    def desired_instances(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        The desired number of streaming instances.
+        """
+        return pulumi.get(self, "desired_instances")
+
+    @desired_instances.setter
+    def desired_instances(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "desired_instances", value)
+
+    @_builtins.property
+    @pulumi.getter(name="desiredSessions")
+    def desired_sessions(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        The desired capacity in terms of number of user sessions, for the multi-session fleet. This is not allowed for single-session fleets.
+
+        When you create a fleet, you must set define either the DesiredSessions or DesiredInstances attribute, based on the type of fleet you create. You can’t define both attributes or leave both attributes blank.
+        """
+        return pulumi.get(self, "desired_sessions")
+
+    @desired_sessions.setter
+    def desired_sessions(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "desired_sessions", value)
+
+
+class FleetDomainJoinInfoArgsDict(TypedDict):
+    directory_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The fully qualified name of the directory (for example, corp.example.com).
+    """
+    organizational_unit_distinguished_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The distinguished name of the organizational unit for computer accounts.
+    """
+
+@pulumi.input_type
+class FleetDomainJoinInfoArgs:
+    def __init__(__self__, *,
+                 directory_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 organizational_unit_distinguished_name: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] directory_name: The fully qualified name of the directory (for example, corp.example.com).
+        :param pulumi.Input[_builtins.str] organizational_unit_distinguished_name: The distinguished name of the organizational unit for computer accounts.
+        """
+        if directory_name is not None:
+            pulumi.set(__self__, "directory_name", directory_name)
+        if organizational_unit_distinguished_name is not None:
+            pulumi.set(__self__, "organizational_unit_distinguished_name", organizational_unit_distinguished_name)
+
+    @_builtins.property
+    @pulumi.getter(name="directoryName")
+    def directory_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The fully qualified name of the directory (for example, corp.example.com).
+        """
+        return pulumi.get(self, "directory_name")
+
+    @directory_name.setter
+    def directory_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "directory_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="organizationalUnitDistinguishedName")
+    def organizational_unit_distinguished_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The distinguished name of the organizational unit for computer accounts.
+        """
+        return pulumi.get(self, "organizational_unit_distinguished_name")
+
+    @organizational_unit_distinguished_name.setter
+    def organizational_unit_distinguished_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "organizational_unit_distinguished_name", value)
+
+
+class FleetS3LocationArgsDict(TypedDict):
+    s3_bucket: pulumi.Input[_builtins.str]
+    """
+    The S3 bucket of the S3 object.
+    """
+    s3_key: pulumi.Input[_builtins.str]
+    """
+    The S3 key of the S3 object.
+    """
+
+@pulumi.input_type
+class FleetS3LocationArgs:
+    def __init__(__self__, *,
+                 s3_bucket: pulumi.Input[_builtins.str],
+                 s3_key: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] s3_bucket: The S3 bucket of the S3 object.
+        :param pulumi.Input[_builtins.str] s3_key: The S3 key of the S3 object.
+        """
+        pulumi.set(__self__, "s3_bucket", s3_bucket)
+        pulumi.set(__self__, "s3_key", s3_key)
+
+    @_builtins.property
+    @pulumi.getter(name="s3Bucket")
+    def s3_bucket(self) -> pulumi.Input[_builtins.str]:
+        """
+        The S3 bucket of the S3 object.
+        """
+        return pulumi.get(self, "s3_bucket")
+
+    @s3_bucket.setter
+    def s3_bucket(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "s3_bucket", value)
+
+    @_builtins.property
+    @pulumi.getter(name="s3Key")
+    def s3_key(self) -> pulumi.Input[_builtins.str]:
+        """
+        The S3 key of the S3 object.
+        """
+        return pulumi.get(self, "s3_key")
+
+    @s3_key.setter
+    def s3_key(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "s3_key", value)
+
+
+class FleetVolumeConfigArgsDict(TypedDict):
+    volume_size_in_gb: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+
+@pulumi.input_type
+class FleetVolumeConfigArgs:
+    def __init__(__self__, *,
+                 volume_size_in_gb: pulumi.Input[Optional[_builtins.int]] = None):
+        if volume_size_in_gb is not None:
+            pulumi.set(__self__, "volume_size_in_gb", volume_size_in_gb)
+
+    @_builtins.property
+    @pulumi.getter(name="volumeSizeInGb")
+    def volume_size_in_gb(self) -> pulumi.Input[Optional[_builtins.int]]:
+        return pulumi.get(self, "volume_size_in_gb")
+
+    @volume_size_in_gb.setter
+    def volume_size_in_gb(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "volume_size_in_gb", value)
+
+
+class FleetVpcConfigArgsDict(TypedDict):
+    security_group_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    The identifiers of the security groups for the fleet.
+    """
+    subnet_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    The identifiers of the subnets to which a network interface is attached from the fleet instance. Fleet instances can use one or two subnets.
+    """
+
+@pulumi.input_type
+class FleetVpcConfigArgs:
+    def __init__(__self__, *,
+                 security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 subnet_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: The identifiers of the security groups for the fleet.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: The identifiers of the subnets to which a network interface is attached from the fleet instance. Fleet instances can use one or two subnets.
+        """
+        if security_group_ids is not None:
+            pulumi.set(__self__, "security_group_ids", security_group_ids)
+        if subnet_ids is not None:
+            pulumi.set(__self__, "subnet_ids", subnet_ids)
+
+    @_builtins.property
+    @pulumi.getter(name="securityGroupIds")
+    def security_group_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        The identifiers of the security groups for the fleet.
+        """
+        return pulumi.get(self, "security_group_ids")
+
+    @security_group_ids.setter
+    def security_group_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "security_group_ids", value)
+
+    @_builtins.property
+    @pulumi.getter(name="subnetIds")
+    def subnet_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        The identifiers of the subnets to which a network interface is attached from the fleet instance. Fleet instances can use one or two subnets.
+        """
+        return pulumi.get(self, "subnet_ids")
+
+    @subnet_ids.setter
+    def subnet_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "subnet_ids", value)
 
 
 class ImageBuilderAccessEndpointArgsDict(TypedDict):

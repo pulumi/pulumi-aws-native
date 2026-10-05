@@ -22,30 +22,40 @@ __all__ = ['PolicyGrantArgs', 'PolicyGrant']
 @pulumi.input_type
 class PolicyGrantArgs:
     def __init__(__self__, *,
+                 detail: pulumi.Input[Union['PolicyGrantDetail0PropertiesArgs', 'PolicyGrantDetail1PropertiesArgs', 'PolicyGrantDetail2PropertiesArgs', 'PolicyGrantDetail3PropertiesArgs', 'PolicyGrantDetail4PropertiesArgs', 'PolicyGrantDetail5PropertiesArgs', 'PolicyGrantDetail6PropertiesArgs', 'PolicyGrantDetail7PropertiesArgs', 'PolicyGrantDetail8PropertiesArgs', 'PolicyGrantDetail9PropertiesArgs', 'PolicyGrantDetail10PropertiesArgs', 'PolicyGrantDetail11PropertiesArgs', 'PolicyGrantDetail12PropertiesArgs']],
                  domain_identifier: pulumi.Input[_builtins.str],
                  entity_identifier: pulumi.Input[_builtins.str],
                  entity_type: pulumi.Input['PolicyGrantTargetEntityType'],
                  policy_type: pulumi.Input['PolicyGrantManagedPolicyType'],
-                 detail: pulumi.Input[Optional[Union['PolicyGrantDetail0PropertiesArgs', 'PolicyGrantDetail1PropertiesArgs', 'PolicyGrantDetail2PropertiesArgs', 'PolicyGrantDetail3PropertiesArgs', 'PolicyGrantDetail4PropertiesArgs', 'PolicyGrantDetail5PropertiesArgs', 'PolicyGrantDetail6PropertiesArgs', 'PolicyGrantDetail7PropertiesArgs', 'PolicyGrantDetail8PropertiesArgs', 'PolicyGrantDetail9PropertiesArgs', 'PolicyGrantDetail10PropertiesArgs', 'PolicyGrantDetail11PropertiesArgs', 'PolicyGrantDetail12PropertiesArgs']]] = None,
-                 principal: pulumi.Input[Optional[Union['PolicyGrantPrincipal0PropertiesArgs', 'PolicyGrantPrincipal1PropertiesArgs', 'PolicyGrantPrincipal2PropertiesArgs', 'PolicyGrantPrincipal3PropertiesArgs']]] = None):
+                 principal: pulumi.Input[Union['PolicyGrantPrincipal0PropertiesArgs', 'PolicyGrantPrincipal1PropertiesArgs', 'PolicyGrantPrincipal2PropertiesArgs', 'PolicyGrantPrincipal3PropertiesArgs']]):
         """
         The set of arguments for constructing a PolicyGrant resource.
 
+        :param pulumi.Input[Union['PolicyGrantDetail0PropertiesArgs', 'PolicyGrantDetail1PropertiesArgs', 'PolicyGrantDetail2PropertiesArgs', 'PolicyGrantDetail3PropertiesArgs', 'PolicyGrantDetail4PropertiesArgs', 'PolicyGrantDetail5PropertiesArgs', 'PolicyGrantDetail6PropertiesArgs', 'PolicyGrantDetail7PropertiesArgs', 'PolicyGrantDetail8PropertiesArgs', 'PolicyGrantDetail9PropertiesArgs', 'PolicyGrantDetail10PropertiesArgs', 'PolicyGrantDetail11PropertiesArgs', 'PolicyGrantDetail12PropertiesArgs']] detail: The details of the policy grant member.
         :param pulumi.Input[_builtins.str] domain_identifier: The ID of the domain where you want to add a policy grant.
         :param pulumi.Input[_builtins.str] entity_identifier: The ID of the entity (resource) to which you want to add a policy grant.
         :param pulumi.Input['PolicyGrantTargetEntityType'] entity_type: The type of entity (resource) to which the grant is added.
         :param pulumi.Input['PolicyGrantManagedPolicyType'] policy_type: The type of policy that you want to grant.
-        :param pulumi.Input[Union['PolicyGrantDetail0PropertiesArgs', 'PolicyGrantDetail1PropertiesArgs', 'PolicyGrantDetail2PropertiesArgs', 'PolicyGrantDetail3PropertiesArgs', 'PolicyGrantDetail4PropertiesArgs', 'PolicyGrantDetail5PropertiesArgs', 'PolicyGrantDetail6PropertiesArgs', 'PolicyGrantDetail7PropertiesArgs', 'PolicyGrantDetail8PropertiesArgs', 'PolicyGrantDetail9PropertiesArgs', 'PolicyGrantDetail10PropertiesArgs', 'PolicyGrantDetail11PropertiesArgs', 'PolicyGrantDetail12PropertiesArgs']] detail: The details of the policy grant member.
         :param pulumi.Input[Union['PolicyGrantPrincipal0PropertiesArgs', 'PolicyGrantPrincipal1PropertiesArgs', 'PolicyGrantPrincipal2PropertiesArgs', 'PolicyGrantPrincipal3PropertiesArgs']] principal: The principal of the policy grant member.
         """
+        pulumi.set(__self__, "detail", detail)
         pulumi.set(__self__, "domain_identifier", domain_identifier)
         pulumi.set(__self__, "entity_identifier", entity_identifier)
         pulumi.set(__self__, "entity_type", entity_type)
         pulumi.set(__self__, "policy_type", policy_type)
-        if detail is not None:
-            pulumi.set(__self__, "detail", detail)
-        if principal is not None:
-            pulumi.set(__self__, "principal", principal)
+        pulumi.set(__self__, "principal", principal)
+
+    @_builtins.property
+    @pulumi.getter
+    def detail(self) -> pulumi.Input[Union['PolicyGrantDetail0PropertiesArgs', 'PolicyGrantDetail1PropertiesArgs', 'PolicyGrantDetail2PropertiesArgs', 'PolicyGrantDetail3PropertiesArgs', 'PolicyGrantDetail4PropertiesArgs', 'PolicyGrantDetail5PropertiesArgs', 'PolicyGrantDetail6PropertiesArgs', 'PolicyGrantDetail7PropertiesArgs', 'PolicyGrantDetail8PropertiesArgs', 'PolicyGrantDetail9PropertiesArgs', 'PolicyGrantDetail10PropertiesArgs', 'PolicyGrantDetail11PropertiesArgs', 'PolicyGrantDetail12PropertiesArgs']]:
+        """
+        The details of the policy grant member.
+        """
+        return pulumi.get(self, "detail")
+
+    @detail.setter
+    def detail(self, value: pulumi.Input[Union['PolicyGrantDetail0PropertiesArgs', 'PolicyGrantDetail1PropertiesArgs', 'PolicyGrantDetail2PropertiesArgs', 'PolicyGrantDetail3PropertiesArgs', 'PolicyGrantDetail4PropertiesArgs', 'PolicyGrantDetail5PropertiesArgs', 'PolicyGrantDetail6PropertiesArgs', 'PolicyGrantDetail7PropertiesArgs', 'PolicyGrantDetail8PropertiesArgs', 'PolicyGrantDetail9PropertiesArgs', 'PolicyGrantDetail10PropertiesArgs', 'PolicyGrantDetail11PropertiesArgs', 'PolicyGrantDetail12PropertiesArgs']]):
+        pulumi.set(self, "detail", value)
 
     @_builtins.property
     @pulumi.getter(name="domainIdentifier")
@@ -97,26 +107,14 @@ class PolicyGrantArgs:
 
     @_builtins.property
     @pulumi.getter
-    def detail(self) -> pulumi.Input[Optional[Union['PolicyGrantDetail0PropertiesArgs', 'PolicyGrantDetail1PropertiesArgs', 'PolicyGrantDetail2PropertiesArgs', 'PolicyGrantDetail3PropertiesArgs', 'PolicyGrantDetail4PropertiesArgs', 'PolicyGrantDetail5PropertiesArgs', 'PolicyGrantDetail6PropertiesArgs', 'PolicyGrantDetail7PropertiesArgs', 'PolicyGrantDetail8PropertiesArgs', 'PolicyGrantDetail9PropertiesArgs', 'PolicyGrantDetail10PropertiesArgs', 'PolicyGrantDetail11PropertiesArgs', 'PolicyGrantDetail12PropertiesArgs']]]:
-        """
-        The details of the policy grant member.
-        """
-        return pulumi.get(self, "detail")
-
-    @detail.setter
-    def detail(self, value: pulumi.Input[Optional[Union['PolicyGrantDetail0PropertiesArgs', 'PolicyGrantDetail1PropertiesArgs', 'PolicyGrantDetail2PropertiesArgs', 'PolicyGrantDetail3PropertiesArgs', 'PolicyGrantDetail4PropertiesArgs', 'PolicyGrantDetail5PropertiesArgs', 'PolicyGrantDetail6PropertiesArgs', 'PolicyGrantDetail7PropertiesArgs', 'PolicyGrantDetail8PropertiesArgs', 'PolicyGrantDetail9PropertiesArgs', 'PolicyGrantDetail10PropertiesArgs', 'PolicyGrantDetail11PropertiesArgs', 'PolicyGrantDetail12PropertiesArgs']]]):
-        pulumi.set(self, "detail", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def principal(self) -> pulumi.Input[Optional[Union['PolicyGrantPrincipal0PropertiesArgs', 'PolicyGrantPrincipal1PropertiesArgs', 'PolicyGrantPrincipal2PropertiesArgs', 'PolicyGrantPrincipal3PropertiesArgs']]]:
+    def principal(self) -> pulumi.Input[Union['PolicyGrantPrincipal0PropertiesArgs', 'PolicyGrantPrincipal1PropertiesArgs', 'PolicyGrantPrincipal2PropertiesArgs', 'PolicyGrantPrincipal3PropertiesArgs']]:
         """
         The principal of the policy grant member.
         """
         return pulumi.get(self, "principal")
 
     @principal.setter
-    def principal(self, value: pulumi.Input[Optional[Union['PolicyGrantPrincipal0PropertiesArgs', 'PolicyGrantPrincipal1PropertiesArgs', 'PolicyGrantPrincipal2PropertiesArgs', 'PolicyGrantPrincipal3PropertiesArgs']]]):
+    def principal(self, value: pulumi.Input[Union['PolicyGrantPrincipal0PropertiesArgs', 'PolicyGrantPrincipal1PropertiesArgs', 'PolicyGrantPrincipal2PropertiesArgs', 'PolicyGrantPrincipal3PropertiesArgs']]):
         pulumi.set(self, "principal", value)
 
 
@@ -184,6 +182,8 @@ class PolicyGrant(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = PolicyGrantArgs.__new__(PolicyGrantArgs)
 
+            if detail is None and not opts.urn:
+                raise TypeError("Missing required property 'detail'")
             __props__.__dict__["detail"] = detail
             if domain_identifier is None and not opts.urn:
                 raise TypeError("Missing required property 'domain_identifier'")
@@ -197,6 +197,8 @@ class PolicyGrant(pulumi.CustomResource):
             if policy_type is None and not opts.urn:
                 raise TypeError("Missing required property 'policy_type'")
             __props__.__dict__["policy_type"] = policy_type
+            if principal is None and not opts.urn:
+                raise TypeError("Missing required property 'principal'")
             __props__.__dict__["principal"] = principal
             __props__.__dict__["created_at"] = None
             __props__.__dict__["created_by"] = None
@@ -254,7 +256,7 @@ class PolicyGrant(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def detail(self) -> pulumi.Output[Optional[Any]]:
+    def detail(self) -> pulumi.Output[Any]:
         """
         The details of the policy grant member.
         """
@@ -302,7 +304,7 @@ class PolicyGrant(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def principal(self) -> pulumi.Output[Optional[Any]]:
+    def principal(self) -> pulumi.Output[Any]:
         """
         The principal of the policy grant member.
         """

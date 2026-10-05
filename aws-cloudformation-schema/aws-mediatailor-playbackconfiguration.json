@@ -373,8 +373,7 @@
         "VastResponse" : {
           "$ref" : "#/definitions/VastResponse"
         }
-      },
-      "required" : [ "HttpRequest" ]
+      }
     },
     "VastResponse" : {
       "description" : "The configuration for how MediaTailor processes the VAST response returned by the Ad Decision Server.",

@@ -104,6 +104,37 @@ namespace Pulumi.AwsNative.ElastiCache
     }
 
     /// <summary>
+    /// The connection type for the serverless cache. Valid values are vpc or public.
+    /// </summary>
+    [EnumType]
+    public readonly struct ServerlessCacheConnectionType : IEquatable<ServerlessCacheConnectionType>
+    {
+        private readonly string _value;
+
+        private ServerlessCacheConnectionType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ServerlessCacheConnectionType Vpc { get; } = new ServerlessCacheConnectionType("vpc");
+        public static ServerlessCacheConnectionType Public { get; } = new ServerlessCacheConnectionType("public");
+
+        public static bool operator ==(ServerlessCacheConnectionType left, ServerlessCacheConnectionType right) => left.Equals(right);
+        public static bool operator !=(ServerlessCacheConnectionType left, ServerlessCacheConnectionType right) => !left.Equals(right);
+
+        public static explicit operator string(ServerlessCacheConnectionType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ServerlessCacheConnectionType other && Equals(other);
+        public bool Equals(ServerlessCacheConnectionType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The unit of cached data capacity of the Serverless Cache.
     /// </summary>
     [EnumType]
@@ -158,6 +189,106 @@ namespace Pulumi.AwsNative.ElastiCache
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is ServerlessCacheNetworkType other && Equals(other);
         public bool Equals(ServerlessCacheNetworkType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Indicates the status of automatic failover for the source replication group.
+    /// </summary>
+    [EnumType]
+    public readonly struct SnapshotAutomaticFailover : IEquatable<SnapshotAutomaticFailover>
+    {
+        private readonly string _value;
+
+        private SnapshotAutomaticFailover(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SnapshotAutomaticFailover Enabled { get; } = new SnapshotAutomaticFailover("enabled");
+        public static SnapshotAutomaticFailover Disabled { get; } = new SnapshotAutomaticFailover("disabled");
+        public static SnapshotAutomaticFailover Enabling { get; } = new SnapshotAutomaticFailover("enabling");
+        public static SnapshotAutomaticFailover Disabling { get; } = new SnapshotAutomaticFailover("disabling");
+
+        public static bool operator ==(SnapshotAutomaticFailover left, SnapshotAutomaticFailover right) => left.Equals(right);
+        public static bool operator !=(SnapshotAutomaticFailover left, SnapshotAutomaticFailover right) => !left.Equals(right);
+
+        public static explicit operator string(SnapshotAutomaticFailover value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SnapshotAutomaticFailover other && Equals(other);
+        public bool Equals(SnapshotAutomaticFailover other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Enables data tiering. Data tiering is only supported for replication groups using the r6gd node type.
+    /// </summary>
+    [EnumType]
+    public readonly struct SnapshotDataTiering : IEquatable<SnapshotDataTiering>
+    {
+        private readonly string _value;
+
+        private SnapshotDataTiering(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SnapshotDataTiering Enabled { get; } = new SnapshotDataTiering("enabled");
+        public static SnapshotDataTiering Disabled { get; } = new SnapshotDataTiering("disabled");
+
+        public static bool operator ==(SnapshotDataTiering left, SnapshotDataTiering right) => left.Equals(right);
+        public static bool operator !=(SnapshotDataTiering left, SnapshotDataTiering right) => !left.Equals(right);
+
+        public static explicit operator string(SnapshotDataTiering value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SnapshotDataTiering other && Equals(other);
+        public bool Equals(SnapshotDataTiering other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The status of the snapshot. Valid values: creating | available | restoring | copying | deleting | failed | deleted.
+    /// </summary>
+    [EnumType]
+    public readonly struct SnapshotStatus : IEquatable<SnapshotStatus>
+    {
+        private readonly string _value;
+
+        private SnapshotStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SnapshotStatus Creating { get; } = new SnapshotStatus("creating");
+        public static SnapshotStatus Available { get; } = new SnapshotStatus("available");
+        public static SnapshotStatus Restoring { get; } = new SnapshotStatus("restoring");
+        public static SnapshotStatus Copying { get; } = new SnapshotStatus("copying");
+        public static SnapshotStatus Deleting { get; } = new SnapshotStatus("deleting");
+        public static SnapshotStatus Failed { get; } = new SnapshotStatus("failed");
+        public static SnapshotStatus Deleted { get; } = new SnapshotStatus("deleted");
+
+        public static bool operator ==(SnapshotStatus left, SnapshotStatus right) => left.Equals(right);
+        public static bool operator !=(SnapshotStatus left, SnapshotStatus right) => !left.Equals(right);
+
+        public static explicit operator string(SnapshotStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SnapshotStatus other && Equals(other);
+        public bool Equals(SnapshotStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

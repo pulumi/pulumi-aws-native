@@ -124,6 +124,10 @@ __all__ = [
     'AssistantAssociationExternalBedrockKnowledgeBaseConfigArgsDict',
     'AssistantServerSideEncryptionConfigurationArgs',
     'AssistantServerSideEncryptionConfigurationArgsDict',
+    'ContentAssociationAmazonConnectGuideAssociationDataArgs',
+    'ContentAssociationAmazonConnectGuideAssociationDataArgsDict',
+    'ContentAssociationContentsArgs',
+    'ContentAssociationContentsArgsDict',
     'KnowledgeBaseAppIntegrationsConfigurationArgs',
     'KnowledgeBaseAppIntegrationsConfigurationArgsDict',
     'KnowledgeBaseBedrockFoundationModelConfigurationArgs',
@@ -2607,6 +2611,45 @@ class AssistantServerSideEncryptionConfigurationArgs:
     @kms_key_id.setter
     def kms_key_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kms_key_id", value)
+
+
+class ContentAssociationAmazonConnectGuideAssociationDataArgsDict(TypedDict):
+    flow_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+
+@pulumi.input_type
+class ContentAssociationAmazonConnectGuideAssociationDataArgs:
+    def __init__(__self__, *,
+                 flow_id: pulumi.Input[Optional[_builtins.str]] = None):
+        if flow_id is not None:
+            pulumi.set(__self__, "flow_id", flow_id)
+
+    @_builtins.property
+    @pulumi.getter(name="flowId")
+    def flow_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "flow_id")
+
+    @flow_id.setter
+    def flow_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "flow_id", value)
+
+
+class ContentAssociationContentsArgsDict(TypedDict):
+    amazon_connect_guide_association: pulumi.Input['ContentAssociationAmazonConnectGuideAssociationDataArgsDict']
+
+@pulumi.input_type
+class ContentAssociationContentsArgs:
+    def __init__(__self__, *,
+                 amazon_connect_guide_association: pulumi.Input['ContentAssociationAmazonConnectGuideAssociationDataArgs']):
+        pulumi.set(__self__, "amazon_connect_guide_association", amazon_connect_guide_association)
+
+    @_builtins.property
+    @pulumi.getter(name="amazonConnectGuideAssociation")
+    def amazon_connect_guide_association(self) -> pulumi.Input['ContentAssociationAmazonConnectGuideAssociationDataArgs']:
+        return pulumi.get(self, "amazon_connect_guide_association")
+
+    @amazon_connect_guide_association.setter
+    def amazon_connect_guide_association(self, value: pulumi.Input['ContentAssociationAmazonConnectGuideAssociationDataArgs']):
+        pulumi.set(self, "amazon_connect_guide_association", value)
 
 
 class KnowledgeBaseAppIntegrationsConfigurationArgsDict(TypedDict):

@@ -37,6 +37,7 @@ from .get_guardrail import *
 from .get_guardrail_version import *
 from .get_intelligent_prompt_router import *
 from .get_knowledge_base import *
+from .get_knowledge_base_policy import *
 from .get_prompt import *
 from .get_prompt_version import *
 from .get_resource_policy import *
@@ -45,6 +46,7 @@ from .guardrail import *
 from .guardrail_version import *
 from .intelligent_prompt_router import *
 from .knowledge_base import *
+from .knowledge_base_policy import *
 from .prompt import *
 from .prompt_version import *
 from .resource_policy import *

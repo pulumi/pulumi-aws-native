@@ -155,7 +155,6 @@ namespace Pulumi.AwsNative.Ec2
                     "endDate",
                     "instanceMatchCriteria",
                     "instanceTypeSpecifications[*]",
-                    "tagSpecifications[*]",
                     "tenancy",
                 },
             };

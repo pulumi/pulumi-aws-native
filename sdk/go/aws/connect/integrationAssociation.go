@@ -117,7 +117,10 @@ type IntegrationAssociation struct {
 	// Specifies the integration type to be associated with the instance.
 	//
 	// *Allowed Values* : `LEX_BOT` | `LAMBDA_FUNCTION`
-	IntegrationType IntegrationAssociationIntegrationTypeOutput `pulumi:"integrationType"`
+	IntegrationType       IntegrationAssociationIntegrationTypeOutput `pulumi:"integrationType"`
+	SourceApplicationName pulumi.StringPtrOutput                      `pulumi:"sourceApplicationName"`
+	SourceApplicationUrl  pulumi.StringPtrOutput                      `pulumi:"sourceApplicationUrl"`
+	SourceType            IntegrationAssociationSourceTypePtrOutput   `pulumi:"sourceType"`
 	// The tags used to organize, track, or control access for this resource.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
@@ -142,6 +145,9 @@ func NewIntegrationAssociation(ctx *pulumi.Context,
 		"instanceId",
 		"integrationArn",
 		"integrationType",
+		"sourceApplicationName",
+		"sourceApplicationUrl",
+		"sourceType",
 	})
 	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
@@ -192,7 +198,10 @@ type integrationAssociationArgs struct {
 	// Specifies the integration type to be associated with the instance.
 	//
 	// *Allowed Values* : `LEX_BOT` | `LAMBDA_FUNCTION`
-	IntegrationType IntegrationAssociationIntegrationType `pulumi:"integrationType"`
+	IntegrationType       IntegrationAssociationIntegrationType `pulumi:"integrationType"`
+	SourceApplicationName *string                               `pulumi:"sourceApplicationName"`
+	SourceApplicationUrl  *string                               `pulumi:"sourceApplicationUrl"`
+	SourceType            *IntegrationAssociationSourceType     `pulumi:"sourceType"`
 	// The tags used to organize, track, or control access for this resource.
 	Tags []aws.Tag `pulumi:"tags"`
 }
@@ -214,7 +223,10 @@ type IntegrationAssociationArgs struct {
 	// Specifies the integration type to be associated with the instance.
 	//
 	// *Allowed Values* : `LEX_BOT` | `LAMBDA_FUNCTION`
-	IntegrationType IntegrationAssociationIntegrationTypeInput
+	IntegrationType       IntegrationAssociationIntegrationTypeInput
+	SourceApplicationName pulumi.StringPtrInput
+	SourceApplicationUrl  pulumi.StringPtrInput
+	SourceType            IntegrationAssociationSourceTypePtrInput
 	// The tags used to organize, track, or control access for this resource.
 	Tags aws.TagArrayInput
 }
@@ -284,6 +296,18 @@ func (o IntegrationAssociationOutput) IntegrationAssociationId() pulumi.StringOu
 // *Allowed Values* : `LEX_BOT` | `LAMBDA_FUNCTION`
 func (o IntegrationAssociationOutput) IntegrationType() IntegrationAssociationIntegrationTypeOutput {
 	return o.ApplyT(func(v *IntegrationAssociation) IntegrationAssociationIntegrationTypeOutput { return v.IntegrationType }).(IntegrationAssociationIntegrationTypeOutput)
+}
+
+func (o IntegrationAssociationOutput) SourceApplicationName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IntegrationAssociation) pulumi.StringPtrOutput { return v.SourceApplicationName }).(pulumi.StringPtrOutput)
+}
+
+func (o IntegrationAssociationOutput) SourceApplicationUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IntegrationAssociation) pulumi.StringPtrOutput { return v.SourceApplicationUrl }).(pulumi.StringPtrOutput)
+}
+
+func (o IntegrationAssociationOutput) SourceType() IntegrationAssociationSourceTypePtrOutput {
+	return o.ApplyT(func(v *IntegrationAssociation) IntegrationAssociationSourceTypePtrOutput { return v.SourceType }).(IntegrationAssociationSourceTypePtrOutput)
 }
 
 // The tags used to organize, track, or control access for this resource.

@@ -79,6 +79,7 @@ namespace Pulumi.AwsNative.AppStream
         /// The description of the app block builder.
         /// </summary>
         public readonly string? Description;
+        public readonly bool? DisableImdsv1;
         /// <summary>
         /// The display name of the app block builder.
         /// </summary>
@@ -120,6 +121,8 @@ namespace Pulumi.AwsNative.AppStream
 
             string? description,
 
+            bool? disableImdsv1,
+
             string? displayName,
 
             bool? enableDefaultInternetAccess,
@@ -138,6 +141,7 @@ namespace Pulumi.AwsNative.AppStream
             Arn = arn;
             CreatedTime = createdTime;
             Description = description;
+            DisableImdsv1 = disableImdsv1;
             DisplayName = displayName;
             EnableDefaultInternetAccess = enableDefaultInternetAccess;
             IamRoleArn = iamRoleArn;

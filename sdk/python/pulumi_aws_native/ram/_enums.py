@@ -7,9 +7,69 @@ import pulumi
 from enum import Enum
 
 __all__ = [
+    'PermissionAssociationAssociationStatus',
+    'PermissionAssociationFeatureSet',
+    'PrincipalAssociationStatus',
+    'ResourceAssociationStatus',
     'ResourceShareFeatureSet',
     'ResourceShareStatus',
+    'SourceAssociationStatus',
 ]
+
+
+@pulumi.type_token("aws-native:ram:PermissionAssociationAssociationStatus")
+class PermissionAssociationAssociationStatus(_builtins.str, Enum):
+    """
+    The current status of the association between the permission and the resource share.
+    """
+    ASSOCIATING = "ASSOCIATING"
+    ASSOCIATED = "ASSOCIATED"
+    FAILED = "FAILED"
+    DISASSOCIATING = "DISASSOCIATING"
+    SUSPENDED = "SUSPENDED"
+    SUSPENDING = "SUSPENDING"
+    RESTORING = "RESTORING"
+    DISASSOCIATED = "DISASSOCIATED"
+
+
+@pulumi.type_token("aws-native:ram:PermissionAssociationFeatureSet")
+class PermissionAssociationFeatureSet(_builtins.str, Enum):
+    """
+    The feature set of the resource share.
+    """
+    STANDARD = "STANDARD"
+    CREATED_FROM_POLICY = "CREATED_FROM_POLICY"
+    PROMOTING_TO_STANDARD = "PROMOTING_TO_STANDARD"
+
+
+@pulumi.type_token("aws-native:ram:PrincipalAssociationStatus")
+class PrincipalAssociationStatus(_builtins.str, Enum):
+    """
+    The current status of the association.
+    """
+    ASSOCIATING = "ASSOCIATING"
+    ASSOCIATED = "ASSOCIATED"
+    FAILED = "FAILED"
+    DISASSOCIATING = "DISASSOCIATING"
+    DISASSOCIATED = "DISASSOCIATED"
+    SUSPENDED = "SUSPENDED"
+    SUSPENDING = "SUSPENDING"
+    RESTORING = "RESTORING"
+
+
+@pulumi.type_token("aws-native:ram:ResourceAssociationStatus")
+class ResourceAssociationStatus(_builtins.str, Enum):
+    """
+    The current status of the association.
+    """
+    ASSOCIATING = "ASSOCIATING"
+    ASSOCIATED = "ASSOCIATED"
+    FAILED = "FAILED"
+    DISASSOCIATING = "DISASSOCIATING"
+    DISASSOCIATED = "DISASSOCIATED"
+    SUSPENDED = "SUSPENDED"
+    SUSPENDING = "SUSPENDING"
+    RESTORING = "RESTORING"
 
 
 @pulumi.type_token("aws-native:ram:ResourceShareFeatureSet")
@@ -32,3 +92,18 @@ class ResourceShareStatus(_builtins.str, Enum):
     FAILED = "FAILED"
     DELETING = "DELETING"
     DELETED = "DELETED"
+
+
+@pulumi.type_token("aws-native:ram:SourceAssociationStatus")
+class SourceAssociationStatus(_builtins.str, Enum):
+    """
+    The current status of the association.
+    """
+    ASSOCIATING = "ASSOCIATING"
+    ASSOCIATED = "ASSOCIATED"
+    FAILED = "FAILED"
+    DISASSOCIATING = "DISASSOCIATING"
+    DISASSOCIATED = "DISASSOCIATED"
+    SUSPENDED = "SUSPENDED"
+    SUSPENDING = "SUSPENDING"
+    RESTORING = "RESTORING"

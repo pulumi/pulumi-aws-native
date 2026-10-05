@@ -1905,6 +1905,100 @@ func (in *entityRecognizerDocumentsInputFormatPtr) ToEntityRecognizerDocumentsIn
 	return pulumi.ToOutputWithContext(ctx, in).(EntityRecognizerDocumentsInputFormatPtrOutput)
 }
 
+// The current status of the endpoint. Because the endpoint updates and creation are asynchronous, wait for the endpoint to be IN_SERVICE before making inference requests.
+type EntityRecognizerEndpointEndpointStatus string
+
+const (
+	EntityRecognizerEndpointEndpointStatusCreating  = EntityRecognizerEndpointEndpointStatus("CREATING")
+	EntityRecognizerEndpointEndpointStatusDeleting  = EntityRecognizerEndpointEndpointStatus("DELETING")
+	EntityRecognizerEndpointEndpointStatusFailed    = EntityRecognizerEndpointEndpointStatus("FAILED")
+	EntityRecognizerEndpointEndpointStatusInService = EntityRecognizerEndpointEndpointStatus("IN_SERVICE")
+	EntityRecognizerEndpointEndpointStatusUpdating  = EntityRecognizerEndpointEndpointStatus("UPDATING")
+)
+
+type EntityRecognizerEndpointEndpointStatusOutput struct{ *pulumi.OutputState }
+
+func (EntityRecognizerEndpointEndpointStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EntityRecognizerEndpointEndpointStatus)(nil)).Elem()
+}
+
+func (o EntityRecognizerEndpointEndpointStatusOutput) ToEntityRecognizerEndpointEndpointStatusOutput() EntityRecognizerEndpointEndpointStatusOutput {
+	return o
+}
+
+func (o EntityRecognizerEndpointEndpointStatusOutput) ToEntityRecognizerEndpointEndpointStatusOutputWithContext(ctx context.Context) EntityRecognizerEndpointEndpointStatusOutput {
+	return o
+}
+
+func (o EntityRecognizerEndpointEndpointStatusOutput) ToEntityRecognizerEndpointEndpointStatusPtrOutput() EntityRecognizerEndpointEndpointStatusPtrOutput {
+	return o.ToEntityRecognizerEndpointEndpointStatusPtrOutputWithContext(context.Background())
+}
+
+func (o EntityRecognizerEndpointEndpointStatusOutput) ToEntityRecognizerEndpointEndpointStatusPtrOutputWithContext(ctx context.Context) EntityRecognizerEndpointEndpointStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EntityRecognizerEndpointEndpointStatus) *EntityRecognizerEndpointEndpointStatus {
+		return &v
+	}).(EntityRecognizerEndpointEndpointStatusPtrOutput)
+}
+
+func (o EntityRecognizerEndpointEndpointStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o EntityRecognizerEndpointEndpointStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e EntityRecognizerEndpointEndpointStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o EntityRecognizerEndpointEndpointStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o EntityRecognizerEndpointEndpointStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e EntityRecognizerEndpointEndpointStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type EntityRecognizerEndpointEndpointStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (EntityRecognizerEndpointEndpointStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EntityRecognizerEndpointEndpointStatus)(nil)).Elem()
+}
+
+func (o EntityRecognizerEndpointEndpointStatusPtrOutput) ToEntityRecognizerEndpointEndpointStatusPtrOutput() EntityRecognizerEndpointEndpointStatusPtrOutput {
+	return o
+}
+
+func (o EntityRecognizerEndpointEndpointStatusPtrOutput) ToEntityRecognizerEndpointEndpointStatusPtrOutputWithContext(ctx context.Context) EntityRecognizerEndpointEndpointStatusPtrOutput {
+	return o
+}
+
+func (o EntityRecognizerEndpointEndpointStatusPtrOutput) Elem() EntityRecognizerEndpointEndpointStatusOutput {
+	return o.ApplyT(func(v *EntityRecognizerEndpointEndpointStatus) EntityRecognizerEndpointEndpointStatus {
+		if v != nil {
+			return *v
+		}
+		var ret EntityRecognizerEndpointEndpointStatus
+		return ret
+	}).(EntityRecognizerEndpointEndpointStatusOutput)
+}
+
+func (o EntityRecognizerEndpointEndpointStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o EntityRecognizerEndpointEndpointStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *EntityRecognizerEndpointEndpointStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
 // The format of your training data.
 type EntityRecognizerInputDataConfigDataFormat string
 
@@ -2820,6 +2914,8 @@ func init() {
 	pulumi.RegisterOutputType(EntityRecognizerAugmentedManifestsListItemSplitPtrOutput{})
 	pulumi.RegisterOutputType(EntityRecognizerDocumentsInputFormatOutput{})
 	pulumi.RegisterOutputType(EntityRecognizerDocumentsInputFormatPtrOutput{})
+	pulumi.RegisterOutputType(EntityRecognizerEndpointEndpointStatusOutput{})
+	pulumi.RegisterOutputType(EntityRecognizerEndpointEndpointStatusPtrOutput{})
 	pulumi.RegisterOutputType(EntityRecognizerInputDataConfigDataFormatOutput{})
 	pulumi.RegisterOutputType(EntityRecognizerInputDataConfigDataFormatPtrOutput{})
 	pulumi.RegisterOutputType(EntityRecognizerLanguageCodeOutput{})

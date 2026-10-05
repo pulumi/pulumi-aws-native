@@ -18,6 +18,7 @@ __all__ = [
     'EntityRecognizerAugmentedManifestsListItemDocumentType',
     'EntityRecognizerAugmentedManifestsListItemSplit',
     'EntityRecognizerDocumentsInputFormat',
+    'EntityRecognizerEndpointEndpointStatus',
     'EntityRecognizerInputDataConfigDataFormat',
     'EntityRecognizerLanguageCode',
     'FlywheelDocumentClassificationConfigMode',
@@ -141,6 +142,18 @@ class EntityRecognizerDocumentsInputFormat(_builtins.str, Enum):
     """
     ONE_DOC_PER_FILE = "ONE_DOC_PER_FILE"
     ONE_DOC_PER_LINE = "ONE_DOC_PER_LINE"
+
+
+@pulumi.type_token("aws-native:comprehend:EntityRecognizerEndpointEndpointStatus")
+class EntityRecognizerEndpointEndpointStatus(_builtins.str, Enum):
+    """
+    The current status of the endpoint. Because the endpoint updates and creation are asynchronous, wait for the endpoint to be IN_SERVICE before making inference requests.
+    """
+    CREATING = "CREATING"
+    DELETING = "DELETING"
+    FAILED = "FAILED"
+    IN_SERVICE = "IN_SERVICE"
+    UPDATING = "UPDATING"
 
 
 @pulumi.type_token("aws-native:comprehend:EntityRecognizerInputDataConfigDataFormat")

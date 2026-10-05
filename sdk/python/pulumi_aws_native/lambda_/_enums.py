@@ -49,6 +49,17 @@ __all__ = [
     'UrlAllowMethodsItem',
     'UrlAuthType',
     'UrlInvokeMode',
+    'WebFunctionEndpointAuthType',
+    'WebFunctionEndpointEndpointType',
+    'WebFunctionEndpointRegionalEndpointAuthType',
+    'WebFunctionEndpointRegionalEndpointState',
+    'WebFunctionEndpointRegionalEndpointUpdateStatus',
+    'WebFunctionEndpointState',
+    'WebFunctionEndpointUpdateStatus',
+    'WebFunctionRevisionLoggingConfigApplicationLogLevel',
+    'WebFunctionRevisionLoggingConfigSystemLogLevel',
+    'WebFunctionRevisionState',
+    'WebFunctionState',
 ]
 
 
@@ -413,6 +424,7 @@ class NetworkConnectorState(_builtins.str, Enum):
 @pulumi.type_token("aws-native:lambda:NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItem")
 class NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItem(_builtins.str, Enum):
     MICRO_VM = "MicroVm"
+    WEB_FUNCTION = "WebFunction"
 
 
 @pulumi.type_token("aws-native:lambda:NetworkConnectorVpcEgressConfigurationNetworkProtocol")
@@ -460,3 +472,117 @@ class UrlInvokeMode(_builtins.str, Enum):
     """
     BUFFERED = "BUFFERED"
     RESPONSE_STREAM = "RESPONSE_STREAM"
+
+
+@pulumi.type_token("aws-native:lambda:WebFunctionEndpointAuthType")
+class WebFunctionEndpointAuthType(_builtins.str, Enum):
+    """
+    The authentication type for the endpoint.
+    """
+    APPLICATION_MANAGED = "ApplicationManaged"
+    IAM_AUTH = "IamAuth"
+
+
+@pulumi.type_token("aws-native:lambda:WebFunctionEndpointEndpointType")
+class WebFunctionEndpointEndpointType(_builtins.str, Enum):
+    """
+    The type of the endpoint.
+    """
+    HOME_REGION = "HomeRegion"
+    MULTI_REGION = "MultiRegion"
+    PER_REGION = "PerRegion"
+
+
+@pulumi.type_token("aws-native:lambda:WebFunctionEndpointRegionalEndpointAuthType")
+class WebFunctionEndpointRegionalEndpointAuthType(_builtins.str, Enum):
+    """
+    The authentication type for the endpoint.
+    """
+    APPLICATION_MANAGED = "ApplicationManaged"
+    IAM_AUTH = "IamAuth"
+
+
+@pulumi.type_token("aws-native:lambda:WebFunctionEndpointRegionalEndpointState")
+class WebFunctionEndpointRegionalEndpointState(_builtins.str, Enum):
+    """
+    The current state of the endpoint.
+    """
+    PENDING = "Pending"
+    ACTIVE = "Active"
+    FAILED = "Failed"
+    DELETING = "Deleting"
+
+
+@pulumi.type_token("aws-native:lambda:WebFunctionEndpointRegionalEndpointUpdateStatus")
+class WebFunctionEndpointRegionalEndpointUpdateStatus(_builtins.str, Enum):
+    """
+    The status of the most recent update to the endpoint.
+    """
+    IN_PROGRESS = "InProgress"
+    SUCCESSFUL = "Successful"
+    FAILED = "Failed"
+
+
+@pulumi.type_token("aws-native:lambda:WebFunctionEndpointState")
+class WebFunctionEndpointState(_builtins.str, Enum):
+    """
+    The current state of the endpoint.
+    """
+    PENDING = "Pending"
+    ACTIVE = "Active"
+    FAILED = "Failed"
+    DELETING = "Deleting"
+
+
+@pulumi.type_token("aws-native:lambda:WebFunctionEndpointUpdateStatus")
+class WebFunctionEndpointUpdateStatus(_builtins.str, Enum):
+    """
+    The status of the last update operation.
+    """
+    IN_PROGRESS = "InProgress"
+    SUCCESSFUL = "Successful"
+    FAILED = "Failed"
+
+
+@pulumi.type_token("aws-native:lambda:WebFunctionRevisionLoggingConfigApplicationLogLevel")
+class WebFunctionRevisionLoggingConfigApplicationLogLevel(_builtins.str, Enum):
+    """
+    The application log level.
+    """
+    TRACE = "TRACE"
+    DEBUG = "DEBUG"
+    INFO = "INFO"
+    WARN = "WARN"
+    ERROR = "ERROR"
+    FATAL = "FATAL"
+
+
+@pulumi.type_token("aws-native:lambda:WebFunctionRevisionLoggingConfigSystemLogLevel")
+class WebFunctionRevisionLoggingConfigSystemLogLevel(_builtins.str, Enum):
+    """
+    The system log level.
+    """
+    DEBUG = "DEBUG"
+    INFO = "INFO"
+    WARN = "WARN"
+
+
+@pulumi.type_token("aws-native:lambda:WebFunctionRevisionState")
+class WebFunctionRevisionState(_builtins.str, Enum):
+    """
+    The current state of the revision.
+    """
+    PENDING = "Pending"
+    ACTIVE = "Active"
+    FAILED = "Failed"
+
+
+@pulumi.type_token("aws-native:lambda:WebFunctionState")
+class WebFunctionState(_builtins.str, Enum):
+    """
+    The current state of the function.
+    """
+    PENDING = "Pending"
+    ACTIVE = "Active"
+    FAILED = "Failed"
+    DELETING = "Deleting"

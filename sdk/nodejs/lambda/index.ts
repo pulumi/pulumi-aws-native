@@ -105,6 +105,21 @@ export const getVersion: typeof import("./getVersion").getVersion = null as any;
 export const getVersionOutput: typeof import("./getVersion").getVersionOutput = null as any;
 utilities.lazyLoad(exports, ["getVersion","getVersionOutput"], () => require("./getVersion"));
 
+export { GetWebFunctionArgs, GetWebFunctionResult, GetWebFunctionOutputArgs } from "./getWebFunction";
+export const getWebFunction: typeof import("./getWebFunction").getWebFunction = null as any;
+export const getWebFunctionOutput: typeof import("./getWebFunction").getWebFunctionOutput = null as any;
+utilities.lazyLoad(exports, ["getWebFunction","getWebFunctionOutput"], () => require("./getWebFunction"));
+
+export { GetWebFunctionEndpointArgs, GetWebFunctionEndpointResult, GetWebFunctionEndpointOutputArgs } from "./getWebFunctionEndpoint";
+export const getWebFunctionEndpoint: typeof import("./getWebFunctionEndpoint").getWebFunctionEndpoint = null as any;
+export const getWebFunctionEndpointOutput: typeof import("./getWebFunctionEndpoint").getWebFunctionEndpointOutput = null as any;
+utilities.lazyLoad(exports, ["getWebFunctionEndpoint","getWebFunctionEndpointOutput"], () => require("./getWebFunctionEndpoint"));
+
+export { GetWebFunctionRevisionArgs, GetWebFunctionRevisionResult, GetWebFunctionRevisionOutputArgs } from "./getWebFunctionRevision";
+export const getWebFunctionRevision: typeof import("./getWebFunctionRevision").getWebFunctionRevision = null as any;
+export const getWebFunctionRevisionOutput: typeof import("./getWebFunctionRevision").getWebFunctionRevisionOutput = null as any;
+utilities.lazyLoad(exports, ["getWebFunctionRevision","getWebFunctionRevisionOutput"], () => require("./getWebFunctionRevision"));
+
 export { LayerVersionArgs } from "./layerVersion";
 export type LayerVersion = import("./layerVersion").LayerVersion;
 export const LayerVersion: typeof import("./layerVersion").LayerVersion = null as any;
@@ -145,6 +160,21 @@ export type Version = import("./version").Version;
 export const Version: typeof import("./version").Version = null as any;
 utilities.lazyLoad(exports, ["Version"], () => require("./version"));
 
+export { WebFunctionArgs } from "./webFunction";
+export type WebFunction = import("./webFunction").WebFunction;
+export const WebFunction: typeof import("./webFunction").WebFunction = null as any;
+utilities.lazyLoad(exports, ["WebFunction"], () => require("./webFunction"));
+
+export { WebFunctionEndpointArgs } from "./webFunctionEndpoint";
+export type WebFunctionEndpoint = import("./webFunctionEndpoint").WebFunctionEndpoint;
+export const WebFunctionEndpoint: typeof import("./webFunctionEndpoint").WebFunctionEndpoint = null as any;
+utilities.lazyLoad(exports, ["WebFunctionEndpoint"], () => require("./webFunctionEndpoint"));
+
+export { WebFunctionRevisionArgs } from "./webFunctionRevision";
+export type WebFunctionRevision = import("./webFunctionRevision").WebFunctionRevision;
+export const WebFunctionRevision: typeof import("./webFunctionRevision").WebFunctionRevision = null as any;
+utilities.lazyLoad(exports, ["WebFunctionRevision"], () => require("./webFunctionRevision"));
+
 
 // Export enums:
 export * from "../types/enums/lambda";
@@ -181,6 +211,12 @@ const _module = {
                 return new Url(name, <any>undefined, { urn })
             case "aws-native:lambda:Version":
                 return new Version(name, <any>undefined, { urn })
+            case "aws-native:lambda:WebFunction":
+                return new WebFunction(name, <any>undefined, { urn })
+            case "aws-native:lambda:WebFunctionEndpoint":
+                return new WebFunctionEndpoint(name, <any>undefined, { urn })
+            case "aws-native:lambda:WebFunctionRevision":
+                return new WebFunctionRevision(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

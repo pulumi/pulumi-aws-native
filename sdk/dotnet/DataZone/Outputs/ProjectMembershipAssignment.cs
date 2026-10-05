@@ -16,12 +16,12 @@ namespace Pulumi.AwsNative.DataZone.Outputs
     [OutputType]
     public sealed class ProjectMembershipAssignment
     {
-        public readonly Pulumi.AwsNative.DataZone.ProjectUserDesignation Designation;
+        public readonly string Designation;
         public readonly Outputs.ProjectMember Member;
 
         [OutputConstructor]
         private ProjectMembershipAssignment(
-            Pulumi.AwsNative.DataZone.ProjectUserDesignation designation,
+            string designation,
 
             Outputs.ProjectMember member)
         {

@@ -40,7 +40,7 @@ export class ProjectMembership extends pulumi.CustomResource {
     /**
      * The designated role of a project member.
      */
-    declare public readonly designation: pulumi.Output<enums.datazone.ProjectMembershipUserDesignation>;
+    declare public readonly designation: pulumi.Output<string>;
     /**
      * The ID of the Amazon DataZone domain in which project membership is created.
      */
@@ -107,7 +107,7 @@ export interface ProjectMembershipArgs {
     /**
      * The designated role of a project member.
      */
-    designation: pulumi.Input<enums.datazone.ProjectMembershipUserDesignation>;
+    designation: pulumi.Input<string>;
     /**
      * The ID of the Amazon DataZone domain in which project membership is created.
      */

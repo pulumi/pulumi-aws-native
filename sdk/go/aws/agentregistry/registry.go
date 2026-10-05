@@ -18,11 +18,16 @@ type Registry struct {
 
 	ApprovalConfiguration RegistryApprovalConfigurationPtrOutput `pulumi:"approvalConfiguration"`
 	AuthorizerType        RegistryAuthorizerTypePtrOutput        `pulumi:"authorizerType"`
+	// Specifies whether auto-detection is requested for the registry. Must be specified together with AutoDetectionScope. Setting this to true is necessary but not sufficient for auto-detection to become active; the preconditions of the configured scope must also be met. To turn auto-detection off, explicitly set this to false - removing AutoDetectionEnabled and AutoDetectionScope from the template is a no-op and leaves the existing auto-detection settings unchanged. A registry cannot be deleted while auto-detection is enabled: set this to false and update the stack before deleting the registry.
+	AutoDetectionEnabled pulumi.BoolPtrOutput                `pulumi:"autoDetectionEnabled"`
+	AutoDetectionScope   RegistryAutoDetectionScopePtrOutput `pulumi:"autoDetectionScope"`
+	AutoDetectionStatus  RegistryAutoDetectionStatusOutput   `pulumi:"autoDetectionStatus"`
 	// The timestamp when the registry was created.
 	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
 	// The description of the registry.
-	Description            pulumi.StringPtrOutput                  `pulumi:"description"`
-	DiscoveryConfiguration RegistryDiscoveryConfigurationPtrOutput `pulumi:"discoveryConfiguration"`
+	Description             pulumi.StringPtrOutput                   `pulumi:"description"`
+	DiscoveryConfiguration  RegistryDiscoveryConfigurationPtrOutput  `pulumi:"discoveryConfiguration"`
+	EncryptionConfiguration RegistryEncryptionConfigurationPtrOutput `pulumi:"encryptionConfiguration"`
 	// The name of the registry.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The Amazon Resource Name (ARN) of the registry.
@@ -45,6 +50,7 @@ func NewRegistry(ctx *pulumi.Context,
 
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"authorizerType",
+		"encryptionConfiguration",
 	})
 	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
@@ -82,9 +88,13 @@ func (RegistryState) ElementType() reflect.Type {
 type registryArgs struct {
 	ApprovalConfiguration *RegistryApprovalConfiguration `pulumi:"approvalConfiguration"`
 	AuthorizerType        *RegistryAuthorizerType        `pulumi:"authorizerType"`
+	// Specifies whether auto-detection is requested for the registry. Must be specified together with AutoDetectionScope. Setting this to true is necessary but not sufficient for auto-detection to become active; the preconditions of the configured scope must also be met. To turn auto-detection off, explicitly set this to false - removing AutoDetectionEnabled and AutoDetectionScope from the template is a no-op and leaves the existing auto-detection settings unchanged. A registry cannot be deleted while auto-detection is enabled: set this to false and update the stack before deleting the registry.
+	AutoDetectionEnabled *bool                       `pulumi:"autoDetectionEnabled"`
+	AutoDetectionScope   *RegistryAutoDetectionScope `pulumi:"autoDetectionScope"`
 	// The description of the registry.
-	Description            *string                         `pulumi:"description"`
-	DiscoveryConfiguration *RegistryDiscoveryConfiguration `pulumi:"discoveryConfiguration"`
+	Description             *string                          `pulumi:"description"`
+	DiscoveryConfiguration  *RegistryDiscoveryConfiguration  `pulumi:"discoveryConfiguration"`
+	EncryptionConfiguration *RegistryEncryptionConfiguration `pulumi:"encryptionConfiguration"`
 	// The name of the registry.
 	Name *string `pulumi:"name"`
 	// Tags to assign to the registry.
@@ -95,9 +105,13 @@ type registryArgs struct {
 type RegistryArgs struct {
 	ApprovalConfiguration RegistryApprovalConfigurationPtrInput
 	AuthorizerType        RegistryAuthorizerTypePtrInput
+	// Specifies whether auto-detection is requested for the registry. Must be specified together with AutoDetectionScope. Setting this to true is necessary but not sufficient for auto-detection to become active; the preconditions of the configured scope must also be met. To turn auto-detection off, explicitly set this to false - removing AutoDetectionEnabled and AutoDetectionScope from the template is a no-op and leaves the existing auto-detection settings unchanged. A registry cannot be deleted while auto-detection is enabled: set this to false and update the stack before deleting the registry.
+	AutoDetectionEnabled pulumi.BoolPtrInput
+	AutoDetectionScope   RegistryAutoDetectionScopePtrInput
 	// The description of the registry.
-	Description            pulumi.StringPtrInput
-	DiscoveryConfiguration RegistryDiscoveryConfigurationPtrInput
+	Description             pulumi.StringPtrInput
+	DiscoveryConfiguration  RegistryDiscoveryConfigurationPtrInput
+	EncryptionConfiguration RegistryEncryptionConfigurationPtrInput
 	// The name of the registry.
 	Name pulumi.StringPtrInput
 	// Tags to assign to the registry.
@@ -149,6 +163,19 @@ func (o RegistryOutput) AuthorizerType() RegistryAuthorizerTypePtrOutput {
 	return o.ApplyT(func(v *Registry) RegistryAuthorizerTypePtrOutput { return v.AuthorizerType }).(RegistryAuthorizerTypePtrOutput)
 }
 
+// Specifies whether auto-detection is requested for the registry. Must be specified together with AutoDetectionScope. Setting this to true is necessary but not sufficient for auto-detection to become active; the preconditions of the configured scope must also be met. To turn auto-detection off, explicitly set this to false - removing AutoDetectionEnabled and AutoDetectionScope from the template is a no-op and leaves the existing auto-detection settings unchanged. A registry cannot be deleted while auto-detection is enabled: set this to false and update the stack before deleting the registry.
+func (o RegistryOutput) AutoDetectionEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Registry) pulumi.BoolPtrOutput { return v.AutoDetectionEnabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o RegistryOutput) AutoDetectionScope() RegistryAutoDetectionScopePtrOutput {
+	return o.ApplyT(func(v *Registry) RegistryAutoDetectionScopePtrOutput { return v.AutoDetectionScope }).(RegistryAutoDetectionScopePtrOutput)
+}
+
+func (o RegistryOutput) AutoDetectionStatus() RegistryAutoDetectionStatusOutput {
+	return o.ApplyT(func(v *Registry) RegistryAutoDetectionStatusOutput { return v.AutoDetectionStatus }).(RegistryAutoDetectionStatusOutput)
+}
+
 // The timestamp when the registry was created.
 func (o RegistryOutput) CreatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *Registry) pulumi.StringOutput { return v.CreatedAt }).(pulumi.StringOutput)
@@ -161,6 +188,10 @@ func (o RegistryOutput) Description() pulumi.StringPtrOutput {
 
 func (o RegistryOutput) DiscoveryConfiguration() RegistryDiscoveryConfigurationPtrOutput {
 	return o.ApplyT(func(v *Registry) RegistryDiscoveryConfigurationPtrOutput { return v.DiscoveryConfiguration }).(RegistryDiscoveryConfigurationPtrOutput)
+}
+
+func (o RegistryOutput) EncryptionConfiguration() RegistryEncryptionConfigurationPtrOutput {
+	return o.ApplyT(func(v *Registry) RegistryEncryptionConfigurationPtrOutput { return v.EncryptionConfiguration }).(RegistryEncryptionConfigurationPtrOutput)
 }
 
 // The name of the registry.

@@ -3219,6 +3219,10 @@
       },
       "required" : [ "AxisBinding", "FieldId" ]
     },
+    "SheetLayoutGroupMemberType" : {
+      "type" : "string",
+      "enum" : [ "ELEMENT", "GROUP" ]
+    },
     "FilterDropDownControl" : {
       "additionalProperties" : false,
       "type" : "object",
@@ -11458,7 +11462,9 @@
       "additionalProperties" : false,
       "type" : "object",
       "properties" : {
-        "Type" : { },
+        "Type" : {
+          "$ref" : "#/definitions/SheetLayoutGroupMemberType"
+        },
         "Id" : {
           "minLength" : 1,
           "pattern" : "^[\\w\\-]+$",

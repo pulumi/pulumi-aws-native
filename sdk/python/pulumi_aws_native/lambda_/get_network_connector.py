@@ -26,13 +26,19 @@ __all__ = [
 
 @pulumi.output_type
 class GetNetworkConnectorResult:
-    def __init__(__self__, arn=None, configuration=None, operator_role=None, state=None, tags=None):
+    def __init__(__self__, arn=None, configuration=None, latest_version=None, latest_version_arn=None, operator_role=None, state=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
         if configuration and not isinstance(configuration, dict):
             raise TypeError("Expected argument 'configuration' to be a dict")
         pulumi.set(__self__, "configuration", configuration)
+        if latest_version and not isinstance(latest_version, int):
+            raise TypeError("Expected argument 'latest_version' to be a int")
+        pulumi.set(__self__, "latest_version", latest_version)
+        if latest_version_arn and not isinstance(latest_version_arn, str):
+            raise TypeError("Expected argument 'latest_version_arn' to be a str")
+        pulumi.set(__self__, "latest_version_arn", latest_version_arn)
         if operator_role and not isinstance(operator_role, str):
             raise TypeError("Expected argument 'operator_role' to be a str")
         pulumi.set(__self__, "operator_role", operator_role)
@@ -52,6 +58,16 @@ class GetNetworkConnectorResult:
     @pulumi.getter
     def configuration(self) -> Optional['outputs.NetworkConnectorConfig']:
         return pulumi.get(self, "configuration")
+
+    @_builtins.property
+    @pulumi.getter(name="latestVersion")
+    def latest_version(self) -> Optional[_builtins.int]:
+        return pulumi.get(self, "latest_version")
+
+    @_builtins.property
+    @pulumi.getter(name="latestVersionArn")
+    def latest_version_arn(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "latest_version_arn")
 
     @_builtins.property
     @pulumi.getter(name="operatorRole")
@@ -80,6 +96,8 @@ class AwaitableGetNetworkConnectorResult(GetNetworkConnectorResult):
         return GetNetworkConnectorResult(
             arn=self.arn,
             configuration=self.configuration,
+            latest_version=self.latest_version,
+            latest_version_arn=self.latest_version_arn,
             operator_role=self.operator_role,
             state=self.state,
             tags=self.tags)
@@ -98,6 +116,8 @@ def get_network_connector(arn: Optional[_builtins.str] = None,
     return AwaitableGetNetworkConnectorResult(
         arn=pulumi.get(__ret__, 'arn'),
         configuration=pulumi.get(__ret__, 'configuration'),
+        latest_version=pulumi.get(__ret__, 'latest_version'),
+        latest_version_arn=pulumi.get(__ret__, 'latest_version_arn'),
         operator_role=pulumi.get(__ret__, 'operator_role'),
         state=pulumi.get(__ret__, 'state'),
         tags=pulumi.get(__ret__, 'tags'))
@@ -113,6 +133,8 @@ def get_network_connector_output(arn: pulumi.Input[Optional[_builtins.str]] = No
     return __ret__.apply(lambda __response__: GetNetworkConnectorResult(
         arn=pulumi.get(__response__, 'arn'),
         configuration=pulumi.get(__response__, 'configuration'),
+        latest_version=pulumi.get(__response__, 'latest_version'),
+        latest_version_arn=pulumi.get(__response__, 'latest_version_arn'),
         operator_role=pulumi.get(__response__, 'operator_role'),
         state=pulumi.get(__response__, 'state'),
         tags=pulumi.get(__response__, 'tags')))

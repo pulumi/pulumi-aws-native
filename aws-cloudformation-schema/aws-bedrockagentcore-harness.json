@@ -246,11 +246,7 @@
         },
         "AdditionalParams" : {
           "type" : "object",
-          "description" : "Provider-specific parameters passed through to the model provider unchanged.",
-          "additionalProperties" : false,
-          "patternProperties" : {
-            "^[\\s\\S]{1,256}$" : { }
-          }
+          "description" : "Provider-specific parameters passed through to the model provider unchanged."
         }
       },
       "required" : [ "ModelId" ],
@@ -264,7 +260,7 @@
         },
         "ApiKeyArn" : {
           "type" : "string",
-          "pattern" : "^arn:aws:bedrock-agentcore:[a-z0-9-]+:[0-9]{12}:token-vault/[a-zA-Z0-9-.]+/apikeycredentialprovider/[a-zA-Z0-9-.]+$"
+          "pattern" : "^arn:aws(-[^:]+)?:bedrock-agentcore:[a-z0-9-]+:[0-9]{12}:token-vault/[a-zA-Z0-9-.]+/apikeycredentialprovider/[a-zA-Z0-9-.]+$"
         },
         "MaxTokens" : {
           "type" : "integer",
@@ -286,11 +282,7 @@
         },
         "AdditionalParams" : {
           "type" : "object",
-          "description" : "Provider-specific parameters passed through to the model provider unchanged.",
-          "additionalProperties" : false,
-          "patternProperties" : {
-            "^[\\s\\S]{1,256}$" : { }
-          }
+          "description" : "Provider-specific parameters passed through to the model provider unchanged."
         }
       },
       "required" : [ "ModelId", "ApiKeyArn" ],
@@ -304,7 +296,7 @@
         },
         "ApiKeyArn" : {
           "type" : "string",
-          "pattern" : "^arn:aws:bedrock-agentcore:[a-z0-9-]+:[0-9]{12}:token-vault/[a-zA-Z0-9-.]+/apikeycredentialprovider/[a-zA-Z0-9-.]+$"
+          "pattern" : "^arn:aws(-[^:]+)?:bedrock-agentcore:[a-z0-9-]+:[0-9]{12}:token-vault/[a-zA-Z0-9-.]+/apikeycredentialprovider/[a-zA-Z0-9-.]+$"
         },
         "ApiBase" : {
           "type" : "string",
@@ -327,11 +319,7 @@
         },
         "AdditionalParams" : {
           "type" : "object",
-          "description" : "Provider-specific parameters passed through to LiteLLM unchanged.",
-          "additionalProperties" : false,
-          "patternProperties" : {
-            "^[\\s\\S]{1,256}$" : { }
-          }
+          "description" : "Provider-specific parameters passed through to LiteLLM unchanged."
         }
       },
       "required" : [ "ModelId" ],
@@ -345,7 +333,7 @@
         },
         "ApiKeyArn" : {
           "type" : "string",
-          "pattern" : "^arn:aws:bedrock-agentcore:[a-z0-9-]+:[0-9]{12}:token-vault/[a-zA-Z0-9-.]+/apikeycredentialprovider/[a-zA-Z0-9-.]+$"
+          "pattern" : "^arn:aws(-[^:]+)?:bedrock-agentcore:[a-z0-9-]+:[0-9]{12}:token-vault/[a-zA-Z0-9-.]+/apikeycredentialprovider/[a-zA-Z0-9-.]+$"
         },
         "MaxTokens" : {
           "type" : "integer",
@@ -867,7 +855,7 @@
         "CredentialArn" : {
           "type" : "string",
           "description" : "The ARN of the credential in AgentCore Identity containing the password or personal access token.",
-          "pattern" : "^arn:aws:bedrock-agentcore:[a-z0-9-]+:[0-9]{12}:token-vault/[a-zA-Z0-9-.]+/apikeycredentialprovider/[a-zA-Z0-9-.]+$"
+          "pattern" : "^arn:aws(-[^:]+)?:bedrock-agentcore:[a-z0-9-]+:[0-9]{12}:token-vault/[a-zA-Z0-9-.]+/apikeycredentialprovider/[a-zA-Z0-9-.]+$"
         },
         "Username" : {
           "type" : "string",
@@ -875,6 +863,185 @@
         }
       },
       "required" : [ "CredentialArn" ],
+      "additionalProperties" : false
+    },
+    "HarnessHook" : {
+      "type" : "object",
+      "description" : "A lifecycle hook configured for one phase of the agent loop.",
+      "properties" : {
+        "BeforeInvocation" : {
+          "$ref" : "#/definitions/HarnessBeforeInvocationHook"
+        },
+        "AfterInvocation" : {
+          "$ref" : "#/definitions/HarnessAfterInvocationHook"
+        },
+        "BeforeToolCall" : {
+          "$ref" : "#/definitions/HarnessBeforeToolCallHook"
+        },
+        "AfterToolCall" : {
+          "$ref" : "#/definitions/HarnessAfterToolCallHook"
+        }
+      },
+      "oneOf" : [ {
+        "required" : [ "BeforeInvocation" ]
+      }, {
+        "required" : [ "AfterInvocation" ]
+      }, {
+        "required" : [ "BeforeToolCall" ]
+      }, {
+        "required" : [ "AfterToolCall" ]
+      } ],
+      "additionalProperties" : false
+    },
+    "HarnessBeforeInvocationHook" : {
+      "type" : "object",
+      "description" : "A hook that runs before an agent invocation.",
+      "properties" : {
+        "Name" : {
+          "type" : "string",
+          "description" : "The unique name of the hook.",
+          "minLength" : 1,
+          "maxLength" : 64,
+          "pattern" : "^[a-zA-Z0-9_-]+$"
+        },
+        "Target" : {
+          "$ref" : "#/definitions/HarnessHookTarget"
+        }
+      },
+      "required" : [ "Name", "Target" ],
+      "additionalProperties" : false
+    },
+    "HarnessAfterInvocationHook" : {
+      "type" : "object",
+      "description" : "A hook that runs after an agent invocation.",
+      "properties" : {
+        "Name" : {
+          "type" : "string",
+          "description" : "The unique name of the hook.",
+          "minLength" : 1,
+          "maxLength" : 64,
+          "pattern" : "^[a-zA-Z0-9_-]+$"
+        },
+        "Target" : {
+          "$ref" : "#/definitions/HarnessHookTarget"
+        }
+      },
+      "required" : [ "Name", "Target" ],
+      "additionalProperties" : false
+    },
+    "HarnessBeforeToolCallHook" : {
+      "type" : "object",
+      "description" : "A hook that runs before each tool call.",
+      "properties" : {
+        "Name" : {
+          "type" : "string",
+          "description" : "The unique name of the hook.",
+          "minLength" : 1,
+          "maxLength" : 64,
+          "pattern" : "^[a-zA-Z0-9_-]+$"
+        },
+        "Target" : {
+          "$ref" : "#/definitions/HarnessHookTarget"
+        }
+      },
+      "required" : [ "Name", "Target" ],
+      "additionalProperties" : false
+    },
+    "HarnessAfterToolCallHook" : {
+      "type" : "object",
+      "description" : "A hook that runs after each tool call.",
+      "properties" : {
+        "Name" : {
+          "type" : "string",
+          "description" : "The unique name of the hook.",
+          "minLength" : 1,
+          "maxLength" : 64,
+          "pattern" : "^[a-zA-Z0-9_-]+$"
+        },
+        "Target" : {
+          "$ref" : "#/definitions/HarnessHookTarget"
+        }
+      },
+      "required" : [ "Name", "Target" ],
+      "additionalProperties" : false
+    },
+    "HarnessHookTarget" : {
+      "type" : "object",
+      "description" : "The destination that receives lifecycle hook events.",
+      "properties" : {
+        "Lambda" : {
+          "$ref" : "#/definitions/HarnessHookLambdaTarget"
+        },
+        "Sns" : {
+          "$ref" : "#/definitions/HarnessHookSnsTarget"
+        },
+        "EventBridge" : {
+          "$ref" : "#/definitions/HarnessHookEventBridgeTarget"
+        }
+      },
+      "oneOf" : [ {
+        "required" : [ "Lambda" ]
+      }, {
+        "required" : [ "Sns" ]
+      }, {
+        "required" : [ "EventBridge" ]
+      } ],
+      "additionalProperties" : false
+    },
+    "HarnessHookLambdaTarget" : {
+      "type" : "object",
+      "description" : "A Lambda function invoked synchronously for a lifecycle hook.",
+      "properties" : {
+        "Arn" : {
+          "type" : "string",
+          "description" : "The ARN of the Lambda function.",
+          "minLength" : 20,
+          "maxLength" : 2048,
+          "pattern" : "^arn:aws(-[^:]+)?:lambda:[a-z0-9-]+:[0-9]{12}:function:.+$"
+        },
+        "TimeoutSeconds" : {
+          "type" : "integer",
+          "description" : "The maximum number of seconds to wait for the Lambda response. Defaults to 60.",
+          "minimum" : 1,
+          "maximum" : 900
+        },
+        "FailureMode" : {
+          "type" : "string",
+          "description" : "Whether the agent loop continues or stops when the Lambda invocation fails. Defaults to deny.",
+          "enum" : [ "allow", "deny" ]
+        }
+      },
+      "required" : [ "Arn" ],
+      "additionalProperties" : false
+    },
+    "HarnessHookSnsTarget" : {
+      "type" : "object",
+      "description" : "An SNS topic that receives lifecycle hook events asynchronously.",
+      "properties" : {
+        "Arn" : {
+          "type" : "string",
+          "description" : "The ARN of the SNS topic.",
+          "minLength" : 20,
+          "maxLength" : 2048,
+          "pattern" : "^arn:aws(-[^:]+)?:sns:[a-z0-9-]+:[0-9]{12}:.+$"
+        }
+      },
+      "required" : [ "Arn" ],
+      "additionalProperties" : false
+    },
+    "HarnessHookEventBridgeTarget" : {
+      "type" : "object",
+      "description" : "An EventBridge event bus that receives lifecycle hook events asynchronously.",
+      "properties" : {
+        "Arn" : {
+          "type" : "string",
+          "description" : "The ARN of the EventBridge event bus.",
+          "minLength" : 20,
+          "maxLength" : 2048,
+          "pattern" : "^arn:aws(-[^:]+)?:events:[a-z0-9-]+:[0-9]{12}:event-bus/.+$"
+        }
+      },
+      "required" : [ "Arn" ],
       "additionalProperties" : false
     },
     "HarnessMemoryConfiguration" : {
@@ -899,7 +1066,7 @@
         "Arn" : {
           "type" : "string",
           "description" : "The ARN of the managed memory resource. Read-only, populated by the service.",
-          "pattern" : "^arn:aws:bedrock-agentcore:[a-z0-9-]+:[0-9]{12}:memory/[a-zA-Z][a-zA-Z0-9-_]{0,99}-[a-zA-Z0-9]{10}$"
+          "pattern" : "^arn:aws(-[^:]+)?:bedrock-agentcore:[a-z0-9-]+:[0-9]{12}:memory/[a-zA-Z][a-zA-Z0-9-_]{0,99}-[a-zA-Z0-9]{10}$"
         },
         "Strategies" : {
           "type" : "array",
@@ -935,7 +1102,7 @@
       "properties" : {
         "Arn" : {
           "type" : "string",
-          "pattern" : "^arn:aws:bedrock-agentcore:[a-z0-9-]+:[0-9]{12}:memory/[a-zA-Z][a-zA-Z0-9-_]{0,99}-[a-zA-Z0-9]{10}$"
+          "pattern" : "^arn:aws(-[^:]+)?:bedrock-agentcore:[a-z0-9-]+:[0-9]{12}:memory/[a-zA-Z][a-zA-Z0-9-_]{0,99}-[a-zA-Z0-9]{10}$"
         },
         "ActorId" : {
           "type" : "string"
@@ -961,11 +1128,13 @@
       "properties" : {
         "TopK" : {
           "description" : "Maximum number of memory records to retrieve. Typed as both integer and string because CloudFormation marshals scalars nested in dynamic-key (patternProperties) maps as strings, while direct API/CDK callers send a JSON integer; both forms must validate.",
-          "type" : [ "integer", "string" ]
+          "type" : [ "integer", "string" ],
+          "pattern" : "^[0-9]+$"
         },
         "RelevanceScore" : {
           "description" : "Minimum relevance score for retrieved memories. Typed as both number and string because CloudFormation marshals scalars nested in dynamic-key (patternProperties) maps as strings, while direct API/CDK callers send a JSON number; both forms must validate.",
-          "type" : [ "number", "string" ]
+          "type" : [ "number", "string" ],
+          "pattern" : "^[0-9]+(\\.[0-9]+)?$"
         },
         "StrategyId" : {
           "type" : "string"
@@ -1136,6 +1305,15 @@
         "maxLength" : 64,
         "pattern" : "^(\\*|@?[^/]+(/[^/]+)?)$"
       }
+    },
+    "Hooks" : {
+      "type" : "array",
+      "description" : "Lifecycle hooks that fire at well-defined points in the agent loop for policy enforcement, audit, and governance.",
+      "items" : {
+        "$ref" : "#/definitions/HarnessHook"
+      },
+      "maxItems" : 20,
+      "uniqueItems" : true
     },
     "Memory" : {
       "$ref" : "#/definitions/HarnessMemoryConfiguration",

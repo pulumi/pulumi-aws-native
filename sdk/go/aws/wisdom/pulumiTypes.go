@@ -6468,6 +6468,116 @@ type AssistantTag struct {
 	Value string `pulumi:"value"`
 }
 
+type ContentAssociationAmazonConnectGuideAssociationData struct {
+	FlowId *string `pulumi:"flowId"`
+}
+
+// ContentAssociationAmazonConnectGuideAssociationDataInput is an input type that accepts ContentAssociationAmazonConnectGuideAssociationDataArgs and ContentAssociationAmazonConnectGuideAssociationDataOutput values.
+// You can construct a concrete instance of `ContentAssociationAmazonConnectGuideAssociationDataInput` via:
+//
+//	ContentAssociationAmazonConnectGuideAssociationDataArgs{...}
+type ContentAssociationAmazonConnectGuideAssociationDataInput interface {
+	pulumi.Input
+
+	ToContentAssociationAmazonConnectGuideAssociationDataOutput() ContentAssociationAmazonConnectGuideAssociationDataOutput
+	ToContentAssociationAmazonConnectGuideAssociationDataOutputWithContext(context.Context) ContentAssociationAmazonConnectGuideAssociationDataOutput
+}
+
+type ContentAssociationAmazonConnectGuideAssociationDataArgs struct {
+	FlowId pulumi.StringPtrInput `pulumi:"flowId"`
+}
+
+func (ContentAssociationAmazonConnectGuideAssociationDataArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContentAssociationAmazonConnectGuideAssociationData)(nil)).Elem()
+}
+
+func (i ContentAssociationAmazonConnectGuideAssociationDataArgs) ToContentAssociationAmazonConnectGuideAssociationDataOutput() ContentAssociationAmazonConnectGuideAssociationDataOutput {
+	return i.ToContentAssociationAmazonConnectGuideAssociationDataOutputWithContext(context.Background())
+}
+
+func (i ContentAssociationAmazonConnectGuideAssociationDataArgs) ToContentAssociationAmazonConnectGuideAssociationDataOutputWithContext(ctx context.Context) ContentAssociationAmazonConnectGuideAssociationDataOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContentAssociationAmazonConnectGuideAssociationDataOutput)
+}
+
+type ContentAssociationAmazonConnectGuideAssociationDataOutput struct{ *pulumi.OutputState }
+
+func (ContentAssociationAmazonConnectGuideAssociationDataOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContentAssociationAmazonConnectGuideAssociationData)(nil)).Elem()
+}
+
+func (o ContentAssociationAmazonConnectGuideAssociationDataOutput) ToContentAssociationAmazonConnectGuideAssociationDataOutput() ContentAssociationAmazonConnectGuideAssociationDataOutput {
+	return o
+}
+
+func (o ContentAssociationAmazonConnectGuideAssociationDataOutput) ToContentAssociationAmazonConnectGuideAssociationDataOutputWithContext(ctx context.Context) ContentAssociationAmazonConnectGuideAssociationDataOutput {
+	return o
+}
+
+func (o ContentAssociationAmazonConnectGuideAssociationDataOutput) FlowId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ContentAssociationAmazonConnectGuideAssociationData) *string { return v.FlowId }).(pulumi.StringPtrOutput)
+}
+
+type ContentAssociationContents struct {
+	AmazonConnectGuideAssociation ContentAssociationAmazonConnectGuideAssociationData `pulumi:"amazonConnectGuideAssociation"`
+}
+
+// ContentAssociationContentsInput is an input type that accepts ContentAssociationContentsArgs and ContentAssociationContentsOutput values.
+// You can construct a concrete instance of `ContentAssociationContentsInput` via:
+//
+//	ContentAssociationContentsArgs{...}
+type ContentAssociationContentsInput interface {
+	pulumi.Input
+
+	ToContentAssociationContentsOutput() ContentAssociationContentsOutput
+	ToContentAssociationContentsOutputWithContext(context.Context) ContentAssociationContentsOutput
+}
+
+type ContentAssociationContentsArgs struct {
+	AmazonConnectGuideAssociation ContentAssociationAmazonConnectGuideAssociationDataInput `pulumi:"amazonConnectGuideAssociation"`
+}
+
+func (ContentAssociationContentsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContentAssociationContents)(nil)).Elem()
+}
+
+func (i ContentAssociationContentsArgs) ToContentAssociationContentsOutput() ContentAssociationContentsOutput {
+	return i.ToContentAssociationContentsOutputWithContext(context.Background())
+}
+
+func (i ContentAssociationContentsArgs) ToContentAssociationContentsOutputWithContext(ctx context.Context) ContentAssociationContentsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContentAssociationContentsOutput)
+}
+
+type ContentAssociationContentsOutput struct{ *pulumi.OutputState }
+
+func (ContentAssociationContentsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContentAssociationContents)(nil)).Elem()
+}
+
+func (o ContentAssociationContentsOutput) ToContentAssociationContentsOutput() ContentAssociationContentsOutput {
+	return o
+}
+
+func (o ContentAssociationContentsOutput) ToContentAssociationContentsOutputWithContext(ctx context.Context) ContentAssociationContentsOutput {
+	return o
+}
+
+func (o ContentAssociationContentsOutput) AmazonConnectGuideAssociation() ContentAssociationAmazonConnectGuideAssociationDataOutput {
+	return o.ApplyT(func(v ContentAssociationContents) ContentAssociationAmazonConnectGuideAssociationData {
+		return v.AmazonConnectGuideAssociation
+	}).(ContentAssociationAmazonConnectGuideAssociationDataOutput)
+}
+
+type ContentAssociationTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
+type ContentTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
 type KnowledgeBaseAppIntegrationsConfiguration struct {
 	AppIntegrationArn string   `pulumi:"appIntegrationArn"`
 	ObjectFields      []string `pulumi:"objectFields"`
@@ -12885,6 +12995,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AssistantAssociationExternalBedrockKnowledgeBaseConfigInput)(nil)).Elem(), AssistantAssociationExternalBedrockKnowledgeBaseConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AssistantServerSideEncryptionConfigurationInput)(nil)).Elem(), AssistantServerSideEncryptionConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AssistantServerSideEncryptionConfigurationPtrInput)(nil)).Elem(), AssistantServerSideEncryptionConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ContentAssociationAmazonConnectGuideAssociationDataInput)(nil)).Elem(), ContentAssociationAmazonConnectGuideAssociationDataArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ContentAssociationContentsInput)(nil)).Elem(), ContentAssociationContentsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseAppIntegrationsConfigurationInput)(nil)).Elem(), KnowledgeBaseAppIntegrationsConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseAppIntegrationsConfigurationPtrInput)(nil)).Elem(), KnowledgeBaseAppIntegrationsConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseBedrockFoundationModelConfigurationInput)(nil)).Elem(), KnowledgeBaseBedrockFoundationModelConfigurationArgs{})
@@ -13055,6 +13167,8 @@ func init() {
 	pulumi.RegisterOutputType(AssistantAssociationExternalBedrockKnowledgeBaseConfigOutput{})
 	pulumi.RegisterOutputType(AssistantServerSideEncryptionConfigurationOutput{})
 	pulumi.RegisterOutputType(AssistantServerSideEncryptionConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(ContentAssociationAmazonConnectGuideAssociationDataOutput{})
+	pulumi.RegisterOutputType(ContentAssociationContentsOutput{})
 	pulumi.RegisterOutputType(KnowledgeBaseAppIntegrationsConfigurationOutput{})
 	pulumi.RegisterOutputType(KnowledgeBaseAppIntegrationsConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(KnowledgeBaseBedrockFoundationModelConfigurationOutput{})

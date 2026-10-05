@@ -12107,6 +12107,265 @@ func (in *routeServerPersistRoutesPtr) ToRouteServerPersistRoutesPtrOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, in).(RouteServerPersistRoutesPtrOutput)
 }
 
+// The state of the CIDR block association.
+type SecondaryNetworkIpv4CidrBlockAssociationState string
+
+const (
+	SecondaryNetworkIpv4CidrBlockAssociationStateAssociating          = SecondaryNetworkIpv4CidrBlockAssociationState("associating")
+	SecondaryNetworkIpv4CidrBlockAssociationStateAssociated           = SecondaryNetworkIpv4CidrBlockAssociationState("associated")
+	SecondaryNetworkIpv4CidrBlockAssociationStateAssociationFailed    = SecondaryNetworkIpv4CidrBlockAssociationState("association-failed")
+	SecondaryNetworkIpv4CidrBlockAssociationStateDisassociating       = SecondaryNetworkIpv4CidrBlockAssociationState("disassociating")
+	SecondaryNetworkIpv4CidrBlockAssociationStateDisassociated        = SecondaryNetworkIpv4CidrBlockAssociationState("disassociated")
+	SecondaryNetworkIpv4CidrBlockAssociationStateDisassociationFailed = SecondaryNetworkIpv4CidrBlockAssociationState("disassociation-failed")
+)
+
+type SecondaryNetworkIpv4CidrBlockAssociationStateOutput struct{ *pulumi.OutputState }
+
+func (SecondaryNetworkIpv4CidrBlockAssociationStateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecondaryNetworkIpv4CidrBlockAssociationState)(nil)).Elem()
+}
+
+func (o SecondaryNetworkIpv4CidrBlockAssociationStateOutput) ToSecondaryNetworkIpv4CidrBlockAssociationStateOutput() SecondaryNetworkIpv4CidrBlockAssociationStateOutput {
+	return o
+}
+
+func (o SecondaryNetworkIpv4CidrBlockAssociationStateOutput) ToSecondaryNetworkIpv4CidrBlockAssociationStateOutputWithContext(ctx context.Context) SecondaryNetworkIpv4CidrBlockAssociationStateOutput {
+	return o
+}
+
+func (o SecondaryNetworkIpv4CidrBlockAssociationStateOutput) ToSecondaryNetworkIpv4CidrBlockAssociationStatePtrOutput() SecondaryNetworkIpv4CidrBlockAssociationStatePtrOutput {
+	return o.ToSecondaryNetworkIpv4CidrBlockAssociationStatePtrOutputWithContext(context.Background())
+}
+
+func (o SecondaryNetworkIpv4CidrBlockAssociationStateOutput) ToSecondaryNetworkIpv4CidrBlockAssociationStatePtrOutputWithContext(ctx context.Context) SecondaryNetworkIpv4CidrBlockAssociationStatePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SecondaryNetworkIpv4CidrBlockAssociationState) *SecondaryNetworkIpv4CidrBlockAssociationState {
+		return &v
+	}).(SecondaryNetworkIpv4CidrBlockAssociationStatePtrOutput)
+}
+
+func (o SecondaryNetworkIpv4CidrBlockAssociationStateOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o SecondaryNetworkIpv4CidrBlockAssociationStateOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SecondaryNetworkIpv4CidrBlockAssociationState) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o SecondaryNetworkIpv4CidrBlockAssociationStateOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SecondaryNetworkIpv4CidrBlockAssociationStateOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SecondaryNetworkIpv4CidrBlockAssociationState) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type SecondaryNetworkIpv4CidrBlockAssociationStatePtrOutput struct{ *pulumi.OutputState }
+
+func (SecondaryNetworkIpv4CidrBlockAssociationStatePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SecondaryNetworkIpv4CidrBlockAssociationState)(nil)).Elem()
+}
+
+func (o SecondaryNetworkIpv4CidrBlockAssociationStatePtrOutput) ToSecondaryNetworkIpv4CidrBlockAssociationStatePtrOutput() SecondaryNetworkIpv4CidrBlockAssociationStatePtrOutput {
+	return o
+}
+
+func (o SecondaryNetworkIpv4CidrBlockAssociationStatePtrOutput) ToSecondaryNetworkIpv4CidrBlockAssociationStatePtrOutputWithContext(ctx context.Context) SecondaryNetworkIpv4CidrBlockAssociationStatePtrOutput {
+	return o
+}
+
+func (o SecondaryNetworkIpv4CidrBlockAssociationStatePtrOutput) Elem() SecondaryNetworkIpv4CidrBlockAssociationStateOutput {
+	return o.ApplyT(func(v *SecondaryNetworkIpv4CidrBlockAssociationState) SecondaryNetworkIpv4CidrBlockAssociationState {
+		if v != nil {
+			return *v
+		}
+		var ret SecondaryNetworkIpv4CidrBlockAssociationState
+		return ret
+	}).(SecondaryNetworkIpv4CidrBlockAssociationStateOutput)
+}
+
+func (o SecondaryNetworkIpv4CidrBlockAssociationStatePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SecondaryNetworkIpv4CidrBlockAssociationStatePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *SecondaryNetworkIpv4CidrBlockAssociationState) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of secondary network.
+type SecondaryNetworkNetworkType string
+
+const (
+	SecondaryNetworkNetworkTypeRdma = SecondaryNetworkNetworkType("rdma")
+)
+
+func (SecondaryNetworkNetworkType) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecondaryNetworkNetworkType)(nil)).Elem()
+}
+
+func (e SecondaryNetworkNetworkType) ToSecondaryNetworkNetworkTypeOutput() SecondaryNetworkNetworkTypeOutput {
+	return pulumi.ToOutput(e).(SecondaryNetworkNetworkTypeOutput)
+}
+
+func (e SecondaryNetworkNetworkType) ToSecondaryNetworkNetworkTypeOutputWithContext(ctx context.Context) SecondaryNetworkNetworkTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(SecondaryNetworkNetworkTypeOutput)
+}
+
+func (e SecondaryNetworkNetworkType) ToSecondaryNetworkNetworkTypePtrOutput() SecondaryNetworkNetworkTypePtrOutput {
+	return e.ToSecondaryNetworkNetworkTypePtrOutputWithContext(context.Background())
+}
+
+func (e SecondaryNetworkNetworkType) ToSecondaryNetworkNetworkTypePtrOutputWithContext(ctx context.Context) SecondaryNetworkNetworkTypePtrOutput {
+	return SecondaryNetworkNetworkType(e).ToSecondaryNetworkNetworkTypeOutputWithContext(ctx).ToSecondaryNetworkNetworkTypePtrOutputWithContext(ctx)
+}
+
+func (e SecondaryNetworkNetworkType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e SecondaryNetworkNetworkType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e SecondaryNetworkNetworkType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e SecondaryNetworkNetworkType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type SecondaryNetworkNetworkTypeOutput struct{ *pulumi.OutputState }
+
+func (SecondaryNetworkNetworkTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecondaryNetworkNetworkType)(nil)).Elem()
+}
+
+func (o SecondaryNetworkNetworkTypeOutput) ToSecondaryNetworkNetworkTypeOutput() SecondaryNetworkNetworkTypeOutput {
+	return o
+}
+
+func (o SecondaryNetworkNetworkTypeOutput) ToSecondaryNetworkNetworkTypeOutputWithContext(ctx context.Context) SecondaryNetworkNetworkTypeOutput {
+	return o
+}
+
+func (o SecondaryNetworkNetworkTypeOutput) ToSecondaryNetworkNetworkTypePtrOutput() SecondaryNetworkNetworkTypePtrOutput {
+	return o.ToSecondaryNetworkNetworkTypePtrOutputWithContext(context.Background())
+}
+
+func (o SecondaryNetworkNetworkTypeOutput) ToSecondaryNetworkNetworkTypePtrOutputWithContext(ctx context.Context) SecondaryNetworkNetworkTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SecondaryNetworkNetworkType) *SecondaryNetworkNetworkType {
+		return &v
+	}).(SecondaryNetworkNetworkTypePtrOutput)
+}
+
+func (o SecondaryNetworkNetworkTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o SecondaryNetworkNetworkTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SecondaryNetworkNetworkType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o SecondaryNetworkNetworkTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SecondaryNetworkNetworkTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SecondaryNetworkNetworkType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type SecondaryNetworkNetworkTypePtrOutput struct{ *pulumi.OutputState }
+
+func (SecondaryNetworkNetworkTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SecondaryNetworkNetworkType)(nil)).Elem()
+}
+
+func (o SecondaryNetworkNetworkTypePtrOutput) ToSecondaryNetworkNetworkTypePtrOutput() SecondaryNetworkNetworkTypePtrOutput {
+	return o
+}
+
+func (o SecondaryNetworkNetworkTypePtrOutput) ToSecondaryNetworkNetworkTypePtrOutputWithContext(ctx context.Context) SecondaryNetworkNetworkTypePtrOutput {
+	return o
+}
+
+func (o SecondaryNetworkNetworkTypePtrOutput) Elem() SecondaryNetworkNetworkTypeOutput {
+	return o.ApplyT(func(v *SecondaryNetworkNetworkType) SecondaryNetworkNetworkType {
+		if v != nil {
+			return *v
+		}
+		var ret SecondaryNetworkNetworkType
+		return ret
+	}).(SecondaryNetworkNetworkTypeOutput)
+}
+
+func (o SecondaryNetworkNetworkTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SecondaryNetworkNetworkTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *SecondaryNetworkNetworkType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// SecondaryNetworkNetworkTypeInput is an input type that accepts values of the SecondaryNetworkNetworkType enum
+// A concrete instance of `SecondaryNetworkNetworkTypeInput` can be one of the following:
+//
+//	SecondaryNetworkNetworkTypeRdma
+type SecondaryNetworkNetworkTypeInput interface {
+	pulumi.Input
+
+	ToSecondaryNetworkNetworkTypeOutput() SecondaryNetworkNetworkTypeOutput
+	ToSecondaryNetworkNetworkTypeOutputWithContext(context.Context) SecondaryNetworkNetworkTypeOutput
+}
+
+var secondaryNetworkNetworkTypePtrType = reflect.TypeOf((**SecondaryNetworkNetworkType)(nil)).Elem()
+
+type SecondaryNetworkNetworkTypePtrInput interface {
+	pulumi.Input
+
+	ToSecondaryNetworkNetworkTypePtrOutput() SecondaryNetworkNetworkTypePtrOutput
+	ToSecondaryNetworkNetworkTypePtrOutputWithContext(context.Context) SecondaryNetworkNetworkTypePtrOutput
+}
+
+type secondaryNetworkNetworkTypePtr string
+
+func SecondaryNetworkNetworkTypePtr(v string) SecondaryNetworkNetworkTypePtrInput {
+	return (*secondaryNetworkNetworkTypePtr)(&v)
+}
+
+func (*secondaryNetworkNetworkTypePtr) ElementType() reflect.Type {
+	return secondaryNetworkNetworkTypePtrType
+}
+
+func (in *secondaryNetworkNetworkTypePtr) ToSecondaryNetworkNetworkTypePtrOutput() SecondaryNetworkNetworkTypePtrOutput {
+	return pulumi.ToOutput(in).(SecondaryNetworkNetworkTypePtrOutput)
+}
+
+func (in *secondaryNetworkNetworkTypePtr) ToSecondaryNetworkNetworkTypePtrOutputWithContext(ctx context.Context) SecondaryNetworkNetworkTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(SecondaryNetworkNetworkTypePtrOutput)
+}
+
 type SecurityGroupVpcAssociationStateEnum string
 
 const (
@@ -23013,6 +23272,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RouteServerPeerBgpOptionsPeerLivenessDetectionPtrInput)(nil)).Elem(), RouteServerPeerBgpOptionsPeerLivenessDetection("bfd"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RouteServerPersistRoutesInput)(nil)).Elem(), RouteServerPersistRoutes("enable"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RouteServerPersistRoutesPtrInput)(nil)).Elem(), RouteServerPersistRoutes("enable"))
+	pulumi.RegisterInputType(reflect.TypeOf((*SecondaryNetworkNetworkTypeInput)(nil)).Elem(), SecondaryNetworkNetworkType("rdma"))
+	pulumi.RegisterInputType(reflect.TypeOf((*SecondaryNetworkNetworkTypePtrInput)(nil)).Elem(), SecondaryNetworkNetworkType("rdma"))
 	pulumi.RegisterInputType(reflect.TypeOf((*SnapshotBlockPublicAccessStateEnumInput)(nil)).Elem(), SnapshotBlockPublicAccessStateEnum("block-all-sharing"))
 	pulumi.RegisterInputType(reflect.TypeOf((*SnapshotBlockPublicAccessStateEnumPtrInput)(nil)).Elem(), SnapshotBlockPublicAccessStateEnum("block-all-sharing"))
 	pulumi.RegisterInputType(reflect.TypeOf((*SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemInput)(nil)).Elem(), SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItem("amazon-web-services"))
@@ -23294,6 +23555,10 @@ func init() {
 	pulumi.RegisterOutputType(RouteServerPeerBgpOptionsPeerLivenessDetectionPtrOutput{})
 	pulumi.RegisterOutputType(RouteServerPersistRoutesOutput{})
 	pulumi.RegisterOutputType(RouteServerPersistRoutesPtrOutput{})
+	pulumi.RegisterOutputType(SecondaryNetworkIpv4CidrBlockAssociationStateOutput{})
+	pulumi.RegisterOutputType(SecondaryNetworkIpv4CidrBlockAssociationStatePtrOutput{})
+	pulumi.RegisterOutputType(SecondaryNetworkNetworkTypeOutput{})
+	pulumi.RegisterOutputType(SecondaryNetworkNetworkTypePtrOutput{})
 	pulumi.RegisterOutputType(SecurityGroupVpcAssociationStateEnumOutput{})
 	pulumi.RegisterOutputType(SecurityGroupVpcAssociationStateEnumPtrOutput{})
 	pulumi.RegisterOutputType(SnapshotBlockPublicAccessStateEnumOutput{})

@@ -18,21 +18,22 @@ from ._enums import *
 __all__ = [
     'EncryptionKeyProperties',
     'ParallelDataConfigProperties',
+    'TerminologyDataProperties',
 ]
 
 @pulumi.output_type
 class EncryptionKeyProperties(dict):
     """
-    The encryption key used to encrypt this object.
+    The encryption key for the custom terminology.
     """
     def __init__(__self__, *,
                  id: _builtins.str,
-                 type: 'ParallelDataEncryptionKeyPropertiesType'):
+                 type: 'TerminologyEncryptionKeyPropertiesType'):
         """
-        The encryption key used to encrypt this object.
+        The encryption key for the custom terminology.
 
         :param _builtins.str id: The Amazon Resource Name (ARN) of the encryption key.
-        :param 'ParallelDataEncryptionKeyPropertiesType' type: The type of encryption key.
+        :param 'TerminologyEncryptionKeyPropertiesType' type: The type of encryption key.
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "type", type)
@@ -47,7 +48,7 @@ class EncryptionKeyProperties(dict):
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> 'ParallelDataEncryptionKeyPropertiesType':
+    def type(self) -> 'TerminologyEncryptionKeyPropertiesType':
         """
         The type of encryption key.
         """
@@ -103,5 +104,51 @@ class ParallelDataConfigProperties(dict):
         The URI of the Amazon S3 folder that contains the parallel data input file.
         """
         return pulumi.get(self, "s3_uri")
+
+
+@pulumi.output_type
+class TerminologyDataProperties(dict):
+    """
+    The terminology data for the custom terminology being imported.
+    """
+    def __init__(__self__, *,
+                 file: _builtins.str,
+                 format: 'TerminologyDataPropertiesFormat',
+                 directionality: Optional['TerminologyDataPropertiesDirectionality'] = None):
+        """
+        The terminology data for the custom terminology being imported.
+
+        :param _builtins.str file: The file containing the custom terminology data, base64-encoded.
+        :param 'TerminologyDataPropertiesFormat' format: The data format of the custom terminology.
+        :param 'TerminologyDataPropertiesDirectionality' directionality: The directionality of the terminology resource.
+        """
+        pulumi.set(__self__, "file", file)
+        pulumi.set(__self__, "format", format)
+        if directionality is not None:
+            pulumi.set(__self__, "directionality", directionality)
+
+    @_builtins.property
+    @pulumi.getter
+    def file(self) -> _builtins.str:
+        """
+        The file containing the custom terminology data, base64-encoded.
+        """
+        return pulumi.get(self, "file")
+
+    @_builtins.property
+    @pulumi.getter
+    def format(self) -> 'TerminologyDataPropertiesFormat':
+        """
+        The data format of the custom terminology.
+        """
+        return pulumi.get(self, "format")
+
+    @_builtins.property
+    @pulumi.getter
+    def directionality(self) -> Optional['TerminologyDataPropertiesDirectionality']:
+        """
+        The directionality of the terminology resource.
+        """
+        return pulumi.get(self, "directionality")
 
 

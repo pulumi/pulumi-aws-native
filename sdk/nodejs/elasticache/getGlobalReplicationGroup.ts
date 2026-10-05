@@ -26,6 +26,10 @@ export interface GetGlobalReplicationGroupArgs {
 
 export interface GetGlobalReplicationGroupResult {
     /**
+     * The ARN (Amazon Resource Name) of the Global Datastore.
+     */
+    readonly arn?: string;
+    /**
      * The engine of the Global Datastore.
      */
     readonly engine?: string;
@@ -45,6 +49,10 @@ export interface GetGlobalReplicationGroupResult {
      * The status of the Global Datastore
      */
     readonly status?: string;
+    /**
+     * An array of key-value pairs to apply to this Global Datastore.
+     */
+    readonly tags?: outputs.Tag[];
 }
 /**
  * The AWS::ElastiCache::GlobalReplicationGroup resource creates an Amazon ElastiCache Global Replication Group.

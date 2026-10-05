@@ -18,6 +18,8 @@ from ._enums import *
 
 __all__ = [
     'AgentSpaceAwsResources',
+    'AgentSpaceAzureDevOpsCapabilitiesResource',
+    'AgentSpaceAzureDevOpsRepositoryResource',
     'AgentSpaceBitbucketCapabilitiesResource',
     'AgentSpaceBitbucketRepositoryResource',
     'AgentSpaceCodeReviewSettings',
@@ -158,6 +160,107 @@ class AgentSpaceAwsResources(dict):
         VPC configurations
         """
         return pulumi.get(self, "vpcs")
+
+
+@pulumi.output_type
+class AgentSpaceAzureDevOpsCapabilitiesResource(dict):
+    """
+    Azure DevOps repository capabilities
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "leaveComments":
+            suggest = "leave_comments"
+        elif key == "remediateCode":
+            suggest = "remediate_code"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentSpaceAzureDevOpsCapabilitiesResource. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentSpaceAzureDevOpsCapabilitiesResource.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentSpaceAzureDevOpsCapabilitiesResource.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 leave_comments: Optional[_builtins.bool] = None,
+                 remediate_code: Optional[_builtins.bool] = None):
+        """
+        Azure DevOps repository capabilities
+
+        :param _builtins.bool leave_comments: Enables Code Review in the repository
+        :param _builtins.bool remediate_code: Enables creation of pull requests with automated fixes
+        """
+        if leave_comments is not None:
+            pulumi.set(__self__, "leave_comments", leave_comments)
+        if remediate_code is not None:
+            pulumi.set(__self__, "remediate_code", remediate_code)
+
+    @_builtins.property
+    @pulumi.getter(name="leaveComments")
+    def leave_comments(self) -> Optional[_builtins.bool]:
+        """
+        Enables Code Review in the repository
+        """
+        return pulumi.get(self, "leave_comments")
+
+    @_builtins.property
+    @pulumi.getter(name="remediateCode")
+    def remediate_code(self) -> Optional[_builtins.bool]:
+        """
+        Enables creation of pull requests with automated fixes
+        """
+        return pulumi.get(self, "remediate_code")
+
+
+@pulumi.output_type
+class AgentSpaceAzureDevOpsRepositoryResource(dict):
+    """
+    Azure DevOps repository details
+    """
+    def __init__(__self__, *,
+                 name: _builtins.str,
+                 project: _builtins.str,
+                 organization: Optional[_builtins.str] = None):
+        """
+        Azure DevOps repository details
+
+        :param _builtins.str name: Azure DevOps repository name
+        :param _builtins.str project: Azure DevOps project that owns the repository
+        :param _builtins.str organization: Read-only Azure DevOps organization that owns the repository, populated from service-side metadata
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "project", project)
+        if organization is not None:
+            pulumi.set(__self__, "organization", organization)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        Azure DevOps repository name
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def project(self) -> _builtins.str:
+        """
+        Azure DevOps project that owns the repository
+        """
+        return pulumi.get(self, "project")
+
+    @_builtins.property
+    @pulumi.getter
+    def organization(self) -> Optional[_builtins.str]:
+        """
+        Read-only Azure DevOps organization that owns the repository, populated from service-side metadata
+        """
+        return pulumi.get(self, "organization")
 
 
 @pulumi.output_type
@@ -696,7 +799,11 @@ class AgentSpaceProviderResource(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "bitbucketCapabilities":
+        if key == "azureDevOpsCapabilities":
+            suggest = "azure_dev_ops_capabilities"
+        elif key == "azureDevOpsRepository":
+            suggest = "azure_dev_ops_repository"
+        elif key == "bitbucketCapabilities":
             suggest = "bitbucket_capabilities"
         elif key == "bitbucketRepository":
             suggest = "bitbucket_repository"
@@ -725,6 +832,8 @@ class AgentSpaceProviderResource(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 azure_dev_ops_capabilities: Optional['outputs.AgentSpaceAzureDevOpsCapabilitiesResource'] = None,
+                 azure_dev_ops_repository: Optional['outputs.AgentSpaceAzureDevOpsRepositoryResource'] = None,
                  bitbucket_capabilities: Optional['outputs.AgentSpaceBitbucketCapabilitiesResource'] = None,
                  bitbucket_repository: Optional['outputs.AgentSpaceBitbucketRepositoryResource'] = None,
                  confluence_capabilities: Optional['outputs.AgentSpaceConfluenceCapabilitiesResource'] = None,
@@ -736,6 +845,10 @@ class AgentSpaceProviderResource(dict):
         """
         Selected Resource (eg: Code Repository, Document) from an Integration
         """
+        if azure_dev_ops_capabilities is not None:
+            pulumi.set(__self__, "azure_dev_ops_capabilities", azure_dev_ops_capabilities)
+        if azure_dev_ops_repository is not None:
+            pulumi.set(__self__, "azure_dev_ops_repository", azure_dev_ops_repository)
         if bitbucket_capabilities is not None:
             pulumi.set(__self__, "bitbucket_capabilities", bitbucket_capabilities)
         if bitbucket_repository is not None:
@@ -752,6 +865,16 @@ class AgentSpaceProviderResource(dict):
             pulumi.set(__self__, "git_lab_capabilities", git_lab_capabilities)
         if git_lab_repository is not None:
             pulumi.set(__self__, "git_lab_repository", git_lab_repository)
+
+    @_builtins.property
+    @pulumi.getter(name="azureDevOpsCapabilities")
+    def azure_dev_ops_capabilities(self) -> Optional['outputs.AgentSpaceAzureDevOpsCapabilitiesResource']:
+        return pulumi.get(self, "azure_dev_ops_capabilities")
+
+    @_builtins.property
+    @pulumi.getter(name="azureDevOpsRepository")
+    def azure_dev_ops_repository(self) -> Optional['outputs.AgentSpaceAzureDevOpsRepositoryResource']:
+        return pulumi.get(self, "azure_dev_ops_repository")
 
     @_builtins.property
     @pulumi.getter(name="bitbucketCapabilities")

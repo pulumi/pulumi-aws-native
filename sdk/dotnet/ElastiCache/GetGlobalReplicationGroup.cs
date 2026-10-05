@@ -64,6 +64,10 @@ namespace Pulumi.AwsNative.ElastiCache
     public sealed class GetGlobalReplicationGroupResult
     {
         /// <summary>
+        /// The ARN (Amazon Resource Name) of the Global Datastore.
+        /// </summary>
+        public readonly string? Arn;
+        /// <summary>
         /// The engine of the Global Datastore.
         /// </summary>
         public readonly string? Engine;
@@ -83,9 +87,15 @@ namespace Pulumi.AwsNative.ElastiCache
         /// The status of the Global Datastore
         /// </summary>
         public readonly string? Status;
+        /// <summary>
+        /// An array of key-value pairs to apply to this Global Datastore.
+        /// </summary>
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetGlobalReplicationGroupResult(
+            string? arn,
+
             string? engine,
 
             string? globalReplicationGroupDescription,
@@ -94,13 +104,17 @@ namespace Pulumi.AwsNative.ElastiCache
 
             ImmutableArray<Outputs.GlobalReplicationGroupMember> members,
 
-            string? status)
+            string? status,
+
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
+            Arn = arn;
             Engine = engine;
             GlobalReplicationGroupDescription = globalReplicationGroupDescription;
             GlobalReplicationGroupId = globalReplicationGroupId;
             Members = members;
             Status = status;
+            Tags = tags;
         }
     }
 }

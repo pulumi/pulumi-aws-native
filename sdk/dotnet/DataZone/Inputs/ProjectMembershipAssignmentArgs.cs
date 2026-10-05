@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.DataZone.Inputs
     public sealed class ProjectMembershipAssignmentArgs : global::Pulumi.ResourceArgs
     {
         [Input("designation", required: true)]
-        public Input<Pulumi.AwsNative.DataZone.ProjectUserDesignation> Designation { get; set; } = null!;
+        public Input<string> Designation { get; set; } = null!;
 
         [Input("member", required: true)]
         public Input<Inputs.ProjectMemberArgs> Member { get; set; } = null!;

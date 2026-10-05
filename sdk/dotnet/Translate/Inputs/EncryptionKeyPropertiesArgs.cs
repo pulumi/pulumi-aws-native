@@ -11,7 +11,7 @@ namespace Pulumi.AwsNative.Translate.Inputs
 {
 
     /// <summary>
-    /// The encryption key used to encrypt this object.
+    /// The encryption key for the custom terminology.
     /// </summary>
     public sealed class EncryptionKeyPropertiesArgs : global::Pulumi.ResourceArgs
     {
@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.Translate.Inputs
         /// The type of encryption key.
         /// </summary>
         [Input("type", required: true)]
-        public Input<Pulumi.AwsNative.Translate.ParallelDataEncryptionKeyPropertiesType> Type { get; set; } = null!;
+        public Input<Pulumi.AwsNative.Translate.TerminologyEncryptionKeyPropertiesType> Type { get; set; } = null!;
 
         public EncryptionKeyPropertiesArgs()
         {

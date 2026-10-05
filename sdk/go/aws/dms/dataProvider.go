@@ -35,6 +35,8 @@ type DataProvider struct {
 	Settings SettingsPropertiesPtrOutput `pulumi:"settings"`
 	// An array of key-value pairs to apply to this resource.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
+	// Indicates whether the data provider is virtual.
+	Virtual pulumi.BoolPtrOutput `pulumi:"virtual"`
 }
 
 // NewDataProvider registers a new resource with the given unique name, arguments, and options.
@@ -94,6 +96,8 @@ type dataProviderArgs struct {
 	Settings *SettingsProperties `pulumi:"settings"`
 	// An array of key-value pairs to apply to this resource.
 	Tags []aws.Tag `pulumi:"tags"`
+	// Indicates whether the data provider is virtual.
+	Virtual *bool `pulumi:"virtual"`
 }
 
 // The set of arguments for constructing a DataProvider resource.
@@ -112,6 +116,8 @@ type DataProviderArgs struct {
 	Settings SettingsPropertiesPtrInput
 	// An array of key-value pairs to apply to this resource.
 	Tags aws.TagArrayInput
+	// Indicates whether the data provider is virtual.
+	Virtual pulumi.BoolPtrInput
 }
 
 func (DataProviderArgs) ElementType() reflect.Type {
@@ -194,6 +200,11 @@ func (o DataProviderOutput) Settings() SettingsPropertiesPtrOutput {
 // An array of key-value pairs to apply to this resource.
 func (o DataProviderOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *DataProvider) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
+}
+
+// Indicates whether the data provider is virtual.
+func (o DataProviderOutput) Virtual() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DataProvider) pulumi.BoolPtrOutput { return v.Virtual }).(pulumi.BoolPtrOutput)
 }
 
 func init() {

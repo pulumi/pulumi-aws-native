@@ -1188,13 +1188,21 @@ class EvaluationFormLanguageConfigurationArgs:
 
 
 class EvaluationFormMetricConfigurationArgsDict(TypedDict):
+    """
+    Information about the metric configuration for an evaluation form question. Use this to associate a business outcome metric with a question.
+    """
     metric_name: pulumi.Input[_builtins.str]
     """
-    The name of the metric.
+    The name of the metric. Valid values are:
+      +  ``SALE_SUCCESS`` – Sale success.
+      +  ``CSAT`` – Customer satisfaction.
+      +  ``CHURN_PROPENSITY`` – Churn propensity.
+      +  ``SELF_SERVICE_SUCCESS`` – Self-service success.
+      +  ``PARTIAL_SELF_SERVICE_SUCCESS`` – Partial self-service success.
     """
     metric_type: pulumi.Input['EvaluationFormMetricConfigurationMetricType']
     """
-    The type of the metric.
+    The type of metric. Currently, only ``BUSINESS_OUTCOME`` is supported.
     """
 
 @pulumi.input_type
@@ -1203,8 +1211,15 @@ class EvaluationFormMetricConfigurationArgs:
                  metric_name: pulumi.Input[_builtins.str],
                  metric_type: pulumi.Input['EvaluationFormMetricConfigurationMetricType']):
         """
-        :param pulumi.Input[_builtins.str] metric_name: The name of the metric.
-        :param pulumi.Input['EvaluationFormMetricConfigurationMetricType'] metric_type: The type of the metric.
+        Information about the metric configuration for an evaluation form question. Use this to associate a business outcome metric with a question.
+
+        :param pulumi.Input[_builtins.str] metric_name: The name of the metric. Valid values are:
+                 +  ``SALE_SUCCESS`` – Sale success.
+                 +  ``CSAT`` – Customer satisfaction.
+                 +  ``CHURN_PROPENSITY`` – Churn propensity.
+                 +  ``SELF_SERVICE_SUCCESS`` – Self-service success.
+                 +  ``PARTIAL_SELF_SERVICE_SUCCESS`` – Partial self-service success.
+        :param pulumi.Input['EvaluationFormMetricConfigurationMetricType'] metric_type: The type of metric. Currently, only ``BUSINESS_OUTCOME`` is supported.
         """
         pulumi.set(__self__, "metric_name", metric_name)
         pulumi.set(__self__, "metric_type", metric_type)
@@ -1213,7 +1228,12 @@ class EvaluationFormMetricConfigurationArgs:
     @pulumi.getter(name="metricName")
     def metric_name(self) -> pulumi.Input[_builtins.str]:
         """
-        The name of the metric.
+        The name of the metric. Valid values are:
+          +  ``SALE_SUCCESS`` – Sale success.
+          +  ``CSAT`` – Customer satisfaction.
+          +  ``CHURN_PROPENSITY`` – Churn propensity.
+          +  ``SELF_SERVICE_SUCCESS`` – Self-service success.
+          +  ``PARTIAL_SELF_SERVICE_SUCCESS`` – Partial self-service success.
         """
         return pulumi.get(self, "metric_name")
 
@@ -1225,7 +1245,7 @@ class EvaluationFormMetricConfigurationArgs:
     @pulumi.getter(name="metricType")
     def metric_type(self) -> pulumi.Input['EvaluationFormMetricConfigurationMetricType']:
         """
-        The type of the metric.
+        The type of metric. Currently, only ``BUSINESS_OUTCOME`` is supported.
         """
         return pulumi.get(self, "metric_type")
 
@@ -1949,6 +1969,9 @@ class EvaluationFormQuestionArgsDict(TypedDict):
      *Length Constraints*: Minimum length of 0. Maximum length of 1024.
     """
     metric_configuration: NotRequired[pulumi.Input[Optional['EvaluationFormMetricConfigurationArgsDict']]]
+    """
+    The metric configuration for the question. Use this to associate a business outcome metric with the question.
+    """
     not_applicable_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     The flag to enable not applicable answers to the question.
@@ -1993,6 +2016,7 @@ class EvaluationFormQuestionArgs:
         :param pulumi.Input['EvaluationFormItemEnablementConfigurationArgs'] enablement: A question conditional enablement.
         :param pulumi.Input[_builtins.str] instructions: The instructions of the section.
                 *Length Constraints*: Minimum length of 0. Maximum length of 1024.
+        :param pulumi.Input['EvaluationFormMetricConfigurationArgs'] metric_configuration: The metric configuration for the question. Use this to associate a business outcome metric with the question.
         :param pulumi.Input[_builtins.bool] not_applicable_enabled: The flag to enable not applicable answers to the question.
         :param pulumi.Input['EvaluationFormQuestionTypePropertiesArgs'] question_type_properties: The properties of the type of question. Text questions do not have to define question type properties.
         :param pulumi.Input['EvaluationFormQuestionScoringConfigurationArgs'] scoring_configuration: The scoring configuration of the question.
@@ -2085,6 +2109,9 @@ class EvaluationFormQuestionArgs:
     @_builtins.property
     @pulumi.getter(name="metricConfiguration")
     def metric_configuration(self) -> pulumi.Input[Optional['EvaluationFormMetricConfigurationArgs']]:
+        """
+        The metric configuration for the question. Use this to associate a business outcome metric with the question.
+        """
         return pulumi.get(self, "metric_configuration")
 
     @metric_configuration.setter

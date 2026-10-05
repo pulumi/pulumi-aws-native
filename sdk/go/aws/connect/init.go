@@ -83,6 +83,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &TestCase{}
 	case "aws-native:connect:TrafficDistributionGroup":
 		r = &TrafficDistributionGroup{}
+	case "aws-native:connect:UseCase":
+		r = &UseCase{}
 	case "aws-native:connect:User":
 		r = &User{}
 	case "aws-native:connect:UserHierarchyGroup":

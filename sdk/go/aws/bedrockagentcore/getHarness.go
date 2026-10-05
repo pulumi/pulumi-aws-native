@@ -47,6 +47,8 @@ type LookupHarnessResult struct {
 	ExecutionRoleArn *string `pulumi:"executionRoleArn"`
 	// The unique identifier of the harness.
 	HarnessId *string `pulumi:"harnessId"`
+	// Lifecycle hooks that fire at well-defined points in the agent loop for policy enforcement, audit, and governance.
+	Hooks []HarnessHook `pulumi:"hooks"`
 	// The maximum number of iterations the agent loop can execute per invocation.
 	MaxIterations *int `pulumi:"maxIterations"`
 	// The maximum number of tokens the agent can generate per iteration.
@@ -146,6 +148,11 @@ func (o LookupHarnessResultOutput) ExecutionRoleArn() pulumi.StringPtrOutput {
 // The unique identifier of the harness.
 func (o LookupHarnessResultOutput) HarnessId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupHarnessResult) *string { return v.HarnessId }).(pulumi.StringPtrOutput)
+}
+
+// Lifecycle hooks that fire at well-defined points in the agent loop for policy enforcement, audit, and governance.
+func (o LookupHarnessResultOutput) Hooks() HarnessHookArrayOutput {
+	return o.ApplyT(func(v LookupHarnessResult) []HarnessHook { return v.Hooks }).(HarnessHookArrayOutput)
 }
 
 // The maximum number of iterations the agent loop can execute per invocation.

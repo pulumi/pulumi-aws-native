@@ -50,6 +50,10 @@ __all__ = [
     'MetricStreamStatisticsMetricArgsDict',
     'MuteTargetsPropertiesArgs',
     'MuteTargetsPropertiesArgsDict',
+    'OTelEnrichmentMetricSelectorArgs',
+    'OTelEnrichmentMetricSelectorArgsDict',
+    'ResourceMetricsConfigurationResourceMetricSelectionArgs',
+    'ResourceMetricsConfigurationResourceMetricSelectionArgsDict',
     'RulePropertiesArgs',
     'RulePropertiesArgsDict',
     'RulePropertiesSchedulePropertiesArgs',
@@ -663,13 +667,18 @@ class AlarmWallClockWindowArgs:
 
 
 class AlarmWarmUpConfigurationArgsDict(TypedDict):
+    """
+    The configuration settings that define the warm-up behavior for an alarm. Use these settings to delay alarm evaluation after you create or update the alarm, which reduces alarm noise while a new resource or service starts publishing data.
+     During the warm-up period, the alarm stays in ``INSUFFICIENT_DATA`` and does not perform alarm actions.
+    """
     only_start_evaluating_after_warm_up_period_ends: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
-    Specifies whether the alarm waits for the full warm-up period before it starts evaluating. If true, the alarm waits the entire WarmUpPeriodDurationInMinutes before it starts evaluating, even if metric data arrives earlier. If false, the alarm ends the warm-up period early and starts evaluating as soon as it has enough metric data to fill its evaluation window. This is the default behavior.
+    Specifies whether the alarm waits for the full warm-up period before it starts to evaluate. The default is ``false``. If ``true``, the alarm waits the entire ``WarmUpPeriodDurationInMinutes`` before it starts to evaluate, even if metric data arrives earlier. If ``false``, the alarm ends the warm-up period early. Evaluation begins as soon as the alarm has enough metric data to fill its evaluation window.
     """
     warm_up_period_duration_in_minutes: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
-    The length of the warm-up period, in minutes. For this duration after you create or update the alarm, the alarm stays in INSUFFICIENT_DATA and doesn't perform alarm actions. Valid values range from 1 to 2880 minutes (2 days). You can change this value while the alarm is still in its warm-up period. Changes have no effect after the warm-up period ends.
+    The length of the warm-up period, in minutes. After you create or update the alarm, the alarm stays in ``INSUFFICIENT_DATA`` for this duration. During this time, the alarm does not perform alarm actions.
+     You can change this value at any time, including after the warm-up period ends. If you change it after the warm-up period ends, the new value does not restart the warm-up period.
     """
 
 @pulumi.input_type
@@ -678,8 +687,12 @@ class AlarmWarmUpConfigurationArgs:
                  only_start_evaluating_after_warm_up_period_ends: pulumi.Input[Optional[_builtins.bool]] = None,
                  warm_up_period_duration_in_minutes: pulumi.Input[Optional[_builtins.int]] = None):
         """
-        :param pulumi.Input[_builtins.bool] only_start_evaluating_after_warm_up_period_ends: Specifies whether the alarm waits for the full warm-up period before it starts evaluating. If true, the alarm waits the entire WarmUpPeriodDurationInMinutes before it starts evaluating, even if metric data arrives earlier. If false, the alarm ends the warm-up period early and starts evaluating as soon as it has enough metric data to fill its evaluation window. This is the default behavior.
-        :param pulumi.Input[_builtins.int] warm_up_period_duration_in_minutes: The length of the warm-up period, in minutes. For this duration after you create or update the alarm, the alarm stays in INSUFFICIENT_DATA and doesn't perform alarm actions. Valid values range from 1 to 2880 minutes (2 days). You can change this value while the alarm is still in its warm-up period. Changes have no effect after the warm-up period ends.
+        The configuration settings that define the warm-up behavior for an alarm. Use these settings to delay alarm evaluation after you create or update the alarm, which reduces alarm noise while a new resource or service starts publishing data.
+         During the warm-up period, the alarm stays in ``INSUFFICIENT_DATA`` and does not perform alarm actions.
+
+        :param pulumi.Input[_builtins.bool] only_start_evaluating_after_warm_up_period_ends: Specifies whether the alarm waits for the full warm-up period before it starts to evaluate. The default is ``false``. If ``true``, the alarm waits the entire ``WarmUpPeriodDurationInMinutes`` before it starts to evaluate, even if metric data arrives earlier. If ``false``, the alarm ends the warm-up period early. Evaluation begins as soon as the alarm has enough metric data to fill its evaluation window.
+        :param pulumi.Input[_builtins.int] warm_up_period_duration_in_minutes: The length of the warm-up period, in minutes. After you create or update the alarm, the alarm stays in ``INSUFFICIENT_DATA`` for this duration. During this time, the alarm does not perform alarm actions.
+                You can change this value at any time, including after the warm-up period ends. If you change it after the warm-up period ends, the new value does not restart the warm-up period.
         """
         if only_start_evaluating_after_warm_up_period_ends is not None:
             pulumi.set(__self__, "only_start_evaluating_after_warm_up_period_ends", only_start_evaluating_after_warm_up_period_ends)
@@ -690,7 +703,7 @@ class AlarmWarmUpConfigurationArgs:
     @pulumi.getter(name="onlyStartEvaluatingAfterWarmUpPeriodEnds")
     def only_start_evaluating_after_warm_up_period_ends(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Specifies whether the alarm waits for the full warm-up period before it starts evaluating. If true, the alarm waits the entire WarmUpPeriodDurationInMinutes before it starts evaluating, even if metric data arrives earlier. If false, the alarm ends the warm-up period early and starts evaluating as soon as it has enough metric data to fill its evaluation window. This is the default behavior.
+        Specifies whether the alarm waits for the full warm-up period before it starts to evaluate. The default is ``false``. If ``true``, the alarm waits the entire ``WarmUpPeriodDurationInMinutes`` before it starts to evaluate, even if metric data arrives earlier. If ``false``, the alarm ends the warm-up period early. Evaluation begins as soon as the alarm has enough metric data to fill its evaluation window.
         """
         return pulumi.get(self, "only_start_evaluating_after_warm_up_period_ends")
 
@@ -702,7 +715,8 @@ class AlarmWarmUpConfigurationArgs:
     @pulumi.getter(name="warmUpPeriodDurationInMinutes")
     def warm_up_period_duration_in_minutes(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        The length of the warm-up period, in minutes. For this duration after you create or update the alarm, the alarm stays in INSUFFICIENT_DATA and doesn't perform alarm actions. Valid values range from 1 to 2880 minutes (2 days). You can change this value while the alarm is still in its warm-up period. Changes have no effect after the warm-up period ends.
+        The length of the warm-up period, in minutes. After you create or update the alarm, the alarm stays in ``INSUFFICIENT_DATA`` for this duration. During this time, the alarm does not perform alarm actions.
+         You can change this value at any time, including after the warm-up period ends. If you change it after the warm-up period ends, the new value does not restart the warm-up period.
         """
         return pulumi.get(self, "warm_up_period_duration_in_minutes")
 
@@ -1207,6 +1221,92 @@ class MuteTargetsPropertiesArgs:
     @alarm_names.setter
     def alarm_names(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
         pulumi.set(self, "alarm_names", value)
+
+
+class OTelEnrichmentMetricSelectorArgsDict(TypedDict):
+    """
+    Selects metrics within one namespace. The same shape serves both the include and the exclude direction. Namespaces are compared byte-for-byte and case-sensitively; no wildcards, prefixes or normalization.
+    """
+    namespace: pulumi.Input[_builtins.str]
+    """
+    The CloudWatch namespace this selector applies to.
+    """
+    metric_names: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    Absent or empty means every metric in this namespace, in whichever direction this selector appears. Present means only these metric names.
+    """
+
+@pulumi.input_type
+class OTelEnrichmentMetricSelectorArgs:
+    def __init__(__self__, *,
+                 namespace: pulumi.Input[_builtins.str],
+                 metric_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        Selects metrics within one namespace. The same shape serves both the include and the exclude direction. Namespaces are compared byte-for-byte and case-sensitively; no wildcards, prefixes or normalization.
+
+        :param pulumi.Input[_builtins.str] namespace: The CloudWatch namespace this selector applies to.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] metric_names: Absent or empty means every metric in this namespace, in whichever direction this selector appears. Present means only these metric names.
+        """
+        pulumi.set(__self__, "namespace", namespace)
+        if metric_names is not None:
+            pulumi.set(__self__, "metric_names", metric_names)
+
+    @_builtins.property
+    @pulumi.getter
+    def namespace(self) -> pulumi.Input[_builtins.str]:
+        """
+        The CloudWatch namespace this selector applies to.
+        """
+        return pulumi.get(self, "namespace")
+
+    @namespace.setter
+    def namespace(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "namespace", value)
+
+    @_builtins.property
+    @pulumi.getter(name="metricNames")
+    def metric_names(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Absent or empty means every metric in this namespace, in whichever direction this selector appears. Present means only these metric names.
+        """
+        return pulumi.get(self, "metric_names")
+
+    @metric_names.setter
+    def metric_names(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "metric_names", value)
+
+
+class ResourceMetricsConfigurationResourceMetricSelectionArgsDict(TypedDict):
+    """
+    Defines which metrics are enabled for detailed monitoring on the resource.
+    """
+    include_metrics: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    The list of metric names to include in detailed monitoring for the resource.
+    """
+
+@pulumi.input_type
+class ResourceMetricsConfigurationResourceMetricSelectionArgs:
+    def __init__(__self__, *,
+                 include_metrics: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        """
+        Defines which metrics are enabled for detailed monitoring on the resource.
+
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] include_metrics: The list of metric names to include in detailed monitoring for the resource.
+        """
+        pulumi.set(__self__, "include_metrics", include_metrics)
+
+    @_builtins.property
+    @pulumi.getter(name="includeMetrics")
+    def include_metrics(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        """
+        The list of metric names to include in detailed monitoring for the resource.
+        """
+        return pulumi.get(self, "include_metrics")
+
+    @include_metrics.setter
+    def include_metrics(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "include_metrics", value)
 
 
 class RulePropertiesArgsDict(TypedDict):

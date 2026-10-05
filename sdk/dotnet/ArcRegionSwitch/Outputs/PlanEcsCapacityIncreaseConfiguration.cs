@@ -18,6 +18,7 @@ namespace Pulumi.AwsNative.ArcRegionSwitch.Outputs
         public readonly double? TargetPercent;
         public readonly double? TimeoutMinutes;
         public readonly Outputs.PlanEcsUngraceful? Ungraceful;
+        public readonly Pulumi.AwsNative.ArcRegionSwitch.PlanWaitElbTargetGroupHealthy? WaitElbTargetGroupHealthy;
 
         [OutputConstructor]
         private PlanEcsCapacityIncreaseConfiguration(
@@ -29,13 +30,16 @@ namespace Pulumi.AwsNative.ArcRegionSwitch.Outputs
 
             double? timeoutMinutes,
 
-            Outputs.PlanEcsUngraceful? ungraceful)
+            Outputs.PlanEcsUngraceful? ungraceful,
+
+            Pulumi.AwsNative.ArcRegionSwitch.PlanWaitElbTargetGroupHealthy? waitElbTargetGroupHealthy)
         {
             CapacityMonitoringApproach = capacityMonitoringApproach;
             Services = services;
             TargetPercent = targetPercent;
             TimeoutMinutes = timeoutMinutes;
             Ungraceful = ungraceful;
+            WaitElbTargetGroupHealthy = waitElbTargetGroupHealthy;
         }
     }
 }

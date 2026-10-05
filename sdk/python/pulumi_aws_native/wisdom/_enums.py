@@ -24,6 +24,8 @@ __all__ = [
     'AiPromptAiPromptType',
     'AssistantAssociationAssociationType',
     'AssistantType',
+    'ContentAssociationAssociationType',
+    'ContentStatus',
     'KnowledgeBaseType',
     'KnowledgeBaseVectorIngestionConfigurationChunkingConfigurationPropertiesChunkingStrategy',
     'KnowledgeBaseVectorIngestionConfigurationParsingConfigurationPropertiesParsingStrategy',
@@ -206,6 +208,28 @@ class AssistantAssociationAssociationType(_builtins.str, Enum):
 @pulumi.type_token("aws-native:wisdom:AssistantType")
 class AssistantType(_builtins.str, Enum):
     AGENT = "AGENT"
+
+
+@pulumi.type_token("aws-native:wisdom:ContentAssociationAssociationType")
+class ContentAssociationAssociationType(_builtins.str, Enum):
+    """
+    The type of association.
+    """
+    AMAZON_CONNECT_GUIDE = "AMAZON_CONNECT_GUIDE"
+
+
+@pulumi.type_token("aws-native:wisdom:ContentStatus")
+class ContentStatus(_builtins.str, Enum):
+    """
+    The status of the content.
+    """
+    CREATE_IN_PROGRESS = "CREATE_IN_PROGRESS"
+    CREATE_FAILED = "CREATE_FAILED"
+    ACTIVE = "ACTIVE"
+    DELETE_IN_PROGRESS = "DELETE_IN_PROGRESS"
+    DELETE_FAILED = "DELETE_FAILED"
+    DELETED = "DELETED"
+    UPDATE_FAILED = "UPDATE_FAILED"
 
 
 @pulumi.type_token("aws-native:wisdom:KnowledgeBaseType")

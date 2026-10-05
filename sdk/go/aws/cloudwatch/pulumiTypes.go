@@ -1356,10 +1356,14 @@ func (o AlarmWallClockWindowPtrOutput) Timezone() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The configuration settings that define the warm-up behavior for an alarm. Use these settings to delay alarm evaluation after you create or update the alarm, which reduces alarm noise while a new resource or service starts publishing data.
+//
+//	During the warm-up period, the alarm stays in ``INSUFFICIENT_DATA`` and does not perform alarm actions.
 type AlarmWarmUpConfiguration struct {
-	// Specifies whether the alarm waits for the full warm-up period before it starts evaluating. If true, the alarm waits the entire WarmUpPeriodDurationInMinutes before it starts evaluating, even if metric data arrives earlier. If false, the alarm ends the warm-up period early and starts evaluating as soon as it has enough metric data to fill its evaluation window. This is the default behavior.
+	// Specifies whether the alarm waits for the full warm-up period before it starts to evaluate. The default is ``false``. If ``true``, the alarm waits the entire ``WarmUpPeriodDurationInMinutes`` before it starts to evaluate, even if metric data arrives earlier. If ``false``, the alarm ends the warm-up period early. Evaluation begins as soon as the alarm has enough metric data to fill its evaluation window.
 	OnlyStartEvaluatingAfterWarmUpPeriodEnds *bool `pulumi:"onlyStartEvaluatingAfterWarmUpPeriodEnds"`
-	// The length of the warm-up period, in minutes. For this duration after you create or update the alarm, the alarm stays in INSUFFICIENT_DATA and doesn't perform alarm actions. Valid values range from 1 to 2880 minutes (2 days). You can change this value while the alarm is still in its warm-up period. Changes have no effect after the warm-up period ends.
+	// The length of the warm-up period, in minutes. After you create or update the alarm, the alarm stays in ``INSUFFICIENT_DATA`` for this duration. During this time, the alarm does not perform alarm actions.
+	//  You can change this value at any time, including after the warm-up period ends. If you change it after the warm-up period ends, the new value does not restart the warm-up period.
 	WarmUpPeriodDurationInMinutes *int `pulumi:"warmUpPeriodDurationInMinutes"`
 }
 
@@ -1374,10 +1378,14 @@ type AlarmWarmUpConfigurationInput interface {
 	ToAlarmWarmUpConfigurationOutputWithContext(context.Context) AlarmWarmUpConfigurationOutput
 }
 
+// The configuration settings that define the warm-up behavior for an alarm. Use these settings to delay alarm evaluation after you create or update the alarm, which reduces alarm noise while a new resource or service starts publishing data.
+//
+//	During the warm-up period, the alarm stays in ``INSUFFICIENT_DATA`` and does not perform alarm actions.
 type AlarmWarmUpConfigurationArgs struct {
-	// Specifies whether the alarm waits for the full warm-up period before it starts evaluating. If true, the alarm waits the entire WarmUpPeriodDurationInMinutes before it starts evaluating, even if metric data arrives earlier. If false, the alarm ends the warm-up period early and starts evaluating as soon as it has enough metric data to fill its evaluation window. This is the default behavior.
+	// Specifies whether the alarm waits for the full warm-up period before it starts to evaluate. The default is ``false``. If ``true``, the alarm waits the entire ``WarmUpPeriodDurationInMinutes`` before it starts to evaluate, even if metric data arrives earlier. If ``false``, the alarm ends the warm-up period early. Evaluation begins as soon as the alarm has enough metric data to fill its evaluation window.
 	OnlyStartEvaluatingAfterWarmUpPeriodEnds pulumi.BoolPtrInput `pulumi:"onlyStartEvaluatingAfterWarmUpPeriodEnds"`
-	// The length of the warm-up period, in minutes. For this duration after you create or update the alarm, the alarm stays in INSUFFICIENT_DATA and doesn't perform alarm actions. Valid values range from 1 to 2880 minutes (2 days). You can change this value while the alarm is still in its warm-up period. Changes have no effect after the warm-up period ends.
+	// The length of the warm-up period, in minutes. After you create or update the alarm, the alarm stays in ``INSUFFICIENT_DATA`` for this duration. During this time, the alarm does not perform alarm actions.
+	//  You can change this value at any time, including after the warm-up period ends. If you change it after the warm-up period ends, the new value does not restart the warm-up period.
 	WarmUpPeriodDurationInMinutes pulumi.IntPtrInput `pulumi:"warmUpPeriodDurationInMinutes"`
 }
 
@@ -1434,6 +1442,9 @@ func (i *alarmWarmUpConfigurationPtrType) ToAlarmWarmUpConfigurationPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(AlarmWarmUpConfigurationPtrOutput)
 }
 
+// The configuration settings that define the warm-up behavior for an alarm. Use these settings to delay alarm evaluation after you create or update the alarm, which reduces alarm noise while a new resource or service starts publishing data.
+//
+//	During the warm-up period, the alarm stays in ``INSUFFICIENT_DATA`` and does not perform alarm actions.
 type AlarmWarmUpConfigurationOutput struct{ *pulumi.OutputState }
 
 func (AlarmWarmUpConfigurationOutput) ElementType() reflect.Type {
@@ -1458,12 +1469,14 @@ func (o AlarmWarmUpConfigurationOutput) ToAlarmWarmUpConfigurationPtrOutputWithC
 	}).(AlarmWarmUpConfigurationPtrOutput)
 }
 
-// Specifies whether the alarm waits for the full warm-up period before it starts evaluating. If true, the alarm waits the entire WarmUpPeriodDurationInMinutes before it starts evaluating, even if metric data arrives earlier. If false, the alarm ends the warm-up period early and starts evaluating as soon as it has enough metric data to fill its evaluation window. This is the default behavior.
+// Specifies whether the alarm waits for the full warm-up period before it starts to evaluate. The default is “false“. If “true“, the alarm waits the entire “WarmUpPeriodDurationInMinutes“ before it starts to evaluate, even if metric data arrives earlier. If “false“, the alarm ends the warm-up period early. Evaluation begins as soon as the alarm has enough metric data to fill its evaluation window.
 func (o AlarmWarmUpConfigurationOutput) OnlyStartEvaluatingAfterWarmUpPeriodEnds() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AlarmWarmUpConfiguration) *bool { return v.OnlyStartEvaluatingAfterWarmUpPeriodEnds }).(pulumi.BoolPtrOutput)
 }
 
-// The length of the warm-up period, in minutes. For this duration after you create or update the alarm, the alarm stays in INSUFFICIENT_DATA and doesn't perform alarm actions. Valid values range from 1 to 2880 minutes (2 days). You can change this value while the alarm is still in its warm-up period. Changes have no effect after the warm-up period ends.
+// The length of the warm-up period, in minutes. After you create or update the alarm, the alarm stays in “INSUFFICIENT_DATA“ for this duration. During this time, the alarm does not perform alarm actions.
+//
+//	You can change this value at any time, including after the warm-up period ends. If you change it after the warm-up period ends, the new value does not restart the warm-up period.
 func (o AlarmWarmUpConfigurationOutput) WarmUpPeriodDurationInMinutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AlarmWarmUpConfiguration) *int { return v.WarmUpPeriodDurationInMinutes }).(pulumi.IntPtrOutput)
 }
@@ -1492,7 +1505,7 @@ func (o AlarmWarmUpConfigurationPtrOutput) Elem() AlarmWarmUpConfigurationOutput
 	}).(AlarmWarmUpConfigurationOutput)
 }
 
-// Specifies whether the alarm waits for the full warm-up period before it starts evaluating. If true, the alarm waits the entire WarmUpPeriodDurationInMinutes before it starts evaluating, even if metric data arrives earlier. If false, the alarm ends the warm-up period early and starts evaluating as soon as it has enough metric data to fill its evaluation window. This is the default behavior.
+// Specifies whether the alarm waits for the full warm-up period before it starts to evaluate. The default is “false“. If “true“, the alarm waits the entire “WarmUpPeriodDurationInMinutes“ before it starts to evaluate, even if metric data arrives earlier. If “false“, the alarm ends the warm-up period early. Evaluation begins as soon as the alarm has enough metric data to fill its evaluation window.
 func (o AlarmWarmUpConfigurationPtrOutput) OnlyStartEvaluatingAfterWarmUpPeriodEnds() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AlarmWarmUpConfiguration) *bool {
 		if v == nil {
@@ -1502,7 +1515,9 @@ func (o AlarmWarmUpConfigurationPtrOutput) OnlyStartEvaluatingAfterWarmUpPeriodE
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The length of the warm-up period, in minutes. For this duration after you create or update the alarm, the alarm stays in INSUFFICIENT_DATA and doesn't perform alarm actions. Valid values range from 1 to 2880 minutes (2 days). You can change this value while the alarm is still in its warm-up period. Changes have no effect after the warm-up period ends.
+// The length of the warm-up period, in minutes. After you create or update the alarm, the alarm stays in “INSUFFICIENT_DATA“ for this duration. During this time, the alarm does not perform alarm actions.
+//
+//	You can change this value at any time, including after the warm-up period ends. If you change it after the warm-up period ends, the new value does not restart the warm-up period.
 func (o AlarmWarmUpConfigurationPtrOutput) WarmUpPeriodDurationInMinutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AlarmWarmUpConfiguration) *int {
 		if v == nil {
@@ -2589,6 +2604,215 @@ func (o MuteTargetsPropertiesPtrOutput) AlarmNames() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
+// Selects metrics within one namespace. The same shape serves both the include and the exclude direction. Namespaces are compared byte-for-byte and case-sensitively; no wildcards, prefixes or normalization.
+type OTelEnrichmentMetricSelector struct {
+	// Absent or empty means every metric in this namespace, in whichever direction this selector appears. Present means only these metric names.
+	MetricNames []string `pulumi:"metricNames"`
+	// The CloudWatch namespace this selector applies to.
+	Namespace string `pulumi:"namespace"`
+}
+
+// OTelEnrichmentMetricSelectorInput is an input type that accepts OTelEnrichmentMetricSelectorArgs and OTelEnrichmentMetricSelectorOutput values.
+// You can construct a concrete instance of `OTelEnrichmentMetricSelectorInput` via:
+//
+//	OTelEnrichmentMetricSelectorArgs{...}
+type OTelEnrichmentMetricSelectorInput interface {
+	pulumi.Input
+
+	ToOTelEnrichmentMetricSelectorOutput() OTelEnrichmentMetricSelectorOutput
+	ToOTelEnrichmentMetricSelectorOutputWithContext(context.Context) OTelEnrichmentMetricSelectorOutput
+}
+
+// Selects metrics within one namespace. The same shape serves both the include and the exclude direction. Namespaces are compared byte-for-byte and case-sensitively; no wildcards, prefixes or normalization.
+type OTelEnrichmentMetricSelectorArgs struct {
+	// Absent or empty means every metric in this namespace, in whichever direction this selector appears. Present means only these metric names.
+	MetricNames pulumi.StringArrayInput `pulumi:"metricNames"`
+	// The CloudWatch namespace this selector applies to.
+	Namespace pulumi.StringInput `pulumi:"namespace"`
+}
+
+func (OTelEnrichmentMetricSelectorArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OTelEnrichmentMetricSelector)(nil)).Elem()
+}
+
+func (i OTelEnrichmentMetricSelectorArgs) ToOTelEnrichmentMetricSelectorOutput() OTelEnrichmentMetricSelectorOutput {
+	return i.ToOTelEnrichmentMetricSelectorOutputWithContext(context.Background())
+}
+
+func (i OTelEnrichmentMetricSelectorArgs) ToOTelEnrichmentMetricSelectorOutputWithContext(ctx context.Context) OTelEnrichmentMetricSelectorOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OTelEnrichmentMetricSelectorOutput)
+}
+
+// OTelEnrichmentMetricSelectorArrayInput is an input type that accepts OTelEnrichmentMetricSelectorArray and OTelEnrichmentMetricSelectorArrayOutput values.
+// You can construct a concrete instance of `OTelEnrichmentMetricSelectorArrayInput` via:
+//
+//	OTelEnrichmentMetricSelectorArray{ OTelEnrichmentMetricSelectorArgs{...} }
+type OTelEnrichmentMetricSelectorArrayInput interface {
+	pulumi.Input
+
+	ToOTelEnrichmentMetricSelectorArrayOutput() OTelEnrichmentMetricSelectorArrayOutput
+	ToOTelEnrichmentMetricSelectorArrayOutputWithContext(context.Context) OTelEnrichmentMetricSelectorArrayOutput
+}
+
+type OTelEnrichmentMetricSelectorArray []OTelEnrichmentMetricSelectorInput
+
+func (OTelEnrichmentMetricSelectorArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OTelEnrichmentMetricSelector)(nil)).Elem()
+}
+
+func (i OTelEnrichmentMetricSelectorArray) ToOTelEnrichmentMetricSelectorArrayOutput() OTelEnrichmentMetricSelectorArrayOutput {
+	return i.ToOTelEnrichmentMetricSelectorArrayOutputWithContext(context.Background())
+}
+
+func (i OTelEnrichmentMetricSelectorArray) ToOTelEnrichmentMetricSelectorArrayOutputWithContext(ctx context.Context) OTelEnrichmentMetricSelectorArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OTelEnrichmentMetricSelectorArrayOutput)
+}
+
+// Selects metrics within one namespace. The same shape serves both the include and the exclude direction. Namespaces are compared byte-for-byte and case-sensitively; no wildcards, prefixes or normalization.
+type OTelEnrichmentMetricSelectorOutput struct{ *pulumi.OutputState }
+
+func (OTelEnrichmentMetricSelectorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OTelEnrichmentMetricSelector)(nil)).Elem()
+}
+
+func (o OTelEnrichmentMetricSelectorOutput) ToOTelEnrichmentMetricSelectorOutput() OTelEnrichmentMetricSelectorOutput {
+	return o
+}
+
+func (o OTelEnrichmentMetricSelectorOutput) ToOTelEnrichmentMetricSelectorOutputWithContext(ctx context.Context) OTelEnrichmentMetricSelectorOutput {
+	return o
+}
+
+// Absent or empty means every metric in this namespace, in whichever direction this selector appears. Present means only these metric names.
+func (o OTelEnrichmentMetricSelectorOutput) MetricNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v OTelEnrichmentMetricSelector) []string { return v.MetricNames }).(pulumi.StringArrayOutput)
+}
+
+// The CloudWatch namespace this selector applies to.
+func (o OTelEnrichmentMetricSelectorOutput) Namespace() pulumi.StringOutput {
+	return o.ApplyT(func(v OTelEnrichmentMetricSelector) string { return v.Namespace }).(pulumi.StringOutput)
+}
+
+type OTelEnrichmentMetricSelectorArrayOutput struct{ *pulumi.OutputState }
+
+func (OTelEnrichmentMetricSelectorArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OTelEnrichmentMetricSelector)(nil)).Elem()
+}
+
+func (o OTelEnrichmentMetricSelectorArrayOutput) ToOTelEnrichmentMetricSelectorArrayOutput() OTelEnrichmentMetricSelectorArrayOutput {
+	return o
+}
+
+func (o OTelEnrichmentMetricSelectorArrayOutput) ToOTelEnrichmentMetricSelectorArrayOutputWithContext(ctx context.Context) OTelEnrichmentMetricSelectorArrayOutput {
+	return o
+}
+
+func (o OTelEnrichmentMetricSelectorArrayOutput) Index(i pulumi.IntInput) OTelEnrichmentMetricSelectorOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OTelEnrichmentMetricSelector {
+		return vs[0].([]OTelEnrichmentMetricSelector)[vs[1].(int)]
+	}).(OTelEnrichmentMetricSelectorOutput)
+}
+
+// Defines which metrics are enabled for detailed monitoring on the resource.
+type ResourceMetricsConfigurationResourceMetricSelection struct {
+	// The list of metric names to include in detailed monitoring for the resource.
+	IncludeMetrics []string `pulumi:"includeMetrics"`
+}
+
+// ResourceMetricsConfigurationResourceMetricSelectionInput is an input type that accepts ResourceMetricsConfigurationResourceMetricSelectionArgs and ResourceMetricsConfigurationResourceMetricSelectionOutput values.
+// You can construct a concrete instance of `ResourceMetricsConfigurationResourceMetricSelectionInput` via:
+//
+//	ResourceMetricsConfigurationResourceMetricSelectionArgs{...}
+type ResourceMetricsConfigurationResourceMetricSelectionInput interface {
+	pulumi.Input
+
+	ToResourceMetricsConfigurationResourceMetricSelectionOutput() ResourceMetricsConfigurationResourceMetricSelectionOutput
+	ToResourceMetricsConfigurationResourceMetricSelectionOutputWithContext(context.Context) ResourceMetricsConfigurationResourceMetricSelectionOutput
+}
+
+// Defines which metrics are enabled for detailed monitoring on the resource.
+type ResourceMetricsConfigurationResourceMetricSelectionArgs struct {
+	// The list of metric names to include in detailed monitoring for the resource.
+	IncludeMetrics pulumi.StringArrayInput `pulumi:"includeMetrics"`
+}
+
+func (ResourceMetricsConfigurationResourceMetricSelectionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceMetricsConfigurationResourceMetricSelection)(nil)).Elem()
+}
+
+func (i ResourceMetricsConfigurationResourceMetricSelectionArgs) ToResourceMetricsConfigurationResourceMetricSelectionOutput() ResourceMetricsConfigurationResourceMetricSelectionOutput {
+	return i.ToResourceMetricsConfigurationResourceMetricSelectionOutputWithContext(context.Background())
+}
+
+func (i ResourceMetricsConfigurationResourceMetricSelectionArgs) ToResourceMetricsConfigurationResourceMetricSelectionOutputWithContext(ctx context.Context) ResourceMetricsConfigurationResourceMetricSelectionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceMetricsConfigurationResourceMetricSelectionOutput)
+}
+
+// ResourceMetricsConfigurationResourceMetricSelectionArrayInput is an input type that accepts ResourceMetricsConfigurationResourceMetricSelectionArray and ResourceMetricsConfigurationResourceMetricSelectionArrayOutput values.
+// You can construct a concrete instance of `ResourceMetricsConfigurationResourceMetricSelectionArrayInput` via:
+//
+//	ResourceMetricsConfigurationResourceMetricSelectionArray{ ResourceMetricsConfigurationResourceMetricSelectionArgs{...} }
+type ResourceMetricsConfigurationResourceMetricSelectionArrayInput interface {
+	pulumi.Input
+
+	ToResourceMetricsConfigurationResourceMetricSelectionArrayOutput() ResourceMetricsConfigurationResourceMetricSelectionArrayOutput
+	ToResourceMetricsConfigurationResourceMetricSelectionArrayOutputWithContext(context.Context) ResourceMetricsConfigurationResourceMetricSelectionArrayOutput
+}
+
+type ResourceMetricsConfigurationResourceMetricSelectionArray []ResourceMetricsConfigurationResourceMetricSelectionInput
+
+func (ResourceMetricsConfigurationResourceMetricSelectionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ResourceMetricsConfigurationResourceMetricSelection)(nil)).Elem()
+}
+
+func (i ResourceMetricsConfigurationResourceMetricSelectionArray) ToResourceMetricsConfigurationResourceMetricSelectionArrayOutput() ResourceMetricsConfigurationResourceMetricSelectionArrayOutput {
+	return i.ToResourceMetricsConfigurationResourceMetricSelectionArrayOutputWithContext(context.Background())
+}
+
+func (i ResourceMetricsConfigurationResourceMetricSelectionArray) ToResourceMetricsConfigurationResourceMetricSelectionArrayOutputWithContext(ctx context.Context) ResourceMetricsConfigurationResourceMetricSelectionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceMetricsConfigurationResourceMetricSelectionArrayOutput)
+}
+
+// Defines which metrics are enabled for detailed monitoring on the resource.
+type ResourceMetricsConfigurationResourceMetricSelectionOutput struct{ *pulumi.OutputState }
+
+func (ResourceMetricsConfigurationResourceMetricSelectionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceMetricsConfigurationResourceMetricSelection)(nil)).Elem()
+}
+
+func (o ResourceMetricsConfigurationResourceMetricSelectionOutput) ToResourceMetricsConfigurationResourceMetricSelectionOutput() ResourceMetricsConfigurationResourceMetricSelectionOutput {
+	return o
+}
+
+func (o ResourceMetricsConfigurationResourceMetricSelectionOutput) ToResourceMetricsConfigurationResourceMetricSelectionOutputWithContext(ctx context.Context) ResourceMetricsConfigurationResourceMetricSelectionOutput {
+	return o
+}
+
+// The list of metric names to include in detailed monitoring for the resource.
+func (o ResourceMetricsConfigurationResourceMetricSelectionOutput) IncludeMetrics() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ResourceMetricsConfigurationResourceMetricSelection) []string { return v.IncludeMetrics }).(pulumi.StringArrayOutput)
+}
+
+type ResourceMetricsConfigurationResourceMetricSelectionArrayOutput struct{ *pulumi.OutputState }
+
+func (ResourceMetricsConfigurationResourceMetricSelectionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ResourceMetricsConfigurationResourceMetricSelection)(nil)).Elem()
+}
+
+func (o ResourceMetricsConfigurationResourceMetricSelectionArrayOutput) ToResourceMetricsConfigurationResourceMetricSelectionArrayOutput() ResourceMetricsConfigurationResourceMetricSelectionArrayOutput {
+	return o
+}
+
+func (o ResourceMetricsConfigurationResourceMetricSelectionArrayOutput) ToResourceMetricsConfigurationResourceMetricSelectionArrayOutputWithContext(ctx context.Context) ResourceMetricsConfigurationResourceMetricSelectionArrayOutput {
+	return o
+}
+
+func (o ResourceMetricsConfigurationResourceMetricSelectionArrayOutput) Index(i pulumi.IntInput) ResourceMetricsConfigurationResourceMetricSelectionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ResourceMetricsConfigurationResourceMetricSelection {
+		return vs[0].([]ResourceMetricsConfigurationResourceMetricSelection)[vs[1].(int)]
+	}).(ResourceMetricsConfigurationResourceMetricSelectionOutput)
+}
+
 // The rule for the mute
 type RuleProperties struct {
 	// Schedule for the mute to be active
@@ -2805,6 +3029,14 @@ func (o RulePropertiesSchedulePropertiesPtrOutput) Timezone() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
+// A key-value pair to associate with the view.
+type ViewTag struct {
+	// The key of the tag.
+	Key string `pulumi:"key"`
+	// The value of the tag.
+	Value string `pulumi:"value"`
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AlarmDimensionInput)(nil)).Elem(), AlarmDimensionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AlarmDimensionArrayInput)(nil)).Elem(), AlarmDimensionArray{})
@@ -2838,6 +3070,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*MetricStreamStatisticsMetricArrayInput)(nil)).Elem(), MetricStreamStatisticsMetricArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MuteTargetsPropertiesInput)(nil)).Elem(), MuteTargetsPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MuteTargetsPropertiesPtrInput)(nil)).Elem(), MuteTargetsPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OTelEnrichmentMetricSelectorInput)(nil)).Elem(), OTelEnrichmentMetricSelectorArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OTelEnrichmentMetricSelectorArrayInput)(nil)).Elem(), OTelEnrichmentMetricSelectorArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceMetricsConfigurationResourceMetricSelectionInput)(nil)).Elem(), ResourceMetricsConfigurationResourceMetricSelectionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceMetricsConfigurationResourceMetricSelectionArrayInput)(nil)).Elem(), ResourceMetricsConfigurationResourceMetricSelectionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RulePropertiesInput)(nil)).Elem(), RulePropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RulePropertiesSchedulePropertiesInput)(nil)).Elem(), RulePropertiesSchedulePropertiesArgs{})
 	pulumi.RegisterOutputType(AlarmDimensionOutput{})
@@ -2874,6 +3110,10 @@ func init() {
 	pulumi.RegisterOutputType(MetricStreamStatisticsMetricArrayOutput{})
 	pulumi.RegisterOutputType(MuteTargetsPropertiesOutput{})
 	pulumi.RegisterOutputType(MuteTargetsPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(OTelEnrichmentMetricSelectorOutput{})
+	pulumi.RegisterOutputType(OTelEnrichmentMetricSelectorArrayOutput{})
+	pulumi.RegisterOutputType(ResourceMetricsConfigurationResourceMetricSelectionOutput{})
+	pulumi.RegisterOutputType(ResourceMetricsConfigurationResourceMetricSelectionArrayOutput{})
 	pulumi.RegisterOutputType(RulePropertiesOutput{})
 	pulumi.RegisterOutputType(RulePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(RulePropertiesSchedulePropertiesOutput{})

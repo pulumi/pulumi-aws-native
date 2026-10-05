@@ -15,7 +15,19 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Inputs
     /// </summary>
     public sealed class OnlineEvaluationConfigCloudWatchLogsInputConfigArgs : global::Pulumi.ResourceArgs
     {
-        [Input("logGroupNames", required: true)]
+        [Input("logGroupNamePrefixes")]
+        private InputList<string>? _logGroupNamePrefixes;
+
+        /// <summary>
+        /// The list of CloudWatch log group name prefixes to monitor for agent traces. Mutually exclusive with LogGroupNames; specify exactly one of the two selectors.
+        /// </summary>
+        public InputList<string> LogGroupNamePrefixes
+        {
+            get => _logGroupNamePrefixes ?? (_logGroupNamePrefixes = new InputList<string>());
+            set => _logGroupNamePrefixes = value;
+        }
+
+        [Input("logGroupNames")]
         private InputList<string>? _logGroupNames;
 
         /// <summary>

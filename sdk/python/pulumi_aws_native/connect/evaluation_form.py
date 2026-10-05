@@ -46,6 +46,7 @@ class EvaluationFormArgs:
         :param pulumi.Input['EvaluationFormStatus'] status: The status of the evaluation form.
                 *Allowed values*: ``DRAFT`` | ``ACTIVE``
         :param pulumi.Input[_builtins.str] title: A title of the evaluation form.
+        :param pulumi.Input[_builtins.str] ai_version: The AI version to use for the evaluation form. This specifies which AI model version is used for automated evaluations.
         :param pulumi.Input['EvaluationFormAutoEvaluationConfigurationArgs'] auto_evaluation_configuration: The automatic evaluation configuration of an evaluation form.
         :param pulumi.Input[_builtins.str] description: The description of the evaluation form.
                 *Length Constraints*: Minimum length of 0. Maximum length of 1024.
@@ -130,6 +131,9 @@ class EvaluationFormArgs:
     @_builtins.property
     @pulumi.getter(name="aiVersion")
     def ai_version(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The AI version to use for the evaluation form. This specifies which AI model version is used for automated evaluations.
+        """
         return pulumi.get(self, "ai_version")
 
     @ai_version.setter
@@ -246,6 +250,7 @@ class EvaluationForm(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[_builtins.str] ai_version: The AI version to use for the evaluation form. This specifies which AI model version is used for automated evaluations.
         :param pulumi.Input[Union['EvaluationFormAutoEvaluationConfigurationArgs', 'EvaluationFormAutoEvaluationConfigurationArgsDict']] auto_evaluation_configuration: The automatic evaluation configuration of an evaluation form.
         :param pulumi.Input[_builtins.str] description: The description of the evaluation form.
                 *Length Constraints*: Minimum length of 0. Maximum length of 1024.
@@ -368,6 +373,9 @@ class EvaluationForm(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="aiVersion")
     def ai_version(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The AI version to use for the evaluation form. This specifies which AI model version is used for automated evaluations.
+        """
         return pulumi.get(self, "ai_version")
 
     @_builtins.property

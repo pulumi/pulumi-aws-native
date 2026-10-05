@@ -358,7 +358,7 @@
     },
     "ProjectDesignation" : {
       "type" : "string",
-      "enum" : [ "OWNER", "CONTRIBUTOR", "PROJECT_CATALOG_STEWARD" ]
+      "pattern" : "^[a-zA-Z0-9_-]{1,36}$"
     },
     "ProjectGrantFilter" : {
       "oneOf" : [ {
@@ -459,7 +459,7 @@
       "$ref" : "#/definitions/PolicyGrantPrincipal"
     }
   },
-  "required" : [ "DomainIdentifier", "EntityIdentifier", "EntityType", "PolicyType" ],
+  "required" : [ "DomainIdentifier", "EntityIdentifier", "EntityType", "PolicyType", "Principal", "Detail" ],
   "readOnlyProperties" : [ "/properties/GrantId", "/properties/CreatedAt", "/properties/CreatedBy" ],
   "writeOnlyProperties" : [ "/properties/Principal/Project/ProjectGrantFilter", "/properties/Principal/Project/ProjectGrantFilter/DomainUnitFilter", "/properties/Principal/Project/ProjectGrantFilter/DomainUnitFilter/DomainUnit", "/properties/Principal/Project/ProjectGrantFilter/DomainUnitFilter/IncludeChildDomainUnits", "/properties/Principal/DomainUnit/DomainUnitGrantFilter", "/properties/Principal/DomainUnit/DomainUnitGrantFilter/AllDomainUnitsGrantFilter" ],
   "createOnlyProperties" : [ "/properties/Detail", "/properties/DomainIdentifier", "/properties/EntityIdentifier", "/properties/EntityType", "/properties/PolicyType", "/properties/Principal" ],

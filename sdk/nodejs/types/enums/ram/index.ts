@@ -2,6 +2,65 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const PermissionAssociationAssociationStatus = {
+    Associating: "ASSOCIATING",
+    Associated: "ASSOCIATED",
+    Failed: "FAILED",
+    Disassociating: "DISASSOCIATING",
+    Suspended: "SUSPENDED",
+    Suspending: "SUSPENDING",
+    Restoring: "RESTORING",
+    Disassociated: "DISASSOCIATED",
+} as const;
+
+/**
+ * The current status of the association between the permission and the resource share.
+ */
+export type PermissionAssociationAssociationStatus = (typeof PermissionAssociationAssociationStatus)[keyof typeof PermissionAssociationAssociationStatus];
+
+export const PermissionAssociationFeatureSet = {
+    Standard: "STANDARD",
+    CreatedFromPolicy: "CREATED_FROM_POLICY",
+    PromotingToStandard: "PROMOTING_TO_STANDARD",
+} as const;
+
+/**
+ * The feature set of the resource share.
+ */
+export type PermissionAssociationFeatureSet = (typeof PermissionAssociationFeatureSet)[keyof typeof PermissionAssociationFeatureSet];
+
+export const PrincipalAssociationStatus = {
+    Associating: "ASSOCIATING",
+    Associated: "ASSOCIATED",
+    Failed: "FAILED",
+    Disassociating: "DISASSOCIATING",
+    Disassociated: "DISASSOCIATED",
+    Suspended: "SUSPENDED",
+    Suspending: "SUSPENDING",
+    Restoring: "RESTORING",
+} as const;
+
+/**
+ * The current status of the association.
+ */
+export type PrincipalAssociationStatus = (typeof PrincipalAssociationStatus)[keyof typeof PrincipalAssociationStatus];
+
+export const ResourceAssociationStatus = {
+    Associating: "ASSOCIATING",
+    Associated: "ASSOCIATED",
+    Failed: "FAILED",
+    Disassociating: "DISASSOCIATING",
+    Disassociated: "DISASSOCIATED",
+    Suspended: "SUSPENDED",
+    Suspending: "SUSPENDING",
+    Restoring: "RESTORING",
+} as const;
+
+/**
+ * The current status of the association.
+ */
+export type ResourceAssociationStatus = (typeof ResourceAssociationStatus)[keyof typeof ResourceAssociationStatus];
+
 export const ResourceShareFeatureSet = {
     CreatedFromPolicy: "CREATED_FROM_POLICY",
     PromotingToStandard: "PROMOTING_TO_STANDARD",
@@ -25,3 +84,19 @@ export const ResourceShareStatus = {
  * The current status of the resource share.
  */
 export type ResourceShareStatus = (typeof ResourceShareStatus)[keyof typeof ResourceShareStatus];
+
+export const SourceAssociationStatus = {
+    Associating: "ASSOCIATING",
+    Associated: "ASSOCIATED",
+    Failed: "FAILED",
+    Disassociating: "DISASSOCIATING",
+    Disassociated: "DISASSOCIATED",
+    Suspended: "SUSPENDED",
+    Suspending: "SUSPENDING",
+    Restoring: "RESTORING",
+} as const;
+
+/**
+ * The current status of the association.
+ */
+export type SourceAssociationStatus = (typeof SourceAssociationStatus)[keyof typeof SourceAssociationStatus];

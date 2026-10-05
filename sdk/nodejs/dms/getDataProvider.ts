@@ -53,6 +53,10 @@ export interface GetDataProviderResult {
      * An array of key-value pairs to apply to this resource.
      */
     readonly tags?: outputs.Tag[];
+    /**
+     * Indicates whether the data provider is virtual.
+     */
+    readonly virtual?: boolean;
 }
 /**
  * Resource schema for AWS::DMS::DataProvider

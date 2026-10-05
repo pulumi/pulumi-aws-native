@@ -592,35 +592,6 @@ namespace Pulumi.AwsNative.DataZone
     }
 
     [EnumType]
-    public readonly struct PolicyGrantProjectDesignation : IEquatable<PolicyGrantProjectDesignation>
-    {
-        private readonly string _value;
-
-        private PolicyGrantProjectDesignation(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static PolicyGrantProjectDesignation Owner { get; } = new PolicyGrantProjectDesignation("OWNER");
-        public static PolicyGrantProjectDesignation Contributor { get; } = new PolicyGrantProjectDesignation("CONTRIBUTOR");
-        public static PolicyGrantProjectDesignation ProjectCatalogSteward { get; } = new PolicyGrantProjectDesignation("PROJECT_CATALOG_STEWARD");
-
-        public static bool operator ==(PolicyGrantProjectDesignation left, PolicyGrantProjectDesignation right) => left.Equals(right);
-        public static bool operator !=(PolicyGrantProjectDesignation left, PolicyGrantProjectDesignation right) => !left.Equals(right);
-
-        public static explicit operator string(PolicyGrantProjectDesignation value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is PolicyGrantProjectDesignation other && Equals(other);
-        public bool Equals(PolicyGrantProjectDesignation other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    [EnumType]
     public readonly struct PolicyGrantTargetEntityType : IEquatable<PolicyGrantTargetEntityType>
     {
         private readonly string _value;
@@ -671,37 +642,6 @@ namespace Pulumi.AwsNative.DataZone
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is ProjectMembershipMemberIdentifierType other && Equals(other);
         public bool Equals(ProjectMembershipMemberIdentifierType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    [EnumType]
-    public readonly struct ProjectMembershipUserDesignation : IEquatable<ProjectMembershipUserDesignation>
-    {
-        private readonly string _value;
-
-        private ProjectMembershipUserDesignation(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static ProjectMembershipUserDesignation ProjectOwner { get; } = new ProjectMembershipUserDesignation("PROJECT_OWNER");
-        public static ProjectMembershipUserDesignation ProjectContributor { get; } = new ProjectMembershipUserDesignation("PROJECT_CONTRIBUTOR");
-        public static ProjectMembershipUserDesignation ProjectCatalogViewer { get; } = new ProjectMembershipUserDesignation("PROJECT_CATALOG_VIEWER");
-        public static ProjectMembershipUserDesignation ProjectCatalogConsumer { get; } = new ProjectMembershipUserDesignation("PROJECT_CATALOG_CONSUMER");
-        public static ProjectMembershipUserDesignation ProjectCatalogSteward { get; } = new ProjectMembershipUserDesignation("PROJECT_CATALOG_STEWARD");
-
-        public static bool operator ==(ProjectMembershipUserDesignation left, ProjectMembershipUserDesignation right) => left.Equals(right);
-        public static bool operator !=(ProjectMembershipUserDesignation left, ProjectMembershipUserDesignation right) => !left.Equals(right);
-
-        public static explicit operator string(ProjectMembershipUserDesignation value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is ProjectMembershipUserDesignation other && Equals(other);
-        public bool Equals(ProjectMembershipUserDesignation other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -790,34 +730,6 @@ namespace Pulumi.AwsNative.DataZone
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is ProjectStatus other && Equals(other);
         public bool Equals(ProjectStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    [EnumType]
-    public readonly struct ProjectUserDesignation : IEquatable<ProjectUserDesignation>
-    {
-        private readonly string _value;
-
-        private ProjectUserDesignation(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static ProjectUserDesignation ProjectOwner { get; } = new ProjectUserDesignation("PROJECT_OWNER");
-        public static ProjectUserDesignation ProjectContributor { get; } = new ProjectUserDesignation("PROJECT_CONTRIBUTOR");
-
-        public static bool operator ==(ProjectUserDesignation left, ProjectUserDesignation right) => left.Equals(right);
-        public static bool operator !=(ProjectUserDesignation left, ProjectUserDesignation right) => !left.Equals(right);
-
-        public static explicit operator string(ProjectUserDesignation value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is ProjectUserDesignation other && Equals(other);
-        public bool Equals(ProjectUserDesignation other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

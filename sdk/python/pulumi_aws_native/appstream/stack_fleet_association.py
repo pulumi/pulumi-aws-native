@@ -24,12 +24,8 @@ class StackFleetAssociationArgs:
         """
         The set of arguments for constructing a StackFleetAssociation resource.
 
-        :param pulumi.Input[_builtins.str] fleet_name: The name of the fleet.
-               
-               To associate a fleet with a stack, you must specify a dependency on the fleet resource. For more information, see [DependsOn Attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html) .
-        :param pulumi.Input[_builtins.str] stack_name: The name of the stack.
-               
-               To associate a fleet with a stack, you must specify a dependency on the stack resource. For more information, see [DependsOn Attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html) .
+        :param pulumi.Input[_builtins.str] fleet_name: The name of the fleet. To associate a fleet with a stack, you must specify a dependency on the fleet resource.
+        :param pulumi.Input[_builtins.str] stack_name: The name of the stack. To associate a fleet with a stack, you must specify a dependency on the stack resource.
         """
         pulumi.set(__self__, "fleet_name", fleet_name)
         pulumi.set(__self__, "stack_name", stack_name)
@@ -38,9 +34,7 @@ class StackFleetAssociationArgs:
     @pulumi.getter(name="fleetName")
     def fleet_name(self) -> pulumi.Input[_builtins.str]:
         """
-        The name of the fleet.
-
-        To associate a fleet with a stack, you must specify a dependency on the fleet resource. For more information, see [DependsOn Attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html) .
+        The name of the fleet. To associate a fleet with a stack, you must specify a dependency on the fleet resource.
         """
         return pulumi.get(self, "fleet_name")
 
@@ -52,9 +46,7 @@ class StackFleetAssociationArgs:
     @pulumi.getter(name="stackName")
     def stack_name(self) -> pulumi.Input[_builtins.str]:
         """
-        The name of the stack.
-
-        To associate a fleet with a stack, you must specify a dependency on the stack resource. For more information, see [DependsOn Attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html) .
+        The name of the stack. To associate a fleet with a stack, you must specify a dependency on the stack resource.
         """
         return pulumi.get(self, "stack_name")
 
@@ -77,12 +69,8 @@ class StackFleetAssociation(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] fleet_name: The name of the fleet.
-               
-               To associate a fleet with a stack, you must specify a dependency on the fleet resource. For more information, see [DependsOn Attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html) .
-        :param pulumi.Input[_builtins.str] stack_name: The name of the stack.
-               
-               To associate a fleet with a stack, you must specify a dependency on the stack resource. For more information, see [DependsOn Attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html) .
+        :param pulumi.Input[_builtins.str] fleet_name: The name of the fleet. To associate a fleet with a stack, you must specify a dependency on the fleet resource.
+        :param pulumi.Input[_builtins.str] stack_name: The name of the stack. To associate a fleet with a stack, you must specify a dependency on the stack resource.
         """
         ...
     @overload
@@ -125,7 +113,8 @@ class StackFleetAssociation(pulumi.CustomResource):
             if stack_name is None and not opts.urn:
                 raise TypeError("Missing required property 'stack_name'")
             __props__.__dict__["stack_name"] = stack_name
-            __props__.__dict__["aws_id"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["fleetName", "stackName"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(StackFleetAssociation, __self__).__init__(
             'aws-native:appstream:StackFleetAssociation',
             resource_name,
@@ -148,23 +137,15 @@ class StackFleetAssociation(pulumi.CustomResource):
 
         __props__ = StackFleetAssociationArgs.__new__(StackFleetAssociationArgs)
 
-        __props__.__dict__["aws_id"] = None
         __props__.__dict__["fleet_name"] = None
         __props__.__dict__["stack_name"] = None
         return StackFleetAssociation(resource_name, opts=opts, __props__=__props__)
 
     @_builtins.property
-    @pulumi.getter(name="awsId")
-    def aws_id(self) -> pulumi.Output[_builtins.str]:
-        return pulumi.get(self, "aws_id")
-
-    @_builtins.property
     @pulumi.getter(name="fleetName")
     def fleet_name(self) -> pulumi.Output[_builtins.str]:
         """
-        The name of the fleet.
-
-        To associate a fleet with a stack, you must specify a dependency on the fleet resource. For more information, see [DependsOn Attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html) .
+        The name of the fleet. To associate a fleet with a stack, you must specify a dependency on the fleet resource.
         """
         return pulumi.get(self, "fleet_name")
 
@@ -172,9 +153,7 @@ class StackFleetAssociation(pulumi.CustomResource):
     @pulumi.getter(name="stackName")
     def stack_name(self) -> pulumi.Output[_builtins.str]:
         """
-        The name of the stack.
-
-        To associate a fleet with a stack, you must specify a dependency on the stack resource. For more information, see [DependsOn Attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html) .
+        The name of the stack. To associate a fleet with a stack, you must specify a dependency on the stack resource.
         """
         return pulumi.get(self, "stack_name")
 

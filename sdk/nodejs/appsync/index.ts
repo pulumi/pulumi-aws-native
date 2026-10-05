@@ -10,6 +10,11 @@ export type Api = import("./api").Api;
 export const Api: typeof import("./api").Api = null as any;
 utilities.lazyLoad(exports, ["Api"], () => require("./api"));
 
+export { ApiCacheArgs } from "./apiCache";
+export type ApiCache = import("./apiCache").ApiCache;
+export const ApiCache: typeof import("./apiCache").ApiCache = null as any;
+utilities.lazyLoad(exports, ["ApiCache"], () => require("./apiCache"));
+
 export { ApiKeyArgs } from "./apiKey";
 export type ApiKey = import("./apiKey").ApiKey;
 export const ApiKey: typeof import("./apiKey").ApiKey = null as any;
@@ -44,6 +49,11 @@ export { GetApiArgs, GetApiResult, GetApiOutputArgs } from "./getApi";
 export const getApi: typeof import("./getApi").getApi = null as any;
 export const getApiOutput: typeof import("./getApi").getApiOutput = null as any;
 utilities.lazyLoad(exports, ["getApi","getApiOutput"], () => require("./getApi"));
+
+export { GetApiCacheArgs, GetApiCacheResult, GetApiCacheOutputArgs } from "./getApiCache";
+export const getApiCache: typeof import("./getApiCache").getApiCache = null as any;
+export const getApiCacheOutput: typeof import("./getApiCache").getApiCacheOutput = null as any;
+utilities.lazyLoad(exports, ["getApiCache","getApiCacheOutput"], () => require("./getApiCache"));
 
 export { GetApiKeyArgs, GetApiKeyResult, GetApiKeyOutputArgs } from "./getApiKey";
 export const getApiKey: typeof import("./getApiKey").getApiKey = null as any;
@@ -125,6 +135,8 @@ const _module = {
         switch (type) {
             case "aws-native:appsync:Api":
                 return new Api(name, <any>undefined, { urn })
+            case "aws-native:appsync:ApiCache":
+                return new ApiCache(name, <any>undefined, { urn })
             case "aws-native:appsync:ApiKey":
                 return new ApiKey(name, <any>undefined, { urn })
             case "aws-native:appsync:ChannelNamespace":

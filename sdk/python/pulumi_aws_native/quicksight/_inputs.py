@@ -39637,13 +39637,13 @@ class AnalysisSheetLayoutGroupArgs:
 
 class AnalysisSheetLayoutGroupMemberArgsDict(TypedDict):
     id: pulumi.Input[_builtins.str]
-    type: Any
+    type: pulumi.Input['AnalysisSheetLayoutGroupMemberType']
 
 @pulumi.input_type
 class AnalysisSheetLayoutGroupMemberArgs:
     def __init__(__self__, *,
                  id: pulumi.Input[_builtins.str],
-                 type: Any):
+                 type: pulumi.Input['AnalysisSheetLayoutGroupMemberType']):
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "type", type)
 
@@ -39658,11 +39658,11 @@ class AnalysisSheetLayoutGroupMemberArgs:
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Any:
+    def type(self) -> pulumi.Input['AnalysisSheetLayoutGroupMemberType']:
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Any):
+    def type(self, value: pulumi.Input['AnalysisSheetLayoutGroupMemberType']):
         pulumi.set(self, "type", value)
 
 
@@ -86525,13 +86525,13 @@ class DashboardSheetLayoutGroupArgs:
 
 class DashboardSheetLayoutGroupMemberArgsDict(TypedDict):
     id: pulumi.Input[_builtins.str]
-    type: Any
+    type: pulumi.Input['DashboardSheetLayoutGroupMemberType']
 
 @pulumi.input_type
 class DashboardSheetLayoutGroupMemberArgs:
     def __init__(__self__, *,
                  id: pulumi.Input[_builtins.str],
-                 type: Any):
+                 type: pulumi.Input['DashboardSheetLayoutGroupMemberType']):
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "type", type)
 
@@ -86546,11 +86546,11 @@ class DashboardSheetLayoutGroupMemberArgs:
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Any:
+    def type(self) -> pulumi.Input['DashboardSheetLayoutGroupMemberType']:
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Any):
+    def type(self, value: pulumi.Input['DashboardSheetLayoutGroupMemberType']):
         pulumi.set(self, "type", value)
 
 
@@ -139414,13 +139414,13 @@ class TemplateSheetLayoutGroupArgs:
 
 class TemplateSheetLayoutGroupMemberArgsDict(TypedDict):
     id: pulumi.Input[_builtins.str]
-    type: Any
+    type: pulumi.Input['TemplateSheetLayoutGroupMemberType']
 
 @pulumi.input_type
 class TemplateSheetLayoutGroupMemberArgs:
     def __init__(__self__, *,
                  id: pulumi.Input[_builtins.str],
-                 type: Any):
+                 type: pulumi.Input['TemplateSheetLayoutGroupMemberType']):
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "type", type)
 
@@ -139435,11 +139435,11 @@ class TemplateSheetLayoutGroupMemberArgs:
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Any:
+    def type(self) -> pulumi.Input['TemplateSheetLayoutGroupMemberType']:
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Any):
+    def type(self, value: pulumi.Input['TemplateSheetLayoutGroupMemberType']):
         pulumi.set(self, "type", value)
 
 

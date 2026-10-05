@@ -112,6 +112,7 @@ import * as chatbot from "./chatbot";
 import * as chime from "./chime";
 import * as cleanrooms from "./cleanrooms";
 import * as cleanroomsml from "./cleanroomsml";
+import * as cloud9 from "./cloud9";
 import * as cloudformation from "./cloudformation";
 import * as cloudfront from "./cloudfront";
 import * as cloudhsm from "./cloudhsm";
@@ -399,6 +400,7 @@ export {
     chime,
     cleanrooms,
     cleanroomsml,
+    cloud9,
     cloudformation,
     cloudfront,
     cloudhsm,

@@ -78,6 +78,10 @@ export class Harness extends pulumi.CustomResource {
      */
     declare public readonly harnessName: pulumi.Output<string>;
     /**
+     * Lifecycle hooks that fire at well-defined points in the agent loop for policy enforcement, audit, and governance.
+     */
+    declare public readonly hooks: pulumi.Output<outputs.bedrockagentcore.HarnessHook[] | undefined>;
+    /**
      * The maximum number of iterations the agent loop can execute per invocation.
      */
     declare public readonly maxIterations: pulumi.Output<number | undefined>;
@@ -154,6 +158,7 @@ export class Harness extends pulumi.CustomResource {
             resourceInputs["environmentVariables"] = args?.environmentVariables;
             resourceInputs["executionRoleArn"] = args?.executionRoleArn;
             resourceInputs["harnessName"] = args?.harnessName;
+            resourceInputs["hooks"] = args?.hooks;
             resourceInputs["maxIterations"] = args?.maxIterations;
             resourceInputs["maxTokens"] = args?.maxTokens;
             resourceInputs["memory"] = args?.memory;
@@ -181,6 +186,7 @@ export class Harness extends pulumi.CustomResource {
             resourceInputs["executionRoleArn"] = undefined /*out*/;
             resourceInputs["harnessId"] = undefined /*out*/;
             resourceInputs["harnessName"] = undefined /*out*/;
+            resourceInputs["hooks"] = undefined /*out*/;
             resourceInputs["maxIterations"] = undefined /*out*/;
             resourceInputs["maxTokens"] = undefined /*out*/;
             resourceInputs["memory"] = undefined /*out*/;
@@ -234,6 +240,10 @@ export interface HarnessArgs {
      * The name of the harness.
      */
     harnessName?: pulumi.Input<string | undefined>;
+    /**
+     * Lifecycle hooks that fire at well-defined points in the agent loop for policy enforcement, audit, and governance.
+     */
+    hooks?: pulumi.Input<pulumi.Input<inputs.bedrockagentcore.HarnessHookArgs>[] | undefined>;
     /**
      * The maximum number of iterations the agent loop can execute per invocation.
      */

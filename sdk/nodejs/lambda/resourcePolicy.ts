@@ -53,9 +53,6 @@ export class ResourcePolicy extends pulumi.CustomResource {
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Lambda::ResourcePolicy` for more information about the expected schema for this property.
      */
     declare public readonly policyDocument: pulumi.Output<any>;
-    /**
-     * The Amazon Resource Name (ARN) of the LAM resource you want to add the policy to. For a function, you can use a qualified or an unqualified ARN. The value must be a complete ARN, and the operation does not accept wildcard characters.
-     */
     declare public readonly resourceArn: pulumi.Output<string>;
 
     /**
@@ -99,8 +96,5 @@ export interface ResourcePolicyArgs {
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Lambda::ResourcePolicy` for more information about the expected schema for this property.
      */
     policyDocument: any;
-    /**
-     * The Amazon Resource Name (ARN) of the LAM resource you want to add the policy to. For a function, you can use a qualified or an unqualified ARN. The value must be a complete ARN, and the operation does not accept wildcard characters.
-     */
     resourceArn: pulumi.Input<string>;
 }

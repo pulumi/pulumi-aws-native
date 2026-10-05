@@ -31,6 +31,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &CapacityReservationFleet{}
 	case "aws-native:ec2:CarrierGateway":
 		r = &CarrierGateway{}
+	case "aws-native:ec2:ClientVpnAuthorizationRule":
+		r = &ClientVpnAuthorizationRule{}
 	case "aws-native:ec2:CustomerGateway":
 		r = &CustomerGateway{}
 	case "aws-native:ec2:DhcpOptions":
@@ -137,6 +139,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &RouteServerPropagation{}
 	case "aws-native:ec2:RouteTable":
 		r = &RouteTable{}
+	case "aws-native:ec2:SecondaryNetwork":
+		r = &SecondaryNetwork{}
 	case "aws-native:ec2:SecurityGroup":
 		r = &SecurityGroup{}
 	case "aws-native:ec2:SecurityGroupEgress":

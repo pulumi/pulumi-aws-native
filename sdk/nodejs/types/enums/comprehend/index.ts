@@ -130,6 +130,19 @@ export const EntityRecognizerDocumentsInputFormat = {
  */
 export type EntityRecognizerDocumentsInputFormat = (typeof EntityRecognizerDocumentsInputFormat)[keyof typeof EntityRecognizerDocumentsInputFormat];
 
+export const EntityRecognizerEndpointEndpointStatus = {
+    Creating: "CREATING",
+    Deleting: "DELETING",
+    Failed: "FAILED",
+    InService: "IN_SERVICE",
+    Updating: "UPDATING",
+} as const;
+
+/**
+ * The current status of the endpoint. Because the endpoint updates and creation are asynchronous, wait for the endpoint to be IN_SERVICE before making inference requests.
+ */
+export type EntityRecognizerEndpointEndpointStatus = (typeof EntityRecognizerEndpointEndpointStatus)[keyof typeof EntityRecognizerEndpointEndpointStatus];
+
 export const EntityRecognizerInputDataConfigDataFormat = {
     ComprehendCsv: "COMPREHEND_CSV",
     AugmentedManifest: "AUGMENTED_MANIFEST",

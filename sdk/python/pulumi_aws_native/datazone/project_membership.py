@@ -22,14 +22,14 @@ __all__ = ['ProjectMembershipArgs', 'ProjectMembership']
 @pulumi.input_type
 class ProjectMembershipArgs:
     def __init__(__self__, *,
-                 designation: pulumi.Input['ProjectMembershipUserDesignation'],
+                 designation: pulumi.Input[_builtins.str],
                  domain_identifier: pulumi.Input[_builtins.str],
                  member: pulumi.Input[Union['ProjectMembershipMember0PropertiesArgs', 'ProjectMembershipMember1PropertiesArgs']],
                  project_identifier: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a ProjectMembership resource.
 
-        :param pulumi.Input['ProjectMembershipUserDesignation'] designation: The designated role of a project member.
+        :param pulumi.Input[_builtins.str] designation: The designated role of a project member.
         :param pulumi.Input[_builtins.str] domain_identifier: The ID of the Amazon DataZone domain in which project membership is created.
         :param pulumi.Input[Union['ProjectMembershipMember0PropertiesArgs', 'ProjectMembershipMember1PropertiesArgs']] member: The details about a project member.
         :param pulumi.Input[_builtins.str] project_identifier: The ID of the project for which this project membership was created.
@@ -41,14 +41,14 @@ class ProjectMembershipArgs:
 
     @_builtins.property
     @pulumi.getter
-    def designation(self) -> pulumi.Input['ProjectMembershipUserDesignation']:
+    def designation(self) -> pulumi.Input[_builtins.str]:
         """
         The designated role of a project member.
         """
         return pulumi.get(self, "designation")
 
     @designation.setter
-    def designation(self, value: pulumi.Input['ProjectMembershipUserDesignation']):
+    def designation(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "designation", value)
 
     @_builtins.property
@@ -94,7 +94,7 @@ class ProjectMembership(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 designation: pulumi.Input[Optional['ProjectMembershipUserDesignation']] = None,
+                 designation: pulumi.Input[Optional[_builtins.str]] = None,
                  domain_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                  member: pulumi.Input[Optional[Union[Union['ProjectMembershipMember0PropertiesArgs', 'ProjectMembershipMember0PropertiesArgsDict'], Union['ProjectMembershipMember1PropertiesArgs', 'ProjectMembershipMember1PropertiesArgsDict']]]] = None,
                  project_identifier: pulumi.Input[Optional[_builtins.str]] = None,
@@ -104,7 +104,7 @@ class ProjectMembership(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input['ProjectMembershipUserDesignation'] designation: The designated role of a project member.
+        :param pulumi.Input[_builtins.str] designation: The designated role of a project member.
         :param pulumi.Input[_builtins.str] domain_identifier: The ID of the Amazon DataZone domain in which project membership is created.
         :param pulumi.Input[Union[Union['ProjectMembershipMember0PropertiesArgs', 'ProjectMembershipMember0PropertiesArgsDict'], Union['ProjectMembershipMember1PropertiesArgs', 'ProjectMembershipMember1PropertiesArgsDict']]] member: The details about a project member.
         :param pulumi.Input[_builtins.str] project_identifier: The ID of the project for which this project membership was created.
@@ -133,7 +133,7 @@ class ProjectMembership(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 designation: pulumi.Input[Optional['ProjectMembershipUserDesignation']] = None,
+                 designation: pulumi.Input[Optional[_builtins.str]] = None,
                  domain_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                  member: pulumi.Input[Optional[Union[Union['ProjectMembershipMember0PropertiesArgs', 'ProjectMembershipMember0PropertiesArgsDict'], Union['ProjectMembershipMember1PropertiesArgs', 'ProjectMembershipMember1PropertiesArgsDict']]]] = None,
                  project_identifier: pulumi.Input[Optional[_builtins.str]] = None,
@@ -194,7 +194,7 @@ class ProjectMembership(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def designation(self) -> pulumi.Output['ProjectMembershipUserDesignation']:
+    def designation(self) -> pulumi.Output[_builtins.str]:
         """
         The designated role of a project member.
         """
