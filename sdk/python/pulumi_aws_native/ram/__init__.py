@@ -8,8 +8,16 @@ import typing
 # Export this package's modules as members:
 from ._enums import *
 from .get_permission import *
+from .get_permission_association import *
+from .get_principal_association import *
+from .get_resource_association import *
 from .get_resource_share import *
+from .get_source_association import *
 from .permission import *
+from .permission_association import *
+from .principal_association import *
+from .resource_association import *
 from .resource_share import *
+from .source_association import *
 from ._inputs import *
 from . import outputs

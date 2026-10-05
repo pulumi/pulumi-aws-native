@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         public Input<string> Id { get; set; } = null!;
 
         [Input("type", required: true)]
-        public Input<object> Type { get; set; } = null!;
+        public Input<Pulumi.AwsNative.QuickSight.TemplateSheetLayoutGroupMemberType> Type { get; set; } = null!;
 
         public TemplateSheetLayoutGroupMemberArgs()
         {

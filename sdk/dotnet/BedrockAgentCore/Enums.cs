@@ -1428,6 +1428,37 @@ namespace Pulumi.AwsNative.BedrockAgentCore
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// Whether the agent loop continues or stops when the Lambda invocation fails. Defaults to deny.
+    /// </summary>
+    [EnumType]
+    public readonly struct HarnessHookLambdaTargetFailureMode : IEquatable<HarnessHookLambdaTargetFailureMode>
+    {
+        private readonly string _value;
+
+        private HarnessHookLambdaTargetFailureMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static HarnessHookLambdaTargetFailureMode Allow { get; } = new HarnessHookLambdaTargetFailureMode("allow");
+        public static HarnessHookLambdaTargetFailureMode Deny { get; } = new HarnessHookLambdaTargetFailureMode("deny");
+
+        public static bool operator ==(HarnessHookLambdaTargetFailureMode left, HarnessHookLambdaTargetFailureMode right) => left.Equals(right);
+        public static bool operator !=(HarnessHookLambdaTargetFailureMode left, HarnessHookLambdaTargetFailureMode right) => !left.Equals(right);
+
+        public static explicit operator string(HarnessHookLambdaTargetFailureMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is HarnessHookLambdaTargetFailureMode other && Equals(other);
+        public bool Equals(HarnessHookLambdaTargetFailureMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     [EnumType]
     public readonly struct HarnessManagedMemoryConfigurationStrategiesItem : IEquatable<HarnessManagedMemoryConfigurationStrategiesItem>
     {
@@ -2716,6 +2747,37 @@ namespace Pulumi.AwsNative.BedrockAgentCore
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is OAuth2CredentialProviderTokenExchangeGrantTypeConfigActorTokenContent other && Equals(other);
         public bool Equals(OAuth2CredentialProviderTokenExchangeGrantTypeConfigActorTokenContent other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Where evaluation results are written. DEDICATED_LOG_GROUP, the default when omitted, writes to a dedicated result log group. SOURCE_LOG_GROUP writes results back to the trace source log group; LogGroupName must not be specified with SOURCE_LOG_GROUP.
+    /// </summary>
+    [EnumType]
+    public readonly struct OnlineEvaluationConfigCloudWatchOutputConfigResultDestination : IEquatable<OnlineEvaluationConfigCloudWatchOutputConfigResultDestination>
+    {
+        private readonly string _value;
+
+        private OnlineEvaluationConfigCloudWatchOutputConfigResultDestination(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static OnlineEvaluationConfigCloudWatchOutputConfigResultDestination DedicatedLogGroup { get; } = new OnlineEvaluationConfigCloudWatchOutputConfigResultDestination("DEDICATED_LOG_GROUP");
+        public static OnlineEvaluationConfigCloudWatchOutputConfigResultDestination SourceLogGroup { get; } = new OnlineEvaluationConfigCloudWatchOutputConfigResultDestination("SOURCE_LOG_GROUP");
+
+        public static bool operator ==(OnlineEvaluationConfigCloudWatchOutputConfigResultDestination left, OnlineEvaluationConfigCloudWatchOutputConfigResultDestination right) => left.Equals(right);
+        public static bool operator !=(OnlineEvaluationConfigCloudWatchOutputConfigResultDestination left, OnlineEvaluationConfigCloudWatchOutputConfigResultDestination right) => !left.Equals(right);
+
+        public static explicit operator string(OnlineEvaluationConfigCloudWatchOutputConfigResultDestination value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is OnlineEvaluationConfigCloudWatchOutputConfigResultDestination other && Equals(other);
+        public bool Equals(OnlineEvaluationConfigCloudWatchOutputConfigResultDestination other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

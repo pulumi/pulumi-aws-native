@@ -26,13 +26,17 @@ class RegistryArgs:
     def __init__(__self__, *,
                  approval_configuration: pulumi.Input[Optional['RegistryApprovalConfigurationArgs']] = None,
                  authorizer_type: pulumi.Input[Optional['RegistryAuthorizerType']] = None,
+                 auto_detection_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 auto_detection_scope: pulumi.Input[Optional['RegistryAutoDetectionScope']] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  discovery_configuration: pulumi.Input[Optional['RegistryDiscoveryConfigurationArgs']] = None,
+                 encryption_configuration: pulumi.Input[Optional['RegistryEncryptionConfigurationArgs']] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Registry resource.
 
+        :param pulumi.Input[_builtins.bool] auto_detection_enabled: Specifies whether auto-detection is requested for the registry. Must be specified together with AutoDetectionScope. Setting this to true is necessary but not sufficient for auto-detection to become active; the preconditions of the configured scope must also be met. To turn auto-detection off, explicitly set this to false - removing AutoDetectionEnabled and AutoDetectionScope from the template is a no-op and leaves the existing auto-detection settings unchanged. A registry cannot be deleted while auto-detection is enabled: set this to false and update the stack before deleting the registry.
         :param pulumi.Input[_builtins.str] description: The description of the registry.
         :param pulumi.Input[_builtins.str] name: The name of the registry.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: Tags to assign to the registry.
@@ -41,10 +45,16 @@ class RegistryArgs:
             pulumi.set(__self__, "approval_configuration", approval_configuration)
         if authorizer_type is not None:
             pulumi.set(__self__, "authorizer_type", authorizer_type)
+        if auto_detection_enabled is not None:
+            pulumi.set(__self__, "auto_detection_enabled", auto_detection_enabled)
+        if auto_detection_scope is not None:
+            pulumi.set(__self__, "auto_detection_scope", auto_detection_scope)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if discovery_configuration is not None:
             pulumi.set(__self__, "discovery_configuration", discovery_configuration)
+        if encryption_configuration is not None:
+            pulumi.set(__self__, "encryption_configuration", encryption_configuration)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if tags is not None:
@@ -69,6 +79,27 @@ class RegistryArgs:
         pulumi.set(self, "authorizer_type", value)
 
     @_builtins.property
+    @pulumi.getter(name="autoDetectionEnabled")
+    def auto_detection_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Specifies whether auto-detection is requested for the registry. Must be specified together with AutoDetectionScope. Setting this to true is necessary but not sufficient for auto-detection to become active; the preconditions of the configured scope must also be met. To turn auto-detection off, explicitly set this to false - removing AutoDetectionEnabled and AutoDetectionScope from the template is a no-op and leaves the existing auto-detection settings unchanged. A registry cannot be deleted while auto-detection is enabled: set this to false and update the stack before deleting the registry.
+        """
+        return pulumi.get(self, "auto_detection_enabled")
+
+    @auto_detection_enabled.setter
+    def auto_detection_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "auto_detection_enabled", value)
+
+    @_builtins.property
+    @pulumi.getter(name="autoDetectionScope")
+    def auto_detection_scope(self) -> pulumi.Input[Optional['RegistryAutoDetectionScope']]:
+        return pulumi.get(self, "auto_detection_scope")
+
+    @auto_detection_scope.setter
+    def auto_detection_scope(self, value: pulumi.Input[Optional['RegistryAutoDetectionScope']]):
+        pulumi.set(self, "auto_detection_scope", value)
+
+    @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -88,6 +119,15 @@ class RegistryArgs:
     @discovery_configuration.setter
     def discovery_configuration(self, value: pulumi.Input[Optional['RegistryDiscoveryConfigurationArgs']]):
         pulumi.set(self, "discovery_configuration", value)
+
+    @_builtins.property
+    @pulumi.getter(name="encryptionConfiguration")
+    def encryption_configuration(self) -> pulumi.Input[Optional['RegistryEncryptionConfigurationArgs']]:
+        return pulumi.get(self, "encryption_configuration")
+
+    @encryption_configuration.setter
+    def encryption_configuration(self, value: pulumi.Input[Optional['RegistryEncryptionConfigurationArgs']]):
+        pulumi.set(self, "encryption_configuration", value)
 
     @_builtins.property
     @pulumi.getter
@@ -122,8 +162,11 @@ class Registry(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  approval_configuration: pulumi.Input[Optional[Union['RegistryApprovalConfigurationArgs', 'RegistryApprovalConfigurationArgsDict']]] = None,
                  authorizer_type: pulumi.Input[Optional['RegistryAuthorizerType']] = None,
+                 auto_detection_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 auto_detection_scope: pulumi.Input[Optional['RegistryAutoDetectionScope']] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  discovery_configuration: pulumi.Input[Optional[Union['RegistryDiscoveryConfigurationArgs', 'RegistryDiscoveryConfigurationArgsDict']]] = None,
+                 encryption_configuration: pulumi.Input[Optional[Union['RegistryEncryptionConfigurationArgs', 'RegistryEncryptionConfigurationArgsDict']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
@@ -132,6 +175,7 @@ class Registry(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[_builtins.bool] auto_detection_enabled: Specifies whether auto-detection is requested for the registry. Must be specified together with AutoDetectionScope. Setting this to true is necessary but not sufficient for auto-detection to become active; the preconditions of the configured scope must also be met. To turn auto-detection off, explicitly set this to false - removing AutoDetectionEnabled and AutoDetectionScope from the template is a no-op and leaves the existing auto-detection settings unchanged. A registry cannot be deleted while auto-detection is enabled: set this to false and update the stack before deleting the registry.
         :param pulumi.Input[_builtins.str] description: The description of the registry.
         :param pulumi.Input[_builtins.str] name: The name of the registry.
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Tags to assign to the registry.
@@ -162,8 +206,11 @@ class Registry(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  approval_configuration: pulumi.Input[Optional[Union['RegistryApprovalConfigurationArgs', 'RegistryApprovalConfigurationArgsDict']]] = None,
                  authorizer_type: pulumi.Input[Optional['RegistryAuthorizerType']] = None,
+                 auto_detection_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 auto_detection_scope: pulumi.Input[Optional['RegistryAutoDetectionScope']] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  discovery_configuration: pulumi.Input[Optional[Union['RegistryDiscoveryConfigurationArgs', 'RegistryDiscoveryConfigurationArgsDict']]] = None,
+                 encryption_configuration: pulumi.Input[Optional[Union['RegistryEncryptionConfigurationArgs', 'RegistryEncryptionConfigurationArgsDict']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
@@ -177,16 +224,20 @@ class Registry(pulumi.CustomResource):
 
             __props__.__dict__["approval_configuration"] = approval_configuration
             __props__.__dict__["authorizer_type"] = authorizer_type
+            __props__.__dict__["auto_detection_enabled"] = auto_detection_enabled
+            __props__.__dict__["auto_detection_scope"] = auto_detection_scope
             __props__.__dict__["description"] = description
             __props__.__dict__["discovery_configuration"] = discovery_configuration
+            __props__.__dict__["encryption_configuration"] = encryption_configuration
             __props__.__dict__["name"] = name
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["auto_detection_status"] = None
             __props__.__dict__["created_at"] = None
             __props__.__dict__["registry_arn"] = None
             __props__.__dict__["registry_id"] = None
             __props__.__dict__["status"] = None
             __props__.__dict__["updated_at"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["authorizerType"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["authorizerType", "encryptionConfiguration"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Registry, __self__).__init__(
             'aws-native:agentregistry:Registry',
@@ -212,9 +263,13 @@ class Registry(pulumi.CustomResource):
 
         __props__.__dict__["approval_configuration"] = None
         __props__.__dict__["authorizer_type"] = None
+        __props__.__dict__["auto_detection_enabled"] = None
+        __props__.__dict__["auto_detection_scope"] = None
+        __props__.__dict__["auto_detection_status"] = None
         __props__.__dict__["created_at"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["discovery_configuration"] = None
+        __props__.__dict__["encryption_configuration"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["registry_arn"] = None
         __props__.__dict__["registry_id"] = None
@@ -232,6 +287,24 @@ class Registry(pulumi.CustomResource):
     @pulumi.getter(name="authorizerType")
     def authorizer_type(self) -> pulumi.Output[Optional['RegistryAuthorizerType']]:
         return pulumi.get(self, "authorizer_type")
+
+    @_builtins.property
+    @pulumi.getter(name="autoDetectionEnabled")
+    def auto_detection_enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Specifies whether auto-detection is requested for the registry. Must be specified together with AutoDetectionScope. Setting this to true is necessary but not sufficient for auto-detection to become active; the preconditions of the configured scope must also be met. To turn auto-detection off, explicitly set this to false - removing AutoDetectionEnabled and AutoDetectionScope from the template is a no-op and leaves the existing auto-detection settings unchanged. A registry cannot be deleted while auto-detection is enabled: set this to false and update the stack before deleting the registry.
+        """
+        return pulumi.get(self, "auto_detection_enabled")
+
+    @_builtins.property
+    @pulumi.getter(name="autoDetectionScope")
+    def auto_detection_scope(self) -> pulumi.Output[Optional['RegistryAutoDetectionScope']]:
+        return pulumi.get(self, "auto_detection_scope")
+
+    @_builtins.property
+    @pulumi.getter(name="autoDetectionStatus")
+    def auto_detection_status(self) -> pulumi.Output['RegistryAutoDetectionStatus']:
+        return pulumi.get(self, "auto_detection_status")
 
     @_builtins.property
     @pulumi.getter(name="createdAt")
@@ -253,6 +326,11 @@ class Registry(pulumi.CustomResource):
     @pulumi.getter(name="discoveryConfiguration")
     def discovery_configuration(self) -> pulumi.Output[Optional['outputs.RegistryDiscoveryConfiguration']]:
         return pulumi.get(self, "discovery_configuration")
+
+    @_builtins.property
+    @pulumi.getter(name="encryptionConfiguration")
+    def encryption_configuration(self) -> pulumi.Output[Optional['outputs.RegistryEncryptionConfiguration']]:
+        return pulumi.get(self, "encryption_configuration")
 
     @_builtins.property
     @pulumi.getter

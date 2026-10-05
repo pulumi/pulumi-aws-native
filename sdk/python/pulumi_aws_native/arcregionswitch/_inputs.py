@@ -684,6 +684,7 @@ class PlanEc2AsgCapacityIncreaseConfigurationArgsDict(TypedDict):
     target_percent: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     timeout_minutes: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     ungraceful: NotRequired[pulumi.Input[Optional['PlanEc2UngracefulArgsDict']]]
+    wait_elb_target_group_healthy: NotRequired[pulumi.Input[Optional['PlanWaitElbTargetGroupHealthy']]]
 
 @pulumi.input_type
 class PlanEc2AsgCapacityIncreaseConfigurationArgs:
@@ -692,7 +693,8 @@ class PlanEc2AsgCapacityIncreaseConfigurationArgs:
                  capacity_monitoring_approach: Optional[Any] = None,
                  target_percent: pulumi.Input[Optional[_builtins.float]] = None,
                  timeout_minutes: pulumi.Input[Optional[_builtins.float]] = None,
-                 ungraceful: pulumi.Input[Optional['PlanEc2UngracefulArgs']] = None):
+                 ungraceful: pulumi.Input[Optional['PlanEc2UngracefulArgs']] = None,
+                 wait_elb_target_group_healthy: pulumi.Input[Optional['PlanWaitElbTargetGroupHealthy']] = None):
         pulumi.set(__self__, "asgs", asgs)
         if capacity_monitoring_approach is not None:
             pulumi.set(__self__, "capacity_monitoring_approach", capacity_monitoring_approach)
@@ -702,6 +704,8 @@ class PlanEc2AsgCapacityIncreaseConfigurationArgs:
             pulumi.set(__self__, "timeout_minutes", timeout_minutes)
         if ungraceful is not None:
             pulumi.set(__self__, "ungraceful", ungraceful)
+        if wait_elb_target_group_healthy is not None:
+            pulumi.set(__self__, "wait_elb_target_group_healthy", wait_elb_target_group_healthy)
 
     @_builtins.property
     @pulumi.getter
@@ -748,6 +752,15 @@ class PlanEc2AsgCapacityIncreaseConfigurationArgs:
     def ungraceful(self, value: pulumi.Input[Optional['PlanEc2UngracefulArgs']]):
         pulumi.set(self, "ungraceful", value)
 
+    @_builtins.property
+    @pulumi.getter(name="waitElbTargetGroupHealthy")
+    def wait_elb_target_group_healthy(self) -> pulumi.Input[Optional['PlanWaitElbTargetGroupHealthy']]:
+        return pulumi.get(self, "wait_elb_target_group_healthy")
+
+    @wait_elb_target_group_healthy.setter
+    def wait_elb_target_group_healthy(self, value: pulumi.Input[Optional['PlanWaitElbTargetGroupHealthy']]):
+        pulumi.set(self, "wait_elb_target_group_healthy", value)
+
 
 class PlanEc2UngracefulArgsDict(TypedDict):
     minimum_success_percentage: pulumi.Input[_builtins.float]
@@ -774,6 +787,7 @@ class PlanEcsCapacityIncreaseConfigurationArgsDict(TypedDict):
     target_percent: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     timeout_minutes: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     ungraceful: NotRequired[pulumi.Input[Optional['PlanEcsUngracefulArgsDict']]]
+    wait_elb_target_group_healthy: NotRequired[pulumi.Input[Optional['PlanWaitElbTargetGroupHealthy']]]
 
 @pulumi.input_type
 class PlanEcsCapacityIncreaseConfigurationArgs:
@@ -782,7 +796,8 @@ class PlanEcsCapacityIncreaseConfigurationArgs:
                  capacity_monitoring_approach: Optional[Any] = None,
                  target_percent: pulumi.Input[Optional[_builtins.float]] = None,
                  timeout_minutes: pulumi.Input[Optional[_builtins.float]] = None,
-                 ungraceful: pulumi.Input[Optional['PlanEcsUngracefulArgs']] = None):
+                 ungraceful: pulumi.Input[Optional['PlanEcsUngracefulArgs']] = None,
+                 wait_elb_target_group_healthy: pulumi.Input[Optional['PlanWaitElbTargetGroupHealthy']] = None):
         pulumi.set(__self__, "services", services)
         if capacity_monitoring_approach is not None:
             pulumi.set(__self__, "capacity_monitoring_approach", capacity_monitoring_approach)
@@ -792,6 +807,8 @@ class PlanEcsCapacityIncreaseConfigurationArgs:
             pulumi.set(__self__, "timeout_minutes", timeout_minutes)
         if ungraceful is not None:
             pulumi.set(__self__, "ungraceful", ungraceful)
+        if wait_elb_target_group_healthy is not None:
+            pulumi.set(__self__, "wait_elb_target_group_healthy", wait_elb_target_group_healthy)
 
     @_builtins.property
     @pulumi.getter
@@ -837,6 +854,15 @@ class PlanEcsCapacityIncreaseConfigurationArgs:
     @ungraceful.setter
     def ungraceful(self, value: pulumi.Input[Optional['PlanEcsUngracefulArgs']]):
         pulumi.set(self, "ungraceful", value)
+
+    @_builtins.property
+    @pulumi.getter(name="waitElbTargetGroupHealthy")
+    def wait_elb_target_group_healthy(self) -> pulumi.Input[Optional['PlanWaitElbTargetGroupHealthy']]:
+        return pulumi.get(self, "wait_elb_target_group_healthy")
+
+    @wait_elb_target_group_healthy.setter
+    def wait_elb_target_group_healthy(self, value: pulumi.Input[Optional['PlanWaitElbTargetGroupHealthy']]):
+        pulumi.set(self, "wait_elb_target_group_healthy", value)
 
 
 class PlanEcsUngracefulArgsDict(TypedDict):

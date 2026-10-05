@@ -14,6 +14,8 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._enums import *
 from ._inputs import *
 
@@ -31,7 +33,8 @@ class GlobalReplicationGroupArgs:
                  global_node_group_count: pulumi.Input[Optional[_builtins.int]] = None,
                  global_replication_group_description: pulumi.Input[Optional[_builtins.str]] = None,
                  global_replication_group_id_suffix: pulumi.Input[Optional[_builtins.str]] = None,
-                 regional_configurations: pulumi.Input[Optional[Sequence[pulumi.Input['GlobalReplicationGroupRegionalConfigurationArgs']]]] = None):
+                 regional_configurations: pulumi.Input[Optional[Sequence[pulumi.Input['GlobalReplicationGroupRegionalConfigurationArgs']]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a GlobalReplicationGroup resource.
 
@@ -45,6 +48,7 @@ class GlobalReplicationGroupArgs:
         :param pulumi.Input[_builtins.str] global_replication_group_description: The optional description of the Global Datastore
         :param pulumi.Input[_builtins.str] global_replication_group_id_suffix: The suffix name of a Global Datastore. Amazon ElastiCache automatically applies a prefix to the Global Datastore ID when it is created. Each AWS Region has its own prefix.
         :param pulumi.Input[Sequence[pulumi.Input['GlobalReplicationGroupRegionalConfigurationArgs']]] regional_configurations: Describes the replication group IDs, the AWS regions where they are stored and the shard configuration for each that comprise the Global Datastore
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this Global Datastore.
         """
         pulumi.set(__self__, "members", members)
         if automatic_failover_enabled is not None:
@@ -65,6 +69,8 @@ class GlobalReplicationGroupArgs:
             pulumi.set(__self__, "global_replication_group_id_suffix", global_replication_group_id_suffix)
         if regional_configurations is not None:
             pulumi.set(__self__, "regional_configurations", regional_configurations)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
 
     @_builtins.property
     @pulumi.getter
@@ -186,6 +192,18 @@ class GlobalReplicationGroupArgs:
     def regional_configurations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['GlobalReplicationGroupRegionalConfigurationArgs']]]]):
         pulumi.set(self, "regional_configurations", value)
 
+    @_builtins.property
+    @pulumi.getter
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        An array of key-value pairs to apply to this Global Datastore.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+        pulumi.set(self, "tags", value)
+
 
 @pulumi.type_token("aws-native:elasticache:GlobalReplicationGroup")
 class GlobalReplicationGroup(pulumi.CustomResource):
@@ -203,6 +221,7 @@ class GlobalReplicationGroup(pulumi.CustomResource):
                  global_replication_group_id_suffix: pulumi.Input[Optional[_builtins.str]] = None,
                  members: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GlobalReplicationGroupMemberArgs', 'GlobalReplicationGroupMemberArgsDict']]]]] = None,
                  regional_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GlobalReplicationGroupRegionalConfigurationArgs', 'GlobalReplicationGroupRegionalConfigurationArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         The AWS::ElastiCache::GlobalReplicationGroup resource creates an Amazon ElastiCache Global Replication Group.
@@ -219,6 +238,7 @@ class GlobalReplicationGroup(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] global_replication_group_id_suffix: The suffix name of a Global Datastore. Amazon ElastiCache automatically applies a prefix to the Global Datastore ID when it is created. Each AWS Region has its own prefix.
         :param pulumi.Input[Sequence[pulumi.Input[Union['GlobalReplicationGroupMemberArgs', 'GlobalReplicationGroupMemberArgsDict']]]] members: The replication groups that comprise the Global Datastore.
         :param pulumi.Input[Sequence[pulumi.Input[Union['GlobalReplicationGroupRegionalConfigurationArgs', 'GlobalReplicationGroupRegionalConfigurationArgsDict']]]] regional_configurations: Describes the replication group IDs, the AWS regions where they are stored and the shard configuration for each that comprise the Global Datastore
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this Global Datastore.
         """
         ...
     @overload
@@ -254,6 +274,7 @@ class GlobalReplicationGroup(pulumi.CustomResource):
                  global_replication_group_id_suffix: pulumi.Input[Optional[_builtins.str]] = None,
                  members: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GlobalReplicationGroupMemberArgs', 'GlobalReplicationGroupMemberArgsDict']]]]] = None,
                  regional_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GlobalReplicationGroupRegionalConfigurationArgs', 'GlobalReplicationGroupRegionalConfigurationArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -275,6 +296,8 @@ class GlobalReplicationGroup(pulumi.CustomResource):
                 raise TypeError("Missing required property 'members'")
             __props__.__dict__["members"] = members
             __props__.__dict__["regional_configurations"] = regional_configurations
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["arn"] = None
             __props__.__dict__["global_replication_group_id"] = None
             __props__.__dict__["status"] = None
         super(GlobalReplicationGroup, __self__).__init__(
@@ -299,6 +322,7 @@ class GlobalReplicationGroup(pulumi.CustomResource):
 
         __props__ = GlobalReplicationGroupArgs.__new__(GlobalReplicationGroupArgs)
 
+        __props__.__dict__["arn"] = None
         __props__.__dict__["automatic_failover_enabled"] = None
         __props__.__dict__["cache_node_type"] = None
         __props__.__dict__["cache_parameter_group_name"] = None
@@ -311,7 +335,16 @@ class GlobalReplicationGroup(pulumi.CustomResource):
         __props__.__dict__["members"] = None
         __props__.__dict__["regional_configurations"] = None
         __props__.__dict__["status"] = None
+        __props__.__dict__["tags"] = None
         return GlobalReplicationGroup(resource_name, opts=opts, __props__=__props__)
+
+    @_builtins.property
+    @pulumi.getter
+    def arn(self) -> pulumi.Output[_builtins.str]:
+        """
+        The ARN (Amazon Resource Name) of the Global Datastore.
+        """
+        return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="automaticFailoverEnabled")
@@ -408,4 +441,12 @@ class GlobalReplicationGroup(pulumi.CustomResource):
         The status of the Global Datastore
         """
         return pulumi.get(self, "status")
+
+    @_builtins.property
+    @pulumi.getter
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        """
+        An array of key-value pairs to apply to this Global Datastore.
+        """
+        return pulumi.get(self, "tags")
 

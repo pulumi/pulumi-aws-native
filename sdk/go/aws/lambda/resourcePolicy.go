@@ -33,9 +33,8 @@ type ResourcePolicy struct {
 	//  For more information, see [Working with resource-based policies in](https://docs.aws.amazon.com/lambda/latest/dg/access-control-resource-based.html) in the *Developer Guide*.
 	//
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Lambda::ResourcePolicy` for more information about the expected schema for this property.
-	PolicyDocument pulumi.AnyOutput `pulumi:"policyDocument"`
-	// The Amazon Resource Name (ARN) of the LAM resource you want to add the policy to. For a function, you can use a qualified or an unqualified ARN. The value must be a complete ARN, and the operation does not accept wildcard characters.
-	ResourceArn pulumi.StringOutput `pulumi:"resourceArn"`
+	PolicyDocument pulumi.AnyOutput    `pulumi:"policyDocument"`
+	ResourceArn    pulumi.StringOutput `pulumi:"resourceArn"`
 }
 
 // NewResourcePolicy registers a new resource with the given unique name, arguments, and options.
@@ -93,8 +92,7 @@ type resourcePolicyArgs struct {
 	//
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Lambda::ResourcePolicy` for more information about the expected schema for this property.
 	PolicyDocument interface{} `pulumi:"policyDocument"`
-	// The Amazon Resource Name (ARN) of the LAM resource you want to add the policy to. For a function, you can use a qualified or an unqualified ARN. The value must be a complete ARN, and the operation does not accept wildcard characters.
-	ResourceArn string `pulumi:"resourceArn"`
+	ResourceArn    string      `pulumi:"resourceArn"`
 }
 
 // The set of arguments for constructing a ResourcePolicy resource.
@@ -104,8 +102,7 @@ type ResourcePolicyArgs struct {
 	//
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Lambda::ResourcePolicy` for more information about the expected schema for this property.
 	PolicyDocument pulumi.Input
-	// The Amazon Resource Name (ARN) of the LAM resource you want to add the policy to. For a function, you can use a qualified or an unqualified ARN. The value must be a complete ARN, and the operation does not accept wildcard characters.
-	ResourceArn pulumi.StringInput
+	ResourceArn    pulumi.StringInput
 }
 
 func (ResourcePolicyArgs) ElementType() reflect.Type {
@@ -154,7 +151,6 @@ func (o ResourcePolicyOutput) PolicyDocument() pulumi.AnyOutput {
 	return o.ApplyT(func(v *ResourcePolicy) pulumi.AnyOutput { return v.PolicyDocument }).(pulumi.AnyOutput)
 }
 
-// The Amazon Resource Name (ARN) of the LAM resource you want to add the policy to. For a function, you can use a qualified or an unqualified ARN. The value must be a complete ARN, and the operation does not accept wildcard characters.
 func (o ResourcePolicyOutput) ResourceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResourcePolicy) pulumi.StringOutput { return v.ResourceArn }).(pulumi.StringOutput)
 }

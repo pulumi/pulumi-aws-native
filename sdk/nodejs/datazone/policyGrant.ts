@@ -48,7 +48,7 @@ export class PolicyGrant extends pulumi.CustomResource {
     /**
      * The details of the policy grant member.
      */
-    declare public readonly detail: pulumi.Output<outputs.datazone.PolicyGrantDetail0Properties | outputs.datazone.PolicyGrantDetail1Properties | outputs.datazone.PolicyGrantDetail2Properties | outputs.datazone.PolicyGrantDetail3Properties | outputs.datazone.PolicyGrantDetail4Properties | outputs.datazone.PolicyGrantDetail5Properties | outputs.datazone.PolicyGrantDetail6Properties | outputs.datazone.PolicyGrantDetail7Properties | outputs.datazone.PolicyGrantDetail8Properties | outputs.datazone.PolicyGrantDetail9Properties | outputs.datazone.PolicyGrantDetail10Properties | outputs.datazone.PolicyGrantDetail11Properties | outputs.datazone.PolicyGrantDetail12Properties | undefined>;
+    declare public readonly detail: pulumi.Output<outputs.datazone.PolicyGrantDetail0Properties | outputs.datazone.PolicyGrantDetail1Properties | outputs.datazone.PolicyGrantDetail2Properties | outputs.datazone.PolicyGrantDetail3Properties | outputs.datazone.PolicyGrantDetail4Properties | outputs.datazone.PolicyGrantDetail5Properties | outputs.datazone.PolicyGrantDetail6Properties | outputs.datazone.PolicyGrantDetail7Properties | outputs.datazone.PolicyGrantDetail8Properties | outputs.datazone.PolicyGrantDetail9Properties | outputs.datazone.PolicyGrantDetail10Properties | outputs.datazone.PolicyGrantDetail11Properties | outputs.datazone.PolicyGrantDetail12Properties>;
     /**
      * The ID of the domain where you want to add a policy grant.
      */
@@ -72,7 +72,7 @@ export class PolicyGrant extends pulumi.CustomResource {
     /**
      * The principal of the policy grant member.
      */
-    declare public readonly principal: pulumi.Output<outputs.datazone.PolicyGrantPrincipal0Properties | outputs.datazone.PolicyGrantPrincipal1Properties | outputs.datazone.PolicyGrantPrincipal2Properties | outputs.datazone.PolicyGrantPrincipal3Properties | undefined>;
+    declare public readonly principal: pulumi.Output<outputs.datazone.PolicyGrantPrincipal0Properties | outputs.datazone.PolicyGrantPrincipal1Properties | outputs.datazone.PolicyGrantPrincipal2Properties | outputs.datazone.PolicyGrantPrincipal3Properties>;
 
     /**
      * Create a PolicyGrant resource with the given unique name, arguments, and options.
@@ -85,6 +85,9 @@ export class PolicyGrant extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.detail === undefined && !opts.urn) {
+                throw new Error("Missing required property 'detail'");
+            }
             if (args?.domainIdentifier === undefined && !opts.urn) {
                 throw new Error("Missing required property 'domainIdentifier'");
             }
@@ -96,6 +99,9 @@ export class PolicyGrant extends pulumi.CustomResource {
             }
             if (args?.policyType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'policyType'");
+            }
+            if (args?.principal === undefined && !opts.urn) {
+                throw new Error("Missing required property 'principal'");
             }
             resourceInputs["detail"] = args?.detail;
             resourceInputs["domainIdentifier"] = args?.domainIdentifier;
@@ -131,7 +137,7 @@ export interface PolicyGrantArgs {
     /**
      * The details of the policy grant member.
      */
-    detail?: pulumi.Input<inputs.datazone.PolicyGrantDetail0PropertiesArgs | inputs.datazone.PolicyGrantDetail1PropertiesArgs | inputs.datazone.PolicyGrantDetail2PropertiesArgs | inputs.datazone.PolicyGrantDetail3PropertiesArgs | inputs.datazone.PolicyGrantDetail4PropertiesArgs | inputs.datazone.PolicyGrantDetail5PropertiesArgs | inputs.datazone.PolicyGrantDetail6PropertiesArgs | inputs.datazone.PolicyGrantDetail7PropertiesArgs | inputs.datazone.PolicyGrantDetail8PropertiesArgs | inputs.datazone.PolicyGrantDetail9PropertiesArgs | inputs.datazone.PolicyGrantDetail10PropertiesArgs | inputs.datazone.PolicyGrantDetail11PropertiesArgs | inputs.datazone.PolicyGrantDetail12PropertiesArgs | undefined>;
+    detail: pulumi.Input<inputs.datazone.PolicyGrantDetail0PropertiesArgs | inputs.datazone.PolicyGrantDetail1PropertiesArgs | inputs.datazone.PolicyGrantDetail2PropertiesArgs | inputs.datazone.PolicyGrantDetail3PropertiesArgs | inputs.datazone.PolicyGrantDetail4PropertiesArgs | inputs.datazone.PolicyGrantDetail5PropertiesArgs | inputs.datazone.PolicyGrantDetail6PropertiesArgs | inputs.datazone.PolicyGrantDetail7PropertiesArgs | inputs.datazone.PolicyGrantDetail8PropertiesArgs | inputs.datazone.PolicyGrantDetail9PropertiesArgs | inputs.datazone.PolicyGrantDetail10PropertiesArgs | inputs.datazone.PolicyGrantDetail11PropertiesArgs | inputs.datazone.PolicyGrantDetail12PropertiesArgs>;
     /**
      * The ID of the domain where you want to add a policy grant.
      */
@@ -151,5 +157,5 @@ export interface PolicyGrantArgs {
     /**
      * The principal of the policy grant member.
      */
-    principal?: pulumi.Input<inputs.datazone.PolicyGrantPrincipal0PropertiesArgs | inputs.datazone.PolicyGrantPrincipal1PropertiesArgs | inputs.datazone.PolicyGrantPrincipal2PropertiesArgs | inputs.datazone.PolicyGrantPrincipal3PropertiesArgs | undefined>;
+    principal: pulumi.Input<inputs.datazone.PolicyGrantPrincipal0PropertiesArgs | inputs.datazone.PolicyGrantPrincipal1PropertiesArgs | inputs.datazone.PolicyGrantPrincipal2PropertiesArgs | inputs.datazone.PolicyGrantPrincipal3PropertiesArgs>;
 }

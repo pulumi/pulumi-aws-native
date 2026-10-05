@@ -6921,6 +6921,172 @@ func (o HarnessEndpointStatusPtrOutput) ToStringPtrOutputWithContext(ctx context
 	}).(pulumi.StringPtrOutput)
 }
 
+// Whether the agent loop continues or stops when the Lambda invocation fails. Defaults to deny.
+type HarnessHookLambdaTargetFailureMode string
+
+const (
+	HarnessHookLambdaTargetFailureModeAllow = HarnessHookLambdaTargetFailureMode("allow")
+	HarnessHookLambdaTargetFailureModeDeny  = HarnessHookLambdaTargetFailureMode("deny")
+)
+
+func (HarnessHookLambdaTargetFailureMode) ElementType() reflect.Type {
+	return reflect.TypeOf((*HarnessHookLambdaTargetFailureMode)(nil)).Elem()
+}
+
+func (e HarnessHookLambdaTargetFailureMode) ToHarnessHookLambdaTargetFailureModeOutput() HarnessHookLambdaTargetFailureModeOutput {
+	return pulumi.ToOutput(e).(HarnessHookLambdaTargetFailureModeOutput)
+}
+
+func (e HarnessHookLambdaTargetFailureMode) ToHarnessHookLambdaTargetFailureModeOutputWithContext(ctx context.Context) HarnessHookLambdaTargetFailureModeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(HarnessHookLambdaTargetFailureModeOutput)
+}
+
+func (e HarnessHookLambdaTargetFailureMode) ToHarnessHookLambdaTargetFailureModePtrOutput() HarnessHookLambdaTargetFailureModePtrOutput {
+	return e.ToHarnessHookLambdaTargetFailureModePtrOutputWithContext(context.Background())
+}
+
+func (e HarnessHookLambdaTargetFailureMode) ToHarnessHookLambdaTargetFailureModePtrOutputWithContext(ctx context.Context) HarnessHookLambdaTargetFailureModePtrOutput {
+	return HarnessHookLambdaTargetFailureMode(e).ToHarnessHookLambdaTargetFailureModeOutputWithContext(ctx).ToHarnessHookLambdaTargetFailureModePtrOutputWithContext(ctx)
+}
+
+func (e HarnessHookLambdaTargetFailureMode) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e HarnessHookLambdaTargetFailureMode) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e HarnessHookLambdaTargetFailureMode) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e HarnessHookLambdaTargetFailureMode) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type HarnessHookLambdaTargetFailureModeOutput struct{ *pulumi.OutputState }
+
+func (HarnessHookLambdaTargetFailureModeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HarnessHookLambdaTargetFailureMode)(nil)).Elem()
+}
+
+func (o HarnessHookLambdaTargetFailureModeOutput) ToHarnessHookLambdaTargetFailureModeOutput() HarnessHookLambdaTargetFailureModeOutput {
+	return o
+}
+
+func (o HarnessHookLambdaTargetFailureModeOutput) ToHarnessHookLambdaTargetFailureModeOutputWithContext(ctx context.Context) HarnessHookLambdaTargetFailureModeOutput {
+	return o
+}
+
+func (o HarnessHookLambdaTargetFailureModeOutput) ToHarnessHookLambdaTargetFailureModePtrOutput() HarnessHookLambdaTargetFailureModePtrOutput {
+	return o.ToHarnessHookLambdaTargetFailureModePtrOutputWithContext(context.Background())
+}
+
+func (o HarnessHookLambdaTargetFailureModeOutput) ToHarnessHookLambdaTargetFailureModePtrOutputWithContext(ctx context.Context) HarnessHookLambdaTargetFailureModePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v HarnessHookLambdaTargetFailureMode) *HarnessHookLambdaTargetFailureMode {
+		return &v
+	}).(HarnessHookLambdaTargetFailureModePtrOutput)
+}
+
+func (o HarnessHookLambdaTargetFailureModeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o HarnessHookLambdaTargetFailureModeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e HarnessHookLambdaTargetFailureMode) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o HarnessHookLambdaTargetFailureModeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o HarnessHookLambdaTargetFailureModeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e HarnessHookLambdaTargetFailureMode) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type HarnessHookLambdaTargetFailureModePtrOutput struct{ *pulumi.OutputState }
+
+func (HarnessHookLambdaTargetFailureModePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**HarnessHookLambdaTargetFailureMode)(nil)).Elem()
+}
+
+func (o HarnessHookLambdaTargetFailureModePtrOutput) ToHarnessHookLambdaTargetFailureModePtrOutput() HarnessHookLambdaTargetFailureModePtrOutput {
+	return o
+}
+
+func (o HarnessHookLambdaTargetFailureModePtrOutput) ToHarnessHookLambdaTargetFailureModePtrOutputWithContext(ctx context.Context) HarnessHookLambdaTargetFailureModePtrOutput {
+	return o
+}
+
+func (o HarnessHookLambdaTargetFailureModePtrOutput) Elem() HarnessHookLambdaTargetFailureModeOutput {
+	return o.ApplyT(func(v *HarnessHookLambdaTargetFailureMode) HarnessHookLambdaTargetFailureMode {
+		if v != nil {
+			return *v
+		}
+		var ret HarnessHookLambdaTargetFailureMode
+		return ret
+	}).(HarnessHookLambdaTargetFailureModeOutput)
+}
+
+func (o HarnessHookLambdaTargetFailureModePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o HarnessHookLambdaTargetFailureModePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *HarnessHookLambdaTargetFailureMode) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// HarnessHookLambdaTargetFailureModeInput is an input type that accepts values of the HarnessHookLambdaTargetFailureMode enum
+// A concrete instance of `HarnessHookLambdaTargetFailureModeInput` can be one of the following:
+//
+//	HarnessHookLambdaTargetFailureModeAllow
+//	HarnessHookLambdaTargetFailureModeDeny
+type HarnessHookLambdaTargetFailureModeInput interface {
+	pulumi.Input
+
+	ToHarnessHookLambdaTargetFailureModeOutput() HarnessHookLambdaTargetFailureModeOutput
+	ToHarnessHookLambdaTargetFailureModeOutputWithContext(context.Context) HarnessHookLambdaTargetFailureModeOutput
+}
+
+var harnessHookLambdaTargetFailureModePtrType = reflect.TypeOf((**HarnessHookLambdaTargetFailureMode)(nil)).Elem()
+
+type HarnessHookLambdaTargetFailureModePtrInput interface {
+	pulumi.Input
+
+	ToHarnessHookLambdaTargetFailureModePtrOutput() HarnessHookLambdaTargetFailureModePtrOutput
+	ToHarnessHookLambdaTargetFailureModePtrOutputWithContext(context.Context) HarnessHookLambdaTargetFailureModePtrOutput
+}
+
+type harnessHookLambdaTargetFailureModePtr string
+
+func HarnessHookLambdaTargetFailureModePtr(v string) HarnessHookLambdaTargetFailureModePtrInput {
+	return (*harnessHookLambdaTargetFailureModePtr)(&v)
+}
+
+func (*harnessHookLambdaTargetFailureModePtr) ElementType() reflect.Type {
+	return harnessHookLambdaTargetFailureModePtrType
+}
+
+func (in *harnessHookLambdaTargetFailureModePtr) ToHarnessHookLambdaTargetFailureModePtrOutput() HarnessHookLambdaTargetFailureModePtrOutput {
+	return pulumi.ToOutput(in).(HarnessHookLambdaTargetFailureModePtrOutput)
+}
+
+func (in *harnessHookLambdaTargetFailureModePtr) ToHarnessHookLambdaTargetFailureModePtrOutputWithContext(ctx context.Context) HarnessHookLambdaTargetFailureModePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(HarnessHookLambdaTargetFailureModePtrOutput)
+}
+
 type HarnessManagedMemoryConfigurationStrategiesItem string
 
 const (
@@ -13511,6 +13677,172 @@ func (in *oauth2CredentialProviderTokenExchangeGrantTypeConfigActorTokenContentP
 	return pulumi.ToOutputWithContext(ctx, in).(OAuth2CredentialProviderTokenExchangeGrantTypeConfigActorTokenContentPtrOutput)
 }
 
+// Where evaluation results are written. DEDICATED_LOG_GROUP, the default when omitted, writes to a dedicated result log group. SOURCE_LOG_GROUP writes results back to the trace source log group; LogGroupName must not be specified with SOURCE_LOG_GROUP.
+type OnlineEvaluationConfigCloudWatchOutputConfigResultDestination string
+
+const (
+	OnlineEvaluationConfigCloudWatchOutputConfigResultDestinationDedicatedLogGroup = OnlineEvaluationConfigCloudWatchOutputConfigResultDestination("DEDICATED_LOG_GROUP")
+	OnlineEvaluationConfigCloudWatchOutputConfigResultDestinationSourceLogGroup    = OnlineEvaluationConfigCloudWatchOutputConfigResultDestination("SOURCE_LOG_GROUP")
+)
+
+func (OnlineEvaluationConfigCloudWatchOutputConfigResultDestination) ElementType() reflect.Type {
+	return reflect.TypeOf((*OnlineEvaluationConfigCloudWatchOutputConfigResultDestination)(nil)).Elem()
+}
+
+func (e OnlineEvaluationConfigCloudWatchOutputConfigResultDestination) ToOnlineEvaluationConfigCloudWatchOutputConfigResultDestinationOutput() OnlineEvaluationConfigCloudWatchOutputConfigResultDestinationOutput {
+	return pulumi.ToOutput(e).(OnlineEvaluationConfigCloudWatchOutputConfigResultDestinationOutput)
+}
+
+func (e OnlineEvaluationConfigCloudWatchOutputConfigResultDestination) ToOnlineEvaluationConfigCloudWatchOutputConfigResultDestinationOutputWithContext(ctx context.Context) OnlineEvaluationConfigCloudWatchOutputConfigResultDestinationOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(OnlineEvaluationConfigCloudWatchOutputConfigResultDestinationOutput)
+}
+
+func (e OnlineEvaluationConfigCloudWatchOutputConfigResultDestination) ToOnlineEvaluationConfigCloudWatchOutputConfigResultDestinationPtrOutput() OnlineEvaluationConfigCloudWatchOutputConfigResultDestinationPtrOutput {
+	return e.ToOnlineEvaluationConfigCloudWatchOutputConfigResultDestinationPtrOutputWithContext(context.Background())
+}
+
+func (e OnlineEvaluationConfigCloudWatchOutputConfigResultDestination) ToOnlineEvaluationConfigCloudWatchOutputConfigResultDestinationPtrOutputWithContext(ctx context.Context) OnlineEvaluationConfigCloudWatchOutputConfigResultDestinationPtrOutput {
+	return OnlineEvaluationConfigCloudWatchOutputConfigResultDestination(e).ToOnlineEvaluationConfigCloudWatchOutputConfigResultDestinationOutputWithContext(ctx).ToOnlineEvaluationConfigCloudWatchOutputConfigResultDestinationPtrOutputWithContext(ctx)
+}
+
+func (e OnlineEvaluationConfigCloudWatchOutputConfigResultDestination) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e OnlineEvaluationConfigCloudWatchOutputConfigResultDestination) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e OnlineEvaluationConfigCloudWatchOutputConfigResultDestination) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e OnlineEvaluationConfigCloudWatchOutputConfigResultDestination) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type OnlineEvaluationConfigCloudWatchOutputConfigResultDestinationOutput struct{ *pulumi.OutputState }
+
+func (OnlineEvaluationConfigCloudWatchOutputConfigResultDestinationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OnlineEvaluationConfigCloudWatchOutputConfigResultDestination)(nil)).Elem()
+}
+
+func (o OnlineEvaluationConfigCloudWatchOutputConfigResultDestinationOutput) ToOnlineEvaluationConfigCloudWatchOutputConfigResultDestinationOutput() OnlineEvaluationConfigCloudWatchOutputConfigResultDestinationOutput {
+	return o
+}
+
+func (o OnlineEvaluationConfigCloudWatchOutputConfigResultDestinationOutput) ToOnlineEvaluationConfigCloudWatchOutputConfigResultDestinationOutputWithContext(ctx context.Context) OnlineEvaluationConfigCloudWatchOutputConfigResultDestinationOutput {
+	return o
+}
+
+func (o OnlineEvaluationConfigCloudWatchOutputConfigResultDestinationOutput) ToOnlineEvaluationConfigCloudWatchOutputConfigResultDestinationPtrOutput() OnlineEvaluationConfigCloudWatchOutputConfigResultDestinationPtrOutput {
+	return o.ToOnlineEvaluationConfigCloudWatchOutputConfigResultDestinationPtrOutputWithContext(context.Background())
+}
+
+func (o OnlineEvaluationConfigCloudWatchOutputConfigResultDestinationOutput) ToOnlineEvaluationConfigCloudWatchOutputConfigResultDestinationPtrOutputWithContext(ctx context.Context) OnlineEvaluationConfigCloudWatchOutputConfigResultDestinationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OnlineEvaluationConfigCloudWatchOutputConfigResultDestination) *OnlineEvaluationConfigCloudWatchOutputConfigResultDestination {
+		return &v
+	}).(OnlineEvaluationConfigCloudWatchOutputConfigResultDestinationPtrOutput)
+}
+
+func (o OnlineEvaluationConfigCloudWatchOutputConfigResultDestinationOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o OnlineEvaluationConfigCloudWatchOutputConfigResultDestinationOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e OnlineEvaluationConfigCloudWatchOutputConfigResultDestination) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o OnlineEvaluationConfigCloudWatchOutputConfigResultDestinationOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o OnlineEvaluationConfigCloudWatchOutputConfigResultDestinationOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e OnlineEvaluationConfigCloudWatchOutputConfigResultDestination) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type OnlineEvaluationConfigCloudWatchOutputConfigResultDestinationPtrOutput struct{ *pulumi.OutputState }
+
+func (OnlineEvaluationConfigCloudWatchOutputConfigResultDestinationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OnlineEvaluationConfigCloudWatchOutputConfigResultDestination)(nil)).Elem()
+}
+
+func (o OnlineEvaluationConfigCloudWatchOutputConfigResultDestinationPtrOutput) ToOnlineEvaluationConfigCloudWatchOutputConfigResultDestinationPtrOutput() OnlineEvaluationConfigCloudWatchOutputConfigResultDestinationPtrOutput {
+	return o
+}
+
+func (o OnlineEvaluationConfigCloudWatchOutputConfigResultDestinationPtrOutput) ToOnlineEvaluationConfigCloudWatchOutputConfigResultDestinationPtrOutputWithContext(ctx context.Context) OnlineEvaluationConfigCloudWatchOutputConfigResultDestinationPtrOutput {
+	return o
+}
+
+func (o OnlineEvaluationConfigCloudWatchOutputConfigResultDestinationPtrOutput) Elem() OnlineEvaluationConfigCloudWatchOutputConfigResultDestinationOutput {
+	return o.ApplyT(func(v *OnlineEvaluationConfigCloudWatchOutputConfigResultDestination) OnlineEvaluationConfigCloudWatchOutputConfigResultDestination {
+		if v != nil {
+			return *v
+		}
+		var ret OnlineEvaluationConfigCloudWatchOutputConfigResultDestination
+		return ret
+	}).(OnlineEvaluationConfigCloudWatchOutputConfigResultDestinationOutput)
+}
+
+func (o OnlineEvaluationConfigCloudWatchOutputConfigResultDestinationPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o OnlineEvaluationConfigCloudWatchOutputConfigResultDestinationPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *OnlineEvaluationConfigCloudWatchOutputConfigResultDestination) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// OnlineEvaluationConfigCloudWatchOutputConfigResultDestinationInput is an input type that accepts values of the OnlineEvaluationConfigCloudWatchOutputConfigResultDestination enum
+// A concrete instance of `OnlineEvaluationConfigCloudWatchOutputConfigResultDestinationInput` can be one of the following:
+//
+//	OnlineEvaluationConfigCloudWatchOutputConfigResultDestinationDedicatedLogGroup
+//	OnlineEvaluationConfigCloudWatchOutputConfigResultDestinationSourceLogGroup
+type OnlineEvaluationConfigCloudWatchOutputConfigResultDestinationInput interface {
+	pulumi.Input
+
+	ToOnlineEvaluationConfigCloudWatchOutputConfigResultDestinationOutput() OnlineEvaluationConfigCloudWatchOutputConfigResultDestinationOutput
+	ToOnlineEvaluationConfigCloudWatchOutputConfigResultDestinationOutputWithContext(context.Context) OnlineEvaluationConfigCloudWatchOutputConfigResultDestinationOutput
+}
+
+var onlineEvaluationConfigCloudWatchOutputConfigResultDestinationPtrType = reflect.TypeOf((**OnlineEvaluationConfigCloudWatchOutputConfigResultDestination)(nil)).Elem()
+
+type OnlineEvaluationConfigCloudWatchOutputConfigResultDestinationPtrInput interface {
+	pulumi.Input
+
+	ToOnlineEvaluationConfigCloudWatchOutputConfigResultDestinationPtrOutput() OnlineEvaluationConfigCloudWatchOutputConfigResultDestinationPtrOutput
+	ToOnlineEvaluationConfigCloudWatchOutputConfigResultDestinationPtrOutputWithContext(context.Context) OnlineEvaluationConfigCloudWatchOutputConfigResultDestinationPtrOutput
+}
+
+type onlineEvaluationConfigCloudWatchOutputConfigResultDestinationPtr string
+
+func OnlineEvaluationConfigCloudWatchOutputConfigResultDestinationPtr(v string) OnlineEvaluationConfigCloudWatchOutputConfigResultDestinationPtrInput {
+	return (*onlineEvaluationConfigCloudWatchOutputConfigResultDestinationPtr)(&v)
+}
+
+func (*onlineEvaluationConfigCloudWatchOutputConfigResultDestinationPtr) ElementType() reflect.Type {
+	return onlineEvaluationConfigCloudWatchOutputConfigResultDestinationPtrType
+}
+
+func (in *onlineEvaluationConfigCloudWatchOutputConfigResultDestinationPtr) ToOnlineEvaluationConfigCloudWatchOutputConfigResultDestinationPtrOutput() OnlineEvaluationConfigCloudWatchOutputConfigResultDestinationPtrOutput {
+	return pulumi.ToOutput(in).(OnlineEvaluationConfigCloudWatchOutputConfigResultDestinationPtrOutput)
+}
+
+func (in *onlineEvaluationConfigCloudWatchOutputConfigResultDestinationPtr) ToOnlineEvaluationConfigCloudWatchOutputConfigResultDestinationPtrOutputWithContext(ctx context.Context) OnlineEvaluationConfigCloudWatchOutputConfigResultDestinationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(OnlineEvaluationConfigCloudWatchOutputConfigResultDestinationPtrOutput)
+}
+
 // The frequency at which clustering reports are generated.
 type OnlineEvaluationConfigClusteringFrequency string
 
@@ -17307,6 +17639,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*HarnessBedrockModelConfigApiFormatPtrInput)(nil)).Elem(), HarnessBedrockModelConfigApiFormat("converse_stream"))
 	pulumi.RegisterInputType(reflect.TypeOf((*HarnessCustomClaimValidationTypeInboundTokenClaimValueTypeInput)(nil)).Elem(), HarnessCustomClaimValidationTypeInboundTokenClaimValueType("STRING"))
 	pulumi.RegisterInputType(reflect.TypeOf((*HarnessCustomClaimValidationTypeInboundTokenClaimValueTypePtrInput)(nil)).Elem(), HarnessCustomClaimValidationTypeInboundTokenClaimValueType("STRING"))
+	pulumi.RegisterInputType(reflect.TypeOf((*HarnessHookLambdaTargetFailureModeInput)(nil)).Elem(), HarnessHookLambdaTargetFailureMode("allow"))
+	pulumi.RegisterInputType(reflect.TypeOf((*HarnessHookLambdaTargetFailureModePtrInput)(nil)).Elem(), HarnessHookLambdaTargetFailureMode("allow"))
 	pulumi.RegisterInputType(reflect.TypeOf((*HarnessManagedMemoryConfigurationStrategiesItemInput)(nil)).Elem(), HarnessManagedMemoryConfigurationStrategiesItem("SEMANTIC"))
 	pulumi.RegisterInputType(reflect.TypeOf((*HarnessManagedMemoryConfigurationStrategiesItemPtrInput)(nil)).Elem(), HarnessManagedMemoryConfigurationStrategiesItem("SEMANTIC"))
 	pulumi.RegisterInputType(reflect.TypeOf((*HarnessManagedMemoryConfigurationStrategiesItemArrayInput)(nil)).Elem(), HarnessManagedMemoryConfigurationStrategiesItemArray{})
@@ -17380,6 +17714,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*OAuth2CredentialProviderSlackOauth2ProviderConfigInputClientSecretSourcePtrInput)(nil)).Elem(), OAuth2CredentialProviderSlackOauth2ProviderConfigInputClientSecretSource("MANAGED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*OAuth2CredentialProviderTokenExchangeGrantTypeConfigActorTokenContentInput)(nil)).Elem(), OAuth2CredentialProviderTokenExchangeGrantTypeConfigActorTokenContent("NONE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*OAuth2CredentialProviderTokenExchangeGrantTypeConfigActorTokenContentPtrInput)(nil)).Elem(), OAuth2CredentialProviderTokenExchangeGrantTypeConfigActorTokenContent("NONE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*OnlineEvaluationConfigCloudWatchOutputConfigResultDestinationInput)(nil)).Elem(), OnlineEvaluationConfigCloudWatchOutputConfigResultDestination("DEDICATED_LOG_GROUP"))
+	pulumi.RegisterInputType(reflect.TypeOf((*OnlineEvaluationConfigCloudWatchOutputConfigResultDestinationPtrInput)(nil)).Elem(), OnlineEvaluationConfigCloudWatchOutputConfigResultDestination("DEDICATED_LOG_GROUP"))
 	pulumi.RegisterInputType(reflect.TypeOf((*OnlineEvaluationConfigClusteringFrequencyInput)(nil)).Elem(), OnlineEvaluationConfigClusteringFrequency("DAILY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*OnlineEvaluationConfigClusteringFrequencyPtrInput)(nil)).Elem(), OnlineEvaluationConfigClusteringFrequency("DAILY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*OnlineEvaluationConfigClusteringFrequencyArrayInput)(nil)).Elem(), OnlineEvaluationConfigClusteringFrequencyArray{})
@@ -17511,6 +17847,8 @@ func init() {
 	pulumi.RegisterOutputType(HarnessCustomClaimValidationTypeInboundTokenClaimValueTypePtrOutput{})
 	pulumi.RegisterOutputType(HarnessEndpointStatusOutput{})
 	pulumi.RegisterOutputType(HarnessEndpointStatusPtrOutput{})
+	pulumi.RegisterOutputType(HarnessHookLambdaTargetFailureModeOutput{})
+	pulumi.RegisterOutputType(HarnessHookLambdaTargetFailureModePtrOutput{})
 	pulumi.RegisterOutputType(HarnessManagedMemoryConfigurationStrategiesItemOutput{})
 	pulumi.RegisterOutputType(HarnessManagedMemoryConfigurationStrategiesItemPtrOutput{})
 	pulumi.RegisterOutputType(HarnessManagedMemoryConfigurationStrategiesItemArrayOutput{})
@@ -17594,6 +17932,8 @@ func init() {
 	pulumi.RegisterOutputType(OAuth2CredentialProviderStatusPtrOutput{})
 	pulumi.RegisterOutputType(OAuth2CredentialProviderTokenExchangeGrantTypeConfigActorTokenContentOutput{})
 	pulumi.RegisterOutputType(OAuth2CredentialProviderTokenExchangeGrantTypeConfigActorTokenContentPtrOutput{})
+	pulumi.RegisterOutputType(OnlineEvaluationConfigCloudWatchOutputConfigResultDestinationOutput{})
+	pulumi.RegisterOutputType(OnlineEvaluationConfigCloudWatchOutputConfigResultDestinationPtrOutput{})
 	pulumi.RegisterOutputType(OnlineEvaluationConfigClusteringFrequencyOutput{})
 	pulumi.RegisterOutputType(OnlineEvaluationConfigClusteringFrequencyPtrOutput{})
 	pulumi.RegisterOutputType(OnlineEvaluationConfigClusteringFrequencyArrayOutput{})

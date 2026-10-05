@@ -185,163 +185,6 @@ const (
 	ParallelDataEncryptionKeyPropertiesTypeKms = ParallelDataEncryptionKeyPropertiesType("KMS")
 )
 
-func (ParallelDataEncryptionKeyPropertiesType) ElementType() reflect.Type {
-	return reflect.TypeOf((*ParallelDataEncryptionKeyPropertiesType)(nil)).Elem()
-}
-
-func (e ParallelDataEncryptionKeyPropertiesType) ToParallelDataEncryptionKeyPropertiesTypeOutput() ParallelDataEncryptionKeyPropertiesTypeOutput {
-	return pulumi.ToOutput(e).(ParallelDataEncryptionKeyPropertiesTypeOutput)
-}
-
-func (e ParallelDataEncryptionKeyPropertiesType) ToParallelDataEncryptionKeyPropertiesTypeOutputWithContext(ctx context.Context) ParallelDataEncryptionKeyPropertiesTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(ParallelDataEncryptionKeyPropertiesTypeOutput)
-}
-
-func (e ParallelDataEncryptionKeyPropertiesType) ToParallelDataEncryptionKeyPropertiesTypePtrOutput() ParallelDataEncryptionKeyPropertiesTypePtrOutput {
-	return e.ToParallelDataEncryptionKeyPropertiesTypePtrOutputWithContext(context.Background())
-}
-
-func (e ParallelDataEncryptionKeyPropertiesType) ToParallelDataEncryptionKeyPropertiesTypePtrOutputWithContext(ctx context.Context) ParallelDataEncryptionKeyPropertiesTypePtrOutput {
-	return ParallelDataEncryptionKeyPropertiesType(e).ToParallelDataEncryptionKeyPropertiesTypeOutputWithContext(ctx).ToParallelDataEncryptionKeyPropertiesTypePtrOutputWithContext(ctx)
-}
-
-func (e ParallelDataEncryptionKeyPropertiesType) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e ParallelDataEncryptionKeyPropertiesType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e ParallelDataEncryptionKeyPropertiesType) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e ParallelDataEncryptionKeyPropertiesType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
-type ParallelDataEncryptionKeyPropertiesTypeOutput struct{ *pulumi.OutputState }
-
-func (ParallelDataEncryptionKeyPropertiesTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ParallelDataEncryptionKeyPropertiesType)(nil)).Elem()
-}
-
-func (o ParallelDataEncryptionKeyPropertiesTypeOutput) ToParallelDataEncryptionKeyPropertiesTypeOutput() ParallelDataEncryptionKeyPropertiesTypeOutput {
-	return o
-}
-
-func (o ParallelDataEncryptionKeyPropertiesTypeOutput) ToParallelDataEncryptionKeyPropertiesTypeOutputWithContext(ctx context.Context) ParallelDataEncryptionKeyPropertiesTypeOutput {
-	return o
-}
-
-func (o ParallelDataEncryptionKeyPropertiesTypeOutput) ToParallelDataEncryptionKeyPropertiesTypePtrOutput() ParallelDataEncryptionKeyPropertiesTypePtrOutput {
-	return o.ToParallelDataEncryptionKeyPropertiesTypePtrOutputWithContext(context.Background())
-}
-
-func (o ParallelDataEncryptionKeyPropertiesTypeOutput) ToParallelDataEncryptionKeyPropertiesTypePtrOutputWithContext(ctx context.Context) ParallelDataEncryptionKeyPropertiesTypePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ParallelDataEncryptionKeyPropertiesType) *ParallelDataEncryptionKeyPropertiesType {
-		return &v
-	}).(ParallelDataEncryptionKeyPropertiesTypePtrOutput)
-}
-
-func (o ParallelDataEncryptionKeyPropertiesTypeOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o ParallelDataEncryptionKeyPropertiesTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e ParallelDataEncryptionKeyPropertiesType) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o ParallelDataEncryptionKeyPropertiesTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o ParallelDataEncryptionKeyPropertiesTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e ParallelDataEncryptionKeyPropertiesType) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type ParallelDataEncryptionKeyPropertiesTypePtrOutput struct{ *pulumi.OutputState }
-
-func (ParallelDataEncryptionKeyPropertiesTypePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ParallelDataEncryptionKeyPropertiesType)(nil)).Elem()
-}
-
-func (o ParallelDataEncryptionKeyPropertiesTypePtrOutput) ToParallelDataEncryptionKeyPropertiesTypePtrOutput() ParallelDataEncryptionKeyPropertiesTypePtrOutput {
-	return o
-}
-
-func (o ParallelDataEncryptionKeyPropertiesTypePtrOutput) ToParallelDataEncryptionKeyPropertiesTypePtrOutputWithContext(ctx context.Context) ParallelDataEncryptionKeyPropertiesTypePtrOutput {
-	return o
-}
-
-func (o ParallelDataEncryptionKeyPropertiesTypePtrOutput) Elem() ParallelDataEncryptionKeyPropertiesTypeOutput {
-	return o.ApplyT(func(v *ParallelDataEncryptionKeyPropertiesType) ParallelDataEncryptionKeyPropertiesType {
-		if v != nil {
-			return *v
-		}
-		var ret ParallelDataEncryptionKeyPropertiesType
-		return ret
-	}).(ParallelDataEncryptionKeyPropertiesTypeOutput)
-}
-
-func (o ParallelDataEncryptionKeyPropertiesTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o ParallelDataEncryptionKeyPropertiesTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ParallelDataEncryptionKeyPropertiesType) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-// ParallelDataEncryptionKeyPropertiesTypeInput is an input type that accepts values of the ParallelDataEncryptionKeyPropertiesType enum
-// A concrete instance of `ParallelDataEncryptionKeyPropertiesTypeInput` can be one of the following:
-//
-//	ParallelDataEncryptionKeyPropertiesTypeKms
-type ParallelDataEncryptionKeyPropertiesTypeInput interface {
-	pulumi.Input
-
-	ToParallelDataEncryptionKeyPropertiesTypeOutput() ParallelDataEncryptionKeyPropertiesTypeOutput
-	ToParallelDataEncryptionKeyPropertiesTypeOutputWithContext(context.Context) ParallelDataEncryptionKeyPropertiesTypeOutput
-}
-
-var parallelDataEncryptionKeyPropertiesTypePtrType = reflect.TypeOf((**ParallelDataEncryptionKeyPropertiesType)(nil)).Elem()
-
-type ParallelDataEncryptionKeyPropertiesTypePtrInput interface {
-	pulumi.Input
-
-	ToParallelDataEncryptionKeyPropertiesTypePtrOutput() ParallelDataEncryptionKeyPropertiesTypePtrOutput
-	ToParallelDataEncryptionKeyPropertiesTypePtrOutputWithContext(context.Context) ParallelDataEncryptionKeyPropertiesTypePtrOutput
-}
-
-type parallelDataEncryptionKeyPropertiesTypePtr string
-
-func ParallelDataEncryptionKeyPropertiesTypePtr(v string) ParallelDataEncryptionKeyPropertiesTypePtrInput {
-	return (*parallelDataEncryptionKeyPropertiesTypePtr)(&v)
-}
-
-func (*parallelDataEncryptionKeyPropertiesTypePtr) ElementType() reflect.Type {
-	return parallelDataEncryptionKeyPropertiesTypePtrType
-}
-
-func (in *parallelDataEncryptionKeyPropertiesTypePtr) ToParallelDataEncryptionKeyPropertiesTypePtrOutput() ParallelDataEncryptionKeyPropertiesTypePtrOutput {
-	return pulumi.ToOutput(in).(ParallelDataEncryptionKeyPropertiesTypePtrOutput)
-}
-
-func (in *parallelDataEncryptionKeyPropertiesTypePtr) ToParallelDataEncryptionKeyPropertiesTypePtrOutputWithContext(ctx context.Context) ParallelDataEncryptionKeyPropertiesTypePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(ParallelDataEncryptionKeyPropertiesTypePtrOutput)
-}
-
 // The status of the parallel data resource.
 type ParallelDataStatus string
 
@@ -436,15 +279,876 @@ func (o ParallelDataStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Co
 	}).(pulumi.StringPtrOutput)
 }
 
+// The directionality of the terminology resource.
+type TerminologyDataPropertiesDirectionality string
+
+const (
+	TerminologyDataPropertiesDirectionalityUni   = TerminologyDataPropertiesDirectionality("UNI")
+	TerminologyDataPropertiesDirectionalityMulti = TerminologyDataPropertiesDirectionality("MULTI")
+)
+
+func (TerminologyDataPropertiesDirectionality) ElementType() reflect.Type {
+	return reflect.TypeOf((*TerminologyDataPropertiesDirectionality)(nil)).Elem()
+}
+
+func (e TerminologyDataPropertiesDirectionality) ToTerminologyDataPropertiesDirectionalityOutput() TerminologyDataPropertiesDirectionalityOutput {
+	return pulumi.ToOutput(e).(TerminologyDataPropertiesDirectionalityOutput)
+}
+
+func (e TerminologyDataPropertiesDirectionality) ToTerminologyDataPropertiesDirectionalityOutputWithContext(ctx context.Context) TerminologyDataPropertiesDirectionalityOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(TerminologyDataPropertiesDirectionalityOutput)
+}
+
+func (e TerminologyDataPropertiesDirectionality) ToTerminologyDataPropertiesDirectionalityPtrOutput() TerminologyDataPropertiesDirectionalityPtrOutput {
+	return e.ToTerminologyDataPropertiesDirectionalityPtrOutputWithContext(context.Background())
+}
+
+func (e TerminologyDataPropertiesDirectionality) ToTerminologyDataPropertiesDirectionalityPtrOutputWithContext(ctx context.Context) TerminologyDataPropertiesDirectionalityPtrOutput {
+	return TerminologyDataPropertiesDirectionality(e).ToTerminologyDataPropertiesDirectionalityOutputWithContext(ctx).ToTerminologyDataPropertiesDirectionalityPtrOutputWithContext(ctx)
+}
+
+func (e TerminologyDataPropertiesDirectionality) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TerminologyDataPropertiesDirectionality) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TerminologyDataPropertiesDirectionality) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e TerminologyDataPropertiesDirectionality) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type TerminologyDataPropertiesDirectionalityOutput struct{ *pulumi.OutputState }
+
+func (TerminologyDataPropertiesDirectionalityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TerminologyDataPropertiesDirectionality)(nil)).Elem()
+}
+
+func (o TerminologyDataPropertiesDirectionalityOutput) ToTerminologyDataPropertiesDirectionalityOutput() TerminologyDataPropertiesDirectionalityOutput {
+	return o
+}
+
+func (o TerminologyDataPropertiesDirectionalityOutput) ToTerminologyDataPropertiesDirectionalityOutputWithContext(ctx context.Context) TerminologyDataPropertiesDirectionalityOutput {
+	return o
+}
+
+func (o TerminologyDataPropertiesDirectionalityOutput) ToTerminologyDataPropertiesDirectionalityPtrOutput() TerminologyDataPropertiesDirectionalityPtrOutput {
+	return o.ToTerminologyDataPropertiesDirectionalityPtrOutputWithContext(context.Background())
+}
+
+func (o TerminologyDataPropertiesDirectionalityOutput) ToTerminologyDataPropertiesDirectionalityPtrOutputWithContext(ctx context.Context) TerminologyDataPropertiesDirectionalityPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TerminologyDataPropertiesDirectionality) *TerminologyDataPropertiesDirectionality {
+		return &v
+	}).(TerminologyDataPropertiesDirectionalityPtrOutput)
+}
+
+func (o TerminologyDataPropertiesDirectionalityOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o TerminologyDataPropertiesDirectionalityOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TerminologyDataPropertiesDirectionality) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o TerminologyDataPropertiesDirectionalityOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TerminologyDataPropertiesDirectionalityOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TerminologyDataPropertiesDirectionality) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type TerminologyDataPropertiesDirectionalityPtrOutput struct{ *pulumi.OutputState }
+
+func (TerminologyDataPropertiesDirectionalityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TerminologyDataPropertiesDirectionality)(nil)).Elem()
+}
+
+func (o TerminologyDataPropertiesDirectionalityPtrOutput) ToTerminologyDataPropertiesDirectionalityPtrOutput() TerminologyDataPropertiesDirectionalityPtrOutput {
+	return o
+}
+
+func (o TerminologyDataPropertiesDirectionalityPtrOutput) ToTerminologyDataPropertiesDirectionalityPtrOutputWithContext(ctx context.Context) TerminologyDataPropertiesDirectionalityPtrOutput {
+	return o
+}
+
+func (o TerminologyDataPropertiesDirectionalityPtrOutput) Elem() TerminologyDataPropertiesDirectionalityOutput {
+	return o.ApplyT(func(v *TerminologyDataPropertiesDirectionality) TerminologyDataPropertiesDirectionality {
+		if v != nil {
+			return *v
+		}
+		var ret TerminologyDataPropertiesDirectionality
+		return ret
+	}).(TerminologyDataPropertiesDirectionalityOutput)
+}
+
+func (o TerminologyDataPropertiesDirectionalityPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TerminologyDataPropertiesDirectionalityPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *TerminologyDataPropertiesDirectionality) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// TerminologyDataPropertiesDirectionalityInput is an input type that accepts values of the TerminologyDataPropertiesDirectionality enum
+// A concrete instance of `TerminologyDataPropertiesDirectionalityInput` can be one of the following:
+//
+//	TerminologyDataPropertiesDirectionalityUni
+//	TerminologyDataPropertiesDirectionalityMulti
+type TerminologyDataPropertiesDirectionalityInput interface {
+	pulumi.Input
+
+	ToTerminologyDataPropertiesDirectionalityOutput() TerminologyDataPropertiesDirectionalityOutput
+	ToTerminologyDataPropertiesDirectionalityOutputWithContext(context.Context) TerminologyDataPropertiesDirectionalityOutput
+}
+
+var terminologyDataPropertiesDirectionalityPtrType = reflect.TypeOf((**TerminologyDataPropertiesDirectionality)(nil)).Elem()
+
+type TerminologyDataPropertiesDirectionalityPtrInput interface {
+	pulumi.Input
+
+	ToTerminologyDataPropertiesDirectionalityPtrOutput() TerminologyDataPropertiesDirectionalityPtrOutput
+	ToTerminologyDataPropertiesDirectionalityPtrOutputWithContext(context.Context) TerminologyDataPropertiesDirectionalityPtrOutput
+}
+
+type terminologyDataPropertiesDirectionalityPtr string
+
+func TerminologyDataPropertiesDirectionalityPtr(v string) TerminologyDataPropertiesDirectionalityPtrInput {
+	return (*terminologyDataPropertiesDirectionalityPtr)(&v)
+}
+
+func (*terminologyDataPropertiesDirectionalityPtr) ElementType() reflect.Type {
+	return terminologyDataPropertiesDirectionalityPtrType
+}
+
+func (in *terminologyDataPropertiesDirectionalityPtr) ToTerminologyDataPropertiesDirectionalityPtrOutput() TerminologyDataPropertiesDirectionalityPtrOutput {
+	return pulumi.ToOutput(in).(TerminologyDataPropertiesDirectionalityPtrOutput)
+}
+
+func (in *terminologyDataPropertiesDirectionalityPtr) ToTerminologyDataPropertiesDirectionalityPtrOutputWithContext(ctx context.Context) TerminologyDataPropertiesDirectionalityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(TerminologyDataPropertiesDirectionalityPtrOutput)
+}
+
+// The data format of the custom terminology.
+type TerminologyDataPropertiesFormat string
+
+const (
+	TerminologyDataPropertiesFormatCsv = TerminologyDataPropertiesFormat("CSV")
+	TerminologyDataPropertiesFormatTmx = TerminologyDataPropertiesFormat("TMX")
+	TerminologyDataPropertiesFormatTsv = TerminologyDataPropertiesFormat("TSV")
+)
+
+func (TerminologyDataPropertiesFormat) ElementType() reflect.Type {
+	return reflect.TypeOf((*TerminologyDataPropertiesFormat)(nil)).Elem()
+}
+
+func (e TerminologyDataPropertiesFormat) ToTerminologyDataPropertiesFormatOutput() TerminologyDataPropertiesFormatOutput {
+	return pulumi.ToOutput(e).(TerminologyDataPropertiesFormatOutput)
+}
+
+func (e TerminologyDataPropertiesFormat) ToTerminologyDataPropertiesFormatOutputWithContext(ctx context.Context) TerminologyDataPropertiesFormatOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(TerminologyDataPropertiesFormatOutput)
+}
+
+func (e TerminologyDataPropertiesFormat) ToTerminologyDataPropertiesFormatPtrOutput() TerminologyDataPropertiesFormatPtrOutput {
+	return e.ToTerminologyDataPropertiesFormatPtrOutputWithContext(context.Background())
+}
+
+func (e TerminologyDataPropertiesFormat) ToTerminologyDataPropertiesFormatPtrOutputWithContext(ctx context.Context) TerminologyDataPropertiesFormatPtrOutput {
+	return TerminologyDataPropertiesFormat(e).ToTerminologyDataPropertiesFormatOutputWithContext(ctx).ToTerminologyDataPropertiesFormatPtrOutputWithContext(ctx)
+}
+
+func (e TerminologyDataPropertiesFormat) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TerminologyDataPropertiesFormat) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TerminologyDataPropertiesFormat) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e TerminologyDataPropertiesFormat) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type TerminologyDataPropertiesFormatOutput struct{ *pulumi.OutputState }
+
+func (TerminologyDataPropertiesFormatOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TerminologyDataPropertiesFormat)(nil)).Elem()
+}
+
+func (o TerminologyDataPropertiesFormatOutput) ToTerminologyDataPropertiesFormatOutput() TerminologyDataPropertiesFormatOutput {
+	return o
+}
+
+func (o TerminologyDataPropertiesFormatOutput) ToTerminologyDataPropertiesFormatOutputWithContext(ctx context.Context) TerminologyDataPropertiesFormatOutput {
+	return o
+}
+
+func (o TerminologyDataPropertiesFormatOutput) ToTerminologyDataPropertiesFormatPtrOutput() TerminologyDataPropertiesFormatPtrOutput {
+	return o.ToTerminologyDataPropertiesFormatPtrOutputWithContext(context.Background())
+}
+
+func (o TerminologyDataPropertiesFormatOutput) ToTerminologyDataPropertiesFormatPtrOutputWithContext(ctx context.Context) TerminologyDataPropertiesFormatPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TerminologyDataPropertiesFormat) *TerminologyDataPropertiesFormat {
+		return &v
+	}).(TerminologyDataPropertiesFormatPtrOutput)
+}
+
+func (o TerminologyDataPropertiesFormatOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o TerminologyDataPropertiesFormatOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TerminologyDataPropertiesFormat) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o TerminologyDataPropertiesFormatOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TerminologyDataPropertiesFormatOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TerminologyDataPropertiesFormat) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type TerminologyDataPropertiesFormatPtrOutput struct{ *pulumi.OutputState }
+
+func (TerminologyDataPropertiesFormatPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TerminologyDataPropertiesFormat)(nil)).Elem()
+}
+
+func (o TerminologyDataPropertiesFormatPtrOutput) ToTerminologyDataPropertiesFormatPtrOutput() TerminologyDataPropertiesFormatPtrOutput {
+	return o
+}
+
+func (o TerminologyDataPropertiesFormatPtrOutput) ToTerminologyDataPropertiesFormatPtrOutputWithContext(ctx context.Context) TerminologyDataPropertiesFormatPtrOutput {
+	return o
+}
+
+func (o TerminologyDataPropertiesFormatPtrOutput) Elem() TerminologyDataPropertiesFormatOutput {
+	return o.ApplyT(func(v *TerminologyDataPropertiesFormat) TerminologyDataPropertiesFormat {
+		if v != nil {
+			return *v
+		}
+		var ret TerminologyDataPropertiesFormat
+		return ret
+	}).(TerminologyDataPropertiesFormatOutput)
+}
+
+func (o TerminologyDataPropertiesFormatPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TerminologyDataPropertiesFormatPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *TerminologyDataPropertiesFormat) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// TerminologyDataPropertiesFormatInput is an input type that accepts values of the TerminologyDataPropertiesFormat enum
+// A concrete instance of `TerminologyDataPropertiesFormatInput` can be one of the following:
+//
+//	TerminologyDataPropertiesFormatCsv
+//	TerminologyDataPropertiesFormatTmx
+//	TerminologyDataPropertiesFormatTsv
+type TerminologyDataPropertiesFormatInput interface {
+	pulumi.Input
+
+	ToTerminologyDataPropertiesFormatOutput() TerminologyDataPropertiesFormatOutput
+	ToTerminologyDataPropertiesFormatOutputWithContext(context.Context) TerminologyDataPropertiesFormatOutput
+}
+
+var terminologyDataPropertiesFormatPtrType = reflect.TypeOf((**TerminologyDataPropertiesFormat)(nil)).Elem()
+
+type TerminologyDataPropertiesFormatPtrInput interface {
+	pulumi.Input
+
+	ToTerminologyDataPropertiesFormatPtrOutput() TerminologyDataPropertiesFormatPtrOutput
+	ToTerminologyDataPropertiesFormatPtrOutputWithContext(context.Context) TerminologyDataPropertiesFormatPtrOutput
+}
+
+type terminologyDataPropertiesFormatPtr string
+
+func TerminologyDataPropertiesFormatPtr(v string) TerminologyDataPropertiesFormatPtrInput {
+	return (*terminologyDataPropertiesFormatPtr)(&v)
+}
+
+func (*terminologyDataPropertiesFormatPtr) ElementType() reflect.Type {
+	return terminologyDataPropertiesFormatPtrType
+}
+
+func (in *terminologyDataPropertiesFormatPtr) ToTerminologyDataPropertiesFormatPtrOutput() TerminologyDataPropertiesFormatPtrOutput {
+	return pulumi.ToOutput(in).(TerminologyDataPropertiesFormatPtrOutput)
+}
+
+func (in *terminologyDataPropertiesFormatPtr) ToTerminologyDataPropertiesFormatPtrOutputWithContext(ctx context.Context) TerminologyDataPropertiesFormatPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(TerminologyDataPropertiesFormatPtrOutput)
+}
+
+// The directionality of the terminology.
+type TerminologyDirectionality string
+
+const (
+	TerminologyDirectionalityUni   = TerminologyDirectionality("UNI")
+	TerminologyDirectionalityMulti = TerminologyDirectionality("MULTI")
+)
+
+type TerminologyDirectionalityOutput struct{ *pulumi.OutputState }
+
+func (TerminologyDirectionalityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TerminologyDirectionality)(nil)).Elem()
+}
+
+func (o TerminologyDirectionalityOutput) ToTerminologyDirectionalityOutput() TerminologyDirectionalityOutput {
+	return o
+}
+
+func (o TerminologyDirectionalityOutput) ToTerminologyDirectionalityOutputWithContext(ctx context.Context) TerminologyDirectionalityOutput {
+	return o
+}
+
+func (o TerminologyDirectionalityOutput) ToTerminologyDirectionalityPtrOutput() TerminologyDirectionalityPtrOutput {
+	return o.ToTerminologyDirectionalityPtrOutputWithContext(context.Background())
+}
+
+func (o TerminologyDirectionalityOutput) ToTerminologyDirectionalityPtrOutputWithContext(ctx context.Context) TerminologyDirectionalityPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TerminologyDirectionality) *TerminologyDirectionality {
+		return &v
+	}).(TerminologyDirectionalityPtrOutput)
+}
+
+func (o TerminologyDirectionalityOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o TerminologyDirectionalityOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TerminologyDirectionality) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o TerminologyDirectionalityOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TerminologyDirectionalityOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TerminologyDirectionality) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type TerminologyDirectionalityPtrOutput struct{ *pulumi.OutputState }
+
+func (TerminologyDirectionalityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TerminologyDirectionality)(nil)).Elem()
+}
+
+func (o TerminologyDirectionalityPtrOutput) ToTerminologyDirectionalityPtrOutput() TerminologyDirectionalityPtrOutput {
+	return o
+}
+
+func (o TerminologyDirectionalityPtrOutput) ToTerminologyDirectionalityPtrOutputWithContext(ctx context.Context) TerminologyDirectionalityPtrOutput {
+	return o
+}
+
+func (o TerminologyDirectionalityPtrOutput) Elem() TerminologyDirectionalityOutput {
+	return o.ApplyT(func(v *TerminologyDirectionality) TerminologyDirectionality {
+		if v != nil {
+			return *v
+		}
+		var ret TerminologyDirectionality
+		return ret
+	}).(TerminologyDirectionalityOutput)
+}
+
+func (o TerminologyDirectionalityPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TerminologyDirectionalityPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *TerminologyDirectionality) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of encryption key.
+type TerminologyEncryptionKeyPropertiesType string
+
+const (
+	TerminologyEncryptionKeyPropertiesTypeKms = TerminologyEncryptionKeyPropertiesType("KMS")
+)
+
+func (TerminologyEncryptionKeyPropertiesType) ElementType() reflect.Type {
+	return reflect.TypeOf((*TerminologyEncryptionKeyPropertiesType)(nil)).Elem()
+}
+
+func (e TerminologyEncryptionKeyPropertiesType) ToTerminologyEncryptionKeyPropertiesTypeOutput() TerminologyEncryptionKeyPropertiesTypeOutput {
+	return pulumi.ToOutput(e).(TerminologyEncryptionKeyPropertiesTypeOutput)
+}
+
+func (e TerminologyEncryptionKeyPropertiesType) ToTerminologyEncryptionKeyPropertiesTypeOutputWithContext(ctx context.Context) TerminologyEncryptionKeyPropertiesTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(TerminologyEncryptionKeyPropertiesTypeOutput)
+}
+
+func (e TerminologyEncryptionKeyPropertiesType) ToTerminologyEncryptionKeyPropertiesTypePtrOutput() TerminologyEncryptionKeyPropertiesTypePtrOutput {
+	return e.ToTerminologyEncryptionKeyPropertiesTypePtrOutputWithContext(context.Background())
+}
+
+func (e TerminologyEncryptionKeyPropertiesType) ToTerminologyEncryptionKeyPropertiesTypePtrOutputWithContext(ctx context.Context) TerminologyEncryptionKeyPropertiesTypePtrOutput {
+	return TerminologyEncryptionKeyPropertiesType(e).ToTerminologyEncryptionKeyPropertiesTypeOutputWithContext(ctx).ToTerminologyEncryptionKeyPropertiesTypePtrOutputWithContext(ctx)
+}
+
+func (e TerminologyEncryptionKeyPropertiesType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TerminologyEncryptionKeyPropertiesType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TerminologyEncryptionKeyPropertiesType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e TerminologyEncryptionKeyPropertiesType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type TerminologyEncryptionKeyPropertiesTypeOutput struct{ *pulumi.OutputState }
+
+func (TerminologyEncryptionKeyPropertiesTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TerminologyEncryptionKeyPropertiesType)(nil)).Elem()
+}
+
+func (o TerminologyEncryptionKeyPropertiesTypeOutput) ToTerminologyEncryptionKeyPropertiesTypeOutput() TerminologyEncryptionKeyPropertiesTypeOutput {
+	return o
+}
+
+func (o TerminologyEncryptionKeyPropertiesTypeOutput) ToTerminologyEncryptionKeyPropertiesTypeOutputWithContext(ctx context.Context) TerminologyEncryptionKeyPropertiesTypeOutput {
+	return o
+}
+
+func (o TerminologyEncryptionKeyPropertiesTypeOutput) ToTerminologyEncryptionKeyPropertiesTypePtrOutput() TerminologyEncryptionKeyPropertiesTypePtrOutput {
+	return o.ToTerminologyEncryptionKeyPropertiesTypePtrOutputWithContext(context.Background())
+}
+
+func (o TerminologyEncryptionKeyPropertiesTypeOutput) ToTerminologyEncryptionKeyPropertiesTypePtrOutputWithContext(ctx context.Context) TerminologyEncryptionKeyPropertiesTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TerminologyEncryptionKeyPropertiesType) *TerminologyEncryptionKeyPropertiesType {
+		return &v
+	}).(TerminologyEncryptionKeyPropertiesTypePtrOutput)
+}
+
+func (o TerminologyEncryptionKeyPropertiesTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o TerminologyEncryptionKeyPropertiesTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TerminologyEncryptionKeyPropertiesType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o TerminologyEncryptionKeyPropertiesTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TerminologyEncryptionKeyPropertiesTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TerminologyEncryptionKeyPropertiesType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type TerminologyEncryptionKeyPropertiesTypePtrOutput struct{ *pulumi.OutputState }
+
+func (TerminologyEncryptionKeyPropertiesTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TerminologyEncryptionKeyPropertiesType)(nil)).Elem()
+}
+
+func (o TerminologyEncryptionKeyPropertiesTypePtrOutput) ToTerminologyEncryptionKeyPropertiesTypePtrOutput() TerminologyEncryptionKeyPropertiesTypePtrOutput {
+	return o
+}
+
+func (o TerminologyEncryptionKeyPropertiesTypePtrOutput) ToTerminologyEncryptionKeyPropertiesTypePtrOutputWithContext(ctx context.Context) TerminologyEncryptionKeyPropertiesTypePtrOutput {
+	return o
+}
+
+func (o TerminologyEncryptionKeyPropertiesTypePtrOutput) Elem() TerminologyEncryptionKeyPropertiesTypeOutput {
+	return o.ApplyT(func(v *TerminologyEncryptionKeyPropertiesType) TerminologyEncryptionKeyPropertiesType {
+		if v != nil {
+			return *v
+		}
+		var ret TerminologyEncryptionKeyPropertiesType
+		return ret
+	}).(TerminologyEncryptionKeyPropertiesTypeOutput)
+}
+
+func (o TerminologyEncryptionKeyPropertiesTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TerminologyEncryptionKeyPropertiesTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *TerminologyEncryptionKeyPropertiesType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// TerminologyEncryptionKeyPropertiesTypeInput is an input type that accepts values of the TerminologyEncryptionKeyPropertiesType enum
+// A concrete instance of `TerminologyEncryptionKeyPropertiesTypeInput` can be one of the following:
+//
+//	TerminologyEncryptionKeyPropertiesTypeKms
+type TerminologyEncryptionKeyPropertiesTypeInput interface {
+	pulumi.Input
+
+	ToTerminologyEncryptionKeyPropertiesTypeOutput() TerminologyEncryptionKeyPropertiesTypeOutput
+	ToTerminologyEncryptionKeyPropertiesTypeOutputWithContext(context.Context) TerminologyEncryptionKeyPropertiesTypeOutput
+}
+
+var terminologyEncryptionKeyPropertiesTypePtrType = reflect.TypeOf((**TerminologyEncryptionKeyPropertiesType)(nil)).Elem()
+
+type TerminologyEncryptionKeyPropertiesTypePtrInput interface {
+	pulumi.Input
+
+	ToTerminologyEncryptionKeyPropertiesTypePtrOutput() TerminologyEncryptionKeyPropertiesTypePtrOutput
+	ToTerminologyEncryptionKeyPropertiesTypePtrOutputWithContext(context.Context) TerminologyEncryptionKeyPropertiesTypePtrOutput
+}
+
+type terminologyEncryptionKeyPropertiesTypePtr string
+
+func TerminologyEncryptionKeyPropertiesTypePtr(v string) TerminologyEncryptionKeyPropertiesTypePtrInput {
+	return (*terminologyEncryptionKeyPropertiesTypePtr)(&v)
+}
+
+func (*terminologyEncryptionKeyPropertiesTypePtr) ElementType() reflect.Type {
+	return terminologyEncryptionKeyPropertiesTypePtrType
+}
+
+func (in *terminologyEncryptionKeyPropertiesTypePtr) ToTerminologyEncryptionKeyPropertiesTypePtrOutput() TerminologyEncryptionKeyPropertiesTypePtrOutput {
+	return pulumi.ToOutput(in).(TerminologyEncryptionKeyPropertiesTypePtrOutput)
+}
+
+func (in *terminologyEncryptionKeyPropertiesTypePtr) ToTerminologyEncryptionKeyPropertiesTypePtrOutputWithContext(ctx context.Context) TerminologyEncryptionKeyPropertiesTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(TerminologyEncryptionKeyPropertiesTypePtrOutput)
+}
+
+// The format of the terminology data.
+type TerminologyFormat string
+
+const (
+	TerminologyFormatCsv = TerminologyFormat("CSV")
+	TerminologyFormatTmx = TerminologyFormat("TMX")
+	TerminologyFormatTsv = TerminologyFormat("TSV")
+)
+
+type TerminologyFormatOutput struct{ *pulumi.OutputState }
+
+func (TerminologyFormatOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TerminologyFormat)(nil)).Elem()
+}
+
+func (o TerminologyFormatOutput) ToTerminologyFormatOutput() TerminologyFormatOutput {
+	return o
+}
+
+func (o TerminologyFormatOutput) ToTerminologyFormatOutputWithContext(ctx context.Context) TerminologyFormatOutput {
+	return o
+}
+
+func (o TerminologyFormatOutput) ToTerminologyFormatPtrOutput() TerminologyFormatPtrOutput {
+	return o.ToTerminologyFormatPtrOutputWithContext(context.Background())
+}
+
+func (o TerminologyFormatOutput) ToTerminologyFormatPtrOutputWithContext(ctx context.Context) TerminologyFormatPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TerminologyFormat) *TerminologyFormat {
+		return &v
+	}).(TerminologyFormatPtrOutput)
+}
+
+func (o TerminologyFormatOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o TerminologyFormatOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TerminologyFormat) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o TerminologyFormatOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TerminologyFormatOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TerminologyFormat) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type TerminologyFormatPtrOutput struct{ *pulumi.OutputState }
+
+func (TerminologyFormatPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TerminologyFormat)(nil)).Elem()
+}
+
+func (o TerminologyFormatPtrOutput) ToTerminologyFormatPtrOutput() TerminologyFormatPtrOutput {
+	return o
+}
+
+func (o TerminologyFormatPtrOutput) ToTerminologyFormatPtrOutputWithContext(ctx context.Context) TerminologyFormatPtrOutput {
+	return o
+}
+
+func (o TerminologyFormatPtrOutput) Elem() TerminologyFormatOutput {
+	return o.ApplyT(func(v *TerminologyFormat) TerminologyFormat {
+		if v != nil {
+			return *v
+		}
+		var ret TerminologyFormat
+		return ret
+	}).(TerminologyFormatOutput)
+}
+
+func (o TerminologyFormatPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TerminologyFormatPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *TerminologyFormat) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// The merge strategy for the custom terminology. Currently only OVERWRITE is supported.
+type TerminologyMergeStrategy string
+
+const (
+	TerminologyMergeStrategyOverwrite = TerminologyMergeStrategy("OVERWRITE")
+)
+
+func (TerminologyMergeStrategy) ElementType() reflect.Type {
+	return reflect.TypeOf((*TerminologyMergeStrategy)(nil)).Elem()
+}
+
+func (e TerminologyMergeStrategy) ToTerminologyMergeStrategyOutput() TerminologyMergeStrategyOutput {
+	return pulumi.ToOutput(e).(TerminologyMergeStrategyOutput)
+}
+
+func (e TerminologyMergeStrategy) ToTerminologyMergeStrategyOutputWithContext(ctx context.Context) TerminologyMergeStrategyOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(TerminologyMergeStrategyOutput)
+}
+
+func (e TerminologyMergeStrategy) ToTerminologyMergeStrategyPtrOutput() TerminologyMergeStrategyPtrOutput {
+	return e.ToTerminologyMergeStrategyPtrOutputWithContext(context.Background())
+}
+
+func (e TerminologyMergeStrategy) ToTerminologyMergeStrategyPtrOutputWithContext(ctx context.Context) TerminologyMergeStrategyPtrOutput {
+	return TerminologyMergeStrategy(e).ToTerminologyMergeStrategyOutputWithContext(ctx).ToTerminologyMergeStrategyPtrOutputWithContext(ctx)
+}
+
+func (e TerminologyMergeStrategy) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TerminologyMergeStrategy) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TerminologyMergeStrategy) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e TerminologyMergeStrategy) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type TerminologyMergeStrategyOutput struct{ *pulumi.OutputState }
+
+func (TerminologyMergeStrategyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TerminologyMergeStrategy)(nil)).Elem()
+}
+
+func (o TerminologyMergeStrategyOutput) ToTerminologyMergeStrategyOutput() TerminologyMergeStrategyOutput {
+	return o
+}
+
+func (o TerminologyMergeStrategyOutput) ToTerminologyMergeStrategyOutputWithContext(ctx context.Context) TerminologyMergeStrategyOutput {
+	return o
+}
+
+func (o TerminologyMergeStrategyOutput) ToTerminologyMergeStrategyPtrOutput() TerminologyMergeStrategyPtrOutput {
+	return o.ToTerminologyMergeStrategyPtrOutputWithContext(context.Background())
+}
+
+func (o TerminologyMergeStrategyOutput) ToTerminologyMergeStrategyPtrOutputWithContext(ctx context.Context) TerminologyMergeStrategyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TerminologyMergeStrategy) *TerminologyMergeStrategy {
+		return &v
+	}).(TerminologyMergeStrategyPtrOutput)
+}
+
+func (o TerminologyMergeStrategyOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o TerminologyMergeStrategyOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TerminologyMergeStrategy) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o TerminologyMergeStrategyOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TerminologyMergeStrategyOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TerminologyMergeStrategy) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type TerminologyMergeStrategyPtrOutput struct{ *pulumi.OutputState }
+
+func (TerminologyMergeStrategyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TerminologyMergeStrategy)(nil)).Elem()
+}
+
+func (o TerminologyMergeStrategyPtrOutput) ToTerminologyMergeStrategyPtrOutput() TerminologyMergeStrategyPtrOutput {
+	return o
+}
+
+func (o TerminologyMergeStrategyPtrOutput) ToTerminologyMergeStrategyPtrOutputWithContext(ctx context.Context) TerminologyMergeStrategyPtrOutput {
+	return o
+}
+
+func (o TerminologyMergeStrategyPtrOutput) Elem() TerminologyMergeStrategyOutput {
+	return o.ApplyT(func(v *TerminologyMergeStrategy) TerminologyMergeStrategy {
+		if v != nil {
+			return *v
+		}
+		var ret TerminologyMergeStrategy
+		return ret
+	}).(TerminologyMergeStrategyOutput)
+}
+
+func (o TerminologyMergeStrategyPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TerminologyMergeStrategyPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *TerminologyMergeStrategy) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// TerminologyMergeStrategyInput is an input type that accepts values of the TerminologyMergeStrategy enum
+// A concrete instance of `TerminologyMergeStrategyInput` can be one of the following:
+//
+//	TerminologyMergeStrategyOverwrite
+type TerminologyMergeStrategyInput interface {
+	pulumi.Input
+
+	ToTerminologyMergeStrategyOutput() TerminologyMergeStrategyOutput
+	ToTerminologyMergeStrategyOutputWithContext(context.Context) TerminologyMergeStrategyOutput
+}
+
+var terminologyMergeStrategyPtrType = reflect.TypeOf((**TerminologyMergeStrategy)(nil)).Elem()
+
+type TerminologyMergeStrategyPtrInput interface {
+	pulumi.Input
+
+	ToTerminologyMergeStrategyPtrOutput() TerminologyMergeStrategyPtrOutput
+	ToTerminologyMergeStrategyPtrOutputWithContext(context.Context) TerminologyMergeStrategyPtrOutput
+}
+
+type terminologyMergeStrategyPtr string
+
+func TerminologyMergeStrategyPtr(v string) TerminologyMergeStrategyPtrInput {
+	return (*terminologyMergeStrategyPtr)(&v)
+}
+
+func (*terminologyMergeStrategyPtr) ElementType() reflect.Type {
+	return terminologyMergeStrategyPtrType
+}
+
+func (in *terminologyMergeStrategyPtr) ToTerminologyMergeStrategyPtrOutput() TerminologyMergeStrategyPtrOutput {
+	return pulumi.ToOutput(in).(TerminologyMergeStrategyPtrOutput)
+}
+
+func (in *terminologyMergeStrategyPtr) ToTerminologyMergeStrategyPtrOutputWithContext(ctx context.Context) TerminologyMergeStrategyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(TerminologyMergeStrategyPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ParallelDataConfigPropertiesFormatInput)(nil)).Elem(), ParallelDataConfigPropertiesFormat("TSV"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ParallelDataConfigPropertiesFormatPtrInput)(nil)).Elem(), ParallelDataConfigPropertiesFormat("TSV"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ParallelDataEncryptionKeyPropertiesTypeInput)(nil)).Elem(), ParallelDataEncryptionKeyPropertiesType("KMS"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ParallelDataEncryptionKeyPropertiesTypePtrInput)(nil)).Elem(), ParallelDataEncryptionKeyPropertiesType("KMS"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TerminologyDataPropertiesDirectionalityInput)(nil)).Elem(), TerminologyDataPropertiesDirectionality("UNI"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TerminologyDataPropertiesDirectionalityPtrInput)(nil)).Elem(), TerminologyDataPropertiesDirectionality("UNI"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TerminologyDataPropertiesFormatInput)(nil)).Elem(), TerminologyDataPropertiesFormat("CSV"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TerminologyDataPropertiesFormatPtrInput)(nil)).Elem(), TerminologyDataPropertiesFormat("CSV"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TerminologyEncryptionKeyPropertiesTypeInput)(nil)).Elem(), TerminologyEncryptionKeyPropertiesType("KMS"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TerminologyEncryptionKeyPropertiesTypePtrInput)(nil)).Elem(), TerminologyEncryptionKeyPropertiesType("KMS"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TerminologyMergeStrategyInput)(nil)).Elem(), TerminologyMergeStrategy("OVERWRITE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TerminologyMergeStrategyPtrInput)(nil)).Elem(), TerminologyMergeStrategy("OVERWRITE"))
 	pulumi.RegisterOutputType(ParallelDataConfigPropertiesFormatOutput{})
 	pulumi.RegisterOutputType(ParallelDataConfigPropertiesFormatPtrOutput{})
-	pulumi.RegisterOutputType(ParallelDataEncryptionKeyPropertiesTypeOutput{})
-	pulumi.RegisterOutputType(ParallelDataEncryptionKeyPropertiesTypePtrOutput{})
 	pulumi.RegisterOutputType(ParallelDataStatusOutput{})
 	pulumi.RegisterOutputType(ParallelDataStatusPtrOutput{})
+	pulumi.RegisterOutputType(TerminologyDataPropertiesDirectionalityOutput{})
+	pulumi.RegisterOutputType(TerminologyDataPropertiesDirectionalityPtrOutput{})
+	pulumi.RegisterOutputType(TerminologyDataPropertiesFormatOutput{})
+	pulumi.RegisterOutputType(TerminologyDataPropertiesFormatPtrOutput{})
+	pulumi.RegisterOutputType(TerminologyDirectionalityOutput{})
+	pulumi.RegisterOutputType(TerminologyDirectionalityPtrOutput{})
+	pulumi.RegisterOutputType(TerminologyEncryptionKeyPropertiesTypeOutput{})
+	pulumi.RegisterOutputType(TerminologyEncryptionKeyPropertiesTypePtrOutput{})
+	pulumi.RegisterOutputType(TerminologyFormatOutput{})
+	pulumi.RegisterOutputType(TerminologyFormatPtrOutput{})
+	pulumi.RegisterOutputType(TerminologyMergeStrategyOutput{})
+	pulumi.RegisterOutputType(TerminologyMergeStrategyPtrOutput{})
 }

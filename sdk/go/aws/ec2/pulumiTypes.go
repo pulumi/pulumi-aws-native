@@ -27140,6 +27140,73 @@ type RouteTableTag struct {
 	Value string `pulumi:"value"`
 }
 
+type SecondaryNetworkIpv4CidrBlockAssociation struct {
+	// The association ID for the IPv4 CIDR block.
+	AssociationId *string `pulumi:"associationId"`
+	// The IPv4 CIDR block.
+	CidrBlock *string `pulumi:"cidrBlock"`
+	// The state of the CIDR block association.
+	State *SecondaryNetworkIpv4CidrBlockAssociationState `pulumi:"state"`
+}
+
+type SecondaryNetworkIpv4CidrBlockAssociationOutput struct{ *pulumi.OutputState }
+
+func (SecondaryNetworkIpv4CidrBlockAssociationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecondaryNetworkIpv4CidrBlockAssociation)(nil)).Elem()
+}
+
+func (o SecondaryNetworkIpv4CidrBlockAssociationOutput) ToSecondaryNetworkIpv4CidrBlockAssociationOutput() SecondaryNetworkIpv4CidrBlockAssociationOutput {
+	return o
+}
+
+func (o SecondaryNetworkIpv4CidrBlockAssociationOutput) ToSecondaryNetworkIpv4CidrBlockAssociationOutputWithContext(ctx context.Context) SecondaryNetworkIpv4CidrBlockAssociationOutput {
+	return o
+}
+
+// The association ID for the IPv4 CIDR block.
+func (o SecondaryNetworkIpv4CidrBlockAssociationOutput) AssociationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SecondaryNetworkIpv4CidrBlockAssociation) *string { return v.AssociationId }).(pulumi.StringPtrOutput)
+}
+
+// The IPv4 CIDR block.
+func (o SecondaryNetworkIpv4CidrBlockAssociationOutput) CidrBlock() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SecondaryNetworkIpv4CidrBlockAssociation) *string { return v.CidrBlock }).(pulumi.StringPtrOutput)
+}
+
+// The state of the CIDR block association.
+func (o SecondaryNetworkIpv4CidrBlockAssociationOutput) State() SecondaryNetworkIpv4CidrBlockAssociationStatePtrOutput {
+	return o.ApplyT(func(v SecondaryNetworkIpv4CidrBlockAssociation) *SecondaryNetworkIpv4CidrBlockAssociationState {
+		return v.State
+	}).(SecondaryNetworkIpv4CidrBlockAssociationStatePtrOutput)
+}
+
+type SecondaryNetworkIpv4CidrBlockAssociationArrayOutput struct{ *pulumi.OutputState }
+
+func (SecondaryNetworkIpv4CidrBlockAssociationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SecondaryNetworkIpv4CidrBlockAssociation)(nil)).Elem()
+}
+
+func (o SecondaryNetworkIpv4CidrBlockAssociationArrayOutput) ToSecondaryNetworkIpv4CidrBlockAssociationArrayOutput() SecondaryNetworkIpv4CidrBlockAssociationArrayOutput {
+	return o
+}
+
+func (o SecondaryNetworkIpv4CidrBlockAssociationArrayOutput) ToSecondaryNetworkIpv4CidrBlockAssociationArrayOutputWithContext(ctx context.Context) SecondaryNetworkIpv4CidrBlockAssociationArrayOutput {
+	return o
+}
+
+func (o SecondaryNetworkIpv4CidrBlockAssociationArrayOutput) Index(i pulumi.IntInput) SecondaryNetworkIpv4CidrBlockAssociationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SecondaryNetworkIpv4CidrBlockAssociation {
+		return vs[0].([]SecondaryNetworkIpv4CidrBlockAssociation)[vs[1].(int)]
+	}).(SecondaryNetworkIpv4CidrBlockAssociationOutput)
+}
+
+type SecondaryNetworkTag struct {
+	// The tag key.
+	Key string `pulumi:"key"`
+	// The tag value.
+	Value string `pulumi:"value"`
+}
+
 type SecurityGroupEgressType struct {
 	// The IPv4 address range, in CIDR format.
 	//
@@ -42398,6 +42465,8 @@ func init() {
 	pulumi.RegisterOutputType(PrivateDnsNameOptionsOnLaunchPropertiesOutput{})
 	pulumi.RegisterOutputType(PrivateDnsNameOptionsOnLaunchPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(RouteServerPeerBgpOptionsOutput{})
+	pulumi.RegisterOutputType(SecondaryNetworkIpv4CidrBlockAssociationOutput{})
+	pulumi.RegisterOutputType(SecondaryNetworkIpv4CidrBlockAssociationArrayOutput{})
 	pulumi.RegisterOutputType(SecurityGroupEgressTypeOutput{})
 	pulumi.RegisterOutputType(SecurityGroupEgressTypeArrayOutput{})
 	pulumi.RegisterOutputType(SecurityGroupIngressTypeOutput{})

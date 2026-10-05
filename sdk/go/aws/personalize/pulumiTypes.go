@@ -13,6 +13,211 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+// The configuration details of a campaign.
+type CampaignConfig struct {
+	// Whether metadata with recommendations is enabled for the campaign.
+	EnableMetadataWithRecommendations *bool `pulumi:"enableMetadataWithRecommendations"`
+	// Specifies the exploration configuration hyperparameters.
+	ItemExplorationConfig map[string]string `pulumi:"itemExplorationConfig"`
+	// A map of ranking influence values for POPULARITY and FRESHNESS.
+	RankingInfluence map[string]float64 `pulumi:"rankingInfluence"`
+	// Whether the campaign automatically updates to use the latest solution version.
+	SyncWithLatestSolutionVersion *bool `pulumi:"syncWithLatestSolutionVersion"`
+}
+
+// CampaignConfigInput is an input type that accepts CampaignConfigArgs and CampaignConfigOutput values.
+// You can construct a concrete instance of `CampaignConfigInput` via:
+//
+//	CampaignConfigArgs{...}
+type CampaignConfigInput interface {
+	pulumi.Input
+
+	ToCampaignConfigOutput() CampaignConfigOutput
+	ToCampaignConfigOutputWithContext(context.Context) CampaignConfigOutput
+}
+
+// The configuration details of a campaign.
+type CampaignConfigArgs struct {
+	// Whether metadata with recommendations is enabled for the campaign.
+	EnableMetadataWithRecommendations pulumi.BoolPtrInput `pulumi:"enableMetadataWithRecommendations"`
+	// Specifies the exploration configuration hyperparameters.
+	ItemExplorationConfig pulumi.StringMapInput `pulumi:"itemExplorationConfig"`
+	// A map of ranking influence values for POPULARITY and FRESHNESS.
+	RankingInfluence pulumi.Float64MapInput `pulumi:"rankingInfluence"`
+	// Whether the campaign automatically updates to use the latest solution version.
+	SyncWithLatestSolutionVersion pulumi.BoolPtrInput `pulumi:"syncWithLatestSolutionVersion"`
+}
+
+func (CampaignConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CampaignConfig)(nil)).Elem()
+}
+
+func (i CampaignConfigArgs) ToCampaignConfigOutput() CampaignConfigOutput {
+	return i.ToCampaignConfigOutputWithContext(context.Background())
+}
+
+func (i CampaignConfigArgs) ToCampaignConfigOutputWithContext(ctx context.Context) CampaignConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CampaignConfigOutput)
+}
+
+func (i CampaignConfigArgs) ToCampaignConfigPtrOutput() CampaignConfigPtrOutput {
+	return i.ToCampaignConfigPtrOutputWithContext(context.Background())
+}
+
+func (i CampaignConfigArgs) ToCampaignConfigPtrOutputWithContext(ctx context.Context) CampaignConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CampaignConfigOutput).ToCampaignConfigPtrOutputWithContext(ctx)
+}
+
+// CampaignConfigPtrInput is an input type that accepts CampaignConfigArgs, CampaignConfigPtr and CampaignConfigPtrOutput values.
+// You can construct a concrete instance of `CampaignConfigPtrInput` via:
+//
+//	        CampaignConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type CampaignConfigPtrInput interface {
+	pulumi.Input
+
+	ToCampaignConfigPtrOutput() CampaignConfigPtrOutput
+	ToCampaignConfigPtrOutputWithContext(context.Context) CampaignConfigPtrOutput
+}
+
+type campaignConfigPtrType CampaignConfigArgs
+
+func CampaignConfigPtr(v *CampaignConfigArgs) CampaignConfigPtrInput {
+	return (*campaignConfigPtrType)(v)
+}
+
+func (*campaignConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CampaignConfig)(nil)).Elem()
+}
+
+func (i *campaignConfigPtrType) ToCampaignConfigPtrOutput() CampaignConfigPtrOutput {
+	return i.ToCampaignConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *campaignConfigPtrType) ToCampaignConfigPtrOutputWithContext(ctx context.Context) CampaignConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CampaignConfigPtrOutput)
+}
+
+// The configuration details of a campaign.
+type CampaignConfigOutput struct{ *pulumi.OutputState }
+
+func (CampaignConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CampaignConfig)(nil)).Elem()
+}
+
+func (o CampaignConfigOutput) ToCampaignConfigOutput() CampaignConfigOutput {
+	return o
+}
+
+func (o CampaignConfigOutput) ToCampaignConfigOutputWithContext(ctx context.Context) CampaignConfigOutput {
+	return o
+}
+
+func (o CampaignConfigOutput) ToCampaignConfigPtrOutput() CampaignConfigPtrOutput {
+	return o.ToCampaignConfigPtrOutputWithContext(context.Background())
+}
+
+func (o CampaignConfigOutput) ToCampaignConfigPtrOutputWithContext(ctx context.Context) CampaignConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CampaignConfig) *CampaignConfig {
+		return &v
+	}).(CampaignConfigPtrOutput)
+}
+
+// Whether metadata with recommendations is enabled for the campaign.
+func (o CampaignConfigOutput) EnableMetadataWithRecommendations() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v CampaignConfig) *bool { return v.EnableMetadataWithRecommendations }).(pulumi.BoolPtrOutput)
+}
+
+// Specifies the exploration configuration hyperparameters.
+func (o CampaignConfigOutput) ItemExplorationConfig() pulumi.StringMapOutput {
+	return o.ApplyT(func(v CampaignConfig) map[string]string { return v.ItemExplorationConfig }).(pulumi.StringMapOutput)
+}
+
+// A map of ranking influence values for POPULARITY and FRESHNESS.
+func (o CampaignConfigOutput) RankingInfluence() pulumi.Float64MapOutput {
+	return o.ApplyT(func(v CampaignConfig) map[string]float64 { return v.RankingInfluence }).(pulumi.Float64MapOutput)
+}
+
+// Whether the campaign automatically updates to use the latest solution version.
+func (o CampaignConfigOutput) SyncWithLatestSolutionVersion() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v CampaignConfig) *bool { return v.SyncWithLatestSolutionVersion }).(pulumi.BoolPtrOutput)
+}
+
+type CampaignConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (CampaignConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CampaignConfig)(nil)).Elem()
+}
+
+func (o CampaignConfigPtrOutput) ToCampaignConfigPtrOutput() CampaignConfigPtrOutput {
+	return o
+}
+
+func (o CampaignConfigPtrOutput) ToCampaignConfigPtrOutputWithContext(ctx context.Context) CampaignConfigPtrOutput {
+	return o
+}
+
+func (o CampaignConfigPtrOutput) Elem() CampaignConfigOutput {
+	return o.ApplyT(func(v *CampaignConfig) CampaignConfig {
+		if v != nil {
+			return *v
+		}
+		var ret CampaignConfig
+		return ret
+	}).(CampaignConfigOutput)
+}
+
+// Whether metadata with recommendations is enabled for the campaign.
+func (o CampaignConfigPtrOutput) EnableMetadataWithRecommendations() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *CampaignConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EnableMetadataWithRecommendations
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Specifies the exploration configuration hyperparameters.
+func (o CampaignConfigPtrOutput) ItemExplorationConfig() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *CampaignConfig) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.ItemExplorationConfig
+	}).(pulumi.StringMapOutput)
+}
+
+// A map of ranking influence values for POPULARITY and FRESHNESS.
+func (o CampaignConfigPtrOutput) RankingInfluence() pulumi.Float64MapOutput {
+	return o.ApplyT(func(v *CampaignConfig) map[string]float64 {
+		if v == nil {
+			return nil
+		}
+		return v.RankingInfluence
+	}).(pulumi.Float64MapOutput)
+}
+
+// Whether the campaign automatically updates to use the latest solution version.
+func (o CampaignConfigPtrOutput) SyncWithLatestSolutionVersion() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *CampaignConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.SyncWithLatestSolutionVersion
+	}).(pulumi.BoolPtrOutput)
+}
+
+// A key-value pair to associate with a resource.
+type CampaignTag struct {
+	// The key name of the tag.
+	Key string `pulumi:"key"`
+	// The value for the tag.
+	Value string `pulumi:"value"`
+}
+
 type DatasetGroupTag struct {
 	Key   string `pulumi:"key"`
 	Value string `pulumi:"value"`
@@ -2220,6 +2425,8 @@ type SolutionTag struct {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*CampaignConfigInput)(nil)).Elem(), CampaignConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CampaignConfigPtrInput)(nil)).Elem(), CampaignConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DatasetImportJobInput)(nil)).Elem(), DatasetImportJobArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DatasetImportJobPtrInput)(nil)).Elem(), DatasetImportJobArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DatasetImportJobDataSourcePropertiesInput)(nil)).Elem(), DatasetImportJobDataSourcePropertiesArgs{})
@@ -2247,6 +2454,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SolutionContinuousHyperParameterRangeArrayInput)(nil)).Elem(), SolutionContinuousHyperParameterRangeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SolutionIntegerHyperParameterRangeInput)(nil)).Elem(), SolutionIntegerHyperParameterRangeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SolutionIntegerHyperParameterRangeArrayInput)(nil)).Elem(), SolutionIntegerHyperParameterRangeArray{})
+	pulumi.RegisterOutputType(CampaignConfigOutput{})
+	pulumi.RegisterOutputType(CampaignConfigPtrOutput{})
 	pulumi.RegisterOutputType(DatasetImportJobOutput{})
 	pulumi.RegisterOutputType(DatasetImportJobPtrOutput{})
 	pulumi.RegisterOutputType(DatasetImportJobDataSourcePropertiesOutput{})

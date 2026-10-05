@@ -13,10 +13,65 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from ._enums import *
 
 __all__ = [
+    'MicrosoftAdVpcSettings',
     'SimpleAdVpcSettings',
 ]
+
+@pulumi.output_type
+class MicrosoftAdVpcSettings(dict):
+    """
+    Contains VPC information for the CreateDirectory or CreateMicrosoftAD operation
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "subnetIds":
+            suggest = "subnet_ids"
+        elif key == "vpcId":
+            suggest = "vpc_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MicrosoftAdVpcSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MicrosoftAdVpcSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MicrosoftAdVpcSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 subnet_ids: Sequence[_builtins.str],
+                 vpc_id: _builtins.str):
+        """
+        Contains VPC information for the CreateDirectory or CreateMicrosoftAD operation
+
+        :param Sequence[_builtins.str] subnet_ids: The identifiers of the subnets for the directory servers. The two subnets must be in different Availability Zones. AWS Directory Service specifies a directory server and a DNS server in each of these subnets.
+        :param _builtins.str vpc_id: The identifier of the VPC in which to create the directory.
+        """
+        pulumi.set(__self__, "subnet_ids", subnet_ids)
+        pulumi.set(__self__, "vpc_id", vpc_id)
+
+    @_builtins.property
+    @pulumi.getter(name="subnetIds")
+    def subnet_ids(self) -> Sequence[_builtins.str]:
+        """
+        The identifiers of the subnets for the directory servers. The two subnets must be in different Availability Zones. AWS Directory Service specifies a directory server and a DNS server in each of these subnets.
+        """
+        return pulumi.get(self, "subnet_ids")
+
+    @_builtins.property
+    @pulumi.getter(name="vpcId")
+    def vpc_id(self) -> _builtins.str:
+        """
+        The identifier of the VPC in which to create the directory.
+        """
+        return pulumi.get(self, "vpc_id")
+
 
 @pulumi.output_type
 class SimpleAdVpcSettings(dict):

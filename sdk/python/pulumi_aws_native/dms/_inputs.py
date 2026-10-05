@@ -5823,6 +5823,8 @@ class SettingsPropertiesIbmDb2LuwSettingsPropertiesArgsDict(TypedDict):
     server_name: pulumi.Input[_builtins.str]
     ssl_mode: pulumi.Input['DataProviderDb2SslModeValue']
     certificate_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    encryption_algorithm: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    security_mechanism: NotRequired[pulumi.Input[Optional[_builtins.int]]]
 
 @pulumi.input_type
 class SettingsPropertiesIbmDb2LuwSettingsPropertiesArgs:
@@ -5831,7 +5833,9 @@ class SettingsPropertiesIbmDb2LuwSettingsPropertiesArgs:
                  port: pulumi.Input[_builtins.int],
                  server_name: pulumi.Input[_builtins.str],
                  ssl_mode: pulumi.Input['DataProviderDb2SslModeValue'],
-                 certificate_arn: pulumi.Input[Optional[_builtins.str]] = None):
+                 certificate_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 encryption_algorithm: pulumi.Input[Optional[_builtins.int]] = None,
+                 security_mechanism: pulumi.Input[Optional[_builtins.int]] = None):
         """
         IbmDb2LuwSettings property identifier.
         """
@@ -5841,6 +5845,10 @@ class SettingsPropertiesIbmDb2LuwSettingsPropertiesArgs:
         pulumi.set(__self__, "ssl_mode", ssl_mode)
         if certificate_arn is not None:
             pulumi.set(__self__, "certificate_arn", certificate_arn)
+        if encryption_algorithm is not None:
+            pulumi.set(__self__, "encryption_algorithm", encryption_algorithm)
+        if security_mechanism is not None:
+            pulumi.set(__self__, "security_mechanism", security_mechanism)
 
     @_builtins.property
     @pulumi.getter(name="databaseName")
@@ -5886,6 +5894,24 @@ class SettingsPropertiesIbmDb2LuwSettingsPropertiesArgs:
     @certificate_arn.setter
     def certificate_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "certificate_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="encryptionAlgorithm")
+    def encryption_algorithm(self) -> pulumi.Input[Optional[_builtins.int]]:
+        return pulumi.get(self, "encryption_algorithm")
+
+    @encryption_algorithm.setter
+    def encryption_algorithm(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "encryption_algorithm", value)
+
+    @_builtins.property
+    @pulumi.getter(name="securityMechanism")
+    def security_mechanism(self) -> pulumi.Input[Optional[_builtins.int]]:
+        return pulumi.get(self, "security_mechanism")
+
+    @security_mechanism.setter
+    def security_mechanism(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "security_mechanism", value)
 
 
 class SettingsPropertiesIbmDb2zOsSettingsPropertiesArgsDict(TypedDict):
@@ -6033,6 +6059,14 @@ class SettingsPropertiesMicrosoftSqlServerSettingsPropertiesArgsDict(TypedDict):
     server_name: pulumi.Input[_builtins.str]
     ssl_mode: pulumi.Input['DataProviderDmsSslModeValue']
     certificate_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    s3_access_role_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The ARN for the role the application uses to access its Amazon S3 bucket.
+    """
+    s3_path: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The path for the Amazon S3 bucket that the application uses for accessing the user-defined schema.
+    """
 
 @pulumi.input_type
 class SettingsPropertiesMicrosoftSqlServerSettingsPropertiesArgs:
@@ -6041,9 +6075,14 @@ class SettingsPropertiesMicrosoftSqlServerSettingsPropertiesArgs:
                  port: pulumi.Input[_builtins.int],
                  server_name: pulumi.Input[_builtins.str],
                  ssl_mode: pulumi.Input['DataProviderDmsSslModeValue'],
-                 certificate_arn: pulumi.Input[Optional[_builtins.str]] = None):
+                 certificate_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 s3_access_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 s3_path: pulumi.Input[Optional[_builtins.str]] = None):
         """
         MicrosoftSqlServerSettings property identifier.
+
+        :param pulumi.Input[_builtins.str] s3_access_role_arn: The ARN for the role the application uses to access its Amazon S3 bucket.
+        :param pulumi.Input[_builtins.str] s3_path: The path for the Amazon S3 bucket that the application uses for accessing the user-defined schema.
         """
         pulumi.set(__self__, "database_name", database_name)
         pulumi.set(__self__, "port", port)
@@ -6051,6 +6090,10 @@ class SettingsPropertiesMicrosoftSqlServerSettingsPropertiesArgs:
         pulumi.set(__self__, "ssl_mode", ssl_mode)
         if certificate_arn is not None:
             pulumi.set(__self__, "certificate_arn", certificate_arn)
+        if s3_access_role_arn is not None:
+            pulumi.set(__self__, "s3_access_role_arn", s3_access_role_arn)
+        if s3_path is not None:
+            pulumi.set(__self__, "s3_path", s3_path)
 
     @_builtins.property
     @pulumi.getter(name="databaseName")
@@ -6096,6 +6139,30 @@ class SettingsPropertiesMicrosoftSqlServerSettingsPropertiesArgs:
     @certificate_arn.setter
     def certificate_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "certificate_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="s3AccessRoleArn")
+    def s3_access_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The ARN for the role the application uses to access its Amazon S3 bucket.
+        """
+        return pulumi.get(self, "s3_access_role_arn")
+
+    @s3_access_role_arn.setter
+    def s3_access_role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "s3_access_role_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="s3Path")
+    def s3_path(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The path for the Amazon S3 bucket that the application uses for accessing the user-defined schema.
+        """
+        return pulumi.get(self, "s3_path")
+
+    @s3_path.setter
+    def s3_path(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "s3_path", value)
 
 
 class SettingsPropertiesMongoDbSettingsPropertiesArgsDict(TypedDict):

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -16,6 +17,8 @@ import (
 type GlobalReplicationGroup struct {
 	pulumi.CustomResourceState
 
+	// The ARN (Amazon Resource Name) of the Global Datastore.
+	Arn pulumi.StringOutput `pulumi:"arn"`
 	// AutomaticFailoverEnabled
 	AutomaticFailoverEnabled pulumi.BoolPtrOutput `pulumi:"automaticFailoverEnabled"`
 	// The cache node type of the Global Datastore
@@ -40,6 +43,8 @@ type GlobalReplicationGroup struct {
 	RegionalConfigurations GlobalReplicationGroupRegionalConfigurationArrayOutput `pulumi:"regionalConfigurations"`
 	// The status of the Global Datastore
 	Status pulumi.StringOutput `pulumi:"status"`
+	// An array of key-value pairs to apply to this Global Datastore.
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewGlobalReplicationGroup registers a new resource with the given unique name, arguments, and options.
@@ -105,6 +110,8 @@ type globalReplicationGroupArgs struct {
 	Members []GlobalReplicationGroupMember `pulumi:"members"`
 	// Describes the replication group IDs, the AWS regions where they are stored and the shard configuration for each that comprise the Global Datastore
 	RegionalConfigurations []GlobalReplicationGroupRegionalConfiguration `pulumi:"regionalConfigurations"`
+	// An array of key-value pairs to apply to this Global Datastore.
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a GlobalReplicationGroup resource.
@@ -129,6 +136,8 @@ type GlobalReplicationGroupArgs struct {
 	Members GlobalReplicationGroupMemberArrayInput
 	// Describes the replication group IDs, the AWS regions where they are stored and the shard configuration for each that comprise the Global Datastore
 	RegionalConfigurations GlobalReplicationGroupRegionalConfigurationArrayInput
+	// An array of key-value pairs to apply to this Global Datastore.
+	Tags aws.TagArrayInput
 }
 
 func (GlobalReplicationGroupArgs) ElementType() reflect.Type {
@@ -166,6 +175,11 @@ func (o GlobalReplicationGroupOutput) ToGlobalReplicationGroupOutput() GlobalRep
 
 func (o GlobalReplicationGroupOutput) ToGlobalReplicationGroupOutputWithContext(ctx context.Context) GlobalReplicationGroupOutput {
 	return o
+}
+
+// The ARN (Amazon Resource Name) of the Global Datastore.
+func (o GlobalReplicationGroupOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *GlobalReplicationGroup) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
 // AutomaticFailoverEnabled
@@ -228,6 +242,11 @@ func (o GlobalReplicationGroupOutput) RegionalConfigurations() GlobalReplication
 // The status of the Global Datastore
 func (o GlobalReplicationGroupOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *GlobalReplicationGroup) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
+}
+
+// An array of key-value pairs to apply to this Global Datastore.
+func (o GlobalReplicationGroupOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *GlobalReplicationGroup) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

@@ -21,6 +21,7 @@ type ServerlessCache struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The cache usage limit for the serverless cache.
 	CacheUsageLimits ServerlessCacheCacheUsageLimitsPtrOutput `pulumi:"cacheUsageLimits"`
+	ConnectionType   ServerlessCacheConnectionTypePtrOutput   `pulumi:"connectionType"`
 	// The creation time of the Serverless Cache.
 	CreateTime pulumi.StringOutput `pulumi:"createTime"`
 	// The daily time range (in UTC) during which the service takes automatic snapshot of the Serverless Cache.
@@ -71,6 +72,7 @@ func NewServerlessCache(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'Engine'")
 	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"connectionType",
 		"kmsKeyId",
 		"networkType",
 		"serverlessCacheName",
@@ -113,6 +115,7 @@ func (ServerlessCacheState) ElementType() reflect.Type {
 type serverlessCacheArgs struct {
 	// The cache usage limit for the serverless cache.
 	CacheUsageLimits *ServerlessCacheCacheUsageLimits `pulumi:"cacheUsageLimits"`
+	ConnectionType   *ServerlessCacheConnectionType   `pulumi:"connectionType"`
 	// The daily time range (in UTC) during which the service takes automatic snapshot of the Serverless Cache.
 	DailySnapshotTime *string `pulumi:"dailySnapshotTime"`
 	// The description of the Serverless Cache.
@@ -150,6 +153,7 @@ type serverlessCacheArgs struct {
 type ServerlessCacheArgs struct {
 	// The cache usage limit for the serverless cache.
 	CacheUsageLimits ServerlessCacheCacheUsageLimitsPtrInput
+	ConnectionType   ServerlessCacheConnectionTypePtrInput
 	// The daily time range (in UTC) during which the service takes automatic snapshot of the Serverless Cache.
 	DailySnapshotTime pulumi.StringPtrInput
 	// The description of the Serverless Cache.
@@ -228,6 +232,10 @@ func (o ServerlessCacheOutput) Arn() pulumi.StringOutput {
 // The cache usage limit for the serverless cache.
 func (o ServerlessCacheOutput) CacheUsageLimits() ServerlessCacheCacheUsageLimitsPtrOutput {
 	return o.ApplyT(func(v *ServerlessCache) ServerlessCacheCacheUsageLimitsPtrOutput { return v.CacheUsageLimits }).(ServerlessCacheCacheUsageLimitsPtrOutput)
+}
+
+func (o ServerlessCacheOutput) ConnectionType() ServerlessCacheConnectionTypePtrOutput {
+	return o.ApplyT(func(v *ServerlessCache) ServerlessCacheConnectionTypePtrOutput { return v.ConnectionType }).(ServerlessCacheConnectionTypePtrOutput)
 }
 
 // The creation time of the Serverless Cache.

@@ -4465,6 +4465,10 @@ class SettingsPropertiesIbmDb2LuwSettingsProperties(dict):
             suggest = "ssl_mode"
         elif key == "certificateArn":
             suggest = "certificate_arn"
+        elif key == "encryptionAlgorithm":
+            suggest = "encryption_algorithm"
+        elif key == "securityMechanism":
+            suggest = "security_mechanism"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in SettingsPropertiesIbmDb2LuwSettingsProperties. Access the value via the '{suggest}' property getter instead.")
@@ -4482,7 +4486,9 @@ class SettingsPropertiesIbmDb2LuwSettingsProperties(dict):
                  port: _builtins.int,
                  server_name: _builtins.str,
                  ssl_mode: 'DataProviderDb2SslModeValue',
-                 certificate_arn: Optional[_builtins.str] = None):
+                 certificate_arn: Optional[_builtins.str] = None,
+                 encryption_algorithm: Optional[_builtins.int] = None,
+                 security_mechanism: Optional[_builtins.int] = None):
         """
         IbmDb2LuwSettings property identifier.
         """
@@ -4492,6 +4498,10 @@ class SettingsPropertiesIbmDb2LuwSettingsProperties(dict):
         pulumi.set(__self__, "ssl_mode", ssl_mode)
         if certificate_arn is not None:
             pulumi.set(__self__, "certificate_arn", certificate_arn)
+        if encryption_algorithm is not None:
+            pulumi.set(__self__, "encryption_algorithm", encryption_algorithm)
+        if security_mechanism is not None:
+            pulumi.set(__self__, "security_mechanism", security_mechanism)
 
     @_builtins.property
     @pulumi.getter(name="databaseName")
@@ -4517,6 +4527,16 @@ class SettingsPropertiesIbmDb2LuwSettingsProperties(dict):
     @pulumi.getter(name="certificateArn")
     def certificate_arn(self) -> Optional[_builtins.str]:
         return pulumi.get(self, "certificate_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="encryptionAlgorithm")
+    def encryption_algorithm(self) -> Optional[_builtins.int]:
+        return pulumi.get(self, "encryption_algorithm")
+
+    @_builtins.property
+    @pulumi.getter(name="securityMechanism")
+    def security_mechanism(self) -> Optional[_builtins.int]:
+        return pulumi.get(self, "security_mechanism")
 
 
 @pulumi.output_type
@@ -4666,6 +4686,10 @@ class SettingsPropertiesMicrosoftSqlServerSettingsProperties(dict):
             suggest = "ssl_mode"
         elif key == "certificateArn":
             suggest = "certificate_arn"
+        elif key == "s3AccessRoleArn":
+            suggest = "s3_access_role_arn"
+        elif key == "s3Path":
+            suggest = "s3_path"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in SettingsPropertiesMicrosoftSqlServerSettingsProperties. Access the value via the '{suggest}' property getter instead.")
@@ -4683,9 +4707,14 @@ class SettingsPropertiesMicrosoftSqlServerSettingsProperties(dict):
                  port: _builtins.int,
                  server_name: _builtins.str,
                  ssl_mode: 'DataProviderDmsSslModeValue',
-                 certificate_arn: Optional[_builtins.str] = None):
+                 certificate_arn: Optional[_builtins.str] = None,
+                 s3_access_role_arn: Optional[_builtins.str] = None,
+                 s3_path: Optional[_builtins.str] = None):
         """
         MicrosoftSqlServerSettings property identifier.
+
+        :param _builtins.str s3_access_role_arn: The ARN for the role the application uses to access its Amazon S3 bucket.
+        :param _builtins.str s3_path: The path for the Amazon S3 bucket that the application uses for accessing the user-defined schema.
         """
         pulumi.set(__self__, "database_name", database_name)
         pulumi.set(__self__, "port", port)
@@ -4693,6 +4722,10 @@ class SettingsPropertiesMicrosoftSqlServerSettingsProperties(dict):
         pulumi.set(__self__, "ssl_mode", ssl_mode)
         if certificate_arn is not None:
             pulumi.set(__self__, "certificate_arn", certificate_arn)
+        if s3_access_role_arn is not None:
+            pulumi.set(__self__, "s3_access_role_arn", s3_access_role_arn)
+        if s3_path is not None:
+            pulumi.set(__self__, "s3_path", s3_path)
 
     @_builtins.property
     @pulumi.getter(name="databaseName")
@@ -4718,6 +4751,22 @@ class SettingsPropertiesMicrosoftSqlServerSettingsProperties(dict):
     @pulumi.getter(name="certificateArn")
     def certificate_arn(self) -> Optional[_builtins.str]:
         return pulumi.get(self, "certificate_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="s3AccessRoleArn")
+    def s3_access_role_arn(self) -> Optional[_builtins.str]:
+        """
+        The ARN for the role the application uses to access its Amazon S3 bucket.
+        """
+        return pulumi.get(self, "s3_access_role_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="s3Path")
+    def s3_path(self) -> Optional[_builtins.str]:
+        """
+        The path for the Amazon S3 bucket that the application uses for accessing the user-defined schema.
+        """
+        return pulumi.get(self, "s3_path")
 
 
 @pulumi.output_type

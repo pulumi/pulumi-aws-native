@@ -31,7 +31,7 @@ namespace Pulumi.AwsNative.DataZone
         /// The details of the policy grant member.
         /// </summary>
         [Output("detail")]
-        public Output<object?> Detail { get; private set; } = null!;
+        public Output<object> Detail { get; private set; } = null!;
 
         /// <summary>
         /// The ID of the domain where you want to add a policy grant.
@@ -67,7 +67,7 @@ namespace Pulumi.AwsNative.DataZone
         /// The principal of the policy grant member.
         /// </summary>
         [Output("principal")]
-        public Output<object?> Principal { get; private set; } = null!;
+        public Output<object> Principal { get; private set; } = null!;
 
 
         /// <summary>
@@ -126,8 +126,8 @@ namespace Pulumi.AwsNative.DataZone
         /// <summary>
         /// The details of the policy grant member.
         /// </summary>
-        [Input("detail")]
-        public object? Detail { get; set; }
+        [Input("detail", required: true)]
+        public object Detail { get; set; } = null!;
 
         /// <summary>
         /// The ID of the domain where you want to add a policy grant.
@@ -156,8 +156,8 @@ namespace Pulumi.AwsNative.DataZone
         /// <summary>
         /// The principal of the policy grant member.
         /// </summary>
-        [Input("principal")]
-        public object? Principal { get; set; }
+        [Input("principal", required: true)]
+        public object Principal { get; set; } = null!;
 
         public PolicyGrantArgs()
         {

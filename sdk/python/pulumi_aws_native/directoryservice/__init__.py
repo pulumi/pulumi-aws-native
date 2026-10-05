@@ -6,7 +6,10 @@ import builtins as _builtins
 from .. import _utilities
 import typing
 # Export this package's modules as members:
+from ._enums import *
+from .get_microsoft_ad import *
 from .get_simple_ad import *
+from .microsoft_ad import *
 from .simple_ad import *
 from ._inputs import *
 from . import outputs

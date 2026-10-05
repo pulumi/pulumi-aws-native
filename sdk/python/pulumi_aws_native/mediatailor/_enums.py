@@ -28,6 +28,8 @@ __all__ = [
     'PrefetchSchedulePrefetchRetrievalTrafficShapingType',
     'PrefetchScheduleRecurringRetrievalTrafficShapingType',
     'PrefetchScheduleScheduleType',
+    'ProgramAdBreakMessageType',
+    'ProgramTransitionRelativePosition',
     'SourceLocationAccessType',
     'VodSourceType',
 ]
@@ -73,9 +75,11 @@ class FunctionRuntimeType(_builtins.str, Enum):
 @pulumi.type_token("aws-native:mediatailor:FunctionType")
 class FunctionType(_builtins.str, Enum):
     HTTP_REQUEST = "HTTP_REQUEST"
+    AWS_SERVICE_REQUEST = "AWS_SERVICE_REQUEST"
     CUSTOM_OUTPUT = "CUSTOM_OUTPUT"
     CONCURRENT_EXECUTOR = "CONCURRENT_EXECUTOR"
     SEQUENTIAL_EXECUTOR = "SEQUENTIAL_EXECUTOR"
+    VAST_REQUEST = "VAST_REQUEST"
 
 
 @pulumi.type_token("aws-native:mediatailor:LiveSourceType")
@@ -195,6 +199,24 @@ class PrefetchScheduleScheduleType(_builtins.str, Enum):
     """
     SINGLE = "SINGLE"
     RECURRING = "RECURRING"
+
+
+@pulumi.type_token("aws-native:mediatailor:ProgramAdBreakMessageType")
+class ProgramAdBreakMessageType(_builtins.str, Enum):
+    """
+    The SCTE-35 ad insertion type.
+    """
+    SPLICE_INSERT = "SPLICE_INSERT"
+    TIME_SIGNAL = "TIME_SIGNAL"
+
+
+@pulumi.type_token("aws-native:mediatailor:ProgramTransitionRelativePosition")
+class ProgramTransitionRelativePosition(_builtins.str, Enum):
+    """
+    The position where this program will be inserted relative to the RelativePosition.
+    """
+    BEFORE_PROGRAM = "BEFORE_PROGRAM"
+    AFTER_PROGRAM = "AFTER_PROGRAM"
 
 
 @pulumi.type_token("aws-native:mediatailor:SourceLocationAccessType")

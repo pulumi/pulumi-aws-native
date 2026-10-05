@@ -3076,6 +3076,34 @@ namespace Pulumi.AwsNative.QuickSight
     }
 
     [EnumType]
+    public readonly struct AnalysisSheetLayoutGroupMemberType : IEquatable<AnalysisSheetLayoutGroupMemberType>
+    {
+        private readonly string _value;
+
+        private AnalysisSheetLayoutGroupMemberType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AnalysisSheetLayoutGroupMemberType Element { get; } = new AnalysisSheetLayoutGroupMemberType("ELEMENT");
+        public static AnalysisSheetLayoutGroupMemberType Group { get; } = new AnalysisSheetLayoutGroupMemberType("GROUP");
+
+        public static bool operator ==(AnalysisSheetLayoutGroupMemberType left, AnalysisSheetLayoutGroupMemberType right) => left.Equals(right);
+        public static bool operator !=(AnalysisSheetLayoutGroupMemberType left, AnalysisSheetLayoutGroupMemberType right) => !left.Equals(right);
+
+        public static explicit operator string(AnalysisSheetLayoutGroupMemberType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AnalysisSheetLayoutGroupMemberType other && Equals(other);
+        public bool Equals(AnalysisSheetLayoutGroupMemberType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct AnalysisSimpleAttributeAggregationFunction : IEquatable<AnalysisSimpleAttributeAggregationFunction>
     {
         private readonly string _value;
@@ -6988,6 +7016,34 @@ namespace Pulumi.AwsNative.QuickSight
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is DashboardSheetImageScalingType other && Equals(other);
         public bool Equals(DashboardSheetImageScalingType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct DashboardSheetLayoutGroupMemberType : IEquatable<DashboardSheetLayoutGroupMemberType>
+    {
+        private readonly string _value;
+
+        private DashboardSheetLayoutGroupMemberType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DashboardSheetLayoutGroupMemberType Element { get; } = new DashboardSheetLayoutGroupMemberType("ELEMENT");
+        public static DashboardSheetLayoutGroupMemberType Group { get; } = new DashboardSheetLayoutGroupMemberType("GROUP");
+
+        public static bool operator ==(DashboardSheetLayoutGroupMemberType left, DashboardSheetLayoutGroupMemberType right) => left.Equals(right);
+        public static bool operator !=(DashboardSheetLayoutGroupMemberType left, DashboardSheetLayoutGroupMemberType right) => !left.Equals(right);
+
+        public static explicit operator string(DashboardSheetLayoutGroupMemberType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DashboardSheetLayoutGroupMemberType other && Equals(other);
+        public bool Equals(DashboardSheetLayoutGroupMemberType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -12401,6 +12457,34 @@ namespace Pulumi.AwsNative.QuickSight
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is TemplateSheetImageScalingType other && Equals(other);
         public bool Equals(TemplateSheetImageScalingType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct TemplateSheetLayoutGroupMemberType : IEquatable<TemplateSheetLayoutGroupMemberType>
+    {
+        private readonly string _value;
+
+        private TemplateSheetLayoutGroupMemberType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static TemplateSheetLayoutGroupMemberType Element { get; } = new TemplateSheetLayoutGroupMemberType("ELEMENT");
+        public static TemplateSheetLayoutGroupMemberType Group { get; } = new TemplateSheetLayoutGroupMemberType("GROUP");
+
+        public static bool operator ==(TemplateSheetLayoutGroupMemberType left, TemplateSheetLayoutGroupMemberType right) => left.Equals(right);
+        public static bool operator !=(TemplateSheetLayoutGroupMemberType left, TemplateSheetLayoutGroupMemberType right) => !left.Equals(right);
+
+        public static explicit operator string(TemplateSheetLayoutGroupMemberType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TemplateSheetLayoutGroupMemberType other && Equals(other);
+        public bool Equals(TemplateSheetLayoutGroupMemberType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

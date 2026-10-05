@@ -26,7 +26,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetDataProviderResult:
-    def __init__(__self__, data_provider_arn=None, data_provider_creation_time=None, data_provider_name=None, description=None, engine=None, settings=None, tags=None):
+    def __init__(__self__, data_provider_arn=None, data_provider_creation_time=None, data_provider_name=None, description=None, engine=None, settings=None, tags=None, virtual=None):
         if data_provider_arn and not isinstance(data_provider_arn, str):
             raise TypeError("Expected argument 'data_provider_arn' to be a str")
         pulumi.set(__self__, "data_provider_arn", data_provider_arn)
@@ -48,6 +48,9 @@ class GetDataProviderResult:
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
+        if virtual and not isinstance(virtual, bool):
+            raise TypeError("Expected argument 'virtual' to be a bool")
+        pulumi.set(__self__, "virtual", virtual)
 
     @_builtins.property
     @pulumi.getter(name="dataProviderArn")
@@ -105,6 +108,14 @@ class GetDataProviderResult:
         """
         return pulumi.get(self, "tags")
 
+    @_builtins.property
+    @pulumi.getter
+    def virtual(self) -> Optional[_builtins.bool]:
+        """
+        Indicates whether the data provider is virtual.
+        """
+        return pulumi.get(self, "virtual")
+
 
 class AwaitableGetDataProviderResult(GetDataProviderResult):
     # pylint: disable=using-constant-test
@@ -118,7 +129,8 @@ class AwaitableGetDataProviderResult(GetDataProviderResult):
             description=self.description,
             engine=self.engine,
             settings=self.settings,
-            tags=self.tags)
+            tags=self.tags,
+            virtual=self.virtual)
 
 
 def get_data_provider(data_provider_arn: Optional[_builtins.str] = None,
@@ -140,7 +152,8 @@ def get_data_provider(data_provider_arn: Optional[_builtins.str] = None,
         description=pulumi.get(__ret__, 'description'),
         engine=pulumi.get(__ret__, 'engine'),
         settings=pulumi.get(__ret__, 'settings'),
-        tags=pulumi.get(__ret__, 'tags'))
+        tags=pulumi.get(__ret__, 'tags'),
+        virtual=pulumi.get(__ret__, 'virtual'))
 def get_data_provider_output(data_provider_arn: pulumi.Input[Optional[_builtins.str]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDataProviderResult]:
     """
@@ -159,4 +172,5 @@ def get_data_provider_output(data_provider_arn: pulumi.Input[Optional[_builtins.
         description=pulumi.get(__response__, 'description'),
         engine=pulumi.get(__response__, 'engine'),
         settings=pulumi.get(__response__, 'settings'),
-        tags=pulumi.get(__response__, 'tags')))
+        tags=pulumi.get(__response__, 'tags'),
+        virtual=pulumi.get(__response__, 'virtual')))

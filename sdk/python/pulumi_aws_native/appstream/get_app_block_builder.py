@@ -25,7 +25,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetAppBlockBuilderResult:
-    def __init__(__self__, access_endpoints=None, arn=None, created_time=None, description=None, display_name=None, enable_default_internet_access=None, iam_role_arn=None, instance_type=None, platform=None, tags=None, vpc_config=None):
+    def __init__(__self__, access_endpoints=None, arn=None, created_time=None, description=None, disable_imdsv1=None, display_name=None, enable_default_internet_access=None, iam_role_arn=None, instance_type=None, platform=None, tags=None, vpc_config=None):
         if access_endpoints and not isinstance(access_endpoints, list):
             raise TypeError("Expected argument 'access_endpoints' to be a list")
         pulumi.set(__self__, "access_endpoints", access_endpoints)
@@ -38,6 +38,9 @@ class GetAppBlockBuilderResult:
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
+        if disable_imdsv1 and not isinstance(disable_imdsv1, bool):
+            raise TypeError("Expected argument 'disable_imdsv1' to be a bool")
+        pulumi.set(__self__, "disable_imdsv1", disable_imdsv1)
         if display_name and not isinstance(display_name, str):
             raise TypeError("Expected argument 'display_name' to be a str")
         pulumi.set(__self__, "display_name", display_name)
@@ -91,6 +94,11 @@ class GetAppBlockBuilderResult:
         The description of the app block builder.
         """
         return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter(name="disableImdsv1")
+    def disable_imdsv1(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "disable_imdsv1")
 
     @_builtins.property
     @pulumi.getter(name="displayName")
@@ -161,6 +169,7 @@ class AwaitableGetAppBlockBuilderResult(GetAppBlockBuilderResult):
             arn=self.arn,
             created_time=self.created_time,
             description=self.description,
+            disable_imdsv1=self.disable_imdsv1,
             display_name=self.display_name,
             enable_default_internet_access=self.enable_default_internet_access,
             iam_role_arn=self.iam_role_arn,
@@ -187,6 +196,7 @@ def get_app_block_builder(name: Optional[_builtins.str] = None,
         arn=pulumi.get(__ret__, 'arn'),
         created_time=pulumi.get(__ret__, 'created_time'),
         description=pulumi.get(__ret__, 'description'),
+        disable_imdsv1=pulumi.get(__ret__, 'disable_imdsv1'),
         display_name=pulumi.get(__ret__, 'display_name'),
         enable_default_internet_access=pulumi.get(__ret__, 'enable_default_internet_access'),
         iam_role_arn=pulumi.get(__ret__, 'iam_role_arn'),
@@ -210,6 +220,7 @@ def get_app_block_builder_output(name: pulumi.Input[Optional[_builtins.str]] = N
         arn=pulumi.get(__response__, 'arn'),
         created_time=pulumi.get(__response__, 'created_time'),
         description=pulumi.get(__response__, 'description'),
+        disable_imdsv1=pulumi.get(__response__, 'disable_imdsv1'),
         display_name=pulumi.get(__response__, 'display_name'),
         enable_default_internet_access=pulumi.get(__response__, 'enable_default_internet_access'),
         iam_role_arn=pulumi.get(__response__, 'iam_role_arn'),

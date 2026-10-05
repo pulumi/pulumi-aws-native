@@ -11,7 +11,7 @@ namespace Pulumi.AwsNative.Translate.Outputs
 {
 
     /// <summary>
-    /// The encryption key used to encrypt this object.
+    /// The encryption key for the custom terminology.
     /// </summary>
     [OutputType]
     public sealed class EncryptionKeyProperties
@@ -23,13 +23,13 @@ namespace Pulumi.AwsNative.Translate.Outputs
         /// <summary>
         /// The type of encryption key.
         /// </summary>
-        public readonly Pulumi.AwsNative.Translate.ParallelDataEncryptionKeyPropertiesType Type;
+        public readonly Pulumi.AwsNative.Translate.TerminologyEncryptionKeyPropertiesType Type;
 
         [OutputConstructor]
         private EncryptionKeyProperties(
             string id,
 
-            Pulumi.AwsNative.Translate.ParallelDataEncryptionKeyPropertiesType type)
+            Pulumi.AwsNative.Translate.TerminologyEncryptionKeyPropertiesType type)
         {
             Id = id;
             Type = type;

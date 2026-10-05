@@ -29,6 +29,7 @@ type LookupEvaluationFormArgs struct {
 }
 
 type LookupEvaluationFormResult struct {
+	// The AI version to use for the evaluation form. This specifies which AI model version is used for automated evaluations.
 	AiVersion *string `pulumi:"aiVersion"`
 	// The automatic evaluation configuration of an evaluation form.
 	AutoEvaluationConfiguration *EvaluationFormAutoEvaluationConfiguration `pulumi:"autoEvaluationConfiguration"`
@@ -88,6 +89,7 @@ func (o LookupEvaluationFormResultOutput) ToLookupEvaluationFormResultOutputWith
 	return o
 }
 
+// The AI version to use for the evaluation form. This specifies which AI model version is used for automated evaluations.
 func (o LookupEvaluationFormResultOutput) AiVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupEvaluationFormResult) *string { return v.AiVersion }).(pulumi.StringPtrOutput)
 }

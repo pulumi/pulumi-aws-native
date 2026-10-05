@@ -85,7 +85,7 @@ namespace Pulumi.AwsNative.BedrockAgentCore
         /// The configuration that specifies where evaluation results should be written.
         /// </summary>
         [Output("outputConfig")]
-        public Output<Outputs.OnlineEvaluationConfigOutputConfig> OutputConfig { get; private set; } = null!;
+        public Output<Outputs.OnlineEvaluationConfigOutputConfig?> OutputConfig { get; private set; } = null!;
 
         /// <summary>
         /// The evaluation rule that defines sampling configuration, filters, and session detection settings.
@@ -219,6 +219,12 @@ namespace Pulumi.AwsNative.BedrockAgentCore
         /// </summary>
         [Input("onlineEvaluationConfigName")]
         public Input<string>? OnlineEvaluationConfigName { get; set; }
+
+        /// <summary>
+        /// The configuration that specifies where evaluation results should be written.
+        /// </summary>
+        [Input("outputConfig")]
+        public Input<Inputs.OnlineEvaluationConfigOutputConfigArgs>? OutputConfig { get; set; }
 
         /// <summary>
         /// The evaluation rule that defines sampling configuration, filters, and session detection settings.

@@ -65,8 +65,6 @@ def get_resource_policy(resource_arn: Optional[_builtins.str] = None,
       2.  Use the [GetResourcePolicy](https://docs.aws.amazon.com/lambda/latest/api/API_GetResourcePolicy.html)LAM API to retrieve the resource-based policy currently attached to the function.
       3.  Use this policy to create a new ``AWS::Lambda::ResourcePolicy`` resource.
       4.  Delete all the existing ``AWS::Lambda::Permission`` resources for the function.
-
-    :param _builtins.str resource_arn: The Amazon Resource Name (ARN) of the LAM resource you want to add the policy to. For a function, you can use a qualified or an unqualified ARN. The value must be a complete ARN, and the operation does not accept wildcard characters.
     """
     __args__ = dict()
     __args__['resourceArn'] = resource_arn
@@ -91,8 +89,6 @@ def get_resource_policy_output(resource_arn: pulumi.Input[Optional[_builtins.str
       2.  Use the [GetResourcePolicy](https://docs.aws.amazon.com/lambda/latest/api/API_GetResourcePolicy.html)LAM API to retrieve the resource-based policy currently attached to the function.
       3.  Use this policy to create a new ``AWS::Lambda::ResourcePolicy`` resource.
       4.  Delete all the existing ``AWS::Lambda::Permission`` resources for the function.
-
-    :param _builtins.str resource_arn: The Amazon Resource Name (ARN) of the LAM resource you want to add the policy to. For a function, you can use a qualified or an unqualified ARN. The value must be a complete ARN, and the operation does not accept wildcard characters.
     """
     __args__ = dict()
     __args__['resourceArn'] = resource_arn

@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     public sealed class DashboardSheetLayoutGroupMember
     {
         public readonly string Id;
-        public readonly object Type;
+        public readonly Pulumi.AwsNative.QuickSight.DashboardSheetLayoutGroupMemberType Type;
 
         [OutputConstructor]
         private DashboardSheetLayoutGroupMember(
             string id,
 
-            object type)
+            Pulumi.AwsNative.QuickSight.DashboardSheetLayoutGroupMemberType type)
         {
             Id = id;
             Type = type;

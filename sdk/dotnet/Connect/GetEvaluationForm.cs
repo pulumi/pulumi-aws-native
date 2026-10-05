@@ -63,6 +63,9 @@ namespace Pulumi.AwsNative.Connect
     [OutputType]
     public sealed class GetEvaluationFormResult
     {
+        /// <summary>
+        /// The AI version to use for the evaluation form. This specifies which AI model version is used for automated evaluations.
+        /// </summary>
         public readonly string? AiVersion;
         /// <summary>
         /// The automatic evaluation configuration of an evaluation form.

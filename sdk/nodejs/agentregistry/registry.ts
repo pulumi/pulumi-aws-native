@@ -40,6 +40,12 @@ export class Registry extends pulumi.CustomResource {
     declare public readonly approvalConfiguration: pulumi.Output<outputs.agentregistry.RegistryApprovalConfiguration | undefined>;
     declare public readonly authorizerType: pulumi.Output<enums.agentregistry.RegistryAuthorizerType | undefined>;
     /**
+     * Specifies whether auto-detection is requested for the registry. Must be specified together with AutoDetectionScope. Setting this to true is necessary but not sufficient for auto-detection to become active; the preconditions of the configured scope must also be met. To turn auto-detection off, explicitly set this to false - removing AutoDetectionEnabled and AutoDetectionScope from the template is a no-op and leaves the existing auto-detection settings unchanged. A registry cannot be deleted while auto-detection is enabled: set this to false and update the stack before deleting the registry.
+     */
+    declare public readonly autoDetectionEnabled: pulumi.Output<boolean | undefined>;
+    declare public readonly autoDetectionScope: pulumi.Output<enums.agentregistry.RegistryAutoDetectionScope | undefined>;
+    declare public /*out*/ readonly autoDetectionStatus: pulumi.Output<enums.agentregistry.RegistryAutoDetectionStatus>;
+    /**
      * The timestamp when the registry was created.
      */
     declare public /*out*/ readonly createdAt: pulumi.Output<string>;
@@ -48,6 +54,7 @@ export class Registry extends pulumi.CustomResource {
      */
     declare public readonly description: pulumi.Output<string | undefined>;
     declare public readonly discoveryConfiguration: pulumi.Output<outputs.agentregistry.RegistryDiscoveryConfiguration | undefined>;
+    declare public readonly encryptionConfiguration: pulumi.Output<outputs.agentregistry.RegistryEncryptionConfiguration | undefined>;
     /**
      * The name of the registry.
      */
@@ -83,10 +90,14 @@ export class Registry extends pulumi.CustomResource {
         if (!opts.id) {
             resourceInputs["approvalConfiguration"] = args?.approvalConfiguration;
             resourceInputs["authorizerType"] = args?.authorizerType;
+            resourceInputs["autoDetectionEnabled"] = args?.autoDetectionEnabled;
+            resourceInputs["autoDetectionScope"] = args?.autoDetectionScope;
             resourceInputs["description"] = args?.description;
             resourceInputs["discoveryConfiguration"] = args?.discoveryConfiguration;
+            resourceInputs["encryptionConfiguration"] = args?.encryptionConfiguration;
             resourceInputs["name"] = args?.name;
             resourceInputs["tags"] = args?.tags;
+            resourceInputs["autoDetectionStatus"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["registryArn"] = undefined /*out*/;
             resourceInputs["registryId"] = undefined /*out*/;
@@ -95,9 +106,13 @@ export class Registry extends pulumi.CustomResource {
         } else {
             resourceInputs["approvalConfiguration"] = undefined /*out*/;
             resourceInputs["authorizerType"] = undefined /*out*/;
+            resourceInputs["autoDetectionEnabled"] = undefined /*out*/;
+            resourceInputs["autoDetectionScope"] = undefined /*out*/;
+            resourceInputs["autoDetectionStatus"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["discoveryConfiguration"] = undefined /*out*/;
+            resourceInputs["encryptionConfiguration"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["registryArn"] = undefined /*out*/;
             resourceInputs["registryId"] = undefined /*out*/;
@@ -106,7 +121,7 @@ export class Registry extends pulumi.CustomResource {
             resourceInputs["updatedAt"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["authorizerType"] };
+        const replaceOnChanges = { replaceOnChanges: ["authorizerType", "encryptionConfiguration"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Registry.__pulumiType, name, resourceInputs, opts);
     }
@@ -119,10 +134,16 @@ export interface RegistryArgs {
     approvalConfiguration?: pulumi.Input<inputs.agentregistry.RegistryApprovalConfigurationArgs | undefined>;
     authorizerType?: pulumi.Input<enums.agentregistry.RegistryAuthorizerType | undefined>;
     /**
+     * Specifies whether auto-detection is requested for the registry. Must be specified together with AutoDetectionScope. Setting this to true is necessary but not sufficient for auto-detection to become active; the preconditions of the configured scope must also be met. To turn auto-detection off, explicitly set this to false - removing AutoDetectionEnabled and AutoDetectionScope from the template is a no-op and leaves the existing auto-detection settings unchanged. A registry cannot be deleted while auto-detection is enabled: set this to false and update the stack before deleting the registry.
+     */
+    autoDetectionEnabled?: pulumi.Input<boolean | undefined>;
+    autoDetectionScope?: pulumi.Input<enums.agentregistry.RegistryAutoDetectionScope | undefined>;
+    /**
      * The description of the registry.
      */
     description?: pulumi.Input<string | undefined>;
     discoveryConfiguration?: pulumi.Input<inputs.agentregistry.RegistryDiscoveryConfigurationArgs | undefined>;
+    encryptionConfiguration?: pulumi.Input<inputs.agentregistry.RegistryEncryptionConfigurationArgs | undefined>;
     /**
      * The name of the registry.
      */

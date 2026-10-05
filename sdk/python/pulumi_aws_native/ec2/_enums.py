@@ -80,6 +80,8 @@ __all__ = [
     'PrefixListAddressFamily',
     'RouteServerPeerBgpOptionsPeerLivenessDetection',
     'RouteServerPersistRoutes',
+    'SecondaryNetworkIpv4CidrBlockAssociationState',
+    'SecondaryNetworkNetworkType',
     'SecurityGroupVpcAssociationState',
     'SnapshotBlockPublicAccessState',
     'SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItem',
@@ -928,6 +930,27 @@ class RouteServerPersistRoutes(_builtins.str, Enum):
     """
     ENABLE = "enable"
     DISABLE = "disable"
+
+
+@pulumi.type_token("aws-native:ec2:SecondaryNetworkIpv4CidrBlockAssociationState")
+class SecondaryNetworkIpv4CidrBlockAssociationState(_builtins.str, Enum):
+    """
+    The state of the CIDR block association.
+    """
+    ASSOCIATING = "associating"
+    ASSOCIATED = "associated"
+    ASSOCIATION_FAILED = "association-failed"
+    DISASSOCIATING = "disassociating"
+    DISASSOCIATED = "disassociated"
+    DISASSOCIATION_FAILED = "disassociation-failed"
+
+
+@pulumi.type_token("aws-native:ec2:SecondaryNetworkNetworkType")
+class SecondaryNetworkNetworkType(_builtins.str, Enum):
+    """
+    The type of secondary network.
+    """
+    RDMA = "rdma"
 
 
 @pulumi.type_token("aws-native:ec2:SecurityGroupVpcAssociationState")

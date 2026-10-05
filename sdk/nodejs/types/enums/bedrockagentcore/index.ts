@@ -457,6 +457,16 @@ export const HarnessEndpointStatus = {
 
 export type HarnessEndpointStatus = (typeof HarnessEndpointStatus)[keyof typeof HarnessEndpointStatus];
 
+export const HarnessHookLambdaTargetFailureMode = {
+    Allow: "allow",
+    Deny: "deny",
+} as const;
+
+/**
+ * Whether the agent loop continues or stops when the Lambda invocation fails. Defaults to deny.
+ */
+export type HarnessHookLambdaTargetFailureMode = (typeof HarnessHookLambdaTargetFailureMode)[keyof typeof HarnessHookLambdaTargetFailureMode];
+
 export const HarnessManagedMemoryConfigurationStrategiesItem = {
     Semantic: "SEMANTIC",
     Summarization: "SUMMARIZATION",
@@ -890,6 +900,16 @@ export const OAuth2CredentialProviderTokenExchangeGrantTypeConfigActorTokenConte
  * The actor token content type
  */
 export type OAuth2CredentialProviderTokenExchangeGrantTypeConfigActorTokenContent = (typeof OAuth2CredentialProviderTokenExchangeGrantTypeConfigActorTokenContent)[keyof typeof OAuth2CredentialProviderTokenExchangeGrantTypeConfigActorTokenContent];
+
+export const OnlineEvaluationConfigCloudWatchOutputConfigResultDestination = {
+    DedicatedLogGroup: "DEDICATED_LOG_GROUP",
+    SourceLogGroup: "SOURCE_LOG_GROUP",
+} as const;
+
+/**
+ * Where evaluation results are written. DEDICATED_LOG_GROUP, the default when omitted, writes to a dedicated result log group. SOURCE_LOG_GROUP writes results back to the trace source log group; LogGroupName must not be specified with SOURCE_LOG_GROUP.
+ */
+export type OnlineEvaluationConfigCloudWatchOutputConfigResultDestination = (typeof OnlineEvaluationConfigCloudWatchOutputConfigResultDestination)[keyof typeof OnlineEvaluationConfigCloudWatchOutputConfigResultDestination];
 
 export const OnlineEvaluationConfigClusteringFrequency = {
     Daily: "DAILY",

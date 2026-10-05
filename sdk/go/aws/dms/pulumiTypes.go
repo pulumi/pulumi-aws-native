@@ -7956,11 +7956,13 @@ func (o SettingsPropertiesDocDbSettingsPropertiesPtrOutput) SslMode() DataProvid
 
 // IbmDb2LuwSettings property identifier.
 type SettingsPropertiesIbmDb2LuwSettingsProperties struct {
-	CertificateArn *string                     `pulumi:"certificateArn"`
-	DatabaseName   string                      `pulumi:"databaseName"`
-	Port           int                         `pulumi:"port"`
-	ServerName     string                      `pulumi:"serverName"`
-	SslMode        DataProviderDb2SslModeValue `pulumi:"sslMode"`
+	CertificateArn      *string                     `pulumi:"certificateArn"`
+	DatabaseName        string                      `pulumi:"databaseName"`
+	EncryptionAlgorithm *int                        `pulumi:"encryptionAlgorithm"`
+	Port                int                         `pulumi:"port"`
+	SecurityMechanism   *int                        `pulumi:"securityMechanism"`
+	ServerName          string                      `pulumi:"serverName"`
+	SslMode             DataProviderDb2SslModeValue `pulumi:"sslMode"`
 }
 
 // SettingsPropertiesIbmDb2LuwSettingsPropertiesInput is an input type that accepts SettingsPropertiesIbmDb2LuwSettingsPropertiesArgs and SettingsPropertiesIbmDb2LuwSettingsPropertiesOutput values.
@@ -7976,11 +7978,13 @@ type SettingsPropertiesIbmDb2LuwSettingsPropertiesInput interface {
 
 // IbmDb2LuwSettings property identifier.
 type SettingsPropertiesIbmDb2LuwSettingsPropertiesArgs struct {
-	CertificateArn pulumi.StringPtrInput            `pulumi:"certificateArn"`
-	DatabaseName   pulumi.StringInput               `pulumi:"databaseName"`
-	Port           pulumi.IntInput                  `pulumi:"port"`
-	ServerName     pulumi.StringInput               `pulumi:"serverName"`
-	SslMode        DataProviderDb2SslModeValueInput `pulumi:"sslMode"`
+	CertificateArn      pulumi.StringPtrInput            `pulumi:"certificateArn"`
+	DatabaseName        pulumi.StringInput               `pulumi:"databaseName"`
+	EncryptionAlgorithm pulumi.IntPtrInput               `pulumi:"encryptionAlgorithm"`
+	Port                pulumi.IntInput                  `pulumi:"port"`
+	SecurityMechanism   pulumi.IntPtrInput               `pulumi:"securityMechanism"`
+	ServerName          pulumi.StringInput               `pulumi:"serverName"`
+	SslMode             DataProviderDb2SslModeValueInput `pulumi:"sslMode"`
 }
 
 func (SettingsPropertiesIbmDb2LuwSettingsPropertiesArgs) ElementType() reflect.Type {
@@ -8069,8 +8073,16 @@ func (o SettingsPropertiesIbmDb2LuwSettingsPropertiesOutput) DatabaseName() pulu
 	return o.ApplyT(func(v SettingsPropertiesIbmDb2LuwSettingsProperties) string { return v.DatabaseName }).(pulumi.StringOutput)
 }
 
+func (o SettingsPropertiesIbmDb2LuwSettingsPropertiesOutput) EncryptionAlgorithm() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SettingsPropertiesIbmDb2LuwSettingsProperties) *int { return v.EncryptionAlgorithm }).(pulumi.IntPtrOutput)
+}
+
 func (o SettingsPropertiesIbmDb2LuwSettingsPropertiesOutput) Port() pulumi.IntOutput {
 	return o.ApplyT(func(v SettingsPropertiesIbmDb2LuwSettingsProperties) int { return v.Port }).(pulumi.IntOutput)
+}
+
+func (o SettingsPropertiesIbmDb2LuwSettingsPropertiesOutput) SecurityMechanism() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SettingsPropertiesIbmDb2LuwSettingsProperties) *int { return v.SecurityMechanism }).(pulumi.IntPtrOutput)
 }
 
 func (o SettingsPropertiesIbmDb2LuwSettingsPropertiesOutput) ServerName() pulumi.StringOutput {
@@ -8123,12 +8135,30 @@ func (o SettingsPropertiesIbmDb2LuwSettingsPropertiesPtrOutput) DatabaseName() p
 	}).(pulumi.StringPtrOutput)
 }
 
+func (o SettingsPropertiesIbmDb2LuwSettingsPropertiesPtrOutput) EncryptionAlgorithm() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SettingsPropertiesIbmDb2LuwSettingsProperties) *int {
+		if v == nil {
+			return nil
+		}
+		return v.EncryptionAlgorithm
+	}).(pulumi.IntPtrOutput)
+}
+
 func (o SettingsPropertiesIbmDb2LuwSettingsPropertiesPtrOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SettingsPropertiesIbmDb2LuwSettingsProperties) *int {
 		if v == nil {
 			return nil
 		}
 		return &v.Port
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o SettingsPropertiesIbmDb2LuwSettingsPropertiesPtrOutput) SecurityMechanism() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SettingsPropertiesIbmDb2LuwSettingsProperties) *int {
+		if v == nil {
+			return nil
+		}
+		return v.SecurityMechanism
 	}).(pulumi.IntPtrOutput)
 }
 
@@ -8529,11 +8559,15 @@ func (o SettingsPropertiesMariaDbSettingsPropertiesPtrOutput) SslMode() DataProv
 
 // MicrosoftSqlServerSettings property identifier.
 type SettingsPropertiesMicrosoftSqlServerSettingsProperties struct {
-	CertificateArn *string                     `pulumi:"certificateArn"`
-	DatabaseName   string                      `pulumi:"databaseName"`
-	Port           int                         `pulumi:"port"`
-	ServerName     string                      `pulumi:"serverName"`
-	SslMode        DataProviderDmsSslModeValue `pulumi:"sslMode"`
+	CertificateArn *string `pulumi:"certificateArn"`
+	DatabaseName   string  `pulumi:"databaseName"`
+	Port           int     `pulumi:"port"`
+	// The ARN for the role the application uses to access its Amazon S3 bucket.
+	S3AccessRoleArn *string `pulumi:"s3AccessRoleArn"`
+	// The path for the Amazon S3 bucket that the application uses for accessing the user-defined schema.
+	S3Path     *string                     `pulumi:"s3Path"`
+	ServerName string                      `pulumi:"serverName"`
+	SslMode    DataProviderDmsSslModeValue `pulumi:"sslMode"`
 }
 
 // SettingsPropertiesMicrosoftSqlServerSettingsPropertiesInput is an input type that accepts SettingsPropertiesMicrosoftSqlServerSettingsPropertiesArgs and SettingsPropertiesMicrosoftSqlServerSettingsPropertiesOutput values.
@@ -8549,11 +8583,15 @@ type SettingsPropertiesMicrosoftSqlServerSettingsPropertiesInput interface {
 
 // MicrosoftSqlServerSettings property identifier.
 type SettingsPropertiesMicrosoftSqlServerSettingsPropertiesArgs struct {
-	CertificateArn pulumi.StringPtrInput            `pulumi:"certificateArn"`
-	DatabaseName   pulumi.StringInput               `pulumi:"databaseName"`
-	Port           pulumi.IntInput                  `pulumi:"port"`
-	ServerName     pulumi.StringInput               `pulumi:"serverName"`
-	SslMode        DataProviderDmsSslModeValueInput `pulumi:"sslMode"`
+	CertificateArn pulumi.StringPtrInput `pulumi:"certificateArn"`
+	DatabaseName   pulumi.StringInput    `pulumi:"databaseName"`
+	Port           pulumi.IntInput       `pulumi:"port"`
+	// The ARN for the role the application uses to access its Amazon S3 bucket.
+	S3AccessRoleArn pulumi.StringPtrInput `pulumi:"s3AccessRoleArn"`
+	// The path for the Amazon S3 bucket that the application uses for accessing the user-defined schema.
+	S3Path     pulumi.StringPtrInput            `pulumi:"s3Path"`
+	ServerName pulumi.StringInput               `pulumi:"serverName"`
+	SslMode    DataProviderDmsSslModeValueInput `pulumi:"sslMode"`
 }
 
 func (SettingsPropertiesMicrosoftSqlServerSettingsPropertiesArgs) ElementType() reflect.Type {
@@ -8646,6 +8684,16 @@ func (o SettingsPropertiesMicrosoftSqlServerSettingsPropertiesOutput) Port() pul
 	return o.ApplyT(func(v SettingsPropertiesMicrosoftSqlServerSettingsProperties) int { return v.Port }).(pulumi.IntOutput)
 }
 
+// The ARN for the role the application uses to access its Amazon S3 bucket.
+func (o SettingsPropertiesMicrosoftSqlServerSettingsPropertiesOutput) S3AccessRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SettingsPropertiesMicrosoftSqlServerSettingsProperties) *string { return v.S3AccessRoleArn }).(pulumi.StringPtrOutput)
+}
+
+// The path for the Amazon S3 bucket that the application uses for accessing the user-defined schema.
+func (o SettingsPropertiesMicrosoftSqlServerSettingsPropertiesOutput) S3Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SettingsPropertiesMicrosoftSqlServerSettingsProperties) *string { return v.S3Path }).(pulumi.StringPtrOutput)
+}
+
 func (o SettingsPropertiesMicrosoftSqlServerSettingsPropertiesOutput) ServerName() pulumi.StringOutput {
 	return o.ApplyT(func(v SettingsPropertiesMicrosoftSqlServerSettingsProperties) string { return v.ServerName }).(pulumi.StringOutput)
 }
@@ -8705,6 +8753,26 @@ func (o SettingsPropertiesMicrosoftSqlServerSettingsPropertiesPtrOutput) Port() 
 		}
 		return &v.Port
 	}).(pulumi.IntPtrOutput)
+}
+
+// The ARN for the role the application uses to access its Amazon S3 bucket.
+func (o SettingsPropertiesMicrosoftSqlServerSettingsPropertiesPtrOutput) S3AccessRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SettingsPropertiesMicrosoftSqlServerSettingsProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.S3AccessRoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The path for the Amazon S3 bucket that the application uses for accessing the user-defined schema.
+func (o SettingsPropertiesMicrosoftSqlServerSettingsPropertiesPtrOutput) S3Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SettingsPropertiesMicrosoftSqlServerSettingsProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.S3Path
+	}).(pulumi.StringPtrOutput)
 }
 
 func (o SettingsPropertiesMicrosoftSqlServerSettingsPropertiesPtrOutput) ServerName() pulumi.StringPtrOutput {

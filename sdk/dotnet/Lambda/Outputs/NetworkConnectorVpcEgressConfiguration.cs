@@ -17,13 +17,13 @@ namespace Pulumi.AwsNative.Lambda.Outputs
     public sealed class NetworkConnectorVpcEgressConfiguration
     {
         /// <summary>
-        /// The types of Lambda compute resources that can use this connector. Currently, only MicroVm is supported.
+        /// The types of Lambda compute resources that can use this connector. Supported values are MicroVm and WebFunction.
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Lambda.NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItem> AssociatedComputeResourceTypes;
         /// <summary>
         /// The network protocol for the connector. Specify IPv4 for IPv4-only networking, or DualStack for both IPv4 and IPv6.
         /// </summary>
-        public readonly Pulumi.AwsNative.Lambda.NetworkConnectorVpcEgressConfigurationNetworkProtocol? NetworkProtocol;
+        public readonly Pulumi.AwsNative.Lambda.NetworkConnectorVpcEgressConfigurationNetworkProtocol NetworkProtocol;
         /// <summary>
         /// The IDs of the VPC security groups to attach to the ENIs. Specify 0 to 5 security groups. All security groups must be in the same VPC as the subnets.
         /// </summary>
@@ -37,7 +37,7 @@ namespace Pulumi.AwsNative.Lambda.Outputs
         private NetworkConnectorVpcEgressConfiguration(
             ImmutableArray<Pulumi.AwsNative.Lambda.NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItem> associatedComputeResourceTypes,
 
-            Pulumi.AwsNative.Lambda.NetworkConnectorVpcEgressConfigurationNetworkProtocol? networkProtocol,
+            Pulumi.AwsNative.Lambda.NetworkConnectorVpcEgressConfigurationNetworkProtocol networkProtocol,
 
             ImmutableArray<string> securityGroupIds,
 

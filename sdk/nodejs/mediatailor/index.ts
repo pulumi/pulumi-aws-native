@@ -50,6 +50,11 @@ export const getPrefetchSchedule: typeof import("./getPrefetchSchedule").getPref
 export const getPrefetchScheduleOutput: typeof import("./getPrefetchSchedule").getPrefetchScheduleOutput = null as any;
 utilities.lazyLoad(exports, ["getPrefetchSchedule","getPrefetchScheduleOutput"], () => require("./getPrefetchSchedule"));
 
+export { GetProgramArgs, GetProgramResult, GetProgramOutputArgs } from "./getProgram";
+export const getProgram: typeof import("./getProgram").getProgram = null as any;
+export const getProgramOutput: typeof import("./getProgram").getProgramOutput = null as any;
+utilities.lazyLoad(exports, ["getProgram","getProgramOutput"], () => require("./getProgram"));
+
 export { GetSourceLocationArgs, GetSourceLocationResult, GetSourceLocationOutputArgs } from "./getSourceLocation";
 export const getSourceLocation: typeof import("./getSourceLocation").getSourceLocation = null as any;
 export const getSourceLocationOutput: typeof import("./getSourceLocation").getSourceLocationOutput = null as any;
@@ -74,6 +79,11 @@ export { PrefetchScheduleArgs } from "./prefetchSchedule";
 export type PrefetchSchedule = import("./prefetchSchedule").PrefetchSchedule;
 export const PrefetchSchedule: typeof import("./prefetchSchedule").PrefetchSchedule = null as any;
 utilities.lazyLoad(exports, ["PrefetchSchedule"], () => require("./prefetchSchedule"));
+
+export { ProgramArgs } from "./program";
+export type Program = import("./program").Program;
+export const Program: typeof import("./program").Program = null as any;
+utilities.lazyLoad(exports, ["Program"], () => require("./program"));
 
 export { SourceLocationArgs } from "./sourceLocation";
 export type SourceLocation = import("./sourceLocation").SourceLocation;
@@ -105,6 +115,8 @@ const _module = {
                 return new PlaybackConfiguration(name, <any>undefined, { urn })
             case "aws-native:mediatailor:PrefetchSchedule":
                 return new PrefetchSchedule(name, <any>undefined, { urn })
+            case "aws-native:mediatailor:Program":
+                return new Program(name, <any>undefined, { urn })
             case "aws-native:mediatailor:SourceLocation":
                 return new SourceLocation(name, <any>undefined, { urn })
             case "aws-native:mediatailor:VodSource":

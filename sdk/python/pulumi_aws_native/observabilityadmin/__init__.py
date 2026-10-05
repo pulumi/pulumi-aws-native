@@ -7,6 +7,8 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from ._enums import *
+from .dataset_integration import *
+from .get_dataset_integration import *
 from .get_organization_centralization_rule import *
 from .get_organization_telemetry_rule import *
 from .get_s3_table_integration import *

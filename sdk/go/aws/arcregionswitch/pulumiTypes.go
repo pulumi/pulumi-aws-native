@@ -767,11 +767,12 @@ func (o PlanDocumentDbUngracefulPtrOutput) Ungraceful() PlanDocumentDbUngraceful
 }
 
 type PlanEc2AsgCapacityIncreaseConfiguration struct {
-	Asgs                       []PlanAsg          `pulumi:"asgs"`
-	CapacityMonitoringApproach interface{}        `pulumi:"capacityMonitoringApproach"`
-	TargetPercent              *float64           `pulumi:"targetPercent"`
-	TimeoutMinutes             *float64           `pulumi:"timeoutMinutes"`
-	Ungraceful                 *PlanEc2Ungraceful `pulumi:"ungraceful"`
+	Asgs                       []PlanAsg                      `pulumi:"asgs"`
+	CapacityMonitoringApproach interface{}                    `pulumi:"capacityMonitoringApproach"`
+	TargetPercent              *float64                       `pulumi:"targetPercent"`
+	TimeoutMinutes             *float64                       `pulumi:"timeoutMinutes"`
+	Ungraceful                 *PlanEc2Ungraceful             `pulumi:"ungraceful"`
+	WaitElbTargetGroupHealthy  *PlanWaitElbTargetGroupHealthy `pulumi:"waitElbTargetGroupHealthy"`
 }
 
 // PlanEc2AsgCapacityIncreaseConfigurationInput is an input type that accepts PlanEc2AsgCapacityIncreaseConfigurationArgs and PlanEc2AsgCapacityIncreaseConfigurationOutput values.
@@ -786,11 +787,12 @@ type PlanEc2AsgCapacityIncreaseConfigurationInput interface {
 }
 
 type PlanEc2AsgCapacityIncreaseConfigurationArgs struct {
-	Asgs                       PlanAsgArrayInput         `pulumi:"asgs"`
-	CapacityMonitoringApproach pulumi.Input              `pulumi:"capacityMonitoringApproach"`
-	TargetPercent              pulumi.Float64PtrInput    `pulumi:"targetPercent"`
-	TimeoutMinutes             pulumi.Float64PtrInput    `pulumi:"timeoutMinutes"`
-	Ungraceful                 PlanEc2UngracefulPtrInput `pulumi:"ungraceful"`
+	Asgs                       PlanAsgArrayInput                     `pulumi:"asgs"`
+	CapacityMonitoringApproach pulumi.Input                          `pulumi:"capacityMonitoringApproach"`
+	TargetPercent              pulumi.Float64PtrInput                `pulumi:"targetPercent"`
+	TimeoutMinutes             pulumi.Float64PtrInput                `pulumi:"timeoutMinutes"`
+	Ungraceful                 PlanEc2UngracefulPtrInput             `pulumi:"ungraceful"`
+	WaitElbTargetGroupHealthy  PlanWaitElbTargetGroupHealthyPtrInput `pulumi:"waitElbTargetGroupHealthy"`
 }
 
 func (PlanEc2AsgCapacityIncreaseConfigurationArgs) ElementType() reflect.Type {
@@ -837,6 +839,12 @@ func (o PlanEc2AsgCapacityIncreaseConfigurationOutput) TimeoutMinutes() pulumi.F
 
 func (o PlanEc2AsgCapacityIncreaseConfigurationOutput) Ungraceful() PlanEc2UngracefulPtrOutput {
 	return o.ApplyT(func(v PlanEc2AsgCapacityIncreaseConfiguration) *PlanEc2Ungraceful { return v.Ungraceful }).(PlanEc2UngracefulPtrOutput)
+}
+
+func (o PlanEc2AsgCapacityIncreaseConfigurationOutput) WaitElbTargetGroupHealthy() PlanWaitElbTargetGroupHealthyPtrOutput {
+	return o.ApplyT(func(v PlanEc2AsgCapacityIncreaseConfiguration) *PlanWaitElbTargetGroupHealthy {
+		return v.WaitElbTargetGroupHealthy
+	}).(PlanWaitElbTargetGroupHealthyPtrOutput)
 }
 
 type PlanEc2Ungraceful struct {
@@ -973,11 +981,12 @@ func (o PlanEc2UngracefulPtrOutput) MinimumSuccessPercentage() pulumi.Float64Ptr
 }
 
 type PlanEcsCapacityIncreaseConfiguration struct {
-	CapacityMonitoringApproach interface{}        `pulumi:"capacityMonitoringApproach"`
-	Services                   []PlanService      `pulumi:"services"`
-	TargetPercent              *float64           `pulumi:"targetPercent"`
-	TimeoutMinutes             *float64           `pulumi:"timeoutMinutes"`
-	Ungraceful                 *PlanEcsUngraceful `pulumi:"ungraceful"`
+	CapacityMonitoringApproach interface{}                    `pulumi:"capacityMonitoringApproach"`
+	Services                   []PlanService                  `pulumi:"services"`
+	TargetPercent              *float64                       `pulumi:"targetPercent"`
+	TimeoutMinutes             *float64                       `pulumi:"timeoutMinutes"`
+	Ungraceful                 *PlanEcsUngraceful             `pulumi:"ungraceful"`
+	WaitElbTargetGroupHealthy  *PlanWaitElbTargetGroupHealthy `pulumi:"waitElbTargetGroupHealthy"`
 }
 
 // PlanEcsCapacityIncreaseConfigurationInput is an input type that accepts PlanEcsCapacityIncreaseConfigurationArgs and PlanEcsCapacityIncreaseConfigurationOutput values.
@@ -992,11 +1001,12 @@ type PlanEcsCapacityIncreaseConfigurationInput interface {
 }
 
 type PlanEcsCapacityIncreaseConfigurationArgs struct {
-	CapacityMonitoringApproach pulumi.Input              `pulumi:"capacityMonitoringApproach"`
-	Services                   PlanServiceArrayInput     `pulumi:"services"`
-	TargetPercent              pulumi.Float64PtrInput    `pulumi:"targetPercent"`
-	TimeoutMinutes             pulumi.Float64PtrInput    `pulumi:"timeoutMinutes"`
-	Ungraceful                 PlanEcsUngracefulPtrInput `pulumi:"ungraceful"`
+	CapacityMonitoringApproach pulumi.Input                          `pulumi:"capacityMonitoringApproach"`
+	Services                   PlanServiceArrayInput                 `pulumi:"services"`
+	TargetPercent              pulumi.Float64PtrInput                `pulumi:"targetPercent"`
+	TimeoutMinutes             pulumi.Float64PtrInput                `pulumi:"timeoutMinutes"`
+	Ungraceful                 PlanEcsUngracefulPtrInput             `pulumi:"ungraceful"`
+	WaitElbTargetGroupHealthy  PlanWaitElbTargetGroupHealthyPtrInput `pulumi:"waitElbTargetGroupHealthy"`
 }
 
 func (PlanEcsCapacityIncreaseConfigurationArgs) ElementType() reflect.Type {
@@ -1043,6 +1053,12 @@ func (o PlanEcsCapacityIncreaseConfigurationOutput) TimeoutMinutes() pulumi.Floa
 
 func (o PlanEcsCapacityIncreaseConfigurationOutput) Ungraceful() PlanEcsUngracefulPtrOutput {
 	return o.ApplyT(func(v PlanEcsCapacityIncreaseConfiguration) *PlanEcsUngraceful { return v.Ungraceful }).(PlanEcsUngracefulPtrOutput)
+}
+
+func (o PlanEcsCapacityIncreaseConfigurationOutput) WaitElbTargetGroupHealthy() PlanWaitElbTargetGroupHealthyPtrOutput {
+	return o.ApplyT(func(v PlanEcsCapacityIncreaseConfiguration) *PlanWaitElbTargetGroupHealthy {
+		return v.WaitElbTargetGroupHealthy
+	}).(PlanWaitElbTargetGroupHealthyPtrOutput)
 }
 
 type PlanEcsUngraceful struct {

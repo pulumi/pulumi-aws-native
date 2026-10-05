@@ -16,6 +16,12 @@ namespace Pulumi.AwsNative.ElastiCache
     public partial class GlobalReplicationGroup : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// The ARN (Amazon Resource Name) of the Global Datastore.
+        /// </summary>
+        [Output("arn")]
+        public Output<string> Arn { get; private set; } = null!;
+
+        /// <summary>
         /// AutomaticFailoverEnabled
         /// </summary>
         [Output("automaticFailoverEnabled")]
@@ -86,6 +92,12 @@ namespace Pulumi.AwsNative.ElastiCache
         /// </summary>
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
+
+        /// <summary>
+        /// An array of key-value pairs to apply to this Global Datastore.
+        /// </summary>
+        [Output("tags")]
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -202,6 +214,18 @@ namespace Pulumi.AwsNative.ElastiCache
         {
             get => _regionalConfigurations ?? (_regionalConfigurations = new InputList<Inputs.GlobalReplicationGroupRegionalConfigurationArgs>());
             set => _regionalConfigurations = value;
+        }
+
+        [Input("tags")]
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+
+        /// <summary>
+        /// An array of key-value pairs to apply to this Global Datastore.
+        /// </summary>
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
+        {
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            set => _tags = value;
         }
 
         public GlobalReplicationGroupArgs()

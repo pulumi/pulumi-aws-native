@@ -25,20 +25,12 @@ type Volume struct {
 	// The configuration of an Amazon FSx for OpenZFS volume.
 	OpenZfsConfiguration VolumeOpenZfsConfigurationPtrOutput `pulumi:"openZfsConfiguration"`
 	// Returns the volume's Amazon Resource Name (ARN).
-	//
-	// Example: `arn:aws:fsx:us-east-2:111122223333:volume/fs-0123456789abcdef9/fsvol-01234567891112223`
 	ResourceArn pulumi.StringOutput `pulumi:"resourceArn"`
-	// An array of key-value pairs to apply to this resource.
-	//
-	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+	// One or more tags.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
-	// Returns the volume's universally unique identifier (UUID).
-	//
-	// Example: `abcd0123-cd45-ef67-11aa-1111aaaa23bc`
-	Uuid pulumi.StringOutput `pulumi:"uuid"`
 	// Returns the volume's ID.
-	//
-	// Example: `fsvol-0123456789abcdefa`
+	Uuid pulumi.StringOutput `pulumi:"uuid"`
+	// Returns the volume's universally unique identifier (UUID).
 	VolumeId pulumi.StringOutput `pulumi:"volumeId"`
 	// The type of the volume.
 	VolumeType pulumi.StringPtrOutput `pulumi:"volumeType"`
@@ -53,6 +45,13 @@ func NewVolume(ctx *pulumi.Context,
 
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"backupId",
+		"ontapConfiguration.aggregateConfiguration",
+		"ontapConfiguration.ontapVolumeType",
+		"ontapConfiguration.snaplockConfiguration.snaplockType",
+		"ontapConfiguration.storageVirtualMachineId",
+		"ontapConfiguration.volumeStyle",
+		"openZfsConfiguration.originSnapshot",
+		"openZfsConfiguration.parentVolumeId",
 		"volumeType",
 	})
 	opts = append(opts, replaceOnChanges)
@@ -97,9 +96,7 @@ type volumeArgs struct {
 	OntapConfiguration *VolumeOntapConfiguration `pulumi:"ontapConfiguration"`
 	// The configuration of an Amazon FSx for OpenZFS volume.
 	OpenZfsConfiguration *VolumeOpenZfsConfiguration `pulumi:"openZfsConfiguration"`
-	// An array of key-value pairs to apply to this resource.
-	//
-	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+	// One or more tags.
 	Tags []aws.Tag `pulumi:"tags"`
 	// The type of the volume.
 	VolumeType *string `pulumi:"volumeType"`
@@ -115,9 +112,7 @@ type VolumeArgs struct {
 	OntapConfiguration VolumeOntapConfigurationPtrInput
 	// The configuration of an Amazon FSx for OpenZFS volume.
 	OpenZfsConfiguration VolumeOpenZfsConfigurationPtrInput
-	// An array of key-value pairs to apply to this resource.
-	//
-	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+	// One or more tags.
 	Tags aws.TagArrayInput
 	// The type of the volume.
 	VolumeType pulumi.StringPtrInput
@@ -181,29 +176,21 @@ func (o VolumeOutput) OpenZfsConfiguration() VolumeOpenZfsConfigurationPtrOutput
 }
 
 // Returns the volume's Amazon Resource Name (ARN).
-//
-// Example: `arn:aws:fsx:us-east-2:111122223333:volume/fs-0123456789abcdef9/fsvol-01234567891112223`
 func (o VolumeOutput) ResourceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Volume) pulumi.StringOutput { return v.ResourceArn }).(pulumi.StringOutput)
 }
 
-// An array of key-value pairs to apply to this resource.
-//
-// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+// One or more tags.
 func (o VolumeOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *Volume) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
-// Returns the volume's universally unique identifier (UUID).
-//
-// Example: `abcd0123-cd45-ef67-11aa-1111aaaa23bc`
+// Returns the volume's ID.
 func (o VolumeOutput) Uuid() pulumi.StringOutput {
 	return o.ApplyT(func(v *Volume) pulumi.StringOutput { return v.Uuid }).(pulumi.StringOutput)
 }
 
-// Returns the volume's ID.
-//
-// Example: `fsvol-0123456789abcdefa`
+// Returns the volume's universally unique identifier (UUID).
 func (o VolumeOutput) VolumeId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Volume) pulumi.StringOutput { return v.VolumeId }).(pulumi.StringOutput)
 }

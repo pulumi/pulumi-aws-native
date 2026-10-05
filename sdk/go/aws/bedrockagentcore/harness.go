@@ -37,6 +37,8 @@ type Harness struct {
 	HarnessId pulumi.StringOutput `pulumi:"harnessId"`
 	// The name of the harness.
 	HarnessName pulumi.StringOutput `pulumi:"harnessName"`
+	// Lifecycle hooks that fire at well-defined points in the agent loop for policy enforcement, audit, and governance.
+	Hooks HarnessHookArrayOutput `pulumi:"hooks"`
 	// The maximum number of iterations the agent loop can execute per invocation.
 	MaxIterations pulumi.IntPtrOutput `pulumi:"maxIterations"`
 	// The maximum number of tokens the agent can generate per iteration.
@@ -130,6 +132,8 @@ type harnessArgs struct {
 	ExecutionRoleArn string `pulumi:"executionRoleArn"`
 	// The name of the harness.
 	HarnessName *string `pulumi:"harnessName"`
+	// Lifecycle hooks that fire at well-defined points in the agent loop for policy enforcement, audit, and governance.
+	Hooks []HarnessHook `pulumi:"hooks"`
 	// The maximum number of iterations the agent loop can execute per invocation.
 	MaxIterations *int `pulumi:"maxIterations"`
 	// The maximum number of tokens the agent can generate per iteration.
@@ -168,6 +172,8 @@ type HarnessArgs struct {
 	ExecutionRoleArn pulumi.StringInput
 	// The name of the harness.
 	HarnessName pulumi.StringPtrInput
+	// Lifecycle hooks that fire at well-defined points in the agent loop for policy enforcement, audit, and governance.
+	Hooks HarnessHookArrayInput
 	// The maximum number of iterations the agent loop can execute per invocation.
 	MaxIterations pulumi.IntPtrInput
 	// The maximum number of tokens the agent can generate per iteration.
@@ -275,6 +281,11 @@ func (o HarnessOutput) HarnessId() pulumi.StringOutput {
 // The name of the harness.
 func (o HarnessOutput) HarnessName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Harness) pulumi.StringOutput { return v.HarnessName }).(pulumi.StringOutput)
+}
+
+// Lifecycle hooks that fire at well-defined points in the agent loop for policy enforcement, audit, and governance.
+func (o HarnessOutput) Hooks() HarnessHookArrayOutput {
+	return o.ApplyT(func(v *Harness) HarnessHookArrayOutput { return v.Hooks }).(HarnessHookArrayOutput)
 }
 
 // The maximum number of iterations the agent loop can execute per invocation.

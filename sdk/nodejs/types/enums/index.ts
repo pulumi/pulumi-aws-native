@@ -15,6 +15,7 @@ import * as appintegrations from "./appintegrations";
 import * as applicationinsights from "./applicationinsights";
 import * as applicationsignals from "./applicationsignals";
 import * as apprunner from "./apprunner";
+import * as appstream from "./appstream";
 import * as appsync from "./appsync";
 import * as aps from "./aps";
 import * as arcregionswitch from "./arcregionswitch";
@@ -69,6 +70,7 @@ import * as deadline from "./deadline";
 import * as devicefarm from "./devicefarm";
 import * as devopsagent from "./devopsagent";
 import * as devopsguru from "./devopsguru";
+import * as directoryservice from "./directoryservice";
 import * as dms from "./dms";
 import * as docdb from "./docdb";
 import * as docdbelastic from "./docdbelastic";
@@ -255,6 +257,7 @@ export {
     applicationinsights,
     applicationsignals,
     apprunner,
+    appstream,
     appsync,
     aps,
     arcregionswitch,
@@ -309,6 +312,7 @@ export {
     devicefarm,
     devopsagent,
     devopsguru,
+    directoryservice,
     dms,
     docdb,
     docdbelastic,

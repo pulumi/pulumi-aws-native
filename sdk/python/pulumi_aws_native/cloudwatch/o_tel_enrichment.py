@@ -13,17 +13,51 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
 from ._enums import *
+from ._inputs import *
 
 __all__ = ['OTelEnrichmentArgs', 'OTelEnrichment']
 
 @pulumi.input_type
 class OTelEnrichmentArgs:
-    def __init__(__self__):
+    def __init__(__self__, *,
+                 exclude_filters: pulumi.Input[Optional[Sequence[pulumi.Input['OTelEnrichmentMetricSelectorArgs']]]] = None,
+                 include_filters: pulumi.Input[Optional[Sequence[pulumi.Input['OTelEnrichmentMetricSelectorArgs']]]] = None):
         """
         The set of arguments for constructing a OTelEnrichment resource.
+
+        :param pulumi.Input[Sequence[pulumi.Input['OTelEnrichmentMetricSelectorArgs']]] exclude_filters: Removes metrics from the include set. Absent or empty means nothing is removed. Evaluated after IncludeFilters, so ExcludeFilters always wins.
+        :param pulumi.Input[Sequence[pulumi.Input['OTelEnrichmentMetricSelectorArgs']]] include_filters: Scopes enrichment to a subset of the account's telemetry. Absent or empty means all namespaces are in scope. Present means only these are. The service enforces a combined cap of 100 selectors across IncludeFilters and ExcludeFilters, and rejects more than one selector for the same namespace within a direction.
         """
-        pass
+        if exclude_filters is not None:
+            pulumi.set(__self__, "exclude_filters", exclude_filters)
+        if include_filters is not None:
+            pulumi.set(__self__, "include_filters", include_filters)
+
+    @_builtins.property
+    @pulumi.getter(name="excludeFilters")
+    def exclude_filters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['OTelEnrichmentMetricSelectorArgs']]]]:
+        """
+        Removes metrics from the include set. Absent or empty means nothing is removed. Evaluated after IncludeFilters, so ExcludeFilters always wins.
+        """
+        return pulumi.get(self, "exclude_filters")
+
+    @exclude_filters.setter
+    def exclude_filters(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['OTelEnrichmentMetricSelectorArgs']]]]):
+        pulumi.set(self, "exclude_filters", value)
+
+    @_builtins.property
+    @pulumi.getter(name="includeFilters")
+    def include_filters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['OTelEnrichmentMetricSelectorArgs']]]]:
+        """
+        Scopes enrichment to a subset of the account's telemetry. Absent or empty means all namespaces are in scope. Present means only these are. The service enforces a combined cap of 100 selectors across IncludeFilters and ExcludeFilters, and rejects more than one selector for the same namespace within a direction.
+        """
+        return pulumi.get(self, "include_filters")
+
+    @include_filters.setter
+    def include_filters(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['OTelEnrichmentMetricSelectorArgs']]]]):
+        pulumi.set(self, "include_filters", value)
 
 
 @pulumi.type_token("aws-native:cloudwatch:OTelEnrichment")
@@ -32,12 +66,16 @@ class OTelEnrichment(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 exclude_filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OTelEnrichmentMetricSelectorArgs', 'OTelEnrichmentMetricSelectorArgsDict']]]]] = None,
+                 include_filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OTelEnrichmentMetricSelectorArgs', 'OTelEnrichmentMetricSelectorArgsDict']]]]] = None,
                  __props__=None):
         """
         AWS::CloudWatch::OTelEnrichment enables OTel metric enrichment in CloudWatch, allowing CloudWatch vended metrics to be available for PromQL querying enriched with AWS resource tags and metadata.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['OTelEnrichmentMetricSelectorArgs', 'OTelEnrichmentMetricSelectorArgsDict']]]] exclude_filters: Removes metrics from the include set. Absent or empty means nothing is removed. Evaluated after IncludeFilters, so ExcludeFilters always wins.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['OTelEnrichmentMetricSelectorArgs', 'OTelEnrichmentMetricSelectorArgsDict']]]] include_filters: Scopes enrichment to a subset of the account's telemetry. Absent or empty means all namespaces are in scope. Present means only these are. The service enforces a combined cap of 100 selectors across IncludeFilters and ExcludeFilters, and rejects more than one selector for the same namespace within a direction.
         """
         ...
     @overload
@@ -63,6 +101,8 @@ class OTelEnrichment(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 exclude_filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OTelEnrichmentMetricSelectorArgs', 'OTelEnrichmentMetricSelectorArgsDict']]]]] = None,
+                 include_filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OTelEnrichmentMetricSelectorArgs', 'OTelEnrichmentMetricSelectorArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -72,6 +112,8 @@ class OTelEnrichment(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = OTelEnrichmentArgs.__new__(OTelEnrichmentArgs)
 
+            __props__.__dict__["exclude_filters"] = exclude_filters
+            __props__.__dict__["include_filters"] = include_filters
             __props__.__dict__["account_id"] = None
             __props__.__dict__["status"] = None
         super(OTelEnrichment, __self__).__init__(
@@ -97,6 +139,8 @@ class OTelEnrichment(pulumi.CustomResource):
         __props__ = OTelEnrichmentArgs.__new__(OTelEnrichmentArgs)
 
         __props__.__dict__["account_id"] = None
+        __props__.__dict__["exclude_filters"] = None
+        __props__.__dict__["include_filters"] = None
         __props__.__dict__["status"] = None
         return OTelEnrichment(resource_name, opts=opts, __props__=__props__)
 
@@ -107,6 +151,22 @@ class OTelEnrichment(pulumi.CustomResource):
         The AWS account ID. This is the primary identifier for this singleton resource.
         """
         return pulumi.get(self, "account_id")
+
+    @_builtins.property
+    @pulumi.getter(name="excludeFilters")
+    def exclude_filters(self) -> pulumi.Output[Optional[Sequence['outputs.OTelEnrichmentMetricSelector']]]:
+        """
+        Removes metrics from the include set. Absent or empty means nothing is removed. Evaluated after IncludeFilters, so ExcludeFilters always wins.
+        """
+        return pulumi.get(self, "exclude_filters")
+
+    @_builtins.property
+    @pulumi.getter(name="includeFilters")
+    def include_filters(self) -> pulumi.Output[Optional[Sequence['outputs.OTelEnrichmentMetricSelector']]]:
+        """
+        Scopes enrichment to a subset of the account's telemetry. Absent or empty means all namespaces are in scope. Present means only these are. The service enforces a combined cap of 100 selectors across IncludeFilters and ExcludeFilters, and rejects more than one selector for the same namespace within a direction.
+        """
+        return pulumi.get(self, "include_filters")
 
     @_builtins.property
     @pulumi.getter

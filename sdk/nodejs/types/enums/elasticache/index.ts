@@ -35,6 +35,16 @@ export const ReplicationGroupEffectiveDurability = {
  */
 export type ReplicationGroupEffectiveDurability = (typeof ReplicationGroupEffectiveDurability)[keyof typeof ReplicationGroupEffectiveDurability];
 
+export const ServerlessCacheConnectionType = {
+    Vpc: "vpc",
+    Public: "public",
+} as const;
+
+/**
+ * The connection type for the serverless cache. Valid values are vpc or public.
+ */
+export type ServerlessCacheConnectionType = (typeof ServerlessCacheConnectionType)[keyof typeof ServerlessCacheConnectionType];
+
 export const ServerlessCacheDataStorageUnit = {
     Gb: "GB",
 } as const;
@@ -54,6 +64,43 @@ export const ServerlessCacheNetworkType = {
  * The network type for the serverless cache. Valid values are ipv4, ipv6, or dual_stack.
  */
 export type ServerlessCacheNetworkType = (typeof ServerlessCacheNetworkType)[keyof typeof ServerlessCacheNetworkType];
+
+export const SnapshotAutomaticFailover = {
+    Enabled: "enabled",
+    Disabled: "disabled",
+    Enabling: "enabling",
+    Disabling: "disabling",
+} as const;
+
+/**
+ * Indicates the status of automatic failover for the source replication group.
+ */
+export type SnapshotAutomaticFailover = (typeof SnapshotAutomaticFailover)[keyof typeof SnapshotAutomaticFailover];
+
+export const SnapshotDataTiering = {
+    Enabled: "enabled",
+    Disabled: "disabled",
+} as const;
+
+/**
+ * Enables data tiering. Data tiering is only supported for replication groups using the r6gd node type.
+ */
+export type SnapshotDataTiering = (typeof SnapshotDataTiering)[keyof typeof SnapshotDataTiering];
+
+export const SnapshotStatus = {
+    Creating: "creating",
+    Available: "available",
+    Restoring: "restoring",
+    Copying: "copying",
+    Deleting: "deleting",
+    Failed: "failed",
+    Deleted: "deleted",
+} as const;
+
+/**
+ * The status of the snapshot. Valid values: creating | available | restoring | copying | deleting | failed | deleted.
+ */
+export type SnapshotStatus = (typeof SnapshotStatus)[keyof typeof SnapshotStatus];
 
 export const UserAuthenticationModePropertiesType = {
     Password: "password",

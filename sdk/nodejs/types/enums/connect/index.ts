@@ -178,7 +178,7 @@ export const EvaluationFormMetricConfigurationMetricType = {
 } as const;
 
 /**
- * The type of the metric.
+ * The type of metric. Currently, only ``BUSINESS_OUTCOME`` is supported.
  */
 export type EvaluationFormMetricConfigurationMetricType = (typeof EvaluationFormMetricConfigurationMetricType)[keyof typeof EvaluationFormMetricConfigurationMetricType];
 
@@ -453,12 +453,24 @@ export const IntegrationAssociationIntegrationType = {
     MessageProcessor: "MESSAGE_PROCESSOR",
     QMessageTemplates: "Q_MESSAGE_TEMPLATES",
     SesIdentity: "SES_IDENTITY",
+    Event: "EVENT",
 } as const;
 
 /**
  * Specifies the integration type to be associated with the instance
  */
 export type IntegrationAssociationIntegrationType = (typeof IntegrationAssociationIntegrationType)[keyof typeof IntegrationAssociationIntegrationType];
+
+export const IntegrationAssociationSourceType = {
+    Salesforce: "SALESFORCE",
+    Zendesk: "ZENDESK",
+    Cases: "CASES",
+} as const;
+
+/**
+ * The type of the data source. This is only supported for the EVENT integration type
+ */
+export type IntegrationAssociationSourceType = (typeof IntegrationAssociationSourceType)[keyof typeof IntegrationAssociationSourceType];
 
 export const MetricAvailableFilterType = {
     MetricLevel: "METRIC_LEVEL",
@@ -786,6 +798,16 @@ export const TrafficDistributionGroupStatus = {
  * The status of the traffic distribution group.
  */
 export type TrafficDistributionGroupStatus = (typeof TrafficDistributionGroupStatus)[keyof typeof TrafficDistributionGroupStatus];
+
+export const UseCaseType = {
+    RulesEvaluation: "RULES_EVALUATION",
+    ConnectCampaigns: "CONNECT_CAMPAIGNS",
+} as const;
+
+/**
+ * The type of use case to associate to the integration association.
+ */
+export type UseCaseType = (typeof UseCaseType)[keyof typeof UseCaseType];
 
 export const UserAfterContactWorkMode = {
     On: "ON",

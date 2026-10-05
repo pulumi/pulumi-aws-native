@@ -32673,7 +32673,7 @@ class AnalysisSheetLayoutGroup(dict):
 class AnalysisSheetLayoutGroupMember(dict):
     def __init__(__self__, *,
                  id: _builtins.str,
-                 type: Any):
+                 type: 'AnalysisSheetLayoutGroupMemberType'):
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "type", type)
 
@@ -32684,7 +32684,7 @@ class AnalysisSheetLayoutGroupMember(dict):
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Any:
+    def type(self) -> 'AnalysisSheetLayoutGroupMemberType':
         return pulumi.get(self, "type")
 
 
@@ -72446,7 +72446,7 @@ class DashboardSheetLayoutGroup(dict):
 class DashboardSheetLayoutGroupMember(dict):
     def __init__(__self__, *,
                  id: _builtins.str,
-                 type: Any):
+                 type: 'DashboardSheetLayoutGroupMemberType'):
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "type", type)
 
@@ -72457,7 +72457,7 @@ class DashboardSheetLayoutGroupMember(dict):
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Any:
+    def type(self) -> 'DashboardSheetLayoutGroupMemberType':
         return pulumi.get(self, "type")
 
 
@@ -118283,7 +118283,7 @@ class TemplateSheetLayoutGroup(dict):
 class TemplateSheetLayoutGroupMember(dict):
     def __init__(__self__, *,
                  id: _builtins.str,
-                 type: Any):
+                 type: 'TemplateSheetLayoutGroupMemberType'):
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "type", type)
 
@@ -118294,7 +118294,7 @@ class TemplateSheetLayoutGroupMember(dict):
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Any:
+    def type(self) -> 'TemplateSheetLayoutGroupMemberType':
         return pulumi.get(self, "type")
 
 

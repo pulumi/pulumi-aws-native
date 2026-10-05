@@ -99,6 +99,13 @@ export const PlanRoutingControlStateChange = {
 
 export type PlanRoutingControlStateChange = (typeof PlanRoutingControlStateChange)[keyof typeof PlanRoutingControlStateChange];
 
+export const PlanWaitElbTargetGroupHealthy = {
+    Enabled: "enabled",
+    Disabled: "disabled",
+} as const;
+
+export type PlanWaitElbTargetGroupHealthy = (typeof PlanWaitElbTargetGroupHealthy)[keyof typeof PlanWaitElbTargetGroupHealthy];
+
 export const PlanWorkflowTargetAction = {
     Activate: "activate",
     Deactivate: "deactivate",

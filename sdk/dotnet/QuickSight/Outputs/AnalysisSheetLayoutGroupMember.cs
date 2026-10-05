@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     public sealed class AnalysisSheetLayoutGroupMember
     {
         public readonly string Id;
-        public readonly object Type;
+        public readonly Pulumi.AwsNative.QuickSight.AnalysisSheetLayoutGroupMemberType Type;
 
         [OutputConstructor]
         private AnalysisSheetLayoutGroupMember(
             string id,
 
-            object type)
+            Pulumi.AwsNative.QuickSight.AnalysisSheetLayoutGroupMemberType type)
         {
             Id = id;
             Type = type;

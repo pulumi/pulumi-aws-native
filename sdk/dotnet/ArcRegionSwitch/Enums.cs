@@ -357,6 +357,34 @@ namespace Pulumi.AwsNative.ArcRegionSwitch
     }
 
     [EnumType]
+    public readonly struct PlanWaitElbTargetGroupHealthy : IEquatable<PlanWaitElbTargetGroupHealthy>
+    {
+        private readonly string _value;
+
+        private PlanWaitElbTargetGroupHealthy(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PlanWaitElbTargetGroupHealthy Enabled { get; } = new PlanWaitElbTargetGroupHealthy("enabled");
+        public static PlanWaitElbTargetGroupHealthy Disabled { get; } = new PlanWaitElbTargetGroupHealthy("disabled");
+
+        public static bool operator ==(PlanWaitElbTargetGroupHealthy left, PlanWaitElbTargetGroupHealthy right) => left.Equals(right);
+        public static bool operator !=(PlanWaitElbTargetGroupHealthy left, PlanWaitElbTargetGroupHealthy right) => !left.Equals(right);
+
+        public static explicit operator string(PlanWaitElbTargetGroupHealthy value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PlanWaitElbTargetGroupHealthy other && Equals(other);
+        public bool Equals(PlanWaitElbTargetGroupHealthy other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct PlanWorkflowTargetAction : IEquatable<PlanWorkflowTargetAction>
     {
         private readonly string _value;

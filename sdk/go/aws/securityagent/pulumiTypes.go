@@ -248,6 +248,343 @@ func (o AgentSpaceAwsResourcesPtrOutput) Vpcs() AgentSpaceVpcConfigArrayOutput {
 	}).(AgentSpaceVpcConfigArrayOutput)
 }
 
+// Azure DevOps repository capabilities
+type AgentSpaceAzureDevOpsCapabilitiesResource struct {
+	// Enables Code Review in the repository
+	LeaveComments *bool `pulumi:"leaveComments"`
+	// Enables creation of pull requests with automated fixes
+	RemediateCode *bool `pulumi:"remediateCode"`
+}
+
+// AgentSpaceAzureDevOpsCapabilitiesResourceInput is an input type that accepts AgentSpaceAzureDevOpsCapabilitiesResourceArgs and AgentSpaceAzureDevOpsCapabilitiesResourceOutput values.
+// You can construct a concrete instance of `AgentSpaceAzureDevOpsCapabilitiesResourceInput` via:
+//
+//	AgentSpaceAzureDevOpsCapabilitiesResourceArgs{...}
+type AgentSpaceAzureDevOpsCapabilitiesResourceInput interface {
+	pulumi.Input
+
+	ToAgentSpaceAzureDevOpsCapabilitiesResourceOutput() AgentSpaceAzureDevOpsCapabilitiesResourceOutput
+	ToAgentSpaceAzureDevOpsCapabilitiesResourceOutputWithContext(context.Context) AgentSpaceAzureDevOpsCapabilitiesResourceOutput
+}
+
+// Azure DevOps repository capabilities
+type AgentSpaceAzureDevOpsCapabilitiesResourceArgs struct {
+	// Enables Code Review in the repository
+	LeaveComments pulumi.BoolPtrInput `pulumi:"leaveComments"`
+	// Enables creation of pull requests with automated fixes
+	RemediateCode pulumi.BoolPtrInput `pulumi:"remediateCode"`
+}
+
+func (AgentSpaceAzureDevOpsCapabilitiesResourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentSpaceAzureDevOpsCapabilitiesResource)(nil)).Elem()
+}
+
+func (i AgentSpaceAzureDevOpsCapabilitiesResourceArgs) ToAgentSpaceAzureDevOpsCapabilitiesResourceOutput() AgentSpaceAzureDevOpsCapabilitiesResourceOutput {
+	return i.ToAgentSpaceAzureDevOpsCapabilitiesResourceOutputWithContext(context.Background())
+}
+
+func (i AgentSpaceAzureDevOpsCapabilitiesResourceArgs) ToAgentSpaceAzureDevOpsCapabilitiesResourceOutputWithContext(ctx context.Context) AgentSpaceAzureDevOpsCapabilitiesResourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentSpaceAzureDevOpsCapabilitiesResourceOutput)
+}
+
+func (i AgentSpaceAzureDevOpsCapabilitiesResourceArgs) ToAgentSpaceAzureDevOpsCapabilitiesResourcePtrOutput() AgentSpaceAzureDevOpsCapabilitiesResourcePtrOutput {
+	return i.ToAgentSpaceAzureDevOpsCapabilitiesResourcePtrOutputWithContext(context.Background())
+}
+
+func (i AgentSpaceAzureDevOpsCapabilitiesResourceArgs) ToAgentSpaceAzureDevOpsCapabilitiesResourcePtrOutputWithContext(ctx context.Context) AgentSpaceAzureDevOpsCapabilitiesResourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentSpaceAzureDevOpsCapabilitiesResourceOutput).ToAgentSpaceAzureDevOpsCapabilitiesResourcePtrOutputWithContext(ctx)
+}
+
+// AgentSpaceAzureDevOpsCapabilitiesResourcePtrInput is an input type that accepts AgentSpaceAzureDevOpsCapabilitiesResourceArgs, AgentSpaceAzureDevOpsCapabilitiesResourcePtr and AgentSpaceAzureDevOpsCapabilitiesResourcePtrOutput values.
+// You can construct a concrete instance of `AgentSpaceAzureDevOpsCapabilitiesResourcePtrInput` via:
+//
+//	        AgentSpaceAzureDevOpsCapabilitiesResourceArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentSpaceAzureDevOpsCapabilitiesResourcePtrInput interface {
+	pulumi.Input
+
+	ToAgentSpaceAzureDevOpsCapabilitiesResourcePtrOutput() AgentSpaceAzureDevOpsCapabilitiesResourcePtrOutput
+	ToAgentSpaceAzureDevOpsCapabilitiesResourcePtrOutputWithContext(context.Context) AgentSpaceAzureDevOpsCapabilitiesResourcePtrOutput
+}
+
+type agentSpaceAzureDevOpsCapabilitiesResourcePtrType AgentSpaceAzureDevOpsCapabilitiesResourceArgs
+
+func AgentSpaceAzureDevOpsCapabilitiesResourcePtr(v *AgentSpaceAzureDevOpsCapabilitiesResourceArgs) AgentSpaceAzureDevOpsCapabilitiesResourcePtrInput {
+	return (*agentSpaceAzureDevOpsCapabilitiesResourcePtrType)(v)
+}
+
+func (*agentSpaceAzureDevOpsCapabilitiesResourcePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentSpaceAzureDevOpsCapabilitiesResource)(nil)).Elem()
+}
+
+func (i *agentSpaceAzureDevOpsCapabilitiesResourcePtrType) ToAgentSpaceAzureDevOpsCapabilitiesResourcePtrOutput() AgentSpaceAzureDevOpsCapabilitiesResourcePtrOutput {
+	return i.ToAgentSpaceAzureDevOpsCapabilitiesResourcePtrOutputWithContext(context.Background())
+}
+
+func (i *agentSpaceAzureDevOpsCapabilitiesResourcePtrType) ToAgentSpaceAzureDevOpsCapabilitiesResourcePtrOutputWithContext(ctx context.Context) AgentSpaceAzureDevOpsCapabilitiesResourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentSpaceAzureDevOpsCapabilitiesResourcePtrOutput)
+}
+
+// Azure DevOps repository capabilities
+type AgentSpaceAzureDevOpsCapabilitiesResourceOutput struct{ *pulumi.OutputState }
+
+func (AgentSpaceAzureDevOpsCapabilitiesResourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentSpaceAzureDevOpsCapabilitiesResource)(nil)).Elem()
+}
+
+func (o AgentSpaceAzureDevOpsCapabilitiesResourceOutput) ToAgentSpaceAzureDevOpsCapabilitiesResourceOutput() AgentSpaceAzureDevOpsCapabilitiesResourceOutput {
+	return o
+}
+
+func (o AgentSpaceAzureDevOpsCapabilitiesResourceOutput) ToAgentSpaceAzureDevOpsCapabilitiesResourceOutputWithContext(ctx context.Context) AgentSpaceAzureDevOpsCapabilitiesResourceOutput {
+	return o
+}
+
+func (o AgentSpaceAzureDevOpsCapabilitiesResourceOutput) ToAgentSpaceAzureDevOpsCapabilitiesResourcePtrOutput() AgentSpaceAzureDevOpsCapabilitiesResourcePtrOutput {
+	return o.ToAgentSpaceAzureDevOpsCapabilitiesResourcePtrOutputWithContext(context.Background())
+}
+
+func (o AgentSpaceAzureDevOpsCapabilitiesResourceOutput) ToAgentSpaceAzureDevOpsCapabilitiesResourcePtrOutputWithContext(ctx context.Context) AgentSpaceAzureDevOpsCapabilitiesResourcePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentSpaceAzureDevOpsCapabilitiesResource) *AgentSpaceAzureDevOpsCapabilitiesResource {
+		return &v
+	}).(AgentSpaceAzureDevOpsCapabilitiesResourcePtrOutput)
+}
+
+// Enables Code Review in the repository
+func (o AgentSpaceAzureDevOpsCapabilitiesResourceOutput) LeaveComments() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AgentSpaceAzureDevOpsCapabilitiesResource) *bool { return v.LeaveComments }).(pulumi.BoolPtrOutput)
+}
+
+// Enables creation of pull requests with automated fixes
+func (o AgentSpaceAzureDevOpsCapabilitiesResourceOutput) RemediateCode() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AgentSpaceAzureDevOpsCapabilitiesResource) *bool { return v.RemediateCode }).(pulumi.BoolPtrOutput)
+}
+
+type AgentSpaceAzureDevOpsCapabilitiesResourcePtrOutput struct{ *pulumi.OutputState }
+
+func (AgentSpaceAzureDevOpsCapabilitiesResourcePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentSpaceAzureDevOpsCapabilitiesResource)(nil)).Elem()
+}
+
+func (o AgentSpaceAzureDevOpsCapabilitiesResourcePtrOutput) ToAgentSpaceAzureDevOpsCapabilitiesResourcePtrOutput() AgentSpaceAzureDevOpsCapabilitiesResourcePtrOutput {
+	return o
+}
+
+func (o AgentSpaceAzureDevOpsCapabilitiesResourcePtrOutput) ToAgentSpaceAzureDevOpsCapabilitiesResourcePtrOutputWithContext(ctx context.Context) AgentSpaceAzureDevOpsCapabilitiesResourcePtrOutput {
+	return o
+}
+
+func (o AgentSpaceAzureDevOpsCapabilitiesResourcePtrOutput) Elem() AgentSpaceAzureDevOpsCapabilitiesResourceOutput {
+	return o.ApplyT(func(v *AgentSpaceAzureDevOpsCapabilitiesResource) AgentSpaceAzureDevOpsCapabilitiesResource {
+		if v != nil {
+			return *v
+		}
+		var ret AgentSpaceAzureDevOpsCapabilitiesResource
+		return ret
+	}).(AgentSpaceAzureDevOpsCapabilitiesResourceOutput)
+}
+
+// Enables Code Review in the repository
+func (o AgentSpaceAzureDevOpsCapabilitiesResourcePtrOutput) LeaveComments() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AgentSpaceAzureDevOpsCapabilitiesResource) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.LeaveComments
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Enables creation of pull requests with automated fixes
+func (o AgentSpaceAzureDevOpsCapabilitiesResourcePtrOutput) RemediateCode() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AgentSpaceAzureDevOpsCapabilitiesResource) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.RemediateCode
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Azure DevOps repository details
+type AgentSpaceAzureDevOpsRepositoryResource struct {
+	// Azure DevOps repository name
+	Name string `pulumi:"name"`
+	// Read-only Azure DevOps organization that owns the repository, populated from service-side metadata
+	Organization *string `pulumi:"organization"`
+	// Azure DevOps project that owns the repository
+	Project string `pulumi:"project"`
+}
+
+// AgentSpaceAzureDevOpsRepositoryResourceInput is an input type that accepts AgentSpaceAzureDevOpsRepositoryResourceArgs and AgentSpaceAzureDevOpsRepositoryResourceOutput values.
+// You can construct a concrete instance of `AgentSpaceAzureDevOpsRepositoryResourceInput` via:
+//
+//	AgentSpaceAzureDevOpsRepositoryResourceArgs{...}
+type AgentSpaceAzureDevOpsRepositoryResourceInput interface {
+	pulumi.Input
+
+	ToAgentSpaceAzureDevOpsRepositoryResourceOutput() AgentSpaceAzureDevOpsRepositoryResourceOutput
+	ToAgentSpaceAzureDevOpsRepositoryResourceOutputWithContext(context.Context) AgentSpaceAzureDevOpsRepositoryResourceOutput
+}
+
+// Azure DevOps repository details
+type AgentSpaceAzureDevOpsRepositoryResourceArgs struct {
+	// Azure DevOps repository name
+	Name pulumi.StringInput `pulumi:"name"`
+	// Read-only Azure DevOps organization that owns the repository, populated from service-side metadata
+	Organization pulumi.StringPtrInput `pulumi:"organization"`
+	// Azure DevOps project that owns the repository
+	Project pulumi.StringInput `pulumi:"project"`
+}
+
+func (AgentSpaceAzureDevOpsRepositoryResourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentSpaceAzureDevOpsRepositoryResource)(nil)).Elem()
+}
+
+func (i AgentSpaceAzureDevOpsRepositoryResourceArgs) ToAgentSpaceAzureDevOpsRepositoryResourceOutput() AgentSpaceAzureDevOpsRepositoryResourceOutput {
+	return i.ToAgentSpaceAzureDevOpsRepositoryResourceOutputWithContext(context.Background())
+}
+
+func (i AgentSpaceAzureDevOpsRepositoryResourceArgs) ToAgentSpaceAzureDevOpsRepositoryResourceOutputWithContext(ctx context.Context) AgentSpaceAzureDevOpsRepositoryResourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentSpaceAzureDevOpsRepositoryResourceOutput)
+}
+
+func (i AgentSpaceAzureDevOpsRepositoryResourceArgs) ToAgentSpaceAzureDevOpsRepositoryResourcePtrOutput() AgentSpaceAzureDevOpsRepositoryResourcePtrOutput {
+	return i.ToAgentSpaceAzureDevOpsRepositoryResourcePtrOutputWithContext(context.Background())
+}
+
+func (i AgentSpaceAzureDevOpsRepositoryResourceArgs) ToAgentSpaceAzureDevOpsRepositoryResourcePtrOutputWithContext(ctx context.Context) AgentSpaceAzureDevOpsRepositoryResourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentSpaceAzureDevOpsRepositoryResourceOutput).ToAgentSpaceAzureDevOpsRepositoryResourcePtrOutputWithContext(ctx)
+}
+
+// AgentSpaceAzureDevOpsRepositoryResourcePtrInput is an input type that accepts AgentSpaceAzureDevOpsRepositoryResourceArgs, AgentSpaceAzureDevOpsRepositoryResourcePtr and AgentSpaceAzureDevOpsRepositoryResourcePtrOutput values.
+// You can construct a concrete instance of `AgentSpaceAzureDevOpsRepositoryResourcePtrInput` via:
+//
+//	        AgentSpaceAzureDevOpsRepositoryResourceArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentSpaceAzureDevOpsRepositoryResourcePtrInput interface {
+	pulumi.Input
+
+	ToAgentSpaceAzureDevOpsRepositoryResourcePtrOutput() AgentSpaceAzureDevOpsRepositoryResourcePtrOutput
+	ToAgentSpaceAzureDevOpsRepositoryResourcePtrOutputWithContext(context.Context) AgentSpaceAzureDevOpsRepositoryResourcePtrOutput
+}
+
+type agentSpaceAzureDevOpsRepositoryResourcePtrType AgentSpaceAzureDevOpsRepositoryResourceArgs
+
+func AgentSpaceAzureDevOpsRepositoryResourcePtr(v *AgentSpaceAzureDevOpsRepositoryResourceArgs) AgentSpaceAzureDevOpsRepositoryResourcePtrInput {
+	return (*agentSpaceAzureDevOpsRepositoryResourcePtrType)(v)
+}
+
+func (*agentSpaceAzureDevOpsRepositoryResourcePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentSpaceAzureDevOpsRepositoryResource)(nil)).Elem()
+}
+
+func (i *agentSpaceAzureDevOpsRepositoryResourcePtrType) ToAgentSpaceAzureDevOpsRepositoryResourcePtrOutput() AgentSpaceAzureDevOpsRepositoryResourcePtrOutput {
+	return i.ToAgentSpaceAzureDevOpsRepositoryResourcePtrOutputWithContext(context.Background())
+}
+
+func (i *agentSpaceAzureDevOpsRepositoryResourcePtrType) ToAgentSpaceAzureDevOpsRepositoryResourcePtrOutputWithContext(ctx context.Context) AgentSpaceAzureDevOpsRepositoryResourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentSpaceAzureDevOpsRepositoryResourcePtrOutput)
+}
+
+// Azure DevOps repository details
+type AgentSpaceAzureDevOpsRepositoryResourceOutput struct{ *pulumi.OutputState }
+
+func (AgentSpaceAzureDevOpsRepositoryResourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentSpaceAzureDevOpsRepositoryResource)(nil)).Elem()
+}
+
+func (o AgentSpaceAzureDevOpsRepositoryResourceOutput) ToAgentSpaceAzureDevOpsRepositoryResourceOutput() AgentSpaceAzureDevOpsRepositoryResourceOutput {
+	return o
+}
+
+func (o AgentSpaceAzureDevOpsRepositoryResourceOutput) ToAgentSpaceAzureDevOpsRepositoryResourceOutputWithContext(ctx context.Context) AgentSpaceAzureDevOpsRepositoryResourceOutput {
+	return o
+}
+
+func (o AgentSpaceAzureDevOpsRepositoryResourceOutput) ToAgentSpaceAzureDevOpsRepositoryResourcePtrOutput() AgentSpaceAzureDevOpsRepositoryResourcePtrOutput {
+	return o.ToAgentSpaceAzureDevOpsRepositoryResourcePtrOutputWithContext(context.Background())
+}
+
+func (o AgentSpaceAzureDevOpsRepositoryResourceOutput) ToAgentSpaceAzureDevOpsRepositoryResourcePtrOutputWithContext(ctx context.Context) AgentSpaceAzureDevOpsRepositoryResourcePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentSpaceAzureDevOpsRepositoryResource) *AgentSpaceAzureDevOpsRepositoryResource {
+		return &v
+	}).(AgentSpaceAzureDevOpsRepositoryResourcePtrOutput)
+}
+
+// Azure DevOps repository name
+func (o AgentSpaceAzureDevOpsRepositoryResourceOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentSpaceAzureDevOpsRepositoryResource) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Read-only Azure DevOps organization that owns the repository, populated from service-side metadata
+func (o AgentSpaceAzureDevOpsRepositoryResourceOutput) Organization() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentSpaceAzureDevOpsRepositoryResource) *string { return v.Organization }).(pulumi.StringPtrOutput)
+}
+
+// Azure DevOps project that owns the repository
+func (o AgentSpaceAzureDevOpsRepositoryResourceOutput) Project() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentSpaceAzureDevOpsRepositoryResource) string { return v.Project }).(pulumi.StringOutput)
+}
+
+type AgentSpaceAzureDevOpsRepositoryResourcePtrOutput struct{ *pulumi.OutputState }
+
+func (AgentSpaceAzureDevOpsRepositoryResourcePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentSpaceAzureDevOpsRepositoryResource)(nil)).Elem()
+}
+
+func (o AgentSpaceAzureDevOpsRepositoryResourcePtrOutput) ToAgentSpaceAzureDevOpsRepositoryResourcePtrOutput() AgentSpaceAzureDevOpsRepositoryResourcePtrOutput {
+	return o
+}
+
+func (o AgentSpaceAzureDevOpsRepositoryResourcePtrOutput) ToAgentSpaceAzureDevOpsRepositoryResourcePtrOutputWithContext(ctx context.Context) AgentSpaceAzureDevOpsRepositoryResourcePtrOutput {
+	return o
+}
+
+func (o AgentSpaceAzureDevOpsRepositoryResourcePtrOutput) Elem() AgentSpaceAzureDevOpsRepositoryResourceOutput {
+	return o.ApplyT(func(v *AgentSpaceAzureDevOpsRepositoryResource) AgentSpaceAzureDevOpsRepositoryResource {
+		if v != nil {
+			return *v
+		}
+		var ret AgentSpaceAzureDevOpsRepositoryResource
+		return ret
+	}).(AgentSpaceAzureDevOpsRepositoryResourceOutput)
+}
+
+// Azure DevOps repository name
+func (o AgentSpaceAzureDevOpsRepositoryResourcePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentSpaceAzureDevOpsRepositoryResource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// Read-only Azure DevOps organization that owns the repository, populated from service-side metadata
+func (o AgentSpaceAzureDevOpsRepositoryResourcePtrOutput) Organization() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentSpaceAzureDevOpsRepositoryResource) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Organization
+	}).(pulumi.StringPtrOutput)
+}
+
+// Azure DevOps project that owns the repository
+func (o AgentSpaceAzureDevOpsRepositoryResourcePtrOutput) Project() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentSpaceAzureDevOpsRepositoryResource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Project
+	}).(pulumi.StringPtrOutput)
+}
+
 // Bitbucket repository capabilities
 type AgentSpaceBitbucketCapabilitiesResource struct {
 	// Enables Code Review in the repository
@@ -1866,14 +2203,16 @@ func (o AgentSpaceIntegratedResourceArrayOutput) Index(i pulumi.IntInput) AgentS
 
 // Selected Resource (eg: Code Repository, Document) from an Integration
 type AgentSpaceProviderResource struct {
-	BitbucketCapabilities  *AgentSpaceBitbucketCapabilitiesResource  `pulumi:"bitbucketCapabilities"`
-	BitbucketRepository    *AgentSpaceBitbucketRepositoryResource    `pulumi:"bitbucketRepository"`
-	ConfluenceCapabilities *AgentSpaceConfluenceCapabilitiesResource `pulumi:"confluenceCapabilities"`
-	ConfluenceDocument     *AgentSpaceConfluenceDocumentResource     `pulumi:"confluenceDocument"`
-	GitHubCapabilities     *AgentSpaceGitHubCapabilitiesResource     `pulumi:"gitHubCapabilities"`
-	GitHubRepository       *AgentSpaceGitHubRepositoryResource       `pulumi:"gitHubRepository"`
-	GitLabCapabilities     *AgentSpaceGitLabCapabilitiesResource     `pulumi:"gitLabCapabilities"`
-	GitLabRepository       *AgentSpaceGitLabRepositoryResource       `pulumi:"gitLabRepository"`
+	AzureDevOpsCapabilities *AgentSpaceAzureDevOpsCapabilitiesResource `pulumi:"azureDevOpsCapabilities"`
+	AzureDevOpsRepository   *AgentSpaceAzureDevOpsRepositoryResource   `pulumi:"azureDevOpsRepository"`
+	BitbucketCapabilities   *AgentSpaceBitbucketCapabilitiesResource   `pulumi:"bitbucketCapabilities"`
+	BitbucketRepository     *AgentSpaceBitbucketRepositoryResource     `pulumi:"bitbucketRepository"`
+	ConfluenceCapabilities  *AgentSpaceConfluenceCapabilitiesResource  `pulumi:"confluenceCapabilities"`
+	ConfluenceDocument      *AgentSpaceConfluenceDocumentResource      `pulumi:"confluenceDocument"`
+	GitHubCapabilities      *AgentSpaceGitHubCapabilitiesResource      `pulumi:"gitHubCapabilities"`
+	GitHubRepository        *AgentSpaceGitHubRepositoryResource        `pulumi:"gitHubRepository"`
+	GitLabCapabilities      *AgentSpaceGitLabCapabilitiesResource      `pulumi:"gitLabCapabilities"`
+	GitLabRepository        *AgentSpaceGitLabRepositoryResource        `pulumi:"gitLabRepository"`
 }
 
 // AgentSpaceProviderResourceInput is an input type that accepts AgentSpaceProviderResourceArgs and AgentSpaceProviderResourceOutput values.
@@ -1889,14 +2228,16 @@ type AgentSpaceProviderResourceInput interface {
 
 // Selected Resource (eg: Code Repository, Document) from an Integration
 type AgentSpaceProviderResourceArgs struct {
-	BitbucketCapabilities  AgentSpaceBitbucketCapabilitiesResourcePtrInput  `pulumi:"bitbucketCapabilities"`
-	BitbucketRepository    AgentSpaceBitbucketRepositoryResourcePtrInput    `pulumi:"bitbucketRepository"`
-	ConfluenceCapabilities AgentSpaceConfluenceCapabilitiesResourcePtrInput `pulumi:"confluenceCapabilities"`
-	ConfluenceDocument     AgentSpaceConfluenceDocumentResourcePtrInput     `pulumi:"confluenceDocument"`
-	GitHubCapabilities     AgentSpaceGitHubCapabilitiesResourcePtrInput     `pulumi:"gitHubCapabilities"`
-	GitHubRepository       AgentSpaceGitHubRepositoryResourcePtrInput       `pulumi:"gitHubRepository"`
-	GitLabCapabilities     AgentSpaceGitLabCapabilitiesResourcePtrInput     `pulumi:"gitLabCapabilities"`
-	GitLabRepository       AgentSpaceGitLabRepositoryResourcePtrInput       `pulumi:"gitLabRepository"`
+	AzureDevOpsCapabilities AgentSpaceAzureDevOpsCapabilitiesResourcePtrInput `pulumi:"azureDevOpsCapabilities"`
+	AzureDevOpsRepository   AgentSpaceAzureDevOpsRepositoryResourcePtrInput   `pulumi:"azureDevOpsRepository"`
+	BitbucketCapabilities   AgentSpaceBitbucketCapabilitiesResourcePtrInput   `pulumi:"bitbucketCapabilities"`
+	BitbucketRepository     AgentSpaceBitbucketRepositoryResourcePtrInput     `pulumi:"bitbucketRepository"`
+	ConfluenceCapabilities  AgentSpaceConfluenceCapabilitiesResourcePtrInput  `pulumi:"confluenceCapabilities"`
+	ConfluenceDocument      AgentSpaceConfluenceDocumentResourcePtrInput      `pulumi:"confluenceDocument"`
+	GitHubCapabilities      AgentSpaceGitHubCapabilitiesResourcePtrInput      `pulumi:"gitHubCapabilities"`
+	GitHubRepository        AgentSpaceGitHubRepositoryResourcePtrInput        `pulumi:"gitHubRepository"`
+	GitLabCapabilities      AgentSpaceGitLabCapabilitiesResourcePtrInput      `pulumi:"gitLabCapabilities"`
+	GitLabRepository        AgentSpaceGitLabRepositoryResourcePtrInput        `pulumi:"gitLabRepository"`
 }
 
 func (AgentSpaceProviderResourceArgs) ElementType() reflect.Type {
@@ -1949,6 +2290,18 @@ func (o AgentSpaceProviderResourceOutput) ToAgentSpaceProviderResourceOutput() A
 
 func (o AgentSpaceProviderResourceOutput) ToAgentSpaceProviderResourceOutputWithContext(ctx context.Context) AgentSpaceProviderResourceOutput {
 	return o
+}
+
+func (o AgentSpaceProviderResourceOutput) AzureDevOpsCapabilities() AgentSpaceAzureDevOpsCapabilitiesResourcePtrOutput {
+	return o.ApplyT(func(v AgentSpaceProviderResource) *AgentSpaceAzureDevOpsCapabilitiesResource {
+		return v.AzureDevOpsCapabilities
+	}).(AgentSpaceAzureDevOpsCapabilitiesResourcePtrOutput)
+}
+
+func (o AgentSpaceProviderResourceOutput) AzureDevOpsRepository() AgentSpaceAzureDevOpsRepositoryResourcePtrOutput {
+	return o.ApplyT(func(v AgentSpaceProviderResource) *AgentSpaceAzureDevOpsRepositoryResource {
+		return v.AzureDevOpsRepository
+	}).(AgentSpaceAzureDevOpsRepositoryResourcePtrOutput)
 }
 
 func (o AgentSpaceProviderResourceOutput) BitbucketCapabilities() AgentSpaceBitbucketCapabilitiesResourcePtrOutput {
@@ -4511,6 +4864,10 @@ func (o TargetDomainVerificationDetailsPtrOutput) Method() TargetDomainVerificat
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentSpaceAwsResourcesInput)(nil)).Elem(), AgentSpaceAwsResourcesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentSpaceAwsResourcesPtrInput)(nil)).Elem(), AgentSpaceAwsResourcesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentSpaceAzureDevOpsCapabilitiesResourceInput)(nil)).Elem(), AgentSpaceAzureDevOpsCapabilitiesResourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentSpaceAzureDevOpsCapabilitiesResourcePtrInput)(nil)).Elem(), AgentSpaceAzureDevOpsCapabilitiesResourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentSpaceAzureDevOpsRepositoryResourceInput)(nil)).Elem(), AgentSpaceAzureDevOpsRepositoryResourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentSpaceAzureDevOpsRepositoryResourcePtrInput)(nil)).Elem(), AgentSpaceAzureDevOpsRepositoryResourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentSpaceBitbucketCapabilitiesResourceInput)(nil)).Elem(), AgentSpaceBitbucketCapabilitiesResourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentSpaceBitbucketCapabilitiesResourcePtrInput)(nil)).Elem(), AgentSpaceBitbucketCapabilitiesResourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentSpaceBitbucketRepositoryResourceInput)(nil)).Elem(), AgentSpaceBitbucketRepositoryResourceArgs{})
@@ -4567,6 +4924,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SecurityRequirementPackSecurityRequirementArrayInput)(nil)).Elem(), SecurityRequirementPackSecurityRequirementArray{})
 	pulumi.RegisterOutputType(AgentSpaceAwsResourcesOutput{})
 	pulumi.RegisterOutputType(AgentSpaceAwsResourcesPtrOutput{})
+	pulumi.RegisterOutputType(AgentSpaceAzureDevOpsCapabilitiesResourceOutput{})
+	pulumi.RegisterOutputType(AgentSpaceAzureDevOpsCapabilitiesResourcePtrOutput{})
+	pulumi.RegisterOutputType(AgentSpaceAzureDevOpsRepositoryResourceOutput{})
+	pulumi.RegisterOutputType(AgentSpaceAzureDevOpsRepositoryResourcePtrOutput{})
 	pulumi.RegisterOutputType(AgentSpaceBitbucketCapabilitiesResourceOutput{})
 	pulumi.RegisterOutputType(AgentSpaceBitbucketCapabilitiesResourcePtrOutput{})
 	pulumi.RegisterOutputType(AgentSpaceBitbucketRepositoryResourceOutput{})

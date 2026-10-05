@@ -68,13 +68,9 @@ namespace Pulumi.AwsNative.Ec2
         /// </summary>
         public readonly string? CapacityReservationFleetId;
         /// <summary>
-        /// Used to add an end date to a Capacity Reservation Fleet that has no end date and time. To add an end date to a Capacity Reservation Fleet, specify `true` for this paramater and specify the end date and time (in UTC time format) for the *EndDate* parameter.
+        /// The tags to assign to the Capacity Reservation Fleet. The tags are automatically assigned to the Capacity Reservations in the Fleet.
         /// </summary>
-        public readonly bool? NoRemoveEndDate;
-        /// <summary>
-        /// Used to remove an end date from a Capacity Reservation Fleet that is configured to end automatically at a specific date and time. To remove the end date from a Capacity Reservation Fleet, specify `true` for this paramater and omit the *EndDate* parameter.
-        /// </summary>
-        public readonly bool? RemoveEndDate;
+        public readonly ImmutableArray<Outputs.CapacityReservationFleetTagSpecification> TagSpecifications;
         /// <summary>
         /// The total number of capacity units to be reserved by the Capacity Reservation Fleet. This value, together with the instance type weights that you assign to each instance type used by the Fleet determine the number of instances for which the Fleet reserves capacity. Both values are based on units that make sense for your workload. For more information, see [Total target capacity](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/crfleet-concepts.html#target-capacity) in the *Amazon EC2 User Guide* .
         /// </summary>
@@ -84,15 +80,12 @@ namespace Pulumi.AwsNative.Ec2
         private GetCapacityReservationFleetResult(
             string? capacityReservationFleetId,
 
-            bool? noRemoveEndDate,
-
-            bool? removeEndDate,
+            ImmutableArray<Outputs.CapacityReservationFleetTagSpecification> tagSpecifications,
 
             int? totalTargetCapacity)
         {
             CapacityReservationFleetId = capacityReservationFleetId;
-            NoRemoveEndDate = noRemoveEndDate;
-            RemoveEndDate = removeEndDate;
+            TagSpecifications = tagSpecifications;
             TotalTargetCapacity = totalTargetCapacity;
         }
     }

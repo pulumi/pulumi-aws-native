@@ -13,13 +13,13 @@ namespace Pulumi.AwsNative.DataZone.Outputs
     [OutputType]
     public sealed class PolicyGrantProjectPolicyGrantPrincipal
     {
-        public readonly Pulumi.AwsNative.DataZone.PolicyGrantProjectDesignation? ProjectDesignation;
+        public readonly string? ProjectDesignation;
         public readonly Outputs.PolicyGrantProjectGrantFilterProperties? ProjectGrantFilter;
         public readonly string? ProjectIdentifier;
 
         [OutputConstructor]
         private PolicyGrantProjectPolicyGrantPrincipal(
-            Pulumi.AwsNative.DataZone.PolicyGrantProjectDesignation? projectDesignation,
+            string? projectDesignation,
 
             Outputs.PolicyGrantProjectGrantFilterProperties? projectGrantFilter,
 

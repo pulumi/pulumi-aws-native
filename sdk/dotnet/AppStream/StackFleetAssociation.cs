@@ -15,21 +15,14 @@ namespace Pulumi.AwsNative.AppStream
     [AwsNativeResourceType("aws-native:appstream:StackFleetAssociation")]
     public partial class StackFleetAssociation : global::Pulumi.CustomResource
     {
-        [Output("awsId")]
-        public Output<string> AwsId { get; private set; } = null!;
-
         /// <summary>
-        /// The name of the fleet.
-        /// 
-        /// To associate a fleet with a stack, you must specify a dependency on the fleet resource. For more information, see [DependsOn Attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html) .
+        /// The name of the fleet. To associate a fleet with a stack, you must specify a dependency on the fleet resource.
         /// </summary>
         [Output("fleetName")]
         public Output<string> FleetName { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the stack.
-        /// 
-        /// To associate a fleet with a stack, you must specify a dependency on the stack resource. For more information, see [DependsOn Attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html) .
+        /// The name of the stack. To associate a fleet with a stack, you must specify a dependency on the stack resource.
         /// </summary>
         [Output("stackName")]
         public Output<string> StackName { get; private set; } = null!;
@@ -57,6 +50,11 @@ namespace Pulumi.AwsNative.AppStream
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                ReplaceOnChanges =
+                {
+                    "fleetName",
+                    "stackName",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -80,17 +78,13 @@ namespace Pulumi.AwsNative.AppStream
     public sealed class StackFleetAssociationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the fleet.
-        /// 
-        /// To associate a fleet with a stack, you must specify a dependency on the fleet resource. For more information, see [DependsOn Attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html) .
+        /// The name of the fleet. To associate a fleet with a stack, you must specify a dependency on the fleet resource.
         /// </summary>
         [Input("fleetName", required: true)]
         public Input<string> FleetName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the stack.
-        /// 
-        /// To associate a fleet with a stack, you must specify a dependency on the stack resource. For more information, see [DependsOn Attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html) .
+        /// The name of the stack. To associate a fleet with a stack, you must specify a dependency on the stack resource.
         /// </summary>
         [Input("stackName", required: true)]
         public Input<string> StackName { get; set; } = null!;

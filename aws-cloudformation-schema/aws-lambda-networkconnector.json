@@ -3,7 +3,7 @@
   "description" : "Resource Type definition for AWS::Lambda::NetworkConnector",
   "primaryIdentifier" : [ "/properties/Arn" ],
   "additionalIdentifiers" : [ [ "/properties/Name" ] ],
-  "readOnlyProperties" : [ "/properties/Arn", "/properties/State" ],
+  "readOnlyProperties" : [ "/properties/Arn", "/properties/State", "/properties/LatestVersionArn", "/properties/LatestVersion" ],
   "createOnlyProperties" : [ "/properties/Name" ],
   "definitions" : {
     "Arn" : {
@@ -11,14 +11,26 @@
       "type" : "string",
       "maxLength" : 140,
       "minLength" : 1,
-      "pattern" : "^(arn:aws[a-zA-Z-]*:lambda:(eusc-)?[a-z]{2}((-gov)|(-iso([a-z]?)))?-[a-z]+-\\d{1}:\\d{12}:network-connector:[a-zA-Z0-9-_]+(:[1-9]|[1-9][0-9]+)?)$"
+      "pattern" : "^(arn:aws[a-zA-Z-]*:lambda:(eusc-)?[a-z]{2}((-gov)|(-iso([a-z]?)))?-[a-z]+-\\d{1}:\\d{12}:network-connector:[a-zA-Z0-9-_]+(:[1-9][0-9]*)?)$"
+    },
+    "LatestVersionArn" : {
+      "description" : "The qualified Amazon Resource Name (ARN) of the network connector's latest version. Includes the immutable version suffix and can be used to pin to a specific version.",
+      "type" : "string",
+      "maxLength" : 140,
+      "minLength" : 1,
+      "pattern" : "^(arn:aws[a-zA-Z-]*:lambda:(eusc-)?[a-z]{2}((-gov)|(-iso([a-z]?)))?-[a-z]+-\\d{1}:\\d{12}:network-connector:[a-zA-Z0-9-_]+(:[1-9][0-9]*)?)$"
+    },
+    "LatestVersion" : {
+      "description" : "The version number of the network connector's latest version. Updates to the connector's configuration create a new immutable version; this attribute exposes the most recent one.",
+      "type" : "integer",
+      "minimum" : 1
     },
     "Name" : {
       "description" : "A unique name for the network connector within your account and Region. Must be 1 to 64 alphanumeric characters, hyphens, or underscores.",
       "type" : "string",
       "maxLength" : 140,
       "minLength" : 1,
-      "pattern" : "^(arn:aws[a-zA-Z-]*:lambda:(eusc-)?[a-z]{2}((-gov)|(-iso([a-z]?)))?-[a-z]+-\\d{1}:\\d{12}:network-connector:[a-zA-Z0-9-_]+(:[1-9]|[1-9][0-9]+)?)|[a-zA-Z0-9_-]{1,64}$"
+      "pattern" : "^(arn:aws[a-zA-Z-]*:lambda:(eusc-)?[a-z]{2}((-gov)|(-iso([a-z]?)))?-[a-z]+-\\d{1}:\\d{12}:network-connector:[a-zA-Z0-9-_]+(:[1-9][0-9]*)?)|[a-zA-Z0-9_-]{1,64}$"
     },
     "VpcEgressConfiguration" : {
       "description" : "The VPC egress configuration for the network connector. Specifies the subnets, security groups, and network protocol for routing outbound traffic through your VPC.",
@@ -57,18 +69,18 @@
           "enum" : [ "IPv4", "DualStack" ]
         },
         "AssociatedComputeResourceTypes" : {
-          "description" : "The types of Lambda compute resources that can use this connector. Currently, only MicroVm is supported.",
+          "description" : "The types of Lambda compute resources that can use this connector. Supported values are MicroVm and WebFunction.",
           "type" : "array",
           "insertionOrder" : false,
           "items" : {
             "type" : "string",
-            "enum" : [ "MicroVm" ]
+            "enum" : [ "MicroVm", "WebFunction" ]
           },
           "maxItems" : 1,
           "minItems" : 1
         }
       },
-      "required" : [ "SubnetIds", "AssociatedComputeResourceTypes" ]
+      "required" : [ "SubnetIds", "SecurityGroupIds", "NetworkProtocol", "AssociatedComputeResourceTypes" ]
     },
     "RoleArn" : {
       "description" : "The ARN of the IAM role that Lambda assumes to manage elastic network interfaces in your VPC. This role must have permissions for ec2:CreateNetworkInterface and related describe operations.",
@@ -129,6 +141,12 @@
     },
     "State" : {
       "$ref" : "#/definitions/State"
+    },
+    "LatestVersionArn" : {
+      "$ref" : "#/definitions/LatestVersionArn"
+    },
+    "LatestVersion" : {
+      "$ref" : "#/definitions/LatestVersion"
     },
     "Tags" : {
       "description" : "A list of tags to apply to the network connector. Use tags to categorize network connectors for cost allocation, access control, or operational management.",

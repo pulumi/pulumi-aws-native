@@ -907,6 +907,13 @@ export const AnalysisSheetImageScalingType = {
 
 export type AnalysisSheetImageScalingType = (typeof AnalysisSheetImageScalingType)[keyof typeof AnalysisSheetImageScalingType];
 
+export const AnalysisSheetLayoutGroupMemberType = {
+    Element: "ELEMENT",
+    Group: "GROUP",
+} as const;
+
+export type AnalysisSheetLayoutGroupMemberType = (typeof AnalysisSheetLayoutGroupMemberType)[keyof typeof AnalysisSheetLayoutGroupMemberType];
+
 export const AnalysisSimpleAttributeAggregationFunction = {
     UniqueValue: "UNIQUE_VALUE",
 } as const;
@@ -2012,6 +2019,13 @@ export const DashboardSheetImageScalingType = {
 } as const;
 
 export type DashboardSheetImageScalingType = (typeof DashboardSheetImageScalingType)[keyof typeof DashboardSheetImageScalingType];
+
+export const DashboardSheetLayoutGroupMemberType = {
+    Element: "ELEMENT",
+    Group: "GROUP",
+} as const;
+
+export type DashboardSheetLayoutGroupMemberType = (typeof DashboardSheetLayoutGroupMemberType)[keyof typeof DashboardSheetLayoutGroupMemberType];
 
 export const DashboardSimpleAttributeAggregationFunction = {
     UniqueValue: "UNIQUE_VALUE",
@@ -3624,6 +3638,13 @@ export const TemplateSheetImageScalingType = {
 } as const;
 
 export type TemplateSheetImageScalingType = (typeof TemplateSheetImageScalingType)[keyof typeof TemplateSheetImageScalingType];
+
+export const TemplateSheetLayoutGroupMemberType = {
+    Element: "ELEMENT",
+    Group: "GROUP",
+} as const;
+
+export type TemplateSheetLayoutGroupMemberType = (typeof TemplateSheetLayoutGroupMemberType)[keyof typeof TemplateSheetLayoutGroupMemberType];
 
 export const TemplateSimpleAttributeAggregationFunction = {
     UniqueValue: "UNIQUE_VALUE",

@@ -27,6 +27,9 @@ from .get_permission import *
 from .get_resource_policy import *
 from .get_url import *
 from .get_version import *
+from .get_web_function import *
+from .get_web_function_endpoint import *
+from .get_web_function_revision import *
 from .layer_version import *
 from .layer_version_permission import *
 from .microvm_image import *
@@ -35,5 +38,8 @@ from .permission import *
 from .resource_policy import *
 from .url import *
 from .version import *
+from .web_function import *
+from .web_function_endpoint import *
+from .web_function_revision import *
 from ._inputs import *
 from . import outputs

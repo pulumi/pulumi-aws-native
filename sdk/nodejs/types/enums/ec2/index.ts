@@ -859,6 +859,29 @@ export const RouteServerPersistRoutes = {
  */
 export type RouteServerPersistRoutes = (typeof RouteServerPersistRoutes)[keyof typeof RouteServerPersistRoutes];
 
+export const SecondaryNetworkIpv4CidrBlockAssociationState = {
+    Associating: "associating",
+    Associated: "associated",
+    AssociationFailed: "association-failed",
+    Disassociating: "disassociating",
+    Disassociated: "disassociated",
+    DisassociationFailed: "disassociation-failed",
+} as const;
+
+/**
+ * The state of the CIDR block association.
+ */
+export type SecondaryNetworkIpv4CidrBlockAssociationState = (typeof SecondaryNetworkIpv4CidrBlockAssociationState)[keyof typeof SecondaryNetworkIpv4CidrBlockAssociationState];
+
+export const SecondaryNetworkNetworkType = {
+    Rdma: "rdma",
+} as const;
+
+/**
+ * The type of secondary network.
+ */
+export type SecondaryNetworkNetworkType = (typeof SecondaryNetworkNetworkType)[keyof typeof SecondaryNetworkNetworkType];
+
 export const SecurityGroupVpcAssociationState = {
     Associating: "associating",
     Associated: "associated",

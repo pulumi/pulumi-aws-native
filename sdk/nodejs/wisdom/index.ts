@@ -45,6 +45,16 @@ export type AssistantAssociation = import("./assistantAssociation").AssistantAss
 export const AssistantAssociation: typeof import("./assistantAssociation").AssistantAssociation = null as any;
 utilities.lazyLoad(exports, ["AssistantAssociation"], () => require("./assistantAssociation"));
 
+export { ContentArgs } from "./content";
+export type Content = import("./content").Content;
+export const Content: typeof import("./content").Content = null as any;
+utilities.lazyLoad(exports, ["Content"], () => require("./content"));
+
+export { ContentAssociationArgs } from "./contentAssociation";
+export type ContentAssociation = import("./contentAssociation").ContentAssociation;
+export const ContentAssociation: typeof import("./contentAssociation").ContentAssociation = null as any;
+utilities.lazyLoad(exports, ["ContentAssociation"], () => require("./contentAssociation"));
+
 export { GetAiAgentArgs, GetAiAgentResult, GetAiAgentOutputArgs } from "./getAiAgent";
 export const getAiAgent: typeof import("./getAiAgent").getAiAgent = null as any;
 export const getAiAgentOutput: typeof import("./getAiAgent").getAiAgentOutput = null as any;
@@ -84,6 +94,16 @@ export { GetAssistantAssociationArgs, GetAssistantAssociationResult, GetAssistan
 export const getAssistantAssociation: typeof import("./getAssistantAssociation").getAssistantAssociation = null as any;
 export const getAssistantAssociationOutput: typeof import("./getAssistantAssociation").getAssistantAssociationOutput = null as any;
 utilities.lazyLoad(exports, ["getAssistantAssociation","getAssistantAssociationOutput"], () => require("./getAssistantAssociation"));
+
+export { GetContentArgs, GetContentResult, GetContentOutputArgs } from "./getContent";
+export const getContent: typeof import("./getContent").getContent = null as any;
+export const getContentOutput: typeof import("./getContent").getContentOutput = null as any;
+utilities.lazyLoad(exports, ["getContent","getContentOutput"], () => require("./getContent"));
+
+export { GetContentAssociationArgs, GetContentAssociationResult, GetContentAssociationOutputArgs } from "./getContentAssociation";
+export const getContentAssociation: typeof import("./getContentAssociation").getContentAssociation = null as any;
+export const getContentAssociationOutput: typeof import("./getContentAssociation").getContentAssociationOutput = null as any;
+utilities.lazyLoad(exports, ["getContentAssociation","getContentAssociationOutput"], () => require("./getContentAssociation"));
 
 export { GetKnowledgeBaseArgs, GetKnowledgeBaseResult, GetKnowledgeBaseOutputArgs } from "./getKnowledgeBase";
 export const getKnowledgeBase: typeof import("./getKnowledgeBase").getKnowledgeBase = null as any;
@@ -149,6 +169,10 @@ const _module = {
                 return new Assistant(name, <any>undefined, { urn })
             case "aws-native:wisdom:AssistantAssociation":
                 return new AssistantAssociation(name, <any>undefined, { urn })
+            case "aws-native:wisdom:Content":
+                return new Content(name, <any>undefined, { urn })
+            case "aws-native:wisdom:ContentAssociation":
+                return new ContentAssociation(name, <any>undefined, { urn })
             case "aws-native:wisdom:KnowledgeBase":
                 return new KnowledgeBase(name, <any>undefined, { urn })
             case "aws-native:wisdom:MessageTemplate":

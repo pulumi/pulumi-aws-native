@@ -67,6 +67,7 @@ namespace Pulumi.AwsNative.MediaTailor
         /// The ARN of the function.
         /// </summary>
         public readonly string? Arn;
+        public readonly Outputs.FunctionAwsServiceRequestConfiguration? AwsServiceRequestConfiguration;
         /// <summary>
         /// The configuration for a CONCURRENT_EXECUTOR function. Required when FunctionType is CONCURRENT_EXECUTOR.
         /// </summary>
@@ -86,10 +87,13 @@ namespace Pulumi.AwsNative.MediaTailor
         /// The tags to assign to the function resource.
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
+        public readonly Outputs.FunctionVastRequestConfiguration? VastRequestConfiguration;
 
         [OutputConstructor]
         private GetFunctionResult(
             string? arn,
+
+            Outputs.FunctionAwsServiceRequestConfiguration? awsServiceRequestConfiguration,
 
             Outputs.FunctionConcurrentExecutorConfiguration? concurrentExecutorConfiguration,
 
@@ -103,9 +107,12 @@ namespace Pulumi.AwsNative.MediaTailor
 
             Outputs.FunctionSequentialExecutorConfiguration? sequentialExecutorConfiguration,
 
-            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
+
+            Outputs.FunctionVastRequestConfiguration? vastRequestConfiguration)
         {
             Arn = arn;
+            AwsServiceRequestConfiguration = awsServiceRequestConfiguration;
             ConcurrentExecutorConfiguration = concurrentExecutorConfiguration;
             CustomOutputConfiguration = customOutputConfiguration;
             Description = description;
@@ -113,6 +120,7 @@ namespace Pulumi.AwsNative.MediaTailor
             HttpRequestConfiguration = httpRequestConfiguration;
             SequentialExecutorConfiguration = sequentialExecutorConfiguration;
             Tags = tags;
+            VastRequestConfiguration = vastRequestConfiguration;
         }
     }
 }

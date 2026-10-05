@@ -15,6 +15,8 @@ from .ai_prompt import *
 from .ai_prompt_version import *
 from .assistant import *
 from .assistant_association import *
+from .content import *
+from .content_association import *
 from .get_ai_agent import *
 from .get_ai_agent_version import *
 from .get_ai_guardrail import *
@@ -23,6 +25,8 @@ from .get_ai_prompt import *
 from .get_ai_prompt_version import *
 from .get_assistant import *
 from .get_assistant_association import *
+from .get_content import *
+from .get_content_association import *
 from .get_knowledge_base import *
 from .get_message_template import *
 from .get_message_template_version import *

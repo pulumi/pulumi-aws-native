@@ -13,12 +13,12 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
-// The encryption key used to encrypt this object.
+// The encryption key for the custom terminology.
 type EncryptionKeyProperties struct {
 	// The Amazon Resource Name (ARN) of the encryption key.
 	Id string `pulumi:"id"`
 	// The type of encryption key.
-	Type ParallelDataEncryptionKeyPropertiesType `pulumi:"type"`
+	Type TerminologyEncryptionKeyPropertiesType `pulumi:"type"`
 }
 
 // EncryptionKeyPropertiesInput is an input type that accepts EncryptionKeyPropertiesArgs and EncryptionKeyPropertiesOutput values.
@@ -32,12 +32,12 @@ type EncryptionKeyPropertiesInput interface {
 	ToEncryptionKeyPropertiesOutputWithContext(context.Context) EncryptionKeyPropertiesOutput
 }
 
-// The encryption key used to encrypt this object.
+// The encryption key for the custom terminology.
 type EncryptionKeyPropertiesArgs struct {
 	// The Amazon Resource Name (ARN) of the encryption key.
 	Id pulumi.StringInput `pulumi:"id"`
 	// The type of encryption key.
-	Type ParallelDataEncryptionKeyPropertiesTypeInput `pulumi:"type"`
+	Type TerminologyEncryptionKeyPropertiesTypeInput `pulumi:"type"`
 }
 
 func (EncryptionKeyPropertiesArgs) ElementType() reflect.Type {
@@ -93,7 +93,7 @@ func (i *encryptionKeyPropertiesPtrType) ToEncryptionKeyPropertiesPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(EncryptionKeyPropertiesPtrOutput)
 }
 
-// The encryption key used to encrypt this object.
+// The encryption key for the custom terminology.
 type EncryptionKeyPropertiesOutput struct{ *pulumi.OutputState }
 
 func (EncryptionKeyPropertiesOutput) ElementType() reflect.Type {
@@ -124,8 +124,8 @@ func (o EncryptionKeyPropertiesOutput) Id() pulumi.StringOutput {
 }
 
 // The type of encryption key.
-func (o EncryptionKeyPropertiesOutput) Type() ParallelDataEncryptionKeyPropertiesTypeOutput {
-	return o.ApplyT(func(v EncryptionKeyProperties) ParallelDataEncryptionKeyPropertiesType { return v.Type }).(ParallelDataEncryptionKeyPropertiesTypeOutput)
+func (o EncryptionKeyPropertiesOutput) Type() TerminologyEncryptionKeyPropertiesTypeOutput {
+	return o.ApplyT(func(v EncryptionKeyProperties) TerminologyEncryptionKeyPropertiesType { return v.Type }).(TerminologyEncryptionKeyPropertiesTypeOutput)
 }
 
 type EncryptionKeyPropertiesPtrOutput struct{ *pulumi.OutputState }
@@ -163,13 +163,13 @@ func (o EncryptionKeyPropertiesPtrOutput) Id() pulumi.StringPtrOutput {
 }
 
 // The type of encryption key.
-func (o EncryptionKeyPropertiesPtrOutput) Type() ParallelDataEncryptionKeyPropertiesTypePtrOutput {
-	return o.ApplyT(func(v *EncryptionKeyProperties) *ParallelDataEncryptionKeyPropertiesType {
+func (o EncryptionKeyPropertiesPtrOutput) Type() TerminologyEncryptionKeyPropertiesTypePtrOutput {
+	return o.ApplyT(func(v *EncryptionKeyProperties) *TerminologyEncryptionKeyPropertiesType {
 		if v == nil {
 			return nil
 		}
 		return &v.Type
-	}).(ParallelDataEncryptionKeyPropertiesTypePtrOutput)
+	}).(TerminologyEncryptionKeyPropertiesTypePtrOutput)
 }
 
 // Specifies the format and S3 location of the parallel data input file.
@@ -281,16 +281,200 @@ func (o ParallelDataConfigPropertiesPtrOutput) S3Uri() pulumi.StringPtrOutput {
 }
 
 type TagsItemProperties struct {
-	Key   string `pulumi:"key"`
+	// The key of the tag.
+	Key string `pulumi:"key"`
+	// The value of the tag.
 	Value string `pulumi:"value"`
+}
+
+// The terminology data for the custom terminology being imported.
+type TerminologyDataProperties struct {
+	// The directionality of the terminology resource.
+	Directionality *TerminologyDataPropertiesDirectionality `pulumi:"directionality"`
+	// The file containing the custom terminology data, base64-encoded.
+	File string `pulumi:"file"`
+	// The data format of the custom terminology.
+	Format TerminologyDataPropertiesFormat `pulumi:"format"`
+}
+
+// TerminologyDataPropertiesInput is an input type that accepts TerminologyDataPropertiesArgs and TerminologyDataPropertiesOutput values.
+// You can construct a concrete instance of `TerminologyDataPropertiesInput` via:
+//
+//	TerminologyDataPropertiesArgs{...}
+type TerminologyDataPropertiesInput interface {
+	pulumi.Input
+
+	ToTerminologyDataPropertiesOutput() TerminologyDataPropertiesOutput
+	ToTerminologyDataPropertiesOutputWithContext(context.Context) TerminologyDataPropertiesOutput
+}
+
+// The terminology data for the custom terminology being imported.
+type TerminologyDataPropertiesArgs struct {
+	// The directionality of the terminology resource.
+	Directionality TerminologyDataPropertiesDirectionalityPtrInput `pulumi:"directionality"`
+	// The file containing the custom terminology data, base64-encoded.
+	File pulumi.StringInput `pulumi:"file"`
+	// The data format of the custom terminology.
+	Format TerminologyDataPropertiesFormatInput `pulumi:"format"`
+}
+
+func (TerminologyDataPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TerminologyDataProperties)(nil)).Elem()
+}
+
+func (i TerminologyDataPropertiesArgs) ToTerminologyDataPropertiesOutput() TerminologyDataPropertiesOutput {
+	return i.ToTerminologyDataPropertiesOutputWithContext(context.Background())
+}
+
+func (i TerminologyDataPropertiesArgs) ToTerminologyDataPropertiesOutputWithContext(ctx context.Context) TerminologyDataPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TerminologyDataPropertiesOutput)
+}
+
+func (i TerminologyDataPropertiesArgs) ToTerminologyDataPropertiesPtrOutput() TerminologyDataPropertiesPtrOutput {
+	return i.ToTerminologyDataPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i TerminologyDataPropertiesArgs) ToTerminologyDataPropertiesPtrOutputWithContext(ctx context.Context) TerminologyDataPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TerminologyDataPropertiesOutput).ToTerminologyDataPropertiesPtrOutputWithContext(ctx)
+}
+
+// TerminologyDataPropertiesPtrInput is an input type that accepts TerminologyDataPropertiesArgs, TerminologyDataPropertiesPtr and TerminologyDataPropertiesPtrOutput values.
+// You can construct a concrete instance of `TerminologyDataPropertiesPtrInput` via:
+//
+//	        TerminologyDataPropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type TerminologyDataPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToTerminologyDataPropertiesPtrOutput() TerminologyDataPropertiesPtrOutput
+	ToTerminologyDataPropertiesPtrOutputWithContext(context.Context) TerminologyDataPropertiesPtrOutput
+}
+
+type terminologyDataPropertiesPtrType TerminologyDataPropertiesArgs
+
+func TerminologyDataPropertiesPtr(v *TerminologyDataPropertiesArgs) TerminologyDataPropertiesPtrInput {
+	return (*terminologyDataPropertiesPtrType)(v)
+}
+
+func (*terminologyDataPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TerminologyDataProperties)(nil)).Elem()
+}
+
+func (i *terminologyDataPropertiesPtrType) ToTerminologyDataPropertiesPtrOutput() TerminologyDataPropertiesPtrOutput {
+	return i.ToTerminologyDataPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *terminologyDataPropertiesPtrType) ToTerminologyDataPropertiesPtrOutputWithContext(ctx context.Context) TerminologyDataPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TerminologyDataPropertiesPtrOutput)
+}
+
+// The terminology data for the custom terminology being imported.
+type TerminologyDataPropertiesOutput struct{ *pulumi.OutputState }
+
+func (TerminologyDataPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TerminologyDataProperties)(nil)).Elem()
+}
+
+func (o TerminologyDataPropertiesOutput) ToTerminologyDataPropertiesOutput() TerminologyDataPropertiesOutput {
+	return o
+}
+
+func (o TerminologyDataPropertiesOutput) ToTerminologyDataPropertiesOutputWithContext(ctx context.Context) TerminologyDataPropertiesOutput {
+	return o
+}
+
+func (o TerminologyDataPropertiesOutput) ToTerminologyDataPropertiesPtrOutput() TerminologyDataPropertiesPtrOutput {
+	return o.ToTerminologyDataPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o TerminologyDataPropertiesOutput) ToTerminologyDataPropertiesPtrOutputWithContext(ctx context.Context) TerminologyDataPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TerminologyDataProperties) *TerminologyDataProperties {
+		return &v
+	}).(TerminologyDataPropertiesPtrOutput)
+}
+
+// The directionality of the terminology resource.
+func (o TerminologyDataPropertiesOutput) Directionality() TerminologyDataPropertiesDirectionalityPtrOutput {
+	return o.ApplyT(func(v TerminologyDataProperties) *TerminologyDataPropertiesDirectionality { return v.Directionality }).(TerminologyDataPropertiesDirectionalityPtrOutput)
+}
+
+// The file containing the custom terminology data, base64-encoded.
+func (o TerminologyDataPropertiesOutput) File() pulumi.StringOutput {
+	return o.ApplyT(func(v TerminologyDataProperties) string { return v.File }).(pulumi.StringOutput)
+}
+
+// The data format of the custom terminology.
+func (o TerminologyDataPropertiesOutput) Format() TerminologyDataPropertiesFormatOutput {
+	return o.ApplyT(func(v TerminologyDataProperties) TerminologyDataPropertiesFormat { return v.Format }).(TerminologyDataPropertiesFormatOutput)
+}
+
+type TerminologyDataPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (TerminologyDataPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TerminologyDataProperties)(nil)).Elem()
+}
+
+func (o TerminologyDataPropertiesPtrOutput) ToTerminologyDataPropertiesPtrOutput() TerminologyDataPropertiesPtrOutput {
+	return o
+}
+
+func (o TerminologyDataPropertiesPtrOutput) ToTerminologyDataPropertiesPtrOutputWithContext(ctx context.Context) TerminologyDataPropertiesPtrOutput {
+	return o
+}
+
+func (o TerminologyDataPropertiesPtrOutput) Elem() TerminologyDataPropertiesOutput {
+	return o.ApplyT(func(v *TerminologyDataProperties) TerminologyDataProperties {
+		if v != nil {
+			return *v
+		}
+		var ret TerminologyDataProperties
+		return ret
+	}).(TerminologyDataPropertiesOutput)
+}
+
+// The directionality of the terminology resource.
+func (o TerminologyDataPropertiesPtrOutput) Directionality() TerminologyDataPropertiesDirectionalityPtrOutput {
+	return o.ApplyT(func(v *TerminologyDataProperties) *TerminologyDataPropertiesDirectionality {
+		if v == nil {
+			return nil
+		}
+		return v.Directionality
+	}).(TerminologyDataPropertiesDirectionalityPtrOutput)
+}
+
+// The file containing the custom terminology data, base64-encoded.
+func (o TerminologyDataPropertiesPtrOutput) File() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TerminologyDataProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.File
+	}).(pulumi.StringPtrOutput)
+}
+
+// The data format of the custom terminology.
+func (o TerminologyDataPropertiesPtrOutput) Format() TerminologyDataPropertiesFormatPtrOutput {
+	return o.ApplyT(func(v *TerminologyDataProperties) *TerminologyDataPropertiesFormat {
+		if v == nil {
+			return nil
+		}
+		return &v.Format
+	}).(TerminologyDataPropertiesFormatPtrOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EncryptionKeyPropertiesInput)(nil)).Elem(), EncryptionKeyPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EncryptionKeyPropertiesPtrInput)(nil)).Elem(), EncryptionKeyPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ParallelDataConfigPropertiesInput)(nil)).Elem(), ParallelDataConfigPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TerminologyDataPropertiesInput)(nil)).Elem(), TerminologyDataPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TerminologyDataPropertiesPtrInput)(nil)).Elem(), TerminologyDataPropertiesArgs{})
 	pulumi.RegisterOutputType(EncryptionKeyPropertiesOutput{})
 	pulumi.RegisterOutputType(EncryptionKeyPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(ParallelDataConfigPropertiesOutput{})
 	pulumi.RegisterOutputType(ParallelDataConfigPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(TerminologyDataPropertiesOutput{})
+	pulumi.RegisterOutputType(TerminologyDataPropertiesPtrOutput{})
 }

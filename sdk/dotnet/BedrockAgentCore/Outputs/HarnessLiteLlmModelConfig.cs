@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Outputs
         /// <summary>
         /// Provider-specific parameters passed through to LiteLLM unchanged.
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? AdditionalParams;
+        public readonly object? AdditionalParams;
         public readonly string? ApiBase;
         public readonly string? ApiKeyArn;
         public readonly int? MaxTokens;
@@ -26,7 +26,7 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Outputs
 
         [OutputConstructor]
         private HarnessLiteLlmModelConfig(
-            ImmutableDictionary<string, object>? additionalParams,
+            object? additionalParams,
 
             string? apiBase,
 

@@ -32,3 +32,13 @@ export const OTelEnrichmentStatus = {
  * Current status of OTel enrichment (RUNNING or STOPPED).
  */
 export type OTelEnrichmentStatus = (typeof OTelEnrichmentStatus)[keyof typeof OTelEnrichmentStatus];
+
+export const ViewType = {
+    User: "USER",
+    Managed: "MANAGED",
+} as const;
+
+/**
+ * The ownership category of the view. Views created through CloudFormation are always USER views; MANAGED views are provisioned by AWS.
+ */
+export type ViewType = (typeof ViewType)[keyof typeof ViewType];

@@ -16,6 +16,8 @@ namespace Pulumi.AwsNative.SecurityAgent.Outputs
     [OutputType]
     public sealed class AgentSpaceProviderResource
     {
+        public readonly Outputs.AgentSpaceAzureDevOpsCapabilitiesResource? AzureDevOpsCapabilities;
+        public readonly Outputs.AgentSpaceAzureDevOpsRepositoryResource? AzureDevOpsRepository;
         public readonly Outputs.AgentSpaceBitbucketCapabilitiesResource? BitbucketCapabilities;
         public readonly Outputs.AgentSpaceBitbucketRepositoryResource? BitbucketRepository;
         public readonly Outputs.AgentSpaceConfluenceCapabilitiesResource? ConfluenceCapabilities;
@@ -27,6 +29,10 @@ namespace Pulumi.AwsNative.SecurityAgent.Outputs
 
         [OutputConstructor]
         private AgentSpaceProviderResource(
+            Outputs.AgentSpaceAzureDevOpsCapabilitiesResource? azureDevOpsCapabilities,
+
+            Outputs.AgentSpaceAzureDevOpsRepositoryResource? azureDevOpsRepository,
+
             Outputs.AgentSpaceBitbucketCapabilitiesResource? bitbucketCapabilities,
 
             Outputs.AgentSpaceBitbucketRepositoryResource? bitbucketRepository,
@@ -43,6 +49,8 @@ namespace Pulumi.AwsNative.SecurityAgent.Outputs
 
             Outputs.AgentSpaceGitLabRepositoryResource? gitLabRepository)
         {
+            AzureDevOpsCapabilities = azureDevOpsCapabilities;
+            AzureDevOpsRepository = azureDevOpsRepository;
             BitbucketCapabilities = bitbucketCapabilities;
             BitbucketRepository = bitbucketRepository;
             ConfluenceCapabilities = confluenceCapabilities;

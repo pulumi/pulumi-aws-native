@@ -21,9 +21,11 @@ from .get_configuration_recorder import *
 from .get_conformance_pack import *
 from .get_connector import *
 from .get_delivery_channel import *
+from .get_organization_config_rule import *
 from .get_organization_conformance_pack import *
 from .get_remediation_configuration import *
 from .get_stored_query import *
+from .organization_config_rule import *
 from .organization_conformance_pack import *
 from .remediation_configuration import *
 from .stored_query import *

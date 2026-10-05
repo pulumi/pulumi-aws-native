@@ -13,6 +13,7 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
 
 __all__ = [
     'GetCapacityReservationFleetResult',
@@ -23,16 +24,13 @@ __all__ = [
 
 @pulumi.output_type
 class GetCapacityReservationFleetResult:
-    def __init__(__self__, capacity_reservation_fleet_id=None, no_remove_end_date=None, remove_end_date=None, total_target_capacity=None):
+    def __init__(__self__, capacity_reservation_fleet_id=None, tag_specifications=None, total_target_capacity=None):
         if capacity_reservation_fleet_id and not isinstance(capacity_reservation_fleet_id, str):
             raise TypeError("Expected argument 'capacity_reservation_fleet_id' to be a str")
         pulumi.set(__self__, "capacity_reservation_fleet_id", capacity_reservation_fleet_id)
-        if no_remove_end_date and not isinstance(no_remove_end_date, bool):
-            raise TypeError("Expected argument 'no_remove_end_date' to be a bool")
-        pulumi.set(__self__, "no_remove_end_date", no_remove_end_date)
-        if remove_end_date and not isinstance(remove_end_date, bool):
-            raise TypeError("Expected argument 'remove_end_date' to be a bool")
-        pulumi.set(__self__, "remove_end_date", remove_end_date)
+        if tag_specifications and not isinstance(tag_specifications, list):
+            raise TypeError("Expected argument 'tag_specifications' to be a list")
+        pulumi.set(__self__, "tag_specifications", tag_specifications)
         if total_target_capacity and not isinstance(total_target_capacity, int):
             raise TypeError("Expected argument 'total_target_capacity' to be a int")
         pulumi.set(__self__, "total_target_capacity", total_target_capacity)
@@ -46,20 +44,12 @@ class GetCapacityReservationFleetResult:
         return pulumi.get(self, "capacity_reservation_fleet_id")
 
     @_builtins.property
-    @pulumi.getter(name="noRemoveEndDate")
-    def no_remove_end_date(self) -> Optional[_builtins.bool]:
+    @pulumi.getter(name="tagSpecifications")
+    def tag_specifications(self) -> Optional[Sequence['outputs.CapacityReservationFleetTagSpecification']]:
         """
-        Used to add an end date to a Capacity Reservation Fleet that has no end date and time. To add an end date to a Capacity Reservation Fleet, specify `true` for this paramater and specify the end date and time (in UTC time format) for the *EndDate* parameter.
+        The tags to assign to the Capacity Reservation Fleet. The tags are automatically assigned to the Capacity Reservations in the Fleet.
         """
-        return pulumi.get(self, "no_remove_end_date")
-
-    @_builtins.property
-    @pulumi.getter(name="removeEndDate")
-    def remove_end_date(self) -> Optional[_builtins.bool]:
-        """
-        Used to remove an end date from a Capacity Reservation Fleet that is configured to end automatically at a specific date and time. To remove the end date from a Capacity Reservation Fleet, specify `true` for this paramater and omit the *EndDate* parameter.
-        """
-        return pulumi.get(self, "remove_end_date")
+        return pulumi.get(self, "tag_specifications")
 
     @_builtins.property
     @pulumi.getter(name="totalTargetCapacity")
@@ -77,8 +67,7 @@ class AwaitableGetCapacityReservationFleetResult(GetCapacityReservationFleetResu
             yield self
         return GetCapacityReservationFleetResult(
             capacity_reservation_fleet_id=self.capacity_reservation_fleet_id,
-            no_remove_end_date=self.no_remove_end_date,
-            remove_end_date=self.remove_end_date,
+            tag_specifications=self.tag_specifications,
             total_target_capacity=self.total_target_capacity)
 
 
@@ -96,8 +85,7 @@ def get_capacity_reservation_fleet(capacity_reservation_fleet_id: Optional[_buil
 
     return AwaitableGetCapacityReservationFleetResult(
         capacity_reservation_fleet_id=pulumi.get(__ret__, 'capacity_reservation_fleet_id'),
-        no_remove_end_date=pulumi.get(__ret__, 'no_remove_end_date'),
-        remove_end_date=pulumi.get(__ret__, 'remove_end_date'),
+        tag_specifications=pulumi.get(__ret__, 'tag_specifications'),
         total_target_capacity=pulumi.get(__ret__, 'total_target_capacity'))
 def get_capacity_reservation_fleet_output(capacity_reservation_fleet_id: pulumi.Input[Optional[_builtins.str]] = None,
                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCapacityReservationFleetResult]:
@@ -112,6 +100,5 @@ def get_capacity_reservation_fleet_output(capacity_reservation_fleet_id: pulumi.
     __ret__ = pulumi.runtime.invoke_output('aws-native:ec2:getCapacityReservationFleet', __args__, opts=opts, typ=GetCapacityReservationFleetResult)
     return __ret__.apply(lambda __response__: GetCapacityReservationFleetResult(
         capacity_reservation_fleet_id=pulumi.get(__response__, 'capacity_reservation_fleet_id'),
-        no_remove_end_date=pulumi.get(__response__, 'no_remove_end_date'),
-        remove_end_date=pulumi.get(__response__, 'remove_end_date'),
+        tag_specifications=pulumi.get(__response__, 'tag_specifications'),
         total_target_capacity=pulumi.get(__response__, 'total_target_capacity')))

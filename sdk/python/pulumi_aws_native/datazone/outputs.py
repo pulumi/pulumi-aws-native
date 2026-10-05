@@ -826,6 +826,8 @@ class ConnectionIamPropertiesInput(dict):
         suggest = None
         if key == "glueLineageSyncEnabled":
             suggest = "glue_lineage_sync_enabled"
+        elif key == "roleArn":
+            suggest = "role_arn"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in ConnectionIamPropertiesInput. Access the value via the '{suggest}' property getter instead.")
@@ -839,17 +841,30 @@ class ConnectionIamPropertiesInput(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 glue_lineage_sync_enabled: Optional[_builtins.bool] = None):
+                 glue_lineage_sync_enabled: Optional[_builtins.bool] = None,
+                 role_arn: Optional[_builtins.str] = None):
         """
         IAM Properties Input
+
+        :param _builtins.str role_arn: The ARN of the IAM role to associate with the connection as the project user role.
         """
         if glue_lineage_sync_enabled is not None:
             pulumi.set(__self__, "glue_lineage_sync_enabled", glue_lineage_sync_enabled)
+        if role_arn is not None:
+            pulumi.set(__self__, "role_arn", role_arn)
 
     @_builtins.property
     @pulumi.getter(name="glueLineageSyncEnabled")
     def glue_lineage_sync_enabled(self) -> Optional[_builtins.bool]:
         return pulumi.get(self, "glue_lineage_sync_enabled")
+
+    @_builtins.property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> Optional[_builtins.str]:
+        """
+        The ARN of the IAM role to associate with the connection as the project user role.
+        """
+        return pulumi.get(self, "role_arn")
 
 
 @pulumi.output_type
@@ -4224,7 +4239,7 @@ class PolicyGrantProjectPolicyGrantPrincipal(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 project_designation: Optional['PolicyGrantProjectDesignation'] = None,
+                 project_designation: Optional[_builtins.str] = None,
                  project_grant_filter: Optional['outputs.PolicyGrantProjectGrantFilterProperties'] = None,
                  project_identifier: Optional[_builtins.str] = None):
         if project_designation is not None:
@@ -4236,7 +4251,7 @@ class PolicyGrantProjectPolicyGrantPrincipal(dict):
 
     @_builtins.property
     @pulumi.getter(name="projectDesignation")
-    def project_designation(self) -> Optional['PolicyGrantProjectDesignation']:
+    def project_designation(self) -> Optional[_builtins.str]:
         return pulumi.get(self, "project_designation")
 
     @_builtins.property
@@ -4461,7 +4476,7 @@ class ProjectMembershipAssignment(dict):
     The project membership assignment.
     """
     def __init__(__self__, *,
-                 designation: 'ProjectUserDesignation',
+                 designation: _builtins.str,
                  member: 'outputs.ProjectMember'):
         """
         The project membership assignment.
@@ -4471,7 +4486,7 @@ class ProjectMembershipAssignment(dict):
 
     @_builtins.property
     @pulumi.getter
-    def designation(self) -> 'ProjectUserDesignation':
+    def designation(self) -> _builtins.str:
         return pulumi.get(self, "designation")
 
     @_builtins.property

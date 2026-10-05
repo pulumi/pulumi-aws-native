@@ -14,6 +14,7 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from .. import outputs as _root_outputs
 from ._enums import *
 
 __all__ = [
@@ -25,7 +26,10 @@ __all__ = [
 
 @pulumi.output_type
 class GetGlobalReplicationGroupResult:
-    def __init__(__self__, engine=None, global_replication_group_description=None, global_replication_group_id=None, members=None, status=None):
+    def __init__(__self__, arn=None, engine=None, global_replication_group_description=None, global_replication_group_id=None, members=None, status=None, tags=None):
+        if arn and not isinstance(arn, str):
+            raise TypeError("Expected argument 'arn' to be a str")
+        pulumi.set(__self__, "arn", arn)
         if engine and not isinstance(engine, str):
             raise TypeError("Expected argument 'engine' to be a str")
         pulumi.set(__self__, "engine", engine)
@@ -41,6 +45,17 @@ class GetGlobalReplicationGroupResult:
         if status and not isinstance(status, str):
             raise TypeError("Expected argument 'status' to be a str")
         pulumi.set(__self__, "status", status)
+        if tags and not isinstance(tags, list):
+            raise TypeError("Expected argument 'tags' to be a list")
+        pulumi.set(__self__, "tags", tags)
+
+    @_builtins.property
+    @pulumi.getter
+    def arn(self) -> Optional[_builtins.str]:
+        """
+        The ARN (Amazon Resource Name) of the Global Datastore.
+        """
+        return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter
@@ -82,6 +97,14 @@ class GetGlobalReplicationGroupResult:
         """
         return pulumi.get(self, "status")
 
+    @_builtins.property
+    @pulumi.getter
+    def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        An array of key-value pairs to apply to this Global Datastore.
+        """
+        return pulumi.get(self, "tags")
+
 
 class AwaitableGetGlobalReplicationGroupResult(GetGlobalReplicationGroupResult):
     # pylint: disable=using-constant-test
@@ -89,11 +112,13 @@ class AwaitableGetGlobalReplicationGroupResult(GetGlobalReplicationGroupResult):
         if False:
             yield self
         return GetGlobalReplicationGroupResult(
+            arn=self.arn,
             engine=self.engine,
             global_replication_group_description=self.global_replication_group_description,
             global_replication_group_id=self.global_replication_group_id,
             members=self.members,
-            status=self.status)
+            status=self.status,
+            tags=self.tags)
 
 
 def get_global_replication_group(global_replication_group_id: Optional[_builtins.str] = None,
@@ -109,11 +134,13 @@ def get_global_replication_group(global_replication_group_id: Optional[_builtins
     __ret__ = pulumi.runtime.invoke('aws-native:elasticache:getGlobalReplicationGroup', __args__, opts=opts, typ=GetGlobalReplicationGroupResult).value
 
     return AwaitableGetGlobalReplicationGroupResult(
+        arn=pulumi.get(__ret__, 'arn'),
         engine=pulumi.get(__ret__, 'engine'),
         global_replication_group_description=pulumi.get(__ret__, 'global_replication_group_description'),
         global_replication_group_id=pulumi.get(__ret__, 'global_replication_group_id'),
         members=pulumi.get(__ret__, 'members'),
-        status=pulumi.get(__ret__, 'status'))
+        status=pulumi.get(__ret__, 'status'),
+        tags=pulumi.get(__ret__, 'tags'))
 def get_global_replication_group_output(global_replication_group_id: pulumi.Input[Optional[_builtins.str]] = None,
                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGlobalReplicationGroupResult]:
     """
@@ -126,8 +153,10 @@ def get_global_replication_group_output(global_replication_group_id: pulumi.Inpu
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:elasticache:getGlobalReplicationGroup', __args__, opts=opts, typ=GetGlobalReplicationGroupResult)
     return __ret__.apply(lambda __response__: GetGlobalReplicationGroupResult(
+        arn=pulumi.get(__response__, 'arn'),
         engine=pulumi.get(__response__, 'engine'),
         global_replication_group_description=pulumi.get(__response__, 'global_replication_group_description'),
         global_replication_group_id=pulumi.get(__response__, 'global_replication_group_id'),
         members=pulumi.get(__response__, 'members'),
-        status=pulumi.get(__response__, 'status')))
+        status=pulumi.get(__response__, 'status'),
+        tags=pulumi.get(__response__, 'tags')))

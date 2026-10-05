@@ -97,6 +97,67 @@ namespace Pulumi.AwsNative.AgentRegistry
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// The source from which resources are detected. ORGANIZATION sources resources from all member accounts of an AWS Organization.
+    /// </summary>
+    [EnumType]
+    public readonly struct RegistryAutoDetectionScope : IEquatable<RegistryAutoDetectionScope>
+    {
+        private readonly string _value;
+
+        private RegistryAutoDetectionScope(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static RegistryAutoDetectionScope Organization { get; } = new RegistryAutoDetectionScope("ORGANIZATION");
+
+        public static bool operator ==(RegistryAutoDetectionScope left, RegistryAutoDetectionScope right) => left.Equals(right);
+        public static bool operator !=(RegistryAutoDetectionScope left, RegistryAutoDetectionScope right) => !left.Equals(right);
+
+        public static explicit operator string(RegistryAutoDetectionScope value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is RegistryAutoDetectionScope other && Equals(other);
+        public bool Equals(RegistryAutoDetectionScope other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The current auto-detection status. ACTIVE indicates that the registry is actively being populated with detected resources. INACTIVE indicates that the preconditions required at the configured scope are not currently met.
+    /// </summary>
+    [EnumType]
+    public readonly struct RegistryAutoDetectionStatus : IEquatable<RegistryAutoDetectionStatus>
+    {
+        private readonly string _value;
+
+        private RegistryAutoDetectionStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static RegistryAutoDetectionStatus Active { get; } = new RegistryAutoDetectionStatus("ACTIVE");
+        public static RegistryAutoDetectionStatus Inactive { get; } = new RegistryAutoDetectionStatus("INACTIVE");
+
+        public static bool operator ==(RegistryAutoDetectionStatus left, RegistryAutoDetectionStatus right) => left.Equals(right);
+        public static bool operator !=(RegistryAutoDetectionStatus left, RegistryAutoDetectionStatus right) => !left.Equals(right);
+
+        public static explicit operator string(RegistryAutoDetectionStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is RegistryAutoDetectionStatus other && Equals(other);
+        public bool Equals(RegistryAutoDetectionStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     [EnumType]
     public readonly struct RegistryCustomClaimValidationTypeInboundTokenClaimValueType : IEquatable<RegistryCustomClaimValidationTypeInboundTokenClaimValueType>
     {

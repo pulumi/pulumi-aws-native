@@ -33,6 +33,7 @@ class OnlineEvaluationConfigArgs:
                  execution_status: pulumi.Input[Optional['OnlineEvaluationConfigExecutionStatus']] = None,
                  insights: pulumi.Input[Optional[Sequence[pulumi.Input['OnlineEvaluationConfigInsightArgs']]]] = None,
                  online_evaluation_config_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 output_config: pulumi.Input[Optional['OnlineEvaluationConfigOutputConfigArgs']] = None,
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a OnlineEvaluationConfig resource.
@@ -46,6 +47,7 @@ class OnlineEvaluationConfigArgs:
         :param pulumi.Input['OnlineEvaluationConfigExecutionStatus'] execution_status: The execution status indicating whether the online evaluation is currently running.
         :param pulumi.Input[Sequence[pulumi.Input['OnlineEvaluationConfigInsightArgs']]] insights: The list of insights to enable for failure analysis.
         :param pulumi.Input[_builtins.str] online_evaluation_config_name: The name of the online evaluation configuration. Must be unique within your account.
+        :param pulumi.Input['OnlineEvaluationConfigOutputConfigArgs'] output_config: The configuration that specifies where evaluation results should be written.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: A list of tags to assign to the online evaluation configuration.
         """
         pulumi.set(__self__, "data_source_config", data_source_config)
@@ -63,6 +65,8 @@ class OnlineEvaluationConfigArgs:
             pulumi.set(__self__, "insights", insights)
         if online_evaluation_config_name is not None:
             pulumi.set(__self__, "online_evaluation_config_name", online_evaluation_config_name)
+        if output_config is not None:
+            pulumi.set(__self__, "output_config", output_config)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -175,6 +179,18 @@ class OnlineEvaluationConfigArgs:
         pulumi.set(self, "online_evaluation_config_name", value)
 
     @_builtins.property
+    @pulumi.getter(name="outputConfig")
+    def output_config(self) -> pulumi.Input[Optional['OnlineEvaluationConfigOutputConfigArgs']]:
+        """
+        The configuration that specifies where evaluation results should be written.
+        """
+        return pulumi.get(self, "output_config")
+
+    @output_config.setter
+    def output_config(self, value: pulumi.Input[Optional['OnlineEvaluationConfigOutputConfigArgs']]):
+        pulumi.set(self, "output_config", value)
+
+    @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
@@ -201,6 +217,7 @@ class OnlineEvaluationConfig(pulumi.CustomResource):
                  execution_status: pulumi.Input[Optional['OnlineEvaluationConfigExecutionStatus']] = None,
                  insights: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OnlineEvaluationConfigInsightArgs', 'OnlineEvaluationConfigInsightArgsDict']]]]] = None,
                  online_evaluation_config_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 output_config: pulumi.Input[Optional[Union['OnlineEvaluationConfigOutputConfigArgs', 'OnlineEvaluationConfigOutputConfigArgsDict']]] = None,
                  rule: pulumi.Input[Optional[Union['OnlineEvaluationConfigRuleArgs', 'OnlineEvaluationConfigRuleArgsDict']]] = None,
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
@@ -217,6 +234,7 @@ class OnlineEvaluationConfig(pulumi.CustomResource):
         :param pulumi.Input['OnlineEvaluationConfigExecutionStatus'] execution_status: The execution status indicating whether the online evaluation is currently running.
         :param pulumi.Input[Sequence[pulumi.Input[Union['OnlineEvaluationConfigInsightArgs', 'OnlineEvaluationConfigInsightArgsDict']]]] insights: The list of insights to enable for failure analysis.
         :param pulumi.Input[_builtins.str] online_evaluation_config_name: The name of the online evaluation configuration. Must be unique within your account.
+        :param pulumi.Input[Union['OnlineEvaluationConfigOutputConfigArgs', 'OnlineEvaluationConfigOutputConfigArgsDict']] output_config: The configuration that specifies where evaluation results should be written.
         :param pulumi.Input[Union['OnlineEvaluationConfigRuleArgs', 'OnlineEvaluationConfigRuleArgsDict']] rule: The evaluation rule that defines sampling configuration, filters, and session detection settings.
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: A list of tags to assign to the online evaluation configuration.
         """
@@ -252,6 +270,7 @@ class OnlineEvaluationConfig(pulumi.CustomResource):
                  execution_status: pulumi.Input[Optional['OnlineEvaluationConfigExecutionStatus']] = None,
                  insights: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OnlineEvaluationConfigInsightArgs', 'OnlineEvaluationConfigInsightArgsDict']]]]] = None,
                  online_evaluation_config_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 output_config: pulumi.Input[Optional[Union['OnlineEvaluationConfigOutputConfigArgs', 'OnlineEvaluationConfigOutputConfigArgsDict']]] = None,
                  rule: pulumi.Input[Optional[Union['OnlineEvaluationConfigRuleArgs', 'OnlineEvaluationConfigRuleArgsDict']]] = None,
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
@@ -275,6 +294,7 @@ class OnlineEvaluationConfig(pulumi.CustomResource):
             __props__.__dict__["execution_status"] = execution_status
             __props__.__dict__["insights"] = insights
             __props__.__dict__["online_evaluation_config_name"] = online_evaluation_config_name
+            __props__.__dict__["output_config"] = output_config
             if rule is None and not opts.urn:
                 raise TypeError("Missing required property 'rule'")
             __props__.__dict__["rule"] = rule
@@ -282,7 +302,6 @@ class OnlineEvaluationConfig(pulumi.CustomResource):
             __props__.__dict__["created_at"] = None
             __props__.__dict__["online_evaluation_config_arn"] = None
             __props__.__dict__["online_evaluation_config_id"] = None
-            __props__.__dict__["output_config"] = None
             __props__.__dict__["status"] = None
             __props__.__dict__["updated_at"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["onlineEvaluationConfigName"])
@@ -417,7 +436,7 @@ class OnlineEvaluationConfig(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="outputConfig")
-    def output_config(self) -> pulumi.Output['outputs.OnlineEvaluationConfigOutputConfig']:
+    def output_config(self) -> pulumi.Output[Optional['outputs.OnlineEvaluationConfigOutputConfig']]:
         """
         The configuration that specifies where evaluation results should be written.
         """

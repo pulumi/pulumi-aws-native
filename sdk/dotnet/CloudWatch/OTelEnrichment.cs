@@ -21,6 +21,18 @@ namespace Pulumi.AwsNative.CloudWatch
         [Output("accountId")]
         public Output<string> AccountId { get; private set; } = null!;
 
+        /// <summary>
+        /// Removes metrics from the include set. Absent or empty means nothing is removed. Evaluated after IncludeFilters, so ExcludeFilters always wins.
+        /// </summary>
+        [Output("excludeFilters")]
+        public Output<ImmutableArray<Outputs.OTelEnrichmentMetricSelector>> ExcludeFilters { get; private set; } = null!;
+
+        /// <summary>
+        /// Scopes enrichment to a subset of the account's telemetry. Absent or empty means all namespaces are in scope. Present means only these are. The service enforces a combined cap of 100 selectors across IncludeFilters and ExcludeFilters, and rejects more than one selector for the same namespace within a direction.
+        /// </summary>
+        [Output("includeFilters")]
+        public Output<ImmutableArray<Outputs.OTelEnrichmentMetricSelector>> IncludeFilters { get; private set; } = null!;
+
         [Output("status")]
         public Output<Pulumi.AwsNative.CloudWatch.OTelEnrichmentStatus> Status { get; private set; } = null!;
 
@@ -69,6 +81,30 @@ namespace Pulumi.AwsNative.CloudWatch
 
     public sealed class OTelEnrichmentArgs : global::Pulumi.ResourceArgs
     {
+        [Input("excludeFilters")]
+        private InputList<Inputs.OTelEnrichmentMetricSelectorArgs>? _excludeFilters;
+
+        /// <summary>
+        /// Removes metrics from the include set. Absent or empty means nothing is removed. Evaluated after IncludeFilters, so ExcludeFilters always wins.
+        /// </summary>
+        public InputList<Inputs.OTelEnrichmentMetricSelectorArgs> ExcludeFilters
+        {
+            get => _excludeFilters ?? (_excludeFilters = new InputList<Inputs.OTelEnrichmentMetricSelectorArgs>());
+            set => _excludeFilters = value;
+        }
+
+        [Input("includeFilters")]
+        private InputList<Inputs.OTelEnrichmentMetricSelectorArgs>? _includeFilters;
+
+        /// <summary>
+        /// Scopes enrichment to a subset of the account's telemetry. Absent or empty means all namespaces are in scope. Present means only these are. The service enforces a combined cap of 100 selectors across IncludeFilters and ExcludeFilters, and rejects more than one selector for the same namespace within a direction.
+        /// </summary>
+        public InputList<Inputs.OTelEnrichmentMetricSelectorArgs> IncludeFilters
+        {
+            get => _includeFilters ?? (_includeFilters = new InputList<Inputs.OTelEnrichmentMetricSelectorArgs>());
+            set => _includeFilters = value;
+        }
+
         public OTelEnrichmentArgs()
         {
         }

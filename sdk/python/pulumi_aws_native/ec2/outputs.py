@@ -178,6 +178,7 @@ __all__ = [
     'PrefixListEntry',
     'PrivateDnsNameOptionsOnLaunchProperties',
     'RouteServerPeerBgpOptions',
+    'SecondaryNetworkIpv4CidrBlockAssociation',
     'SecurityGroupEgress',
     'SecurityGroupIngress',
     'SpotFleetAcceleratorCountRequest',
@@ -12590,6 +12591,68 @@ class RouteServerPeerBgpOptions(dict):
         BGP Liveness Detection
         """
         return pulumi.get(self, "peer_liveness_detection")
+
+
+@pulumi.output_type
+class SecondaryNetworkIpv4CidrBlockAssociation(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "associationId":
+            suggest = "association_id"
+        elif key == "cidrBlock":
+            suggest = "cidr_block"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SecondaryNetworkIpv4CidrBlockAssociation. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SecondaryNetworkIpv4CidrBlockAssociation.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SecondaryNetworkIpv4CidrBlockAssociation.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 association_id: Optional[_builtins.str] = None,
+                 cidr_block: Optional[_builtins.str] = None,
+                 state: Optional['SecondaryNetworkIpv4CidrBlockAssociationState'] = None):
+        """
+        :param _builtins.str association_id: The association ID for the IPv4 CIDR block.
+        :param _builtins.str cidr_block: The IPv4 CIDR block.
+        :param 'SecondaryNetworkIpv4CidrBlockAssociationState' state: The state of the CIDR block association.
+        """
+        if association_id is not None:
+            pulumi.set(__self__, "association_id", association_id)
+        if cidr_block is not None:
+            pulumi.set(__self__, "cidr_block", cidr_block)
+        if state is not None:
+            pulumi.set(__self__, "state", state)
+
+    @_builtins.property
+    @pulumi.getter(name="associationId")
+    def association_id(self) -> Optional[_builtins.str]:
+        """
+        The association ID for the IPv4 CIDR block.
+        """
+        return pulumi.get(self, "association_id")
+
+    @_builtins.property
+    @pulumi.getter(name="cidrBlock")
+    def cidr_block(self) -> Optional[_builtins.str]:
+        """
+        The IPv4 CIDR block.
+        """
+        return pulumi.get(self, "cidr_block")
+
+    @_builtins.property
+    @pulumi.getter
+    def state(self) -> Optional['SecondaryNetworkIpv4CidrBlockAssociationState']:
+        """
+        The state of the CIDR block association.
+        """
+        return pulumi.get(self, "state")
 
 
 @pulumi.output_type

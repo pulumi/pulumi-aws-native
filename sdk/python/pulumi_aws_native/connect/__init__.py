@@ -50,6 +50,7 @@ from .get_security_profile import *
 from .get_task_template import *
 from .get_test_case import *
 from .get_traffic_distribution_group import *
+from .get_use_case import *
 from .get_user import *
 from .get_user_hierarchy_group import *
 from .get_user_hierarchy_structure import *
@@ -75,6 +76,7 @@ from .security_profile import *
 from .task_template import *
 from .test_case import *
 from .traffic_distribution_group import *
+from .use_case import *
 from .user import *
 from .user_hierarchy_group import *
 from .user_hierarchy_structure import *

@@ -84,7 +84,7 @@ export class OnlineEvaluationConfig extends pulumi.CustomResource {
     /**
      * The configuration that specifies where evaluation results should be written.
      */
-    declare public /*out*/ readonly outputConfig: pulumi.Output<outputs.bedrockagentcore.OnlineEvaluationConfigOutputConfig>;
+    declare public readonly outputConfig: pulumi.Output<outputs.bedrockagentcore.OnlineEvaluationConfigOutputConfig | undefined>;
     /**
      * The evaluation rule that defines sampling configuration, filters, and session detection settings.
      */
@@ -130,12 +130,12 @@ export class OnlineEvaluationConfig extends pulumi.CustomResource {
             resourceInputs["executionStatus"] = args?.executionStatus;
             resourceInputs["insights"] = args?.insights;
             resourceInputs["onlineEvaluationConfigName"] = args?.onlineEvaluationConfigName;
+            resourceInputs["outputConfig"] = args?.outputConfig;
             resourceInputs["rule"] = args?.rule;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["onlineEvaluationConfigArn"] = undefined /*out*/;
             resourceInputs["onlineEvaluationConfigId"] = undefined /*out*/;
-            resourceInputs["outputConfig"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
             resourceInputs["updatedAt"] = undefined /*out*/;
         } else {
@@ -199,6 +199,10 @@ export interface OnlineEvaluationConfigArgs {
      * The name of the online evaluation configuration. Must be unique within your account.
      */
     onlineEvaluationConfigName?: pulumi.Input<string | undefined>;
+    /**
+     * The configuration that specifies where evaluation results should be written.
+     */
+    outputConfig?: pulumi.Input<inputs.bedrockagentcore.OnlineEvaluationConfigOutputConfigArgs | undefined>;
     /**
      * The evaluation rule that defines sampling configuration, filters, and session detection settings.
      */

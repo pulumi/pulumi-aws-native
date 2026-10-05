@@ -45,6 +45,7 @@ export class ServerlessCache extends pulumi.CustomResource {
      * The cache usage limit for the serverless cache.
      */
     declare public readonly cacheUsageLimits: pulumi.Output<outputs.elasticache.ServerlessCacheCacheUsageLimits | undefined>;
+    declare public readonly connectionType: pulumi.Output<enums.elasticache.ServerlessCacheConnectionType | undefined>;
     /**
      * The creation time of the Serverless Cache.
      */
@@ -134,6 +135,7 @@ export class ServerlessCache extends pulumi.CustomResource {
                 throw new Error("Missing required property 'engine'");
             }
             resourceInputs["cacheUsageLimits"] = args?.cacheUsageLimits;
+            resourceInputs["connectionType"] = args?.connectionType;
             resourceInputs["dailySnapshotTime"] = args?.dailySnapshotTime;
             resourceInputs["description"] = args?.description;
             resourceInputs["endpoint"] = args?.endpoint;
@@ -157,6 +159,7 @@ export class ServerlessCache extends pulumi.CustomResource {
         } else {
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["cacheUsageLimits"] = undefined /*out*/;
+            resourceInputs["connectionType"] = undefined /*out*/;
             resourceInputs["createTime"] = undefined /*out*/;
             resourceInputs["dailySnapshotTime"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
@@ -178,7 +181,7 @@ export class ServerlessCache extends pulumi.CustomResource {
             resourceInputs["userGroupId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["kmsKeyId", "networkType", "serverlessCacheName", "snapshotArnsToRestore[*]", "subnetIds[*]"] };
+        const replaceOnChanges = { replaceOnChanges: ["connectionType", "kmsKeyId", "networkType", "serverlessCacheName", "snapshotArnsToRestore[*]", "subnetIds[*]"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(ServerlessCache.__pulumiType, name, resourceInputs, opts);
     }
@@ -192,6 +195,7 @@ export interface ServerlessCacheArgs {
      * The cache usage limit for the serverless cache.
      */
     cacheUsageLimits?: pulumi.Input<inputs.elasticache.ServerlessCacheCacheUsageLimitsArgs | undefined>;
+    connectionType?: pulumi.Input<enums.elasticache.ServerlessCacheConnectionType | undefined>;
     /**
      * The daily time range (in UTC) during which the service takes automatic snapshot of the Serverless Cache.
      */

@@ -1569,6 +1569,513 @@ func (in *fleetTargetTrackingScalingConfigurationMetricTypePtr) ToFleetTargetTra
 	return pulumi.ToOutputWithContext(ctx, in).(FleetTargetTrackingScalingConfigurationMetricTypePtrOutput)
 }
 
+// The export configuration type. Valid values are:
+//
+// - `S3` : The report results are exported to an S3 bucket.
+// - `NO_EXPORT` : The report results are not exported.
+type ReportGroupReportExportConfigExportConfigType string
+
+const (
+	ReportGroupReportExportConfigExportConfigTypeS3       = ReportGroupReportExportConfigExportConfigType("S3")
+	ReportGroupReportExportConfigExportConfigTypeNoExport = ReportGroupReportExportConfigExportConfigType("NO_EXPORT")
+)
+
+func (ReportGroupReportExportConfigExportConfigType) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReportGroupReportExportConfigExportConfigType)(nil)).Elem()
+}
+
+func (e ReportGroupReportExportConfigExportConfigType) ToReportGroupReportExportConfigExportConfigTypeOutput() ReportGroupReportExportConfigExportConfigTypeOutput {
+	return pulumi.ToOutput(e).(ReportGroupReportExportConfigExportConfigTypeOutput)
+}
+
+func (e ReportGroupReportExportConfigExportConfigType) ToReportGroupReportExportConfigExportConfigTypeOutputWithContext(ctx context.Context) ReportGroupReportExportConfigExportConfigTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ReportGroupReportExportConfigExportConfigTypeOutput)
+}
+
+func (e ReportGroupReportExportConfigExportConfigType) ToReportGroupReportExportConfigExportConfigTypePtrOutput() ReportGroupReportExportConfigExportConfigTypePtrOutput {
+	return e.ToReportGroupReportExportConfigExportConfigTypePtrOutputWithContext(context.Background())
+}
+
+func (e ReportGroupReportExportConfigExportConfigType) ToReportGroupReportExportConfigExportConfigTypePtrOutputWithContext(ctx context.Context) ReportGroupReportExportConfigExportConfigTypePtrOutput {
+	return ReportGroupReportExportConfigExportConfigType(e).ToReportGroupReportExportConfigExportConfigTypeOutputWithContext(ctx).ToReportGroupReportExportConfigExportConfigTypePtrOutputWithContext(ctx)
+}
+
+func (e ReportGroupReportExportConfigExportConfigType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ReportGroupReportExportConfigExportConfigType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ReportGroupReportExportConfigExportConfigType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ReportGroupReportExportConfigExportConfigType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ReportGroupReportExportConfigExportConfigTypeOutput struct{ *pulumi.OutputState }
+
+func (ReportGroupReportExportConfigExportConfigTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReportGroupReportExportConfigExportConfigType)(nil)).Elem()
+}
+
+func (o ReportGroupReportExportConfigExportConfigTypeOutput) ToReportGroupReportExportConfigExportConfigTypeOutput() ReportGroupReportExportConfigExportConfigTypeOutput {
+	return o
+}
+
+func (o ReportGroupReportExportConfigExportConfigTypeOutput) ToReportGroupReportExportConfigExportConfigTypeOutputWithContext(ctx context.Context) ReportGroupReportExportConfigExportConfigTypeOutput {
+	return o
+}
+
+func (o ReportGroupReportExportConfigExportConfigTypeOutput) ToReportGroupReportExportConfigExportConfigTypePtrOutput() ReportGroupReportExportConfigExportConfigTypePtrOutput {
+	return o.ToReportGroupReportExportConfigExportConfigTypePtrOutputWithContext(context.Background())
+}
+
+func (o ReportGroupReportExportConfigExportConfigTypeOutput) ToReportGroupReportExportConfigExportConfigTypePtrOutputWithContext(ctx context.Context) ReportGroupReportExportConfigExportConfigTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReportGroupReportExportConfigExportConfigType) *ReportGroupReportExportConfigExportConfigType {
+		return &v
+	}).(ReportGroupReportExportConfigExportConfigTypePtrOutput)
+}
+
+func (o ReportGroupReportExportConfigExportConfigTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ReportGroupReportExportConfigExportConfigTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ReportGroupReportExportConfigExportConfigType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ReportGroupReportExportConfigExportConfigTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ReportGroupReportExportConfigExportConfigTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ReportGroupReportExportConfigExportConfigType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ReportGroupReportExportConfigExportConfigTypePtrOutput struct{ *pulumi.OutputState }
+
+func (ReportGroupReportExportConfigExportConfigTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReportGroupReportExportConfigExportConfigType)(nil)).Elem()
+}
+
+func (o ReportGroupReportExportConfigExportConfigTypePtrOutput) ToReportGroupReportExportConfigExportConfigTypePtrOutput() ReportGroupReportExportConfigExportConfigTypePtrOutput {
+	return o
+}
+
+func (o ReportGroupReportExportConfigExportConfigTypePtrOutput) ToReportGroupReportExportConfigExportConfigTypePtrOutputWithContext(ctx context.Context) ReportGroupReportExportConfigExportConfigTypePtrOutput {
+	return o
+}
+
+func (o ReportGroupReportExportConfigExportConfigTypePtrOutput) Elem() ReportGroupReportExportConfigExportConfigTypeOutput {
+	return o.ApplyT(func(v *ReportGroupReportExportConfigExportConfigType) ReportGroupReportExportConfigExportConfigType {
+		if v != nil {
+			return *v
+		}
+		var ret ReportGroupReportExportConfigExportConfigType
+		return ret
+	}).(ReportGroupReportExportConfigExportConfigTypeOutput)
+}
+
+func (o ReportGroupReportExportConfigExportConfigTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ReportGroupReportExportConfigExportConfigTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ReportGroupReportExportConfigExportConfigType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ReportGroupReportExportConfigExportConfigTypeInput is an input type that accepts values of the ReportGroupReportExportConfigExportConfigType enum
+// A concrete instance of `ReportGroupReportExportConfigExportConfigTypeInput` can be one of the following:
+//
+//	ReportGroupReportExportConfigExportConfigTypeS3
+//	ReportGroupReportExportConfigExportConfigTypeNoExport
+type ReportGroupReportExportConfigExportConfigTypeInput interface {
+	pulumi.Input
+
+	ToReportGroupReportExportConfigExportConfigTypeOutput() ReportGroupReportExportConfigExportConfigTypeOutput
+	ToReportGroupReportExportConfigExportConfigTypeOutputWithContext(context.Context) ReportGroupReportExportConfigExportConfigTypeOutput
+}
+
+var reportGroupReportExportConfigExportConfigTypePtrType = reflect.TypeOf((**ReportGroupReportExportConfigExportConfigType)(nil)).Elem()
+
+type ReportGroupReportExportConfigExportConfigTypePtrInput interface {
+	pulumi.Input
+
+	ToReportGroupReportExportConfigExportConfigTypePtrOutput() ReportGroupReportExportConfigExportConfigTypePtrOutput
+	ToReportGroupReportExportConfigExportConfigTypePtrOutputWithContext(context.Context) ReportGroupReportExportConfigExportConfigTypePtrOutput
+}
+
+type reportGroupReportExportConfigExportConfigTypePtr string
+
+func ReportGroupReportExportConfigExportConfigTypePtr(v string) ReportGroupReportExportConfigExportConfigTypePtrInput {
+	return (*reportGroupReportExportConfigExportConfigTypePtr)(&v)
+}
+
+func (*reportGroupReportExportConfigExportConfigTypePtr) ElementType() reflect.Type {
+	return reportGroupReportExportConfigExportConfigTypePtrType
+}
+
+func (in *reportGroupReportExportConfigExportConfigTypePtr) ToReportGroupReportExportConfigExportConfigTypePtrOutput() ReportGroupReportExportConfigExportConfigTypePtrOutput {
+	return pulumi.ToOutput(in).(ReportGroupReportExportConfigExportConfigTypePtrOutput)
+}
+
+func (in *reportGroupReportExportConfigExportConfigTypePtr) ToReportGroupReportExportConfigExportConfigTypePtrOutputWithContext(ctx context.Context) ReportGroupReportExportConfigExportConfigTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ReportGroupReportExportConfigExportConfigTypePtrOutput)
+}
+
+// The type of build output artifact to create. Valid values include:
+//
+// - `NONE` : CodeBuild creates the raw data in the output bucket. This is the default if packaging is not specified.
+// - `ZIP` : CodeBuild creates a ZIP file with the raw data in the output bucket.
+type ReportGroupS3ReportExportConfigPackaging string
+
+const (
+	ReportGroupS3ReportExportConfigPackagingNone = ReportGroupS3ReportExportConfigPackaging("NONE")
+	ReportGroupS3ReportExportConfigPackagingZip  = ReportGroupS3ReportExportConfigPackaging("ZIP")
+)
+
+func (ReportGroupS3ReportExportConfigPackaging) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReportGroupS3ReportExportConfigPackaging)(nil)).Elem()
+}
+
+func (e ReportGroupS3ReportExportConfigPackaging) ToReportGroupS3ReportExportConfigPackagingOutput() ReportGroupS3ReportExportConfigPackagingOutput {
+	return pulumi.ToOutput(e).(ReportGroupS3ReportExportConfigPackagingOutput)
+}
+
+func (e ReportGroupS3ReportExportConfigPackaging) ToReportGroupS3ReportExportConfigPackagingOutputWithContext(ctx context.Context) ReportGroupS3ReportExportConfigPackagingOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ReportGroupS3ReportExportConfigPackagingOutput)
+}
+
+func (e ReportGroupS3ReportExportConfigPackaging) ToReportGroupS3ReportExportConfigPackagingPtrOutput() ReportGroupS3ReportExportConfigPackagingPtrOutput {
+	return e.ToReportGroupS3ReportExportConfigPackagingPtrOutputWithContext(context.Background())
+}
+
+func (e ReportGroupS3ReportExportConfigPackaging) ToReportGroupS3ReportExportConfigPackagingPtrOutputWithContext(ctx context.Context) ReportGroupS3ReportExportConfigPackagingPtrOutput {
+	return ReportGroupS3ReportExportConfigPackaging(e).ToReportGroupS3ReportExportConfigPackagingOutputWithContext(ctx).ToReportGroupS3ReportExportConfigPackagingPtrOutputWithContext(ctx)
+}
+
+func (e ReportGroupS3ReportExportConfigPackaging) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ReportGroupS3ReportExportConfigPackaging) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ReportGroupS3ReportExportConfigPackaging) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ReportGroupS3ReportExportConfigPackaging) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ReportGroupS3ReportExportConfigPackagingOutput struct{ *pulumi.OutputState }
+
+func (ReportGroupS3ReportExportConfigPackagingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReportGroupS3ReportExportConfigPackaging)(nil)).Elem()
+}
+
+func (o ReportGroupS3ReportExportConfigPackagingOutput) ToReportGroupS3ReportExportConfigPackagingOutput() ReportGroupS3ReportExportConfigPackagingOutput {
+	return o
+}
+
+func (o ReportGroupS3ReportExportConfigPackagingOutput) ToReportGroupS3ReportExportConfigPackagingOutputWithContext(ctx context.Context) ReportGroupS3ReportExportConfigPackagingOutput {
+	return o
+}
+
+func (o ReportGroupS3ReportExportConfigPackagingOutput) ToReportGroupS3ReportExportConfigPackagingPtrOutput() ReportGroupS3ReportExportConfigPackagingPtrOutput {
+	return o.ToReportGroupS3ReportExportConfigPackagingPtrOutputWithContext(context.Background())
+}
+
+func (o ReportGroupS3ReportExportConfigPackagingOutput) ToReportGroupS3ReportExportConfigPackagingPtrOutputWithContext(ctx context.Context) ReportGroupS3ReportExportConfigPackagingPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReportGroupS3ReportExportConfigPackaging) *ReportGroupS3ReportExportConfigPackaging {
+		return &v
+	}).(ReportGroupS3ReportExportConfigPackagingPtrOutput)
+}
+
+func (o ReportGroupS3ReportExportConfigPackagingOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ReportGroupS3ReportExportConfigPackagingOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ReportGroupS3ReportExportConfigPackaging) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ReportGroupS3ReportExportConfigPackagingOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ReportGroupS3ReportExportConfigPackagingOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ReportGroupS3ReportExportConfigPackaging) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ReportGroupS3ReportExportConfigPackagingPtrOutput struct{ *pulumi.OutputState }
+
+func (ReportGroupS3ReportExportConfigPackagingPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReportGroupS3ReportExportConfigPackaging)(nil)).Elem()
+}
+
+func (o ReportGroupS3ReportExportConfigPackagingPtrOutput) ToReportGroupS3ReportExportConfigPackagingPtrOutput() ReportGroupS3ReportExportConfigPackagingPtrOutput {
+	return o
+}
+
+func (o ReportGroupS3ReportExportConfigPackagingPtrOutput) ToReportGroupS3ReportExportConfigPackagingPtrOutputWithContext(ctx context.Context) ReportGroupS3ReportExportConfigPackagingPtrOutput {
+	return o
+}
+
+func (o ReportGroupS3ReportExportConfigPackagingPtrOutput) Elem() ReportGroupS3ReportExportConfigPackagingOutput {
+	return o.ApplyT(func(v *ReportGroupS3ReportExportConfigPackaging) ReportGroupS3ReportExportConfigPackaging {
+		if v != nil {
+			return *v
+		}
+		var ret ReportGroupS3ReportExportConfigPackaging
+		return ret
+	}).(ReportGroupS3ReportExportConfigPackagingOutput)
+}
+
+func (o ReportGroupS3ReportExportConfigPackagingPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ReportGroupS3ReportExportConfigPackagingPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ReportGroupS3ReportExportConfigPackaging) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ReportGroupS3ReportExportConfigPackagingInput is an input type that accepts values of the ReportGroupS3ReportExportConfigPackaging enum
+// A concrete instance of `ReportGroupS3ReportExportConfigPackagingInput` can be one of the following:
+//
+//	ReportGroupS3ReportExportConfigPackagingNone
+//	ReportGroupS3ReportExportConfigPackagingZip
+type ReportGroupS3ReportExportConfigPackagingInput interface {
+	pulumi.Input
+
+	ToReportGroupS3ReportExportConfigPackagingOutput() ReportGroupS3ReportExportConfigPackagingOutput
+	ToReportGroupS3ReportExportConfigPackagingOutputWithContext(context.Context) ReportGroupS3ReportExportConfigPackagingOutput
+}
+
+var reportGroupS3ReportExportConfigPackagingPtrType = reflect.TypeOf((**ReportGroupS3ReportExportConfigPackaging)(nil)).Elem()
+
+type ReportGroupS3ReportExportConfigPackagingPtrInput interface {
+	pulumi.Input
+
+	ToReportGroupS3ReportExportConfigPackagingPtrOutput() ReportGroupS3ReportExportConfigPackagingPtrOutput
+	ToReportGroupS3ReportExportConfigPackagingPtrOutputWithContext(context.Context) ReportGroupS3ReportExportConfigPackagingPtrOutput
+}
+
+type reportGroupS3ReportExportConfigPackagingPtr string
+
+func ReportGroupS3ReportExportConfigPackagingPtr(v string) ReportGroupS3ReportExportConfigPackagingPtrInput {
+	return (*reportGroupS3ReportExportConfigPackagingPtr)(&v)
+}
+
+func (*reportGroupS3ReportExportConfigPackagingPtr) ElementType() reflect.Type {
+	return reportGroupS3ReportExportConfigPackagingPtrType
+}
+
+func (in *reportGroupS3ReportExportConfigPackagingPtr) ToReportGroupS3ReportExportConfigPackagingPtrOutput() ReportGroupS3ReportExportConfigPackagingPtrOutput {
+	return pulumi.ToOutput(in).(ReportGroupS3ReportExportConfigPackagingPtrOutput)
+}
+
+func (in *reportGroupS3ReportExportConfigPackagingPtr) ToReportGroupS3ReportExportConfigPackagingPtrOutputWithContext(ctx context.Context) ReportGroupS3ReportExportConfigPackagingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ReportGroupS3ReportExportConfigPackagingPtrOutput)
+}
+
+// The type of the `ReportGroup` . This can be one of the following values:
+//
+// - **CODE_COVERAGE** - The report group contains code coverage reports.
+// - **TEST** - The report group contains test reports.
+type ReportGroupType string
+
+const (
+	ReportGroupTypeTest         = ReportGroupType("TEST")
+	ReportGroupTypeCodeCoverage = ReportGroupType("CODE_COVERAGE")
+)
+
+func (ReportGroupType) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReportGroupType)(nil)).Elem()
+}
+
+func (e ReportGroupType) ToReportGroupTypeOutput() ReportGroupTypeOutput {
+	return pulumi.ToOutput(e).(ReportGroupTypeOutput)
+}
+
+func (e ReportGroupType) ToReportGroupTypeOutputWithContext(ctx context.Context) ReportGroupTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ReportGroupTypeOutput)
+}
+
+func (e ReportGroupType) ToReportGroupTypePtrOutput() ReportGroupTypePtrOutput {
+	return e.ToReportGroupTypePtrOutputWithContext(context.Background())
+}
+
+func (e ReportGroupType) ToReportGroupTypePtrOutputWithContext(ctx context.Context) ReportGroupTypePtrOutput {
+	return ReportGroupType(e).ToReportGroupTypeOutputWithContext(ctx).ToReportGroupTypePtrOutputWithContext(ctx)
+}
+
+func (e ReportGroupType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ReportGroupType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ReportGroupType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ReportGroupType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ReportGroupTypeOutput struct{ *pulumi.OutputState }
+
+func (ReportGroupTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReportGroupType)(nil)).Elem()
+}
+
+func (o ReportGroupTypeOutput) ToReportGroupTypeOutput() ReportGroupTypeOutput {
+	return o
+}
+
+func (o ReportGroupTypeOutput) ToReportGroupTypeOutputWithContext(ctx context.Context) ReportGroupTypeOutput {
+	return o
+}
+
+func (o ReportGroupTypeOutput) ToReportGroupTypePtrOutput() ReportGroupTypePtrOutput {
+	return o.ToReportGroupTypePtrOutputWithContext(context.Background())
+}
+
+func (o ReportGroupTypeOutput) ToReportGroupTypePtrOutputWithContext(ctx context.Context) ReportGroupTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReportGroupType) *ReportGroupType {
+		return &v
+	}).(ReportGroupTypePtrOutput)
+}
+
+func (o ReportGroupTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ReportGroupTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ReportGroupType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ReportGroupTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ReportGroupTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ReportGroupType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ReportGroupTypePtrOutput struct{ *pulumi.OutputState }
+
+func (ReportGroupTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReportGroupType)(nil)).Elem()
+}
+
+func (o ReportGroupTypePtrOutput) ToReportGroupTypePtrOutput() ReportGroupTypePtrOutput {
+	return o
+}
+
+func (o ReportGroupTypePtrOutput) ToReportGroupTypePtrOutputWithContext(ctx context.Context) ReportGroupTypePtrOutput {
+	return o
+}
+
+func (o ReportGroupTypePtrOutput) Elem() ReportGroupTypeOutput {
+	return o.ApplyT(func(v *ReportGroupType) ReportGroupType {
+		if v != nil {
+			return *v
+		}
+		var ret ReportGroupType
+		return ret
+	}).(ReportGroupTypeOutput)
+}
+
+func (o ReportGroupTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ReportGroupTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ReportGroupType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ReportGroupTypeInput is an input type that accepts values of the ReportGroupType enum
+// A concrete instance of `ReportGroupTypeInput` can be one of the following:
+//
+//	ReportGroupTypeTest
+//	ReportGroupTypeCodeCoverage
+type ReportGroupTypeInput interface {
+	pulumi.Input
+
+	ToReportGroupTypeOutput() ReportGroupTypeOutput
+	ToReportGroupTypeOutputWithContext(context.Context) ReportGroupTypeOutput
+}
+
+var reportGroupTypePtrType = reflect.TypeOf((**ReportGroupType)(nil)).Elem()
+
+type ReportGroupTypePtrInput interface {
+	pulumi.Input
+
+	ToReportGroupTypePtrOutput() ReportGroupTypePtrOutput
+	ToReportGroupTypePtrOutputWithContext(context.Context) ReportGroupTypePtrOutput
+}
+
+type reportGroupTypePtr string
+
+func ReportGroupTypePtr(v string) ReportGroupTypePtrInput {
+	return (*reportGroupTypePtr)(&v)
+}
+
+func (*reportGroupTypePtr) ElementType() reflect.Type {
+	return reportGroupTypePtrType
+}
+
+func (in *reportGroupTypePtr) ToReportGroupTypePtrOutput() ReportGroupTypePtrOutput {
+	return pulumi.ToOutput(in).(ReportGroupTypePtrOutput)
+}
+
+func (in *reportGroupTypePtr) ToReportGroupTypePtrOutputWithContext(ctx context.Context) ReportGroupTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ReportGroupTypePtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetComputeConfigurationmachineTypeInput)(nil)).Elem(), FleetComputeConfigurationmachineType("GENERAL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetComputeConfigurationmachineTypePtrInput)(nil)).Elem(), FleetComputeConfigurationmachineType("GENERAL"))
@@ -1588,6 +2095,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetScalingConfigurationInputScalingTypePtrInput)(nil)).Elem(), FleetScalingConfigurationInputScalingType("TARGET_TRACKING_SCALING"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetTargetTrackingScalingConfigurationMetricTypeInput)(nil)).Elem(), FleetTargetTrackingScalingConfigurationMetricType("FLEET_UTILIZATION_RATE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetTargetTrackingScalingConfigurationMetricTypePtrInput)(nil)).Elem(), FleetTargetTrackingScalingConfigurationMetricType("FLEET_UTILIZATION_RATE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ReportGroupReportExportConfigExportConfigTypeInput)(nil)).Elem(), ReportGroupReportExportConfigExportConfigType("S3"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ReportGroupReportExportConfigExportConfigTypePtrInput)(nil)).Elem(), ReportGroupReportExportConfigExportConfigType("S3"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ReportGroupS3ReportExportConfigPackagingInput)(nil)).Elem(), ReportGroupS3ReportExportConfigPackaging("NONE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ReportGroupS3ReportExportConfigPackagingPtrInput)(nil)).Elem(), ReportGroupS3ReportExportConfigPackaging("NONE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ReportGroupTypeInput)(nil)).Elem(), ReportGroupType("TEST"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ReportGroupTypePtrInput)(nil)).Elem(), ReportGroupType("TEST"))
 	pulumi.RegisterOutputType(FleetComputeConfigurationmachineTypeOutput{})
 	pulumi.RegisterOutputType(FleetComputeConfigurationmachineTypePtrOutput{})
 	pulumi.RegisterOutputType(FleetComputeTypeOutput{})
@@ -1606,4 +2119,10 @@ func init() {
 	pulumi.RegisterOutputType(FleetScalingConfigurationInputScalingTypePtrOutput{})
 	pulumi.RegisterOutputType(FleetTargetTrackingScalingConfigurationMetricTypeOutput{})
 	pulumi.RegisterOutputType(FleetTargetTrackingScalingConfigurationMetricTypePtrOutput{})
+	pulumi.RegisterOutputType(ReportGroupReportExportConfigExportConfigTypeOutput{})
+	pulumi.RegisterOutputType(ReportGroupReportExportConfigExportConfigTypePtrOutput{})
+	pulumi.RegisterOutputType(ReportGroupS3ReportExportConfigPackagingOutput{})
+	pulumi.RegisterOutputType(ReportGroupS3ReportExportConfigPackagingPtrOutput{})
+	pulumi.RegisterOutputType(ReportGroupTypeOutput{})
+	pulumi.RegisterOutputType(ReportGroupTypePtrOutput{})
 }

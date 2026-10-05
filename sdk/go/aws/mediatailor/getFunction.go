@@ -30,7 +30,8 @@ type LookupFunctionArgs struct {
 
 type LookupFunctionResult struct {
 	// The ARN of the function.
-	Arn *string `pulumi:"arn"`
+	Arn                            *string                                 `pulumi:"arn"`
+	AwsServiceRequestConfiguration *FunctionAwsServiceRequestConfiguration `pulumi:"awsServiceRequestConfiguration"`
 	// The configuration for a CONCURRENT_EXECUTOR function. Required when FunctionType is CONCURRENT_EXECUTOR.
 	ConcurrentExecutorConfiguration *FunctionConcurrentExecutorConfiguration `pulumi:"concurrentExecutorConfiguration"`
 	CustomOutputConfiguration       *FunctionCustomOutputConfiguration       `pulumi:"customOutputConfiguration"`
@@ -41,7 +42,8 @@ type LookupFunctionResult struct {
 	HttpRequestConfiguration        *FunctionHttpRequestConfiguration        `pulumi:"httpRequestConfiguration"`
 	SequentialExecutorConfiguration *FunctionSequentialExecutorConfiguration `pulumi:"sequentialExecutorConfiguration"`
 	// The tags to assign to the function resource.
-	Tags []aws.Tag `pulumi:"tags"`
+	Tags                     []aws.Tag                         `pulumi:"tags"`
+	VastRequestConfiguration *FunctionVastRequestConfiguration `pulumi:"vastRequestConfiguration"`
 }
 
 func LookupFunctionOutput(ctx *pulumi.Context, args LookupFunctionOutputArgs, opts ...pulumi.InvokeOption) LookupFunctionResultOutput {
@@ -75,6 +77,12 @@ func (o LookupFunctionResultOutput) ToLookupFunctionResultOutputWithContext(ctx 
 // The ARN of the function.
 func (o LookupFunctionResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupFunctionResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupFunctionResultOutput) AwsServiceRequestConfiguration() FunctionAwsServiceRequestConfigurationPtrOutput {
+	return o.ApplyT(func(v LookupFunctionResult) *FunctionAwsServiceRequestConfiguration {
+		return v.AwsServiceRequestConfiguration
+	}).(FunctionAwsServiceRequestConfigurationPtrOutput)
 }
 
 // The configuration for a CONCURRENT_EXECUTOR function. Required when FunctionType is CONCURRENT_EXECUTOR.
@@ -111,6 +119,10 @@ func (o LookupFunctionResultOutput) SequentialExecutorConfiguration() FunctionSe
 // The tags to assign to the function resource.
 func (o LookupFunctionResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupFunctionResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
+}
+
+func (o LookupFunctionResultOutput) VastRequestConfiguration() FunctionVastRequestConfigurationPtrOutput {
+	return o.ApplyT(func(v LookupFunctionResult) *FunctionVastRequestConfiguration { return v.VastRequestConfiguration }).(FunctionVastRequestConfigurationPtrOutput)
 }
 
 func init() {

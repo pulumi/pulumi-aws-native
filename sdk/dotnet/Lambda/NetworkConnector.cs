@@ -21,6 +21,12 @@ namespace Pulumi.AwsNative.Lambda
         [Output("configuration")]
         public Output<Outputs.NetworkConnectorConfig> Configuration { get; private set; } = null!;
 
+        [Output("latestVersion")]
+        public Output<int> LatestVersion { get; private set; } = null!;
+
+        [Output("latestVersionArn")]
+        public Output<string> LatestVersionArn { get; private set; } = null!;
+
         [Output("name")]
         public Output<string?> Name { get; private set; } = null!;
 

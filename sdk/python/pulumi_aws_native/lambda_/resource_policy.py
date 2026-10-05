@@ -28,7 +28,6 @@ class ResourcePolicyArgs:
                 For more information, see [Working with resource-based policies in](https://docs.aws.amazon.com/lambda/latest/dg/access-control-resource-based.html) in the *Developer Guide*.
                
                Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Lambda::ResourcePolicy` for more information about the expected schema for this property.
-        :param pulumi.Input[_builtins.str] resource_arn: The Amazon Resource Name (ARN) of the LAM resource you want to add the policy to. For a function, you can use a qualified or an unqualified ARN. The value must be a complete ARN, and the operation does not accept wildcard characters.
         """
         pulumi.set(__self__, "policy_document", policy_document)
         pulumi.set(__self__, "resource_arn", resource_arn)
@@ -51,9 +50,6 @@ class ResourcePolicyArgs:
     @_builtins.property
     @pulumi.getter(name="resourceArn")
     def resource_arn(self) -> pulumi.Input[_builtins.str]:
-        """
-        The Amazon Resource Name (ARN) of the LAM resource you want to add the policy to. For a function, you can use a qualified or an unqualified ARN. The value must be a complete ARN, and the operation does not accept wildcard characters.
-        """
         return pulumi.get(self, "resource_arn")
 
     @resource_arn.setter
@@ -91,7 +87,6 @@ class ResourcePolicy(pulumi.CustomResource):
                 For more information, see [Working with resource-based policies in](https://docs.aws.amazon.com/lambda/latest/dg/access-control-resource-based.html) in the *Developer Guide*.
                
                Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Lambda::ResourcePolicy` for more information about the expected schema for this property.
-        :param pulumi.Input[_builtins.str] resource_arn: The Amazon Resource Name (ARN) of the LAM resource you want to add the policy to. For a function, you can use a qualified or an unqualified ARN. The value must be a complete ARN, and the operation does not accept wildcard characters.
         """
         ...
     @overload
@@ -188,8 +183,5 @@ class ResourcePolicy(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="resourceArn")
     def resource_arn(self) -> pulumi.Output[_builtins.str]:
-        """
-        The Amazon Resource Name (ARN) of the LAM resource you want to add the policy to. For a function, you can use a qualified or an unqualified ARN. The value must be a complete ARN, and the operation does not accept wildcard characters.
-        """
         return pulumi.get(self, "resource_arn")
 

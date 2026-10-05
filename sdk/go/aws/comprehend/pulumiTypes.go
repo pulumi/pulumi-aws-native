@@ -1526,6 +1526,13 @@ func (o EntityRecognizerDocumentsPtrOutput) TestS3Uri() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type EntityRecognizerEndpointTag struct {
+	// The initial part of a key-value pair that forms a tag associated with a given resource.
+	Key string `pulumi:"key"`
+	// The second part of a key-value pair that forms a tag associated with a given resource.
+	Value string `pulumi:"value"`
+}
+
 // Describes the entity list submitted with an entity recognizer.
 type EntityRecognizerEntityList struct {
 	// Specifies the Amazon S3 location where the entity list is located.

@@ -12,17 +12,11 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Inputs
 
     public sealed class HarnessLiteLlmModelConfigArgs : global::Pulumi.ResourceArgs
     {
-        [Input("additionalParams")]
-        private InputMap<object>? _additionalParams;
-
         /// <summary>
         /// Provider-specific parameters passed through to LiteLLM unchanged.
         /// </summary>
-        public InputMap<object> AdditionalParams
-        {
-            get => _additionalParams ?? (_additionalParams = new InputMap<object>());
-            set => _additionalParams = value;
-        }
+        [Input("additionalParams")]
+        public Input<object>? AdditionalParams { get; set; }
 
         [Input("apiBase")]
         public Input<string>? ApiBase { get; set; }

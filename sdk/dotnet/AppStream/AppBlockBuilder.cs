@@ -47,6 +47,9 @@ namespace Pulumi.AwsNative.AppStream
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        [Output("disableImdsv1")]
+        public Output<bool?> DisableImdsv1 { get; private set; } = null!;
+
         /// <summary>
         /// The display name of the app block builder.
         /// </summary>
@@ -177,6 +180,9 @@ namespace Pulumi.AwsNative.AppStream
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
+
+        [Input("disableImdsv1")]
+        public Input<bool>? DisableImdsv1 { get; set; }
 
         /// <summary>
         /// The display name of the app block builder.

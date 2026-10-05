@@ -17139,6 +17139,316 @@ func (o GatewayWorkloadIdentityDetailsPtrOutput) WorkloadIdentityArn() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
+// A hook that runs after an agent invocation.
+type HarnessAfterInvocationHook struct {
+	// The unique name of the hook.
+	Name   string            `pulumi:"name"`
+	Target HarnessHookTarget `pulumi:"target"`
+}
+
+// HarnessAfterInvocationHookInput is an input type that accepts HarnessAfterInvocationHookArgs and HarnessAfterInvocationHookOutput values.
+// You can construct a concrete instance of `HarnessAfterInvocationHookInput` via:
+//
+//	HarnessAfterInvocationHookArgs{...}
+type HarnessAfterInvocationHookInput interface {
+	pulumi.Input
+
+	ToHarnessAfterInvocationHookOutput() HarnessAfterInvocationHookOutput
+	ToHarnessAfterInvocationHookOutputWithContext(context.Context) HarnessAfterInvocationHookOutput
+}
+
+// A hook that runs after an agent invocation.
+type HarnessAfterInvocationHookArgs struct {
+	// The unique name of the hook.
+	Name   pulumi.StringInput     `pulumi:"name"`
+	Target HarnessHookTargetInput `pulumi:"target"`
+}
+
+func (HarnessAfterInvocationHookArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*HarnessAfterInvocationHook)(nil)).Elem()
+}
+
+func (i HarnessAfterInvocationHookArgs) ToHarnessAfterInvocationHookOutput() HarnessAfterInvocationHookOutput {
+	return i.ToHarnessAfterInvocationHookOutputWithContext(context.Background())
+}
+
+func (i HarnessAfterInvocationHookArgs) ToHarnessAfterInvocationHookOutputWithContext(ctx context.Context) HarnessAfterInvocationHookOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HarnessAfterInvocationHookOutput)
+}
+
+func (i HarnessAfterInvocationHookArgs) ToHarnessAfterInvocationHookPtrOutput() HarnessAfterInvocationHookPtrOutput {
+	return i.ToHarnessAfterInvocationHookPtrOutputWithContext(context.Background())
+}
+
+func (i HarnessAfterInvocationHookArgs) ToHarnessAfterInvocationHookPtrOutputWithContext(ctx context.Context) HarnessAfterInvocationHookPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HarnessAfterInvocationHookOutput).ToHarnessAfterInvocationHookPtrOutputWithContext(ctx)
+}
+
+// HarnessAfterInvocationHookPtrInput is an input type that accepts HarnessAfterInvocationHookArgs, HarnessAfterInvocationHookPtr and HarnessAfterInvocationHookPtrOutput values.
+// You can construct a concrete instance of `HarnessAfterInvocationHookPtrInput` via:
+//
+//	        HarnessAfterInvocationHookArgs{...}
+//
+//	or:
+//
+//	        nil
+type HarnessAfterInvocationHookPtrInput interface {
+	pulumi.Input
+
+	ToHarnessAfterInvocationHookPtrOutput() HarnessAfterInvocationHookPtrOutput
+	ToHarnessAfterInvocationHookPtrOutputWithContext(context.Context) HarnessAfterInvocationHookPtrOutput
+}
+
+type harnessAfterInvocationHookPtrType HarnessAfterInvocationHookArgs
+
+func HarnessAfterInvocationHookPtr(v *HarnessAfterInvocationHookArgs) HarnessAfterInvocationHookPtrInput {
+	return (*harnessAfterInvocationHookPtrType)(v)
+}
+
+func (*harnessAfterInvocationHookPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**HarnessAfterInvocationHook)(nil)).Elem()
+}
+
+func (i *harnessAfterInvocationHookPtrType) ToHarnessAfterInvocationHookPtrOutput() HarnessAfterInvocationHookPtrOutput {
+	return i.ToHarnessAfterInvocationHookPtrOutputWithContext(context.Background())
+}
+
+func (i *harnessAfterInvocationHookPtrType) ToHarnessAfterInvocationHookPtrOutputWithContext(ctx context.Context) HarnessAfterInvocationHookPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HarnessAfterInvocationHookPtrOutput)
+}
+
+// A hook that runs after an agent invocation.
+type HarnessAfterInvocationHookOutput struct{ *pulumi.OutputState }
+
+func (HarnessAfterInvocationHookOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HarnessAfterInvocationHook)(nil)).Elem()
+}
+
+func (o HarnessAfterInvocationHookOutput) ToHarnessAfterInvocationHookOutput() HarnessAfterInvocationHookOutput {
+	return o
+}
+
+func (o HarnessAfterInvocationHookOutput) ToHarnessAfterInvocationHookOutputWithContext(ctx context.Context) HarnessAfterInvocationHookOutput {
+	return o
+}
+
+func (o HarnessAfterInvocationHookOutput) ToHarnessAfterInvocationHookPtrOutput() HarnessAfterInvocationHookPtrOutput {
+	return o.ToHarnessAfterInvocationHookPtrOutputWithContext(context.Background())
+}
+
+func (o HarnessAfterInvocationHookOutput) ToHarnessAfterInvocationHookPtrOutputWithContext(ctx context.Context) HarnessAfterInvocationHookPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v HarnessAfterInvocationHook) *HarnessAfterInvocationHook {
+		return &v
+	}).(HarnessAfterInvocationHookPtrOutput)
+}
+
+// The unique name of the hook.
+func (o HarnessAfterInvocationHookOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v HarnessAfterInvocationHook) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o HarnessAfterInvocationHookOutput) Target() HarnessHookTargetOutput {
+	return o.ApplyT(func(v HarnessAfterInvocationHook) HarnessHookTarget { return v.Target }).(HarnessHookTargetOutput)
+}
+
+type HarnessAfterInvocationHookPtrOutput struct{ *pulumi.OutputState }
+
+func (HarnessAfterInvocationHookPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**HarnessAfterInvocationHook)(nil)).Elem()
+}
+
+func (o HarnessAfterInvocationHookPtrOutput) ToHarnessAfterInvocationHookPtrOutput() HarnessAfterInvocationHookPtrOutput {
+	return o
+}
+
+func (o HarnessAfterInvocationHookPtrOutput) ToHarnessAfterInvocationHookPtrOutputWithContext(ctx context.Context) HarnessAfterInvocationHookPtrOutput {
+	return o
+}
+
+func (o HarnessAfterInvocationHookPtrOutput) Elem() HarnessAfterInvocationHookOutput {
+	return o.ApplyT(func(v *HarnessAfterInvocationHook) HarnessAfterInvocationHook {
+		if v != nil {
+			return *v
+		}
+		var ret HarnessAfterInvocationHook
+		return ret
+	}).(HarnessAfterInvocationHookOutput)
+}
+
+// The unique name of the hook.
+func (o HarnessAfterInvocationHookPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HarnessAfterInvocationHook) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o HarnessAfterInvocationHookPtrOutput) Target() HarnessHookTargetPtrOutput {
+	return o.ApplyT(func(v *HarnessAfterInvocationHook) *HarnessHookTarget {
+		if v == nil {
+			return nil
+		}
+		return &v.Target
+	}).(HarnessHookTargetPtrOutput)
+}
+
+// A hook that runs after each tool call.
+type HarnessAfterToolCallHook struct {
+	// The unique name of the hook.
+	Name   string            `pulumi:"name"`
+	Target HarnessHookTarget `pulumi:"target"`
+}
+
+// HarnessAfterToolCallHookInput is an input type that accepts HarnessAfterToolCallHookArgs and HarnessAfterToolCallHookOutput values.
+// You can construct a concrete instance of `HarnessAfterToolCallHookInput` via:
+//
+//	HarnessAfterToolCallHookArgs{...}
+type HarnessAfterToolCallHookInput interface {
+	pulumi.Input
+
+	ToHarnessAfterToolCallHookOutput() HarnessAfterToolCallHookOutput
+	ToHarnessAfterToolCallHookOutputWithContext(context.Context) HarnessAfterToolCallHookOutput
+}
+
+// A hook that runs after each tool call.
+type HarnessAfterToolCallHookArgs struct {
+	// The unique name of the hook.
+	Name   pulumi.StringInput     `pulumi:"name"`
+	Target HarnessHookTargetInput `pulumi:"target"`
+}
+
+func (HarnessAfterToolCallHookArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*HarnessAfterToolCallHook)(nil)).Elem()
+}
+
+func (i HarnessAfterToolCallHookArgs) ToHarnessAfterToolCallHookOutput() HarnessAfterToolCallHookOutput {
+	return i.ToHarnessAfterToolCallHookOutputWithContext(context.Background())
+}
+
+func (i HarnessAfterToolCallHookArgs) ToHarnessAfterToolCallHookOutputWithContext(ctx context.Context) HarnessAfterToolCallHookOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HarnessAfterToolCallHookOutput)
+}
+
+func (i HarnessAfterToolCallHookArgs) ToHarnessAfterToolCallHookPtrOutput() HarnessAfterToolCallHookPtrOutput {
+	return i.ToHarnessAfterToolCallHookPtrOutputWithContext(context.Background())
+}
+
+func (i HarnessAfterToolCallHookArgs) ToHarnessAfterToolCallHookPtrOutputWithContext(ctx context.Context) HarnessAfterToolCallHookPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HarnessAfterToolCallHookOutput).ToHarnessAfterToolCallHookPtrOutputWithContext(ctx)
+}
+
+// HarnessAfterToolCallHookPtrInput is an input type that accepts HarnessAfterToolCallHookArgs, HarnessAfterToolCallHookPtr and HarnessAfterToolCallHookPtrOutput values.
+// You can construct a concrete instance of `HarnessAfterToolCallHookPtrInput` via:
+//
+//	        HarnessAfterToolCallHookArgs{...}
+//
+//	or:
+//
+//	        nil
+type HarnessAfterToolCallHookPtrInput interface {
+	pulumi.Input
+
+	ToHarnessAfterToolCallHookPtrOutput() HarnessAfterToolCallHookPtrOutput
+	ToHarnessAfterToolCallHookPtrOutputWithContext(context.Context) HarnessAfterToolCallHookPtrOutput
+}
+
+type harnessAfterToolCallHookPtrType HarnessAfterToolCallHookArgs
+
+func HarnessAfterToolCallHookPtr(v *HarnessAfterToolCallHookArgs) HarnessAfterToolCallHookPtrInput {
+	return (*harnessAfterToolCallHookPtrType)(v)
+}
+
+func (*harnessAfterToolCallHookPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**HarnessAfterToolCallHook)(nil)).Elem()
+}
+
+func (i *harnessAfterToolCallHookPtrType) ToHarnessAfterToolCallHookPtrOutput() HarnessAfterToolCallHookPtrOutput {
+	return i.ToHarnessAfterToolCallHookPtrOutputWithContext(context.Background())
+}
+
+func (i *harnessAfterToolCallHookPtrType) ToHarnessAfterToolCallHookPtrOutputWithContext(ctx context.Context) HarnessAfterToolCallHookPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HarnessAfterToolCallHookPtrOutput)
+}
+
+// A hook that runs after each tool call.
+type HarnessAfterToolCallHookOutput struct{ *pulumi.OutputState }
+
+func (HarnessAfterToolCallHookOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HarnessAfterToolCallHook)(nil)).Elem()
+}
+
+func (o HarnessAfterToolCallHookOutput) ToHarnessAfterToolCallHookOutput() HarnessAfterToolCallHookOutput {
+	return o
+}
+
+func (o HarnessAfterToolCallHookOutput) ToHarnessAfterToolCallHookOutputWithContext(ctx context.Context) HarnessAfterToolCallHookOutput {
+	return o
+}
+
+func (o HarnessAfterToolCallHookOutput) ToHarnessAfterToolCallHookPtrOutput() HarnessAfterToolCallHookPtrOutput {
+	return o.ToHarnessAfterToolCallHookPtrOutputWithContext(context.Background())
+}
+
+func (o HarnessAfterToolCallHookOutput) ToHarnessAfterToolCallHookPtrOutputWithContext(ctx context.Context) HarnessAfterToolCallHookPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v HarnessAfterToolCallHook) *HarnessAfterToolCallHook {
+		return &v
+	}).(HarnessAfterToolCallHookPtrOutput)
+}
+
+// The unique name of the hook.
+func (o HarnessAfterToolCallHookOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v HarnessAfterToolCallHook) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o HarnessAfterToolCallHookOutput) Target() HarnessHookTargetOutput {
+	return o.ApplyT(func(v HarnessAfterToolCallHook) HarnessHookTarget { return v.Target }).(HarnessHookTargetOutput)
+}
+
+type HarnessAfterToolCallHookPtrOutput struct{ *pulumi.OutputState }
+
+func (HarnessAfterToolCallHookPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**HarnessAfterToolCallHook)(nil)).Elem()
+}
+
+func (o HarnessAfterToolCallHookPtrOutput) ToHarnessAfterToolCallHookPtrOutput() HarnessAfterToolCallHookPtrOutput {
+	return o
+}
+
+func (o HarnessAfterToolCallHookPtrOutput) ToHarnessAfterToolCallHookPtrOutputWithContext(ctx context.Context) HarnessAfterToolCallHookPtrOutput {
+	return o
+}
+
+func (o HarnessAfterToolCallHookPtrOutput) Elem() HarnessAfterToolCallHookOutput {
+	return o.ApplyT(func(v *HarnessAfterToolCallHook) HarnessAfterToolCallHook {
+		if v != nil {
+			return *v
+		}
+		var ret HarnessAfterToolCallHook
+		return ret
+	}).(HarnessAfterToolCallHookOutput)
+}
+
+// The unique name of the hook.
+func (o HarnessAfterToolCallHookPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HarnessAfterToolCallHook) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o HarnessAfterToolCallHookPtrOutput) Target() HarnessHookTargetPtrOutput {
+	return o.ApplyT(func(v *HarnessAfterToolCallHook) *HarnessHookTarget {
+		if v == nil {
+			return nil
+		}
+		return &v.Target
+	}).(HarnessHookTargetPtrOutput)
+}
+
 type HarnessAgentCoreBrowserConfig struct {
 	BrowserArn *string `pulumi:"browserArn"`
 }
@@ -18263,7 +18573,7 @@ func (o HarnessAuthorizingClaimMatchValueTypeOutput) ClaimMatchValue() HarnessCl
 
 type HarnessBedrockModelConfig struct {
 	// Provider-specific parameters passed through to the model provider unchanged.
-	AdditionalParams map[string]interface{}              `pulumi:"additionalParams"`
+	AdditionalParams interface{}                         `pulumi:"additionalParams"`
 	ApiFormat        *HarnessBedrockModelConfigApiFormat `pulumi:"apiFormat"`
 	MaxTokens        *int                                `pulumi:"maxTokens"`
 	ModelId          string                              `pulumi:"modelId"`
@@ -18284,7 +18594,7 @@ type HarnessBedrockModelConfigInput interface {
 
 type HarnessBedrockModelConfigArgs struct {
 	// Provider-specific parameters passed through to the model provider unchanged.
-	AdditionalParams pulumi.MapInput                            `pulumi:"additionalParams"`
+	AdditionalParams pulumi.Input                               `pulumi:"additionalParams"`
 	ApiFormat        HarnessBedrockModelConfigApiFormatPtrInput `pulumi:"apiFormat"`
 	MaxTokens        pulumi.IntPtrInput                         `pulumi:"maxTokens"`
 	ModelId          pulumi.StringInput                         `pulumi:"modelId"`
@@ -18370,8 +18680,8 @@ func (o HarnessBedrockModelConfigOutput) ToHarnessBedrockModelConfigPtrOutputWit
 }
 
 // Provider-specific parameters passed through to the model provider unchanged.
-func (o HarnessBedrockModelConfigOutput) AdditionalParams() pulumi.MapOutput {
-	return o.ApplyT(func(v HarnessBedrockModelConfig) map[string]interface{} { return v.AdditionalParams }).(pulumi.MapOutput)
+func (o HarnessBedrockModelConfigOutput) AdditionalParams() pulumi.AnyOutput {
+	return o.ApplyT(func(v HarnessBedrockModelConfig) interface{} { return v.AdditionalParams }).(pulumi.AnyOutput)
 }
 
 func (o HarnessBedrockModelConfigOutput) ApiFormat() HarnessBedrockModelConfigApiFormatPtrOutput {
@@ -18419,13 +18729,13 @@ func (o HarnessBedrockModelConfigPtrOutput) Elem() HarnessBedrockModelConfigOutp
 }
 
 // Provider-specific parameters passed through to the model provider unchanged.
-func (o HarnessBedrockModelConfigPtrOutput) AdditionalParams() pulumi.MapOutput {
-	return o.ApplyT(func(v *HarnessBedrockModelConfig) map[string]interface{} {
+func (o HarnessBedrockModelConfigPtrOutput) AdditionalParams() pulumi.AnyOutput {
+	return o.ApplyT(func(v *HarnessBedrockModelConfig) interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.AdditionalParams
-	}).(pulumi.MapOutput)
+	}).(pulumi.AnyOutput)
 }
 
 func (o HarnessBedrockModelConfigPtrOutput) ApiFormat() HarnessBedrockModelConfigApiFormatPtrOutput {
@@ -18471,6 +18781,316 @@ func (o HarnessBedrockModelConfigPtrOutput) TopP() pulumi.Float64PtrOutput {
 		}
 		return v.TopP
 	}).(pulumi.Float64PtrOutput)
+}
+
+// A hook that runs before an agent invocation.
+type HarnessBeforeInvocationHook struct {
+	// The unique name of the hook.
+	Name   string            `pulumi:"name"`
+	Target HarnessHookTarget `pulumi:"target"`
+}
+
+// HarnessBeforeInvocationHookInput is an input type that accepts HarnessBeforeInvocationHookArgs and HarnessBeforeInvocationHookOutput values.
+// You can construct a concrete instance of `HarnessBeforeInvocationHookInput` via:
+//
+//	HarnessBeforeInvocationHookArgs{...}
+type HarnessBeforeInvocationHookInput interface {
+	pulumi.Input
+
+	ToHarnessBeforeInvocationHookOutput() HarnessBeforeInvocationHookOutput
+	ToHarnessBeforeInvocationHookOutputWithContext(context.Context) HarnessBeforeInvocationHookOutput
+}
+
+// A hook that runs before an agent invocation.
+type HarnessBeforeInvocationHookArgs struct {
+	// The unique name of the hook.
+	Name   pulumi.StringInput     `pulumi:"name"`
+	Target HarnessHookTargetInput `pulumi:"target"`
+}
+
+func (HarnessBeforeInvocationHookArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*HarnessBeforeInvocationHook)(nil)).Elem()
+}
+
+func (i HarnessBeforeInvocationHookArgs) ToHarnessBeforeInvocationHookOutput() HarnessBeforeInvocationHookOutput {
+	return i.ToHarnessBeforeInvocationHookOutputWithContext(context.Background())
+}
+
+func (i HarnessBeforeInvocationHookArgs) ToHarnessBeforeInvocationHookOutputWithContext(ctx context.Context) HarnessBeforeInvocationHookOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HarnessBeforeInvocationHookOutput)
+}
+
+func (i HarnessBeforeInvocationHookArgs) ToHarnessBeforeInvocationHookPtrOutput() HarnessBeforeInvocationHookPtrOutput {
+	return i.ToHarnessBeforeInvocationHookPtrOutputWithContext(context.Background())
+}
+
+func (i HarnessBeforeInvocationHookArgs) ToHarnessBeforeInvocationHookPtrOutputWithContext(ctx context.Context) HarnessBeforeInvocationHookPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HarnessBeforeInvocationHookOutput).ToHarnessBeforeInvocationHookPtrOutputWithContext(ctx)
+}
+
+// HarnessBeforeInvocationHookPtrInput is an input type that accepts HarnessBeforeInvocationHookArgs, HarnessBeforeInvocationHookPtr and HarnessBeforeInvocationHookPtrOutput values.
+// You can construct a concrete instance of `HarnessBeforeInvocationHookPtrInput` via:
+//
+//	        HarnessBeforeInvocationHookArgs{...}
+//
+//	or:
+//
+//	        nil
+type HarnessBeforeInvocationHookPtrInput interface {
+	pulumi.Input
+
+	ToHarnessBeforeInvocationHookPtrOutput() HarnessBeforeInvocationHookPtrOutput
+	ToHarnessBeforeInvocationHookPtrOutputWithContext(context.Context) HarnessBeforeInvocationHookPtrOutput
+}
+
+type harnessBeforeInvocationHookPtrType HarnessBeforeInvocationHookArgs
+
+func HarnessBeforeInvocationHookPtr(v *HarnessBeforeInvocationHookArgs) HarnessBeforeInvocationHookPtrInput {
+	return (*harnessBeforeInvocationHookPtrType)(v)
+}
+
+func (*harnessBeforeInvocationHookPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**HarnessBeforeInvocationHook)(nil)).Elem()
+}
+
+func (i *harnessBeforeInvocationHookPtrType) ToHarnessBeforeInvocationHookPtrOutput() HarnessBeforeInvocationHookPtrOutput {
+	return i.ToHarnessBeforeInvocationHookPtrOutputWithContext(context.Background())
+}
+
+func (i *harnessBeforeInvocationHookPtrType) ToHarnessBeforeInvocationHookPtrOutputWithContext(ctx context.Context) HarnessBeforeInvocationHookPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HarnessBeforeInvocationHookPtrOutput)
+}
+
+// A hook that runs before an agent invocation.
+type HarnessBeforeInvocationHookOutput struct{ *pulumi.OutputState }
+
+func (HarnessBeforeInvocationHookOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HarnessBeforeInvocationHook)(nil)).Elem()
+}
+
+func (o HarnessBeforeInvocationHookOutput) ToHarnessBeforeInvocationHookOutput() HarnessBeforeInvocationHookOutput {
+	return o
+}
+
+func (o HarnessBeforeInvocationHookOutput) ToHarnessBeforeInvocationHookOutputWithContext(ctx context.Context) HarnessBeforeInvocationHookOutput {
+	return o
+}
+
+func (o HarnessBeforeInvocationHookOutput) ToHarnessBeforeInvocationHookPtrOutput() HarnessBeforeInvocationHookPtrOutput {
+	return o.ToHarnessBeforeInvocationHookPtrOutputWithContext(context.Background())
+}
+
+func (o HarnessBeforeInvocationHookOutput) ToHarnessBeforeInvocationHookPtrOutputWithContext(ctx context.Context) HarnessBeforeInvocationHookPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v HarnessBeforeInvocationHook) *HarnessBeforeInvocationHook {
+		return &v
+	}).(HarnessBeforeInvocationHookPtrOutput)
+}
+
+// The unique name of the hook.
+func (o HarnessBeforeInvocationHookOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v HarnessBeforeInvocationHook) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o HarnessBeforeInvocationHookOutput) Target() HarnessHookTargetOutput {
+	return o.ApplyT(func(v HarnessBeforeInvocationHook) HarnessHookTarget { return v.Target }).(HarnessHookTargetOutput)
+}
+
+type HarnessBeforeInvocationHookPtrOutput struct{ *pulumi.OutputState }
+
+func (HarnessBeforeInvocationHookPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**HarnessBeforeInvocationHook)(nil)).Elem()
+}
+
+func (o HarnessBeforeInvocationHookPtrOutput) ToHarnessBeforeInvocationHookPtrOutput() HarnessBeforeInvocationHookPtrOutput {
+	return o
+}
+
+func (o HarnessBeforeInvocationHookPtrOutput) ToHarnessBeforeInvocationHookPtrOutputWithContext(ctx context.Context) HarnessBeforeInvocationHookPtrOutput {
+	return o
+}
+
+func (o HarnessBeforeInvocationHookPtrOutput) Elem() HarnessBeforeInvocationHookOutput {
+	return o.ApplyT(func(v *HarnessBeforeInvocationHook) HarnessBeforeInvocationHook {
+		if v != nil {
+			return *v
+		}
+		var ret HarnessBeforeInvocationHook
+		return ret
+	}).(HarnessBeforeInvocationHookOutput)
+}
+
+// The unique name of the hook.
+func (o HarnessBeforeInvocationHookPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HarnessBeforeInvocationHook) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o HarnessBeforeInvocationHookPtrOutput) Target() HarnessHookTargetPtrOutput {
+	return o.ApplyT(func(v *HarnessBeforeInvocationHook) *HarnessHookTarget {
+		if v == nil {
+			return nil
+		}
+		return &v.Target
+	}).(HarnessHookTargetPtrOutput)
+}
+
+// A hook that runs before each tool call.
+type HarnessBeforeToolCallHook struct {
+	// The unique name of the hook.
+	Name   string            `pulumi:"name"`
+	Target HarnessHookTarget `pulumi:"target"`
+}
+
+// HarnessBeforeToolCallHookInput is an input type that accepts HarnessBeforeToolCallHookArgs and HarnessBeforeToolCallHookOutput values.
+// You can construct a concrete instance of `HarnessBeforeToolCallHookInput` via:
+//
+//	HarnessBeforeToolCallHookArgs{...}
+type HarnessBeforeToolCallHookInput interface {
+	pulumi.Input
+
+	ToHarnessBeforeToolCallHookOutput() HarnessBeforeToolCallHookOutput
+	ToHarnessBeforeToolCallHookOutputWithContext(context.Context) HarnessBeforeToolCallHookOutput
+}
+
+// A hook that runs before each tool call.
+type HarnessBeforeToolCallHookArgs struct {
+	// The unique name of the hook.
+	Name   pulumi.StringInput     `pulumi:"name"`
+	Target HarnessHookTargetInput `pulumi:"target"`
+}
+
+func (HarnessBeforeToolCallHookArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*HarnessBeforeToolCallHook)(nil)).Elem()
+}
+
+func (i HarnessBeforeToolCallHookArgs) ToHarnessBeforeToolCallHookOutput() HarnessBeforeToolCallHookOutput {
+	return i.ToHarnessBeforeToolCallHookOutputWithContext(context.Background())
+}
+
+func (i HarnessBeforeToolCallHookArgs) ToHarnessBeforeToolCallHookOutputWithContext(ctx context.Context) HarnessBeforeToolCallHookOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HarnessBeforeToolCallHookOutput)
+}
+
+func (i HarnessBeforeToolCallHookArgs) ToHarnessBeforeToolCallHookPtrOutput() HarnessBeforeToolCallHookPtrOutput {
+	return i.ToHarnessBeforeToolCallHookPtrOutputWithContext(context.Background())
+}
+
+func (i HarnessBeforeToolCallHookArgs) ToHarnessBeforeToolCallHookPtrOutputWithContext(ctx context.Context) HarnessBeforeToolCallHookPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HarnessBeforeToolCallHookOutput).ToHarnessBeforeToolCallHookPtrOutputWithContext(ctx)
+}
+
+// HarnessBeforeToolCallHookPtrInput is an input type that accepts HarnessBeforeToolCallHookArgs, HarnessBeforeToolCallHookPtr and HarnessBeforeToolCallHookPtrOutput values.
+// You can construct a concrete instance of `HarnessBeforeToolCallHookPtrInput` via:
+//
+//	        HarnessBeforeToolCallHookArgs{...}
+//
+//	or:
+//
+//	        nil
+type HarnessBeforeToolCallHookPtrInput interface {
+	pulumi.Input
+
+	ToHarnessBeforeToolCallHookPtrOutput() HarnessBeforeToolCallHookPtrOutput
+	ToHarnessBeforeToolCallHookPtrOutputWithContext(context.Context) HarnessBeforeToolCallHookPtrOutput
+}
+
+type harnessBeforeToolCallHookPtrType HarnessBeforeToolCallHookArgs
+
+func HarnessBeforeToolCallHookPtr(v *HarnessBeforeToolCallHookArgs) HarnessBeforeToolCallHookPtrInput {
+	return (*harnessBeforeToolCallHookPtrType)(v)
+}
+
+func (*harnessBeforeToolCallHookPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**HarnessBeforeToolCallHook)(nil)).Elem()
+}
+
+func (i *harnessBeforeToolCallHookPtrType) ToHarnessBeforeToolCallHookPtrOutput() HarnessBeforeToolCallHookPtrOutput {
+	return i.ToHarnessBeforeToolCallHookPtrOutputWithContext(context.Background())
+}
+
+func (i *harnessBeforeToolCallHookPtrType) ToHarnessBeforeToolCallHookPtrOutputWithContext(ctx context.Context) HarnessBeforeToolCallHookPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HarnessBeforeToolCallHookPtrOutput)
+}
+
+// A hook that runs before each tool call.
+type HarnessBeforeToolCallHookOutput struct{ *pulumi.OutputState }
+
+func (HarnessBeforeToolCallHookOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HarnessBeforeToolCallHook)(nil)).Elem()
+}
+
+func (o HarnessBeforeToolCallHookOutput) ToHarnessBeforeToolCallHookOutput() HarnessBeforeToolCallHookOutput {
+	return o
+}
+
+func (o HarnessBeforeToolCallHookOutput) ToHarnessBeforeToolCallHookOutputWithContext(ctx context.Context) HarnessBeforeToolCallHookOutput {
+	return o
+}
+
+func (o HarnessBeforeToolCallHookOutput) ToHarnessBeforeToolCallHookPtrOutput() HarnessBeforeToolCallHookPtrOutput {
+	return o.ToHarnessBeforeToolCallHookPtrOutputWithContext(context.Background())
+}
+
+func (o HarnessBeforeToolCallHookOutput) ToHarnessBeforeToolCallHookPtrOutputWithContext(ctx context.Context) HarnessBeforeToolCallHookPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v HarnessBeforeToolCallHook) *HarnessBeforeToolCallHook {
+		return &v
+	}).(HarnessBeforeToolCallHookPtrOutput)
+}
+
+// The unique name of the hook.
+func (o HarnessBeforeToolCallHookOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v HarnessBeforeToolCallHook) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o HarnessBeforeToolCallHookOutput) Target() HarnessHookTargetOutput {
+	return o.ApplyT(func(v HarnessBeforeToolCallHook) HarnessHookTarget { return v.Target }).(HarnessHookTargetOutput)
+}
+
+type HarnessBeforeToolCallHookPtrOutput struct{ *pulumi.OutputState }
+
+func (HarnessBeforeToolCallHookPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**HarnessBeforeToolCallHook)(nil)).Elem()
+}
+
+func (o HarnessBeforeToolCallHookPtrOutput) ToHarnessBeforeToolCallHookPtrOutput() HarnessBeforeToolCallHookPtrOutput {
+	return o
+}
+
+func (o HarnessBeforeToolCallHookPtrOutput) ToHarnessBeforeToolCallHookPtrOutputWithContext(ctx context.Context) HarnessBeforeToolCallHookPtrOutput {
+	return o
+}
+
+func (o HarnessBeforeToolCallHookPtrOutput) Elem() HarnessBeforeToolCallHookOutput {
+	return o.ApplyT(func(v *HarnessBeforeToolCallHook) HarnessBeforeToolCallHook {
+		if v != nil {
+			return *v
+		}
+		var ret HarnessBeforeToolCallHook
+		return ret
+	}).(HarnessBeforeToolCallHookOutput)
+}
+
+// The unique name of the hook.
+func (o HarnessBeforeToolCallHookPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HarnessBeforeToolCallHook) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o HarnessBeforeToolCallHookPtrOutput) Target() HarnessHookTargetPtrOutput {
+	return o.ApplyT(func(v *HarnessBeforeToolCallHook) *HarnessHookTarget {
+		if v == nil {
+			return nil
+		}
+		return &v.Target
+	}).(HarnessHookTargetPtrOutput)
 }
 
 type HarnessClaimMatchValueType struct {
@@ -20026,6 +20646,745 @@ func (o HarnessGeminiModelConfigPtrOutput) TopP() pulumi.Float64PtrOutput {
 	}).(pulumi.Float64PtrOutput)
 }
 
+// A lifecycle hook configured for one phase of the agent loop.
+type HarnessHook struct {
+	AfterInvocation  *HarnessAfterInvocationHook  `pulumi:"afterInvocation"`
+	AfterToolCall    *HarnessAfterToolCallHook    `pulumi:"afterToolCall"`
+	BeforeInvocation *HarnessBeforeInvocationHook `pulumi:"beforeInvocation"`
+	BeforeToolCall   *HarnessBeforeToolCallHook   `pulumi:"beforeToolCall"`
+}
+
+// HarnessHookInput is an input type that accepts HarnessHookArgs and HarnessHookOutput values.
+// You can construct a concrete instance of `HarnessHookInput` via:
+//
+//	HarnessHookArgs{...}
+type HarnessHookInput interface {
+	pulumi.Input
+
+	ToHarnessHookOutput() HarnessHookOutput
+	ToHarnessHookOutputWithContext(context.Context) HarnessHookOutput
+}
+
+// A lifecycle hook configured for one phase of the agent loop.
+type HarnessHookArgs struct {
+	AfterInvocation  HarnessAfterInvocationHookPtrInput  `pulumi:"afterInvocation"`
+	AfterToolCall    HarnessAfterToolCallHookPtrInput    `pulumi:"afterToolCall"`
+	BeforeInvocation HarnessBeforeInvocationHookPtrInput `pulumi:"beforeInvocation"`
+	BeforeToolCall   HarnessBeforeToolCallHookPtrInput   `pulumi:"beforeToolCall"`
+}
+
+func (HarnessHookArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*HarnessHook)(nil)).Elem()
+}
+
+func (i HarnessHookArgs) ToHarnessHookOutput() HarnessHookOutput {
+	return i.ToHarnessHookOutputWithContext(context.Background())
+}
+
+func (i HarnessHookArgs) ToHarnessHookOutputWithContext(ctx context.Context) HarnessHookOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HarnessHookOutput)
+}
+
+// HarnessHookArrayInput is an input type that accepts HarnessHookArray and HarnessHookArrayOutput values.
+// You can construct a concrete instance of `HarnessHookArrayInput` via:
+//
+//	HarnessHookArray{ HarnessHookArgs{...} }
+type HarnessHookArrayInput interface {
+	pulumi.Input
+
+	ToHarnessHookArrayOutput() HarnessHookArrayOutput
+	ToHarnessHookArrayOutputWithContext(context.Context) HarnessHookArrayOutput
+}
+
+type HarnessHookArray []HarnessHookInput
+
+func (HarnessHookArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]HarnessHook)(nil)).Elem()
+}
+
+func (i HarnessHookArray) ToHarnessHookArrayOutput() HarnessHookArrayOutput {
+	return i.ToHarnessHookArrayOutputWithContext(context.Background())
+}
+
+func (i HarnessHookArray) ToHarnessHookArrayOutputWithContext(ctx context.Context) HarnessHookArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HarnessHookArrayOutput)
+}
+
+// A lifecycle hook configured for one phase of the agent loop.
+type HarnessHookOutput struct{ *pulumi.OutputState }
+
+func (HarnessHookOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HarnessHook)(nil)).Elem()
+}
+
+func (o HarnessHookOutput) ToHarnessHookOutput() HarnessHookOutput {
+	return o
+}
+
+func (o HarnessHookOutput) ToHarnessHookOutputWithContext(ctx context.Context) HarnessHookOutput {
+	return o
+}
+
+func (o HarnessHookOutput) AfterInvocation() HarnessAfterInvocationHookPtrOutput {
+	return o.ApplyT(func(v HarnessHook) *HarnessAfterInvocationHook { return v.AfterInvocation }).(HarnessAfterInvocationHookPtrOutput)
+}
+
+func (o HarnessHookOutput) AfterToolCall() HarnessAfterToolCallHookPtrOutput {
+	return o.ApplyT(func(v HarnessHook) *HarnessAfterToolCallHook { return v.AfterToolCall }).(HarnessAfterToolCallHookPtrOutput)
+}
+
+func (o HarnessHookOutput) BeforeInvocation() HarnessBeforeInvocationHookPtrOutput {
+	return o.ApplyT(func(v HarnessHook) *HarnessBeforeInvocationHook { return v.BeforeInvocation }).(HarnessBeforeInvocationHookPtrOutput)
+}
+
+func (o HarnessHookOutput) BeforeToolCall() HarnessBeforeToolCallHookPtrOutput {
+	return o.ApplyT(func(v HarnessHook) *HarnessBeforeToolCallHook { return v.BeforeToolCall }).(HarnessBeforeToolCallHookPtrOutput)
+}
+
+type HarnessHookArrayOutput struct{ *pulumi.OutputState }
+
+func (HarnessHookArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]HarnessHook)(nil)).Elem()
+}
+
+func (o HarnessHookArrayOutput) ToHarnessHookArrayOutput() HarnessHookArrayOutput {
+	return o
+}
+
+func (o HarnessHookArrayOutput) ToHarnessHookArrayOutputWithContext(ctx context.Context) HarnessHookArrayOutput {
+	return o
+}
+
+func (o HarnessHookArrayOutput) Index(i pulumi.IntInput) HarnessHookOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) HarnessHook {
+		return vs[0].([]HarnessHook)[vs[1].(int)]
+	}).(HarnessHookOutput)
+}
+
+// An EventBridge event bus that receives lifecycle hook events asynchronously.
+type HarnessHookEventBridgeTarget struct {
+	// The ARN of the EventBridge event bus.
+	Arn string `pulumi:"arn"`
+}
+
+// HarnessHookEventBridgeTargetInput is an input type that accepts HarnessHookEventBridgeTargetArgs and HarnessHookEventBridgeTargetOutput values.
+// You can construct a concrete instance of `HarnessHookEventBridgeTargetInput` via:
+//
+//	HarnessHookEventBridgeTargetArgs{...}
+type HarnessHookEventBridgeTargetInput interface {
+	pulumi.Input
+
+	ToHarnessHookEventBridgeTargetOutput() HarnessHookEventBridgeTargetOutput
+	ToHarnessHookEventBridgeTargetOutputWithContext(context.Context) HarnessHookEventBridgeTargetOutput
+}
+
+// An EventBridge event bus that receives lifecycle hook events asynchronously.
+type HarnessHookEventBridgeTargetArgs struct {
+	// The ARN of the EventBridge event bus.
+	Arn pulumi.StringInput `pulumi:"arn"`
+}
+
+func (HarnessHookEventBridgeTargetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*HarnessHookEventBridgeTarget)(nil)).Elem()
+}
+
+func (i HarnessHookEventBridgeTargetArgs) ToHarnessHookEventBridgeTargetOutput() HarnessHookEventBridgeTargetOutput {
+	return i.ToHarnessHookEventBridgeTargetOutputWithContext(context.Background())
+}
+
+func (i HarnessHookEventBridgeTargetArgs) ToHarnessHookEventBridgeTargetOutputWithContext(ctx context.Context) HarnessHookEventBridgeTargetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HarnessHookEventBridgeTargetOutput)
+}
+
+func (i HarnessHookEventBridgeTargetArgs) ToHarnessHookEventBridgeTargetPtrOutput() HarnessHookEventBridgeTargetPtrOutput {
+	return i.ToHarnessHookEventBridgeTargetPtrOutputWithContext(context.Background())
+}
+
+func (i HarnessHookEventBridgeTargetArgs) ToHarnessHookEventBridgeTargetPtrOutputWithContext(ctx context.Context) HarnessHookEventBridgeTargetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HarnessHookEventBridgeTargetOutput).ToHarnessHookEventBridgeTargetPtrOutputWithContext(ctx)
+}
+
+// HarnessHookEventBridgeTargetPtrInput is an input type that accepts HarnessHookEventBridgeTargetArgs, HarnessHookEventBridgeTargetPtr and HarnessHookEventBridgeTargetPtrOutput values.
+// You can construct a concrete instance of `HarnessHookEventBridgeTargetPtrInput` via:
+//
+//	        HarnessHookEventBridgeTargetArgs{...}
+//
+//	or:
+//
+//	        nil
+type HarnessHookEventBridgeTargetPtrInput interface {
+	pulumi.Input
+
+	ToHarnessHookEventBridgeTargetPtrOutput() HarnessHookEventBridgeTargetPtrOutput
+	ToHarnessHookEventBridgeTargetPtrOutputWithContext(context.Context) HarnessHookEventBridgeTargetPtrOutput
+}
+
+type harnessHookEventBridgeTargetPtrType HarnessHookEventBridgeTargetArgs
+
+func HarnessHookEventBridgeTargetPtr(v *HarnessHookEventBridgeTargetArgs) HarnessHookEventBridgeTargetPtrInput {
+	return (*harnessHookEventBridgeTargetPtrType)(v)
+}
+
+func (*harnessHookEventBridgeTargetPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**HarnessHookEventBridgeTarget)(nil)).Elem()
+}
+
+func (i *harnessHookEventBridgeTargetPtrType) ToHarnessHookEventBridgeTargetPtrOutput() HarnessHookEventBridgeTargetPtrOutput {
+	return i.ToHarnessHookEventBridgeTargetPtrOutputWithContext(context.Background())
+}
+
+func (i *harnessHookEventBridgeTargetPtrType) ToHarnessHookEventBridgeTargetPtrOutputWithContext(ctx context.Context) HarnessHookEventBridgeTargetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HarnessHookEventBridgeTargetPtrOutput)
+}
+
+// An EventBridge event bus that receives lifecycle hook events asynchronously.
+type HarnessHookEventBridgeTargetOutput struct{ *pulumi.OutputState }
+
+func (HarnessHookEventBridgeTargetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HarnessHookEventBridgeTarget)(nil)).Elem()
+}
+
+func (o HarnessHookEventBridgeTargetOutput) ToHarnessHookEventBridgeTargetOutput() HarnessHookEventBridgeTargetOutput {
+	return o
+}
+
+func (o HarnessHookEventBridgeTargetOutput) ToHarnessHookEventBridgeTargetOutputWithContext(ctx context.Context) HarnessHookEventBridgeTargetOutput {
+	return o
+}
+
+func (o HarnessHookEventBridgeTargetOutput) ToHarnessHookEventBridgeTargetPtrOutput() HarnessHookEventBridgeTargetPtrOutput {
+	return o.ToHarnessHookEventBridgeTargetPtrOutputWithContext(context.Background())
+}
+
+func (o HarnessHookEventBridgeTargetOutput) ToHarnessHookEventBridgeTargetPtrOutputWithContext(ctx context.Context) HarnessHookEventBridgeTargetPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v HarnessHookEventBridgeTarget) *HarnessHookEventBridgeTarget {
+		return &v
+	}).(HarnessHookEventBridgeTargetPtrOutput)
+}
+
+// The ARN of the EventBridge event bus.
+func (o HarnessHookEventBridgeTargetOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v HarnessHookEventBridgeTarget) string { return v.Arn }).(pulumi.StringOutput)
+}
+
+type HarnessHookEventBridgeTargetPtrOutput struct{ *pulumi.OutputState }
+
+func (HarnessHookEventBridgeTargetPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**HarnessHookEventBridgeTarget)(nil)).Elem()
+}
+
+func (o HarnessHookEventBridgeTargetPtrOutput) ToHarnessHookEventBridgeTargetPtrOutput() HarnessHookEventBridgeTargetPtrOutput {
+	return o
+}
+
+func (o HarnessHookEventBridgeTargetPtrOutput) ToHarnessHookEventBridgeTargetPtrOutputWithContext(ctx context.Context) HarnessHookEventBridgeTargetPtrOutput {
+	return o
+}
+
+func (o HarnessHookEventBridgeTargetPtrOutput) Elem() HarnessHookEventBridgeTargetOutput {
+	return o.ApplyT(func(v *HarnessHookEventBridgeTarget) HarnessHookEventBridgeTarget {
+		if v != nil {
+			return *v
+		}
+		var ret HarnessHookEventBridgeTarget
+		return ret
+	}).(HarnessHookEventBridgeTargetOutput)
+}
+
+// The ARN of the EventBridge event bus.
+func (o HarnessHookEventBridgeTargetPtrOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HarnessHookEventBridgeTarget) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Arn
+	}).(pulumi.StringPtrOutput)
+}
+
+// A Lambda function invoked synchronously for a lifecycle hook.
+type HarnessHookLambdaTarget struct {
+	// The ARN of the Lambda function.
+	Arn string `pulumi:"arn"`
+	// Whether the agent loop continues or stops when the Lambda invocation fails. Defaults to deny.
+	FailureMode *HarnessHookLambdaTargetFailureMode `pulumi:"failureMode"`
+	// The maximum number of seconds to wait for the Lambda response. Defaults to 60.
+	TimeoutSeconds *int `pulumi:"timeoutSeconds"`
+}
+
+// HarnessHookLambdaTargetInput is an input type that accepts HarnessHookLambdaTargetArgs and HarnessHookLambdaTargetOutput values.
+// You can construct a concrete instance of `HarnessHookLambdaTargetInput` via:
+//
+//	HarnessHookLambdaTargetArgs{...}
+type HarnessHookLambdaTargetInput interface {
+	pulumi.Input
+
+	ToHarnessHookLambdaTargetOutput() HarnessHookLambdaTargetOutput
+	ToHarnessHookLambdaTargetOutputWithContext(context.Context) HarnessHookLambdaTargetOutput
+}
+
+// A Lambda function invoked synchronously for a lifecycle hook.
+type HarnessHookLambdaTargetArgs struct {
+	// The ARN of the Lambda function.
+	Arn pulumi.StringInput `pulumi:"arn"`
+	// Whether the agent loop continues or stops when the Lambda invocation fails. Defaults to deny.
+	FailureMode HarnessHookLambdaTargetFailureModePtrInput `pulumi:"failureMode"`
+	// The maximum number of seconds to wait for the Lambda response. Defaults to 60.
+	TimeoutSeconds pulumi.IntPtrInput `pulumi:"timeoutSeconds"`
+}
+
+func (HarnessHookLambdaTargetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*HarnessHookLambdaTarget)(nil)).Elem()
+}
+
+func (i HarnessHookLambdaTargetArgs) ToHarnessHookLambdaTargetOutput() HarnessHookLambdaTargetOutput {
+	return i.ToHarnessHookLambdaTargetOutputWithContext(context.Background())
+}
+
+func (i HarnessHookLambdaTargetArgs) ToHarnessHookLambdaTargetOutputWithContext(ctx context.Context) HarnessHookLambdaTargetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HarnessHookLambdaTargetOutput)
+}
+
+func (i HarnessHookLambdaTargetArgs) ToHarnessHookLambdaTargetPtrOutput() HarnessHookLambdaTargetPtrOutput {
+	return i.ToHarnessHookLambdaTargetPtrOutputWithContext(context.Background())
+}
+
+func (i HarnessHookLambdaTargetArgs) ToHarnessHookLambdaTargetPtrOutputWithContext(ctx context.Context) HarnessHookLambdaTargetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HarnessHookLambdaTargetOutput).ToHarnessHookLambdaTargetPtrOutputWithContext(ctx)
+}
+
+// HarnessHookLambdaTargetPtrInput is an input type that accepts HarnessHookLambdaTargetArgs, HarnessHookLambdaTargetPtr and HarnessHookLambdaTargetPtrOutput values.
+// You can construct a concrete instance of `HarnessHookLambdaTargetPtrInput` via:
+//
+//	        HarnessHookLambdaTargetArgs{...}
+//
+//	or:
+//
+//	        nil
+type HarnessHookLambdaTargetPtrInput interface {
+	pulumi.Input
+
+	ToHarnessHookLambdaTargetPtrOutput() HarnessHookLambdaTargetPtrOutput
+	ToHarnessHookLambdaTargetPtrOutputWithContext(context.Context) HarnessHookLambdaTargetPtrOutput
+}
+
+type harnessHookLambdaTargetPtrType HarnessHookLambdaTargetArgs
+
+func HarnessHookLambdaTargetPtr(v *HarnessHookLambdaTargetArgs) HarnessHookLambdaTargetPtrInput {
+	return (*harnessHookLambdaTargetPtrType)(v)
+}
+
+func (*harnessHookLambdaTargetPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**HarnessHookLambdaTarget)(nil)).Elem()
+}
+
+func (i *harnessHookLambdaTargetPtrType) ToHarnessHookLambdaTargetPtrOutput() HarnessHookLambdaTargetPtrOutput {
+	return i.ToHarnessHookLambdaTargetPtrOutputWithContext(context.Background())
+}
+
+func (i *harnessHookLambdaTargetPtrType) ToHarnessHookLambdaTargetPtrOutputWithContext(ctx context.Context) HarnessHookLambdaTargetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HarnessHookLambdaTargetPtrOutput)
+}
+
+// A Lambda function invoked synchronously for a lifecycle hook.
+type HarnessHookLambdaTargetOutput struct{ *pulumi.OutputState }
+
+func (HarnessHookLambdaTargetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HarnessHookLambdaTarget)(nil)).Elem()
+}
+
+func (o HarnessHookLambdaTargetOutput) ToHarnessHookLambdaTargetOutput() HarnessHookLambdaTargetOutput {
+	return o
+}
+
+func (o HarnessHookLambdaTargetOutput) ToHarnessHookLambdaTargetOutputWithContext(ctx context.Context) HarnessHookLambdaTargetOutput {
+	return o
+}
+
+func (o HarnessHookLambdaTargetOutput) ToHarnessHookLambdaTargetPtrOutput() HarnessHookLambdaTargetPtrOutput {
+	return o.ToHarnessHookLambdaTargetPtrOutputWithContext(context.Background())
+}
+
+func (o HarnessHookLambdaTargetOutput) ToHarnessHookLambdaTargetPtrOutputWithContext(ctx context.Context) HarnessHookLambdaTargetPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v HarnessHookLambdaTarget) *HarnessHookLambdaTarget {
+		return &v
+	}).(HarnessHookLambdaTargetPtrOutput)
+}
+
+// The ARN of the Lambda function.
+func (o HarnessHookLambdaTargetOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v HarnessHookLambdaTarget) string { return v.Arn }).(pulumi.StringOutput)
+}
+
+// Whether the agent loop continues or stops when the Lambda invocation fails. Defaults to deny.
+func (o HarnessHookLambdaTargetOutput) FailureMode() HarnessHookLambdaTargetFailureModePtrOutput {
+	return o.ApplyT(func(v HarnessHookLambdaTarget) *HarnessHookLambdaTargetFailureMode { return v.FailureMode }).(HarnessHookLambdaTargetFailureModePtrOutput)
+}
+
+// The maximum number of seconds to wait for the Lambda response. Defaults to 60.
+func (o HarnessHookLambdaTargetOutput) TimeoutSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v HarnessHookLambdaTarget) *int { return v.TimeoutSeconds }).(pulumi.IntPtrOutput)
+}
+
+type HarnessHookLambdaTargetPtrOutput struct{ *pulumi.OutputState }
+
+func (HarnessHookLambdaTargetPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**HarnessHookLambdaTarget)(nil)).Elem()
+}
+
+func (o HarnessHookLambdaTargetPtrOutput) ToHarnessHookLambdaTargetPtrOutput() HarnessHookLambdaTargetPtrOutput {
+	return o
+}
+
+func (o HarnessHookLambdaTargetPtrOutput) ToHarnessHookLambdaTargetPtrOutputWithContext(ctx context.Context) HarnessHookLambdaTargetPtrOutput {
+	return o
+}
+
+func (o HarnessHookLambdaTargetPtrOutput) Elem() HarnessHookLambdaTargetOutput {
+	return o.ApplyT(func(v *HarnessHookLambdaTarget) HarnessHookLambdaTarget {
+		if v != nil {
+			return *v
+		}
+		var ret HarnessHookLambdaTarget
+		return ret
+	}).(HarnessHookLambdaTargetOutput)
+}
+
+// The ARN of the Lambda function.
+func (o HarnessHookLambdaTargetPtrOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HarnessHookLambdaTarget) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Arn
+	}).(pulumi.StringPtrOutput)
+}
+
+// Whether the agent loop continues or stops when the Lambda invocation fails. Defaults to deny.
+func (o HarnessHookLambdaTargetPtrOutput) FailureMode() HarnessHookLambdaTargetFailureModePtrOutput {
+	return o.ApplyT(func(v *HarnessHookLambdaTarget) *HarnessHookLambdaTargetFailureMode {
+		if v == nil {
+			return nil
+		}
+		return v.FailureMode
+	}).(HarnessHookLambdaTargetFailureModePtrOutput)
+}
+
+// The maximum number of seconds to wait for the Lambda response. Defaults to 60.
+func (o HarnessHookLambdaTargetPtrOutput) TimeoutSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *HarnessHookLambdaTarget) *int {
+		if v == nil {
+			return nil
+		}
+		return v.TimeoutSeconds
+	}).(pulumi.IntPtrOutput)
+}
+
+// An SNS topic that receives lifecycle hook events asynchronously.
+type HarnessHookSnsTarget struct {
+	// The ARN of the SNS topic.
+	Arn string `pulumi:"arn"`
+}
+
+// HarnessHookSnsTargetInput is an input type that accepts HarnessHookSnsTargetArgs and HarnessHookSnsTargetOutput values.
+// You can construct a concrete instance of `HarnessHookSnsTargetInput` via:
+//
+//	HarnessHookSnsTargetArgs{...}
+type HarnessHookSnsTargetInput interface {
+	pulumi.Input
+
+	ToHarnessHookSnsTargetOutput() HarnessHookSnsTargetOutput
+	ToHarnessHookSnsTargetOutputWithContext(context.Context) HarnessHookSnsTargetOutput
+}
+
+// An SNS topic that receives lifecycle hook events asynchronously.
+type HarnessHookSnsTargetArgs struct {
+	// The ARN of the SNS topic.
+	Arn pulumi.StringInput `pulumi:"arn"`
+}
+
+func (HarnessHookSnsTargetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*HarnessHookSnsTarget)(nil)).Elem()
+}
+
+func (i HarnessHookSnsTargetArgs) ToHarnessHookSnsTargetOutput() HarnessHookSnsTargetOutput {
+	return i.ToHarnessHookSnsTargetOutputWithContext(context.Background())
+}
+
+func (i HarnessHookSnsTargetArgs) ToHarnessHookSnsTargetOutputWithContext(ctx context.Context) HarnessHookSnsTargetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HarnessHookSnsTargetOutput)
+}
+
+func (i HarnessHookSnsTargetArgs) ToHarnessHookSnsTargetPtrOutput() HarnessHookSnsTargetPtrOutput {
+	return i.ToHarnessHookSnsTargetPtrOutputWithContext(context.Background())
+}
+
+func (i HarnessHookSnsTargetArgs) ToHarnessHookSnsTargetPtrOutputWithContext(ctx context.Context) HarnessHookSnsTargetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HarnessHookSnsTargetOutput).ToHarnessHookSnsTargetPtrOutputWithContext(ctx)
+}
+
+// HarnessHookSnsTargetPtrInput is an input type that accepts HarnessHookSnsTargetArgs, HarnessHookSnsTargetPtr and HarnessHookSnsTargetPtrOutput values.
+// You can construct a concrete instance of `HarnessHookSnsTargetPtrInput` via:
+//
+//	        HarnessHookSnsTargetArgs{...}
+//
+//	or:
+//
+//	        nil
+type HarnessHookSnsTargetPtrInput interface {
+	pulumi.Input
+
+	ToHarnessHookSnsTargetPtrOutput() HarnessHookSnsTargetPtrOutput
+	ToHarnessHookSnsTargetPtrOutputWithContext(context.Context) HarnessHookSnsTargetPtrOutput
+}
+
+type harnessHookSnsTargetPtrType HarnessHookSnsTargetArgs
+
+func HarnessHookSnsTargetPtr(v *HarnessHookSnsTargetArgs) HarnessHookSnsTargetPtrInput {
+	return (*harnessHookSnsTargetPtrType)(v)
+}
+
+func (*harnessHookSnsTargetPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**HarnessHookSnsTarget)(nil)).Elem()
+}
+
+func (i *harnessHookSnsTargetPtrType) ToHarnessHookSnsTargetPtrOutput() HarnessHookSnsTargetPtrOutput {
+	return i.ToHarnessHookSnsTargetPtrOutputWithContext(context.Background())
+}
+
+func (i *harnessHookSnsTargetPtrType) ToHarnessHookSnsTargetPtrOutputWithContext(ctx context.Context) HarnessHookSnsTargetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HarnessHookSnsTargetPtrOutput)
+}
+
+// An SNS topic that receives lifecycle hook events asynchronously.
+type HarnessHookSnsTargetOutput struct{ *pulumi.OutputState }
+
+func (HarnessHookSnsTargetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HarnessHookSnsTarget)(nil)).Elem()
+}
+
+func (o HarnessHookSnsTargetOutput) ToHarnessHookSnsTargetOutput() HarnessHookSnsTargetOutput {
+	return o
+}
+
+func (o HarnessHookSnsTargetOutput) ToHarnessHookSnsTargetOutputWithContext(ctx context.Context) HarnessHookSnsTargetOutput {
+	return o
+}
+
+func (o HarnessHookSnsTargetOutput) ToHarnessHookSnsTargetPtrOutput() HarnessHookSnsTargetPtrOutput {
+	return o.ToHarnessHookSnsTargetPtrOutputWithContext(context.Background())
+}
+
+func (o HarnessHookSnsTargetOutput) ToHarnessHookSnsTargetPtrOutputWithContext(ctx context.Context) HarnessHookSnsTargetPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v HarnessHookSnsTarget) *HarnessHookSnsTarget {
+		return &v
+	}).(HarnessHookSnsTargetPtrOutput)
+}
+
+// The ARN of the SNS topic.
+func (o HarnessHookSnsTargetOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v HarnessHookSnsTarget) string { return v.Arn }).(pulumi.StringOutput)
+}
+
+type HarnessHookSnsTargetPtrOutput struct{ *pulumi.OutputState }
+
+func (HarnessHookSnsTargetPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**HarnessHookSnsTarget)(nil)).Elem()
+}
+
+func (o HarnessHookSnsTargetPtrOutput) ToHarnessHookSnsTargetPtrOutput() HarnessHookSnsTargetPtrOutput {
+	return o
+}
+
+func (o HarnessHookSnsTargetPtrOutput) ToHarnessHookSnsTargetPtrOutputWithContext(ctx context.Context) HarnessHookSnsTargetPtrOutput {
+	return o
+}
+
+func (o HarnessHookSnsTargetPtrOutput) Elem() HarnessHookSnsTargetOutput {
+	return o.ApplyT(func(v *HarnessHookSnsTarget) HarnessHookSnsTarget {
+		if v != nil {
+			return *v
+		}
+		var ret HarnessHookSnsTarget
+		return ret
+	}).(HarnessHookSnsTargetOutput)
+}
+
+// The ARN of the SNS topic.
+func (o HarnessHookSnsTargetPtrOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HarnessHookSnsTarget) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Arn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The destination that receives lifecycle hook events.
+type HarnessHookTarget struct {
+	EventBridge *HarnessHookEventBridgeTarget `pulumi:"eventBridge"`
+	Lambda      *HarnessHookLambdaTarget      `pulumi:"lambda"`
+	Sns         *HarnessHookSnsTarget         `pulumi:"sns"`
+}
+
+// HarnessHookTargetInput is an input type that accepts HarnessHookTargetArgs and HarnessHookTargetOutput values.
+// You can construct a concrete instance of `HarnessHookTargetInput` via:
+//
+//	HarnessHookTargetArgs{...}
+type HarnessHookTargetInput interface {
+	pulumi.Input
+
+	ToHarnessHookTargetOutput() HarnessHookTargetOutput
+	ToHarnessHookTargetOutputWithContext(context.Context) HarnessHookTargetOutput
+}
+
+// The destination that receives lifecycle hook events.
+type HarnessHookTargetArgs struct {
+	EventBridge HarnessHookEventBridgeTargetPtrInput `pulumi:"eventBridge"`
+	Lambda      HarnessHookLambdaTargetPtrInput      `pulumi:"lambda"`
+	Sns         HarnessHookSnsTargetPtrInput         `pulumi:"sns"`
+}
+
+func (HarnessHookTargetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*HarnessHookTarget)(nil)).Elem()
+}
+
+func (i HarnessHookTargetArgs) ToHarnessHookTargetOutput() HarnessHookTargetOutput {
+	return i.ToHarnessHookTargetOutputWithContext(context.Background())
+}
+
+func (i HarnessHookTargetArgs) ToHarnessHookTargetOutputWithContext(ctx context.Context) HarnessHookTargetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HarnessHookTargetOutput)
+}
+
+func (i HarnessHookTargetArgs) ToHarnessHookTargetPtrOutput() HarnessHookTargetPtrOutput {
+	return i.ToHarnessHookTargetPtrOutputWithContext(context.Background())
+}
+
+func (i HarnessHookTargetArgs) ToHarnessHookTargetPtrOutputWithContext(ctx context.Context) HarnessHookTargetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HarnessHookTargetOutput).ToHarnessHookTargetPtrOutputWithContext(ctx)
+}
+
+// HarnessHookTargetPtrInput is an input type that accepts HarnessHookTargetArgs, HarnessHookTargetPtr and HarnessHookTargetPtrOutput values.
+// You can construct a concrete instance of `HarnessHookTargetPtrInput` via:
+//
+//	        HarnessHookTargetArgs{...}
+//
+//	or:
+//
+//	        nil
+type HarnessHookTargetPtrInput interface {
+	pulumi.Input
+
+	ToHarnessHookTargetPtrOutput() HarnessHookTargetPtrOutput
+	ToHarnessHookTargetPtrOutputWithContext(context.Context) HarnessHookTargetPtrOutput
+}
+
+type harnessHookTargetPtrType HarnessHookTargetArgs
+
+func HarnessHookTargetPtr(v *HarnessHookTargetArgs) HarnessHookTargetPtrInput {
+	return (*harnessHookTargetPtrType)(v)
+}
+
+func (*harnessHookTargetPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**HarnessHookTarget)(nil)).Elem()
+}
+
+func (i *harnessHookTargetPtrType) ToHarnessHookTargetPtrOutput() HarnessHookTargetPtrOutput {
+	return i.ToHarnessHookTargetPtrOutputWithContext(context.Background())
+}
+
+func (i *harnessHookTargetPtrType) ToHarnessHookTargetPtrOutputWithContext(ctx context.Context) HarnessHookTargetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HarnessHookTargetPtrOutput)
+}
+
+// The destination that receives lifecycle hook events.
+type HarnessHookTargetOutput struct{ *pulumi.OutputState }
+
+func (HarnessHookTargetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HarnessHookTarget)(nil)).Elem()
+}
+
+func (o HarnessHookTargetOutput) ToHarnessHookTargetOutput() HarnessHookTargetOutput {
+	return o
+}
+
+func (o HarnessHookTargetOutput) ToHarnessHookTargetOutputWithContext(ctx context.Context) HarnessHookTargetOutput {
+	return o
+}
+
+func (o HarnessHookTargetOutput) ToHarnessHookTargetPtrOutput() HarnessHookTargetPtrOutput {
+	return o.ToHarnessHookTargetPtrOutputWithContext(context.Background())
+}
+
+func (o HarnessHookTargetOutput) ToHarnessHookTargetPtrOutputWithContext(ctx context.Context) HarnessHookTargetPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v HarnessHookTarget) *HarnessHookTarget {
+		return &v
+	}).(HarnessHookTargetPtrOutput)
+}
+
+func (o HarnessHookTargetOutput) EventBridge() HarnessHookEventBridgeTargetPtrOutput {
+	return o.ApplyT(func(v HarnessHookTarget) *HarnessHookEventBridgeTarget { return v.EventBridge }).(HarnessHookEventBridgeTargetPtrOutput)
+}
+
+func (o HarnessHookTargetOutput) Lambda() HarnessHookLambdaTargetPtrOutput {
+	return o.ApplyT(func(v HarnessHookTarget) *HarnessHookLambdaTarget { return v.Lambda }).(HarnessHookLambdaTargetPtrOutput)
+}
+
+func (o HarnessHookTargetOutput) Sns() HarnessHookSnsTargetPtrOutput {
+	return o.ApplyT(func(v HarnessHookTarget) *HarnessHookSnsTarget { return v.Sns }).(HarnessHookSnsTargetPtrOutput)
+}
+
+type HarnessHookTargetPtrOutput struct{ *pulumi.OutputState }
+
+func (HarnessHookTargetPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**HarnessHookTarget)(nil)).Elem()
+}
+
+func (o HarnessHookTargetPtrOutput) ToHarnessHookTargetPtrOutput() HarnessHookTargetPtrOutput {
+	return o
+}
+
+func (o HarnessHookTargetPtrOutput) ToHarnessHookTargetPtrOutputWithContext(ctx context.Context) HarnessHookTargetPtrOutput {
+	return o
+}
+
+func (o HarnessHookTargetPtrOutput) Elem() HarnessHookTargetOutput {
+	return o.ApplyT(func(v *HarnessHookTarget) HarnessHookTarget {
+		if v != nil {
+			return *v
+		}
+		var ret HarnessHookTarget
+		return ret
+	}).(HarnessHookTargetOutput)
+}
+
+func (o HarnessHookTargetPtrOutput) EventBridge() HarnessHookEventBridgeTargetPtrOutput {
+	return o.ApplyT(func(v *HarnessHookTarget) *HarnessHookEventBridgeTarget {
+		if v == nil {
+			return nil
+		}
+		return v.EventBridge
+	}).(HarnessHookEventBridgeTargetPtrOutput)
+}
+
+func (o HarnessHookTargetPtrOutput) Lambda() HarnessHookLambdaTargetPtrOutput {
+	return o.ApplyT(func(v *HarnessHookTarget) *HarnessHookLambdaTarget {
+		if v == nil {
+			return nil
+		}
+		return v.Lambda
+	}).(HarnessHookLambdaTargetPtrOutput)
+}
+
+func (o HarnessHookTargetPtrOutput) Sns() HarnessHookSnsTargetPtrOutput {
+	return o.ApplyT(func(v *HarnessHookTarget) *HarnessHookSnsTarget {
+		if v == nil {
+			return nil
+		}
+		return v.Sns
+	}).(HarnessHookSnsTargetPtrOutput)
+}
+
 type HarnessInlineFunctionConfig struct {
 	Description string `pulumi:"description"`
 	// JSON Schema describing the tool's input parameters.
@@ -20328,13 +21687,13 @@ func (o HarnessLifecycleConfigurationPtrOutput) MaxLifetime() pulumi.IntPtrOutpu
 
 type HarnessLiteLlmModelConfig struct {
 	// Provider-specific parameters passed through to LiteLLM unchanged.
-	AdditionalParams map[string]interface{} `pulumi:"additionalParams"`
-	ApiBase          *string                `pulumi:"apiBase"`
-	ApiKeyArn        *string                `pulumi:"apiKeyArn"`
-	MaxTokens        *int                   `pulumi:"maxTokens"`
-	ModelId          string                 `pulumi:"modelId"`
-	Temperature      *float64               `pulumi:"temperature"`
-	TopP             *float64               `pulumi:"topP"`
+	AdditionalParams interface{} `pulumi:"additionalParams"`
+	ApiBase          *string     `pulumi:"apiBase"`
+	ApiKeyArn        *string     `pulumi:"apiKeyArn"`
+	MaxTokens        *int        `pulumi:"maxTokens"`
+	ModelId          string      `pulumi:"modelId"`
+	Temperature      *float64    `pulumi:"temperature"`
+	TopP             *float64    `pulumi:"topP"`
 }
 
 // HarnessLiteLlmModelConfigInput is an input type that accepts HarnessLiteLlmModelConfigArgs and HarnessLiteLlmModelConfigOutput values.
@@ -20350,7 +21709,7 @@ type HarnessLiteLlmModelConfigInput interface {
 
 type HarnessLiteLlmModelConfigArgs struct {
 	// Provider-specific parameters passed through to LiteLLM unchanged.
-	AdditionalParams pulumi.MapInput        `pulumi:"additionalParams"`
+	AdditionalParams pulumi.Input           `pulumi:"additionalParams"`
 	ApiBase          pulumi.StringPtrInput  `pulumi:"apiBase"`
 	ApiKeyArn        pulumi.StringPtrInput  `pulumi:"apiKeyArn"`
 	MaxTokens        pulumi.IntPtrInput     `pulumi:"maxTokens"`
@@ -20437,8 +21796,8 @@ func (o HarnessLiteLlmModelConfigOutput) ToHarnessLiteLlmModelConfigPtrOutputWit
 }
 
 // Provider-specific parameters passed through to LiteLLM unchanged.
-func (o HarnessLiteLlmModelConfigOutput) AdditionalParams() pulumi.MapOutput {
-	return o.ApplyT(func(v HarnessLiteLlmModelConfig) map[string]interface{} { return v.AdditionalParams }).(pulumi.MapOutput)
+func (o HarnessLiteLlmModelConfigOutput) AdditionalParams() pulumi.AnyOutput {
+	return o.ApplyT(func(v HarnessLiteLlmModelConfig) interface{} { return v.AdditionalParams }).(pulumi.AnyOutput)
 }
 
 func (o HarnessLiteLlmModelConfigOutput) ApiBase() pulumi.StringPtrOutput {
@@ -20490,13 +21849,13 @@ func (o HarnessLiteLlmModelConfigPtrOutput) Elem() HarnessLiteLlmModelConfigOutp
 }
 
 // Provider-specific parameters passed through to LiteLLM unchanged.
-func (o HarnessLiteLlmModelConfigPtrOutput) AdditionalParams() pulumi.MapOutput {
-	return o.ApplyT(func(v *HarnessLiteLlmModelConfig) map[string]interface{} {
+func (o HarnessLiteLlmModelConfigPtrOutput) AdditionalParams() pulumi.AnyOutput {
+	return o.ApplyT(func(v *HarnessLiteLlmModelConfig) interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.AdditionalParams
-	}).(pulumi.MapOutput)
+	}).(pulumi.AnyOutput)
 }
 
 func (o HarnessLiteLlmModelConfigPtrOutput) ApiBase() pulumi.StringPtrOutput {
@@ -21602,7 +22961,7 @@ func (o HarnessOAuthCredentialProviderPtrOutput) Scopes() pulumi.StringArrayOutp
 
 type HarnessOpenAiModelConfig struct {
 	// Provider-specific parameters passed through to the model provider unchanged.
-	AdditionalParams map[string]interface{}             `pulumi:"additionalParams"`
+	AdditionalParams interface{}                        `pulumi:"additionalParams"`
 	ApiFormat        *HarnessOpenAiModelConfigApiFormat `pulumi:"apiFormat"`
 	ApiKeyArn        string                             `pulumi:"apiKeyArn"`
 	MaxTokens        *int                               `pulumi:"maxTokens"`
@@ -21624,7 +22983,7 @@ type HarnessOpenAiModelConfigInput interface {
 
 type HarnessOpenAiModelConfigArgs struct {
 	// Provider-specific parameters passed through to the model provider unchanged.
-	AdditionalParams pulumi.MapInput                           `pulumi:"additionalParams"`
+	AdditionalParams pulumi.Input                              `pulumi:"additionalParams"`
 	ApiFormat        HarnessOpenAiModelConfigApiFormatPtrInput `pulumi:"apiFormat"`
 	ApiKeyArn        pulumi.StringInput                        `pulumi:"apiKeyArn"`
 	MaxTokens        pulumi.IntPtrInput                        `pulumi:"maxTokens"`
@@ -21711,8 +23070,8 @@ func (o HarnessOpenAiModelConfigOutput) ToHarnessOpenAiModelConfigPtrOutputWithC
 }
 
 // Provider-specific parameters passed through to the model provider unchanged.
-func (o HarnessOpenAiModelConfigOutput) AdditionalParams() pulumi.MapOutput {
-	return o.ApplyT(func(v HarnessOpenAiModelConfig) map[string]interface{} { return v.AdditionalParams }).(pulumi.MapOutput)
+func (o HarnessOpenAiModelConfigOutput) AdditionalParams() pulumi.AnyOutput {
+	return o.ApplyT(func(v HarnessOpenAiModelConfig) interface{} { return v.AdditionalParams }).(pulumi.AnyOutput)
 }
 
 func (o HarnessOpenAiModelConfigOutput) ApiFormat() HarnessOpenAiModelConfigApiFormatPtrOutput {
@@ -21764,13 +23123,13 @@ func (o HarnessOpenAiModelConfigPtrOutput) Elem() HarnessOpenAiModelConfigOutput
 }
 
 // Provider-specific parameters passed through to the model provider unchanged.
-func (o HarnessOpenAiModelConfigPtrOutput) AdditionalParams() pulumi.MapOutput {
-	return o.ApplyT(func(v *HarnessOpenAiModelConfig) map[string]interface{} {
+func (o HarnessOpenAiModelConfigPtrOutput) AdditionalParams() pulumi.AnyOutput {
+	return o.ApplyT(func(v *HarnessOpenAiModelConfig) interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.AdditionalParams
-	}).(pulumi.MapOutput)
+	}).(pulumi.AnyOutput)
 }
 
 func (o HarnessOpenAiModelConfigPtrOutput) ApiFormat() HarnessOpenAiModelConfigApiFormatPtrOutput {
@@ -35465,6 +36824,8 @@ func (o OAuth2CredentialProviderTokenExchangeGrantTypeConfigPtrOutput) ActorToke
 
 // The configuration for reading agent traces from CloudWatch logs.
 type OnlineEvaluationConfigCloudWatchLogsInputConfig struct {
+	// The list of CloudWatch log group name prefixes to monitor for agent traces. Mutually exclusive with LogGroupNames; specify exactly one of the two selectors.
+	LogGroupNamePrefixes []string `pulumi:"logGroupNamePrefixes"`
 	// The list of CloudWatch log group names to monitor for agent traces.
 	LogGroupNames []string `pulumi:"logGroupNames"`
 	// The list of service names to filter traces within the specified log groups.
@@ -35484,6 +36845,8 @@ type OnlineEvaluationConfigCloudWatchLogsInputConfigInput interface {
 
 // The configuration for reading agent traces from CloudWatch logs.
 type OnlineEvaluationConfigCloudWatchLogsInputConfigArgs struct {
+	// The list of CloudWatch log group name prefixes to monitor for agent traces. Mutually exclusive with LogGroupNames; specify exactly one of the two selectors.
+	LogGroupNamePrefixes pulumi.StringArrayInput `pulumi:"logGroupNamePrefixes"`
 	// The list of CloudWatch log group names to monitor for agent traces.
 	LogGroupNames pulumi.StringArrayInput `pulumi:"logGroupNames"`
 	// The list of service names to filter traces within the specified log groups.
@@ -35515,6 +36878,11 @@ func (o OnlineEvaluationConfigCloudWatchLogsInputConfigOutput) ToOnlineEvaluatio
 
 func (o OnlineEvaluationConfigCloudWatchLogsInputConfigOutput) ToOnlineEvaluationConfigCloudWatchLogsInputConfigOutputWithContext(ctx context.Context) OnlineEvaluationConfigCloudWatchLogsInputConfigOutput {
 	return o
+}
+
+// The list of CloudWatch log group name prefixes to monitor for agent traces. Mutually exclusive with LogGroupNames; specify exactly one of the two selectors.
+func (o OnlineEvaluationConfigCloudWatchLogsInputConfigOutput) LogGroupNamePrefixes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v OnlineEvaluationConfigCloudWatchLogsInputConfig) []string { return v.LogGroupNamePrefixes }).(pulumi.StringArrayOutput)
 }
 
 // The list of CloudWatch log group names to monitor for agent traces.
@@ -35551,6 +36919,16 @@ func (o OnlineEvaluationConfigCloudWatchLogsInputConfigPtrOutput) Elem() OnlineE
 	}).(OnlineEvaluationConfigCloudWatchLogsInputConfigOutput)
 }
 
+// The list of CloudWatch log group name prefixes to monitor for agent traces. Mutually exclusive with LogGroupNames; specify exactly one of the two selectors.
+func (o OnlineEvaluationConfigCloudWatchLogsInputConfigPtrOutput) LogGroupNamePrefixes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *OnlineEvaluationConfigCloudWatchLogsInputConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.LogGroupNamePrefixes
+	}).(pulumi.StringArrayOutput)
+}
+
 // The list of CloudWatch log group names to monitor for agent traces.
 func (o OnlineEvaluationConfigCloudWatchLogsInputConfigPtrOutput) LogGroupNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *OnlineEvaluationConfigCloudWatchLogsInputConfig) []string {
@@ -35573,8 +36951,86 @@ func (o OnlineEvaluationConfigCloudWatchLogsInputConfigPtrOutput) ServiceNames()
 
 // The CloudWatch configuration for writing evaluation results.
 type OnlineEvaluationConfigCloudWatchOutputConfig struct {
-	// The CloudWatch log group name for evaluation results.
+	// The CloudWatch log group name for evaluation results. Omit to use the service-managed default log group.
 	LogGroupName *string `pulumi:"logGroupName"`
+	// The CloudWatch metrics namespace for evaluation result metrics. Omit to use the service-managed default namespace.
+	MetricsNamespace *string `pulumi:"metricsNamespace"`
+	// Where evaluation results are written. DEDICATED_LOG_GROUP, the default when omitted, writes to a dedicated result log group. SOURCE_LOG_GROUP writes results back to the trace source log group; LogGroupName must not be specified with SOURCE_LOG_GROUP.
+	ResultDestination *OnlineEvaluationConfigCloudWatchOutputConfigResultDestination `pulumi:"resultDestination"`
+}
+
+// OnlineEvaluationConfigCloudWatchOutputConfigInput is an input type that accepts OnlineEvaluationConfigCloudWatchOutputConfigArgs and OnlineEvaluationConfigCloudWatchOutputConfigOutput values.
+// You can construct a concrete instance of `OnlineEvaluationConfigCloudWatchOutputConfigInput` via:
+//
+//	OnlineEvaluationConfigCloudWatchOutputConfigArgs{...}
+type OnlineEvaluationConfigCloudWatchOutputConfigInput interface {
+	pulumi.Input
+
+	ToOnlineEvaluationConfigCloudWatchOutputConfigOutput() OnlineEvaluationConfigCloudWatchOutputConfigOutput
+	ToOnlineEvaluationConfigCloudWatchOutputConfigOutputWithContext(context.Context) OnlineEvaluationConfigCloudWatchOutputConfigOutput
+}
+
+// The CloudWatch configuration for writing evaluation results.
+type OnlineEvaluationConfigCloudWatchOutputConfigArgs struct {
+	// The CloudWatch log group name for evaluation results. Omit to use the service-managed default log group.
+	LogGroupName pulumi.StringPtrInput `pulumi:"logGroupName"`
+	// The CloudWatch metrics namespace for evaluation result metrics. Omit to use the service-managed default namespace.
+	MetricsNamespace pulumi.StringPtrInput `pulumi:"metricsNamespace"`
+	// Where evaluation results are written. DEDICATED_LOG_GROUP, the default when omitted, writes to a dedicated result log group. SOURCE_LOG_GROUP writes results back to the trace source log group; LogGroupName must not be specified with SOURCE_LOG_GROUP.
+	ResultDestination OnlineEvaluationConfigCloudWatchOutputConfigResultDestinationPtrInput `pulumi:"resultDestination"`
+}
+
+func (OnlineEvaluationConfigCloudWatchOutputConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OnlineEvaluationConfigCloudWatchOutputConfig)(nil)).Elem()
+}
+
+func (i OnlineEvaluationConfigCloudWatchOutputConfigArgs) ToOnlineEvaluationConfigCloudWatchOutputConfigOutput() OnlineEvaluationConfigCloudWatchOutputConfigOutput {
+	return i.ToOnlineEvaluationConfigCloudWatchOutputConfigOutputWithContext(context.Background())
+}
+
+func (i OnlineEvaluationConfigCloudWatchOutputConfigArgs) ToOnlineEvaluationConfigCloudWatchOutputConfigOutputWithContext(ctx context.Context) OnlineEvaluationConfigCloudWatchOutputConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OnlineEvaluationConfigCloudWatchOutputConfigOutput)
+}
+
+func (i OnlineEvaluationConfigCloudWatchOutputConfigArgs) ToOnlineEvaluationConfigCloudWatchOutputConfigPtrOutput() OnlineEvaluationConfigCloudWatchOutputConfigPtrOutput {
+	return i.ToOnlineEvaluationConfigCloudWatchOutputConfigPtrOutputWithContext(context.Background())
+}
+
+func (i OnlineEvaluationConfigCloudWatchOutputConfigArgs) ToOnlineEvaluationConfigCloudWatchOutputConfigPtrOutputWithContext(ctx context.Context) OnlineEvaluationConfigCloudWatchOutputConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OnlineEvaluationConfigCloudWatchOutputConfigOutput).ToOnlineEvaluationConfigCloudWatchOutputConfigPtrOutputWithContext(ctx)
+}
+
+// OnlineEvaluationConfigCloudWatchOutputConfigPtrInput is an input type that accepts OnlineEvaluationConfigCloudWatchOutputConfigArgs, OnlineEvaluationConfigCloudWatchOutputConfigPtr and OnlineEvaluationConfigCloudWatchOutputConfigPtrOutput values.
+// You can construct a concrete instance of `OnlineEvaluationConfigCloudWatchOutputConfigPtrInput` via:
+//
+//	        OnlineEvaluationConfigCloudWatchOutputConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type OnlineEvaluationConfigCloudWatchOutputConfigPtrInput interface {
+	pulumi.Input
+
+	ToOnlineEvaluationConfigCloudWatchOutputConfigPtrOutput() OnlineEvaluationConfigCloudWatchOutputConfigPtrOutput
+	ToOnlineEvaluationConfigCloudWatchOutputConfigPtrOutputWithContext(context.Context) OnlineEvaluationConfigCloudWatchOutputConfigPtrOutput
+}
+
+type onlineEvaluationConfigCloudWatchOutputConfigPtrType OnlineEvaluationConfigCloudWatchOutputConfigArgs
+
+func OnlineEvaluationConfigCloudWatchOutputConfigPtr(v *OnlineEvaluationConfigCloudWatchOutputConfigArgs) OnlineEvaluationConfigCloudWatchOutputConfigPtrInput {
+	return (*onlineEvaluationConfigCloudWatchOutputConfigPtrType)(v)
+}
+
+func (*onlineEvaluationConfigCloudWatchOutputConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OnlineEvaluationConfigCloudWatchOutputConfig)(nil)).Elem()
+}
+
+func (i *onlineEvaluationConfigCloudWatchOutputConfigPtrType) ToOnlineEvaluationConfigCloudWatchOutputConfigPtrOutput() OnlineEvaluationConfigCloudWatchOutputConfigPtrOutput {
+	return i.ToOnlineEvaluationConfigCloudWatchOutputConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *onlineEvaluationConfigCloudWatchOutputConfigPtrType) ToOnlineEvaluationConfigCloudWatchOutputConfigPtrOutputWithContext(ctx context.Context) OnlineEvaluationConfigCloudWatchOutputConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OnlineEvaluationConfigCloudWatchOutputConfigPtrOutput)
 }
 
 // The CloudWatch configuration for writing evaluation results.
@@ -35592,9 +37048,31 @@ func (o OnlineEvaluationConfigCloudWatchOutputConfigOutput) ToOnlineEvaluationCo
 	return o
 }
 
-// The CloudWatch log group name for evaluation results.
+func (o OnlineEvaluationConfigCloudWatchOutputConfigOutput) ToOnlineEvaluationConfigCloudWatchOutputConfigPtrOutput() OnlineEvaluationConfigCloudWatchOutputConfigPtrOutput {
+	return o.ToOnlineEvaluationConfigCloudWatchOutputConfigPtrOutputWithContext(context.Background())
+}
+
+func (o OnlineEvaluationConfigCloudWatchOutputConfigOutput) ToOnlineEvaluationConfigCloudWatchOutputConfigPtrOutputWithContext(ctx context.Context) OnlineEvaluationConfigCloudWatchOutputConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OnlineEvaluationConfigCloudWatchOutputConfig) *OnlineEvaluationConfigCloudWatchOutputConfig {
+		return &v
+	}).(OnlineEvaluationConfigCloudWatchOutputConfigPtrOutput)
+}
+
+// The CloudWatch log group name for evaluation results. Omit to use the service-managed default log group.
 func (o OnlineEvaluationConfigCloudWatchOutputConfigOutput) LogGroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OnlineEvaluationConfigCloudWatchOutputConfig) *string { return v.LogGroupName }).(pulumi.StringPtrOutput)
+}
+
+// The CloudWatch metrics namespace for evaluation result metrics. Omit to use the service-managed default namespace.
+func (o OnlineEvaluationConfigCloudWatchOutputConfigOutput) MetricsNamespace() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OnlineEvaluationConfigCloudWatchOutputConfig) *string { return v.MetricsNamespace }).(pulumi.StringPtrOutput)
+}
+
+// Where evaluation results are written. DEDICATED_LOG_GROUP, the default when omitted, writes to a dedicated result log group. SOURCE_LOG_GROUP writes results back to the trace source log group; LogGroupName must not be specified with SOURCE_LOG_GROUP.
+func (o OnlineEvaluationConfigCloudWatchOutputConfigOutput) ResultDestination() OnlineEvaluationConfigCloudWatchOutputConfigResultDestinationPtrOutput {
+	return o.ApplyT(func(v OnlineEvaluationConfigCloudWatchOutputConfig) *OnlineEvaluationConfigCloudWatchOutputConfigResultDestination {
+		return v.ResultDestination
+	}).(OnlineEvaluationConfigCloudWatchOutputConfigResultDestinationPtrOutput)
 }
 
 type OnlineEvaluationConfigCloudWatchOutputConfigPtrOutput struct{ *pulumi.OutputState }
@@ -35621,7 +37099,7 @@ func (o OnlineEvaluationConfigCloudWatchOutputConfigPtrOutput) Elem() OnlineEval
 	}).(OnlineEvaluationConfigCloudWatchOutputConfigOutput)
 }
 
-// The CloudWatch log group name for evaluation results.
+// The CloudWatch log group name for evaluation results. Omit to use the service-managed default log group.
 func (o OnlineEvaluationConfigCloudWatchOutputConfigPtrOutput) LogGroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OnlineEvaluationConfigCloudWatchOutputConfig) *string {
 		if v == nil {
@@ -35629,6 +37107,26 @@ func (o OnlineEvaluationConfigCloudWatchOutputConfigPtrOutput) LogGroupName() pu
 		}
 		return v.LogGroupName
 	}).(pulumi.StringPtrOutput)
+}
+
+// The CloudWatch metrics namespace for evaluation result metrics. Omit to use the service-managed default namespace.
+func (o OnlineEvaluationConfigCloudWatchOutputConfigPtrOutput) MetricsNamespace() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OnlineEvaluationConfigCloudWatchOutputConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MetricsNamespace
+	}).(pulumi.StringPtrOutput)
+}
+
+// Where evaluation results are written. DEDICATED_LOG_GROUP, the default when omitted, writes to a dedicated result log group. SOURCE_LOG_GROUP writes results back to the trace source log group; LogGroupName must not be specified with SOURCE_LOG_GROUP.
+func (o OnlineEvaluationConfigCloudWatchOutputConfigPtrOutput) ResultDestination() OnlineEvaluationConfigCloudWatchOutputConfigResultDestinationPtrOutput {
+	return o.ApplyT(func(v *OnlineEvaluationConfigCloudWatchOutputConfig) *OnlineEvaluationConfigCloudWatchOutputConfigResultDestination {
+		if v == nil {
+			return nil
+		}
+		return v.ResultDestination
+	}).(OnlineEvaluationConfigCloudWatchOutputConfigResultDestinationPtrOutput)
 }
 
 // The configuration for clustering analysis of evaluation results.
@@ -36253,6 +37751,75 @@ type OnlineEvaluationConfigOutputConfig struct {
 	CloudWatchConfig *OnlineEvaluationConfigCloudWatchOutputConfig `pulumi:"cloudWatchConfig"`
 }
 
+// OnlineEvaluationConfigOutputConfigInput is an input type that accepts OnlineEvaluationConfigOutputConfigArgs and OnlineEvaluationConfigOutputConfigOutput values.
+// You can construct a concrete instance of `OnlineEvaluationConfigOutputConfigInput` via:
+//
+//	OnlineEvaluationConfigOutputConfigArgs{...}
+type OnlineEvaluationConfigOutputConfigInput interface {
+	pulumi.Input
+
+	ToOnlineEvaluationConfigOutputConfigOutput() OnlineEvaluationConfigOutputConfigOutput
+	ToOnlineEvaluationConfigOutputConfigOutputWithContext(context.Context) OnlineEvaluationConfigOutputConfigOutput
+}
+
+// The configuration that specifies where evaluation results should be written.
+type OnlineEvaluationConfigOutputConfigArgs struct {
+	CloudWatchConfig OnlineEvaluationConfigCloudWatchOutputConfigPtrInput `pulumi:"cloudWatchConfig"`
+}
+
+func (OnlineEvaluationConfigOutputConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OnlineEvaluationConfigOutputConfig)(nil)).Elem()
+}
+
+func (i OnlineEvaluationConfigOutputConfigArgs) ToOnlineEvaluationConfigOutputConfigOutput() OnlineEvaluationConfigOutputConfigOutput {
+	return i.ToOnlineEvaluationConfigOutputConfigOutputWithContext(context.Background())
+}
+
+func (i OnlineEvaluationConfigOutputConfigArgs) ToOnlineEvaluationConfigOutputConfigOutputWithContext(ctx context.Context) OnlineEvaluationConfigOutputConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OnlineEvaluationConfigOutputConfigOutput)
+}
+
+func (i OnlineEvaluationConfigOutputConfigArgs) ToOnlineEvaluationConfigOutputConfigPtrOutput() OnlineEvaluationConfigOutputConfigPtrOutput {
+	return i.ToOnlineEvaluationConfigOutputConfigPtrOutputWithContext(context.Background())
+}
+
+func (i OnlineEvaluationConfigOutputConfigArgs) ToOnlineEvaluationConfigOutputConfigPtrOutputWithContext(ctx context.Context) OnlineEvaluationConfigOutputConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OnlineEvaluationConfigOutputConfigOutput).ToOnlineEvaluationConfigOutputConfigPtrOutputWithContext(ctx)
+}
+
+// OnlineEvaluationConfigOutputConfigPtrInput is an input type that accepts OnlineEvaluationConfigOutputConfigArgs, OnlineEvaluationConfigOutputConfigPtr and OnlineEvaluationConfigOutputConfigPtrOutput values.
+// You can construct a concrete instance of `OnlineEvaluationConfigOutputConfigPtrInput` via:
+//
+//	        OnlineEvaluationConfigOutputConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type OnlineEvaluationConfigOutputConfigPtrInput interface {
+	pulumi.Input
+
+	ToOnlineEvaluationConfigOutputConfigPtrOutput() OnlineEvaluationConfigOutputConfigPtrOutput
+	ToOnlineEvaluationConfigOutputConfigPtrOutputWithContext(context.Context) OnlineEvaluationConfigOutputConfigPtrOutput
+}
+
+type onlineEvaluationConfigOutputConfigPtrType OnlineEvaluationConfigOutputConfigArgs
+
+func OnlineEvaluationConfigOutputConfigPtr(v *OnlineEvaluationConfigOutputConfigArgs) OnlineEvaluationConfigOutputConfigPtrInput {
+	return (*onlineEvaluationConfigOutputConfigPtrType)(v)
+}
+
+func (*onlineEvaluationConfigOutputConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OnlineEvaluationConfigOutputConfig)(nil)).Elem()
+}
+
+func (i *onlineEvaluationConfigOutputConfigPtrType) ToOnlineEvaluationConfigOutputConfigPtrOutput() OnlineEvaluationConfigOutputConfigPtrOutput {
+	return i.ToOnlineEvaluationConfigOutputConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *onlineEvaluationConfigOutputConfigPtrType) ToOnlineEvaluationConfigOutputConfigPtrOutputWithContext(ctx context.Context) OnlineEvaluationConfigOutputConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OnlineEvaluationConfigOutputConfigPtrOutput)
+}
+
 // The configuration that specifies where evaluation results should be written.
 type OnlineEvaluationConfigOutputConfigOutput struct{ *pulumi.OutputState }
 
@@ -36266,6 +37833,16 @@ func (o OnlineEvaluationConfigOutputConfigOutput) ToOnlineEvaluationConfigOutput
 
 func (o OnlineEvaluationConfigOutputConfigOutput) ToOnlineEvaluationConfigOutputConfigOutputWithContext(ctx context.Context) OnlineEvaluationConfigOutputConfigOutput {
 	return o
+}
+
+func (o OnlineEvaluationConfigOutputConfigOutput) ToOnlineEvaluationConfigOutputConfigPtrOutput() OnlineEvaluationConfigOutputConfigPtrOutput {
+	return o.ToOnlineEvaluationConfigOutputConfigPtrOutputWithContext(context.Background())
+}
+
+func (o OnlineEvaluationConfigOutputConfigOutput) ToOnlineEvaluationConfigOutputConfigPtrOutputWithContext(ctx context.Context) OnlineEvaluationConfigOutputConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OnlineEvaluationConfigOutputConfig) *OnlineEvaluationConfigOutputConfig {
+		return &v
+	}).(OnlineEvaluationConfigOutputConfigPtrOutput)
 }
 
 func (o OnlineEvaluationConfigOutputConfigOutput) CloudWatchConfig() OnlineEvaluationConfigCloudWatchOutputConfigPtrOutput {
@@ -43176,6 +44753,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetToolSchema1PropertiesInput)(nil)).Elem(), GatewayTargetToolSchema1PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayWafConfigurationInput)(nil)).Elem(), GatewayWafConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayWafConfigurationPtrInput)(nil)).Elem(), GatewayWafConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HarnessAfterInvocationHookInput)(nil)).Elem(), HarnessAfterInvocationHookArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HarnessAfterInvocationHookPtrInput)(nil)).Elem(), HarnessAfterInvocationHookArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HarnessAfterToolCallHookInput)(nil)).Elem(), HarnessAfterToolCallHookArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HarnessAfterToolCallHookPtrInput)(nil)).Elem(), HarnessAfterToolCallHookArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HarnessAgentCoreBrowserConfigInput)(nil)).Elem(), HarnessAgentCoreBrowserConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HarnessAgentCoreBrowserConfigPtrInput)(nil)).Elem(), HarnessAgentCoreBrowserConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HarnessAgentCoreCodeInterpreterConfigInput)(nil)).Elem(), HarnessAgentCoreCodeInterpreterConfigArgs{})
@@ -43193,6 +44774,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*HarnessAuthorizingClaimMatchValueTypeInput)(nil)).Elem(), HarnessAuthorizingClaimMatchValueTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HarnessBedrockModelConfigInput)(nil)).Elem(), HarnessBedrockModelConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HarnessBedrockModelConfigPtrInput)(nil)).Elem(), HarnessBedrockModelConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HarnessBeforeInvocationHookInput)(nil)).Elem(), HarnessBeforeInvocationHookArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HarnessBeforeInvocationHookPtrInput)(nil)).Elem(), HarnessBeforeInvocationHookArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HarnessBeforeToolCallHookInput)(nil)).Elem(), HarnessBeforeToolCallHookArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HarnessBeforeToolCallHookPtrInput)(nil)).Elem(), HarnessBeforeToolCallHookArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HarnessClaimMatchValueTypeInput)(nil)).Elem(), HarnessClaimMatchValueTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HarnessContainerConfigurationInput)(nil)).Elem(), HarnessContainerConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HarnessContainerConfigurationPtrInput)(nil)).Elem(), HarnessContainerConfigurationArgs{})
@@ -43214,6 +44799,16 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*HarnessGatewayOutboundAuthPtrInput)(nil)).Elem(), HarnessGatewayOutboundAuthArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HarnessGeminiModelConfigInput)(nil)).Elem(), HarnessGeminiModelConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HarnessGeminiModelConfigPtrInput)(nil)).Elem(), HarnessGeminiModelConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HarnessHookInput)(nil)).Elem(), HarnessHookArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HarnessHookArrayInput)(nil)).Elem(), HarnessHookArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HarnessHookEventBridgeTargetInput)(nil)).Elem(), HarnessHookEventBridgeTargetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HarnessHookEventBridgeTargetPtrInput)(nil)).Elem(), HarnessHookEventBridgeTargetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HarnessHookLambdaTargetInput)(nil)).Elem(), HarnessHookLambdaTargetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HarnessHookLambdaTargetPtrInput)(nil)).Elem(), HarnessHookLambdaTargetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HarnessHookSnsTargetInput)(nil)).Elem(), HarnessHookSnsTargetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HarnessHookSnsTargetPtrInput)(nil)).Elem(), HarnessHookSnsTargetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HarnessHookTargetInput)(nil)).Elem(), HarnessHookTargetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HarnessHookTargetPtrInput)(nil)).Elem(), HarnessHookTargetArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HarnessInlineFunctionConfigInput)(nil)).Elem(), HarnessInlineFunctionConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HarnessInlineFunctionConfigPtrInput)(nil)).Elem(), HarnessInlineFunctionConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HarnessLifecycleConfigurationInput)(nil)).Elem(), HarnessLifecycleConfigurationArgs{})
@@ -43399,6 +44994,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*OAuth2CredentialProviderTokenExchangeGrantTypeConfigInput)(nil)).Elem(), OAuth2CredentialProviderTokenExchangeGrantTypeConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OAuth2CredentialProviderTokenExchangeGrantTypeConfigPtrInput)(nil)).Elem(), OAuth2CredentialProviderTokenExchangeGrantTypeConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OnlineEvaluationConfigCloudWatchLogsInputConfigInput)(nil)).Elem(), OnlineEvaluationConfigCloudWatchLogsInputConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OnlineEvaluationConfigCloudWatchOutputConfigInput)(nil)).Elem(), OnlineEvaluationConfigCloudWatchOutputConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OnlineEvaluationConfigCloudWatchOutputConfigPtrInput)(nil)).Elem(), OnlineEvaluationConfigCloudWatchOutputConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OnlineEvaluationConfigClusteringConfigInput)(nil)).Elem(), OnlineEvaluationConfigClusteringConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OnlineEvaluationConfigClusteringConfigPtrInput)(nil)).Elem(), OnlineEvaluationConfigClusteringConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OnlineEvaluationConfigDataSourceConfigInput)(nil)).Elem(), OnlineEvaluationConfigDataSourceConfigArgs{})
@@ -43409,6 +45006,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*OnlineEvaluationConfigFilterValueInput)(nil)).Elem(), OnlineEvaluationConfigFilterValueArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OnlineEvaluationConfigInsightInput)(nil)).Elem(), OnlineEvaluationConfigInsightArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OnlineEvaluationConfigInsightArrayInput)(nil)).Elem(), OnlineEvaluationConfigInsightArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OnlineEvaluationConfigOutputConfigInput)(nil)).Elem(), OnlineEvaluationConfigOutputConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OnlineEvaluationConfigOutputConfigPtrInput)(nil)).Elem(), OnlineEvaluationConfigOutputConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OnlineEvaluationConfigRuleInput)(nil)).Elem(), OnlineEvaluationConfigRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OnlineEvaluationConfigSamplingConfigInput)(nil)).Elem(), OnlineEvaluationConfigSamplingConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OnlineEvaluationConfigSessionConfigInput)(nil)).Elem(), OnlineEvaluationConfigSessionConfigArgs{})
@@ -43762,6 +45361,10 @@ func init() {
 	pulumi.RegisterOutputType(GatewayWafConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(GatewayWorkloadIdentityDetailsOutput{})
 	pulumi.RegisterOutputType(GatewayWorkloadIdentityDetailsPtrOutput{})
+	pulumi.RegisterOutputType(HarnessAfterInvocationHookOutput{})
+	pulumi.RegisterOutputType(HarnessAfterInvocationHookPtrOutput{})
+	pulumi.RegisterOutputType(HarnessAfterToolCallHookOutput{})
+	pulumi.RegisterOutputType(HarnessAfterToolCallHookPtrOutput{})
 	pulumi.RegisterOutputType(HarnessAgentCoreBrowserConfigOutput{})
 	pulumi.RegisterOutputType(HarnessAgentCoreBrowserConfigPtrOutput{})
 	pulumi.RegisterOutputType(HarnessAgentCoreCodeInterpreterConfigOutput{})
@@ -43779,6 +45382,10 @@ func init() {
 	pulumi.RegisterOutputType(HarnessAuthorizingClaimMatchValueTypeOutput{})
 	pulumi.RegisterOutputType(HarnessBedrockModelConfigOutput{})
 	pulumi.RegisterOutputType(HarnessBedrockModelConfigPtrOutput{})
+	pulumi.RegisterOutputType(HarnessBeforeInvocationHookOutput{})
+	pulumi.RegisterOutputType(HarnessBeforeInvocationHookPtrOutput{})
+	pulumi.RegisterOutputType(HarnessBeforeToolCallHookOutput{})
+	pulumi.RegisterOutputType(HarnessBeforeToolCallHookPtrOutput{})
 	pulumi.RegisterOutputType(HarnessClaimMatchValueTypeOutput{})
 	pulumi.RegisterOutputType(HarnessContainerConfigurationOutput{})
 	pulumi.RegisterOutputType(HarnessContainerConfigurationPtrOutput{})
@@ -43800,6 +45407,16 @@ func init() {
 	pulumi.RegisterOutputType(HarnessGatewayOutboundAuthPtrOutput{})
 	pulumi.RegisterOutputType(HarnessGeminiModelConfigOutput{})
 	pulumi.RegisterOutputType(HarnessGeminiModelConfigPtrOutput{})
+	pulumi.RegisterOutputType(HarnessHookOutput{})
+	pulumi.RegisterOutputType(HarnessHookArrayOutput{})
+	pulumi.RegisterOutputType(HarnessHookEventBridgeTargetOutput{})
+	pulumi.RegisterOutputType(HarnessHookEventBridgeTargetPtrOutput{})
+	pulumi.RegisterOutputType(HarnessHookLambdaTargetOutput{})
+	pulumi.RegisterOutputType(HarnessHookLambdaTargetPtrOutput{})
+	pulumi.RegisterOutputType(HarnessHookSnsTargetOutput{})
+	pulumi.RegisterOutputType(HarnessHookSnsTargetPtrOutput{})
+	pulumi.RegisterOutputType(HarnessHookTargetOutput{})
+	pulumi.RegisterOutputType(HarnessHookTargetPtrOutput{})
 	pulumi.RegisterOutputType(HarnessInlineFunctionConfigOutput{})
 	pulumi.RegisterOutputType(HarnessInlineFunctionConfigPtrOutput{})
 	pulumi.RegisterOutputType(HarnessLifecycleConfigurationOutput{})

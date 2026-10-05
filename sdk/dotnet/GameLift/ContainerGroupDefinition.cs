@@ -91,7 +91,7 @@ namespace Pulumi.AwsNative.GameLift
         /// The total amount of virtual CPUs on the container group definition
         /// </summary>
         [Output("totalVcpuLimit")]
-        public Output<double> TotalVcpuLimit { get; private set; } = null!;
+        public Output<double?> TotalVcpuLimit { get; private set; } = null!;
 
         /// <summary>
         /// The description of this version
@@ -218,8 +218,8 @@ namespace Pulumi.AwsNative.GameLift
         /// <summary>
         /// The total amount of virtual CPUs on the container group definition
         /// </summary>
-        [Input("totalVcpuLimit", required: true)]
-        public Input<double> TotalVcpuLimit { get; set; } = null!;
+        [Input("totalVcpuLimit")]
+        public Input<double>? TotalVcpuLimit { get; set; }
 
         /// <summary>
         /// The description of this version

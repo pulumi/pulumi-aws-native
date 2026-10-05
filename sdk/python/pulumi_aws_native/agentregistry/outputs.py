@@ -24,6 +24,7 @@ __all__ = [
     'RegistryCustomClaimValidationType',
     'RegistryCustomJwtAuthorizerConfiguration',
     'RegistryDiscoveryConfiguration',
+    'RegistryEncryptionConfiguration',
     'RegistryRecordA2aAgentCardDescriptor',
     'RegistryRecordAgUiDescriptor',
     'RegistryRecordAgentSkillsAdditionalData',
@@ -396,6 +397,46 @@ class RegistryDiscoveryConfiguration(dict):
     @pulumi.getter(name="authorizerConfiguration")
     def authorizer_configuration(self) -> Optional['outputs.RegistryAuthorizerConfiguration']:
         return pulumi.get(self, "authorizer_configuration")
+
+
+@pulumi.output_type
+class RegistryEncryptionConfiguration(dict):
+    """
+    The server-side encryption configuration for a registry. Specifies a customer managed key used to encrypt the registry's content. When omitted, the registry's content is encrypted with an AWS owned key. You cannot change the encryption configuration after registry creation. Specifying a different KMS key, adding this property to an existing registry, or removing it replaces the registry: CloudFormation creates a new registry with a new Amazon Resource Name (ARN) and then deletes the original, including all registry records it contains. Registry records that are not managed by the stack are not re-created in the new registry, and if any remain in the original registry its deletion fails and it is left behind.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "kmsKeyArn":
+            suggest = "kms_key_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RegistryEncryptionConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RegistryEncryptionConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RegistryEncryptionConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 kms_key_arn: _builtins.str):
+        """
+        The server-side encryption configuration for a registry. Specifies a customer managed key used to encrypt the registry's content. When omitted, the registry's content is encrypted with an AWS owned key. You cannot change the encryption configuration after registry creation. Specifying a different KMS key, adding this property to an existing registry, or removing it replaces the registry: CloudFormation creates a new registry with a new Amazon Resource Name (ARN) and then deletes the original, including all registry records it contains. Registry records that are not managed by the stack are not re-created in the new registry, and if any remain in the original registry its deletion fails and it is left behind.
+
+        :param _builtins.str kms_key_arn: The Amazon Resource Name (ARN) of the customer-managed AWS KMS key used to encrypt the registry's content. The key must be a symmetric encryption key in the same AWS account and Region as the registry. Multi-Region keys are not supported.
+        """
+        pulumi.set(__self__, "kms_key_arn", kms_key_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="kmsKeyArn")
+    def kms_key_arn(self) -> _builtins.str:
+        """
+        The Amazon Resource Name (ARN) of the customer-managed AWS KMS key used to encrypt the registry's content. The key must be a symmetric encryption key in the same AWS account and Region as the registry. Multi-Region keys are not supported.
+        """
+        return pulumi.get(self, "kms_key_arn")
 
 
 @pulumi.output_type

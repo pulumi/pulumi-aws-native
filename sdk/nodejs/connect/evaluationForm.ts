@@ -37,6 +37,9 @@ export class EvaluationForm extends pulumi.CustomResource {
         return obj['__pulumiType'] === EvaluationForm.__pulumiType;
     }
 
+    /**
+     * The AI version to use for the evaluation form. This specifies which AI model version is used for automated evaluations.
+     */
     declare public readonly aiVersion: pulumi.Output<string | undefined>;
     /**
      * The automatic evaluation configuration of an evaluation form.
@@ -151,6 +154,9 @@ export class EvaluationForm extends pulumi.CustomResource {
  * The set of arguments for constructing a EvaluationForm resource.
  */
 export interface EvaluationFormArgs {
+    /**
+     * The AI version to use for the evaluation form. This specifies which AI model version is used for automated evaluations.
+     */
     aiVersion?: pulumi.Input<string | undefined>;
     /**
      * The automatic evaluation configuration of an evaluation form.

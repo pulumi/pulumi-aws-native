@@ -43,6 +43,8 @@ type LookupDataProviderResult struct {
 	Settings *SettingsProperties `pulumi:"settings"`
 	// An array of key-value pairs to apply to this resource.
 	Tags []aws.Tag `pulumi:"tags"`
+	// Indicates whether the data provider is virtual.
+	Virtual *bool `pulumi:"virtual"`
 }
 
 func LookupDataProviderOutput(ctx *pulumi.Context, args LookupDataProviderOutputArgs, opts ...pulumi.InvokeOption) LookupDataProviderResultOutput {
@@ -106,6 +108,11 @@ func (o LookupDataProviderResultOutput) Settings() SettingsPropertiesPtrOutput {
 // An array of key-value pairs to apply to this resource.
 func (o LookupDataProviderResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupDataProviderResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
+}
+
+// Indicates whether the data provider is virtual.
+func (o LookupDataProviderResultOutput) Virtual() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupDataProviderResult) *bool { return v.Virtual }).(pulumi.BoolPtrOutput)
 }
 
 func init() {

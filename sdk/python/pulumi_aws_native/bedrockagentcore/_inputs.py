@@ -308,6 +308,10 @@ __all__ = [
     'GatewayTargetToolSchema1PropertiesArgsDict',
     'GatewayWafConfigurationArgs',
     'GatewayWafConfigurationArgsDict',
+    'HarnessAfterInvocationHookArgs',
+    'HarnessAfterInvocationHookArgsDict',
+    'HarnessAfterToolCallHookArgs',
+    'HarnessAfterToolCallHookArgsDict',
     'HarnessAgentCoreBrowserConfigArgs',
     'HarnessAgentCoreBrowserConfigArgsDict',
     'HarnessAgentCoreCodeInterpreterConfigArgs',
@@ -326,6 +330,10 @@ __all__ = [
     'HarnessAuthorizingClaimMatchValueTypeArgsDict',
     'HarnessBedrockModelConfigArgs',
     'HarnessBedrockModelConfigArgsDict',
+    'HarnessBeforeInvocationHookArgs',
+    'HarnessBeforeInvocationHookArgsDict',
+    'HarnessBeforeToolCallHookArgs',
+    'HarnessBeforeToolCallHookArgsDict',
     'HarnessClaimMatchValueTypeArgs',
     'HarnessClaimMatchValueTypeArgsDict',
     'HarnessContainerConfigurationArgs',
@@ -348,6 +356,16 @@ __all__ = [
     'HarnessGatewayOutboundAuthArgsDict',
     'HarnessGeminiModelConfigArgs',
     'HarnessGeminiModelConfigArgsDict',
+    'HarnessHookArgs',
+    'HarnessHookArgsDict',
+    'HarnessHookEventBridgeTargetArgs',
+    'HarnessHookEventBridgeTargetArgsDict',
+    'HarnessHookLambdaTargetArgs',
+    'HarnessHookLambdaTargetArgsDict',
+    'HarnessHookSnsTargetArgs',
+    'HarnessHookSnsTargetArgsDict',
+    'HarnessHookTargetArgs',
+    'HarnessHookTargetArgsDict',
     'HarnessInlineFunctionConfigArgs',
     'HarnessInlineFunctionConfigArgsDict',
     'HarnessLifecycleConfigurationArgs',
@@ -536,6 +554,8 @@ __all__ = [
     'OAuth2CredentialProviderTokenExchangeGrantTypeConfigArgsDict',
     'OnlineEvaluationConfigCloudWatchLogsInputConfigArgs',
     'OnlineEvaluationConfigCloudWatchLogsInputConfigArgsDict',
+    'OnlineEvaluationConfigCloudWatchOutputConfigArgs',
+    'OnlineEvaluationConfigCloudWatchOutputConfigArgsDict',
     'OnlineEvaluationConfigClusteringConfigArgs',
     'OnlineEvaluationConfigClusteringConfigArgsDict',
     'OnlineEvaluationConfigDataSourceConfigArgs',
@@ -548,6 +568,8 @@ __all__ = [
     'OnlineEvaluationConfigFilterValueArgsDict',
     'OnlineEvaluationConfigInsightArgs',
     'OnlineEvaluationConfigInsightArgsDict',
+    'OnlineEvaluationConfigOutputConfigArgs',
+    'OnlineEvaluationConfigOutputConfigArgsDict',
     'OnlineEvaluationConfigRuleArgs',
     'OnlineEvaluationConfigRuleArgsDict',
     'OnlineEvaluationConfigSamplingConfigArgs',
@@ -6326,6 +6348,96 @@ class GatewayWafConfigurationArgs:
         pulumi.set(self, "failure_mode", value)
 
 
+class HarnessAfterInvocationHookArgsDict(TypedDict):
+    """
+    A hook that runs after an agent invocation.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The unique name of the hook.
+    """
+    target: pulumi.Input['HarnessHookTargetArgsDict']
+
+@pulumi.input_type
+class HarnessAfterInvocationHookArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[_builtins.str],
+                 target: pulumi.Input['HarnessHookTargetArgs']):
+        """
+        A hook that runs after an agent invocation.
+
+        :param pulumi.Input[_builtins.str] name: The unique name of the hook.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "target", target)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The unique name of the hook.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def target(self) -> pulumi.Input['HarnessHookTargetArgs']:
+        return pulumi.get(self, "target")
+
+    @target.setter
+    def target(self, value: pulumi.Input['HarnessHookTargetArgs']):
+        pulumi.set(self, "target", value)
+
+
+class HarnessAfterToolCallHookArgsDict(TypedDict):
+    """
+    A hook that runs after each tool call.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The unique name of the hook.
+    """
+    target: pulumi.Input['HarnessHookTargetArgsDict']
+
+@pulumi.input_type
+class HarnessAfterToolCallHookArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[_builtins.str],
+                 target: pulumi.Input['HarnessHookTargetArgs']):
+        """
+        A hook that runs after each tool call.
+
+        :param pulumi.Input[_builtins.str] name: The unique name of the hook.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "target", target)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The unique name of the hook.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def target(self) -> pulumi.Input['HarnessHookTargetArgs']:
+        return pulumi.get(self, "target")
+
+    @target.setter
+    def target(self, value: pulumi.Input['HarnessHookTargetArgs']):
+        pulumi.set(self, "target", value)
+
+
 class HarnessAgentCoreBrowserConfigArgsDict(TypedDict):
     browser_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
@@ -6679,7 +6791,7 @@ class HarnessAuthorizingClaimMatchValueTypeArgs:
 
 class HarnessBedrockModelConfigArgsDict(TypedDict):
     model_id: pulumi.Input[_builtins.str]
-    additional_params: NotRequired[pulumi.Input[Optional[Mapping[str, Any]]]]
+    additional_params: NotRequired[Any]
     """
     Provider-specific parameters passed through to the model provider unchanged.
     """
@@ -6692,13 +6804,13 @@ class HarnessBedrockModelConfigArgsDict(TypedDict):
 class HarnessBedrockModelConfigArgs:
     def __init__(__self__, *,
                  model_id: pulumi.Input[_builtins.str],
-                 additional_params: pulumi.Input[Optional[Mapping[str, Any]]] = None,
+                 additional_params: Optional[Any] = None,
                  api_format: pulumi.Input[Optional['HarnessBedrockModelConfigApiFormat']] = None,
                  max_tokens: pulumi.Input[Optional[_builtins.int]] = None,
                  temperature: pulumi.Input[Optional[_builtins.float]] = None,
                  top_p: pulumi.Input[Optional[_builtins.float]] = None):
         """
-        :param pulumi.Input[Mapping[str, Any]] additional_params: Provider-specific parameters passed through to the model provider unchanged.
+        :param Any additional_params: Provider-specific parameters passed through to the model provider unchanged.
         """
         pulumi.set(__self__, "model_id", model_id)
         if additional_params is not None:
@@ -6723,14 +6835,14 @@ class HarnessBedrockModelConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="additionalParams")
-    def additional_params(self) -> pulumi.Input[Optional[Mapping[str, Any]]]:
+    def additional_params(self) -> Optional[Any]:
         """
         Provider-specific parameters passed through to the model provider unchanged.
         """
         return pulumi.get(self, "additional_params")
 
     @additional_params.setter
-    def additional_params(self, value: pulumi.Input[Optional[Mapping[str, Any]]]):
+    def additional_params(self, value: Optional[Any]):
         pulumi.set(self, "additional_params", value)
 
     @_builtins.property
@@ -6768,6 +6880,96 @@ class HarnessBedrockModelConfigArgs:
     @top_p.setter
     def top_p(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "top_p", value)
+
+
+class HarnessBeforeInvocationHookArgsDict(TypedDict):
+    """
+    A hook that runs before an agent invocation.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The unique name of the hook.
+    """
+    target: pulumi.Input['HarnessHookTargetArgsDict']
+
+@pulumi.input_type
+class HarnessBeforeInvocationHookArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[_builtins.str],
+                 target: pulumi.Input['HarnessHookTargetArgs']):
+        """
+        A hook that runs before an agent invocation.
+
+        :param pulumi.Input[_builtins.str] name: The unique name of the hook.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "target", target)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The unique name of the hook.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def target(self) -> pulumi.Input['HarnessHookTargetArgs']:
+        return pulumi.get(self, "target")
+
+    @target.setter
+    def target(self, value: pulumi.Input['HarnessHookTargetArgs']):
+        pulumi.set(self, "target", value)
+
+
+class HarnessBeforeToolCallHookArgsDict(TypedDict):
+    """
+    A hook that runs before each tool call.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The unique name of the hook.
+    """
+    target: pulumi.Input['HarnessHookTargetArgsDict']
+
+@pulumi.input_type
+class HarnessBeforeToolCallHookArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[_builtins.str],
+                 target: pulumi.Input['HarnessHookTargetArgs']):
+        """
+        A hook that runs before each tool call.
+
+        :param pulumi.Input[_builtins.str] name: The unique name of the hook.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "target", target)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The unique name of the hook.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def target(self) -> pulumi.Input['HarnessHookTargetArgs']:
+        return pulumi.get(self, "target")
+
+    @target.setter
+    def target(self, value: pulumi.Input['HarnessHookTargetArgs']):
+        pulumi.set(self, "target", value)
 
 
 class HarnessClaimMatchValueTypeArgsDict(TypedDict):
@@ -7238,6 +7440,262 @@ class HarnessGeminiModelConfigArgs:
         pulumi.set(self, "top_p", value)
 
 
+class HarnessHookArgsDict(TypedDict):
+    """
+    A lifecycle hook configured for one phase of the agent loop.
+    """
+    after_invocation: NotRequired[pulumi.Input[Optional['HarnessAfterInvocationHookArgsDict']]]
+    after_tool_call: NotRequired[pulumi.Input[Optional['HarnessAfterToolCallHookArgsDict']]]
+    before_invocation: NotRequired[pulumi.Input[Optional['HarnessBeforeInvocationHookArgsDict']]]
+    before_tool_call: NotRequired[pulumi.Input[Optional['HarnessBeforeToolCallHookArgsDict']]]
+
+@pulumi.input_type
+class HarnessHookArgs:
+    def __init__(__self__, *,
+                 after_invocation: pulumi.Input[Optional['HarnessAfterInvocationHookArgs']] = None,
+                 after_tool_call: pulumi.Input[Optional['HarnessAfterToolCallHookArgs']] = None,
+                 before_invocation: pulumi.Input[Optional['HarnessBeforeInvocationHookArgs']] = None,
+                 before_tool_call: pulumi.Input[Optional['HarnessBeforeToolCallHookArgs']] = None):
+        """
+        A lifecycle hook configured for one phase of the agent loop.
+        """
+        if after_invocation is not None:
+            pulumi.set(__self__, "after_invocation", after_invocation)
+        if after_tool_call is not None:
+            pulumi.set(__self__, "after_tool_call", after_tool_call)
+        if before_invocation is not None:
+            pulumi.set(__self__, "before_invocation", before_invocation)
+        if before_tool_call is not None:
+            pulumi.set(__self__, "before_tool_call", before_tool_call)
+
+    @_builtins.property
+    @pulumi.getter(name="afterInvocation")
+    def after_invocation(self) -> pulumi.Input[Optional['HarnessAfterInvocationHookArgs']]:
+        return pulumi.get(self, "after_invocation")
+
+    @after_invocation.setter
+    def after_invocation(self, value: pulumi.Input[Optional['HarnessAfterInvocationHookArgs']]):
+        pulumi.set(self, "after_invocation", value)
+
+    @_builtins.property
+    @pulumi.getter(name="afterToolCall")
+    def after_tool_call(self) -> pulumi.Input[Optional['HarnessAfterToolCallHookArgs']]:
+        return pulumi.get(self, "after_tool_call")
+
+    @after_tool_call.setter
+    def after_tool_call(self, value: pulumi.Input[Optional['HarnessAfterToolCallHookArgs']]):
+        pulumi.set(self, "after_tool_call", value)
+
+    @_builtins.property
+    @pulumi.getter(name="beforeInvocation")
+    def before_invocation(self) -> pulumi.Input[Optional['HarnessBeforeInvocationHookArgs']]:
+        return pulumi.get(self, "before_invocation")
+
+    @before_invocation.setter
+    def before_invocation(self, value: pulumi.Input[Optional['HarnessBeforeInvocationHookArgs']]):
+        pulumi.set(self, "before_invocation", value)
+
+    @_builtins.property
+    @pulumi.getter(name="beforeToolCall")
+    def before_tool_call(self) -> pulumi.Input[Optional['HarnessBeforeToolCallHookArgs']]:
+        return pulumi.get(self, "before_tool_call")
+
+    @before_tool_call.setter
+    def before_tool_call(self, value: pulumi.Input[Optional['HarnessBeforeToolCallHookArgs']]):
+        pulumi.set(self, "before_tool_call", value)
+
+
+class HarnessHookEventBridgeTargetArgsDict(TypedDict):
+    """
+    An EventBridge event bus that receives lifecycle hook events asynchronously.
+    """
+    arn: pulumi.Input[_builtins.str]
+    """
+    The ARN of the EventBridge event bus.
+    """
+
+@pulumi.input_type
+class HarnessHookEventBridgeTargetArgs:
+    def __init__(__self__, *,
+                 arn: pulumi.Input[_builtins.str]):
+        """
+        An EventBridge event bus that receives lifecycle hook events asynchronously.
+
+        :param pulumi.Input[_builtins.str] arn: The ARN of the EventBridge event bus.
+        """
+        pulumi.set(__self__, "arn", arn)
+
+    @_builtins.property
+    @pulumi.getter
+    def arn(self) -> pulumi.Input[_builtins.str]:
+        """
+        The ARN of the EventBridge event bus.
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "arn", value)
+
+
+class HarnessHookLambdaTargetArgsDict(TypedDict):
+    """
+    A Lambda function invoked synchronously for a lifecycle hook.
+    """
+    arn: pulumi.Input[_builtins.str]
+    """
+    The ARN of the Lambda function.
+    """
+    failure_mode: NotRequired[pulumi.Input[Optional['HarnessHookLambdaTargetFailureMode']]]
+    """
+    Whether the agent loop continues or stops when the Lambda invocation fails. Defaults to deny.
+    """
+    timeout_seconds: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    The maximum number of seconds to wait for the Lambda response. Defaults to 60.
+    """
+
+@pulumi.input_type
+class HarnessHookLambdaTargetArgs:
+    def __init__(__self__, *,
+                 arn: pulumi.Input[_builtins.str],
+                 failure_mode: pulumi.Input[Optional['HarnessHookLambdaTargetFailureMode']] = None,
+                 timeout_seconds: pulumi.Input[Optional[_builtins.int]] = None):
+        """
+        A Lambda function invoked synchronously for a lifecycle hook.
+
+        :param pulumi.Input[_builtins.str] arn: The ARN of the Lambda function.
+        :param pulumi.Input['HarnessHookLambdaTargetFailureMode'] failure_mode: Whether the agent loop continues or stops when the Lambda invocation fails. Defaults to deny.
+        :param pulumi.Input[_builtins.int] timeout_seconds: The maximum number of seconds to wait for the Lambda response. Defaults to 60.
+        """
+        pulumi.set(__self__, "arn", arn)
+        if failure_mode is not None:
+            pulumi.set(__self__, "failure_mode", failure_mode)
+        if timeout_seconds is not None:
+            pulumi.set(__self__, "timeout_seconds", timeout_seconds)
+
+    @_builtins.property
+    @pulumi.getter
+    def arn(self) -> pulumi.Input[_builtins.str]:
+        """
+        The ARN of the Lambda function.
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="failureMode")
+    def failure_mode(self) -> pulumi.Input[Optional['HarnessHookLambdaTargetFailureMode']]:
+        """
+        Whether the agent loop continues or stops when the Lambda invocation fails. Defaults to deny.
+        """
+        return pulumi.get(self, "failure_mode")
+
+    @failure_mode.setter
+    def failure_mode(self, value: pulumi.Input[Optional['HarnessHookLambdaTargetFailureMode']]):
+        pulumi.set(self, "failure_mode", value)
+
+    @_builtins.property
+    @pulumi.getter(name="timeoutSeconds")
+    def timeout_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        The maximum number of seconds to wait for the Lambda response. Defaults to 60.
+        """
+        return pulumi.get(self, "timeout_seconds")
+
+    @timeout_seconds.setter
+    def timeout_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "timeout_seconds", value)
+
+
+class HarnessHookSnsTargetArgsDict(TypedDict):
+    """
+    An SNS topic that receives lifecycle hook events asynchronously.
+    """
+    arn: pulumi.Input[_builtins.str]
+    """
+    The ARN of the SNS topic.
+    """
+
+@pulumi.input_type
+class HarnessHookSnsTargetArgs:
+    def __init__(__self__, *,
+                 arn: pulumi.Input[_builtins.str]):
+        """
+        An SNS topic that receives lifecycle hook events asynchronously.
+
+        :param pulumi.Input[_builtins.str] arn: The ARN of the SNS topic.
+        """
+        pulumi.set(__self__, "arn", arn)
+
+    @_builtins.property
+    @pulumi.getter
+    def arn(self) -> pulumi.Input[_builtins.str]:
+        """
+        The ARN of the SNS topic.
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "arn", value)
+
+
+class HarnessHookTargetArgsDict(TypedDict):
+    """
+    The destination that receives lifecycle hook events.
+    """
+    event_bridge: NotRequired[pulumi.Input[Optional['HarnessHookEventBridgeTargetArgsDict']]]
+    lambda_: NotRequired[pulumi.Input[Optional['HarnessHookLambdaTargetArgsDict']]]
+    sns: NotRequired[pulumi.Input[Optional['HarnessHookSnsTargetArgsDict']]]
+
+@pulumi.input_type
+class HarnessHookTargetArgs:
+    def __init__(__self__, *,
+                 event_bridge: pulumi.Input[Optional['HarnessHookEventBridgeTargetArgs']] = None,
+                 lambda_: pulumi.Input[Optional['HarnessHookLambdaTargetArgs']] = None,
+                 sns: pulumi.Input[Optional['HarnessHookSnsTargetArgs']] = None):
+        """
+        The destination that receives lifecycle hook events.
+        """
+        if event_bridge is not None:
+            pulumi.set(__self__, "event_bridge", event_bridge)
+        if lambda_ is not None:
+            pulumi.set(__self__, "lambda_", lambda_)
+        if sns is not None:
+            pulumi.set(__self__, "sns", sns)
+
+    @_builtins.property
+    @pulumi.getter(name="eventBridge")
+    def event_bridge(self) -> pulumi.Input[Optional['HarnessHookEventBridgeTargetArgs']]:
+        return pulumi.get(self, "event_bridge")
+
+    @event_bridge.setter
+    def event_bridge(self, value: pulumi.Input[Optional['HarnessHookEventBridgeTargetArgs']]):
+        pulumi.set(self, "event_bridge", value)
+
+    @_builtins.property
+    @pulumi.getter(name="lambda")
+    def lambda_(self) -> pulumi.Input[Optional['HarnessHookLambdaTargetArgs']]:
+        return pulumi.get(self, "lambda_")
+
+    @lambda_.setter
+    def lambda_(self, value: pulumi.Input[Optional['HarnessHookLambdaTargetArgs']]):
+        pulumi.set(self, "lambda_", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def sns(self) -> pulumi.Input[Optional['HarnessHookSnsTargetArgs']]:
+        return pulumi.get(self, "sns")
+
+    @sns.setter
+    def sns(self, value: pulumi.Input[Optional['HarnessHookSnsTargetArgs']]):
+        pulumi.set(self, "sns", value)
+
+
 class HarnessInlineFunctionConfigArgsDict(TypedDict):
     description: pulumi.Input[_builtins.str]
     input_schema: Any
@@ -7313,7 +7771,7 @@ class HarnessLifecycleConfigurationArgs:
 
 class HarnessLiteLlmModelConfigArgsDict(TypedDict):
     model_id: pulumi.Input[_builtins.str]
-    additional_params: NotRequired[pulumi.Input[Optional[Mapping[str, Any]]]]
+    additional_params: NotRequired[Any]
     """
     Provider-specific parameters passed through to LiteLLM unchanged.
     """
@@ -7327,14 +7785,14 @@ class HarnessLiteLlmModelConfigArgsDict(TypedDict):
 class HarnessLiteLlmModelConfigArgs:
     def __init__(__self__, *,
                  model_id: pulumi.Input[_builtins.str],
-                 additional_params: pulumi.Input[Optional[Mapping[str, Any]]] = None,
+                 additional_params: Optional[Any] = None,
                  api_base: pulumi.Input[Optional[_builtins.str]] = None,
                  api_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  max_tokens: pulumi.Input[Optional[_builtins.int]] = None,
                  temperature: pulumi.Input[Optional[_builtins.float]] = None,
                  top_p: pulumi.Input[Optional[_builtins.float]] = None):
         """
-        :param pulumi.Input[Mapping[str, Any]] additional_params: Provider-specific parameters passed through to LiteLLM unchanged.
+        :param Any additional_params: Provider-specific parameters passed through to LiteLLM unchanged.
         """
         pulumi.set(__self__, "model_id", model_id)
         if additional_params is not None:
@@ -7361,14 +7819,14 @@ class HarnessLiteLlmModelConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="additionalParams")
-    def additional_params(self) -> pulumi.Input[Optional[Mapping[str, Any]]]:
+    def additional_params(self) -> Optional[Any]:
         """
         Provider-specific parameters passed through to LiteLLM unchanged.
         """
         return pulumi.get(self, "additional_params")
 
     @additional_params.setter
-    def additional_params(self, value: pulumi.Input[Optional[Mapping[str, Any]]]):
+    def additional_params(self, value: Optional[Any]):
         pulumi.set(self, "additional_params", value)
 
     @_builtins.property
@@ -7809,7 +8267,7 @@ class HarnessOAuthCredentialProviderArgs:
 class HarnessOpenAiModelConfigArgsDict(TypedDict):
     api_key_arn: pulumi.Input[_builtins.str]
     model_id: pulumi.Input[_builtins.str]
-    additional_params: NotRequired[pulumi.Input[Optional[Mapping[str, Any]]]]
+    additional_params: NotRequired[Any]
     """
     Provider-specific parameters passed through to the model provider unchanged.
     """
@@ -7823,13 +8281,13 @@ class HarnessOpenAiModelConfigArgs:
     def __init__(__self__, *,
                  api_key_arn: pulumi.Input[_builtins.str],
                  model_id: pulumi.Input[_builtins.str],
-                 additional_params: pulumi.Input[Optional[Mapping[str, Any]]] = None,
+                 additional_params: Optional[Any] = None,
                  api_format: pulumi.Input[Optional['HarnessOpenAiModelConfigApiFormat']] = None,
                  max_tokens: pulumi.Input[Optional[_builtins.int]] = None,
                  temperature: pulumi.Input[Optional[_builtins.float]] = None,
                  top_p: pulumi.Input[Optional[_builtins.float]] = None):
         """
-        :param pulumi.Input[Mapping[str, Any]] additional_params: Provider-specific parameters passed through to the model provider unchanged.
+        :param Any additional_params: Provider-specific parameters passed through to the model provider unchanged.
         """
         pulumi.set(__self__, "api_key_arn", api_key_arn)
         pulumi.set(__self__, "model_id", model_id)
@@ -7864,14 +8322,14 @@ class HarnessOpenAiModelConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="additionalParams")
-    def additional_params(self) -> pulumi.Input[Optional[Mapping[str, Any]]]:
+    def additional_params(self) -> Optional[Any]:
         """
         Provider-specific parameters passed through to the model provider unchanged.
         """
         return pulumi.get(self, "additional_params")
 
     @additional_params.setter
-    def additional_params(self, value: pulumi.Input[Optional[Mapping[str, Any]]]):
+    def additional_params(self, value: Optional[Any]):
         pulumi.set(self, "additional_params", value)
 
     @_builtins.property
@@ -12448,40 +12906,37 @@ class OnlineEvaluationConfigCloudWatchLogsInputConfigArgsDict(TypedDict):
     """
     The configuration for reading agent traces from CloudWatch logs.
     """
-    log_group_names: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-    """
-    The list of CloudWatch log group names to monitor for agent traces.
-    """
     service_names: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
     """
     The list of service names to filter traces within the specified log groups.
+    """
+    log_group_name_prefixes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    The list of CloudWatch log group name prefixes to monitor for agent traces. Mutually exclusive with LogGroupNames; specify exactly one of the two selectors.
+    """
+    log_group_names: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    The list of CloudWatch log group names to monitor for agent traces.
     """
 
 @pulumi.input_type
 class OnlineEvaluationConfigCloudWatchLogsInputConfigArgs:
     def __init__(__self__, *,
-                 log_group_names: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
-                 service_names: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+                 service_names: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
+                 log_group_name_prefixes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 log_group_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The configuration for reading agent traces from CloudWatch logs.
 
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] log_group_names: The list of CloudWatch log group names to monitor for agent traces.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] service_names: The list of service names to filter traces within the specified log groups.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] log_group_name_prefixes: The list of CloudWatch log group name prefixes to monitor for agent traces. Mutually exclusive with LogGroupNames; specify exactly one of the two selectors.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] log_group_names: The list of CloudWatch log group names to monitor for agent traces.
         """
-        pulumi.set(__self__, "log_group_names", log_group_names)
         pulumi.set(__self__, "service_names", service_names)
-
-    @_builtins.property
-    @pulumi.getter(name="logGroupNames")
-    def log_group_names(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
-        """
-        The list of CloudWatch log group names to monitor for agent traces.
-        """
-        return pulumi.get(self, "log_group_names")
-
-    @log_group_names.setter
-    def log_group_names(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
-        pulumi.set(self, "log_group_names", value)
+        if log_group_name_prefixes is not None:
+            pulumi.set(__self__, "log_group_name_prefixes", log_group_name_prefixes)
+        if log_group_names is not None:
+            pulumi.set(__self__, "log_group_names", log_group_names)
 
     @_builtins.property
     @pulumi.getter(name="serviceNames")
@@ -12494,6 +12949,104 @@ class OnlineEvaluationConfigCloudWatchLogsInputConfigArgs:
     @service_names.setter
     def service_names(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
         pulumi.set(self, "service_names", value)
+
+    @_builtins.property
+    @pulumi.getter(name="logGroupNamePrefixes")
+    def log_group_name_prefixes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        The list of CloudWatch log group name prefixes to monitor for agent traces. Mutually exclusive with LogGroupNames; specify exactly one of the two selectors.
+        """
+        return pulumi.get(self, "log_group_name_prefixes")
+
+    @log_group_name_prefixes.setter
+    def log_group_name_prefixes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "log_group_name_prefixes", value)
+
+    @_builtins.property
+    @pulumi.getter(name="logGroupNames")
+    def log_group_names(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        The list of CloudWatch log group names to monitor for agent traces.
+        """
+        return pulumi.get(self, "log_group_names")
+
+    @log_group_names.setter
+    def log_group_names(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "log_group_names", value)
+
+
+class OnlineEvaluationConfigCloudWatchOutputConfigArgsDict(TypedDict):
+    """
+    The CloudWatch configuration for writing evaluation results.
+    """
+    log_group_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The CloudWatch log group name for evaluation results. Omit to use the service-managed default log group.
+    """
+    metrics_namespace: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The CloudWatch metrics namespace for evaluation result metrics. Omit to use the service-managed default namespace.
+    """
+    result_destination: NotRequired[pulumi.Input[Optional['OnlineEvaluationConfigCloudWatchOutputConfigResultDestination']]]
+    """
+    Where evaluation results are written. DEDICATED_LOG_GROUP, the default when omitted, writes to a dedicated result log group. SOURCE_LOG_GROUP writes results back to the trace source log group; LogGroupName must not be specified with SOURCE_LOG_GROUP.
+    """
+
+@pulumi.input_type
+class OnlineEvaluationConfigCloudWatchOutputConfigArgs:
+    def __init__(__self__, *,
+                 log_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 metrics_namespace: pulumi.Input[Optional[_builtins.str]] = None,
+                 result_destination: pulumi.Input[Optional['OnlineEvaluationConfigCloudWatchOutputConfigResultDestination']] = None):
+        """
+        The CloudWatch configuration for writing evaluation results.
+
+        :param pulumi.Input[_builtins.str] log_group_name: The CloudWatch log group name for evaluation results. Omit to use the service-managed default log group.
+        :param pulumi.Input[_builtins.str] metrics_namespace: The CloudWatch metrics namespace for evaluation result metrics. Omit to use the service-managed default namespace.
+        :param pulumi.Input['OnlineEvaluationConfigCloudWatchOutputConfigResultDestination'] result_destination: Where evaluation results are written. DEDICATED_LOG_GROUP, the default when omitted, writes to a dedicated result log group. SOURCE_LOG_GROUP writes results back to the trace source log group; LogGroupName must not be specified with SOURCE_LOG_GROUP.
+        """
+        if log_group_name is not None:
+            pulumi.set(__self__, "log_group_name", log_group_name)
+        if metrics_namespace is not None:
+            pulumi.set(__self__, "metrics_namespace", metrics_namespace)
+        if result_destination is not None:
+            pulumi.set(__self__, "result_destination", result_destination)
+
+    @_builtins.property
+    @pulumi.getter(name="logGroupName")
+    def log_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The CloudWatch log group name for evaluation results. Omit to use the service-managed default log group.
+        """
+        return pulumi.get(self, "log_group_name")
+
+    @log_group_name.setter
+    def log_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "log_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="metricsNamespace")
+    def metrics_namespace(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The CloudWatch metrics namespace for evaluation result metrics. Omit to use the service-managed default namespace.
+        """
+        return pulumi.get(self, "metrics_namespace")
+
+    @metrics_namespace.setter
+    def metrics_namespace(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "metrics_namespace", value)
+
+    @_builtins.property
+    @pulumi.getter(name="resultDestination")
+    def result_destination(self) -> pulumi.Input[Optional['OnlineEvaluationConfigCloudWatchOutputConfigResultDestination']]:
+        """
+        Where evaluation results are written. DEDICATED_LOG_GROUP, the default when omitted, writes to a dedicated result log group. SOURCE_LOG_GROUP writes results back to the trace source log group; LogGroupName must not be specified with SOURCE_LOG_GROUP.
+        """
+        return pulumi.get(self, "result_destination")
+
+    @result_destination.setter
+    def result_destination(self, value: pulumi.Input[Optional['OnlineEvaluationConfigCloudWatchOutputConfigResultDestination']]):
+        pulumi.set(self, "result_destination", value)
 
 
 class OnlineEvaluationConfigClusteringConfigArgsDict(TypedDict):
@@ -12756,6 +13309,32 @@ class OnlineEvaluationConfigInsightArgs:
     @insight_id.setter
     def insight_id(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "insight_id", value)
+
+
+class OnlineEvaluationConfigOutputConfigArgsDict(TypedDict):
+    """
+    The configuration that specifies where evaluation results should be written.
+    """
+    cloud_watch_config: NotRequired[pulumi.Input[Optional['OnlineEvaluationConfigCloudWatchOutputConfigArgsDict']]]
+
+@pulumi.input_type
+class OnlineEvaluationConfigOutputConfigArgs:
+    def __init__(__self__, *,
+                 cloud_watch_config: pulumi.Input[Optional['OnlineEvaluationConfigCloudWatchOutputConfigArgs']] = None):
+        """
+        The configuration that specifies where evaluation results should be written.
+        """
+        if cloud_watch_config is not None:
+            pulumi.set(__self__, "cloud_watch_config", cloud_watch_config)
+
+    @_builtins.property
+    @pulumi.getter(name="cloudWatchConfig")
+    def cloud_watch_config(self) -> pulumi.Input[Optional['OnlineEvaluationConfigCloudWatchOutputConfigArgs']]:
+        return pulumi.get(self, "cloud_watch_config")
+
+    @cloud_watch_config.setter
+    def cloud_watch_config(self, value: pulumi.Input[Optional['OnlineEvaluationConfigCloudWatchOutputConfigArgs']]):
+        pulumi.set(self, "cloud_watch_config", value)
 
 
 class OnlineEvaluationConfigRuleArgsDict(TypedDict):

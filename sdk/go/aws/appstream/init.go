@@ -35,6 +35,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &DirectoryConfig{}
 	case "aws-native:appstream:Entitlement":
 		r = &Entitlement{}
+	case "aws-native:appstream:Fleet":
+		r = &Fleet{}
 	case "aws-native:appstream:ImageBuilder":
 		r = &ImageBuilder{}
 	case "aws-native:appstream:Stack":

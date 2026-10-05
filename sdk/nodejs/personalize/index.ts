@@ -5,6 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { CampaignArgs } from "./campaign";
+export type Campaign = import("./campaign").Campaign;
+export const Campaign: typeof import("./campaign").Campaign = null as any;
+utilities.lazyLoad(exports, ["Campaign"], () => require("./campaign"));
+
 export { DatasetArgs } from "./dataset";
 export type Dataset = import("./dataset").Dataset;
 export const Dataset: typeof import("./dataset").Dataset = null as any;
@@ -24,6 +29,11 @@ export { FilterArgs } from "./filter";
 export type Filter = import("./filter").Filter;
 export const Filter: typeof import("./filter").Filter = null as any;
 utilities.lazyLoad(exports, ["Filter"], () => require("./filter"));
+
+export { GetCampaignArgs, GetCampaignResult, GetCampaignOutputArgs } from "./getCampaign";
+export const getCampaign: typeof import("./getCampaign").getCampaign = null as any;
+export const getCampaignOutput: typeof import("./getCampaign").getCampaignOutput = null as any;
+utilities.lazyLoad(exports, ["getCampaign","getCampaignOutput"], () => require("./getCampaign"));
 
 export { GetDatasetArgs, GetDatasetResult, GetDatasetOutputArgs } from "./getDataset";
 export const getDataset: typeof import("./getDataset").getDataset = null as any;
@@ -83,6 +93,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws-native:personalize:Campaign":
+                return new Campaign(name, <any>undefined, { urn })
             case "aws-native:personalize:Dataset":
                 return new Dataset(name, <any>undefined, { urn })
             case "aws-native:personalize:DatasetGroup":

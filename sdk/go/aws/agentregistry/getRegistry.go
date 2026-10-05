@@ -30,6 +30,10 @@ type LookupRegistryArgs struct {
 
 type LookupRegistryResult struct {
 	ApprovalConfiguration *RegistryApprovalConfiguration `pulumi:"approvalConfiguration"`
+	// Specifies whether auto-detection is requested for the registry. Must be specified together with AutoDetectionScope. Setting this to true is necessary but not sufficient for auto-detection to become active; the preconditions of the configured scope must also be met. To turn auto-detection off, explicitly set this to false - removing AutoDetectionEnabled and AutoDetectionScope from the template is a no-op and leaves the existing auto-detection settings unchanged. A registry cannot be deleted while auto-detection is enabled: set this to false and update the stack before deleting the registry.
+	AutoDetectionEnabled *bool                        `pulumi:"autoDetectionEnabled"`
+	AutoDetectionScope   *RegistryAutoDetectionScope  `pulumi:"autoDetectionScope"`
+	AutoDetectionStatus  *RegistryAutoDetectionStatus `pulumi:"autoDetectionStatus"`
 	// The timestamp when the registry was created.
 	CreatedAt *string `pulumi:"createdAt"`
 	// The description of the registry.
@@ -78,6 +82,19 @@ func (o LookupRegistryResultOutput) ToLookupRegistryResultOutputWithContext(ctx 
 
 func (o LookupRegistryResultOutput) ApprovalConfiguration() RegistryApprovalConfigurationPtrOutput {
 	return o.ApplyT(func(v LookupRegistryResult) *RegistryApprovalConfiguration { return v.ApprovalConfiguration }).(RegistryApprovalConfigurationPtrOutput)
+}
+
+// Specifies whether auto-detection is requested for the registry. Must be specified together with AutoDetectionScope. Setting this to true is necessary but not sufficient for auto-detection to become active; the preconditions of the configured scope must also be met. To turn auto-detection off, explicitly set this to false - removing AutoDetectionEnabled and AutoDetectionScope from the template is a no-op and leaves the existing auto-detection settings unchanged. A registry cannot be deleted while auto-detection is enabled: set this to false and update the stack before deleting the registry.
+func (o LookupRegistryResultOutput) AutoDetectionEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupRegistryResult) *bool { return v.AutoDetectionEnabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o LookupRegistryResultOutput) AutoDetectionScope() RegistryAutoDetectionScopePtrOutput {
+	return o.ApplyT(func(v LookupRegistryResult) *RegistryAutoDetectionScope { return v.AutoDetectionScope }).(RegistryAutoDetectionScopePtrOutput)
+}
+
+func (o LookupRegistryResultOutput) AutoDetectionStatus() RegistryAutoDetectionStatusPtrOutput {
+	return o.ApplyT(func(v LookupRegistryResult) *RegistryAutoDetectionStatus { return v.AutoDetectionStatus }).(RegistryAutoDetectionStatusPtrOutput)
 }
 
 // The timestamp when the registry was created.

@@ -28,10 +28,12 @@ type LookupNetworkConnectorArgs struct {
 }
 
 type LookupNetworkConnectorResult struct {
-	Arn           *string                    `pulumi:"arn"`
-	Configuration *NetworkConnectorConfig    `pulumi:"configuration"`
-	OperatorRole  *string                    `pulumi:"operatorRole"`
-	State         *NetworkConnectorStateEnum `pulumi:"state"`
+	Arn              *string                    `pulumi:"arn"`
+	Configuration    *NetworkConnectorConfig    `pulumi:"configuration"`
+	LatestVersion    *int                       `pulumi:"latestVersion"`
+	LatestVersionArn *string                    `pulumi:"latestVersionArn"`
+	OperatorRole     *string                    `pulumi:"operatorRole"`
+	State            *NetworkConnectorStateEnum `pulumi:"state"`
 	// A list of tags to apply to the network connector. Use tags to categorize network connectors for cost allocation, access control, or operational management.
 	Tags []aws.Tag `pulumi:"tags"`
 }
@@ -69,6 +71,14 @@ func (o LookupNetworkConnectorResultOutput) Arn() pulumi.StringPtrOutput {
 
 func (o LookupNetworkConnectorResultOutput) Configuration() NetworkConnectorConfigPtrOutput {
 	return o.ApplyT(func(v LookupNetworkConnectorResult) *NetworkConnectorConfig { return v.Configuration }).(NetworkConnectorConfigPtrOutput)
+}
+
+func (o LookupNetworkConnectorResultOutput) LatestVersion() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupNetworkConnectorResult) *int { return v.LatestVersion }).(pulumi.IntPtrOutput)
+}
+
+func (o LookupNetworkConnectorResultOutput) LatestVersionArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupNetworkConnectorResult) *string { return v.LatestVersionArn }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupNetworkConnectorResultOutput) OperatorRole() pulumi.StringPtrOutput {

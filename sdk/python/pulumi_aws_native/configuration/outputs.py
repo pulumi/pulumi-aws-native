@@ -34,6 +34,9 @@ __all__ = [
     'ConnectorAzureConnectorConfiguration',
     'ConnectorConfiguration',
     'DeliveryChannelConfigSnapshotDeliveryProperties',
+    'OrganizationConfigRuleOrganizationCustomPolicyRuleMetadata',
+    'OrganizationConfigRuleOrganizationCustomRuleMetadata',
+    'OrganizationConfigRuleOrganizationManagedRuleMetadata',
     'OrganizationConformancePackConformancePackInputParameter',
     'RemediationConfigurationExecutionControls',
     'RemediationConfigurationSsmControls',
@@ -1057,6 +1060,437 @@ class DeliveryChannelConfigSnapshotDeliveryProperties(dict):
         The frequency with which AWS Config delivers configuration snapshots.
         """
         return pulumi.get(self, "delivery_frequency")
+
+
+@pulumi.output_type
+class OrganizationConfigRuleOrganizationCustomPolicyRuleMetadata(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "policyText":
+            suggest = "policy_text"
+        elif key == "debugLogDeliveryAccounts":
+            suggest = "debug_log_delivery_accounts"
+        elif key == "inputParameters":
+            suggest = "input_parameters"
+        elif key == "organizationConfigRuleTriggerTypes":
+            suggest = "organization_config_rule_trigger_types"
+        elif key == "resourceIdScope":
+            suggest = "resource_id_scope"
+        elif key == "resourceTypesScope":
+            suggest = "resource_types_scope"
+        elif key == "tagKeyScope":
+            suggest = "tag_key_scope"
+        elif key == "tagValueScope":
+            suggest = "tag_value_scope"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OrganizationConfigRuleOrganizationCustomPolicyRuleMetadata. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OrganizationConfigRuleOrganizationCustomPolicyRuleMetadata.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OrganizationConfigRuleOrganizationCustomPolicyRuleMetadata.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 policy_text: _builtins.str,
+                 runtime: _builtins.str,
+                 debug_log_delivery_accounts: Optional[Sequence[_builtins.str]] = None,
+                 description: Optional[_builtins.str] = None,
+                 input_parameters: Optional[_builtins.str] = None,
+                 organization_config_rule_trigger_types: Optional[Sequence[_builtins.str]] = None,
+                 resource_id_scope: Optional[_builtins.str] = None,
+                 resource_types_scope: Optional[Sequence[_builtins.str]] = None,
+                 tag_key_scope: Optional[_builtins.str] = None,
+                 tag_value_scope: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str policy_text: The policy definition containing the logic for your organization AWS Config Custom Policy rule.
+        :param _builtins.str runtime: The runtime system for your organization AWS Config Custom Policy rules.
+        :param Sequence[_builtins.str] debug_log_delivery_accounts: A list of accounts that you can enable debug logging for your organization AWS Config Custom Policy rule.
+        :param _builtins.str description: The description that you provide for your organization AWS Config rule.
+        :param _builtins.str input_parameters: A string, in JSON format, that is passed to your organization AWS Config Custom Policy rule.
+        :param Sequence[_builtins.str] organization_config_rule_trigger_types: The type of notification that initiates AWS Config to run an evaluation for a rule.
+        :param _builtins.str resource_id_scope: The ID of the AWS resource that was evaluated.
+        :param Sequence[_builtins.str] resource_types_scope: The type of the AWS resource that was evaluated.
+        :param _builtins.str tag_key_scope: One part of a key-value pair that make up a tag. A key is a general label that acts like a category for more specific tag values.
+        :param _builtins.str tag_value_scope: The optional part of a key-value pair that make up a tag. A value acts as a descriptor within a tag category (key).
+        """
+        pulumi.set(__self__, "policy_text", policy_text)
+        pulumi.set(__self__, "runtime", runtime)
+        if debug_log_delivery_accounts is not None:
+            pulumi.set(__self__, "debug_log_delivery_accounts", debug_log_delivery_accounts)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if input_parameters is not None:
+            pulumi.set(__self__, "input_parameters", input_parameters)
+        if organization_config_rule_trigger_types is not None:
+            pulumi.set(__self__, "organization_config_rule_trigger_types", organization_config_rule_trigger_types)
+        if resource_id_scope is not None:
+            pulumi.set(__self__, "resource_id_scope", resource_id_scope)
+        if resource_types_scope is not None:
+            pulumi.set(__self__, "resource_types_scope", resource_types_scope)
+        if tag_key_scope is not None:
+            pulumi.set(__self__, "tag_key_scope", tag_key_scope)
+        if tag_value_scope is not None:
+            pulumi.set(__self__, "tag_value_scope", tag_value_scope)
+
+    @_builtins.property
+    @pulumi.getter(name="policyText")
+    def policy_text(self) -> _builtins.str:
+        """
+        The policy definition containing the logic for your organization AWS Config Custom Policy rule.
+        """
+        return pulumi.get(self, "policy_text")
+
+    @_builtins.property
+    @pulumi.getter
+    def runtime(self) -> _builtins.str:
+        """
+        The runtime system for your organization AWS Config Custom Policy rules.
+        """
+        return pulumi.get(self, "runtime")
+
+    @_builtins.property
+    @pulumi.getter(name="debugLogDeliveryAccounts")
+    def debug_log_delivery_accounts(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        A list of accounts that you can enable debug logging for your organization AWS Config Custom Policy rule.
+        """
+        return pulumi.get(self, "debug_log_delivery_accounts")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> Optional[_builtins.str]:
+        """
+        The description that you provide for your organization AWS Config rule.
+        """
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter(name="inputParameters")
+    def input_parameters(self) -> Optional[_builtins.str]:
+        """
+        A string, in JSON format, that is passed to your organization AWS Config Custom Policy rule.
+        """
+        return pulumi.get(self, "input_parameters")
+
+    @_builtins.property
+    @pulumi.getter(name="organizationConfigRuleTriggerTypes")
+    def organization_config_rule_trigger_types(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        The type of notification that initiates AWS Config to run an evaluation for a rule.
+        """
+        return pulumi.get(self, "organization_config_rule_trigger_types")
+
+    @_builtins.property
+    @pulumi.getter(name="resourceIdScope")
+    def resource_id_scope(self) -> Optional[_builtins.str]:
+        """
+        The ID of the AWS resource that was evaluated.
+        """
+        return pulumi.get(self, "resource_id_scope")
+
+    @_builtins.property
+    @pulumi.getter(name="resourceTypesScope")
+    def resource_types_scope(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        The type of the AWS resource that was evaluated.
+        """
+        return pulumi.get(self, "resource_types_scope")
+
+    @_builtins.property
+    @pulumi.getter(name="tagKeyScope")
+    def tag_key_scope(self) -> Optional[_builtins.str]:
+        """
+        One part of a key-value pair that make up a tag. A key is a general label that acts like a category for more specific tag values.
+        """
+        return pulumi.get(self, "tag_key_scope")
+
+    @_builtins.property
+    @pulumi.getter(name="tagValueScope")
+    def tag_value_scope(self) -> Optional[_builtins.str]:
+        """
+        The optional part of a key-value pair that make up a tag. A value acts as a descriptor within a tag category (key).
+        """
+        return pulumi.get(self, "tag_value_scope")
+
+
+@pulumi.output_type
+class OrganizationConfigRuleOrganizationCustomRuleMetadata(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "lambdaFunctionArn":
+            suggest = "lambda_function_arn"
+        elif key == "organizationConfigRuleTriggerTypes":
+            suggest = "organization_config_rule_trigger_types"
+        elif key == "inputParameters":
+            suggest = "input_parameters"
+        elif key == "maximumExecutionFrequency":
+            suggest = "maximum_execution_frequency"
+        elif key == "resourceIdScope":
+            suggest = "resource_id_scope"
+        elif key == "resourceTypesScope":
+            suggest = "resource_types_scope"
+        elif key == "tagKeyScope":
+            suggest = "tag_key_scope"
+        elif key == "tagValueScope":
+            suggest = "tag_value_scope"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OrganizationConfigRuleOrganizationCustomRuleMetadata. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OrganizationConfigRuleOrganizationCustomRuleMetadata.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OrganizationConfigRuleOrganizationCustomRuleMetadata.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 lambda_function_arn: _builtins.str,
+                 organization_config_rule_trigger_types: Sequence[_builtins.str],
+                 description: Optional[_builtins.str] = None,
+                 input_parameters: Optional[_builtins.str] = None,
+                 maximum_execution_frequency: Optional[_builtins.str] = None,
+                 resource_id_scope: Optional[_builtins.str] = None,
+                 resource_types_scope: Optional[Sequence[_builtins.str]] = None,
+                 tag_key_scope: Optional[_builtins.str] = None,
+                 tag_value_scope: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str lambda_function_arn: The lambda function ARN.
+        :param Sequence[_builtins.str] organization_config_rule_trigger_types: The type of notification that triggers AWS Config to run an evaluation for a rule. You can specify the following notification types:
+        :param _builtins.str description: The description that you provide for your organization AWS Config rule.
+        :param _builtins.str input_parameters: A string, in JSON format, that is passed to your organization AWS Config rule Lambda function.
+        :param _builtins.str maximum_execution_frequency: The maximum frequency with which AWS Config runs evaluations for a rule.Allowed values: One_Hour | Three_Hours | Six_Hours | Twelve_Hours | TwentyFour_Hours.
+        :param _builtins.str resource_id_scope: The ID of the AWS resource that was evaluated.
+        :param Sequence[_builtins.str] resource_types_scope: The type of the AWS resource that was evaluated.
+        :param _builtins.str tag_key_scope: One part of a key-value pair that make up a tag. A key is a general label that acts like a category for more specific tag values.
+        :param _builtins.str tag_value_scope: The optional part of a key-value pair that make up a tag. A value acts as a descriptor within a tag category (key).
+        """
+        pulumi.set(__self__, "lambda_function_arn", lambda_function_arn)
+        pulumi.set(__self__, "organization_config_rule_trigger_types", organization_config_rule_trigger_types)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if input_parameters is not None:
+            pulumi.set(__self__, "input_parameters", input_parameters)
+        if maximum_execution_frequency is not None:
+            pulumi.set(__self__, "maximum_execution_frequency", maximum_execution_frequency)
+        if resource_id_scope is not None:
+            pulumi.set(__self__, "resource_id_scope", resource_id_scope)
+        if resource_types_scope is not None:
+            pulumi.set(__self__, "resource_types_scope", resource_types_scope)
+        if tag_key_scope is not None:
+            pulumi.set(__self__, "tag_key_scope", tag_key_scope)
+        if tag_value_scope is not None:
+            pulumi.set(__self__, "tag_value_scope", tag_value_scope)
+
+    @_builtins.property
+    @pulumi.getter(name="lambdaFunctionArn")
+    def lambda_function_arn(self) -> _builtins.str:
+        """
+        The lambda function ARN.
+        """
+        return pulumi.get(self, "lambda_function_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="organizationConfigRuleTriggerTypes")
+    def organization_config_rule_trigger_types(self) -> Sequence[_builtins.str]:
+        """
+        The type of notification that triggers AWS Config to run an evaluation for a rule. You can specify the following notification types:
+        """
+        return pulumi.get(self, "organization_config_rule_trigger_types")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> Optional[_builtins.str]:
+        """
+        The description that you provide for your organization AWS Config rule.
+        """
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter(name="inputParameters")
+    def input_parameters(self) -> Optional[_builtins.str]:
+        """
+        A string, in JSON format, that is passed to your organization AWS Config rule Lambda function.
+        """
+        return pulumi.get(self, "input_parameters")
+
+    @_builtins.property
+    @pulumi.getter(name="maximumExecutionFrequency")
+    def maximum_execution_frequency(self) -> Optional[_builtins.str]:
+        """
+        The maximum frequency with which AWS Config runs evaluations for a rule.Allowed values: One_Hour | Three_Hours | Six_Hours | Twelve_Hours | TwentyFour_Hours.
+        """
+        return pulumi.get(self, "maximum_execution_frequency")
+
+    @_builtins.property
+    @pulumi.getter(name="resourceIdScope")
+    def resource_id_scope(self) -> Optional[_builtins.str]:
+        """
+        The ID of the AWS resource that was evaluated.
+        """
+        return pulumi.get(self, "resource_id_scope")
+
+    @_builtins.property
+    @pulumi.getter(name="resourceTypesScope")
+    def resource_types_scope(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        The type of the AWS resource that was evaluated.
+        """
+        return pulumi.get(self, "resource_types_scope")
+
+    @_builtins.property
+    @pulumi.getter(name="tagKeyScope")
+    def tag_key_scope(self) -> Optional[_builtins.str]:
+        """
+        One part of a key-value pair that make up a tag. A key is a general label that acts like a category for more specific tag values.
+        """
+        return pulumi.get(self, "tag_key_scope")
+
+    @_builtins.property
+    @pulumi.getter(name="tagValueScope")
+    def tag_value_scope(self) -> Optional[_builtins.str]:
+        """
+        The optional part of a key-value pair that make up a tag. A value acts as a descriptor within a tag category (key).
+        """
+        return pulumi.get(self, "tag_value_scope")
+
+
+@pulumi.output_type
+class OrganizationConfigRuleOrganizationManagedRuleMetadata(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ruleIdentifier":
+            suggest = "rule_identifier"
+        elif key == "inputParameters":
+            suggest = "input_parameters"
+        elif key == "maximumExecutionFrequency":
+            suggest = "maximum_execution_frequency"
+        elif key == "resourceIdScope":
+            suggest = "resource_id_scope"
+        elif key == "resourceTypesScope":
+            suggest = "resource_types_scope"
+        elif key == "tagKeyScope":
+            suggest = "tag_key_scope"
+        elif key == "tagValueScope":
+            suggest = "tag_value_scope"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OrganizationConfigRuleOrganizationManagedRuleMetadata. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OrganizationConfigRuleOrganizationManagedRuleMetadata.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OrganizationConfigRuleOrganizationManagedRuleMetadata.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 rule_identifier: _builtins.str,
+                 description: Optional[_builtins.str] = None,
+                 input_parameters: Optional[_builtins.str] = None,
+                 maximum_execution_frequency: Optional[_builtins.str] = None,
+                 resource_id_scope: Optional[_builtins.str] = None,
+                 resource_types_scope: Optional[Sequence[_builtins.str]] = None,
+                 tag_key_scope: Optional[_builtins.str] = None,
+                 tag_value_scope: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str rule_identifier: Required. For organization config managed rules, a predefined identifier from a list. For example, IAM_PASSWORD_POLICY is a managed rule.
+        :param _builtins.str description: The description that you provide for your organization AWS Config rule.
+        :param _builtins.str input_parameters: A string, in JSON format, that is passed to your organization AWS Config rule Lambda function.
+        :param _builtins.str maximum_execution_frequency: The maximum frequency with which AWS Config runs evaluations for a rule. Valid Values: One_Hour | Three_Hours | Six_Hours | Twelve_Hours | TwentyFour_Hours.
+        :param _builtins.str resource_id_scope: The ID of the AWS resource that was evaluated.
+        :param Sequence[_builtins.str] resource_types_scope: The type of the AWS resource that was evaluated.
+        :param _builtins.str tag_key_scope: One part of a key-value pair that make up a tag. A key is a general label that acts like a category for more specific tag values.
+        :param _builtins.str tag_value_scope: The optional part of a key-value pair that make up a tag. A value acts as a descriptor within a tag category (key).
+        """
+        pulumi.set(__self__, "rule_identifier", rule_identifier)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if input_parameters is not None:
+            pulumi.set(__self__, "input_parameters", input_parameters)
+        if maximum_execution_frequency is not None:
+            pulumi.set(__self__, "maximum_execution_frequency", maximum_execution_frequency)
+        if resource_id_scope is not None:
+            pulumi.set(__self__, "resource_id_scope", resource_id_scope)
+        if resource_types_scope is not None:
+            pulumi.set(__self__, "resource_types_scope", resource_types_scope)
+        if tag_key_scope is not None:
+            pulumi.set(__self__, "tag_key_scope", tag_key_scope)
+        if tag_value_scope is not None:
+            pulumi.set(__self__, "tag_value_scope", tag_value_scope)
+
+    @_builtins.property
+    @pulumi.getter(name="ruleIdentifier")
+    def rule_identifier(self) -> _builtins.str:
+        """
+        Required. For organization config managed rules, a predefined identifier from a list. For example, IAM_PASSWORD_POLICY is a managed rule.
+        """
+        return pulumi.get(self, "rule_identifier")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> Optional[_builtins.str]:
+        """
+        The description that you provide for your organization AWS Config rule.
+        """
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter(name="inputParameters")
+    def input_parameters(self) -> Optional[_builtins.str]:
+        """
+        A string, in JSON format, that is passed to your organization AWS Config rule Lambda function.
+        """
+        return pulumi.get(self, "input_parameters")
+
+    @_builtins.property
+    @pulumi.getter(name="maximumExecutionFrequency")
+    def maximum_execution_frequency(self) -> Optional[_builtins.str]:
+        """
+        The maximum frequency with which AWS Config runs evaluations for a rule. Valid Values: One_Hour | Three_Hours | Six_Hours | Twelve_Hours | TwentyFour_Hours.
+        """
+        return pulumi.get(self, "maximum_execution_frequency")
+
+    @_builtins.property
+    @pulumi.getter(name="resourceIdScope")
+    def resource_id_scope(self) -> Optional[_builtins.str]:
+        """
+        The ID of the AWS resource that was evaluated.
+        """
+        return pulumi.get(self, "resource_id_scope")
+
+    @_builtins.property
+    @pulumi.getter(name="resourceTypesScope")
+    def resource_types_scope(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        The type of the AWS resource that was evaluated.
+        """
+        return pulumi.get(self, "resource_types_scope")
+
+    @_builtins.property
+    @pulumi.getter(name="tagKeyScope")
+    def tag_key_scope(self) -> Optional[_builtins.str]:
+        """
+        One part of a key-value pair that make up a tag. A key is a general label that acts like a category for more specific tag values.
+        """
+        return pulumi.get(self, "tag_key_scope")
+
+    @_builtins.property
+    @pulumi.getter(name="tagValueScope")
+    def tag_value_scope(self) -> Optional[_builtins.str]:
+        """
+        The optional part of a key-value pair that make up a tag. A value acts as a descriptor within a tag category (key).
+        """
+        return pulumi.get(self, "tag_value_scope")
 
 
 @pulumi.output_type

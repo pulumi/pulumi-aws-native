@@ -55,6 +55,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &IntelligentPromptRouter{}
 	case "aws-native:bedrock:KnowledgeBase":
 		r = &KnowledgeBase{}
+	case "aws-native:bedrock:KnowledgeBasePolicy":
+		r = &KnowledgeBasePolicy{}
 	case "aws-native:bedrock:Prompt":
 		r = &Prompt{}
 	case "aws-native:bedrock:PromptVersion":

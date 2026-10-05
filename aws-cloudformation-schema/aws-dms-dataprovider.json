@@ -6,7 +6,7 @@
     "taggable" : true,
     "tagOnCreate" : true,
     "tagUpdatable" : true,
-    "cloudFormationSystemTags" : false,
+    "cloudFormationSystemTags" : true,
     "tagProperty" : "/properties/Tags",
     "permissions" : [ "dms:AddTagsToResource", "dms:RemoveTagsFromResource", "dms:ListTagsForResource" ]
   },
@@ -94,6 +94,11 @@
     },
     "ExactSettings" : {
       "description" : "The property describes the exact settings which can be modified",
+      "type" : "boolean",
+      "default" : false
+    },
+    "Virtual" : {
+      "description" : "Indicates whether the data provider is virtual.",
       "type" : "boolean",
       "default" : false
     },
@@ -200,6 +205,14 @@
             },
             "CertificateArn" : {
               "type" : "string"
+            },
+            "S3Path" : {
+              "type" : "string",
+              "description" : "The path for the Amazon S3 bucket that the application uses for accessing the user-defined schema."
+            },
+            "S3AccessRoleArn" : {
+              "type" : "string",
+              "description" : "The ARN for the role the application uses to access its Amazon S3 bucket."
             }
           },
           "required" : [ "ServerName", "Port", "SslMode", "DatabaseName" ],
@@ -315,6 +328,12 @@
             },
             "CertificateArn" : {
               "type" : "string"
+            },
+            "EncryptionAlgorithm" : {
+              "type" : "integer"
+            },
+            "SecurityMechanism" : {
+              "type" : "integer"
             }
           },
           "required" : [ "ServerName", "Port", "SslMode", "DatabaseName" ],
@@ -419,7 +438,7 @@
       "permissions" : [ "dms:ListDataProviders", "dms:DescribeDataProviders", "dms:ListTagsForResource" ]
     },
     "update" : {
-      "permissions" : [ "dms:UpdateDataProvider", "dms:ModifyDataProvider", "dms:AddTagsToResource", "dms:RemoveTagsFromResource", "dms:ListTagsForResource" ]
+      "permissions" : [ "dms:UpdateDataProvider", "dms:ModifyDataProvider", "dms:AddTagsToResource", "dms:RemoveTagsFromResource", "dms:ListTagsForResource", "iam:GetRole", "iam:PassRole" ]
     },
     "delete" : {
       "permissions" : [ "dms:DeleteDataProvider" ]

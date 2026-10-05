@@ -990,6 +990,16 @@ export namespace agentregistry {
     }
 
     /**
+     * The server-side encryption configuration for a registry. Specifies a customer managed key used to encrypt the registry's content. When omitted, the registry's content is encrypted with an AWS owned key. You cannot change the encryption configuration after registry creation. Specifying a different KMS key, adding this property to an existing registry, or removing it replaces the registry: CloudFormation creates a new registry with a new Amazon Resource Name (ARN) and then deletes the original, including all registry records it contains. Registry records that are not managed by the stack are not re-created in the new registry, and if any remain in the original registry its deletion fails and it is left behind.
+     */
+    export interface RegistryEncryptionConfigurationArgs {
+        /**
+         * The Amazon Resource Name (ARN) of the customer-managed AWS KMS key used to encrypt the registry's content. The key must be a symmetric encryption key in the same AWS account and Region as the registry. Multi-Region keys are not supported.
+         */
+        kmsKeyArn: pulumi.Input<string>;
+    }
+
+    /**
      * The A2A agent card descriptor, populated when the record type is AGENT.
      */
     export interface RegistryRecordA2aAgentCardDescriptorArgs {
@@ -6713,6 +6723,56 @@ export namespace appstream {
         value: pulumi.Input<string>;
     }
 
+    export interface FleetComputeCapacityArgs {
+        /**
+         * The desired number of streaming instances.
+         */
+        desiredInstances?: pulumi.Input<number | undefined>;
+        /**
+         * The desired capacity in terms of number of user sessions, for the multi-session fleet. This is not allowed for single-session fleets.
+         *
+         * When you create a fleet, you must set define either the DesiredSessions or DesiredInstances attribute, based on the type of fleet you create. You can’t define both attributes or leave both attributes blank.
+         */
+        desiredSessions?: pulumi.Input<number | undefined>;
+    }
+
+    export interface FleetDomainJoinInfoArgs {
+        /**
+         * The fully qualified name of the directory (for example, corp.example.com).
+         */
+        directoryName?: pulumi.Input<string | undefined>;
+        /**
+         * The distinguished name of the organizational unit for computer accounts.
+         */
+        organizationalUnitDistinguishedName?: pulumi.Input<string | undefined>;
+    }
+
+    export interface FleetS3LocationArgs {
+        /**
+         * The S3 bucket of the S3 object.
+         */
+        s3Bucket: pulumi.Input<string>;
+        /**
+         * The S3 key of the S3 object.
+         */
+        s3Key: pulumi.Input<string>;
+    }
+
+    export interface FleetVolumeConfigArgs {
+        volumeSizeInGb?: pulumi.Input<number | undefined>;
+    }
+
+    export interface FleetVpcConfigArgs {
+        /**
+         * The identifiers of the security groups for the fleet.
+         */
+        securityGroupIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+        /**
+         * The identifiers of the subnets to which a network interface is attached from the fleet instance. Fleet instances can use one or two subnets.
+         */
+        subnetIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    }
+
     export interface ImageBuilderAccessEndpointArgs {
         /**
          * The type of interface endpoint.
@@ -7817,6 +7877,7 @@ export namespace arcregionswitch {
         targetPercent?: pulumi.Input<number | undefined>;
         timeoutMinutes?: pulumi.Input<number | undefined>;
         ungraceful?: pulumi.Input<inputs.arcregionswitch.PlanEc2UngracefulArgs | undefined>;
+        waitElbTargetGroupHealthy?: pulumi.Input<enums.arcregionswitch.PlanWaitElbTargetGroupHealthy | undefined>;
     }
 
     export interface PlanEc2UngracefulArgs {
@@ -7829,6 +7890,7 @@ export namespace arcregionswitch {
         targetPercent?: pulumi.Input<number | undefined>;
         timeoutMinutes?: pulumi.Input<number | undefined>;
         ungraceful?: pulumi.Input<inputs.arcregionswitch.PlanEcsUngracefulArgs | undefined>;
+        waitElbTargetGroupHealthy?: pulumi.Input<enums.arcregionswitch.PlanWaitElbTargetGroupHealthy | undefined>;
     }
 
     export interface PlanEcsUngracefulArgs {
@@ -17570,6 +17632,28 @@ export namespace bedrockagentcore {
         failureMode?: pulumi.Input<enums.bedrockagentcore.GatewayWafFailureMode | undefined>;
     }
 
+    /**
+     * A hook that runs after an agent invocation.
+     */
+    export interface HarnessAfterInvocationHookArgs {
+        /**
+         * The unique name of the hook.
+         */
+        name: pulumi.Input<string>;
+        target: pulumi.Input<inputs.bedrockagentcore.HarnessHookTargetArgs>;
+    }
+
+    /**
+     * A hook that runs after each tool call.
+     */
+    export interface HarnessAfterToolCallHookArgs {
+        /**
+         * The unique name of the hook.
+         */
+        name: pulumi.Input<string>;
+        target: pulumi.Input<inputs.bedrockagentcore.HarnessHookTargetArgs>;
+    }
+
     export interface HarnessAgentCoreBrowserConfigArgs {
         browserArn?: pulumi.Input<string | undefined>;
     }
@@ -17633,12 +17717,34 @@ export namespace bedrockagentcore {
         /**
          * Provider-specific parameters passed through to the model provider unchanged.
          */
-        additionalParams?: pulumi.Input<{[key: string]: any} | undefined>;
+        additionalParams?: any | undefined;
         apiFormat?: pulumi.Input<enums.bedrockagentcore.HarnessBedrockModelConfigApiFormat | undefined>;
         maxTokens?: pulumi.Input<number | undefined>;
         modelId: pulumi.Input<string>;
         temperature?: pulumi.Input<number | undefined>;
         topP?: pulumi.Input<number | undefined>;
+    }
+
+    /**
+     * A hook that runs before an agent invocation.
+     */
+    export interface HarnessBeforeInvocationHookArgs {
+        /**
+         * The unique name of the hook.
+         */
+        name: pulumi.Input<string>;
+        target: pulumi.Input<inputs.bedrockagentcore.HarnessHookTargetArgs>;
+    }
+
+    /**
+     * A hook that runs before each tool call.
+     */
+    export interface HarnessBeforeToolCallHookArgs {
+        /**
+         * The unique name of the hook.
+         */
+        name: pulumi.Input<string>;
+        target: pulumi.Input<inputs.bedrockagentcore.HarnessHookTargetArgs>;
     }
 
     export interface HarnessClaimMatchValueTypeArgs {
@@ -17712,6 +17818,63 @@ export namespace bedrockagentcore {
         topP?: pulumi.Input<number | undefined>;
     }
 
+    /**
+     * A lifecycle hook configured for one phase of the agent loop.
+     */
+    export interface HarnessHookArgs {
+        afterInvocation?: pulumi.Input<inputs.bedrockagentcore.HarnessAfterInvocationHookArgs | undefined>;
+        afterToolCall?: pulumi.Input<inputs.bedrockagentcore.HarnessAfterToolCallHookArgs | undefined>;
+        beforeInvocation?: pulumi.Input<inputs.bedrockagentcore.HarnessBeforeInvocationHookArgs | undefined>;
+        beforeToolCall?: pulumi.Input<inputs.bedrockagentcore.HarnessBeforeToolCallHookArgs | undefined>;
+    }
+
+    /**
+     * An EventBridge event bus that receives lifecycle hook events asynchronously.
+     */
+    export interface HarnessHookEventBridgeTargetArgs {
+        /**
+         * The ARN of the EventBridge event bus.
+         */
+        arn: pulumi.Input<string>;
+    }
+
+    /**
+     * A Lambda function invoked synchronously for a lifecycle hook.
+     */
+    export interface HarnessHookLambdaTargetArgs {
+        /**
+         * The ARN of the Lambda function.
+         */
+        arn: pulumi.Input<string>;
+        /**
+         * Whether the agent loop continues or stops when the Lambda invocation fails. Defaults to deny.
+         */
+        failureMode?: pulumi.Input<enums.bedrockagentcore.HarnessHookLambdaTargetFailureMode | undefined>;
+        /**
+         * The maximum number of seconds to wait for the Lambda response. Defaults to 60.
+         */
+        timeoutSeconds?: pulumi.Input<number | undefined>;
+    }
+
+    /**
+     * An SNS topic that receives lifecycle hook events asynchronously.
+     */
+    export interface HarnessHookSnsTargetArgs {
+        /**
+         * The ARN of the SNS topic.
+         */
+        arn: pulumi.Input<string>;
+    }
+
+    /**
+     * The destination that receives lifecycle hook events.
+     */
+    export interface HarnessHookTargetArgs {
+        eventBridge?: pulumi.Input<inputs.bedrockagentcore.HarnessHookEventBridgeTargetArgs | undefined>;
+        lambda?: pulumi.Input<inputs.bedrockagentcore.HarnessHookLambdaTargetArgs | undefined>;
+        sns?: pulumi.Input<inputs.bedrockagentcore.HarnessHookSnsTargetArgs | undefined>;
+    }
+
     export interface HarnessInlineFunctionConfigArgs {
         description: pulumi.Input<string>;
         /**
@@ -17729,7 +17892,7 @@ export namespace bedrockagentcore {
         /**
          * Provider-specific parameters passed through to LiteLLM unchanged.
          */
-        additionalParams?: pulumi.Input<{[key: string]: any} | undefined>;
+        additionalParams?: any | undefined;
         apiBase?: pulumi.Input<string | undefined>;
         apiKeyArn?: pulumi.Input<string | undefined>;
         maxTokens?: pulumi.Input<number | undefined>;
@@ -17802,7 +17965,7 @@ export namespace bedrockagentcore {
         /**
          * Provider-specific parameters passed through to the model provider unchanged.
          */
-        additionalParams?: pulumi.Input<{[key: string]: any} | undefined>;
+        additionalParams?: any | undefined;
         apiFormat?: pulumi.Input<enums.bedrockagentcore.HarnessOpenAiModelConfigApiFormat | undefined>;
         apiKeyArn: pulumi.Input<string>;
         maxTokens?: pulumi.Input<number | undefined>;
@@ -18613,13 +18776,35 @@ export namespace bedrockagentcore {
      */
     export interface OnlineEvaluationConfigCloudWatchLogsInputConfigArgs {
         /**
+         * The list of CloudWatch log group name prefixes to monitor for agent traces. Mutually exclusive with LogGroupNames; specify exactly one of the two selectors.
+         */
+        logGroupNamePrefixes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+        /**
          * The list of CloudWatch log group names to monitor for agent traces.
          */
-        logGroupNames: pulumi.Input<pulumi.Input<string>[]>;
+        logGroupNames?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
          * The list of service names to filter traces within the specified log groups.
          */
         serviceNames: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    /**
+     * The CloudWatch configuration for writing evaluation results.
+     */
+    export interface OnlineEvaluationConfigCloudWatchOutputConfigArgs {
+        /**
+         * The CloudWatch log group name for evaluation results. Omit to use the service-managed default log group.
+         */
+        logGroupName?: pulumi.Input<string | undefined>;
+        /**
+         * The CloudWatch metrics namespace for evaluation result metrics. Omit to use the service-managed default namespace.
+         */
+        metricsNamespace?: pulumi.Input<string | undefined>;
+        /**
+         * Where evaluation results are written. DEDICATED_LOG_GROUP, the default when omitted, writes to a dedicated result log group. SOURCE_LOG_GROUP writes results back to the trace source log group; LogGroupName must not be specified with SOURCE_LOG_GROUP.
+         */
+        resultDestination?: pulumi.Input<enums.bedrockagentcore.OnlineEvaluationConfigCloudWatchOutputConfigResultDestination | undefined>;
     }
 
     /**
@@ -18690,6 +18875,13 @@ export namespace bedrockagentcore {
          * The unique identifier of the insight.
          */
         insightId: pulumi.Input<string>;
+    }
+
+    /**
+     * The configuration that specifies where evaluation results should be written.
+     */
+    export interface OnlineEvaluationConfigOutputConfigArgs {
+        cloudWatchConfig?: pulumi.Input<inputs.bedrockagentcore.OnlineEvaluationConfigCloudWatchOutputConfigArgs | undefined>;
     }
 
     /**
@@ -21034,6 +21226,20 @@ export namespace cleanroomsml {
          * The Glue table that contains the training data.
          */
         tableName: pulumi.Input<string>;
+    }
+
+}
+
+export namespace cloud9 {
+    export interface EnvironmentEc2RepositoryArgs {
+        /**
+         * The path within the development environment's default file system location to clone the AWS CodeCommit repository into.
+         */
+        pathComponent: pulumi.Input<string>;
+        /**
+         * The clone URL of the AWS CodeCommit repository to be cloned.
+         */
+        repositoryUrl: pulumi.Input<string>;
     }
 
 }
@@ -23901,13 +24107,18 @@ export namespace cloudwatch {
         timezone?: pulumi.Input<string | undefined>;
     }
 
+    /**
+     * The configuration settings that define the warm-up behavior for an alarm. Use these settings to delay alarm evaluation after you create or update the alarm, which reduces alarm noise while a new resource or service starts publishing data.
+     *  During the warm-up period, the alarm stays in ``INSUFFICIENT_DATA`` and does not perform alarm actions.
+     */
     export interface AlarmWarmUpConfigurationArgs {
         /**
-         * Specifies whether the alarm waits for the full warm-up period before it starts evaluating. If true, the alarm waits the entire WarmUpPeriodDurationInMinutes before it starts evaluating, even if metric data arrives earlier. If false, the alarm ends the warm-up period early and starts evaluating as soon as it has enough metric data to fill its evaluation window. This is the default behavior.
+         * Specifies whether the alarm waits for the full warm-up period before it starts to evaluate. The default is ``false``. If ``true``, the alarm waits the entire ``WarmUpPeriodDurationInMinutes`` before it starts to evaluate, even if metric data arrives earlier. If ``false``, the alarm ends the warm-up period early. Evaluation begins as soon as the alarm has enough metric data to fill its evaluation window.
          */
         onlyStartEvaluatingAfterWarmUpPeriodEnds?: pulumi.Input<boolean | undefined>;
         /**
-         * The length of the warm-up period, in minutes. For this duration after you create or update the alarm, the alarm stays in INSUFFICIENT_DATA and doesn't perform alarm actions. Valid values range from 1 to 2880 minutes (2 days). You can change this value while the alarm is still in its warm-up period. Changes have no effect after the warm-up period ends.
+         * The length of the warm-up period, in minutes. After you create or update the alarm, the alarm stays in ``INSUFFICIENT_DATA`` for this duration. During this time, the alarm does not perform alarm actions.
+         *  You can change this value at any time, including after the warm-up period ends. If you change it after the warm-up period ends, the new value does not restart the warm-up period.
          */
         warmUpPeriodDurationInMinutes?: pulumi.Input<number | undefined>;
     }
@@ -24041,6 +24252,30 @@ export namespace cloudwatch {
     }
 
     /**
+     * Selects metrics within one namespace. The same shape serves both the include and the exclude direction. Namespaces are compared byte-for-byte and case-sensitively; no wildcards, prefixes or normalization.
+     */
+    export interface OTelEnrichmentMetricSelectorArgs {
+        /**
+         * Absent or empty means every metric in this namespace, in whichever direction this selector appears. Present means only these metric names.
+         */
+        metricNames?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+        /**
+         * The CloudWatch namespace this selector applies to.
+         */
+        namespace: pulumi.Input<string>;
+    }
+
+    /**
+     * Defines which metrics are enabled for detailed monitoring on the resource.
+     */
+    export interface ResourceMetricsConfigurationResourceMetricSelectionArgs {
+        /**
+         * The list of metric names to include in detailed monitoring for the resource.
+         */
+        includeMetrics: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    /**
      * The rule for the mute
      */
     export interface RulePropertiesArgs {
@@ -24067,6 +24302,7 @@ export namespace cloudwatch {
          */
         timezone?: pulumi.Input<string | undefined>;
     }
+
 }
 
 export namespace codeartifact {
@@ -24197,7 +24433,7 @@ export namespace codebuild {
          * - `S3` : The report results are exported to an S3 bucket.
          * - `NO_EXPORT` : The report results are not exported.
          */
-        exportConfigType: pulumi.Input<string>;
+        exportConfigType: pulumi.Input<enums.codebuild.ReportGroupReportExportConfigExportConfigType>;
         /**
          * A `S3ReportExportConfig` object that contains information about the S3 bucket where the run of a report is exported.
          */
@@ -24227,7 +24463,7 @@ export namespace codebuild {
          * - `NONE` : CodeBuild creates the raw data in the output bucket. This is the default if packaging is not specified.
          * - `ZIP` : CodeBuild creates a ZIP file with the raw data in the output bucket.
          */
-        packaging?: pulumi.Input<string | undefined>;
+        packaging?: pulumi.Input<enums.codebuild.ReportGroupS3ReportExportConfigPackaging | undefined>;
         /**
          * The path to the exported report's raw data results.
          */
@@ -26888,6 +27124,123 @@ export namespace configuration {
         deliveryFrequency?: pulumi.Input<enums.configuration.DeliveryChannelConfigSnapshotDeliveryPropertiesDeliveryFrequency | undefined>;
     }
 
+    export interface OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataArgs {
+        /**
+         * A list of accounts that you can enable debug logging for your organization AWS Config Custom Policy rule.
+         */
+        debugLogDeliveryAccounts?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+        /**
+         * The description that you provide for your organization AWS Config rule.
+         */
+        description?: pulumi.Input<string | undefined>;
+        /**
+         * A string, in JSON format, that is passed to your organization AWS Config Custom Policy rule.
+         */
+        inputParameters?: pulumi.Input<string | undefined>;
+        /**
+         * The type of notification that initiates AWS Config to run an evaluation for a rule.
+         */
+        organizationConfigRuleTriggerTypes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+        /**
+         * The policy definition containing the logic for your organization AWS Config Custom Policy rule.
+         */
+        policyText: pulumi.Input<string>;
+        /**
+         * The ID of the AWS resource that was evaluated.
+         */
+        resourceIdScope?: pulumi.Input<string | undefined>;
+        /**
+         * The type of the AWS resource that was evaluated.
+         */
+        resourceTypesScope?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+        /**
+         * The runtime system for your organization AWS Config Custom Policy rules.
+         */
+        runtime: pulumi.Input<string>;
+        /**
+         * One part of a key-value pair that make up a tag. A key is a general label that acts like a category for more specific tag values.
+         */
+        tagKeyScope?: pulumi.Input<string | undefined>;
+        /**
+         * The optional part of a key-value pair that make up a tag. A value acts as a descriptor within a tag category (key).
+         */
+        tagValueScope?: pulumi.Input<string | undefined>;
+    }
+
+    export interface OrganizationConfigRuleOrganizationCustomRuleMetadataArgs {
+        /**
+         * The description that you provide for your organization AWS Config rule.
+         */
+        description?: pulumi.Input<string | undefined>;
+        /**
+         * A string, in JSON format, that is passed to your organization AWS Config rule Lambda function.
+         */
+        inputParameters?: pulumi.Input<string | undefined>;
+        /**
+         * The lambda function ARN.
+         */
+        lambdaFunctionArn: pulumi.Input<string>;
+        /**
+         * The maximum frequency with which AWS Config runs evaluations for a rule.Allowed values: One_Hour | Three_Hours | Six_Hours | Twelve_Hours | TwentyFour_Hours.
+         */
+        maximumExecutionFrequency?: pulumi.Input<string | undefined>;
+        /**
+         * The type of notification that triggers AWS Config to run an evaluation for a rule. You can specify the following notification types:
+         */
+        organizationConfigRuleTriggerTypes: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The ID of the AWS resource that was evaluated.
+         */
+        resourceIdScope?: pulumi.Input<string | undefined>;
+        /**
+         * The type of the AWS resource that was evaluated.
+         */
+        resourceTypesScope?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+        /**
+         * One part of a key-value pair that make up a tag. A key is a general label that acts like a category for more specific tag values.
+         */
+        tagKeyScope?: pulumi.Input<string | undefined>;
+        /**
+         * The optional part of a key-value pair that make up a tag. A value acts as a descriptor within a tag category (key).
+         */
+        tagValueScope?: pulumi.Input<string | undefined>;
+    }
+
+    export interface OrganizationConfigRuleOrganizationManagedRuleMetadataArgs {
+        /**
+         * The description that you provide for your organization AWS Config rule.
+         */
+        description?: pulumi.Input<string | undefined>;
+        /**
+         * A string, in JSON format, that is passed to your organization AWS Config rule Lambda function.
+         */
+        inputParameters?: pulumi.Input<string | undefined>;
+        /**
+         * The maximum frequency with which AWS Config runs evaluations for a rule. Valid Values: One_Hour | Three_Hours | Six_Hours | Twelve_Hours | TwentyFour_Hours.
+         */
+        maximumExecutionFrequency?: pulumi.Input<string | undefined>;
+        /**
+         * The ID of the AWS resource that was evaluated.
+         */
+        resourceIdScope?: pulumi.Input<string | undefined>;
+        /**
+         * The type of the AWS resource that was evaluated.
+         */
+        resourceTypesScope?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+        /**
+         * Required. For organization config managed rules, a predefined identifier from a list. For example, IAM_PASSWORD_POLICY is a managed rule.
+         */
+        ruleIdentifier: pulumi.Input<string>;
+        /**
+         * One part of a key-value pair that make up a tag. A key is a general label that acts like a category for more specific tag values.
+         */
+        tagKeyScope?: pulumi.Input<string | undefined>;
+        /**
+         * The optional part of a key-value pair that make up a tag. A value acts as a descriptor within a tag category (key).
+         */
+        tagValueScope?: pulumi.Input<string | undefined>;
+    }
+
     /**
      * Input parameters in the form of key-value pairs for the conformance pack.
      */
@@ -27167,13 +27520,21 @@ export namespace connect {
         formLanguage?: pulumi.Input<enums.connect.EvaluationFormLanguageConfigurationFormLanguage | undefined>;
     }
 
+    /**
+     * Information about the metric configuration for an evaluation form question. Use this to associate a business outcome metric with a question.
+     */
     export interface EvaluationFormMetricConfigurationArgs {
         /**
-         * The name of the metric.
+         * The name of the metric. Valid values are:
+         *   +  ``SALE_SUCCESS`` – Sale success.
+         *   +  ``CSAT`` – Customer satisfaction.
+         *   +  ``CHURN_PROPENSITY`` – Churn propensity.
+         *   +  ``SELF_SERVICE_SUCCESS`` – Self-service success.
+         *   +  ``PARTIAL_SELF_SERVICE_SUCCESS`` – Partial self-service success.
          */
         metricName: pulumi.Input<string>;
         /**
-         * The type of the metric.
+         * The type of metric. Currently, only ``BUSINESS_OUTCOME`` is supported.
          */
         metricType: pulumi.Input<enums.connect.EvaluationFormMetricConfigurationMetricType>;
     }
@@ -27357,6 +27718,9 @@ export namespace connect {
          *  *Length Constraints*: Minimum length of 0. Maximum length of 1024.
          */
         instructions?: pulumi.Input<string | undefined>;
+        /**
+         * The metric configuration for the question. Use this to associate a business outcome metric with the question.
+         */
         metricConfiguration?: pulumi.Input<inputs.connect.EvaluationFormMetricConfigurationArgs | undefined>;
         /**
          * The flag to enable not applicable answers to the question.
@@ -32325,6 +32689,10 @@ export namespace datazone {
      */
     export interface ConnectionIamPropertiesInputArgs {
         glueLineageSyncEnabled?: pulumi.Input<boolean | undefined>;
+        /**
+         * The ARN of the IAM role to associate with the connection as the project user role.
+         */
+        roleArn?: pulumi.Input<string | undefined>;
     }
 
     /**
@@ -32984,7 +33352,7 @@ export namespace datazone {
     }
 
     export interface PolicyGrantProjectPolicyGrantPrincipalArgs {
-        projectDesignation?: pulumi.Input<enums.datazone.PolicyGrantProjectDesignation | undefined>;
+        projectDesignation?: pulumi.Input<string | undefined>;
         projectGrantFilter?: pulumi.Input<inputs.datazone.PolicyGrantProjectGrantFilterPropertiesArgs | undefined>;
         projectIdentifier?: pulumi.Input<string | undefined>;
     }
@@ -33038,7 +33406,7 @@ export namespace datazone {
      * The project membership assignment.
      */
     export interface ProjectMembershipAssignmentArgs {
-        designation: pulumi.Input<enums.datazone.ProjectUserDesignation>;
+        designation: pulumi.Input<string>;
         member: pulumi.Input<inputs.datazone.ProjectMemberArgs>;
     }
 
@@ -34587,6 +34955,20 @@ export namespace directconnect {
 }
 
 export namespace directoryservice {
+    /**
+     * Contains VPC information for the CreateDirectory or CreateMicrosoftAD operation
+     */
+    export interface MicrosoftAdVpcSettingsArgs {
+        /**
+         * The identifiers of the subnets for the directory servers. The two subnets must be in different Availability Zones. AWS Directory Service specifies a directory server and a DNS server in each of these subnets.
+         */
+        subnetIds: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The identifier of the VPC in which to create the directory.
+         */
+        vpcId: pulumi.Input<string>;
+    }
+
     export interface SimpleAdVpcSettingsArgs {
         /**
          * The identifiers of the subnets for the directory servers. The two subnets must be in different Availability Zones. AWS Directory Service specifies a directory server and a DNS server in each of these subnets.
@@ -36351,7 +36733,9 @@ export namespace dms {
     export interface SettingsPropertiesIbmDb2LuwSettingsPropertiesArgs {
         certificateArn?: pulumi.Input<string | undefined>;
         databaseName: pulumi.Input<string>;
+        encryptionAlgorithm?: pulumi.Input<number | undefined>;
         port: pulumi.Input<number>;
+        securityMechanism?: pulumi.Input<number | undefined>;
         serverName: pulumi.Input<string>;
         sslMode: pulumi.Input<enums.dms.DataProviderDb2SslModeValue>;
     }
@@ -36384,6 +36768,14 @@ export namespace dms {
         certificateArn?: pulumi.Input<string | undefined>;
         databaseName: pulumi.Input<string>;
         port: pulumi.Input<number>;
+        /**
+         * The ARN for the role the application uses to access its Amazon S3 bucket.
+         */
+        s3AccessRoleArn?: pulumi.Input<string | undefined>;
+        /**
+         * The path for the Amazon S3 bucket that the application uses for accessing the user-defined schema.
+         */
+        s3Path?: pulumi.Input<string | undefined>;
         serverName: pulumi.Input<string>;
         sslMode: pulumi.Input<enums.dms.DataProviderDmsSslModeValue>;
     }
@@ -44394,10 +44786,17 @@ export namespace ecs {
         name: pulumi.Input<string>;
     }
 
+    export interface ServiceVpcLatticeAdvancedConfigurationArgs {
+        alternateTargetGroupArn?: pulumi.Input<string | undefined>;
+        productionListenerRule?: pulumi.Input<string | undefined>;
+        testListenerRule?: pulumi.Input<string | undefined>;
+    }
+
     /**
      * The VPC Lattice configuration for your service that holds the information for the target group(s) Amazon ECS tasks will be registered to.
      */
     export interface ServiceVpcLatticeConfigurationArgs {
+        advancedConfiguration?: pulumi.Input<inputs.ecs.ServiceVpcLatticeAdvancedConfigurationArgs | undefined>;
         /**
          * The name of the port mapping to register in the VPC Lattice target group. This is the name of the ``portMapping`` you defined in your task definition.
          */
@@ -51983,13 +52382,7 @@ export namespace fsx {
 
     export interface VolumeAggregateConfigurationArgs {
         /**
-         * The list of aggregates that this volume resides on. Aggregates are storage pools which make up your primary storage tier. Each high-availability (HA) pair has one aggregate. The names of the aggregates map to the names of the aggregates in the ONTAP CLI and REST API. For FlexVols, there will always be a single entry.
-         *
-         * Amazon FSx responds with an HTTP status code 400 (Bad Request) for the following conditions:
-         *
-         * - The strings in the value of `Aggregates` are not are not formatted as `aggrX` , where X is a number between 1 and 12.
-         * - The value of `Aggregates` contains aggregates that are not present.
-         * - One or more of the aggregates supplied are too close to the volume limit to support adding more volumes.
+         * The list of aggregates that this volume resides on. Aggregates are storage pools which make up your primary storage tier.
          */
         aggregates?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
@@ -52000,38 +52393,29 @@ export namespace fsx {
 
     export interface VolumeAutocommitPeriodArgs {
         /**
-         * Defines the type of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume. Setting this value to `NONE` disables autocommit. The default value is `NONE` .
+         * Defines the type of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume. Setting this value to NONE disables autocommit. The default value is NONE.
          */
         type: pulumi.Input<string>;
         /**
-         * Defines the amount of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume. The following ranges are valid:
-         *
-         * - `Minutes` : 5 - 65,535
-         * - `Hours` : 1 - 65,535
-         * - `Days` : 1 - 3,650
-         * - `Months` : 1 - 120
-         * - `Years` : 1 - 10
+         * Defines the amount of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume.
          */
         value?: pulumi.Input<number | undefined>;
     }
 
     export interface VolumeClientConfigurationsArgs {
         /**
-         * A value that specifies who can mount the file system. You can provide a wildcard character ( `*` ), an IP address ( `0.0.0.0` ), or a CIDR address ( `192.0.2.0/24` ). By default, Amazon FSx uses the wildcard character when specifying the client.
+         * A value that specifies who can mount the file system. You can provide a wildcard character (*), an IP address (0.0.0.0), or a CIDR address (192.0.2.0/24). By default, Amazon FSx uses the wildcard character when specifying the client.
          */
         clients: pulumi.Input<string>;
         /**
-         * The options to use when mounting the file system. For a list of options that you can use with Network File System (NFS), see the [exports(5) - Linux man page](https://docs.aws.amazon.com/https://linux.die.net/man/5/exports) . When choosing your options, consider the following:
-         *
-         * - `crossmnt` is used by default. If you don't specify `crossmnt` when changing the client configuration, you won't be able to see or access snapshots in your file system's snapshot directory.
-         * - `sync` is used by default. If you instead specify `async` , the system acknowledges writes before writing to disk. If the system crashes before the writes are finished, you lose the unwritten data.
+         * The configuration object for mounting a Network File System (NFS) file system.
          */
         options: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface VolumeNfsExportsArgs {
         /**
-         * A list of configuration objects that contain the client and options for mounting the OpenZFS file system.
+         * The configuration object for mounting a Network File System (NFS) file system.
          */
         clientConfigurations: pulumi.Input<pulumi.Input<inputs.fsx.VolumeClientConfigurationsArgs>[]>;
     }
@@ -52042,30 +52426,19 @@ export namespace fsx {
          */
         aggregateConfiguration?: pulumi.Input<inputs.fsx.VolumeAggregateConfigurationArgs | undefined>;
         /**
-         * A boolean flag indicating whether tags for the volume should be copied to backups. This value defaults to false. If it's set to true, all tags for the volume are copied to all automatic and user-initiated backups where the user doesn't specify tags. If this value is true, and you specify one or more tags, only the specified tags are copied to backups. If you specify one or more tags when creating a user-initiated backup, no tags are copied from the volume, regardless of this value.
+         * A boolean flag indicating whether tags for the volume should be copied to backups.
          */
         copyTagsToBackups?: pulumi.Input<string | undefined>;
         /**
-         * Specifies the location in the SVM's namespace where the volume is mounted. This parameter is required. The `JunctionPath` must have a leading forward slash, such as `/vol3` .
+         * Specifies the location in the SVM's namespace where the volume is mounted. This parameter is required. The JunctionPath must have a leading forward slash, such as /vol3.
          */
         junctionPath?: pulumi.Input<string | undefined>;
         /**
-         * Specifies the type of volume you are creating. Valid values are the following:
-         *
-         * - `RW` specifies a read/write volume. `RW` is the default.
-         * - `DP` specifies a data-protection volume. A `DP` volume is read-only and can be used as the destination of a NetApp SnapMirror relationship.
-         *
-         * For more information, see [Volume types](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/managing-volumes.html#volume-types) in the Amazon FSx for NetApp ONTAP User Guide.
+         * Specifies the type of volume you are creating. Valid values are the following: RW or DP
          */
         ontapVolumeType?: pulumi.Input<string | undefined>;
         /**
-         * Specifies the security style for the volume. If a volume's security style is not specified, it is automatically set to the root volume's security style. The security style determines the type of permissions that FSx for ONTAP uses to control data access. Specify one of the following values:
-         *
-         * - `UNIX` if the file system is managed by a UNIX administrator, the majority of users are NFS clients, and an application accessing the data uses a UNIX user as the service account.
-         * - `NTFS` if the file system is managed by a Windows administrator, the majority of users are SMB clients, and an application accessing the data uses a Windows user as the service account.
-         * - `MIXED` This is an advanced setting. For more information, see the topic [What the security styles and their effects are](https://docs.aws.amazon.com/https://docs.netapp.com/us-en/ontap/nfs-admin/security-styles-their-effects-concept.html) in the NetApp Documentation Center.
-         *
-         * For more information, see [Volume security style](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/managing-volumes.html#volume-security-style) in the FSx for ONTAP User Guide.
+         * Specifies the security style for the volume. If a volume's security style is not specified, it is automatically set to the root volume's security style.
          */
         securityStyle?: pulumi.Input<string | undefined>;
         /**
@@ -52073,7 +52446,7 @@ export namespace fsx {
          */
         sizeInBytes?: pulumi.Input<string | undefined>;
         /**
-         * Use `SizeInBytes` instead. Specifies the size of the volume, in megabytes (MB), that you are creating.
+         * Use SizeInBytes instead. Specifies the size of the volume, in megabytes (MB), that you are creating
          */
         sizeInMegabytes?: pulumi.Input<string | undefined>;
         /**
@@ -52081,21 +52454,11 @@ export namespace fsx {
          */
         snaplockConfiguration?: pulumi.Input<inputs.fsx.VolumeSnaplockConfigurationArgs | undefined>;
         /**
-         * Specifies the snapshot policy for the volume. There are three built-in snapshot policies:
-         *
-         * - `default` : This is the default policy. A maximum of six hourly snapshots taken five minutes past the hour. A maximum of two daily snapshots taken Monday through Saturday at 10 minutes after midnight. A maximum of two weekly snapshots taken every Sunday at 15 minutes after midnight.
-         * - `default-1weekly` : This policy is the same as the `default` policy except that it only retains one snapshot from the weekly schedule.
-         * - `none` : This policy does not take any snapshots. This policy can be assigned to volumes to prevent automatic snapshots from being taken.
-         *
-         * You can also provide the name of a custom policy that you created with the ONTAP CLI or REST API.
-         *
-         * For more information, see [Snapshot policies](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/snapshots-ontap.html#snapshot-policies) in the Amazon FSx for NetApp ONTAP User Guide.
+         * Specifies the snapshot policy for the volume. There are three built-in snapshot policies: default, default-1weekly, none.
          */
         snapshotPolicy?: pulumi.Input<string | undefined>;
         /**
          * Set to true to enable deduplication, compression, and compaction storage efficiency features on the volume, or set to false to disable them.
-         *
-         * `StorageEfficiencyEnabled` is required when creating a `RW` volume ( `OntapVolumeType` set to `RW` ).
          */
         storageEfficiencyEnabled?: pulumi.Input<string | undefined>;
         /**
@@ -52103,36 +52466,22 @@ export namespace fsx {
          */
         storageVirtualMachineId: pulumi.Input<string>;
         /**
-         * Describes the data tiering policy for an ONTAP volume. When enabled, Amazon FSx for ONTAP's intelligent tiering automatically transitions a volume's data between the file system's primary storage and capacity pool storage based on your access patterns.
-         *
-         * Valid tiering policies are the following:
-         *
-         * - `SNAPSHOT_ONLY` - (Default value) moves cold snapshots to the capacity pool storage tier.
-         *
-         * - `AUTO` - moves cold user data and snapshots to the capacity pool storage tier based on your access patterns.
-         *
-         * - `ALL` - moves all user data blocks in both the active file system and Snapshot copies to the storage pool tier.
-         *
-         * - `NONE` - keeps a volume's data in the primary storage tier, preventing it from being moved to the capacity pool tier.
+         * Describes the data tiering policy for an ONTAP volume.
          */
         tieringPolicy?: pulumi.Input<inputs.fsx.VolumeTieringPolicyArgs | undefined>;
         /**
-         * Use to specify the style of an ONTAP volume. FSx for ONTAP offers two styles of volumes that you can use for different purposes, FlexVol and FlexGroup volumes. For more information, see [Volume styles](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/managing-volumes.html#volume-styles) in the Amazon FSx for NetApp ONTAP User Guide.
+         * Use to specify the style of an ONTAP volume.
          */
         volumeStyle?: pulumi.Input<string | undefined>;
     }
 
     export interface VolumeOpenZfsConfigurationArgs {
         /**
-         * A Boolean value indicating whether tags for the volume should be copied to snapshots. This value defaults to `false` . If this value is set to `true` , and you do not specify any tags, all tags for the original volume are copied over to snapshots. If this value is set to `true` , and you do specify one or more tags, only the specified tags for the original volume are copied over to snapshots. If you specify one or more tags when creating a new snapshot, no tags are copied over from the original volume, regardless of this value.
+         * A Boolean value indicating whether tags for the volume should be copied to snapshots. This value defaults to false. If this value is set to true, and you do not specify any tags, all tags for the original volume are copied over to snapshots. If this value is set to true, and you do specify one or more tags, only the specified tags for the original volume are copied over to snapshots. If you specify one or more tags when creating a new snapshot, no tags are copied over from the original volume, regardless of this value.
          */
         copyTagsToSnapshots?: pulumi.Input<boolean | undefined>;
         /**
-         * Specifies the method used to compress the data on the volume. The compression type is `NONE` by default.
-         *
-         * - `NONE` - Doesn't compress the data on the volume. `NONE` is the default.
-         * - `ZSTD` - Compresses the data in the volume using the Zstandard (ZSTD) compression algorithm. Compared to LZ4, Z-Standard provides a better compression ratio to minimize on-disk storage utilization.
-         * - `LZ4` - Compresses the data in the volume using the LZ4 compression algorithm. Compared to Z-Standard, LZ4 is less compute-intensive and delivers higher write throughput speeds.
+         * Specifies the method used to compress the data on the volume
          */
         dataCompressionType?: pulumi.Input<string | undefined>;
         /**
@@ -52140,11 +52489,11 @@ export namespace fsx {
          */
         nfsExports?: pulumi.Input<pulumi.Input<inputs.fsx.VolumeNfsExportsArgs>[] | undefined>;
         /**
-         * To delete the volume's child volumes, snapshots, and clones, use the string `DELETE_CHILD_VOLUMES_AND_SNAPSHOTS` .
+         * The configuration object for mounting a Network File System (NFS) file system.
          */
         options?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
-         * The configuration object that specifies the snapshot to use as the origin of the data for the volume.
+         * The configuration of an Amazon FSx for OpenZFS volume.
          */
         originSnapshot?: pulumi.Input<inputs.fsx.VolumeOriginSnapshotArgs | undefined>;
         /**
@@ -52156,17 +52505,15 @@ export namespace fsx {
          */
         readOnly?: pulumi.Input<boolean | undefined>;
         /**
-         * Specifies the suggested block size for a volume in a ZFS dataset, in kibibytes (KiB). For file systems using the Intelligent-Tiering storage class, valid values are 128, 256, 512, 1024, 2048, or 4096 KiB, with a default of 1024 KiB. For all other file systems, valid values are 4, 8, 16, 32, 64, 128, 256, 512, or 1024 KiB, with a default of 128 KiB. We recommend using the default setting for the majority of use cases. Generally, workloads that write in fixed small or large record sizes may benefit from setting a custom record size, like database workloads (small record size) or media streaming workloads (large record size). For additional guidance on when to set a custom record size, see [ZFS Record size](https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/performance.html#record-size-performance) in the *Amazon FSx for OpenZFS User Guide* .
+         * Specifies the suggested block size for a volume in a ZFS dataset, in kibibytes (KiB).
          */
         recordSizeKiB?: pulumi.Input<number | undefined>;
         /**
-         * Sets the maximum storage size in gibibytes (GiB) for the volume. You can specify a quota that is larger than the storage on the parent volume. A volume quota limits the amount of storage that the volume can consume to the configured amount, but does not guarantee the space will be available on the parent volume. To guarantee quota space, you must also set `StorageCapacityReservationGiB` . To *not* specify a storage capacity quota, set this to `-1` .
-         *
-         * For more information, see [Volume properties](https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/managing-volumes.html#volume-properties) in the *Amazon FSx for OpenZFS User Guide* .
+         * Sets the maximum storage size in gibibytes (GiB) for the volume. You can specify a quota that is larger than the storage on the parent volume. A volume quota limits the amount of storage that the volume can consume to the configured amount, but does not guarantee the space will be available on the parent volume. To guarantee quota space, you must also set StorageCapacityReservationGiB. To not specify a storage capacity quota, set this to -1.
          */
         storageCapacityQuotaGiB?: pulumi.Input<number | undefined>;
         /**
-         * Specifies the amount of storage in gibibytes (GiB) to reserve from the parent volume. Setting `StorageCapacityReservationGiB` guarantees that the specified amount of storage space on the parent volume will always be available for the volume. You can't reserve more storage than the parent volume has. To *not* specify a storage capacity reservation, set this to `0` or `-1` . For more information, see [Volume properties](https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/managing-volumes.html#volume-properties) in the *Amazon FSx for OpenZFS User Guide* .
+         * Specifies the amount of storage in gibibytes (GiB) to reserve from the parent volume. Setting StorageCapacityReservationGiB guarantees that the specified amount of storage space on the parent volume will always be available for the volume. You can't reserve more storage than the parent volume has. To not specify a storage capacity reservation, set this to 0 or -1. For more information, see Volume properties in the Amazon FSx for OpenZFS User Guide.
          */
         storageCapacityReservationGiB?: pulumi.Input<number | undefined>;
         /**
@@ -52177,14 +52524,7 @@ export namespace fsx {
 
     export interface VolumeOriginSnapshotArgs {
         /**
-         * Specifies the strategy used when copying data from the snapshot to the new volume.
-         *
-         * - `CLONE` - The new volume references the data in the origin snapshot. Cloning a snapshot is faster than copying data from the snapshot to a new volume and doesn't consume disk throughput. However, the origin snapshot can't be deleted if there is a volume using its copied data.
-         * - `FULL_COPY` - Copies all data from the snapshot to the new volume.
-         *
-         * Specify this option to create the volume from a snapshot on another FSx for OpenZFS file system.
-         *
-         * > The `INCREMENTAL_COPY` option is only for updating an existing volume by using a snapshot from another FSx for OpenZFS file system. For more information, see [CopySnapshotAndUpdateVolume](https://docs.aws.amazon.com/fsx/latest/APIReference/API_CopySnapshotAndUpdateVolume.html) .
+         * The configuration object for mounting a Network File System (NFS) file system.
          */
         copyStrategy: pulumi.Input<string>;
         /**
@@ -52195,27 +52535,18 @@ export namespace fsx {
 
     export interface VolumeRetentionPeriodArgs {
         /**
-         * Defines the type of time for the retention period of an FSx for ONTAP SnapLock volume. Set it to one of the valid types. If you set it to `INFINITE` , the files are retained forever. If you set it to `UNSPECIFIED` , the files are retained until you set an explicit retention period.
+         * Defines the type of time for the retention period of an FSx for ONTAP SnapLock volume. Set it to one of the valid types. If you set it to INFINITE, the files are retained forever. If you set it to UNSPECIFIED, the files are retained until you set an explicit retention period.
          */
         type: pulumi.Input<string>;
         /**
-         * Defines the amount of time for the retention period of an FSx for ONTAP SnapLock volume. You can't set a value for `INFINITE` or `UNSPECIFIED` . For all other options, the following ranges are valid:
-         *
-         * - `Seconds` : 0 - 65,535
-         * - `Minutes` : 0 - 65,535
-         * - `Hours` : 0 - 24
-         * - `Days` : 0 - 365
-         * - `Months` : 0 - 12
-         * - `Years` : 0 - 100
+         * Defines the amount of time for the retention period of an FSx for ONTAP SnapLock volume. You can't set a value for INFINITE or UNSPECIFIED.
          */
         value?: pulumi.Input<number | undefined>;
     }
 
     export interface VolumeSnaplockConfigurationArgs {
         /**
-         * Enables or disables the audit log volume for an FSx for ONTAP SnapLock volume. The default value is `false` . If you set `AuditLogVolume` to `true` , the SnapLock volume is created as an audit log volume. The minimum retention period for an audit log volume is six months.
-         *
-         * For more information, see [SnapLock audit log volumes](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/how-snaplock-works.html#snaplock-audit-log-volume) .
+         * Enables or disables the audit log volume for an FSx for ONTAP SnapLock volume
          */
         auditLogVolume?: pulumi.Input<string | undefined>;
         /**
@@ -52223,9 +52554,7 @@ export namespace fsx {
          */
         autocommitPeriod?: pulumi.Input<inputs.fsx.VolumeAutocommitPeriodArgs | undefined>;
         /**
-         * Enables, disables, or permanently disables privileged delete on an FSx for ONTAP SnapLock Enterprise volume. Enabling privileged delete allows SnapLock administrators to delete write once, read many (WORM) files even if they have active retention periods. `PERMANENTLY_DISABLED` is a terminal state. If privileged delete is permanently disabled on a SnapLock volume, you can't re-enable it. The default value is `DISABLED` .
-         *
-         * For more information, see [Privileged delete](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/snaplock-enterprise.html#privileged-delete) .
+         * Enables, disables, or permanently disables privileged delete on an FSx for ONTAP SnapLock Enterprise volume.
          */
         privilegedDelete?: pulumi.Input<string | undefined>;
         /**
@@ -52233,23 +52562,18 @@ export namespace fsx {
          */
         retentionPeriod?: pulumi.Input<inputs.fsx.VolumeSnaplockRetentionPeriodArgs | undefined>;
         /**
-         * Specifies the retention mode of an FSx for ONTAP SnapLock volume. After it is set, it can't be changed. You can choose one of the following retention modes:
-         *
-         * - `COMPLIANCE` : Files transitioned to write once, read many (WORM) on a Compliance volume can't be deleted until their retention periods expire. This retention mode is used to address government or industry-specific mandates or to protect against ransomware attacks. For more information, see [SnapLock Compliance](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/snaplock-compliance.html) .
-         * - `ENTERPRISE` : Files transitioned to WORM on an Enterprise volume can be deleted by authorized users before their retention periods expire using privileged delete. This retention mode is used to advance an organization's data integrity and internal compliance or to test retention settings before using SnapLock Compliance. For more information, see [SnapLock Enterprise](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/snaplock-enterprise.html) .
+         * Specifies the retention mode of an FSx for ONTAP SnapLock volume. After it is set, it can't be changed.
          */
         snaplockType: pulumi.Input<string>;
         /**
-         * Enables or disables volume-append mode on an FSx for ONTAP SnapLock volume. Volume-append mode allows you to create WORM-appendable files and write data to them incrementally. The default value is `false` .
-         *
-         * For more information, see [Volume-append mode](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/worm-state.html#worm-state-append) .
+         * Enables or disables volume-append mode on an FSx for ONTAP SnapLock volume.
          */
         volumeAppendModeEnabled?: pulumi.Input<string | undefined>;
     }
 
     export interface VolumeSnaplockRetentionPeriodArgs {
         /**
-         * The retention period assigned to a write once, read many (WORM) file by default if an explicit retention period is not set for an FSx for ONTAP SnapLock volume. The default retention period must be greater than or equal to the minimum retention period and less than or equal to the maximum retention period.
+         * The retention period assigned to a write once, read many (WORM) file by default if an explicit retention period is not set for an FSx for ONTAP SnapLock volume.
          */
         defaultRetention: pulumi.Input<inputs.fsx.VolumeRetentionPeriodArgs>;
         /**
@@ -52262,18 +52586,16 @@ export namespace fsx {
         minimumRetention: pulumi.Input<inputs.fsx.VolumeRetentionPeriodArgs>;
     }
 
+    /**
+     * Describes the data tiering policy for an ONTAP volume. When enabled, Amazon FSx for ONTAP's intelligent tiering automatically transitions a volume's data between the file system's primary storage and capacity pool storage based on your access patterns.
+     */
     export interface VolumeTieringPolicyArgs {
         /**
-         * Specifies the number of days that user data in a volume must remain inactive before it is considered "cold" and moved to the capacity pool. Used with the `AUTO` and `SNAPSHOT_ONLY` tiering policies. Enter a whole number between 2 and 183. Default values are 31 days for `AUTO` and 2 days for `SNAPSHOT_ONLY` .
+         * Specifies the number of days that user data in a volume must remain inactive before it is considered "cold" and moved to the capacity pool.
          */
         coolingPeriod?: pulumi.Input<number | undefined>;
         /**
-         * Specifies the tiering policy used to transition data. Default value is `SNAPSHOT_ONLY` .
-         *
-         * - `SNAPSHOT_ONLY` - moves cold snapshots to the capacity pool storage tier.
-         * - `AUTO` - moves cold user data and snapshots to the capacity pool storage tier based on your access patterns.
-         * - `ALL` - moves all user data blocks in both the active file system and Snapshot copies to the storage pool tier.
-         * - `NONE` - keeps a volume's data in the primary storage tier, preventing it from being moved to the capacity pool tier.
+         * Specifies the tiering policy used to transition data. Default value is SNAPSHOT_ONLY.
          */
         name?: pulumi.Input<string | undefined>;
     }
@@ -67162,6 +67484,40 @@ export namespace lambda {
     }
 
     /**
+     * The build configuration for the revision.
+     */
+    export interface BuildConfigPropertiesArgs {
+        /**
+         * The code configuration for the revision.
+         */
+        codeConfig: pulumi.Input<inputs.lambda.BuildConfigPropertiesCodeConfigPropertiesArgs>;
+        /**
+         * The runtime configuration for the revision.
+         */
+        runtimeConfig: pulumi.Input<inputs.lambda.BuildConfigPropertiesRuntimeConfigPropertiesArgs>;
+    }
+
+    /**
+     * The code configuration for the revision.
+     */
+    export interface BuildConfigPropertiesCodeConfigPropertiesArgs {
+        /**
+         * The Amazon S3 location of the deployment artifact.
+         */
+        s3Object: pulumi.Input<inputs.lambda.WebFunctionRevisionS3ObjectArgs>;
+    }
+
+    /**
+     * The runtime configuration for the revision.
+     */
+    export interface BuildConfigPropertiesRuntimeConfigPropertiesArgs {
+        /**
+         * The runtime identifier.
+         */
+        runtime: pulumi.Input<string>;
+    }
+
+    /**
      * Specifications that define the characteristics and constraints for compute instances used by the capacity provider.
      */
     export interface CapacityProviderInstanceRequirementsArgs {
@@ -67939,21 +68295,57 @@ export namespace lambda {
      */
     export interface NetworkConnectorVpcEgressConfigurationArgs {
         /**
-         * The types of Lambda compute resources that can use this connector. Currently, only MicroVm is supported.
+         * The types of Lambda compute resources that can use this connector. Supported values are MicroVm and WebFunction.
          */
         associatedComputeResourceTypes: pulumi.Input<pulumi.Input<enums.lambda.NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItem>[]>;
         /**
          * The network protocol for the connector. Specify IPv4 for IPv4-only networking, or DualStack for both IPv4 and IPv6.
          */
-        networkProtocol?: pulumi.Input<enums.lambda.NetworkConnectorVpcEgressConfigurationNetworkProtocol | undefined>;
+        networkProtocol: pulumi.Input<enums.lambda.NetworkConnectorVpcEgressConfigurationNetworkProtocol>;
         /**
          * The IDs of the VPC security groups to attach to the ENIs. Specify 0 to 5 security groups. All security groups must be in the same VPC as the subnets.
          */
-        securityGroupIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+        securityGroupIds: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * The IDs of the VPC subnets where Lambda provisions elastic network interfaces (ENIs). Specify 1 to 16 subnets. All subnets must be in the same VPC.
          */
         subnetIds: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    /**
+     * The service configuration for the revision.
+     */
+    export interface ServiceConfigPropertiesArgs {
+        /**
+         * Environment variables for the function.
+         */
+        environmentVariables?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+        /**
+         * The ARN of the execution role.
+         */
+        executionRoleArn: pulumi.Input<string>;
+        /**
+         * The maximum concurrency per environment.
+         */
+        maxConcurrencyPerEnvironment?: pulumi.Input<number | undefined>;
+        /**
+         * The telemetry configuration.
+         */
+        telemetryConfig?: pulumi.Input<inputs.lambda.ServiceConfigPropertiesTelemetryConfigPropertiesArgs | undefined>;
+        /**
+         * The function timeout in seconds.
+         */
+        timeoutSeconds?: pulumi.Input<number | undefined>;
+    }
+
+    /**
+     * The telemetry configuration.
+     */
+    export interface ServiceConfigPropertiesTelemetryConfigPropertiesArgs {
+        /**
+         * The logging configuration for the web function.
+         */
+        loggingConfig?: pulumi.Input<inputs.lambda.WebFunctionRevisionLoggingConfigArgs | undefined>;
     }
 
     export interface UrlCorsArgs {
@@ -68020,6 +68412,77 @@ export namespace lambda {
          */
         updateRuntimeOn: pulumi.Input<string>;
     }
+
+    /**
+     * A revision routing entry.
+     */
+    export interface WebFunctionEndpointRevisionWeightArgs {
+        /**
+         * The revision identifier.
+         */
+        revisionId: pulumi.Input<string>;
+        /**
+         * The traffic weight for this revision.
+         */
+        weight: pulumi.Input<number>;
+    }
+
+    /**
+     * The scaling configuration for the endpoint. Optionally constrains how many concurrent execution environments the endpoint can use, in addition to your account's vCPU quota.
+     */
+    export interface WebFunctionEndpointScalingConfigArgs {
+        /**
+         * The maximum number of concurrent execution environments for the endpoint. This optional limit further constrains the endpoint's scaling. When omitted, the endpoint's scaling is limited only by your account's vCPU quota.
+         */
+        maxEnvironments?: pulumi.Input<number | undefined>;
+    }
+
+    /**
+     * The throttling configuration for the endpoint. Optionally constrains the request rate that the endpoint accepts, in addition to your account's rate limit quota.
+     */
+    export interface WebFunctionEndpointThrottleConfigArgs {
+        /**
+         * The maximum request rate per second for the endpoint, up to a maximum of 10000. This optional limit further constrains the endpoint's request rate. When omitted, the endpoint's request rate is limited only by your account's rate limit quota. Specify 0 to reject all new requests. Other supported values are 100 through 1000 in increments of 100, and 2000 through 10000 in increments of 1000. Supported values can vary by Region; if you specify an unsupported value, the error lists the values available in that Region.
+         */
+        rateLimit?: pulumi.Input<number | undefined>;
+    }
+
+    /**
+     * The logging configuration.
+     */
+    export interface WebFunctionRevisionLoggingConfigArgs {
+        /**
+         * The application log level.
+         */
+        applicationLogLevel?: pulumi.Input<enums.lambda.WebFunctionRevisionLoggingConfigApplicationLogLevel | undefined>;
+        /**
+         * The CloudWatch log group name.
+         */
+        logGroup?: pulumi.Input<string | undefined>;
+        /**
+         * The system log level.
+         */
+        systemLogLevel?: pulumi.Input<enums.lambda.WebFunctionRevisionLoggingConfigSystemLogLevel | undefined>;
+    }
+
+    /**
+     * The S3 location of the function code.
+     */
+    export interface WebFunctionRevisionS3ObjectArgs {
+        /**
+         * The S3 bucket name.
+         */
+        bucket: pulumi.Input<string>;
+        /**
+         * The S3 object key.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * The S3 object version ID.
+         */
+        versionId?: pulumi.Input<string | undefined>;
+    }
+
 }
 
 export namespace launchwizard {
@@ -74465,6 +74928,42 @@ export namespace mediatailor {
     }
 
     /**
+     * The configuration for an AWS_SERVICE_REQUEST function. Contains the target service, target Region, and request parameters that the function uses to call an AWS service API. For more information, see AWS_SERVICE_REQUEST (https://docs.aws.amazon.com/mediatailor/latest/ug/monetization-functions-types-aws-service-request.html) in the MediaTailor User Guide.
+     */
+    export interface FunctionAwsServiceRequestConfigurationArgs {
+        /**
+         * An expression that evaluates to the request body for the AWS service API call. The body must conform to the input format that the target service operation expects. Applies only when the target operation accepts a request body. The maximum size after evaluation is 64 KB.
+         */
+        body?: pulumi.Input<string | undefined>;
+        /**
+         * A map of HTTP header names to expression values. MediaTailor evaluates each header value expression at runtime and includes the result in the outbound request to the AWS service. Use this to pass any headers required by the target service operation. You can include a maximum of 50 headers.
+         */
+        headers?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+        methodType: pulumi.Input<enums.mediatailor.FunctionMethodType>;
+        /**
+         * A map of output bindings. Each key is a namespaced output path, such as player_params.device_type. Each value is an expression that MediaTailor evaluates at runtime and can reference the response object from the target service. For more information, see JSONata expression reference (https://docs.aws.amazon.com/mediatailor/latest/ug/monetization-functions-jsonata.html) in the MediaTailor User Guide.
+         */
+        output?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+        /**
+         * The maximum time, in milliseconds, that MediaTailor waits for a response from the AWS service. If the call exceeds this timeout, MediaTailor sets the response status code to null and proceeds with output expression evaluation. Valid values are 100 to 2000.
+         */
+        requestTimeoutMilliseconds: pulumi.Input<number>;
+        runtime: pulumi.Input<enums.mediatailor.FunctionRuntimeType>;
+        /**
+         * The AWS Region for the target service. Specify a static Region code (for example, us-east-1) or a JSONata expression that resolves to a Region code at runtime (for example, {%inference.region%}).
+         */
+        targetRegion: pulumi.Input<string>;
+        /**
+         * The AWS service to call. Valid value: elemental-inference (AWS Elemental Inference).
+         */
+        targetService: pulumi.Input<string>;
+        /**
+         * An expression that evaluates to the endpoint URL for the target AWS service API operation. Use {%...%} delimiters for dynamic expressions. The URL must correspond to a valid endpoint for the service specified in TargetService. The maximum length after evaluation is 2,048 characters.
+         */
+        url: pulumi.Input<string>;
+    }
+
+    /**
      * The configuration for a CONCURRENT_EXECUTOR function. A CONCURRENT_EXECUTOR runs a set of child functions in parallel, up to a maximum concurrency, and combines their output when all functions complete. For more information about functions, see Working with functions (https://docs.aws.amazon.com/mediatailor/latest/ug/monetization-functions.html) in the MediaTailor User Guide.
      */
     export interface FunctionConcurrentExecutorConfigurationArgs {
@@ -74573,6 +75072,34 @@ export namespace mediatailor {
     }
 
     /**
+     * The configuration for a VAST_REQUEST function. Specifies the HTTP method, URL, headers, body, timeout, and output expressions for a request to a VAST endpoint. MediaTailor parses the response as VAST and resolves wrapper redirects, then makes the parsed ads available to the function's output expressions. For more information, see Function types and composition (https://docs.aws.amazon.com/mediatailor/latest/ug/monetization-functions-types.html) in the MediaTailor User Guide.
+     */
+    export interface FunctionVastRequestConfigurationArgs {
+        /**
+         * An expression that evaluates to the request body, for example to send an OpenRTB bid request. The expression can be up to 100,000 characters, and the body after evaluation can be up to 64 KB.
+         */
+        body?: pulumi.Input<string | undefined>;
+        /**
+         * A map of HTTP header names to expression values. MediaTailor evaluates each header value expression at runtime and includes the result in the outbound request. Headers beginning with X-Amz- are reserved by the service, and method override headers are not allowed.
+         */
+        headers?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+        methodType: pulumi.Input<enums.mediatailor.FunctionMethodType>;
+        /**
+         * A map of output bindings. Each key is a namespaced output path (such as temp.wrappedAds), and each value is an expression that MediaTailor evaluates at runtime. Output expressions in a VAST_REQUEST function can reference the response object, which exposes response.parsedAds, the ads parsed from the VAST response after schema validation and wrapper resolution, and response.statusCode. For more information about expression syntax, see JSONata expression reference (https://docs.aws.amazon.com/mediatailor/latest/ug/monetization-functions-jsonata.html) in the MediaTailor User Guide.
+         */
+        output?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+        /**
+         * The maximum time, in milliseconds, that MediaTailor waits for a response from the VAST endpoint. The timeout covers the entire response, including any wrapper redirects that MediaTailor follows. If the call exceeds this timeout, MediaTailor proceeds with an empty ad list and continues output expression evaluation. Valid values are 100 to 2000.
+         */
+        requestTimeoutMilliseconds: pulumi.Input<number>;
+        runtime: pulumi.Input<enums.mediatailor.FunctionRuntimeType>;
+        /**
+         * An expression that evaluates to the VAST endpoint URL. Use {%...%} delimiters for dynamic expressions. A literal value must be an https:// URL. The expression can be up to 25,000 characters, and the URL after evaluation can be up to 2,048 characters.
+         */
+        url: pulumi.Input<string>;
+    }
+
+    /**
      * <p>The HTTP package configuration properties for the requested VOD source.</p>
      */
     export interface LiveSourceHttpPackageConfigurationArgs {
@@ -74604,7 +75131,7 @@ export namespace mediatailor {
      * The configuration for the request to the specified Ad Decision Server URL.
      */
     export interface PlaybackConfigurationAdDecisionServerConfigurationArgs {
-        httpRequest: pulumi.Input<inputs.mediatailor.PlaybackConfigurationHttpRequestArgs>;
+        httpRequest?: pulumi.Input<inputs.mediatailor.PlaybackConfigurationHttpRequestArgs | undefined>;
         vastResponse?: pulumi.Input<inputs.mediatailor.PlaybackConfigurationVastResponseArgs | undefined>;
     }
 
@@ -74941,6 +75468,218 @@ export namespace mediatailor {
          * The maximum number of transactions per second (TPS) that your ad decision server (ADS) can handle.
          */
         peakTps?: pulumi.Input<number | undefined>;
+    }
+
+    /**
+     * Ad break configuration parameters.
+     */
+    export interface ProgramAdBreakArgs {
+        /**
+         * Defines a list of key/value pairs that MediaTailor generates within the EXT-X-ASSET tag for SCTE35_ENHANCED output.
+         */
+        adBreakMetadata?: pulumi.Input<pulumi.Input<inputs.mediatailor.ProgramKeyValuePairArgs>[] | undefined>;
+        /**
+         * The SCTE-35 ad insertion type.
+         */
+        messageType?: pulumi.Input<enums.mediatailor.ProgramAdBreakMessageType | undefined>;
+        /**
+         * How long (in milliseconds) after the beginning of the program that an ad starts.
+         */
+        offsetMillis: pulumi.Input<number>;
+        slate?: pulumi.Input<inputs.mediatailor.ProgramSlateSourceArgs | undefined>;
+        spliceInsertMessage?: pulumi.Input<inputs.mediatailor.ProgramSpliceInsertMessageArgs | undefined>;
+        timeSignalMessage?: pulumi.Input<inputs.mediatailor.ProgramTimeSignalMessageArgs | undefined>;
+    }
+
+    /**
+     * A playlist of media to be played instead of the default media on a particular program.
+     */
+    export interface ProgramAlternateMediaArgs {
+        /**
+         * Ad break configuration parameters defined in AlternateMedia.
+         */
+        adBreaks?: pulumi.Input<pulumi.Input<inputs.mediatailor.ProgramAdBreakArgs>[] | undefined>;
+        clipRange?: pulumi.Input<inputs.mediatailor.ProgramClipRangeArgs | undefined>;
+        /**
+         * The duration of the alternateMedia in milliseconds.
+         */
+        durationMillis?: pulumi.Input<number | undefined>;
+        /**
+         * The name of the live source for alternateMedia.
+         */
+        liveSourceName?: pulumi.Input<string | undefined>;
+        /**
+         * The date and time that the alternateMedia is scheduled to start, in epoch milliseconds.
+         */
+        scheduledStartTimeMillis?: pulumi.Input<number | undefined>;
+        /**
+         * The name of the source location for alternateMedia.
+         */
+        sourceLocationName?: pulumi.Input<string | undefined>;
+        /**
+         * The name of the VOD source for alternateMedia.
+         */
+        vodSourceName?: pulumi.Input<string | undefined>;
+    }
+
+    /**
+     * An AudienceMedia object contains an Audience and a list of AlternateMedia.
+     */
+    export interface ProgramAudienceMediaArgs {
+        /**
+         * The list of AlternateMedia defined in AudienceMedia.
+         */
+        alternateMedia?: pulumi.Input<pulumi.Input<inputs.mediatailor.ProgramAlternateMediaArgs>[] | undefined>;
+        /**
+         * The Audience defined in AudienceMedia.
+         */
+        audience?: pulumi.Input<string | undefined>;
+    }
+
+    /**
+     * Clip range configuration for the VOD source associated with the program.
+     */
+    export interface ProgramClipRangeArgs {
+        /**
+         * The end offset of the clip range, in milliseconds.
+         */
+        endOffsetMillis?: pulumi.Input<number | undefined>;
+        /**
+         * The start offset of the clip range, in milliseconds.
+         */
+        startOffsetMillis?: pulumi.Input<number | undefined>;
+    }
+
+    /**
+     * For SCTE35_ENHANCED output, defines a key and corresponding value.
+     */
+    export interface ProgramKeyValuePairArgs {
+        /**
+         * The key.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * The value.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    /**
+     * Schedule configuration parameters.
+     */
+    export interface ProgramScheduleConfigurationArgs {
+        clipRange?: pulumi.Input<inputs.mediatailor.ProgramClipRangeArgs | undefined>;
+        transition: pulumi.Input<inputs.mediatailor.ProgramTransitionArgs>;
+    }
+
+    /**
+     * The segmentation_descriptor message configuration.
+     */
+    export interface ProgramSegmentationDescriptorArgs {
+        /**
+         * The segment number to assign.
+         */
+        segmentNum?: pulumi.Input<number | undefined>;
+        /**
+         * The Event Identifier to assign.
+         */
+        segmentationEventId?: pulumi.Input<number | undefined>;
+        /**
+         * The Type Identifier to assign.
+         */
+        segmentationTypeId?: pulumi.Input<number | undefined>;
+        /**
+         * The Upid to assign.
+         */
+        segmentationUpid?: pulumi.Input<string | undefined>;
+        /**
+         * The Upid Type to assign.
+         */
+        segmentationUpidType?: pulumi.Input<number | undefined>;
+        /**
+         * The number of segments expected.
+         */
+        segmentsExpected?: pulumi.Input<number | undefined>;
+        /**
+         * The sub-segment number to assign.
+         */
+        subSegmentNum?: pulumi.Input<number | undefined>;
+        /**
+         * The number of sub-segments expected.
+         */
+        subSegmentsExpected?: pulumi.Input<number | undefined>;
+    }
+
+    /**
+     * Slate VOD source configuration.
+     */
+    export interface ProgramSlateSourceArgs {
+        /**
+         * The name of the source location where the slate VOD source is stored.
+         */
+        sourceLocationName?: pulumi.Input<string | undefined>;
+        /**
+         * The slate VOD source name.
+         */
+        vodSourceName?: pulumi.Input<string | undefined>;
+    }
+
+    /**
+     * Splice insert message configuration.
+     */
+    export interface ProgramSpliceInsertMessageArgs {
+        /**
+         * This is written to splice_insert.avail_num.
+         */
+        availNum?: pulumi.Input<number | undefined>;
+        /**
+         * This is written to splice_insert.avails_expected.
+         */
+        availsExpected?: pulumi.Input<number | undefined>;
+        /**
+         * This is written to splice_insert.splice_event_id.
+         */
+        spliceEventId?: pulumi.Input<number | undefined>;
+        /**
+         * This is written to splice_insert.unique_program_id.
+         */
+        uniqueProgramId?: pulumi.Input<number | undefined>;
+    }
+
+    /**
+     * The SCTE-35 time_signal message configuration.
+     */
+    export interface ProgramTimeSignalMessageArgs {
+        /**
+         * The configurations for the SCTE-35 segmentation_descriptor message(s).
+         */
+        segmentationDescriptors?: pulumi.Input<pulumi.Input<inputs.mediatailor.ProgramSegmentationDescriptorArgs>[] | undefined>;
+    }
+
+    /**
+     * Program transition configuration.
+     */
+    export interface ProgramTransitionArgs {
+        /**
+         * The duration of the live program in seconds.
+         */
+        durationMillis?: pulumi.Input<number | undefined>;
+        /**
+         * The position where this program will be inserted relative to the RelativePosition.
+         */
+        relativePosition: pulumi.Input<enums.mediatailor.ProgramTransitionRelativePosition>;
+        /**
+         * The name of the program that this program will be inserted next to.
+         */
+        relativeProgram?: pulumi.Input<string | undefined>;
+        /**
+         * The date and time that the program is scheduled to start, in epoch milliseconds.
+         */
+        scheduledStartTimeMillis?: pulumi.Input<number | undefined>;
+        /**
+         * Defines when the program plays in the schedule. You can set the value to ABSOLUTE or RELATIVE.
+         */
+        type: pulumi.Input<string>;
     }
 
     /**
@@ -80179,6 +80918,28 @@ export namespace pcs {
 }
 
 export namespace personalize {
+    /**
+     * The configuration details of a campaign.
+     */
+    export interface CampaignConfigArgs {
+        /**
+         * Whether metadata with recommendations is enabled for the campaign.
+         */
+        enableMetadataWithRecommendations?: pulumi.Input<boolean | undefined>;
+        /**
+         * Specifies the exploration configuration hyperparameters.
+         */
+        itemExplorationConfig?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+        /**
+         * A map of ranking influence values for POPULARITY and FRESHNESS.
+         */
+        rankingInfluence?: pulumi.Input<{[key: string]: pulumi.Input<number>} | undefined>;
+        /**
+         * Whether the campaign automatically updates to use the latest solution version.
+         */
+        syncWithLatestSolutionVersion?: pulumi.Input<boolean | undefined>;
+    }
+
     /**
      * Initial DatasetImportJob for the created dataset
      */
@@ -89928,7 +90689,7 @@ export namespace quicksight {
 
     export interface AnalysisSheetLayoutGroupMemberArgs {
         id: pulumi.Input<string>;
-        type: any;
+        type: pulumi.Input<enums.quicksight.AnalysisSheetLayoutGroupMemberType>;
     }
 
     export interface AnalysisSheetTextBoxArgs {
@@ -99824,7 +100585,7 @@ export namespace quicksight {
 
     export interface DashboardSheetLayoutGroupMemberArgs {
         id: pulumi.Input<string>;
-        type: any;
+        type: pulumi.Input<enums.quicksight.DashboardSheetLayoutGroupMemberType>;
     }
 
     export interface DashboardSheetTextBoxArgs {
@@ -111453,7 +112214,7 @@ export namespace quicksight {
 
     export interface TemplateSheetLayoutGroupMemberArgs {
         id: pulumi.Input<string>;
-        type: any;
+        type: pulumi.Input<enums.quicksight.TemplateSheetLayoutGroupMemberType>;
     }
 
     export interface TemplateSheetTextBoxArgs {
@@ -126314,6 +127075,38 @@ export namespace securityagent {
     }
 
     /**
+     * Azure DevOps repository capabilities
+     */
+    export interface AgentSpaceAzureDevOpsCapabilitiesResourceArgs {
+        /**
+         * Enables Code Review in the repository
+         */
+        leaveComments?: pulumi.Input<boolean | undefined>;
+        /**
+         * Enables creation of pull requests with automated fixes
+         */
+        remediateCode?: pulumi.Input<boolean | undefined>;
+    }
+
+    /**
+     * Azure DevOps repository details
+     */
+    export interface AgentSpaceAzureDevOpsRepositoryResourceArgs {
+        /**
+         * Azure DevOps repository name
+         */
+        name: pulumi.Input<string>;
+        /**
+         * Read-only Azure DevOps organization that owns the repository, populated from service-side metadata
+         */
+        organization?: pulumi.Input<string | undefined>;
+        /**
+         * Azure DevOps project that owns the repository
+         */
+        project: pulumi.Input<string>;
+    }
+
+    /**
      * Bitbucket repository capabilities
      */
     export interface AgentSpaceBitbucketCapabilitiesResourceArgs {
@@ -126473,6 +127266,8 @@ export namespace securityagent {
      * Selected Resource (eg: Code Repository, Document) from an Integration
      */
     export interface AgentSpaceProviderResourceArgs {
+        azureDevOpsCapabilities?: pulumi.Input<inputs.securityagent.AgentSpaceAzureDevOpsCapabilitiesResourceArgs | undefined>;
+        azureDevOpsRepository?: pulumi.Input<inputs.securityagent.AgentSpaceAzureDevOpsRepositoryResourceArgs | undefined>;
         bitbucketCapabilities?: pulumi.Input<inputs.securityagent.AgentSpaceBitbucketCapabilitiesResourceArgs | undefined>;
         bitbucketRepository?: pulumi.Input<inputs.securityagent.AgentSpaceBitbucketRepositoryResourceArgs | undefined>;
         confluenceCapabilities?: pulumi.Input<inputs.securityagent.AgentSpaceConfluenceCapabilitiesResourceArgs | undefined>;
@@ -132766,7 +133561,7 @@ export namespace transfer {
 
 export namespace translate {
     /**
-     * The encryption key used to encrypt this object.
+     * The encryption key for the custom terminology.
      */
     export interface EncryptionKeyPropertiesArgs {
         /**
@@ -132776,7 +133571,7 @@ export namespace translate {
         /**
          * The type of encryption key.
          */
-        type: pulumi.Input<enums.translate.ParallelDataEncryptionKeyPropertiesType>;
+        type: pulumi.Input<enums.translate.TerminologyEncryptionKeyPropertiesType>;
     }
 
     /**
@@ -132793,6 +133588,23 @@ export namespace translate {
         s3Uri: pulumi.Input<string>;
     }
 
+    /**
+     * The terminology data for the custom terminology being imported.
+     */
+    export interface TerminologyDataPropertiesArgs {
+        /**
+         * The directionality of the terminology resource.
+         */
+        directionality?: pulumi.Input<enums.translate.TerminologyDataPropertiesDirectionality | undefined>;
+        /**
+         * The file containing the custom terminology data, base64-encoded.
+         */
+        file: pulumi.Input<string>;
+        /**
+         * The data format of the custom terminology.
+         */
+        format: pulumi.Input<enums.translate.TerminologyDataPropertiesFormat>;
+    }
 }
 
 export namespace verifiedpermissions {
@@ -137264,6 +138076,14 @@ export namespace wisdom {
          * The customer managed key used for encryption. The customer managed key must have a policy that allows `kms:CreateGrant` and `kms:DescribeKey` permissions to the IAM identity using the key to invoke Wisdom. To use Wisdom with chat, the key policy must also allow `kms:Decrypt` , `kms:GenerateDataKey*` , and `kms:DescribeKey` permissions to the `connect.amazonaws.com` service principal. For more information about setting up a customer managed key for Wisdom, see [Enable Connect Customer Wisdom for your instance](https://docs.aws.amazon.com/connect/latest/adminguide/enable-wisdom.html) . For information about valid ID values, see [Key identifiers (KeyId)](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id) in the *AWS Key Management Service Developer Guide* .
          */
         kmsKeyId?: pulumi.Input<string | undefined>;
+    }
+
+    export interface ContentAssociationAmazonConnectGuideAssociationDataArgs {
+        flowId?: pulumi.Input<string | undefined>;
+    }
+
+    export interface ContentAssociationContentsArgs {
+        amazonConnectGuideAssociation: pulumi.Input<inputs.wisdom.ContentAssociationAmazonConnectGuideAssociationDataArgs>;
     }
 
     export interface KnowledgeBaseAppIntegrationsConfigurationArgs {

@@ -971,7 +971,7 @@ type ReportGroupReportExportConfig struct {
 	//
 	// - `S3` : The report results are exported to an S3 bucket.
 	// - `NO_EXPORT` : The report results are not exported.
-	ExportConfigType string `pulumi:"exportConfigType"`
+	ExportConfigType ReportGroupReportExportConfigExportConfigType `pulumi:"exportConfigType"`
 	// A `S3ReportExportConfig` object that contains information about the S3 bucket where the run of a report is exported.
 	S3Destination *ReportGroupS3ReportExportConfig `pulumi:"s3Destination"`
 }
@@ -992,7 +992,7 @@ type ReportGroupReportExportConfigArgs struct {
 	//
 	// - `S3` : The report results are exported to an S3 bucket.
 	// - `NO_EXPORT` : The report results are not exported.
-	ExportConfigType pulumi.StringInput `pulumi:"exportConfigType"`
+	ExportConfigType ReportGroupReportExportConfigExportConfigTypeInput `pulumi:"exportConfigType"`
 	// A `S3ReportExportConfig` object that contains information about the S3 bucket where the run of a report is exported.
 	S3Destination ReportGroupS3ReportExportConfigPtrInput `pulumi:"s3Destination"`
 }
@@ -1027,8 +1027,10 @@ func (o ReportGroupReportExportConfigOutput) ToReportGroupReportExportConfigOutp
 //
 // - `S3` : The report results are exported to an S3 bucket.
 // - `NO_EXPORT` : The report results are not exported.
-func (o ReportGroupReportExportConfigOutput) ExportConfigType() pulumi.StringOutput {
-	return o.ApplyT(func(v ReportGroupReportExportConfig) string { return v.ExportConfigType }).(pulumi.StringOutput)
+func (o ReportGroupReportExportConfigOutput) ExportConfigType() ReportGroupReportExportConfigExportConfigTypeOutput {
+	return o.ApplyT(func(v ReportGroupReportExportConfig) ReportGroupReportExportConfigExportConfigType {
+		return v.ExportConfigType
+	}).(ReportGroupReportExportConfigExportConfigTypeOutput)
 }
 
 // A `S3ReportExportConfig` object that contains information about the S3 bucket where the run of a report is exported.
@@ -1064,13 +1066,13 @@ func (o ReportGroupReportExportConfigPtrOutput) Elem() ReportGroupReportExportCo
 //
 // - `S3` : The report results are exported to an S3 bucket.
 // - `NO_EXPORT` : The report results are not exported.
-func (o ReportGroupReportExportConfigPtrOutput) ExportConfigType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ReportGroupReportExportConfig) *string {
+func (o ReportGroupReportExportConfigPtrOutput) ExportConfigType() ReportGroupReportExportConfigExportConfigTypePtrOutput {
+	return o.ApplyT(func(v *ReportGroupReportExportConfig) *ReportGroupReportExportConfigExportConfigType {
 		if v == nil {
 			return nil
 		}
 		return &v.ExportConfigType
-	}).(pulumi.StringPtrOutput)
+	}).(ReportGroupReportExportConfigExportConfigTypePtrOutput)
 }
 
 // A `S3ReportExportConfig` object that contains information about the S3 bucket where the run of a report is exported.
@@ -1096,7 +1098,7 @@ type ReportGroupS3ReportExportConfig struct {
 	//
 	// - `NONE` : CodeBuild creates the raw data in the output bucket. This is the default if packaging is not specified.
 	// - `ZIP` : CodeBuild creates a ZIP file with the raw data in the output bucket.
-	Packaging *string `pulumi:"packaging"`
+	Packaging *ReportGroupS3ReportExportConfigPackaging `pulumi:"packaging"`
 	// The path to the exported report's raw data results.
 	Path *string `pulumi:"path"`
 }
@@ -1125,7 +1127,7 @@ type ReportGroupS3ReportExportConfigArgs struct {
 	//
 	// - `NONE` : CodeBuild creates the raw data in the output bucket. This is the default if packaging is not specified.
 	// - `ZIP` : CodeBuild creates a ZIP file with the raw data in the output bucket.
-	Packaging pulumi.StringPtrInput `pulumi:"packaging"`
+	Packaging ReportGroupS3ReportExportConfigPackagingPtrInput `pulumi:"packaging"`
 	// The path to the exported report's raw data results.
 	Path pulumi.StringPtrInput `pulumi:"path"`
 }
@@ -1231,8 +1233,8 @@ func (o ReportGroupS3ReportExportConfigOutput) EncryptionKey() pulumi.StringPtrO
 //
 // - `NONE` : CodeBuild creates the raw data in the output bucket. This is the default if packaging is not specified.
 // - `ZIP` : CodeBuild creates a ZIP file with the raw data in the output bucket.
-func (o ReportGroupS3ReportExportConfigOutput) Packaging() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ReportGroupS3ReportExportConfig) *string { return v.Packaging }).(pulumi.StringPtrOutput)
+func (o ReportGroupS3ReportExportConfigOutput) Packaging() ReportGroupS3ReportExportConfigPackagingPtrOutput {
+	return o.ApplyT(func(v ReportGroupS3ReportExportConfig) *ReportGroupS3ReportExportConfigPackaging { return v.Packaging }).(ReportGroupS3ReportExportConfigPackagingPtrOutput)
 }
 
 // The path to the exported report's raw data results.
@@ -1308,13 +1310,13 @@ func (o ReportGroupS3ReportExportConfigPtrOutput) EncryptionKey() pulumi.StringP
 //
 // - `NONE` : CodeBuild creates the raw data in the output bucket. This is the default if packaging is not specified.
 // - `ZIP` : CodeBuild creates a ZIP file with the raw data in the output bucket.
-func (o ReportGroupS3ReportExportConfigPtrOutput) Packaging() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ReportGroupS3ReportExportConfig) *string {
+func (o ReportGroupS3ReportExportConfigPtrOutput) Packaging() ReportGroupS3ReportExportConfigPackagingPtrOutput {
+	return o.ApplyT(func(v *ReportGroupS3ReportExportConfig) *ReportGroupS3ReportExportConfigPackaging {
 		if v == nil {
 			return nil
 		}
 		return v.Packaging
-	}).(pulumi.StringPtrOutput)
+	}).(ReportGroupS3ReportExportConfigPackagingPtrOutput)
 }
 
 // The path to the exported report's raw data results.

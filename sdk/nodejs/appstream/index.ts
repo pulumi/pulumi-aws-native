@@ -40,6 +40,11 @@ export type Entitlement = import("./entitlement").Entitlement;
 export const Entitlement: typeof import("./entitlement").Entitlement = null as any;
 utilities.lazyLoad(exports, ["Entitlement"], () => require("./entitlement"));
 
+export { FleetArgs } from "./fleet";
+export type Fleet = import("./fleet").Fleet;
+export const Fleet: typeof import("./fleet").Fleet = null as any;
+utilities.lazyLoad(exports, ["Fleet"], () => require("./fleet"));
+
 export { GetAppBlockArgs, GetAppBlockResult, GetAppBlockOutputArgs } from "./getAppBlock";
 export const getAppBlock: typeof import("./getAppBlock").getAppBlock = null as any;
 export const getAppBlockOutput: typeof import("./getAppBlock").getAppBlockOutput = null as any;
@@ -65,6 +70,11 @@ export const getEntitlement: typeof import("./getEntitlement").getEntitlement = 
 export const getEntitlementOutput: typeof import("./getEntitlement").getEntitlementOutput = null as any;
 utilities.lazyLoad(exports, ["getEntitlement","getEntitlementOutput"], () => require("./getEntitlement"));
 
+export { GetFleetArgs, GetFleetResult, GetFleetOutputArgs } from "./getFleet";
+export const getFleet: typeof import("./getFleet").getFleet = null as any;
+export const getFleetOutput: typeof import("./getFleet").getFleetOutput = null as any;
+utilities.lazyLoad(exports, ["getFleet","getFleetOutput"], () => require("./getFleet"));
+
 export { GetImageBuilderArgs, GetImageBuilderResult, GetImageBuilderOutputArgs } from "./getImageBuilder";
 export const getImageBuilder: typeof import("./getImageBuilder").getImageBuilder = null as any;
 export const getImageBuilderOutput: typeof import("./getImageBuilder").getImageBuilderOutput = null as any;
@@ -74,11 +84,6 @@ export { GetStackArgs, GetStackResult, GetStackOutputArgs } from "./getStack";
 export const getStack: typeof import("./getStack").getStack = null as any;
 export const getStackOutput: typeof import("./getStack").getStackOutput = null as any;
 utilities.lazyLoad(exports, ["getStack","getStackOutput"], () => require("./getStack"));
-
-export { GetStackFleetAssociationArgs, GetStackFleetAssociationResult, GetStackFleetAssociationOutputArgs } from "./getStackFleetAssociation";
-export const getStackFleetAssociation: typeof import("./getStackFleetAssociation").getStackFleetAssociation = null as any;
-export const getStackFleetAssociationOutput: typeof import("./getStackFleetAssociation").getStackFleetAssociationOutput = null as any;
-utilities.lazyLoad(exports, ["getStackFleetAssociation","getStackFleetAssociationOutput"], () => require("./getStackFleetAssociation"));
 
 export { GetUserArgs, GetUserResult, GetUserOutputArgs } from "./getUser";
 export const getUser: typeof import("./getUser").getUser = null as any;
@@ -111,6 +116,9 @@ export const User: typeof import("./user").User = null as any;
 utilities.lazyLoad(exports, ["User"], () => require("./user"));
 
 
+// Export enums:
+export * from "../types/enums/appstream";
+
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
@@ -129,6 +137,8 @@ const _module = {
                 return new DirectoryConfig(name, <any>undefined, { urn })
             case "aws-native:appstream:Entitlement":
                 return new Entitlement(name, <any>undefined, { urn })
+            case "aws-native:appstream:Fleet":
+                return new Fleet(name, <any>undefined, { urn })
             case "aws-native:appstream:ImageBuilder":
                 return new ImageBuilder(name, <any>undefined, { urn })
             case "aws-native:appstream:Stack":

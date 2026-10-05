@@ -41,6 +41,7 @@ export interface GetAppBlockBuilderResult {
      * The description of the app block builder.
      */
     readonly description?: string;
+    readonly disableImdsv1?: boolean;
     /**
      * The display name of the app block builder.
      */

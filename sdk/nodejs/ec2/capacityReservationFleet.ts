@@ -153,7 +153,7 @@ export class CapacityReservationFleet extends pulumi.CustomResource {
             resourceInputs["totalTargetCapacity"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["allocationStrategy", "endDate", "instanceMatchCriteria", "instanceTypeSpecifications[*]", "tagSpecifications[*]", "tenancy"] };
+        const replaceOnChanges = { replaceOnChanges: ["allocationStrategy", "endDate", "instanceMatchCriteria", "instanceTypeSpecifications[*]", "tenancy"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(CapacityReservationFleet.__pulumiType, name, resourceInputs, opts);
     }

@@ -25,6 +25,9 @@ namespace Pulumi.AwsNative.Connect.Outputs
         ///  *Length Constraints*: Minimum length of 0. Maximum length of 1024.
         /// </summary>
         public readonly string? Instructions;
+        /// <summary>
+        /// The metric configuration for the question. Use this to associate a business outcome metric with the question.
+        /// </summary>
         public readonly Outputs.EvaluationFormMetricConfiguration? MetricConfiguration;
         /// <summary>
         /// The flag to enable not applicable answers to the question.

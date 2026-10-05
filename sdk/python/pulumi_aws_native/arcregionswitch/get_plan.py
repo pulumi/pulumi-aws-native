@@ -25,7 +25,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetPlanResult:
-    def __init__(__self__, arn=None, associated_alarms=None, description=None, execution_role=None, health_checks_for_plan=None, owner=None, plan_health_checks=None, recovery_time_objective_minutes=None, report_configuration=None, route53_health_checks=None, tags=None, triggers=None, version=None, workflows=None):
+    def __init__(__self__, arn=None, associated_alarms=None, description=None, execution_role=None, health_checks_for_plan=None, owner=None, plan_health_checks=None, recovery_time_objective_minutes=None, report_configuration=None, route53_health_checks=None, service_quota_checks_enabled=None, tags=None, triggers=None, version=None, workflows=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -56,6 +56,9 @@ class GetPlanResult:
         if route53_health_checks and not isinstance(route53_health_checks, dict):
             raise TypeError("Expected argument 'route53_health_checks' to be a dict")
         pulumi.set(__self__, "route53_health_checks", route53_health_checks)
+        if service_quota_checks_enabled and not isinstance(service_quota_checks_enabled, bool):
+            raise TypeError("Expected argument 'service_quota_checks_enabled' to be a bool")
+        pulumi.set(__self__, "service_quota_checks_enabled", service_quota_checks_enabled)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -141,6 +144,11 @@ class GetPlanResult:
         return pulumi.get(self, "route53_health_checks")
 
     @_builtins.property
+    @pulumi.getter(name="serviceQuotaChecksEnabled")
+    def service_quota_checks_enabled(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "service_quota_checks_enabled")
+
+    @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, _builtins.str]]:
         return pulumi.get(self, "tags")
@@ -186,6 +194,7 @@ class AwaitableGetPlanResult(GetPlanResult):
             recovery_time_objective_minutes=self.recovery_time_objective_minutes,
             report_configuration=self.report_configuration,
             route53_health_checks=self.route53_health_checks,
+            service_quota_checks_enabled=self.service_quota_checks_enabled,
             tags=self.tags,
             triggers=self.triggers,
             version=self.version,
@@ -215,6 +224,7 @@ def get_plan(arn: Optional[_builtins.str] = None,
         recovery_time_objective_minutes=pulumi.get(__ret__, 'recovery_time_objective_minutes'),
         report_configuration=pulumi.get(__ret__, 'report_configuration'),
         route53_health_checks=pulumi.get(__ret__, 'route53_health_checks'),
+        service_quota_checks_enabled=pulumi.get(__ret__, 'service_quota_checks_enabled'),
         tags=pulumi.get(__ret__, 'tags'),
         triggers=pulumi.get(__ret__, 'triggers'),
         version=pulumi.get(__ret__, 'version'),
@@ -241,6 +251,7 @@ def get_plan_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
         recovery_time_objective_minutes=pulumi.get(__response__, 'recovery_time_objective_minutes'),
         report_configuration=pulumi.get(__response__, 'report_configuration'),
         route53_health_checks=pulumi.get(__response__, 'route53_health_checks'),
+        service_quota_checks_enabled=pulumi.get(__response__, 'service_quota_checks_enabled'),
         tags=pulumi.get(__response__, 'tags'),
         triggers=pulumi.get(__response__, 'triggers'),
         version=pulumi.get(__response__, 'version'),

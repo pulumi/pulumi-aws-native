@@ -26,7 +26,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetHarnessResult:
-    def __init__(__self__, allowed_tools=None, arn=None, authorizer_configuration=None, created_at=None, environment=None, environment_artifact=None, environment_variables=None, execution_role_arn=None, harness_id=None, max_iterations=None, max_tokens=None, memory=None, model=None, skills=None, status=None, system_prompt=None, tags=None, timeout_seconds=None, tools=None, truncation=None, updated_at=None, version=None):
+    def __init__(__self__, allowed_tools=None, arn=None, authorizer_configuration=None, created_at=None, environment=None, environment_artifact=None, environment_variables=None, execution_role_arn=None, harness_id=None, hooks=None, max_iterations=None, max_tokens=None, memory=None, model=None, skills=None, status=None, system_prompt=None, tags=None, timeout_seconds=None, tools=None, truncation=None, updated_at=None, version=None):
         if allowed_tools and not isinstance(allowed_tools, list):
             raise TypeError("Expected argument 'allowed_tools' to be a list")
         pulumi.set(__self__, "allowed_tools", allowed_tools)
@@ -54,6 +54,9 @@ class GetHarnessResult:
         if harness_id and not isinstance(harness_id, str):
             raise TypeError("Expected argument 'harness_id' to be a str")
         pulumi.set(__self__, "harness_id", harness_id)
+        if hooks and not isinstance(hooks, list):
+            raise TypeError("Expected argument 'hooks' to be a list")
+        pulumi.set(__self__, "hooks", hooks)
         if max_iterations and not isinstance(max_iterations, int):
             raise TypeError("Expected argument 'max_iterations' to be a int")
         pulumi.set(__self__, "max_iterations", max_iterations)
@@ -165,6 +168,14 @@ class GetHarnessResult:
         The unique identifier of the harness.
         """
         return pulumi.get(self, "harness_id")
+
+    @_builtins.property
+    @pulumi.getter
+    def hooks(self) -> Optional[Sequence['outputs.HarnessHook']]:
+        """
+        Lifecycle hooks that fire at well-defined points in the agent loop for policy enforcement, audit, and governance.
+        """
+        return pulumi.get(self, "hooks")
 
     @_builtins.property
     @pulumi.getter(name="maxIterations")
@@ -286,6 +297,7 @@ class AwaitableGetHarnessResult(GetHarnessResult):
             environment_variables=self.environment_variables,
             execution_role_arn=self.execution_role_arn,
             harness_id=self.harness_id,
+            hooks=self.hooks,
             max_iterations=self.max_iterations,
             max_tokens=self.max_tokens,
             memory=self.memory,
@@ -323,6 +335,7 @@ def get_harness(arn: Optional[_builtins.str] = None,
         environment_variables=pulumi.get(__ret__, 'environment_variables'),
         execution_role_arn=pulumi.get(__ret__, 'execution_role_arn'),
         harness_id=pulumi.get(__ret__, 'harness_id'),
+        hooks=pulumi.get(__ret__, 'hooks'),
         max_iterations=pulumi.get(__ret__, 'max_iterations'),
         max_tokens=pulumi.get(__ret__, 'max_tokens'),
         memory=pulumi.get(__ret__, 'memory'),
@@ -357,6 +370,7 @@ def get_harness_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
         environment_variables=pulumi.get(__response__, 'environment_variables'),
         execution_role_arn=pulumi.get(__response__, 'execution_role_arn'),
         harness_id=pulumi.get(__response__, 'harness_id'),
+        hooks=pulumi.get(__response__, 'hooks'),
         max_iterations=pulumi.get(__response__, 'max_iterations'),
         max_tokens=pulumi.get(__response__, 'max_tokens'),
         memory=pulumi.get(__response__, 'memory'),

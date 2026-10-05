@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -34,6 +35,8 @@ type LookupDbProxyTargetGroupResult struct {
 	DbClusterIdentifiers []string `pulumi:"dbClusterIdentifiers"`
 	// One or more DB instance identifiers.
 	DbInstanceIdentifiers []string `pulumi:"dbInstanceIdentifiers"`
+	// An array of key-value pairs to apply to this resource.
+	Tags []aws.Tag `pulumi:"tags"`
 	// The Amazon Resource Name (ARN) representing the target group.
 	TargetGroupArn *string `pulumi:"targetGroupArn"`
 }
@@ -81,6 +84,11 @@ func (o LookupDbProxyTargetGroupResultOutput) DbClusterIdentifiers() pulumi.Stri
 // One or more DB instance identifiers.
 func (o LookupDbProxyTargetGroupResultOutput) DbInstanceIdentifiers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupDbProxyTargetGroupResult) []string { return v.DbInstanceIdentifiers }).(pulumi.StringArrayOutput)
+}
+
+// An array of key-value pairs to apply to this resource.
+func (o LookupDbProxyTargetGroupResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupDbProxyTargetGroupResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // The Amazon Resource Name (ARN) representing the target group.

@@ -17,6 +17,10 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Outputs
     public sealed class OnlineEvaluationConfigCloudWatchLogsInputConfig
     {
         /// <summary>
+        /// The list of CloudWatch log group name prefixes to monitor for agent traces. Mutually exclusive with LogGroupNames; specify exactly one of the two selectors.
+        /// </summary>
+        public readonly ImmutableArray<string> LogGroupNamePrefixes;
+        /// <summary>
         /// The list of CloudWatch log group names to monitor for agent traces.
         /// </summary>
         public readonly ImmutableArray<string> LogGroupNames;
@@ -27,10 +31,13 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Outputs
 
         [OutputConstructor]
         private OnlineEvaluationConfigCloudWatchLogsInputConfig(
+            ImmutableArray<string> logGroupNamePrefixes,
+
             ImmutableArray<string> logGroupNames,
 
             ImmutableArray<string> serviceNames)
         {
+            LogGroupNamePrefixes = logGroupNamePrefixes;
             LogGroupNames = logGroupNames;
             ServiceNames = serviceNames;
         }

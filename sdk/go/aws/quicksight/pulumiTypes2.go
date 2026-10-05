@@ -13002,8 +13002,8 @@ func (o DashboardSheetLayoutGroupArrayOutput) Index(i pulumi.IntInput) Dashboard
 }
 
 type DashboardSheetLayoutGroupMember struct {
-	Id   string      `pulumi:"id"`
-	Type interface{} `pulumi:"type"`
+	Id   string                              `pulumi:"id"`
+	Type DashboardSheetLayoutGroupMemberType `pulumi:"type"`
 }
 
 // DashboardSheetLayoutGroupMemberInput is an input type that accepts DashboardSheetLayoutGroupMemberArgs and DashboardSheetLayoutGroupMemberOutput values.
@@ -13018,8 +13018,8 @@ type DashboardSheetLayoutGroupMemberInput interface {
 }
 
 type DashboardSheetLayoutGroupMemberArgs struct {
-	Id   pulumi.StringInput `pulumi:"id"`
-	Type pulumi.Input       `pulumi:"type"`
+	Id   pulumi.StringInput                       `pulumi:"id"`
+	Type DashboardSheetLayoutGroupMemberTypeInput `pulumi:"type"`
 }
 
 func (DashboardSheetLayoutGroupMemberArgs) ElementType() reflect.Type {
@@ -13077,8 +13077,8 @@ func (o DashboardSheetLayoutGroupMemberOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v DashboardSheetLayoutGroupMember) string { return v.Id }).(pulumi.StringOutput)
 }
 
-func (o DashboardSheetLayoutGroupMemberOutput) Type() pulumi.AnyOutput {
-	return o.ApplyT(func(v DashboardSheetLayoutGroupMember) interface{} { return v.Type }).(pulumi.AnyOutput)
+func (o DashboardSheetLayoutGroupMemberOutput) Type() DashboardSheetLayoutGroupMemberTypeOutput {
+	return o.ApplyT(func(v DashboardSheetLayoutGroupMember) DashboardSheetLayoutGroupMemberType { return v.Type }).(DashboardSheetLayoutGroupMemberTypeOutput)
 }
 
 type DashboardSheetLayoutGroupMemberArrayOutput struct{ *pulumi.OutputState }

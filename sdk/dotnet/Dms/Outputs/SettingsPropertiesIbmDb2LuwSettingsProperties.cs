@@ -18,7 +18,9 @@ namespace Pulumi.AwsNative.Dms.Outputs
     {
         public readonly string? CertificateArn;
         public readonly string DatabaseName;
+        public readonly int? EncryptionAlgorithm;
         public readonly int Port;
+        public readonly int? SecurityMechanism;
         public readonly string ServerName;
         public readonly Pulumi.AwsNative.Dms.DataProviderDb2SslModeValue SslMode;
 
@@ -28,7 +30,11 @@ namespace Pulumi.AwsNative.Dms.Outputs
 
             string databaseName,
 
+            int? encryptionAlgorithm,
+
             int port,
+
+            int? securityMechanism,
 
             string serverName,
 
@@ -36,7 +42,9 @@ namespace Pulumi.AwsNative.Dms.Outputs
         {
             CertificateArn = certificateArn;
             DatabaseName = databaseName;
+            EncryptionAlgorithm = encryptionAlgorithm;
             Port = port;
+            SecurityMechanism = securityMechanism;
             ServerName = serverName;
             SslMode = sslMode;
         }

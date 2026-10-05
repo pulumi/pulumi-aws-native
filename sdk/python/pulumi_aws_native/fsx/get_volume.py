@@ -77,8 +77,6 @@ class GetVolumeResult:
     def resource_arn(self) -> Optional[_builtins.str]:
         """
         Returns the volume's Amazon Resource Name (ARN).
-
-        Example: `arn:aws:fsx:us-east-2:111122223333:volume/fs-0123456789abcdef9/fsvol-01234567891112223`
         """
         return pulumi.get(self, "resource_arn")
 
@@ -86,9 +84,7 @@ class GetVolumeResult:
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
         """
-        An array of key-value pairs to apply to this resource.
-
-        For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+        One or more tags.
         """
         return pulumi.get(self, "tags")
 
@@ -96,9 +92,7 @@ class GetVolumeResult:
     @pulumi.getter
     def uuid(self) -> Optional[_builtins.str]:
         """
-        Returns the volume's universally unique identifier (UUID).
-
-        Example: `abcd0123-cd45-ef67-11aa-1111aaaa23bc`
+        Returns the volume's ID.
         """
         return pulumi.get(self, "uuid")
 
@@ -106,9 +100,7 @@ class GetVolumeResult:
     @pulumi.getter(name="volumeId")
     def volume_id(self) -> Optional[_builtins.str]:
         """
-        Returns the volume's ID.
-
-        Example: `fsvol-0123456789abcdefa`
+        Returns the volume's universally unique identifier (UUID).
         """
         return pulumi.get(self, "volume_id")
 
@@ -133,9 +125,7 @@ def get_volume(volume_id: Optional[_builtins.str] = None,
     """
     Resource Type definition for AWS::FSx::Volume
 
-    :param _builtins.str volume_id: Returns the volume's ID.
-           
-           Example: `fsvol-0123456789abcdefa`
+    :param _builtins.str volume_id: Returns the volume's universally unique identifier (UUID).
     """
     __args__ = dict()
     __args__['volumeId'] = volume_id
@@ -155,9 +145,7 @@ def get_volume_output(volume_id: pulumi.Input[Optional[_builtins.str]] = None,
     """
     Resource Type definition for AWS::FSx::Volume
 
-    :param _builtins.str volume_id: Returns the volume's ID.
-           
-           Example: `fsvol-0123456789abcdefa`
+    :param _builtins.str volume_id: Returns the volume's universally unique identifier (UUID).
     """
     __args__ = dict()
     __args__['volumeId'] = volume_id

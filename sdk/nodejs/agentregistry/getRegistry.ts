@@ -27,6 +27,12 @@ export interface GetRegistryArgs {
 export interface GetRegistryResult {
     readonly approvalConfiguration?: outputs.agentregistry.RegistryApprovalConfiguration;
     /**
+     * Specifies whether auto-detection is requested for the registry. Must be specified together with AutoDetectionScope. Setting this to true is necessary but not sufficient for auto-detection to become active; the preconditions of the configured scope must also be met. To turn auto-detection off, explicitly set this to false - removing AutoDetectionEnabled and AutoDetectionScope from the template is a no-op and leaves the existing auto-detection settings unchanged. A registry cannot be deleted while auto-detection is enabled: set this to false and update the stack before deleting the registry.
+     */
+    readonly autoDetectionEnabled?: boolean;
+    readonly autoDetectionScope?: enums.agentregistry.RegistryAutoDetectionScope;
+    readonly autoDetectionStatus?: enums.agentregistry.RegistryAutoDetectionStatus;
+    /**
      * The timestamp when the registry was created.
      */
     readonly createdAt?: string;

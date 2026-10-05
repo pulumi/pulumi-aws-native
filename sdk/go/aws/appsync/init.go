@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "aws-native:appsync:Api":
 		r = &Api{}
+	case "aws-native:appsync:ApiCache":
+		r = &ApiCache{}
 	case "aws-native:appsync:ApiKey":
 		r = &ApiKey{}
 	case "aws-native:appsync:ChannelNamespace":

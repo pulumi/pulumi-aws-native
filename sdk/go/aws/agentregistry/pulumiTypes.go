@@ -878,6 +878,146 @@ func (o RegistryDiscoveryConfigurationPtrOutput) AuthorizerConfiguration() Regis
 	}).(RegistryAuthorizerConfigurationPtrOutput)
 }
 
+// The server-side encryption configuration for a registry. Specifies a customer managed key used to encrypt the registry's content. When omitted, the registry's content is encrypted with an AWS owned key. You cannot change the encryption configuration after registry creation. Specifying a different KMS key, adding this property to an existing registry, or removing it replaces the registry: CloudFormation creates a new registry with a new Amazon Resource Name (ARN) and then deletes the original, including all registry records it contains. Registry records that are not managed by the stack are not re-created in the new registry, and if any remain in the original registry its deletion fails and it is left behind.
+type RegistryEncryptionConfiguration struct {
+	// The Amazon Resource Name (ARN) of the customer-managed AWS KMS key used to encrypt the registry's content. The key must be a symmetric encryption key in the same AWS account and Region as the registry. Multi-Region keys are not supported.
+	KmsKeyArn string `pulumi:"kmsKeyArn"`
+}
+
+// RegistryEncryptionConfigurationInput is an input type that accepts RegistryEncryptionConfigurationArgs and RegistryEncryptionConfigurationOutput values.
+// You can construct a concrete instance of `RegistryEncryptionConfigurationInput` via:
+//
+//	RegistryEncryptionConfigurationArgs{...}
+type RegistryEncryptionConfigurationInput interface {
+	pulumi.Input
+
+	ToRegistryEncryptionConfigurationOutput() RegistryEncryptionConfigurationOutput
+	ToRegistryEncryptionConfigurationOutputWithContext(context.Context) RegistryEncryptionConfigurationOutput
+}
+
+// The server-side encryption configuration for a registry. Specifies a customer managed key used to encrypt the registry's content. When omitted, the registry's content is encrypted with an AWS owned key. You cannot change the encryption configuration after registry creation. Specifying a different KMS key, adding this property to an existing registry, or removing it replaces the registry: CloudFormation creates a new registry with a new Amazon Resource Name (ARN) and then deletes the original, including all registry records it contains. Registry records that are not managed by the stack are not re-created in the new registry, and if any remain in the original registry its deletion fails and it is left behind.
+type RegistryEncryptionConfigurationArgs struct {
+	// The Amazon Resource Name (ARN) of the customer-managed AWS KMS key used to encrypt the registry's content. The key must be a symmetric encryption key in the same AWS account and Region as the registry. Multi-Region keys are not supported.
+	KmsKeyArn pulumi.StringInput `pulumi:"kmsKeyArn"`
+}
+
+func (RegistryEncryptionConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RegistryEncryptionConfiguration)(nil)).Elem()
+}
+
+func (i RegistryEncryptionConfigurationArgs) ToRegistryEncryptionConfigurationOutput() RegistryEncryptionConfigurationOutput {
+	return i.ToRegistryEncryptionConfigurationOutputWithContext(context.Background())
+}
+
+func (i RegistryEncryptionConfigurationArgs) ToRegistryEncryptionConfigurationOutputWithContext(ctx context.Context) RegistryEncryptionConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RegistryEncryptionConfigurationOutput)
+}
+
+func (i RegistryEncryptionConfigurationArgs) ToRegistryEncryptionConfigurationPtrOutput() RegistryEncryptionConfigurationPtrOutput {
+	return i.ToRegistryEncryptionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i RegistryEncryptionConfigurationArgs) ToRegistryEncryptionConfigurationPtrOutputWithContext(ctx context.Context) RegistryEncryptionConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RegistryEncryptionConfigurationOutput).ToRegistryEncryptionConfigurationPtrOutputWithContext(ctx)
+}
+
+// RegistryEncryptionConfigurationPtrInput is an input type that accepts RegistryEncryptionConfigurationArgs, RegistryEncryptionConfigurationPtr and RegistryEncryptionConfigurationPtrOutput values.
+// You can construct a concrete instance of `RegistryEncryptionConfigurationPtrInput` via:
+//
+//	        RegistryEncryptionConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type RegistryEncryptionConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToRegistryEncryptionConfigurationPtrOutput() RegistryEncryptionConfigurationPtrOutput
+	ToRegistryEncryptionConfigurationPtrOutputWithContext(context.Context) RegistryEncryptionConfigurationPtrOutput
+}
+
+type registryEncryptionConfigurationPtrType RegistryEncryptionConfigurationArgs
+
+func RegistryEncryptionConfigurationPtr(v *RegistryEncryptionConfigurationArgs) RegistryEncryptionConfigurationPtrInput {
+	return (*registryEncryptionConfigurationPtrType)(v)
+}
+
+func (*registryEncryptionConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RegistryEncryptionConfiguration)(nil)).Elem()
+}
+
+func (i *registryEncryptionConfigurationPtrType) ToRegistryEncryptionConfigurationPtrOutput() RegistryEncryptionConfigurationPtrOutput {
+	return i.ToRegistryEncryptionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *registryEncryptionConfigurationPtrType) ToRegistryEncryptionConfigurationPtrOutputWithContext(ctx context.Context) RegistryEncryptionConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RegistryEncryptionConfigurationPtrOutput)
+}
+
+// The server-side encryption configuration for a registry. Specifies a customer managed key used to encrypt the registry's content. When omitted, the registry's content is encrypted with an AWS owned key. You cannot change the encryption configuration after registry creation. Specifying a different KMS key, adding this property to an existing registry, or removing it replaces the registry: CloudFormation creates a new registry with a new Amazon Resource Name (ARN) and then deletes the original, including all registry records it contains. Registry records that are not managed by the stack are not re-created in the new registry, and if any remain in the original registry its deletion fails and it is left behind.
+type RegistryEncryptionConfigurationOutput struct{ *pulumi.OutputState }
+
+func (RegistryEncryptionConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RegistryEncryptionConfiguration)(nil)).Elem()
+}
+
+func (o RegistryEncryptionConfigurationOutput) ToRegistryEncryptionConfigurationOutput() RegistryEncryptionConfigurationOutput {
+	return o
+}
+
+func (o RegistryEncryptionConfigurationOutput) ToRegistryEncryptionConfigurationOutputWithContext(ctx context.Context) RegistryEncryptionConfigurationOutput {
+	return o
+}
+
+func (o RegistryEncryptionConfigurationOutput) ToRegistryEncryptionConfigurationPtrOutput() RegistryEncryptionConfigurationPtrOutput {
+	return o.ToRegistryEncryptionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o RegistryEncryptionConfigurationOutput) ToRegistryEncryptionConfigurationPtrOutputWithContext(ctx context.Context) RegistryEncryptionConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RegistryEncryptionConfiguration) *RegistryEncryptionConfiguration {
+		return &v
+	}).(RegistryEncryptionConfigurationPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the customer-managed AWS KMS key used to encrypt the registry's content. The key must be a symmetric encryption key in the same AWS account and Region as the registry. Multi-Region keys are not supported.
+func (o RegistryEncryptionConfigurationOutput) KmsKeyArn() pulumi.StringOutput {
+	return o.ApplyT(func(v RegistryEncryptionConfiguration) string { return v.KmsKeyArn }).(pulumi.StringOutput)
+}
+
+type RegistryEncryptionConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (RegistryEncryptionConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RegistryEncryptionConfiguration)(nil)).Elem()
+}
+
+func (o RegistryEncryptionConfigurationPtrOutput) ToRegistryEncryptionConfigurationPtrOutput() RegistryEncryptionConfigurationPtrOutput {
+	return o
+}
+
+func (o RegistryEncryptionConfigurationPtrOutput) ToRegistryEncryptionConfigurationPtrOutputWithContext(ctx context.Context) RegistryEncryptionConfigurationPtrOutput {
+	return o
+}
+
+func (o RegistryEncryptionConfigurationPtrOutput) Elem() RegistryEncryptionConfigurationOutput {
+	return o.ApplyT(func(v *RegistryEncryptionConfiguration) RegistryEncryptionConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret RegistryEncryptionConfiguration
+		return ret
+	}).(RegistryEncryptionConfigurationOutput)
+}
+
+// The Amazon Resource Name (ARN) of the customer-managed AWS KMS key used to encrypt the registry's content. The key must be a symmetric encryption key in the same AWS account and Region as the registry. Multi-Region keys are not supported.
+func (o RegistryEncryptionConfigurationPtrOutput) KmsKeyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RegistryEncryptionConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.KmsKeyArn
+	}).(pulumi.StringPtrOutput)
+}
+
 // The A2A agent card descriptor, populated when the record type is AGENT.
 type RegistryRecordA2aAgentCardDescriptor struct {
 	Data *string `pulumi:"data"`
@@ -3998,6 +4138,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RegistryCustomJwtAuthorizerConfigurationPtrInput)(nil)).Elem(), RegistryCustomJwtAuthorizerConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RegistryDiscoveryConfigurationInput)(nil)).Elem(), RegistryDiscoveryConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RegistryDiscoveryConfigurationPtrInput)(nil)).Elem(), RegistryDiscoveryConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RegistryEncryptionConfigurationInput)(nil)).Elem(), RegistryEncryptionConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RegistryEncryptionConfigurationPtrInput)(nil)).Elem(), RegistryEncryptionConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RegistryRecordA2aAgentCardDescriptorInput)(nil)).Elem(), RegistryRecordA2aAgentCardDescriptorArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RegistryRecordA2aAgentCardDescriptorPtrInput)(nil)).Elem(), RegistryRecordA2aAgentCardDescriptorArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RegistryRecordAgUiDescriptorInput)(nil)).Elem(), RegistryRecordAgUiDescriptorArgs{})
@@ -4050,6 +4192,8 @@ func init() {
 	pulumi.RegisterOutputType(RegistryCustomJwtAuthorizerConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(RegistryDiscoveryConfigurationOutput{})
 	pulumi.RegisterOutputType(RegistryDiscoveryConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(RegistryEncryptionConfigurationOutput{})
+	pulumi.RegisterOutputType(RegistryEncryptionConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(RegistryRecordA2aAgentCardDescriptorOutput{})
 	pulumi.RegisterOutputType(RegistryRecordA2aAgentCardDescriptorPtrOutput{})
 	pulumi.RegisterOutputType(RegistryRecordAgUiDescriptorOutput{})

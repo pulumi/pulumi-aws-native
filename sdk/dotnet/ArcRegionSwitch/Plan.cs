@@ -90,6 +90,9 @@ namespace Pulumi.AwsNative.ArcRegionSwitch
         [Output("route53HealthChecks")]
         public Output<Outputs.Route53HealthChecksProperties> Route53HealthChecks { get; private set; } = null!;
 
+        [Output("serviceQuotaChecksEnabled")]
+        public Output<bool?> ServiceQuotaChecksEnabled { get; private set; } = null!;
+
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
@@ -228,6 +231,9 @@ namespace Pulumi.AwsNative.ArcRegionSwitch
         /// </summary>
         [Input("reportConfiguration")]
         public Input<Inputs.PlanReportConfigurationArgs>? ReportConfiguration { get; set; }
+
+        [Input("serviceQuotaChecksEnabled")]
+        public Input<bool>? ServiceQuotaChecksEnabled { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

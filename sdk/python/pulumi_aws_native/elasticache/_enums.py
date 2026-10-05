@@ -10,8 +10,12 @@ __all__ = [
     'GlobalReplicationGroupMemberRole',
     'ReplicationGroupDurability',
     'ReplicationGroupEffectiveDurability',
+    'ServerlessCacheConnectionType',
     'ServerlessCacheDataStorageUnit',
     'ServerlessCacheNetworkType',
+    'SnapshotAutomaticFailover',
+    'SnapshotDataTiering',
+    'SnapshotStatus',
     'UserAuthenticationModePropertiesType',
     'UserEngine',
     'UserGroupEngine',
@@ -48,6 +52,15 @@ class ReplicationGroupEffectiveDurability(_builtins.str, Enum):
     DISABLED = "disabled"
 
 
+@pulumi.type_token("aws-native:elasticache:ServerlessCacheConnectionType")
+class ServerlessCacheConnectionType(_builtins.str, Enum):
+    """
+    The connection type for the serverless cache. Valid values are vpc or public.
+    """
+    VPC = "vpc"
+    PUBLIC = "public"
+
+
 @pulumi.type_token("aws-native:elasticache:ServerlessCacheDataStorageUnit")
 class ServerlessCacheDataStorageUnit(_builtins.str, Enum):
     """
@@ -64,6 +77,40 @@ class ServerlessCacheNetworkType(_builtins.str, Enum):
     IPV4 = "ipv4"
     IPV6 = "ipv6"
     DUAL_STACK = "dual_stack"
+
+
+@pulumi.type_token("aws-native:elasticache:SnapshotAutomaticFailover")
+class SnapshotAutomaticFailover(_builtins.str, Enum):
+    """
+    Indicates the status of automatic failover for the source replication group.
+    """
+    ENABLED = "enabled"
+    DISABLED = "disabled"
+    ENABLING = "enabling"
+    DISABLING = "disabling"
+
+
+@pulumi.type_token("aws-native:elasticache:SnapshotDataTiering")
+class SnapshotDataTiering(_builtins.str, Enum):
+    """
+    Enables data tiering. Data tiering is only supported for replication groups using the r6gd node type.
+    """
+    ENABLED = "enabled"
+    DISABLED = "disabled"
+
+
+@pulumi.type_token("aws-native:elasticache:SnapshotStatus")
+class SnapshotStatus(_builtins.str, Enum):
+    """
+    The status of the snapshot. Valid values: creating | available | restoring | copying | deleting | failed | deleted.
+    """
+    CREATING = "creating"
+    AVAILABLE = "available"
+    RESTORING = "restoring"
+    COPYING = "copying"
+    DELETING = "deleting"
+    FAILED = "failed"
+    DELETED = "deleted"
 
 
 @pulumi.type_token("aws-native:elasticache:UserAuthenticationModePropertiesType")

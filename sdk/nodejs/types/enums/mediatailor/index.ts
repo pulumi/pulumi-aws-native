@@ -47,9 +47,11 @@ export type FunctionRuntimeType = (typeof FunctionRuntimeType)[keyof typeof Func
 
 export const FunctionType = {
     HttpRequest: "HTTP_REQUEST",
+    AwsServiceRequest: "AWS_SERVICE_REQUEST",
     CustomOutput: "CUSTOM_OUTPUT",
     ConcurrentExecutor: "CONCURRENT_EXECUTOR",
     SequentialExecutor: "SEQUENTIAL_EXECUTOR",
+    VastRequest: "VAST_REQUEST",
 } as const;
 
 export type FunctionType = (typeof FunctionType)[keyof typeof FunctionType];
@@ -186,6 +188,26 @@ export const PrefetchScheduleScheduleType = {
  * The frequency that MediaTailor creates prefetch schedules.
  */
 export type PrefetchScheduleScheduleType = (typeof PrefetchScheduleScheduleType)[keyof typeof PrefetchScheduleScheduleType];
+
+export const ProgramAdBreakMessageType = {
+    SpliceInsert: "SPLICE_INSERT",
+    TimeSignal: "TIME_SIGNAL",
+} as const;
+
+/**
+ * The SCTE-35 ad insertion type.
+ */
+export type ProgramAdBreakMessageType = (typeof ProgramAdBreakMessageType)[keyof typeof ProgramAdBreakMessageType];
+
+export const ProgramTransitionRelativePosition = {
+    BeforeProgram: "BEFORE_PROGRAM",
+    AfterProgram: "AFTER_PROGRAM",
+} as const;
+
+/**
+ * The position where this program will be inserted relative to the RelativePosition.
+ */
+export type ProgramTransitionRelativePosition = (typeof ProgramTransitionRelativePosition)[keyof typeof ProgramTransitionRelativePosition];
 
 export const SourceLocationAccessType = {
     S3Sigv4: "S3_SIGV4",

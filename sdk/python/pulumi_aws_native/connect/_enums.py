@@ -45,6 +45,7 @@ __all__ = [
     'InstanceStorageConfigInstanceStorageResourceType',
     'InstanceStorageConfigStorageType',
     'IntegrationAssociationIntegrationType',
+    'IntegrationAssociationSourceType',
     'MetricAvailableFilterType',
     'MetricCreationMethod',
     'MetricFilterBooleanConditionComparison',
@@ -75,6 +76,7 @@ __all__ = [
     'TestCaseEntryPointType',
     'TestCaseStatus',
     'TrafficDistributionGroupStatus',
+    'UseCaseType',
     'UserAfterContactWorkMode',
     'UserChannel',
     'UserPhoneType',
@@ -246,7 +248,7 @@ class EvaluationFormLanguageConfigurationFormLanguage(_builtins.str, Enum):
 @pulumi.type_token("aws-native:connect:EvaluationFormMetricConfigurationMetricType")
 class EvaluationFormMetricConfigurationMetricType(_builtins.str, Enum):
     """
-    The type of the metric.
+    The type of metric. Currently, only ``BUSINESS_OUTCOME`` is supported.
     """
     BUSINESS_OUTCOME = "BUSINESS_OUTCOME"
 
@@ -505,6 +507,17 @@ class IntegrationAssociationIntegrationType(_builtins.str, Enum):
     MESSAGE_PROCESSOR = "MESSAGE_PROCESSOR"
     Q_MESSAGE_TEMPLATES = "Q_MESSAGE_TEMPLATES"
     SES_IDENTITY = "SES_IDENTITY"
+    EVENT = "EVENT"
+
+
+@pulumi.type_token("aws-native:connect:IntegrationAssociationSourceType")
+class IntegrationAssociationSourceType(_builtins.str, Enum):
+    """
+    The type of the data source. This is only supported for the EVENT integration type
+    """
+    SALESFORCE = "SALESFORCE"
+    ZENDESK = "ZENDESK"
+    CASES = "CASES"
 
 
 @pulumi.type_token("aws-native:connect:MetricAvailableFilterType")
@@ -802,6 +815,15 @@ class TrafficDistributionGroupStatus(_builtins.str, Enum):
     PENDING_DELETION = "PENDING_DELETION"
     DELETION_FAILED = "DELETION_FAILED"
     UPDATE_IN_PROGRESS = "UPDATE_IN_PROGRESS"
+
+
+@pulumi.type_token("aws-native:connect:UseCaseType")
+class UseCaseType(_builtins.str, Enum):
+    """
+    The type of use case to associate to the integration association.
+    """
+    RULES_EVALUATION = "RULES_EVALUATION"
+    CONNECT_CAMPAIGNS = "CONNECT_CAMPAIGNS"
 
 
 @pulumi.type_token("aws-native:connect:UserAfterContactWorkMode")

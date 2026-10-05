@@ -208,14 +208,6 @@ export const PolicyGrantManagedPolicyType = {
 
 export type PolicyGrantManagedPolicyType = (typeof PolicyGrantManagedPolicyType)[keyof typeof PolicyGrantManagedPolicyType];
 
-export const PolicyGrantProjectDesignation = {
-    Owner: "OWNER",
-    Contributor: "CONTRIBUTOR",
-    ProjectCatalogSteward: "PROJECT_CATALOG_STEWARD",
-} as const;
-
-export type PolicyGrantProjectDesignation = (typeof PolicyGrantProjectDesignation)[keyof typeof PolicyGrantProjectDesignation];
-
 export const PolicyGrantTargetEntityType = {
     DomainUnit: "DOMAIN_UNIT",
     EnvironmentBlueprintConfiguration: "ENVIRONMENT_BLUEPRINT_CONFIGURATION",
@@ -231,16 +223,6 @@ export const ProjectMembershipMemberIdentifierType = {
 } as const;
 
 export type ProjectMembershipMemberIdentifierType = (typeof ProjectMembershipMemberIdentifierType)[keyof typeof ProjectMembershipMemberIdentifierType];
-
-export const ProjectMembershipUserDesignation = {
-    ProjectOwner: "PROJECT_OWNER",
-    ProjectContributor: "PROJECT_CONTRIBUTOR",
-    ProjectCatalogViewer: "PROJECT_CATALOG_VIEWER",
-    ProjectCatalogConsumer: "PROJECT_CATALOG_CONSUMER",
-    ProjectCatalogSteward: "PROJECT_CATALOG_STEWARD",
-} as const;
-
-export type ProjectMembershipUserDesignation = (typeof ProjectMembershipUserDesignation)[keyof typeof ProjectMembershipUserDesignation];
 
 export const ProjectProfileDeploymentMode = {
     OnCreate: "ON_CREATE",
@@ -266,13 +248,6 @@ export const ProjectStatus = {
 } as const;
 
 export type ProjectStatus = (typeof ProjectStatus)[keyof typeof ProjectStatus];
-
-export const ProjectUserDesignation = {
-    ProjectOwner: "PROJECT_OWNER",
-    ProjectContributor: "PROJECT_CONTRIBUTOR",
-} as const;
-
-export type ProjectUserDesignation = (typeof ProjectUserDesignation)[keyof typeof ProjectUserDesignation];
 
 export const UserProfileStatus = {
     Assigned: "ASSIGNED",

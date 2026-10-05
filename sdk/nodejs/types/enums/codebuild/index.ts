@@ -146,3 +146,42 @@ export const FleetTargetTrackingScalingConfigurationMetricType = {
  * The metric type to determine auto-scaling.
  */
 export type FleetTargetTrackingScalingConfigurationMetricType = (typeof FleetTargetTrackingScalingConfigurationMetricType)[keyof typeof FleetTargetTrackingScalingConfigurationMetricType];
+
+export const ReportGroupReportExportConfigExportConfigType = {
+    S3: "S3",
+    NoExport: "NO_EXPORT",
+} as const;
+
+/**
+ * The export configuration type. Valid values are:
+ *
+ * - `S3` : The report results are exported to an S3 bucket.
+ * - `NO_EXPORT` : The report results are not exported.
+ */
+export type ReportGroupReportExportConfigExportConfigType = (typeof ReportGroupReportExportConfigExportConfigType)[keyof typeof ReportGroupReportExportConfigExportConfigType];
+
+export const ReportGroupS3ReportExportConfigPackaging = {
+    None: "NONE",
+    Zip: "ZIP",
+} as const;
+
+/**
+ * The type of build output artifact to create. Valid values include:
+ *
+ * - `NONE` : CodeBuild creates the raw data in the output bucket. This is the default if packaging is not specified.
+ * - `ZIP` : CodeBuild creates a ZIP file with the raw data in the output bucket.
+ */
+export type ReportGroupS3ReportExportConfigPackaging = (typeof ReportGroupS3ReportExportConfigPackaging)[keyof typeof ReportGroupS3ReportExportConfigPackaging];
+
+export const ReportGroupType = {
+    Test: "TEST",
+    CodeCoverage: "CODE_COVERAGE",
+} as const;
+
+/**
+ * The type of the `ReportGroup` . This can be one of the following values:
+ *
+ * - **CODE_COVERAGE** - The report group contains code coverage reports.
+ * - **TEST** - The report group contains test reports.
+ */
+export type ReportGroupType = (typeof ReportGroupType)[keyof typeof ReportGroupType];

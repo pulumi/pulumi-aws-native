@@ -402,6 +402,180 @@ func (o AliasVersionWeightArrayOutput) Index(i pulumi.IntInput) AliasVersionWeig
 	}).(AliasVersionWeightOutput)
 }
 
+// The build configuration for the revision.
+type BuildConfigProperties struct {
+	// The code configuration for the revision.
+	CodeConfig BuildConfigPropertiesCodeConfigProperties `pulumi:"codeConfig"`
+	// The runtime configuration for the revision.
+	RuntimeConfig BuildConfigPropertiesRuntimeConfigProperties `pulumi:"runtimeConfig"`
+}
+
+// BuildConfigPropertiesInput is an input type that accepts BuildConfigPropertiesArgs and BuildConfigPropertiesOutput values.
+// You can construct a concrete instance of `BuildConfigPropertiesInput` via:
+//
+//	BuildConfigPropertiesArgs{...}
+type BuildConfigPropertiesInput interface {
+	pulumi.Input
+
+	ToBuildConfigPropertiesOutput() BuildConfigPropertiesOutput
+	ToBuildConfigPropertiesOutputWithContext(context.Context) BuildConfigPropertiesOutput
+}
+
+// The build configuration for the revision.
+type BuildConfigPropertiesArgs struct {
+	// The code configuration for the revision.
+	CodeConfig BuildConfigPropertiesCodeConfigPropertiesInput `pulumi:"codeConfig"`
+	// The runtime configuration for the revision.
+	RuntimeConfig BuildConfigPropertiesRuntimeConfigPropertiesInput `pulumi:"runtimeConfig"`
+}
+
+func (BuildConfigPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BuildConfigProperties)(nil)).Elem()
+}
+
+func (i BuildConfigPropertiesArgs) ToBuildConfigPropertiesOutput() BuildConfigPropertiesOutput {
+	return i.ToBuildConfigPropertiesOutputWithContext(context.Background())
+}
+
+func (i BuildConfigPropertiesArgs) ToBuildConfigPropertiesOutputWithContext(ctx context.Context) BuildConfigPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BuildConfigPropertiesOutput)
+}
+
+// The build configuration for the revision.
+type BuildConfigPropertiesOutput struct{ *pulumi.OutputState }
+
+func (BuildConfigPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BuildConfigProperties)(nil)).Elem()
+}
+
+func (o BuildConfigPropertiesOutput) ToBuildConfigPropertiesOutput() BuildConfigPropertiesOutput {
+	return o
+}
+
+func (o BuildConfigPropertiesOutput) ToBuildConfigPropertiesOutputWithContext(ctx context.Context) BuildConfigPropertiesOutput {
+	return o
+}
+
+// The code configuration for the revision.
+func (o BuildConfigPropertiesOutput) CodeConfig() BuildConfigPropertiesCodeConfigPropertiesOutput {
+	return o.ApplyT(func(v BuildConfigProperties) BuildConfigPropertiesCodeConfigProperties { return v.CodeConfig }).(BuildConfigPropertiesCodeConfigPropertiesOutput)
+}
+
+// The runtime configuration for the revision.
+func (o BuildConfigPropertiesOutput) RuntimeConfig() BuildConfigPropertiesRuntimeConfigPropertiesOutput {
+	return o.ApplyT(func(v BuildConfigProperties) BuildConfigPropertiesRuntimeConfigProperties { return v.RuntimeConfig }).(BuildConfigPropertiesRuntimeConfigPropertiesOutput)
+}
+
+// The code configuration for the revision.
+type BuildConfigPropertiesCodeConfigProperties struct {
+	// The Amazon S3 location of the deployment artifact.
+	S3Object WebFunctionRevisionS3Object `pulumi:"s3Object"`
+}
+
+// BuildConfigPropertiesCodeConfigPropertiesInput is an input type that accepts BuildConfigPropertiesCodeConfigPropertiesArgs and BuildConfigPropertiesCodeConfigPropertiesOutput values.
+// You can construct a concrete instance of `BuildConfigPropertiesCodeConfigPropertiesInput` via:
+//
+//	BuildConfigPropertiesCodeConfigPropertiesArgs{...}
+type BuildConfigPropertiesCodeConfigPropertiesInput interface {
+	pulumi.Input
+
+	ToBuildConfigPropertiesCodeConfigPropertiesOutput() BuildConfigPropertiesCodeConfigPropertiesOutput
+	ToBuildConfigPropertiesCodeConfigPropertiesOutputWithContext(context.Context) BuildConfigPropertiesCodeConfigPropertiesOutput
+}
+
+// The code configuration for the revision.
+type BuildConfigPropertiesCodeConfigPropertiesArgs struct {
+	// The Amazon S3 location of the deployment artifact.
+	S3Object WebFunctionRevisionS3ObjectInput `pulumi:"s3Object"`
+}
+
+func (BuildConfigPropertiesCodeConfigPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BuildConfigPropertiesCodeConfigProperties)(nil)).Elem()
+}
+
+func (i BuildConfigPropertiesCodeConfigPropertiesArgs) ToBuildConfigPropertiesCodeConfigPropertiesOutput() BuildConfigPropertiesCodeConfigPropertiesOutput {
+	return i.ToBuildConfigPropertiesCodeConfigPropertiesOutputWithContext(context.Background())
+}
+
+func (i BuildConfigPropertiesCodeConfigPropertiesArgs) ToBuildConfigPropertiesCodeConfigPropertiesOutputWithContext(ctx context.Context) BuildConfigPropertiesCodeConfigPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BuildConfigPropertiesCodeConfigPropertiesOutput)
+}
+
+// The code configuration for the revision.
+type BuildConfigPropertiesCodeConfigPropertiesOutput struct{ *pulumi.OutputState }
+
+func (BuildConfigPropertiesCodeConfigPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BuildConfigPropertiesCodeConfigProperties)(nil)).Elem()
+}
+
+func (o BuildConfigPropertiesCodeConfigPropertiesOutput) ToBuildConfigPropertiesCodeConfigPropertiesOutput() BuildConfigPropertiesCodeConfigPropertiesOutput {
+	return o
+}
+
+func (o BuildConfigPropertiesCodeConfigPropertiesOutput) ToBuildConfigPropertiesCodeConfigPropertiesOutputWithContext(ctx context.Context) BuildConfigPropertiesCodeConfigPropertiesOutput {
+	return o
+}
+
+// The Amazon S3 location of the deployment artifact.
+func (o BuildConfigPropertiesCodeConfigPropertiesOutput) S3Object() WebFunctionRevisionS3ObjectOutput {
+	return o.ApplyT(func(v BuildConfigPropertiesCodeConfigProperties) WebFunctionRevisionS3Object { return v.S3Object }).(WebFunctionRevisionS3ObjectOutput)
+}
+
+// The runtime configuration for the revision.
+type BuildConfigPropertiesRuntimeConfigProperties struct {
+	// The runtime identifier.
+	Runtime string `pulumi:"runtime"`
+}
+
+// BuildConfigPropertiesRuntimeConfigPropertiesInput is an input type that accepts BuildConfigPropertiesRuntimeConfigPropertiesArgs and BuildConfigPropertiesRuntimeConfigPropertiesOutput values.
+// You can construct a concrete instance of `BuildConfigPropertiesRuntimeConfigPropertiesInput` via:
+//
+//	BuildConfigPropertiesRuntimeConfigPropertiesArgs{...}
+type BuildConfigPropertiesRuntimeConfigPropertiesInput interface {
+	pulumi.Input
+
+	ToBuildConfigPropertiesRuntimeConfigPropertiesOutput() BuildConfigPropertiesRuntimeConfigPropertiesOutput
+	ToBuildConfigPropertiesRuntimeConfigPropertiesOutputWithContext(context.Context) BuildConfigPropertiesRuntimeConfigPropertiesOutput
+}
+
+// The runtime configuration for the revision.
+type BuildConfigPropertiesRuntimeConfigPropertiesArgs struct {
+	// The runtime identifier.
+	Runtime pulumi.StringInput `pulumi:"runtime"`
+}
+
+func (BuildConfigPropertiesRuntimeConfigPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BuildConfigPropertiesRuntimeConfigProperties)(nil)).Elem()
+}
+
+func (i BuildConfigPropertiesRuntimeConfigPropertiesArgs) ToBuildConfigPropertiesRuntimeConfigPropertiesOutput() BuildConfigPropertiesRuntimeConfigPropertiesOutput {
+	return i.ToBuildConfigPropertiesRuntimeConfigPropertiesOutputWithContext(context.Background())
+}
+
+func (i BuildConfigPropertiesRuntimeConfigPropertiesArgs) ToBuildConfigPropertiesRuntimeConfigPropertiesOutputWithContext(ctx context.Context) BuildConfigPropertiesRuntimeConfigPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BuildConfigPropertiesRuntimeConfigPropertiesOutput)
+}
+
+// The runtime configuration for the revision.
+type BuildConfigPropertiesRuntimeConfigPropertiesOutput struct{ *pulumi.OutputState }
+
+func (BuildConfigPropertiesRuntimeConfigPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BuildConfigPropertiesRuntimeConfigProperties)(nil)).Elem()
+}
+
+func (o BuildConfigPropertiesRuntimeConfigPropertiesOutput) ToBuildConfigPropertiesRuntimeConfigPropertiesOutput() BuildConfigPropertiesRuntimeConfigPropertiesOutput {
+	return o
+}
+
+func (o BuildConfigPropertiesRuntimeConfigPropertiesOutput) ToBuildConfigPropertiesRuntimeConfigPropertiesOutputWithContext(ctx context.Context) BuildConfigPropertiesRuntimeConfigPropertiesOutput {
+	return o
+}
+
+// The runtime identifier.
+func (o BuildConfigPropertiesRuntimeConfigPropertiesOutput) Runtime() pulumi.StringOutput {
+	return o.ApplyT(func(v BuildConfigPropertiesRuntimeConfigProperties) string { return v.Runtime }).(pulumi.StringOutput)
+}
+
 // Specifications that define the characteristics and constraints for compute instances used by the capacity provider.
 type CapacityProviderInstanceRequirements struct {
 	// A list of EC2 instance types that the capacity provider is allowed to use. If not specified, all compatible instance types are allowed.
@@ -8859,10 +9033,10 @@ type NetworkConnectorTag struct {
 
 // The VPC egress configuration for the network connector. Specifies the subnets, security groups, and network protocol for routing outbound traffic through your VPC.
 type NetworkConnectorVpcEgressConfiguration struct {
-	// The types of Lambda compute resources that can use this connector. Currently, only MicroVm is supported.
+	// The types of Lambda compute resources that can use this connector. Supported values are MicroVm and WebFunction.
 	AssociatedComputeResourceTypes []NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItem `pulumi:"associatedComputeResourceTypes"`
 	// The network protocol for the connector. Specify IPv4 for IPv4-only networking, or DualStack for both IPv4 and IPv6.
-	NetworkProtocol *NetworkConnectorVpcEgressConfigurationNetworkProtocol `pulumi:"networkProtocol"`
+	NetworkProtocol NetworkConnectorVpcEgressConfigurationNetworkProtocol `pulumi:"networkProtocol"`
 	// The IDs of the VPC security groups to attach to the ENIs. Specify 0 to 5 security groups. All security groups must be in the same VPC as the subnets.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
 	// The IDs of the VPC subnets where Lambda provisions elastic network interfaces (ENIs). Specify 1 to 16 subnets. All subnets must be in the same VPC.
@@ -8882,10 +9056,10 @@ type NetworkConnectorVpcEgressConfigurationInput interface {
 
 // The VPC egress configuration for the network connector. Specifies the subnets, security groups, and network protocol for routing outbound traffic through your VPC.
 type NetworkConnectorVpcEgressConfigurationArgs struct {
-	// The types of Lambda compute resources that can use this connector. Currently, only MicroVm is supported.
+	// The types of Lambda compute resources that can use this connector. Supported values are MicroVm and WebFunction.
 	AssociatedComputeResourceTypes NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItemArrayInput `pulumi:"associatedComputeResourceTypes"`
 	// The network protocol for the connector. Specify IPv4 for IPv4-only networking, or DualStack for both IPv4 and IPv6.
-	NetworkProtocol NetworkConnectorVpcEgressConfigurationNetworkProtocolPtrInput `pulumi:"networkProtocol"`
+	NetworkProtocol NetworkConnectorVpcEgressConfigurationNetworkProtocolInput `pulumi:"networkProtocol"`
 	// The IDs of the VPC security groups to attach to the ENIs. Specify 0 to 5 security groups. All security groups must be in the same VPC as the subnets.
 	SecurityGroupIds pulumi.StringArrayInput `pulumi:"securityGroupIds"`
 	// The IDs of the VPC subnets where Lambda provisions elastic network interfaces (ENIs). Specify 1 to 16 subnets. All subnets must be in the same VPC.
@@ -8919,7 +9093,7 @@ func (o NetworkConnectorVpcEgressConfigurationOutput) ToNetworkConnectorVpcEgres
 	return o
 }
 
-// The types of Lambda compute resources that can use this connector. Currently, only MicroVm is supported.
+// The types of Lambda compute resources that can use this connector. Supported values are MicroVm and WebFunction.
 func (o NetworkConnectorVpcEgressConfigurationOutput) AssociatedComputeResourceTypes() NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItemArrayOutput {
 	return o.ApplyT(func(v NetworkConnectorVpcEgressConfiguration) []NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItem {
 		return v.AssociatedComputeResourceTypes
@@ -8927,10 +9101,10 @@ func (o NetworkConnectorVpcEgressConfigurationOutput) AssociatedComputeResourceT
 }
 
 // The network protocol for the connector. Specify IPv4 for IPv4-only networking, or DualStack for both IPv4 and IPv6.
-func (o NetworkConnectorVpcEgressConfigurationOutput) NetworkProtocol() NetworkConnectorVpcEgressConfigurationNetworkProtocolPtrOutput {
-	return o.ApplyT(func(v NetworkConnectorVpcEgressConfiguration) *NetworkConnectorVpcEgressConfigurationNetworkProtocol {
+func (o NetworkConnectorVpcEgressConfigurationOutput) NetworkProtocol() NetworkConnectorVpcEgressConfigurationNetworkProtocolOutput {
+	return o.ApplyT(func(v NetworkConnectorVpcEgressConfiguration) NetworkConnectorVpcEgressConfigurationNetworkProtocol {
 		return v.NetworkProtocol
-	}).(NetworkConnectorVpcEgressConfigurationNetworkProtocolPtrOutput)
+	}).(NetworkConnectorVpcEgressConfigurationNetworkProtocolOutput)
 }
 
 // The IDs of the VPC security groups to attach to the ENIs. Specify 0 to 5 security groups. All security groups must be in the same VPC as the subnets.
@@ -8967,7 +9141,7 @@ func (o NetworkConnectorVpcEgressConfigurationPtrOutput) Elem() NetworkConnector
 	}).(NetworkConnectorVpcEgressConfigurationOutput)
 }
 
-// The types of Lambda compute resources that can use this connector. Currently, only MicroVm is supported.
+// The types of Lambda compute resources that can use this connector. Supported values are MicroVm and WebFunction.
 func (o NetworkConnectorVpcEgressConfigurationPtrOutput) AssociatedComputeResourceTypes() NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItemArrayOutput {
 	return o.ApplyT(func(v *NetworkConnectorVpcEgressConfiguration) []NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItem {
 		if v == nil {
@@ -8983,7 +9157,7 @@ func (o NetworkConnectorVpcEgressConfigurationPtrOutput) NetworkProtocol() Netwo
 		if v == nil {
 			return nil
 		}
-		return v.NetworkProtocol
+		return &v.NetworkProtocol
 	}).(NetworkConnectorVpcEgressConfigurationNetworkProtocolPtrOutput)
 }
 
@@ -9005,6 +9179,241 @@ func (o NetworkConnectorVpcEgressConfigurationPtrOutput) SubnetIds() pulumi.Stri
 		}
 		return v.SubnetIds
 	}).(pulumi.StringArrayOutput)
+}
+
+// The service configuration for the revision.
+type ServiceConfigProperties struct {
+	// Environment variables for the function.
+	EnvironmentVariables map[string]string `pulumi:"environmentVariables"`
+	// The ARN of the execution role.
+	ExecutionRoleArn string `pulumi:"executionRoleArn"`
+	// The maximum concurrency per environment.
+	MaxConcurrencyPerEnvironment *int `pulumi:"maxConcurrencyPerEnvironment"`
+	// The telemetry configuration.
+	TelemetryConfig *ServiceConfigPropertiesTelemetryConfigProperties `pulumi:"telemetryConfig"`
+	// The function timeout in seconds.
+	TimeoutSeconds *int `pulumi:"timeoutSeconds"`
+}
+
+// ServiceConfigPropertiesInput is an input type that accepts ServiceConfigPropertiesArgs and ServiceConfigPropertiesOutput values.
+// You can construct a concrete instance of `ServiceConfigPropertiesInput` via:
+//
+//	ServiceConfigPropertiesArgs{...}
+type ServiceConfigPropertiesInput interface {
+	pulumi.Input
+
+	ToServiceConfigPropertiesOutput() ServiceConfigPropertiesOutput
+	ToServiceConfigPropertiesOutputWithContext(context.Context) ServiceConfigPropertiesOutput
+}
+
+// The service configuration for the revision.
+type ServiceConfigPropertiesArgs struct {
+	// Environment variables for the function.
+	EnvironmentVariables pulumi.StringMapInput `pulumi:"environmentVariables"`
+	// The ARN of the execution role.
+	ExecutionRoleArn pulumi.StringInput `pulumi:"executionRoleArn"`
+	// The maximum concurrency per environment.
+	MaxConcurrencyPerEnvironment pulumi.IntPtrInput `pulumi:"maxConcurrencyPerEnvironment"`
+	// The telemetry configuration.
+	TelemetryConfig ServiceConfigPropertiesTelemetryConfigPropertiesPtrInput `pulumi:"telemetryConfig"`
+	// The function timeout in seconds.
+	TimeoutSeconds pulumi.IntPtrInput `pulumi:"timeoutSeconds"`
+}
+
+func (ServiceConfigPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceConfigProperties)(nil)).Elem()
+}
+
+func (i ServiceConfigPropertiesArgs) ToServiceConfigPropertiesOutput() ServiceConfigPropertiesOutput {
+	return i.ToServiceConfigPropertiesOutputWithContext(context.Background())
+}
+
+func (i ServiceConfigPropertiesArgs) ToServiceConfigPropertiesOutputWithContext(ctx context.Context) ServiceConfigPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceConfigPropertiesOutput)
+}
+
+// The service configuration for the revision.
+type ServiceConfigPropertiesOutput struct{ *pulumi.OutputState }
+
+func (ServiceConfigPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceConfigProperties)(nil)).Elem()
+}
+
+func (o ServiceConfigPropertiesOutput) ToServiceConfigPropertiesOutput() ServiceConfigPropertiesOutput {
+	return o
+}
+
+func (o ServiceConfigPropertiesOutput) ToServiceConfigPropertiesOutputWithContext(ctx context.Context) ServiceConfigPropertiesOutput {
+	return o
+}
+
+// Environment variables for the function.
+func (o ServiceConfigPropertiesOutput) EnvironmentVariables() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ServiceConfigProperties) map[string]string { return v.EnvironmentVariables }).(pulumi.StringMapOutput)
+}
+
+// The ARN of the execution role.
+func (o ServiceConfigPropertiesOutput) ExecutionRoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceConfigProperties) string { return v.ExecutionRoleArn }).(pulumi.StringOutput)
+}
+
+// The maximum concurrency per environment.
+func (o ServiceConfigPropertiesOutput) MaxConcurrencyPerEnvironment() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ServiceConfigProperties) *int { return v.MaxConcurrencyPerEnvironment }).(pulumi.IntPtrOutput)
+}
+
+// The telemetry configuration.
+func (o ServiceConfigPropertiesOutput) TelemetryConfig() ServiceConfigPropertiesTelemetryConfigPropertiesPtrOutput {
+	return o.ApplyT(func(v ServiceConfigProperties) *ServiceConfigPropertiesTelemetryConfigProperties {
+		return v.TelemetryConfig
+	}).(ServiceConfigPropertiesTelemetryConfigPropertiesPtrOutput)
+}
+
+// The function timeout in seconds.
+func (o ServiceConfigPropertiesOutput) TimeoutSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ServiceConfigProperties) *int { return v.TimeoutSeconds }).(pulumi.IntPtrOutput)
+}
+
+// The telemetry configuration.
+type ServiceConfigPropertiesTelemetryConfigProperties struct {
+	// The logging configuration for the web function.
+	LoggingConfig *WebFunctionRevisionLoggingConfig `pulumi:"loggingConfig"`
+}
+
+// ServiceConfigPropertiesTelemetryConfigPropertiesInput is an input type that accepts ServiceConfigPropertiesTelemetryConfigPropertiesArgs and ServiceConfigPropertiesTelemetryConfigPropertiesOutput values.
+// You can construct a concrete instance of `ServiceConfigPropertiesTelemetryConfigPropertiesInput` via:
+//
+//	ServiceConfigPropertiesTelemetryConfigPropertiesArgs{...}
+type ServiceConfigPropertiesTelemetryConfigPropertiesInput interface {
+	pulumi.Input
+
+	ToServiceConfigPropertiesTelemetryConfigPropertiesOutput() ServiceConfigPropertiesTelemetryConfigPropertiesOutput
+	ToServiceConfigPropertiesTelemetryConfigPropertiesOutputWithContext(context.Context) ServiceConfigPropertiesTelemetryConfigPropertiesOutput
+}
+
+// The telemetry configuration.
+type ServiceConfigPropertiesTelemetryConfigPropertiesArgs struct {
+	// The logging configuration for the web function.
+	LoggingConfig WebFunctionRevisionLoggingConfigPtrInput `pulumi:"loggingConfig"`
+}
+
+func (ServiceConfigPropertiesTelemetryConfigPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceConfigPropertiesTelemetryConfigProperties)(nil)).Elem()
+}
+
+func (i ServiceConfigPropertiesTelemetryConfigPropertiesArgs) ToServiceConfigPropertiesTelemetryConfigPropertiesOutput() ServiceConfigPropertiesTelemetryConfigPropertiesOutput {
+	return i.ToServiceConfigPropertiesTelemetryConfigPropertiesOutputWithContext(context.Background())
+}
+
+func (i ServiceConfigPropertiesTelemetryConfigPropertiesArgs) ToServiceConfigPropertiesTelemetryConfigPropertiesOutputWithContext(ctx context.Context) ServiceConfigPropertiesTelemetryConfigPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceConfigPropertiesTelemetryConfigPropertiesOutput)
+}
+
+func (i ServiceConfigPropertiesTelemetryConfigPropertiesArgs) ToServiceConfigPropertiesTelemetryConfigPropertiesPtrOutput() ServiceConfigPropertiesTelemetryConfigPropertiesPtrOutput {
+	return i.ToServiceConfigPropertiesTelemetryConfigPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i ServiceConfigPropertiesTelemetryConfigPropertiesArgs) ToServiceConfigPropertiesTelemetryConfigPropertiesPtrOutputWithContext(ctx context.Context) ServiceConfigPropertiesTelemetryConfigPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceConfigPropertiesTelemetryConfigPropertiesOutput).ToServiceConfigPropertiesTelemetryConfigPropertiesPtrOutputWithContext(ctx)
+}
+
+// ServiceConfigPropertiesTelemetryConfigPropertiesPtrInput is an input type that accepts ServiceConfigPropertiesTelemetryConfigPropertiesArgs, ServiceConfigPropertiesTelemetryConfigPropertiesPtr and ServiceConfigPropertiesTelemetryConfigPropertiesPtrOutput values.
+// You can construct a concrete instance of `ServiceConfigPropertiesTelemetryConfigPropertiesPtrInput` via:
+//
+//	        ServiceConfigPropertiesTelemetryConfigPropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type ServiceConfigPropertiesTelemetryConfigPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToServiceConfigPropertiesTelemetryConfigPropertiesPtrOutput() ServiceConfigPropertiesTelemetryConfigPropertiesPtrOutput
+	ToServiceConfigPropertiesTelemetryConfigPropertiesPtrOutputWithContext(context.Context) ServiceConfigPropertiesTelemetryConfigPropertiesPtrOutput
+}
+
+type serviceConfigPropertiesTelemetryConfigPropertiesPtrType ServiceConfigPropertiesTelemetryConfigPropertiesArgs
+
+func ServiceConfigPropertiesTelemetryConfigPropertiesPtr(v *ServiceConfigPropertiesTelemetryConfigPropertiesArgs) ServiceConfigPropertiesTelemetryConfigPropertiesPtrInput {
+	return (*serviceConfigPropertiesTelemetryConfigPropertiesPtrType)(v)
+}
+
+func (*serviceConfigPropertiesTelemetryConfigPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceConfigPropertiesTelemetryConfigProperties)(nil)).Elem()
+}
+
+func (i *serviceConfigPropertiesTelemetryConfigPropertiesPtrType) ToServiceConfigPropertiesTelemetryConfigPropertiesPtrOutput() ServiceConfigPropertiesTelemetryConfigPropertiesPtrOutput {
+	return i.ToServiceConfigPropertiesTelemetryConfigPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *serviceConfigPropertiesTelemetryConfigPropertiesPtrType) ToServiceConfigPropertiesTelemetryConfigPropertiesPtrOutputWithContext(ctx context.Context) ServiceConfigPropertiesTelemetryConfigPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceConfigPropertiesTelemetryConfigPropertiesPtrOutput)
+}
+
+// The telemetry configuration.
+type ServiceConfigPropertiesTelemetryConfigPropertiesOutput struct{ *pulumi.OutputState }
+
+func (ServiceConfigPropertiesTelemetryConfigPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceConfigPropertiesTelemetryConfigProperties)(nil)).Elem()
+}
+
+func (o ServiceConfigPropertiesTelemetryConfigPropertiesOutput) ToServiceConfigPropertiesTelemetryConfigPropertiesOutput() ServiceConfigPropertiesTelemetryConfigPropertiesOutput {
+	return o
+}
+
+func (o ServiceConfigPropertiesTelemetryConfigPropertiesOutput) ToServiceConfigPropertiesTelemetryConfigPropertiesOutputWithContext(ctx context.Context) ServiceConfigPropertiesTelemetryConfigPropertiesOutput {
+	return o
+}
+
+func (o ServiceConfigPropertiesTelemetryConfigPropertiesOutput) ToServiceConfigPropertiesTelemetryConfigPropertiesPtrOutput() ServiceConfigPropertiesTelemetryConfigPropertiesPtrOutput {
+	return o.ToServiceConfigPropertiesTelemetryConfigPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceConfigPropertiesTelemetryConfigPropertiesOutput) ToServiceConfigPropertiesTelemetryConfigPropertiesPtrOutputWithContext(ctx context.Context) ServiceConfigPropertiesTelemetryConfigPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceConfigPropertiesTelemetryConfigProperties) *ServiceConfigPropertiesTelemetryConfigProperties {
+		return &v
+	}).(ServiceConfigPropertiesTelemetryConfigPropertiesPtrOutput)
+}
+
+// The logging configuration for the web function.
+func (o ServiceConfigPropertiesTelemetryConfigPropertiesOutput) LoggingConfig() WebFunctionRevisionLoggingConfigPtrOutput {
+	return o.ApplyT(func(v ServiceConfigPropertiesTelemetryConfigProperties) *WebFunctionRevisionLoggingConfig {
+		return v.LoggingConfig
+	}).(WebFunctionRevisionLoggingConfigPtrOutput)
+}
+
+type ServiceConfigPropertiesTelemetryConfigPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceConfigPropertiesTelemetryConfigPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceConfigPropertiesTelemetryConfigProperties)(nil)).Elem()
+}
+
+func (o ServiceConfigPropertiesTelemetryConfigPropertiesPtrOutput) ToServiceConfigPropertiesTelemetryConfigPropertiesPtrOutput() ServiceConfigPropertiesTelemetryConfigPropertiesPtrOutput {
+	return o
+}
+
+func (o ServiceConfigPropertiesTelemetryConfigPropertiesPtrOutput) ToServiceConfigPropertiesTelemetryConfigPropertiesPtrOutputWithContext(ctx context.Context) ServiceConfigPropertiesTelemetryConfigPropertiesPtrOutput {
+	return o
+}
+
+func (o ServiceConfigPropertiesTelemetryConfigPropertiesPtrOutput) Elem() ServiceConfigPropertiesTelemetryConfigPropertiesOutput {
+	return o.ApplyT(func(v *ServiceConfigPropertiesTelemetryConfigProperties) ServiceConfigPropertiesTelemetryConfigProperties {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceConfigPropertiesTelemetryConfigProperties
+		return ret
+	}).(ServiceConfigPropertiesTelemetryConfigPropertiesOutput)
+}
+
+// The logging configuration for the web function.
+func (o ServiceConfigPropertiesTelemetryConfigPropertiesPtrOutput) LoggingConfig() WebFunctionRevisionLoggingConfigPtrOutput {
+	return o.ApplyT(func(v *ServiceConfigPropertiesTelemetryConfigProperties) *WebFunctionRevisionLoggingConfig {
+		if v == nil {
+			return nil
+		}
+		return v.LoggingConfig
+	}).(WebFunctionRevisionLoggingConfigPtrOutput)
 }
 
 type UrlCors struct {
@@ -9697,6 +10106,768 @@ func (o VersionRuntimePolicyPtrOutput) UpdateRuntimeOn() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
+// Per-region endpoint information.
+type WebFunctionEndpointRegionalEndpoint struct {
+	// The authentication type for the endpoint.
+	AuthType *WebFunctionEndpointRegionalEndpointAuthType `pulumi:"authType"`
+	// The domain name of the endpoint.
+	DomainName *string `pulumi:"domainName"`
+	// The revision weights for the endpoint.
+	RevisionWeights []WebFunctionEndpointRevisionWeight `pulumi:"revisionWeights"`
+	// The scaling configuration for the endpoint.
+	ScalingConfig *WebFunctionEndpointScalingConfig `pulumi:"scalingConfig"`
+	// The current state of the endpoint.
+	State *WebFunctionEndpointRegionalEndpointState `pulumi:"state"`
+	// The reason for the current state of the endpoint.
+	StateReason *string `pulumi:"stateReason"`
+	// The throttling configuration for the endpoint.
+	ThrottleConfig *WebFunctionEndpointThrottleConfig `pulumi:"throttleConfig"`
+	// The status of the most recent update to the endpoint.
+	UpdateStatus *WebFunctionEndpointRegionalEndpointUpdateStatus `pulumi:"updateStatus"`
+	// The reason for the current update status of the endpoint.
+	UpdateStatusReason *string `pulumi:"updateStatusReason"`
+}
+
+// Per-region endpoint information.
+type WebFunctionEndpointRegionalEndpointOutput struct{ *pulumi.OutputState }
+
+func (WebFunctionEndpointRegionalEndpointOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebFunctionEndpointRegionalEndpoint)(nil)).Elem()
+}
+
+func (o WebFunctionEndpointRegionalEndpointOutput) ToWebFunctionEndpointRegionalEndpointOutput() WebFunctionEndpointRegionalEndpointOutput {
+	return o
+}
+
+func (o WebFunctionEndpointRegionalEndpointOutput) ToWebFunctionEndpointRegionalEndpointOutputWithContext(ctx context.Context) WebFunctionEndpointRegionalEndpointOutput {
+	return o
+}
+
+// The authentication type for the endpoint.
+func (o WebFunctionEndpointRegionalEndpointOutput) AuthType() WebFunctionEndpointRegionalEndpointAuthTypePtrOutput {
+	return o.ApplyT(func(v WebFunctionEndpointRegionalEndpoint) *WebFunctionEndpointRegionalEndpointAuthType {
+		return v.AuthType
+	}).(WebFunctionEndpointRegionalEndpointAuthTypePtrOutput)
+}
+
+// The domain name of the endpoint.
+func (o WebFunctionEndpointRegionalEndpointOutput) DomainName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WebFunctionEndpointRegionalEndpoint) *string { return v.DomainName }).(pulumi.StringPtrOutput)
+}
+
+// The revision weights for the endpoint.
+func (o WebFunctionEndpointRegionalEndpointOutput) RevisionWeights() WebFunctionEndpointRevisionWeightArrayOutput {
+	return o.ApplyT(func(v WebFunctionEndpointRegionalEndpoint) []WebFunctionEndpointRevisionWeight {
+		return v.RevisionWeights
+	}).(WebFunctionEndpointRevisionWeightArrayOutput)
+}
+
+// The scaling configuration for the endpoint.
+func (o WebFunctionEndpointRegionalEndpointOutput) ScalingConfig() WebFunctionEndpointScalingConfigPtrOutput {
+	return o.ApplyT(func(v WebFunctionEndpointRegionalEndpoint) *WebFunctionEndpointScalingConfig { return v.ScalingConfig }).(WebFunctionEndpointScalingConfigPtrOutput)
+}
+
+// The current state of the endpoint.
+func (o WebFunctionEndpointRegionalEndpointOutput) State() WebFunctionEndpointRegionalEndpointStatePtrOutput {
+	return o.ApplyT(func(v WebFunctionEndpointRegionalEndpoint) *WebFunctionEndpointRegionalEndpointState { return v.State }).(WebFunctionEndpointRegionalEndpointStatePtrOutput)
+}
+
+// The reason for the current state of the endpoint.
+func (o WebFunctionEndpointRegionalEndpointOutput) StateReason() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WebFunctionEndpointRegionalEndpoint) *string { return v.StateReason }).(pulumi.StringPtrOutput)
+}
+
+// The throttling configuration for the endpoint.
+func (o WebFunctionEndpointRegionalEndpointOutput) ThrottleConfig() WebFunctionEndpointThrottleConfigPtrOutput {
+	return o.ApplyT(func(v WebFunctionEndpointRegionalEndpoint) *WebFunctionEndpointThrottleConfig {
+		return v.ThrottleConfig
+	}).(WebFunctionEndpointThrottleConfigPtrOutput)
+}
+
+// The status of the most recent update to the endpoint.
+func (o WebFunctionEndpointRegionalEndpointOutput) UpdateStatus() WebFunctionEndpointRegionalEndpointUpdateStatusPtrOutput {
+	return o.ApplyT(func(v WebFunctionEndpointRegionalEndpoint) *WebFunctionEndpointRegionalEndpointUpdateStatus {
+		return v.UpdateStatus
+	}).(WebFunctionEndpointRegionalEndpointUpdateStatusPtrOutput)
+}
+
+// The reason for the current update status of the endpoint.
+func (o WebFunctionEndpointRegionalEndpointOutput) UpdateStatusReason() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WebFunctionEndpointRegionalEndpoint) *string { return v.UpdateStatusReason }).(pulumi.StringPtrOutput)
+}
+
+type WebFunctionEndpointRegionalEndpointMapOutput struct{ *pulumi.OutputState }
+
+func (WebFunctionEndpointRegionalEndpointMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]WebFunctionEndpointRegionalEndpoint)(nil)).Elem()
+}
+
+func (o WebFunctionEndpointRegionalEndpointMapOutput) ToWebFunctionEndpointRegionalEndpointMapOutput() WebFunctionEndpointRegionalEndpointMapOutput {
+	return o
+}
+
+func (o WebFunctionEndpointRegionalEndpointMapOutput) ToWebFunctionEndpointRegionalEndpointMapOutputWithContext(ctx context.Context) WebFunctionEndpointRegionalEndpointMapOutput {
+	return o
+}
+
+func (o WebFunctionEndpointRegionalEndpointMapOutput) MapIndex(k pulumi.StringInput) WebFunctionEndpointRegionalEndpointOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) WebFunctionEndpointRegionalEndpoint {
+		return vs[0].(map[string]WebFunctionEndpointRegionalEndpoint)[vs[1].(string)]
+	}).(WebFunctionEndpointRegionalEndpointOutput)
+}
+
+// A revision routing entry.
+type WebFunctionEndpointRevisionWeight struct {
+	// The revision identifier.
+	RevisionId string `pulumi:"revisionId"`
+	// The traffic weight for this revision.
+	Weight int `pulumi:"weight"`
+}
+
+// WebFunctionEndpointRevisionWeightInput is an input type that accepts WebFunctionEndpointRevisionWeightArgs and WebFunctionEndpointRevisionWeightOutput values.
+// You can construct a concrete instance of `WebFunctionEndpointRevisionWeightInput` via:
+//
+//	WebFunctionEndpointRevisionWeightArgs{...}
+type WebFunctionEndpointRevisionWeightInput interface {
+	pulumi.Input
+
+	ToWebFunctionEndpointRevisionWeightOutput() WebFunctionEndpointRevisionWeightOutput
+	ToWebFunctionEndpointRevisionWeightOutputWithContext(context.Context) WebFunctionEndpointRevisionWeightOutput
+}
+
+// A revision routing entry.
+type WebFunctionEndpointRevisionWeightArgs struct {
+	// The revision identifier.
+	RevisionId pulumi.StringInput `pulumi:"revisionId"`
+	// The traffic weight for this revision.
+	Weight pulumi.IntInput `pulumi:"weight"`
+}
+
+func (WebFunctionEndpointRevisionWeightArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebFunctionEndpointRevisionWeight)(nil)).Elem()
+}
+
+func (i WebFunctionEndpointRevisionWeightArgs) ToWebFunctionEndpointRevisionWeightOutput() WebFunctionEndpointRevisionWeightOutput {
+	return i.ToWebFunctionEndpointRevisionWeightOutputWithContext(context.Background())
+}
+
+func (i WebFunctionEndpointRevisionWeightArgs) ToWebFunctionEndpointRevisionWeightOutputWithContext(ctx context.Context) WebFunctionEndpointRevisionWeightOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebFunctionEndpointRevisionWeightOutput)
+}
+
+// WebFunctionEndpointRevisionWeightArrayInput is an input type that accepts WebFunctionEndpointRevisionWeightArray and WebFunctionEndpointRevisionWeightArrayOutput values.
+// You can construct a concrete instance of `WebFunctionEndpointRevisionWeightArrayInput` via:
+//
+//	WebFunctionEndpointRevisionWeightArray{ WebFunctionEndpointRevisionWeightArgs{...} }
+type WebFunctionEndpointRevisionWeightArrayInput interface {
+	pulumi.Input
+
+	ToWebFunctionEndpointRevisionWeightArrayOutput() WebFunctionEndpointRevisionWeightArrayOutput
+	ToWebFunctionEndpointRevisionWeightArrayOutputWithContext(context.Context) WebFunctionEndpointRevisionWeightArrayOutput
+}
+
+type WebFunctionEndpointRevisionWeightArray []WebFunctionEndpointRevisionWeightInput
+
+func (WebFunctionEndpointRevisionWeightArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WebFunctionEndpointRevisionWeight)(nil)).Elem()
+}
+
+func (i WebFunctionEndpointRevisionWeightArray) ToWebFunctionEndpointRevisionWeightArrayOutput() WebFunctionEndpointRevisionWeightArrayOutput {
+	return i.ToWebFunctionEndpointRevisionWeightArrayOutputWithContext(context.Background())
+}
+
+func (i WebFunctionEndpointRevisionWeightArray) ToWebFunctionEndpointRevisionWeightArrayOutputWithContext(ctx context.Context) WebFunctionEndpointRevisionWeightArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebFunctionEndpointRevisionWeightArrayOutput)
+}
+
+// A revision routing entry.
+type WebFunctionEndpointRevisionWeightOutput struct{ *pulumi.OutputState }
+
+func (WebFunctionEndpointRevisionWeightOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebFunctionEndpointRevisionWeight)(nil)).Elem()
+}
+
+func (o WebFunctionEndpointRevisionWeightOutput) ToWebFunctionEndpointRevisionWeightOutput() WebFunctionEndpointRevisionWeightOutput {
+	return o
+}
+
+func (o WebFunctionEndpointRevisionWeightOutput) ToWebFunctionEndpointRevisionWeightOutputWithContext(ctx context.Context) WebFunctionEndpointRevisionWeightOutput {
+	return o
+}
+
+// The revision identifier.
+func (o WebFunctionEndpointRevisionWeightOutput) RevisionId() pulumi.StringOutput {
+	return o.ApplyT(func(v WebFunctionEndpointRevisionWeight) string { return v.RevisionId }).(pulumi.StringOutput)
+}
+
+// The traffic weight for this revision.
+func (o WebFunctionEndpointRevisionWeightOutput) Weight() pulumi.IntOutput {
+	return o.ApplyT(func(v WebFunctionEndpointRevisionWeight) int { return v.Weight }).(pulumi.IntOutput)
+}
+
+type WebFunctionEndpointRevisionWeightArrayOutput struct{ *pulumi.OutputState }
+
+func (WebFunctionEndpointRevisionWeightArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WebFunctionEndpointRevisionWeight)(nil)).Elem()
+}
+
+func (o WebFunctionEndpointRevisionWeightArrayOutput) ToWebFunctionEndpointRevisionWeightArrayOutput() WebFunctionEndpointRevisionWeightArrayOutput {
+	return o
+}
+
+func (o WebFunctionEndpointRevisionWeightArrayOutput) ToWebFunctionEndpointRevisionWeightArrayOutputWithContext(ctx context.Context) WebFunctionEndpointRevisionWeightArrayOutput {
+	return o
+}
+
+func (o WebFunctionEndpointRevisionWeightArrayOutput) Index(i pulumi.IntInput) WebFunctionEndpointRevisionWeightOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WebFunctionEndpointRevisionWeight {
+		return vs[0].([]WebFunctionEndpointRevisionWeight)[vs[1].(int)]
+	}).(WebFunctionEndpointRevisionWeightOutput)
+}
+
+// The scaling configuration for the endpoint. Optionally constrains how many concurrent execution environments the endpoint can use, in addition to your account's vCPU quota.
+type WebFunctionEndpointScalingConfig struct {
+	// The maximum number of concurrent execution environments for the endpoint. This optional limit further constrains the endpoint's scaling. When omitted, the endpoint's scaling is limited only by your account's vCPU quota.
+	MaxEnvironments *int `pulumi:"maxEnvironments"`
+}
+
+// WebFunctionEndpointScalingConfigInput is an input type that accepts WebFunctionEndpointScalingConfigArgs and WebFunctionEndpointScalingConfigOutput values.
+// You can construct a concrete instance of `WebFunctionEndpointScalingConfigInput` via:
+//
+//	WebFunctionEndpointScalingConfigArgs{...}
+type WebFunctionEndpointScalingConfigInput interface {
+	pulumi.Input
+
+	ToWebFunctionEndpointScalingConfigOutput() WebFunctionEndpointScalingConfigOutput
+	ToWebFunctionEndpointScalingConfigOutputWithContext(context.Context) WebFunctionEndpointScalingConfigOutput
+}
+
+// The scaling configuration for the endpoint. Optionally constrains how many concurrent execution environments the endpoint can use, in addition to your account's vCPU quota.
+type WebFunctionEndpointScalingConfigArgs struct {
+	// The maximum number of concurrent execution environments for the endpoint. This optional limit further constrains the endpoint's scaling. When omitted, the endpoint's scaling is limited only by your account's vCPU quota.
+	MaxEnvironments pulumi.IntPtrInput `pulumi:"maxEnvironments"`
+}
+
+func (WebFunctionEndpointScalingConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebFunctionEndpointScalingConfig)(nil)).Elem()
+}
+
+func (i WebFunctionEndpointScalingConfigArgs) ToWebFunctionEndpointScalingConfigOutput() WebFunctionEndpointScalingConfigOutput {
+	return i.ToWebFunctionEndpointScalingConfigOutputWithContext(context.Background())
+}
+
+func (i WebFunctionEndpointScalingConfigArgs) ToWebFunctionEndpointScalingConfigOutputWithContext(ctx context.Context) WebFunctionEndpointScalingConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebFunctionEndpointScalingConfigOutput)
+}
+
+func (i WebFunctionEndpointScalingConfigArgs) ToWebFunctionEndpointScalingConfigPtrOutput() WebFunctionEndpointScalingConfigPtrOutput {
+	return i.ToWebFunctionEndpointScalingConfigPtrOutputWithContext(context.Background())
+}
+
+func (i WebFunctionEndpointScalingConfigArgs) ToWebFunctionEndpointScalingConfigPtrOutputWithContext(ctx context.Context) WebFunctionEndpointScalingConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebFunctionEndpointScalingConfigOutput).ToWebFunctionEndpointScalingConfigPtrOutputWithContext(ctx)
+}
+
+// WebFunctionEndpointScalingConfigPtrInput is an input type that accepts WebFunctionEndpointScalingConfigArgs, WebFunctionEndpointScalingConfigPtr and WebFunctionEndpointScalingConfigPtrOutput values.
+// You can construct a concrete instance of `WebFunctionEndpointScalingConfigPtrInput` via:
+//
+//	        WebFunctionEndpointScalingConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type WebFunctionEndpointScalingConfigPtrInput interface {
+	pulumi.Input
+
+	ToWebFunctionEndpointScalingConfigPtrOutput() WebFunctionEndpointScalingConfigPtrOutput
+	ToWebFunctionEndpointScalingConfigPtrOutputWithContext(context.Context) WebFunctionEndpointScalingConfigPtrOutput
+}
+
+type webFunctionEndpointScalingConfigPtrType WebFunctionEndpointScalingConfigArgs
+
+func WebFunctionEndpointScalingConfigPtr(v *WebFunctionEndpointScalingConfigArgs) WebFunctionEndpointScalingConfigPtrInput {
+	return (*webFunctionEndpointScalingConfigPtrType)(v)
+}
+
+func (*webFunctionEndpointScalingConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebFunctionEndpointScalingConfig)(nil)).Elem()
+}
+
+func (i *webFunctionEndpointScalingConfigPtrType) ToWebFunctionEndpointScalingConfigPtrOutput() WebFunctionEndpointScalingConfigPtrOutput {
+	return i.ToWebFunctionEndpointScalingConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *webFunctionEndpointScalingConfigPtrType) ToWebFunctionEndpointScalingConfigPtrOutputWithContext(ctx context.Context) WebFunctionEndpointScalingConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebFunctionEndpointScalingConfigPtrOutput)
+}
+
+// The scaling configuration for the endpoint. Optionally constrains how many concurrent execution environments the endpoint can use, in addition to your account's vCPU quota.
+type WebFunctionEndpointScalingConfigOutput struct{ *pulumi.OutputState }
+
+func (WebFunctionEndpointScalingConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebFunctionEndpointScalingConfig)(nil)).Elem()
+}
+
+func (o WebFunctionEndpointScalingConfigOutput) ToWebFunctionEndpointScalingConfigOutput() WebFunctionEndpointScalingConfigOutput {
+	return o
+}
+
+func (o WebFunctionEndpointScalingConfigOutput) ToWebFunctionEndpointScalingConfigOutputWithContext(ctx context.Context) WebFunctionEndpointScalingConfigOutput {
+	return o
+}
+
+func (o WebFunctionEndpointScalingConfigOutput) ToWebFunctionEndpointScalingConfigPtrOutput() WebFunctionEndpointScalingConfigPtrOutput {
+	return o.ToWebFunctionEndpointScalingConfigPtrOutputWithContext(context.Background())
+}
+
+func (o WebFunctionEndpointScalingConfigOutput) ToWebFunctionEndpointScalingConfigPtrOutputWithContext(ctx context.Context) WebFunctionEndpointScalingConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebFunctionEndpointScalingConfig) *WebFunctionEndpointScalingConfig {
+		return &v
+	}).(WebFunctionEndpointScalingConfigPtrOutput)
+}
+
+// The maximum number of concurrent execution environments for the endpoint. This optional limit further constrains the endpoint's scaling. When omitted, the endpoint's scaling is limited only by your account's vCPU quota.
+func (o WebFunctionEndpointScalingConfigOutput) MaxEnvironments() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v WebFunctionEndpointScalingConfig) *int { return v.MaxEnvironments }).(pulumi.IntPtrOutput)
+}
+
+type WebFunctionEndpointScalingConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (WebFunctionEndpointScalingConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebFunctionEndpointScalingConfig)(nil)).Elem()
+}
+
+func (o WebFunctionEndpointScalingConfigPtrOutput) ToWebFunctionEndpointScalingConfigPtrOutput() WebFunctionEndpointScalingConfigPtrOutput {
+	return o
+}
+
+func (o WebFunctionEndpointScalingConfigPtrOutput) ToWebFunctionEndpointScalingConfigPtrOutputWithContext(ctx context.Context) WebFunctionEndpointScalingConfigPtrOutput {
+	return o
+}
+
+func (o WebFunctionEndpointScalingConfigPtrOutput) Elem() WebFunctionEndpointScalingConfigOutput {
+	return o.ApplyT(func(v *WebFunctionEndpointScalingConfig) WebFunctionEndpointScalingConfig {
+		if v != nil {
+			return *v
+		}
+		var ret WebFunctionEndpointScalingConfig
+		return ret
+	}).(WebFunctionEndpointScalingConfigOutput)
+}
+
+// The maximum number of concurrent execution environments for the endpoint. This optional limit further constrains the endpoint's scaling. When omitted, the endpoint's scaling is limited only by your account's vCPU quota.
+func (o WebFunctionEndpointScalingConfigPtrOutput) MaxEnvironments() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *WebFunctionEndpointScalingConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxEnvironments
+	}).(pulumi.IntPtrOutput)
+}
+
+// The throttling configuration for the endpoint. Optionally constrains the request rate that the endpoint accepts, in addition to your account's rate limit quota.
+type WebFunctionEndpointThrottleConfig struct {
+	// The maximum request rate per second for the endpoint, up to a maximum of 10000. This optional limit further constrains the endpoint's request rate. When omitted, the endpoint's request rate is limited only by your account's rate limit quota. Specify 0 to reject all new requests. Other supported values are 100 through 1000 in increments of 100, and 2000 through 10000 in increments of 1000. Supported values can vary by Region; if you specify an unsupported value, the error lists the values available in that Region.
+	RateLimit *int `pulumi:"rateLimit"`
+}
+
+// WebFunctionEndpointThrottleConfigInput is an input type that accepts WebFunctionEndpointThrottleConfigArgs and WebFunctionEndpointThrottleConfigOutput values.
+// You can construct a concrete instance of `WebFunctionEndpointThrottleConfigInput` via:
+//
+//	WebFunctionEndpointThrottleConfigArgs{...}
+type WebFunctionEndpointThrottleConfigInput interface {
+	pulumi.Input
+
+	ToWebFunctionEndpointThrottleConfigOutput() WebFunctionEndpointThrottleConfigOutput
+	ToWebFunctionEndpointThrottleConfigOutputWithContext(context.Context) WebFunctionEndpointThrottleConfigOutput
+}
+
+// The throttling configuration for the endpoint. Optionally constrains the request rate that the endpoint accepts, in addition to your account's rate limit quota.
+type WebFunctionEndpointThrottleConfigArgs struct {
+	// The maximum request rate per second for the endpoint, up to a maximum of 10000. This optional limit further constrains the endpoint's request rate. When omitted, the endpoint's request rate is limited only by your account's rate limit quota. Specify 0 to reject all new requests. Other supported values are 100 through 1000 in increments of 100, and 2000 through 10000 in increments of 1000. Supported values can vary by Region; if you specify an unsupported value, the error lists the values available in that Region.
+	RateLimit pulumi.IntPtrInput `pulumi:"rateLimit"`
+}
+
+func (WebFunctionEndpointThrottleConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebFunctionEndpointThrottleConfig)(nil)).Elem()
+}
+
+func (i WebFunctionEndpointThrottleConfigArgs) ToWebFunctionEndpointThrottleConfigOutput() WebFunctionEndpointThrottleConfigOutput {
+	return i.ToWebFunctionEndpointThrottleConfigOutputWithContext(context.Background())
+}
+
+func (i WebFunctionEndpointThrottleConfigArgs) ToWebFunctionEndpointThrottleConfigOutputWithContext(ctx context.Context) WebFunctionEndpointThrottleConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebFunctionEndpointThrottleConfigOutput)
+}
+
+func (i WebFunctionEndpointThrottleConfigArgs) ToWebFunctionEndpointThrottleConfigPtrOutput() WebFunctionEndpointThrottleConfigPtrOutput {
+	return i.ToWebFunctionEndpointThrottleConfigPtrOutputWithContext(context.Background())
+}
+
+func (i WebFunctionEndpointThrottleConfigArgs) ToWebFunctionEndpointThrottleConfigPtrOutputWithContext(ctx context.Context) WebFunctionEndpointThrottleConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebFunctionEndpointThrottleConfigOutput).ToWebFunctionEndpointThrottleConfigPtrOutputWithContext(ctx)
+}
+
+// WebFunctionEndpointThrottleConfigPtrInput is an input type that accepts WebFunctionEndpointThrottleConfigArgs, WebFunctionEndpointThrottleConfigPtr and WebFunctionEndpointThrottleConfigPtrOutput values.
+// You can construct a concrete instance of `WebFunctionEndpointThrottleConfigPtrInput` via:
+//
+//	        WebFunctionEndpointThrottleConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type WebFunctionEndpointThrottleConfigPtrInput interface {
+	pulumi.Input
+
+	ToWebFunctionEndpointThrottleConfigPtrOutput() WebFunctionEndpointThrottleConfigPtrOutput
+	ToWebFunctionEndpointThrottleConfigPtrOutputWithContext(context.Context) WebFunctionEndpointThrottleConfigPtrOutput
+}
+
+type webFunctionEndpointThrottleConfigPtrType WebFunctionEndpointThrottleConfigArgs
+
+func WebFunctionEndpointThrottleConfigPtr(v *WebFunctionEndpointThrottleConfigArgs) WebFunctionEndpointThrottleConfigPtrInput {
+	return (*webFunctionEndpointThrottleConfigPtrType)(v)
+}
+
+func (*webFunctionEndpointThrottleConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebFunctionEndpointThrottleConfig)(nil)).Elem()
+}
+
+func (i *webFunctionEndpointThrottleConfigPtrType) ToWebFunctionEndpointThrottleConfigPtrOutput() WebFunctionEndpointThrottleConfigPtrOutput {
+	return i.ToWebFunctionEndpointThrottleConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *webFunctionEndpointThrottleConfigPtrType) ToWebFunctionEndpointThrottleConfigPtrOutputWithContext(ctx context.Context) WebFunctionEndpointThrottleConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebFunctionEndpointThrottleConfigPtrOutput)
+}
+
+// The throttling configuration for the endpoint. Optionally constrains the request rate that the endpoint accepts, in addition to your account's rate limit quota.
+type WebFunctionEndpointThrottleConfigOutput struct{ *pulumi.OutputState }
+
+func (WebFunctionEndpointThrottleConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebFunctionEndpointThrottleConfig)(nil)).Elem()
+}
+
+func (o WebFunctionEndpointThrottleConfigOutput) ToWebFunctionEndpointThrottleConfigOutput() WebFunctionEndpointThrottleConfigOutput {
+	return o
+}
+
+func (o WebFunctionEndpointThrottleConfigOutput) ToWebFunctionEndpointThrottleConfigOutputWithContext(ctx context.Context) WebFunctionEndpointThrottleConfigOutput {
+	return o
+}
+
+func (o WebFunctionEndpointThrottleConfigOutput) ToWebFunctionEndpointThrottleConfigPtrOutput() WebFunctionEndpointThrottleConfigPtrOutput {
+	return o.ToWebFunctionEndpointThrottleConfigPtrOutputWithContext(context.Background())
+}
+
+func (o WebFunctionEndpointThrottleConfigOutput) ToWebFunctionEndpointThrottleConfigPtrOutputWithContext(ctx context.Context) WebFunctionEndpointThrottleConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebFunctionEndpointThrottleConfig) *WebFunctionEndpointThrottleConfig {
+		return &v
+	}).(WebFunctionEndpointThrottleConfigPtrOutput)
+}
+
+// The maximum request rate per second for the endpoint, up to a maximum of 10000. This optional limit further constrains the endpoint's request rate. When omitted, the endpoint's request rate is limited only by your account's rate limit quota. Specify 0 to reject all new requests. Other supported values are 100 through 1000 in increments of 100, and 2000 through 10000 in increments of 1000. Supported values can vary by Region; if you specify an unsupported value, the error lists the values available in that Region.
+func (o WebFunctionEndpointThrottleConfigOutput) RateLimit() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v WebFunctionEndpointThrottleConfig) *int { return v.RateLimit }).(pulumi.IntPtrOutput)
+}
+
+type WebFunctionEndpointThrottleConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (WebFunctionEndpointThrottleConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebFunctionEndpointThrottleConfig)(nil)).Elem()
+}
+
+func (o WebFunctionEndpointThrottleConfigPtrOutput) ToWebFunctionEndpointThrottleConfigPtrOutput() WebFunctionEndpointThrottleConfigPtrOutput {
+	return o
+}
+
+func (o WebFunctionEndpointThrottleConfigPtrOutput) ToWebFunctionEndpointThrottleConfigPtrOutputWithContext(ctx context.Context) WebFunctionEndpointThrottleConfigPtrOutput {
+	return o
+}
+
+func (o WebFunctionEndpointThrottleConfigPtrOutput) Elem() WebFunctionEndpointThrottleConfigOutput {
+	return o.ApplyT(func(v *WebFunctionEndpointThrottleConfig) WebFunctionEndpointThrottleConfig {
+		if v != nil {
+			return *v
+		}
+		var ret WebFunctionEndpointThrottleConfig
+		return ret
+	}).(WebFunctionEndpointThrottleConfigOutput)
+}
+
+// The maximum request rate per second for the endpoint, up to a maximum of 10000. This optional limit further constrains the endpoint's request rate. When omitted, the endpoint's request rate is limited only by your account's rate limit quota. Specify 0 to reject all new requests. Other supported values are 100 through 1000 in increments of 100, and 2000 through 10000 in increments of 1000. Supported values can vary by Region; if you specify an unsupported value, the error lists the values available in that Region.
+func (o WebFunctionEndpointThrottleConfigPtrOutput) RateLimit() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *WebFunctionEndpointThrottleConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.RateLimit
+	}).(pulumi.IntPtrOutput)
+}
+
+// The logging configuration.
+type WebFunctionRevisionLoggingConfig struct {
+	// The application log level.
+	ApplicationLogLevel *WebFunctionRevisionLoggingConfigApplicationLogLevel `pulumi:"applicationLogLevel"`
+	// The CloudWatch log group name.
+	LogGroup *string `pulumi:"logGroup"`
+	// The system log level.
+	SystemLogLevel *WebFunctionRevisionLoggingConfigSystemLogLevel `pulumi:"systemLogLevel"`
+}
+
+// WebFunctionRevisionLoggingConfigInput is an input type that accepts WebFunctionRevisionLoggingConfigArgs and WebFunctionRevisionLoggingConfigOutput values.
+// You can construct a concrete instance of `WebFunctionRevisionLoggingConfigInput` via:
+//
+//	WebFunctionRevisionLoggingConfigArgs{...}
+type WebFunctionRevisionLoggingConfigInput interface {
+	pulumi.Input
+
+	ToWebFunctionRevisionLoggingConfigOutput() WebFunctionRevisionLoggingConfigOutput
+	ToWebFunctionRevisionLoggingConfigOutputWithContext(context.Context) WebFunctionRevisionLoggingConfigOutput
+}
+
+// The logging configuration.
+type WebFunctionRevisionLoggingConfigArgs struct {
+	// The application log level.
+	ApplicationLogLevel WebFunctionRevisionLoggingConfigApplicationLogLevelPtrInput `pulumi:"applicationLogLevel"`
+	// The CloudWatch log group name.
+	LogGroup pulumi.StringPtrInput `pulumi:"logGroup"`
+	// The system log level.
+	SystemLogLevel WebFunctionRevisionLoggingConfigSystemLogLevelPtrInput `pulumi:"systemLogLevel"`
+}
+
+func (WebFunctionRevisionLoggingConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebFunctionRevisionLoggingConfig)(nil)).Elem()
+}
+
+func (i WebFunctionRevisionLoggingConfigArgs) ToWebFunctionRevisionLoggingConfigOutput() WebFunctionRevisionLoggingConfigOutput {
+	return i.ToWebFunctionRevisionLoggingConfigOutputWithContext(context.Background())
+}
+
+func (i WebFunctionRevisionLoggingConfigArgs) ToWebFunctionRevisionLoggingConfigOutputWithContext(ctx context.Context) WebFunctionRevisionLoggingConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebFunctionRevisionLoggingConfigOutput)
+}
+
+func (i WebFunctionRevisionLoggingConfigArgs) ToWebFunctionRevisionLoggingConfigPtrOutput() WebFunctionRevisionLoggingConfigPtrOutput {
+	return i.ToWebFunctionRevisionLoggingConfigPtrOutputWithContext(context.Background())
+}
+
+func (i WebFunctionRevisionLoggingConfigArgs) ToWebFunctionRevisionLoggingConfigPtrOutputWithContext(ctx context.Context) WebFunctionRevisionLoggingConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebFunctionRevisionLoggingConfigOutput).ToWebFunctionRevisionLoggingConfigPtrOutputWithContext(ctx)
+}
+
+// WebFunctionRevisionLoggingConfigPtrInput is an input type that accepts WebFunctionRevisionLoggingConfigArgs, WebFunctionRevisionLoggingConfigPtr and WebFunctionRevisionLoggingConfigPtrOutput values.
+// You can construct a concrete instance of `WebFunctionRevisionLoggingConfigPtrInput` via:
+//
+//	        WebFunctionRevisionLoggingConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type WebFunctionRevisionLoggingConfigPtrInput interface {
+	pulumi.Input
+
+	ToWebFunctionRevisionLoggingConfigPtrOutput() WebFunctionRevisionLoggingConfigPtrOutput
+	ToWebFunctionRevisionLoggingConfigPtrOutputWithContext(context.Context) WebFunctionRevisionLoggingConfigPtrOutput
+}
+
+type webFunctionRevisionLoggingConfigPtrType WebFunctionRevisionLoggingConfigArgs
+
+func WebFunctionRevisionLoggingConfigPtr(v *WebFunctionRevisionLoggingConfigArgs) WebFunctionRevisionLoggingConfigPtrInput {
+	return (*webFunctionRevisionLoggingConfigPtrType)(v)
+}
+
+func (*webFunctionRevisionLoggingConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebFunctionRevisionLoggingConfig)(nil)).Elem()
+}
+
+func (i *webFunctionRevisionLoggingConfigPtrType) ToWebFunctionRevisionLoggingConfigPtrOutput() WebFunctionRevisionLoggingConfigPtrOutput {
+	return i.ToWebFunctionRevisionLoggingConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *webFunctionRevisionLoggingConfigPtrType) ToWebFunctionRevisionLoggingConfigPtrOutputWithContext(ctx context.Context) WebFunctionRevisionLoggingConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebFunctionRevisionLoggingConfigPtrOutput)
+}
+
+// The logging configuration.
+type WebFunctionRevisionLoggingConfigOutput struct{ *pulumi.OutputState }
+
+func (WebFunctionRevisionLoggingConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebFunctionRevisionLoggingConfig)(nil)).Elem()
+}
+
+func (o WebFunctionRevisionLoggingConfigOutput) ToWebFunctionRevisionLoggingConfigOutput() WebFunctionRevisionLoggingConfigOutput {
+	return o
+}
+
+func (o WebFunctionRevisionLoggingConfigOutput) ToWebFunctionRevisionLoggingConfigOutputWithContext(ctx context.Context) WebFunctionRevisionLoggingConfigOutput {
+	return o
+}
+
+func (o WebFunctionRevisionLoggingConfigOutput) ToWebFunctionRevisionLoggingConfigPtrOutput() WebFunctionRevisionLoggingConfigPtrOutput {
+	return o.ToWebFunctionRevisionLoggingConfigPtrOutputWithContext(context.Background())
+}
+
+func (o WebFunctionRevisionLoggingConfigOutput) ToWebFunctionRevisionLoggingConfigPtrOutputWithContext(ctx context.Context) WebFunctionRevisionLoggingConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebFunctionRevisionLoggingConfig) *WebFunctionRevisionLoggingConfig {
+		return &v
+	}).(WebFunctionRevisionLoggingConfigPtrOutput)
+}
+
+// The application log level.
+func (o WebFunctionRevisionLoggingConfigOutput) ApplicationLogLevel() WebFunctionRevisionLoggingConfigApplicationLogLevelPtrOutput {
+	return o.ApplyT(func(v WebFunctionRevisionLoggingConfig) *WebFunctionRevisionLoggingConfigApplicationLogLevel {
+		return v.ApplicationLogLevel
+	}).(WebFunctionRevisionLoggingConfigApplicationLogLevelPtrOutput)
+}
+
+// The CloudWatch log group name.
+func (o WebFunctionRevisionLoggingConfigOutput) LogGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WebFunctionRevisionLoggingConfig) *string { return v.LogGroup }).(pulumi.StringPtrOutput)
+}
+
+// The system log level.
+func (o WebFunctionRevisionLoggingConfigOutput) SystemLogLevel() WebFunctionRevisionLoggingConfigSystemLogLevelPtrOutput {
+	return o.ApplyT(func(v WebFunctionRevisionLoggingConfig) *WebFunctionRevisionLoggingConfigSystemLogLevel {
+		return v.SystemLogLevel
+	}).(WebFunctionRevisionLoggingConfigSystemLogLevelPtrOutput)
+}
+
+type WebFunctionRevisionLoggingConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (WebFunctionRevisionLoggingConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebFunctionRevisionLoggingConfig)(nil)).Elem()
+}
+
+func (o WebFunctionRevisionLoggingConfigPtrOutput) ToWebFunctionRevisionLoggingConfigPtrOutput() WebFunctionRevisionLoggingConfigPtrOutput {
+	return o
+}
+
+func (o WebFunctionRevisionLoggingConfigPtrOutput) ToWebFunctionRevisionLoggingConfigPtrOutputWithContext(ctx context.Context) WebFunctionRevisionLoggingConfigPtrOutput {
+	return o
+}
+
+func (o WebFunctionRevisionLoggingConfigPtrOutput) Elem() WebFunctionRevisionLoggingConfigOutput {
+	return o.ApplyT(func(v *WebFunctionRevisionLoggingConfig) WebFunctionRevisionLoggingConfig {
+		if v != nil {
+			return *v
+		}
+		var ret WebFunctionRevisionLoggingConfig
+		return ret
+	}).(WebFunctionRevisionLoggingConfigOutput)
+}
+
+// The application log level.
+func (o WebFunctionRevisionLoggingConfigPtrOutput) ApplicationLogLevel() WebFunctionRevisionLoggingConfigApplicationLogLevelPtrOutput {
+	return o.ApplyT(func(v *WebFunctionRevisionLoggingConfig) *WebFunctionRevisionLoggingConfigApplicationLogLevel {
+		if v == nil {
+			return nil
+		}
+		return v.ApplicationLogLevel
+	}).(WebFunctionRevisionLoggingConfigApplicationLogLevelPtrOutput)
+}
+
+// The CloudWatch log group name.
+func (o WebFunctionRevisionLoggingConfigPtrOutput) LogGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebFunctionRevisionLoggingConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LogGroup
+	}).(pulumi.StringPtrOutput)
+}
+
+// The system log level.
+func (o WebFunctionRevisionLoggingConfigPtrOutput) SystemLogLevel() WebFunctionRevisionLoggingConfigSystemLogLevelPtrOutput {
+	return o.ApplyT(func(v *WebFunctionRevisionLoggingConfig) *WebFunctionRevisionLoggingConfigSystemLogLevel {
+		if v == nil {
+			return nil
+		}
+		return v.SystemLogLevel
+	}).(WebFunctionRevisionLoggingConfigSystemLogLevelPtrOutput)
+}
+
+// The S3 location of the function code.
+type WebFunctionRevisionS3Object struct {
+	// The S3 bucket name.
+	Bucket string `pulumi:"bucket"`
+	// The S3 object key.
+	Key string `pulumi:"key"`
+	// The S3 object version ID.
+	VersionId *string `pulumi:"versionId"`
+}
+
+// WebFunctionRevisionS3ObjectInput is an input type that accepts WebFunctionRevisionS3ObjectArgs and WebFunctionRevisionS3ObjectOutput values.
+// You can construct a concrete instance of `WebFunctionRevisionS3ObjectInput` via:
+//
+//	WebFunctionRevisionS3ObjectArgs{...}
+type WebFunctionRevisionS3ObjectInput interface {
+	pulumi.Input
+
+	ToWebFunctionRevisionS3ObjectOutput() WebFunctionRevisionS3ObjectOutput
+	ToWebFunctionRevisionS3ObjectOutputWithContext(context.Context) WebFunctionRevisionS3ObjectOutput
+}
+
+// The S3 location of the function code.
+type WebFunctionRevisionS3ObjectArgs struct {
+	// The S3 bucket name.
+	Bucket pulumi.StringInput `pulumi:"bucket"`
+	// The S3 object key.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The S3 object version ID.
+	VersionId pulumi.StringPtrInput `pulumi:"versionId"`
+}
+
+func (WebFunctionRevisionS3ObjectArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebFunctionRevisionS3Object)(nil)).Elem()
+}
+
+func (i WebFunctionRevisionS3ObjectArgs) ToWebFunctionRevisionS3ObjectOutput() WebFunctionRevisionS3ObjectOutput {
+	return i.ToWebFunctionRevisionS3ObjectOutputWithContext(context.Background())
+}
+
+func (i WebFunctionRevisionS3ObjectArgs) ToWebFunctionRevisionS3ObjectOutputWithContext(ctx context.Context) WebFunctionRevisionS3ObjectOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebFunctionRevisionS3ObjectOutput)
+}
+
+// The S3 location of the function code.
+type WebFunctionRevisionS3ObjectOutput struct{ *pulumi.OutputState }
+
+func (WebFunctionRevisionS3ObjectOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebFunctionRevisionS3Object)(nil)).Elem()
+}
+
+func (o WebFunctionRevisionS3ObjectOutput) ToWebFunctionRevisionS3ObjectOutput() WebFunctionRevisionS3ObjectOutput {
+	return o
+}
+
+func (o WebFunctionRevisionS3ObjectOutput) ToWebFunctionRevisionS3ObjectOutputWithContext(ctx context.Context) WebFunctionRevisionS3ObjectOutput {
+	return o
+}
+
+// The S3 bucket name.
+func (o WebFunctionRevisionS3ObjectOutput) Bucket() pulumi.StringOutput {
+	return o.ApplyT(func(v WebFunctionRevisionS3Object) string { return v.Bucket }).(pulumi.StringOutput)
+}
+
+// The S3 object key.
+func (o WebFunctionRevisionS3ObjectOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v WebFunctionRevisionS3Object) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The S3 object version ID.
+func (o WebFunctionRevisionS3ObjectOutput) VersionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WebFunctionRevisionS3Object) *string { return v.VersionId }).(pulumi.StringPtrOutput)
+}
+
+// A key-value pair to associate with the function.
+type WebFunctionTag struct {
+	// The tag key.
+	Key string `pulumi:"key"`
+	// The tag value.
+	Value string `pulumi:"value"`
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AliasProvisionedConcurrencyConfigurationInput)(nil)).Elem(), AliasProvisionedConcurrencyConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AliasProvisionedConcurrencyConfigurationPtrInput)(nil)).Elem(), AliasProvisionedConcurrencyConfigurationArgs{})
@@ -9704,6 +10875,9 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AliasRoutingConfigurationPtrInput)(nil)).Elem(), AliasRoutingConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AliasVersionWeightInput)(nil)).Elem(), AliasVersionWeightArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AliasVersionWeightArrayInput)(nil)).Elem(), AliasVersionWeightArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BuildConfigPropertiesInput)(nil)).Elem(), BuildConfigPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BuildConfigPropertiesCodeConfigPropertiesInput)(nil)).Elem(), BuildConfigPropertiesCodeConfigPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BuildConfigPropertiesRuntimeConfigPropertiesInput)(nil)).Elem(), BuildConfigPropertiesRuntimeConfigPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderInstanceRequirementsInput)(nil)).Elem(), CapacityProviderInstanceRequirementsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderInstanceRequirementsPtrInput)(nil)).Elem(), CapacityProviderInstanceRequirementsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderLoggingConfigInput)(nil)).Elem(), CapacityProviderLoggingConfigArgs{})
@@ -9814,6 +10988,9 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*MicrovmImageResourcesArrayInput)(nil)).Elem(), MicrovmImageResourcesArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkConnectorConfigInput)(nil)).Elem(), NetworkConnectorConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkConnectorVpcEgressConfigurationInput)(nil)).Elem(), NetworkConnectorVpcEgressConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceConfigPropertiesInput)(nil)).Elem(), ServiceConfigPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceConfigPropertiesTelemetryConfigPropertiesInput)(nil)).Elem(), ServiceConfigPropertiesTelemetryConfigPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceConfigPropertiesTelemetryConfigPropertiesPtrInput)(nil)).Elem(), ServiceConfigPropertiesTelemetryConfigPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UrlCorsInput)(nil)).Elem(), UrlCorsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UrlCorsPtrInput)(nil)).Elem(), UrlCorsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VersionFunctionScalingConfigInput)(nil)).Elem(), VersionFunctionScalingConfigArgs{})
@@ -9822,12 +10999,24 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*VersionProvisionedConcurrencyConfigurationPtrInput)(nil)).Elem(), VersionProvisionedConcurrencyConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VersionRuntimePolicyInput)(nil)).Elem(), VersionRuntimePolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VersionRuntimePolicyPtrInput)(nil)).Elem(), VersionRuntimePolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebFunctionEndpointRevisionWeightInput)(nil)).Elem(), WebFunctionEndpointRevisionWeightArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebFunctionEndpointRevisionWeightArrayInput)(nil)).Elem(), WebFunctionEndpointRevisionWeightArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebFunctionEndpointScalingConfigInput)(nil)).Elem(), WebFunctionEndpointScalingConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebFunctionEndpointScalingConfigPtrInput)(nil)).Elem(), WebFunctionEndpointScalingConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebFunctionEndpointThrottleConfigInput)(nil)).Elem(), WebFunctionEndpointThrottleConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebFunctionEndpointThrottleConfigPtrInput)(nil)).Elem(), WebFunctionEndpointThrottleConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebFunctionRevisionLoggingConfigInput)(nil)).Elem(), WebFunctionRevisionLoggingConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebFunctionRevisionLoggingConfigPtrInput)(nil)).Elem(), WebFunctionRevisionLoggingConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebFunctionRevisionS3ObjectInput)(nil)).Elem(), WebFunctionRevisionS3ObjectArgs{})
 	pulumi.RegisterOutputType(AliasProvisionedConcurrencyConfigurationOutput{})
 	pulumi.RegisterOutputType(AliasProvisionedConcurrencyConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(AliasRoutingConfigurationOutput{})
 	pulumi.RegisterOutputType(AliasRoutingConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(AliasVersionWeightOutput{})
 	pulumi.RegisterOutputType(AliasVersionWeightArrayOutput{})
+	pulumi.RegisterOutputType(BuildConfigPropertiesOutput{})
+	pulumi.RegisterOutputType(BuildConfigPropertiesCodeConfigPropertiesOutput{})
+	pulumi.RegisterOutputType(BuildConfigPropertiesRuntimeConfigPropertiesOutput{})
 	pulumi.RegisterOutputType(CapacityProviderInstanceRequirementsOutput{})
 	pulumi.RegisterOutputType(CapacityProviderInstanceRequirementsPtrOutput{})
 	pulumi.RegisterOutputType(CapacityProviderLoggingConfigOutput{})
@@ -9944,6 +11133,9 @@ func init() {
 	pulumi.RegisterOutputType(NetworkConnectorConfigPtrOutput{})
 	pulumi.RegisterOutputType(NetworkConnectorVpcEgressConfigurationOutput{})
 	pulumi.RegisterOutputType(NetworkConnectorVpcEgressConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(ServiceConfigPropertiesOutput{})
+	pulumi.RegisterOutputType(ServiceConfigPropertiesTelemetryConfigPropertiesOutput{})
+	pulumi.RegisterOutputType(ServiceConfigPropertiesTelemetryConfigPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(UrlCorsOutput{})
 	pulumi.RegisterOutputType(UrlCorsPtrOutput{})
 	pulumi.RegisterOutputType(VersionFunctionScalingConfigOutput{})
@@ -9952,4 +11144,15 @@ func init() {
 	pulumi.RegisterOutputType(VersionProvisionedConcurrencyConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(VersionRuntimePolicyOutput{})
 	pulumi.RegisterOutputType(VersionRuntimePolicyPtrOutput{})
+	pulumi.RegisterOutputType(WebFunctionEndpointRegionalEndpointOutput{})
+	pulumi.RegisterOutputType(WebFunctionEndpointRegionalEndpointMapOutput{})
+	pulumi.RegisterOutputType(WebFunctionEndpointRevisionWeightOutput{})
+	pulumi.RegisterOutputType(WebFunctionEndpointRevisionWeightArrayOutput{})
+	pulumi.RegisterOutputType(WebFunctionEndpointScalingConfigOutput{})
+	pulumi.RegisterOutputType(WebFunctionEndpointScalingConfigPtrOutput{})
+	pulumi.RegisterOutputType(WebFunctionEndpointThrottleConfigOutput{})
+	pulumi.RegisterOutputType(WebFunctionEndpointThrottleConfigPtrOutput{})
+	pulumi.RegisterOutputType(WebFunctionRevisionLoggingConfigOutput{})
+	pulumi.RegisterOutputType(WebFunctionRevisionLoggingConfigPtrOutput{})
+	pulumi.RegisterOutputType(WebFunctionRevisionS3ObjectOutput{})
 }

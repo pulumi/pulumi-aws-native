@@ -33,7 +33,7 @@
     "IntegrationType" : {
       "description" : "Specifies the integration type to be associated with the instance",
       "type" : "string",
-      "enum" : [ "LEX_BOT", "LAMBDA_FUNCTION", "APPLICATION", "CASES_DOMAIN", "WISDOM_ASSISTANT", "WISDOM_KNOWLEDGE_BASE", "WISDOM_QUICK_RESPONSES", "FILE_SCANNER", "MESSAGE_PROCESSOR", "Q_MESSAGE_TEMPLATES", "SES_IDENTITY" ]
+      "enum" : [ "LEX_BOT", "LAMBDA_FUNCTION", "APPLICATION", "CASES_DOMAIN", "WISDOM_ASSISTANT", "WISDOM_KNOWLEDGE_BASE", "WISDOM_QUICK_RESPONSES", "FILE_SCANNER", "MESSAGE_PROCESSOR", "Q_MESSAGE_TEMPLATES", "SES_IDENTITY", "EVENT" ]
     },
     "InstanceId" : {
       "description" : "Amazon Connect instance identifier",
@@ -45,6 +45,24 @@
     "IntegrationAssociationId" : {
       "description" : "Identifier of the association with Connect Instance",
       "type" : "string"
+    },
+    "SourceType" : {
+      "description" : "The type of the data source. This is only supported for the EVENT integration type",
+      "type" : "string",
+      "enum" : [ "SALESFORCE", "ZENDESK", "CASES" ]
+    },
+    "SourceApplicationName" : {
+      "description" : "The name of the external application. This is only supported for the EVENT integration type",
+      "type" : "string",
+      "pattern" : "^[a-zA-Z0-9_ -]+$",
+      "minLength" : 1,
+      "maxLength" : 100
+    },
+    "SourceApplicationUrl" : {
+      "description" : "The URL for the external application. This is only supported for the EVENT integration type",
+      "type" : "string",
+      "minLength" : 1,
+      "maxLength" : 2000
     }
   },
   "properties" : {
@@ -59,6 +77,15 @@
     },
     "IntegrationType" : {
       "$ref" : "#/definitions/IntegrationType"
+    },
+    "SourceType" : {
+      "$ref" : "#/definitions/SourceType"
+    },
+    "SourceApplicationName" : {
+      "$ref" : "#/definitions/SourceApplicationName"
+    },
+    "SourceApplicationUrl" : {
+      "$ref" : "#/definitions/SourceApplicationUrl"
     },
     "Tags" : {
       "description" : "The tags used to organize, track, or control access for this resource.",
@@ -81,7 +108,7 @@
   "additionalProperties" : false,
   "required" : [ "InstanceId", "IntegrationType", "IntegrationArn" ],
   "readOnlyProperties" : [ "/properties/IntegrationAssociationId" ],
-  "createOnlyProperties" : [ "/properties/InstanceId", "/properties/IntegrationArn", "/properties/IntegrationType" ],
+  "createOnlyProperties" : [ "/properties/InstanceId", "/properties/IntegrationArn", "/properties/IntegrationType", "/properties/SourceType", "/properties/SourceApplicationName", "/properties/SourceApplicationUrl" ],
   "primaryIdentifier" : [ "/properties/InstanceId", "/properties/IntegrationType", "/properties/IntegrationArn" ],
   "handlers" : {
     "create" : {

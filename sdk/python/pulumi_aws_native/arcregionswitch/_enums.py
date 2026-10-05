@@ -19,6 +19,7 @@ __all__ = [
     'PlanRecoveryApproach',
     'PlanRegionToRunIn',
     'PlanRoutingControlStateChange',
+    'PlanWaitElbTargetGroupHealthy',
     'PlanWorkflowTargetAction',
 ]
 
@@ -106,6 +107,12 @@ class PlanRegionToRunIn(_builtins.str, Enum):
 class PlanRoutingControlStateChange(_builtins.str, Enum):
     ON = "On"
     OFF = "Off"
+
+
+@pulumi.type_token("aws-native:arcregionswitch:PlanWaitElbTargetGroupHealthy")
+class PlanWaitElbTargetGroupHealthy(_builtins.str, Enum):
+    ENABLED = "enabled"
+    DISABLED = "disabled"
 
 
 @pulumi.type_token("aws-native:arcregionswitch:PlanWorkflowTargetAction")

@@ -56,6 +56,7 @@ export interface GetPlanResult {
      */
     readonly reportConfiguration?: outputs.arcregionswitch.PlanReportConfiguration;
     readonly route53HealthChecks?: outputs.arcregionswitch.Route53HealthChecksProperties;
+    readonly serviceQuotaChecksEnabled?: boolean;
     readonly tags?: {[key: string]: string};
     /**
      * The triggers for a plan.

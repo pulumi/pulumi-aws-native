@@ -1051,6 +1051,14 @@ func (o GlobalReplicationGroupReshardingConfigurationArrayOutput) Index(i pulumi
 	}).(GlobalReplicationGroupReshardingConfigurationOutput)
 }
 
+// A key-value pair to associate with a resource.
+type GlobalReplicationGroupTag struct {
+	// The key for the tag. May not be null.
+	Key string `pulumi:"key"`
+	// The tag's value. May be null.
+	Value *string `pulumi:"value"`
+}
+
 type ParameterGroupTag struct {
 	// The key for the tag. May not be null.
 	Key string `pulumi:"key"`
@@ -2618,6 +2626,92 @@ type ServerlessCacheTag struct {
 	Value *string `pulumi:"value"`
 }
 
+type SnapshotNodeSnapshot struct {
+	// A unique identifier for the source cluster.
+	CacheClusterId *string `pulumi:"cacheClusterId"`
+	// The date and time when the cache node was created in the source cluster.
+	CacheNodeCreateTime *string `pulumi:"cacheNodeCreateTime"`
+	// The cache node identifier for the node in the source cluster.
+	CacheNodeId *string `pulumi:"cacheNodeId"`
+	// The size of the cache on the source cache node.
+	CacheSize *string `pulumi:"cacheSize"`
+	// A unique identifier for the source node group (shard).
+	NodeGroupId *string `pulumi:"nodeGroupId"`
+	// The date and time when the source node's metadata and cache data set was obtained for the snapshot.
+	SnapshotCreateTime *string `pulumi:"snapshotCreateTime"`
+}
+
+type SnapshotNodeSnapshotOutput struct{ *pulumi.OutputState }
+
+func (SnapshotNodeSnapshotOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SnapshotNodeSnapshot)(nil)).Elem()
+}
+
+func (o SnapshotNodeSnapshotOutput) ToSnapshotNodeSnapshotOutput() SnapshotNodeSnapshotOutput {
+	return o
+}
+
+func (o SnapshotNodeSnapshotOutput) ToSnapshotNodeSnapshotOutputWithContext(ctx context.Context) SnapshotNodeSnapshotOutput {
+	return o
+}
+
+// A unique identifier for the source cluster.
+func (o SnapshotNodeSnapshotOutput) CacheClusterId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SnapshotNodeSnapshot) *string { return v.CacheClusterId }).(pulumi.StringPtrOutput)
+}
+
+// The date and time when the cache node was created in the source cluster.
+func (o SnapshotNodeSnapshotOutput) CacheNodeCreateTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SnapshotNodeSnapshot) *string { return v.CacheNodeCreateTime }).(pulumi.StringPtrOutput)
+}
+
+// The cache node identifier for the node in the source cluster.
+func (o SnapshotNodeSnapshotOutput) CacheNodeId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SnapshotNodeSnapshot) *string { return v.CacheNodeId }).(pulumi.StringPtrOutput)
+}
+
+// The size of the cache on the source cache node.
+func (o SnapshotNodeSnapshotOutput) CacheSize() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SnapshotNodeSnapshot) *string { return v.CacheSize }).(pulumi.StringPtrOutput)
+}
+
+// A unique identifier for the source node group (shard).
+func (o SnapshotNodeSnapshotOutput) NodeGroupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SnapshotNodeSnapshot) *string { return v.NodeGroupId }).(pulumi.StringPtrOutput)
+}
+
+// The date and time when the source node's metadata and cache data set was obtained for the snapshot.
+func (o SnapshotNodeSnapshotOutput) SnapshotCreateTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SnapshotNodeSnapshot) *string { return v.SnapshotCreateTime }).(pulumi.StringPtrOutput)
+}
+
+type SnapshotNodeSnapshotArrayOutput struct{ *pulumi.OutputState }
+
+func (SnapshotNodeSnapshotArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SnapshotNodeSnapshot)(nil)).Elem()
+}
+
+func (o SnapshotNodeSnapshotArrayOutput) ToSnapshotNodeSnapshotArrayOutput() SnapshotNodeSnapshotArrayOutput {
+	return o
+}
+
+func (o SnapshotNodeSnapshotArrayOutput) ToSnapshotNodeSnapshotArrayOutputWithContext(ctx context.Context) SnapshotNodeSnapshotArrayOutput {
+	return o
+}
+
+func (o SnapshotNodeSnapshotArrayOutput) Index(i pulumi.IntInput) SnapshotNodeSnapshotOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SnapshotNodeSnapshot {
+		return vs[0].([]SnapshotNodeSnapshot)[vs[1].(int)]
+	}).(SnapshotNodeSnapshotOutput)
+}
+
+type SnapshotTag struct {
+	// The key name of the tag.
+	Key string `pulumi:"key"`
+	// The value for the tag.
+	Value string `pulumi:"value"`
+}
+
 // A tag that can be added to an ElastiCache subnet group. Tags are composed of a Key/Value pair. You can use tags to categorize and track all your subnet groups. A tag with a null Value is permitted.
 type SubnetGroupTag struct {
 	// The key for the tag. May not be null.
@@ -2715,4 +2809,6 @@ func init() {
 	pulumi.RegisterOutputType(ServerlessCacheEndpointPtrOutput{})
 	pulumi.RegisterOutputType(ServerlessCacheSnapshotServerlessCacheConfigurationOutput{})
 	pulumi.RegisterOutputType(ServerlessCacheSnapshotServerlessCacheConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(SnapshotNodeSnapshotOutput{})
+	pulumi.RegisterOutputType(SnapshotNodeSnapshotArrayOutput{})
 }

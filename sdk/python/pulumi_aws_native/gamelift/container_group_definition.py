@@ -26,31 +26,30 @@ class ContainerGroupDefinitionArgs:
     def __init__(__self__, *,
                  operating_system: pulumi.Input['ContainerGroupDefinitionOperatingSystem'],
                  total_memory_limit_mebibytes: pulumi.Input[_builtins.int],
-                 total_vcpu_limit: pulumi.Input[_builtins.float],
                  container_group_type: pulumi.Input[Optional['ContainerGroupDefinitionContainerGroupType']] = None,
                  game_server_container_definition: pulumi.Input[Optional['ContainerGroupDefinitionGameServerContainerDefinitionArgs']] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  source_version_number: pulumi.Input[Optional[_builtins.int]] = None,
                  support_container_definitions: pulumi.Input[Optional[Sequence[pulumi.Input['ContainerGroupDefinitionSupportContainerDefinitionArgs']]]] = None,
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 total_vcpu_limit: pulumi.Input[Optional[_builtins.float]] = None,
                  version_description: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ContainerGroupDefinition resource.
 
         :param pulumi.Input['ContainerGroupDefinitionOperatingSystem'] operating_system: The operating system of the container group
         :param pulumi.Input[_builtins.int] total_memory_limit_mebibytes: The total memory limit of container groups following this definition in MiB
-        :param pulumi.Input[_builtins.float] total_vcpu_limit: The total amount of virtual CPUs on the container group definition
         :param pulumi.Input['ContainerGroupDefinitionContainerGroupType'] container_group_type: The scope of the container group
         :param pulumi.Input['ContainerGroupDefinitionGameServerContainerDefinitionArgs'] game_server_container_definition: The definition for the game server container in this group. This property is used only when the container group type is `GAME_SERVER` . This container definition specifies a container image with the game server build.
         :param pulumi.Input[_builtins.str] name: A descriptive label for the container group definition.
         :param pulumi.Input[_builtins.int] source_version_number: A specific ContainerGroupDefinition version to be updated
         :param pulumi.Input[Sequence[pulumi.Input['ContainerGroupDefinitionSupportContainerDefinitionArgs']]] support_container_definitions: A collection of support container definitions that define the containers in this group.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[_builtins.float] total_vcpu_limit: The total amount of virtual CPUs on the container group definition
         :param pulumi.Input[_builtins.str] version_description: The description of this version
         """
         pulumi.set(__self__, "operating_system", operating_system)
         pulumi.set(__self__, "total_memory_limit_mebibytes", total_memory_limit_mebibytes)
-        pulumi.set(__self__, "total_vcpu_limit", total_vcpu_limit)
         if container_group_type is not None:
             pulumi.set(__self__, "container_group_type", container_group_type)
         if game_server_container_definition is not None:
@@ -63,6 +62,8 @@ class ContainerGroupDefinitionArgs:
             pulumi.set(__self__, "support_container_definitions", support_container_definitions)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if total_vcpu_limit is not None:
+            pulumi.set(__self__, "total_vcpu_limit", total_vcpu_limit)
         if version_description is not None:
             pulumi.set(__self__, "version_description", version_description)
 
@@ -89,18 +90,6 @@ class ContainerGroupDefinitionArgs:
     @total_memory_limit_mebibytes.setter
     def total_memory_limit_mebibytes(self, value: pulumi.Input[_builtins.int]):
         pulumi.set(self, "total_memory_limit_mebibytes", value)
-
-    @_builtins.property
-    @pulumi.getter(name="totalVcpuLimit")
-    def total_vcpu_limit(self) -> pulumi.Input[_builtins.float]:
-        """
-        The total amount of virtual CPUs on the container group definition
-        """
-        return pulumi.get(self, "total_vcpu_limit")
-
-    @total_vcpu_limit.setter
-    def total_vcpu_limit(self, value: pulumi.Input[_builtins.float]):
-        pulumi.set(self, "total_vcpu_limit", value)
 
     @_builtins.property
     @pulumi.getter(name="containerGroupType")
@@ -173,6 +162,18 @@ class ContainerGroupDefinitionArgs:
     @tags.setter
     def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
+
+    @_builtins.property
+    @pulumi.getter(name="totalVcpuLimit")
+    def total_vcpu_limit(self) -> pulumi.Input[Optional[_builtins.float]]:
+        """
+        The total amount of virtual CPUs on the container group definition
+        """
+        return pulumi.get(self, "total_vcpu_limit")
+
+    @total_vcpu_limit.setter
+    def total_vcpu_limit(self, value: pulumi.Input[Optional[_builtins.float]]):
+        pulumi.set(self, "total_vcpu_limit", value)
 
     @_builtins.property
     @pulumi.getter(name="versionDescription")
@@ -275,8 +276,6 @@ class ContainerGroupDefinition(pulumi.CustomResource):
             if total_memory_limit_mebibytes is None and not opts.urn:
                 raise TypeError("Missing required property 'total_memory_limit_mebibytes'")
             __props__.__dict__["total_memory_limit_mebibytes"] = total_memory_limit_mebibytes
-            if total_vcpu_limit is None and not opts.urn:
-                raise TypeError("Missing required property 'total_vcpu_limit'")
             __props__.__dict__["total_vcpu_limit"] = total_vcpu_limit
             __props__.__dict__["version_description"] = version_description
             __props__.__dict__["container_group_definition_arn"] = None
@@ -423,7 +422,7 @@ class ContainerGroupDefinition(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="totalVcpuLimit")
-    def total_vcpu_limit(self) -> pulumi.Output[_builtins.float]:
+    def total_vcpu_limit(self) -> pulumi.Output[Optional[_builtins.float]]:
         """
         The total amount of virtual CPUs on the container group definition
         """

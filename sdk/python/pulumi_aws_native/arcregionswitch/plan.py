@@ -32,6 +32,7 @@ class PlanArgs:
                  primary_region: pulumi.Input[Optional[_builtins.str]] = None,
                  recovery_time_objective_minutes: pulumi.Input[Optional[_builtins.float]] = None,
                  report_configuration: pulumi.Input[Optional['PlanReportConfigurationArgs']] = None,
+                 service_quota_checks_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  triggers: pulumi.Input[Optional[Sequence[pulumi.Input['PlanTriggerArgs']]]] = None):
         """
@@ -65,6 +66,8 @@ class PlanArgs:
             pulumi.set(__self__, "recovery_time_objective_minutes", recovery_time_objective_minutes)
         if report_configuration is not None:
             pulumi.set(__self__, "report_configuration", report_configuration)
+        if service_quota_checks_enabled is not None:
+            pulumi.set(__self__, "service_quota_checks_enabled", service_quota_checks_enabled)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if triggers is not None:
@@ -191,6 +194,15 @@ class PlanArgs:
         pulumi.set(self, "report_configuration", value)
 
     @_builtins.property
+    @pulumi.getter(name="serviceQuotaChecksEnabled")
+    def service_quota_checks_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        return pulumi.get(self, "service_quota_checks_enabled")
+
+    @service_quota_checks_enabled.setter
+    def service_quota_checks_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "service_quota_checks_enabled", value)
+
+    @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "tags")
@@ -227,6 +239,7 @@ class Plan(pulumi.CustomResource):
                  recovery_time_objective_minutes: pulumi.Input[Optional[_builtins.float]] = None,
                  regions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  report_configuration: pulumi.Input[Optional[Union['PlanReportConfigurationArgs', 'PlanReportConfigurationArgsDict']]] = None,
+                 service_quota_checks_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  triggers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PlanTriggerArgs', 'PlanTriggerArgsDict']]]]] = None,
                  workflows: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PlanWorkflowArgs', 'PlanWorkflowArgsDict']]]]] = None,
@@ -281,6 +294,7 @@ class Plan(pulumi.CustomResource):
                  recovery_time_objective_minutes: pulumi.Input[Optional[_builtins.float]] = None,
                  regions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  report_configuration: pulumi.Input[Optional[Union['PlanReportConfigurationArgs', 'PlanReportConfigurationArgsDict']]] = None,
+                 service_quota_checks_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  triggers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PlanTriggerArgs', 'PlanTriggerArgsDict']]]]] = None,
                  workflows: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PlanWorkflowArgs', 'PlanWorkflowArgsDict']]]]] = None,
@@ -308,6 +322,7 @@ class Plan(pulumi.CustomResource):
                 raise TypeError("Missing required property 'regions'")
             __props__.__dict__["regions"] = regions
             __props__.__dict__["report_configuration"] = report_configuration
+            __props__.__dict__["service_quota_checks_enabled"] = service_quota_checks_enabled
             __props__.__dict__["tags"] = tags
             __props__.__dict__["triggers"] = triggers
             if workflows is None and not opts.urn:
@@ -357,6 +372,7 @@ class Plan(pulumi.CustomResource):
         __props__.__dict__["regions"] = None
         __props__.__dict__["report_configuration"] = None
         __props__.__dict__["route53_health_checks"] = None
+        __props__.__dict__["service_quota_checks_enabled"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["triggers"] = None
         __props__.__dict__["version"] = None
@@ -465,6 +481,11 @@ class Plan(pulumi.CustomResource):
     @pulumi.getter(name="route53HealthChecks")
     def route53_health_checks(self) -> pulumi.Output['outputs.Route53HealthChecksProperties']:
         return pulumi.get(self, "route53_health_checks")
+
+    @_builtins.property
+    @pulumi.getter(name="serviceQuotaChecksEnabled")
+    def service_quota_checks_enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        return pulumi.get(self, "service_quota_checks_enabled")
 
     @_builtins.property
     @pulumi.getter

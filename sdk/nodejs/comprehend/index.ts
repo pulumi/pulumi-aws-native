@@ -20,6 +20,11 @@ export type EntityRecognizer = import("./entityRecognizer").EntityRecognizer;
 export const EntityRecognizer: typeof import("./entityRecognizer").EntityRecognizer = null as any;
 utilities.lazyLoad(exports, ["EntityRecognizer"], () => require("./entityRecognizer"));
 
+export { EntityRecognizerEndpointArgs } from "./entityRecognizerEndpoint";
+export type EntityRecognizerEndpoint = import("./entityRecognizerEndpoint").EntityRecognizerEndpoint;
+export const EntityRecognizerEndpoint: typeof import("./entityRecognizerEndpoint").EntityRecognizerEndpoint = null as any;
+utilities.lazyLoad(exports, ["EntityRecognizerEndpoint"], () => require("./entityRecognizerEndpoint"));
+
 export { FlywheelArgs } from "./flywheel";
 export type Flywheel = import("./flywheel").Flywheel;
 export const Flywheel: typeof import("./flywheel").Flywheel = null as any;
@@ -40,6 +45,11 @@ export const getEntityRecognizer: typeof import("./getEntityRecognizer").getEnti
 export const getEntityRecognizerOutput: typeof import("./getEntityRecognizer").getEntityRecognizerOutput = null as any;
 utilities.lazyLoad(exports, ["getEntityRecognizer","getEntityRecognizerOutput"], () => require("./getEntityRecognizer"));
 
+export { GetEntityRecognizerEndpointArgs, GetEntityRecognizerEndpointResult, GetEntityRecognizerEndpointOutputArgs } from "./getEntityRecognizerEndpoint";
+export const getEntityRecognizerEndpoint: typeof import("./getEntityRecognizerEndpoint").getEntityRecognizerEndpoint = null as any;
+export const getEntityRecognizerEndpointOutput: typeof import("./getEntityRecognizerEndpoint").getEntityRecognizerEndpointOutput = null as any;
+utilities.lazyLoad(exports, ["getEntityRecognizerEndpoint","getEntityRecognizerEndpointOutput"], () => require("./getEntityRecognizerEndpoint"));
+
 export { GetFlywheelArgs, GetFlywheelResult, GetFlywheelOutputArgs } from "./getFlywheel";
 export const getFlywheel: typeof import("./getFlywheel").getFlywheel = null as any;
 export const getFlywheelOutput: typeof import("./getFlywheel").getFlywheelOutput = null as any;
@@ -59,6 +69,8 @@ const _module = {
                 return new DocumentClassifierEndpoint(name, <any>undefined, { urn })
             case "aws-native:comprehend:EntityRecognizer":
                 return new EntityRecognizer(name, <any>undefined, { urn })
+            case "aws-native:comprehend:EntityRecognizerEndpoint":
+                return new EntityRecognizerEndpoint(name, <any>undefined, { urn })
             case "aws-native:comprehend:Flywheel":
                 return new Flywheel(name, <any>undefined, { urn })
             default:

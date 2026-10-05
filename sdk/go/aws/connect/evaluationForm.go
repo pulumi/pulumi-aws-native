@@ -17,6 +17,7 @@ import (
 type EvaluationForm struct {
 	pulumi.CustomResourceState
 
+	// The AI version to use for the evaluation form. This specifies which AI model version is used for automated evaluations.
 	AiVersion pulumi.StringPtrOutput `pulumi:"aiVersion"`
 	// The automatic evaluation configuration of an evaluation form.
 	AutoEvaluationConfiguration EvaluationFormAutoEvaluationConfigurationPtrOutput `pulumi:"autoEvaluationConfiguration"`
@@ -100,6 +101,7 @@ func (EvaluationFormState) ElementType() reflect.Type {
 }
 
 type evaluationFormArgs struct {
+	// The AI version to use for the evaluation form. This specifies which AI model version is used for automated evaluations.
 	AiVersion *string `pulumi:"aiVersion"`
 	// The automatic evaluation configuration of an evaluation form.
 	AutoEvaluationConfiguration *EvaluationFormAutoEvaluationConfiguration `pulumi:"autoEvaluationConfiguration"`
@@ -131,6 +133,7 @@ type evaluationFormArgs struct {
 
 // The set of arguments for constructing a EvaluationForm resource.
 type EvaluationFormArgs struct {
+	// The AI version to use for the evaluation form. This specifies which AI model version is used for automated evaluations.
 	AiVersion pulumi.StringPtrInput
 	// The automatic evaluation configuration of an evaluation form.
 	AutoEvaluationConfiguration EvaluationFormAutoEvaluationConfigurationPtrInput
@@ -197,6 +200,7 @@ func (o EvaluationFormOutput) ToEvaluationFormOutputWithContext(ctx context.Cont
 	return o
 }
 
+// The AI version to use for the evaluation form. This specifies which AI model version is used for automated evaluations.
 func (o EvaluationFormOutput) AiVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EvaluationForm) pulumi.StringPtrOutput { return v.AiVersion }).(pulumi.StringPtrOutput)
 }

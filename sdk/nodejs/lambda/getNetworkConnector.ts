@@ -24,6 +24,8 @@ export interface GetNetworkConnectorArgs {
 export interface GetNetworkConnectorResult {
     readonly arn?: string;
     readonly configuration?: outputs.lambda.NetworkConnectorConfig;
+    readonly latestVersion?: number;
+    readonly latestVersionArn?: string;
     readonly operatorRole?: string;
     readonly state?: enums.lambda.NetworkConnectorState;
     /**

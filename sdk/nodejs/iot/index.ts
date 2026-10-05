@@ -240,6 +240,11 @@ export type Policy = import("./policy").Policy;
 export const Policy: typeof import("./policy").Policy = null as any;
 utilities.lazyLoad(exports, ["Policy"], () => require("./policy"));
 
+export { PolicyPrincipalAttachmentArgs } from "./policyPrincipalAttachment";
+export type PolicyPrincipalAttachment = import("./policyPrincipalAttachment").PolicyPrincipalAttachment;
+export const PolicyPrincipalAttachment: typeof import("./policyPrincipalAttachment").PolicyPrincipalAttachment = null as any;
+utilities.lazyLoad(exports, ["PolicyPrincipalAttachment"], () => require("./policyPrincipalAttachment"));
+
 export { ProvisioningTemplateArgs } from "./provisioningTemplate";
 export type ProvisioningTemplate = import("./provisioningTemplate").ProvisioningTemplate;
 export const ProvisioningTemplate: typeof import("./provisioningTemplate").ProvisioningTemplate = null as any;
@@ -352,6 +357,8 @@ const _module = {
                 return new MitigationAction(name, <any>undefined, { urn })
             case "aws-native:iot:Policy":
                 return new Policy(name, <any>undefined, { urn })
+            case "aws-native:iot:PolicyPrincipalAttachment":
+                return new PolicyPrincipalAttachment(name, <any>undefined, { urn })
             case "aws-native:iot:ProvisioningTemplate":
                 return new ProvisioningTemplate(name, <any>undefined, { urn })
             case "aws-native:iot:ResourceSpecificLogging":

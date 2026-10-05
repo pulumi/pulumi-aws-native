@@ -28,6 +28,8 @@ __all__ = [
     'ChannelSlateSourceArgsDict',
     'ChannelTimeShiftConfigurationArgs',
     'ChannelTimeShiftConfigurationArgsDict',
+    'FunctionAwsServiceRequestConfigurationArgs',
+    'FunctionAwsServiceRequestConfigurationArgsDict',
     'FunctionConcurrentExecutorConfigurationArgs',
     'FunctionConcurrentExecutorConfigurationArgsDict',
     'FunctionCustomOutputConfigurationArgs',
@@ -38,6 +40,8 @@ __all__ = [
     'FunctionRefArgsDict',
     'FunctionSequentialExecutorConfigurationArgs',
     'FunctionSequentialExecutorConfigurationArgsDict',
+    'FunctionVastRequestConfigurationArgs',
+    'FunctionVastRequestConfigurationArgsDict',
     'LiveSourceHttpPackageConfigurationArgs',
     'LiveSourceHttpPackageConfigurationArgsDict',
     'PlaybackConfigurationAdConditioningConfigurationArgs',
@@ -94,6 +98,28 @@ __all__ = [
     'PrefetchScheduleTrafficShapingRetrievalWindowArgsDict',
     'PrefetchScheduleTrafficShapingTpsConfigurationArgs',
     'PrefetchScheduleTrafficShapingTpsConfigurationArgsDict',
+    'ProgramAdBreakArgs',
+    'ProgramAdBreakArgsDict',
+    'ProgramAlternateMediaArgs',
+    'ProgramAlternateMediaArgsDict',
+    'ProgramAudienceMediaArgs',
+    'ProgramAudienceMediaArgsDict',
+    'ProgramClipRangeArgs',
+    'ProgramClipRangeArgsDict',
+    'ProgramKeyValuePairArgs',
+    'ProgramKeyValuePairArgsDict',
+    'ProgramScheduleConfigurationArgs',
+    'ProgramScheduleConfigurationArgsDict',
+    'ProgramSegmentationDescriptorArgs',
+    'ProgramSegmentationDescriptorArgsDict',
+    'ProgramSlateSourceArgs',
+    'ProgramSlateSourceArgsDict',
+    'ProgramSpliceInsertMessageArgs',
+    'ProgramSpliceInsertMessageArgsDict',
+    'ProgramTimeSignalMessageArgs',
+    'ProgramTimeSignalMessageArgsDict',
+    'ProgramTransitionArgs',
+    'ProgramTransitionArgsDict',
     'SourceLocationAccessConfigurationArgs',
     'SourceLocationAccessConfigurationArgsDict',
     'SourceLocationDefaultSegmentDeliveryConfigurationArgs',
@@ -467,6 +493,180 @@ class ChannelTimeShiftConfigurationArgs:
     @max_time_delay_seconds.setter
     def max_time_delay_seconds(self, value: pulumi.Input[_builtins.float]):
         pulumi.set(self, "max_time_delay_seconds", value)
+
+
+class FunctionAwsServiceRequestConfigurationArgsDict(TypedDict):
+    """
+    The configuration for an AWS_SERVICE_REQUEST function. Contains the target service, target Region, and request parameters that the function uses to call an AWS service API. For more information, see AWS_SERVICE_REQUEST (https://docs.aws.amazon.com/mediatailor/latest/ug/monetization-functions-types-aws-service-request.html) in the MediaTailor User Guide.
+    """
+    method_type: pulumi.Input['FunctionMethodType']
+    request_timeout_milliseconds: pulumi.Input[_builtins.int]
+    """
+    The maximum time, in milliseconds, that MediaTailor waits for a response from the AWS service. If the call exceeds this timeout, MediaTailor sets the response status code to null and proceeds with output expression evaluation. Valid values are 100 to 2000.
+    """
+    runtime: pulumi.Input['FunctionRuntimeType']
+    target_region: pulumi.Input[_builtins.str]
+    """
+    The AWS Region for the target service. Specify a static Region code (for example, us-east-1) or a JSONata expression that resolves to a Region code at runtime (for example, {%inference.region%}).
+    """
+    target_service: pulumi.Input[_builtins.str]
+    """
+    The AWS service to call. Valid value: elemental-inference (AWS Elemental Inference).
+    """
+    url: pulumi.Input[_builtins.str]
+    """
+    An expression that evaluates to the endpoint URL for the target AWS service API operation. Use {%...%} delimiters for dynamic expressions. The URL must correspond to a valid endpoint for the service specified in TargetService. The maximum length after evaluation is 2,048 characters.
+    """
+    body: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    An expression that evaluates to the request body for the AWS service API call. The body must conform to the input format that the target service operation expects. Applies only when the target operation accepts a request body. The maximum size after evaluation is 64 KB.
+    """
+    headers: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
+    """
+    A map of HTTP header names to expression values. MediaTailor evaluates each header value expression at runtime and includes the result in the outbound request to the AWS service. Use this to pass any headers required by the target service operation. You can include a maximum of 50 headers.
+    """
+    output: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
+    """
+    A map of output bindings. Each key is a namespaced output path, such as player_params.device_type. Each value is an expression that MediaTailor evaluates at runtime and can reference the response object from the target service. For more information, see JSONata expression reference (https://docs.aws.amazon.com/mediatailor/latest/ug/monetization-functions-jsonata.html) in the MediaTailor User Guide.
+    """
+
+@pulumi.input_type
+class FunctionAwsServiceRequestConfigurationArgs:
+    def __init__(__self__, *,
+                 method_type: pulumi.Input['FunctionMethodType'],
+                 request_timeout_milliseconds: pulumi.Input[_builtins.int],
+                 runtime: pulumi.Input['FunctionRuntimeType'],
+                 target_region: pulumi.Input[_builtins.str],
+                 target_service: pulumi.Input[_builtins.str],
+                 url: pulumi.Input[_builtins.str],
+                 body: pulumi.Input[Optional[_builtins.str]] = None,
+                 headers: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 output: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+        """
+        The configuration for an AWS_SERVICE_REQUEST function. Contains the target service, target Region, and request parameters that the function uses to call an AWS service API. For more information, see AWS_SERVICE_REQUEST (https://docs.aws.amazon.com/mediatailor/latest/ug/monetization-functions-types-aws-service-request.html) in the MediaTailor User Guide.
+
+        :param pulumi.Input[_builtins.int] request_timeout_milliseconds: The maximum time, in milliseconds, that MediaTailor waits for a response from the AWS service. If the call exceeds this timeout, MediaTailor sets the response status code to null and proceeds with output expression evaluation. Valid values are 100 to 2000.
+        :param pulumi.Input[_builtins.str] target_region: The AWS Region for the target service. Specify a static Region code (for example, us-east-1) or a JSONata expression that resolves to a Region code at runtime (for example, {%inference.region%}).
+        :param pulumi.Input[_builtins.str] target_service: The AWS service to call. Valid value: elemental-inference (AWS Elemental Inference).
+        :param pulumi.Input[_builtins.str] url: An expression that evaluates to the endpoint URL for the target AWS service API operation. Use {%...%} delimiters for dynamic expressions. The URL must correspond to a valid endpoint for the service specified in TargetService. The maximum length after evaluation is 2,048 characters.
+        :param pulumi.Input[_builtins.str] body: An expression that evaluates to the request body for the AWS service API call. The body must conform to the input format that the target service operation expects. Applies only when the target operation accepts a request body. The maximum size after evaluation is 64 KB.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] headers: A map of HTTP header names to expression values. MediaTailor evaluates each header value expression at runtime and includes the result in the outbound request to the AWS service. Use this to pass any headers required by the target service operation. You can include a maximum of 50 headers.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] output: A map of output bindings. Each key is a namespaced output path, such as player_params.device_type. Each value is an expression that MediaTailor evaluates at runtime and can reference the response object from the target service. For more information, see JSONata expression reference (https://docs.aws.amazon.com/mediatailor/latest/ug/monetization-functions-jsonata.html) in the MediaTailor User Guide.
+        """
+        pulumi.set(__self__, "method_type", method_type)
+        pulumi.set(__self__, "request_timeout_milliseconds", request_timeout_milliseconds)
+        pulumi.set(__self__, "runtime", runtime)
+        pulumi.set(__self__, "target_region", target_region)
+        pulumi.set(__self__, "target_service", target_service)
+        pulumi.set(__self__, "url", url)
+        if body is not None:
+            pulumi.set(__self__, "body", body)
+        if headers is not None:
+            pulumi.set(__self__, "headers", headers)
+        if output is not None:
+            pulumi.set(__self__, "output", output)
+
+    @_builtins.property
+    @pulumi.getter(name="methodType")
+    def method_type(self) -> pulumi.Input['FunctionMethodType']:
+        return pulumi.get(self, "method_type")
+
+    @method_type.setter
+    def method_type(self, value: pulumi.Input['FunctionMethodType']):
+        pulumi.set(self, "method_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="requestTimeoutMilliseconds")
+    def request_timeout_milliseconds(self) -> pulumi.Input[_builtins.int]:
+        """
+        The maximum time, in milliseconds, that MediaTailor waits for a response from the AWS service. If the call exceeds this timeout, MediaTailor sets the response status code to null and proceeds with output expression evaluation. Valid values are 100 to 2000.
+        """
+        return pulumi.get(self, "request_timeout_milliseconds")
+
+    @request_timeout_milliseconds.setter
+    def request_timeout_milliseconds(self, value: pulumi.Input[_builtins.int]):
+        pulumi.set(self, "request_timeout_milliseconds", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def runtime(self) -> pulumi.Input['FunctionRuntimeType']:
+        return pulumi.get(self, "runtime")
+
+    @runtime.setter
+    def runtime(self, value: pulumi.Input['FunctionRuntimeType']):
+        pulumi.set(self, "runtime", value)
+
+    @_builtins.property
+    @pulumi.getter(name="targetRegion")
+    def target_region(self) -> pulumi.Input[_builtins.str]:
+        """
+        The AWS Region for the target service. Specify a static Region code (for example, us-east-1) or a JSONata expression that resolves to a Region code at runtime (for example, {%inference.region%}).
+        """
+        return pulumi.get(self, "target_region")
+
+    @target_region.setter
+    def target_region(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "target_region", value)
+
+    @_builtins.property
+    @pulumi.getter(name="targetService")
+    def target_service(self) -> pulumi.Input[_builtins.str]:
+        """
+        The AWS service to call. Valid value: elemental-inference (AWS Elemental Inference).
+        """
+        return pulumi.get(self, "target_service")
+
+    @target_service.setter
+    def target_service(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "target_service", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def url(self) -> pulumi.Input[_builtins.str]:
+        """
+        An expression that evaluates to the endpoint URL for the target AWS service API operation. Use {%...%} delimiters for dynamic expressions. The URL must correspond to a valid endpoint for the service specified in TargetService. The maximum length after evaluation is 2,048 characters.
+        """
+        return pulumi.get(self, "url")
+
+    @url.setter
+    def url(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "url", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def body(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        An expression that evaluates to the request body for the AWS service API call. The body must conform to the input format that the target service operation expects. Applies only when the target operation accepts a request body. The maximum size after evaluation is 64 KB.
+        """
+        return pulumi.get(self, "body")
+
+    @body.setter
+    def body(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "body", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def headers(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
+        """
+        A map of HTTP header names to expression values. MediaTailor evaluates each header value expression at runtime and includes the result in the outbound request to the AWS service. Use this to pass any headers required by the target service operation. You can include a maximum of 50 headers.
+        """
+        return pulumi.get(self, "headers")
+
+    @headers.setter
+    def headers(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "headers", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def output(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
+        """
+        A map of output bindings. Each key is a namespaced output path, such as player_params.device_type. Each value is an expression that MediaTailor evaluates at runtime and can reference the response object from the target service. For more information, see JSONata expression reference (https://docs.aws.amazon.com/mediatailor/latest/ug/monetization-functions-jsonata.html) in the MediaTailor User Guide.
+        """
+        return pulumi.get(self, "output")
+
+    @output.setter
+    def output(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "output", value)
 
 
 class FunctionConcurrentExecutorConfigurationArgsDict(TypedDict):
@@ -932,6 +1132,142 @@ class FunctionSequentialExecutorConfigurationArgs:
         pulumi.set(self, "output", value)
 
 
+class FunctionVastRequestConfigurationArgsDict(TypedDict):
+    """
+    The configuration for a VAST_REQUEST function. Specifies the HTTP method, URL, headers, body, timeout, and output expressions for a request to a VAST endpoint. MediaTailor parses the response as VAST and resolves wrapper redirects, then makes the parsed ads available to the function's output expressions. For more information, see Function types and composition (https://docs.aws.amazon.com/mediatailor/latest/ug/monetization-functions-types.html) in the MediaTailor User Guide.
+    """
+    method_type: pulumi.Input['FunctionMethodType']
+    request_timeout_milliseconds: pulumi.Input[_builtins.int]
+    """
+    The maximum time, in milliseconds, that MediaTailor waits for a response from the VAST endpoint. The timeout covers the entire response, including any wrapper redirects that MediaTailor follows. If the call exceeds this timeout, MediaTailor proceeds with an empty ad list and continues output expression evaluation. Valid values are 100 to 2000.
+    """
+    runtime: pulumi.Input['FunctionRuntimeType']
+    url: pulumi.Input[_builtins.str]
+    """
+    An expression that evaluates to the VAST endpoint URL. Use {%...%} delimiters for dynamic expressions. A literal value must be an https:// URL. The expression can be up to 25,000 characters, and the URL after evaluation can be up to 2,048 characters.
+    """
+    body: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    An expression that evaluates to the request body, for example to send an OpenRTB bid request. The expression can be up to 100,000 characters, and the body after evaluation can be up to 64 KB.
+    """
+    headers: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
+    """
+    A map of HTTP header names to expression values. MediaTailor evaluates each header value expression at runtime and includes the result in the outbound request. Headers beginning with X-Amz- are reserved by the service, and method override headers are not allowed.
+    """
+    output: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
+    """
+    A map of output bindings. Each key is a namespaced output path (such as temp.wrappedAds), and each value is an expression that MediaTailor evaluates at runtime. Output expressions in a VAST_REQUEST function can reference the response object, which exposes response.parsedAds, the ads parsed from the VAST response after schema validation and wrapper resolution, and response.statusCode. For more information about expression syntax, see JSONata expression reference (https://docs.aws.amazon.com/mediatailor/latest/ug/monetization-functions-jsonata.html) in the MediaTailor User Guide.
+    """
+
+@pulumi.input_type
+class FunctionVastRequestConfigurationArgs:
+    def __init__(__self__, *,
+                 method_type: pulumi.Input['FunctionMethodType'],
+                 request_timeout_milliseconds: pulumi.Input[_builtins.int],
+                 runtime: pulumi.Input['FunctionRuntimeType'],
+                 url: pulumi.Input[_builtins.str],
+                 body: pulumi.Input[Optional[_builtins.str]] = None,
+                 headers: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 output: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+        """
+        The configuration for a VAST_REQUEST function. Specifies the HTTP method, URL, headers, body, timeout, and output expressions for a request to a VAST endpoint. MediaTailor parses the response as VAST and resolves wrapper redirects, then makes the parsed ads available to the function's output expressions. For more information, see Function types and composition (https://docs.aws.amazon.com/mediatailor/latest/ug/monetization-functions-types.html) in the MediaTailor User Guide.
+
+        :param pulumi.Input[_builtins.int] request_timeout_milliseconds: The maximum time, in milliseconds, that MediaTailor waits for a response from the VAST endpoint. The timeout covers the entire response, including any wrapper redirects that MediaTailor follows. If the call exceeds this timeout, MediaTailor proceeds with an empty ad list and continues output expression evaluation. Valid values are 100 to 2000.
+        :param pulumi.Input[_builtins.str] url: An expression that evaluates to the VAST endpoint URL. Use {%...%} delimiters for dynamic expressions. A literal value must be an https:// URL. The expression can be up to 25,000 characters, and the URL after evaluation can be up to 2,048 characters.
+        :param pulumi.Input[_builtins.str] body: An expression that evaluates to the request body, for example to send an OpenRTB bid request. The expression can be up to 100,000 characters, and the body after evaluation can be up to 64 KB.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] headers: A map of HTTP header names to expression values. MediaTailor evaluates each header value expression at runtime and includes the result in the outbound request. Headers beginning with X-Amz- are reserved by the service, and method override headers are not allowed.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] output: A map of output bindings. Each key is a namespaced output path (such as temp.wrappedAds), and each value is an expression that MediaTailor evaluates at runtime. Output expressions in a VAST_REQUEST function can reference the response object, which exposes response.parsedAds, the ads parsed from the VAST response after schema validation and wrapper resolution, and response.statusCode. For more information about expression syntax, see JSONata expression reference (https://docs.aws.amazon.com/mediatailor/latest/ug/monetization-functions-jsonata.html) in the MediaTailor User Guide.
+        """
+        pulumi.set(__self__, "method_type", method_type)
+        pulumi.set(__self__, "request_timeout_milliseconds", request_timeout_milliseconds)
+        pulumi.set(__self__, "runtime", runtime)
+        pulumi.set(__self__, "url", url)
+        if body is not None:
+            pulumi.set(__self__, "body", body)
+        if headers is not None:
+            pulumi.set(__self__, "headers", headers)
+        if output is not None:
+            pulumi.set(__self__, "output", output)
+
+    @_builtins.property
+    @pulumi.getter(name="methodType")
+    def method_type(self) -> pulumi.Input['FunctionMethodType']:
+        return pulumi.get(self, "method_type")
+
+    @method_type.setter
+    def method_type(self, value: pulumi.Input['FunctionMethodType']):
+        pulumi.set(self, "method_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="requestTimeoutMilliseconds")
+    def request_timeout_milliseconds(self) -> pulumi.Input[_builtins.int]:
+        """
+        The maximum time, in milliseconds, that MediaTailor waits for a response from the VAST endpoint. The timeout covers the entire response, including any wrapper redirects that MediaTailor follows. If the call exceeds this timeout, MediaTailor proceeds with an empty ad list and continues output expression evaluation. Valid values are 100 to 2000.
+        """
+        return pulumi.get(self, "request_timeout_milliseconds")
+
+    @request_timeout_milliseconds.setter
+    def request_timeout_milliseconds(self, value: pulumi.Input[_builtins.int]):
+        pulumi.set(self, "request_timeout_milliseconds", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def runtime(self) -> pulumi.Input['FunctionRuntimeType']:
+        return pulumi.get(self, "runtime")
+
+    @runtime.setter
+    def runtime(self, value: pulumi.Input['FunctionRuntimeType']):
+        pulumi.set(self, "runtime", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def url(self) -> pulumi.Input[_builtins.str]:
+        """
+        An expression that evaluates to the VAST endpoint URL. Use {%...%} delimiters for dynamic expressions. A literal value must be an https:// URL. The expression can be up to 25,000 characters, and the URL after evaluation can be up to 2,048 characters.
+        """
+        return pulumi.get(self, "url")
+
+    @url.setter
+    def url(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "url", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def body(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        An expression that evaluates to the request body, for example to send an OpenRTB bid request. The expression can be up to 100,000 characters, and the body after evaluation can be up to 64 KB.
+        """
+        return pulumi.get(self, "body")
+
+    @body.setter
+    def body(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "body", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def headers(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
+        """
+        A map of HTTP header names to expression values. MediaTailor evaluates each header value expression at runtime and includes the result in the outbound request. Headers beginning with X-Amz- are reserved by the service, and method override headers are not allowed.
+        """
+        return pulumi.get(self, "headers")
+
+    @headers.setter
+    def headers(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "headers", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def output(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
+        """
+        A map of output bindings. Each key is a namespaced output path (such as temp.wrappedAds), and each value is an expression that MediaTailor evaluates at runtime. Output expressions in a VAST_REQUEST function can reference the response object, which exposes response.parsedAds, the ads parsed from the VAST response after schema validation and wrapper resolution, and response.statusCode. For more information about expression syntax, see JSONata expression reference (https://docs.aws.amazon.com/mediatailor/latest/ug/monetization-functions-jsonata.html) in the MediaTailor User Guide.
+        """
+        return pulumi.get(self, "output")
+
+    @output.setter
+    def output(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "output", value)
+
+
 class LiveSourceHttpPackageConfigurationArgsDict(TypedDict):
     """
     <p>The HTTP package configuration properties for the requested VOD source.</p>
@@ -1040,28 +1376,29 @@ class PlaybackConfigurationAdDecisionServerConfigurationArgsDict(TypedDict):
     """
     The configuration for the request to the specified Ad Decision Server URL.
     """
-    http_request: pulumi.Input['PlaybackConfigurationHttpRequestArgsDict']
+    http_request: NotRequired[pulumi.Input[Optional['PlaybackConfigurationHttpRequestArgsDict']]]
     vast_response: NotRequired[pulumi.Input[Optional['PlaybackConfigurationVastResponseArgsDict']]]
 
 @pulumi.input_type
 class PlaybackConfigurationAdDecisionServerConfigurationArgs:
     def __init__(__self__, *,
-                 http_request: pulumi.Input['PlaybackConfigurationHttpRequestArgs'],
+                 http_request: pulumi.Input[Optional['PlaybackConfigurationHttpRequestArgs']] = None,
                  vast_response: pulumi.Input[Optional['PlaybackConfigurationVastResponseArgs']] = None):
         """
         The configuration for the request to the specified Ad Decision Server URL.
         """
-        pulumi.set(__self__, "http_request", http_request)
+        if http_request is not None:
+            pulumi.set(__self__, "http_request", http_request)
         if vast_response is not None:
             pulumi.set(__self__, "vast_response", vast_response)
 
     @_builtins.property
     @pulumi.getter(name="httpRequest")
-    def http_request(self) -> pulumi.Input['PlaybackConfigurationHttpRequestArgs']:
+    def http_request(self) -> pulumi.Input[Optional['PlaybackConfigurationHttpRequestArgs']]:
         return pulumi.get(self, "http_request")
 
     @http_request.setter
-    def http_request(self, value: pulumi.Input['PlaybackConfigurationHttpRequestArgs']):
+    def http_request(self, value: pulumi.Input[Optional['PlaybackConfigurationHttpRequestArgs']]):
         pulumi.set(self, "http_request", value)
 
     @_builtins.property
@@ -2530,6 +2867,931 @@ class PrefetchScheduleTrafficShapingTpsConfigurationArgs:
     @peak_tps.setter
     def peak_tps(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "peak_tps", value)
+
+
+class ProgramAdBreakArgsDict(TypedDict):
+    """
+    Ad break configuration parameters.
+    """
+    offset_millis: pulumi.Input[_builtins.int]
+    """
+    How long (in milliseconds) after the beginning of the program that an ad starts.
+    """
+    ad_break_metadata: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ProgramKeyValuePairArgsDict']]]]]
+    """
+    Defines a list of key/value pairs that MediaTailor generates within the EXT-X-ASSET tag for SCTE35_ENHANCED output.
+    """
+    message_type: NotRequired[pulumi.Input[Optional['ProgramAdBreakMessageType']]]
+    """
+    The SCTE-35 ad insertion type.
+    """
+    slate: NotRequired[pulumi.Input[Optional['ProgramSlateSourceArgsDict']]]
+    splice_insert_message: NotRequired[pulumi.Input[Optional['ProgramSpliceInsertMessageArgsDict']]]
+    time_signal_message: NotRequired[pulumi.Input[Optional['ProgramTimeSignalMessageArgsDict']]]
+
+@pulumi.input_type
+class ProgramAdBreakArgs:
+    def __init__(__self__, *,
+                 offset_millis: pulumi.Input[_builtins.int],
+                 ad_break_metadata: pulumi.Input[Optional[Sequence[pulumi.Input['ProgramKeyValuePairArgs']]]] = None,
+                 message_type: pulumi.Input[Optional['ProgramAdBreakMessageType']] = None,
+                 slate: pulumi.Input[Optional['ProgramSlateSourceArgs']] = None,
+                 splice_insert_message: pulumi.Input[Optional['ProgramSpliceInsertMessageArgs']] = None,
+                 time_signal_message: pulumi.Input[Optional['ProgramTimeSignalMessageArgs']] = None):
+        """
+        Ad break configuration parameters.
+
+        :param pulumi.Input[_builtins.int] offset_millis: How long (in milliseconds) after the beginning of the program that an ad starts.
+        :param pulumi.Input[Sequence[pulumi.Input['ProgramKeyValuePairArgs']]] ad_break_metadata: Defines a list of key/value pairs that MediaTailor generates within the EXT-X-ASSET tag for SCTE35_ENHANCED output.
+        :param pulumi.Input['ProgramAdBreakMessageType'] message_type: The SCTE-35 ad insertion type.
+        """
+        pulumi.set(__self__, "offset_millis", offset_millis)
+        if ad_break_metadata is not None:
+            pulumi.set(__self__, "ad_break_metadata", ad_break_metadata)
+        if message_type is not None:
+            pulumi.set(__self__, "message_type", message_type)
+        if slate is not None:
+            pulumi.set(__self__, "slate", slate)
+        if splice_insert_message is not None:
+            pulumi.set(__self__, "splice_insert_message", splice_insert_message)
+        if time_signal_message is not None:
+            pulumi.set(__self__, "time_signal_message", time_signal_message)
+
+    @_builtins.property
+    @pulumi.getter(name="offsetMillis")
+    def offset_millis(self) -> pulumi.Input[_builtins.int]:
+        """
+        How long (in milliseconds) after the beginning of the program that an ad starts.
+        """
+        return pulumi.get(self, "offset_millis")
+
+    @offset_millis.setter
+    def offset_millis(self, value: pulumi.Input[_builtins.int]):
+        pulumi.set(self, "offset_millis", value)
+
+    @_builtins.property
+    @pulumi.getter(name="adBreakMetadata")
+    def ad_break_metadata(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ProgramKeyValuePairArgs']]]]:
+        """
+        Defines a list of key/value pairs that MediaTailor generates within the EXT-X-ASSET tag for SCTE35_ENHANCED output.
+        """
+        return pulumi.get(self, "ad_break_metadata")
+
+    @ad_break_metadata.setter
+    def ad_break_metadata(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ProgramKeyValuePairArgs']]]]):
+        pulumi.set(self, "ad_break_metadata", value)
+
+    @_builtins.property
+    @pulumi.getter(name="messageType")
+    def message_type(self) -> pulumi.Input[Optional['ProgramAdBreakMessageType']]:
+        """
+        The SCTE-35 ad insertion type.
+        """
+        return pulumi.get(self, "message_type")
+
+    @message_type.setter
+    def message_type(self, value: pulumi.Input[Optional['ProgramAdBreakMessageType']]):
+        pulumi.set(self, "message_type", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def slate(self) -> pulumi.Input[Optional['ProgramSlateSourceArgs']]:
+        return pulumi.get(self, "slate")
+
+    @slate.setter
+    def slate(self, value: pulumi.Input[Optional['ProgramSlateSourceArgs']]):
+        pulumi.set(self, "slate", value)
+
+    @_builtins.property
+    @pulumi.getter(name="spliceInsertMessage")
+    def splice_insert_message(self) -> pulumi.Input[Optional['ProgramSpliceInsertMessageArgs']]:
+        return pulumi.get(self, "splice_insert_message")
+
+    @splice_insert_message.setter
+    def splice_insert_message(self, value: pulumi.Input[Optional['ProgramSpliceInsertMessageArgs']]):
+        pulumi.set(self, "splice_insert_message", value)
+
+    @_builtins.property
+    @pulumi.getter(name="timeSignalMessage")
+    def time_signal_message(self) -> pulumi.Input[Optional['ProgramTimeSignalMessageArgs']]:
+        return pulumi.get(self, "time_signal_message")
+
+    @time_signal_message.setter
+    def time_signal_message(self, value: pulumi.Input[Optional['ProgramTimeSignalMessageArgs']]):
+        pulumi.set(self, "time_signal_message", value)
+
+
+class ProgramAlternateMediaArgsDict(TypedDict):
+    """
+    A playlist of media to be played instead of the default media on a particular program.
+    """
+    ad_breaks: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ProgramAdBreakArgsDict']]]]]
+    """
+    Ad break configuration parameters defined in AlternateMedia.
+    """
+    clip_range: NotRequired[pulumi.Input[Optional['ProgramClipRangeArgsDict']]]
+    duration_millis: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    The duration of the alternateMedia in milliseconds.
+    """
+    live_source_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The name of the live source for alternateMedia.
+    """
+    scheduled_start_time_millis: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    The date and time that the alternateMedia is scheduled to start, in epoch milliseconds.
+    """
+    source_location_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The name of the source location for alternateMedia.
+    """
+    vod_source_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The name of the VOD source for alternateMedia.
+    """
+
+@pulumi.input_type
+class ProgramAlternateMediaArgs:
+    def __init__(__self__, *,
+                 ad_breaks: pulumi.Input[Optional[Sequence[pulumi.Input['ProgramAdBreakArgs']]]] = None,
+                 clip_range: pulumi.Input[Optional['ProgramClipRangeArgs']] = None,
+                 duration_millis: pulumi.Input[Optional[_builtins.int]] = None,
+                 live_source_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 scheduled_start_time_millis: pulumi.Input[Optional[_builtins.int]] = None,
+                 source_location_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 vod_source_name: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        A playlist of media to be played instead of the default media on a particular program.
+
+        :param pulumi.Input[Sequence[pulumi.Input['ProgramAdBreakArgs']]] ad_breaks: Ad break configuration parameters defined in AlternateMedia.
+        :param pulumi.Input[_builtins.int] duration_millis: The duration of the alternateMedia in milliseconds.
+        :param pulumi.Input[_builtins.str] live_source_name: The name of the live source for alternateMedia.
+        :param pulumi.Input[_builtins.int] scheduled_start_time_millis: The date and time that the alternateMedia is scheduled to start, in epoch milliseconds.
+        :param pulumi.Input[_builtins.str] source_location_name: The name of the source location for alternateMedia.
+        :param pulumi.Input[_builtins.str] vod_source_name: The name of the VOD source for alternateMedia.
+        """
+        if ad_breaks is not None:
+            pulumi.set(__self__, "ad_breaks", ad_breaks)
+        if clip_range is not None:
+            pulumi.set(__self__, "clip_range", clip_range)
+        if duration_millis is not None:
+            pulumi.set(__self__, "duration_millis", duration_millis)
+        if live_source_name is not None:
+            pulumi.set(__self__, "live_source_name", live_source_name)
+        if scheduled_start_time_millis is not None:
+            pulumi.set(__self__, "scheduled_start_time_millis", scheduled_start_time_millis)
+        if source_location_name is not None:
+            pulumi.set(__self__, "source_location_name", source_location_name)
+        if vod_source_name is not None:
+            pulumi.set(__self__, "vod_source_name", vod_source_name)
+
+    @_builtins.property
+    @pulumi.getter(name="adBreaks")
+    def ad_breaks(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ProgramAdBreakArgs']]]]:
+        """
+        Ad break configuration parameters defined in AlternateMedia.
+        """
+        return pulumi.get(self, "ad_breaks")
+
+    @ad_breaks.setter
+    def ad_breaks(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ProgramAdBreakArgs']]]]):
+        pulumi.set(self, "ad_breaks", value)
+
+    @_builtins.property
+    @pulumi.getter(name="clipRange")
+    def clip_range(self) -> pulumi.Input[Optional['ProgramClipRangeArgs']]:
+        return pulumi.get(self, "clip_range")
+
+    @clip_range.setter
+    def clip_range(self, value: pulumi.Input[Optional['ProgramClipRangeArgs']]):
+        pulumi.set(self, "clip_range", value)
+
+    @_builtins.property
+    @pulumi.getter(name="durationMillis")
+    def duration_millis(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        The duration of the alternateMedia in milliseconds.
+        """
+        return pulumi.get(self, "duration_millis")
+
+    @duration_millis.setter
+    def duration_millis(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "duration_millis", value)
+
+    @_builtins.property
+    @pulumi.getter(name="liveSourceName")
+    def live_source_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the live source for alternateMedia.
+        """
+        return pulumi.get(self, "live_source_name")
+
+    @live_source_name.setter
+    def live_source_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "live_source_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="scheduledStartTimeMillis")
+    def scheduled_start_time_millis(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        The date and time that the alternateMedia is scheduled to start, in epoch milliseconds.
+        """
+        return pulumi.get(self, "scheduled_start_time_millis")
+
+    @scheduled_start_time_millis.setter
+    def scheduled_start_time_millis(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "scheduled_start_time_millis", value)
+
+    @_builtins.property
+    @pulumi.getter(name="sourceLocationName")
+    def source_location_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the source location for alternateMedia.
+        """
+        return pulumi.get(self, "source_location_name")
+
+    @source_location_name.setter
+    def source_location_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "source_location_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="vodSourceName")
+    def vod_source_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the VOD source for alternateMedia.
+        """
+        return pulumi.get(self, "vod_source_name")
+
+    @vod_source_name.setter
+    def vod_source_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "vod_source_name", value)
+
+
+class ProgramAudienceMediaArgsDict(TypedDict):
+    """
+    An AudienceMedia object contains an Audience and a list of AlternateMedia.
+    """
+    alternate_media: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ProgramAlternateMediaArgsDict']]]]]
+    """
+    The list of AlternateMedia defined in AudienceMedia.
+    """
+    audience: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The Audience defined in AudienceMedia.
+    """
+
+@pulumi.input_type
+class ProgramAudienceMediaArgs:
+    def __init__(__self__, *,
+                 alternate_media: pulumi.Input[Optional[Sequence[pulumi.Input['ProgramAlternateMediaArgs']]]] = None,
+                 audience: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        An AudienceMedia object contains an Audience and a list of AlternateMedia.
+
+        :param pulumi.Input[Sequence[pulumi.Input['ProgramAlternateMediaArgs']]] alternate_media: The list of AlternateMedia defined in AudienceMedia.
+        :param pulumi.Input[_builtins.str] audience: The Audience defined in AudienceMedia.
+        """
+        if alternate_media is not None:
+            pulumi.set(__self__, "alternate_media", alternate_media)
+        if audience is not None:
+            pulumi.set(__self__, "audience", audience)
+
+    @_builtins.property
+    @pulumi.getter(name="alternateMedia")
+    def alternate_media(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ProgramAlternateMediaArgs']]]]:
+        """
+        The list of AlternateMedia defined in AudienceMedia.
+        """
+        return pulumi.get(self, "alternate_media")
+
+    @alternate_media.setter
+    def alternate_media(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ProgramAlternateMediaArgs']]]]):
+        pulumi.set(self, "alternate_media", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def audience(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The Audience defined in AudienceMedia.
+        """
+        return pulumi.get(self, "audience")
+
+    @audience.setter
+    def audience(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "audience", value)
+
+
+class ProgramClipRangeArgsDict(TypedDict):
+    """
+    Clip range configuration for the VOD source associated with the program.
+    """
+    end_offset_millis: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    The end offset of the clip range, in milliseconds.
+    """
+    start_offset_millis: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    The start offset of the clip range, in milliseconds.
+    """
+
+@pulumi.input_type
+class ProgramClipRangeArgs:
+    def __init__(__self__, *,
+                 end_offset_millis: pulumi.Input[Optional[_builtins.int]] = None,
+                 start_offset_millis: pulumi.Input[Optional[_builtins.int]] = None):
+        """
+        Clip range configuration for the VOD source associated with the program.
+
+        :param pulumi.Input[_builtins.int] end_offset_millis: The end offset of the clip range, in milliseconds.
+        :param pulumi.Input[_builtins.int] start_offset_millis: The start offset of the clip range, in milliseconds.
+        """
+        if end_offset_millis is not None:
+            pulumi.set(__self__, "end_offset_millis", end_offset_millis)
+        if start_offset_millis is not None:
+            pulumi.set(__self__, "start_offset_millis", start_offset_millis)
+
+    @_builtins.property
+    @pulumi.getter(name="endOffsetMillis")
+    def end_offset_millis(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        The end offset of the clip range, in milliseconds.
+        """
+        return pulumi.get(self, "end_offset_millis")
+
+    @end_offset_millis.setter
+    def end_offset_millis(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "end_offset_millis", value)
+
+    @_builtins.property
+    @pulumi.getter(name="startOffsetMillis")
+    def start_offset_millis(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        The start offset of the clip range, in milliseconds.
+        """
+        return pulumi.get(self, "start_offset_millis")
+
+    @start_offset_millis.setter
+    def start_offset_millis(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "start_offset_millis", value)
+
+
+class ProgramKeyValuePairArgsDict(TypedDict):
+    """
+    For SCTE35_ENHANCED output, defines a key and corresponding value.
+    """
+    key: pulumi.Input[_builtins.str]
+    """
+    The key.
+    """
+    value: pulumi.Input[_builtins.str]
+    """
+    The value.
+    """
+
+@pulumi.input_type
+class ProgramKeyValuePairArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[_builtins.str],
+                 value: pulumi.Input[_builtins.str]):
+        """
+        For SCTE35_ENHANCED output, defines a key and corresponding value.
+
+        :param pulumi.Input[_builtins.str] key: The key.
+        :param pulumi.Input[_builtins.str] value: The value.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[_builtins.str]:
+        """
+        The key.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "key", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[_builtins.str]:
+        """
+        The value.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "value", value)
+
+
+class ProgramScheduleConfigurationArgsDict(TypedDict):
+    """
+    Schedule configuration parameters.
+    """
+    transition: pulumi.Input['ProgramTransitionArgsDict']
+    clip_range: NotRequired[pulumi.Input[Optional['ProgramClipRangeArgsDict']]]
+
+@pulumi.input_type
+class ProgramScheduleConfigurationArgs:
+    def __init__(__self__, *,
+                 transition: pulumi.Input['ProgramTransitionArgs'],
+                 clip_range: pulumi.Input[Optional['ProgramClipRangeArgs']] = None):
+        """
+        Schedule configuration parameters.
+        """
+        pulumi.set(__self__, "transition", transition)
+        if clip_range is not None:
+            pulumi.set(__self__, "clip_range", clip_range)
+
+    @_builtins.property
+    @pulumi.getter
+    def transition(self) -> pulumi.Input['ProgramTransitionArgs']:
+        return pulumi.get(self, "transition")
+
+    @transition.setter
+    def transition(self, value: pulumi.Input['ProgramTransitionArgs']):
+        pulumi.set(self, "transition", value)
+
+    @_builtins.property
+    @pulumi.getter(name="clipRange")
+    def clip_range(self) -> pulumi.Input[Optional['ProgramClipRangeArgs']]:
+        return pulumi.get(self, "clip_range")
+
+    @clip_range.setter
+    def clip_range(self, value: pulumi.Input[Optional['ProgramClipRangeArgs']]):
+        pulumi.set(self, "clip_range", value)
+
+
+class ProgramSegmentationDescriptorArgsDict(TypedDict):
+    """
+    The segmentation_descriptor message configuration.
+    """
+    segment_num: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    The segment number to assign.
+    """
+    segmentation_event_id: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    The Event Identifier to assign.
+    """
+    segmentation_type_id: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    The Type Identifier to assign.
+    """
+    segmentation_upid: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The Upid to assign.
+    """
+    segmentation_upid_type: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    The Upid Type to assign.
+    """
+    segments_expected: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    The number of segments expected.
+    """
+    sub_segment_num: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    The sub-segment number to assign.
+    """
+    sub_segments_expected: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    The number of sub-segments expected.
+    """
+
+@pulumi.input_type
+class ProgramSegmentationDescriptorArgs:
+    def __init__(__self__, *,
+                 segment_num: pulumi.Input[Optional[_builtins.int]] = None,
+                 segmentation_event_id: pulumi.Input[Optional[_builtins.int]] = None,
+                 segmentation_type_id: pulumi.Input[Optional[_builtins.int]] = None,
+                 segmentation_upid: pulumi.Input[Optional[_builtins.str]] = None,
+                 segmentation_upid_type: pulumi.Input[Optional[_builtins.int]] = None,
+                 segments_expected: pulumi.Input[Optional[_builtins.int]] = None,
+                 sub_segment_num: pulumi.Input[Optional[_builtins.int]] = None,
+                 sub_segments_expected: pulumi.Input[Optional[_builtins.int]] = None):
+        """
+        The segmentation_descriptor message configuration.
+
+        :param pulumi.Input[_builtins.int] segment_num: The segment number to assign.
+        :param pulumi.Input[_builtins.int] segmentation_event_id: The Event Identifier to assign.
+        :param pulumi.Input[_builtins.int] segmentation_type_id: The Type Identifier to assign.
+        :param pulumi.Input[_builtins.str] segmentation_upid: The Upid to assign.
+        :param pulumi.Input[_builtins.int] segmentation_upid_type: The Upid Type to assign.
+        :param pulumi.Input[_builtins.int] segments_expected: The number of segments expected.
+        :param pulumi.Input[_builtins.int] sub_segment_num: The sub-segment number to assign.
+        :param pulumi.Input[_builtins.int] sub_segments_expected: The number of sub-segments expected.
+        """
+        if segment_num is not None:
+            pulumi.set(__self__, "segment_num", segment_num)
+        if segmentation_event_id is not None:
+            pulumi.set(__self__, "segmentation_event_id", segmentation_event_id)
+        if segmentation_type_id is not None:
+            pulumi.set(__self__, "segmentation_type_id", segmentation_type_id)
+        if segmentation_upid is not None:
+            pulumi.set(__self__, "segmentation_upid", segmentation_upid)
+        if segmentation_upid_type is not None:
+            pulumi.set(__self__, "segmentation_upid_type", segmentation_upid_type)
+        if segments_expected is not None:
+            pulumi.set(__self__, "segments_expected", segments_expected)
+        if sub_segment_num is not None:
+            pulumi.set(__self__, "sub_segment_num", sub_segment_num)
+        if sub_segments_expected is not None:
+            pulumi.set(__self__, "sub_segments_expected", sub_segments_expected)
+
+    @_builtins.property
+    @pulumi.getter(name="segmentNum")
+    def segment_num(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        The segment number to assign.
+        """
+        return pulumi.get(self, "segment_num")
+
+    @segment_num.setter
+    def segment_num(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "segment_num", value)
+
+    @_builtins.property
+    @pulumi.getter(name="segmentationEventId")
+    def segmentation_event_id(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        The Event Identifier to assign.
+        """
+        return pulumi.get(self, "segmentation_event_id")
+
+    @segmentation_event_id.setter
+    def segmentation_event_id(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "segmentation_event_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="segmentationTypeId")
+    def segmentation_type_id(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        The Type Identifier to assign.
+        """
+        return pulumi.get(self, "segmentation_type_id")
+
+    @segmentation_type_id.setter
+    def segmentation_type_id(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "segmentation_type_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="segmentationUpid")
+    def segmentation_upid(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The Upid to assign.
+        """
+        return pulumi.get(self, "segmentation_upid")
+
+    @segmentation_upid.setter
+    def segmentation_upid(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "segmentation_upid", value)
+
+    @_builtins.property
+    @pulumi.getter(name="segmentationUpidType")
+    def segmentation_upid_type(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        The Upid Type to assign.
+        """
+        return pulumi.get(self, "segmentation_upid_type")
+
+    @segmentation_upid_type.setter
+    def segmentation_upid_type(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "segmentation_upid_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="segmentsExpected")
+    def segments_expected(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        The number of segments expected.
+        """
+        return pulumi.get(self, "segments_expected")
+
+    @segments_expected.setter
+    def segments_expected(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "segments_expected", value)
+
+    @_builtins.property
+    @pulumi.getter(name="subSegmentNum")
+    def sub_segment_num(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        The sub-segment number to assign.
+        """
+        return pulumi.get(self, "sub_segment_num")
+
+    @sub_segment_num.setter
+    def sub_segment_num(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "sub_segment_num", value)
+
+    @_builtins.property
+    @pulumi.getter(name="subSegmentsExpected")
+    def sub_segments_expected(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        The number of sub-segments expected.
+        """
+        return pulumi.get(self, "sub_segments_expected")
+
+    @sub_segments_expected.setter
+    def sub_segments_expected(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "sub_segments_expected", value)
+
+
+class ProgramSlateSourceArgsDict(TypedDict):
+    """
+    Slate VOD source configuration.
+    """
+    source_location_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The name of the source location where the slate VOD source is stored.
+    """
+    vod_source_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The slate VOD source name.
+    """
+
+@pulumi.input_type
+class ProgramSlateSourceArgs:
+    def __init__(__self__, *,
+                 source_location_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 vod_source_name: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        Slate VOD source configuration.
+
+        :param pulumi.Input[_builtins.str] source_location_name: The name of the source location where the slate VOD source is stored.
+        :param pulumi.Input[_builtins.str] vod_source_name: The slate VOD source name.
+        """
+        if source_location_name is not None:
+            pulumi.set(__self__, "source_location_name", source_location_name)
+        if vod_source_name is not None:
+            pulumi.set(__self__, "vod_source_name", vod_source_name)
+
+    @_builtins.property
+    @pulumi.getter(name="sourceLocationName")
+    def source_location_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the source location where the slate VOD source is stored.
+        """
+        return pulumi.get(self, "source_location_name")
+
+    @source_location_name.setter
+    def source_location_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "source_location_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="vodSourceName")
+    def vod_source_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The slate VOD source name.
+        """
+        return pulumi.get(self, "vod_source_name")
+
+    @vod_source_name.setter
+    def vod_source_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "vod_source_name", value)
+
+
+class ProgramSpliceInsertMessageArgsDict(TypedDict):
+    """
+    Splice insert message configuration.
+    """
+    avail_num: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    This is written to splice_insert.avail_num.
+    """
+    avails_expected: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    This is written to splice_insert.avails_expected.
+    """
+    splice_event_id: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    This is written to splice_insert.splice_event_id.
+    """
+    unique_program_id: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    This is written to splice_insert.unique_program_id.
+    """
+
+@pulumi.input_type
+class ProgramSpliceInsertMessageArgs:
+    def __init__(__self__, *,
+                 avail_num: pulumi.Input[Optional[_builtins.int]] = None,
+                 avails_expected: pulumi.Input[Optional[_builtins.int]] = None,
+                 splice_event_id: pulumi.Input[Optional[_builtins.int]] = None,
+                 unique_program_id: pulumi.Input[Optional[_builtins.int]] = None):
+        """
+        Splice insert message configuration.
+
+        :param pulumi.Input[_builtins.int] avail_num: This is written to splice_insert.avail_num.
+        :param pulumi.Input[_builtins.int] avails_expected: This is written to splice_insert.avails_expected.
+        :param pulumi.Input[_builtins.int] splice_event_id: This is written to splice_insert.splice_event_id.
+        :param pulumi.Input[_builtins.int] unique_program_id: This is written to splice_insert.unique_program_id.
+        """
+        if avail_num is not None:
+            pulumi.set(__self__, "avail_num", avail_num)
+        if avails_expected is not None:
+            pulumi.set(__self__, "avails_expected", avails_expected)
+        if splice_event_id is not None:
+            pulumi.set(__self__, "splice_event_id", splice_event_id)
+        if unique_program_id is not None:
+            pulumi.set(__self__, "unique_program_id", unique_program_id)
+
+    @_builtins.property
+    @pulumi.getter(name="availNum")
+    def avail_num(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        This is written to splice_insert.avail_num.
+        """
+        return pulumi.get(self, "avail_num")
+
+    @avail_num.setter
+    def avail_num(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "avail_num", value)
+
+    @_builtins.property
+    @pulumi.getter(name="availsExpected")
+    def avails_expected(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        This is written to splice_insert.avails_expected.
+        """
+        return pulumi.get(self, "avails_expected")
+
+    @avails_expected.setter
+    def avails_expected(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "avails_expected", value)
+
+    @_builtins.property
+    @pulumi.getter(name="spliceEventId")
+    def splice_event_id(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        This is written to splice_insert.splice_event_id.
+        """
+        return pulumi.get(self, "splice_event_id")
+
+    @splice_event_id.setter
+    def splice_event_id(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "splice_event_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="uniqueProgramId")
+    def unique_program_id(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        This is written to splice_insert.unique_program_id.
+        """
+        return pulumi.get(self, "unique_program_id")
+
+    @unique_program_id.setter
+    def unique_program_id(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "unique_program_id", value)
+
+
+class ProgramTimeSignalMessageArgsDict(TypedDict):
+    """
+    The SCTE-35 time_signal message configuration.
+    """
+    segmentation_descriptors: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ProgramSegmentationDescriptorArgsDict']]]]]
+    """
+    The configurations for the SCTE-35 segmentation_descriptor message(s).
+    """
+
+@pulumi.input_type
+class ProgramTimeSignalMessageArgs:
+    def __init__(__self__, *,
+                 segmentation_descriptors: pulumi.Input[Optional[Sequence[pulumi.Input['ProgramSegmentationDescriptorArgs']]]] = None):
+        """
+        The SCTE-35 time_signal message configuration.
+
+        :param pulumi.Input[Sequence[pulumi.Input['ProgramSegmentationDescriptorArgs']]] segmentation_descriptors: The configurations for the SCTE-35 segmentation_descriptor message(s).
+        """
+        if segmentation_descriptors is not None:
+            pulumi.set(__self__, "segmentation_descriptors", segmentation_descriptors)
+
+    @_builtins.property
+    @pulumi.getter(name="segmentationDescriptors")
+    def segmentation_descriptors(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ProgramSegmentationDescriptorArgs']]]]:
+        """
+        The configurations for the SCTE-35 segmentation_descriptor message(s).
+        """
+        return pulumi.get(self, "segmentation_descriptors")
+
+    @segmentation_descriptors.setter
+    def segmentation_descriptors(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ProgramSegmentationDescriptorArgs']]]]):
+        pulumi.set(self, "segmentation_descriptors", value)
+
+
+class ProgramTransitionArgsDict(TypedDict):
+    """
+    Program transition configuration.
+    """
+    relative_position: pulumi.Input['ProgramTransitionRelativePosition']
+    """
+    The position where this program will be inserted relative to the RelativePosition.
+    """
+    type: pulumi.Input[_builtins.str]
+    """
+    Defines when the program plays in the schedule. You can set the value to ABSOLUTE or RELATIVE.
+    """
+    duration_millis: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    The duration of the live program in seconds.
+    """
+    relative_program: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The name of the program that this program will be inserted next to.
+    """
+    scheduled_start_time_millis: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    The date and time that the program is scheduled to start, in epoch milliseconds.
+    """
+
+@pulumi.input_type
+class ProgramTransitionArgs:
+    def __init__(__self__, *,
+                 relative_position: pulumi.Input['ProgramTransitionRelativePosition'],
+                 type: pulumi.Input[_builtins.str],
+                 duration_millis: pulumi.Input[Optional[_builtins.int]] = None,
+                 relative_program: pulumi.Input[Optional[_builtins.str]] = None,
+                 scheduled_start_time_millis: pulumi.Input[Optional[_builtins.int]] = None):
+        """
+        Program transition configuration.
+
+        :param pulumi.Input['ProgramTransitionRelativePosition'] relative_position: The position where this program will be inserted relative to the RelativePosition.
+        :param pulumi.Input[_builtins.str] type: Defines when the program plays in the schedule. You can set the value to ABSOLUTE or RELATIVE.
+        :param pulumi.Input[_builtins.int] duration_millis: The duration of the live program in seconds.
+        :param pulumi.Input[_builtins.str] relative_program: The name of the program that this program will be inserted next to.
+        :param pulumi.Input[_builtins.int] scheduled_start_time_millis: The date and time that the program is scheduled to start, in epoch milliseconds.
+        """
+        pulumi.set(__self__, "relative_position", relative_position)
+        pulumi.set(__self__, "type", type)
+        if duration_millis is not None:
+            pulumi.set(__self__, "duration_millis", duration_millis)
+        if relative_program is not None:
+            pulumi.set(__self__, "relative_program", relative_program)
+        if scheduled_start_time_millis is not None:
+            pulumi.set(__self__, "scheduled_start_time_millis", scheduled_start_time_millis)
+
+    @_builtins.property
+    @pulumi.getter(name="relativePosition")
+    def relative_position(self) -> pulumi.Input['ProgramTransitionRelativePosition']:
+        """
+        The position where this program will be inserted relative to the RelativePosition.
+        """
+        return pulumi.get(self, "relative_position")
+
+    @relative_position.setter
+    def relative_position(self, value: pulumi.Input['ProgramTransitionRelativePosition']):
+        pulumi.set(self, "relative_position", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[_builtins.str]:
+        """
+        Defines when the program plays in the schedule. You can set the value to ABSOLUTE or RELATIVE.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="durationMillis")
+    def duration_millis(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        The duration of the live program in seconds.
+        """
+        return pulumi.get(self, "duration_millis")
+
+    @duration_millis.setter
+    def duration_millis(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "duration_millis", value)
+
+    @_builtins.property
+    @pulumi.getter(name="relativeProgram")
+    def relative_program(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the program that this program will be inserted next to.
+        """
+        return pulumi.get(self, "relative_program")
+
+    @relative_program.setter
+    def relative_program(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "relative_program", value)
+
+    @_builtins.property
+    @pulumi.getter(name="scheduledStartTimeMillis")
+    def scheduled_start_time_millis(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        The date and time that the program is scheduled to start, in epoch milliseconds.
+        """
+        return pulumi.get(self, "scheduled_start_time_millis")
+
+    @scheduled_start_time_millis.setter
+    def scheduled_start_time_millis(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "scheduled_start_time_millis", value)
 
 
 class SourceLocationAccessConfigurationArgsDict(TypedDict):

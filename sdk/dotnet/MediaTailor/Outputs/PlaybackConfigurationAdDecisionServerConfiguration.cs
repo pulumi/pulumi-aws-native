@@ -16,12 +16,12 @@ namespace Pulumi.AwsNative.MediaTailor.Outputs
     [OutputType]
     public sealed class PlaybackConfigurationAdDecisionServerConfiguration
     {
-        public readonly Outputs.PlaybackConfigurationHttpRequest HttpRequest;
+        public readonly Outputs.PlaybackConfigurationHttpRequest? HttpRequest;
         public readonly Outputs.PlaybackConfigurationVastResponse? VastResponse;
 
         [OutputConstructor]
         private PlaybackConfigurationAdDecisionServerConfiguration(
-            Outputs.PlaybackConfigurationHttpRequest httpRequest,
+            Outputs.PlaybackConfigurationHttpRequest? httpRequest,
 
             Outputs.PlaybackConfigurationVastResponse? vastResponse)
         {

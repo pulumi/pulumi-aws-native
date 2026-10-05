@@ -2176,6 +2176,14 @@ func (o DbProxyTargetGroupConnectionPoolConfigurationInfoFormatPtrOutput) Sessio
 	}).(pulumi.StringArrayOutput)
 }
 
+// A key-value pair to associate with the DB proxy target group.
+type DbProxyTargetGroupTag struct {
+	// The key name of the tag.
+	Key string `pulumi:"key"`
+	// The value for the tag.
+	Value *string `pulumi:"value"`
+}
+
 // Metadata assigned to an Amazon RDS resource consisting of a key-value pair.
 //
 //	For more information, see [Tagging Amazon RDS resources](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html) in the *Amazon RDS User Guide* or [Tagging Amazon Aurora and Amazon RDS resources](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_Tagging.html) in the *Amazon Aurora User Guide*.

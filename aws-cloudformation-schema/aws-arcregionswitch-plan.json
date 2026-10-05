@@ -269,6 +269,9 @@
           }, {
             "default" : "sampledMaxInLast24Hours"
           } ]
+        },
+        "WaitELBTargetGroupHealthy" : {
+          "$ref" : "#/definitions/WaitELBTargetGroupHealthy"
         }
       },
       "required" : [ "Asgs" ],
@@ -319,6 +322,9 @@
           }, {
             "default" : "sampledMaxInLast24Hours"
           } ]
+        },
+        "WaitELBTargetGroupHealthy" : {
+          "$ref" : "#/definitions/WaitELBTargetGroupHealthy"
         }
       },
       "required" : [ "Services" ],
@@ -1241,6 +1247,10 @@
       "required" : [ "AssociatedAlarmName", "Condition" ],
       "additionalProperties" : false
     },
+    "WaitELBTargetGroupHealthy" : {
+      "type" : "string",
+      "enum" : [ "enabled", "disabled" ]
+    },
     "Workflow" : {
       "type" : "object",
       "properties" : {
@@ -1361,6 +1371,9 @@
     },
     "ReportConfiguration" : {
       "$ref" : "#/definitions/ReportConfiguration"
+    },
+    "ServiceQuotaChecksEnabled" : {
+      "type" : "boolean"
     },
     "Tags" : {
       "$ref" : "#/definitions/Tags"

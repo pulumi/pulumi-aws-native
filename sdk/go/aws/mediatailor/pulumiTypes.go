@@ -940,6 +940,290 @@ func (o ChannelTimeShiftConfigurationPtrOutput) MaxTimeDelaySeconds() pulumi.Flo
 	}).(pulumi.Float64PtrOutput)
 }
 
+// The configuration for an AWS_SERVICE_REQUEST function. Contains the target service, target Region, and request parameters that the function uses to call an AWS service API. For more information, see AWS_SERVICE_REQUEST (https://docs.aws.amazon.com/mediatailor/latest/ug/monetization-functions-types-aws-service-request.html) in the MediaTailor User Guide.
+type FunctionAwsServiceRequestConfiguration struct {
+	// An expression that evaluates to the request body for the AWS service API call. The body must conform to the input format that the target service operation expects. Applies only when the target operation accepts a request body. The maximum size after evaluation is 64 KB.
+	Body *string `pulumi:"body"`
+	// A map of HTTP header names to expression values. MediaTailor evaluates each header value expression at runtime and includes the result in the outbound request to the AWS service. Use this to pass any headers required by the target service operation. You can include a maximum of 50 headers.
+	Headers    map[string]string  `pulumi:"headers"`
+	MethodType FunctionMethodType `pulumi:"methodType"`
+	// A map of output bindings. Each key is a namespaced output path, such as player_params.device_type. Each value is an expression that MediaTailor evaluates at runtime and can reference the response object from the target service. For more information, see JSONata expression reference (https://docs.aws.amazon.com/mediatailor/latest/ug/monetization-functions-jsonata.html) in the MediaTailor User Guide.
+	Output map[string]string `pulumi:"output"`
+	// The maximum time, in milliseconds, that MediaTailor waits for a response from the AWS service. If the call exceeds this timeout, MediaTailor sets the response status code to null and proceeds with output expression evaluation. Valid values are 100 to 2000.
+	RequestTimeoutMilliseconds int                 `pulumi:"requestTimeoutMilliseconds"`
+	Runtime                    FunctionRuntimeType `pulumi:"runtime"`
+	// The AWS Region for the target service. Specify a static Region code (for example, us-east-1) or a JSONata expression that resolves to a Region code at runtime (for example, {%inference.region%}).
+	TargetRegion string `pulumi:"targetRegion"`
+	// The AWS service to call. Valid value: elemental-inference (AWS Elemental Inference).
+	TargetService string `pulumi:"targetService"`
+	// An expression that evaluates to the endpoint URL for the target AWS service API operation. Use {%...%} delimiters for dynamic expressions. The URL must correspond to a valid endpoint for the service specified in TargetService. The maximum length after evaluation is 2,048 characters.
+	Url string `pulumi:"url"`
+}
+
+// FunctionAwsServiceRequestConfigurationInput is an input type that accepts FunctionAwsServiceRequestConfigurationArgs and FunctionAwsServiceRequestConfigurationOutput values.
+// You can construct a concrete instance of `FunctionAwsServiceRequestConfigurationInput` via:
+//
+//	FunctionAwsServiceRequestConfigurationArgs{...}
+type FunctionAwsServiceRequestConfigurationInput interface {
+	pulumi.Input
+
+	ToFunctionAwsServiceRequestConfigurationOutput() FunctionAwsServiceRequestConfigurationOutput
+	ToFunctionAwsServiceRequestConfigurationOutputWithContext(context.Context) FunctionAwsServiceRequestConfigurationOutput
+}
+
+// The configuration for an AWS_SERVICE_REQUEST function. Contains the target service, target Region, and request parameters that the function uses to call an AWS service API. For more information, see AWS_SERVICE_REQUEST (https://docs.aws.amazon.com/mediatailor/latest/ug/monetization-functions-types-aws-service-request.html) in the MediaTailor User Guide.
+type FunctionAwsServiceRequestConfigurationArgs struct {
+	// An expression that evaluates to the request body for the AWS service API call. The body must conform to the input format that the target service operation expects. Applies only when the target operation accepts a request body. The maximum size after evaluation is 64 KB.
+	Body pulumi.StringPtrInput `pulumi:"body"`
+	// A map of HTTP header names to expression values. MediaTailor evaluates each header value expression at runtime and includes the result in the outbound request to the AWS service. Use this to pass any headers required by the target service operation. You can include a maximum of 50 headers.
+	Headers    pulumi.StringMapInput   `pulumi:"headers"`
+	MethodType FunctionMethodTypeInput `pulumi:"methodType"`
+	// A map of output bindings. Each key is a namespaced output path, such as player_params.device_type. Each value is an expression that MediaTailor evaluates at runtime and can reference the response object from the target service. For more information, see JSONata expression reference (https://docs.aws.amazon.com/mediatailor/latest/ug/monetization-functions-jsonata.html) in the MediaTailor User Guide.
+	Output pulumi.StringMapInput `pulumi:"output"`
+	// The maximum time, in milliseconds, that MediaTailor waits for a response from the AWS service. If the call exceeds this timeout, MediaTailor sets the response status code to null and proceeds with output expression evaluation. Valid values are 100 to 2000.
+	RequestTimeoutMilliseconds pulumi.IntInput          `pulumi:"requestTimeoutMilliseconds"`
+	Runtime                    FunctionRuntimeTypeInput `pulumi:"runtime"`
+	// The AWS Region for the target service. Specify a static Region code (for example, us-east-1) or a JSONata expression that resolves to a Region code at runtime (for example, {%inference.region%}).
+	TargetRegion pulumi.StringInput `pulumi:"targetRegion"`
+	// The AWS service to call. Valid value: elemental-inference (AWS Elemental Inference).
+	TargetService pulumi.StringInput `pulumi:"targetService"`
+	// An expression that evaluates to the endpoint URL for the target AWS service API operation. Use {%...%} delimiters for dynamic expressions. The URL must correspond to a valid endpoint for the service specified in TargetService. The maximum length after evaluation is 2,048 characters.
+	Url pulumi.StringInput `pulumi:"url"`
+}
+
+func (FunctionAwsServiceRequestConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FunctionAwsServiceRequestConfiguration)(nil)).Elem()
+}
+
+func (i FunctionAwsServiceRequestConfigurationArgs) ToFunctionAwsServiceRequestConfigurationOutput() FunctionAwsServiceRequestConfigurationOutput {
+	return i.ToFunctionAwsServiceRequestConfigurationOutputWithContext(context.Background())
+}
+
+func (i FunctionAwsServiceRequestConfigurationArgs) ToFunctionAwsServiceRequestConfigurationOutputWithContext(ctx context.Context) FunctionAwsServiceRequestConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionAwsServiceRequestConfigurationOutput)
+}
+
+func (i FunctionAwsServiceRequestConfigurationArgs) ToFunctionAwsServiceRequestConfigurationPtrOutput() FunctionAwsServiceRequestConfigurationPtrOutput {
+	return i.ToFunctionAwsServiceRequestConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i FunctionAwsServiceRequestConfigurationArgs) ToFunctionAwsServiceRequestConfigurationPtrOutputWithContext(ctx context.Context) FunctionAwsServiceRequestConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionAwsServiceRequestConfigurationOutput).ToFunctionAwsServiceRequestConfigurationPtrOutputWithContext(ctx)
+}
+
+// FunctionAwsServiceRequestConfigurationPtrInput is an input type that accepts FunctionAwsServiceRequestConfigurationArgs, FunctionAwsServiceRequestConfigurationPtr and FunctionAwsServiceRequestConfigurationPtrOutput values.
+// You can construct a concrete instance of `FunctionAwsServiceRequestConfigurationPtrInput` via:
+//
+//	        FunctionAwsServiceRequestConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type FunctionAwsServiceRequestConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToFunctionAwsServiceRequestConfigurationPtrOutput() FunctionAwsServiceRequestConfigurationPtrOutput
+	ToFunctionAwsServiceRequestConfigurationPtrOutputWithContext(context.Context) FunctionAwsServiceRequestConfigurationPtrOutput
+}
+
+type functionAwsServiceRequestConfigurationPtrType FunctionAwsServiceRequestConfigurationArgs
+
+func FunctionAwsServiceRequestConfigurationPtr(v *FunctionAwsServiceRequestConfigurationArgs) FunctionAwsServiceRequestConfigurationPtrInput {
+	return (*functionAwsServiceRequestConfigurationPtrType)(v)
+}
+
+func (*functionAwsServiceRequestConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FunctionAwsServiceRequestConfiguration)(nil)).Elem()
+}
+
+func (i *functionAwsServiceRequestConfigurationPtrType) ToFunctionAwsServiceRequestConfigurationPtrOutput() FunctionAwsServiceRequestConfigurationPtrOutput {
+	return i.ToFunctionAwsServiceRequestConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *functionAwsServiceRequestConfigurationPtrType) ToFunctionAwsServiceRequestConfigurationPtrOutputWithContext(ctx context.Context) FunctionAwsServiceRequestConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionAwsServiceRequestConfigurationPtrOutput)
+}
+
+// The configuration for an AWS_SERVICE_REQUEST function. Contains the target service, target Region, and request parameters that the function uses to call an AWS service API. For more information, see AWS_SERVICE_REQUEST (https://docs.aws.amazon.com/mediatailor/latest/ug/monetization-functions-types-aws-service-request.html) in the MediaTailor User Guide.
+type FunctionAwsServiceRequestConfigurationOutput struct{ *pulumi.OutputState }
+
+func (FunctionAwsServiceRequestConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FunctionAwsServiceRequestConfiguration)(nil)).Elem()
+}
+
+func (o FunctionAwsServiceRequestConfigurationOutput) ToFunctionAwsServiceRequestConfigurationOutput() FunctionAwsServiceRequestConfigurationOutput {
+	return o
+}
+
+func (o FunctionAwsServiceRequestConfigurationOutput) ToFunctionAwsServiceRequestConfigurationOutputWithContext(ctx context.Context) FunctionAwsServiceRequestConfigurationOutput {
+	return o
+}
+
+func (o FunctionAwsServiceRequestConfigurationOutput) ToFunctionAwsServiceRequestConfigurationPtrOutput() FunctionAwsServiceRequestConfigurationPtrOutput {
+	return o.ToFunctionAwsServiceRequestConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o FunctionAwsServiceRequestConfigurationOutput) ToFunctionAwsServiceRequestConfigurationPtrOutputWithContext(ctx context.Context) FunctionAwsServiceRequestConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FunctionAwsServiceRequestConfiguration) *FunctionAwsServiceRequestConfiguration {
+		return &v
+	}).(FunctionAwsServiceRequestConfigurationPtrOutput)
+}
+
+// An expression that evaluates to the request body for the AWS service API call. The body must conform to the input format that the target service operation expects. Applies only when the target operation accepts a request body. The maximum size after evaluation is 64 KB.
+func (o FunctionAwsServiceRequestConfigurationOutput) Body() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FunctionAwsServiceRequestConfiguration) *string { return v.Body }).(pulumi.StringPtrOutput)
+}
+
+// A map of HTTP header names to expression values. MediaTailor evaluates each header value expression at runtime and includes the result in the outbound request to the AWS service. Use this to pass any headers required by the target service operation. You can include a maximum of 50 headers.
+func (o FunctionAwsServiceRequestConfigurationOutput) Headers() pulumi.StringMapOutput {
+	return o.ApplyT(func(v FunctionAwsServiceRequestConfiguration) map[string]string { return v.Headers }).(pulumi.StringMapOutput)
+}
+
+func (o FunctionAwsServiceRequestConfigurationOutput) MethodType() FunctionMethodTypeOutput {
+	return o.ApplyT(func(v FunctionAwsServiceRequestConfiguration) FunctionMethodType { return v.MethodType }).(FunctionMethodTypeOutput)
+}
+
+// A map of output bindings. Each key is a namespaced output path, such as player_params.device_type. Each value is an expression that MediaTailor evaluates at runtime and can reference the response object from the target service. For more information, see JSONata expression reference (https://docs.aws.amazon.com/mediatailor/latest/ug/monetization-functions-jsonata.html) in the MediaTailor User Guide.
+func (o FunctionAwsServiceRequestConfigurationOutput) Output() pulumi.StringMapOutput {
+	return o.ApplyT(func(v FunctionAwsServiceRequestConfiguration) map[string]string { return v.Output }).(pulumi.StringMapOutput)
+}
+
+// The maximum time, in milliseconds, that MediaTailor waits for a response from the AWS service. If the call exceeds this timeout, MediaTailor sets the response status code to null and proceeds with output expression evaluation. Valid values are 100 to 2000.
+func (o FunctionAwsServiceRequestConfigurationOutput) RequestTimeoutMilliseconds() pulumi.IntOutput {
+	return o.ApplyT(func(v FunctionAwsServiceRequestConfiguration) int { return v.RequestTimeoutMilliseconds }).(pulumi.IntOutput)
+}
+
+func (o FunctionAwsServiceRequestConfigurationOutput) Runtime() FunctionRuntimeTypeOutput {
+	return o.ApplyT(func(v FunctionAwsServiceRequestConfiguration) FunctionRuntimeType { return v.Runtime }).(FunctionRuntimeTypeOutput)
+}
+
+// The AWS Region for the target service. Specify a static Region code (for example, us-east-1) or a JSONata expression that resolves to a Region code at runtime (for example, {%inference.region%}).
+func (o FunctionAwsServiceRequestConfigurationOutput) TargetRegion() pulumi.StringOutput {
+	return o.ApplyT(func(v FunctionAwsServiceRequestConfiguration) string { return v.TargetRegion }).(pulumi.StringOutput)
+}
+
+// The AWS service to call. Valid value: elemental-inference (AWS Elemental Inference).
+func (o FunctionAwsServiceRequestConfigurationOutput) TargetService() pulumi.StringOutput {
+	return o.ApplyT(func(v FunctionAwsServiceRequestConfiguration) string { return v.TargetService }).(pulumi.StringOutput)
+}
+
+// An expression that evaluates to the endpoint URL for the target AWS service API operation. Use {%...%} delimiters for dynamic expressions. The URL must correspond to a valid endpoint for the service specified in TargetService. The maximum length after evaluation is 2,048 characters.
+func (o FunctionAwsServiceRequestConfigurationOutput) Url() pulumi.StringOutput {
+	return o.ApplyT(func(v FunctionAwsServiceRequestConfiguration) string { return v.Url }).(pulumi.StringOutput)
+}
+
+type FunctionAwsServiceRequestConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (FunctionAwsServiceRequestConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FunctionAwsServiceRequestConfiguration)(nil)).Elem()
+}
+
+func (o FunctionAwsServiceRequestConfigurationPtrOutput) ToFunctionAwsServiceRequestConfigurationPtrOutput() FunctionAwsServiceRequestConfigurationPtrOutput {
+	return o
+}
+
+func (o FunctionAwsServiceRequestConfigurationPtrOutput) ToFunctionAwsServiceRequestConfigurationPtrOutputWithContext(ctx context.Context) FunctionAwsServiceRequestConfigurationPtrOutput {
+	return o
+}
+
+func (o FunctionAwsServiceRequestConfigurationPtrOutput) Elem() FunctionAwsServiceRequestConfigurationOutput {
+	return o.ApplyT(func(v *FunctionAwsServiceRequestConfiguration) FunctionAwsServiceRequestConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret FunctionAwsServiceRequestConfiguration
+		return ret
+	}).(FunctionAwsServiceRequestConfigurationOutput)
+}
+
+// An expression that evaluates to the request body for the AWS service API call. The body must conform to the input format that the target service operation expects. Applies only when the target operation accepts a request body. The maximum size after evaluation is 64 KB.
+func (o FunctionAwsServiceRequestConfigurationPtrOutput) Body() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FunctionAwsServiceRequestConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Body
+	}).(pulumi.StringPtrOutput)
+}
+
+// A map of HTTP header names to expression values. MediaTailor evaluates each header value expression at runtime and includes the result in the outbound request to the AWS service. Use this to pass any headers required by the target service operation. You can include a maximum of 50 headers.
+func (o FunctionAwsServiceRequestConfigurationPtrOutput) Headers() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *FunctionAwsServiceRequestConfiguration) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.Headers
+	}).(pulumi.StringMapOutput)
+}
+
+func (o FunctionAwsServiceRequestConfigurationPtrOutput) MethodType() FunctionMethodTypePtrOutput {
+	return o.ApplyT(func(v *FunctionAwsServiceRequestConfiguration) *FunctionMethodType {
+		if v == nil {
+			return nil
+		}
+		return &v.MethodType
+	}).(FunctionMethodTypePtrOutput)
+}
+
+// A map of output bindings. Each key is a namespaced output path, such as player_params.device_type. Each value is an expression that MediaTailor evaluates at runtime and can reference the response object from the target service. For more information, see JSONata expression reference (https://docs.aws.amazon.com/mediatailor/latest/ug/monetization-functions-jsonata.html) in the MediaTailor User Guide.
+func (o FunctionAwsServiceRequestConfigurationPtrOutput) Output() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *FunctionAwsServiceRequestConfiguration) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.Output
+	}).(pulumi.StringMapOutput)
+}
+
+// The maximum time, in milliseconds, that MediaTailor waits for a response from the AWS service. If the call exceeds this timeout, MediaTailor sets the response status code to null and proceeds with output expression evaluation. Valid values are 100 to 2000.
+func (o FunctionAwsServiceRequestConfigurationPtrOutput) RequestTimeoutMilliseconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FunctionAwsServiceRequestConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.RequestTimeoutMilliseconds
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o FunctionAwsServiceRequestConfigurationPtrOutput) Runtime() FunctionRuntimeTypePtrOutput {
+	return o.ApplyT(func(v *FunctionAwsServiceRequestConfiguration) *FunctionRuntimeType {
+		if v == nil {
+			return nil
+		}
+		return &v.Runtime
+	}).(FunctionRuntimeTypePtrOutput)
+}
+
+// The AWS Region for the target service. Specify a static Region code (for example, us-east-1) or a JSONata expression that resolves to a Region code at runtime (for example, {%inference.region%}).
+func (o FunctionAwsServiceRequestConfigurationPtrOutput) TargetRegion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FunctionAwsServiceRequestConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TargetRegion
+	}).(pulumi.StringPtrOutput)
+}
+
+// The AWS service to call. Valid value: elemental-inference (AWS Elemental Inference).
+func (o FunctionAwsServiceRequestConfigurationPtrOutput) TargetService() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FunctionAwsServiceRequestConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TargetService
+	}).(pulumi.StringPtrOutput)
+}
+
+// An expression that evaluates to the endpoint URL for the target AWS service API operation. Use {%...%} delimiters for dynamic expressions. The URL must correspond to a valid endpoint for the service specified in TargetService. The maximum length after evaluation is 2,048 characters.
+func (o FunctionAwsServiceRequestConfigurationPtrOutput) Url() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FunctionAwsServiceRequestConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Url
+	}).(pulumi.StringPtrOutput)
+}
+
 // The configuration for a CONCURRENT_EXECUTOR function. A CONCURRENT_EXECUTOR runs a set of child functions in parallel, up to a maximum concurrency, and combines their output when all functions complete. For more information about functions, see Working with functions (https://docs.aws.amazon.com/mediatailor/latest/ug/monetization-functions.html) in the MediaTailor User Guide.
 type FunctionConcurrentExecutorConfiguration struct {
 	// The list of 1 to 10 child functions that MediaTailor runs in parallel. Each entry specifies a child function to execute and an optional run condition expression that controls whether the function runs. Child functions cannot themselves be executors, and each child function's resolved namespace must be unique across the list.
@@ -1881,6 +2165,252 @@ type FunctionTag struct {
 	Value string `pulumi:"value"`
 }
 
+// The configuration for a VAST_REQUEST function. Specifies the HTTP method, URL, headers, body, timeout, and output expressions for a request to a VAST endpoint. MediaTailor parses the response as VAST and resolves wrapper redirects, then makes the parsed ads available to the function's output expressions. For more information, see Function types and composition (https://docs.aws.amazon.com/mediatailor/latest/ug/monetization-functions-types.html) in the MediaTailor User Guide.
+type FunctionVastRequestConfiguration struct {
+	// An expression that evaluates to the request body, for example to send an OpenRTB bid request. The expression can be up to 100,000 characters, and the body after evaluation can be up to 64 KB.
+	Body *string `pulumi:"body"`
+	// A map of HTTP header names to expression values. MediaTailor evaluates each header value expression at runtime and includes the result in the outbound request. Headers beginning with X-Amz- are reserved by the service, and method override headers are not allowed.
+	Headers    map[string]string  `pulumi:"headers"`
+	MethodType FunctionMethodType `pulumi:"methodType"`
+	// A map of output bindings. Each key is a namespaced output path (such as temp.wrappedAds), and each value is an expression that MediaTailor evaluates at runtime. Output expressions in a VAST_REQUEST function can reference the response object, which exposes response.parsedAds, the ads parsed from the VAST response after schema validation and wrapper resolution, and response.statusCode. For more information about expression syntax, see JSONata expression reference (https://docs.aws.amazon.com/mediatailor/latest/ug/monetization-functions-jsonata.html) in the MediaTailor User Guide.
+	Output map[string]string `pulumi:"output"`
+	// The maximum time, in milliseconds, that MediaTailor waits for a response from the VAST endpoint. The timeout covers the entire response, including any wrapper redirects that MediaTailor follows. If the call exceeds this timeout, MediaTailor proceeds with an empty ad list and continues output expression evaluation. Valid values are 100 to 2000.
+	RequestTimeoutMilliseconds int                 `pulumi:"requestTimeoutMilliseconds"`
+	Runtime                    FunctionRuntimeType `pulumi:"runtime"`
+	// An expression that evaluates to the VAST endpoint URL. Use {%...%} delimiters for dynamic expressions. A literal value must be an https:// URL. The expression can be up to 25,000 characters, and the URL after evaluation can be up to 2,048 characters.
+	Url string `pulumi:"url"`
+}
+
+// FunctionVastRequestConfigurationInput is an input type that accepts FunctionVastRequestConfigurationArgs and FunctionVastRequestConfigurationOutput values.
+// You can construct a concrete instance of `FunctionVastRequestConfigurationInput` via:
+//
+//	FunctionVastRequestConfigurationArgs{...}
+type FunctionVastRequestConfigurationInput interface {
+	pulumi.Input
+
+	ToFunctionVastRequestConfigurationOutput() FunctionVastRequestConfigurationOutput
+	ToFunctionVastRequestConfigurationOutputWithContext(context.Context) FunctionVastRequestConfigurationOutput
+}
+
+// The configuration for a VAST_REQUEST function. Specifies the HTTP method, URL, headers, body, timeout, and output expressions for a request to a VAST endpoint. MediaTailor parses the response as VAST and resolves wrapper redirects, then makes the parsed ads available to the function's output expressions. For more information, see Function types and composition (https://docs.aws.amazon.com/mediatailor/latest/ug/monetization-functions-types.html) in the MediaTailor User Guide.
+type FunctionVastRequestConfigurationArgs struct {
+	// An expression that evaluates to the request body, for example to send an OpenRTB bid request. The expression can be up to 100,000 characters, and the body after evaluation can be up to 64 KB.
+	Body pulumi.StringPtrInput `pulumi:"body"`
+	// A map of HTTP header names to expression values. MediaTailor evaluates each header value expression at runtime and includes the result in the outbound request. Headers beginning with X-Amz- are reserved by the service, and method override headers are not allowed.
+	Headers    pulumi.StringMapInput   `pulumi:"headers"`
+	MethodType FunctionMethodTypeInput `pulumi:"methodType"`
+	// A map of output bindings. Each key is a namespaced output path (such as temp.wrappedAds), and each value is an expression that MediaTailor evaluates at runtime. Output expressions in a VAST_REQUEST function can reference the response object, which exposes response.parsedAds, the ads parsed from the VAST response after schema validation and wrapper resolution, and response.statusCode. For more information about expression syntax, see JSONata expression reference (https://docs.aws.amazon.com/mediatailor/latest/ug/monetization-functions-jsonata.html) in the MediaTailor User Guide.
+	Output pulumi.StringMapInput `pulumi:"output"`
+	// The maximum time, in milliseconds, that MediaTailor waits for a response from the VAST endpoint. The timeout covers the entire response, including any wrapper redirects that MediaTailor follows. If the call exceeds this timeout, MediaTailor proceeds with an empty ad list and continues output expression evaluation. Valid values are 100 to 2000.
+	RequestTimeoutMilliseconds pulumi.IntInput          `pulumi:"requestTimeoutMilliseconds"`
+	Runtime                    FunctionRuntimeTypeInput `pulumi:"runtime"`
+	// An expression that evaluates to the VAST endpoint URL. Use {%...%} delimiters for dynamic expressions. A literal value must be an https:// URL. The expression can be up to 25,000 characters, and the URL after evaluation can be up to 2,048 characters.
+	Url pulumi.StringInput `pulumi:"url"`
+}
+
+func (FunctionVastRequestConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FunctionVastRequestConfiguration)(nil)).Elem()
+}
+
+func (i FunctionVastRequestConfigurationArgs) ToFunctionVastRequestConfigurationOutput() FunctionVastRequestConfigurationOutput {
+	return i.ToFunctionVastRequestConfigurationOutputWithContext(context.Background())
+}
+
+func (i FunctionVastRequestConfigurationArgs) ToFunctionVastRequestConfigurationOutputWithContext(ctx context.Context) FunctionVastRequestConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionVastRequestConfigurationOutput)
+}
+
+func (i FunctionVastRequestConfigurationArgs) ToFunctionVastRequestConfigurationPtrOutput() FunctionVastRequestConfigurationPtrOutput {
+	return i.ToFunctionVastRequestConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i FunctionVastRequestConfigurationArgs) ToFunctionVastRequestConfigurationPtrOutputWithContext(ctx context.Context) FunctionVastRequestConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionVastRequestConfigurationOutput).ToFunctionVastRequestConfigurationPtrOutputWithContext(ctx)
+}
+
+// FunctionVastRequestConfigurationPtrInput is an input type that accepts FunctionVastRequestConfigurationArgs, FunctionVastRequestConfigurationPtr and FunctionVastRequestConfigurationPtrOutput values.
+// You can construct a concrete instance of `FunctionVastRequestConfigurationPtrInput` via:
+//
+//	        FunctionVastRequestConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type FunctionVastRequestConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToFunctionVastRequestConfigurationPtrOutput() FunctionVastRequestConfigurationPtrOutput
+	ToFunctionVastRequestConfigurationPtrOutputWithContext(context.Context) FunctionVastRequestConfigurationPtrOutput
+}
+
+type functionVastRequestConfigurationPtrType FunctionVastRequestConfigurationArgs
+
+func FunctionVastRequestConfigurationPtr(v *FunctionVastRequestConfigurationArgs) FunctionVastRequestConfigurationPtrInput {
+	return (*functionVastRequestConfigurationPtrType)(v)
+}
+
+func (*functionVastRequestConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FunctionVastRequestConfiguration)(nil)).Elem()
+}
+
+func (i *functionVastRequestConfigurationPtrType) ToFunctionVastRequestConfigurationPtrOutput() FunctionVastRequestConfigurationPtrOutput {
+	return i.ToFunctionVastRequestConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *functionVastRequestConfigurationPtrType) ToFunctionVastRequestConfigurationPtrOutputWithContext(ctx context.Context) FunctionVastRequestConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionVastRequestConfigurationPtrOutput)
+}
+
+// The configuration for a VAST_REQUEST function. Specifies the HTTP method, URL, headers, body, timeout, and output expressions for a request to a VAST endpoint. MediaTailor parses the response as VAST and resolves wrapper redirects, then makes the parsed ads available to the function's output expressions. For more information, see Function types and composition (https://docs.aws.amazon.com/mediatailor/latest/ug/monetization-functions-types.html) in the MediaTailor User Guide.
+type FunctionVastRequestConfigurationOutput struct{ *pulumi.OutputState }
+
+func (FunctionVastRequestConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FunctionVastRequestConfiguration)(nil)).Elem()
+}
+
+func (o FunctionVastRequestConfigurationOutput) ToFunctionVastRequestConfigurationOutput() FunctionVastRequestConfigurationOutput {
+	return o
+}
+
+func (o FunctionVastRequestConfigurationOutput) ToFunctionVastRequestConfigurationOutputWithContext(ctx context.Context) FunctionVastRequestConfigurationOutput {
+	return o
+}
+
+func (o FunctionVastRequestConfigurationOutput) ToFunctionVastRequestConfigurationPtrOutput() FunctionVastRequestConfigurationPtrOutput {
+	return o.ToFunctionVastRequestConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o FunctionVastRequestConfigurationOutput) ToFunctionVastRequestConfigurationPtrOutputWithContext(ctx context.Context) FunctionVastRequestConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FunctionVastRequestConfiguration) *FunctionVastRequestConfiguration {
+		return &v
+	}).(FunctionVastRequestConfigurationPtrOutput)
+}
+
+// An expression that evaluates to the request body, for example to send an OpenRTB bid request. The expression can be up to 100,000 characters, and the body after evaluation can be up to 64 KB.
+func (o FunctionVastRequestConfigurationOutput) Body() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FunctionVastRequestConfiguration) *string { return v.Body }).(pulumi.StringPtrOutput)
+}
+
+// A map of HTTP header names to expression values. MediaTailor evaluates each header value expression at runtime and includes the result in the outbound request. Headers beginning with X-Amz- are reserved by the service, and method override headers are not allowed.
+func (o FunctionVastRequestConfigurationOutput) Headers() pulumi.StringMapOutput {
+	return o.ApplyT(func(v FunctionVastRequestConfiguration) map[string]string { return v.Headers }).(pulumi.StringMapOutput)
+}
+
+func (o FunctionVastRequestConfigurationOutput) MethodType() FunctionMethodTypeOutput {
+	return o.ApplyT(func(v FunctionVastRequestConfiguration) FunctionMethodType { return v.MethodType }).(FunctionMethodTypeOutput)
+}
+
+// A map of output bindings. Each key is a namespaced output path (such as temp.wrappedAds), and each value is an expression that MediaTailor evaluates at runtime. Output expressions in a VAST_REQUEST function can reference the response object, which exposes response.parsedAds, the ads parsed from the VAST response after schema validation and wrapper resolution, and response.statusCode. For more information about expression syntax, see JSONata expression reference (https://docs.aws.amazon.com/mediatailor/latest/ug/monetization-functions-jsonata.html) in the MediaTailor User Guide.
+func (o FunctionVastRequestConfigurationOutput) Output() pulumi.StringMapOutput {
+	return o.ApplyT(func(v FunctionVastRequestConfiguration) map[string]string { return v.Output }).(pulumi.StringMapOutput)
+}
+
+// The maximum time, in milliseconds, that MediaTailor waits for a response from the VAST endpoint. The timeout covers the entire response, including any wrapper redirects that MediaTailor follows. If the call exceeds this timeout, MediaTailor proceeds with an empty ad list and continues output expression evaluation. Valid values are 100 to 2000.
+func (o FunctionVastRequestConfigurationOutput) RequestTimeoutMilliseconds() pulumi.IntOutput {
+	return o.ApplyT(func(v FunctionVastRequestConfiguration) int { return v.RequestTimeoutMilliseconds }).(pulumi.IntOutput)
+}
+
+func (o FunctionVastRequestConfigurationOutput) Runtime() FunctionRuntimeTypeOutput {
+	return o.ApplyT(func(v FunctionVastRequestConfiguration) FunctionRuntimeType { return v.Runtime }).(FunctionRuntimeTypeOutput)
+}
+
+// An expression that evaluates to the VAST endpoint URL. Use {%...%} delimiters for dynamic expressions. A literal value must be an https:// URL. The expression can be up to 25,000 characters, and the URL after evaluation can be up to 2,048 characters.
+func (o FunctionVastRequestConfigurationOutput) Url() pulumi.StringOutput {
+	return o.ApplyT(func(v FunctionVastRequestConfiguration) string { return v.Url }).(pulumi.StringOutput)
+}
+
+type FunctionVastRequestConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (FunctionVastRequestConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FunctionVastRequestConfiguration)(nil)).Elem()
+}
+
+func (o FunctionVastRequestConfigurationPtrOutput) ToFunctionVastRequestConfigurationPtrOutput() FunctionVastRequestConfigurationPtrOutput {
+	return o
+}
+
+func (o FunctionVastRequestConfigurationPtrOutput) ToFunctionVastRequestConfigurationPtrOutputWithContext(ctx context.Context) FunctionVastRequestConfigurationPtrOutput {
+	return o
+}
+
+func (o FunctionVastRequestConfigurationPtrOutput) Elem() FunctionVastRequestConfigurationOutput {
+	return o.ApplyT(func(v *FunctionVastRequestConfiguration) FunctionVastRequestConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret FunctionVastRequestConfiguration
+		return ret
+	}).(FunctionVastRequestConfigurationOutput)
+}
+
+// An expression that evaluates to the request body, for example to send an OpenRTB bid request. The expression can be up to 100,000 characters, and the body after evaluation can be up to 64 KB.
+func (o FunctionVastRequestConfigurationPtrOutput) Body() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FunctionVastRequestConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Body
+	}).(pulumi.StringPtrOutput)
+}
+
+// A map of HTTP header names to expression values. MediaTailor evaluates each header value expression at runtime and includes the result in the outbound request. Headers beginning with X-Amz- are reserved by the service, and method override headers are not allowed.
+func (o FunctionVastRequestConfigurationPtrOutput) Headers() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *FunctionVastRequestConfiguration) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.Headers
+	}).(pulumi.StringMapOutput)
+}
+
+func (o FunctionVastRequestConfigurationPtrOutput) MethodType() FunctionMethodTypePtrOutput {
+	return o.ApplyT(func(v *FunctionVastRequestConfiguration) *FunctionMethodType {
+		if v == nil {
+			return nil
+		}
+		return &v.MethodType
+	}).(FunctionMethodTypePtrOutput)
+}
+
+// A map of output bindings. Each key is a namespaced output path (such as temp.wrappedAds), and each value is an expression that MediaTailor evaluates at runtime. Output expressions in a VAST_REQUEST function can reference the response object, which exposes response.parsedAds, the ads parsed from the VAST response after schema validation and wrapper resolution, and response.statusCode. For more information about expression syntax, see JSONata expression reference (https://docs.aws.amazon.com/mediatailor/latest/ug/monetization-functions-jsonata.html) in the MediaTailor User Guide.
+func (o FunctionVastRequestConfigurationPtrOutput) Output() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *FunctionVastRequestConfiguration) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.Output
+	}).(pulumi.StringMapOutput)
+}
+
+// The maximum time, in milliseconds, that MediaTailor waits for a response from the VAST endpoint. The timeout covers the entire response, including any wrapper redirects that MediaTailor follows. If the call exceeds this timeout, MediaTailor proceeds with an empty ad list and continues output expression evaluation. Valid values are 100 to 2000.
+func (o FunctionVastRequestConfigurationPtrOutput) RequestTimeoutMilliseconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FunctionVastRequestConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.RequestTimeoutMilliseconds
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o FunctionVastRequestConfigurationPtrOutput) Runtime() FunctionRuntimeTypePtrOutput {
+	return o.ApplyT(func(v *FunctionVastRequestConfiguration) *FunctionRuntimeType {
+		if v == nil {
+			return nil
+		}
+		return &v.Runtime
+	}).(FunctionRuntimeTypePtrOutput)
+}
+
+// An expression that evaluates to the VAST endpoint URL. Use {%...%} delimiters for dynamic expressions. A literal value must be an https:// URL. The expression can be up to 25,000 characters, and the URL after evaluation can be up to 2,048 characters.
+func (o FunctionVastRequestConfigurationPtrOutput) Url() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FunctionVastRequestConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Url
+	}).(pulumi.StringPtrOutput)
+}
+
 // <p>The HTTP package configuration properties for the requested VOD source.</p>
 type LiveSourceHttpPackageConfiguration struct {
 	// <p>The relative path to the URL for this VOD source. This is combined with <code>SourceLocation::HttpConfiguration::BaseUrl</code> to form a valid URL.</p>
@@ -2148,7 +2678,7 @@ func (o PlaybackConfigurationAdConditioningConfigurationPtrOutput) StreamingMedi
 
 // The configuration for the request to the specified Ad Decision Server URL.
 type PlaybackConfigurationAdDecisionServerConfiguration struct {
-	HttpRequest  PlaybackConfigurationHttpRequest   `pulumi:"httpRequest"`
+	HttpRequest  *PlaybackConfigurationHttpRequest  `pulumi:"httpRequest"`
 	VastResponse *PlaybackConfigurationVastResponse `pulumi:"vastResponse"`
 }
 
@@ -2165,7 +2695,7 @@ type PlaybackConfigurationAdDecisionServerConfigurationInput interface {
 
 // The configuration for the request to the specified Ad Decision Server URL.
 type PlaybackConfigurationAdDecisionServerConfigurationArgs struct {
-	HttpRequest  PlaybackConfigurationHttpRequestInput     `pulumi:"httpRequest"`
+	HttpRequest  PlaybackConfigurationHttpRequestPtrInput  `pulumi:"httpRequest"`
 	VastResponse PlaybackConfigurationVastResponsePtrInput `pulumi:"vastResponse"`
 }
 
@@ -2247,10 +2777,10 @@ func (o PlaybackConfigurationAdDecisionServerConfigurationOutput) ToPlaybackConf
 	}).(PlaybackConfigurationAdDecisionServerConfigurationPtrOutput)
 }
 
-func (o PlaybackConfigurationAdDecisionServerConfigurationOutput) HttpRequest() PlaybackConfigurationHttpRequestOutput {
-	return o.ApplyT(func(v PlaybackConfigurationAdDecisionServerConfiguration) PlaybackConfigurationHttpRequest {
+func (o PlaybackConfigurationAdDecisionServerConfigurationOutput) HttpRequest() PlaybackConfigurationHttpRequestPtrOutput {
+	return o.ApplyT(func(v PlaybackConfigurationAdDecisionServerConfiguration) *PlaybackConfigurationHttpRequest {
 		return v.HttpRequest
-	}).(PlaybackConfigurationHttpRequestOutput)
+	}).(PlaybackConfigurationHttpRequestPtrOutput)
 }
 
 func (o PlaybackConfigurationAdDecisionServerConfigurationOutput) VastResponse() PlaybackConfigurationVastResponsePtrOutput {
@@ -2288,7 +2818,7 @@ func (o PlaybackConfigurationAdDecisionServerConfigurationPtrOutput) HttpRequest
 		if v == nil {
 			return nil
 		}
-		return &v.HttpRequest
+		return v.HttpRequest
 	}).(PlaybackConfigurationHttpRequestPtrOutput)
 }
 
@@ -6448,6 +6978,1696 @@ func (o PrefetchScheduleTrafficShapingTpsConfigurationPtrOutput) PeakTps() pulum
 	}).(pulumi.IntPtrOutput)
 }
 
+// Ad break configuration parameters.
+type ProgramAdBreak struct {
+	// Defines a list of key/value pairs that MediaTailor generates within the EXT-X-ASSET tag for SCTE35_ENHANCED output.
+	AdBreakMetadata []ProgramKeyValuePair `pulumi:"adBreakMetadata"`
+	// The SCTE-35 ad insertion type.
+	MessageType *ProgramAdBreakMessageType `pulumi:"messageType"`
+	// How long (in milliseconds) after the beginning of the program that an ad starts.
+	OffsetMillis        int                         `pulumi:"offsetMillis"`
+	Slate               *ProgramSlateSource         `pulumi:"slate"`
+	SpliceInsertMessage *ProgramSpliceInsertMessage `pulumi:"spliceInsertMessage"`
+	TimeSignalMessage   *ProgramTimeSignalMessage   `pulumi:"timeSignalMessage"`
+}
+
+// ProgramAdBreakInput is an input type that accepts ProgramAdBreakArgs and ProgramAdBreakOutput values.
+// You can construct a concrete instance of `ProgramAdBreakInput` via:
+//
+//	ProgramAdBreakArgs{...}
+type ProgramAdBreakInput interface {
+	pulumi.Input
+
+	ToProgramAdBreakOutput() ProgramAdBreakOutput
+	ToProgramAdBreakOutputWithContext(context.Context) ProgramAdBreakOutput
+}
+
+// Ad break configuration parameters.
+type ProgramAdBreakArgs struct {
+	// Defines a list of key/value pairs that MediaTailor generates within the EXT-X-ASSET tag for SCTE35_ENHANCED output.
+	AdBreakMetadata ProgramKeyValuePairArrayInput `pulumi:"adBreakMetadata"`
+	// The SCTE-35 ad insertion type.
+	MessageType ProgramAdBreakMessageTypePtrInput `pulumi:"messageType"`
+	// How long (in milliseconds) after the beginning of the program that an ad starts.
+	OffsetMillis        pulumi.IntInput                    `pulumi:"offsetMillis"`
+	Slate               ProgramSlateSourcePtrInput         `pulumi:"slate"`
+	SpliceInsertMessage ProgramSpliceInsertMessagePtrInput `pulumi:"spliceInsertMessage"`
+	TimeSignalMessage   ProgramTimeSignalMessagePtrInput   `pulumi:"timeSignalMessage"`
+}
+
+func (ProgramAdBreakArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProgramAdBreak)(nil)).Elem()
+}
+
+func (i ProgramAdBreakArgs) ToProgramAdBreakOutput() ProgramAdBreakOutput {
+	return i.ToProgramAdBreakOutputWithContext(context.Background())
+}
+
+func (i ProgramAdBreakArgs) ToProgramAdBreakOutputWithContext(ctx context.Context) ProgramAdBreakOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProgramAdBreakOutput)
+}
+
+// ProgramAdBreakArrayInput is an input type that accepts ProgramAdBreakArray and ProgramAdBreakArrayOutput values.
+// You can construct a concrete instance of `ProgramAdBreakArrayInput` via:
+//
+//	ProgramAdBreakArray{ ProgramAdBreakArgs{...} }
+type ProgramAdBreakArrayInput interface {
+	pulumi.Input
+
+	ToProgramAdBreakArrayOutput() ProgramAdBreakArrayOutput
+	ToProgramAdBreakArrayOutputWithContext(context.Context) ProgramAdBreakArrayOutput
+}
+
+type ProgramAdBreakArray []ProgramAdBreakInput
+
+func (ProgramAdBreakArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ProgramAdBreak)(nil)).Elem()
+}
+
+func (i ProgramAdBreakArray) ToProgramAdBreakArrayOutput() ProgramAdBreakArrayOutput {
+	return i.ToProgramAdBreakArrayOutputWithContext(context.Background())
+}
+
+func (i ProgramAdBreakArray) ToProgramAdBreakArrayOutputWithContext(ctx context.Context) ProgramAdBreakArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProgramAdBreakArrayOutput)
+}
+
+// Ad break configuration parameters.
+type ProgramAdBreakOutput struct{ *pulumi.OutputState }
+
+func (ProgramAdBreakOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProgramAdBreak)(nil)).Elem()
+}
+
+func (o ProgramAdBreakOutput) ToProgramAdBreakOutput() ProgramAdBreakOutput {
+	return o
+}
+
+func (o ProgramAdBreakOutput) ToProgramAdBreakOutputWithContext(ctx context.Context) ProgramAdBreakOutput {
+	return o
+}
+
+// Defines a list of key/value pairs that MediaTailor generates within the EXT-X-ASSET tag for SCTE35_ENHANCED output.
+func (o ProgramAdBreakOutput) AdBreakMetadata() ProgramKeyValuePairArrayOutput {
+	return o.ApplyT(func(v ProgramAdBreak) []ProgramKeyValuePair { return v.AdBreakMetadata }).(ProgramKeyValuePairArrayOutput)
+}
+
+// The SCTE-35 ad insertion type.
+func (o ProgramAdBreakOutput) MessageType() ProgramAdBreakMessageTypePtrOutput {
+	return o.ApplyT(func(v ProgramAdBreak) *ProgramAdBreakMessageType { return v.MessageType }).(ProgramAdBreakMessageTypePtrOutput)
+}
+
+// How long (in milliseconds) after the beginning of the program that an ad starts.
+func (o ProgramAdBreakOutput) OffsetMillis() pulumi.IntOutput {
+	return o.ApplyT(func(v ProgramAdBreak) int { return v.OffsetMillis }).(pulumi.IntOutput)
+}
+
+func (o ProgramAdBreakOutput) Slate() ProgramSlateSourcePtrOutput {
+	return o.ApplyT(func(v ProgramAdBreak) *ProgramSlateSource { return v.Slate }).(ProgramSlateSourcePtrOutput)
+}
+
+func (o ProgramAdBreakOutput) SpliceInsertMessage() ProgramSpliceInsertMessagePtrOutput {
+	return o.ApplyT(func(v ProgramAdBreak) *ProgramSpliceInsertMessage { return v.SpliceInsertMessage }).(ProgramSpliceInsertMessagePtrOutput)
+}
+
+func (o ProgramAdBreakOutput) TimeSignalMessage() ProgramTimeSignalMessagePtrOutput {
+	return o.ApplyT(func(v ProgramAdBreak) *ProgramTimeSignalMessage { return v.TimeSignalMessage }).(ProgramTimeSignalMessagePtrOutput)
+}
+
+type ProgramAdBreakArrayOutput struct{ *pulumi.OutputState }
+
+func (ProgramAdBreakArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ProgramAdBreak)(nil)).Elem()
+}
+
+func (o ProgramAdBreakArrayOutput) ToProgramAdBreakArrayOutput() ProgramAdBreakArrayOutput {
+	return o
+}
+
+func (o ProgramAdBreakArrayOutput) ToProgramAdBreakArrayOutputWithContext(ctx context.Context) ProgramAdBreakArrayOutput {
+	return o
+}
+
+func (o ProgramAdBreakArrayOutput) Index(i pulumi.IntInput) ProgramAdBreakOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ProgramAdBreak {
+		return vs[0].([]ProgramAdBreak)[vs[1].(int)]
+	}).(ProgramAdBreakOutput)
+}
+
+// A playlist of media to be played instead of the default media on a particular program.
+type ProgramAlternateMedia struct {
+	// Ad break configuration parameters defined in AlternateMedia.
+	AdBreaks  []ProgramAdBreak  `pulumi:"adBreaks"`
+	ClipRange *ProgramClipRange `pulumi:"clipRange"`
+	// The duration of the alternateMedia in milliseconds.
+	DurationMillis *int `pulumi:"durationMillis"`
+	// The name of the live source for alternateMedia.
+	LiveSourceName *string `pulumi:"liveSourceName"`
+	// The date and time that the alternateMedia is scheduled to start, in epoch milliseconds.
+	ScheduledStartTimeMillis *int `pulumi:"scheduledStartTimeMillis"`
+	// The name of the source location for alternateMedia.
+	SourceLocationName *string `pulumi:"sourceLocationName"`
+	// The name of the VOD source for alternateMedia.
+	VodSourceName *string `pulumi:"vodSourceName"`
+}
+
+// ProgramAlternateMediaInput is an input type that accepts ProgramAlternateMediaArgs and ProgramAlternateMediaOutput values.
+// You can construct a concrete instance of `ProgramAlternateMediaInput` via:
+//
+//	ProgramAlternateMediaArgs{...}
+type ProgramAlternateMediaInput interface {
+	pulumi.Input
+
+	ToProgramAlternateMediaOutput() ProgramAlternateMediaOutput
+	ToProgramAlternateMediaOutputWithContext(context.Context) ProgramAlternateMediaOutput
+}
+
+// A playlist of media to be played instead of the default media on a particular program.
+type ProgramAlternateMediaArgs struct {
+	// Ad break configuration parameters defined in AlternateMedia.
+	AdBreaks  ProgramAdBreakArrayInput `pulumi:"adBreaks"`
+	ClipRange ProgramClipRangePtrInput `pulumi:"clipRange"`
+	// The duration of the alternateMedia in milliseconds.
+	DurationMillis pulumi.IntPtrInput `pulumi:"durationMillis"`
+	// The name of the live source for alternateMedia.
+	LiveSourceName pulumi.StringPtrInput `pulumi:"liveSourceName"`
+	// The date and time that the alternateMedia is scheduled to start, in epoch milliseconds.
+	ScheduledStartTimeMillis pulumi.IntPtrInput `pulumi:"scheduledStartTimeMillis"`
+	// The name of the source location for alternateMedia.
+	SourceLocationName pulumi.StringPtrInput `pulumi:"sourceLocationName"`
+	// The name of the VOD source for alternateMedia.
+	VodSourceName pulumi.StringPtrInput `pulumi:"vodSourceName"`
+}
+
+func (ProgramAlternateMediaArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProgramAlternateMedia)(nil)).Elem()
+}
+
+func (i ProgramAlternateMediaArgs) ToProgramAlternateMediaOutput() ProgramAlternateMediaOutput {
+	return i.ToProgramAlternateMediaOutputWithContext(context.Background())
+}
+
+func (i ProgramAlternateMediaArgs) ToProgramAlternateMediaOutputWithContext(ctx context.Context) ProgramAlternateMediaOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProgramAlternateMediaOutput)
+}
+
+// ProgramAlternateMediaArrayInput is an input type that accepts ProgramAlternateMediaArray and ProgramAlternateMediaArrayOutput values.
+// You can construct a concrete instance of `ProgramAlternateMediaArrayInput` via:
+//
+//	ProgramAlternateMediaArray{ ProgramAlternateMediaArgs{...} }
+type ProgramAlternateMediaArrayInput interface {
+	pulumi.Input
+
+	ToProgramAlternateMediaArrayOutput() ProgramAlternateMediaArrayOutput
+	ToProgramAlternateMediaArrayOutputWithContext(context.Context) ProgramAlternateMediaArrayOutput
+}
+
+type ProgramAlternateMediaArray []ProgramAlternateMediaInput
+
+func (ProgramAlternateMediaArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ProgramAlternateMedia)(nil)).Elem()
+}
+
+func (i ProgramAlternateMediaArray) ToProgramAlternateMediaArrayOutput() ProgramAlternateMediaArrayOutput {
+	return i.ToProgramAlternateMediaArrayOutputWithContext(context.Background())
+}
+
+func (i ProgramAlternateMediaArray) ToProgramAlternateMediaArrayOutputWithContext(ctx context.Context) ProgramAlternateMediaArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProgramAlternateMediaArrayOutput)
+}
+
+// A playlist of media to be played instead of the default media on a particular program.
+type ProgramAlternateMediaOutput struct{ *pulumi.OutputState }
+
+func (ProgramAlternateMediaOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProgramAlternateMedia)(nil)).Elem()
+}
+
+func (o ProgramAlternateMediaOutput) ToProgramAlternateMediaOutput() ProgramAlternateMediaOutput {
+	return o
+}
+
+func (o ProgramAlternateMediaOutput) ToProgramAlternateMediaOutputWithContext(ctx context.Context) ProgramAlternateMediaOutput {
+	return o
+}
+
+// Ad break configuration parameters defined in AlternateMedia.
+func (o ProgramAlternateMediaOutput) AdBreaks() ProgramAdBreakArrayOutput {
+	return o.ApplyT(func(v ProgramAlternateMedia) []ProgramAdBreak { return v.AdBreaks }).(ProgramAdBreakArrayOutput)
+}
+
+func (o ProgramAlternateMediaOutput) ClipRange() ProgramClipRangePtrOutput {
+	return o.ApplyT(func(v ProgramAlternateMedia) *ProgramClipRange { return v.ClipRange }).(ProgramClipRangePtrOutput)
+}
+
+// The duration of the alternateMedia in milliseconds.
+func (o ProgramAlternateMediaOutput) DurationMillis() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ProgramAlternateMedia) *int { return v.DurationMillis }).(pulumi.IntPtrOutput)
+}
+
+// The name of the live source for alternateMedia.
+func (o ProgramAlternateMediaOutput) LiveSourceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProgramAlternateMedia) *string { return v.LiveSourceName }).(pulumi.StringPtrOutput)
+}
+
+// The date and time that the alternateMedia is scheduled to start, in epoch milliseconds.
+func (o ProgramAlternateMediaOutput) ScheduledStartTimeMillis() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ProgramAlternateMedia) *int { return v.ScheduledStartTimeMillis }).(pulumi.IntPtrOutput)
+}
+
+// The name of the source location for alternateMedia.
+func (o ProgramAlternateMediaOutput) SourceLocationName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProgramAlternateMedia) *string { return v.SourceLocationName }).(pulumi.StringPtrOutput)
+}
+
+// The name of the VOD source for alternateMedia.
+func (o ProgramAlternateMediaOutput) VodSourceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProgramAlternateMedia) *string { return v.VodSourceName }).(pulumi.StringPtrOutput)
+}
+
+type ProgramAlternateMediaArrayOutput struct{ *pulumi.OutputState }
+
+func (ProgramAlternateMediaArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ProgramAlternateMedia)(nil)).Elem()
+}
+
+func (o ProgramAlternateMediaArrayOutput) ToProgramAlternateMediaArrayOutput() ProgramAlternateMediaArrayOutput {
+	return o
+}
+
+func (o ProgramAlternateMediaArrayOutput) ToProgramAlternateMediaArrayOutputWithContext(ctx context.Context) ProgramAlternateMediaArrayOutput {
+	return o
+}
+
+func (o ProgramAlternateMediaArrayOutput) Index(i pulumi.IntInput) ProgramAlternateMediaOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ProgramAlternateMedia {
+		return vs[0].([]ProgramAlternateMedia)[vs[1].(int)]
+	}).(ProgramAlternateMediaOutput)
+}
+
+// An AudienceMedia object contains an Audience and a list of AlternateMedia.
+type ProgramAudienceMedia struct {
+	// The list of AlternateMedia defined in AudienceMedia.
+	AlternateMedia []ProgramAlternateMedia `pulumi:"alternateMedia"`
+	// The Audience defined in AudienceMedia.
+	Audience *string `pulumi:"audience"`
+}
+
+// ProgramAudienceMediaInput is an input type that accepts ProgramAudienceMediaArgs and ProgramAudienceMediaOutput values.
+// You can construct a concrete instance of `ProgramAudienceMediaInput` via:
+//
+//	ProgramAudienceMediaArgs{...}
+type ProgramAudienceMediaInput interface {
+	pulumi.Input
+
+	ToProgramAudienceMediaOutput() ProgramAudienceMediaOutput
+	ToProgramAudienceMediaOutputWithContext(context.Context) ProgramAudienceMediaOutput
+}
+
+// An AudienceMedia object contains an Audience and a list of AlternateMedia.
+type ProgramAudienceMediaArgs struct {
+	// The list of AlternateMedia defined in AudienceMedia.
+	AlternateMedia ProgramAlternateMediaArrayInput `pulumi:"alternateMedia"`
+	// The Audience defined in AudienceMedia.
+	Audience pulumi.StringPtrInput `pulumi:"audience"`
+}
+
+func (ProgramAudienceMediaArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProgramAudienceMedia)(nil)).Elem()
+}
+
+func (i ProgramAudienceMediaArgs) ToProgramAudienceMediaOutput() ProgramAudienceMediaOutput {
+	return i.ToProgramAudienceMediaOutputWithContext(context.Background())
+}
+
+func (i ProgramAudienceMediaArgs) ToProgramAudienceMediaOutputWithContext(ctx context.Context) ProgramAudienceMediaOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProgramAudienceMediaOutput)
+}
+
+// ProgramAudienceMediaArrayInput is an input type that accepts ProgramAudienceMediaArray and ProgramAudienceMediaArrayOutput values.
+// You can construct a concrete instance of `ProgramAudienceMediaArrayInput` via:
+//
+//	ProgramAudienceMediaArray{ ProgramAudienceMediaArgs{...} }
+type ProgramAudienceMediaArrayInput interface {
+	pulumi.Input
+
+	ToProgramAudienceMediaArrayOutput() ProgramAudienceMediaArrayOutput
+	ToProgramAudienceMediaArrayOutputWithContext(context.Context) ProgramAudienceMediaArrayOutput
+}
+
+type ProgramAudienceMediaArray []ProgramAudienceMediaInput
+
+func (ProgramAudienceMediaArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ProgramAudienceMedia)(nil)).Elem()
+}
+
+func (i ProgramAudienceMediaArray) ToProgramAudienceMediaArrayOutput() ProgramAudienceMediaArrayOutput {
+	return i.ToProgramAudienceMediaArrayOutputWithContext(context.Background())
+}
+
+func (i ProgramAudienceMediaArray) ToProgramAudienceMediaArrayOutputWithContext(ctx context.Context) ProgramAudienceMediaArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProgramAudienceMediaArrayOutput)
+}
+
+// An AudienceMedia object contains an Audience and a list of AlternateMedia.
+type ProgramAudienceMediaOutput struct{ *pulumi.OutputState }
+
+func (ProgramAudienceMediaOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProgramAudienceMedia)(nil)).Elem()
+}
+
+func (o ProgramAudienceMediaOutput) ToProgramAudienceMediaOutput() ProgramAudienceMediaOutput {
+	return o
+}
+
+func (o ProgramAudienceMediaOutput) ToProgramAudienceMediaOutputWithContext(ctx context.Context) ProgramAudienceMediaOutput {
+	return o
+}
+
+// The list of AlternateMedia defined in AudienceMedia.
+func (o ProgramAudienceMediaOutput) AlternateMedia() ProgramAlternateMediaArrayOutput {
+	return o.ApplyT(func(v ProgramAudienceMedia) []ProgramAlternateMedia { return v.AlternateMedia }).(ProgramAlternateMediaArrayOutput)
+}
+
+// The Audience defined in AudienceMedia.
+func (o ProgramAudienceMediaOutput) Audience() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProgramAudienceMedia) *string { return v.Audience }).(pulumi.StringPtrOutput)
+}
+
+type ProgramAudienceMediaArrayOutput struct{ *pulumi.OutputState }
+
+func (ProgramAudienceMediaArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ProgramAudienceMedia)(nil)).Elem()
+}
+
+func (o ProgramAudienceMediaArrayOutput) ToProgramAudienceMediaArrayOutput() ProgramAudienceMediaArrayOutput {
+	return o
+}
+
+func (o ProgramAudienceMediaArrayOutput) ToProgramAudienceMediaArrayOutputWithContext(ctx context.Context) ProgramAudienceMediaArrayOutput {
+	return o
+}
+
+func (o ProgramAudienceMediaArrayOutput) Index(i pulumi.IntInput) ProgramAudienceMediaOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ProgramAudienceMedia {
+		return vs[0].([]ProgramAudienceMedia)[vs[1].(int)]
+	}).(ProgramAudienceMediaOutput)
+}
+
+// Clip range configuration for the VOD source associated with the program.
+type ProgramClipRange struct {
+	// The end offset of the clip range, in milliseconds.
+	EndOffsetMillis *int `pulumi:"endOffsetMillis"`
+	// The start offset of the clip range, in milliseconds.
+	StartOffsetMillis *int `pulumi:"startOffsetMillis"`
+}
+
+// ProgramClipRangeInput is an input type that accepts ProgramClipRangeArgs and ProgramClipRangeOutput values.
+// You can construct a concrete instance of `ProgramClipRangeInput` via:
+//
+//	ProgramClipRangeArgs{...}
+type ProgramClipRangeInput interface {
+	pulumi.Input
+
+	ToProgramClipRangeOutput() ProgramClipRangeOutput
+	ToProgramClipRangeOutputWithContext(context.Context) ProgramClipRangeOutput
+}
+
+// Clip range configuration for the VOD source associated with the program.
+type ProgramClipRangeArgs struct {
+	// The end offset of the clip range, in milliseconds.
+	EndOffsetMillis pulumi.IntPtrInput `pulumi:"endOffsetMillis"`
+	// The start offset of the clip range, in milliseconds.
+	StartOffsetMillis pulumi.IntPtrInput `pulumi:"startOffsetMillis"`
+}
+
+func (ProgramClipRangeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProgramClipRange)(nil)).Elem()
+}
+
+func (i ProgramClipRangeArgs) ToProgramClipRangeOutput() ProgramClipRangeOutput {
+	return i.ToProgramClipRangeOutputWithContext(context.Background())
+}
+
+func (i ProgramClipRangeArgs) ToProgramClipRangeOutputWithContext(ctx context.Context) ProgramClipRangeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProgramClipRangeOutput)
+}
+
+func (i ProgramClipRangeArgs) ToProgramClipRangePtrOutput() ProgramClipRangePtrOutput {
+	return i.ToProgramClipRangePtrOutputWithContext(context.Background())
+}
+
+func (i ProgramClipRangeArgs) ToProgramClipRangePtrOutputWithContext(ctx context.Context) ProgramClipRangePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProgramClipRangeOutput).ToProgramClipRangePtrOutputWithContext(ctx)
+}
+
+// ProgramClipRangePtrInput is an input type that accepts ProgramClipRangeArgs, ProgramClipRangePtr and ProgramClipRangePtrOutput values.
+// You can construct a concrete instance of `ProgramClipRangePtrInput` via:
+//
+//	        ProgramClipRangeArgs{...}
+//
+//	or:
+//
+//	        nil
+type ProgramClipRangePtrInput interface {
+	pulumi.Input
+
+	ToProgramClipRangePtrOutput() ProgramClipRangePtrOutput
+	ToProgramClipRangePtrOutputWithContext(context.Context) ProgramClipRangePtrOutput
+}
+
+type programClipRangePtrType ProgramClipRangeArgs
+
+func ProgramClipRangePtr(v *ProgramClipRangeArgs) ProgramClipRangePtrInput {
+	return (*programClipRangePtrType)(v)
+}
+
+func (*programClipRangePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProgramClipRange)(nil)).Elem()
+}
+
+func (i *programClipRangePtrType) ToProgramClipRangePtrOutput() ProgramClipRangePtrOutput {
+	return i.ToProgramClipRangePtrOutputWithContext(context.Background())
+}
+
+func (i *programClipRangePtrType) ToProgramClipRangePtrOutputWithContext(ctx context.Context) ProgramClipRangePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProgramClipRangePtrOutput)
+}
+
+// Clip range configuration for the VOD source associated with the program.
+type ProgramClipRangeOutput struct{ *pulumi.OutputState }
+
+func (ProgramClipRangeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProgramClipRange)(nil)).Elem()
+}
+
+func (o ProgramClipRangeOutput) ToProgramClipRangeOutput() ProgramClipRangeOutput {
+	return o
+}
+
+func (o ProgramClipRangeOutput) ToProgramClipRangeOutputWithContext(ctx context.Context) ProgramClipRangeOutput {
+	return o
+}
+
+func (o ProgramClipRangeOutput) ToProgramClipRangePtrOutput() ProgramClipRangePtrOutput {
+	return o.ToProgramClipRangePtrOutputWithContext(context.Background())
+}
+
+func (o ProgramClipRangeOutput) ToProgramClipRangePtrOutputWithContext(ctx context.Context) ProgramClipRangePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProgramClipRange) *ProgramClipRange {
+		return &v
+	}).(ProgramClipRangePtrOutput)
+}
+
+// The end offset of the clip range, in milliseconds.
+func (o ProgramClipRangeOutput) EndOffsetMillis() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ProgramClipRange) *int { return v.EndOffsetMillis }).(pulumi.IntPtrOutput)
+}
+
+// The start offset of the clip range, in milliseconds.
+func (o ProgramClipRangeOutput) StartOffsetMillis() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ProgramClipRange) *int { return v.StartOffsetMillis }).(pulumi.IntPtrOutput)
+}
+
+type ProgramClipRangePtrOutput struct{ *pulumi.OutputState }
+
+func (ProgramClipRangePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProgramClipRange)(nil)).Elem()
+}
+
+func (o ProgramClipRangePtrOutput) ToProgramClipRangePtrOutput() ProgramClipRangePtrOutput {
+	return o
+}
+
+func (o ProgramClipRangePtrOutput) ToProgramClipRangePtrOutputWithContext(ctx context.Context) ProgramClipRangePtrOutput {
+	return o
+}
+
+func (o ProgramClipRangePtrOutput) Elem() ProgramClipRangeOutput {
+	return o.ApplyT(func(v *ProgramClipRange) ProgramClipRange {
+		if v != nil {
+			return *v
+		}
+		var ret ProgramClipRange
+		return ret
+	}).(ProgramClipRangeOutput)
+}
+
+// The end offset of the clip range, in milliseconds.
+func (o ProgramClipRangePtrOutput) EndOffsetMillis() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ProgramClipRange) *int {
+		if v == nil {
+			return nil
+		}
+		return v.EndOffsetMillis
+	}).(pulumi.IntPtrOutput)
+}
+
+// The start offset of the clip range, in milliseconds.
+func (o ProgramClipRangePtrOutput) StartOffsetMillis() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ProgramClipRange) *int {
+		if v == nil {
+			return nil
+		}
+		return v.StartOffsetMillis
+	}).(pulumi.IntPtrOutput)
+}
+
+// For SCTE35_ENHANCED output, defines a key and corresponding value.
+type ProgramKeyValuePair struct {
+	// The key.
+	Key string `pulumi:"key"`
+	// The value.
+	Value string `pulumi:"value"`
+}
+
+// ProgramKeyValuePairInput is an input type that accepts ProgramKeyValuePairArgs and ProgramKeyValuePairOutput values.
+// You can construct a concrete instance of `ProgramKeyValuePairInput` via:
+//
+//	ProgramKeyValuePairArgs{...}
+type ProgramKeyValuePairInput interface {
+	pulumi.Input
+
+	ToProgramKeyValuePairOutput() ProgramKeyValuePairOutput
+	ToProgramKeyValuePairOutputWithContext(context.Context) ProgramKeyValuePairOutput
+}
+
+// For SCTE35_ENHANCED output, defines a key and corresponding value.
+type ProgramKeyValuePairArgs struct {
+	// The key.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (ProgramKeyValuePairArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProgramKeyValuePair)(nil)).Elem()
+}
+
+func (i ProgramKeyValuePairArgs) ToProgramKeyValuePairOutput() ProgramKeyValuePairOutput {
+	return i.ToProgramKeyValuePairOutputWithContext(context.Background())
+}
+
+func (i ProgramKeyValuePairArgs) ToProgramKeyValuePairOutputWithContext(ctx context.Context) ProgramKeyValuePairOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProgramKeyValuePairOutput)
+}
+
+// ProgramKeyValuePairArrayInput is an input type that accepts ProgramKeyValuePairArray and ProgramKeyValuePairArrayOutput values.
+// You can construct a concrete instance of `ProgramKeyValuePairArrayInput` via:
+//
+//	ProgramKeyValuePairArray{ ProgramKeyValuePairArgs{...} }
+type ProgramKeyValuePairArrayInput interface {
+	pulumi.Input
+
+	ToProgramKeyValuePairArrayOutput() ProgramKeyValuePairArrayOutput
+	ToProgramKeyValuePairArrayOutputWithContext(context.Context) ProgramKeyValuePairArrayOutput
+}
+
+type ProgramKeyValuePairArray []ProgramKeyValuePairInput
+
+func (ProgramKeyValuePairArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ProgramKeyValuePair)(nil)).Elem()
+}
+
+func (i ProgramKeyValuePairArray) ToProgramKeyValuePairArrayOutput() ProgramKeyValuePairArrayOutput {
+	return i.ToProgramKeyValuePairArrayOutputWithContext(context.Background())
+}
+
+func (i ProgramKeyValuePairArray) ToProgramKeyValuePairArrayOutputWithContext(ctx context.Context) ProgramKeyValuePairArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProgramKeyValuePairArrayOutput)
+}
+
+// For SCTE35_ENHANCED output, defines a key and corresponding value.
+type ProgramKeyValuePairOutput struct{ *pulumi.OutputState }
+
+func (ProgramKeyValuePairOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProgramKeyValuePair)(nil)).Elem()
+}
+
+func (o ProgramKeyValuePairOutput) ToProgramKeyValuePairOutput() ProgramKeyValuePairOutput {
+	return o
+}
+
+func (o ProgramKeyValuePairOutput) ToProgramKeyValuePairOutputWithContext(ctx context.Context) ProgramKeyValuePairOutput {
+	return o
+}
+
+// The key.
+func (o ProgramKeyValuePairOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v ProgramKeyValuePair) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The value.
+func (o ProgramKeyValuePairOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v ProgramKeyValuePair) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type ProgramKeyValuePairArrayOutput struct{ *pulumi.OutputState }
+
+func (ProgramKeyValuePairArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ProgramKeyValuePair)(nil)).Elem()
+}
+
+func (o ProgramKeyValuePairArrayOutput) ToProgramKeyValuePairArrayOutput() ProgramKeyValuePairArrayOutput {
+	return o
+}
+
+func (o ProgramKeyValuePairArrayOutput) ToProgramKeyValuePairArrayOutputWithContext(ctx context.Context) ProgramKeyValuePairArrayOutput {
+	return o
+}
+
+func (o ProgramKeyValuePairArrayOutput) Index(i pulumi.IntInput) ProgramKeyValuePairOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ProgramKeyValuePair {
+		return vs[0].([]ProgramKeyValuePair)[vs[1].(int)]
+	}).(ProgramKeyValuePairOutput)
+}
+
+// Schedule configuration parameters.
+type ProgramScheduleConfiguration struct {
+	ClipRange  *ProgramClipRange `pulumi:"clipRange"`
+	Transition ProgramTransition `pulumi:"transition"`
+}
+
+// ProgramScheduleConfigurationInput is an input type that accepts ProgramScheduleConfigurationArgs and ProgramScheduleConfigurationOutput values.
+// You can construct a concrete instance of `ProgramScheduleConfigurationInput` via:
+//
+//	ProgramScheduleConfigurationArgs{...}
+type ProgramScheduleConfigurationInput interface {
+	pulumi.Input
+
+	ToProgramScheduleConfigurationOutput() ProgramScheduleConfigurationOutput
+	ToProgramScheduleConfigurationOutputWithContext(context.Context) ProgramScheduleConfigurationOutput
+}
+
+// Schedule configuration parameters.
+type ProgramScheduleConfigurationArgs struct {
+	ClipRange  ProgramClipRangePtrInput `pulumi:"clipRange"`
+	Transition ProgramTransitionInput   `pulumi:"transition"`
+}
+
+func (ProgramScheduleConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProgramScheduleConfiguration)(nil)).Elem()
+}
+
+func (i ProgramScheduleConfigurationArgs) ToProgramScheduleConfigurationOutput() ProgramScheduleConfigurationOutput {
+	return i.ToProgramScheduleConfigurationOutputWithContext(context.Background())
+}
+
+func (i ProgramScheduleConfigurationArgs) ToProgramScheduleConfigurationOutputWithContext(ctx context.Context) ProgramScheduleConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProgramScheduleConfigurationOutput)
+}
+
+func (i ProgramScheduleConfigurationArgs) ToProgramScheduleConfigurationPtrOutput() ProgramScheduleConfigurationPtrOutput {
+	return i.ToProgramScheduleConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i ProgramScheduleConfigurationArgs) ToProgramScheduleConfigurationPtrOutputWithContext(ctx context.Context) ProgramScheduleConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProgramScheduleConfigurationOutput).ToProgramScheduleConfigurationPtrOutputWithContext(ctx)
+}
+
+// ProgramScheduleConfigurationPtrInput is an input type that accepts ProgramScheduleConfigurationArgs, ProgramScheduleConfigurationPtr and ProgramScheduleConfigurationPtrOutput values.
+// You can construct a concrete instance of `ProgramScheduleConfigurationPtrInput` via:
+//
+//	        ProgramScheduleConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type ProgramScheduleConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToProgramScheduleConfigurationPtrOutput() ProgramScheduleConfigurationPtrOutput
+	ToProgramScheduleConfigurationPtrOutputWithContext(context.Context) ProgramScheduleConfigurationPtrOutput
+}
+
+type programScheduleConfigurationPtrType ProgramScheduleConfigurationArgs
+
+func ProgramScheduleConfigurationPtr(v *ProgramScheduleConfigurationArgs) ProgramScheduleConfigurationPtrInput {
+	return (*programScheduleConfigurationPtrType)(v)
+}
+
+func (*programScheduleConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProgramScheduleConfiguration)(nil)).Elem()
+}
+
+func (i *programScheduleConfigurationPtrType) ToProgramScheduleConfigurationPtrOutput() ProgramScheduleConfigurationPtrOutput {
+	return i.ToProgramScheduleConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *programScheduleConfigurationPtrType) ToProgramScheduleConfigurationPtrOutputWithContext(ctx context.Context) ProgramScheduleConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProgramScheduleConfigurationPtrOutput)
+}
+
+// Schedule configuration parameters.
+type ProgramScheduleConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ProgramScheduleConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProgramScheduleConfiguration)(nil)).Elem()
+}
+
+func (o ProgramScheduleConfigurationOutput) ToProgramScheduleConfigurationOutput() ProgramScheduleConfigurationOutput {
+	return o
+}
+
+func (o ProgramScheduleConfigurationOutput) ToProgramScheduleConfigurationOutputWithContext(ctx context.Context) ProgramScheduleConfigurationOutput {
+	return o
+}
+
+func (o ProgramScheduleConfigurationOutput) ToProgramScheduleConfigurationPtrOutput() ProgramScheduleConfigurationPtrOutput {
+	return o.ToProgramScheduleConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o ProgramScheduleConfigurationOutput) ToProgramScheduleConfigurationPtrOutputWithContext(ctx context.Context) ProgramScheduleConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProgramScheduleConfiguration) *ProgramScheduleConfiguration {
+		return &v
+	}).(ProgramScheduleConfigurationPtrOutput)
+}
+
+func (o ProgramScheduleConfigurationOutput) ClipRange() ProgramClipRangePtrOutput {
+	return o.ApplyT(func(v ProgramScheduleConfiguration) *ProgramClipRange { return v.ClipRange }).(ProgramClipRangePtrOutput)
+}
+
+func (o ProgramScheduleConfigurationOutput) Transition() ProgramTransitionOutput {
+	return o.ApplyT(func(v ProgramScheduleConfiguration) ProgramTransition { return v.Transition }).(ProgramTransitionOutput)
+}
+
+type ProgramScheduleConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (ProgramScheduleConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProgramScheduleConfiguration)(nil)).Elem()
+}
+
+func (o ProgramScheduleConfigurationPtrOutput) ToProgramScheduleConfigurationPtrOutput() ProgramScheduleConfigurationPtrOutput {
+	return o
+}
+
+func (o ProgramScheduleConfigurationPtrOutput) ToProgramScheduleConfigurationPtrOutputWithContext(ctx context.Context) ProgramScheduleConfigurationPtrOutput {
+	return o
+}
+
+func (o ProgramScheduleConfigurationPtrOutput) Elem() ProgramScheduleConfigurationOutput {
+	return o.ApplyT(func(v *ProgramScheduleConfiguration) ProgramScheduleConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ProgramScheduleConfiguration
+		return ret
+	}).(ProgramScheduleConfigurationOutput)
+}
+
+func (o ProgramScheduleConfigurationPtrOutput) ClipRange() ProgramClipRangePtrOutput {
+	return o.ApplyT(func(v *ProgramScheduleConfiguration) *ProgramClipRange {
+		if v == nil {
+			return nil
+		}
+		return v.ClipRange
+	}).(ProgramClipRangePtrOutput)
+}
+
+func (o ProgramScheduleConfigurationPtrOutput) Transition() ProgramTransitionPtrOutput {
+	return o.ApplyT(func(v *ProgramScheduleConfiguration) *ProgramTransition {
+		if v == nil {
+			return nil
+		}
+		return &v.Transition
+	}).(ProgramTransitionPtrOutput)
+}
+
+// The segmentation_descriptor message configuration.
+type ProgramSegmentationDescriptor struct {
+	// The segment number to assign.
+	SegmentNum *int `pulumi:"segmentNum"`
+	// The Event Identifier to assign.
+	SegmentationEventId *int `pulumi:"segmentationEventId"`
+	// The Type Identifier to assign.
+	SegmentationTypeId *int `pulumi:"segmentationTypeId"`
+	// The Upid to assign.
+	SegmentationUpid *string `pulumi:"segmentationUpid"`
+	// The Upid Type to assign.
+	SegmentationUpidType *int `pulumi:"segmentationUpidType"`
+	// The number of segments expected.
+	SegmentsExpected *int `pulumi:"segmentsExpected"`
+	// The sub-segment number to assign.
+	SubSegmentNum *int `pulumi:"subSegmentNum"`
+	// The number of sub-segments expected.
+	SubSegmentsExpected *int `pulumi:"subSegmentsExpected"`
+}
+
+// ProgramSegmentationDescriptorInput is an input type that accepts ProgramSegmentationDescriptorArgs and ProgramSegmentationDescriptorOutput values.
+// You can construct a concrete instance of `ProgramSegmentationDescriptorInput` via:
+//
+//	ProgramSegmentationDescriptorArgs{...}
+type ProgramSegmentationDescriptorInput interface {
+	pulumi.Input
+
+	ToProgramSegmentationDescriptorOutput() ProgramSegmentationDescriptorOutput
+	ToProgramSegmentationDescriptorOutputWithContext(context.Context) ProgramSegmentationDescriptorOutput
+}
+
+// The segmentation_descriptor message configuration.
+type ProgramSegmentationDescriptorArgs struct {
+	// The segment number to assign.
+	SegmentNum pulumi.IntPtrInput `pulumi:"segmentNum"`
+	// The Event Identifier to assign.
+	SegmentationEventId pulumi.IntPtrInput `pulumi:"segmentationEventId"`
+	// The Type Identifier to assign.
+	SegmentationTypeId pulumi.IntPtrInput `pulumi:"segmentationTypeId"`
+	// The Upid to assign.
+	SegmentationUpid pulumi.StringPtrInput `pulumi:"segmentationUpid"`
+	// The Upid Type to assign.
+	SegmentationUpidType pulumi.IntPtrInput `pulumi:"segmentationUpidType"`
+	// The number of segments expected.
+	SegmentsExpected pulumi.IntPtrInput `pulumi:"segmentsExpected"`
+	// The sub-segment number to assign.
+	SubSegmentNum pulumi.IntPtrInput `pulumi:"subSegmentNum"`
+	// The number of sub-segments expected.
+	SubSegmentsExpected pulumi.IntPtrInput `pulumi:"subSegmentsExpected"`
+}
+
+func (ProgramSegmentationDescriptorArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProgramSegmentationDescriptor)(nil)).Elem()
+}
+
+func (i ProgramSegmentationDescriptorArgs) ToProgramSegmentationDescriptorOutput() ProgramSegmentationDescriptorOutput {
+	return i.ToProgramSegmentationDescriptorOutputWithContext(context.Background())
+}
+
+func (i ProgramSegmentationDescriptorArgs) ToProgramSegmentationDescriptorOutputWithContext(ctx context.Context) ProgramSegmentationDescriptorOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProgramSegmentationDescriptorOutput)
+}
+
+// ProgramSegmentationDescriptorArrayInput is an input type that accepts ProgramSegmentationDescriptorArray and ProgramSegmentationDescriptorArrayOutput values.
+// You can construct a concrete instance of `ProgramSegmentationDescriptorArrayInput` via:
+//
+//	ProgramSegmentationDescriptorArray{ ProgramSegmentationDescriptorArgs{...} }
+type ProgramSegmentationDescriptorArrayInput interface {
+	pulumi.Input
+
+	ToProgramSegmentationDescriptorArrayOutput() ProgramSegmentationDescriptorArrayOutput
+	ToProgramSegmentationDescriptorArrayOutputWithContext(context.Context) ProgramSegmentationDescriptorArrayOutput
+}
+
+type ProgramSegmentationDescriptorArray []ProgramSegmentationDescriptorInput
+
+func (ProgramSegmentationDescriptorArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ProgramSegmentationDescriptor)(nil)).Elem()
+}
+
+func (i ProgramSegmentationDescriptorArray) ToProgramSegmentationDescriptorArrayOutput() ProgramSegmentationDescriptorArrayOutput {
+	return i.ToProgramSegmentationDescriptorArrayOutputWithContext(context.Background())
+}
+
+func (i ProgramSegmentationDescriptorArray) ToProgramSegmentationDescriptorArrayOutputWithContext(ctx context.Context) ProgramSegmentationDescriptorArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProgramSegmentationDescriptorArrayOutput)
+}
+
+// The segmentation_descriptor message configuration.
+type ProgramSegmentationDescriptorOutput struct{ *pulumi.OutputState }
+
+func (ProgramSegmentationDescriptorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProgramSegmentationDescriptor)(nil)).Elem()
+}
+
+func (o ProgramSegmentationDescriptorOutput) ToProgramSegmentationDescriptorOutput() ProgramSegmentationDescriptorOutput {
+	return o
+}
+
+func (o ProgramSegmentationDescriptorOutput) ToProgramSegmentationDescriptorOutputWithContext(ctx context.Context) ProgramSegmentationDescriptorOutput {
+	return o
+}
+
+// The segment number to assign.
+func (o ProgramSegmentationDescriptorOutput) SegmentNum() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ProgramSegmentationDescriptor) *int { return v.SegmentNum }).(pulumi.IntPtrOutput)
+}
+
+// The Event Identifier to assign.
+func (o ProgramSegmentationDescriptorOutput) SegmentationEventId() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ProgramSegmentationDescriptor) *int { return v.SegmentationEventId }).(pulumi.IntPtrOutput)
+}
+
+// The Type Identifier to assign.
+func (o ProgramSegmentationDescriptorOutput) SegmentationTypeId() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ProgramSegmentationDescriptor) *int { return v.SegmentationTypeId }).(pulumi.IntPtrOutput)
+}
+
+// The Upid to assign.
+func (o ProgramSegmentationDescriptorOutput) SegmentationUpid() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProgramSegmentationDescriptor) *string { return v.SegmentationUpid }).(pulumi.StringPtrOutput)
+}
+
+// The Upid Type to assign.
+func (o ProgramSegmentationDescriptorOutput) SegmentationUpidType() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ProgramSegmentationDescriptor) *int { return v.SegmentationUpidType }).(pulumi.IntPtrOutput)
+}
+
+// The number of segments expected.
+func (o ProgramSegmentationDescriptorOutput) SegmentsExpected() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ProgramSegmentationDescriptor) *int { return v.SegmentsExpected }).(pulumi.IntPtrOutput)
+}
+
+// The sub-segment number to assign.
+func (o ProgramSegmentationDescriptorOutput) SubSegmentNum() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ProgramSegmentationDescriptor) *int { return v.SubSegmentNum }).(pulumi.IntPtrOutput)
+}
+
+// The number of sub-segments expected.
+func (o ProgramSegmentationDescriptorOutput) SubSegmentsExpected() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ProgramSegmentationDescriptor) *int { return v.SubSegmentsExpected }).(pulumi.IntPtrOutput)
+}
+
+type ProgramSegmentationDescriptorArrayOutput struct{ *pulumi.OutputState }
+
+func (ProgramSegmentationDescriptorArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ProgramSegmentationDescriptor)(nil)).Elem()
+}
+
+func (o ProgramSegmentationDescriptorArrayOutput) ToProgramSegmentationDescriptorArrayOutput() ProgramSegmentationDescriptorArrayOutput {
+	return o
+}
+
+func (o ProgramSegmentationDescriptorArrayOutput) ToProgramSegmentationDescriptorArrayOutputWithContext(ctx context.Context) ProgramSegmentationDescriptorArrayOutput {
+	return o
+}
+
+func (o ProgramSegmentationDescriptorArrayOutput) Index(i pulumi.IntInput) ProgramSegmentationDescriptorOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ProgramSegmentationDescriptor {
+		return vs[0].([]ProgramSegmentationDescriptor)[vs[1].(int)]
+	}).(ProgramSegmentationDescriptorOutput)
+}
+
+// Slate VOD source configuration.
+type ProgramSlateSource struct {
+	// The name of the source location where the slate VOD source is stored.
+	SourceLocationName *string `pulumi:"sourceLocationName"`
+	// The slate VOD source name.
+	VodSourceName *string `pulumi:"vodSourceName"`
+}
+
+// ProgramSlateSourceInput is an input type that accepts ProgramSlateSourceArgs and ProgramSlateSourceOutput values.
+// You can construct a concrete instance of `ProgramSlateSourceInput` via:
+//
+//	ProgramSlateSourceArgs{...}
+type ProgramSlateSourceInput interface {
+	pulumi.Input
+
+	ToProgramSlateSourceOutput() ProgramSlateSourceOutput
+	ToProgramSlateSourceOutputWithContext(context.Context) ProgramSlateSourceOutput
+}
+
+// Slate VOD source configuration.
+type ProgramSlateSourceArgs struct {
+	// The name of the source location where the slate VOD source is stored.
+	SourceLocationName pulumi.StringPtrInput `pulumi:"sourceLocationName"`
+	// The slate VOD source name.
+	VodSourceName pulumi.StringPtrInput `pulumi:"vodSourceName"`
+}
+
+func (ProgramSlateSourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProgramSlateSource)(nil)).Elem()
+}
+
+func (i ProgramSlateSourceArgs) ToProgramSlateSourceOutput() ProgramSlateSourceOutput {
+	return i.ToProgramSlateSourceOutputWithContext(context.Background())
+}
+
+func (i ProgramSlateSourceArgs) ToProgramSlateSourceOutputWithContext(ctx context.Context) ProgramSlateSourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProgramSlateSourceOutput)
+}
+
+func (i ProgramSlateSourceArgs) ToProgramSlateSourcePtrOutput() ProgramSlateSourcePtrOutput {
+	return i.ToProgramSlateSourcePtrOutputWithContext(context.Background())
+}
+
+func (i ProgramSlateSourceArgs) ToProgramSlateSourcePtrOutputWithContext(ctx context.Context) ProgramSlateSourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProgramSlateSourceOutput).ToProgramSlateSourcePtrOutputWithContext(ctx)
+}
+
+// ProgramSlateSourcePtrInput is an input type that accepts ProgramSlateSourceArgs, ProgramSlateSourcePtr and ProgramSlateSourcePtrOutput values.
+// You can construct a concrete instance of `ProgramSlateSourcePtrInput` via:
+//
+//	        ProgramSlateSourceArgs{...}
+//
+//	or:
+//
+//	        nil
+type ProgramSlateSourcePtrInput interface {
+	pulumi.Input
+
+	ToProgramSlateSourcePtrOutput() ProgramSlateSourcePtrOutput
+	ToProgramSlateSourcePtrOutputWithContext(context.Context) ProgramSlateSourcePtrOutput
+}
+
+type programSlateSourcePtrType ProgramSlateSourceArgs
+
+func ProgramSlateSourcePtr(v *ProgramSlateSourceArgs) ProgramSlateSourcePtrInput {
+	return (*programSlateSourcePtrType)(v)
+}
+
+func (*programSlateSourcePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProgramSlateSource)(nil)).Elem()
+}
+
+func (i *programSlateSourcePtrType) ToProgramSlateSourcePtrOutput() ProgramSlateSourcePtrOutput {
+	return i.ToProgramSlateSourcePtrOutputWithContext(context.Background())
+}
+
+func (i *programSlateSourcePtrType) ToProgramSlateSourcePtrOutputWithContext(ctx context.Context) ProgramSlateSourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProgramSlateSourcePtrOutput)
+}
+
+// Slate VOD source configuration.
+type ProgramSlateSourceOutput struct{ *pulumi.OutputState }
+
+func (ProgramSlateSourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProgramSlateSource)(nil)).Elem()
+}
+
+func (o ProgramSlateSourceOutput) ToProgramSlateSourceOutput() ProgramSlateSourceOutput {
+	return o
+}
+
+func (o ProgramSlateSourceOutput) ToProgramSlateSourceOutputWithContext(ctx context.Context) ProgramSlateSourceOutput {
+	return o
+}
+
+func (o ProgramSlateSourceOutput) ToProgramSlateSourcePtrOutput() ProgramSlateSourcePtrOutput {
+	return o.ToProgramSlateSourcePtrOutputWithContext(context.Background())
+}
+
+func (o ProgramSlateSourceOutput) ToProgramSlateSourcePtrOutputWithContext(ctx context.Context) ProgramSlateSourcePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProgramSlateSource) *ProgramSlateSource {
+		return &v
+	}).(ProgramSlateSourcePtrOutput)
+}
+
+// The name of the source location where the slate VOD source is stored.
+func (o ProgramSlateSourceOutput) SourceLocationName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProgramSlateSource) *string { return v.SourceLocationName }).(pulumi.StringPtrOutput)
+}
+
+// The slate VOD source name.
+func (o ProgramSlateSourceOutput) VodSourceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProgramSlateSource) *string { return v.VodSourceName }).(pulumi.StringPtrOutput)
+}
+
+type ProgramSlateSourcePtrOutput struct{ *pulumi.OutputState }
+
+func (ProgramSlateSourcePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProgramSlateSource)(nil)).Elem()
+}
+
+func (o ProgramSlateSourcePtrOutput) ToProgramSlateSourcePtrOutput() ProgramSlateSourcePtrOutput {
+	return o
+}
+
+func (o ProgramSlateSourcePtrOutput) ToProgramSlateSourcePtrOutputWithContext(ctx context.Context) ProgramSlateSourcePtrOutput {
+	return o
+}
+
+func (o ProgramSlateSourcePtrOutput) Elem() ProgramSlateSourceOutput {
+	return o.ApplyT(func(v *ProgramSlateSource) ProgramSlateSource {
+		if v != nil {
+			return *v
+		}
+		var ret ProgramSlateSource
+		return ret
+	}).(ProgramSlateSourceOutput)
+}
+
+// The name of the source location where the slate VOD source is stored.
+func (o ProgramSlateSourcePtrOutput) SourceLocationName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProgramSlateSource) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SourceLocationName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The slate VOD source name.
+func (o ProgramSlateSourcePtrOutput) VodSourceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProgramSlateSource) *string {
+		if v == nil {
+			return nil
+		}
+		return v.VodSourceName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Splice insert message configuration.
+type ProgramSpliceInsertMessage struct {
+	// This is written to splice_insert.avail_num.
+	AvailNum *int `pulumi:"availNum"`
+	// This is written to splice_insert.avails_expected.
+	AvailsExpected *int `pulumi:"availsExpected"`
+	// This is written to splice_insert.splice_event_id.
+	SpliceEventId *int `pulumi:"spliceEventId"`
+	// This is written to splice_insert.unique_program_id.
+	UniqueProgramId *int `pulumi:"uniqueProgramId"`
+}
+
+// ProgramSpliceInsertMessageInput is an input type that accepts ProgramSpliceInsertMessageArgs and ProgramSpliceInsertMessageOutput values.
+// You can construct a concrete instance of `ProgramSpliceInsertMessageInput` via:
+//
+//	ProgramSpliceInsertMessageArgs{...}
+type ProgramSpliceInsertMessageInput interface {
+	pulumi.Input
+
+	ToProgramSpliceInsertMessageOutput() ProgramSpliceInsertMessageOutput
+	ToProgramSpliceInsertMessageOutputWithContext(context.Context) ProgramSpliceInsertMessageOutput
+}
+
+// Splice insert message configuration.
+type ProgramSpliceInsertMessageArgs struct {
+	// This is written to splice_insert.avail_num.
+	AvailNum pulumi.IntPtrInput `pulumi:"availNum"`
+	// This is written to splice_insert.avails_expected.
+	AvailsExpected pulumi.IntPtrInput `pulumi:"availsExpected"`
+	// This is written to splice_insert.splice_event_id.
+	SpliceEventId pulumi.IntPtrInput `pulumi:"spliceEventId"`
+	// This is written to splice_insert.unique_program_id.
+	UniqueProgramId pulumi.IntPtrInput `pulumi:"uniqueProgramId"`
+}
+
+func (ProgramSpliceInsertMessageArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProgramSpliceInsertMessage)(nil)).Elem()
+}
+
+func (i ProgramSpliceInsertMessageArgs) ToProgramSpliceInsertMessageOutput() ProgramSpliceInsertMessageOutput {
+	return i.ToProgramSpliceInsertMessageOutputWithContext(context.Background())
+}
+
+func (i ProgramSpliceInsertMessageArgs) ToProgramSpliceInsertMessageOutputWithContext(ctx context.Context) ProgramSpliceInsertMessageOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProgramSpliceInsertMessageOutput)
+}
+
+func (i ProgramSpliceInsertMessageArgs) ToProgramSpliceInsertMessagePtrOutput() ProgramSpliceInsertMessagePtrOutput {
+	return i.ToProgramSpliceInsertMessagePtrOutputWithContext(context.Background())
+}
+
+func (i ProgramSpliceInsertMessageArgs) ToProgramSpliceInsertMessagePtrOutputWithContext(ctx context.Context) ProgramSpliceInsertMessagePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProgramSpliceInsertMessageOutput).ToProgramSpliceInsertMessagePtrOutputWithContext(ctx)
+}
+
+// ProgramSpliceInsertMessagePtrInput is an input type that accepts ProgramSpliceInsertMessageArgs, ProgramSpliceInsertMessagePtr and ProgramSpliceInsertMessagePtrOutput values.
+// You can construct a concrete instance of `ProgramSpliceInsertMessagePtrInput` via:
+//
+//	        ProgramSpliceInsertMessageArgs{...}
+//
+//	or:
+//
+//	        nil
+type ProgramSpliceInsertMessagePtrInput interface {
+	pulumi.Input
+
+	ToProgramSpliceInsertMessagePtrOutput() ProgramSpliceInsertMessagePtrOutput
+	ToProgramSpliceInsertMessagePtrOutputWithContext(context.Context) ProgramSpliceInsertMessagePtrOutput
+}
+
+type programSpliceInsertMessagePtrType ProgramSpliceInsertMessageArgs
+
+func ProgramSpliceInsertMessagePtr(v *ProgramSpliceInsertMessageArgs) ProgramSpliceInsertMessagePtrInput {
+	return (*programSpliceInsertMessagePtrType)(v)
+}
+
+func (*programSpliceInsertMessagePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProgramSpliceInsertMessage)(nil)).Elem()
+}
+
+func (i *programSpliceInsertMessagePtrType) ToProgramSpliceInsertMessagePtrOutput() ProgramSpliceInsertMessagePtrOutput {
+	return i.ToProgramSpliceInsertMessagePtrOutputWithContext(context.Background())
+}
+
+func (i *programSpliceInsertMessagePtrType) ToProgramSpliceInsertMessagePtrOutputWithContext(ctx context.Context) ProgramSpliceInsertMessagePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProgramSpliceInsertMessagePtrOutput)
+}
+
+// Splice insert message configuration.
+type ProgramSpliceInsertMessageOutput struct{ *pulumi.OutputState }
+
+func (ProgramSpliceInsertMessageOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProgramSpliceInsertMessage)(nil)).Elem()
+}
+
+func (o ProgramSpliceInsertMessageOutput) ToProgramSpliceInsertMessageOutput() ProgramSpliceInsertMessageOutput {
+	return o
+}
+
+func (o ProgramSpliceInsertMessageOutput) ToProgramSpliceInsertMessageOutputWithContext(ctx context.Context) ProgramSpliceInsertMessageOutput {
+	return o
+}
+
+func (o ProgramSpliceInsertMessageOutput) ToProgramSpliceInsertMessagePtrOutput() ProgramSpliceInsertMessagePtrOutput {
+	return o.ToProgramSpliceInsertMessagePtrOutputWithContext(context.Background())
+}
+
+func (o ProgramSpliceInsertMessageOutput) ToProgramSpliceInsertMessagePtrOutputWithContext(ctx context.Context) ProgramSpliceInsertMessagePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProgramSpliceInsertMessage) *ProgramSpliceInsertMessage {
+		return &v
+	}).(ProgramSpliceInsertMessagePtrOutput)
+}
+
+// This is written to splice_insert.avail_num.
+func (o ProgramSpliceInsertMessageOutput) AvailNum() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ProgramSpliceInsertMessage) *int { return v.AvailNum }).(pulumi.IntPtrOutput)
+}
+
+// This is written to splice_insert.avails_expected.
+func (o ProgramSpliceInsertMessageOutput) AvailsExpected() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ProgramSpliceInsertMessage) *int { return v.AvailsExpected }).(pulumi.IntPtrOutput)
+}
+
+// This is written to splice_insert.splice_event_id.
+func (o ProgramSpliceInsertMessageOutput) SpliceEventId() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ProgramSpliceInsertMessage) *int { return v.SpliceEventId }).(pulumi.IntPtrOutput)
+}
+
+// This is written to splice_insert.unique_program_id.
+func (o ProgramSpliceInsertMessageOutput) UniqueProgramId() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ProgramSpliceInsertMessage) *int { return v.UniqueProgramId }).(pulumi.IntPtrOutput)
+}
+
+type ProgramSpliceInsertMessagePtrOutput struct{ *pulumi.OutputState }
+
+func (ProgramSpliceInsertMessagePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProgramSpliceInsertMessage)(nil)).Elem()
+}
+
+func (o ProgramSpliceInsertMessagePtrOutput) ToProgramSpliceInsertMessagePtrOutput() ProgramSpliceInsertMessagePtrOutput {
+	return o
+}
+
+func (o ProgramSpliceInsertMessagePtrOutput) ToProgramSpliceInsertMessagePtrOutputWithContext(ctx context.Context) ProgramSpliceInsertMessagePtrOutput {
+	return o
+}
+
+func (o ProgramSpliceInsertMessagePtrOutput) Elem() ProgramSpliceInsertMessageOutput {
+	return o.ApplyT(func(v *ProgramSpliceInsertMessage) ProgramSpliceInsertMessage {
+		if v != nil {
+			return *v
+		}
+		var ret ProgramSpliceInsertMessage
+		return ret
+	}).(ProgramSpliceInsertMessageOutput)
+}
+
+// This is written to splice_insert.avail_num.
+func (o ProgramSpliceInsertMessagePtrOutput) AvailNum() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ProgramSpliceInsertMessage) *int {
+		if v == nil {
+			return nil
+		}
+		return v.AvailNum
+	}).(pulumi.IntPtrOutput)
+}
+
+// This is written to splice_insert.avails_expected.
+func (o ProgramSpliceInsertMessagePtrOutput) AvailsExpected() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ProgramSpliceInsertMessage) *int {
+		if v == nil {
+			return nil
+		}
+		return v.AvailsExpected
+	}).(pulumi.IntPtrOutput)
+}
+
+// This is written to splice_insert.splice_event_id.
+func (o ProgramSpliceInsertMessagePtrOutput) SpliceEventId() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ProgramSpliceInsertMessage) *int {
+		if v == nil {
+			return nil
+		}
+		return v.SpliceEventId
+	}).(pulumi.IntPtrOutput)
+}
+
+// This is written to splice_insert.unique_program_id.
+func (o ProgramSpliceInsertMessagePtrOutput) UniqueProgramId() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ProgramSpliceInsertMessage) *int {
+		if v == nil {
+			return nil
+		}
+		return v.UniqueProgramId
+	}).(pulumi.IntPtrOutput)
+}
+
+// The SCTE-35 time_signal message configuration.
+type ProgramTimeSignalMessage struct {
+	// The configurations for the SCTE-35 segmentation_descriptor message(s).
+	SegmentationDescriptors []ProgramSegmentationDescriptor `pulumi:"segmentationDescriptors"`
+}
+
+// ProgramTimeSignalMessageInput is an input type that accepts ProgramTimeSignalMessageArgs and ProgramTimeSignalMessageOutput values.
+// You can construct a concrete instance of `ProgramTimeSignalMessageInput` via:
+//
+//	ProgramTimeSignalMessageArgs{...}
+type ProgramTimeSignalMessageInput interface {
+	pulumi.Input
+
+	ToProgramTimeSignalMessageOutput() ProgramTimeSignalMessageOutput
+	ToProgramTimeSignalMessageOutputWithContext(context.Context) ProgramTimeSignalMessageOutput
+}
+
+// The SCTE-35 time_signal message configuration.
+type ProgramTimeSignalMessageArgs struct {
+	// The configurations for the SCTE-35 segmentation_descriptor message(s).
+	SegmentationDescriptors ProgramSegmentationDescriptorArrayInput `pulumi:"segmentationDescriptors"`
+}
+
+func (ProgramTimeSignalMessageArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProgramTimeSignalMessage)(nil)).Elem()
+}
+
+func (i ProgramTimeSignalMessageArgs) ToProgramTimeSignalMessageOutput() ProgramTimeSignalMessageOutput {
+	return i.ToProgramTimeSignalMessageOutputWithContext(context.Background())
+}
+
+func (i ProgramTimeSignalMessageArgs) ToProgramTimeSignalMessageOutputWithContext(ctx context.Context) ProgramTimeSignalMessageOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProgramTimeSignalMessageOutput)
+}
+
+func (i ProgramTimeSignalMessageArgs) ToProgramTimeSignalMessagePtrOutput() ProgramTimeSignalMessagePtrOutput {
+	return i.ToProgramTimeSignalMessagePtrOutputWithContext(context.Background())
+}
+
+func (i ProgramTimeSignalMessageArgs) ToProgramTimeSignalMessagePtrOutputWithContext(ctx context.Context) ProgramTimeSignalMessagePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProgramTimeSignalMessageOutput).ToProgramTimeSignalMessagePtrOutputWithContext(ctx)
+}
+
+// ProgramTimeSignalMessagePtrInput is an input type that accepts ProgramTimeSignalMessageArgs, ProgramTimeSignalMessagePtr and ProgramTimeSignalMessagePtrOutput values.
+// You can construct a concrete instance of `ProgramTimeSignalMessagePtrInput` via:
+//
+//	        ProgramTimeSignalMessageArgs{...}
+//
+//	or:
+//
+//	        nil
+type ProgramTimeSignalMessagePtrInput interface {
+	pulumi.Input
+
+	ToProgramTimeSignalMessagePtrOutput() ProgramTimeSignalMessagePtrOutput
+	ToProgramTimeSignalMessagePtrOutputWithContext(context.Context) ProgramTimeSignalMessagePtrOutput
+}
+
+type programTimeSignalMessagePtrType ProgramTimeSignalMessageArgs
+
+func ProgramTimeSignalMessagePtr(v *ProgramTimeSignalMessageArgs) ProgramTimeSignalMessagePtrInput {
+	return (*programTimeSignalMessagePtrType)(v)
+}
+
+func (*programTimeSignalMessagePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProgramTimeSignalMessage)(nil)).Elem()
+}
+
+func (i *programTimeSignalMessagePtrType) ToProgramTimeSignalMessagePtrOutput() ProgramTimeSignalMessagePtrOutput {
+	return i.ToProgramTimeSignalMessagePtrOutputWithContext(context.Background())
+}
+
+func (i *programTimeSignalMessagePtrType) ToProgramTimeSignalMessagePtrOutputWithContext(ctx context.Context) ProgramTimeSignalMessagePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProgramTimeSignalMessagePtrOutput)
+}
+
+// The SCTE-35 time_signal message configuration.
+type ProgramTimeSignalMessageOutput struct{ *pulumi.OutputState }
+
+func (ProgramTimeSignalMessageOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProgramTimeSignalMessage)(nil)).Elem()
+}
+
+func (o ProgramTimeSignalMessageOutput) ToProgramTimeSignalMessageOutput() ProgramTimeSignalMessageOutput {
+	return o
+}
+
+func (o ProgramTimeSignalMessageOutput) ToProgramTimeSignalMessageOutputWithContext(ctx context.Context) ProgramTimeSignalMessageOutput {
+	return o
+}
+
+func (o ProgramTimeSignalMessageOutput) ToProgramTimeSignalMessagePtrOutput() ProgramTimeSignalMessagePtrOutput {
+	return o.ToProgramTimeSignalMessagePtrOutputWithContext(context.Background())
+}
+
+func (o ProgramTimeSignalMessageOutput) ToProgramTimeSignalMessagePtrOutputWithContext(ctx context.Context) ProgramTimeSignalMessagePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProgramTimeSignalMessage) *ProgramTimeSignalMessage {
+		return &v
+	}).(ProgramTimeSignalMessagePtrOutput)
+}
+
+// The configurations for the SCTE-35 segmentation_descriptor message(s).
+func (o ProgramTimeSignalMessageOutput) SegmentationDescriptors() ProgramSegmentationDescriptorArrayOutput {
+	return o.ApplyT(func(v ProgramTimeSignalMessage) []ProgramSegmentationDescriptor { return v.SegmentationDescriptors }).(ProgramSegmentationDescriptorArrayOutput)
+}
+
+type ProgramTimeSignalMessagePtrOutput struct{ *pulumi.OutputState }
+
+func (ProgramTimeSignalMessagePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProgramTimeSignalMessage)(nil)).Elem()
+}
+
+func (o ProgramTimeSignalMessagePtrOutput) ToProgramTimeSignalMessagePtrOutput() ProgramTimeSignalMessagePtrOutput {
+	return o
+}
+
+func (o ProgramTimeSignalMessagePtrOutput) ToProgramTimeSignalMessagePtrOutputWithContext(ctx context.Context) ProgramTimeSignalMessagePtrOutput {
+	return o
+}
+
+func (o ProgramTimeSignalMessagePtrOutput) Elem() ProgramTimeSignalMessageOutput {
+	return o.ApplyT(func(v *ProgramTimeSignalMessage) ProgramTimeSignalMessage {
+		if v != nil {
+			return *v
+		}
+		var ret ProgramTimeSignalMessage
+		return ret
+	}).(ProgramTimeSignalMessageOutput)
+}
+
+// The configurations for the SCTE-35 segmentation_descriptor message(s).
+func (o ProgramTimeSignalMessagePtrOutput) SegmentationDescriptors() ProgramSegmentationDescriptorArrayOutput {
+	return o.ApplyT(func(v *ProgramTimeSignalMessage) []ProgramSegmentationDescriptor {
+		if v == nil {
+			return nil
+		}
+		return v.SegmentationDescriptors
+	}).(ProgramSegmentationDescriptorArrayOutput)
+}
+
+// Program transition configuration.
+type ProgramTransition struct {
+	// The duration of the live program in seconds.
+	DurationMillis *int `pulumi:"durationMillis"`
+	// The position where this program will be inserted relative to the RelativePosition.
+	RelativePosition ProgramTransitionRelativePosition `pulumi:"relativePosition"`
+	// The name of the program that this program will be inserted next to.
+	RelativeProgram *string `pulumi:"relativeProgram"`
+	// The date and time that the program is scheduled to start, in epoch milliseconds.
+	ScheduledStartTimeMillis *int `pulumi:"scheduledStartTimeMillis"`
+	// Defines when the program plays in the schedule. You can set the value to ABSOLUTE or RELATIVE.
+	Type string `pulumi:"type"`
+}
+
+// ProgramTransitionInput is an input type that accepts ProgramTransitionArgs and ProgramTransitionOutput values.
+// You can construct a concrete instance of `ProgramTransitionInput` via:
+//
+//	ProgramTransitionArgs{...}
+type ProgramTransitionInput interface {
+	pulumi.Input
+
+	ToProgramTransitionOutput() ProgramTransitionOutput
+	ToProgramTransitionOutputWithContext(context.Context) ProgramTransitionOutput
+}
+
+// Program transition configuration.
+type ProgramTransitionArgs struct {
+	// The duration of the live program in seconds.
+	DurationMillis pulumi.IntPtrInput `pulumi:"durationMillis"`
+	// The position where this program will be inserted relative to the RelativePosition.
+	RelativePosition ProgramTransitionRelativePositionInput `pulumi:"relativePosition"`
+	// The name of the program that this program will be inserted next to.
+	RelativeProgram pulumi.StringPtrInput `pulumi:"relativeProgram"`
+	// The date and time that the program is scheduled to start, in epoch milliseconds.
+	ScheduledStartTimeMillis pulumi.IntPtrInput `pulumi:"scheduledStartTimeMillis"`
+	// Defines when the program plays in the schedule. You can set the value to ABSOLUTE or RELATIVE.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (ProgramTransitionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProgramTransition)(nil)).Elem()
+}
+
+func (i ProgramTransitionArgs) ToProgramTransitionOutput() ProgramTransitionOutput {
+	return i.ToProgramTransitionOutputWithContext(context.Background())
+}
+
+func (i ProgramTransitionArgs) ToProgramTransitionOutputWithContext(ctx context.Context) ProgramTransitionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProgramTransitionOutput)
+}
+
+func (i ProgramTransitionArgs) ToProgramTransitionPtrOutput() ProgramTransitionPtrOutput {
+	return i.ToProgramTransitionPtrOutputWithContext(context.Background())
+}
+
+func (i ProgramTransitionArgs) ToProgramTransitionPtrOutputWithContext(ctx context.Context) ProgramTransitionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProgramTransitionOutput).ToProgramTransitionPtrOutputWithContext(ctx)
+}
+
+// ProgramTransitionPtrInput is an input type that accepts ProgramTransitionArgs, ProgramTransitionPtr and ProgramTransitionPtrOutput values.
+// You can construct a concrete instance of `ProgramTransitionPtrInput` via:
+//
+//	        ProgramTransitionArgs{...}
+//
+//	or:
+//
+//	        nil
+type ProgramTransitionPtrInput interface {
+	pulumi.Input
+
+	ToProgramTransitionPtrOutput() ProgramTransitionPtrOutput
+	ToProgramTransitionPtrOutputWithContext(context.Context) ProgramTransitionPtrOutput
+}
+
+type programTransitionPtrType ProgramTransitionArgs
+
+func ProgramTransitionPtr(v *ProgramTransitionArgs) ProgramTransitionPtrInput {
+	return (*programTransitionPtrType)(v)
+}
+
+func (*programTransitionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProgramTransition)(nil)).Elem()
+}
+
+func (i *programTransitionPtrType) ToProgramTransitionPtrOutput() ProgramTransitionPtrOutput {
+	return i.ToProgramTransitionPtrOutputWithContext(context.Background())
+}
+
+func (i *programTransitionPtrType) ToProgramTransitionPtrOutputWithContext(ctx context.Context) ProgramTransitionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProgramTransitionPtrOutput)
+}
+
+// Program transition configuration.
+type ProgramTransitionOutput struct{ *pulumi.OutputState }
+
+func (ProgramTransitionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProgramTransition)(nil)).Elem()
+}
+
+func (o ProgramTransitionOutput) ToProgramTransitionOutput() ProgramTransitionOutput {
+	return o
+}
+
+func (o ProgramTransitionOutput) ToProgramTransitionOutputWithContext(ctx context.Context) ProgramTransitionOutput {
+	return o
+}
+
+func (o ProgramTransitionOutput) ToProgramTransitionPtrOutput() ProgramTransitionPtrOutput {
+	return o.ToProgramTransitionPtrOutputWithContext(context.Background())
+}
+
+func (o ProgramTransitionOutput) ToProgramTransitionPtrOutputWithContext(ctx context.Context) ProgramTransitionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProgramTransition) *ProgramTransition {
+		return &v
+	}).(ProgramTransitionPtrOutput)
+}
+
+// The duration of the live program in seconds.
+func (o ProgramTransitionOutput) DurationMillis() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ProgramTransition) *int { return v.DurationMillis }).(pulumi.IntPtrOutput)
+}
+
+// The position where this program will be inserted relative to the RelativePosition.
+func (o ProgramTransitionOutput) RelativePosition() ProgramTransitionRelativePositionOutput {
+	return o.ApplyT(func(v ProgramTransition) ProgramTransitionRelativePosition { return v.RelativePosition }).(ProgramTransitionRelativePositionOutput)
+}
+
+// The name of the program that this program will be inserted next to.
+func (o ProgramTransitionOutput) RelativeProgram() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProgramTransition) *string { return v.RelativeProgram }).(pulumi.StringPtrOutput)
+}
+
+// The date and time that the program is scheduled to start, in epoch milliseconds.
+func (o ProgramTransitionOutput) ScheduledStartTimeMillis() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ProgramTransition) *int { return v.ScheduledStartTimeMillis }).(pulumi.IntPtrOutput)
+}
+
+// Defines when the program plays in the schedule. You can set the value to ABSOLUTE or RELATIVE.
+func (o ProgramTransitionOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ProgramTransition) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type ProgramTransitionPtrOutput struct{ *pulumi.OutputState }
+
+func (ProgramTransitionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProgramTransition)(nil)).Elem()
+}
+
+func (o ProgramTransitionPtrOutput) ToProgramTransitionPtrOutput() ProgramTransitionPtrOutput {
+	return o
+}
+
+func (o ProgramTransitionPtrOutput) ToProgramTransitionPtrOutputWithContext(ctx context.Context) ProgramTransitionPtrOutput {
+	return o
+}
+
+func (o ProgramTransitionPtrOutput) Elem() ProgramTransitionOutput {
+	return o.ApplyT(func(v *ProgramTransition) ProgramTransition {
+		if v != nil {
+			return *v
+		}
+		var ret ProgramTransition
+		return ret
+	}).(ProgramTransitionOutput)
+}
+
+// The duration of the live program in seconds.
+func (o ProgramTransitionPtrOutput) DurationMillis() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ProgramTransition) *int {
+		if v == nil {
+			return nil
+		}
+		return v.DurationMillis
+	}).(pulumi.IntPtrOutput)
+}
+
+// The position where this program will be inserted relative to the RelativePosition.
+func (o ProgramTransitionPtrOutput) RelativePosition() ProgramTransitionRelativePositionPtrOutput {
+	return o.ApplyT(func(v *ProgramTransition) *ProgramTransitionRelativePosition {
+		if v == nil {
+			return nil
+		}
+		return &v.RelativePosition
+	}).(ProgramTransitionRelativePositionPtrOutput)
+}
+
+// The name of the program that this program will be inserted next to.
+func (o ProgramTransitionPtrOutput) RelativeProgram() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProgramTransition) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RelativeProgram
+	}).(pulumi.StringPtrOutput)
+}
+
+// The date and time that the program is scheduled to start, in epoch milliseconds.
+func (o ProgramTransitionPtrOutput) ScheduledStartTimeMillis() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ProgramTransition) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ScheduledStartTimeMillis
+	}).(pulumi.IntPtrOutput)
+}
+
+// Defines when the program plays in the schedule. You can set the value to ABSOLUTE or RELATIVE.
+func (o ProgramTransitionPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProgramTransition) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
 // <p>Access configuration parameters.</p>
 type SourceLocationAccessConfiguration struct {
 	// The type of authentication used to access content from `HttpConfiguration::BaseUrl` on your source location. Accepted value: `S3_SIGV4` .
@@ -7306,6 +9526,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelSlateSourcePtrInput)(nil)).Elem(), ChannelSlateSourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelTimeShiftConfigurationInput)(nil)).Elem(), ChannelTimeShiftConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelTimeShiftConfigurationPtrInput)(nil)).Elem(), ChannelTimeShiftConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FunctionAwsServiceRequestConfigurationInput)(nil)).Elem(), FunctionAwsServiceRequestConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FunctionAwsServiceRequestConfigurationPtrInput)(nil)).Elem(), FunctionAwsServiceRequestConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionConcurrentExecutorConfigurationInput)(nil)).Elem(), FunctionConcurrentExecutorConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionConcurrentExecutorConfigurationPtrInput)(nil)).Elem(), FunctionConcurrentExecutorConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionCustomOutputConfigurationInput)(nil)).Elem(), FunctionCustomOutputConfigurationArgs{})
@@ -7316,6 +9538,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionRefArrayInput)(nil)).Elem(), FunctionRefArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionSequentialExecutorConfigurationInput)(nil)).Elem(), FunctionSequentialExecutorConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionSequentialExecutorConfigurationPtrInput)(nil)).Elem(), FunctionSequentialExecutorConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FunctionVastRequestConfigurationInput)(nil)).Elem(), FunctionVastRequestConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FunctionVastRequestConfigurationPtrInput)(nil)).Elem(), FunctionVastRequestConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LiveSourceHttpPackageConfigurationInput)(nil)).Elem(), LiveSourceHttpPackageConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LiveSourceHttpPackageConfigurationArrayInput)(nil)).Elem(), LiveSourceHttpPackageConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PlaybackConfigurationAdConditioningConfigurationInput)(nil)).Elem(), PlaybackConfigurationAdConditioningConfigurationArgs{})
@@ -7372,6 +9596,28 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PrefetchScheduleTrafficShapingRetrievalWindowPtrInput)(nil)).Elem(), PrefetchScheduleTrafficShapingRetrievalWindowArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PrefetchScheduleTrafficShapingTpsConfigurationInput)(nil)).Elem(), PrefetchScheduleTrafficShapingTpsConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PrefetchScheduleTrafficShapingTpsConfigurationPtrInput)(nil)).Elem(), PrefetchScheduleTrafficShapingTpsConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProgramAdBreakInput)(nil)).Elem(), ProgramAdBreakArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProgramAdBreakArrayInput)(nil)).Elem(), ProgramAdBreakArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProgramAlternateMediaInput)(nil)).Elem(), ProgramAlternateMediaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProgramAlternateMediaArrayInput)(nil)).Elem(), ProgramAlternateMediaArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProgramAudienceMediaInput)(nil)).Elem(), ProgramAudienceMediaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProgramAudienceMediaArrayInput)(nil)).Elem(), ProgramAudienceMediaArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProgramClipRangeInput)(nil)).Elem(), ProgramClipRangeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProgramClipRangePtrInput)(nil)).Elem(), ProgramClipRangeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProgramKeyValuePairInput)(nil)).Elem(), ProgramKeyValuePairArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProgramKeyValuePairArrayInput)(nil)).Elem(), ProgramKeyValuePairArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProgramScheduleConfigurationInput)(nil)).Elem(), ProgramScheduleConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProgramScheduleConfigurationPtrInput)(nil)).Elem(), ProgramScheduleConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProgramSegmentationDescriptorInput)(nil)).Elem(), ProgramSegmentationDescriptorArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProgramSegmentationDescriptorArrayInput)(nil)).Elem(), ProgramSegmentationDescriptorArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProgramSlateSourceInput)(nil)).Elem(), ProgramSlateSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProgramSlateSourcePtrInput)(nil)).Elem(), ProgramSlateSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProgramSpliceInsertMessageInput)(nil)).Elem(), ProgramSpliceInsertMessageArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProgramSpliceInsertMessagePtrInput)(nil)).Elem(), ProgramSpliceInsertMessageArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProgramTimeSignalMessageInput)(nil)).Elem(), ProgramTimeSignalMessageArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProgramTimeSignalMessagePtrInput)(nil)).Elem(), ProgramTimeSignalMessageArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProgramTransitionInput)(nil)).Elem(), ProgramTransitionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProgramTransitionPtrInput)(nil)).Elem(), ProgramTransitionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SourceLocationAccessConfigurationInput)(nil)).Elem(), SourceLocationAccessConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SourceLocationAccessConfigurationPtrInput)(nil)).Elem(), SourceLocationAccessConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SourceLocationDefaultSegmentDeliveryConfigurationInput)(nil)).Elem(), SourceLocationDefaultSegmentDeliveryConfigurationArgs{})
@@ -7395,6 +9641,8 @@ func init() {
 	pulumi.RegisterOutputType(ChannelSlateSourcePtrOutput{})
 	pulumi.RegisterOutputType(ChannelTimeShiftConfigurationOutput{})
 	pulumi.RegisterOutputType(ChannelTimeShiftConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(FunctionAwsServiceRequestConfigurationOutput{})
+	pulumi.RegisterOutputType(FunctionAwsServiceRequestConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(FunctionConcurrentExecutorConfigurationOutput{})
 	pulumi.RegisterOutputType(FunctionConcurrentExecutorConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(FunctionCustomOutputConfigurationOutput{})
@@ -7405,6 +9653,8 @@ func init() {
 	pulumi.RegisterOutputType(FunctionRefArrayOutput{})
 	pulumi.RegisterOutputType(FunctionSequentialExecutorConfigurationOutput{})
 	pulumi.RegisterOutputType(FunctionSequentialExecutorConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(FunctionVastRequestConfigurationOutput{})
+	pulumi.RegisterOutputType(FunctionVastRequestConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(LiveSourceHttpPackageConfigurationOutput{})
 	pulumi.RegisterOutputType(LiveSourceHttpPackageConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(PlaybackConfigurationAdConditioningConfigurationOutput{})
@@ -7461,6 +9711,28 @@ func init() {
 	pulumi.RegisterOutputType(PrefetchScheduleTrafficShapingRetrievalWindowPtrOutput{})
 	pulumi.RegisterOutputType(PrefetchScheduleTrafficShapingTpsConfigurationOutput{})
 	pulumi.RegisterOutputType(PrefetchScheduleTrafficShapingTpsConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(ProgramAdBreakOutput{})
+	pulumi.RegisterOutputType(ProgramAdBreakArrayOutput{})
+	pulumi.RegisterOutputType(ProgramAlternateMediaOutput{})
+	pulumi.RegisterOutputType(ProgramAlternateMediaArrayOutput{})
+	pulumi.RegisterOutputType(ProgramAudienceMediaOutput{})
+	pulumi.RegisterOutputType(ProgramAudienceMediaArrayOutput{})
+	pulumi.RegisterOutputType(ProgramClipRangeOutput{})
+	pulumi.RegisterOutputType(ProgramClipRangePtrOutput{})
+	pulumi.RegisterOutputType(ProgramKeyValuePairOutput{})
+	pulumi.RegisterOutputType(ProgramKeyValuePairArrayOutput{})
+	pulumi.RegisterOutputType(ProgramScheduleConfigurationOutput{})
+	pulumi.RegisterOutputType(ProgramScheduleConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(ProgramSegmentationDescriptorOutput{})
+	pulumi.RegisterOutputType(ProgramSegmentationDescriptorArrayOutput{})
+	pulumi.RegisterOutputType(ProgramSlateSourceOutput{})
+	pulumi.RegisterOutputType(ProgramSlateSourcePtrOutput{})
+	pulumi.RegisterOutputType(ProgramSpliceInsertMessageOutput{})
+	pulumi.RegisterOutputType(ProgramSpliceInsertMessagePtrOutput{})
+	pulumi.RegisterOutputType(ProgramTimeSignalMessageOutput{})
+	pulumi.RegisterOutputType(ProgramTimeSignalMessagePtrOutput{})
+	pulumi.RegisterOutputType(ProgramTransitionOutput{})
+	pulumi.RegisterOutputType(ProgramTransitionPtrOutput{})
 	pulumi.RegisterOutputType(SourceLocationAccessConfigurationOutput{})
 	pulumi.RegisterOutputType(SourceLocationAccessConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(SourceLocationDefaultSegmentDeliveryConfigurationOutput{})

@@ -100,6 +100,10 @@ namespace Pulumi.AwsNative.BedrockAgentCore
         /// </summary>
         public readonly string? HarnessId;
         /// <summary>
+        /// Lifecycle hooks that fire at well-defined points in the agent loop for policy enforcement, audit, and governance.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.HarnessHook> Hooks;
+        /// <summary>
         /// The maximum number of iterations the agent loop can execute per invocation.
         /// </summary>
         public readonly int? MaxIterations;
@@ -172,6 +176,8 @@ namespace Pulumi.AwsNative.BedrockAgentCore
 
             string? harnessId,
 
+            ImmutableArray<Outputs.HarnessHook> hooks,
+
             int? maxIterations,
 
             int? maxTokens,
@@ -207,6 +213,7 @@ namespace Pulumi.AwsNative.BedrockAgentCore
             EnvironmentVariables = environmentVariables;
             ExecutionRoleArn = executionRoleArn;
             HarnessId = harnessId;
+            Hooks = hooks;
             MaxIterations = maxIterations;
             MaxTokens = maxTokens;
             Memory = memory;

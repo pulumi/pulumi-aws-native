@@ -36,9 +36,6 @@ namespace Pulumi.AwsNative.Lambda
         [Output("policyDocument")]
         public Output<object> PolicyDocument { get; private set; } = null!;
 
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the LAM resource you want to add the policy to. For a function, you can use a qualified or an unqualified ARN. The value must be a complete ARN, and the operation does not accept wildcard characters.
-        /// </summary>
         [Output("resourceArn")]
         public Output<string> ResourceArn { get; private set; } = null!;
 
@@ -100,9 +97,6 @@ namespace Pulumi.AwsNative.Lambda
         [Input("policyDocument", required: true)]
         public Input<object> PolicyDocument { get; set; } = null!;
 
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the LAM resource you want to add the policy to. For a function, you can use a qualified or an unqualified ARN. The value must be a complete ARN, and the operation does not accept wildcard characters.
-        /// </summary>
         [Input("resourceArn", required: true)]
         public Input<string> ResourceArn { get; set; } = null!;
 

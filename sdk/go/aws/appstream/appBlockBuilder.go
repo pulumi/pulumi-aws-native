@@ -28,7 +28,8 @@ type AppBlockBuilder struct {
 	// The time when the app block builder was created.
 	CreatedTime pulumi.StringOutput `pulumi:"createdTime"`
 	// The description of the app block builder.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
+	Description   pulumi.StringPtrOutput `pulumi:"description"`
+	DisableImdsv1 pulumi.BoolPtrOutput   `pulumi:"disableImdsv1"`
 	// The display name of the app block builder.
 	DisplayName pulumi.StringPtrOutput `pulumi:"displayName"`
 	// Indicates whether default internet access is enabled for the app block builder.
@@ -109,7 +110,8 @@ type appBlockBuilderArgs struct {
 	// *Maximum* : `1`
 	AppBlockArns []string `pulumi:"appBlockArns"`
 	// The description of the app block builder.
-	Description *string `pulumi:"description"`
+	Description   *string `pulumi:"description"`
+	DisableImdsv1 *bool   `pulumi:"disableImdsv1"`
 	// The display name of the app block builder.
 	DisplayName *string `pulumi:"displayName"`
 	// Indicates whether default internet access is enabled for the app block builder.
@@ -139,7 +141,8 @@ type AppBlockBuilderArgs struct {
 	// *Maximum* : `1`
 	AppBlockArns pulumi.StringArrayInput
 	// The description of the app block builder.
-	Description pulumi.StringPtrInput
+	Description   pulumi.StringPtrInput
+	DisableImdsv1 pulumi.BoolPtrInput
 	// The display name of the app block builder.
 	DisplayName pulumi.StringPtrInput
 	// Indicates whether default internet access is enabled for the app block builder.
@@ -222,6 +225,10 @@ func (o AppBlockBuilderOutput) CreatedTime() pulumi.StringOutput {
 // The description of the app block builder.
 func (o AppBlockBuilderOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AppBlockBuilder) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o AppBlockBuilderOutput) DisableImdsv1() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AppBlockBuilder) pulumi.BoolPtrOutput { return v.DisableImdsv1 }).(pulumi.BoolPtrOutput)
 }
 
 // The display name of the app block builder.

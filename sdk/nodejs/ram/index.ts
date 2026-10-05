@@ -10,20 +10,60 @@ export const getPermission: typeof import("./getPermission").getPermission = nul
 export const getPermissionOutput: typeof import("./getPermission").getPermissionOutput = null as any;
 utilities.lazyLoad(exports, ["getPermission","getPermissionOutput"], () => require("./getPermission"));
 
+export { GetPermissionAssociationArgs, GetPermissionAssociationResult, GetPermissionAssociationOutputArgs } from "./getPermissionAssociation";
+export const getPermissionAssociation: typeof import("./getPermissionAssociation").getPermissionAssociation = null as any;
+export const getPermissionAssociationOutput: typeof import("./getPermissionAssociation").getPermissionAssociationOutput = null as any;
+utilities.lazyLoad(exports, ["getPermissionAssociation","getPermissionAssociationOutput"], () => require("./getPermissionAssociation"));
+
+export { GetPrincipalAssociationArgs, GetPrincipalAssociationResult, GetPrincipalAssociationOutputArgs } from "./getPrincipalAssociation";
+export const getPrincipalAssociation: typeof import("./getPrincipalAssociation").getPrincipalAssociation = null as any;
+export const getPrincipalAssociationOutput: typeof import("./getPrincipalAssociation").getPrincipalAssociationOutput = null as any;
+utilities.lazyLoad(exports, ["getPrincipalAssociation","getPrincipalAssociationOutput"], () => require("./getPrincipalAssociation"));
+
+export { GetResourceAssociationArgs, GetResourceAssociationResult, GetResourceAssociationOutputArgs } from "./getResourceAssociation";
+export const getResourceAssociation: typeof import("./getResourceAssociation").getResourceAssociation = null as any;
+export const getResourceAssociationOutput: typeof import("./getResourceAssociation").getResourceAssociationOutput = null as any;
+utilities.lazyLoad(exports, ["getResourceAssociation","getResourceAssociationOutput"], () => require("./getResourceAssociation"));
+
 export { GetResourceShareArgs, GetResourceShareResult, GetResourceShareOutputArgs } from "./getResourceShare";
 export const getResourceShare: typeof import("./getResourceShare").getResourceShare = null as any;
 export const getResourceShareOutput: typeof import("./getResourceShare").getResourceShareOutput = null as any;
 utilities.lazyLoad(exports, ["getResourceShare","getResourceShareOutput"], () => require("./getResourceShare"));
+
+export { GetSourceAssociationArgs, GetSourceAssociationResult, GetSourceAssociationOutputArgs } from "./getSourceAssociation";
+export const getSourceAssociation: typeof import("./getSourceAssociation").getSourceAssociation = null as any;
+export const getSourceAssociationOutput: typeof import("./getSourceAssociation").getSourceAssociationOutput = null as any;
+utilities.lazyLoad(exports, ["getSourceAssociation","getSourceAssociationOutput"], () => require("./getSourceAssociation"));
 
 export { PermissionArgs } from "./permission";
 export type Permission = import("./permission").Permission;
 export const Permission: typeof import("./permission").Permission = null as any;
 utilities.lazyLoad(exports, ["Permission"], () => require("./permission"));
 
+export { PermissionAssociationArgs } from "./permissionAssociation";
+export type PermissionAssociation = import("./permissionAssociation").PermissionAssociation;
+export const PermissionAssociation: typeof import("./permissionAssociation").PermissionAssociation = null as any;
+utilities.lazyLoad(exports, ["PermissionAssociation"], () => require("./permissionAssociation"));
+
+export { PrincipalAssociationArgs } from "./principalAssociation";
+export type PrincipalAssociation = import("./principalAssociation").PrincipalAssociation;
+export const PrincipalAssociation: typeof import("./principalAssociation").PrincipalAssociation = null as any;
+utilities.lazyLoad(exports, ["PrincipalAssociation"], () => require("./principalAssociation"));
+
+export { ResourceAssociationArgs } from "./resourceAssociation";
+export type ResourceAssociation = import("./resourceAssociation").ResourceAssociation;
+export const ResourceAssociation: typeof import("./resourceAssociation").ResourceAssociation = null as any;
+utilities.lazyLoad(exports, ["ResourceAssociation"], () => require("./resourceAssociation"));
+
 export { ResourceShareArgs } from "./resourceShare";
 export type ResourceShare = import("./resourceShare").ResourceShare;
 export const ResourceShare: typeof import("./resourceShare").ResourceShare = null as any;
 utilities.lazyLoad(exports, ["ResourceShare"], () => require("./resourceShare"));
+
+export { SourceAssociationArgs } from "./sourceAssociation";
+export type SourceAssociation = import("./sourceAssociation").SourceAssociation;
+export const SourceAssociation: typeof import("./sourceAssociation").SourceAssociation = null as any;
+utilities.lazyLoad(exports, ["SourceAssociation"], () => require("./sourceAssociation"));
 
 
 // Export enums:
@@ -35,8 +75,16 @@ const _module = {
         switch (type) {
             case "aws-native:ram:Permission":
                 return new Permission(name, <any>undefined, { urn })
+            case "aws-native:ram:PermissionAssociation":
+                return new PermissionAssociation(name, <any>undefined, { urn })
+            case "aws-native:ram:PrincipalAssociation":
+                return new PrincipalAssociation(name, <any>undefined, { urn })
+            case "aws-native:ram:ResourceAssociation":
+                return new ResourceAssociation(name, <any>undefined, { urn })
             case "aws-native:ram:ResourceShare":
                 return new ResourceShare(name, <any>undefined, { urn })
+            case "aws-native:ram:SourceAssociation":
+                return new SourceAssociation(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

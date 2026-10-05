@@ -438,6 +438,172 @@ func (o ReplicationGroupEffectiveDurabilityPtrOutput) ToStringPtrOutputWithConte
 	}).(pulumi.StringPtrOutput)
 }
 
+// The connection type for the serverless cache. Valid values are vpc or public.
+type ServerlessCacheConnectionType string
+
+const (
+	ServerlessCacheConnectionTypeVpc    = ServerlessCacheConnectionType("vpc")
+	ServerlessCacheConnectionTypePublic = ServerlessCacheConnectionType("public")
+)
+
+func (ServerlessCacheConnectionType) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerlessCacheConnectionType)(nil)).Elem()
+}
+
+func (e ServerlessCacheConnectionType) ToServerlessCacheConnectionTypeOutput() ServerlessCacheConnectionTypeOutput {
+	return pulumi.ToOutput(e).(ServerlessCacheConnectionTypeOutput)
+}
+
+func (e ServerlessCacheConnectionType) ToServerlessCacheConnectionTypeOutputWithContext(ctx context.Context) ServerlessCacheConnectionTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ServerlessCacheConnectionTypeOutput)
+}
+
+func (e ServerlessCacheConnectionType) ToServerlessCacheConnectionTypePtrOutput() ServerlessCacheConnectionTypePtrOutput {
+	return e.ToServerlessCacheConnectionTypePtrOutputWithContext(context.Background())
+}
+
+func (e ServerlessCacheConnectionType) ToServerlessCacheConnectionTypePtrOutputWithContext(ctx context.Context) ServerlessCacheConnectionTypePtrOutput {
+	return ServerlessCacheConnectionType(e).ToServerlessCacheConnectionTypeOutputWithContext(ctx).ToServerlessCacheConnectionTypePtrOutputWithContext(ctx)
+}
+
+func (e ServerlessCacheConnectionType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ServerlessCacheConnectionType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ServerlessCacheConnectionType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ServerlessCacheConnectionType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ServerlessCacheConnectionTypeOutput struct{ *pulumi.OutputState }
+
+func (ServerlessCacheConnectionTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerlessCacheConnectionType)(nil)).Elem()
+}
+
+func (o ServerlessCacheConnectionTypeOutput) ToServerlessCacheConnectionTypeOutput() ServerlessCacheConnectionTypeOutput {
+	return o
+}
+
+func (o ServerlessCacheConnectionTypeOutput) ToServerlessCacheConnectionTypeOutputWithContext(ctx context.Context) ServerlessCacheConnectionTypeOutput {
+	return o
+}
+
+func (o ServerlessCacheConnectionTypeOutput) ToServerlessCacheConnectionTypePtrOutput() ServerlessCacheConnectionTypePtrOutput {
+	return o.ToServerlessCacheConnectionTypePtrOutputWithContext(context.Background())
+}
+
+func (o ServerlessCacheConnectionTypeOutput) ToServerlessCacheConnectionTypePtrOutputWithContext(ctx context.Context) ServerlessCacheConnectionTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServerlessCacheConnectionType) *ServerlessCacheConnectionType {
+		return &v
+	}).(ServerlessCacheConnectionTypePtrOutput)
+}
+
+func (o ServerlessCacheConnectionTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ServerlessCacheConnectionTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ServerlessCacheConnectionType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ServerlessCacheConnectionTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ServerlessCacheConnectionTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ServerlessCacheConnectionType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ServerlessCacheConnectionTypePtrOutput struct{ *pulumi.OutputState }
+
+func (ServerlessCacheConnectionTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServerlessCacheConnectionType)(nil)).Elem()
+}
+
+func (o ServerlessCacheConnectionTypePtrOutput) ToServerlessCacheConnectionTypePtrOutput() ServerlessCacheConnectionTypePtrOutput {
+	return o
+}
+
+func (o ServerlessCacheConnectionTypePtrOutput) ToServerlessCacheConnectionTypePtrOutputWithContext(ctx context.Context) ServerlessCacheConnectionTypePtrOutput {
+	return o
+}
+
+func (o ServerlessCacheConnectionTypePtrOutput) Elem() ServerlessCacheConnectionTypeOutput {
+	return o.ApplyT(func(v *ServerlessCacheConnectionType) ServerlessCacheConnectionType {
+		if v != nil {
+			return *v
+		}
+		var ret ServerlessCacheConnectionType
+		return ret
+	}).(ServerlessCacheConnectionTypeOutput)
+}
+
+func (o ServerlessCacheConnectionTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ServerlessCacheConnectionTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ServerlessCacheConnectionType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ServerlessCacheConnectionTypeInput is an input type that accepts values of the ServerlessCacheConnectionType enum
+// A concrete instance of `ServerlessCacheConnectionTypeInput` can be one of the following:
+//
+//	ServerlessCacheConnectionTypeVpc
+//	ServerlessCacheConnectionTypePublic
+type ServerlessCacheConnectionTypeInput interface {
+	pulumi.Input
+
+	ToServerlessCacheConnectionTypeOutput() ServerlessCacheConnectionTypeOutput
+	ToServerlessCacheConnectionTypeOutputWithContext(context.Context) ServerlessCacheConnectionTypeOutput
+}
+
+var serverlessCacheConnectionTypePtrType = reflect.TypeOf((**ServerlessCacheConnectionType)(nil)).Elem()
+
+type ServerlessCacheConnectionTypePtrInput interface {
+	pulumi.Input
+
+	ToServerlessCacheConnectionTypePtrOutput() ServerlessCacheConnectionTypePtrOutput
+	ToServerlessCacheConnectionTypePtrOutputWithContext(context.Context) ServerlessCacheConnectionTypePtrOutput
+}
+
+type serverlessCacheConnectionTypePtr string
+
+func ServerlessCacheConnectionTypePtr(v string) ServerlessCacheConnectionTypePtrInput {
+	return (*serverlessCacheConnectionTypePtr)(&v)
+}
+
+func (*serverlessCacheConnectionTypePtr) ElementType() reflect.Type {
+	return serverlessCacheConnectionTypePtrType
+}
+
+func (in *serverlessCacheConnectionTypePtr) ToServerlessCacheConnectionTypePtrOutput() ServerlessCacheConnectionTypePtrOutput {
+	return pulumi.ToOutput(in).(ServerlessCacheConnectionTypePtrOutput)
+}
+
+func (in *serverlessCacheConnectionTypePtr) ToServerlessCacheConnectionTypePtrOutputWithContext(ctx context.Context) ServerlessCacheConnectionTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ServerlessCacheConnectionTypePtrOutput)
+}
+
 // The unit of cached data capacity of the Serverless Cache.
 type ServerlessCacheDataStorageUnit string
 
@@ -768,6 +934,286 @@ func (in *serverlessCacheNetworkTypePtr) ToServerlessCacheNetworkTypePtrOutput()
 
 func (in *serverlessCacheNetworkTypePtr) ToServerlessCacheNetworkTypePtrOutputWithContext(ctx context.Context) ServerlessCacheNetworkTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ServerlessCacheNetworkTypePtrOutput)
+}
+
+// Indicates the status of automatic failover for the source replication group.
+type SnapshotAutomaticFailover string
+
+const (
+	SnapshotAutomaticFailoverEnabled   = SnapshotAutomaticFailover("enabled")
+	SnapshotAutomaticFailoverDisabled  = SnapshotAutomaticFailover("disabled")
+	SnapshotAutomaticFailoverEnabling  = SnapshotAutomaticFailover("enabling")
+	SnapshotAutomaticFailoverDisabling = SnapshotAutomaticFailover("disabling")
+)
+
+type SnapshotAutomaticFailoverOutput struct{ *pulumi.OutputState }
+
+func (SnapshotAutomaticFailoverOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SnapshotAutomaticFailover)(nil)).Elem()
+}
+
+func (o SnapshotAutomaticFailoverOutput) ToSnapshotAutomaticFailoverOutput() SnapshotAutomaticFailoverOutput {
+	return o
+}
+
+func (o SnapshotAutomaticFailoverOutput) ToSnapshotAutomaticFailoverOutputWithContext(ctx context.Context) SnapshotAutomaticFailoverOutput {
+	return o
+}
+
+func (o SnapshotAutomaticFailoverOutput) ToSnapshotAutomaticFailoverPtrOutput() SnapshotAutomaticFailoverPtrOutput {
+	return o.ToSnapshotAutomaticFailoverPtrOutputWithContext(context.Background())
+}
+
+func (o SnapshotAutomaticFailoverOutput) ToSnapshotAutomaticFailoverPtrOutputWithContext(ctx context.Context) SnapshotAutomaticFailoverPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SnapshotAutomaticFailover) *SnapshotAutomaticFailover {
+		return &v
+	}).(SnapshotAutomaticFailoverPtrOutput)
+}
+
+func (o SnapshotAutomaticFailoverOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o SnapshotAutomaticFailoverOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SnapshotAutomaticFailover) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o SnapshotAutomaticFailoverOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SnapshotAutomaticFailoverOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SnapshotAutomaticFailover) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type SnapshotAutomaticFailoverPtrOutput struct{ *pulumi.OutputState }
+
+func (SnapshotAutomaticFailoverPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SnapshotAutomaticFailover)(nil)).Elem()
+}
+
+func (o SnapshotAutomaticFailoverPtrOutput) ToSnapshotAutomaticFailoverPtrOutput() SnapshotAutomaticFailoverPtrOutput {
+	return o
+}
+
+func (o SnapshotAutomaticFailoverPtrOutput) ToSnapshotAutomaticFailoverPtrOutputWithContext(ctx context.Context) SnapshotAutomaticFailoverPtrOutput {
+	return o
+}
+
+func (o SnapshotAutomaticFailoverPtrOutput) Elem() SnapshotAutomaticFailoverOutput {
+	return o.ApplyT(func(v *SnapshotAutomaticFailover) SnapshotAutomaticFailover {
+		if v != nil {
+			return *v
+		}
+		var ret SnapshotAutomaticFailover
+		return ret
+	}).(SnapshotAutomaticFailoverOutput)
+}
+
+func (o SnapshotAutomaticFailoverPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SnapshotAutomaticFailoverPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *SnapshotAutomaticFailover) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// Enables data tiering. Data tiering is only supported for replication groups using the r6gd node type.
+type SnapshotDataTiering string
+
+const (
+	SnapshotDataTieringEnabled  = SnapshotDataTiering("enabled")
+	SnapshotDataTieringDisabled = SnapshotDataTiering("disabled")
+)
+
+type SnapshotDataTieringOutput struct{ *pulumi.OutputState }
+
+func (SnapshotDataTieringOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SnapshotDataTiering)(nil)).Elem()
+}
+
+func (o SnapshotDataTieringOutput) ToSnapshotDataTieringOutput() SnapshotDataTieringOutput {
+	return o
+}
+
+func (o SnapshotDataTieringOutput) ToSnapshotDataTieringOutputWithContext(ctx context.Context) SnapshotDataTieringOutput {
+	return o
+}
+
+func (o SnapshotDataTieringOutput) ToSnapshotDataTieringPtrOutput() SnapshotDataTieringPtrOutput {
+	return o.ToSnapshotDataTieringPtrOutputWithContext(context.Background())
+}
+
+func (o SnapshotDataTieringOutput) ToSnapshotDataTieringPtrOutputWithContext(ctx context.Context) SnapshotDataTieringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SnapshotDataTiering) *SnapshotDataTiering {
+		return &v
+	}).(SnapshotDataTieringPtrOutput)
+}
+
+func (o SnapshotDataTieringOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o SnapshotDataTieringOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SnapshotDataTiering) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o SnapshotDataTieringOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SnapshotDataTieringOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SnapshotDataTiering) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type SnapshotDataTieringPtrOutput struct{ *pulumi.OutputState }
+
+func (SnapshotDataTieringPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SnapshotDataTiering)(nil)).Elem()
+}
+
+func (o SnapshotDataTieringPtrOutput) ToSnapshotDataTieringPtrOutput() SnapshotDataTieringPtrOutput {
+	return o
+}
+
+func (o SnapshotDataTieringPtrOutput) ToSnapshotDataTieringPtrOutputWithContext(ctx context.Context) SnapshotDataTieringPtrOutput {
+	return o
+}
+
+func (o SnapshotDataTieringPtrOutput) Elem() SnapshotDataTieringOutput {
+	return o.ApplyT(func(v *SnapshotDataTiering) SnapshotDataTiering {
+		if v != nil {
+			return *v
+		}
+		var ret SnapshotDataTiering
+		return ret
+	}).(SnapshotDataTieringOutput)
+}
+
+func (o SnapshotDataTieringPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SnapshotDataTieringPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *SnapshotDataTiering) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// The status of the snapshot. Valid values: creating | available | restoring | copying | deleting | failed | deleted.
+type SnapshotStatus string
+
+const (
+	SnapshotStatusCreating  = SnapshotStatus("creating")
+	SnapshotStatusAvailable = SnapshotStatus("available")
+	SnapshotStatusRestoring = SnapshotStatus("restoring")
+	SnapshotStatusCopying   = SnapshotStatus("copying")
+	SnapshotStatusDeleting  = SnapshotStatus("deleting")
+	SnapshotStatusFailed    = SnapshotStatus("failed")
+	SnapshotStatusDeleted   = SnapshotStatus("deleted")
+)
+
+type SnapshotStatusOutput struct{ *pulumi.OutputState }
+
+func (SnapshotStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SnapshotStatus)(nil)).Elem()
+}
+
+func (o SnapshotStatusOutput) ToSnapshotStatusOutput() SnapshotStatusOutput {
+	return o
+}
+
+func (o SnapshotStatusOutput) ToSnapshotStatusOutputWithContext(ctx context.Context) SnapshotStatusOutput {
+	return o
+}
+
+func (o SnapshotStatusOutput) ToSnapshotStatusPtrOutput() SnapshotStatusPtrOutput {
+	return o.ToSnapshotStatusPtrOutputWithContext(context.Background())
+}
+
+func (o SnapshotStatusOutput) ToSnapshotStatusPtrOutputWithContext(ctx context.Context) SnapshotStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SnapshotStatus) *SnapshotStatus {
+		return &v
+	}).(SnapshotStatusPtrOutput)
+}
+
+func (o SnapshotStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o SnapshotStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SnapshotStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o SnapshotStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SnapshotStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SnapshotStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type SnapshotStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (SnapshotStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SnapshotStatus)(nil)).Elem()
+}
+
+func (o SnapshotStatusPtrOutput) ToSnapshotStatusPtrOutput() SnapshotStatusPtrOutput {
+	return o
+}
+
+func (o SnapshotStatusPtrOutput) ToSnapshotStatusPtrOutputWithContext(ctx context.Context) SnapshotStatusPtrOutput {
+	return o
+}
+
+func (o SnapshotStatusPtrOutput) Elem() SnapshotStatusOutput {
+	return o.ApplyT(func(v *SnapshotStatus) SnapshotStatus {
+		if v != nil {
+			return *v
+		}
+		var ret SnapshotStatus
+		return ret
+	}).(SnapshotStatusOutput)
+}
+
+func (o SnapshotStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SnapshotStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *SnapshotStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
 }
 
 // Authentication Type
@@ -1275,6 +1721,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GlobalReplicationGroupMemberRolePtrInput)(nil)).Elem(), GlobalReplicationGroupMemberRole("PRIMARY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationGroupDurabilityInput)(nil)).Elem(), ReplicationGroupDurability("default"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationGroupDurabilityPtrInput)(nil)).Elem(), ReplicationGroupDurability("default"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerlessCacheConnectionTypeInput)(nil)).Elem(), ServerlessCacheConnectionType("vpc"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerlessCacheConnectionTypePtrInput)(nil)).Elem(), ServerlessCacheConnectionType("vpc"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerlessCacheDataStorageUnitInput)(nil)).Elem(), ServerlessCacheDataStorageUnit("GB"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerlessCacheDataStorageUnitPtrInput)(nil)).Elem(), ServerlessCacheDataStorageUnit("GB"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerlessCacheNetworkTypeInput)(nil)).Elem(), ServerlessCacheNetworkType("ipv4"))
@@ -1291,10 +1739,18 @@ func init() {
 	pulumi.RegisterOutputType(ReplicationGroupDurabilityPtrOutput{})
 	pulumi.RegisterOutputType(ReplicationGroupEffectiveDurabilityOutput{})
 	pulumi.RegisterOutputType(ReplicationGroupEffectiveDurabilityPtrOutput{})
+	pulumi.RegisterOutputType(ServerlessCacheConnectionTypeOutput{})
+	pulumi.RegisterOutputType(ServerlessCacheConnectionTypePtrOutput{})
 	pulumi.RegisterOutputType(ServerlessCacheDataStorageUnitOutput{})
 	pulumi.RegisterOutputType(ServerlessCacheDataStorageUnitPtrOutput{})
 	pulumi.RegisterOutputType(ServerlessCacheNetworkTypeOutput{})
 	pulumi.RegisterOutputType(ServerlessCacheNetworkTypePtrOutput{})
+	pulumi.RegisterOutputType(SnapshotAutomaticFailoverOutput{})
+	pulumi.RegisterOutputType(SnapshotAutomaticFailoverPtrOutput{})
+	pulumi.RegisterOutputType(SnapshotDataTieringOutput{})
+	pulumi.RegisterOutputType(SnapshotDataTieringPtrOutput{})
+	pulumi.RegisterOutputType(SnapshotStatusOutput{})
+	pulumi.RegisterOutputType(SnapshotStatusPtrOutput{})
 	pulumi.RegisterOutputType(UserAuthenticationModePropertiesTypeOutput{})
 	pulumi.RegisterOutputType(UserAuthenticationModePropertiesTypePtrOutput{})
 	pulumi.RegisterOutputType(UserEngineOutput{})

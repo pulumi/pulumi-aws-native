@@ -552,6 +552,261 @@ func (o RegistryAutoApprovalRuleArrayOutput) Index(i pulumi.IntInput) RegistryAu
 	}).(RegistryAutoApprovalRuleOutput)
 }
 
+// The source from which resources are detected. ORGANIZATION sources resources from all member accounts of an AWS Organization.
+type RegistryAutoDetectionScope string
+
+const (
+	RegistryAutoDetectionScopeOrganization = RegistryAutoDetectionScope("ORGANIZATION")
+)
+
+func (RegistryAutoDetectionScope) ElementType() reflect.Type {
+	return reflect.TypeOf((*RegistryAutoDetectionScope)(nil)).Elem()
+}
+
+func (e RegistryAutoDetectionScope) ToRegistryAutoDetectionScopeOutput() RegistryAutoDetectionScopeOutput {
+	return pulumi.ToOutput(e).(RegistryAutoDetectionScopeOutput)
+}
+
+func (e RegistryAutoDetectionScope) ToRegistryAutoDetectionScopeOutputWithContext(ctx context.Context) RegistryAutoDetectionScopeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(RegistryAutoDetectionScopeOutput)
+}
+
+func (e RegistryAutoDetectionScope) ToRegistryAutoDetectionScopePtrOutput() RegistryAutoDetectionScopePtrOutput {
+	return e.ToRegistryAutoDetectionScopePtrOutputWithContext(context.Background())
+}
+
+func (e RegistryAutoDetectionScope) ToRegistryAutoDetectionScopePtrOutputWithContext(ctx context.Context) RegistryAutoDetectionScopePtrOutput {
+	return RegistryAutoDetectionScope(e).ToRegistryAutoDetectionScopeOutputWithContext(ctx).ToRegistryAutoDetectionScopePtrOutputWithContext(ctx)
+}
+
+func (e RegistryAutoDetectionScope) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e RegistryAutoDetectionScope) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e RegistryAutoDetectionScope) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e RegistryAutoDetectionScope) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type RegistryAutoDetectionScopeOutput struct{ *pulumi.OutputState }
+
+func (RegistryAutoDetectionScopeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RegistryAutoDetectionScope)(nil)).Elem()
+}
+
+func (o RegistryAutoDetectionScopeOutput) ToRegistryAutoDetectionScopeOutput() RegistryAutoDetectionScopeOutput {
+	return o
+}
+
+func (o RegistryAutoDetectionScopeOutput) ToRegistryAutoDetectionScopeOutputWithContext(ctx context.Context) RegistryAutoDetectionScopeOutput {
+	return o
+}
+
+func (o RegistryAutoDetectionScopeOutput) ToRegistryAutoDetectionScopePtrOutput() RegistryAutoDetectionScopePtrOutput {
+	return o.ToRegistryAutoDetectionScopePtrOutputWithContext(context.Background())
+}
+
+func (o RegistryAutoDetectionScopeOutput) ToRegistryAutoDetectionScopePtrOutputWithContext(ctx context.Context) RegistryAutoDetectionScopePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RegistryAutoDetectionScope) *RegistryAutoDetectionScope {
+		return &v
+	}).(RegistryAutoDetectionScopePtrOutput)
+}
+
+func (o RegistryAutoDetectionScopeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o RegistryAutoDetectionScopeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RegistryAutoDetectionScope) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o RegistryAutoDetectionScopeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RegistryAutoDetectionScopeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RegistryAutoDetectionScope) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type RegistryAutoDetectionScopePtrOutput struct{ *pulumi.OutputState }
+
+func (RegistryAutoDetectionScopePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RegistryAutoDetectionScope)(nil)).Elem()
+}
+
+func (o RegistryAutoDetectionScopePtrOutput) ToRegistryAutoDetectionScopePtrOutput() RegistryAutoDetectionScopePtrOutput {
+	return o
+}
+
+func (o RegistryAutoDetectionScopePtrOutput) ToRegistryAutoDetectionScopePtrOutputWithContext(ctx context.Context) RegistryAutoDetectionScopePtrOutput {
+	return o
+}
+
+func (o RegistryAutoDetectionScopePtrOutput) Elem() RegistryAutoDetectionScopeOutput {
+	return o.ApplyT(func(v *RegistryAutoDetectionScope) RegistryAutoDetectionScope {
+		if v != nil {
+			return *v
+		}
+		var ret RegistryAutoDetectionScope
+		return ret
+	}).(RegistryAutoDetectionScopeOutput)
+}
+
+func (o RegistryAutoDetectionScopePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RegistryAutoDetectionScopePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *RegistryAutoDetectionScope) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// RegistryAutoDetectionScopeInput is an input type that accepts values of the RegistryAutoDetectionScope enum
+// A concrete instance of `RegistryAutoDetectionScopeInput` can be one of the following:
+//
+//	RegistryAutoDetectionScopeOrganization
+type RegistryAutoDetectionScopeInput interface {
+	pulumi.Input
+
+	ToRegistryAutoDetectionScopeOutput() RegistryAutoDetectionScopeOutput
+	ToRegistryAutoDetectionScopeOutputWithContext(context.Context) RegistryAutoDetectionScopeOutput
+}
+
+var registryAutoDetectionScopePtrType = reflect.TypeOf((**RegistryAutoDetectionScope)(nil)).Elem()
+
+type RegistryAutoDetectionScopePtrInput interface {
+	pulumi.Input
+
+	ToRegistryAutoDetectionScopePtrOutput() RegistryAutoDetectionScopePtrOutput
+	ToRegistryAutoDetectionScopePtrOutputWithContext(context.Context) RegistryAutoDetectionScopePtrOutput
+}
+
+type registryAutoDetectionScopePtr string
+
+func RegistryAutoDetectionScopePtr(v string) RegistryAutoDetectionScopePtrInput {
+	return (*registryAutoDetectionScopePtr)(&v)
+}
+
+func (*registryAutoDetectionScopePtr) ElementType() reflect.Type {
+	return registryAutoDetectionScopePtrType
+}
+
+func (in *registryAutoDetectionScopePtr) ToRegistryAutoDetectionScopePtrOutput() RegistryAutoDetectionScopePtrOutput {
+	return pulumi.ToOutput(in).(RegistryAutoDetectionScopePtrOutput)
+}
+
+func (in *registryAutoDetectionScopePtr) ToRegistryAutoDetectionScopePtrOutputWithContext(ctx context.Context) RegistryAutoDetectionScopePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(RegistryAutoDetectionScopePtrOutput)
+}
+
+// The current auto-detection status. ACTIVE indicates that the registry is actively being populated with detected resources. INACTIVE indicates that the preconditions required at the configured scope are not currently met.
+type RegistryAutoDetectionStatus string
+
+const (
+	RegistryAutoDetectionStatusActive   = RegistryAutoDetectionStatus("ACTIVE")
+	RegistryAutoDetectionStatusInactive = RegistryAutoDetectionStatus("INACTIVE")
+)
+
+type RegistryAutoDetectionStatusOutput struct{ *pulumi.OutputState }
+
+func (RegistryAutoDetectionStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RegistryAutoDetectionStatus)(nil)).Elem()
+}
+
+func (o RegistryAutoDetectionStatusOutput) ToRegistryAutoDetectionStatusOutput() RegistryAutoDetectionStatusOutput {
+	return o
+}
+
+func (o RegistryAutoDetectionStatusOutput) ToRegistryAutoDetectionStatusOutputWithContext(ctx context.Context) RegistryAutoDetectionStatusOutput {
+	return o
+}
+
+func (o RegistryAutoDetectionStatusOutput) ToRegistryAutoDetectionStatusPtrOutput() RegistryAutoDetectionStatusPtrOutput {
+	return o.ToRegistryAutoDetectionStatusPtrOutputWithContext(context.Background())
+}
+
+func (o RegistryAutoDetectionStatusOutput) ToRegistryAutoDetectionStatusPtrOutputWithContext(ctx context.Context) RegistryAutoDetectionStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RegistryAutoDetectionStatus) *RegistryAutoDetectionStatus {
+		return &v
+	}).(RegistryAutoDetectionStatusPtrOutput)
+}
+
+func (o RegistryAutoDetectionStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o RegistryAutoDetectionStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RegistryAutoDetectionStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o RegistryAutoDetectionStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RegistryAutoDetectionStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RegistryAutoDetectionStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type RegistryAutoDetectionStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (RegistryAutoDetectionStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RegistryAutoDetectionStatus)(nil)).Elem()
+}
+
+func (o RegistryAutoDetectionStatusPtrOutput) ToRegistryAutoDetectionStatusPtrOutput() RegistryAutoDetectionStatusPtrOutput {
+	return o
+}
+
+func (o RegistryAutoDetectionStatusPtrOutput) ToRegistryAutoDetectionStatusPtrOutputWithContext(ctx context.Context) RegistryAutoDetectionStatusPtrOutput {
+	return o
+}
+
+func (o RegistryAutoDetectionStatusPtrOutput) Elem() RegistryAutoDetectionStatusOutput {
+	return o.ApplyT(func(v *RegistryAutoDetectionStatus) RegistryAutoDetectionStatus {
+		if v != nil {
+			return *v
+		}
+		var ret RegistryAutoDetectionStatus
+		return ret
+	}).(RegistryAutoDetectionStatusOutput)
+}
+
+func (o RegistryAutoDetectionStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RegistryAutoDetectionStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *RegistryAutoDetectionStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
 type RegistryCustomClaimValidationTypeInboundTokenClaimValueType string
 
 const (
@@ -1419,6 +1674,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RegistryAutoApprovalRuleInput)(nil)).Elem(), RegistryAutoApprovalRule("APPROVE_ALL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RegistryAutoApprovalRulePtrInput)(nil)).Elem(), RegistryAutoApprovalRule("APPROVE_ALL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RegistryAutoApprovalRuleArrayInput)(nil)).Elem(), RegistryAutoApprovalRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RegistryAutoDetectionScopeInput)(nil)).Elem(), RegistryAutoDetectionScope("ORGANIZATION"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RegistryAutoDetectionScopePtrInput)(nil)).Elem(), RegistryAutoDetectionScope("ORGANIZATION"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RegistryCustomClaimValidationTypeInboundTokenClaimValueTypeInput)(nil)).Elem(), RegistryCustomClaimValidationTypeInboundTokenClaimValueType("STRING"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RegistryCustomClaimValidationTypeInboundTokenClaimValueTypePtrInput)(nil)).Elem(), RegistryCustomClaimValidationTypeInboundTokenClaimValueType("STRING"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RegistryRecordCredentialProviderConfigurationCredentialProviderTypeInput)(nil)).Elem(), RegistryRecordCredentialProviderConfigurationCredentialProviderType("OAUTH"))
@@ -1434,6 +1691,10 @@ func init() {
 	pulumi.RegisterOutputType(RegistryAutoApprovalRuleOutput{})
 	pulumi.RegisterOutputType(RegistryAutoApprovalRulePtrOutput{})
 	pulumi.RegisterOutputType(RegistryAutoApprovalRuleArrayOutput{})
+	pulumi.RegisterOutputType(RegistryAutoDetectionScopeOutput{})
+	pulumi.RegisterOutputType(RegistryAutoDetectionScopePtrOutput{})
+	pulumi.RegisterOutputType(RegistryAutoDetectionStatusOutput{})
+	pulumi.RegisterOutputType(RegistryAutoDetectionStatusPtrOutput{})
 	pulumi.RegisterOutputType(RegistryCustomClaimValidationTypeInboundTokenClaimValueTypeOutput{})
 	pulumi.RegisterOutputType(RegistryCustomClaimValidationTypeInboundTokenClaimValueTypePtrOutput{})
 	pulumi.RegisterOutputType(RegistryRecordCredentialProviderConfigurationCredentialProviderTypeOutput{})

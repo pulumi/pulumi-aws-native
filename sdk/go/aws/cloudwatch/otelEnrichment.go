@@ -16,8 +16,12 @@ type OTelEnrichment struct {
 	pulumi.CustomResourceState
 
 	// The AWS account ID. This is the primary identifier for this singleton resource.
-	AccountId pulumi.StringOutput        `pulumi:"accountId"`
-	Status    OTelEnrichmentStatusOutput `pulumi:"status"`
+	AccountId pulumi.StringOutput `pulumi:"accountId"`
+	// Removes metrics from the include set. Absent or empty means nothing is removed. Evaluated after IncludeFilters, so ExcludeFilters always wins.
+	ExcludeFilters OTelEnrichmentMetricSelectorArrayOutput `pulumi:"excludeFilters"`
+	// Scopes enrichment to a subset of the account's telemetry. Absent or empty means all namespaces are in scope. Present means only these are. The service enforces a combined cap of 100 selectors across IncludeFilters and ExcludeFilters, and rejects more than one selector for the same namespace within a direction.
+	IncludeFilters OTelEnrichmentMetricSelectorArrayOutput `pulumi:"includeFilters"`
+	Status         OTelEnrichmentStatusOutput              `pulumi:"status"`
 }
 
 // NewOTelEnrichment registers a new resource with the given unique name, arguments, and options.
@@ -60,10 +64,18 @@ func (OTelEnrichmentState) ElementType() reflect.Type {
 }
 
 type otelEnrichmentArgs struct {
+	// Removes metrics from the include set. Absent or empty means nothing is removed. Evaluated after IncludeFilters, so ExcludeFilters always wins.
+	ExcludeFilters []OTelEnrichmentMetricSelector `pulumi:"excludeFilters"`
+	// Scopes enrichment to a subset of the account's telemetry. Absent or empty means all namespaces are in scope. Present means only these are. The service enforces a combined cap of 100 selectors across IncludeFilters and ExcludeFilters, and rejects more than one selector for the same namespace within a direction.
+	IncludeFilters []OTelEnrichmentMetricSelector `pulumi:"includeFilters"`
 }
 
 // The set of arguments for constructing a OTelEnrichment resource.
 type OTelEnrichmentArgs struct {
+	// Removes metrics from the include set. Absent or empty means nothing is removed. Evaluated after IncludeFilters, so ExcludeFilters always wins.
+	ExcludeFilters OTelEnrichmentMetricSelectorArrayInput
+	// Scopes enrichment to a subset of the account's telemetry. Absent or empty means all namespaces are in scope. Present means only these are. The service enforces a combined cap of 100 selectors across IncludeFilters and ExcludeFilters, and rejects more than one selector for the same namespace within a direction.
+	IncludeFilters OTelEnrichmentMetricSelectorArrayInput
 }
 
 func (OTelEnrichmentArgs) ElementType() reflect.Type {
@@ -106,6 +118,16 @@ func (o OTelEnrichmentOutput) ToOTelEnrichmentOutputWithContext(ctx context.Cont
 // The AWS account ID. This is the primary identifier for this singleton resource.
 func (o OTelEnrichmentOutput) AccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *OTelEnrichment) pulumi.StringOutput { return v.AccountId }).(pulumi.StringOutput)
+}
+
+// Removes metrics from the include set. Absent or empty means nothing is removed. Evaluated after IncludeFilters, so ExcludeFilters always wins.
+func (o OTelEnrichmentOutput) ExcludeFilters() OTelEnrichmentMetricSelectorArrayOutput {
+	return o.ApplyT(func(v *OTelEnrichment) OTelEnrichmentMetricSelectorArrayOutput { return v.ExcludeFilters }).(OTelEnrichmentMetricSelectorArrayOutput)
+}
+
+// Scopes enrichment to a subset of the account's telemetry. Absent or empty means all namespaces are in scope. Present means only these are. The service enforces a combined cap of 100 selectors across IncludeFilters and ExcludeFilters, and rejects more than one selector for the same namespace within a direction.
+func (o OTelEnrichmentOutput) IncludeFilters() OTelEnrichmentMetricSelectorArrayOutput {
+	return o.ApplyT(func(v *OTelEnrichment) OTelEnrichmentMetricSelectorArrayOutput { return v.IncludeFilters }).(OTelEnrichmentMetricSelectorArrayOutput)
 }
 
 func (o OTelEnrichmentOutput) Status() OTelEnrichmentStatusOutput {

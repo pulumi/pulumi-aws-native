@@ -69,6 +69,12 @@ namespace Pulumi.AwsNative.Dms
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// Indicates whether the data provider is virtual.
+        /// </summary>
+        [Output("virtual")]
+        public Output<bool?> Virtual { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a DataProvider resource with the given unique name, arguments, and options.
@@ -161,6 +167,12 @@ namespace Pulumi.AwsNative.Dms
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// Indicates whether the data provider is virtual.
+        /// </summary>
+        [Input("virtual")]
+        public Input<bool>? Virtual { get; set; }
 
         public DataProviderArgs()
         {

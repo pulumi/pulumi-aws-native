@@ -35,6 +35,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Connector{}
 	case "aws-native:configuration:DeliveryChannel":
 		r = &DeliveryChannel{}
+	case "aws-native:configuration:OrganizationConfigRule":
+		r = &OrganizationConfigRule{}
 	case "aws-native:configuration:OrganizationConformancePack":
 		r = &OrganizationConformancePack{}
 	case "aws-native:configuration:RemediationConfiguration":

@@ -969,6 +969,9 @@ class EvaluationFormLanguageConfiguration(dict):
 
 @pulumi.output_type
 class EvaluationFormMetricConfiguration(dict):
+    """
+    Information about the metric configuration for an evaluation form question. Use this to associate a business outcome metric with a question.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -992,8 +995,15 @@ class EvaluationFormMetricConfiguration(dict):
                  metric_name: _builtins.str,
                  metric_type: 'EvaluationFormMetricConfigurationMetricType'):
         """
-        :param _builtins.str metric_name: The name of the metric.
-        :param 'EvaluationFormMetricConfigurationMetricType' metric_type: The type of the metric.
+        Information about the metric configuration for an evaluation form question. Use this to associate a business outcome metric with a question.
+
+        :param _builtins.str metric_name: The name of the metric. Valid values are:
+                 +  ``SALE_SUCCESS`` – Sale success.
+                 +  ``CSAT`` – Customer satisfaction.
+                 +  ``CHURN_PROPENSITY`` – Churn propensity.
+                 +  ``SELF_SERVICE_SUCCESS`` – Self-service success.
+                 +  ``PARTIAL_SELF_SERVICE_SUCCESS`` – Partial self-service success.
+        :param 'EvaluationFormMetricConfigurationMetricType' metric_type: The type of metric. Currently, only ``BUSINESS_OUTCOME`` is supported.
         """
         pulumi.set(__self__, "metric_name", metric_name)
         pulumi.set(__self__, "metric_type", metric_type)
@@ -1002,7 +1012,12 @@ class EvaluationFormMetricConfiguration(dict):
     @pulumi.getter(name="metricName")
     def metric_name(self) -> _builtins.str:
         """
-        The name of the metric.
+        The name of the metric. Valid values are:
+          +  ``SALE_SUCCESS`` – Sale success.
+          +  ``CSAT`` – Customer satisfaction.
+          +  ``CHURN_PROPENSITY`` – Churn propensity.
+          +  ``SELF_SERVICE_SUCCESS`` – Self-service success.
+          +  ``PARTIAL_SELF_SERVICE_SUCCESS`` – Partial self-service success.
         """
         return pulumi.get(self, "metric_name")
 
@@ -1010,7 +1025,7 @@ class EvaluationFormMetricConfiguration(dict):
     @pulumi.getter(name="metricType")
     def metric_type(self) -> 'EvaluationFormMetricConfigurationMetricType':
         """
-        The type of the metric.
+        The type of metric. Currently, only ``BUSINESS_OUTCOME`` is supported.
         """
         return pulumi.get(self, "metric_type")
 
@@ -1666,6 +1681,7 @@ class EvaluationFormQuestion(dict):
         :param 'EvaluationFormItemEnablementConfiguration' enablement: A question conditional enablement.
         :param _builtins.str instructions: The instructions of the section.
                 *Length Constraints*: Minimum length of 0. Maximum length of 1024.
+        :param 'EvaluationFormMetricConfiguration' metric_configuration: The metric configuration for the question. Use this to associate a business outcome metric with the question.
         :param _builtins.bool not_applicable_enabled: The flag to enable not applicable answers to the question.
         :param 'EvaluationFormQuestionTypeProperties' question_type_properties: The properties of the type of question. Text questions do not have to define question type properties.
         :param 'EvaluationFormQuestionScoringConfiguration' scoring_configuration: The scoring configuration of the question.
@@ -1738,6 +1754,9 @@ class EvaluationFormQuestion(dict):
     @_builtins.property
     @pulumi.getter(name="metricConfiguration")
     def metric_configuration(self) -> Optional['outputs.EvaluationFormMetricConfiguration']:
+        """
+        The metric configuration for the question. Use this to associate a business outcome metric with the question.
+        """
         return pulumi.get(self, "metric_configuration")
 
     @_builtins.property

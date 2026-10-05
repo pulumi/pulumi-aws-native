@@ -17509,8 +17509,172 @@ func (o ServiceVolumeConfigurationArrayOutput) Index(i pulumi.IntInput) ServiceV
 	}).(ServiceVolumeConfigurationOutput)
 }
 
+type ServiceVpcLatticeAdvancedConfiguration struct {
+	AlternateTargetGroupArn *string `pulumi:"alternateTargetGroupArn"`
+	ProductionListenerRule  *string `pulumi:"productionListenerRule"`
+	TestListenerRule        *string `pulumi:"testListenerRule"`
+}
+
+// ServiceVpcLatticeAdvancedConfigurationInput is an input type that accepts ServiceVpcLatticeAdvancedConfigurationArgs and ServiceVpcLatticeAdvancedConfigurationOutput values.
+// You can construct a concrete instance of `ServiceVpcLatticeAdvancedConfigurationInput` via:
+//
+//	ServiceVpcLatticeAdvancedConfigurationArgs{...}
+type ServiceVpcLatticeAdvancedConfigurationInput interface {
+	pulumi.Input
+
+	ToServiceVpcLatticeAdvancedConfigurationOutput() ServiceVpcLatticeAdvancedConfigurationOutput
+	ToServiceVpcLatticeAdvancedConfigurationOutputWithContext(context.Context) ServiceVpcLatticeAdvancedConfigurationOutput
+}
+
+type ServiceVpcLatticeAdvancedConfigurationArgs struct {
+	AlternateTargetGroupArn pulumi.StringPtrInput `pulumi:"alternateTargetGroupArn"`
+	ProductionListenerRule  pulumi.StringPtrInput `pulumi:"productionListenerRule"`
+	TestListenerRule        pulumi.StringPtrInput `pulumi:"testListenerRule"`
+}
+
+func (ServiceVpcLatticeAdvancedConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceVpcLatticeAdvancedConfiguration)(nil)).Elem()
+}
+
+func (i ServiceVpcLatticeAdvancedConfigurationArgs) ToServiceVpcLatticeAdvancedConfigurationOutput() ServiceVpcLatticeAdvancedConfigurationOutput {
+	return i.ToServiceVpcLatticeAdvancedConfigurationOutputWithContext(context.Background())
+}
+
+func (i ServiceVpcLatticeAdvancedConfigurationArgs) ToServiceVpcLatticeAdvancedConfigurationOutputWithContext(ctx context.Context) ServiceVpcLatticeAdvancedConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceVpcLatticeAdvancedConfigurationOutput)
+}
+
+func (i ServiceVpcLatticeAdvancedConfigurationArgs) ToServiceVpcLatticeAdvancedConfigurationPtrOutput() ServiceVpcLatticeAdvancedConfigurationPtrOutput {
+	return i.ToServiceVpcLatticeAdvancedConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i ServiceVpcLatticeAdvancedConfigurationArgs) ToServiceVpcLatticeAdvancedConfigurationPtrOutputWithContext(ctx context.Context) ServiceVpcLatticeAdvancedConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceVpcLatticeAdvancedConfigurationOutput).ToServiceVpcLatticeAdvancedConfigurationPtrOutputWithContext(ctx)
+}
+
+// ServiceVpcLatticeAdvancedConfigurationPtrInput is an input type that accepts ServiceVpcLatticeAdvancedConfigurationArgs, ServiceVpcLatticeAdvancedConfigurationPtr and ServiceVpcLatticeAdvancedConfigurationPtrOutput values.
+// You can construct a concrete instance of `ServiceVpcLatticeAdvancedConfigurationPtrInput` via:
+//
+//	        ServiceVpcLatticeAdvancedConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type ServiceVpcLatticeAdvancedConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToServiceVpcLatticeAdvancedConfigurationPtrOutput() ServiceVpcLatticeAdvancedConfigurationPtrOutput
+	ToServiceVpcLatticeAdvancedConfigurationPtrOutputWithContext(context.Context) ServiceVpcLatticeAdvancedConfigurationPtrOutput
+}
+
+type serviceVpcLatticeAdvancedConfigurationPtrType ServiceVpcLatticeAdvancedConfigurationArgs
+
+func ServiceVpcLatticeAdvancedConfigurationPtr(v *ServiceVpcLatticeAdvancedConfigurationArgs) ServiceVpcLatticeAdvancedConfigurationPtrInput {
+	return (*serviceVpcLatticeAdvancedConfigurationPtrType)(v)
+}
+
+func (*serviceVpcLatticeAdvancedConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceVpcLatticeAdvancedConfiguration)(nil)).Elem()
+}
+
+func (i *serviceVpcLatticeAdvancedConfigurationPtrType) ToServiceVpcLatticeAdvancedConfigurationPtrOutput() ServiceVpcLatticeAdvancedConfigurationPtrOutput {
+	return i.ToServiceVpcLatticeAdvancedConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *serviceVpcLatticeAdvancedConfigurationPtrType) ToServiceVpcLatticeAdvancedConfigurationPtrOutputWithContext(ctx context.Context) ServiceVpcLatticeAdvancedConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceVpcLatticeAdvancedConfigurationPtrOutput)
+}
+
+type ServiceVpcLatticeAdvancedConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ServiceVpcLatticeAdvancedConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceVpcLatticeAdvancedConfiguration)(nil)).Elem()
+}
+
+func (o ServiceVpcLatticeAdvancedConfigurationOutput) ToServiceVpcLatticeAdvancedConfigurationOutput() ServiceVpcLatticeAdvancedConfigurationOutput {
+	return o
+}
+
+func (o ServiceVpcLatticeAdvancedConfigurationOutput) ToServiceVpcLatticeAdvancedConfigurationOutputWithContext(ctx context.Context) ServiceVpcLatticeAdvancedConfigurationOutput {
+	return o
+}
+
+func (o ServiceVpcLatticeAdvancedConfigurationOutput) ToServiceVpcLatticeAdvancedConfigurationPtrOutput() ServiceVpcLatticeAdvancedConfigurationPtrOutput {
+	return o.ToServiceVpcLatticeAdvancedConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceVpcLatticeAdvancedConfigurationOutput) ToServiceVpcLatticeAdvancedConfigurationPtrOutputWithContext(ctx context.Context) ServiceVpcLatticeAdvancedConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceVpcLatticeAdvancedConfiguration) *ServiceVpcLatticeAdvancedConfiguration {
+		return &v
+	}).(ServiceVpcLatticeAdvancedConfigurationPtrOutput)
+}
+
+func (o ServiceVpcLatticeAdvancedConfigurationOutput) AlternateTargetGroupArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceVpcLatticeAdvancedConfiguration) *string { return v.AlternateTargetGroupArn }).(pulumi.StringPtrOutput)
+}
+
+func (o ServiceVpcLatticeAdvancedConfigurationOutput) ProductionListenerRule() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceVpcLatticeAdvancedConfiguration) *string { return v.ProductionListenerRule }).(pulumi.StringPtrOutput)
+}
+
+func (o ServiceVpcLatticeAdvancedConfigurationOutput) TestListenerRule() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceVpcLatticeAdvancedConfiguration) *string { return v.TestListenerRule }).(pulumi.StringPtrOutput)
+}
+
+type ServiceVpcLatticeAdvancedConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceVpcLatticeAdvancedConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceVpcLatticeAdvancedConfiguration)(nil)).Elem()
+}
+
+func (o ServiceVpcLatticeAdvancedConfigurationPtrOutput) ToServiceVpcLatticeAdvancedConfigurationPtrOutput() ServiceVpcLatticeAdvancedConfigurationPtrOutput {
+	return o
+}
+
+func (o ServiceVpcLatticeAdvancedConfigurationPtrOutput) ToServiceVpcLatticeAdvancedConfigurationPtrOutputWithContext(ctx context.Context) ServiceVpcLatticeAdvancedConfigurationPtrOutput {
+	return o
+}
+
+func (o ServiceVpcLatticeAdvancedConfigurationPtrOutput) Elem() ServiceVpcLatticeAdvancedConfigurationOutput {
+	return o.ApplyT(func(v *ServiceVpcLatticeAdvancedConfiguration) ServiceVpcLatticeAdvancedConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceVpcLatticeAdvancedConfiguration
+		return ret
+	}).(ServiceVpcLatticeAdvancedConfigurationOutput)
+}
+
+func (o ServiceVpcLatticeAdvancedConfigurationPtrOutput) AlternateTargetGroupArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceVpcLatticeAdvancedConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AlternateTargetGroupArn
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ServiceVpcLatticeAdvancedConfigurationPtrOutput) ProductionListenerRule() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceVpcLatticeAdvancedConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ProductionListenerRule
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ServiceVpcLatticeAdvancedConfigurationPtrOutput) TestListenerRule() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceVpcLatticeAdvancedConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TestListenerRule
+	}).(pulumi.StringPtrOutput)
+}
+
 // The VPC Lattice configuration for your service that holds the information for the target group(s) Amazon ECS tasks will be registered to.
 type ServiceVpcLatticeConfiguration struct {
+	AdvancedConfiguration *ServiceVpcLatticeAdvancedConfiguration `pulumi:"advancedConfiguration"`
 	// The name of the port mapping to register in the VPC Lattice target group. This is the name of the ``portMapping`` you defined in your task definition.
 	PortName string `pulumi:"portName"`
 	// The ARN of the IAM role to associate with this VPC Lattice configuration. This is the Amazon ECS infrastructure IAM role that is used to manage your VPC Lattice infrastructure.
@@ -17532,6 +17696,7 @@ type ServiceVpcLatticeConfigurationInput interface {
 
 // The VPC Lattice configuration for your service that holds the information for the target group(s) Amazon ECS tasks will be registered to.
 type ServiceVpcLatticeConfigurationArgs struct {
+	AdvancedConfiguration ServiceVpcLatticeAdvancedConfigurationPtrInput `pulumi:"advancedConfiguration"`
 	// The name of the port mapping to register in the VPC Lattice target group. This is the name of the ``portMapping`` you defined in your task definition.
 	PortName pulumi.StringInput `pulumi:"portName"`
 	// The ARN of the IAM role to associate with this VPC Lattice configuration. This is the Amazon ECS infrastructure IAM role that is used to manage your VPC Lattice infrastructure.
@@ -17590,6 +17755,12 @@ func (o ServiceVpcLatticeConfigurationOutput) ToServiceVpcLatticeConfigurationOu
 
 func (o ServiceVpcLatticeConfigurationOutput) ToServiceVpcLatticeConfigurationOutputWithContext(ctx context.Context) ServiceVpcLatticeConfigurationOutput {
 	return o
+}
+
+func (o ServiceVpcLatticeConfigurationOutput) AdvancedConfiguration() ServiceVpcLatticeAdvancedConfigurationPtrOutput {
+	return o.ApplyT(func(v ServiceVpcLatticeConfiguration) *ServiceVpcLatticeAdvancedConfiguration {
+		return v.AdvancedConfiguration
+	}).(ServiceVpcLatticeAdvancedConfigurationPtrOutput)
 }
 
 // The name of the port mapping to register in the VPC Lattice target group. This is the name of the “portMapping“ you defined in your task definition.
@@ -25025,6 +25196,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceTimeoutConfigurationPtrInput)(nil)).Elem(), ServiceTimeoutConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceVolumeConfigurationInput)(nil)).Elem(), ServiceVolumeConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceVolumeConfigurationArrayInput)(nil)).Elem(), ServiceVolumeConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceVpcLatticeAdvancedConfigurationInput)(nil)).Elem(), ServiceVpcLatticeAdvancedConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceVpcLatticeAdvancedConfigurationPtrInput)(nil)).Elem(), ServiceVpcLatticeAdvancedConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceVpcLatticeConfigurationInput)(nil)).Elem(), ServiceVpcLatticeConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceVpcLatticeConfigurationArrayInput)(nil)).Elem(), ServiceVpcLatticeConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskDefinitionAuthorizationConfigInput)(nil)).Elem(), TaskDefinitionAuthorizationConfigArgs{})
@@ -25305,6 +25478,8 @@ func init() {
 	pulumi.RegisterOutputType(ServiceTimeoutConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ServiceVolumeConfigurationOutput{})
 	pulumi.RegisterOutputType(ServiceVolumeConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(ServiceVpcLatticeAdvancedConfigurationOutput{})
+	pulumi.RegisterOutputType(ServiceVpcLatticeAdvancedConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ServiceVpcLatticeConfigurationOutput{})
 	pulumi.RegisterOutputType(ServiceVpcLatticeConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(TaskDefinitionAuthorizationConfigOutput{})

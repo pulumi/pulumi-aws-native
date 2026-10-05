@@ -110,6 +110,7 @@ __all__ = [
     'AnalysisSheetControlListType',
     'AnalysisSheetControlSliderType',
     'AnalysisSheetImageScalingType',
+    'AnalysisSheetLayoutGroupMemberType',
     'AnalysisSimpleAttributeAggregationFunction',
     'AnalysisSimpleNumericalAggregationFunction',
     'AnalysisSimpleTotalAggregationFunction',
@@ -244,6 +245,7 @@ __all__ = [
     'DashboardSheetControlListType',
     'DashboardSheetControlSliderType',
     'DashboardSheetImageScalingType',
+    'DashboardSheetLayoutGroupMemberType',
     'DashboardSimpleAttributeAggregationFunction',
     'DashboardSimpleNumericalAggregationFunction',
     'DashboardSimpleTotalAggregationFunction',
@@ -425,6 +427,7 @@ __all__ = [
     'TemplateSheetControlListType',
     'TemplateSheetControlSliderType',
     'TemplateSheetImageScalingType',
+    'TemplateSheetLayoutGroupMemberType',
     'TemplateSimpleAttributeAggregationFunction',
     'TemplateSimpleNumericalAggregationFunction',
     'TemplateSimpleTotalAggregationFunction',
@@ -1296,6 +1299,12 @@ class AnalysisSheetImageScalingType(_builtins.str, Enum):
     SCALE_TO_HEIGHT = "SCALE_TO_HEIGHT"
     SCALE_TO_CONTAINER = "SCALE_TO_CONTAINER"
     SCALE_NONE = "SCALE_NONE"
+
+
+@pulumi.type_token("aws-native:quicksight:AnalysisSheetLayoutGroupMemberType")
+class AnalysisSheetLayoutGroupMemberType(_builtins.str, Enum):
+    ELEMENT = "ELEMENT"
+    GROUP = "GROUP"
 
 
 @pulumi.type_token("aws-native:quicksight:AnalysisSimpleAttributeAggregationFunction")
@@ -2268,6 +2277,12 @@ class DashboardSheetImageScalingType(_builtins.str, Enum):
     SCALE_TO_HEIGHT = "SCALE_TO_HEIGHT"
     SCALE_TO_CONTAINER = "SCALE_TO_CONTAINER"
     SCALE_NONE = "SCALE_NONE"
+
+
+@pulumi.type_token("aws-native:quicksight:DashboardSheetLayoutGroupMemberType")
+class DashboardSheetLayoutGroupMemberType(_builtins.str, Enum):
+    ELEMENT = "ELEMENT"
+    GROUP = "GROUP"
 
 
 @pulumi.type_token("aws-native:quicksight:DashboardSimpleAttributeAggregationFunction")
@@ -3699,6 +3714,12 @@ class TemplateSheetImageScalingType(_builtins.str, Enum):
     SCALE_TO_HEIGHT = "SCALE_TO_HEIGHT"
     SCALE_TO_CONTAINER = "SCALE_TO_CONTAINER"
     SCALE_NONE = "SCALE_NONE"
+
+
+@pulumi.type_token("aws-native:quicksight:TemplateSheetLayoutGroupMemberType")
+class TemplateSheetLayoutGroupMemberType(_builtins.str, Enum):
+    ELEMENT = "ELEMENT"
+    GROUP = "GROUP"
 
 
 @pulumi.type_token("aws-native:quicksight:TemplateSimpleAttributeAggregationFunction")

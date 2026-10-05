@@ -73,6 +73,10 @@ export class DataProvider extends pulumi.CustomResource {
      * An array of key-value pairs to apply to this resource.
      */
     declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
+    /**
+     * Indicates whether the data provider is virtual.
+     */
+    declare public readonly virtual: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a DataProvider resource with the given unique name, arguments, and options.
@@ -95,6 +99,7 @@ export class DataProvider extends pulumi.CustomResource {
             resourceInputs["exactSettings"] = args?.exactSettings;
             resourceInputs["settings"] = args?.settings;
             resourceInputs["tags"] = args?.tags;
+            resourceInputs["virtual"] = args?.virtual;
             resourceInputs["dataProviderArn"] = undefined /*out*/;
             resourceInputs["dataProviderCreationTime"] = undefined /*out*/;
         } else {
@@ -107,6 +112,7 @@ export class DataProvider extends pulumi.CustomResource {
             resourceInputs["exactSettings"] = undefined /*out*/;
             resourceInputs["settings"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["virtual"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(DataProvider.__pulumiType, name, resourceInputs, opts);
@@ -145,4 +151,8 @@ export interface DataProviderArgs {
      * An array of key-value pairs to apply to this resource.
      */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
+    /**
+     * Indicates whether the data provider is virtual.
+     */
+    virtual?: pulumi.Input<boolean | undefined>;
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.DataZone.Inputs
     public sealed class PolicyGrantProjectPolicyGrantPrincipalArgs : global::Pulumi.ResourceArgs
     {
         [Input("projectDesignation")]
-        public Input<Pulumi.AwsNative.DataZone.PolicyGrantProjectDesignation>? ProjectDesignation { get; set; }
+        public Input<string>? ProjectDesignation { get; set; }
 
         [Input("projectGrantFilter")]
         public Input<Inputs.PolicyGrantProjectGrantFilterPropertiesArgs>? ProjectGrantFilter { get; set; }

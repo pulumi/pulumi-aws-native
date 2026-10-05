@@ -10,10 +10,20 @@ export const getParallelData: typeof import("./getParallelData").getParallelData
 export const getParallelDataOutput: typeof import("./getParallelData").getParallelDataOutput = null as any;
 utilities.lazyLoad(exports, ["getParallelData","getParallelDataOutput"], () => require("./getParallelData"));
 
+export { GetTerminologyArgs, GetTerminologyResult, GetTerminologyOutputArgs } from "./getTerminology";
+export const getTerminology: typeof import("./getTerminology").getTerminology = null as any;
+export const getTerminologyOutput: typeof import("./getTerminology").getTerminologyOutput = null as any;
+utilities.lazyLoad(exports, ["getTerminology","getTerminologyOutput"], () => require("./getTerminology"));
+
 export { ParallelDataArgs } from "./parallelData";
 export type ParallelData = import("./parallelData").ParallelData;
 export const ParallelData: typeof import("./parallelData").ParallelData = null as any;
 utilities.lazyLoad(exports, ["ParallelData"], () => require("./parallelData"));
+
+export { TerminologyArgs } from "./terminology";
+export type Terminology = import("./terminology").Terminology;
+export const Terminology: typeof import("./terminology").Terminology = null as any;
+utilities.lazyLoad(exports, ["Terminology"], () => require("./terminology"));
 
 
 // Export enums:
@@ -25,6 +35,8 @@ const _module = {
         switch (type) {
             case "aws-native:translate:ParallelData":
                 return new ParallelData(name, <any>undefined, { urn })
+            case "aws-native:translate:Terminology":
+                return new Terminology(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

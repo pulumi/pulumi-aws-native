@@ -36,6 +36,28 @@
         }
       },
       "additionalProperties" : false
+    },
+    "Tag" : {
+      "description" : "A key-value pair to associate with the DB proxy target group.",
+      "type" : "object",
+      "properties" : {
+        "Key" : {
+          "description" : "The key name of the tag.",
+          "type" : "string",
+          "minLength" : 1,
+          "maxLength" : 128,
+          "pattern" : "^(?!aws:|rds:)[\\p{L}\\p{Z}\\p{N}_. :/=+\\-@]+$"
+        },
+        "Value" : {
+          "description" : "The value for the tag.",
+          "type" : "string",
+          "minLength" : 1,
+          "maxLength" : 256,
+          "pattern" : "^(?!aws:|rds:)[\\p{L}\\p{Z}\\p{N}_. :/=+\\-@]+$"
+        }
+      },
+      "required" : [ "Key" ],
+      "additionalProperties" : false
     }
   },
   "properties" : {
@@ -70,6 +92,15 @@
       "items" : {
         "type" : "string"
       }
+    },
+    "Tags" : {
+      "description" : "An array of key-value pairs to apply to this resource.",
+      "type" : "array",
+      "insertionOrder" : false,
+      "uniqueItems" : true,
+      "items" : {
+        "$ref" : "#/definitions/Tag"
+      }
     }
   },
   "additionalProperties" : false,
@@ -81,22 +112,24 @@
   "readOnlyProperties" : [ "/properties/TargetGroupArn" ],
   "createOnlyProperties" : [ "/properties/DBProxyName", "/properties/TargetGroupName" ],
   "tagging" : {
-    "taggable" : false,
+    "taggable" : true,
     "tagOnCreate" : false,
-    "tagUpdatable" : false,
-    "cloudFormationSystemTags" : false
+    "tagUpdatable" : true,
+    "cloudFormationSystemTags" : true,
+    "tagProperty" : "/properties/Tags",
+    "permissions" : [ "rds:AddTagsToResource", "rds:RemoveTagsFromResource", "rds:ListTagsForResource" ]
   },
   "primaryIdentifier" : [ "/properties/TargetGroupArn" ],
   "additionalIdentifiers" : [ [ "/properties/DBProxyName", "/properties/TargetGroupName" ] ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "rds:DescribeDBProxies", "rds:DescribeDBProxyTargetGroups", "rds:DescribeDBProxyTargets", "rds:ModifyDBProxyTargetGroup", "rds:RegisterDBProxyTargets" ]
+      "permissions" : [ "rds:DescribeDBProxies", "rds:DescribeDBProxyTargetGroups", "rds:DescribeDBProxyTargets", "rds:ModifyDBProxyTargetGroup", "rds:RegisterDBProxyTargets", "rds:AddTagsToResource" ]
     },
     "read" : {
-      "permissions" : [ "rds:DescribeDBProxyTargetGroups", "rds:DescribeDBProxyTargets" ]
+      "permissions" : [ "rds:DescribeDBProxyTargetGroups", "rds:DescribeDBProxyTargets", "rds:ListTagsForResource" ]
     },
     "update" : {
-      "permissions" : [ "rds:DescribeDBProxyTargetGroups", "rds:DescribeDBProxyTargets", "rds:ModifyDBProxyTargetGroup", "rds:RegisterDBProxyTargets", "rds:DeregisterDBProxyTargets" ]
+      "permissions" : [ "rds:DescribeDBProxyTargetGroups", "rds:DescribeDBProxyTargets", "rds:ModifyDBProxyTargetGroup", "rds:RegisterDBProxyTargets", "rds:DeregisterDBProxyTargets", "rds:AddTagsToResource", "rds:RemoveTagsFromResource", "rds:ListTagsForResource" ]
     },
     "delete" : {
       "permissions" : [ "rds:DeregisterDBProxyTargets" ]

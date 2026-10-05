@@ -21,6 +21,8 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "aws-native:personalize:Campaign":
+		r = &Campaign{}
 	case "aws-native:personalize:Dataset":
 		r = &Dataset{}
 	case "aws-native:personalize:DatasetGroup":

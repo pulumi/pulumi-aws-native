@@ -69,9 +69,6 @@ namespace Pulumi.AwsNative.Lambda
 
     public sealed class GetResourcePolicyArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the LAM resource you want to add the policy to. For a function, you can use a qualified or an unqualified ARN. The value must be a complete ARN, and the operation does not accept wildcard characters.
-        /// </summary>
         [Input("resourceArn", required: true)]
         public string ResourceArn { get; set; } = null!;
 
@@ -83,9 +80,6 @@ namespace Pulumi.AwsNative.Lambda
 
     public sealed class GetResourcePolicyInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the LAM resource you want to add the policy to. For a function, you can use a qualified or an unqualified ARN. The value must be a complete ARN, and the operation does not accept wildcard characters.
-        /// </summary>
         [Input("resourceArn", required: true)]
         public Input<string> ResourceArn { get; set; } = null!;
 

@@ -75,6 +75,11 @@ export const getDeliveryChannel: typeof import("./getDeliveryChannel").getDelive
 export const getDeliveryChannelOutput: typeof import("./getDeliveryChannel").getDeliveryChannelOutput = null as any;
 utilities.lazyLoad(exports, ["getDeliveryChannel","getDeliveryChannelOutput"], () => require("./getDeliveryChannel"));
 
+export { GetOrganizationConfigRuleArgs, GetOrganizationConfigRuleResult, GetOrganizationConfigRuleOutputArgs } from "./getOrganizationConfigRule";
+export const getOrganizationConfigRule: typeof import("./getOrganizationConfigRule").getOrganizationConfigRule = null as any;
+export const getOrganizationConfigRuleOutput: typeof import("./getOrganizationConfigRule").getOrganizationConfigRuleOutput = null as any;
+utilities.lazyLoad(exports, ["getOrganizationConfigRule","getOrganizationConfigRuleOutput"], () => require("./getOrganizationConfigRule"));
+
 export { GetOrganizationConformancePackArgs, GetOrganizationConformancePackResult, GetOrganizationConformancePackOutputArgs } from "./getOrganizationConformancePack";
 export const getOrganizationConformancePack: typeof import("./getOrganizationConformancePack").getOrganizationConformancePack = null as any;
 export const getOrganizationConformancePackOutput: typeof import("./getOrganizationConformancePack").getOrganizationConformancePackOutput = null as any;
@@ -89,6 +94,11 @@ export { GetStoredQueryArgs, GetStoredQueryResult, GetStoredQueryOutputArgs } fr
 export const getStoredQuery: typeof import("./getStoredQuery").getStoredQuery = null as any;
 export const getStoredQueryOutput: typeof import("./getStoredQuery").getStoredQueryOutput = null as any;
 utilities.lazyLoad(exports, ["getStoredQuery","getStoredQueryOutput"], () => require("./getStoredQuery"));
+
+export { OrganizationConfigRuleArgs } from "./organizationConfigRule";
+export type OrganizationConfigRule = import("./organizationConfigRule").OrganizationConfigRule;
+export const OrganizationConfigRule: typeof import("./organizationConfigRule").OrganizationConfigRule = null as any;
+utilities.lazyLoad(exports, ["OrganizationConfigRule"], () => require("./organizationConfigRule"));
 
 export { OrganizationConformancePackArgs } from "./organizationConformancePack";
 export type OrganizationConformancePack = import("./organizationConformancePack").OrganizationConformancePack;
@@ -127,6 +137,8 @@ const _module = {
                 return new Connector(name, <any>undefined, { urn })
             case "aws-native:configuration:DeliveryChannel":
                 return new DeliveryChannel(name, <any>undefined, { urn })
+            case "aws-native:configuration:OrganizationConfigRule":
+                return new OrganizationConfigRule(name, <any>undefined, { urn })
             case "aws-native:configuration:OrganizationConformancePack":
                 return new OrganizationConformancePack(name, <any>undefined, { urn })
             case "aws-native:configuration:RemediationConfiguration":

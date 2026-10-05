@@ -2626,6 +2626,885 @@ func (o DeliveryChannelConfigSnapshotDeliveryPropertiesPtrOutput) DeliveryFreque
 	}).(DeliveryChannelConfigSnapshotDeliveryPropertiesDeliveryFrequencyPtrOutput)
 }
 
+type OrganizationConfigRuleOrganizationCustomPolicyRuleMetadata struct {
+	// A list of accounts that you can enable debug logging for your organization AWS Config Custom Policy rule.
+	DebugLogDeliveryAccounts []string `pulumi:"debugLogDeliveryAccounts"`
+	// The description that you provide for your organization AWS Config rule.
+	Description *string `pulumi:"description"`
+	// A string, in JSON format, that is passed to your organization AWS Config Custom Policy rule.
+	InputParameters *string `pulumi:"inputParameters"`
+	// The type of notification that initiates AWS Config to run an evaluation for a rule.
+	OrganizationConfigRuleTriggerTypes []string `pulumi:"organizationConfigRuleTriggerTypes"`
+	// The policy definition containing the logic for your organization AWS Config Custom Policy rule.
+	PolicyText string `pulumi:"policyText"`
+	// The ID of the AWS resource that was evaluated.
+	ResourceIdScope *string `pulumi:"resourceIdScope"`
+	// The type of the AWS resource that was evaluated.
+	ResourceTypesScope []string `pulumi:"resourceTypesScope"`
+	// The runtime system for your organization AWS Config Custom Policy rules.
+	Runtime string `pulumi:"runtime"`
+	// One part of a key-value pair that make up a tag. A key is a general label that acts like a category for more specific tag values.
+	TagKeyScope *string `pulumi:"tagKeyScope"`
+	// The optional part of a key-value pair that make up a tag. A value acts as a descriptor within a tag category (key).
+	TagValueScope *string `pulumi:"tagValueScope"`
+}
+
+// OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataInput is an input type that accepts OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataArgs and OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataOutput values.
+// You can construct a concrete instance of `OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataInput` via:
+//
+//	OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataArgs{...}
+type OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataInput interface {
+	pulumi.Input
+
+	ToOrganizationConfigRuleOrganizationCustomPolicyRuleMetadataOutput() OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataOutput
+	ToOrganizationConfigRuleOrganizationCustomPolicyRuleMetadataOutputWithContext(context.Context) OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataOutput
+}
+
+type OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataArgs struct {
+	// A list of accounts that you can enable debug logging for your organization AWS Config Custom Policy rule.
+	DebugLogDeliveryAccounts pulumi.StringArrayInput `pulumi:"debugLogDeliveryAccounts"`
+	// The description that you provide for your organization AWS Config rule.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// A string, in JSON format, that is passed to your organization AWS Config Custom Policy rule.
+	InputParameters pulumi.StringPtrInput `pulumi:"inputParameters"`
+	// The type of notification that initiates AWS Config to run an evaluation for a rule.
+	OrganizationConfigRuleTriggerTypes pulumi.StringArrayInput `pulumi:"organizationConfigRuleTriggerTypes"`
+	// The policy definition containing the logic for your organization AWS Config Custom Policy rule.
+	PolicyText pulumi.StringInput `pulumi:"policyText"`
+	// The ID of the AWS resource that was evaluated.
+	ResourceIdScope pulumi.StringPtrInput `pulumi:"resourceIdScope"`
+	// The type of the AWS resource that was evaluated.
+	ResourceTypesScope pulumi.StringArrayInput `pulumi:"resourceTypesScope"`
+	// The runtime system for your organization AWS Config Custom Policy rules.
+	Runtime pulumi.StringInput `pulumi:"runtime"`
+	// One part of a key-value pair that make up a tag. A key is a general label that acts like a category for more specific tag values.
+	TagKeyScope pulumi.StringPtrInput `pulumi:"tagKeyScope"`
+	// The optional part of a key-value pair that make up a tag. A value acts as a descriptor within a tag category (key).
+	TagValueScope pulumi.StringPtrInput `pulumi:"tagValueScope"`
+}
+
+func (OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrganizationConfigRuleOrganizationCustomPolicyRuleMetadata)(nil)).Elem()
+}
+
+func (i OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataArgs) ToOrganizationConfigRuleOrganizationCustomPolicyRuleMetadataOutput() OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataOutput {
+	return i.ToOrganizationConfigRuleOrganizationCustomPolicyRuleMetadataOutputWithContext(context.Background())
+}
+
+func (i OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataArgs) ToOrganizationConfigRuleOrganizationCustomPolicyRuleMetadataOutputWithContext(ctx context.Context) OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataOutput)
+}
+
+func (i OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataArgs) ToOrganizationConfigRuleOrganizationCustomPolicyRuleMetadataPtrOutput() OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataPtrOutput {
+	return i.ToOrganizationConfigRuleOrganizationCustomPolicyRuleMetadataPtrOutputWithContext(context.Background())
+}
+
+func (i OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataArgs) ToOrganizationConfigRuleOrganizationCustomPolicyRuleMetadataPtrOutputWithContext(ctx context.Context) OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataOutput).ToOrganizationConfigRuleOrganizationCustomPolicyRuleMetadataPtrOutputWithContext(ctx)
+}
+
+// OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataPtrInput is an input type that accepts OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataArgs, OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataPtr and OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataPtrOutput values.
+// You can construct a concrete instance of `OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataPtrInput` via:
+//
+//	        OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataArgs{...}
+//
+//	or:
+//
+//	        nil
+type OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataPtrInput interface {
+	pulumi.Input
+
+	ToOrganizationConfigRuleOrganizationCustomPolicyRuleMetadataPtrOutput() OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataPtrOutput
+	ToOrganizationConfigRuleOrganizationCustomPolicyRuleMetadataPtrOutputWithContext(context.Context) OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataPtrOutput
+}
+
+type organizationConfigRuleOrganizationCustomPolicyRuleMetadataPtrType OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataArgs
+
+func OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataPtr(v *OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataArgs) OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataPtrInput {
+	return (*organizationConfigRuleOrganizationCustomPolicyRuleMetadataPtrType)(v)
+}
+
+func (*organizationConfigRuleOrganizationCustomPolicyRuleMetadataPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OrganizationConfigRuleOrganizationCustomPolicyRuleMetadata)(nil)).Elem()
+}
+
+func (i *organizationConfigRuleOrganizationCustomPolicyRuleMetadataPtrType) ToOrganizationConfigRuleOrganizationCustomPolicyRuleMetadataPtrOutput() OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataPtrOutput {
+	return i.ToOrganizationConfigRuleOrganizationCustomPolicyRuleMetadataPtrOutputWithContext(context.Background())
+}
+
+func (i *organizationConfigRuleOrganizationCustomPolicyRuleMetadataPtrType) ToOrganizationConfigRuleOrganizationCustomPolicyRuleMetadataPtrOutputWithContext(ctx context.Context) OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataPtrOutput)
+}
+
+type OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataOutput struct{ *pulumi.OutputState }
+
+func (OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrganizationConfigRuleOrganizationCustomPolicyRuleMetadata)(nil)).Elem()
+}
+
+func (o OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataOutput) ToOrganizationConfigRuleOrganizationCustomPolicyRuleMetadataOutput() OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataOutput {
+	return o
+}
+
+func (o OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataOutput) ToOrganizationConfigRuleOrganizationCustomPolicyRuleMetadataOutputWithContext(ctx context.Context) OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataOutput {
+	return o
+}
+
+func (o OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataOutput) ToOrganizationConfigRuleOrganizationCustomPolicyRuleMetadataPtrOutput() OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataPtrOutput {
+	return o.ToOrganizationConfigRuleOrganizationCustomPolicyRuleMetadataPtrOutputWithContext(context.Background())
+}
+
+func (o OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataOutput) ToOrganizationConfigRuleOrganizationCustomPolicyRuleMetadataPtrOutputWithContext(ctx context.Context) OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OrganizationConfigRuleOrganizationCustomPolicyRuleMetadata) *OrganizationConfigRuleOrganizationCustomPolicyRuleMetadata {
+		return &v
+	}).(OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataPtrOutput)
+}
+
+// A list of accounts that you can enable debug logging for your organization AWS Config Custom Policy rule.
+func (o OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataOutput) DebugLogDeliveryAccounts() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v OrganizationConfigRuleOrganizationCustomPolicyRuleMetadata) []string {
+		return v.DebugLogDeliveryAccounts
+	}).(pulumi.StringArrayOutput)
+}
+
+// The description that you provide for your organization AWS Config rule.
+func (o OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OrganizationConfigRuleOrganizationCustomPolicyRuleMetadata) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// A string, in JSON format, that is passed to your organization AWS Config Custom Policy rule.
+func (o OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataOutput) InputParameters() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OrganizationConfigRuleOrganizationCustomPolicyRuleMetadata) *string { return v.InputParameters }).(pulumi.StringPtrOutput)
+}
+
+// The type of notification that initiates AWS Config to run an evaluation for a rule.
+func (o OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataOutput) OrganizationConfigRuleTriggerTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v OrganizationConfigRuleOrganizationCustomPolicyRuleMetadata) []string {
+		return v.OrganizationConfigRuleTriggerTypes
+	}).(pulumi.StringArrayOutput)
+}
+
+// The policy definition containing the logic for your organization AWS Config Custom Policy rule.
+func (o OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataOutput) PolicyText() pulumi.StringOutput {
+	return o.ApplyT(func(v OrganizationConfigRuleOrganizationCustomPolicyRuleMetadata) string { return v.PolicyText }).(pulumi.StringOutput)
+}
+
+// The ID of the AWS resource that was evaluated.
+func (o OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataOutput) ResourceIdScope() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OrganizationConfigRuleOrganizationCustomPolicyRuleMetadata) *string { return v.ResourceIdScope }).(pulumi.StringPtrOutput)
+}
+
+// The type of the AWS resource that was evaluated.
+func (o OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataOutput) ResourceTypesScope() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v OrganizationConfigRuleOrganizationCustomPolicyRuleMetadata) []string {
+		return v.ResourceTypesScope
+	}).(pulumi.StringArrayOutput)
+}
+
+// The runtime system for your organization AWS Config Custom Policy rules.
+func (o OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataOutput) Runtime() pulumi.StringOutput {
+	return o.ApplyT(func(v OrganizationConfigRuleOrganizationCustomPolicyRuleMetadata) string { return v.Runtime }).(pulumi.StringOutput)
+}
+
+// One part of a key-value pair that make up a tag. A key is a general label that acts like a category for more specific tag values.
+func (o OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataOutput) TagKeyScope() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OrganizationConfigRuleOrganizationCustomPolicyRuleMetadata) *string { return v.TagKeyScope }).(pulumi.StringPtrOutput)
+}
+
+// The optional part of a key-value pair that make up a tag. A value acts as a descriptor within a tag category (key).
+func (o OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataOutput) TagValueScope() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OrganizationConfigRuleOrganizationCustomPolicyRuleMetadata) *string { return v.TagValueScope }).(pulumi.StringPtrOutput)
+}
+
+type OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataPtrOutput struct{ *pulumi.OutputState }
+
+func (OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OrganizationConfigRuleOrganizationCustomPolicyRuleMetadata)(nil)).Elem()
+}
+
+func (o OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataPtrOutput) ToOrganizationConfigRuleOrganizationCustomPolicyRuleMetadataPtrOutput() OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataPtrOutput {
+	return o
+}
+
+func (o OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataPtrOutput) ToOrganizationConfigRuleOrganizationCustomPolicyRuleMetadataPtrOutputWithContext(ctx context.Context) OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataPtrOutput {
+	return o
+}
+
+func (o OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataPtrOutput) Elem() OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataOutput {
+	return o.ApplyT(func(v *OrganizationConfigRuleOrganizationCustomPolicyRuleMetadata) OrganizationConfigRuleOrganizationCustomPolicyRuleMetadata {
+		if v != nil {
+			return *v
+		}
+		var ret OrganizationConfigRuleOrganizationCustomPolicyRuleMetadata
+		return ret
+	}).(OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataOutput)
+}
+
+// A list of accounts that you can enable debug logging for your organization AWS Config Custom Policy rule.
+func (o OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataPtrOutput) DebugLogDeliveryAccounts() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *OrganizationConfigRuleOrganizationCustomPolicyRuleMetadata) []string {
+		if v == nil {
+			return nil
+		}
+		return v.DebugLogDeliveryAccounts
+	}).(pulumi.StringArrayOutput)
+}
+
+// The description that you provide for your organization AWS Config rule.
+func (o OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataPtrOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OrganizationConfigRuleOrganizationCustomPolicyRuleMetadata) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Description
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string, in JSON format, that is passed to your organization AWS Config Custom Policy rule.
+func (o OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataPtrOutput) InputParameters() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OrganizationConfigRuleOrganizationCustomPolicyRuleMetadata) *string {
+		if v == nil {
+			return nil
+		}
+		return v.InputParameters
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of notification that initiates AWS Config to run an evaluation for a rule.
+func (o OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataPtrOutput) OrganizationConfigRuleTriggerTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *OrganizationConfigRuleOrganizationCustomPolicyRuleMetadata) []string {
+		if v == nil {
+			return nil
+		}
+		return v.OrganizationConfigRuleTriggerTypes
+	}).(pulumi.StringArrayOutput)
+}
+
+// The policy definition containing the logic for your organization AWS Config Custom Policy rule.
+func (o OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataPtrOutput) PolicyText() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OrganizationConfigRuleOrganizationCustomPolicyRuleMetadata) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.PolicyText
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ID of the AWS resource that was evaluated.
+func (o OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataPtrOutput) ResourceIdScope() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OrganizationConfigRuleOrganizationCustomPolicyRuleMetadata) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ResourceIdScope
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of the AWS resource that was evaluated.
+func (o OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataPtrOutput) ResourceTypesScope() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *OrganizationConfigRuleOrganizationCustomPolicyRuleMetadata) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ResourceTypesScope
+	}).(pulumi.StringArrayOutput)
+}
+
+// The runtime system for your organization AWS Config Custom Policy rules.
+func (o OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataPtrOutput) Runtime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OrganizationConfigRuleOrganizationCustomPolicyRuleMetadata) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Runtime
+	}).(pulumi.StringPtrOutput)
+}
+
+// One part of a key-value pair that make up a tag. A key is a general label that acts like a category for more specific tag values.
+func (o OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataPtrOutput) TagKeyScope() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OrganizationConfigRuleOrganizationCustomPolicyRuleMetadata) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TagKeyScope
+	}).(pulumi.StringPtrOutput)
+}
+
+// The optional part of a key-value pair that make up a tag. A value acts as a descriptor within a tag category (key).
+func (o OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataPtrOutput) TagValueScope() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OrganizationConfigRuleOrganizationCustomPolicyRuleMetadata) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TagValueScope
+	}).(pulumi.StringPtrOutput)
+}
+
+type OrganizationConfigRuleOrganizationCustomRuleMetadata struct {
+	// The description that you provide for your organization AWS Config rule.
+	Description *string `pulumi:"description"`
+	// A string, in JSON format, that is passed to your organization AWS Config rule Lambda function.
+	InputParameters *string `pulumi:"inputParameters"`
+	// The lambda function ARN.
+	LambdaFunctionArn string `pulumi:"lambdaFunctionArn"`
+	// The maximum frequency with which AWS Config runs evaluations for a rule.Allowed values: One_Hour | Three_Hours | Six_Hours | Twelve_Hours | TwentyFour_Hours.
+	MaximumExecutionFrequency *string `pulumi:"maximumExecutionFrequency"`
+	// The type of notification that triggers AWS Config to run an evaluation for a rule. You can specify the following notification types:
+	OrganizationConfigRuleTriggerTypes []string `pulumi:"organizationConfigRuleTriggerTypes"`
+	// The ID of the AWS resource that was evaluated.
+	ResourceIdScope *string `pulumi:"resourceIdScope"`
+	// The type of the AWS resource that was evaluated.
+	ResourceTypesScope []string `pulumi:"resourceTypesScope"`
+	// One part of a key-value pair that make up a tag. A key is a general label that acts like a category for more specific tag values.
+	TagKeyScope *string `pulumi:"tagKeyScope"`
+	// The optional part of a key-value pair that make up a tag. A value acts as a descriptor within a tag category (key).
+	TagValueScope *string `pulumi:"tagValueScope"`
+}
+
+// OrganizationConfigRuleOrganizationCustomRuleMetadataInput is an input type that accepts OrganizationConfigRuleOrganizationCustomRuleMetadataArgs and OrganizationConfigRuleOrganizationCustomRuleMetadataOutput values.
+// You can construct a concrete instance of `OrganizationConfigRuleOrganizationCustomRuleMetadataInput` via:
+//
+//	OrganizationConfigRuleOrganizationCustomRuleMetadataArgs{...}
+type OrganizationConfigRuleOrganizationCustomRuleMetadataInput interface {
+	pulumi.Input
+
+	ToOrganizationConfigRuleOrganizationCustomRuleMetadataOutput() OrganizationConfigRuleOrganizationCustomRuleMetadataOutput
+	ToOrganizationConfigRuleOrganizationCustomRuleMetadataOutputWithContext(context.Context) OrganizationConfigRuleOrganizationCustomRuleMetadataOutput
+}
+
+type OrganizationConfigRuleOrganizationCustomRuleMetadataArgs struct {
+	// The description that you provide for your organization AWS Config rule.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// A string, in JSON format, that is passed to your organization AWS Config rule Lambda function.
+	InputParameters pulumi.StringPtrInput `pulumi:"inputParameters"`
+	// The lambda function ARN.
+	LambdaFunctionArn pulumi.StringInput `pulumi:"lambdaFunctionArn"`
+	// The maximum frequency with which AWS Config runs evaluations for a rule.Allowed values: One_Hour | Three_Hours | Six_Hours | Twelve_Hours | TwentyFour_Hours.
+	MaximumExecutionFrequency pulumi.StringPtrInput `pulumi:"maximumExecutionFrequency"`
+	// The type of notification that triggers AWS Config to run an evaluation for a rule. You can specify the following notification types:
+	OrganizationConfigRuleTriggerTypes pulumi.StringArrayInput `pulumi:"organizationConfigRuleTriggerTypes"`
+	// The ID of the AWS resource that was evaluated.
+	ResourceIdScope pulumi.StringPtrInput `pulumi:"resourceIdScope"`
+	// The type of the AWS resource that was evaluated.
+	ResourceTypesScope pulumi.StringArrayInput `pulumi:"resourceTypesScope"`
+	// One part of a key-value pair that make up a tag. A key is a general label that acts like a category for more specific tag values.
+	TagKeyScope pulumi.StringPtrInput `pulumi:"tagKeyScope"`
+	// The optional part of a key-value pair that make up a tag. A value acts as a descriptor within a tag category (key).
+	TagValueScope pulumi.StringPtrInput `pulumi:"tagValueScope"`
+}
+
+func (OrganizationConfigRuleOrganizationCustomRuleMetadataArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrganizationConfigRuleOrganizationCustomRuleMetadata)(nil)).Elem()
+}
+
+func (i OrganizationConfigRuleOrganizationCustomRuleMetadataArgs) ToOrganizationConfigRuleOrganizationCustomRuleMetadataOutput() OrganizationConfigRuleOrganizationCustomRuleMetadataOutput {
+	return i.ToOrganizationConfigRuleOrganizationCustomRuleMetadataOutputWithContext(context.Background())
+}
+
+func (i OrganizationConfigRuleOrganizationCustomRuleMetadataArgs) ToOrganizationConfigRuleOrganizationCustomRuleMetadataOutputWithContext(ctx context.Context) OrganizationConfigRuleOrganizationCustomRuleMetadataOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrganizationConfigRuleOrganizationCustomRuleMetadataOutput)
+}
+
+func (i OrganizationConfigRuleOrganizationCustomRuleMetadataArgs) ToOrganizationConfigRuleOrganizationCustomRuleMetadataPtrOutput() OrganizationConfigRuleOrganizationCustomRuleMetadataPtrOutput {
+	return i.ToOrganizationConfigRuleOrganizationCustomRuleMetadataPtrOutputWithContext(context.Background())
+}
+
+func (i OrganizationConfigRuleOrganizationCustomRuleMetadataArgs) ToOrganizationConfigRuleOrganizationCustomRuleMetadataPtrOutputWithContext(ctx context.Context) OrganizationConfigRuleOrganizationCustomRuleMetadataPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrganizationConfigRuleOrganizationCustomRuleMetadataOutput).ToOrganizationConfigRuleOrganizationCustomRuleMetadataPtrOutputWithContext(ctx)
+}
+
+// OrganizationConfigRuleOrganizationCustomRuleMetadataPtrInput is an input type that accepts OrganizationConfigRuleOrganizationCustomRuleMetadataArgs, OrganizationConfigRuleOrganizationCustomRuleMetadataPtr and OrganizationConfigRuleOrganizationCustomRuleMetadataPtrOutput values.
+// You can construct a concrete instance of `OrganizationConfigRuleOrganizationCustomRuleMetadataPtrInput` via:
+//
+//	        OrganizationConfigRuleOrganizationCustomRuleMetadataArgs{...}
+//
+//	or:
+//
+//	        nil
+type OrganizationConfigRuleOrganizationCustomRuleMetadataPtrInput interface {
+	pulumi.Input
+
+	ToOrganizationConfigRuleOrganizationCustomRuleMetadataPtrOutput() OrganizationConfigRuleOrganizationCustomRuleMetadataPtrOutput
+	ToOrganizationConfigRuleOrganizationCustomRuleMetadataPtrOutputWithContext(context.Context) OrganizationConfigRuleOrganizationCustomRuleMetadataPtrOutput
+}
+
+type organizationConfigRuleOrganizationCustomRuleMetadataPtrType OrganizationConfigRuleOrganizationCustomRuleMetadataArgs
+
+func OrganizationConfigRuleOrganizationCustomRuleMetadataPtr(v *OrganizationConfigRuleOrganizationCustomRuleMetadataArgs) OrganizationConfigRuleOrganizationCustomRuleMetadataPtrInput {
+	return (*organizationConfigRuleOrganizationCustomRuleMetadataPtrType)(v)
+}
+
+func (*organizationConfigRuleOrganizationCustomRuleMetadataPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OrganizationConfigRuleOrganizationCustomRuleMetadata)(nil)).Elem()
+}
+
+func (i *organizationConfigRuleOrganizationCustomRuleMetadataPtrType) ToOrganizationConfigRuleOrganizationCustomRuleMetadataPtrOutput() OrganizationConfigRuleOrganizationCustomRuleMetadataPtrOutput {
+	return i.ToOrganizationConfigRuleOrganizationCustomRuleMetadataPtrOutputWithContext(context.Background())
+}
+
+func (i *organizationConfigRuleOrganizationCustomRuleMetadataPtrType) ToOrganizationConfigRuleOrganizationCustomRuleMetadataPtrOutputWithContext(ctx context.Context) OrganizationConfigRuleOrganizationCustomRuleMetadataPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrganizationConfigRuleOrganizationCustomRuleMetadataPtrOutput)
+}
+
+type OrganizationConfigRuleOrganizationCustomRuleMetadataOutput struct{ *pulumi.OutputState }
+
+func (OrganizationConfigRuleOrganizationCustomRuleMetadataOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrganizationConfigRuleOrganizationCustomRuleMetadata)(nil)).Elem()
+}
+
+func (o OrganizationConfigRuleOrganizationCustomRuleMetadataOutput) ToOrganizationConfigRuleOrganizationCustomRuleMetadataOutput() OrganizationConfigRuleOrganizationCustomRuleMetadataOutput {
+	return o
+}
+
+func (o OrganizationConfigRuleOrganizationCustomRuleMetadataOutput) ToOrganizationConfigRuleOrganizationCustomRuleMetadataOutputWithContext(ctx context.Context) OrganizationConfigRuleOrganizationCustomRuleMetadataOutput {
+	return o
+}
+
+func (o OrganizationConfigRuleOrganizationCustomRuleMetadataOutput) ToOrganizationConfigRuleOrganizationCustomRuleMetadataPtrOutput() OrganizationConfigRuleOrganizationCustomRuleMetadataPtrOutput {
+	return o.ToOrganizationConfigRuleOrganizationCustomRuleMetadataPtrOutputWithContext(context.Background())
+}
+
+func (o OrganizationConfigRuleOrganizationCustomRuleMetadataOutput) ToOrganizationConfigRuleOrganizationCustomRuleMetadataPtrOutputWithContext(ctx context.Context) OrganizationConfigRuleOrganizationCustomRuleMetadataPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OrganizationConfigRuleOrganizationCustomRuleMetadata) *OrganizationConfigRuleOrganizationCustomRuleMetadata {
+		return &v
+	}).(OrganizationConfigRuleOrganizationCustomRuleMetadataPtrOutput)
+}
+
+// The description that you provide for your organization AWS Config rule.
+func (o OrganizationConfigRuleOrganizationCustomRuleMetadataOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OrganizationConfigRuleOrganizationCustomRuleMetadata) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// A string, in JSON format, that is passed to your organization AWS Config rule Lambda function.
+func (o OrganizationConfigRuleOrganizationCustomRuleMetadataOutput) InputParameters() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OrganizationConfigRuleOrganizationCustomRuleMetadata) *string { return v.InputParameters }).(pulumi.StringPtrOutput)
+}
+
+// The lambda function ARN.
+func (o OrganizationConfigRuleOrganizationCustomRuleMetadataOutput) LambdaFunctionArn() pulumi.StringOutput {
+	return o.ApplyT(func(v OrganizationConfigRuleOrganizationCustomRuleMetadata) string { return v.LambdaFunctionArn }).(pulumi.StringOutput)
+}
+
+// The maximum frequency with which AWS Config runs evaluations for a rule.Allowed values: One_Hour | Three_Hours | Six_Hours | Twelve_Hours | TwentyFour_Hours.
+func (o OrganizationConfigRuleOrganizationCustomRuleMetadataOutput) MaximumExecutionFrequency() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OrganizationConfigRuleOrganizationCustomRuleMetadata) *string {
+		return v.MaximumExecutionFrequency
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of notification that triggers AWS Config to run an evaluation for a rule. You can specify the following notification types:
+func (o OrganizationConfigRuleOrganizationCustomRuleMetadataOutput) OrganizationConfigRuleTriggerTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v OrganizationConfigRuleOrganizationCustomRuleMetadata) []string {
+		return v.OrganizationConfigRuleTriggerTypes
+	}).(pulumi.StringArrayOutput)
+}
+
+// The ID of the AWS resource that was evaluated.
+func (o OrganizationConfigRuleOrganizationCustomRuleMetadataOutput) ResourceIdScope() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OrganizationConfigRuleOrganizationCustomRuleMetadata) *string { return v.ResourceIdScope }).(pulumi.StringPtrOutput)
+}
+
+// The type of the AWS resource that was evaluated.
+func (o OrganizationConfigRuleOrganizationCustomRuleMetadataOutput) ResourceTypesScope() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v OrganizationConfigRuleOrganizationCustomRuleMetadata) []string { return v.ResourceTypesScope }).(pulumi.StringArrayOutput)
+}
+
+// One part of a key-value pair that make up a tag. A key is a general label that acts like a category for more specific tag values.
+func (o OrganizationConfigRuleOrganizationCustomRuleMetadataOutput) TagKeyScope() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OrganizationConfigRuleOrganizationCustomRuleMetadata) *string { return v.TagKeyScope }).(pulumi.StringPtrOutput)
+}
+
+// The optional part of a key-value pair that make up a tag. A value acts as a descriptor within a tag category (key).
+func (o OrganizationConfigRuleOrganizationCustomRuleMetadataOutput) TagValueScope() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OrganizationConfigRuleOrganizationCustomRuleMetadata) *string { return v.TagValueScope }).(pulumi.StringPtrOutput)
+}
+
+type OrganizationConfigRuleOrganizationCustomRuleMetadataPtrOutput struct{ *pulumi.OutputState }
+
+func (OrganizationConfigRuleOrganizationCustomRuleMetadataPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OrganizationConfigRuleOrganizationCustomRuleMetadata)(nil)).Elem()
+}
+
+func (o OrganizationConfigRuleOrganizationCustomRuleMetadataPtrOutput) ToOrganizationConfigRuleOrganizationCustomRuleMetadataPtrOutput() OrganizationConfigRuleOrganizationCustomRuleMetadataPtrOutput {
+	return o
+}
+
+func (o OrganizationConfigRuleOrganizationCustomRuleMetadataPtrOutput) ToOrganizationConfigRuleOrganizationCustomRuleMetadataPtrOutputWithContext(ctx context.Context) OrganizationConfigRuleOrganizationCustomRuleMetadataPtrOutput {
+	return o
+}
+
+func (o OrganizationConfigRuleOrganizationCustomRuleMetadataPtrOutput) Elem() OrganizationConfigRuleOrganizationCustomRuleMetadataOutput {
+	return o.ApplyT(func(v *OrganizationConfigRuleOrganizationCustomRuleMetadata) OrganizationConfigRuleOrganizationCustomRuleMetadata {
+		if v != nil {
+			return *v
+		}
+		var ret OrganizationConfigRuleOrganizationCustomRuleMetadata
+		return ret
+	}).(OrganizationConfigRuleOrganizationCustomRuleMetadataOutput)
+}
+
+// The description that you provide for your organization AWS Config rule.
+func (o OrganizationConfigRuleOrganizationCustomRuleMetadataPtrOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OrganizationConfigRuleOrganizationCustomRuleMetadata) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Description
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string, in JSON format, that is passed to your organization AWS Config rule Lambda function.
+func (o OrganizationConfigRuleOrganizationCustomRuleMetadataPtrOutput) InputParameters() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OrganizationConfigRuleOrganizationCustomRuleMetadata) *string {
+		if v == nil {
+			return nil
+		}
+		return v.InputParameters
+	}).(pulumi.StringPtrOutput)
+}
+
+// The lambda function ARN.
+func (o OrganizationConfigRuleOrganizationCustomRuleMetadataPtrOutput) LambdaFunctionArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OrganizationConfigRuleOrganizationCustomRuleMetadata) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.LambdaFunctionArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The maximum frequency with which AWS Config runs evaluations for a rule.Allowed values: One_Hour | Three_Hours | Six_Hours | Twelve_Hours | TwentyFour_Hours.
+func (o OrganizationConfigRuleOrganizationCustomRuleMetadataPtrOutput) MaximumExecutionFrequency() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OrganizationConfigRuleOrganizationCustomRuleMetadata) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MaximumExecutionFrequency
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of notification that triggers AWS Config to run an evaluation for a rule. You can specify the following notification types:
+func (o OrganizationConfigRuleOrganizationCustomRuleMetadataPtrOutput) OrganizationConfigRuleTriggerTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *OrganizationConfigRuleOrganizationCustomRuleMetadata) []string {
+		if v == nil {
+			return nil
+		}
+		return v.OrganizationConfigRuleTriggerTypes
+	}).(pulumi.StringArrayOutput)
+}
+
+// The ID of the AWS resource that was evaluated.
+func (o OrganizationConfigRuleOrganizationCustomRuleMetadataPtrOutput) ResourceIdScope() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OrganizationConfigRuleOrganizationCustomRuleMetadata) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ResourceIdScope
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of the AWS resource that was evaluated.
+func (o OrganizationConfigRuleOrganizationCustomRuleMetadataPtrOutput) ResourceTypesScope() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *OrganizationConfigRuleOrganizationCustomRuleMetadata) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ResourceTypesScope
+	}).(pulumi.StringArrayOutput)
+}
+
+// One part of a key-value pair that make up a tag. A key is a general label that acts like a category for more specific tag values.
+func (o OrganizationConfigRuleOrganizationCustomRuleMetadataPtrOutput) TagKeyScope() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OrganizationConfigRuleOrganizationCustomRuleMetadata) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TagKeyScope
+	}).(pulumi.StringPtrOutput)
+}
+
+// The optional part of a key-value pair that make up a tag. A value acts as a descriptor within a tag category (key).
+func (o OrganizationConfigRuleOrganizationCustomRuleMetadataPtrOutput) TagValueScope() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OrganizationConfigRuleOrganizationCustomRuleMetadata) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TagValueScope
+	}).(pulumi.StringPtrOutput)
+}
+
+type OrganizationConfigRuleOrganizationManagedRuleMetadata struct {
+	// The description that you provide for your organization AWS Config rule.
+	Description *string `pulumi:"description"`
+	// A string, in JSON format, that is passed to your organization AWS Config rule Lambda function.
+	InputParameters *string `pulumi:"inputParameters"`
+	// The maximum frequency with which AWS Config runs evaluations for a rule. Valid Values: One_Hour | Three_Hours | Six_Hours | Twelve_Hours | TwentyFour_Hours.
+	MaximumExecutionFrequency *string `pulumi:"maximumExecutionFrequency"`
+	// The ID of the AWS resource that was evaluated.
+	ResourceIdScope *string `pulumi:"resourceIdScope"`
+	// The type of the AWS resource that was evaluated.
+	ResourceTypesScope []string `pulumi:"resourceTypesScope"`
+	// Required. For organization config managed rules, a predefined identifier from a list. For example, IAM_PASSWORD_POLICY is a managed rule.
+	RuleIdentifier string `pulumi:"ruleIdentifier"`
+	// One part of a key-value pair that make up a tag. A key is a general label that acts like a category for more specific tag values.
+	TagKeyScope *string `pulumi:"tagKeyScope"`
+	// The optional part of a key-value pair that make up a tag. A value acts as a descriptor within a tag category (key).
+	TagValueScope *string `pulumi:"tagValueScope"`
+}
+
+// OrganizationConfigRuleOrganizationManagedRuleMetadataInput is an input type that accepts OrganizationConfigRuleOrganizationManagedRuleMetadataArgs and OrganizationConfigRuleOrganizationManagedRuleMetadataOutput values.
+// You can construct a concrete instance of `OrganizationConfigRuleOrganizationManagedRuleMetadataInput` via:
+//
+//	OrganizationConfigRuleOrganizationManagedRuleMetadataArgs{...}
+type OrganizationConfigRuleOrganizationManagedRuleMetadataInput interface {
+	pulumi.Input
+
+	ToOrganizationConfigRuleOrganizationManagedRuleMetadataOutput() OrganizationConfigRuleOrganizationManagedRuleMetadataOutput
+	ToOrganizationConfigRuleOrganizationManagedRuleMetadataOutputWithContext(context.Context) OrganizationConfigRuleOrganizationManagedRuleMetadataOutput
+}
+
+type OrganizationConfigRuleOrganizationManagedRuleMetadataArgs struct {
+	// The description that you provide for your organization AWS Config rule.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// A string, in JSON format, that is passed to your organization AWS Config rule Lambda function.
+	InputParameters pulumi.StringPtrInput `pulumi:"inputParameters"`
+	// The maximum frequency with which AWS Config runs evaluations for a rule. Valid Values: One_Hour | Three_Hours | Six_Hours | Twelve_Hours | TwentyFour_Hours.
+	MaximumExecutionFrequency pulumi.StringPtrInput `pulumi:"maximumExecutionFrequency"`
+	// The ID of the AWS resource that was evaluated.
+	ResourceIdScope pulumi.StringPtrInput `pulumi:"resourceIdScope"`
+	// The type of the AWS resource that was evaluated.
+	ResourceTypesScope pulumi.StringArrayInput `pulumi:"resourceTypesScope"`
+	// Required. For organization config managed rules, a predefined identifier from a list. For example, IAM_PASSWORD_POLICY is a managed rule.
+	RuleIdentifier pulumi.StringInput `pulumi:"ruleIdentifier"`
+	// One part of a key-value pair that make up a tag. A key is a general label that acts like a category for more specific tag values.
+	TagKeyScope pulumi.StringPtrInput `pulumi:"tagKeyScope"`
+	// The optional part of a key-value pair that make up a tag. A value acts as a descriptor within a tag category (key).
+	TagValueScope pulumi.StringPtrInput `pulumi:"tagValueScope"`
+}
+
+func (OrganizationConfigRuleOrganizationManagedRuleMetadataArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrganizationConfigRuleOrganizationManagedRuleMetadata)(nil)).Elem()
+}
+
+func (i OrganizationConfigRuleOrganizationManagedRuleMetadataArgs) ToOrganizationConfigRuleOrganizationManagedRuleMetadataOutput() OrganizationConfigRuleOrganizationManagedRuleMetadataOutput {
+	return i.ToOrganizationConfigRuleOrganizationManagedRuleMetadataOutputWithContext(context.Background())
+}
+
+func (i OrganizationConfigRuleOrganizationManagedRuleMetadataArgs) ToOrganizationConfigRuleOrganizationManagedRuleMetadataOutputWithContext(ctx context.Context) OrganizationConfigRuleOrganizationManagedRuleMetadataOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrganizationConfigRuleOrganizationManagedRuleMetadataOutput)
+}
+
+func (i OrganizationConfigRuleOrganizationManagedRuleMetadataArgs) ToOrganizationConfigRuleOrganizationManagedRuleMetadataPtrOutput() OrganizationConfigRuleOrganizationManagedRuleMetadataPtrOutput {
+	return i.ToOrganizationConfigRuleOrganizationManagedRuleMetadataPtrOutputWithContext(context.Background())
+}
+
+func (i OrganizationConfigRuleOrganizationManagedRuleMetadataArgs) ToOrganizationConfigRuleOrganizationManagedRuleMetadataPtrOutputWithContext(ctx context.Context) OrganizationConfigRuleOrganizationManagedRuleMetadataPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrganizationConfigRuleOrganizationManagedRuleMetadataOutput).ToOrganizationConfigRuleOrganizationManagedRuleMetadataPtrOutputWithContext(ctx)
+}
+
+// OrganizationConfigRuleOrganizationManagedRuleMetadataPtrInput is an input type that accepts OrganizationConfigRuleOrganizationManagedRuleMetadataArgs, OrganizationConfigRuleOrganizationManagedRuleMetadataPtr and OrganizationConfigRuleOrganizationManagedRuleMetadataPtrOutput values.
+// You can construct a concrete instance of `OrganizationConfigRuleOrganizationManagedRuleMetadataPtrInput` via:
+//
+//	        OrganizationConfigRuleOrganizationManagedRuleMetadataArgs{...}
+//
+//	or:
+//
+//	        nil
+type OrganizationConfigRuleOrganizationManagedRuleMetadataPtrInput interface {
+	pulumi.Input
+
+	ToOrganizationConfigRuleOrganizationManagedRuleMetadataPtrOutput() OrganizationConfigRuleOrganizationManagedRuleMetadataPtrOutput
+	ToOrganizationConfigRuleOrganizationManagedRuleMetadataPtrOutputWithContext(context.Context) OrganizationConfigRuleOrganizationManagedRuleMetadataPtrOutput
+}
+
+type organizationConfigRuleOrganizationManagedRuleMetadataPtrType OrganizationConfigRuleOrganizationManagedRuleMetadataArgs
+
+func OrganizationConfigRuleOrganizationManagedRuleMetadataPtr(v *OrganizationConfigRuleOrganizationManagedRuleMetadataArgs) OrganizationConfigRuleOrganizationManagedRuleMetadataPtrInput {
+	return (*organizationConfigRuleOrganizationManagedRuleMetadataPtrType)(v)
+}
+
+func (*organizationConfigRuleOrganizationManagedRuleMetadataPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OrganizationConfigRuleOrganizationManagedRuleMetadata)(nil)).Elem()
+}
+
+func (i *organizationConfigRuleOrganizationManagedRuleMetadataPtrType) ToOrganizationConfigRuleOrganizationManagedRuleMetadataPtrOutput() OrganizationConfigRuleOrganizationManagedRuleMetadataPtrOutput {
+	return i.ToOrganizationConfigRuleOrganizationManagedRuleMetadataPtrOutputWithContext(context.Background())
+}
+
+func (i *organizationConfigRuleOrganizationManagedRuleMetadataPtrType) ToOrganizationConfigRuleOrganizationManagedRuleMetadataPtrOutputWithContext(ctx context.Context) OrganizationConfigRuleOrganizationManagedRuleMetadataPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrganizationConfigRuleOrganizationManagedRuleMetadataPtrOutput)
+}
+
+type OrganizationConfigRuleOrganizationManagedRuleMetadataOutput struct{ *pulumi.OutputState }
+
+func (OrganizationConfigRuleOrganizationManagedRuleMetadataOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrganizationConfigRuleOrganizationManagedRuleMetadata)(nil)).Elem()
+}
+
+func (o OrganizationConfigRuleOrganizationManagedRuleMetadataOutput) ToOrganizationConfigRuleOrganizationManagedRuleMetadataOutput() OrganizationConfigRuleOrganizationManagedRuleMetadataOutput {
+	return o
+}
+
+func (o OrganizationConfigRuleOrganizationManagedRuleMetadataOutput) ToOrganizationConfigRuleOrganizationManagedRuleMetadataOutputWithContext(ctx context.Context) OrganizationConfigRuleOrganizationManagedRuleMetadataOutput {
+	return o
+}
+
+func (o OrganizationConfigRuleOrganizationManagedRuleMetadataOutput) ToOrganizationConfigRuleOrganizationManagedRuleMetadataPtrOutput() OrganizationConfigRuleOrganizationManagedRuleMetadataPtrOutput {
+	return o.ToOrganizationConfigRuleOrganizationManagedRuleMetadataPtrOutputWithContext(context.Background())
+}
+
+func (o OrganizationConfigRuleOrganizationManagedRuleMetadataOutput) ToOrganizationConfigRuleOrganizationManagedRuleMetadataPtrOutputWithContext(ctx context.Context) OrganizationConfigRuleOrganizationManagedRuleMetadataPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OrganizationConfigRuleOrganizationManagedRuleMetadata) *OrganizationConfigRuleOrganizationManagedRuleMetadata {
+		return &v
+	}).(OrganizationConfigRuleOrganizationManagedRuleMetadataPtrOutput)
+}
+
+// The description that you provide for your organization AWS Config rule.
+func (o OrganizationConfigRuleOrganizationManagedRuleMetadataOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OrganizationConfigRuleOrganizationManagedRuleMetadata) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// A string, in JSON format, that is passed to your organization AWS Config rule Lambda function.
+func (o OrganizationConfigRuleOrganizationManagedRuleMetadataOutput) InputParameters() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OrganizationConfigRuleOrganizationManagedRuleMetadata) *string { return v.InputParameters }).(pulumi.StringPtrOutput)
+}
+
+// The maximum frequency with which AWS Config runs evaluations for a rule. Valid Values: One_Hour | Three_Hours | Six_Hours | Twelve_Hours | TwentyFour_Hours.
+func (o OrganizationConfigRuleOrganizationManagedRuleMetadataOutput) MaximumExecutionFrequency() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OrganizationConfigRuleOrganizationManagedRuleMetadata) *string {
+		return v.MaximumExecutionFrequency
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ID of the AWS resource that was evaluated.
+func (o OrganizationConfigRuleOrganizationManagedRuleMetadataOutput) ResourceIdScope() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OrganizationConfigRuleOrganizationManagedRuleMetadata) *string { return v.ResourceIdScope }).(pulumi.StringPtrOutput)
+}
+
+// The type of the AWS resource that was evaluated.
+func (o OrganizationConfigRuleOrganizationManagedRuleMetadataOutput) ResourceTypesScope() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v OrganizationConfigRuleOrganizationManagedRuleMetadata) []string { return v.ResourceTypesScope }).(pulumi.StringArrayOutput)
+}
+
+// Required. For organization config managed rules, a predefined identifier from a list. For example, IAM_PASSWORD_POLICY is a managed rule.
+func (o OrganizationConfigRuleOrganizationManagedRuleMetadataOutput) RuleIdentifier() pulumi.StringOutput {
+	return o.ApplyT(func(v OrganizationConfigRuleOrganizationManagedRuleMetadata) string { return v.RuleIdentifier }).(pulumi.StringOutput)
+}
+
+// One part of a key-value pair that make up a tag. A key is a general label that acts like a category for more specific tag values.
+func (o OrganizationConfigRuleOrganizationManagedRuleMetadataOutput) TagKeyScope() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OrganizationConfigRuleOrganizationManagedRuleMetadata) *string { return v.TagKeyScope }).(pulumi.StringPtrOutput)
+}
+
+// The optional part of a key-value pair that make up a tag. A value acts as a descriptor within a tag category (key).
+func (o OrganizationConfigRuleOrganizationManagedRuleMetadataOutput) TagValueScope() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OrganizationConfigRuleOrganizationManagedRuleMetadata) *string { return v.TagValueScope }).(pulumi.StringPtrOutput)
+}
+
+type OrganizationConfigRuleOrganizationManagedRuleMetadataPtrOutput struct{ *pulumi.OutputState }
+
+func (OrganizationConfigRuleOrganizationManagedRuleMetadataPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OrganizationConfigRuleOrganizationManagedRuleMetadata)(nil)).Elem()
+}
+
+func (o OrganizationConfigRuleOrganizationManagedRuleMetadataPtrOutput) ToOrganizationConfigRuleOrganizationManagedRuleMetadataPtrOutput() OrganizationConfigRuleOrganizationManagedRuleMetadataPtrOutput {
+	return o
+}
+
+func (o OrganizationConfigRuleOrganizationManagedRuleMetadataPtrOutput) ToOrganizationConfigRuleOrganizationManagedRuleMetadataPtrOutputWithContext(ctx context.Context) OrganizationConfigRuleOrganizationManagedRuleMetadataPtrOutput {
+	return o
+}
+
+func (o OrganizationConfigRuleOrganizationManagedRuleMetadataPtrOutput) Elem() OrganizationConfigRuleOrganizationManagedRuleMetadataOutput {
+	return o.ApplyT(func(v *OrganizationConfigRuleOrganizationManagedRuleMetadata) OrganizationConfigRuleOrganizationManagedRuleMetadata {
+		if v != nil {
+			return *v
+		}
+		var ret OrganizationConfigRuleOrganizationManagedRuleMetadata
+		return ret
+	}).(OrganizationConfigRuleOrganizationManagedRuleMetadataOutput)
+}
+
+// The description that you provide for your organization AWS Config rule.
+func (o OrganizationConfigRuleOrganizationManagedRuleMetadataPtrOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OrganizationConfigRuleOrganizationManagedRuleMetadata) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Description
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string, in JSON format, that is passed to your organization AWS Config rule Lambda function.
+func (o OrganizationConfigRuleOrganizationManagedRuleMetadataPtrOutput) InputParameters() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OrganizationConfigRuleOrganizationManagedRuleMetadata) *string {
+		if v == nil {
+			return nil
+		}
+		return v.InputParameters
+	}).(pulumi.StringPtrOutput)
+}
+
+// The maximum frequency with which AWS Config runs evaluations for a rule. Valid Values: One_Hour | Three_Hours | Six_Hours | Twelve_Hours | TwentyFour_Hours.
+func (o OrganizationConfigRuleOrganizationManagedRuleMetadataPtrOutput) MaximumExecutionFrequency() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OrganizationConfigRuleOrganizationManagedRuleMetadata) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MaximumExecutionFrequency
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ID of the AWS resource that was evaluated.
+func (o OrganizationConfigRuleOrganizationManagedRuleMetadataPtrOutput) ResourceIdScope() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OrganizationConfigRuleOrganizationManagedRuleMetadata) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ResourceIdScope
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of the AWS resource that was evaluated.
+func (o OrganizationConfigRuleOrganizationManagedRuleMetadataPtrOutput) ResourceTypesScope() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *OrganizationConfigRuleOrganizationManagedRuleMetadata) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ResourceTypesScope
+	}).(pulumi.StringArrayOutput)
+}
+
+// Required. For organization config managed rules, a predefined identifier from a list. For example, IAM_PASSWORD_POLICY is a managed rule.
+func (o OrganizationConfigRuleOrganizationManagedRuleMetadataPtrOutput) RuleIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OrganizationConfigRuleOrganizationManagedRuleMetadata) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RuleIdentifier
+	}).(pulumi.StringPtrOutput)
+}
+
+// One part of a key-value pair that make up a tag. A key is a general label that acts like a category for more specific tag values.
+func (o OrganizationConfigRuleOrganizationManagedRuleMetadataPtrOutput) TagKeyScope() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OrganizationConfigRuleOrganizationManagedRuleMetadata) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TagKeyScope
+	}).(pulumi.StringPtrOutput)
+}
+
+// The optional part of a key-value pair that make up a tag. A value acts as a descriptor within a tag category (key).
+func (o OrganizationConfigRuleOrganizationManagedRuleMetadataPtrOutput) TagValueScope() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OrganizationConfigRuleOrganizationManagedRuleMetadata) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TagValueScope
+	}).(pulumi.StringPtrOutput)
+}
+
 // Input parameters in the form of key-value pairs for the conformance pack.
 type OrganizationConformancePackConformancePackInputParameter struct {
 	// One part of a key-value pair.
@@ -3246,6 +4125,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorConfigurationInput)(nil)).Elem(), ConnectorConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryChannelConfigSnapshotDeliveryPropertiesInput)(nil)).Elem(), DeliveryChannelConfigSnapshotDeliveryPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryChannelConfigSnapshotDeliveryPropertiesPtrInput)(nil)).Elem(), DeliveryChannelConfigSnapshotDeliveryPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataInput)(nil)).Elem(), OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataPtrInput)(nil)).Elem(), OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationConfigRuleOrganizationCustomRuleMetadataInput)(nil)).Elem(), OrganizationConfigRuleOrganizationCustomRuleMetadataArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationConfigRuleOrganizationCustomRuleMetadataPtrInput)(nil)).Elem(), OrganizationConfigRuleOrganizationCustomRuleMetadataArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationConfigRuleOrganizationManagedRuleMetadataInput)(nil)).Elem(), OrganizationConfigRuleOrganizationManagedRuleMetadataArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationConfigRuleOrganizationManagedRuleMetadataPtrInput)(nil)).Elem(), OrganizationConfigRuleOrganizationManagedRuleMetadataArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationConformancePackConformancePackInputParameterInput)(nil)).Elem(), OrganizationConformancePackConformancePackInputParameterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationConformancePackConformancePackInputParameterArrayInput)(nil)).Elem(), OrganizationConformancePackConformancePackInputParameterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RemediationConfigurationExecutionControlsInput)(nil)).Elem(), RemediationConfigurationExecutionControlsArgs{})
@@ -3287,6 +4172,12 @@ func init() {
 	pulumi.RegisterOutputType(ConnectorConfigurationOutput{})
 	pulumi.RegisterOutputType(DeliveryChannelConfigSnapshotDeliveryPropertiesOutput{})
 	pulumi.RegisterOutputType(DeliveryChannelConfigSnapshotDeliveryPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataOutput{})
+	pulumi.RegisterOutputType(OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataPtrOutput{})
+	pulumi.RegisterOutputType(OrganizationConfigRuleOrganizationCustomRuleMetadataOutput{})
+	pulumi.RegisterOutputType(OrganizationConfigRuleOrganizationCustomRuleMetadataPtrOutput{})
+	pulumi.RegisterOutputType(OrganizationConfigRuleOrganizationManagedRuleMetadataOutput{})
+	pulumi.RegisterOutputType(OrganizationConfigRuleOrganizationManagedRuleMetadataPtrOutput{})
 	pulumi.RegisterOutputType(OrganizationConformancePackConformancePackInputParameterOutput{})
 	pulumi.RegisterOutputType(OrganizationConformancePackConformancePackInputParameterArrayOutput{})
 	pulumi.RegisterOutputType(RemediationConfigurationExecutionControlsOutput{})

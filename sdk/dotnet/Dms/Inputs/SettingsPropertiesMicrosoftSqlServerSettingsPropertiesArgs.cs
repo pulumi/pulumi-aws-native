@@ -24,6 +24,18 @@ namespace Pulumi.AwsNative.Dms.Inputs
         [Input("port", required: true)]
         public Input<int> Port { get; set; } = null!;
 
+        /// <summary>
+        /// The ARN for the role the application uses to access its Amazon S3 bucket.
+        /// </summary>
+        [Input("s3AccessRoleArn")]
+        public Input<string>? S3AccessRoleArn { get; set; }
+
+        /// <summary>
+        /// The path for the Amazon S3 bucket that the application uses for accessing the user-defined schema.
+        /// </summary>
+        [Input("s3Path")]
+        public Input<string>? S3Path { get; set; }
+
         [Input("serverName", required: true)]
         public Input<string> ServerName { get; set; } = null!;
 

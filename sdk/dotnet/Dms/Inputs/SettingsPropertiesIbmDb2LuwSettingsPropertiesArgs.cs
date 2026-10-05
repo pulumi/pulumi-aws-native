@@ -21,8 +21,14 @@ namespace Pulumi.AwsNative.Dms.Inputs
         [Input("databaseName", required: true)]
         public Input<string> DatabaseName { get; set; } = null!;
 
+        [Input("encryptionAlgorithm")]
+        public Input<int>? EncryptionAlgorithm { get; set; }
+
         [Input("port", required: true)]
         public Input<int> Port { get; set; } = null!;
+
+        [Input("securityMechanism")]
+        public Input<int>? SecurityMechanism { get; set; }
 
         [Input("serverName", required: true)]
         public Input<string> ServerName { get; set; } = null!;

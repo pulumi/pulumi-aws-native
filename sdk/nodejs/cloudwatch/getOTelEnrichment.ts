@@ -29,6 +29,14 @@ export interface GetOTelEnrichmentResult {
      * The AWS account ID. This is the primary identifier for this singleton resource.
      */
     readonly accountId?: string;
+    /**
+     * Removes metrics from the include set. Absent or empty means nothing is removed. Evaluated after IncludeFilters, so ExcludeFilters always wins.
+     */
+    readonly excludeFilters?: outputs.cloudwatch.OTelEnrichmentMetricSelector[];
+    /**
+     * Scopes enrichment to a subset of the account's telemetry. Absent or empty means all namespaces are in scope. Present means only these are. The service enforces a combined cap of 100 selectors across IncludeFilters and ExcludeFilters, and rejects more than one selector for the same namespace within a direction.
+     */
+    readonly includeFilters?: outputs.cloudwatch.OTelEnrichmentMetricSelector[];
     readonly status?: enums.cloudwatch.OTelEnrichmentStatus;
 }
 /**

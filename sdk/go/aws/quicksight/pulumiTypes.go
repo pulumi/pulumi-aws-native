@@ -82388,8 +82388,8 @@ func (o AnalysisSheetLayoutGroupArrayOutput) Index(i pulumi.IntInput) AnalysisSh
 }
 
 type AnalysisSheetLayoutGroupMember struct {
-	Id   string      `pulumi:"id"`
-	Type interface{} `pulumi:"type"`
+	Id   string                             `pulumi:"id"`
+	Type AnalysisSheetLayoutGroupMemberType `pulumi:"type"`
 }
 
 // AnalysisSheetLayoutGroupMemberInput is an input type that accepts AnalysisSheetLayoutGroupMemberArgs and AnalysisSheetLayoutGroupMemberOutput values.
@@ -82404,8 +82404,8 @@ type AnalysisSheetLayoutGroupMemberInput interface {
 }
 
 type AnalysisSheetLayoutGroupMemberArgs struct {
-	Id   pulumi.StringInput `pulumi:"id"`
-	Type pulumi.Input       `pulumi:"type"`
+	Id   pulumi.StringInput                      `pulumi:"id"`
+	Type AnalysisSheetLayoutGroupMemberTypeInput `pulumi:"type"`
 }
 
 func (AnalysisSheetLayoutGroupMemberArgs) ElementType() reflect.Type {
@@ -82463,8 +82463,8 @@ func (o AnalysisSheetLayoutGroupMemberOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v AnalysisSheetLayoutGroupMember) string { return v.Id }).(pulumi.StringOutput)
 }
 
-func (o AnalysisSheetLayoutGroupMemberOutput) Type() pulumi.AnyOutput {
-	return o.ApplyT(func(v AnalysisSheetLayoutGroupMember) interface{} { return v.Type }).(pulumi.AnyOutput)
+func (o AnalysisSheetLayoutGroupMemberOutput) Type() AnalysisSheetLayoutGroupMemberTypeOutput {
+	return o.ApplyT(func(v AnalysisSheetLayoutGroupMember) AnalysisSheetLayoutGroupMemberType { return v.Type }).(AnalysisSheetLayoutGroupMemberTypeOutput)
 }
 
 type AnalysisSheetLayoutGroupMemberArrayOutput struct{ *pulumi.OutputState }

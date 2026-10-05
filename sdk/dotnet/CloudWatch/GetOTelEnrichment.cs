@@ -67,15 +67,29 @@ namespace Pulumi.AwsNative.CloudWatch
         /// The AWS account ID. This is the primary identifier for this singleton resource.
         /// </summary>
         public readonly string? AccountId;
+        /// <summary>
+        /// Removes metrics from the include set. Absent or empty means nothing is removed. Evaluated after IncludeFilters, so ExcludeFilters always wins.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.OTelEnrichmentMetricSelector> ExcludeFilters;
+        /// <summary>
+        /// Scopes enrichment to a subset of the account's telemetry. Absent or empty means all namespaces are in scope. Present means only these are. The service enforces a combined cap of 100 selectors across IncludeFilters and ExcludeFilters, and rejects more than one selector for the same namespace within a direction.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.OTelEnrichmentMetricSelector> IncludeFilters;
         public readonly Pulumi.AwsNative.CloudWatch.OTelEnrichmentStatus? Status;
 
         [OutputConstructor]
         private GetOTelEnrichmentResult(
             string? accountId,
 
+            ImmutableArray<Outputs.OTelEnrichmentMetricSelector> excludeFilters,
+
+            ImmutableArray<Outputs.OTelEnrichmentMetricSelector> includeFilters,
+
             Pulumi.AwsNative.CloudWatch.OTelEnrichmentStatus? status)
         {
             AccountId = accountId;
+            ExcludeFilters = excludeFilters;
+            IncludeFilters = includeFilters;
             Status = status;
         }
     }

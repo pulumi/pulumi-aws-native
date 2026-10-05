@@ -5,6 +5,16 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { DatasetIntegrationArgs } from "./datasetIntegration";
+export type DatasetIntegration = import("./datasetIntegration").DatasetIntegration;
+export const DatasetIntegration: typeof import("./datasetIntegration").DatasetIntegration = null as any;
+utilities.lazyLoad(exports, ["DatasetIntegration"], () => require("./datasetIntegration"));
+
+export { GetDatasetIntegrationArgs, GetDatasetIntegrationResult, GetDatasetIntegrationOutputArgs } from "./getDatasetIntegration";
+export const getDatasetIntegration: typeof import("./getDatasetIntegration").getDatasetIntegration = null as any;
+export const getDatasetIntegrationOutput: typeof import("./getDatasetIntegration").getDatasetIntegrationOutput = null as any;
+utilities.lazyLoad(exports, ["getDatasetIntegration","getDatasetIntegrationOutput"], () => require("./getDatasetIntegration"));
+
 export { GetOrganizationCentralizationRuleArgs, GetOrganizationCentralizationRuleResult, GetOrganizationCentralizationRuleOutputArgs } from "./getOrganizationCentralizationRule";
 export const getOrganizationCentralizationRule: typeof import("./getOrganizationCentralizationRule").getOrganizationCentralizationRule = null as any;
 export const getOrganizationCentralizationRuleOutput: typeof import("./getOrganizationCentralizationRule").getOrganizationCentralizationRuleOutput = null as any;
@@ -73,6 +83,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws-native:observabilityadmin:DatasetIntegration":
+                return new DatasetIntegration(name, <any>undefined, { urn })
             case "aws-native:observabilityadmin:OrganizationCentralizationRule":
                 return new OrganizationCentralizationRule(name, <any>undefined, { urn })
             case "aws-native:observabilityadmin:OrganizationTelemetryRule":

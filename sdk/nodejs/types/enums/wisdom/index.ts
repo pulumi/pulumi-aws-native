@@ -193,6 +193,30 @@ export const AssistantType = {
 
 export type AssistantType = (typeof AssistantType)[keyof typeof AssistantType];
 
+export const ContentAssociationAssociationType = {
+    AmazonConnectGuide: "AMAZON_CONNECT_GUIDE",
+} as const;
+
+/**
+ * The type of association.
+ */
+export type ContentAssociationAssociationType = (typeof ContentAssociationAssociationType)[keyof typeof ContentAssociationAssociationType];
+
+export const ContentStatus = {
+    CreateInProgress: "CREATE_IN_PROGRESS",
+    CreateFailed: "CREATE_FAILED",
+    Active: "ACTIVE",
+    DeleteInProgress: "DELETE_IN_PROGRESS",
+    DeleteFailed: "DELETE_FAILED",
+    Deleted: "DELETED",
+    UpdateFailed: "UPDATE_FAILED",
+} as const;
+
+/**
+ * The status of the content.
+ */
+export type ContentStatus = (typeof ContentStatus)[keyof typeof ContentStatus];
+
 export const KnowledgeBaseType = {
     External: "EXTERNAL",
     Custom: "CUSTOM",

@@ -39,6 +39,8 @@ export class NetworkConnector extends pulumi.CustomResource {
 
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     declare public readonly configuration: pulumi.Output<outputs.lambda.NetworkConnectorConfig>;
+    declare public /*out*/ readonly latestVersion: pulumi.Output<number>;
+    declare public /*out*/ readonly latestVersionArn: pulumi.Output<string>;
     declare public readonly name: pulumi.Output<string | undefined>;
     declare public readonly operatorRole: pulumi.Output<string | undefined>;
     declare public /*out*/ readonly state: pulumi.Output<enums.lambda.NetworkConnectorState>;
@@ -66,10 +68,14 @@ export class NetworkConnector extends pulumi.CustomResource {
             resourceInputs["operatorRole"] = args?.operatorRole;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["latestVersion"] = undefined /*out*/;
+            resourceInputs["latestVersionArn"] = undefined /*out*/;
             resourceInputs["state"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["configuration"] = undefined /*out*/;
+            resourceInputs["latestVersion"] = undefined /*out*/;
+            resourceInputs["latestVersionArn"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["operatorRole"] = undefined /*out*/;
             resourceInputs["state"] = undefined /*out*/;

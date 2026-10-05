@@ -27,6 +27,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &DocumentClassifierEndpoint{}
 	case "aws-native:comprehend:EntityRecognizer":
 		r = &EntityRecognizer{}
+	case "aws-native:comprehend:EntityRecognizerEndpoint":
+		r = &EntityRecognizerEndpoint{}
 	case "aws-native:comprehend:Flywheel":
 		r = &Flywheel{}
 	default:

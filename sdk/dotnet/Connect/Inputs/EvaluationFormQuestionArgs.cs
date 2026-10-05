@@ -28,6 +28,9 @@ namespace Pulumi.AwsNative.Connect.Inputs
         [Input("instructions")]
         public Input<string>? Instructions { get; set; }
 
+        /// <summary>
+        /// The metric configuration for the question. Use this to associate a business outcome metric with the question.
+        /// </summary>
         [Input("metricConfiguration")]
         public Input<Inputs.EvaluationFormMetricConfigurationArgs>? MetricConfiguration { get; set; }
 

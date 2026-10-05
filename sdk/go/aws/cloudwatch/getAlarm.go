@@ -95,7 +95,9 @@ type LookupAlarmResult struct {
 	TreatMissingData *string `pulumi:"treatMissingData"`
 	// The unit of the metric associated with the alarm. Specify this only if you are creating an alarm based on a single metric. Do not specify this if you are specifying a ``Metrics`` array.
 	//   You can specify the following values: Seconds, Microseconds, Milliseconds, Bytes, Kilobytes, Megabytes, Gigabytes, Terabytes, Bits, Kilobits, Megabits, Gigabits, Terabits, Percent, Count, Bytes/Second, Kilobytes/Second, Megabytes/Second, Gigabytes/Second, Terabytes/Second, Bits/Second, Kilobits/Second, Megabits/Second, Gigabits/Second, Terabits/Second, Count/Second, or None.
-	Unit                *string                   `pulumi:"unit"`
+	Unit *string `pulumi:"unit"`
+	// The warm-up configuration for the alarm. A warm-up period delays alarm evaluation after you create or update the alarm. During the warm-up period, the alarm stays in ``INSUFFICIENT_DATA`` and does not perform alarm actions.
+	//  For more information, see [Alarm warm-up periods](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/alarm-warm-up.html) in the *Amazon CloudWatch User Guide*.
 	WarmUpConfiguration *AlarmWarmUpConfiguration `pulumi:"warmUpConfiguration"`
 }
 
@@ -276,6 +278,9 @@ func (o LookupAlarmResultOutput) Unit() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAlarmResult) *string { return v.Unit }).(pulumi.StringPtrOutput)
 }
 
+// The warm-up configuration for the alarm. A warm-up period delays alarm evaluation after you create or update the alarm. During the warm-up period, the alarm stays in “INSUFFICIENT_DATA“ and does not perform alarm actions.
+//
+//	For more information, see [Alarm warm-up periods](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/alarm-warm-up.html) in the *Amazon CloudWatch User Guide*.
 func (o LookupAlarmResultOutput) WarmUpConfiguration() AlarmWarmUpConfigurationPtrOutput {
 	return o.ApplyT(func(v LookupAlarmResult) *AlarmWarmUpConfiguration { return v.WarmUpConfiguration }).(AlarmWarmUpConfigurationPtrOutput)
 }

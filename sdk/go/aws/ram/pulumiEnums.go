@@ -10,6 +10,389 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// The current status of the association between the permission and the resource share.
+type PermissionAssociationAssociationStatus string
+
+const (
+	PermissionAssociationAssociationStatusAssociating    = PermissionAssociationAssociationStatus("ASSOCIATING")
+	PermissionAssociationAssociationStatusAssociated     = PermissionAssociationAssociationStatus("ASSOCIATED")
+	PermissionAssociationAssociationStatusFailed         = PermissionAssociationAssociationStatus("FAILED")
+	PermissionAssociationAssociationStatusDisassociating = PermissionAssociationAssociationStatus("DISASSOCIATING")
+	PermissionAssociationAssociationStatusSuspended      = PermissionAssociationAssociationStatus("SUSPENDED")
+	PermissionAssociationAssociationStatusSuspending     = PermissionAssociationAssociationStatus("SUSPENDING")
+	PermissionAssociationAssociationStatusRestoring      = PermissionAssociationAssociationStatus("RESTORING")
+	PermissionAssociationAssociationStatusDisassociated  = PermissionAssociationAssociationStatus("DISASSOCIATED")
+)
+
+type PermissionAssociationAssociationStatusOutput struct{ *pulumi.OutputState }
+
+func (PermissionAssociationAssociationStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PermissionAssociationAssociationStatus)(nil)).Elem()
+}
+
+func (o PermissionAssociationAssociationStatusOutput) ToPermissionAssociationAssociationStatusOutput() PermissionAssociationAssociationStatusOutput {
+	return o
+}
+
+func (o PermissionAssociationAssociationStatusOutput) ToPermissionAssociationAssociationStatusOutputWithContext(ctx context.Context) PermissionAssociationAssociationStatusOutput {
+	return o
+}
+
+func (o PermissionAssociationAssociationStatusOutput) ToPermissionAssociationAssociationStatusPtrOutput() PermissionAssociationAssociationStatusPtrOutput {
+	return o.ToPermissionAssociationAssociationStatusPtrOutputWithContext(context.Background())
+}
+
+func (o PermissionAssociationAssociationStatusOutput) ToPermissionAssociationAssociationStatusPtrOutputWithContext(ctx context.Context) PermissionAssociationAssociationStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PermissionAssociationAssociationStatus) *PermissionAssociationAssociationStatus {
+		return &v
+	}).(PermissionAssociationAssociationStatusPtrOutput)
+}
+
+func (o PermissionAssociationAssociationStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o PermissionAssociationAssociationStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PermissionAssociationAssociationStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o PermissionAssociationAssociationStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PermissionAssociationAssociationStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PermissionAssociationAssociationStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type PermissionAssociationAssociationStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (PermissionAssociationAssociationStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PermissionAssociationAssociationStatus)(nil)).Elem()
+}
+
+func (o PermissionAssociationAssociationStatusPtrOutput) ToPermissionAssociationAssociationStatusPtrOutput() PermissionAssociationAssociationStatusPtrOutput {
+	return o
+}
+
+func (o PermissionAssociationAssociationStatusPtrOutput) ToPermissionAssociationAssociationStatusPtrOutputWithContext(ctx context.Context) PermissionAssociationAssociationStatusPtrOutput {
+	return o
+}
+
+func (o PermissionAssociationAssociationStatusPtrOutput) Elem() PermissionAssociationAssociationStatusOutput {
+	return o.ApplyT(func(v *PermissionAssociationAssociationStatus) PermissionAssociationAssociationStatus {
+		if v != nil {
+			return *v
+		}
+		var ret PermissionAssociationAssociationStatus
+		return ret
+	}).(PermissionAssociationAssociationStatusOutput)
+}
+
+func (o PermissionAssociationAssociationStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PermissionAssociationAssociationStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *PermissionAssociationAssociationStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// The feature set of the resource share.
+type PermissionAssociationFeatureSet string
+
+const (
+	PermissionAssociationFeatureSetStandard            = PermissionAssociationFeatureSet("STANDARD")
+	PermissionAssociationFeatureSetCreatedFromPolicy   = PermissionAssociationFeatureSet("CREATED_FROM_POLICY")
+	PermissionAssociationFeatureSetPromotingToStandard = PermissionAssociationFeatureSet("PROMOTING_TO_STANDARD")
+)
+
+type PermissionAssociationFeatureSetOutput struct{ *pulumi.OutputState }
+
+func (PermissionAssociationFeatureSetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PermissionAssociationFeatureSet)(nil)).Elem()
+}
+
+func (o PermissionAssociationFeatureSetOutput) ToPermissionAssociationFeatureSetOutput() PermissionAssociationFeatureSetOutput {
+	return o
+}
+
+func (o PermissionAssociationFeatureSetOutput) ToPermissionAssociationFeatureSetOutputWithContext(ctx context.Context) PermissionAssociationFeatureSetOutput {
+	return o
+}
+
+func (o PermissionAssociationFeatureSetOutput) ToPermissionAssociationFeatureSetPtrOutput() PermissionAssociationFeatureSetPtrOutput {
+	return o.ToPermissionAssociationFeatureSetPtrOutputWithContext(context.Background())
+}
+
+func (o PermissionAssociationFeatureSetOutput) ToPermissionAssociationFeatureSetPtrOutputWithContext(ctx context.Context) PermissionAssociationFeatureSetPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PermissionAssociationFeatureSet) *PermissionAssociationFeatureSet {
+		return &v
+	}).(PermissionAssociationFeatureSetPtrOutput)
+}
+
+func (o PermissionAssociationFeatureSetOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o PermissionAssociationFeatureSetOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PermissionAssociationFeatureSet) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o PermissionAssociationFeatureSetOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PermissionAssociationFeatureSetOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PermissionAssociationFeatureSet) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type PermissionAssociationFeatureSetPtrOutput struct{ *pulumi.OutputState }
+
+func (PermissionAssociationFeatureSetPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PermissionAssociationFeatureSet)(nil)).Elem()
+}
+
+func (o PermissionAssociationFeatureSetPtrOutput) ToPermissionAssociationFeatureSetPtrOutput() PermissionAssociationFeatureSetPtrOutput {
+	return o
+}
+
+func (o PermissionAssociationFeatureSetPtrOutput) ToPermissionAssociationFeatureSetPtrOutputWithContext(ctx context.Context) PermissionAssociationFeatureSetPtrOutput {
+	return o
+}
+
+func (o PermissionAssociationFeatureSetPtrOutput) Elem() PermissionAssociationFeatureSetOutput {
+	return o.ApplyT(func(v *PermissionAssociationFeatureSet) PermissionAssociationFeatureSet {
+		if v != nil {
+			return *v
+		}
+		var ret PermissionAssociationFeatureSet
+		return ret
+	}).(PermissionAssociationFeatureSetOutput)
+}
+
+func (o PermissionAssociationFeatureSetPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PermissionAssociationFeatureSetPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *PermissionAssociationFeatureSet) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// The current status of the association.
+type PrincipalAssociationStatus string
+
+const (
+	PrincipalAssociationStatusAssociating    = PrincipalAssociationStatus("ASSOCIATING")
+	PrincipalAssociationStatusAssociated     = PrincipalAssociationStatus("ASSOCIATED")
+	PrincipalAssociationStatusFailed         = PrincipalAssociationStatus("FAILED")
+	PrincipalAssociationStatusDisassociating = PrincipalAssociationStatus("DISASSOCIATING")
+	PrincipalAssociationStatusDisassociated  = PrincipalAssociationStatus("DISASSOCIATED")
+	PrincipalAssociationStatusSuspended      = PrincipalAssociationStatus("SUSPENDED")
+	PrincipalAssociationStatusSuspending     = PrincipalAssociationStatus("SUSPENDING")
+	PrincipalAssociationStatusRestoring      = PrincipalAssociationStatus("RESTORING")
+)
+
+type PrincipalAssociationStatusOutput struct{ *pulumi.OutputState }
+
+func (PrincipalAssociationStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrincipalAssociationStatus)(nil)).Elem()
+}
+
+func (o PrincipalAssociationStatusOutput) ToPrincipalAssociationStatusOutput() PrincipalAssociationStatusOutput {
+	return o
+}
+
+func (o PrincipalAssociationStatusOutput) ToPrincipalAssociationStatusOutputWithContext(ctx context.Context) PrincipalAssociationStatusOutput {
+	return o
+}
+
+func (o PrincipalAssociationStatusOutput) ToPrincipalAssociationStatusPtrOutput() PrincipalAssociationStatusPtrOutput {
+	return o.ToPrincipalAssociationStatusPtrOutputWithContext(context.Background())
+}
+
+func (o PrincipalAssociationStatusOutput) ToPrincipalAssociationStatusPtrOutputWithContext(ctx context.Context) PrincipalAssociationStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrincipalAssociationStatus) *PrincipalAssociationStatus {
+		return &v
+	}).(PrincipalAssociationStatusPtrOutput)
+}
+
+func (o PrincipalAssociationStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o PrincipalAssociationStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PrincipalAssociationStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o PrincipalAssociationStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PrincipalAssociationStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PrincipalAssociationStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type PrincipalAssociationStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (PrincipalAssociationStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PrincipalAssociationStatus)(nil)).Elem()
+}
+
+func (o PrincipalAssociationStatusPtrOutput) ToPrincipalAssociationStatusPtrOutput() PrincipalAssociationStatusPtrOutput {
+	return o
+}
+
+func (o PrincipalAssociationStatusPtrOutput) ToPrincipalAssociationStatusPtrOutputWithContext(ctx context.Context) PrincipalAssociationStatusPtrOutput {
+	return o
+}
+
+func (o PrincipalAssociationStatusPtrOutput) Elem() PrincipalAssociationStatusOutput {
+	return o.ApplyT(func(v *PrincipalAssociationStatus) PrincipalAssociationStatus {
+		if v != nil {
+			return *v
+		}
+		var ret PrincipalAssociationStatus
+		return ret
+	}).(PrincipalAssociationStatusOutput)
+}
+
+func (o PrincipalAssociationStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PrincipalAssociationStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *PrincipalAssociationStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// The current status of the association.
+type ResourceAssociationStatus string
+
+const (
+	ResourceAssociationStatusAssociating    = ResourceAssociationStatus("ASSOCIATING")
+	ResourceAssociationStatusAssociated     = ResourceAssociationStatus("ASSOCIATED")
+	ResourceAssociationStatusFailed         = ResourceAssociationStatus("FAILED")
+	ResourceAssociationStatusDisassociating = ResourceAssociationStatus("DISASSOCIATING")
+	ResourceAssociationStatusDisassociated  = ResourceAssociationStatus("DISASSOCIATED")
+	ResourceAssociationStatusSuspended      = ResourceAssociationStatus("SUSPENDED")
+	ResourceAssociationStatusSuspending     = ResourceAssociationStatus("SUSPENDING")
+	ResourceAssociationStatusRestoring      = ResourceAssociationStatus("RESTORING")
+)
+
+type ResourceAssociationStatusOutput struct{ *pulumi.OutputState }
+
+func (ResourceAssociationStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceAssociationStatus)(nil)).Elem()
+}
+
+func (o ResourceAssociationStatusOutput) ToResourceAssociationStatusOutput() ResourceAssociationStatusOutput {
+	return o
+}
+
+func (o ResourceAssociationStatusOutput) ToResourceAssociationStatusOutputWithContext(ctx context.Context) ResourceAssociationStatusOutput {
+	return o
+}
+
+func (o ResourceAssociationStatusOutput) ToResourceAssociationStatusPtrOutput() ResourceAssociationStatusPtrOutput {
+	return o.ToResourceAssociationStatusPtrOutputWithContext(context.Background())
+}
+
+func (o ResourceAssociationStatusOutput) ToResourceAssociationStatusPtrOutputWithContext(ctx context.Context) ResourceAssociationStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceAssociationStatus) *ResourceAssociationStatus {
+		return &v
+	}).(ResourceAssociationStatusPtrOutput)
+}
+
+func (o ResourceAssociationStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ResourceAssociationStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ResourceAssociationStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ResourceAssociationStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ResourceAssociationStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ResourceAssociationStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ResourceAssociationStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (ResourceAssociationStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourceAssociationStatus)(nil)).Elem()
+}
+
+func (o ResourceAssociationStatusPtrOutput) ToResourceAssociationStatusPtrOutput() ResourceAssociationStatusPtrOutput {
+	return o
+}
+
+func (o ResourceAssociationStatusPtrOutput) ToResourceAssociationStatusPtrOutputWithContext(ctx context.Context) ResourceAssociationStatusPtrOutput {
+	return o
+}
+
+func (o ResourceAssociationStatusPtrOutput) Elem() ResourceAssociationStatusOutput {
+	return o.ApplyT(func(v *ResourceAssociationStatus) ResourceAssociationStatus {
+		if v != nil {
+			return *v
+		}
+		var ret ResourceAssociationStatus
+		return ret
+	}).(ResourceAssociationStatusOutput)
+}
+
+func (o ResourceAssociationStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ResourceAssociationStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ResourceAssociationStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
 // The feature set of the resource share.
 type ResourceShareFeatureSet string
 
@@ -196,9 +579,116 @@ func (o ResourceShareStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.C
 	}).(pulumi.StringPtrOutput)
 }
 
+// The current status of the association.
+type SourceAssociationStatus string
+
+const (
+	SourceAssociationStatusAssociating    = SourceAssociationStatus("ASSOCIATING")
+	SourceAssociationStatusAssociated     = SourceAssociationStatus("ASSOCIATED")
+	SourceAssociationStatusFailed         = SourceAssociationStatus("FAILED")
+	SourceAssociationStatusDisassociating = SourceAssociationStatus("DISASSOCIATING")
+	SourceAssociationStatusDisassociated  = SourceAssociationStatus("DISASSOCIATED")
+	SourceAssociationStatusSuspended      = SourceAssociationStatus("SUSPENDED")
+	SourceAssociationStatusSuspending     = SourceAssociationStatus("SUSPENDING")
+	SourceAssociationStatusRestoring      = SourceAssociationStatus("RESTORING")
+)
+
+type SourceAssociationStatusOutput struct{ *pulumi.OutputState }
+
+func (SourceAssociationStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SourceAssociationStatus)(nil)).Elem()
+}
+
+func (o SourceAssociationStatusOutput) ToSourceAssociationStatusOutput() SourceAssociationStatusOutput {
+	return o
+}
+
+func (o SourceAssociationStatusOutput) ToSourceAssociationStatusOutputWithContext(ctx context.Context) SourceAssociationStatusOutput {
+	return o
+}
+
+func (o SourceAssociationStatusOutput) ToSourceAssociationStatusPtrOutput() SourceAssociationStatusPtrOutput {
+	return o.ToSourceAssociationStatusPtrOutputWithContext(context.Background())
+}
+
+func (o SourceAssociationStatusOutput) ToSourceAssociationStatusPtrOutputWithContext(ctx context.Context) SourceAssociationStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SourceAssociationStatus) *SourceAssociationStatus {
+		return &v
+	}).(SourceAssociationStatusPtrOutput)
+}
+
+func (o SourceAssociationStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o SourceAssociationStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SourceAssociationStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o SourceAssociationStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SourceAssociationStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SourceAssociationStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type SourceAssociationStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (SourceAssociationStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SourceAssociationStatus)(nil)).Elem()
+}
+
+func (o SourceAssociationStatusPtrOutput) ToSourceAssociationStatusPtrOutput() SourceAssociationStatusPtrOutput {
+	return o
+}
+
+func (o SourceAssociationStatusPtrOutput) ToSourceAssociationStatusPtrOutputWithContext(ctx context.Context) SourceAssociationStatusPtrOutput {
+	return o
+}
+
+func (o SourceAssociationStatusPtrOutput) Elem() SourceAssociationStatusOutput {
+	return o.ApplyT(func(v *SourceAssociationStatus) SourceAssociationStatus {
+		if v != nil {
+			return *v
+		}
+		var ret SourceAssociationStatus
+		return ret
+	}).(SourceAssociationStatusOutput)
+}
+
+func (o SourceAssociationStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SourceAssociationStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *SourceAssociationStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
 func init() {
+	pulumi.RegisterOutputType(PermissionAssociationAssociationStatusOutput{})
+	pulumi.RegisterOutputType(PermissionAssociationAssociationStatusPtrOutput{})
+	pulumi.RegisterOutputType(PermissionAssociationFeatureSetOutput{})
+	pulumi.RegisterOutputType(PermissionAssociationFeatureSetPtrOutput{})
+	pulumi.RegisterOutputType(PrincipalAssociationStatusOutput{})
+	pulumi.RegisterOutputType(PrincipalAssociationStatusPtrOutput{})
+	pulumi.RegisterOutputType(ResourceAssociationStatusOutput{})
+	pulumi.RegisterOutputType(ResourceAssociationStatusPtrOutput{})
 	pulumi.RegisterOutputType(ResourceShareFeatureSetOutput{})
 	pulumi.RegisterOutputType(ResourceShareFeatureSetPtrOutput{})
 	pulumi.RegisterOutputType(ResourceShareStatusOutput{})
 	pulumi.RegisterOutputType(ResourceShareStatusPtrOutput{})
+	pulumi.RegisterOutputType(SourceAssociationStatusOutput{})
+	pulumi.RegisterOutputType(SourceAssociationStatusPtrOutput{})
 }

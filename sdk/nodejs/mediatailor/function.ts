@@ -41,6 +41,7 @@ export class Function extends pulumi.CustomResource {
      * The ARN of the function.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
+    declare public readonly awsServiceRequestConfiguration: pulumi.Output<outputs.mediatailor.FunctionAwsServiceRequestConfiguration | undefined>;
     /**
      * The configuration for a CONCURRENT_EXECUTOR function. Required when FunctionType is CONCURRENT_EXECUTOR.
      */
@@ -64,6 +65,7 @@ export class Function extends pulumi.CustomResource {
      * The tags to assign to the function resource.
      */
     declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly vastRequestConfiguration: pulumi.Output<outputs.mediatailor.FunctionVastRequestConfiguration | undefined>;
 
     /**
      * Create a Function resource with the given unique name, arguments, and options.
@@ -82,6 +84,7 @@ export class Function extends pulumi.CustomResource {
             if (args?.functionType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'functionType'");
             }
+            resourceInputs["awsServiceRequestConfiguration"] = args?.awsServiceRequestConfiguration;
             resourceInputs["concurrentExecutorConfiguration"] = args?.concurrentExecutorConfiguration;
             resourceInputs["customOutputConfiguration"] = args?.customOutputConfiguration;
             resourceInputs["description"] = args?.description;
@@ -90,9 +93,11 @@ export class Function extends pulumi.CustomResource {
             resourceInputs["httpRequestConfiguration"] = args?.httpRequestConfiguration;
             resourceInputs["sequentialExecutorConfiguration"] = args?.sequentialExecutorConfiguration;
             resourceInputs["tags"] = args?.tags;
+            resourceInputs["vastRequestConfiguration"] = args?.vastRequestConfiguration;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["awsServiceRequestConfiguration"] = undefined /*out*/;
             resourceInputs["concurrentExecutorConfiguration"] = undefined /*out*/;
             resourceInputs["customOutputConfiguration"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
@@ -101,6 +106,7 @@ export class Function extends pulumi.CustomResource {
             resourceInputs["httpRequestConfiguration"] = undefined /*out*/;
             resourceInputs["sequentialExecutorConfiguration"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["vastRequestConfiguration"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const replaceOnChanges = { replaceOnChanges: ["functionId"] };
@@ -113,6 +119,7 @@ export class Function extends pulumi.CustomResource {
  * The set of arguments for constructing a Function resource.
  */
 export interface FunctionArgs {
+    awsServiceRequestConfiguration?: pulumi.Input<inputs.mediatailor.FunctionAwsServiceRequestConfigurationArgs | undefined>;
     /**
      * The configuration for a CONCURRENT_EXECUTOR function. Required when FunctionType is CONCURRENT_EXECUTOR.
      */
@@ -136,4 +143,5 @@ export interface FunctionArgs {
      * The tags to assign to the function resource.
      */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
+    vastRequestConfiguration?: pulumi.Input<inputs.mediatailor.FunctionVastRequestConfigurationArgs | undefined>;
 }

@@ -102,4 +102,190 @@ namespace Pulumi.AwsNative.Translate
 
         public override string ToString() => _value;
     }
+
+    /// <summary>
+    /// The directionality of the terminology resource.
+    /// </summary>
+    [EnumType]
+    public readonly struct TerminologyDataPropertiesDirectionality : IEquatable<TerminologyDataPropertiesDirectionality>
+    {
+        private readonly string _value;
+
+        private TerminologyDataPropertiesDirectionality(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static TerminologyDataPropertiesDirectionality Uni { get; } = new TerminologyDataPropertiesDirectionality("UNI");
+        public static TerminologyDataPropertiesDirectionality Multi { get; } = new TerminologyDataPropertiesDirectionality("MULTI");
+
+        public static bool operator ==(TerminologyDataPropertiesDirectionality left, TerminologyDataPropertiesDirectionality right) => left.Equals(right);
+        public static bool operator !=(TerminologyDataPropertiesDirectionality left, TerminologyDataPropertiesDirectionality right) => !left.Equals(right);
+
+        public static explicit operator string(TerminologyDataPropertiesDirectionality value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TerminologyDataPropertiesDirectionality other && Equals(other);
+        public bool Equals(TerminologyDataPropertiesDirectionality other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The data format of the custom terminology.
+    /// </summary>
+    [EnumType]
+    public readonly struct TerminologyDataPropertiesFormat : IEquatable<TerminologyDataPropertiesFormat>
+    {
+        private readonly string _value;
+
+        private TerminologyDataPropertiesFormat(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static TerminologyDataPropertiesFormat Csv { get; } = new TerminologyDataPropertiesFormat("CSV");
+        public static TerminologyDataPropertiesFormat Tmx { get; } = new TerminologyDataPropertiesFormat("TMX");
+        public static TerminologyDataPropertiesFormat Tsv { get; } = new TerminologyDataPropertiesFormat("TSV");
+
+        public static bool operator ==(TerminologyDataPropertiesFormat left, TerminologyDataPropertiesFormat right) => left.Equals(right);
+        public static bool operator !=(TerminologyDataPropertiesFormat left, TerminologyDataPropertiesFormat right) => !left.Equals(right);
+
+        public static explicit operator string(TerminologyDataPropertiesFormat value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TerminologyDataPropertiesFormat other && Equals(other);
+        public bool Equals(TerminologyDataPropertiesFormat other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The directionality of the terminology.
+    /// </summary>
+    [EnumType]
+    public readonly struct TerminologyDirectionality : IEquatable<TerminologyDirectionality>
+    {
+        private readonly string _value;
+
+        private TerminologyDirectionality(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static TerminologyDirectionality Uni { get; } = new TerminologyDirectionality("UNI");
+        public static TerminologyDirectionality Multi { get; } = new TerminologyDirectionality("MULTI");
+
+        public static bool operator ==(TerminologyDirectionality left, TerminologyDirectionality right) => left.Equals(right);
+        public static bool operator !=(TerminologyDirectionality left, TerminologyDirectionality right) => !left.Equals(right);
+
+        public static explicit operator string(TerminologyDirectionality value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TerminologyDirectionality other && Equals(other);
+        public bool Equals(TerminologyDirectionality other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The type of encryption key.
+    /// </summary>
+    [EnumType]
+    public readonly struct TerminologyEncryptionKeyPropertiesType : IEquatable<TerminologyEncryptionKeyPropertiesType>
+    {
+        private readonly string _value;
+
+        private TerminologyEncryptionKeyPropertiesType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static TerminologyEncryptionKeyPropertiesType Kms { get; } = new TerminologyEncryptionKeyPropertiesType("KMS");
+
+        public static bool operator ==(TerminologyEncryptionKeyPropertiesType left, TerminologyEncryptionKeyPropertiesType right) => left.Equals(right);
+        public static bool operator !=(TerminologyEncryptionKeyPropertiesType left, TerminologyEncryptionKeyPropertiesType right) => !left.Equals(right);
+
+        public static explicit operator string(TerminologyEncryptionKeyPropertiesType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TerminologyEncryptionKeyPropertiesType other && Equals(other);
+        public bool Equals(TerminologyEncryptionKeyPropertiesType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The format of the terminology data.
+    /// </summary>
+    [EnumType]
+    public readonly struct TerminologyFormat : IEquatable<TerminologyFormat>
+    {
+        private readonly string _value;
+
+        private TerminologyFormat(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static TerminologyFormat Csv { get; } = new TerminologyFormat("CSV");
+        public static TerminologyFormat Tmx { get; } = new TerminologyFormat("TMX");
+        public static TerminologyFormat Tsv { get; } = new TerminologyFormat("TSV");
+
+        public static bool operator ==(TerminologyFormat left, TerminologyFormat right) => left.Equals(right);
+        public static bool operator !=(TerminologyFormat left, TerminologyFormat right) => !left.Equals(right);
+
+        public static explicit operator string(TerminologyFormat value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TerminologyFormat other && Equals(other);
+        public bool Equals(TerminologyFormat other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The merge strategy for the custom terminology. Currently only OVERWRITE is supported.
+    /// </summary>
+    [EnumType]
+    public readonly struct TerminologyMergeStrategy : IEquatable<TerminologyMergeStrategy>
+    {
+        private readonly string _value;
+
+        private TerminologyMergeStrategy(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static TerminologyMergeStrategy Overwrite { get; } = new TerminologyMergeStrategy("OVERWRITE");
+
+        public static bool operator ==(TerminologyMergeStrategy left, TerminologyMergeStrategy right) => left.Equals(right);
+        public static bool operator !=(TerminologyMergeStrategy left, TerminologyMergeStrategy right) => !left.Equals(right);
+
+        public static explicit operator string(TerminologyMergeStrategy value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TerminologyMergeStrategy other && Equals(other);
+        public bool Equals(TerminologyMergeStrategy other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
 }

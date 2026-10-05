@@ -17200,6 +17200,171 @@ func (in *analysisSheetImageScalingTypePtr) ToAnalysisSheetImageScalingTypePtrOu
 	return pulumi.ToOutputWithContext(ctx, in).(AnalysisSheetImageScalingTypePtrOutput)
 }
 
+type AnalysisSheetLayoutGroupMemberType string
+
+const (
+	AnalysisSheetLayoutGroupMemberTypeElement = AnalysisSheetLayoutGroupMemberType("ELEMENT")
+	AnalysisSheetLayoutGroupMemberTypeGroup   = AnalysisSheetLayoutGroupMemberType("GROUP")
+)
+
+func (AnalysisSheetLayoutGroupMemberType) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisSheetLayoutGroupMemberType)(nil)).Elem()
+}
+
+func (e AnalysisSheetLayoutGroupMemberType) ToAnalysisSheetLayoutGroupMemberTypeOutput() AnalysisSheetLayoutGroupMemberTypeOutput {
+	return pulumi.ToOutput(e).(AnalysisSheetLayoutGroupMemberTypeOutput)
+}
+
+func (e AnalysisSheetLayoutGroupMemberType) ToAnalysisSheetLayoutGroupMemberTypeOutputWithContext(ctx context.Context) AnalysisSheetLayoutGroupMemberTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(AnalysisSheetLayoutGroupMemberTypeOutput)
+}
+
+func (e AnalysisSheetLayoutGroupMemberType) ToAnalysisSheetLayoutGroupMemberTypePtrOutput() AnalysisSheetLayoutGroupMemberTypePtrOutput {
+	return e.ToAnalysisSheetLayoutGroupMemberTypePtrOutputWithContext(context.Background())
+}
+
+func (e AnalysisSheetLayoutGroupMemberType) ToAnalysisSheetLayoutGroupMemberTypePtrOutputWithContext(ctx context.Context) AnalysisSheetLayoutGroupMemberTypePtrOutput {
+	return AnalysisSheetLayoutGroupMemberType(e).ToAnalysisSheetLayoutGroupMemberTypeOutputWithContext(ctx).ToAnalysisSheetLayoutGroupMemberTypePtrOutputWithContext(ctx)
+}
+
+func (e AnalysisSheetLayoutGroupMemberType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AnalysisSheetLayoutGroupMemberType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AnalysisSheetLayoutGroupMemberType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e AnalysisSheetLayoutGroupMemberType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type AnalysisSheetLayoutGroupMemberTypeOutput struct{ *pulumi.OutputState }
+
+func (AnalysisSheetLayoutGroupMemberTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisSheetLayoutGroupMemberType)(nil)).Elem()
+}
+
+func (o AnalysisSheetLayoutGroupMemberTypeOutput) ToAnalysisSheetLayoutGroupMemberTypeOutput() AnalysisSheetLayoutGroupMemberTypeOutput {
+	return o
+}
+
+func (o AnalysisSheetLayoutGroupMemberTypeOutput) ToAnalysisSheetLayoutGroupMemberTypeOutputWithContext(ctx context.Context) AnalysisSheetLayoutGroupMemberTypeOutput {
+	return o
+}
+
+func (o AnalysisSheetLayoutGroupMemberTypeOutput) ToAnalysisSheetLayoutGroupMemberTypePtrOutput() AnalysisSheetLayoutGroupMemberTypePtrOutput {
+	return o.ToAnalysisSheetLayoutGroupMemberTypePtrOutputWithContext(context.Background())
+}
+
+func (o AnalysisSheetLayoutGroupMemberTypeOutput) ToAnalysisSheetLayoutGroupMemberTypePtrOutputWithContext(ctx context.Context) AnalysisSheetLayoutGroupMemberTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnalysisSheetLayoutGroupMemberType) *AnalysisSheetLayoutGroupMemberType {
+		return &v
+	}).(AnalysisSheetLayoutGroupMemberTypePtrOutput)
+}
+
+func (o AnalysisSheetLayoutGroupMemberTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o AnalysisSheetLayoutGroupMemberTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AnalysisSheetLayoutGroupMemberType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o AnalysisSheetLayoutGroupMemberTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AnalysisSheetLayoutGroupMemberTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AnalysisSheetLayoutGroupMemberType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type AnalysisSheetLayoutGroupMemberTypePtrOutput struct{ *pulumi.OutputState }
+
+func (AnalysisSheetLayoutGroupMemberTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnalysisSheetLayoutGroupMemberType)(nil)).Elem()
+}
+
+func (o AnalysisSheetLayoutGroupMemberTypePtrOutput) ToAnalysisSheetLayoutGroupMemberTypePtrOutput() AnalysisSheetLayoutGroupMemberTypePtrOutput {
+	return o
+}
+
+func (o AnalysisSheetLayoutGroupMemberTypePtrOutput) ToAnalysisSheetLayoutGroupMemberTypePtrOutputWithContext(ctx context.Context) AnalysisSheetLayoutGroupMemberTypePtrOutput {
+	return o
+}
+
+func (o AnalysisSheetLayoutGroupMemberTypePtrOutput) Elem() AnalysisSheetLayoutGroupMemberTypeOutput {
+	return o.ApplyT(func(v *AnalysisSheetLayoutGroupMemberType) AnalysisSheetLayoutGroupMemberType {
+		if v != nil {
+			return *v
+		}
+		var ret AnalysisSheetLayoutGroupMemberType
+		return ret
+	}).(AnalysisSheetLayoutGroupMemberTypeOutput)
+}
+
+func (o AnalysisSheetLayoutGroupMemberTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AnalysisSheetLayoutGroupMemberTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AnalysisSheetLayoutGroupMemberType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// AnalysisSheetLayoutGroupMemberTypeInput is an input type that accepts values of the AnalysisSheetLayoutGroupMemberType enum
+// A concrete instance of `AnalysisSheetLayoutGroupMemberTypeInput` can be one of the following:
+//
+//	AnalysisSheetLayoutGroupMemberTypeElement
+//	AnalysisSheetLayoutGroupMemberTypeGroup
+type AnalysisSheetLayoutGroupMemberTypeInput interface {
+	pulumi.Input
+
+	ToAnalysisSheetLayoutGroupMemberTypeOutput() AnalysisSheetLayoutGroupMemberTypeOutput
+	ToAnalysisSheetLayoutGroupMemberTypeOutputWithContext(context.Context) AnalysisSheetLayoutGroupMemberTypeOutput
+}
+
+var analysisSheetLayoutGroupMemberTypePtrType = reflect.TypeOf((**AnalysisSheetLayoutGroupMemberType)(nil)).Elem()
+
+type AnalysisSheetLayoutGroupMemberTypePtrInput interface {
+	pulumi.Input
+
+	ToAnalysisSheetLayoutGroupMemberTypePtrOutput() AnalysisSheetLayoutGroupMemberTypePtrOutput
+	ToAnalysisSheetLayoutGroupMemberTypePtrOutputWithContext(context.Context) AnalysisSheetLayoutGroupMemberTypePtrOutput
+}
+
+type analysisSheetLayoutGroupMemberTypePtr string
+
+func AnalysisSheetLayoutGroupMemberTypePtr(v string) AnalysisSheetLayoutGroupMemberTypePtrInput {
+	return (*analysisSheetLayoutGroupMemberTypePtr)(&v)
+}
+
+func (*analysisSheetLayoutGroupMemberTypePtr) ElementType() reflect.Type {
+	return analysisSheetLayoutGroupMemberTypePtrType
+}
+
+func (in *analysisSheetLayoutGroupMemberTypePtr) ToAnalysisSheetLayoutGroupMemberTypePtrOutput() AnalysisSheetLayoutGroupMemberTypePtrOutput {
+	return pulumi.ToOutput(in).(AnalysisSheetLayoutGroupMemberTypePtrOutput)
+}
+
+func (in *analysisSheetLayoutGroupMemberTypePtr) ToAnalysisSheetLayoutGroupMemberTypePtrOutputWithContext(ctx context.Context) AnalysisSheetLayoutGroupMemberTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(AnalysisSheetLayoutGroupMemberTypePtrOutput)
+}
+
 type AnalysisSimpleAttributeAggregationFunction string
 
 const (
@@ -39475,6 +39640,171 @@ func (in *dashboardSheetImageScalingTypePtr) ToDashboardSheetImageScalingTypePtr
 
 func (in *dashboardSheetImageScalingTypePtr) ToDashboardSheetImageScalingTypePtrOutputWithContext(ctx context.Context) DashboardSheetImageScalingTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DashboardSheetImageScalingTypePtrOutput)
+}
+
+type DashboardSheetLayoutGroupMemberType string
+
+const (
+	DashboardSheetLayoutGroupMemberTypeElement = DashboardSheetLayoutGroupMemberType("ELEMENT")
+	DashboardSheetLayoutGroupMemberTypeGroup   = DashboardSheetLayoutGroupMemberType("GROUP")
+)
+
+func (DashboardSheetLayoutGroupMemberType) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardSheetLayoutGroupMemberType)(nil)).Elem()
+}
+
+func (e DashboardSheetLayoutGroupMemberType) ToDashboardSheetLayoutGroupMemberTypeOutput() DashboardSheetLayoutGroupMemberTypeOutput {
+	return pulumi.ToOutput(e).(DashboardSheetLayoutGroupMemberTypeOutput)
+}
+
+func (e DashboardSheetLayoutGroupMemberType) ToDashboardSheetLayoutGroupMemberTypeOutputWithContext(ctx context.Context) DashboardSheetLayoutGroupMemberTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DashboardSheetLayoutGroupMemberTypeOutput)
+}
+
+func (e DashboardSheetLayoutGroupMemberType) ToDashboardSheetLayoutGroupMemberTypePtrOutput() DashboardSheetLayoutGroupMemberTypePtrOutput {
+	return e.ToDashboardSheetLayoutGroupMemberTypePtrOutputWithContext(context.Background())
+}
+
+func (e DashboardSheetLayoutGroupMemberType) ToDashboardSheetLayoutGroupMemberTypePtrOutputWithContext(ctx context.Context) DashboardSheetLayoutGroupMemberTypePtrOutput {
+	return DashboardSheetLayoutGroupMemberType(e).ToDashboardSheetLayoutGroupMemberTypeOutputWithContext(ctx).ToDashboardSheetLayoutGroupMemberTypePtrOutputWithContext(ctx)
+}
+
+func (e DashboardSheetLayoutGroupMemberType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DashboardSheetLayoutGroupMemberType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DashboardSheetLayoutGroupMemberType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DashboardSheetLayoutGroupMemberType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DashboardSheetLayoutGroupMemberTypeOutput struct{ *pulumi.OutputState }
+
+func (DashboardSheetLayoutGroupMemberTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardSheetLayoutGroupMemberType)(nil)).Elem()
+}
+
+func (o DashboardSheetLayoutGroupMemberTypeOutput) ToDashboardSheetLayoutGroupMemberTypeOutput() DashboardSheetLayoutGroupMemberTypeOutput {
+	return o
+}
+
+func (o DashboardSheetLayoutGroupMemberTypeOutput) ToDashboardSheetLayoutGroupMemberTypeOutputWithContext(ctx context.Context) DashboardSheetLayoutGroupMemberTypeOutput {
+	return o
+}
+
+func (o DashboardSheetLayoutGroupMemberTypeOutput) ToDashboardSheetLayoutGroupMemberTypePtrOutput() DashboardSheetLayoutGroupMemberTypePtrOutput {
+	return o.ToDashboardSheetLayoutGroupMemberTypePtrOutputWithContext(context.Background())
+}
+
+func (o DashboardSheetLayoutGroupMemberTypeOutput) ToDashboardSheetLayoutGroupMemberTypePtrOutputWithContext(ctx context.Context) DashboardSheetLayoutGroupMemberTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardSheetLayoutGroupMemberType) *DashboardSheetLayoutGroupMemberType {
+		return &v
+	}).(DashboardSheetLayoutGroupMemberTypePtrOutput)
+}
+
+func (o DashboardSheetLayoutGroupMemberTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DashboardSheetLayoutGroupMemberTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DashboardSheetLayoutGroupMemberType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DashboardSheetLayoutGroupMemberTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DashboardSheetLayoutGroupMemberTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DashboardSheetLayoutGroupMemberType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DashboardSheetLayoutGroupMemberTypePtrOutput struct{ *pulumi.OutputState }
+
+func (DashboardSheetLayoutGroupMemberTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DashboardSheetLayoutGroupMemberType)(nil)).Elem()
+}
+
+func (o DashboardSheetLayoutGroupMemberTypePtrOutput) ToDashboardSheetLayoutGroupMemberTypePtrOutput() DashboardSheetLayoutGroupMemberTypePtrOutput {
+	return o
+}
+
+func (o DashboardSheetLayoutGroupMemberTypePtrOutput) ToDashboardSheetLayoutGroupMemberTypePtrOutputWithContext(ctx context.Context) DashboardSheetLayoutGroupMemberTypePtrOutput {
+	return o
+}
+
+func (o DashboardSheetLayoutGroupMemberTypePtrOutput) Elem() DashboardSheetLayoutGroupMemberTypeOutput {
+	return o.ApplyT(func(v *DashboardSheetLayoutGroupMemberType) DashboardSheetLayoutGroupMemberType {
+		if v != nil {
+			return *v
+		}
+		var ret DashboardSheetLayoutGroupMemberType
+		return ret
+	}).(DashboardSheetLayoutGroupMemberTypeOutput)
+}
+
+func (o DashboardSheetLayoutGroupMemberTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DashboardSheetLayoutGroupMemberTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DashboardSheetLayoutGroupMemberType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DashboardSheetLayoutGroupMemberTypeInput is an input type that accepts values of the DashboardSheetLayoutGroupMemberType enum
+// A concrete instance of `DashboardSheetLayoutGroupMemberTypeInput` can be one of the following:
+//
+//	DashboardSheetLayoutGroupMemberTypeElement
+//	DashboardSheetLayoutGroupMemberTypeGroup
+type DashboardSheetLayoutGroupMemberTypeInput interface {
+	pulumi.Input
+
+	ToDashboardSheetLayoutGroupMemberTypeOutput() DashboardSheetLayoutGroupMemberTypeOutput
+	ToDashboardSheetLayoutGroupMemberTypeOutputWithContext(context.Context) DashboardSheetLayoutGroupMemberTypeOutput
+}
+
+var dashboardSheetLayoutGroupMemberTypePtrType = reflect.TypeOf((**DashboardSheetLayoutGroupMemberType)(nil)).Elem()
+
+type DashboardSheetLayoutGroupMemberTypePtrInput interface {
+	pulumi.Input
+
+	ToDashboardSheetLayoutGroupMemberTypePtrOutput() DashboardSheetLayoutGroupMemberTypePtrOutput
+	ToDashboardSheetLayoutGroupMemberTypePtrOutputWithContext(context.Context) DashboardSheetLayoutGroupMemberTypePtrOutput
+}
+
+type dashboardSheetLayoutGroupMemberTypePtr string
+
+func DashboardSheetLayoutGroupMemberTypePtr(v string) DashboardSheetLayoutGroupMemberTypePtrInput {
+	return (*dashboardSheetLayoutGroupMemberTypePtr)(&v)
+}
+
+func (*dashboardSheetLayoutGroupMemberTypePtr) ElementType() reflect.Type {
+	return dashboardSheetLayoutGroupMemberTypePtrType
+}
+
+func (in *dashboardSheetLayoutGroupMemberTypePtr) ToDashboardSheetLayoutGroupMemberTypePtrOutput() DashboardSheetLayoutGroupMemberTypePtrOutput {
+	return pulumi.ToOutput(in).(DashboardSheetLayoutGroupMemberTypePtrOutput)
+}
+
+func (in *dashboardSheetLayoutGroupMemberTypePtr) ToDashboardSheetLayoutGroupMemberTypePtrOutputWithContext(ctx context.Context) DashboardSheetLayoutGroupMemberTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DashboardSheetLayoutGroupMemberTypePtrOutput)
 }
 
 type DashboardSimpleAttributeAggregationFunction string
@@ -69589,6 +69919,171 @@ func (in *templateSheetImageScalingTypePtr) ToTemplateSheetImageScalingTypePtrOu
 	return pulumi.ToOutputWithContext(ctx, in).(TemplateSheetImageScalingTypePtrOutput)
 }
 
+type TemplateSheetLayoutGroupMemberType string
+
+const (
+	TemplateSheetLayoutGroupMemberTypeElement = TemplateSheetLayoutGroupMemberType("ELEMENT")
+	TemplateSheetLayoutGroupMemberTypeGroup   = TemplateSheetLayoutGroupMemberType("GROUP")
+)
+
+func (TemplateSheetLayoutGroupMemberType) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateSheetLayoutGroupMemberType)(nil)).Elem()
+}
+
+func (e TemplateSheetLayoutGroupMemberType) ToTemplateSheetLayoutGroupMemberTypeOutput() TemplateSheetLayoutGroupMemberTypeOutput {
+	return pulumi.ToOutput(e).(TemplateSheetLayoutGroupMemberTypeOutput)
+}
+
+func (e TemplateSheetLayoutGroupMemberType) ToTemplateSheetLayoutGroupMemberTypeOutputWithContext(ctx context.Context) TemplateSheetLayoutGroupMemberTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(TemplateSheetLayoutGroupMemberTypeOutput)
+}
+
+func (e TemplateSheetLayoutGroupMemberType) ToTemplateSheetLayoutGroupMemberTypePtrOutput() TemplateSheetLayoutGroupMemberTypePtrOutput {
+	return e.ToTemplateSheetLayoutGroupMemberTypePtrOutputWithContext(context.Background())
+}
+
+func (e TemplateSheetLayoutGroupMemberType) ToTemplateSheetLayoutGroupMemberTypePtrOutputWithContext(ctx context.Context) TemplateSheetLayoutGroupMemberTypePtrOutput {
+	return TemplateSheetLayoutGroupMemberType(e).ToTemplateSheetLayoutGroupMemberTypeOutputWithContext(ctx).ToTemplateSheetLayoutGroupMemberTypePtrOutputWithContext(ctx)
+}
+
+func (e TemplateSheetLayoutGroupMemberType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TemplateSheetLayoutGroupMemberType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TemplateSheetLayoutGroupMemberType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e TemplateSheetLayoutGroupMemberType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type TemplateSheetLayoutGroupMemberTypeOutput struct{ *pulumi.OutputState }
+
+func (TemplateSheetLayoutGroupMemberTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateSheetLayoutGroupMemberType)(nil)).Elem()
+}
+
+func (o TemplateSheetLayoutGroupMemberTypeOutput) ToTemplateSheetLayoutGroupMemberTypeOutput() TemplateSheetLayoutGroupMemberTypeOutput {
+	return o
+}
+
+func (o TemplateSheetLayoutGroupMemberTypeOutput) ToTemplateSheetLayoutGroupMemberTypeOutputWithContext(ctx context.Context) TemplateSheetLayoutGroupMemberTypeOutput {
+	return o
+}
+
+func (o TemplateSheetLayoutGroupMemberTypeOutput) ToTemplateSheetLayoutGroupMemberTypePtrOutput() TemplateSheetLayoutGroupMemberTypePtrOutput {
+	return o.ToTemplateSheetLayoutGroupMemberTypePtrOutputWithContext(context.Background())
+}
+
+func (o TemplateSheetLayoutGroupMemberTypeOutput) ToTemplateSheetLayoutGroupMemberTypePtrOutputWithContext(ctx context.Context) TemplateSheetLayoutGroupMemberTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateSheetLayoutGroupMemberType) *TemplateSheetLayoutGroupMemberType {
+		return &v
+	}).(TemplateSheetLayoutGroupMemberTypePtrOutput)
+}
+
+func (o TemplateSheetLayoutGroupMemberTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o TemplateSheetLayoutGroupMemberTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TemplateSheetLayoutGroupMemberType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o TemplateSheetLayoutGroupMemberTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TemplateSheetLayoutGroupMemberTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TemplateSheetLayoutGroupMemberType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type TemplateSheetLayoutGroupMemberTypePtrOutput struct{ *pulumi.OutputState }
+
+func (TemplateSheetLayoutGroupMemberTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateSheetLayoutGroupMemberType)(nil)).Elem()
+}
+
+func (o TemplateSheetLayoutGroupMemberTypePtrOutput) ToTemplateSheetLayoutGroupMemberTypePtrOutput() TemplateSheetLayoutGroupMemberTypePtrOutput {
+	return o
+}
+
+func (o TemplateSheetLayoutGroupMemberTypePtrOutput) ToTemplateSheetLayoutGroupMemberTypePtrOutputWithContext(ctx context.Context) TemplateSheetLayoutGroupMemberTypePtrOutput {
+	return o
+}
+
+func (o TemplateSheetLayoutGroupMemberTypePtrOutput) Elem() TemplateSheetLayoutGroupMemberTypeOutput {
+	return o.ApplyT(func(v *TemplateSheetLayoutGroupMemberType) TemplateSheetLayoutGroupMemberType {
+		if v != nil {
+			return *v
+		}
+		var ret TemplateSheetLayoutGroupMemberType
+		return ret
+	}).(TemplateSheetLayoutGroupMemberTypeOutput)
+}
+
+func (o TemplateSheetLayoutGroupMemberTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TemplateSheetLayoutGroupMemberTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *TemplateSheetLayoutGroupMemberType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// TemplateSheetLayoutGroupMemberTypeInput is an input type that accepts values of the TemplateSheetLayoutGroupMemberType enum
+// A concrete instance of `TemplateSheetLayoutGroupMemberTypeInput` can be one of the following:
+//
+//	TemplateSheetLayoutGroupMemberTypeElement
+//	TemplateSheetLayoutGroupMemberTypeGroup
+type TemplateSheetLayoutGroupMemberTypeInput interface {
+	pulumi.Input
+
+	ToTemplateSheetLayoutGroupMemberTypeOutput() TemplateSheetLayoutGroupMemberTypeOutput
+	ToTemplateSheetLayoutGroupMemberTypeOutputWithContext(context.Context) TemplateSheetLayoutGroupMemberTypeOutput
+}
+
+var templateSheetLayoutGroupMemberTypePtrType = reflect.TypeOf((**TemplateSheetLayoutGroupMemberType)(nil)).Elem()
+
+type TemplateSheetLayoutGroupMemberTypePtrInput interface {
+	pulumi.Input
+
+	ToTemplateSheetLayoutGroupMemberTypePtrOutput() TemplateSheetLayoutGroupMemberTypePtrOutput
+	ToTemplateSheetLayoutGroupMemberTypePtrOutputWithContext(context.Context) TemplateSheetLayoutGroupMemberTypePtrOutput
+}
+
+type templateSheetLayoutGroupMemberTypePtr string
+
+func TemplateSheetLayoutGroupMemberTypePtr(v string) TemplateSheetLayoutGroupMemberTypePtrInput {
+	return (*templateSheetLayoutGroupMemberTypePtr)(&v)
+}
+
+func (*templateSheetLayoutGroupMemberTypePtr) ElementType() reflect.Type {
+	return templateSheetLayoutGroupMemberTypePtrType
+}
+
+func (in *templateSheetLayoutGroupMemberTypePtr) ToTemplateSheetLayoutGroupMemberTypePtrOutput() TemplateSheetLayoutGroupMemberTypePtrOutput {
+	return pulumi.ToOutput(in).(TemplateSheetLayoutGroupMemberTypePtrOutput)
+}
+
+func (in *templateSheetLayoutGroupMemberTypePtr) ToTemplateSheetLayoutGroupMemberTypePtrOutputWithContext(ctx context.Context) TemplateSheetLayoutGroupMemberTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(TemplateSheetLayoutGroupMemberTypePtrOutput)
+}
+
 type TemplateSimpleAttributeAggregationFunction string
 
 const (
@@ -80897,6 +81392,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisSheetControlSliderTypePtrInput)(nil)).Elem(), AnalysisSheetControlSliderType("SINGLE_POINT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisSheetImageScalingTypeInput)(nil)).Elem(), AnalysisSheetImageScalingType("SCALE_TO_WIDTH"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisSheetImageScalingTypePtrInput)(nil)).Elem(), AnalysisSheetImageScalingType("SCALE_TO_WIDTH"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisSheetLayoutGroupMemberTypeInput)(nil)).Elem(), AnalysisSheetLayoutGroupMemberType("ELEMENT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisSheetLayoutGroupMemberTypePtrInput)(nil)).Elem(), AnalysisSheetLayoutGroupMemberType("ELEMENT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisSimpleAttributeAggregationFunctionInput)(nil)).Elem(), AnalysisSimpleAttributeAggregationFunction("UNIQUE_VALUE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisSimpleAttributeAggregationFunctionPtrInput)(nil)).Elem(), AnalysisSimpleAttributeAggregationFunction("UNIQUE_VALUE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisSimpleNumericalAggregationFunctionInput)(nil)).Elem(), AnalysisSimpleNumericalAggregationFunction("SUM"))
@@ -81161,6 +81658,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardSheetControlSliderTypePtrInput)(nil)).Elem(), DashboardSheetControlSliderType("SINGLE_POINT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardSheetImageScalingTypeInput)(nil)).Elem(), DashboardSheetImageScalingType("SCALE_TO_WIDTH"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardSheetImageScalingTypePtrInput)(nil)).Elem(), DashboardSheetImageScalingType("SCALE_TO_WIDTH"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardSheetLayoutGroupMemberTypeInput)(nil)).Elem(), DashboardSheetLayoutGroupMemberType("ELEMENT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardSheetLayoutGroupMemberTypePtrInput)(nil)).Elem(), DashboardSheetLayoutGroupMemberType("ELEMENT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardSimpleAttributeAggregationFunctionInput)(nil)).Elem(), DashboardSimpleAttributeAggregationFunction("UNIQUE_VALUE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardSimpleAttributeAggregationFunctionPtrInput)(nil)).Elem(), DashboardSimpleAttributeAggregationFunction("UNIQUE_VALUE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardSimpleNumericalAggregationFunctionInput)(nil)).Elem(), DashboardSimpleNumericalAggregationFunction("SUM"))
@@ -81512,6 +82011,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateSheetControlSliderTypePtrInput)(nil)).Elem(), TemplateSheetControlSliderType("SINGLE_POINT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateSheetImageScalingTypeInput)(nil)).Elem(), TemplateSheetImageScalingType("SCALE_TO_WIDTH"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateSheetImageScalingTypePtrInput)(nil)).Elem(), TemplateSheetImageScalingType("SCALE_TO_WIDTH"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateSheetLayoutGroupMemberTypeInput)(nil)).Elem(), TemplateSheetLayoutGroupMemberType("ELEMENT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateSheetLayoutGroupMemberTypePtrInput)(nil)).Elem(), TemplateSheetLayoutGroupMemberType("ELEMENT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateSimpleAttributeAggregationFunctionInput)(nil)).Elem(), TemplateSimpleAttributeAggregationFunction("UNIQUE_VALUE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateSimpleAttributeAggregationFunctionPtrInput)(nil)).Elem(), TemplateSimpleAttributeAggregationFunction("UNIQUE_VALUE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateSimpleNumericalAggregationFunctionInput)(nil)).Elem(), TemplateSimpleNumericalAggregationFunction("SUM"))
@@ -81845,6 +82346,8 @@ func init() {
 	pulumi.RegisterOutputType(AnalysisSheetControlSliderTypePtrOutput{})
 	pulumi.RegisterOutputType(AnalysisSheetImageScalingTypeOutput{})
 	pulumi.RegisterOutputType(AnalysisSheetImageScalingTypePtrOutput{})
+	pulumi.RegisterOutputType(AnalysisSheetLayoutGroupMemberTypeOutput{})
+	pulumi.RegisterOutputType(AnalysisSheetLayoutGroupMemberTypePtrOutput{})
 	pulumi.RegisterOutputType(AnalysisSimpleAttributeAggregationFunctionOutput{})
 	pulumi.RegisterOutputType(AnalysisSimpleAttributeAggregationFunctionPtrOutput{})
 	pulumi.RegisterOutputType(AnalysisSimpleNumericalAggregationFunctionOutput{})
@@ -82113,6 +82616,8 @@ func init() {
 	pulumi.RegisterOutputType(DashboardSheetControlSliderTypePtrOutput{})
 	pulumi.RegisterOutputType(DashboardSheetImageScalingTypeOutput{})
 	pulumi.RegisterOutputType(DashboardSheetImageScalingTypePtrOutput{})
+	pulumi.RegisterOutputType(DashboardSheetLayoutGroupMemberTypeOutput{})
+	pulumi.RegisterOutputType(DashboardSheetLayoutGroupMemberTypePtrOutput{})
 	pulumi.RegisterOutputType(DashboardSimpleAttributeAggregationFunctionOutput{})
 	pulumi.RegisterOutputType(DashboardSimpleAttributeAggregationFunctionPtrOutput{})
 	pulumi.RegisterOutputType(DashboardSimpleNumericalAggregationFunctionOutput{})
@@ -82476,6 +82981,8 @@ func init() {
 	pulumi.RegisterOutputType(TemplateSheetControlSliderTypePtrOutput{})
 	pulumi.RegisterOutputType(TemplateSheetImageScalingTypeOutput{})
 	pulumi.RegisterOutputType(TemplateSheetImageScalingTypePtrOutput{})
+	pulumi.RegisterOutputType(TemplateSheetLayoutGroupMemberTypeOutput{})
+	pulumi.RegisterOutputType(TemplateSheetLayoutGroupMemberTypePtrOutput{})
 	pulumi.RegisterOutputType(TemplateSimpleAttributeAggregationFunctionOutput{})
 	pulumi.RegisterOutputType(TemplateSimpleAttributeAggregationFunctionPtrOutput{})
 	pulumi.RegisterOutputType(TemplateSimpleNumericalAggregationFunctionOutput{})

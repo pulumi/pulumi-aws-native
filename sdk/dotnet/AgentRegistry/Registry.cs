@@ -22,6 +22,18 @@ namespace Pulumi.AwsNative.AgentRegistry
         public Output<Pulumi.AwsNative.AgentRegistry.RegistryAuthorizerType?> AuthorizerType { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies whether auto-detection is requested for the registry. Must be specified together with AutoDetectionScope. Setting this to true is necessary but not sufficient for auto-detection to become active; the preconditions of the configured scope must also be met. To turn auto-detection off, explicitly set this to false - removing AutoDetectionEnabled and AutoDetectionScope from the template is a no-op and leaves the existing auto-detection settings unchanged. A registry cannot be deleted while auto-detection is enabled: set this to false and update the stack before deleting the registry.
+        /// </summary>
+        [Output("autoDetectionEnabled")]
+        public Output<bool?> AutoDetectionEnabled { get; private set; } = null!;
+
+        [Output("autoDetectionScope")]
+        public Output<Pulumi.AwsNative.AgentRegistry.RegistryAutoDetectionScope?> AutoDetectionScope { get; private set; } = null!;
+
+        [Output("autoDetectionStatus")]
+        public Output<Pulumi.AwsNative.AgentRegistry.RegistryAutoDetectionStatus> AutoDetectionStatus { get; private set; } = null!;
+
+        /// <summary>
         /// The timestamp when the registry was created.
         /// </summary>
         [Output("createdAt")]
@@ -35,6 +47,9 @@ namespace Pulumi.AwsNative.AgentRegistry
 
         [Output("discoveryConfiguration")]
         public Output<Outputs.RegistryDiscoveryConfiguration?> DiscoveryConfiguration { get; private set; } = null!;
+
+        [Output("encryptionConfiguration")]
+        public Output<Outputs.RegistryEncryptionConfiguration?> EncryptionConfiguration { get; private set; } = null!;
 
         /// <summary>
         /// The name of the registry.
@@ -95,6 +110,7 @@ namespace Pulumi.AwsNative.AgentRegistry
                 ReplaceOnChanges =
                 {
                     "authorizerType",
+                    "encryptionConfiguration",
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -125,6 +141,15 @@ namespace Pulumi.AwsNative.AgentRegistry
         public Input<Pulumi.AwsNative.AgentRegistry.RegistryAuthorizerType>? AuthorizerType { get; set; }
 
         /// <summary>
+        /// Specifies whether auto-detection is requested for the registry. Must be specified together with AutoDetectionScope. Setting this to true is necessary but not sufficient for auto-detection to become active; the preconditions of the configured scope must also be met. To turn auto-detection off, explicitly set this to false - removing AutoDetectionEnabled and AutoDetectionScope from the template is a no-op and leaves the existing auto-detection settings unchanged. A registry cannot be deleted while auto-detection is enabled: set this to false and update the stack before deleting the registry.
+        /// </summary>
+        [Input("autoDetectionEnabled")]
+        public Input<bool>? AutoDetectionEnabled { get; set; }
+
+        [Input("autoDetectionScope")]
+        public Input<Pulumi.AwsNative.AgentRegistry.RegistryAutoDetectionScope>? AutoDetectionScope { get; set; }
+
+        /// <summary>
         /// The description of the registry.
         /// </summary>
         [Input("description")]
@@ -132,6 +157,9 @@ namespace Pulumi.AwsNative.AgentRegistry
 
         [Input("discoveryConfiguration")]
         public Input<Inputs.RegistryDiscoveryConfigurationArgs>? DiscoveryConfiguration { get; set; }
+
+        [Input("encryptionConfiguration")]
+        public Input<Inputs.RegistryEncryptionConfigurationArgs>? EncryptionConfiguration { get; set; }
 
         /// <summary>
         /// The name of the registry.

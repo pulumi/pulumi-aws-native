@@ -54,6 +54,10 @@ export class DbProxyTargetGroup extends pulumi.CustomResource {
      */
     declare public readonly dbProxyName: pulumi.Output<string>;
     /**
+     * An array of key-value pairs to apply to this resource.
+     */
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
+    /**
      * The Amazon Resource Name (ARN) representing the target group.
      */
     declare public /*out*/ readonly targetGroupArn: pulumi.Output<string>;
@@ -83,6 +87,7 @@ export class DbProxyTargetGroup extends pulumi.CustomResource {
             resourceInputs["dbClusterIdentifiers"] = args?.dbClusterIdentifiers;
             resourceInputs["dbInstanceIdentifiers"] = args?.dbInstanceIdentifiers;
             resourceInputs["dbProxyName"] = args?.dbProxyName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["targetGroupName"] = args?.targetGroupName;
             resourceInputs["targetGroupArn"] = undefined /*out*/;
         } else {
@@ -90,6 +95,7 @@ export class DbProxyTargetGroup extends pulumi.CustomResource {
             resourceInputs["dbClusterIdentifiers"] = undefined /*out*/;
             resourceInputs["dbInstanceIdentifiers"] = undefined /*out*/;
             resourceInputs["dbProxyName"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["targetGroupArn"] = undefined /*out*/;
             resourceInputs["targetGroupName"] = undefined /*out*/;
         }
@@ -120,6 +126,10 @@ export interface DbProxyTargetGroupArgs {
      * The identifier for the proxy.
      */
     dbProxyName: pulumi.Input<string>;
+    /**
+     * An array of key-value pairs to apply to this resource.
+     */
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * The identifier for the DBProxyTargetGroup
      */

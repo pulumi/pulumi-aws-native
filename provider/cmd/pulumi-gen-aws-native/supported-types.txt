@@ -92,12 +92,14 @@ AWS::AppStream::ApplicationEntitlementAssociation
 AWS::AppStream::ApplicationFleetAssociation
 AWS::AppStream::DirectoryConfig
 AWS::AppStream::Entitlement
+AWS::AppStream::Fleet
 AWS::AppStream::ImageBuilder
 AWS::AppStream::Stack
 AWS::AppStream::StackFleetAssociation
 AWS::AppStream::StackUserAssociation
 AWS::AppStream::User
 AWS::AppSync::Api
+AWS::AppSync::ApiCache
 AWS::AppSync::ApiKey
 AWS::AppSync::ChannelNamespace
 AWS::AppSync::DataSource
@@ -169,6 +171,7 @@ AWS::Bedrock::Guardrail
 AWS::Bedrock::GuardrailVersion
 AWS::Bedrock::IntelligentPromptRouter
 AWS::Bedrock::KnowledgeBase
+AWS::Bedrock::KnowledgeBasePolicy
 AWS::Bedrock::Prompt
 AWS::Bedrock::PromptVersion
 AWS::Bedrock::ResourcePolicy
@@ -238,6 +241,7 @@ AWS::CleanRooms::PrivacyBudgetTemplate
 AWS::CleanRoomsML::ConfiguredModelAlgorithm
 AWS::CleanRoomsML::ConfiguredModelAlgorithmAssociation
 AWS::CleanRoomsML::TrainingDataset
+AWS::Cloud9::EnvironmentEC2
 AWS::CloudFormation::ChangeSet
 AWS::CloudFormation::GeneratedTemplate
 AWS::CloudFormation::GuardHook
@@ -286,6 +290,8 @@ AWS::CloudWatch::InsightRule
 AWS::CloudWatch::LogAlarm
 AWS::CloudWatch::MetricStream
 AWS::CloudWatch::OTelEnrichment
+AWS::CloudWatch::ResourceMetricsConfiguration
+AWS::CloudWatch::View
 AWS::CodeArtifact::Domain
 AWS::CodeArtifact::PackageGroup
 AWS::CodeArtifact::Repository
@@ -328,6 +334,7 @@ AWS::Cognito::UserPoolUserToGroupAttachment
 AWS::Comprehend::DocumentClassifier
 AWS::Comprehend::DocumentClassifierEndpoint
 AWS::Comprehend::EntityRecognizer
+AWS::Comprehend::EntityRecognizerEndpoint
 AWS::Comprehend::Flywheel
 AWS::ComputeOptimizer::AutomationRule
 AWS::Config::AggregationAuthorization
@@ -337,6 +344,7 @@ AWS::Config::ConfigurationRecorder
 AWS::Config::ConformancePack
 AWS::Config::Connector
 AWS::Config::DeliveryChannel
+AWS::Config::OrganizationConfigRule
 AWS::Config::OrganizationConformancePack
 AWS::Config::RemediationConfiguration
 AWS::Config::StoredQuery
@@ -371,6 +379,7 @@ AWS::Connect::SecurityProfile
 AWS::Connect::TaskTemplate
 AWS::Connect::TestCase
 AWS::Connect::TrafficDistributionGroup
+AWS::Connect::UseCase
 AWS::Connect::User
 AWS::Connect::UserHierarchyGroup
 AWS::Connect::UserHierarchyStructure
@@ -489,6 +498,7 @@ AWS::DirectConnect::Lag
 AWS::DirectConnect::PrivateVirtualInterface
 AWS::DirectConnect::PublicVirtualInterface
 AWS::DirectConnect::TransitVirtualInterface
+AWS::DirectoryService::MicrosoftAD
 AWS::DirectoryService::SimpleAD
 AWS::DocDB::DBClusterParameterGroup
 AWS::DocDB::DBSubnetGroup
@@ -504,6 +514,7 @@ AWS::EC2::CapacityManagerDataExport
 AWS::EC2::CapacityReservation
 AWS::EC2::CapacityReservationFleet
 AWS::EC2::CarrierGateway
+AWS::EC2::ClientVpnAuthorizationRule
 AWS::EC2::CustomerGateway
 AWS::EC2::DHCPOptions
 AWS::EC2::EC2Fleet
@@ -557,6 +568,7 @@ AWS::EC2::RouteServerEndpoint
 AWS::EC2::RouteServerPeer
 AWS::EC2::RouteServerPropagation
 AWS::EC2::RouteTable
+AWS::EC2::SecondaryNetwork
 AWS::EC2::SecurityGroup
 AWS::EC2::SecurityGroupEgress
 AWS::EC2::SecurityGroupIngress
@@ -662,6 +674,7 @@ AWS::ElastiCache::ParameterGroup
 AWS::ElastiCache::ReplicationGroup
 AWS::ElastiCache::ServerlessCache
 AWS::ElastiCache::ServerlessCacheSnapshot
+AWS::ElastiCache::Snapshot
 AWS::ElastiCache::SubnetGroup
 AWS::ElastiCache::User
 AWS::ElastiCache::UserGroup
@@ -858,6 +871,7 @@ AWS::IoT::JobTemplate
 AWS::IoT::Logging
 AWS::IoT::MitigationAction
 AWS::IoT::Policy
+AWS::IoT::PolicyPrincipalAttachment
 AWS::IoT::ProvisioningTemplate
 AWS::IoT::ResourceSpecificLogging
 AWS::IoT::RoleAlias
@@ -943,6 +957,9 @@ AWS::Lambda::Permission
 AWS::Lambda::ResourcePolicy
 AWS::Lambda::Url
 AWS::Lambda::Version
+AWS::Lambda::WebFunction
+AWS::Lambda::WebFunctionEndpoint
+AWS::Lambda::WebFunctionRevision
 AWS::LaunchWizard::Deployment
 AWS::Lex::Bot
 AWS::Lex::BotAlias
@@ -1059,6 +1076,7 @@ AWS::MediaTailor::Function
 AWS::MediaTailor::LiveSource
 AWS::MediaTailor::PlaybackConfiguration
 AWS::MediaTailor::PrefetchSchedule
+AWS::MediaTailor::Program
 AWS::MediaTailor::SourceLocation
 AWS::MediaTailor::VodSource
 AWS::MemoryDB::ACL
@@ -1117,6 +1135,7 @@ AWS::ODB::OdbPeeringConnection
 AWS::OSIS::Pipeline
 AWS::Oam::Link
 AWS::Oam::Sink
+AWS::ObservabilityAdmin::DatasetIntegration
 AWS::ObservabilityAdmin::OrganizationCentralizationRule
 AWS::ObservabilityAdmin::OrganizationTelemetryRule
 AWS::ObservabilityAdmin::S3TableIntegration
@@ -1168,6 +1187,7 @@ AWS::Panorama::Package
 AWS::Panorama::PackageVersion
 AWS::PaymentCryptography::Alias
 AWS::PaymentCryptography::Key
+AWS::Personalize::Campaign
 AWS::Personalize::Dataset
 AWS::Personalize::DatasetGroup
 AWS::Personalize::EventTracker
@@ -1212,7 +1232,11 @@ AWS::QuickSight::Topic
 AWS::QuickSight::TopicV2
 AWS::QuickSight::VPCConnection
 AWS::RAM::Permission
+AWS::RAM::PermissionAssociation
+AWS::RAM::PrincipalAssociation
+AWS::RAM::ResourceAssociation
 AWS::RAM::ResourceShare
+AWS::RAM::SourceAssociation
 AWS::RDS::ClusterSnapshot
 AWS::RDS::CustomDBEngineVersion
 AWS::RDS::DBCluster
@@ -1559,6 +1583,7 @@ AWS::Transfer::User
 AWS::Transfer::WebApp
 AWS::Transfer::Workflow
 AWS::Translate::ParallelData
+AWS::Translate::Terminology
 AWS::UXC::AccountCustomization
 AWS::VerifiedPermissions::IdentitySource
 AWS::VerifiedPermissions::Policy
@@ -1601,6 +1626,8 @@ AWS::Wisdom::AIPrompt
 AWS::Wisdom::AIPromptVersion
 AWS::Wisdom::Assistant
 AWS::Wisdom::AssistantAssociation
+AWS::Wisdom::Content
+AWS::Wisdom::ContentAssociation
 AWS::Wisdom::KnowledgeBase
 AWS::Wisdom::MessageTemplate
 AWS::Wisdom::MessageTemplateVersion

@@ -1269,11 +1269,11 @@
     "properties": {
       "fleetName": {
         "type": "string",
-        "description": "The name of the fleet.\n\nTo associate a fleet with a stack, you must specify a dependency on the fleet resource. For more information, see [DependsOn Attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html) ."
+        "description": "The name of the fleet. To associate a fleet with a stack, you must specify a dependency on the fleet resource."
       },
       "stackName": {
         "type": "string",
-        "description": "The name of the stack.\n\nTo associate a fleet with a stack, you must specify a dependency on the stack resource. For more information, see [DependsOn Attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html) ."
+        "description": "The name of the stack. To associate a fleet with a stack, you must specify a dependency on the stack resource."
       }
     }
   },
@@ -1295,6 +1295,39 @@
       "userName": {
         "type": "string",
         "description": "The name of the user who is associated with the stack."
+      }
+    }
+  },
+  "aws-native:appsync:ApiCache": {
+    "cfTypeName": "AWS::AppSync::ApiCache",
+    "properties": {
+      "apiCachingBehavior": {
+        "type": "string",
+        "description": "Caching behavior, such as FULL_REQUEST_CACHING, PER_RESOLVER_CACHING, or OPERATION_LEVEL_CACHING"
+      },
+      "apiId": {
+        "type": "string",
+        "description": "Unique AWS AppSync GraphQL API identifier."
+      },
+      "atRestEncryptionEnabled": {
+        "type": "boolean",
+        "description": "At-rest encryption flag for cache. You cannot update this setting after creation."
+      },
+      "healthMetricsConfig": {
+        "type": "string",
+        "description": "Controls how cache health metrics will be emitted to CloudWatch. Cache health metrics include NetworkBandwidthOutAllowanceExceeded and EngineCPUUtilization"
+      },
+      "transitEncryptionEnabled": {
+        "type": "boolean",
+        "description": "Transit encryption flag when connecting to cache. You cannot update this setting after creation."
+      },
+      "ttl": {
+        "type": "integer",
+        "description": "TTL in seconds for cache entries. Valid values are 1-3600."
+      },
+      "type": {
+        "type": "string",
+        "description": "The cache instance type, such as SMALL, LARGE and LARGE_4X"
       }
     }
   },
@@ -1876,6 +1909,19 @@
       "guardrailIdentifier": {
         "type": "string",
         "description": "Identifier (GuardrailId or GuardrailArn) for the guardrail"
+      }
+    }
+  },
+  "aws-native:bedrock:KnowledgeBasePolicy": {
+    "cfTypeName": "AWS::Bedrock::KnowledgeBasePolicy",
+    "properties": {
+      "knowledgeBaseId": {
+        "type": "string",
+        "description": "The unique identifier of the knowledge base"
+      },
+      "policyDocument": {
+        "$ref": "pulumi.json#/Any",
+        "description": "The IAM policy document defining access permissions for the knowledge base\n\nSearch the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Bedrock::KnowledgeBasePolicy` for more information about the expected schema for this property."
       }
     }
   },
@@ -2918,7 +2964,38 @@
   },
   "aws-native:cloudwatch:OTelEnrichment": {
     "cfTypeName": "AWS::CloudWatch::OTelEnrichment",
-    "properties": {}
+    "properties": {
+      "excludeFilters": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:cloudwatch:OTelEnrichmentMetricSelector"
+        },
+        "description": "Removes metrics from the include set. Absent or empty means nothing is removed. Evaluated after IncludeFilters, so ExcludeFilters always wins."
+      },
+      "includeFilters": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:cloudwatch:OTelEnrichmentMetricSelector"
+        },
+        "description": "Scopes enrichment to a subset of the account's telemetry. Absent or empty means all namespaces are in scope. Present means only these are. The service enforces a combined cap of 100 selectors across IncludeFilters and ExcludeFilters, and rejects more than one selector for the same namespace within a direction."
+      }
+    }
+  },
+  "aws-native:cloudwatch:ResourceMetricsConfiguration": {
+    "cfTypeName": "AWS::CloudWatch::ResourceMetricsConfiguration",
+    "properties": {
+      "metricSelections": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:cloudwatch:ResourceMetricsConfigurationResourceMetricSelection"
+        },
+        "description": "The metric selections that define which metrics are enabled for detailed monitoring on the resource."
+      },
+      "resourceArn": {
+        "type": "string",
+        "description": "The Amazon Resource Name (ARN) of the resource for which the detailed monitoring metrics configuration is managed."
+      }
+    }
   },
   "aws-native:codeartifact:PackageGroup": {
     "cfTypeName": "AWS::CodeArtifact::PackageGroup",
@@ -3506,7 +3583,8 @@
     "cfTypeName": "AWS::Connect::EvaluationForm",
     "properties": {
       "aiVersion": {
-        "type": "string"
+        "type": "string",
+        "description": "The AI version to use for the evaluation form. This specifies which AI model version is used for automated evaluations."
       },
       "autoEvaluationConfiguration": {
         "$ref": "#/types/aws-native:connect:EvaluationFormAutoEvaluationConfiguration",
@@ -3636,6 +3714,15 @@
         "$ref": "#/types/aws-native:connect:IntegrationAssociationIntegrationType",
         "description": "Specifies the integration type to be associated with the instance.\n\n*Allowed Values* : `LEX_BOT` | `LAMBDA_FUNCTION`"
       },
+      "sourceApplicationName": {
+        "type": "string"
+      },
+      "sourceApplicationUrl": {
+        "type": "string"
+      },
+      "sourceType": {
+        "$ref": "#/types/aws-native:connect:IntegrationAssociationSourceType"
+      },
       "tags": {
         "type": "array",
         "items": {
@@ -3726,6 +3813,30 @@
       "key": {
         "type": "string",
         "description": "A valid security key in PEM format. For example:\n\n`\"-----BEGIN PUBLIC KEY-----\\ [a lot of characters] ----END PUBLIC KEY-----\"`\n\n*Minimum* : `1`\n\n*Maximum* : `1024`"
+      }
+    }
+  },
+  "aws-native:connect:UseCase": {
+    "cfTypeName": "AWS::Connect::UseCase",
+    "properties": {
+      "instanceId": {
+        "type": "string",
+        "description": "The identifier of the Amazon Connect instance."
+      },
+      "integrationAssociationId": {
+        "type": "string",
+        "description": "The identifier for the integration association."
+      },
+      "tags": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:index:Tag"
+        },
+        "description": "The tags used to organize, track, or control access for this resource."
+      },
+      "useCaseType": {
+        "$ref": "#/types/aws-native:connect:UseCaseType",
+        "description": "The type of use case to associate to the integration association."
       }
     }
   },
@@ -4635,7 +4746,7 @@
     "cfTypeName": "AWS::DataZone::ProjectMembership",
     "properties": {
       "designation": {
-        "$ref": "#/types/aws-native:datazone:ProjectMembershipUserDesignation",
+        "type": "string",
         "description": "The designated role of a project member."
       },
       "domainIdentifier": {
@@ -6057,6 +6168,31 @@
       "vpcId": {
         "type": "string",
         "description": "The ID of the VPC."
+      }
+    }
+  },
+  "aws-native:ec2:ClientVpnAuthorizationRule": {
+    "cfTypeName": "AWS::EC2::ClientVpnAuthorizationRule",
+    "properties": {
+      "accessGroupId": {
+        "type": "string",
+        "description": "The ID of the group to grant access to, for example, the Active Directory group or identity provider (IdP) group. Required if `AuthorizeAllGroups` is `false` or not specified."
+      },
+      "authorizeAllGroups": {
+        "type": "boolean",
+        "description": "Indicates whether to grant access to all clients. Specify `true` to grant all clients who successfully establish a VPN connection access to the network. Must be set to `true` if `AccessGroupId` is not specified."
+      },
+      "clientVpnEndpointId": {
+        "type": "string",
+        "description": "The ID of the Client VPN endpoint."
+      },
+      "description": {
+        "type": "string",
+        "description": "A brief description of the authorization rule."
+      },
+      "targetNetworkCidr": {
+        "type": "string",
+        "description": "The IPv4 address range, in CIDR notation, of the network for which access is being authorized."
       }
     }
   },
@@ -7726,6 +7862,26 @@
       "vpcId": {
         "type": "string",
         "description": "The ID of the VPC."
+      }
+    }
+  },
+  "aws-native:ec2:SecondaryNetwork": {
+    "cfTypeName": "AWS::EC2::SecondaryNetwork",
+    "properties": {
+      "ipv4CidrBlock": {
+        "type": "string",
+        "description": "The IPv4 CIDR block for the secondary network. The CIDR block size must be between /12 and /28."
+      },
+      "networkType": {
+        "$ref": "#/types/aws-native:ec2:SecondaryNetworkNetworkType",
+        "description": "The type of secondary network."
+      },
+      "tags": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:index:Tag"
+        },
+        "description": "The tags for the secondary network."
       }
     }
   },
@@ -10133,6 +10289,13 @@
           "$ref": "#/types/aws-native:elasticache:GlobalReplicationGroupRegionalConfiguration"
         },
         "description": "Describes the replication group IDs, the AWS regions where they are stored and the shard configuration for each that comprise the Global Datastore "
+      },
+      "tags": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:index:Tag"
+        },
+        "description": "An array of key-value pairs to apply to this Global Datastore."
       }
     }
   },
@@ -12353,6 +12516,19 @@
       }
     }
   },
+  "aws-native:iot:PolicyPrincipalAttachment": {
+    "cfTypeName": "AWS::IoT::PolicyPrincipalAttachment",
+    "properties": {
+      "policyName": {
+        "type": "string",
+        "description": "The name of the AWS IoT policy"
+      },
+      "principal": {
+        "type": "string",
+        "description": "The principal, which can be a certificate ARN (as returned from the CreateCertificate operation) or an Amazon Cognito ID"
+      }
+    }
+  },
   "aws-native:iot:ResourceSpecificLogging": {
     "cfTypeName": "AWS::IoT::ResourceSpecificLogging",
     "properties": {
@@ -13157,8 +13333,7 @@
         "description": "The policy document you want to add to your LAM resource. This is formatted as a JSON string.\n For more information, see [Working with resource-based policies in](https://docs.aws.amazon.com/lambda/latest/dg/access-control-resource-based.html) in the *Developer Guide*.\n\nSearch the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Lambda::ResourcePolicy` for more information about the expected schema for this property."
       },
       "resourceArn": {
-        "type": "string",
-        "description": "The Amazon Resource Name (ARN) of the LAM resource you want to add the policy to. For a function, you can use a qualified or an unqualified ARN. The value must be a complete ARN, and the operation does not accept wildcard characters."
+        "type": "string"
       }
     }
   },
@@ -13213,6 +13388,31 @@
       "runtimePolicy": {
         "$ref": "#/types/aws-native:lambda:VersionRuntimePolicy",
         "description": "Specifies the runtime management configuration of a function. Displays runtimeVersionArn only for Manual."
+      }
+    }
+  },
+  "aws-native:lambda:WebFunctionRevision": {
+    "cfTypeName": "AWS::Lambda::WebFunctionRevision",
+    "properties": {
+      "buildConfig": {
+        "$ref": "#/types/aws-native:lambda:BuildConfigProperties",
+        "description": "The build configuration for the revision."
+      },
+      "description": {
+        "type": "string",
+        "description": "A description of the revision."
+      },
+      "functionName": {
+        "type": "string",
+        "description": "The name of the web function this revision belongs to. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length."
+      },
+      "kmsKeyArn": {
+        "type": "string",
+        "description": "The ARN of the KMS key used to encrypt the revision."
+      },
+      "serviceConfig": {
+        "$ref": "#/types/aws-native:lambda:ServiceConfigProperties",
+        "description": "The service configuration for the revision."
       }
     }
   },
@@ -13779,6 +13979,9 @@
   "aws-native:mediatailor:Function": {
     "cfTypeName": "AWS::MediaTailor::Function",
     "properties": {
+      "awsServiceRequestConfiguration": {
+        "$ref": "#/types/aws-native:mediatailor:FunctionAwsServiceRequestConfiguration"
+      },
       "concurrentExecutorConfiguration": {
         "$ref": "#/types/aws-native:mediatailor:FunctionConcurrentExecutorConfiguration",
         "description": "The configuration for a CONCURRENT_EXECUTOR function. Required when FunctionType is CONCURRENT_EXECUTOR."
@@ -13810,6 +14013,9 @@
           "$ref": "#/types/aws-native:index:Tag"
         },
         "description": "The tags to assign to the function resource."
+      },
+      "vastRequestConfiguration": {
+        "$ref": "#/types/aws-native:mediatailor:FunctionVastRequestConfiguration"
       }
     }
   },
@@ -14823,6 +15029,22 @@
       }
     }
   },
+  "aws-native:observabilityadmin:DatasetIntegration": {
+    "cfTypeName": "AWS::ObservabilityAdmin::DatasetIntegration",
+    "properties": {
+      "roleArn": {
+        "type": "string",
+        "description": "The ARN of the IAM role that the service assumes to forward telemetry to the customer's CloudWatch dataset. The role must live in the caller's account."
+      },
+      "tags": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:index:Tag"
+        },
+        "description": "An array of key-value pairs to apply to this resource."
+      }
+    }
+  },
   "aws-native:observabilityadmin:S3TableIntegration": {
     "cfTypeName": "AWS::ObservabilityAdmin::S3TableIntegration",
     "properties": {
@@ -15802,6 +16024,62 @@
       }
     }
   },
+  "aws-native:ram:PermissionAssociation": {
+    "cfTypeName": "AWS::RAM::PermissionAssociation",
+    "properties": {
+      "permissionArn": {
+        "type": "string",
+        "description": "Specifies the [Amazon Resource Name (ARN)](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) of the AWS RAM permission to associate with the resource share."
+      },
+      "replace": {
+        "type": "boolean",
+        "description": "Specifies whether to replace the existing permission on the resource share. Use `true` to replace the current permission. Use `false` to add the permission when no permission is currently associated. The default value is `false`. Updating an existing association also requires `true`, because AWS RAM applies the change by re-associating the permission."
+      },
+      "resourceShareArn": {
+        "type": "string",
+        "description": "Specifies the [Amazon Resource Name (ARN)](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) of the resource share."
+      }
+    }
+  },
+  "aws-native:ram:PrincipalAssociation": {
+    "cfTypeName": "AWS::RAM::PrincipalAssociation",
+    "properties": {
+      "principal": {
+        "type": "string",
+        "description": "Specifies the principal to associate with the resource share. The possible values are:\n\n- An AWS account ID\n\n- An Amazon Resource Name (ARN) of an organization in AWS Organizations\n\n- An ARN of an organizational unit (OU) in AWS Organizations\n\n- An ARN of an IAM role\n\n- An ARN of an IAM user"
+      },
+      "resourceShareArn": {
+        "type": "string",
+        "description": "Specifies the [Amazon Resource Name (ARN)](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) of the resource share."
+      }
+    }
+  },
+  "aws-native:ram:ResourceAssociation": {
+    "cfTypeName": "AWS::RAM::ResourceAssociation",
+    "properties": {
+      "resourceArn": {
+        "type": "string",
+        "description": "Specifies the [Amazon Resource Name (ARN)](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) of the resource to associate with the resource share."
+      },
+      "resourceShareArn": {
+        "type": "string",
+        "description": "Specifies the [Amazon Resource Name (ARN)](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) of the resource share."
+      }
+    }
+  },
+  "aws-native:ram:SourceAssociation": {
+    "cfTypeName": "AWS::RAM::SourceAssociation",
+    "properties": {
+      "resourceShareArn": {
+        "type": "string",
+        "description": "Specifies the [Amazon Resource Name (ARN)](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) of the resource share."
+      },
+      "sourceId": {
+        "type": "string",
+        "description": "Specifies the ID of the source account to associate with the resource share."
+      }
+    }
+  },
   "aws-native:rbin:Rule": {
     "cfTypeName": "AWS::Rbin::Rule",
     "properties": {
@@ -16577,6 +16855,13 @@
       "dbProxyName": {
         "type": "string",
         "description": "The identifier for the proxy."
+      },
+      "tags": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:index:Tag"
+        },
+        "description": "An array of key-value pairs to apply to this resource."
       },
       "targetGroupName": {
         "$ref": "#/types/aws-native:rds:DbProxyTargetGroupTargetGroupName",
@@ -20523,6 +20808,34 @@
       "associationType": {
         "$ref": "#/types/aws-native:wisdom:AssistantAssociationAssociationType",
         "description": "The type of association."
+      },
+      "tags": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:index:CreateOnlyTag"
+        },
+        "description": "The tags used to organize, track, or control access for this resource."
+      }
+    }
+  },
+  "aws-native:wisdom:ContentAssociation": {
+    "cfTypeName": "AWS::Wisdom::ContentAssociation",
+    "properties": {
+      "association": {
+        "$ref": "#/types/aws-native:wisdom:ContentAssociationContents",
+        "description": "The identifier of the associated resource."
+      },
+      "associationType": {
+        "$ref": "#/types/aws-native:wisdom:ContentAssociationAssociationType",
+        "description": "The type of association."
+      },
+      "contentId": {
+        "type": "string",
+        "description": "The identifier of the content."
+      },
+      "knowledgeBaseId": {
+        "type": "string",
+        "description": "The identifier of the knowledge base."
       },
       "tags": {
         "type": "array",

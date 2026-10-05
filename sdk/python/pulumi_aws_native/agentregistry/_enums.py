@@ -10,6 +10,8 @@ __all__ = [
     'RegistryAuthorizerType',
     'RegistryAuthorizingClaimMatchValueTypeClaimMatchOperator',
     'RegistryAutoApprovalRule',
+    'RegistryAutoDetectionScope',
+    'RegistryAutoDetectionStatus',
     'RegistryCustomClaimValidationTypeInboundTokenClaimValueType',
     'RegistryRecordCredentialProviderConfigurationCredentialProviderType',
     'RegistryRecordOAuthCredentialProviderGrantType',
@@ -41,6 +43,23 @@ class RegistryAutoApprovalRule(_builtins.str, Enum):
     A rule that determines which registry records are automatically approved on submission.
     """
     APPROVE_ALL = "APPROVE_ALL"
+
+
+@pulumi.type_token("aws-native:agentregistry:RegistryAutoDetectionScope")
+class RegistryAutoDetectionScope(_builtins.str, Enum):
+    """
+    The source from which resources are detected. ORGANIZATION sources resources from all member accounts of an AWS Organization.
+    """
+    ORGANIZATION = "ORGANIZATION"
+
+
+@pulumi.type_token("aws-native:agentregistry:RegistryAutoDetectionStatus")
+class RegistryAutoDetectionStatus(_builtins.str, Enum):
+    """
+    The current auto-detection status. ACTIVE indicates that the registry is actively being populated with detected resources. INACTIVE indicates that the preconditions required at the configured scope are not currently met.
+    """
+    ACTIVE = "ACTIVE"
+    INACTIVE = "INACTIVE"
 
 
 @pulumi.type_token("aws-native:agentregistry:RegistryCustomClaimValidationTypeInboundTokenClaimValueType")

@@ -18,7 +18,8 @@ type Function struct {
 	pulumi.CustomResourceState
 
 	// The ARN of the function.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn                            pulumi.StringOutput                             `pulumi:"arn"`
+	AwsServiceRequestConfiguration FunctionAwsServiceRequestConfigurationPtrOutput `pulumi:"awsServiceRequestConfiguration"`
 	// The configuration for a CONCURRENT_EXECUTOR function. Required when FunctionType is CONCURRENT_EXECUTOR.
 	ConcurrentExecutorConfiguration FunctionConcurrentExecutorConfigurationPtrOutput `pulumi:"concurrentExecutorConfiguration"`
 	CustomOutputConfiguration       FunctionCustomOutputConfigurationPtrOutput       `pulumi:"customOutputConfiguration"`
@@ -31,7 +32,8 @@ type Function struct {
 	HttpRequestConfiguration        FunctionHttpRequestConfigurationPtrOutput        `pulumi:"httpRequestConfiguration"`
 	SequentialExecutorConfiguration FunctionSequentialExecutorConfigurationPtrOutput `pulumi:"sequentialExecutorConfiguration"`
 	// The tags to assign to the function resource.
-	Tags aws.TagArrayOutput `pulumi:"tags"`
+	Tags                     aws.TagArrayOutput                        `pulumi:"tags"`
+	VastRequestConfiguration FunctionVastRequestConfigurationPtrOutput `pulumi:"vastRequestConfiguration"`
 }
 
 // NewFunction registers a new resource with the given unique name, arguments, and options.
@@ -84,6 +86,7 @@ func (FunctionState) ElementType() reflect.Type {
 }
 
 type functionArgs struct {
+	AwsServiceRequestConfiguration *FunctionAwsServiceRequestConfiguration `pulumi:"awsServiceRequestConfiguration"`
 	// The configuration for a CONCURRENT_EXECUTOR function. Required when FunctionType is CONCURRENT_EXECUTOR.
 	ConcurrentExecutorConfiguration *FunctionConcurrentExecutorConfiguration `pulumi:"concurrentExecutorConfiguration"`
 	CustomOutputConfiguration       *FunctionCustomOutputConfiguration       `pulumi:"customOutputConfiguration"`
@@ -96,11 +99,13 @@ type functionArgs struct {
 	HttpRequestConfiguration        *FunctionHttpRequestConfiguration        `pulumi:"httpRequestConfiguration"`
 	SequentialExecutorConfiguration *FunctionSequentialExecutorConfiguration `pulumi:"sequentialExecutorConfiguration"`
 	// The tags to assign to the function resource.
-	Tags []aws.Tag `pulumi:"tags"`
+	Tags                     []aws.Tag                         `pulumi:"tags"`
+	VastRequestConfiguration *FunctionVastRequestConfiguration `pulumi:"vastRequestConfiguration"`
 }
 
 // The set of arguments for constructing a Function resource.
 type FunctionArgs struct {
+	AwsServiceRequestConfiguration FunctionAwsServiceRequestConfigurationPtrInput
 	// The configuration for a CONCURRENT_EXECUTOR function. Required when FunctionType is CONCURRENT_EXECUTOR.
 	ConcurrentExecutorConfiguration FunctionConcurrentExecutorConfigurationPtrInput
 	CustomOutputConfiguration       FunctionCustomOutputConfigurationPtrInput
@@ -113,7 +118,8 @@ type FunctionArgs struct {
 	HttpRequestConfiguration        FunctionHttpRequestConfigurationPtrInput
 	SequentialExecutorConfiguration FunctionSequentialExecutorConfigurationPtrInput
 	// The tags to assign to the function resource.
-	Tags aws.TagArrayInput
+	Tags                     aws.TagArrayInput
+	VastRequestConfiguration FunctionVastRequestConfigurationPtrInput
 }
 
 func (FunctionArgs) ElementType() reflect.Type {
@@ -158,6 +164,12 @@ func (o FunctionOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Function) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+func (o FunctionOutput) AwsServiceRequestConfiguration() FunctionAwsServiceRequestConfigurationPtrOutput {
+	return o.ApplyT(func(v *Function) FunctionAwsServiceRequestConfigurationPtrOutput {
+		return v.AwsServiceRequestConfiguration
+	}).(FunctionAwsServiceRequestConfigurationPtrOutput)
+}
+
 // The configuration for a CONCURRENT_EXECUTOR function. Required when FunctionType is CONCURRENT_EXECUTOR.
 func (o FunctionOutput) ConcurrentExecutorConfiguration() FunctionConcurrentExecutorConfigurationPtrOutput {
 	return o.ApplyT(func(v *Function) FunctionConcurrentExecutorConfigurationPtrOutput {
@@ -197,6 +209,10 @@ func (o FunctionOutput) SequentialExecutorConfiguration() FunctionSequentialExec
 // The tags to assign to the function resource.
 func (o FunctionOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *Function) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
+}
+
+func (o FunctionOutput) VastRequestConfiguration() FunctionVastRequestConfigurationPtrOutput {
+	return o.ApplyT(func(v *Function) FunctionVastRequestConfigurationPtrOutput { return v.VastRequestConfiguration }).(FunctionVastRequestConfigurationPtrOutput)
 }
 
 func init() {

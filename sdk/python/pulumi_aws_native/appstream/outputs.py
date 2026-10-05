@@ -14,6 +14,7 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from ._enums import *
 
 __all__ = [
     'AppBlockBuilderAccessEndpoint',
@@ -28,6 +29,11 @@ __all__ = [
     'DirectoryConfigCertificateBasedAuthProperties',
     'DirectoryConfigServiceAccountCredentials',
     'EntitlementAttribute',
+    'FleetComputeCapacity',
+    'FleetDomainJoinInfo',
+    'FleetS3Location',
+    'FleetVolumeConfig',
+    'FleetVpcConfig',
     'ImageBuilderAccessEndpoint',
     'ImageBuilderDomainJoinInfo',
     'ImageBuilderVolumeConfig',
@@ -574,6 +580,238 @@ class EntitlementAttribute(dict):
         A value that is matched to a supported SAML attribute name when a user identity federates to an AppStream 2.0 SAML application.
         """
         return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class FleetComputeCapacity(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "desiredInstances":
+            suggest = "desired_instances"
+        elif key == "desiredSessions":
+            suggest = "desired_sessions"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FleetComputeCapacity. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FleetComputeCapacity.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FleetComputeCapacity.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 desired_instances: Optional[_builtins.int] = None,
+                 desired_sessions: Optional[_builtins.int] = None):
+        """
+        :param _builtins.int desired_instances: The desired number of streaming instances.
+        :param _builtins.int desired_sessions: The desired capacity in terms of number of user sessions, for the multi-session fleet. This is not allowed for single-session fleets.
+               
+               When you create a fleet, you must set define either the DesiredSessions or DesiredInstances attribute, based on the type of fleet you create. You can’t define both attributes or leave both attributes blank.
+        """
+        if desired_instances is not None:
+            pulumi.set(__self__, "desired_instances", desired_instances)
+        if desired_sessions is not None:
+            pulumi.set(__self__, "desired_sessions", desired_sessions)
+
+    @_builtins.property
+    @pulumi.getter(name="desiredInstances")
+    def desired_instances(self) -> Optional[_builtins.int]:
+        """
+        The desired number of streaming instances.
+        """
+        return pulumi.get(self, "desired_instances")
+
+    @_builtins.property
+    @pulumi.getter(name="desiredSessions")
+    def desired_sessions(self) -> Optional[_builtins.int]:
+        """
+        The desired capacity in terms of number of user sessions, for the multi-session fleet. This is not allowed for single-session fleets.
+
+        When you create a fleet, you must set define either the DesiredSessions or DesiredInstances attribute, based on the type of fleet you create. You can’t define both attributes or leave both attributes blank.
+        """
+        return pulumi.get(self, "desired_sessions")
+
+
+@pulumi.output_type
+class FleetDomainJoinInfo(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "directoryName":
+            suggest = "directory_name"
+        elif key == "organizationalUnitDistinguishedName":
+            suggest = "organizational_unit_distinguished_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FleetDomainJoinInfo. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FleetDomainJoinInfo.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FleetDomainJoinInfo.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 directory_name: Optional[_builtins.str] = None,
+                 organizational_unit_distinguished_name: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str directory_name: The fully qualified name of the directory (for example, corp.example.com).
+        :param _builtins.str organizational_unit_distinguished_name: The distinguished name of the organizational unit for computer accounts.
+        """
+        if directory_name is not None:
+            pulumi.set(__self__, "directory_name", directory_name)
+        if organizational_unit_distinguished_name is not None:
+            pulumi.set(__self__, "organizational_unit_distinguished_name", organizational_unit_distinguished_name)
+
+    @_builtins.property
+    @pulumi.getter(name="directoryName")
+    def directory_name(self) -> Optional[_builtins.str]:
+        """
+        The fully qualified name of the directory (for example, corp.example.com).
+        """
+        return pulumi.get(self, "directory_name")
+
+    @_builtins.property
+    @pulumi.getter(name="organizationalUnitDistinguishedName")
+    def organizational_unit_distinguished_name(self) -> Optional[_builtins.str]:
+        """
+        The distinguished name of the organizational unit for computer accounts.
+        """
+        return pulumi.get(self, "organizational_unit_distinguished_name")
+
+
+@pulumi.output_type
+class FleetS3Location(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "s3Bucket":
+            suggest = "s3_bucket"
+        elif key == "s3Key":
+            suggest = "s3_key"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FleetS3Location. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FleetS3Location.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FleetS3Location.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 s3_bucket: _builtins.str,
+                 s3_key: _builtins.str):
+        """
+        :param _builtins.str s3_bucket: The S3 bucket of the S3 object.
+        :param _builtins.str s3_key: The S3 key of the S3 object.
+        """
+        pulumi.set(__self__, "s3_bucket", s3_bucket)
+        pulumi.set(__self__, "s3_key", s3_key)
+
+    @_builtins.property
+    @pulumi.getter(name="s3Bucket")
+    def s3_bucket(self) -> _builtins.str:
+        """
+        The S3 bucket of the S3 object.
+        """
+        return pulumi.get(self, "s3_bucket")
+
+    @_builtins.property
+    @pulumi.getter(name="s3Key")
+    def s3_key(self) -> _builtins.str:
+        """
+        The S3 key of the S3 object.
+        """
+        return pulumi.get(self, "s3_key")
+
+
+@pulumi.output_type
+class FleetVolumeConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "volumeSizeInGb":
+            suggest = "volume_size_in_gb"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FleetVolumeConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FleetVolumeConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FleetVolumeConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 volume_size_in_gb: Optional[_builtins.int] = None):
+        if volume_size_in_gb is not None:
+            pulumi.set(__self__, "volume_size_in_gb", volume_size_in_gb)
+
+    @_builtins.property
+    @pulumi.getter(name="volumeSizeInGb")
+    def volume_size_in_gb(self) -> Optional[_builtins.int]:
+        return pulumi.get(self, "volume_size_in_gb")
+
+
+@pulumi.output_type
+class FleetVpcConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "securityGroupIds":
+            suggest = "security_group_ids"
+        elif key == "subnetIds":
+            suggest = "subnet_ids"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FleetVpcConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FleetVpcConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FleetVpcConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 security_group_ids: Optional[Sequence[_builtins.str]] = None,
+                 subnet_ids: Optional[Sequence[_builtins.str]] = None):
+        """
+        :param Sequence[_builtins.str] security_group_ids: The identifiers of the security groups for the fleet.
+        :param Sequence[_builtins.str] subnet_ids: The identifiers of the subnets to which a network interface is attached from the fleet instance. Fleet instances can use one or two subnets.
+        """
+        if security_group_ids is not None:
+            pulumi.set(__self__, "security_group_ids", security_group_ids)
+        if subnet_ids is not None:
+            pulumi.set(__self__, "subnet_ids", subnet_ids)
+
+    @_builtins.property
+    @pulumi.getter(name="securityGroupIds")
+    def security_group_ids(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        The identifiers of the security groups for the fleet.
+        """
+        return pulumi.get(self, "security_group_ids")
+
+    @_builtins.property
+    @pulumi.getter(name="subnetIds")
+    def subnet_ids(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        The identifiers of the subnets to which a network interface is attached from the fleet instance. Fleet instances can use one or two subnets.
+        """
+        return pulumi.get(self, "subnet_ids")
 
 
 @pulumi.output_type

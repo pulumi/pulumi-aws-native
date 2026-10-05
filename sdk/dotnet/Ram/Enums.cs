@@ -8,6 +8,149 @@ using Pulumi;
 namespace Pulumi.AwsNative.Ram
 {
     /// <summary>
+    /// The current status of the association between the permission and the resource share.
+    /// </summary>
+    [EnumType]
+    public readonly struct PermissionAssociationAssociationStatus : IEquatable<PermissionAssociationAssociationStatus>
+    {
+        private readonly string _value;
+
+        private PermissionAssociationAssociationStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PermissionAssociationAssociationStatus Associating { get; } = new PermissionAssociationAssociationStatus("ASSOCIATING");
+        public static PermissionAssociationAssociationStatus Associated { get; } = new PermissionAssociationAssociationStatus("ASSOCIATED");
+        public static PermissionAssociationAssociationStatus Failed { get; } = new PermissionAssociationAssociationStatus("FAILED");
+        public static PermissionAssociationAssociationStatus Disassociating { get; } = new PermissionAssociationAssociationStatus("DISASSOCIATING");
+        public static PermissionAssociationAssociationStatus Suspended { get; } = new PermissionAssociationAssociationStatus("SUSPENDED");
+        public static PermissionAssociationAssociationStatus Suspending { get; } = new PermissionAssociationAssociationStatus("SUSPENDING");
+        public static PermissionAssociationAssociationStatus Restoring { get; } = new PermissionAssociationAssociationStatus("RESTORING");
+        public static PermissionAssociationAssociationStatus Disassociated { get; } = new PermissionAssociationAssociationStatus("DISASSOCIATED");
+
+        public static bool operator ==(PermissionAssociationAssociationStatus left, PermissionAssociationAssociationStatus right) => left.Equals(right);
+        public static bool operator !=(PermissionAssociationAssociationStatus left, PermissionAssociationAssociationStatus right) => !left.Equals(right);
+
+        public static explicit operator string(PermissionAssociationAssociationStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PermissionAssociationAssociationStatus other && Equals(other);
+        public bool Equals(PermissionAssociationAssociationStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The feature set of the resource share.
+    /// </summary>
+    [EnumType]
+    public readonly struct PermissionAssociationFeatureSet : IEquatable<PermissionAssociationFeatureSet>
+    {
+        private readonly string _value;
+
+        private PermissionAssociationFeatureSet(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PermissionAssociationFeatureSet Standard { get; } = new PermissionAssociationFeatureSet("STANDARD");
+        public static PermissionAssociationFeatureSet CreatedFromPolicy { get; } = new PermissionAssociationFeatureSet("CREATED_FROM_POLICY");
+        public static PermissionAssociationFeatureSet PromotingToStandard { get; } = new PermissionAssociationFeatureSet("PROMOTING_TO_STANDARD");
+
+        public static bool operator ==(PermissionAssociationFeatureSet left, PermissionAssociationFeatureSet right) => left.Equals(right);
+        public static bool operator !=(PermissionAssociationFeatureSet left, PermissionAssociationFeatureSet right) => !left.Equals(right);
+
+        public static explicit operator string(PermissionAssociationFeatureSet value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PermissionAssociationFeatureSet other && Equals(other);
+        public bool Equals(PermissionAssociationFeatureSet other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The current status of the association.
+    /// </summary>
+    [EnumType]
+    public readonly struct PrincipalAssociationStatus : IEquatable<PrincipalAssociationStatus>
+    {
+        private readonly string _value;
+
+        private PrincipalAssociationStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PrincipalAssociationStatus Associating { get; } = new PrincipalAssociationStatus("ASSOCIATING");
+        public static PrincipalAssociationStatus Associated { get; } = new PrincipalAssociationStatus("ASSOCIATED");
+        public static PrincipalAssociationStatus Failed { get; } = new PrincipalAssociationStatus("FAILED");
+        public static PrincipalAssociationStatus Disassociating { get; } = new PrincipalAssociationStatus("DISASSOCIATING");
+        public static PrincipalAssociationStatus Disassociated { get; } = new PrincipalAssociationStatus("DISASSOCIATED");
+        public static PrincipalAssociationStatus Suspended { get; } = new PrincipalAssociationStatus("SUSPENDED");
+        public static PrincipalAssociationStatus Suspending { get; } = new PrincipalAssociationStatus("SUSPENDING");
+        public static PrincipalAssociationStatus Restoring { get; } = new PrincipalAssociationStatus("RESTORING");
+
+        public static bool operator ==(PrincipalAssociationStatus left, PrincipalAssociationStatus right) => left.Equals(right);
+        public static bool operator !=(PrincipalAssociationStatus left, PrincipalAssociationStatus right) => !left.Equals(right);
+
+        public static explicit operator string(PrincipalAssociationStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PrincipalAssociationStatus other && Equals(other);
+        public bool Equals(PrincipalAssociationStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The current status of the association.
+    /// </summary>
+    [EnumType]
+    public readonly struct ResourceAssociationStatus : IEquatable<ResourceAssociationStatus>
+    {
+        private readonly string _value;
+
+        private ResourceAssociationStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ResourceAssociationStatus Associating { get; } = new ResourceAssociationStatus("ASSOCIATING");
+        public static ResourceAssociationStatus Associated { get; } = new ResourceAssociationStatus("ASSOCIATED");
+        public static ResourceAssociationStatus Failed { get; } = new ResourceAssociationStatus("FAILED");
+        public static ResourceAssociationStatus Disassociating { get; } = new ResourceAssociationStatus("DISASSOCIATING");
+        public static ResourceAssociationStatus Disassociated { get; } = new ResourceAssociationStatus("DISASSOCIATED");
+        public static ResourceAssociationStatus Suspended { get; } = new ResourceAssociationStatus("SUSPENDED");
+        public static ResourceAssociationStatus Suspending { get; } = new ResourceAssociationStatus("SUSPENDING");
+        public static ResourceAssociationStatus Restoring { get; } = new ResourceAssociationStatus("RESTORING");
+
+        public static bool operator ==(ResourceAssociationStatus left, ResourceAssociationStatus right) => left.Equals(right);
+        public static bool operator !=(ResourceAssociationStatus left, ResourceAssociationStatus right) => !left.Equals(right);
+
+        public static explicit operator string(ResourceAssociationStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ResourceAssociationStatus other && Equals(other);
+        public bool Equals(ResourceAssociationStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The feature set of the resource share.
     /// </summary>
     [EnumType]
@@ -66,6 +209,43 @@ namespace Pulumi.AwsNative.Ram
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is ResourceShareStatus other && Equals(other);
         public bool Equals(ResourceShareStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The current status of the association.
+    /// </summary>
+    [EnumType]
+    public readonly struct SourceAssociationStatus : IEquatable<SourceAssociationStatus>
+    {
+        private readonly string _value;
+
+        private SourceAssociationStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SourceAssociationStatus Associating { get; } = new SourceAssociationStatus("ASSOCIATING");
+        public static SourceAssociationStatus Associated { get; } = new SourceAssociationStatus("ASSOCIATED");
+        public static SourceAssociationStatus Failed { get; } = new SourceAssociationStatus("FAILED");
+        public static SourceAssociationStatus Disassociating { get; } = new SourceAssociationStatus("DISASSOCIATING");
+        public static SourceAssociationStatus Disassociated { get; } = new SourceAssociationStatus("DISASSOCIATED");
+        public static SourceAssociationStatus Suspended { get; } = new SourceAssociationStatus("SUSPENDED");
+        public static SourceAssociationStatus Suspending { get; } = new SourceAssociationStatus("SUSPENDING");
+        public static SourceAssociationStatus Restoring { get; } = new SourceAssociationStatus("RESTORING");
+
+        public static bool operator ==(SourceAssociationStatus left, SourceAssociationStatus right) => left.Equals(right);
+        public static bool operator !=(SourceAssociationStatus left, SourceAssociationStatus right) => !left.Equals(right);
+
+        public static explicit operator string(SourceAssociationStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SourceAssociationStatus other && Equals(other);
+        public bool Equals(SourceAssociationStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
