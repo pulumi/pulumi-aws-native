@@ -104,9 +104,9 @@ class IpamScope(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 external_authority_configuration: pulumi.Input[Optional[Union['IpamScopeExternalAuthorityConfigurationArgs', 'IpamScopeExternalAuthorityConfigurationArgsDict']]] = None,
+                 external_authority_configuration: pulumi.Input[Optional[Union['IpamScopeExternalAuthorityConfigurationArgs', 'IpamScopeExternalAuthorityConfigurationArgsDict', 'outputs.IpamScopeExternalAuthorityConfiguration']]] = None,
                  ipam_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Resource Schema of AWS::EC2::IPAMScope Type
@@ -114,11 +114,11 @@ class IpamScope(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: The description of the scope.
-        :param pulumi.Input[Union['IpamScopeExternalAuthorityConfigurationArgs', 'IpamScopeExternalAuthorityConfigurationArgsDict']] external_authority_configuration: The configuration that links an Amazon VPC IPAM scope to an external authority system. It specifies the type of external system and the external resource identifier that identifies your account or instance in that system.
+        :param pulumi.Input[Union['IpamScopeExternalAuthorityConfigurationArgs', 'IpamScopeExternalAuthorityConfigurationArgsDict', 'outputs.IpamScopeExternalAuthorityConfiguration']] external_authority_configuration: The configuration that links an Amazon VPC IPAM scope to an external authority system. It specifies the type of external system and the external resource identifier that identifies your account or instance in that system.
                
                For more information, see [Integrate VPC IPAM with Infoblox infrastructure](https://docs.aws.amazon.com/vpc/latest/ipam/integrate-infoblox-ipam.html) in the *Amazon VPC IPAM User Guide* .
         :param pulumi.Input[_builtins.str] ipam_id: The Id of the IPAM this scope is a part of.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
     @overload
@@ -145,9 +145,9 @@ class IpamScope(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 external_authority_configuration: pulumi.Input[Optional[Union['IpamScopeExternalAuthorityConfigurationArgs', 'IpamScopeExternalAuthorityConfigurationArgsDict']]] = None,
+                 external_authority_configuration: pulumi.Input[Optional[Union['IpamScopeExternalAuthorityConfigurationArgs', 'IpamScopeExternalAuthorityConfigurationArgsDict', 'outputs.IpamScopeExternalAuthorityConfiguration']]] = None,
                  ipam_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

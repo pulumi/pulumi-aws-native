@@ -113,7 +113,7 @@ class TransitGatewayPeeringAttachment(pulumi.CustomResource):
                  peer_account_id: pulumi.Input[Optional[_builtins.str]] = None,
                  peer_region: pulumi.Input[Optional[_builtins.str]] = None,
                  peer_transit_gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  transit_gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -124,7 +124,7 @@ class TransitGatewayPeeringAttachment(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] peer_account_id: The ID of the peer account
         :param pulumi.Input[_builtins.str] peer_region: Peer Region
         :param pulumi.Input[_builtins.str] peer_transit_gateway_id: The ID of the peer transit gateway.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags for the transit gateway peering attachment.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: The tags for the transit gateway peering attachment.
         :param pulumi.Input[_builtins.str] transit_gateway_id: The ID of the transit gateway.
         """
         ...
@@ -154,7 +154,7 @@ class TransitGatewayPeeringAttachment(pulumi.CustomResource):
                  peer_account_id: pulumi.Input[Optional[_builtins.str]] = None,
                  peer_region: pulumi.Input[Optional[_builtins.str]] = None,
                  peer_transit_gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  transit_gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

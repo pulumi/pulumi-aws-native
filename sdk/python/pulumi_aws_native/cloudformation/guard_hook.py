@@ -193,10 +193,10 @@ class GuardHook(pulumi.CustomResource):
                  failure_mode: pulumi.Input[Optional['GuardHookFailureMode']] = None,
                  hook_status: pulumi.Input[Optional['GuardHookHookStatus']] = None,
                  log_bucket: pulumi.Input[Optional[_builtins.str]] = None,
-                 options: pulumi.Input[Optional[Union['OptionsPropertiesArgs', 'OptionsPropertiesArgsDict']]] = None,
-                 rule_location: pulumi.Input[Optional[Union['GuardHookS3LocationArgs', 'GuardHookS3LocationArgsDict']]] = None,
-                 stack_filters: pulumi.Input[Optional[Union['StackFiltersPropertiesArgs', 'StackFiltersPropertiesArgsDict']]] = None,
-                 target_filters: pulumi.Input[Optional[Union[Union['TargetFilters0PropertiesArgs', 'TargetFilters0PropertiesArgsDict'], Union['TargetFilters1PropertiesArgs', 'TargetFilters1PropertiesArgsDict']]]] = None,
+                 options: pulumi.Input[Optional[Union['OptionsPropertiesArgs', 'OptionsPropertiesArgsDict', 'outputs.OptionsProperties']]] = None,
+                 rule_location: pulumi.Input[Optional[Union['GuardHookS3LocationArgs', 'GuardHookS3LocationArgsDict', 'outputs.GuardHookS3Location']]] = None,
+                 stack_filters: pulumi.Input[Optional[Union['StackFiltersPropertiesArgs', 'StackFiltersPropertiesArgsDict', 'outputs.StackFiltersProperties']]] = None,
+                 target_filters: pulumi.Input[Optional[Union[Union['TargetFilters0PropertiesArgs', 'TargetFilters0PropertiesArgsDict', 'outputs.TargetFilters0Properties'], Union['TargetFilters1PropertiesArgs', 'TargetFilters1PropertiesArgsDict', 'outputs.TargetFilters1Properties']]]] = None,
                  target_operations: pulumi.Input[Optional[Sequence[pulumi.Input['GuardHookTargetOperation']]]] = None,
                  __props__=None):
         """
@@ -209,10 +209,10 @@ class GuardHook(pulumi.CustomResource):
         :param pulumi.Input['GuardHookFailureMode'] failure_mode: Attribute to specify CloudFormation behavior on hook failure.
         :param pulumi.Input['GuardHookHookStatus'] hook_status: Attribute to specify which stacks this hook applies to or should get invoked for
         :param pulumi.Input[_builtins.str] log_bucket: S3 Bucket where the guard validate report will be uploaded to
-        :param pulumi.Input[Union['OptionsPropertiesArgs', 'OptionsPropertiesArgsDict']] options: Specifies the S3 location of your input parameters.
-        :param pulumi.Input[Union['GuardHookS3LocationArgs', 'GuardHookS3LocationArgsDict']] rule_location: Specifies the S3 location of your Guard rules.
-        :param pulumi.Input[Union['StackFiltersPropertiesArgs', 'StackFiltersPropertiesArgsDict']] stack_filters: Filters to allow hooks to target specific stack attributes
-        :param pulumi.Input[Union[Union['TargetFilters0PropertiesArgs', 'TargetFilters0PropertiesArgsDict'], Union['TargetFilters1PropertiesArgs', 'TargetFilters1PropertiesArgsDict']]] target_filters: Attribute to specify which targets should invoke the hook
+        :param pulumi.Input[Union['OptionsPropertiesArgs', 'OptionsPropertiesArgsDict', 'outputs.OptionsProperties']] options: Specifies the S3 location of your input parameters.
+        :param pulumi.Input[Union['GuardHookS3LocationArgs', 'GuardHookS3LocationArgsDict', 'outputs.GuardHookS3Location']] rule_location: Specifies the S3 location of your Guard rules.
+        :param pulumi.Input[Union['StackFiltersPropertiesArgs', 'StackFiltersPropertiesArgsDict', 'outputs.StackFiltersProperties']] stack_filters: Filters to allow hooks to target specific stack attributes
+        :param pulumi.Input[Union[Union['TargetFilters0PropertiesArgs', 'TargetFilters0PropertiesArgsDict', 'outputs.TargetFilters0Properties'], Union['TargetFilters1PropertiesArgs', 'TargetFilters1PropertiesArgsDict', 'outputs.TargetFilters1Properties']]] target_filters: Attribute to specify which targets should invoke the hook
         :param pulumi.Input[Sequence[pulumi.Input['GuardHookTargetOperation']]] target_operations: Which operations should this Hook run against? Resource changes, stacks or change sets.
         """
         ...
@@ -244,10 +244,10 @@ class GuardHook(pulumi.CustomResource):
                  failure_mode: pulumi.Input[Optional['GuardHookFailureMode']] = None,
                  hook_status: pulumi.Input[Optional['GuardHookHookStatus']] = None,
                  log_bucket: pulumi.Input[Optional[_builtins.str]] = None,
-                 options: pulumi.Input[Optional[Union['OptionsPropertiesArgs', 'OptionsPropertiesArgsDict']]] = None,
-                 rule_location: pulumi.Input[Optional[Union['GuardHookS3LocationArgs', 'GuardHookS3LocationArgsDict']]] = None,
-                 stack_filters: pulumi.Input[Optional[Union['StackFiltersPropertiesArgs', 'StackFiltersPropertiesArgsDict']]] = None,
-                 target_filters: pulumi.Input[Optional[Union[Union['TargetFilters0PropertiesArgs', 'TargetFilters0PropertiesArgsDict'], Union['TargetFilters1PropertiesArgs', 'TargetFilters1PropertiesArgsDict']]]] = None,
+                 options: pulumi.Input[Optional[Union['OptionsPropertiesArgs', 'OptionsPropertiesArgsDict', 'outputs.OptionsProperties']]] = None,
+                 rule_location: pulumi.Input[Optional[Union['GuardHookS3LocationArgs', 'GuardHookS3LocationArgsDict', 'outputs.GuardHookS3Location']]] = None,
+                 stack_filters: pulumi.Input[Optional[Union['StackFiltersPropertiesArgs', 'StackFiltersPropertiesArgsDict', 'outputs.StackFiltersProperties']]] = None,
+                 target_filters: pulumi.Input[Optional[Union[Union['TargetFilters0PropertiesArgs', 'TargetFilters0PropertiesArgsDict', 'outputs.TargetFilters0Properties'], Union['TargetFilters1PropertiesArgs', 'TargetFilters1PropertiesArgsDict', 'outputs.TargetFilters1Properties']]]] = None,
                  target_operations: pulumi.Input[Optional[Sequence[pulumi.Input['GuardHookTargetOperation']]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -392,7 +392,7 @@ class GuardHook(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="targetFilters")
-    def target_filters(self) -> pulumi.Output[Optional[Any]]:
+    def target_filters(self) -> pulumi.Output[Optional[Union['outputs.TargetFilters0Properties', 'outputs.TargetFilters1Properties']]]:
         """
         Attribute to specify which targets should invoke the hook
         """

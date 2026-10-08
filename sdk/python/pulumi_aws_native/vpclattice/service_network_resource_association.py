@@ -100,7 +100,7 @@ class ServiceNetworkResourceAssociation(pulumi.CustomResource):
                  private_dns_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  resource_configuration_id: pulumi.Input[Optional[_builtins.str]] = None,
                  service_network_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         VpcLattice ServiceNetworkResourceAssociation CFN resource
@@ -110,7 +110,7 @@ class ServiceNetworkResourceAssociation(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] private_dns_enabled: Indicates if private DNS is enabled for the service network resource association.
         :param pulumi.Input[_builtins.str] resource_configuration_id: The ID of the resource configuration associated with the service network.
         :param pulumi.Input[_builtins.str] service_network_id: The ID of the service network associated with the resource configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: A key-value pair to associate with a resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: A key-value pair to associate with a resource.
         """
         ...
     @overload
@@ -139,7 +139,7 @@ class ServiceNetworkResourceAssociation(pulumi.CustomResource):
                  private_dns_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  resource_configuration_id: pulumi.Input[Optional[_builtins.str]] = None,
                  service_network_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

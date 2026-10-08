@@ -80,7 +80,7 @@ class VectorBucketPolicy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 policy: pulumi.Input[Optional[Union['VectorBucketPolicyPolicyArgs', 'VectorBucketPolicyPolicyArgsDict']]] = None,
+                 policy: pulumi.Input[Optional[Union['VectorBucketPolicyPolicyArgs', 'VectorBucketPolicyPolicyArgsDict', 'outputs.VectorBucketPolicyPolicy']]] = None,
                  vector_bucket_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  vector_bucket_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -89,7 +89,7 @@ class VectorBucketPolicy(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['VectorBucketPolicyPolicyArgs', 'VectorBucketPolicyPolicyArgsDict']] policy: A policy document containing permissions to add to the specified vector bucket. In IAM , you must provide policy documents in JSON format. However, in CloudFormation you can provide the policy in JSON or YAML format because CloudFormation converts YAML to JSON before submitting it to IAM .
+        :param pulumi.Input[Union['VectorBucketPolicyPolicyArgs', 'VectorBucketPolicyPolicyArgsDict', 'outputs.VectorBucketPolicyPolicy']] policy: A policy document containing permissions to add to the specified vector bucket. In IAM , you must provide policy documents in JSON format. However, in CloudFormation you can provide the policy in JSON or YAML format because CloudFormation converts YAML to JSON before submitting it to IAM .
         :param pulumi.Input[_builtins.str] vector_bucket_arn: The Amazon Resource Name (ARN) of the S3 vector bucket to which the policy applies.
         :param pulumi.Input[_builtins.str] vector_bucket_name: The name of the S3 vector bucket to which the policy applies.
         """
@@ -117,7 +117,7 @@ class VectorBucketPolicy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 policy: pulumi.Input[Optional[Union['VectorBucketPolicyPolicyArgs', 'VectorBucketPolicyPolicyArgsDict']]] = None,
+                 policy: pulumi.Input[Optional[Union['VectorBucketPolicyPolicyArgs', 'VectorBucketPolicyPolicyArgsDict', 'outputs.VectorBucketPolicyPolicy']]] = None,
                  vector_bucket_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  vector_bucket_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):

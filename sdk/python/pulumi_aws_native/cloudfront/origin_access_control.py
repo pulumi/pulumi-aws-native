@@ -48,7 +48,7 @@ class OriginAccessControl(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 origin_access_control_config: pulumi.Input[Optional[Union['OriginAccessControlConfigArgs', 'OriginAccessControlConfigArgsDict']]] = None,
+                 origin_access_control_config: pulumi.Input[Optional[Union['OriginAccessControlConfigArgs', 'OriginAccessControlConfigArgsDict', 'outputs.OriginAccessControlConfig']]] = None,
                  __props__=None):
         """
         Creates a new origin access control in CloudFront. After you create an origin access control, you can add it to an origin in a CloudFront distribution so that CloudFront sends authenticated (signed) requests to the origin.
@@ -57,7 +57,7 @@ class OriginAccessControl(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['OriginAccessControlConfigArgs', 'OriginAccessControlConfigArgsDict']] origin_access_control_config: The origin access control.
+        :param pulumi.Input[Union['OriginAccessControlConfigArgs', 'OriginAccessControlConfigArgsDict', 'outputs.OriginAccessControlConfig']] origin_access_control_config: The origin access control.
         """
         ...
     @overload
@@ -85,7 +85,7 @@ class OriginAccessControl(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 origin_access_control_config: pulumi.Input[Optional[Union['OriginAccessControlConfigArgs', 'OriginAccessControlConfigArgsDict']]] = None,
+                 origin_access_control_config: pulumi.Input[Optional[Union['OriginAccessControlConfigArgs', 'OriginAccessControlConfigArgsDict', 'outputs.OriginAccessControlConfig']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

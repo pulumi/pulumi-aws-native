@@ -241,7 +241,7 @@ class NatGateway(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  allocation_id: pulumi.Input[Optional[_builtins.str]] = None,
                  availability_mode: pulumi.Input[Optional[_builtins.str]] = None,
-                 availability_zone_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NatGatewayAvailabilityZoneAddressArgs', 'NatGatewayAvailabilityZoneAddressArgsDict']]]]] = None,
+                 availability_zone_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NatGatewayAvailabilityZoneAddressArgs', 'NatGatewayAvailabilityZoneAddressArgsDict', 'outputs.NatGatewayAvailabilityZoneAddress']]]]] = None,
                  connectivity_type: pulumi.Input[Optional[_builtins.str]] = None,
                  max_drain_duration_seconds: pulumi.Input[Optional[_builtins.int]] = None,
                  private_ip_address: pulumi.Input[Optional[_builtins.str]] = None,
@@ -249,7 +249,7 @@ class NatGateway(pulumi.CustomResource):
                  secondary_private_ip_address_count: pulumi.Input[Optional[_builtins.int]] = None,
                  secondary_private_ip_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  vpc_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -264,7 +264,7 @@ class NatGateway(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] availability_mode: Indicates whether this is a zonal (single-AZ) or regional (multi-AZ) NAT gateway.
                 A zonal NAT gateway is a NAT Gateway that provides redundancy and scalability within a single availability zone. A regional NAT gateway is a single NAT Gateway that works across multiple availability zones (AZs) in your VPC, providing redundancy, scalability and availability across all the AZs in a Region.
                 For more information, see [Regional NAT gateways for automatic multi-AZ expansion](https://docs.aws.amazon.com/vpc/latest/userguide/nat-gateways-regional.html) in the *Amazon VPC User Guide*.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['NatGatewayAvailabilityZoneAddressArgs', 'NatGatewayAvailabilityZoneAddressArgsDict']]]] availability_zone_addresses: For regional NAT gateways only: Specifies which Availability Zones you want the NAT gateway to support and the Elastic IP addresses (EIPs) to use in each AZ. The regional NAT gateway uses these EIPs to handle outbound NAT traffic from their respective AZs. If not specified, the NAT gateway will automatically expand to new AZs and associate EIPs upon detection of an elastic network interface. If you specify this parameter, auto-expansion is disabled and you must manually manage AZ coverage.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['NatGatewayAvailabilityZoneAddressArgs', 'NatGatewayAvailabilityZoneAddressArgsDict', 'outputs.NatGatewayAvailabilityZoneAddress']]]] availability_zone_addresses: For regional NAT gateways only: Specifies which Availability Zones you want the NAT gateway to support and the Elastic IP addresses (EIPs) to use in each AZ. The regional NAT gateway uses these EIPs to handle outbound NAT traffic from their respective AZs. If not specified, the NAT gateway will automatically expand to new AZs and associate EIPs upon detection of an elastic network interface. If you specify this parameter, auto-expansion is disabled and you must manually manage AZ coverage.
                 A regional NAT gateway is a single NAT Gateway that works across multiple availability zones (AZs) in your VPC, providing redundancy, scalability and availability across all the AZs in a Region.
                 For more information, see [Regional NAT gateways for automatic multi-AZ expansion](https://docs.aws.amazon.com/vpc/latest/userguide/nat-gateways-regional.html) in the *Amazon VPC User Guide*.
         :param pulumi.Input[_builtins.str] connectivity_type: Indicates whether the NAT gateway supports public or private connectivity. The default is public connectivity.
@@ -276,7 +276,7 @@ class NatGateway(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] secondary_private_ip_addresses: Secondary private IPv4 addresses. For more information about secondary addresses, see [Create a NAT gateway](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-creating) in the *Amazon Virtual Private Cloud User Guide*.
                 ``SecondaryPrivateIpAddressCount`` and ``SecondaryPrivateIpAddresses`` cannot be set at the same time.
         :param pulumi.Input[_builtins.str] subnet_id: The ID of the subnet in which the NAT gateway is located.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags for the NAT gateway.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: The tags for the NAT gateway.
         :param pulumi.Input[_builtins.str] vpc_id: The ID of the VPC in which the NAT gateway is located.
         """
         ...
@@ -308,7 +308,7 @@ class NatGateway(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  allocation_id: pulumi.Input[Optional[_builtins.str]] = None,
                  availability_mode: pulumi.Input[Optional[_builtins.str]] = None,
-                 availability_zone_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NatGatewayAvailabilityZoneAddressArgs', 'NatGatewayAvailabilityZoneAddressArgsDict']]]]] = None,
+                 availability_zone_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NatGatewayAvailabilityZoneAddressArgs', 'NatGatewayAvailabilityZoneAddressArgsDict', 'outputs.NatGatewayAvailabilityZoneAddress']]]]] = None,
                  connectivity_type: pulumi.Input[Optional[_builtins.str]] = None,
                  max_drain_duration_seconds: pulumi.Input[Optional[_builtins.int]] = None,
                  private_ip_address: pulumi.Input[Optional[_builtins.str]] = None,
@@ -316,7 +316,7 @@ class NatGateway(pulumi.CustomResource):
                  secondary_private_ip_address_count: pulumi.Input[Optional[_builtins.int]] = None,
                  secondary_private_ip_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  vpc_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

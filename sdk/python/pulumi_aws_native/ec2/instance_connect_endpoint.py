@@ -118,7 +118,7 @@ class InstanceConnectEndpoint(pulumi.CustomResource):
                  preserve_client_ip: pulumi.Input[Optional[_builtins.bool]] = None,
                  security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::EC2::InstanceConnectEndpoint
@@ -129,7 +129,7 @@ class InstanceConnectEndpoint(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] preserve_client_ip: Indicates whether your client's IP address is preserved as the source when you connect to a resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: The security groups associated with the endpoint.
         :param pulumi.Input[_builtins.str] subnet_id: The ID of the subnet in which the EC2 Instance Connect Endpoint was created.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags assigned to the EC2 Instance Connect Endpoint.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: The tags assigned to the EC2 Instance Connect Endpoint.
         """
         ...
     @overload
@@ -159,7 +159,7 @@ class InstanceConnectEndpoint(pulumi.CustomResource):
                  preserve_client_ip: pulumi.Input[Optional[_builtins.bool]] = None,
                  security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

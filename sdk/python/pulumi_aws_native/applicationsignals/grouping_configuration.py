@@ -48,14 +48,14 @@ class GroupingConfiguration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 grouping_attribute_definitions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GroupingConfigurationGroupingAttributeDefinitionArgs', 'GroupingConfigurationGroupingAttributeDefinitionArgsDict']]]]] = None,
+                 grouping_attribute_definitions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GroupingConfigurationGroupingAttributeDefinitionArgs', 'GroupingConfigurationGroupingAttributeDefinitionArgsDict', 'outputs.GroupingConfigurationGroupingAttributeDefinition']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::ApplicationSignals::GroupingConfiguration
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['GroupingConfigurationGroupingAttributeDefinitionArgs', 'GroupingConfigurationGroupingAttributeDefinitionArgsDict']]]] grouping_attribute_definitions: An array of grouping attribute definitions that specify how services should be grouped based on various attributes and source keys.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['GroupingConfigurationGroupingAttributeDefinitionArgs', 'GroupingConfigurationGroupingAttributeDefinitionArgsDict', 'outputs.GroupingConfigurationGroupingAttributeDefinition']]]] grouping_attribute_definitions: An array of grouping attribute definitions that specify how services should be grouped based on various attributes and source keys.
         """
         ...
     @overload
@@ -81,7 +81,7 @@ class GroupingConfiguration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 grouping_attribute_definitions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GroupingConfigurationGroupingAttributeDefinitionArgs', 'GroupingConfigurationGroupingAttributeDefinitionArgsDict']]]]] = None,
+                 grouping_attribute_definitions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GroupingConfigurationGroupingAttributeDefinitionArgs', 'GroupingConfigurationGroupingAttributeDefinitionArgsDict', 'outputs.GroupingConfigurationGroupingAttributeDefinition']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -220,14 +220,14 @@ class WebExperience(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  application_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 browser_extension_configuration: pulumi.Input[Optional[Union['WebExperienceBrowserExtensionConfigurationArgs', 'WebExperienceBrowserExtensionConfigurationArgsDict']]] = None,
-                 customization_configuration: pulumi.Input[Optional[Union['WebExperienceCustomizationConfigurationArgs', 'WebExperienceCustomizationConfigurationArgsDict']]] = None,
-                 identity_provider_configuration: pulumi.Input[Optional[Union[Union['WebExperienceIdentityProviderConfiguration0PropertiesArgs', 'WebExperienceIdentityProviderConfiguration0PropertiesArgsDict'], Union['WebExperienceIdentityProviderConfiguration1PropertiesArgs', 'WebExperienceIdentityProviderConfiguration1PropertiesArgsDict']]]] = None,
+                 browser_extension_configuration: pulumi.Input[Optional[Union['WebExperienceBrowserExtensionConfigurationArgs', 'WebExperienceBrowserExtensionConfigurationArgsDict', 'outputs.WebExperienceBrowserExtensionConfiguration']]] = None,
+                 customization_configuration: pulumi.Input[Optional[Union['WebExperienceCustomizationConfigurationArgs', 'WebExperienceCustomizationConfigurationArgsDict', 'outputs.WebExperienceCustomizationConfiguration']]] = None,
+                 identity_provider_configuration: pulumi.Input[Optional[Union[Union['WebExperienceIdentityProviderConfiguration0PropertiesArgs', 'WebExperienceIdentityProviderConfiguration0PropertiesArgsDict', 'outputs.WebExperienceIdentityProviderConfiguration0Properties'], Union['WebExperienceIdentityProviderConfiguration1PropertiesArgs', 'WebExperienceIdentityProviderConfiguration1PropertiesArgsDict', 'outputs.WebExperienceIdentityProviderConfiguration1Properties']]]] = None,
                  origins: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  sample_prompts_control_mode: pulumi.Input[Optional['WebExperienceSamplePromptsControlMode']] = None,
                  subtitle: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  title: pulumi.Input[Optional[_builtins.str]] = None,
                  welcome_message: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -237,9 +237,9 @@ class WebExperience(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] application_id: The identifier of the Amazon Q Business web experience.
-        :param pulumi.Input[Union['WebExperienceBrowserExtensionConfigurationArgs', 'WebExperienceBrowserExtensionConfigurationArgsDict']] browser_extension_configuration: The container for browser extension configuration for an Amazon Q Business web experience.
-        :param pulumi.Input[Union['WebExperienceCustomizationConfigurationArgs', 'WebExperienceCustomizationConfigurationArgsDict']] customization_configuration: Contains the configuration information to customize the logo, font, and color of an Amazon Q Business web experience with individual files for each property or a CSS file for them all.
-        :param pulumi.Input[Union[Union['WebExperienceIdentityProviderConfiguration0PropertiesArgs', 'WebExperienceIdentityProviderConfiguration0PropertiesArgsDict'], Union['WebExperienceIdentityProviderConfiguration1PropertiesArgs', 'WebExperienceIdentityProviderConfiguration1PropertiesArgsDict']]] identity_provider_configuration: Provides information about the identity provider (IdP) used to authenticate end users of an Amazon Q Business web experience.
+        :param pulumi.Input[Union['WebExperienceBrowserExtensionConfigurationArgs', 'WebExperienceBrowserExtensionConfigurationArgsDict', 'outputs.WebExperienceBrowserExtensionConfiguration']] browser_extension_configuration: The container for browser extension configuration for an Amazon Q Business web experience.
+        :param pulumi.Input[Union['WebExperienceCustomizationConfigurationArgs', 'WebExperienceCustomizationConfigurationArgsDict', 'outputs.WebExperienceCustomizationConfiguration']] customization_configuration: Contains the configuration information to customize the logo, font, and color of an Amazon Q Business web experience with individual files for each property or a CSS file for them all.
+        :param pulumi.Input[Union[Union['WebExperienceIdentityProviderConfiguration0PropertiesArgs', 'WebExperienceIdentityProviderConfiguration0PropertiesArgsDict', 'outputs.WebExperienceIdentityProviderConfiguration0Properties'], Union['WebExperienceIdentityProviderConfiguration1PropertiesArgs', 'WebExperienceIdentityProviderConfiguration1PropertiesArgsDict', 'outputs.WebExperienceIdentityProviderConfiguration1Properties']]] identity_provider_configuration: Provides information about the identity provider (IdP) used to authenticate end users of an Amazon Q Business web experience.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] origins: Sets the website domain origins that are allowed to embed the Amazon Q Business web experience. The *domain origin* refers to the base URL for accessing a website including the protocol ( `http/https` ), the domain name, and the port number (if specified).
                
                > You must only submit a *base URL* and not a full path. For example, `https://docs.aws.amazon.com` .
@@ -248,7 +248,7 @@ class WebExperience(pulumi.CustomResource):
                > The `roleArn` parameter is required when your Amazon Q Business application is created with IAM Identity Center. It is not required for SAML-based applications.
         :param pulumi.Input['WebExperienceSamplePromptsControlMode'] sample_prompts_control_mode: Determines whether sample prompts are enabled in the web experience for an end user.
         :param pulumi.Input[_builtins.str] subtitle: A subtitle to personalize your Amazon Q Business web experience.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: A list of key-value pairs that identify or categorize your Amazon Q Business web experience. You can also use tags to help control access to the web experience. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: A list of key-value pairs that identify or categorize your Amazon Q Business web experience. You can also use tags to help control access to the web experience. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
         :param pulumi.Input[_builtins.str] title: The title for your Amazon Q Business web experience.
         :param pulumi.Input[_builtins.str] welcome_message: A message in an Amazon Q Business web experience.
         """
@@ -277,14 +277,14 @@ class WebExperience(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  application_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 browser_extension_configuration: pulumi.Input[Optional[Union['WebExperienceBrowserExtensionConfigurationArgs', 'WebExperienceBrowserExtensionConfigurationArgsDict']]] = None,
-                 customization_configuration: pulumi.Input[Optional[Union['WebExperienceCustomizationConfigurationArgs', 'WebExperienceCustomizationConfigurationArgsDict']]] = None,
-                 identity_provider_configuration: pulumi.Input[Optional[Union[Union['WebExperienceIdentityProviderConfiguration0PropertiesArgs', 'WebExperienceIdentityProviderConfiguration0PropertiesArgsDict'], Union['WebExperienceIdentityProviderConfiguration1PropertiesArgs', 'WebExperienceIdentityProviderConfiguration1PropertiesArgsDict']]]] = None,
+                 browser_extension_configuration: pulumi.Input[Optional[Union['WebExperienceBrowserExtensionConfigurationArgs', 'WebExperienceBrowserExtensionConfigurationArgsDict', 'outputs.WebExperienceBrowserExtensionConfiguration']]] = None,
+                 customization_configuration: pulumi.Input[Optional[Union['WebExperienceCustomizationConfigurationArgs', 'WebExperienceCustomizationConfigurationArgsDict', 'outputs.WebExperienceCustomizationConfiguration']]] = None,
+                 identity_provider_configuration: pulumi.Input[Optional[Union[Union['WebExperienceIdentityProviderConfiguration0PropertiesArgs', 'WebExperienceIdentityProviderConfiguration0PropertiesArgsDict', 'outputs.WebExperienceIdentityProviderConfiguration0Properties'], Union['WebExperienceIdentityProviderConfiguration1PropertiesArgs', 'WebExperienceIdentityProviderConfiguration1PropertiesArgsDict', 'outputs.WebExperienceIdentityProviderConfiguration1Properties']]]] = None,
                  origins: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  sample_prompts_control_mode: pulumi.Input[Optional['WebExperienceSamplePromptsControlMode']] = None,
                  subtitle: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  title: pulumi.Input[Optional[_builtins.str]] = None,
                  welcome_message: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -400,7 +400,7 @@ class WebExperience(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="identityProviderConfiguration")
-    def identity_provider_configuration(self) -> pulumi.Output[Optional[Any]]:
+    def identity_provider_configuration(self) -> pulumi.Output[Optional[Union['outputs.WebExperienceIdentityProviderConfiguration0Properties', 'outputs.WebExperienceIdentityProviderConfiguration1Properties']]]:
         """
         Provides information about the identity provider (IdP) used to authenticate end users of an Amazon Q Business web experience.
         """

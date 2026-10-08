@@ -186,8 +186,8 @@ class Vpc(pulumi.CustomResource):
                  instance_tenancy: pulumi.Input[Optional[_builtins.str]] = None,
                  ipv4_ipam_pool_id: pulumi.Input[Optional[_builtins.str]] = None,
                  ipv4_netmask_length: pulumi.Input[Optional[_builtins.int]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 vpc_encryption_control: pulumi.Input[Optional[Union['VpcEncryptionControlArgs', 'VpcEncryptionControlArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
+                 vpc_encryption_control: pulumi.Input[Optional[Union['VpcEncryptionControlArgs', 'VpcEncryptionControlArgsDict', 'outputs.VpcEncryptionControl']]] = None,
                  __props__=None):
         """
         Specifies a virtual private cloud (VPC).
@@ -209,8 +209,8 @@ class Vpc(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] ipv4_ipam_pool_id: The ID of an IPv4 IPAM pool you want to use for allocating this VPC's CIDR. For more information, see [What is IPAM?](https://docs.aws.amazon.com//vpc/latest/ipam/what-is-it-ipam.html) in the *Amazon VPC IPAM User Guide*.
                 You must specify either``CidrBlock`` or ``Ipv4IpamPoolId``.
         :param pulumi.Input[_builtins.int] ipv4_netmask_length: The netmask length of the IPv4 CIDR you want to allocate to this VPC from an Amazon VPC IP Address Manager (IPAM) pool. For more information about IPAM, see [What is IPAM?](https://docs.aws.amazon.com//vpc/latest/ipam/what-is-it-ipam.html) in the *Amazon VPC IPAM User Guide*.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags for the VPC.
-        :param pulumi.Input[Union['VpcEncryptionControlArgs', 'VpcEncryptionControlArgsDict']] vpc_encryption_control: Describes the configuration and state of VPC encryption controls.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: The tags for the VPC.
+        :param pulumi.Input[Union['VpcEncryptionControlArgs', 'VpcEncryptionControlArgsDict', 'outputs.VpcEncryptionControl']] vpc_encryption_control: Describes the configuration and state of VPC encryption controls.
                 For more information, see [Enforce VPC encryption in transit](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-encryption-controls.html) in the *Amazon VPC User Guide*.
         """
         ...
@@ -245,8 +245,8 @@ class Vpc(pulumi.CustomResource):
                  instance_tenancy: pulumi.Input[Optional[_builtins.str]] = None,
                  ipv4_ipam_pool_id: pulumi.Input[Optional[_builtins.str]] = None,
                  ipv4_netmask_length: pulumi.Input[Optional[_builtins.int]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 vpc_encryption_control: pulumi.Input[Optional[Union['VpcEncryptionControlArgs', 'VpcEncryptionControlArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
+                 vpc_encryption_control: pulumi.Input[Optional[Union['VpcEncryptionControlArgs', 'VpcEncryptionControlArgsDict', 'outputs.VpcEncryptionControl']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -200,7 +200,7 @@ class ScheduledQuery(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 destination_configuration: pulumi.Input[Optional[Union['ScheduledQueryDestinationConfigurationArgs', 'ScheduledQueryDestinationConfigurationArgsDict']]] = None,
+                 destination_configuration: pulumi.Input[Optional[Union['ScheduledQueryDestinationConfigurationArgs', 'ScheduledQueryDestinationConfigurationArgsDict', 'outputs.ScheduledQueryDestinationConfiguration']]] = None,
                  execution_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  log_group_identifiers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -211,7 +211,7 @@ class ScheduledQuery(pulumi.CustomResource):
                  schedule_start_time: pulumi.Input[Optional[_builtins.float]] = None,
                  start_time_offset: pulumi.Input[Optional[_builtins.int]] = None,
                  state: pulumi.Input[Optional['ScheduledQueryState']] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  timezone: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -245,7 +245,7 @@ class ScheduledQuery(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 destination_configuration: pulumi.Input[Optional[Union['ScheduledQueryDestinationConfigurationArgs', 'ScheduledQueryDestinationConfigurationArgsDict']]] = None,
+                 destination_configuration: pulumi.Input[Optional[Union['ScheduledQueryDestinationConfigurationArgs', 'ScheduledQueryDestinationConfigurationArgsDict', 'outputs.ScheduledQueryDestinationConfiguration']]] = None,
                  execution_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  log_group_identifiers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -256,7 +256,7 @@ class ScheduledQuery(pulumi.CustomResource):
                  schedule_start_time: pulumi.Input[Optional[_builtins.float]] = None,
                  start_time_offset: pulumi.Input[Optional[_builtins.int]] = None,
                  state: pulumi.Input[Optional['ScheduledQueryState']] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  timezone: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

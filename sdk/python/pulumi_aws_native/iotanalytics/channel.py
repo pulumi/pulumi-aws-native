@@ -104,9 +104,9 @@ class Channel(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  channel_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 channel_storage: pulumi.Input[Optional[Union['ChannelStorageArgs', 'ChannelStorageArgsDict']]] = None,
-                 retention_period: pulumi.Input[Optional[Union['ChannelRetentionPeriodArgs', 'ChannelRetentionPeriodArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 channel_storage: pulumi.Input[Optional[Union['ChannelStorageArgs', 'ChannelStorageArgsDict', 'outputs.ChannelStorage']]] = None,
+                 retention_period: pulumi.Input[Optional[Union['ChannelRetentionPeriodArgs', 'ChannelRetentionPeriodArgsDict', 'outputs.ChannelRetentionPeriod']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::IoTAnalytics::Channel
@@ -183,9 +183,9 @@ class Channel(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] channel_name: The name of the channel.
-        :param pulumi.Input[Union['ChannelStorageArgs', 'ChannelStorageArgsDict']] channel_storage: Where channel data is stored.
-        :param pulumi.Input[Union['ChannelRetentionPeriodArgs', 'ChannelRetentionPeriodArgsDict']] retention_period: How long, in days, message data is kept for the channel.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Metadata which can be used to manage the channel.
+        :param pulumi.Input[Union['ChannelStorageArgs', 'ChannelStorageArgsDict', 'outputs.ChannelStorage']] channel_storage: Where channel data is stored.
+        :param pulumi.Input[Union['ChannelRetentionPeriodArgs', 'ChannelRetentionPeriodArgsDict', 'outputs.ChannelRetentionPeriod']] retention_period: How long, in days, message data is kept for the channel.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: Metadata which can be used to manage the channel.
                
                For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
         """
@@ -283,9 +283,9 @@ class Channel(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  channel_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 channel_storage: pulumi.Input[Optional[Union['ChannelStorageArgs', 'ChannelStorageArgsDict']]] = None,
-                 retention_period: pulumi.Input[Optional[Union['ChannelRetentionPeriodArgs', 'ChannelRetentionPeriodArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 channel_storage: pulumi.Input[Optional[Union['ChannelStorageArgs', 'ChannelStorageArgsDict', 'outputs.ChannelStorage']]] = None,
+                 retention_period: pulumi.Input[Optional[Union['ChannelRetentionPeriodArgs', 'ChannelRetentionPeriodArgsDict', 'outputs.ChannelRetentionPeriod']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

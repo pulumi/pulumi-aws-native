@@ -181,10 +181,10 @@ class ResourceDataSync(pulumi.CustomResource):
                  bucket_prefix: pulumi.Input[Optional[_builtins.str]] = None,
                  bucket_region: pulumi.Input[Optional[_builtins.str]] = None,
                  kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 s3_destination: pulumi.Input[Optional[Union['ResourceDataSyncS3DestinationArgs', 'ResourceDataSyncS3DestinationArgsDict']]] = None,
+                 s3_destination: pulumi.Input[Optional[Union['ResourceDataSyncS3DestinationArgs', 'ResourceDataSyncS3DestinationArgsDict', 'outputs.ResourceDataSyncS3Destination']]] = None,
                  sync_format: pulumi.Input[Optional[_builtins.str]] = None,
                  sync_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 sync_source: pulumi.Input[Optional[Union['ResourceDataSyncSyncSourceArgs', 'ResourceDataSyncSyncSourceArgsDict']]] = None,
+                 sync_source: pulumi.Input[Optional[Union['ResourceDataSyncSyncSourceArgs', 'ResourceDataSyncSyncSourceArgsDict', 'outputs.ResourceDataSyncSyncSource']]] = None,
                  sync_type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -353,10 +353,10 @@ class ResourceDataSync(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] bucket_prefix: An Amazon S3 prefix for the bucket.
         :param pulumi.Input[_builtins.str] bucket_region: The AWS Region with the S3 bucket targeted by the resource data sync.
         :param pulumi.Input[_builtins.str] kms_key_arn: The Amazon Resource Name (ARN) of an encryption key for a destination in Amazon S3 . You can use a KMS key to encrypt inventory data in Amazon S3 . You must specify a key that exist in the same AWS Region as the destination Amazon S3 bucket.
-        :param pulumi.Input[Union['ResourceDataSyncS3DestinationArgs', 'ResourceDataSyncS3DestinationArgsDict']] s3_destination: Configuration information for the target S3 bucket.
+        :param pulumi.Input[Union['ResourceDataSyncS3DestinationArgs', 'ResourceDataSyncS3DestinationArgsDict', 'outputs.ResourceDataSyncS3Destination']] s3_destination: Configuration information for the target S3 bucket.
         :param pulumi.Input[_builtins.str] sync_format: A supported sync format. The following format is currently supported: JsonSerDe
         :param pulumi.Input[_builtins.str] sync_name: A name for the resource data sync.
-        :param pulumi.Input[Union['ResourceDataSyncSyncSourceArgs', 'ResourceDataSyncSyncSourceArgsDict']] sync_source: Information about the source where the data was synchronized.
+        :param pulumi.Input[Union['ResourceDataSyncSyncSourceArgs', 'ResourceDataSyncSyncSourceArgsDict', 'outputs.ResourceDataSyncSyncSource']] sync_source: Information about the source where the data was synchronized.
         :param pulumi.Input[_builtins.str] sync_type: The type of resource data sync. If `SyncType` is `SyncToDestination` , then the resource data sync synchronizes data to an S3 bucket. If the `SyncType` is `SyncFromSource` then the resource data sync synchronizes data from AWS Organizations or from multiple AWS Regions .
         """
         ...
@@ -544,10 +544,10 @@ class ResourceDataSync(pulumi.CustomResource):
                  bucket_prefix: pulumi.Input[Optional[_builtins.str]] = None,
                  bucket_region: pulumi.Input[Optional[_builtins.str]] = None,
                  kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 s3_destination: pulumi.Input[Optional[Union['ResourceDataSyncS3DestinationArgs', 'ResourceDataSyncS3DestinationArgsDict']]] = None,
+                 s3_destination: pulumi.Input[Optional[Union['ResourceDataSyncS3DestinationArgs', 'ResourceDataSyncS3DestinationArgsDict', 'outputs.ResourceDataSyncS3Destination']]] = None,
                  sync_format: pulumi.Input[Optional[_builtins.str]] = None,
                  sync_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 sync_source: pulumi.Input[Optional[Union['ResourceDataSyncSyncSourceArgs', 'ResourceDataSyncSyncSourceArgsDict']]] = None,
+                 sync_source: pulumi.Input[Optional[Union['ResourceDataSyncSyncSourceArgs', 'ResourceDataSyncSyncSourceArgsDict', 'outputs.ResourceDataSyncSyncSource']]] = None,
                  sync_type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

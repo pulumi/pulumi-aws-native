@@ -194,9 +194,9 @@ class LambdaHook(pulumi.CustomResource):
                  failure_mode: pulumi.Input[Optional['LambdaHookFailureMode']] = None,
                  hook_status: pulumi.Input[Optional['LambdaHookHookStatus']] = None,
                  lambda_function: pulumi.Input[Optional[_builtins.str]] = None,
-                 logging_config: pulumi.Input[Optional[Union['LambdaHookLoggingConfigArgs', 'LambdaHookLoggingConfigArgsDict']]] = None,
-                 stack_filters: pulumi.Input[Optional[Union['StackFiltersPropertiesArgs', 'StackFiltersPropertiesArgsDict']]] = None,
-                 target_filters: pulumi.Input[Optional[Union[Union['TargetFilters0PropertiesArgs', 'TargetFilters0PropertiesArgsDict'], Union['TargetFilters1PropertiesArgs', 'TargetFilters1PropertiesArgsDict']]]] = None,
+                 logging_config: pulumi.Input[Optional[Union['LambdaHookLoggingConfigArgs', 'LambdaHookLoggingConfigArgsDict', 'outputs.LambdaHookLoggingConfig']]] = None,
+                 stack_filters: pulumi.Input[Optional[Union['StackFiltersPropertiesArgs', 'StackFiltersPropertiesArgsDict', 'outputs.StackFiltersProperties']]] = None,
+                 target_filters: pulumi.Input[Optional[Union[Union['TargetFilters0PropertiesArgs', 'TargetFilters0PropertiesArgsDict', 'outputs.TargetFilters0Properties'], Union['TargetFilters1PropertiesArgs', 'TargetFilters1PropertiesArgsDict', 'outputs.TargetFilters1Properties']]]] = None,
                  target_operations: pulumi.Input[Optional[Sequence[pulumi.Input['LambdaHookTargetOperation']]]] = None,
                  __props__=None):
         """
@@ -210,9 +210,9 @@ class LambdaHook(pulumi.CustomResource):
         :param pulumi.Input['LambdaHookFailureMode'] failure_mode: Attribute to specify CloudFormation behavior on hook failure.
         :param pulumi.Input['LambdaHookHookStatus'] hook_status: Attribute to specify which stacks this hook applies to or should get invoked for
         :param pulumi.Input[_builtins.str] lambda_function: Amazon Resource Name (ARN), Partial ARN, name, version, or alias of the Lambda function to invoke with this hook.
-        :param pulumi.Input[Union['LambdaHookLoggingConfigArgs', 'LambdaHookLoggingConfigArgsDict']] logging_config: Contains logging configuration information for the hook.
-        :param pulumi.Input[Union['StackFiltersPropertiesArgs', 'StackFiltersPropertiesArgsDict']] stack_filters: Filters to allow hooks to target specific stack attributes
-        :param pulumi.Input[Union[Union['TargetFilters0PropertiesArgs', 'TargetFilters0PropertiesArgsDict'], Union['TargetFilters1PropertiesArgs', 'TargetFilters1PropertiesArgsDict']]] target_filters: Attribute to specify which targets should invoke the hook
+        :param pulumi.Input[Union['LambdaHookLoggingConfigArgs', 'LambdaHookLoggingConfigArgsDict', 'outputs.LambdaHookLoggingConfig']] logging_config: Contains logging configuration information for the hook.
+        :param pulumi.Input[Union['StackFiltersPropertiesArgs', 'StackFiltersPropertiesArgsDict', 'outputs.StackFiltersProperties']] stack_filters: Filters to allow hooks to target specific stack attributes
+        :param pulumi.Input[Union[Union['TargetFilters0PropertiesArgs', 'TargetFilters0PropertiesArgsDict', 'outputs.TargetFilters0Properties'], Union['TargetFilters1PropertiesArgs', 'TargetFilters1PropertiesArgsDict', 'outputs.TargetFilters1Properties']]] target_filters: Attribute to specify which targets should invoke the hook
         :param pulumi.Input[Sequence[pulumi.Input['LambdaHookTargetOperation']]] target_operations: Which operations should this Hook run against? Resource changes, stacks or change sets.
         """
         ...
@@ -245,9 +245,9 @@ class LambdaHook(pulumi.CustomResource):
                  failure_mode: pulumi.Input[Optional['LambdaHookFailureMode']] = None,
                  hook_status: pulumi.Input[Optional['LambdaHookHookStatus']] = None,
                  lambda_function: pulumi.Input[Optional[_builtins.str]] = None,
-                 logging_config: pulumi.Input[Optional[Union['LambdaHookLoggingConfigArgs', 'LambdaHookLoggingConfigArgsDict']]] = None,
-                 stack_filters: pulumi.Input[Optional[Union['StackFiltersPropertiesArgs', 'StackFiltersPropertiesArgsDict']]] = None,
-                 target_filters: pulumi.Input[Optional[Union[Union['TargetFilters0PropertiesArgs', 'TargetFilters0PropertiesArgsDict'], Union['TargetFilters1PropertiesArgs', 'TargetFilters1PropertiesArgsDict']]]] = None,
+                 logging_config: pulumi.Input[Optional[Union['LambdaHookLoggingConfigArgs', 'LambdaHookLoggingConfigArgsDict', 'outputs.LambdaHookLoggingConfig']]] = None,
+                 stack_filters: pulumi.Input[Optional[Union['StackFiltersPropertiesArgs', 'StackFiltersPropertiesArgsDict', 'outputs.StackFiltersProperties']]] = None,
+                 target_filters: pulumi.Input[Optional[Union[Union['TargetFilters0PropertiesArgs', 'TargetFilters0PropertiesArgsDict', 'outputs.TargetFilters0Properties'], Union['TargetFilters1PropertiesArgs', 'TargetFilters1PropertiesArgsDict', 'outputs.TargetFilters1Properties']]]] = None,
                  target_operations: pulumi.Input[Optional[Sequence[pulumi.Input['LambdaHookTargetOperation']]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -392,7 +392,7 @@ class LambdaHook(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="targetFilters")
-    def target_filters(self) -> pulumi.Output[Optional[Any]]:
+    def target_filters(self) -> pulumi.Output[Optional[Union['outputs.TargetFilters0Properties', 'outputs.TargetFilters1Properties']]]:
         """
         Attribute to specify which targets should invoke the hook
         """

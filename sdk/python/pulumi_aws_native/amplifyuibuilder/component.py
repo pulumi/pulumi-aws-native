@@ -259,19 +259,19 @@ class Component(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  app_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 binding_properties: pulumi.Input[Optional[Mapping[str, pulumi.Input[Union['ComponentBindingPropertiesValueArgs', 'ComponentBindingPropertiesValueArgsDict']]]]] = None,
-                 children: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ComponentChildArgs', 'ComponentChildArgsDict']]]]] = None,
-                 collection_properties: pulumi.Input[Optional[Mapping[str, pulumi.Input[Union['ComponentDataConfigurationArgs', 'ComponentDataConfigurationArgsDict']]]]] = None,
+                 binding_properties: pulumi.Input[Optional[Mapping[str, pulumi.Input[Union['ComponentBindingPropertiesValueArgs', 'ComponentBindingPropertiesValueArgsDict', 'outputs.ComponentBindingPropertiesValue']]]]] = None,
+                 children: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ComponentChildArgs', 'ComponentChildArgsDict', 'outputs.ComponentChild']]]]] = None,
+                 collection_properties: pulumi.Input[Optional[Mapping[str, pulumi.Input[Union['ComponentDataConfigurationArgs', 'ComponentDataConfigurationArgsDict', 'outputs.ComponentDataConfiguration']]]]] = None,
                  component_type: pulumi.Input[Optional[_builtins.str]] = None,
                  environment_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 events: pulumi.Input[Optional[Mapping[str, pulumi.Input[Union['ComponentEventArgs', 'ComponentEventArgsDict']]]]] = None,
+                 events: pulumi.Input[Optional[Mapping[str, pulumi.Input[Union['ComponentEventArgs', 'ComponentEventArgsDict', 'outputs.ComponentEvent']]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  overrides: pulumi.Input[Optional[Mapping[str, pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]]] = None,
-                 properties: pulumi.Input[Optional[Mapping[str, pulumi.Input[Union['ComponentPropertyArgs', 'ComponentPropertyArgsDict']]]]] = None,
+                 properties: pulumi.Input[Optional[Mapping[str, pulumi.Input[Union['ComponentPropertyArgs', 'ComponentPropertyArgsDict', 'outputs.ComponentProperty']]]]] = None,
                  schema_version: pulumi.Input[Optional[_builtins.str]] = None,
                  source_id: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 variants: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ComponentVariantArgs', 'ComponentVariantArgsDict']]]]] = None,
+                 variants: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ComponentVariantArgs', 'ComponentVariantArgsDict', 'outputs.ComponentVariant']]]]] = None,
                  __props__=None):
         """
         Definition of AWS::AmplifyUIBuilder::Component Resource Type
@@ -279,19 +279,19 @@ class Component(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] app_id: The unique ID of the Amplify app associated with the component.
-        :param pulumi.Input[Mapping[str, pulumi.Input[Union['ComponentBindingPropertiesValueArgs', 'ComponentBindingPropertiesValueArgsDict']]]] binding_properties: The information to connect a component's properties to data at runtime. You can't specify `tags` as a valid property for `bindingProperties` .
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ComponentChildArgs', 'ComponentChildArgsDict']]]] children: A list of the component's `ComponentChild` instances.
-        :param pulumi.Input[Mapping[str, pulumi.Input[Union['ComponentDataConfigurationArgs', 'ComponentDataConfigurationArgsDict']]]] collection_properties: The data binding configuration for the component's properties. Use this for a collection component. You can't specify `tags` as a valid property for `collectionProperties` .
+        :param pulumi.Input[Mapping[str, pulumi.Input[Union['ComponentBindingPropertiesValueArgs', 'ComponentBindingPropertiesValueArgsDict', 'outputs.ComponentBindingPropertiesValue']]]] binding_properties: The information to connect a component's properties to data at runtime. You can't specify `tags` as a valid property for `bindingProperties` .
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ComponentChildArgs', 'ComponentChildArgsDict', 'outputs.ComponentChild']]]] children: A list of the component's `ComponentChild` instances.
+        :param pulumi.Input[Mapping[str, pulumi.Input[Union['ComponentDataConfigurationArgs', 'ComponentDataConfigurationArgsDict', 'outputs.ComponentDataConfiguration']]]] collection_properties: The data binding configuration for the component's properties. Use this for a collection component. You can't specify `tags` as a valid property for `collectionProperties` .
         :param pulumi.Input[_builtins.str] component_type: The type of the component. This can be an Amplify custom UI component or another custom component.
         :param pulumi.Input[_builtins.str] environment_name: The name of the backend environment that is a part of the Amplify app.
-        :param pulumi.Input[Mapping[str, pulumi.Input[Union['ComponentEventArgs', 'ComponentEventArgsDict']]]] events: Describes the events that can be raised on the component. Use for the workflow feature in Amplify Studio that allows you to bind events and actions to components.
+        :param pulumi.Input[Mapping[str, pulumi.Input[Union['ComponentEventArgs', 'ComponentEventArgsDict', 'outputs.ComponentEvent']]]] events: Describes the events that can be raised on the component. Use for the workflow feature in Amplify Studio that allows you to bind events and actions to components.
         :param pulumi.Input[_builtins.str] name: The name of the component.
         :param pulumi.Input[Mapping[str, pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]] overrides: Describes the component's properties that can be overriden in a customized instance of the component. You can't specify `tags` as a valid property for `overrides` .
-        :param pulumi.Input[Mapping[str, pulumi.Input[Union['ComponentPropertyArgs', 'ComponentPropertyArgsDict']]]] properties: Describes the component's properties. You can't specify `tags` as a valid property for `properties` .
+        :param pulumi.Input[Mapping[str, pulumi.Input[Union['ComponentPropertyArgs', 'ComponentPropertyArgsDict', 'outputs.ComponentProperty']]]] properties: Describes the component's properties. You can't specify `tags` as a valid property for `properties` .
         :param pulumi.Input[_builtins.str] schema_version: The schema version of the component when it was imported.
         :param pulumi.Input[_builtins.str] source_id: The unique ID of the component in its original source system, such as Figma.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: One or more key-value pairs to use when tagging the component.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ComponentVariantArgs', 'ComponentVariantArgsDict']]]] variants: A list of the component's variants. A variant is a unique style configuration of a main component.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ComponentVariantArgs', 'ComponentVariantArgsDict', 'outputs.ComponentVariant']]]] variants: A list of the component's variants. A variant is a unique style configuration of a main component.
         """
         ...
     @overload
@@ -318,19 +318,19 @@ class Component(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  app_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 binding_properties: pulumi.Input[Optional[Mapping[str, pulumi.Input[Union['ComponentBindingPropertiesValueArgs', 'ComponentBindingPropertiesValueArgsDict']]]]] = None,
-                 children: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ComponentChildArgs', 'ComponentChildArgsDict']]]]] = None,
-                 collection_properties: pulumi.Input[Optional[Mapping[str, pulumi.Input[Union['ComponentDataConfigurationArgs', 'ComponentDataConfigurationArgsDict']]]]] = None,
+                 binding_properties: pulumi.Input[Optional[Mapping[str, pulumi.Input[Union['ComponentBindingPropertiesValueArgs', 'ComponentBindingPropertiesValueArgsDict', 'outputs.ComponentBindingPropertiesValue']]]]] = None,
+                 children: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ComponentChildArgs', 'ComponentChildArgsDict', 'outputs.ComponentChild']]]]] = None,
+                 collection_properties: pulumi.Input[Optional[Mapping[str, pulumi.Input[Union['ComponentDataConfigurationArgs', 'ComponentDataConfigurationArgsDict', 'outputs.ComponentDataConfiguration']]]]] = None,
                  component_type: pulumi.Input[Optional[_builtins.str]] = None,
                  environment_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 events: pulumi.Input[Optional[Mapping[str, pulumi.Input[Union['ComponentEventArgs', 'ComponentEventArgsDict']]]]] = None,
+                 events: pulumi.Input[Optional[Mapping[str, pulumi.Input[Union['ComponentEventArgs', 'ComponentEventArgsDict', 'outputs.ComponentEvent']]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  overrides: pulumi.Input[Optional[Mapping[str, pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]]] = None,
-                 properties: pulumi.Input[Optional[Mapping[str, pulumi.Input[Union['ComponentPropertyArgs', 'ComponentPropertyArgsDict']]]]] = None,
+                 properties: pulumi.Input[Optional[Mapping[str, pulumi.Input[Union['ComponentPropertyArgs', 'ComponentPropertyArgsDict', 'outputs.ComponentProperty']]]]] = None,
                  schema_version: pulumi.Input[Optional[_builtins.str]] = None,
                  source_id: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 variants: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ComponentVariantArgs', 'ComponentVariantArgsDict']]]]] = None,
+                 variants: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ComponentVariantArgs', 'ComponentVariantArgsDict', 'outputs.ComponentVariant']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -99,20 +99,20 @@ class UsageProfile(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 configuration: pulumi.Input[Optional[Union['UsageProfileProfileConfigurationArgs', 'UsageProfileProfileConfigurationArgsDict']]] = None,
+                 configuration: pulumi.Input[Optional[Union['UsageProfileProfileConfigurationArgs', 'UsageProfileProfileConfigurationArgsDict', 'outputs.UsageProfileProfileConfiguration']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         This creates a Resource of UsageProfile type.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['UsageProfileProfileConfigurationArgs', 'UsageProfileProfileConfigurationArgsDict']] configuration: UsageProfile configuration for supported service ex: (Jobs, Sessions).
+        :param pulumi.Input[Union['UsageProfileProfileConfigurationArgs', 'UsageProfileProfileConfigurationArgsDict', 'outputs.UsageProfileProfileConfiguration']] configuration: UsageProfile configuration for supported service ex: (Jobs, Sessions).
         :param pulumi.Input[_builtins.str] description: The description of the UsageProfile.
         :param pulumi.Input[_builtins.str] name: The name of the UsageProfile.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags to be applied to this UsageProfiles.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: The tags to be applied to this UsageProfiles.
         """
         ...
     @overload
@@ -138,10 +138,10 @@ class UsageProfile(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 configuration: pulumi.Input[Optional[Union['UsageProfileProfileConfigurationArgs', 'UsageProfileProfileConfigurationArgsDict']]] = None,
+                 configuration: pulumi.Input[Optional[Union['UsageProfileProfileConfigurationArgs', 'UsageProfileProfileConfigurationArgsDict', 'outputs.UsageProfileProfileConfiguration']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

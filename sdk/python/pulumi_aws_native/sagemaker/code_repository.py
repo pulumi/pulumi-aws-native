@@ -83,8 +83,8 @@ class CodeRepository(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  code_repository_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 git_config: pulumi.Input[Optional[Union['CodeRepositoryGitConfigArgs', 'CodeRepositoryGitConfigArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 git_config: pulumi.Input[Optional[Union['CodeRepositoryGitConfigArgs', 'CodeRepositoryGitConfigArgsDict', 'outputs.CodeRepositoryGitConfig']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::SageMaker::CodeRepository
@@ -92,8 +92,8 @@ class CodeRepository(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] code_repository_name: The name of the Git repository.
-        :param pulumi.Input[Union['CodeRepositoryGitConfigArgs', 'CodeRepositoryGitConfigArgsDict']] git_config: Configuration details for the Git repository, including the URL where it is located and the ARN of the AWS Secrets Manager secret that contains the credentials used to access the repository.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs.
+        :param pulumi.Input[Union['CodeRepositoryGitConfigArgs', 'CodeRepositoryGitConfigArgsDict', 'outputs.CodeRepositoryGitConfig']] git_config: Configuration details for the Git repository, including the URL where it is located and the ARN of the AWS Secrets Manager secret that contains the credentials used to access the repository.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: An array of key-value pairs.
         """
         ...
     @overload
@@ -120,8 +120,8 @@ class CodeRepository(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  code_repository_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 git_config: pulumi.Input[Optional[Union['CodeRepositoryGitConfigArgs', 'CodeRepositoryGitConfigArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 git_config: pulumi.Input[Optional[Union['CodeRepositoryGitConfigArgs', 'CodeRepositoryGitConfigArgsDict', 'outputs.CodeRepositoryGitConfig']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

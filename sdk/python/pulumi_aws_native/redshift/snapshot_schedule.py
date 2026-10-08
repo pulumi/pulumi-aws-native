@@ -98,7 +98,7 @@ class SnapshotSchedule(pulumi.CustomResource):
                  schedule_definitions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  schedule_description: pulumi.Input[Optional[_builtins.str]] = None,
                  schedule_identifier: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Creates a snapshot schedule that lets you set up automatic snapshots of your Amazon Redshift cluster at regular intervals.
@@ -108,7 +108,7 @@ class SnapshotSchedule(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] schedule_definitions: The definition of the snapshot schedule. The definition is made up of schedule expressions, for example "cron(30 12 *)" or "rate(12 hours)".
         :param pulumi.Input[_builtins.str] schedule_description: The description of the snapshot schedule.
         :param pulumi.Input[_builtins.str] schedule_identifier: A unique identifier for the snapshot schedule. Only alphanumeric characters are allowed.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An optional set of tags for the snapshot schedule.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: An optional set of tags for the snapshot schedule.
         """
         ...
     @overload
@@ -137,7 +137,7 @@ class SnapshotSchedule(pulumi.CustomResource):
                  schedule_definitions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  schedule_description: pulumi.Input[Optional[_builtins.str]] = None,
                  schedule_identifier: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

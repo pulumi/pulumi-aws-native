@@ -212,18 +212,18 @@ class Cluster(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auto_scaling: pulumi.Input[Optional[Union['ClusterAutoScalingConfigArgs', 'ClusterAutoScalingConfigArgsDict']]] = None,
+                 auto_scaling: pulumi.Input[Optional[Union['ClusterAutoScalingConfigArgs', 'ClusterAutoScalingConfigArgsDict', 'outputs.ClusterAutoScalingConfig']]] = None,
                  cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
                  cluster_role: pulumi.Input[Optional[_builtins.str]] = None,
-                 instance_groups: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ClusterInstanceGroupArgs', 'ClusterInstanceGroupArgsDict']]]]] = None,
+                 instance_groups: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ClusterInstanceGroupArgs', 'ClusterInstanceGroupArgsDict', 'outputs.ClusterInstanceGroup']]]]] = None,
                  node_provisioning_mode: pulumi.Input[Optional['ClusterNodeProvisioningMode']] = None,
                  node_recovery: pulumi.Input[Optional['ClusterNodeRecovery']] = None,
-                 orchestrator: pulumi.Input[Optional[Union['ClusterOrchestratorArgs', 'ClusterOrchestratorArgsDict']]] = None,
-                 restricted_instance_groups: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ClusterRestrictedInstanceGroupArgs', 'ClusterRestrictedInstanceGroupArgsDict']]]]] = None,
-                 restricted_instance_groups_config: pulumi.Input[Optional[Union['ClusterRestrictedInstanceGroupsConfigArgs', 'ClusterRestrictedInstanceGroupsConfigArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 tiered_storage_config: pulumi.Input[Optional[Union['ClusterTieredStorageConfigArgs', 'ClusterTieredStorageConfigArgsDict']]] = None,
-                 vpc_config: pulumi.Input[Optional[Union['ClusterVpcConfigArgs', 'ClusterVpcConfigArgsDict']]] = None,
+                 orchestrator: pulumi.Input[Optional[Union['ClusterOrchestratorArgs', 'ClusterOrchestratorArgsDict', 'outputs.ClusterOrchestrator']]] = None,
+                 restricted_instance_groups: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ClusterRestrictedInstanceGroupArgs', 'ClusterRestrictedInstanceGroupArgsDict', 'outputs.ClusterRestrictedInstanceGroup']]]]] = None,
+                 restricted_instance_groups_config: pulumi.Input[Optional[Union['ClusterRestrictedInstanceGroupsConfigArgs', 'ClusterRestrictedInstanceGroupsConfigArgsDict', 'outputs.ClusterRestrictedInstanceGroupsConfig']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
+                 tiered_storage_config: pulumi.Input[Optional[Union['ClusterTieredStorageConfigArgs', 'ClusterTieredStorageConfigArgsDict', 'outputs.ClusterTieredStorageConfig']]] = None,
+                 vpc_config: pulumi.Input[Optional[Union['ClusterVpcConfigArgs', 'ClusterVpcConfigArgsDict', 'outputs.ClusterVpcConfig']]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::SageMaker::Cluster
@@ -232,12 +232,12 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] cluster_name: The name of the HyperPod Cluster.
         :param pulumi.Input[_builtins.str] cluster_role: The cluster role for the autoscaler to assume.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ClusterInstanceGroupArgs', 'ClusterInstanceGroupArgsDict']]]] instance_groups: The instance groups of the SageMaker HyperPod cluster. To delete an instance group, remove it from the array.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ClusterInstanceGroupArgs', 'ClusterInstanceGroupArgsDict', 'outputs.ClusterInstanceGroup']]]] instance_groups: The instance groups of the SageMaker HyperPod cluster. To delete an instance group, remove it from the array.
         :param pulumi.Input['ClusterNodeProvisioningMode'] node_provisioning_mode: Determines the scaling strategy for the SageMaker HyperPod cluster. When set to 'Continuous', enables continuous scaling which dynamically manages node provisioning. If the parameter is omitted, uses the standard scaling approach in previous release.
         :param pulumi.Input['ClusterNodeRecovery'] node_recovery: If node auto-recovery is set to true, faulty nodes will be replaced or rebooted when a failure is detected. If set to false, nodes will be labelled when a fault is detected.
-        :param pulumi.Input[Union['ClusterOrchestratorArgs', 'ClusterOrchestratorArgsDict']] orchestrator: The orchestrator type for the SageMaker HyperPod cluster. Currently, `'eks'` is the only available option.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Custom tags for managing the SageMaker HyperPod cluster as an AWS resource. You can add tags to your cluster in the same way you add them in other AWS services that support tagging.
-        :param pulumi.Input[Union['ClusterVpcConfigArgs', 'ClusterVpcConfigArgsDict']] vpc_config: Specifies an Amazon Virtual Private Cloud (VPC) that your SageMaker jobs, hosted models, and compute resources have access to. You can control access to and from your resources by configuring a VPC. For more information, see [Give SageMaker Access to Resources in your Amazon VPC](https://docs.aws.amazon.com/sagemaker/latest/dg/infrastructure-give-access.html) .
+        :param pulumi.Input[Union['ClusterOrchestratorArgs', 'ClusterOrchestratorArgsDict', 'outputs.ClusterOrchestrator']] orchestrator: The orchestrator type for the SageMaker HyperPod cluster. Currently, `'eks'` is the only available option.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: Custom tags for managing the SageMaker HyperPod cluster as an AWS resource. You can add tags to your cluster in the same way you add them in other AWS services that support tagging.
+        :param pulumi.Input[Union['ClusterVpcConfigArgs', 'ClusterVpcConfigArgsDict', 'outputs.ClusterVpcConfig']] vpc_config: Specifies an Amazon Virtual Private Cloud (VPC) that your SageMaker jobs, hosted models, and compute resources have access to. You can control access to and from your resources by configuring a VPC. For more information, see [Give SageMaker Access to Resources in your Amazon VPC](https://docs.aws.amazon.com/sagemaker/latest/dg/infrastructure-give-access.html) .
         """
         ...
     @overload
@@ -263,18 +263,18 @@ class Cluster(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auto_scaling: pulumi.Input[Optional[Union['ClusterAutoScalingConfigArgs', 'ClusterAutoScalingConfigArgsDict']]] = None,
+                 auto_scaling: pulumi.Input[Optional[Union['ClusterAutoScalingConfigArgs', 'ClusterAutoScalingConfigArgsDict', 'outputs.ClusterAutoScalingConfig']]] = None,
                  cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
                  cluster_role: pulumi.Input[Optional[_builtins.str]] = None,
-                 instance_groups: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ClusterInstanceGroupArgs', 'ClusterInstanceGroupArgsDict']]]]] = None,
+                 instance_groups: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ClusterInstanceGroupArgs', 'ClusterInstanceGroupArgsDict', 'outputs.ClusterInstanceGroup']]]]] = None,
                  node_provisioning_mode: pulumi.Input[Optional['ClusterNodeProvisioningMode']] = None,
                  node_recovery: pulumi.Input[Optional['ClusterNodeRecovery']] = None,
-                 orchestrator: pulumi.Input[Optional[Union['ClusterOrchestratorArgs', 'ClusterOrchestratorArgsDict']]] = None,
-                 restricted_instance_groups: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ClusterRestrictedInstanceGroupArgs', 'ClusterRestrictedInstanceGroupArgsDict']]]]] = None,
-                 restricted_instance_groups_config: pulumi.Input[Optional[Union['ClusterRestrictedInstanceGroupsConfigArgs', 'ClusterRestrictedInstanceGroupsConfigArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 tiered_storage_config: pulumi.Input[Optional[Union['ClusterTieredStorageConfigArgs', 'ClusterTieredStorageConfigArgsDict']]] = None,
-                 vpc_config: pulumi.Input[Optional[Union['ClusterVpcConfigArgs', 'ClusterVpcConfigArgsDict']]] = None,
+                 orchestrator: pulumi.Input[Optional[Union['ClusterOrchestratorArgs', 'ClusterOrchestratorArgsDict', 'outputs.ClusterOrchestrator']]] = None,
+                 restricted_instance_groups: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ClusterRestrictedInstanceGroupArgs', 'ClusterRestrictedInstanceGroupArgsDict', 'outputs.ClusterRestrictedInstanceGroup']]]]] = None,
+                 restricted_instance_groups_config: pulumi.Input[Optional[Union['ClusterRestrictedInstanceGroupsConfigArgs', 'ClusterRestrictedInstanceGroupsConfigArgsDict', 'outputs.ClusterRestrictedInstanceGroupsConfig']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
+                 tiered_storage_config: pulumi.Input[Optional[Union['ClusterTieredStorageConfigArgs', 'ClusterTieredStorageConfigArgsDict', 'outputs.ClusterTieredStorageConfig']]] = None,
+                 vpc_config: pulumi.Input[Optional[Union['ClusterVpcConfigArgs', 'ClusterVpcConfigArgsDict', 'outputs.ClusterVpcConfig']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

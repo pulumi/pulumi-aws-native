@@ -194,14 +194,14 @@ class Device(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 aws_location: pulumi.Input[Optional[Union['DeviceAwsLocationArgs', 'DeviceAwsLocationArgsDict']]] = None,
+                 aws_location: pulumi.Input[Optional[Union['DeviceAwsLocationArgs', 'DeviceAwsLocationArgsDict', 'outputs.DeviceAwsLocation']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  global_network_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 location: pulumi.Input[Optional[Union['DeviceLocationArgs', 'DeviceLocationArgsDict']]] = None,
+                 location: pulumi.Input[Optional[Union['DeviceLocationArgs', 'DeviceLocationArgsDict', 'outputs.DeviceLocation']]] = None,
                  model: pulumi.Input[Optional[_builtins.str]] = None,
                  serial_number: pulumi.Input[Optional[_builtins.str]] = None,
                  site_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  type: pulumi.Input[Optional[_builtins.str]] = None,
                  vendor: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -210,14 +210,14 @@ class Device(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['DeviceAwsLocationArgs', 'DeviceAwsLocationArgsDict']] aws_location: The Amazon Web Services location of the device, if applicable.
+        :param pulumi.Input[Union['DeviceAwsLocationArgs', 'DeviceAwsLocationArgsDict', 'outputs.DeviceAwsLocation']] aws_location: The Amazon Web Services location of the device, if applicable.
         :param pulumi.Input[_builtins.str] description: The description of the device.
         :param pulumi.Input[_builtins.str] global_network_id: The ID of the global network.
-        :param pulumi.Input[Union['DeviceLocationArgs', 'DeviceLocationArgsDict']] location: The site location.
+        :param pulumi.Input[Union['DeviceLocationArgs', 'DeviceLocationArgsDict', 'outputs.DeviceLocation']] location: The site location.
         :param pulumi.Input[_builtins.str] model: The device model
         :param pulumi.Input[_builtins.str] serial_number: The device serial number.
         :param pulumi.Input[_builtins.str] site_id: The site ID.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags for the device.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: The tags for the device.
         :param pulumi.Input[_builtins.str] type: The device type.
         :param pulumi.Input[_builtins.str] vendor: The device vendor.
         """
@@ -245,14 +245,14 @@ class Device(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 aws_location: pulumi.Input[Optional[Union['DeviceAwsLocationArgs', 'DeviceAwsLocationArgsDict']]] = None,
+                 aws_location: pulumi.Input[Optional[Union['DeviceAwsLocationArgs', 'DeviceAwsLocationArgsDict', 'outputs.DeviceAwsLocation']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  global_network_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 location: pulumi.Input[Optional[Union['DeviceLocationArgs', 'DeviceLocationArgsDict']]] = None,
+                 location: pulumi.Input[Optional[Union['DeviceLocationArgs', 'DeviceLocationArgsDict', 'outputs.DeviceLocation']]] = None,
                  model: pulumi.Input[Optional[_builtins.str]] = None,
                  serial_number: pulumi.Input[Optional[_builtins.str]] = None,
                  site_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  type: pulumi.Input[Optional[_builtins.str]] = None,
                  vendor: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):

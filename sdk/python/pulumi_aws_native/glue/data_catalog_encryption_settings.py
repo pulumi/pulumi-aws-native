@@ -64,7 +64,7 @@ class DataCatalogEncryptionSettings(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  catalog_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 data_catalog_encryption_settings: pulumi.Input[Optional[Union['DataCatalogEncryptionSettingsArgs', 'DataCatalogEncryptionSettingsArgsDict']]] = None,
+                 data_catalog_encryption_settings: pulumi.Input[Optional[Union['DataCatalogEncryptionSettingsArgs', 'DataCatalogEncryptionSettingsArgsDict', 'outputs.DataCatalogEncryptionSettings']]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::Glue::DataCatalogEncryptionSettings
@@ -72,7 +72,7 @@ class DataCatalogEncryptionSettings(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] catalog_id: The ID of the Data Catalog in which the settings are created.
-        :param pulumi.Input[Union['DataCatalogEncryptionSettingsArgs', 'DataCatalogEncryptionSettingsArgsDict']] data_catalog_encryption_settings: Contains configuration information for maintaining Data Catalog security.
+        :param pulumi.Input[Union['DataCatalogEncryptionSettingsArgs', 'DataCatalogEncryptionSettingsArgsDict', 'outputs.DataCatalogEncryptionSettings']] data_catalog_encryption_settings: Contains configuration information for maintaining Data Catalog security.
         """
         ...
     @overload
@@ -99,7 +99,7 @@ class DataCatalogEncryptionSettings(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  catalog_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 data_catalog_encryption_settings: pulumi.Input[Optional[Union['DataCatalogEncryptionSettingsArgs', 'DataCatalogEncryptionSettingsArgsDict']]] = None,
+                 data_catalog_encryption_settings: pulumi.Input[Optional[Union['DataCatalogEncryptionSettingsArgs', 'DataCatalogEncryptionSettingsArgsDict', 'outputs.DataCatalogEncryptionSettings']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

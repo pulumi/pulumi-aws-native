@@ -180,13 +180,13 @@ class Service(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 dns_config: pulumi.Input[Optional[Union['ServiceDnsConfigArgs', 'ServiceDnsConfigArgsDict']]] = None,
-                 health_check_config: pulumi.Input[Optional[Union['ServiceHealthCheckConfigArgs', 'ServiceHealthCheckConfigArgsDict']]] = None,
-                 health_check_custom_config: pulumi.Input[Optional[Union['ServiceHealthCheckCustomConfigArgs', 'ServiceHealthCheckCustomConfigArgsDict']]] = None,
+                 dns_config: pulumi.Input[Optional[Union['ServiceDnsConfigArgs', 'ServiceDnsConfigArgsDict', 'outputs.ServiceDnsConfig']]] = None,
+                 health_check_config: pulumi.Input[Optional[Union['ServiceHealthCheckConfigArgs', 'ServiceHealthCheckConfigArgsDict', 'outputs.ServiceHealthCheckConfig']]] = None,
+                 health_check_custom_config: pulumi.Input[Optional[Union['ServiceHealthCheckCustomConfigArgs', 'ServiceHealthCheckCustomConfigArgsDict', 'outputs.ServiceHealthCheckCustomConfig']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  namespace_id: pulumi.Input[Optional[_builtins.str]] = None,
                  service_attributes: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -195,13 +195,13 @@ class Service(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: A description for the service.
-        :param pulumi.Input[Union['ServiceDnsConfigArgs', 'ServiceDnsConfigArgsDict']] dns_config: DNS-related configurations for the service.
-        :param pulumi.Input[Union['ServiceHealthCheckConfigArgs', 'ServiceHealthCheckConfigArgsDict']] health_check_config: Settings for health checks. Used when routing is DNS-based.
-        :param pulumi.Input[Union['ServiceHealthCheckCustomConfigArgs', 'ServiceHealthCheckCustomConfigArgsDict']] health_check_custom_config: Settings for custom health checks.
+        :param pulumi.Input[Union['ServiceDnsConfigArgs', 'ServiceDnsConfigArgsDict', 'outputs.ServiceDnsConfig']] dns_config: DNS-related configurations for the service.
+        :param pulumi.Input[Union['ServiceHealthCheckConfigArgs', 'ServiceHealthCheckConfigArgsDict', 'outputs.ServiceHealthCheckConfig']] health_check_config: Settings for health checks. Used when routing is DNS-based.
+        :param pulumi.Input[Union['ServiceHealthCheckCustomConfigArgs', 'ServiceHealthCheckCustomConfigArgsDict', 'outputs.ServiceHealthCheckCustomConfig']] health_check_custom_config: Settings for custom health checks.
         :param pulumi.Input[_builtins.str] name: The name of the service.
         :param pulumi.Input[_builtins.str] namespace_id: The ID of the namespace in which the service is created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] service_attributes: A string map that contains attributes and values for the service. You can specify a maximum of 30 key-value pairs.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to associate with the service.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: An array of key-value pairs to associate with the service.
         :param pulumi.Input[_builtins.str] type: The type of service. Supported values are HTTP or DNS.
         """
         ...
@@ -229,13 +229,13 @@ class Service(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 dns_config: pulumi.Input[Optional[Union['ServiceDnsConfigArgs', 'ServiceDnsConfigArgsDict']]] = None,
-                 health_check_config: pulumi.Input[Optional[Union['ServiceHealthCheckConfigArgs', 'ServiceHealthCheckConfigArgsDict']]] = None,
-                 health_check_custom_config: pulumi.Input[Optional[Union['ServiceHealthCheckCustomConfigArgs', 'ServiceHealthCheckCustomConfigArgsDict']]] = None,
+                 dns_config: pulumi.Input[Optional[Union['ServiceDnsConfigArgs', 'ServiceDnsConfigArgsDict', 'outputs.ServiceDnsConfig']]] = None,
+                 health_check_config: pulumi.Input[Optional[Union['ServiceHealthCheckConfigArgs', 'ServiceHealthCheckConfigArgsDict', 'outputs.ServiceHealthCheckConfig']]] = None,
+                 health_check_custom_config: pulumi.Input[Optional[Union['ServiceHealthCheckCustomConfigArgs', 'ServiceHealthCheckCustomConfigArgsDict', 'outputs.ServiceHealthCheckCustomConfig']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  namespace_id: pulumi.Input[Optional[_builtins.str]] = None,
                  service_attributes: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

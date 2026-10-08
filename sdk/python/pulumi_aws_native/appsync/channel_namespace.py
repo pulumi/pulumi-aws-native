@@ -166,11 +166,11 @@ class ChannelNamespace(pulumi.CustomResource):
                  api_id: pulumi.Input[Optional[_builtins.str]] = None,
                  code_handlers: pulumi.Input[Optional[_builtins.str]] = None,
                  code_s3_location: pulumi.Input[Optional[_builtins.str]] = None,
-                 handler_configs: pulumi.Input[Optional[Union['ChannelNamespaceHandlerConfigsArgs', 'ChannelNamespaceHandlerConfigsArgsDict']]] = None,
+                 handler_configs: pulumi.Input[Optional[Union['ChannelNamespaceHandlerConfigsArgs', 'ChannelNamespaceHandlerConfigsArgsDict', 'outputs.ChannelNamespaceHandlerConfigs']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 publish_auth_modes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ChannelNamespaceAuthModeArgs', 'ChannelNamespaceAuthModeArgsDict']]]]] = None,
-                 subscribe_auth_modes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ChannelNamespaceAuthModeArgs', 'ChannelNamespaceAuthModeArgsDict']]]]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 publish_auth_modes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ChannelNamespaceAuthModeArgs', 'ChannelNamespaceAuthModeArgsDict', 'outputs.ChannelNamespaceAuthMode']]]]] = None,
+                 subscribe_auth_modes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ChannelNamespaceAuthModeArgs', 'ChannelNamespaceAuthModeArgsDict', 'outputs.ChannelNamespaceAuthMode']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Resource schema for AppSync ChannelNamespace
@@ -180,11 +180,11 @@ class ChannelNamespace(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] api_id: AppSync Api Id that this Channel Namespace belongs to.
         :param pulumi.Input[_builtins.str] code_handlers: The event handler functions that run custom business logic to process published events and subscribe requests.
         :param pulumi.Input[_builtins.str] code_s3_location: The Amazon S3 endpoint where the code is located.
-        :param pulumi.Input[Union['ChannelNamespaceHandlerConfigsArgs', 'ChannelNamespaceHandlerConfigsArgsDict']] handler_configs: The configuration for the `OnPublish` and `OnSubscribe` handlers.
+        :param pulumi.Input[Union['ChannelNamespaceHandlerConfigsArgs', 'ChannelNamespaceHandlerConfigsArgsDict', 'outputs.ChannelNamespaceHandlerConfigs']] handler_configs: The configuration for the `OnPublish` and `OnSubscribe` handlers.
         :param pulumi.Input[_builtins.str] name: The name of the channel namespace. This name must be unique within the `Api` .
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ChannelNamespaceAuthModeArgs', 'ChannelNamespaceAuthModeArgsDict']]]] publish_auth_modes: List of AuthModes supported for Publish operations.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ChannelNamespaceAuthModeArgs', 'ChannelNamespaceAuthModeArgsDict']]]] subscribe_auth_modes: List of AuthModes supported for Subscribe operations.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: A set of tags (key-value pairs) for this channel namespace.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ChannelNamespaceAuthModeArgs', 'ChannelNamespaceAuthModeArgsDict', 'outputs.ChannelNamespaceAuthMode']]]] publish_auth_modes: List of AuthModes supported for Publish operations.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ChannelNamespaceAuthModeArgs', 'ChannelNamespaceAuthModeArgsDict', 'outputs.ChannelNamespaceAuthMode']]]] subscribe_auth_modes: List of AuthModes supported for Subscribe operations.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: A set of tags (key-value pairs) for this channel namespace.
         """
         ...
     @overload
@@ -213,11 +213,11 @@ class ChannelNamespace(pulumi.CustomResource):
                  api_id: pulumi.Input[Optional[_builtins.str]] = None,
                  code_handlers: pulumi.Input[Optional[_builtins.str]] = None,
                  code_s3_location: pulumi.Input[Optional[_builtins.str]] = None,
-                 handler_configs: pulumi.Input[Optional[Union['ChannelNamespaceHandlerConfigsArgs', 'ChannelNamespaceHandlerConfigsArgsDict']]] = None,
+                 handler_configs: pulumi.Input[Optional[Union['ChannelNamespaceHandlerConfigsArgs', 'ChannelNamespaceHandlerConfigsArgsDict', 'outputs.ChannelNamespaceHandlerConfigs']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 publish_auth_modes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ChannelNamespaceAuthModeArgs', 'ChannelNamespaceAuthModeArgsDict']]]]] = None,
-                 subscribe_auth_modes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ChannelNamespaceAuthModeArgs', 'ChannelNamespaceAuthModeArgsDict']]]]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 publish_auth_modes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ChannelNamespaceAuthModeArgs', 'ChannelNamespaceAuthModeArgsDict', 'outputs.ChannelNamespaceAuthMode']]]]] = None,
+                 subscribe_auth_modes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ChannelNamespaceAuthModeArgs', 'ChannelNamespaceAuthModeArgsDict', 'outputs.ChannelNamespaceAuthMode']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

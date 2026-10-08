@@ -148,12 +148,12 @@ class FeaturedResultsSet(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 featured_documents: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FeaturedResultsSetFeaturedDocumentArgs', 'FeaturedResultsSetFeaturedDocumentArgsDict']]]]] = None,
+                 featured_documents: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FeaturedResultsSetFeaturedDocumentArgs', 'FeaturedResultsSetFeaturedDocumentArgsDict', 'outputs.FeaturedResultsSetFeaturedDocument']]]]] = None,
                  featured_results_set_name: pulumi.Input[Optional[_builtins.str]] = None,
                  index_id: pulumi.Input[Optional[_builtins.str]] = None,
                  query_texts: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  status: pulumi.Input[Optional['FeaturedResultsSetStatus']] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::Kendra::FeaturedResultsSet. A set of featured results that are displayed at the top of your search results. Featured results are placed above all other results for certain queries. If there's an exact match of a query, then one or more specific documents are featured in the search results.
@@ -161,12 +161,12 @@ class FeaturedResultsSet(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: A description for the set of featured results.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['FeaturedResultsSetFeaturedDocumentArgs', 'FeaturedResultsSetFeaturedDocumentArgsDict']]]] featured_documents: A list of document IDs for the documents you want to feature at the top of the search results page.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FeaturedResultsSetFeaturedDocumentArgs', 'FeaturedResultsSetFeaturedDocumentArgsDict', 'outputs.FeaturedResultsSetFeaturedDocument']]]] featured_documents: A list of document IDs for the documents you want to feature at the top of the search results page.
         :param pulumi.Input[_builtins.str] featured_results_set_name: A name for the set of featured results.
         :param pulumi.Input[_builtins.str] index_id: The identifier of the index that you want to use for featuring results.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] query_texts: A list of queries for featuring results.
         :param pulumi.Input['FeaturedResultsSetStatus'] status: The current status of the set of featured results. When the value is ACTIVE, featured results are ready for use.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: A list of key-value pairs that identify or categorize the featured results set.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: A list of key-value pairs that identify or categorize the featured results set.
         """
         ...
     @overload
@@ -193,12 +193,12 @@ class FeaturedResultsSet(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 featured_documents: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FeaturedResultsSetFeaturedDocumentArgs', 'FeaturedResultsSetFeaturedDocumentArgsDict']]]]] = None,
+                 featured_documents: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FeaturedResultsSetFeaturedDocumentArgs', 'FeaturedResultsSetFeaturedDocumentArgsDict', 'outputs.FeaturedResultsSetFeaturedDocument']]]]] = None,
                  featured_results_set_name: pulumi.Input[Optional[_builtins.str]] = None,
                  index_id: pulumi.Input[Optional[_builtins.str]] = None,
                  query_texts: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  status: pulumi.Input[Optional['FeaturedResultsSetStatus']] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

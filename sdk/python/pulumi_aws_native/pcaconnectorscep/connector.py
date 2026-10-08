@@ -90,7 +90,7 @@ class Connector(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  certificate_authority_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 mobile_device_management: pulumi.Input[Optional[Union['ConnectorMobileDeviceManagementArgs', 'ConnectorMobileDeviceManagementArgsDict']]] = None,
+                 mobile_device_management: pulumi.Input[Optional[Union['ConnectorMobileDeviceManagementArgs', 'ConnectorMobileDeviceManagementArgsDict', 'outputs.ConnectorMobileDeviceManagement']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  vpc_endpoint_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -100,7 +100,7 @@ class Connector(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] certificate_authority_arn: The Amazon Resource Name (ARN) of the certificate authority associated with the connector.
-        :param pulumi.Input[Union['ConnectorMobileDeviceManagementArgs', 'ConnectorMobileDeviceManagementArgsDict']] mobile_device_management: Contains settings relevant to the mobile device management system that you chose for the connector. If you didn't configure `MobileDeviceManagement` , then the connector is for general-purpose use and this object is empty.
+        :param pulumi.Input[Union['ConnectorMobileDeviceManagementArgs', 'ConnectorMobileDeviceManagementArgsDict', 'outputs.ConnectorMobileDeviceManagement']] mobile_device_management: Contains settings relevant to the mobile device management system that you chose for the connector. If you didn't configure `MobileDeviceManagement` , then the connector is for general-purpose use and this object is empty.
         """
         ...
     @overload
@@ -127,7 +127,7 @@ class Connector(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  certificate_authority_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 mobile_device_management: pulumi.Input[Optional[Union['ConnectorMobileDeviceManagementArgs', 'ConnectorMobileDeviceManagementArgsDict']]] = None,
+                 mobile_device_management: pulumi.Input[Optional[Union['ConnectorMobileDeviceManagementArgs', 'ConnectorMobileDeviceManagementArgsDict', 'outputs.ConnectorMobileDeviceManagement']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  vpc_endpoint_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):

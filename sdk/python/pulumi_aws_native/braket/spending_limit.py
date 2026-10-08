@@ -95,8 +95,8 @@ class SpendingLimit(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  device_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  spending_limit: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 time_period: pulumi.Input[Optional[Union['SpendingLimitTimePeriodArgs', 'SpendingLimitTimePeriodArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
+                 time_period: pulumi.Input[Optional[Union['SpendingLimitTimePeriodArgs', 'SpendingLimitTimePeriodArgsDict', 'outputs.SpendingLimitTimePeriod']]] = None,
                  __props__=None):
         """
         Creates a spending limit for a specified quantum device. Spending limits help you control costs by setting maximum amounts that can be spent on quantum computing tasks within a specified time period.
@@ -105,7 +105,7 @@ class SpendingLimit(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] device_arn: The Amazon Resource Name (ARN) of the quantum device to apply the spending limit to.
         :param pulumi.Input[_builtins.str] spending_limit: The maximum amount that can be spent on the specified device, in USD.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags to apply to the spending limit.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: The tags to apply to the spending limit.
         """
         ...
     @overload
@@ -133,8 +133,8 @@ class SpendingLimit(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  device_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  spending_limit: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 time_period: pulumi.Input[Optional[Union['SpendingLimitTimePeriodArgs', 'SpendingLimitTimePeriodArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
+                 time_period: pulumi.Input[Optional[Union['SpendingLimitTimePeriodArgs', 'SpendingLimitTimePeriodArgsDict', 'outputs.SpendingLimitTimePeriod']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

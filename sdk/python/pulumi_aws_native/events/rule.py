@@ -193,8 +193,8 @@ class Rule(pulumi.CustomResource):
                  role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  schedule_expression: pulumi.Input[Optional[_builtins.str]] = None,
                  state: pulumi.Input[Optional['RuleState']] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 targets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RuleTargetArgs', 'RuleTargetArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
+                 targets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RuleTargetArgs', 'RuleTargetArgsDict', 'outputs.RuleTarget']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::Events::Rule
@@ -257,8 +257,8 @@ class Rule(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] role_arn: The Amazon Resource Name (ARN) of the role that is used for target invocation.
         :param pulumi.Input[_builtins.str] schedule_expression: The scheduling expression. For example, "cron(0 20 * * ? *)", "rate(5 minutes)". For more information, see Creating an Amazon EventBridge rule that runs on a schedule.
         :param pulumi.Input['RuleState'] state: The state of the rule.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Any tags assigned to the event rule.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['RuleTargetArgs', 'RuleTargetArgsDict']]]] targets: Adds the specified targets to the specified rule, or updates the targets if they are already associated with the rule.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: Any tags assigned to the event rule.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['RuleTargetArgs', 'RuleTargetArgsDict', 'outputs.RuleTarget']]]] targets: Adds the specified targets to the specified rule, or updates the targets if they are already associated with the rule.
                Targets are the resources that are invoked when a rule is triggered.
         """
         ...
@@ -339,8 +339,8 @@ class Rule(pulumi.CustomResource):
                  role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  schedule_expression: pulumi.Input[Optional[_builtins.str]] = None,
                  state: pulumi.Input[Optional['RuleState']] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 targets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RuleTargetArgs', 'RuleTargetArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
+                 targets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RuleTargetArgs', 'RuleTargetArgsDict', 'outputs.RuleTarget']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

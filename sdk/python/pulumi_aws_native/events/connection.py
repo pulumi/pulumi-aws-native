@@ -146,10 +146,10 @@ class Connection(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auth_parameters: pulumi.Input[Optional[Union['ConnectionAuthParametersArgs', 'ConnectionAuthParametersArgsDict']]] = None,
+                 auth_parameters: pulumi.Input[Optional[Union['ConnectionAuthParametersArgs', 'ConnectionAuthParametersArgsDict', 'outputs.ConnectionAuthParameters']]] = None,
                  authorization_type: pulumi.Input[Optional['ConnectionAuthorizationType']] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 invocation_connectivity_parameters: pulumi.Input[Optional[Union['InvocationConnectivityParametersPropertiesArgs', 'InvocationConnectivityParametersPropertiesArgsDict']]] = None,
+                 invocation_connectivity_parameters: pulumi.Input[Optional[Union['InvocationConnectivityParametersPropertiesArgs', 'InvocationConnectivityParametersPropertiesArgsDict', 'outputs.InvocationConnectivityParametersProperties']]] = None,
                  kms_key_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -185,14 +185,14 @@ class Connection(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['ConnectionAuthParametersArgs', 'ConnectionAuthParametersArgsDict']] auth_parameters: The authorization parameters to use to authorize with the endpoint.
+        :param pulumi.Input[Union['ConnectionAuthParametersArgs', 'ConnectionAuthParametersArgsDict', 'outputs.ConnectionAuthParameters']] auth_parameters: The authorization parameters to use to authorize with the endpoint.
                
                You must include only authorization parameters for the `AuthorizationType` you specify.
         :param pulumi.Input['ConnectionAuthorizationType'] authorization_type: The type of authorization to use for the connection.
                
                > OAUTH tokens are refreshed when a 401 or 407 response is returned.
         :param pulumi.Input[_builtins.str] description: Description of the connection.
-        :param pulumi.Input[Union['InvocationConnectivityParametersPropertiesArgs', 'InvocationConnectivityParametersPropertiesArgsDict']] invocation_connectivity_parameters: The private resource the HTTP request will be sent to.
+        :param pulumi.Input[Union['InvocationConnectivityParametersPropertiesArgs', 'InvocationConnectivityParametersPropertiesArgsDict', 'outputs.InvocationConnectivityParametersProperties']] invocation_connectivity_parameters: The private resource the HTTP request will be sent to.
         :param pulumi.Input[_builtins.str] kms_key_identifier: The identifier of the AWS  customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt this connection. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
                
                If you do not specify a customer managed key identifier, EventBridge uses an AWS owned key to encrypt the connection.
@@ -251,10 +251,10 @@ class Connection(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auth_parameters: pulumi.Input[Optional[Union['ConnectionAuthParametersArgs', 'ConnectionAuthParametersArgsDict']]] = None,
+                 auth_parameters: pulumi.Input[Optional[Union['ConnectionAuthParametersArgs', 'ConnectionAuthParametersArgsDict', 'outputs.ConnectionAuthParameters']]] = None,
                  authorization_type: pulumi.Input[Optional['ConnectionAuthorizationType']] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 invocation_connectivity_parameters: pulumi.Input[Optional[Union['InvocationConnectivityParametersPropertiesArgs', 'InvocationConnectivityParametersPropertiesArgsDict']]] = None,
+                 invocation_connectivity_parameters: pulumi.Input[Optional[Union['InvocationConnectivityParametersPropertiesArgs', 'InvocationConnectivityParametersPropertiesArgsDict', 'outputs.InvocationConnectivityParametersProperties']]] = None,
                  kms_key_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):

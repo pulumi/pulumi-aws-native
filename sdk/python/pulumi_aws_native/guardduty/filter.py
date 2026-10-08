@@ -162,10 +162,10 @@ class Filter(pulumi.CustomResource):
                  action: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  detector_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 finding_criteria: pulumi.Input[Optional[Union['FilterFindingCriteriaArgs', 'FilterFindingCriteriaArgsDict']]] = None,
+                 finding_criteria: pulumi.Input[Optional[Union['FilterFindingCriteriaArgs', 'FilterFindingCriteriaArgsDict', 'outputs.FilterFindingCriteria']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  rank: pulumi.Input[Optional[_builtins.int]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::GuardDuty::Filter
@@ -178,12 +178,12 @@ class Filter(pulumi.CustomResource):
                
                To find the `detectorId` in the current Region, see the
                Settings page in the GuardDuty console, or run the [ListDetectors](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html) API.
-        :param pulumi.Input[Union['FilterFindingCriteriaArgs', 'FilterFindingCriteriaArgsDict']] finding_criteria: Represents the criteria to be used in the filter for querying findings.
+        :param pulumi.Input[Union['FilterFindingCriteriaArgs', 'FilterFindingCriteriaArgsDict', 'outputs.FilterFindingCriteria']] finding_criteria: Represents the criteria to be used in the filter for querying findings.
         :param pulumi.Input[_builtins.str] name: The name of the filter. Valid characters include period (.), underscore (_), dash (-), and alphanumeric characters. A whitespace is considered to be an invalid character.
         :param pulumi.Input[_builtins.int] rank: Specifies the position of the filter in the list of current filters. Also specifies the order in which this filter is applied to the findings. The minimum value for this property is 1 and the maximum is 100.
                
                By default, filters may not be created in the same order as they are ranked. To ensure that the filters are created in the expected order, you can use an optional attribute, [DependsOn](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html) , with the following syntax: `"DependsOn":[ "ObjectName" ]` .
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags to be added to a new filter resource. Each tag consists of a key and an optional value, both of which you define.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: The tags to be added to a new filter resource. Each tag consists of a key and an optional value, both of which you define.
                
                For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
         """
@@ -214,10 +214,10 @@ class Filter(pulumi.CustomResource):
                  action: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  detector_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 finding_criteria: pulumi.Input[Optional[Union['FilterFindingCriteriaArgs', 'FilterFindingCriteriaArgsDict']]] = None,
+                 finding_criteria: pulumi.Input[Optional[Union['FilterFindingCriteriaArgs', 'FilterFindingCriteriaArgsDict', 'outputs.FilterFindingCriteria']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  rank: pulumi.Input[Optional[_builtins.int]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

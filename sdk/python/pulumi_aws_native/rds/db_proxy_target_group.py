@@ -130,11 +130,11 @@ class DbProxyTargetGroup(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 connection_pool_configuration_info: pulumi.Input[Optional[Union['DbProxyTargetGroupConnectionPoolConfigurationInfoFormatArgs', 'DbProxyTargetGroupConnectionPoolConfigurationInfoFormatArgsDict']]] = None,
+                 connection_pool_configuration_info: pulumi.Input[Optional[Union['DbProxyTargetGroupConnectionPoolConfigurationInfoFormatArgs', 'DbProxyTargetGroupConnectionPoolConfigurationInfoFormatArgsDict', 'outputs.DbProxyTargetGroupConnectionPoolConfigurationInfoFormat']]] = None,
                  db_cluster_identifiers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  db_instance_identifiers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  db_proxy_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  target_group_name: pulumi.Input[Optional['DbProxyTargetGroupTargetGroupName']] = None,
                  __props__=None):
         """
@@ -142,11 +142,11 @@ class DbProxyTargetGroup(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['DbProxyTargetGroupConnectionPoolConfigurationInfoFormatArgs', 'DbProxyTargetGroupConnectionPoolConfigurationInfoFormatArgsDict']] connection_pool_configuration_info: Displays the settings that control the size and behavior of the connection pool associated with a `DBProxyTarget` .
+        :param pulumi.Input[Union['DbProxyTargetGroupConnectionPoolConfigurationInfoFormatArgs', 'DbProxyTargetGroupConnectionPoolConfigurationInfoFormatArgsDict', 'outputs.DbProxyTargetGroupConnectionPoolConfigurationInfoFormat']] connection_pool_configuration_info: Displays the settings that control the size and behavior of the connection pool associated with a `DBProxyTarget` .
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] db_cluster_identifiers: One or more DB cluster identifiers.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] db_instance_identifiers: One or more DB instance identifiers.
         :param pulumi.Input[_builtins.str] db_proxy_name: The identifier for the proxy.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: An array of key-value pairs to apply to this resource.
         :param pulumi.Input['DbProxyTargetGroupTargetGroupName'] target_group_name: The identifier for the DBProxyTargetGroup
         """
         ...
@@ -173,11 +173,11 @@ class DbProxyTargetGroup(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 connection_pool_configuration_info: pulumi.Input[Optional[Union['DbProxyTargetGroupConnectionPoolConfigurationInfoFormatArgs', 'DbProxyTargetGroupConnectionPoolConfigurationInfoFormatArgsDict']]] = None,
+                 connection_pool_configuration_info: pulumi.Input[Optional[Union['DbProxyTargetGroupConnectionPoolConfigurationInfoFormatArgs', 'DbProxyTargetGroupConnectionPoolConfigurationInfoFormatArgsDict', 'outputs.DbProxyTargetGroupConnectionPoolConfigurationInfoFormat']]] = None,
                  db_cluster_identifiers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  db_instance_identifiers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  db_proxy_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  target_group_name: pulumi.Input[Optional['DbProxyTargetGroupTargetGroupName']] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

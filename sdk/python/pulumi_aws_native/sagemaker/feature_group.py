@@ -199,14 +199,14 @@ class FeatureGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  event_time_feature_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 feature_definitions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FeatureGroupFeatureDefinitionArgs', 'FeatureGroupFeatureDefinitionArgsDict']]]]] = None,
+                 feature_definitions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FeatureGroupFeatureDefinitionArgs', 'FeatureGroupFeatureDefinitionArgsDict', 'outputs.FeatureGroupFeatureDefinition']]]]] = None,
                  feature_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 offline_store_config: pulumi.Input[Optional[Union['OfflineStoreConfigPropertiesArgs', 'OfflineStoreConfigPropertiesArgsDict']]] = None,
-                 online_store_config: pulumi.Input[Optional[Union['OnlineStoreConfigPropertiesArgs', 'OnlineStoreConfigPropertiesArgsDict']]] = None,
+                 offline_store_config: pulumi.Input[Optional[Union['OfflineStoreConfigPropertiesArgs', 'OfflineStoreConfigPropertiesArgsDict', 'outputs.OfflineStoreConfigProperties']]] = None,
+                 online_store_config: pulumi.Input[Optional[Union['OnlineStoreConfigPropertiesArgs', 'OnlineStoreConfigPropertiesArgsDict', 'outputs.OnlineStoreConfigProperties']]] = None,
                  record_identifier_feature_name: pulumi.Input[Optional[_builtins.str]] = None,
                  role_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
-                 throughput_config: pulumi.Input[Optional[Union['FeatureGroupThroughputConfigArgs', 'FeatureGroupThroughputConfigArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict', '_root_outputs.CreateOnlyTag']]]]] = None,
+                 throughput_config: pulumi.Input[Optional[Union['FeatureGroupThroughputConfigArgs', 'FeatureGroupThroughputConfigArgsDict', 'outputs.FeatureGroupThroughputConfig']]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::SageMaker::FeatureGroup
@@ -215,14 +215,14 @@ class FeatureGroup(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: Description about the FeatureGroup.
         :param pulumi.Input[_builtins.str] event_time_feature_name: The Event Time Feature Name.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['FeatureGroupFeatureDefinitionArgs', 'FeatureGroupFeatureDefinitionArgsDict']]]] feature_definitions: An Array of Feature Definition
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FeatureGroupFeatureDefinitionArgs', 'FeatureGroupFeatureDefinitionArgsDict', 'outputs.FeatureGroupFeatureDefinition']]]] feature_definitions: An Array of Feature Definition
         :param pulumi.Input[_builtins.str] feature_group_name: The Name of the FeatureGroup.
-        :param pulumi.Input[Union['OfflineStoreConfigPropertiesArgs', 'OfflineStoreConfigPropertiesArgsDict']] offline_store_config: The configuration of an `OfflineStore` .
-        :param pulumi.Input[Union['OnlineStoreConfigPropertiesArgs', 'OnlineStoreConfigPropertiesArgsDict']] online_store_config: The configuration of an `OnlineStore` .
+        :param pulumi.Input[Union['OfflineStoreConfigPropertiesArgs', 'OfflineStoreConfigPropertiesArgsDict', 'outputs.OfflineStoreConfigProperties']] offline_store_config: The configuration of an `OfflineStore` .
+        :param pulumi.Input[Union['OnlineStoreConfigPropertiesArgs', 'OnlineStoreConfigPropertiesArgsDict', 'outputs.OnlineStoreConfigProperties']] online_store_config: The configuration of an `OnlineStore` .
         :param pulumi.Input[_builtins.str] record_identifier_feature_name: The Record Identifier Feature Name.
         :param pulumi.Input[_builtins.str] role_arn: Role Arn
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]] tags: An array of key-value pair to apply to this resource.
-        :param pulumi.Input[Union['FeatureGroupThroughputConfigArgs', 'FeatureGroupThroughputConfigArgsDict']] throughput_config: Used to set feature group throughput configuration. There are two modes: `ON_DEMAND` and `PROVISIONED` . With on-demand mode, you are charged for data reads and writes that your application performs on your feature group. You do not need to specify read and write throughput because Feature Store accommodates your workloads as they ramp up and down. You can switch a feature group to on-demand only once in a 24 hour period. With provisioned throughput mode, you specify the read and write capacity per second that you expect your application to require, and you are billed based on those limits. Exceeding provisioned throughput will result in your requests being throttled.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict', '_root_outputs.CreateOnlyTag']]]] tags: An array of key-value pair to apply to this resource.
+        :param pulumi.Input[Union['FeatureGroupThroughputConfigArgs', 'FeatureGroupThroughputConfigArgsDict', 'outputs.FeatureGroupThroughputConfig']] throughput_config: Used to set feature group throughput configuration. There are two modes: `ON_DEMAND` and `PROVISIONED` . With on-demand mode, you are charged for data reads and writes that your application performs on your feature group. You do not need to specify read and write throughput because Feature Store accommodates your workloads as they ramp up and down. You can switch a feature group to on-demand only once in a 24 hour period. With provisioned throughput mode, you specify the read and write capacity per second that you expect your application to require, and you are billed based on those limits. Exceeding provisioned throughput will result in your requests being throttled.
                
                Note: `PROVISIONED` throughput mode is supported only for feature groups that are offline-only, or use the [`Standard`](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_OnlineStoreConfig.html#sagemaker-Type-OnlineStoreConfig-StorageType) tier online store.
         """
@@ -252,14 +252,14 @@ class FeatureGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  event_time_feature_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 feature_definitions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FeatureGroupFeatureDefinitionArgs', 'FeatureGroupFeatureDefinitionArgsDict']]]]] = None,
+                 feature_definitions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FeatureGroupFeatureDefinitionArgs', 'FeatureGroupFeatureDefinitionArgsDict', 'outputs.FeatureGroupFeatureDefinition']]]]] = None,
                  feature_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 offline_store_config: pulumi.Input[Optional[Union['OfflineStoreConfigPropertiesArgs', 'OfflineStoreConfigPropertiesArgsDict']]] = None,
-                 online_store_config: pulumi.Input[Optional[Union['OnlineStoreConfigPropertiesArgs', 'OnlineStoreConfigPropertiesArgsDict']]] = None,
+                 offline_store_config: pulumi.Input[Optional[Union['OfflineStoreConfigPropertiesArgs', 'OfflineStoreConfigPropertiesArgsDict', 'outputs.OfflineStoreConfigProperties']]] = None,
+                 online_store_config: pulumi.Input[Optional[Union['OnlineStoreConfigPropertiesArgs', 'OnlineStoreConfigPropertiesArgsDict', 'outputs.OnlineStoreConfigProperties']]] = None,
                  record_identifier_feature_name: pulumi.Input[Optional[_builtins.str]] = None,
                  role_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
-                 throughput_config: pulumi.Input[Optional[Union['FeatureGroupThroughputConfigArgs', 'FeatureGroupThroughputConfigArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict', '_root_outputs.CreateOnlyTag']]]]] = None,
+                 throughput_config: pulumi.Input[Optional[Union['FeatureGroupThroughputConfigArgs', 'FeatureGroupThroughputConfigArgsDict', 'outputs.FeatureGroupThroughputConfig']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

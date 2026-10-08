@@ -131,8 +131,8 @@ class Dataset(pulumi.CustomResource):
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  schema_type: pulumi.Input[Optional['DatasetSchemaType']] = None,
-                 source: pulumi.Input[Optional[Union['DatasetDataSourceTypeArgs', 'DatasetDataSourceTypeArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 source: pulumi.Input[Optional[Union['DatasetDataSourceTypeArgs', 'DatasetDataSourceTypeArgsDict', 'outputs.DatasetDataSourceType']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Definition of AWS::BedrockAgentCore::Dataset Resource Type
@@ -143,7 +143,7 @@ class Dataset(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] description: A description of the dataset.
         :param pulumi.Input[_builtins.str] kms_key_arn: Optional AWS KMS key ARN for SSE-KMS on service S3 writes.
         :param pulumi.Input['DatasetSchemaType'] schema_type: Versioned schema type governing the structure of examples. Immutable after creation.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: A list of tags to assign to the dataset.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: A list of tags to assign to the dataset.
         """
         ...
     @overload
@@ -173,8 +173,8 @@ class Dataset(pulumi.CustomResource):
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  schema_type: pulumi.Input[Optional['DatasetSchemaType']] = None,
-                 source: pulumi.Input[Optional[Union['DatasetDataSourceTypeArgs', 'DatasetDataSourceTypeArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 source: pulumi.Input[Optional[Union['DatasetDataSourceTypeArgs', 'DatasetDataSourceTypeArgsDict', 'outputs.DatasetDataSourceType']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

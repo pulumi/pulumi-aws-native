@@ -202,9 +202,9 @@ class EnvironmentEc2(pulumi.CustomResource):
                  instance_type: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  owner_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 repositories: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EnvironmentEc2RepositoryArgs', 'EnvironmentEc2RepositoryArgsDict']]]]] = None,
+                 repositories: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EnvironmentEc2RepositoryArgs', 'EnvironmentEc2RepositoryArgsDict', 'outputs.EnvironmentEc2Repository']]]]] = None,
                  subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::Cloud9::EnvironmentEC2
@@ -218,9 +218,9 @@ class EnvironmentEc2(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] instance_type: The type of instance to connect to the environment.
         :param pulumi.Input[_builtins.str] name: The name of the environment.
         :param pulumi.Input[_builtins.str] owner_arn: The Amazon Resource Name (ARN) of the environment owner.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentEc2RepositoryArgs', 'EnvironmentEc2RepositoryArgsDict']]]] repositories: Any AWS CodeCommit source code repositories to be cloned into the development environment.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentEc2RepositoryArgs', 'EnvironmentEc2RepositoryArgsDict', 'outputs.EnvironmentEc2Repository']]]] repositories: Any AWS CodeCommit source code repositories to be cloned into the development environment.
         :param pulumi.Input[_builtins.str] subnet_id: The ID of the subnet in Amazon VPC that AWS Cloud9 will use.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs that will be associated with the new AWS Cloud9 development environment.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: An array of key-value pairs that will be associated with the new AWS Cloud9 development environment.
         """
         ...
     @overload
@@ -253,9 +253,9 @@ class EnvironmentEc2(pulumi.CustomResource):
                  instance_type: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  owner_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 repositories: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EnvironmentEc2RepositoryArgs', 'EnvironmentEc2RepositoryArgsDict']]]]] = None,
+                 repositories: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EnvironmentEc2RepositoryArgs', 'EnvironmentEc2RepositoryArgsDict', 'outputs.EnvironmentEc2Repository']]]]] = None,
                  subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

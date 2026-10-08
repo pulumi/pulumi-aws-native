@@ -282,15 +282,15 @@ class LaunchConfigurationTemplate(pulumi.CustomResource):
                  copy_tags: pulumi.Input[Optional[_builtins.bool]] = None,
                  enable_map_auto_tagging: pulumi.Input[Optional[_builtins.bool]] = None,
                  enable_parameters_encryption: pulumi.Input[Optional[_builtins.bool]] = None,
-                 large_volume_conf: pulumi.Input[Optional[Union['LaunchConfigurationTemplateLaunchTemplateDiskConfArgs', 'LaunchConfigurationTemplateLaunchTemplateDiskConfArgsDict']]] = None,
+                 large_volume_conf: pulumi.Input[Optional[Union['LaunchConfigurationTemplateLaunchTemplateDiskConfArgs', 'LaunchConfigurationTemplateLaunchTemplateDiskConfArgsDict', 'outputs.LaunchConfigurationTemplateLaunchTemplateDiskConf']]] = None,
                  launch_disposition: pulumi.Input[Optional['LaunchConfigurationTemplateLaunchDisposition']] = None,
-                 licensing: pulumi.Input[Optional[Union['LaunchConfigurationTemplateLicensingArgs', 'LaunchConfigurationTemplateLicensingArgsDict']]] = None,
+                 licensing: pulumi.Input[Optional[Union['LaunchConfigurationTemplateLicensingArgs', 'LaunchConfigurationTemplateLicensingArgsDict', 'outputs.LaunchConfigurationTemplateLicensing']]] = None,
                  map_auto_tagging_mpe_id: pulumi.Input[Optional[_builtins.str]] = None,
                  parameters_encryption_key: pulumi.Input[Optional[_builtins.str]] = None,
-                 post_launch_actions: pulumi.Input[Optional[Union['LaunchConfigurationTemplatePostLaunchActionsArgs', 'LaunchConfigurationTemplatePostLaunchActionsArgsDict']]] = None,
-                 small_volume_conf: pulumi.Input[Optional[Union['LaunchConfigurationTemplateLaunchTemplateDiskConfArgs', 'LaunchConfigurationTemplateLaunchTemplateDiskConfArgsDict']]] = None,
+                 post_launch_actions: pulumi.Input[Optional[Union['LaunchConfigurationTemplatePostLaunchActionsArgs', 'LaunchConfigurationTemplatePostLaunchActionsArgsDict', 'outputs.LaunchConfigurationTemplatePostLaunchActions']]] = None,
+                 small_volume_conf: pulumi.Input[Optional[Union['LaunchConfigurationTemplateLaunchTemplateDiskConfArgs', 'LaunchConfigurationTemplateLaunchTemplateDiskConfArgsDict', 'outputs.LaunchConfigurationTemplateLaunchTemplateDiskConf']]] = None,
                  small_volume_max_size: pulumi.Input[Optional[_builtins.int]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict', '_root_outputs.CreateOnlyTag']]]]] = None,
                  target_instance_type_right_sizing_method: pulumi.Input[Optional['LaunchConfigurationTemplateTargetInstanceTypeRightSizingMethod']] = None,
                  __props__=None):
         """
@@ -308,7 +308,7 @@ class LaunchConfigurationTemplate(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] map_auto_tagging_mpe_id: Launch configuration template map auto tagging MPE ID.
         :param pulumi.Input[_builtins.str] parameters_encryption_key: ARN of the KMS key used to encrypt the AWS Systems Manager parameters used by post launch actions.
         :param pulumi.Input[_builtins.int] small_volume_max_size: Small volume maximum size, in GiB.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]] tags: A set of tags to be associated with the Launch Configuration Template.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict', '_root_outputs.CreateOnlyTag']]]] tags: A set of tags to be associated with the Launch Configuration Template.
         :param pulumi.Input['LaunchConfigurationTemplateTargetInstanceTypeRightSizingMethod'] target_instance_type_right_sizing_method: Target instance type right-sizing method.
         """
         ...
@@ -341,15 +341,15 @@ class LaunchConfigurationTemplate(pulumi.CustomResource):
                  copy_tags: pulumi.Input[Optional[_builtins.bool]] = None,
                  enable_map_auto_tagging: pulumi.Input[Optional[_builtins.bool]] = None,
                  enable_parameters_encryption: pulumi.Input[Optional[_builtins.bool]] = None,
-                 large_volume_conf: pulumi.Input[Optional[Union['LaunchConfigurationTemplateLaunchTemplateDiskConfArgs', 'LaunchConfigurationTemplateLaunchTemplateDiskConfArgsDict']]] = None,
+                 large_volume_conf: pulumi.Input[Optional[Union['LaunchConfigurationTemplateLaunchTemplateDiskConfArgs', 'LaunchConfigurationTemplateLaunchTemplateDiskConfArgsDict', 'outputs.LaunchConfigurationTemplateLaunchTemplateDiskConf']]] = None,
                  launch_disposition: pulumi.Input[Optional['LaunchConfigurationTemplateLaunchDisposition']] = None,
-                 licensing: pulumi.Input[Optional[Union['LaunchConfigurationTemplateLicensingArgs', 'LaunchConfigurationTemplateLicensingArgsDict']]] = None,
+                 licensing: pulumi.Input[Optional[Union['LaunchConfigurationTemplateLicensingArgs', 'LaunchConfigurationTemplateLicensingArgsDict', 'outputs.LaunchConfigurationTemplateLicensing']]] = None,
                  map_auto_tagging_mpe_id: pulumi.Input[Optional[_builtins.str]] = None,
                  parameters_encryption_key: pulumi.Input[Optional[_builtins.str]] = None,
-                 post_launch_actions: pulumi.Input[Optional[Union['LaunchConfigurationTemplatePostLaunchActionsArgs', 'LaunchConfigurationTemplatePostLaunchActionsArgsDict']]] = None,
-                 small_volume_conf: pulumi.Input[Optional[Union['LaunchConfigurationTemplateLaunchTemplateDiskConfArgs', 'LaunchConfigurationTemplateLaunchTemplateDiskConfArgsDict']]] = None,
+                 post_launch_actions: pulumi.Input[Optional[Union['LaunchConfigurationTemplatePostLaunchActionsArgs', 'LaunchConfigurationTemplatePostLaunchActionsArgsDict', 'outputs.LaunchConfigurationTemplatePostLaunchActions']]] = None,
+                 small_volume_conf: pulumi.Input[Optional[Union['LaunchConfigurationTemplateLaunchTemplateDiskConfArgs', 'LaunchConfigurationTemplateLaunchTemplateDiskConfArgsDict', 'outputs.LaunchConfigurationTemplateLaunchTemplateDiskConf']]] = None,
                  small_volume_max_size: pulumi.Input[Optional[_builtins.int]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict', '_root_outputs.CreateOnlyTag']]]]] = None,
                  target_instance_type_right_sizing_method: pulumi.Input[Optional['LaunchConfigurationTemplateTargetInstanceTypeRightSizingMethod']] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

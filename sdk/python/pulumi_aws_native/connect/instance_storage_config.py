@@ -144,11 +144,11 @@ class InstanceStorageConfig(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  instance_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 kinesis_firehose_config: pulumi.Input[Optional[Union['InstanceStorageConfigKinesisFirehoseConfigArgs', 'InstanceStorageConfigKinesisFirehoseConfigArgsDict']]] = None,
-                 kinesis_stream_config: pulumi.Input[Optional[Union['InstanceStorageConfigKinesisStreamConfigArgs', 'InstanceStorageConfigKinesisStreamConfigArgsDict']]] = None,
-                 kinesis_video_stream_config: pulumi.Input[Optional[Union['InstanceStorageConfigKinesisVideoStreamConfigArgs', 'InstanceStorageConfigKinesisVideoStreamConfigArgsDict']]] = None,
+                 kinesis_firehose_config: pulumi.Input[Optional[Union['InstanceStorageConfigKinesisFirehoseConfigArgs', 'InstanceStorageConfigKinesisFirehoseConfigArgsDict', 'outputs.InstanceStorageConfigKinesisFirehoseConfig']]] = None,
+                 kinesis_stream_config: pulumi.Input[Optional[Union['InstanceStorageConfigKinesisStreamConfigArgs', 'InstanceStorageConfigKinesisStreamConfigArgsDict', 'outputs.InstanceStorageConfigKinesisStreamConfig']]] = None,
+                 kinesis_video_stream_config: pulumi.Input[Optional[Union['InstanceStorageConfigKinesisVideoStreamConfigArgs', 'InstanceStorageConfigKinesisVideoStreamConfigArgsDict', 'outputs.InstanceStorageConfigKinesisVideoStreamConfig']]] = None,
                  resource_type: pulumi.Input[Optional['InstanceStorageConfigInstanceStorageResourceType']] = None,
-                 s3_config: pulumi.Input[Optional[Union['InstanceStorageConfigS3ConfigArgs', 'InstanceStorageConfigS3ConfigArgsDict']]] = None,
+                 s3_config: pulumi.Input[Optional[Union['InstanceStorageConfigS3ConfigArgs', 'InstanceStorageConfigS3ConfigArgsDict', 'outputs.InstanceStorageConfigS3Config']]] = None,
                  storage_type: pulumi.Input[Optional['InstanceStorageConfigStorageType']] = None,
                  __props__=None):
         """
@@ -157,11 +157,11 @@ class InstanceStorageConfig(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] instance_arn: Connect Instance ID with which the storage config will be associated
-        :param pulumi.Input[Union['InstanceStorageConfigKinesisFirehoseConfigArgs', 'InstanceStorageConfigKinesisFirehoseConfigArgsDict']] kinesis_firehose_config: The configuration of the Kinesis Firehose delivery stream.
-        :param pulumi.Input[Union['InstanceStorageConfigKinesisStreamConfigArgs', 'InstanceStorageConfigKinesisStreamConfigArgsDict']] kinesis_stream_config: The configuration of the Kinesis data stream.
-        :param pulumi.Input[Union['InstanceStorageConfigKinesisVideoStreamConfigArgs', 'InstanceStorageConfigKinesisVideoStreamConfigArgsDict']] kinesis_video_stream_config: The configuration of the Kinesis video stream.
+        :param pulumi.Input[Union['InstanceStorageConfigKinesisFirehoseConfigArgs', 'InstanceStorageConfigKinesisFirehoseConfigArgsDict', 'outputs.InstanceStorageConfigKinesisFirehoseConfig']] kinesis_firehose_config: The configuration of the Kinesis Firehose delivery stream.
+        :param pulumi.Input[Union['InstanceStorageConfigKinesisStreamConfigArgs', 'InstanceStorageConfigKinesisStreamConfigArgsDict', 'outputs.InstanceStorageConfigKinesisStreamConfig']] kinesis_stream_config: The configuration of the Kinesis data stream.
+        :param pulumi.Input[Union['InstanceStorageConfigKinesisVideoStreamConfigArgs', 'InstanceStorageConfigKinesisVideoStreamConfigArgsDict', 'outputs.InstanceStorageConfigKinesisVideoStreamConfig']] kinesis_video_stream_config: The configuration of the Kinesis video stream.
         :param pulumi.Input['InstanceStorageConfigInstanceStorageResourceType'] resource_type: A valid resource type. Following are the valid resource types: `CHAT_TRANSCRIPTS` | `CALL_RECORDINGS` | `SCHEDULED_REPORTS` | `MEDIA_STREAMS` | `CONTACT_TRACE_RECORDS` | `AGENT_EVENTS`
-        :param pulumi.Input[Union['InstanceStorageConfigS3ConfigArgs', 'InstanceStorageConfigS3ConfigArgsDict']] s3_config: The S3 bucket configuration.
+        :param pulumi.Input[Union['InstanceStorageConfigS3ConfigArgs', 'InstanceStorageConfigS3ConfigArgsDict', 'outputs.InstanceStorageConfigS3Config']] s3_config: The S3 bucket configuration.
         :param pulumi.Input['InstanceStorageConfigStorageType'] storage_type: A valid storage type.
         """
         ...
@@ -189,11 +189,11 @@ class InstanceStorageConfig(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  instance_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 kinesis_firehose_config: pulumi.Input[Optional[Union['InstanceStorageConfigKinesisFirehoseConfigArgs', 'InstanceStorageConfigKinesisFirehoseConfigArgsDict']]] = None,
-                 kinesis_stream_config: pulumi.Input[Optional[Union['InstanceStorageConfigKinesisStreamConfigArgs', 'InstanceStorageConfigKinesisStreamConfigArgsDict']]] = None,
-                 kinesis_video_stream_config: pulumi.Input[Optional[Union['InstanceStorageConfigKinesisVideoStreamConfigArgs', 'InstanceStorageConfigKinesisVideoStreamConfigArgsDict']]] = None,
+                 kinesis_firehose_config: pulumi.Input[Optional[Union['InstanceStorageConfigKinesisFirehoseConfigArgs', 'InstanceStorageConfigKinesisFirehoseConfigArgsDict', 'outputs.InstanceStorageConfigKinesisFirehoseConfig']]] = None,
+                 kinesis_stream_config: pulumi.Input[Optional[Union['InstanceStorageConfigKinesisStreamConfigArgs', 'InstanceStorageConfigKinesisStreamConfigArgsDict', 'outputs.InstanceStorageConfigKinesisStreamConfig']]] = None,
+                 kinesis_video_stream_config: pulumi.Input[Optional[Union['InstanceStorageConfigKinesisVideoStreamConfigArgs', 'InstanceStorageConfigKinesisVideoStreamConfigArgsDict', 'outputs.InstanceStorageConfigKinesisVideoStreamConfig']]] = None,
                  resource_type: pulumi.Input[Optional['InstanceStorageConfigInstanceStorageResourceType']] = None,
-                 s3_config: pulumi.Input[Optional[Union['InstanceStorageConfigS3ConfigArgs', 'InstanceStorageConfigS3ConfigArgsDict']]] = None,
+                 s3_config: pulumi.Input[Optional[Union['InstanceStorageConfigS3ConfigArgs', 'InstanceStorageConfigS3ConfigArgsDict', 'outputs.InstanceStorageConfigS3Config']]] = None,
                  storage_type: pulumi.Input[Optional['InstanceStorageConfigStorageType']] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

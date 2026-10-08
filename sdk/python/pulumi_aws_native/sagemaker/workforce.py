@@ -132,13 +132,13 @@ class Workforce(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cognito_config: pulumi.Input[Optional[Union['WorkforceCognitoConfigArgs', 'WorkforceCognitoConfigArgsDict']]] = None,
+                 cognito_config: pulumi.Input[Optional[Union['WorkforceCognitoConfigArgs', 'WorkforceCognitoConfigArgsDict', 'outputs.WorkforceCognitoConfig']]] = None,
                  ip_address_type: pulumi.Input[Optional['WorkforceIpAddressType']] = None,
-                 oidc_config: pulumi.Input[Optional[Union['WorkforceOidcConfigArgs', 'WorkforceOidcConfigArgsDict']]] = None,
-                 source_ip_config: pulumi.Input[Optional[Union['WorkforceSourceIpConfigArgs', 'WorkforceSourceIpConfigArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 oidc_config: pulumi.Input[Optional[Union['WorkforceOidcConfigArgs', 'WorkforceOidcConfigArgsDict', 'outputs.WorkforceOidcConfig']]] = None,
+                 source_ip_config: pulumi.Input[Optional[Union['WorkforceSourceIpConfigArgs', 'WorkforceSourceIpConfigArgsDict', 'outputs.WorkforceSourceIpConfig']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  workforce_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 workforce_vpc_config: pulumi.Input[Optional[Union['WorkforceVpcConfigRequestArgs', 'WorkforceVpcConfigRequestArgsDict']]] = None,
+                 workforce_vpc_config: pulumi.Input[Optional[Union['WorkforceVpcConfigRequestArgs', 'WorkforceVpcConfigRequestArgsDict', 'outputs.WorkforceVpcConfigRequest']]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::SageMaker::Workforce. Use to create a private workforce that you can use to label your training data using Amazon SageMaker Ground Truth.
@@ -146,7 +146,7 @@ class Workforce(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input['WorkforceIpAddressType'] ip_address_type: The IP address type for the workforce. IPv4 only or dualstack (IPv4 and IPv6).
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: An array of key-value pairs.
         :param pulumi.Input[_builtins.str] workforce_name: The name of the private workforce.
         """
         ...
@@ -173,13 +173,13 @@ class Workforce(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cognito_config: pulumi.Input[Optional[Union['WorkforceCognitoConfigArgs', 'WorkforceCognitoConfigArgsDict']]] = None,
+                 cognito_config: pulumi.Input[Optional[Union['WorkforceCognitoConfigArgs', 'WorkforceCognitoConfigArgsDict', 'outputs.WorkforceCognitoConfig']]] = None,
                  ip_address_type: pulumi.Input[Optional['WorkforceIpAddressType']] = None,
-                 oidc_config: pulumi.Input[Optional[Union['WorkforceOidcConfigArgs', 'WorkforceOidcConfigArgsDict']]] = None,
-                 source_ip_config: pulumi.Input[Optional[Union['WorkforceSourceIpConfigArgs', 'WorkforceSourceIpConfigArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 oidc_config: pulumi.Input[Optional[Union['WorkforceOidcConfigArgs', 'WorkforceOidcConfigArgsDict', 'outputs.WorkforceOidcConfig']]] = None,
+                 source_ip_config: pulumi.Input[Optional[Union['WorkforceSourceIpConfigArgs', 'WorkforceSourceIpConfigArgsDict', 'outputs.WorkforceSourceIpConfig']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  workforce_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 workforce_vpc_config: pulumi.Input[Optional[Union['WorkforceVpcConfigRequestArgs', 'WorkforceVpcConfigRequestArgsDict']]] = None,
+                 workforce_vpc_config: pulumi.Input[Optional[Union['WorkforceVpcConfigRequestArgs', 'WorkforceVpcConfigRequestArgsDict', 'outputs.WorkforceVpcConfigRequest']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

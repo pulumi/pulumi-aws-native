@@ -80,7 +80,7 @@ class ReceiptRule(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  after: pulumi.Input[Optional[_builtins.str]] = None,
-                 rule: pulumi.Input[Optional[Union['ReceiptRuleRuleArgs', 'ReceiptRuleRuleArgsDict']]] = None,
+                 rule: pulumi.Input[Optional[Union['ReceiptRuleRuleArgs', 'ReceiptRuleRuleArgsDict', 'outputs.ReceiptRuleRule']]] = None,
                  rule_set_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -162,7 +162,7 @@ class ReceiptRule(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] after: The name of an existing rule after which the new rule is placed. If this parameter is null, the new rule is inserted at the beginning of the rule list.
-        :param pulumi.Input[Union['ReceiptRuleRuleArgs', 'ReceiptRuleRuleArgsDict']] rule: A data structure that contains the specified rule's name, actions, recipients, domains, enabled status, scan status, and TLS policy.
+        :param pulumi.Input[Union['ReceiptRuleRuleArgs', 'ReceiptRuleRuleArgsDict', 'outputs.ReceiptRuleRule']] rule: A data structure that contains the specified rule's name, actions, recipients, domains, enabled status, scan status, and TLS policy.
         :param pulumi.Input[_builtins.str] rule_set_name: The name of the rule set where the receipt rule is added.
         """
         ...
@@ -263,7 +263,7 @@ class ReceiptRule(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  after: pulumi.Input[Optional[_builtins.str]] = None,
-                 rule: pulumi.Input[Optional[Union['ReceiptRuleRuleArgs', 'ReceiptRuleRuleArgsDict']]] = None,
+                 rule: pulumi.Input[Optional[Union['ReceiptRuleRuleArgs', 'ReceiptRuleRuleArgsDict', 'outputs.ReceiptRuleRule']]] = None,
                  rule_set_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

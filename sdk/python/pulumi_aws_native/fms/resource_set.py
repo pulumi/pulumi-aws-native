@@ -108,7 +108,7 @@ class ResourceSet(pulumi.CustomResource):
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_type_list: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  resources: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Creates an AWS Firewall Manager resource set.
@@ -147,7 +147,7 @@ class ResourceSet(pulumi.CustomResource):
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_type_list: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  resources: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

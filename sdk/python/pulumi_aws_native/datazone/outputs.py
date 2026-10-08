@@ -1653,12 +1653,12 @@ class ConnectionRedshiftPropertiesInput(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 credentials: Optional[Any] = None,
+                 credentials: Optional[Union['outputs.ConnectionRedshiftCredentials0Properties', 'outputs.ConnectionRedshiftCredentials1Properties']] = None,
                  database_name: Optional[_builtins.str] = None,
                  host: Optional[_builtins.str] = None,
                  lineage_sync: Optional['outputs.ConnectionRedshiftLineageSyncConfigurationInput'] = None,
                  port: Optional[_builtins.float] = None,
-                 storage: Optional[Any] = None):
+                 storage: Optional[Union['outputs.ConnectionRedshiftStorageProperties0Properties', 'outputs.ConnectionRedshiftStorageProperties1Properties']] = None):
         """
         Redshift Properties Input
         """
@@ -1677,7 +1677,7 @@ class ConnectionRedshiftPropertiesInput(dict):
 
     @_builtins.property
     @pulumi.getter
-    def credentials(self) -> Optional[Any]:
+    def credentials(self) -> Optional[Union['outputs.ConnectionRedshiftCredentials0Properties', 'outputs.ConnectionRedshiftCredentials1Properties']]:
         return pulumi.get(self, "credentials")
 
     @_builtins.property
@@ -1702,7 +1702,7 @@ class ConnectionRedshiftPropertiesInput(dict):
 
     @_builtins.property
     @pulumi.getter
-    def storage(self) -> Optional[Any]:
+    def storage(self) -> Optional[Union['outputs.ConnectionRedshiftStorageProperties0Properties', 'outputs.ConnectionRedshiftStorageProperties1Properties']]:
         return pulumi.get(self, "storage")
 
 
@@ -2584,7 +2584,7 @@ class DataSourceRedshiftRunConfigurationInput(dict):
                  relational_filter_configurations: Sequence['outputs.DataSourceRelationalFilterConfiguration'],
                  data_access_role: Optional[_builtins.str] = None,
                  redshift_credential_configuration: Optional['outputs.DataSourceRedshiftCredentialConfiguration'] = None,
-                 redshift_storage: Optional[Any] = None):
+                 redshift_storage: Optional[Union['outputs.DataSourceRedshiftStorage0Properties', 'outputs.DataSourceRedshiftStorage1Properties']] = None):
         """
         The configuration details of the Amazon Redshift data source.
 
@@ -2623,7 +2623,7 @@ class DataSourceRedshiftRunConfigurationInput(dict):
 
     @_builtins.property
     @pulumi.getter(name="redshiftStorage")
-    def redshift_storage(self) -> Optional[Any]:
+    def redshift_storage(self) -> Optional[Union['outputs.DataSourceRedshiftStorage0Properties', 'outputs.DataSourceRedshiftStorage1Properties']]:
         """
         The details of the Amazon Redshift storage as part of the configuration of an Amazon Redshift data source run.
         """
@@ -4124,12 +4124,12 @@ class PolicyGrantOverrideProjectOwnersPolicyGrantDetail(dict):
 @pulumi.output_type
 class PolicyGrantPrincipal0Properties(dict):
     def __init__(__self__, *,
-                 user: Any):
+                 user: Union['outputs.PolicyGrantUserPolicyGrantPrincipal0Properties', 'outputs.PolicyGrantUserPolicyGrantPrincipal1Properties']):
         pulumi.set(__self__, "user", user)
 
     @_builtins.property
     @pulumi.getter
-    def user(self) -> Any:
+    def user(self) -> Union['outputs.PolicyGrantUserPolicyGrantPrincipal0Properties', 'outputs.PolicyGrantUserPolicyGrantPrincipal1Properties']:
         return pulumi.get(self, "user")
 
 

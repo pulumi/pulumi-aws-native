@@ -130,11 +130,11 @@ class IntelligentPromptRouter(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 fallback_model: pulumi.Input[Optional[Union['IntelligentPromptRouterPromptRouterTargetModelArgs', 'IntelligentPromptRouterPromptRouterTargetModelArgsDict']]] = None,
-                 models: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IntelligentPromptRouterPromptRouterTargetModelArgs', 'IntelligentPromptRouterPromptRouterTargetModelArgsDict']]]]] = None,
+                 fallback_model: pulumi.Input[Optional[Union['IntelligentPromptRouterPromptRouterTargetModelArgs', 'IntelligentPromptRouterPromptRouterTargetModelArgsDict', 'outputs.IntelligentPromptRouterPromptRouterTargetModel']]] = None,
+                 models: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IntelligentPromptRouterPromptRouterTargetModelArgs', 'IntelligentPromptRouterPromptRouterTargetModelArgsDict', 'outputs.IntelligentPromptRouterPromptRouterTargetModel']]]]] = None,
                  prompt_router_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 routing_criteria: pulumi.Input[Optional[Union['IntelligentPromptRouterRoutingCriteriaArgs', 'IntelligentPromptRouterRoutingCriteriaArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 routing_criteria: pulumi.Input[Optional[Union['IntelligentPromptRouterRoutingCriteriaArgs', 'IntelligentPromptRouterRoutingCriteriaArgsDict', 'outputs.IntelligentPromptRouterRoutingCriteria']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Definition of AWS::Bedrock::IntelligentPromptRouter Resource Type
@@ -142,11 +142,11 @@ class IntelligentPromptRouter(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: Description of the Prompt Router.
-        :param pulumi.Input[Union['IntelligentPromptRouterPromptRouterTargetModelArgs', 'IntelligentPromptRouterPromptRouterTargetModelArgsDict']] fallback_model: The default model to use when the routing criteria is not met.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['IntelligentPromptRouterPromptRouterTargetModelArgs', 'IntelligentPromptRouterPromptRouterTargetModelArgsDict']]]] models: List of model configuration
+        :param pulumi.Input[Union['IntelligentPromptRouterPromptRouterTargetModelArgs', 'IntelligentPromptRouterPromptRouterTargetModelArgsDict', 'outputs.IntelligentPromptRouterPromptRouterTargetModel']] fallback_model: The default model to use when the routing criteria is not met.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['IntelligentPromptRouterPromptRouterTargetModelArgs', 'IntelligentPromptRouterPromptRouterTargetModelArgsDict', 'outputs.IntelligentPromptRouterPromptRouterTargetModel']]]] models: List of model configuration
         :param pulumi.Input[_builtins.str] prompt_router_name: Name of the Prompt Router.
-        :param pulumi.Input[Union['IntelligentPromptRouterRoutingCriteriaArgs', 'IntelligentPromptRouterRoutingCriteriaArgsDict']] routing_criteria: Routing criteria for a prompt router.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: List of Tags
+        :param pulumi.Input[Union['IntelligentPromptRouterRoutingCriteriaArgs', 'IntelligentPromptRouterRoutingCriteriaArgsDict', 'outputs.IntelligentPromptRouterRoutingCriteria']] routing_criteria: Routing criteria for a prompt router.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: List of Tags
         """
         ...
     @overload
@@ -173,11 +173,11 @@ class IntelligentPromptRouter(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 fallback_model: pulumi.Input[Optional[Union['IntelligentPromptRouterPromptRouterTargetModelArgs', 'IntelligentPromptRouterPromptRouterTargetModelArgsDict']]] = None,
-                 models: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IntelligentPromptRouterPromptRouterTargetModelArgs', 'IntelligentPromptRouterPromptRouterTargetModelArgsDict']]]]] = None,
+                 fallback_model: pulumi.Input[Optional[Union['IntelligentPromptRouterPromptRouterTargetModelArgs', 'IntelligentPromptRouterPromptRouterTargetModelArgsDict', 'outputs.IntelligentPromptRouterPromptRouterTargetModel']]] = None,
+                 models: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IntelligentPromptRouterPromptRouterTargetModelArgs', 'IntelligentPromptRouterPromptRouterTargetModelArgsDict', 'outputs.IntelligentPromptRouterPromptRouterTargetModel']]]]] = None,
                  prompt_router_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 routing_criteria: pulumi.Input[Optional[Union['IntelligentPromptRouterRoutingCriteriaArgs', 'IntelligentPromptRouterRoutingCriteriaArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 routing_criteria: pulumi.Input[Optional[Union['IntelligentPromptRouterRoutingCriteriaArgs', 'IntelligentPromptRouterRoutingCriteriaArgsDict', 'outputs.IntelligentPromptRouterRoutingCriteria']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

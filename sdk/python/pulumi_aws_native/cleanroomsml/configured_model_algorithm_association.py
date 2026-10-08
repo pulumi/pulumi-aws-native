@@ -114,15 +114,15 @@ class ConfiguredModelAlgorithmAssociation(pulumi.CustomResource):
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  membership_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 privacy_configuration: pulumi.Input[Optional[Union['ConfiguredModelAlgorithmAssociationPrivacyConfigurationArgs', 'ConfiguredModelAlgorithmAssociationPrivacyConfigurationArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 privacy_configuration: pulumi.Input[Optional[Union['ConfiguredModelAlgorithmAssociationPrivacyConfigurationArgs', 'ConfiguredModelAlgorithmAssociationPrivacyConfigurationArgsDict', 'outputs.ConfiguredModelAlgorithmAssociationPrivacyConfiguration']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Definition of AWS::CleanRoomsML::ConfiguredModelAlgorithmAssociation Resource Type
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An arbitrary set of tags (key-value pairs) for this cleanrooms-ml configured model algorithm association.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: An arbitrary set of tags (key-value pairs) for this cleanrooms-ml configured model algorithm association.
         """
         ...
     @overload
@@ -152,8 +152,8 @@ class ConfiguredModelAlgorithmAssociation(pulumi.CustomResource):
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  membership_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 privacy_configuration: pulumi.Input[Optional[Union['ConfiguredModelAlgorithmAssociationPrivacyConfigurationArgs', 'ConfiguredModelAlgorithmAssociationPrivacyConfigurationArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 privacy_configuration: pulumi.Input[Optional[Union['ConfiguredModelAlgorithmAssociationPrivacyConfigurationArgs', 'ConfiguredModelAlgorithmAssociationPrivacyConfigurationArgsDict', 'outputs.ConfiguredModelAlgorithmAssociationPrivacyConfiguration']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

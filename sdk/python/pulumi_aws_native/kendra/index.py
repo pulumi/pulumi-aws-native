@@ -210,30 +210,30 @@ class Index(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 capacity_units: pulumi.Input[Optional[Union['IndexCapacityUnitsConfigurationArgs', 'IndexCapacityUnitsConfigurationArgsDict']]] = None,
+                 capacity_units: pulumi.Input[Optional[Union['IndexCapacityUnitsConfigurationArgs', 'IndexCapacityUnitsConfigurationArgsDict', 'outputs.IndexCapacityUnitsConfiguration']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 document_metadata_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IndexDocumentMetadataConfigurationArgs', 'IndexDocumentMetadataConfigurationArgsDict']]]]] = None,
+                 document_metadata_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IndexDocumentMetadataConfigurationArgs', 'IndexDocumentMetadataConfigurationArgsDict', 'outputs.IndexDocumentMetadataConfiguration']]]]] = None,
                  edition: pulumi.Input[Optional['IndexEdition']] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  role_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 server_side_encryption_configuration: pulumi.Input[Optional[Union['IndexServerSideEncryptionConfigurationArgs', 'IndexServerSideEncryptionConfigurationArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 server_side_encryption_configuration: pulumi.Input[Optional[Union['IndexServerSideEncryptionConfigurationArgs', 'IndexServerSideEncryptionConfigurationArgsDict', 'outputs.IndexServerSideEncryptionConfiguration']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  user_context_policy: pulumi.Input[Optional['IndexUserContextPolicy']] = None,
-                 user_token_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IndexUserTokenConfigurationArgs', 'IndexUserTokenConfigurationArgsDict']]]]] = None,
+                 user_token_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IndexUserTokenConfigurationArgs', 'IndexUserTokenConfigurationArgsDict', 'outputs.IndexUserTokenConfiguration']]]]] = None,
                  __props__=None):
         """
         A Kendra index
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['IndexCapacityUnitsConfigurationArgs', 'IndexCapacityUnitsConfigurationArgsDict']] capacity_units: Capacity units
+        :param pulumi.Input[Union['IndexCapacityUnitsConfigurationArgs', 'IndexCapacityUnitsConfigurationArgsDict', 'outputs.IndexCapacityUnitsConfiguration']] capacity_units: Capacity units
         :param pulumi.Input[_builtins.str] description: A description for the index
-        :param pulumi.Input[Sequence[pulumi.Input[Union['IndexDocumentMetadataConfigurationArgs', 'IndexDocumentMetadataConfigurationArgsDict']]]] document_metadata_configurations: Document metadata configurations
+        :param pulumi.Input[Sequence[pulumi.Input[Union['IndexDocumentMetadataConfigurationArgs', 'IndexDocumentMetadataConfigurationArgsDict', 'outputs.IndexDocumentMetadataConfiguration']]]] document_metadata_configurations: Document metadata configurations
         :param pulumi.Input['IndexEdition'] edition: Indicates whether the index is a Enterprise Edition index, a Developer Edition index, or a GenAI Enterprise Edition index.
         :param pulumi.Input[_builtins.str] name: The name of the index.
         :param pulumi.Input[_builtins.str] role_arn: An IAM role that gives Amazon Kendra permissions to access your Amazon CloudWatch logs and metrics. This is also the role used when you use the [BatchPutDocument](https://docs.aws.amazon.com/kendra/latest/dg/BatchPutDocument.html) operation to index documents from an Amazon S3 bucket.
-        :param pulumi.Input[Union['IndexServerSideEncryptionConfigurationArgs', 'IndexServerSideEncryptionConfigurationArgsDict']] server_side_encryption_configuration: Server side encryption configuration
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Tags for labeling the index
+        :param pulumi.Input[Union['IndexServerSideEncryptionConfigurationArgs', 'IndexServerSideEncryptionConfigurationArgsDict', 'outputs.IndexServerSideEncryptionConfiguration']] server_side_encryption_configuration: Server side encryption configuration
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: Tags for labeling the index
         :param pulumi.Input['IndexUserContextPolicy'] user_context_policy: The user context policy.
                
                ATTRIBUTE_FILTER
@@ -243,7 +243,7 @@ class Index(pulumi.CustomResource):
                USER_TOKEN
                
                - Enables token-based user access control to filter search results on user context. All documents with no access control and all documents accessible to the user will be searchable and displayable.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['IndexUserTokenConfigurationArgs', 'IndexUserTokenConfigurationArgsDict']]]] user_token_configurations: Defines the type of user token used for the index.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['IndexUserTokenConfigurationArgs', 'IndexUserTokenConfigurationArgsDict', 'outputs.IndexUserTokenConfiguration']]]] user_token_configurations: Defines the type of user token used for the index.
         """
         ...
     @overload
@@ -269,16 +269,16 @@ class Index(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 capacity_units: pulumi.Input[Optional[Union['IndexCapacityUnitsConfigurationArgs', 'IndexCapacityUnitsConfigurationArgsDict']]] = None,
+                 capacity_units: pulumi.Input[Optional[Union['IndexCapacityUnitsConfigurationArgs', 'IndexCapacityUnitsConfigurationArgsDict', 'outputs.IndexCapacityUnitsConfiguration']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 document_metadata_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IndexDocumentMetadataConfigurationArgs', 'IndexDocumentMetadataConfigurationArgsDict']]]]] = None,
+                 document_metadata_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IndexDocumentMetadataConfigurationArgs', 'IndexDocumentMetadataConfigurationArgsDict', 'outputs.IndexDocumentMetadataConfiguration']]]]] = None,
                  edition: pulumi.Input[Optional['IndexEdition']] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  role_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 server_side_encryption_configuration: pulumi.Input[Optional[Union['IndexServerSideEncryptionConfigurationArgs', 'IndexServerSideEncryptionConfigurationArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 server_side_encryption_configuration: pulumi.Input[Optional[Union['IndexServerSideEncryptionConfigurationArgs', 'IndexServerSideEncryptionConfigurationArgsDict', 'outputs.IndexServerSideEncryptionConfiguration']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  user_context_policy: pulumi.Input[Optional['IndexUserContextPolicy']] = None,
-                 user_token_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IndexUserTokenConfigurationArgs', 'IndexUserTokenConfigurationArgsDict']]]]] = None,
+                 user_token_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IndexUserTokenConfigurationArgs', 'IndexUserTokenConfigurationArgsDict', 'outputs.IndexUserTokenConfiguration']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

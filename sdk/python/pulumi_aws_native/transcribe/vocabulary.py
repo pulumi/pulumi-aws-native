@@ -132,7 +132,7 @@ class Vocabulary(pulumi.CustomResource):
                  data_access_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  language_code: pulumi.Input[Optional[_builtins.str]] = None,
                  phrases: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  vocabulary_file_uri: pulumi.Input[Optional[_builtins.str]] = None,
                  vocabulary_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -144,7 +144,7 @@ class Vocabulary(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] data_access_role_arn: The Amazon Resource Name (ARN) of an IAM role that has permissions to access the Amazon S3 bucket that contains your input file.
         :param pulumi.Input[_builtins.str] language_code: The language code that represents the language of the entries in your custom vocabulary. Each custom vocabulary must contain terms in only one language.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] phrases: Use this parameter if you want to create your custom vocabulary by including all desired terms, as comma-separated values, within your request. You cannot use this parameter together with VocabularyFileUri.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Adds one or more custom tags, each in the form of a key:value pair, to the custom vocabulary.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: Adds one or more custom tags, each in the form of a key:value pair, to the custom vocabulary.
         :param pulumi.Input[_builtins.str] vocabulary_file_uri: The Amazon S3 location of the text file that contains your custom vocabulary. You cannot use this parameter together with Phrases.
         :param pulumi.Input[_builtins.str] vocabulary_name: A unique name, chosen by you, for your custom vocabulary. This name is case sensitive, cannot contain spaces, and must be unique within an AWS account.
         """
@@ -175,7 +175,7 @@ class Vocabulary(pulumi.CustomResource):
                  data_access_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  language_code: pulumi.Input[Optional[_builtins.str]] = None,
                  phrases: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  vocabulary_file_uri: pulumi.Input[Optional[_builtins.str]] = None,
                  vocabulary_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
