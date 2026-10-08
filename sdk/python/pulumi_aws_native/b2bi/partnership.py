@@ -146,12 +146,12 @@ class Partnership(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  capabilities: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 capability_options: pulumi.Input[Optional[Union['PartnershipCapabilityOptionsArgs', 'PartnershipCapabilityOptionsArgsDict']]] = None,
+                 capability_options: pulumi.Input[Optional[Union['PartnershipCapabilityOptionsArgs', 'PartnershipCapabilityOptionsArgsDict', 'outputs.PartnershipCapabilityOptions']]] = None,
                  email: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  phone: pulumi.Input[Optional[_builtins.str]] = None,
                  profile_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Definition of AWS::B2BI::Partnership Resource Type
@@ -159,12 +159,12 @@ class Partnership(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] capabilities: Returns one or more capabilities associated with this partnership.
-        :param pulumi.Input[Union['PartnershipCapabilityOptionsArgs', 'PartnershipCapabilityOptionsArgsDict']] capability_options: Contains the details for an Outbound EDI capability.
+        :param pulumi.Input[Union['PartnershipCapabilityOptionsArgs', 'PartnershipCapabilityOptionsArgsDict', 'outputs.PartnershipCapabilityOptions']] capability_options: Contains the details for an Outbound EDI capability.
         :param pulumi.Input[_builtins.str] email: Specifies the email address associated with this trading partner.
         :param pulumi.Input[_builtins.str] name: Returns the name of the partnership.
         :param pulumi.Input[_builtins.str] phone: Specifies the phone number associated with the partnership.
         :param pulumi.Input[_builtins.str] profile_id: Returns the unique, system-generated identifier for the profile connected to this partnership.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: A key-value pair for a specific partnership. Tags are metadata that you can use to search for and group capabilities for various purposes.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: A key-value pair for a specific partnership. Tags are metadata that you can use to search for and group capabilities for various purposes.
         """
         ...
     @overload
@@ -191,12 +191,12 @@ class Partnership(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  capabilities: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 capability_options: pulumi.Input[Optional[Union['PartnershipCapabilityOptionsArgs', 'PartnershipCapabilityOptionsArgsDict']]] = None,
+                 capability_options: pulumi.Input[Optional[Union['PartnershipCapabilityOptionsArgs', 'PartnershipCapabilityOptionsArgsDict', 'outputs.PartnershipCapabilityOptions']]] = None,
                  email: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  phone: pulumi.Input[Optional[_builtins.str]] = None,
                  profile_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

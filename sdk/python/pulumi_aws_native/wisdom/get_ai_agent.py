@@ -71,7 +71,7 @@ class GetAiAgentResult:
 
     @_builtins.property
     @pulumi.getter
-    def configuration(self) -> Optional[Any]:
+    def configuration(self) -> Optional[Union['outputs.AiAgentAiAgentConfiguration0Properties', 'outputs.AiAgentAiAgentConfiguration1Properties', 'outputs.AiAgentAiAgentConfiguration2Properties', 'outputs.AiAgentAiAgentConfiguration3Properties', 'outputs.AiAgentAiAgentConfiguration4Properties', 'outputs.AiAgentAiAgentConfiguration5Properties', 'outputs.AiAgentAiAgentConfiguration6Properties', 'outputs.AiAgentAiAgentConfiguration7Properties', 'outputs.AiAgentAiAgentConfiguration8Properties']]:
         """
         Configuration for the AI Agent.
         """

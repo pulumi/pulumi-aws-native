@@ -200,12 +200,12 @@ class Secret(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 generate_secret_string: pulumi.Input[Optional[Union['SecretGenerateSecretStringArgs', 'SecretGenerateSecretStringArgsDict']]] = None,
+                 generate_secret_string: pulumi.Input[Optional[Union['SecretGenerateSecretStringArgs', 'SecretGenerateSecretStringArgsDict', 'outputs.SecretGenerateSecretString']]] = None,
                  kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 replica_regions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SecretReplicaRegionArgs', 'SecretReplicaRegionArgsDict']]]]] = None,
+                 replica_regions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SecretReplicaRegionArgs', 'SecretReplicaRegionArgsDict', 'outputs.SecretReplicaRegion']]]]] = None,
                  secret_string: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -274,7 +274,7 @@ class Secret(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: The description of the secret.
-        :param pulumi.Input[Union['SecretGenerateSecretStringArgs', 'SecretGenerateSecretStringArgsDict']] generate_secret_string: A structure that specifies how to generate a password to encrypt and store in the secret. To include a specific string in the secret, use ``SecretString`` instead. If you omit both ``GenerateSecretString`` and ``SecretString``, you create an empty secret. When you make a change to this property, a new secret version is created.
+        :param pulumi.Input[Union['SecretGenerateSecretStringArgs', 'SecretGenerateSecretStringArgsDict', 'outputs.SecretGenerateSecretString']] generate_secret_string: A structure that specifies how to generate a password to encrypt and store in the secret. To include a specific string in the secret, use ``SecretString`` instead. If you omit both ``GenerateSecretString`` and ``SecretString``, you create an empty secret. When you make a change to this property, a new secret version is created.
                 We recommend that you specify the maximum length and include every character type that the system you are generating a password for can support.
         :param pulumi.Input[_builtins.str] kms_key_id: The ARN, key ID, or alias of the KMS key that Secrets Manager uses to encrypt the secret value in the secret. An alias is always prefixed by ``alias/``, for example ``alias/aws/secretsmanager``. For more information, see [About aliases](https://docs.aws.amazon.com/kms/latest/developerguide/alias-about.html).
                 To use a KMS key in a different account, use the key ARN or the alias ARN.
@@ -283,9 +283,9 @@ class Secret(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] name: The name of the new secret.
                 The secret name can contain ASCII letters, numbers, and the following characters: /_+=.@-
                 Do not end your secret name with a hyphen followed by six characters. If you do so, you risk confusion and unexpected results when searching for a secret by partial ARN. Secrets Manager automatically adds a hyphen and six random characters after the secret name at the end of the ARN.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['SecretReplicaRegionArgs', 'SecretReplicaRegionArgsDict']]]] replica_regions: A custom type that specifies a ``Region`` and the ``KmsKeyId`` for a replica secret.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SecretReplicaRegionArgs', 'SecretReplicaRegionArgsDict', 'outputs.SecretReplicaRegion']]]] replica_regions: A custom type that specifies a ``Region`` and the ``KmsKeyId`` for a replica secret.
         :param pulumi.Input[_builtins.str] secret_string: The text to encrypt and store in the secret. We recommend you use a JSON structure of key/value pairs for your secret value. To generate a random password, use ``GenerateSecretString`` instead. If you omit both ``GenerateSecretString`` and ``SecretString``, you create an empty secret. When you make a change to this property, a new secret version is created.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: A list of tags to attach to the secret. Each tag is a key and value pair of strings in a JSON text string, for example:
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: A list of tags to attach to the secret. Each tag is a key and value pair of strings in a JSON text string, for example:
                  ``[{"Key":"CostCenter","Value":"12345"},{"Key":"environment","Value":"production"}]``
                 Secrets Manager tag key names are case sensitive. A tag with the key "ABC" is a different tag from one with key "abc".
                 Stack-level tags, tags you apply to the CloudFormation stack, are also attached to the secret.
@@ -385,12 +385,12 @@ class Secret(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 generate_secret_string: pulumi.Input[Optional[Union['SecretGenerateSecretStringArgs', 'SecretGenerateSecretStringArgsDict']]] = None,
+                 generate_secret_string: pulumi.Input[Optional[Union['SecretGenerateSecretStringArgs', 'SecretGenerateSecretStringArgsDict', 'outputs.SecretGenerateSecretString']]] = None,
                  kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 replica_regions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SecretReplicaRegionArgs', 'SecretReplicaRegionArgsDict']]]]] = None,
+                 replica_regions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SecretReplicaRegionArgs', 'SecretReplicaRegionArgsDict', 'outputs.SecretReplicaRegion']]]]] = None,
                  secret_string: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

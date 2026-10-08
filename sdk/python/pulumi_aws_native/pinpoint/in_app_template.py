@@ -156,7 +156,7 @@ class InAppTemplate(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 content: pulumi.Input[Optional[Sequence[pulumi.Input[Union['InAppTemplateInAppMessageContentArgs', 'InAppTemplateInAppMessageContentArgsDict']]]]] = None,
+                 content: pulumi.Input[Optional[Sequence[pulumi.Input[Union['InAppTemplateInAppMessageContentArgs', 'InAppTemplateInAppMessageContentArgsDict', 'outputs.InAppTemplateInAppMessageContent']]]]] = None,
                  custom_config: Optional[Any] = None,
                  layout: pulumi.Input[Optional['InAppTemplateLayout']] = None,
                  tags: Optional[Any] = None,
@@ -168,7 +168,7 @@ class InAppTemplate(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['InAppTemplateInAppMessageContentArgs', 'InAppTemplateInAppMessageContentArgsDict']]]] content: An object that contains information about the content of an in-app message, including its title and body text, text colors, background colors, images, buttons, and behaviors.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['InAppTemplateInAppMessageContentArgs', 'InAppTemplateInAppMessageContentArgsDict', 'outputs.InAppTemplateInAppMessageContent']]]] content: An object that contains information about the content of an in-app message, including its title and body text, text colors, background colors, images, buttons, and behaviors.
         :param Any custom_config: Custom data, in the form of key-value pairs, that is included in an in-app messaging payload.
                
                Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Pinpoint::InAppTemplate` for more information about the expected schema for this property.
@@ -212,7 +212,7 @@ class InAppTemplate(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 content: pulumi.Input[Optional[Sequence[pulumi.Input[Union['InAppTemplateInAppMessageContentArgs', 'InAppTemplateInAppMessageContentArgsDict']]]]] = None,
+                 content: pulumi.Input[Optional[Sequence[pulumi.Input[Union['InAppTemplateInAppMessageContentArgs', 'InAppTemplateInAppMessageContentArgsDict', 'outputs.InAppTemplateInAppMessageContent']]]]] = None,
                  custom_config: Optional[Any] = None,
                  layout: pulumi.Input[Optional['InAppTemplateLayout']] = None,
                  tags: Optional[Any] = None,

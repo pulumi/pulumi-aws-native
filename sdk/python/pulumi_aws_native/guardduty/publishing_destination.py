@@ -96,20 +96,20 @@ class PublishingDestination(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 destination_properties: pulumi.Input[Optional[Union['PublishingDestinationCfnDestinationPropertiesArgs', 'PublishingDestinationCfnDestinationPropertiesArgsDict']]] = None,
+                 destination_properties: pulumi.Input[Optional[Union['PublishingDestinationCfnDestinationPropertiesArgs', 'PublishingDestinationCfnDestinationPropertiesArgsDict', 'outputs.PublishingDestinationCfnDestinationProperties']]] = None,
                  destination_type: pulumi.Input[Optional[_builtins.str]] = None,
                  detector_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::GuardDuty::PublishingDestination.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['PublishingDestinationCfnDestinationPropertiesArgs', 'PublishingDestinationCfnDestinationPropertiesArgsDict']] destination_properties: Contains the Amazon Resource Name (ARN) of the resource to publish to, such as an S3 bucket, and the ARN of the KMS key to use to encrypt published findings.
+        :param pulumi.Input[Union['PublishingDestinationCfnDestinationPropertiesArgs', 'PublishingDestinationCfnDestinationPropertiesArgsDict', 'outputs.PublishingDestinationCfnDestinationProperties']] destination_properties: Contains the Amazon Resource Name (ARN) of the resource to publish to, such as an S3 bucket, and the ARN of the KMS key to use to encrypt published findings.
         :param pulumi.Input[_builtins.str] destination_type: The type of resource for the publishing destination. Currently only Amazon S3 buckets are supported.
         :param pulumi.Input[_builtins.str] detector_id: The ID of the GuardDuty detector associated with the publishing destination.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Describes a tag.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: Describes a tag.
         """
         ...
     @overload
@@ -135,10 +135,10 @@ class PublishingDestination(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 destination_properties: pulumi.Input[Optional[Union['PublishingDestinationCfnDestinationPropertiesArgs', 'PublishingDestinationCfnDestinationPropertiesArgsDict']]] = None,
+                 destination_properties: pulumi.Input[Optional[Union['PublishingDestinationCfnDestinationPropertiesArgs', 'PublishingDestinationCfnDestinationPropertiesArgsDict', 'outputs.PublishingDestinationCfnDestinationProperties']]] = None,
                  destination_type: pulumi.Input[Optional[_builtins.str]] = None,
                  detector_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

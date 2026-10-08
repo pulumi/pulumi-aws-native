@@ -117,7 +117,7 @@ class TrafficMirrorTarget(pulumi.CustomResource):
                  gateway_load_balancer_endpoint_id: pulumi.Input[Optional[_builtins.str]] = None,
                  network_interface_id: pulumi.Input[Optional[_builtins.str]] = None,
                  network_load_balancer_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         The description of the Traffic Mirror target.
@@ -128,7 +128,7 @@ class TrafficMirrorTarget(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] gateway_load_balancer_endpoint_id: The ID of the Gateway Load Balancer endpoint.
         :param pulumi.Input[_builtins.str] network_interface_id: The network interface ID that is associated with the target.
         :param pulumi.Input[_builtins.str] network_load_balancer_arn: The Amazon Resource Name (ARN) of the Network Load Balancer that is associated with the target.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags:  The tags to assign to the Traffic Mirror target.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags:  The tags to assign to the Traffic Mirror target.
         """
         ...
     @overload
@@ -158,7 +158,7 @@ class TrafficMirrorTarget(pulumi.CustomResource):
                  gateway_load_balancer_endpoint_id: pulumi.Input[Optional[_builtins.str]] = None,
                  network_interface_id: pulumi.Input[Optional[_builtins.str]] = None,
                  network_load_balancer_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

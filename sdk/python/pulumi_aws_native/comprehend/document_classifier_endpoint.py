@@ -98,7 +98,7 @@ class DocumentClassifierEndpoint(pulumi.CustomResource):
                  desired_inference_units: pulumi.Input[Optional[_builtins.int]] = None,
                  endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
                  model_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         An Amazon Comprehend endpoint that hosts a custom document classification model for real-time inference.
@@ -108,7 +108,7 @@ class DocumentClassifierEndpoint(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] desired_inference_units: The desired number of inference units to be used by the model. Each inference unit represents throughput of 100 characters per second.
         :param pulumi.Input[_builtins.str] endpoint_name: The name of the endpoint. The name must be unique within the AWS Region and account.
         :param pulumi.Input[_builtins.str] model_arn: The Amazon Resource Name (ARN) of the document classifier model to which the endpoint is attached.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Tags associated with the endpoint being created.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: Tags associated with the endpoint being created.
         """
         ...
     @overload
@@ -137,7 +137,7 @@ class DocumentClassifierEndpoint(pulumi.CustomResource):
                  desired_inference_units: pulumi.Input[Optional[_builtins.int]] = None,
                  endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
                  model_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

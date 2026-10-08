@@ -149,7 +149,7 @@ class Content(pulumi.CustomResource):
                  metadata: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  override_link_out_uri: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  title: pulumi.Input[Optional[_builtins.str]] = None,
                  upload_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -162,7 +162,7 @@ class Content(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] metadata: A key/value map to store attributes without affecting tagging or recommendations.
         :param pulumi.Input[_builtins.str] name: The name of the content.
         :param pulumi.Input[_builtins.str] override_link_out_uri: The URI you want to use for the article.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags used to organize, track, or control access for this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: The tags used to organize, track, or control access for this resource.
         :param pulumi.Input[_builtins.str] title: The title of the content.
         :param pulumi.Input[_builtins.str] upload_id: A pointer to the uploaded asset. This value is returned by StartContentUpload.
         """
@@ -194,7 +194,7 @@ class Content(pulumi.CustomResource):
                  metadata: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  override_link_out_uri: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  title: pulumi.Input[Optional[_builtins.str]] = None,
                  upload_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):

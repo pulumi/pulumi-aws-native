@@ -131,8 +131,8 @@ class Simulation(pulumi.CustomResource):
                  maximum_duration: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  role_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 schema_s3_location: pulumi.Input[Optional[Union['SimulationS3LocationArgs', 'SimulationS3LocationArgsDict']]] = None,
-                 snapshot_s3_location: pulumi.Input[Optional[Union['SimulationS3LocationArgs', 'SimulationS3LocationArgsDict']]] = None,
+                 schema_s3_location: pulumi.Input[Optional[Union['SimulationS3LocationArgs', 'SimulationS3LocationArgsDict', 'outputs.SimulationS3Location']]] = None,
+                 snapshot_s3_location: pulumi.Input[Optional[Union['SimulationS3LocationArgs', 'SimulationS3LocationArgsDict', 'outputs.SimulationS3Location']]] = None,
                  __props__=None):
         """
         AWS::SimSpaceWeaver::Simulation resource creates an AWS Simulation.
@@ -299,12 +299,12 @@ class Simulation(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] maximum_duration: The maximum running time of the simulation.
         :param pulumi.Input[_builtins.str] name: The name of the simulation.
         :param pulumi.Input[_builtins.str] role_arn: Role ARN.
-        :param pulumi.Input[Union['SimulationS3LocationArgs', 'SimulationS3LocationArgsDict']] schema_s3_location: The location of the simulation schema in Amazon Simple Storage Service ( Amazon S3 ). For more information about Amazon S3 , see the [*Amazon Simple Storage Service User Guide*](https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.html) .
+        :param pulumi.Input[Union['SimulationS3LocationArgs', 'SimulationS3LocationArgsDict', 'outputs.SimulationS3Location']] schema_s3_location: The location of the simulation schema in Amazon Simple Storage Service ( Amazon S3 ). For more information about Amazon S3 , see the [*Amazon Simple Storage Service User Guide*](https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.html) .
                
                Provide a `SchemaS3Location` to start your simulation from a schema.
                
                If you provide a `SchemaS3Location` then you can't provide a `SnapshotS3Location` .
-        :param pulumi.Input[Union['SimulationS3LocationArgs', 'SimulationS3LocationArgsDict']] snapshot_s3_location: The location of the snapshot in Amazon Simple Storage Service ( Amazon S3 ). For more information about Amazon S3 , see the [*Amazon Simple Storage Service User Guide*](https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.html) .
+        :param pulumi.Input[Union['SimulationS3LocationArgs', 'SimulationS3LocationArgsDict', 'outputs.SimulationS3Location']] snapshot_s3_location: The location of the snapshot in Amazon Simple Storage Service ( Amazon S3 ). For more information about Amazon S3 , see the [*Amazon Simple Storage Service User Guide*](https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.html) .
                
                Provide a `SnapshotS3Location` to start your simulation from a snapshot.
                
@@ -494,8 +494,8 @@ class Simulation(pulumi.CustomResource):
                  maximum_duration: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  role_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 schema_s3_location: pulumi.Input[Optional[Union['SimulationS3LocationArgs', 'SimulationS3LocationArgsDict']]] = None,
-                 snapshot_s3_location: pulumi.Input[Optional[Union['SimulationS3LocationArgs', 'SimulationS3LocationArgsDict']]] = None,
+                 schema_s3_location: pulumi.Input[Optional[Union['SimulationS3LocationArgs', 'SimulationS3LocationArgsDict', 'outputs.SimulationS3Location']]] = None,
+                 snapshot_s3_location: pulumi.Input[Optional[Union['SimulationS3LocationArgs', 'SimulationS3LocationArgsDict', 'outputs.SimulationS3Location']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

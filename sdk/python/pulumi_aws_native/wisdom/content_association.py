@@ -112,22 +112,22 @@ class ContentAssociation(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 association: pulumi.Input[Optional[Union['ContentAssociationContentsArgs', 'ContentAssociationContentsArgsDict']]] = None,
+                 association: pulumi.Input[Optional[Union['ContentAssociationContentsArgs', 'ContentAssociationContentsArgsDict', 'outputs.ContentAssociationContents']]] = None,
                  association_type: pulumi.Input[Optional['ContentAssociationAssociationType']] = None,
                  content_id: pulumi.Input[Optional[_builtins.str]] = None,
                  knowledge_base_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict', '_root_outputs.CreateOnlyTag']]]]] = None,
                  __props__=None):
         """
         Definition of AWS::Wisdom::ContentAssociation Resource Type
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['ContentAssociationContentsArgs', 'ContentAssociationContentsArgsDict']] association: The identifier of the associated resource.
+        :param pulumi.Input[Union['ContentAssociationContentsArgs', 'ContentAssociationContentsArgsDict', 'outputs.ContentAssociationContents']] association: The identifier of the associated resource.
         :param pulumi.Input['ContentAssociationAssociationType'] association_type: The type of association.
         :param pulumi.Input[_builtins.str] content_id: The identifier of the content.
         :param pulumi.Input[_builtins.str] knowledge_base_id: The identifier of the knowledge base.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]] tags: The tags used to organize, track, or control access for this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict', '_root_outputs.CreateOnlyTag']]]] tags: The tags used to organize, track, or control access for this resource.
         """
         ...
     @overload
@@ -153,11 +153,11 @@ class ContentAssociation(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 association: pulumi.Input[Optional[Union['ContentAssociationContentsArgs', 'ContentAssociationContentsArgsDict']]] = None,
+                 association: pulumi.Input[Optional[Union['ContentAssociationContentsArgs', 'ContentAssociationContentsArgsDict', 'outputs.ContentAssociationContents']]] = None,
                  association_type: pulumi.Input[Optional['ContentAssociationAssociationType']] = None,
                  content_id: pulumi.Input[Optional[_builtins.str]] = None,
                  knowledge_base_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict', '_root_outputs.CreateOnlyTag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

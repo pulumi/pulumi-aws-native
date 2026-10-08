@@ -208,11 +208,11 @@ class ImageRecipe(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 additional_instance_configuration: pulumi.Input[Optional[Union['ImageRecipeAdditionalInstanceConfigurationArgs', 'ImageRecipeAdditionalInstanceConfigurationArgsDict']]] = None,
+                 additional_instance_configuration: pulumi.Input[Optional[Union['ImageRecipeAdditionalInstanceConfigurationArgs', 'ImageRecipeAdditionalInstanceConfigurationArgsDict', 'outputs.ImageRecipeAdditionalInstanceConfiguration']]] = None,
                  ami_tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  ami_watermarks: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 block_device_mappings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ImageRecipeInstanceBlockDeviceMappingArgs', 'ImageRecipeInstanceBlockDeviceMappingArgsDict']]]]] = None,
-                 components: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ImageRecipeComponentConfigurationArgs', 'ImageRecipeComponentConfigurationArgsDict']]]]] = None,
+                 block_device_mappings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ImageRecipeInstanceBlockDeviceMappingArgs', 'ImageRecipeInstanceBlockDeviceMappingArgsDict', 'outputs.ImageRecipeInstanceBlockDeviceMapping']]]]] = None,
+                 components: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ImageRecipeComponentConfigurationArgs', 'ImageRecipeComponentConfigurationArgsDict', 'outputs.ImageRecipeComponentConfiguration']]]]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  parent_image: pulumi.Input[Optional[_builtins.str]] = None,
@@ -225,11 +225,11 @@ class ImageRecipe(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['ImageRecipeAdditionalInstanceConfigurationArgs', 'ImageRecipeAdditionalInstanceConfigurationArgsDict']] additional_instance_configuration: Specify additional settings and launch scripts for your build instances.
+        :param pulumi.Input[Union['ImageRecipeAdditionalInstanceConfigurationArgs', 'ImageRecipeAdditionalInstanceConfigurationArgsDict', 'outputs.ImageRecipeAdditionalInstanceConfiguration']] additional_instance_configuration: Specify additional settings and launch scripts for your build instances.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] ami_tags: The tags to apply to the AMI created by this image recipe.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ami_watermarks: The AMI watermark names to attach to the output AMI from this recipe. AMI watermarks are lineage markers that automatically propagate to derivative AMIs when the source AMI is copied or distributed.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ImageRecipeInstanceBlockDeviceMappingArgs', 'ImageRecipeInstanceBlockDeviceMappingArgsDict']]]] block_device_mappings: The block device mappings to apply when creating images from this recipe.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ImageRecipeComponentConfigurationArgs', 'ImageRecipeComponentConfigurationArgsDict']]]] components: The components of the image recipe.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ImageRecipeInstanceBlockDeviceMappingArgs', 'ImageRecipeInstanceBlockDeviceMappingArgsDict', 'outputs.ImageRecipeInstanceBlockDeviceMapping']]]] block_device_mappings: The block device mappings to apply when creating images from this recipe.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ImageRecipeComponentConfigurationArgs', 'ImageRecipeComponentConfigurationArgsDict', 'outputs.ImageRecipeComponentConfiguration']]]] components: The components of the image recipe.
         :param pulumi.Input[_builtins.str] description: The description of the image recipe.
         :param pulumi.Input[_builtins.str] name: The name of the image recipe.
         :param pulumi.Input[_builtins.str] parent_image: The parent image of the image recipe.
@@ -261,11 +261,11 @@ class ImageRecipe(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 additional_instance_configuration: pulumi.Input[Optional[Union['ImageRecipeAdditionalInstanceConfigurationArgs', 'ImageRecipeAdditionalInstanceConfigurationArgsDict']]] = None,
+                 additional_instance_configuration: pulumi.Input[Optional[Union['ImageRecipeAdditionalInstanceConfigurationArgs', 'ImageRecipeAdditionalInstanceConfigurationArgsDict', 'outputs.ImageRecipeAdditionalInstanceConfiguration']]] = None,
                  ami_tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  ami_watermarks: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 block_device_mappings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ImageRecipeInstanceBlockDeviceMappingArgs', 'ImageRecipeInstanceBlockDeviceMappingArgsDict']]]]] = None,
-                 components: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ImageRecipeComponentConfigurationArgs', 'ImageRecipeComponentConfigurationArgsDict']]]]] = None,
+                 block_device_mappings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ImageRecipeInstanceBlockDeviceMappingArgs', 'ImageRecipeInstanceBlockDeviceMappingArgsDict', 'outputs.ImageRecipeInstanceBlockDeviceMapping']]]]] = None,
+                 components: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ImageRecipeComponentConfigurationArgs', 'ImageRecipeComponentConfigurationArgsDict', 'outputs.ImageRecipeComponentConfiguration']]]]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  parent_image: pulumi.Input[Optional[_builtins.str]] = None,

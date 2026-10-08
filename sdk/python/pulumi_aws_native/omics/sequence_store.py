@@ -189,7 +189,7 @@ class SequenceStore(pulumi.CustomResource):
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  propagated_set_level_tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  s3_access_policy: Optional[Any] = None,
-                 sse_config: pulumi.Input[Optional[Union['SequenceStoreSseConfigArgs', 'SequenceStoreSseConfigArgsDict']]] = None,
+                 sse_config: pulumi.Input[Optional[Union['SequenceStoreSseConfigArgs', 'SequenceStoreSseConfigArgsDict', 'outputs.SequenceStoreSseConfig']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
@@ -206,7 +206,7 @@ class SequenceStore(pulumi.CustomResource):
         :param Any s3_access_policy: The resource policy that controls S3 access on the store
                
                Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Omics::SequenceStore` for more information about the expected schema for this property.
-        :param pulumi.Input[Union['SequenceStoreSseConfigArgs', 'SequenceStoreSseConfigArgsDict']] sse_config: Server-side encryption (SSE) settings for the store.
+        :param pulumi.Input[Union['SequenceStoreSseConfigArgs', 'SequenceStoreSseConfigArgsDict', 'outputs.SequenceStoreSseConfig']] sse_config: Server-side encryption (SSE) settings for the store.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Tags for the store.
         """
         ...
@@ -240,7 +240,7 @@ class SequenceStore(pulumi.CustomResource):
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  propagated_set_level_tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  s3_access_policy: Optional[Any] = None,
-                 sse_config: pulumi.Input[Optional[Union['SequenceStoreSseConfigArgs', 'SequenceStoreSseConfigArgsDict']]] = None,
+                 sse_config: pulumi.Input[Optional[Union['SequenceStoreSseConfigArgs', 'SequenceStoreSseConfigArgsDict', 'outputs.SequenceStoreSseConfig']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

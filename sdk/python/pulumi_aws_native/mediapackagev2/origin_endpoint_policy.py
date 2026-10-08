@@ -113,7 +113,7 @@ class OriginEndpointPolicy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cdn_auth_configuration: pulumi.Input[Optional[Union['OriginEndpointPolicyCdnAuthConfigurationArgs', 'OriginEndpointPolicyCdnAuthConfigurationArgsDict']]] = None,
+                 cdn_auth_configuration: pulumi.Input[Optional[Union['OriginEndpointPolicyCdnAuthConfigurationArgs', 'OriginEndpointPolicyCdnAuthConfigurationArgsDict', 'outputs.OriginEndpointPolicyCdnAuthConfiguration']]] = None,
                  channel_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  channel_name: pulumi.Input[Optional[_builtins.str]] = None,
                  origin_endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -124,7 +124,7 @@ class OriginEndpointPolicy(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['OriginEndpointPolicyCdnAuthConfigurationArgs', 'OriginEndpointPolicyCdnAuthConfigurationArgsDict']] cdn_auth_configuration: The settings to enable CDN authorization headers in MediaPackage.
+        :param pulumi.Input[Union['OriginEndpointPolicyCdnAuthConfigurationArgs', 'OriginEndpointPolicyCdnAuthConfigurationArgsDict', 'outputs.OriginEndpointPolicyCdnAuthConfiguration']] cdn_auth_configuration: The settings to enable CDN authorization headers in MediaPackage.
         :param pulumi.Input[_builtins.str] channel_group_name: The name of the channel group associated with the origin endpoint policy.
         :param pulumi.Input[_builtins.str] channel_name: The channel name associated with the origin endpoint policy.
         :param pulumi.Input[_builtins.str] origin_endpoint_name: The name of the origin endpoint associated with the origin endpoint policy.
@@ -156,7 +156,7 @@ class OriginEndpointPolicy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cdn_auth_configuration: pulumi.Input[Optional[Union['OriginEndpointPolicyCdnAuthConfigurationArgs', 'OriginEndpointPolicyCdnAuthConfigurationArgsDict']]] = None,
+                 cdn_auth_configuration: pulumi.Input[Optional[Union['OriginEndpointPolicyCdnAuthConfigurationArgs', 'OriginEndpointPolicyCdnAuthConfigurationArgsDict', 'outputs.OriginEndpointPolicyCdnAuthConfiguration']]] = None,
                  channel_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  channel_name: pulumi.Input[Optional[_builtins.str]] = None,
                  origin_endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,

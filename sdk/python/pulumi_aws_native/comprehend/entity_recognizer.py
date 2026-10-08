@@ -194,15 +194,15 @@ class EntityRecognizer(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  data_access_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 input_data_config: pulumi.Input[Optional[Union['EntityRecognizerInputDataConfigArgs', 'EntityRecognizerInputDataConfigArgsDict']]] = None,
+                 input_data_config: pulumi.Input[Optional[Union['EntityRecognizerInputDataConfigArgs', 'EntityRecognizerInputDataConfigArgsDict', 'outputs.EntityRecognizerInputDataConfig']]] = None,
                  language_code: pulumi.Input[Optional['EntityRecognizerLanguageCode']] = None,
                  model_kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
                  model_policy: pulumi.Input[Optional[_builtins.str]] = None,
                  recognizer_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  version_name: pulumi.Input[Optional[_builtins.str]] = None,
                  volume_kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 vpc_config: pulumi.Input[Optional[Union['EntityRecognizerVpcConfigArgs', 'EntityRecognizerVpcConfigArgsDict']]] = None,
+                 vpc_config: pulumi.Input[Optional[Union['EntityRecognizerVpcConfigArgs', 'EntityRecognizerVpcConfigArgsDict', 'outputs.EntityRecognizerVpcConfig']]] = None,
                  __props__=None):
         """
         An Amazon Comprehend custom entity recognizer: a trained model that identifies custom entity types in text, created via an asynchronous training job.
@@ -210,15 +210,15 @@ class EntityRecognizer(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] data_access_role_arn: The Amazon Resource Name (ARN) of the IAM role that grants Amazon Comprehend read access to your input data.
-        :param pulumi.Input[Union['EntityRecognizerInputDataConfigArgs', 'EntityRecognizerInputDataConfigArgsDict']] input_data_config: Specifies the format and location of the input data. The S3 bucket containing the input data must be located in the same Region as the entity recognizer being created.
+        :param pulumi.Input[Union['EntityRecognizerInputDataConfigArgs', 'EntityRecognizerInputDataConfigArgsDict', 'outputs.EntityRecognizerInputDataConfig']] input_data_config: Specifies the format and location of the input data. The S3 bucket containing the input data must be located in the same Region as the entity recognizer being created.
         :param pulumi.Input['EntityRecognizerLanguageCode'] language_code: The language of the input documents. All documents must be in the same language.
         :param pulumi.Input[_builtins.str] model_kms_key_id: ID for the AWS KMS key that Amazon Comprehend uses to encrypt trained custom models.
         :param pulumi.Input[_builtins.str] model_policy: The JSON resource-based policy to attach to your custom entity recognizer model.
         :param pulumi.Input[_builtins.str] recognizer_name: The name given to the entity recognizer.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Tags to associate with the entity recognizer.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: Tags to associate with the entity recognizer.
         :param pulumi.Input[_builtins.str] version_name: The version name given to the entity recognizer.
         :param pulumi.Input[_builtins.str] volume_kms_key_id: ID for the AWS KMS key that Amazon Comprehend uses to encrypt data on the storage volume attached to the ML compute instance(s).
-        :param pulumi.Input[Union['EntityRecognizerVpcConfigArgs', 'EntityRecognizerVpcConfigArgsDict']] vpc_config: Configuration parameters for an optional private VPC containing the resources you are using for your custom entity recognizer.
+        :param pulumi.Input[Union['EntityRecognizerVpcConfigArgs', 'EntityRecognizerVpcConfigArgsDict', 'outputs.EntityRecognizerVpcConfig']] vpc_config: Configuration parameters for an optional private VPC containing the resources you are using for your custom entity recognizer.
         """
         ...
     @overload
@@ -245,15 +245,15 @@ class EntityRecognizer(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  data_access_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 input_data_config: pulumi.Input[Optional[Union['EntityRecognizerInputDataConfigArgs', 'EntityRecognizerInputDataConfigArgsDict']]] = None,
+                 input_data_config: pulumi.Input[Optional[Union['EntityRecognizerInputDataConfigArgs', 'EntityRecognizerInputDataConfigArgsDict', 'outputs.EntityRecognizerInputDataConfig']]] = None,
                  language_code: pulumi.Input[Optional['EntityRecognizerLanguageCode']] = None,
                  model_kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
                  model_policy: pulumi.Input[Optional[_builtins.str]] = None,
                  recognizer_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  version_name: pulumi.Input[Optional[_builtins.str]] = None,
                  volume_kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 vpc_config: pulumi.Input[Optional[Union['EntityRecognizerVpcConfigArgs', 'EntityRecognizerVpcConfigArgsDict']]] = None,
+                 vpc_config: pulumi.Input[Optional[Union['EntityRecognizerVpcConfigArgs', 'EntityRecognizerVpcConfigArgsDict', 'outputs.EntityRecognizerVpcConfig']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

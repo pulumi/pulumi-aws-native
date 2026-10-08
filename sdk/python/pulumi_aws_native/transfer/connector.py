@@ -192,14 +192,14 @@ class Connector(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  access_role: pulumi.Input[Optional[_builtins.str]] = None,
-                 as2_config: pulumi.Input[Optional[Union['As2ConfigPropertiesArgs', 'As2ConfigPropertiesArgsDict']]] = None,
-                 egress_config: pulumi.Input[Optional[Union['ConnectorEgressConfigArgs', 'ConnectorEgressConfigArgsDict']]] = None,
+                 as2_config: pulumi.Input[Optional[Union['As2ConfigPropertiesArgs', 'As2ConfigPropertiesArgsDict', 'outputs.As2ConfigProperties']]] = None,
+                 egress_config: pulumi.Input[Optional[Union['ConnectorEgressConfigArgs', 'ConnectorEgressConfigArgsDict', 'outputs.ConnectorEgressConfig']]] = None,
                  egress_type: pulumi.Input[Optional['ConnectorEgressType']] = None,
                  ip_address_type: pulumi.Input[Optional['ConnectorIpAddressType']] = None,
                  logging_role: pulumi.Input[Optional[_builtins.str]] = None,
                  security_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 sftp_config: pulumi.Input[Optional[Union['SftpConfigPropertiesArgs', 'SftpConfigPropertiesArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 sftp_config: pulumi.Input[Optional[Union['SftpConfigPropertiesArgs', 'SftpConfigPropertiesArgsDict', 'outputs.SftpConfigProperties']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  url: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -208,13 +208,13 @@ class Connector(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] access_role: Specifies the access role for the connector.
-        :param pulumi.Input[Union['As2ConfigPropertiesArgs', 'As2ConfigPropertiesArgsDict']] as2_config: Configuration for an AS2 connector.
-        :param pulumi.Input[Union['ConnectorEgressConfigArgs', 'ConnectorEgressConfigArgsDict']] egress_config: Egress configuration for the connector.
+        :param pulumi.Input[Union['As2ConfigPropertiesArgs', 'As2ConfigPropertiesArgsDict', 'outputs.As2ConfigProperties']] as2_config: Configuration for an AS2 connector.
+        :param pulumi.Input[Union['ConnectorEgressConfigArgs', 'ConnectorEgressConfigArgsDict', 'outputs.ConnectorEgressConfig']] egress_config: Egress configuration for the connector.
         :param pulumi.Input['ConnectorEgressType'] egress_type: Specifies the egress type for the connector.
         :param pulumi.Input[_builtins.str] logging_role: Specifies the logging role for the connector.
         :param pulumi.Input[_builtins.str] security_policy_name: Security policy for SFTP Connector
-        :param pulumi.Input[Union['SftpConfigPropertiesArgs', 'SftpConfigPropertiesArgsDict']] sftp_config: Configuration for an SFTP connector.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Key-value pairs that can be used to group and search for connectors. Tags are metadata attached to connectors for any purpose.
+        :param pulumi.Input[Union['SftpConfigPropertiesArgs', 'SftpConfigPropertiesArgsDict', 'outputs.SftpConfigProperties']] sftp_config: Configuration for an SFTP connector.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: Key-value pairs that can be used to group and search for connectors. Tags are metadata attached to connectors for any purpose.
         :param pulumi.Input[_builtins.str] url: URL for Connector
         """
         ...
@@ -242,14 +242,14 @@ class Connector(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  access_role: pulumi.Input[Optional[_builtins.str]] = None,
-                 as2_config: pulumi.Input[Optional[Union['As2ConfigPropertiesArgs', 'As2ConfigPropertiesArgsDict']]] = None,
-                 egress_config: pulumi.Input[Optional[Union['ConnectorEgressConfigArgs', 'ConnectorEgressConfigArgsDict']]] = None,
+                 as2_config: pulumi.Input[Optional[Union['As2ConfigPropertiesArgs', 'As2ConfigPropertiesArgsDict', 'outputs.As2ConfigProperties']]] = None,
+                 egress_config: pulumi.Input[Optional[Union['ConnectorEgressConfigArgs', 'ConnectorEgressConfigArgsDict', 'outputs.ConnectorEgressConfig']]] = None,
                  egress_type: pulumi.Input[Optional['ConnectorEgressType']] = None,
                  ip_address_type: pulumi.Input[Optional['ConnectorIpAddressType']] = None,
                  logging_role: pulumi.Input[Optional[_builtins.str]] = None,
                  security_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 sftp_config: pulumi.Input[Optional[Union['SftpConfigPropertiesArgs', 'SftpConfigPropertiesArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 sftp_config: pulumi.Input[Optional[Union['SftpConfigPropertiesArgs', 'SftpConfigPropertiesArgsDict', 'outputs.SftpConfigProperties']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  url: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

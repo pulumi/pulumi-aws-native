@@ -233,16 +233,16 @@ class LifecyclePolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  copy_tags: pulumi.Input[Optional[_builtins.bool]] = None,
                  create_interval: pulumi.Input[Optional[_builtins.int]] = None,
-                 cross_region_copy_targets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LifecyclePolicyCrossRegionCopyTargetArgs', 'LifecyclePolicyCrossRegionCopyTargetArgsDict']]]]] = None,
+                 cross_region_copy_targets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LifecyclePolicyCrossRegionCopyTargetArgs', 'LifecyclePolicyCrossRegionCopyTargetArgsDict', 'outputs.LifecyclePolicyCrossRegionCopyTarget']]]]] = None,
                  default_policy: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 exclusions: pulumi.Input[Optional[Union['LifecyclePolicyExclusionsArgs', 'LifecyclePolicyExclusionsArgsDict']]] = None,
+                 exclusions: pulumi.Input[Optional[Union['LifecyclePolicyExclusionsArgs', 'LifecyclePolicyExclusionsArgsDict', 'outputs.LifecyclePolicyExclusions']]] = None,
                  execution_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  extend_deletion: pulumi.Input[Optional[_builtins.bool]] = None,
-                 policy_details: pulumi.Input[Optional[Union['LifecyclePolicyPolicyDetailsArgs', 'LifecyclePolicyPolicyDetailsArgsDict']]] = None,
+                 policy_details: pulumi.Input[Optional[Union['LifecyclePolicyPolicyDetailsArgs', 'LifecyclePolicyPolicyDetailsArgsDict', 'outputs.LifecyclePolicyPolicyDetails']]] = None,
                  retain_interval: pulumi.Input[Optional[_builtins.int]] = None,
                  state: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::DLM::LifecyclePolicy
@@ -332,18 +332,18 @@ class LifecyclePolicy(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] copy_tags: **[Default policies only]** Indicates whether the policy should copy tags from the source resource to the snapshot or AMI. If you do not specify a value, the default is false.
         :param pulumi.Input[_builtins.int] create_interval: **[Default policies only]** Specifies how often the policy should run and create snapshots or AMIs. The creation frequency can range from 1 to 7 days.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['LifecyclePolicyCrossRegionCopyTargetArgs', 'LifecyclePolicyCrossRegionCopyTargetArgsDict']]]] cross_region_copy_targets: *[Default policies only]* Specifies destination Regions for snapshot or AMI copies. You can specify up to 3 destination Regions. If you do not want to create cross-Region copies, omit this parameter.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['LifecyclePolicyCrossRegionCopyTargetArgs', 'LifecyclePolicyCrossRegionCopyTargetArgsDict', 'outputs.LifecyclePolicyCrossRegionCopyTarget']]]] cross_region_copy_targets: *[Default policies only]* Specifies destination Regions for snapshot or AMI copies. You can specify up to 3 destination Regions. If you do not want to create cross-Region copies, omit this parameter.
         :param pulumi.Input[_builtins.str] default_policy: **[Default policies only]** Specify the type of default policy to create.
         :param pulumi.Input[_builtins.str] description: A description of the lifecycle policy. The characters ^[0-9A-Za-z _-]+$ are supported.
-        :param pulumi.Input[Union['LifecyclePolicyExclusionsArgs', 'LifecyclePolicyExclusionsArgsDict']] exclusions: *[Default policies only]* Specifies exclusion parameters for volumes or instances for which you do not want to create snapshots or AMIs. The policy will not create snapshots or AMIs for target resources that match any of the specified exclusion parameters.
+        :param pulumi.Input[Union['LifecyclePolicyExclusionsArgs', 'LifecyclePolicyExclusionsArgsDict', 'outputs.LifecyclePolicyExclusions']] exclusions: *[Default policies only]* Specifies exclusion parameters for volumes or instances for which you do not want to create snapshots or AMIs. The policy will not create snapshots or AMIs for target resources that match any of the specified exclusion parameters.
         :param pulumi.Input[_builtins.str] execution_role_arn: The Amazon Resource Name (ARN) of the IAM role used to run the operations specified by the lifecycle policy.
         :param pulumi.Input[_builtins.bool] extend_deletion: **[Default policies only]** Defines the snapshot or AMI retention behavior for the policy if the source volume or instance is deleted, or if the policy enters the error, disabled, or deleted state.
-        :param pulumi.Input[Union['LifecyclePolicyPolicyDetailsArgs', 'LifecyclePolicyPolicyDetailsArgsDict']] policy_details: The configuration details of the lifecycle policy.
+        :param pulumi.Input[Union['LifecyclePolicyPolicyDetailsArgs', 'LifecyclePolicyPolicyDetailsArgsDict', 'outputs.LifecyclePolicyPolicyDetails']] policy_details: The configuration details of the lifecycle policy.
                
                > If you create a default policy, you can specify the request parameters either in the request body, or in the PolicyDetails request structure, but not both.
         :param pulumi.Input[_builtins.int] retain_interval: **[Default policies only]** Specifies how long the policy should retain snapshots or AMIs before deleting them. The retention period can range from 2 to 14 days, but it must be greater than the creation frequency to ensure that the policy retains at least 1 snapshot or AMI at any given time.
         :param pulumi.Input[_builtins.str] state: The activation state of the lifecycle policy.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags to apply to the lifecycle policy during creation.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: The tags to apply to the lifecycle policy during creation.
         """
         ...
     @overload
@@ -452,16 +452,16 @@ class LifecyclePolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  copy_tags: pulumi.Input[Optional[_builtins.bool]] = None,
                  create_interval: pulumi.Input[Optional[_builtins.int]] = None,
-                 cross_region_copy_targets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LifecyclePolicyCrossRegionCopyTargetArgs', 'LifecyclePolicyCrossRegionCopyTargetArgsDict']]]]] = None,
+                 cross_region_copy_targets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LifecyclePolicyCrossRegionCopyTargetArgs', 'LifecyclePolicyCrossRegionCopyTargetArgsDict', 'outputs.LifecyclePolicyCrossRegionCopyTarget']]]]] = None,
                  default_policy: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 exclusions: pulumi.Input[Optional[Union['LifecyclePolicyExclusionsArgs', 'LifecyclePolicyExclusionsArgsDict']]] = None,
+                 exclusions: pulumi.Input[Optional[Union['LifecyclePolicyExclusionsArgs', 'LifecyclePolicyExclusionsArgsDict', 'outputs.LifecyclePolicyExclusions']]] = None,
                  execution_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  extend_deletion: pulumi.Input[Optional[_builtins.bool]] = None,
-                 policy_details: pulumi.Input[Optional[Union['LifecyclePolicyPolicyDetailsArgs', 'LifecyclePolicyPolicyDetailsArgsDict']]] = None,
+                 policy_details: pulumi.Input[Optional[Union['LifecyclePolicyPolicyDetailsArgs', 'LifecyclePolicyPolicyDetailsArgsDict', 'outputs.LifecyclePolicyPolicyDetails']]] = None,
                  retain_interval: pulumi.Input[Optional[_builtins.int]] = None,
                  state: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

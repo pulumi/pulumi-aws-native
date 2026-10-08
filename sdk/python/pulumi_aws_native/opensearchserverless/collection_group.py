@@ -127,12 +127,12 @@ class CollectionGroup(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 capacity_limits: pulumi.Input[Optional[Union['CollectionGroupCapacityLimitsArgs', 'CollectionGroupCapacityLimitsArgsDict']]] = None,
+                 capacity_limits: pulumi.Input[Optional[Union['CollectionGroupCapacityLimitsArgs', 'CollectionGroupCapacityLimitsArgsDict', 'outputs.CollectionGroupCapacityLimits']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  generation: pulumi.Input[Optional['CollectionGroupGeneration']] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  standby_replicas: pulumi.Input[Optional['CollectionGroupStandbyReplicas']] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::OpenSearchServerless::CollectionGroup
@@ -143,7 +143,7 @@ class CollectionGroup(pulumi.CustomResource):
         :param pulumi.Input['CollectionGroupGeneration'] generation: The generation of Amazon OpenSearch Serverless for the collection group. Valid values are CLASSIC and NEXTGEN.
         :param pulumi.Input[_builtins.str] name: The name of the collection group.
         :param pulumi.Input['CollectionGroupStandbyReplicas'] standby_replicas: Indicates whether standby replicas are used for the collection group.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
     @overload
@@ -169,12 +169,12 @@ class CollectionGroup(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 capacity_limits: pulumi.Input[Optional[Union['CollectionGroupCapacityLimitsArgs', 'CollectionGroupCapacityLimitsArgsDict']]] = None,
+                 capacity_limits: pulumi.Input[Optional[Union['CollectionGroupCapacityLimitsArgs', 'CollectionGroupCapacityLimitsArgsDict', 'outputs.CollectionGroupCapacityLimits']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  generation: pulumi.Input[Optional['CollectionGroupGeneration']] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  standby_replicas: pulumi.Input[Optional['CollectionGroupStandbyReplicas']] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

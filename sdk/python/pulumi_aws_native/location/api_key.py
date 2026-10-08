@@ -190,8 +190,8 @@ class ApiKey(pulumi.CustomResource):
                  force_update: pulumi.Input[Optional[_builtins.bool]] = None,
                  key_name: pulumi.Input[Optional[_builtins.str]] = None,
                  no_expiry: pulumi.Input[Optional[_builtins.bool]] = None,
-                 restrictions: pulumi.Input[Optional[Union['ApiKeyRestrictionsArgs', 'ApiKeyRestrictionsArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 restrictions: pulumi.Input[Optional[Union['ApiKeyRestrictionsArgs', 'ApiKeyRestrictionsArgsDict', 'outputs.ApiKeyRestrictions']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Definition of AWS::Location::APIKey Resource Type
@@ -215,8 +215,8 @@ class ApiKey(pulumi.CustomResource):
                - Must be a unique API key name.
                - No spaces allowed. For example, `ExampleAPIKey` .
         :param pulumi.Input[_builtins.bool] no_expiry: Whether the API key should expire. Set to `true` to set the API key to have no expiration time.
-        :param pulumi.Input[Union['ApiKeyRestrictionsArgs', 'ApiKeyRestrictionsArgsDict']] restrictions: The API key restrictions for the API key resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Union['ApiKeyRestrictionsArgs', 'ApiKeyRestrictionsArgsDict', 'outputs.ApiKeyRestrictions']] restrictions: The API key restrictions for the API key resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
     @overload
@@ -248,8 +248,8 @@ class ApiKey(pulumi.CustomResource):
                  force_update: pulumi.Input[Optional[_builtins.bool]] = None,
                  key_name: pulumi.Input[Optional[_builtins.str]] = None,
                  no_expiry: pulumi.Input[Optional[_builtins.bool]] = None,
-                 restrictions: pulumi.Input[Optional[Union['ApiKeyRestrictionsArgs', 'ApiKeyRestrictionsArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 restrictions: pulumi.Input[Optional[Union['ApiKeyRestrictionsArgs', 'ApiKeyRestrictionsArgsDict', 'outputs.ApiKeyRestrictions']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -333,10 +333,10 @@ class Integration(pulumi.CustomResource):
                  payload_format_version: pulumi.Input[Optional[_builtins.str]] = None,
                  request_parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  request_templates: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 response_parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[Union['IntegrationResponseParameterMapArgs', 'IntegrationResponseParameterMapArgsDict']]]]] = None,
+                 response_parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[Union['IntegrationResponseParameterMapArgs', 'IntegrationResponseParameterMapArgsDict', 'outputs.IntegrationResponseParameterMap']]]]] = None,
                  template_selection_expression: pulumi.Input[Optional[_builtins.str]] = None,
                  timeout_in_millis: pulumi.Input[Optional[_builtins.int]] = None,
-                 tls_config: pulumi.Input[Optional[Union['IntegrationTlsConfigArgs', 'IntegrationTlsConfigArgsDict']]] = None,
+                 tls_config: pulumi.Input[Optional[Union['IntegrationTlsConfigArgs', 'IntegrationTlsConfigArgsDict', 'outputs.IntegrationTlsConfig']]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::ApiGatewayV2::Integration
@@ -357,10 +357,10 @@ class Integration(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] payload_format_version: Specifies the format of the payload sent to an integration. Required for HTTP APIs. For HTTP APIs, supported values for Lambda proxy integrations are 1.0 and 2.0 For all other integrations, 1.0 is the only supported value.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] request_parameters: A key-value map specifying parameters.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] request_templates: A map of Velocity templates that are applied on the request payload based on the value of the Content-Type header sent by the client.
-        :param pulumi.Input[Mapping[str, pulumi.Input[Union['IntegrationResponseParameterMapArgs', 'IntegrationResponseParameterMapArgsDict']]]] response_parameters: Parameters that transform the HTTP response from a backend integration before returning the response to clients. Supported only for HTTP APIs.
+        :param pulumi.Input[Mapping[str, pulumi.Input[Union['IntegrationResponseParameterMapArgs', 'IntegrationResponseParameterMapArgsDict', 'outputs.IntegrationResponseParameterMap']]]] response_parameters: Parameters that transform the HTTP response from a backend integration before returning the response to clients. Supported only for HTTP APIs.
         :param pulumi.Input[_builtins.str] template_selection_expression: The template selection expression for the integration. Supported only for WebSocket APIs.
         :param pulumi.Input[_builtins.int] timeout_in_millis: Custom timeout between 50 and 29000 milliseconds for WebSocket APIs and between 50 and 30000 milliseconds for HTTP APIs. The default timeout is 29 seconds for WebSocket APIs and 30 seconds for HTTP APIs.
-        :param pulumi.Input[Union['IntegrationTlsConfigArgs', 'IntegrationTlsConfigArgsDict']] tls_config: The TLS configuration for a private integration. If you specify a TLS configuration, private integration traffic uses the HTTPS protocol. Supported only for HTTP APIs.
+        :param pulumi.Input[Union['IntegrationTlsConfigArgs', 'IntegrationTlsConfigArgsDict', 'outputs.IntegrationTlsConfig']] tls_config: The TLS configuration for a private integration. If you specify a TLS configuration, private integration traffic uses the HTTPS protocol. Supported only for HTTP APIs.
         """
         ...
     @overload
@@ -400,10 +400,10 @@ class Integration(pulumi.CustomResource):
                  payload_format_version: pulumi.Input[Optional[_builtins.str]] = None,
                  request_parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  request_templates: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 response_parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[Union['IntegrationResponseParameterMapArgs', 'IntegrationResponseParameterMapArgsDict']]]]] = None,
+                 response_parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[Union['IntegrationResponseParameterMapArgs', 'IntegrationResponseParameterMapArgsDict', 'outputs.IntegrationResponseParameterMap']]]]] = None,
                  template_selection_expression: pulumi.Input[Optional[_builtins.str]] = None,
                  timeout_in_millis: pulumi.Input[Optional[_builtins.int]] = None,
-                 tls_config: pulumi.Input[Optional[Union['IntegrationTlsConfigArgs', 'IntegrationTlsConfigArgsDict']]] = None,
+                 tls_config: pulumi.Input[Optional[Union['IntegrationTlsConfigArgs', 'IntegrationTlsConfigArgsDict', 'outputs.IntegrationTlsConfig']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

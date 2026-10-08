@@ -75,7 +75,7 @@ class GetSessionLoggerResult:
 
     @_builtins.property
     @pulumi.getter(name="eventFilter")
-    def event_filter(self) -> Optional[Any]:
+    def event_filter(self) -> Optional[Union['outputs.SessionLoggerEventFilter0Properties', 'outputs.SessionLoggerEventFilter1Properties']]:
         """
         The filter that specifies which events to monitor.
         """

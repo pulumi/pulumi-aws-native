@@ -87,7 +87,7 @@ class GetRouterNetworkInterfaceResult:
 
     @_builtins.property
     @pulumi.getter
-    def configuration(self) -> Optional[Any]:
+    def configuration(self) -> Optional[Union['outputs.RouterNetworkInterfaceConfiguration0Properties', 'outputs.RouterNetworkInterfaceConfiguration1Properties']]:
         return pulumi.get(self, "configuration")
 
     @_builtins.property

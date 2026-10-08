@@ -98,7 +98,7 @@ class DbSubnetGroup(pulumi.CustomResource):
                  db_subnet_group_description: pulumi.Input[Optional[_builtins.str]] = None,
                  db_subnet_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  subnet_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::DocDB::DBSubnetGroup
@@ -108,7 +108,7 @@ class DbSubnetGroup(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] db_subnet_group_description: The description for the subnet group.
         :param pulumi.Input[_builtins.str] db_subnet_group_name: The name for the db subnet group. This value is stored as a lowercase string.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: One or more subnet IDs to be assigned to the db subnet group.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: One or more tags to be assigned to the db subnet group
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: One or more tags to be assigned to the db subnet group
         """
         ...
     @overload
@@ -137,7 +137,7 @@ class DbSubnetGroup(pulumi.CustomResource):
                  db_subnet_group_description: pulumi.Input[Optional[_builtins.str]] = None,
                  db_subnet_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  subnet_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

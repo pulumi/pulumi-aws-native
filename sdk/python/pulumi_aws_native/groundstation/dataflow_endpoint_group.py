@@ -101,8 +101,8 @@ class DataflowEndpointGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  contact_post_pass_duration_seconds: pulumi.Input[Optional[_builtins.int]] = None,
                  contact_pre_pass_duration_seconds: pulumi.Input[Optional[_builtins.int]] = None,
-                 endpoint_details: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DataflowEndpointGroupEndpointDetailsArgs', 'DataflowEndpointGroupEndpointDetailsArgsDict']]]]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 endpoint_details: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DataflowEndpointGroupEndpointDetailsArgs', 'DataflowEndpointGroupEndpointDetailsArgsDict', 'outputs.DataflowEndpointGroupEndpointDetails']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         AWS Ground Station DataflowEndpointGroup schema for CloudFormation
@@ -137,8 +137,8 @@ class DataflowEndpointGroup(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.int] contact_post_pass_duration_seconds: Amount of time, in seconds, after a contact ends that the Ground Station Dataflow Endpoint Group will be in a POSTPASS state. A Ground Station Dataflow Endpoint Group State Change event will be emitted when the Dataflow Endpoint Group enters and exits the POSTPASS state.
         :param pulumi.Input[_builtins.int] contact_pre_pass_duration_seconds: Amount of time, in seconds, before a contact starts that the Ground Station Dataflow Endpoint Group will be in a PREPASS state. A Ground Station Dataflow Endpoint Group State Change event will be emitted when the Dataflow Endpoint Group enters and exits the PREPASS state.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['DataflowEndpointGroupEndpointDetailsArgs', 'DataflowEndpointGroupEndpointDetailsArgsDict']]]] endpoint_details: List of Endpoint Details, containing address and port for each endpoint. All dataflow endpoints within a single dataflow endpoint group must be of the same type. You cannot mix AWS Ground Station Agent endpoints with Dataflow endpoints in the same group. If your use case requires both types of endpoints, you must create separate dataflow endpoint groups for each type.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Tags assigned to a resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DataflowEndpointGroupEndpointDetailsArgs', 'DataflowEndpointGroupEndpointDetailsArgsDict', 'outputs.DataflowEndpointGroupEndpointDetails']]]] endpoint_details: List of Endpoint Details, containing address and port for each endpoint. All dataflow endpoints within a single dataflow endpoint group must be of the same type. You cannot mix AWS Ground Station Agent endpoints with Dataflow endpoints in the same group. If your use case requires both types of endpoints, you must create separate dataflow endpoint groups for each type.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: Tags assigned to a resource.
         """
         ...
     @overload
@@ -192,8 +192,8 @@ class DataflowEndpointGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  contact_post_pass_duration_seconds: pulumi.Input[Optional[_builtins.int]] = None,
                  contact_pre_pass_duration_seconds: pulumi.Input[Optional[_builtins.int]] = None,
-                 endpoint_details: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DataflowEndpointGroupEndpointDetailsArgs', 'DataflowEndpointGroupEndpointDetailsArgsDict']]]]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 endpoint_details: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DataflowEndpointGroupEndpointDetailsArgs', 'DataflowEndpointGroupEndpointDetailsArgsDict', 'outputs.DataflowEndpointGroupEndpointDetails']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

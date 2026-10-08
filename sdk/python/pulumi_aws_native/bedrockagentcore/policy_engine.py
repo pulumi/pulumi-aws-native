@@ -101,7 +101,7 @@ class PolicyEngine(pulumi.CustomResource):
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  encryption_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::BedrockAgentCore::PolicyEngine
@@ -111,7 +111,7 @@ class PolicyEngine(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] description: A human-readable description of the policy engine's purpose and scope
         :param pulumi.Input[_builtins.str] encryption_key_arn: The ARN of the KMS key used to encrypt the policy engine data
         :param pulumi.Input[_builtins.str] name: The customer-assigned immutable name for the policy engine
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: A list of tags to assign to the policy engine.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: A list of tags to assign to the policy engine.
         """
         ...
     @overload
@@ -140,7 +140,7 @@ class PolicyEngine(pulumi.CustomResource):
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  encryption_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

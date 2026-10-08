@@ -357,23 +357,23 @@ class App(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  access_token: pulumi.Input[Optional[_builtins.str]] = None,
-                 auto_branch_creation_config: pulumi.Input[Optional[Union['AppAutoBranchCreationConfigArgs', 'AppAutoBranchCreationConfigArgsDict']]] = None,
-                 basic_auth_config: pulumi.Input[Optional[Union['AppBasicAuthConfigArgs', 'AppBasicAuthConfigArgsDict']]] = None,
+                 auto_branch_creation_config: pulumi.Input[Optional[Union['AppAutoBranchCreationConfigArgs', 'AppAutoBranchCreationConfigArgsDict', 'outputs.AppAutoBranchCreationConfig']]] = None,
+                 basic_auth_config: pulumi.Input[Optional[Union['AppBasicAuthConfigArgs', 'AppBasicAuthConfigArgsDict', 'outputs.AppBasicAuthConfig']]] = None,
                  build_spec: pulumi.Input[Optional[_builtins.str]] = None,
-                 cache_config: pulumi.Input[Optional[Union['AppCacheConfigArgs', 'AppCacheConfigArgsDict']]] = None,
+                 cache_config: pulumi.Input[Optional[Union['AppCacheConfigArgs', 'AppCacheConfigArgsDict', 'outputs.AppCacheConfig']]] = None,
                  compute_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  custom_headers: pulumi.Input[Optional[_builtins.str]] = None,
-                 custom_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AppCustomRuleArgs', 'AppCustomRuleArgsDict']]]]] = None,
+                 custom_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AppCustomRuleArgs', 'AppCustomRuleArgsDict', 'outputs.AppCustomRule']]]]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  enable_branch_auto_deletion: pulumi.Input[Optional[_builtins.bool]] = None,
-                 environment_variables: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AppEnvironmentVariableArgs', 'AppEnvironmentVariableArgsDict']]]]] = None,
+                 environment_variables: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AppEnvironmentVariableArgs', 'AppEnvironmentVariableArgsDict', 'outputs.AppEnvironmentVariable']]]]] = None,
                  iam_service_role: pulumi.Input[Optional[_builtins.str]] = None,
-                 job_config: pulumi.Input[Optional[Union['AppJobConfigArgs', 'AppJobConfigArgsDict']]] = None,
+                 job_config: pulumi.Input[Optional[Union['AppJobConfigArgs', 'AppJobConfigArgsDict', 'outputs.AppJobConfig']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  oauth_token: pulumi.Input[Optional[_builtins.str]] = None,
                  platform: pulumi.Input[Optional['AppPlatform']] = None,
                  repository: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         The AWS::Amplify::App resource creates Apps in the Amplify Console. An App is a collection of branches.
@@ -387,20 +387,20 @@ class App(pulumi.CustomResource):
                You must specify either `AccessToken` or `OauthToken` when you create a new app.
                
                Existing Amplify apps deployed from a GitHub repository using OAuth continue to work with CI/CD. However, we strongly recommend that you migrate these apps to use the GitHub App. For more information, see [Migrating an existing OAuth app to the Amplify GitHub App](https://docs.aws.amazon.com/amplify/latest/userguide/setting-up-GitHub-access.html#migrating-to-github-app-auth) in the *Amplify User Guide* .
-        :param pulumi.Input[Union['AppAutoBranchCreationConfigArgs', 'AppAutoBranchCreationConfigArgsDict']] auto_branch_creation_config: Sets the configuration for your automatic branch creation.
-        :param pulumi.Input[Union['AppBasicAuthConfigArgs', 'AppBasicAuthConfigArgsDict']] basic_auth_config: The credentials for basic authorization for an Amplify app. You must base64-encode the authorization credentials and provide them in the format `user:password` .
+        :param pulumi.Input[Union['AppAutoBranchCreationConfigArgs', 'AppAutoBranchCreationConfigArgsDict', 'outputs.AppAutoBranchCreationConfig']] auto_branch_creation_config: Sets the configuration for your automatic branch creation.
+        :param pulumi.Input[Union['AppBasicAuthConfigArgs', 'AppBasicAuthConfigArgsDict', 'outputs.AppBasicAuthConfig']] basic_auth_config: The credentials for basic authorization for an Amplify app. You must base64-encode the authorization credentials and provide them in the format `user:password` .
         :param pulumi.Input[_builtins.str] build_spec: The build specification (build spec) for an Amplify app.
-        :param pulumi.Input[Union['AppCacheConfigArgs', 'AppCacheConfigArgsDict']] cache_config: The cache configuration for the Amplify app. If you don't specify the cache configuration `type` , Amplify uses the default `AMPLIFY_MANAGED` setting.
+        :param pulumi.Input[Union['AppCacheConfigArgs', 'AppCacheConfigArgsDict', 'outputs.AppCacheConfig']] cache_config: The cache configuration for the Amplify app. If you don't specify the cache configuration `type` , Amplify uses the default `AMPLIFY_MANAGED` setting.
         :param pulumi.Input[_builtins.str] compute_role_arn: The Amazon Resource Name (ARN) of the IAM role for an SSR app. The Compute role allows the Amplify Hosting compute service to securely access specific AWS resources based on the role's permissions. For more information about the SSR Compute role, see [Adding an SSR Compute role](https://docs.aws.amazon.com/amplify/latest/userguide/amplify-SSR-compute-role.html) in the *Amplify User Guide* .
         :param pulumi.Input[_builtins.str] custom_headers: The custom HTTP headers for an Amplify app.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AppCustomRuleArgs', 'AppCustomRuleArgsDict']]]] custom_rules: The custom rewrite and redirect rules for an Amplify app.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AppCustomRuleArgs', 'AppCustomRuleArgsDict', 'outputs.AppCustomRule']]]] custom_rules: The custom rewrite and redirect rules for an Amplify app.
         :param pulumi.Input[_builtins.str] description: The description of the Amplify app.
         :param pulumi.Input[_builtins.bool] enable_branch_auto_deletion: Automatically disconnect a branch in Amplify Hosting when you delete a branch from your Git repository.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AppEnvironmentVariableArgs', 'AppEnvironmentVariableArgsDict']]]] environment_variables: The environment variables for the Amplify app.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AppEnvironmentVariableArgs', 'AppEnvironmentVariableArgsDict', 'outputs.AppEnvironmentVariable']]]] environment_variables: The environment variables for the Amplify app.
                
                For a list of the environment variables that are accessible to Amplify by default, see [Amplify Environment variables](https://docs.aws.amazon.com/amplify/latest/userguide/amplify-console-environment-variables.html) in the *Amplify Hosting User Guide* .
         :param pulumi.Input[_builtins.str] iam_service_role: AWS Identity and Access Management ( IAM ) service role for the Amazon Resource Name (ARN) of the Amplify app.
-        :param pulumi.Input[Union['AppJobConfigArgs', 'AppJobConfigArgsDict']] job_config: The configuration details that apply to the jobs for an Amplify app.
+        :param pulumi.Input[Union['AppJobConfigArgs', 'AppJobConfigArgsDict', 'outputs.AppJobConfig']] job_config: The configuration details that apply to the jobs for an Amplify app.
         :param pulumi.Input[_builtins.str] name: The name of the Amplify app.
         :param pulumi.Input[_builtins.str] oauth_token: The OAuth token for a third-party source control system for an Amplify app. The OAuth token is used to create a webhook and a read-only deploy key using SSH cloning. The OAuth token is not stored.
                
@@ -413,7 +413,7 @@ class App(pulumi.CustomResource):
                
                If you are deploying an SSG only app with Next.js version 14 or later, you must set the platform type to `WEB_COMPUTE` and set the artifacts `baseDirectory` to `.next` in the application's build settings. For an example of the build specification settings, see [Amplify build settings for a Next.js 14 SSG application](https://docs.aws.amazon.com/amplify/latest/userguide/deploy-nextjs-app.html#build-setting-detection-ssg-14) in the *Amplify Hosting User Guide* .
         :param pulumi.Input[_builtins.str] repository: The Git repository for the Amplify app.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tag for an Amplify app.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: The tag for an Amplify app.
         """
         ...
     @overload
@@ -440,23 +440,23 @@ class App(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  access_token: pulumi.Input[Optional[_builtins.str]] = None,
-                 auto_branch_creation_config: pulumi.Input[Optional[Union['AppAutoBranchCreationConfigArgs', 'AppAutoBranchCreationConfigArgsDict']]] = None,
-                 basic_auth_config: pulumi.Input[Optional[Union['AppBasicAuthConfigArgs', 'AppBasicAuthConfigArgsDict']]] = None,
+                 auto_branch_creation_config: pulumi.Input[Optional[Union['AppAutoBranchCreationConfigArgs', 'AppAutoBranchCreationConfigArgsDict', 'outputs.AppAutoBranchCreationConfig']]] = None,
+                 basic_auth_config: pulumi.Input[Optional[Union['AppBasicAuthConfigArgs', 'AppBasicAuthConfigArgsDict', 'outputs.AppBasicAuthConfig']]] = None,
                  build_spec: pulumi.Input[Optional[_builtins.str]] = None,
-                 cache_config: pulumi.Input[Optional[Union['AppCacheConfigArgs', 'AppCacheConfigArgsDict']]] = None,
+                 cache_config: pulumi.Input[Optional[Union['AppCacheConfigArgs', 'AppCacheConfigArgsDict', 'outputs.AppCacheConfig']]] = None,
                  compute_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  custom_headers: pulumi.Input[Optional[_builtins.str]] = None,
-                 custom_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AppCustomRuleArgs', 'AppCustomRuleArgsDict']]]]] = None,
+                 custom_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AppCustomRuleArgs', 'AppCustomRuleArgsDict', 'outputs.AppCustomRule']]]]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  enable_branch_auto_deletion: pulumi.Input[Optional[_builtins.bool]] = None,
-                 environment_variables: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AppEnvironmentVariableArgs', 'AppEnvironmentVariableArgsDict']]]]] = None,
+                 environment_variables: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AppEnvironmentVariableArgs', 'AppEnvironmentVariableArgsDict', 'outputs.AppEnvironmentVariable']]]]] = None,
                  iam_service_role: pulumi.Input[Optional[_builtins.str]] = None,
-                 job_config: pulumi.Input[Optional[Union['AppJobConfigArgs', 'AppJobConfigArgsDict']]] = None,
+                 job_config: pulumi.Input[Optional[Union['AppJobConfigArgs', 'AppJobConfigArgsDict', 'outputs.AppJobConfig']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  oauth_token: pulumi.Input[Optional[_builtins.str]] = None,
                  platform: pulumi.Input[Optional['AppPlatform']] = None,
                  repository: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

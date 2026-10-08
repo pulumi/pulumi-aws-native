@@ -65,7 +65,7 @@ class CidrCollection(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 locations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CidrCollectionLocationArgs', 'CidrCollectionLocationArgsDict']]]]] = None,
+                 locations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CidrCollectionLocationArgs', 'CidrCollectionLocationArgsDict', 'outputs.CidrCollectionLocation']]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -73,7 +73,7 @@ class CidrCollection(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['CidrCollectionLocationArgs', 'CidrCollectionLocationArgsDict']]]] locations: A complex type that contains information about the list of CIDR locations.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CidrCollectionLocationArgs', 'CidrCollectionLocationArgsDict', 'outputs.CidrCollectionLocation']]]] locations: A complex type that contains information about the list of CIDR locations.
         :param pulumi.Input[_builtins.str] name: A unique name for the CIDR collection.
         """
         ...
@@ -100,7 +100,7 @@ class CidrCollection(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 locations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CidrCollectionLocationArgs', 'CidrCollectionLocationArgsDict']]]]] = None,
+                 locations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CidrCollectionLocationArgs', 'CidrCollectionLocationArgsDict', 'outputs.CidrCollectionLocation']]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

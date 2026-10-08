@@ -64,7 +64,7 @@ class ResourceMetricsConfiguration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 metric_selections: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ResourceMetricsConfigurationResourceMetricSelectionArgs', 'ResourceMetricsConfigurationResourceMetricSelectionArgsDict']]]]] = None,
+                 metric_selections: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ResourceMetricsConfigurationResourceMetricSelectionArgs', 'ResourceMetricsConfigurationResourceMetricSelectionArgsDict', 'outputs.ResourceMetricsConfigurationResourceMetricSelection']]]]] = None,
                  resource_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -72,7 +72,7 @@ class ResourceMetricsConfiguration(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ResourceMetricsConfigurationResourceMetricSelectionArgs', 'ResourceMetricsConfigurationResourceMetricSelectionArgsDict']]]] metric_selections: The metric selections that define which metrics are enabled for detailed monitoring on the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ResourceMetricsConfigurationResourceMetricSelectionArgs', 'ResourceMetricsConfigurationResourceMetricSelectionArgsDict', 'outputs.ResourceMetricsConfigurationResourceMetricSelection']]]] metric_selections: The metric selections that define which metrics are enabled for detailed monitoring on the resource.
         :param pulumi.Input[_builtins.str] resource_arn: The Amazon Resource Name (ARN) of the resource for which the detailed monitoring metrics configuration is managed.
         """
         ...
@@ -99,7 +99,7 @@ class ResourceMetricsConfiguration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 metric_selections: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ResourceMetricsConfigurationResourceMetricSelectionArgs', 'ResourceMetricsConfigurationResourceMetricSelectionArgsDict']]]]] = None,
+                 metric_selections: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ResourceMetricsConfigurationResourceMetricSelectionArgs', 'ResourceMetricsConfigurationResourceMetricSelectionArgsDict', 'outputs.ResourceMetricsConfigurationResourceMetricSelection']]]]] = None,
                  resource_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

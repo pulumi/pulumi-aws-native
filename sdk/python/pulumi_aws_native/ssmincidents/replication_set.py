@@ -83,8 +83,8 @@ class ReplicationSet(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  deletion_protected: pulumi.Input[Optional[_builtins.bool]] = None,
-                 regions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ReplicationSetReplicationRegionArgs', 'ReplicationSetReplicationRegionArgsDict']]]]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 regions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ReplicationSetReplicationRegionArgs', 'ReplicationSetReplicationRegionArgsDict', 'outputs.ReplicationSetReplicationRegion']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Resource type definition for AWS::SSMIncidents::ReplicationSet
@@ -92,8 +92,8 @@ class ReplicationSet(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] deletion_protected: Determines if the replication set deletion protection is enabled or not. If deletion protection is enabled, you can't delete the last Region in the replication set.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ReplicationSetReplicationRegionArgs', 'ReplicationSetReplicationRegionArgsDict']]]] regions: The ReplicationSet configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags to apply to the replication set.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ReplicationSetReplicationRegionArgs', 'ReplicationSetReplicationRegionArgsDict', 'outputs.ReplicationSetReplicationRegion']]]] regions: The ReplicationSet configuration.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: The tags to apply to the replication set.
         """
         ...
     @overload
@@ -120,8 +120,8 @@ class ReplicationSet(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  deletion_protected: pulumi.Input[Optional[_builtins.bool]] = None,
-                 regions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ReplicationSetReplicationRegionArgs', 'ReplicationSetReplicationRegionArgsDict']]]]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 regions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ReplicationSetReplicationRegionArgs', 'ReplicationSetReplicationRegionArgsDict', 'outputs.ReplicationSetReplicationRegion']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

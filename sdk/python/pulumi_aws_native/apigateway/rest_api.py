@@ -340,12 +340,12 @@ class RestApi(pulumi.CustomResource):
                  api_key_source_type: pulumi.Input[Optional[_builtins.str]] = None,
                  binary_media_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  body: Optional[Any] = None,
-                 body_s3_location: pulumi.Input[Optional[Union['RestApiS3LocationArgs', 'RestApiS3LocationArgsDict']]] = None,
+                 body_s3_location: pulumi.Input[Optional[Union['RestApiS3LocationArgs', 'RestApiS3LocationArgsDict', 'outputs.RestApiS3Location']]] = None,
                  clone_from: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  disable_execute_api_endpoint: pulumi.Input[Optional[_builtins.bool]] = None,
                  endpoint_access_mode: pulumi.Input[Optional[_builtins.str]] = None,
-                 endpoint_configuration: pulumi.Input[Optional[Union['RestApiEndpointConfigurationArgs', 'RestApiEndpointConfigurationArgsDict']]] = None,
+                 endpoint_configuration: pulumi.Input[Optional[Union['RestApiEndpointConfigurationArgs', 'RestApiEndpointConfigurationArgsDict', 'outputs.RestApiEndpointConfiguration']]] = None,
                  fail_on_warnings: pulumi.Input[Optional[_builtins.bool]] = None,
                  minimum_compression_size: pulumi.Input[Optional[_builtins.int]] = None,
                  mode: pulumi.Input[Optional[_builtins.str]] = None,
@@ -353,7 +353,7 @@ class RestApi(pulumi.CustomResource):
                  parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  policy: Optional[Any] = None,
                  security_policy: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  version: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -764,12 +764,12 @@ class RestApi(pulumi.CustomResource):
         :param Any body: An OpenAPI specification that defines a set of RESTful APIs in JSON format. For YAML templates, you can also provide the specification in YAML format.
                
                Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGateway::RestApi` for more information about the expected schema for this property.
-        :param pulumi.Input[Union['RestApiS3LocationArgs', 'RestApiS3LocationArgsDict']] body_s3_location: The Amazon Simple Storage Service (Amazon S3) location that points to an OpenAPI file, which defines a set of RESTful APIs in JSON or YAML format.
+        :param pulumi.Input[Union['RestApiS3LocationArgs', 'RestApiS3LocationArgsDict', 'outputs.RestApiS3Location']] body_s3_location: The Amazon Simple Storage Service (Amazon S3) location that points to an OpenAPI file, which defines a set of RESTful APIs in JSON or YAML format.
         :param pulumi.Input[_builtins.str] clone_from: The ID of the RestApi that you want to clone from.
         :param pulumi.Input[_builtins.str] description: The description of the RestApi.
         :param pulumi.Input[_builtins.bool] disable_execute_api_endpoint: Specifies whether clients can invoke your API by using the default `execute-api` endpoint. By default, clients can invoke your API with the default `https://{api_id}.execute-api.{region}.amazonaws.com` endpoint. To require that clients use a custom domain name to invoke your API, disable the default endpoint
         :param pulumi.Input[_builtins.str] endpoint_access_mode: The endpoint access mode for your RestApi.
-        :param pulumi.Input[Union['RestApiEndpointConfigurationArgs', 'RestApiEndpointConfigurationArgsDict']] endpoint_configuration: A list of the endpoint types and IP address types of the API. Use this property when creating an API. When importing an existing API, specify the endpoint configuration types using the ``Parameters`` property.
+        :param pulumi.Input[Union['RestApiEndpointConfigurationArgs', 'RestApiEndpointConfigurationArgsDict', 'outputs.RestApiEndpointConfiguration']] endpoint_configuration: A list of the endpoint types and IP address types of the API. Use this property when creating an API. When importing an existing API, specify the endpoint configuration types using the ``Parameters`` property.
         :param pulumi.Input[_builtins.bool] fail_on_warnings: A query parameter to indicate whether to rollback the API update ( `true` ) or not ( `false` ) when a warning is encountered. The default value is `false` .
         :param pulumi.Input[_builtins.int] minimum_compression_size: A nullable integer that is used to enable compression (with non-negative between 0 and 10485760 (10M) bytes, inclusive) or disable compression (with a null value) on an API. When compression is enabled, compression or decompression is not applied on the payload if the payload size is smaller than this value. Setting it to zero allows compression for any payload size.
         :param pulumi.Input[_builtins.str] mode: This property applies only when you use OpenAPI to define your REST API. The ``Mode`` determines how API Gateway handles resource updates.
@@ -784,7 +784,7 @@ class RestApi(pulumi.CustomResource):
                
                Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGateway::RestApi` for more information about the expected schema for this property.
         :param pulumi.Input[_builtins.str] security_policy: The Transport Layer Security (TLS) version + cipher suite for this RestApi.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with `aws:` . The tag value can be up to 256 characters.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with `aws:` . The tag value can be up to 256 characters.
         """
         ...
     @overload
@@ -1211,12 +1211,12 @@ class RestApi(pulumi.CustomResource):
                  api_key_source_type: pulumi.Input[Optional[_builtins.str]] = None,
                  binary_media_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  body: Optional[Any] = None,
-                 body_s3_location: pulumi.Input[Optional[Union['RestApiS3LocationArgs', 'RestApiS3LocationArgsDict']]] = None,
+                 body_s3_location: pulumi.Input[Optional[Union['RestApiS3LocationArgs', 'RestApiS3LocationArgsDict', 'outputs.RestApiS3Location']]] = None,
                  clone_from: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  disable_execute_api_endpoint: pulumi.Input[Optional[_builtins.bool]] = None,
                  endpoint_access_mode: pulumi.Input[Optional[_builtins.str]] = None,
-                 endpoint_configuration: pulumi.Input[Optional[Union['RestApiEndpointConfigurationArgs', 'RestApiEndpointConfigurationArgsDict']]] = None,
+                 endpoint_configuration: pulumi.Input[Optional[Union['RestApiEndpointConfigurationArgs', 'RestApiEndpointConfigurationArgsDict', 'outputs.RestApiEndpointConfiguration']]] = None,
                  fail_on_warnings: pulumi.Input[Optional[_builtins.bool]] = None,
                  minimum_compression_size: pulumi.Input[Optional[_builtins.int]] = None,
                  mode: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1224,7 +1224,7 @@ class RestApi(pulumi.CustomResource):
                  parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  policy: Optional[Any] = None,
                  security_policy: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  version: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

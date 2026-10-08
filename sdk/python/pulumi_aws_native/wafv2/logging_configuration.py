@@ -97,8 +97,8 @@ class LoggingConfiguration(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  log_destination_configs: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 logging_filter: pulumi.Input[Optional[Union['LoggingFilterPropertiesArgs', 'LoggingFilterPropertiesArgsDict']]] = None,
-                 redacted_fields: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LoggingConfigurationFieldToMatchArgs', 'LoggingConfigurationFieldToMatchArgsDict']]]]] = None,
+                 logging_filter: pulumi.Input[Optional[Union['LoggingFilterPropertiesArgs', 'LoggingFilterPropertiesArgsDict', 'outputs.LoggingFilterProperties']]] = None,
+                 redacted_fields: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LoggingConfigurationFieldToMatchArgs', 'LoggingConfigurationFieldToMatchArgsDict', 'outputs.LoggingConfigurationFieldToMatch']]]]] = None,
                  resource_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -107,8 +107,8 @@ class LoggingConfiguration(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] log_destination_configs: The Amazon Resource Names (ARNs) of the logging destinations that you want to associate with the web ACL.
-        :param pulumi.Input[Union['LoggingFilterPropertiesArgs', 'LoggingFilterPropertiesArgsDict']] logging_filter: Filtering that specifies which web requests are kept in the logs and which are dropped. You can filter on the rule action and on the web request labels that were applied by matching rules during web ACL evaluation.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['LoggingConfigurationFieldToMatchArgs', 'LoggingConfigurationFieldToMatchArgsDict']]]] redacted_fields: The parts of the request that you want to keep out of the logs. For example, if you redact the HEADER field, the HEADER field in the firehose will be xxx.
+        :param pulumi.Input[Union['LoggingFilterPropertiesArgs', 'LoggingFilterPropertiesArgsDict', 'outputs.LoggingFilterProperties']] logging_filter: Filtering that specifies which web requests are kept in the logs and which are dropped. You can filter on the rule action and on the web request labels that were applied by matching rules during web ACL evaluation.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['LoggingConfigurationFieldToMatchArgs', 'LoggingConfigurationFieldToMatchArgsDict', 'outputs.LoggingConfigurationFieldToMatch']]]] redacted_fields: The parts of the request that you want to keep out of the logs. For example, if you redact the HEADER field, the HEADER field in the firehose will be xxx.
         :param pulumi.Input[_builtins.str] resource_arn: The Amazon Resource Name (ARN) of the web ACL that you want to associate with LogDestinationConfigs.
         """
         ...
@@ -136,8 +136,8 @@ class LoggingConfiguration(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  log_destination_configs: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 logging_filter: pulumi.Input[Optional[Union['LoggingFilterPropertiesArgs', 'LoggingFilterPropertiesArgsDict']]] = None,
-                 redacted_fields: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LoggingConfigurationFieldToMatchArgs', 'LoggingConfigurationFieldToMatchArgsDict']]]]] = None,
+                 logging_filter: pulumi.Input[Optional[Union['LoggingFilterPropertiesArgs', 'LoggingFilterPropertiesArgsDict', 'outputs.LoggingFilterProperties']]] = None,
+                 redacted_fields: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LoggingConfigurationFieldToMatchArgs', 'LoggingConfigurationFieldToMatchArgsDict', 'outputs.LoggingConfigurationFieldToMatch']]]]] = None,
                  resource_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

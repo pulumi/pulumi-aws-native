@@ -65,7 +65,7 @@ class AccessPoint(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 object_lambda_configuration: pulumi.Input[Optional[Union['AccessPointObjectLambdaConfigurationArgs', 'AccessPointObjectLambdaConfigurationArgsDict']]] = None,
+                 object_lambda_configuration: pulumi.Input[Optional[Union['AccessPointObjectLambdaConfigurationArgs', 'AccessPointObjectLambdaConfigurationArgsDict', 'outputs.AccessPointObjectLambdaConfiguration']]] = None,
                  __props__=None):
         """
         The AWS::S3ObjectLambda::AccessPoint resource is an Amazon S3ObjectLambda resource type that you can use to add computation to S3 actions
@@ -73,7 +73,7 @@ class AccessPoint(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: The name you want to assign to this Object lambda Access Point.
-        :param pulumi.Input[Union['AccessPointObjectLambdaConfigurationArgs', 'AccessPointObjectLambdaConfigurationArgsDict']] object_lambda_configuration: The Object lambda Access Point Configuration that configures transformations to be applied on the objects on specified S3 Actions
+        :param pulumi.Input[Union['AccessPointObjectLambdaConfigurationArgs', 'AccessPointObjectLambdaConfigurationArgsDict', 'outputs.AccessPointObjectLambdaConfiguration']] object_lambda_configuration: The Object lambda Access Point Configuration that configures transformations to be applied on the objects on specified S3 Actions
         """
         ...
     @overload
@@ -100,7 +100,7 @@ class AccessPoint(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 object_lambda_configuration: pulumi.Input[Optional[Union['AccessPointObjectLambdaConfigurationArgs', 'AccessPointObjectLambdaConfigurationArgsDict']]] = None,
+                 object_lambda_configuration: pulumi.Input[Optional[Union['AccessPointObjectLambdaConfigurationArgs', 'AccessPointObjectLambdaConfigurationArgsDict', 'outputs.AccessPointObjectLambdaConfiguration']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

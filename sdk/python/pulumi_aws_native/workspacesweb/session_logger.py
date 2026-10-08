@@ -133,9 +133,9 @@ class SessionLogger(pulumi.CustomResource):
                  additional_encryption_context: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  customer_managed_key: pulumi.Input[Optional[_builtins.str]] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 event_filter: pulumi.Input[Optional[Union[Union['SessionLoggerEventFilter0PropertiesArgs', 'SessionLoggerEventFilter0PropertiesArgsDict'], Union['SessionLoggerEventFilter1PropertiesArgs', 'SessionLoggerEventFilter1PropertiesArgsDict']]]] = None,
-                 log_configuration: pulumi.Input[Optional[Union['SessionLoggerLogConfigurationArgs', 'SessionLoggerLogConfigurationArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 event_filter: pulumi.Input[Optional[Union[Union['SessionLoggerEventFilter0PropertiesArgs', 'SessionLoggerEventFilter0PropertiesArgsDict', 'outputs.SessionLoggerEventFilter0Properties'], Union['SessionLoggerEventFilter1PropertiesArgs', 'SessionLoggerEventFilter1PropertiesArgsDict', 'outputs.SessionLoggerEventFilter1Properties']]]] = None,
+                 log_configuration: pulumi.Input[Optional[Union['SessionLoggerLogConfigurationArgs', 'SessionLoggerLogConfigurationArgsDict', 'outputs.SessionLoggerLogConfiguration']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Definition of AWS::WorkSpacesWeb::SessionLogger Resource Type
@@ -145,9 +145,9 @@ class SessionLogger(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] additional_encryption_context: The additional encryption context of the session logger.
         :param pulumi.Input[_builtins.str] customer_managed_key: The custom managed key of the session logger.
         :param pulumi.Input[_builtins.str] display_name: The human-readable display name.
-        :param pulumi.Input[Union[Union['SessionLoggerEventFilter0PropertiesArgs', 'SessionLoggerEventFilter0PropertiesArgsDict'], Union['SessionLoggerEventFilter1PropertiesArgs', 'SessionLoggerEventFilter1PropertiesArgsDict']]] event_filter: The filter that specifies which events to monitor.
-        :param pulumi.Input[Union['SessionLoggerLogConfigurationArgs', 'SessionLoggerLogConfigurationArgsDict']] log_configuration: The configuration that specifies where logs are fowarded.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags of the session logger.
+        :param pulumi.Input[Union[Union['SessionLoggerEventFilter0PropertiesArgs', 'SessionLoggerEventFilter0PropertiesArgsDict', 'outputs.SessionLoggerEventFilter0Properties'], Union['SessionLoggerEventFilter1PropertiesArgs', 'SessionLoggerEventFilter1PropertiesArgsDict', 'outputs.SessionLoggerEventFilter1Properties']]] event_filter: The filter that specifies which events to monitor.
+        :param pulumi.Input[Union['SessionLoggerLogConfigurationArgs', 'SessionLoggerLogConfigurationArgsDict', 'outputs.SessionLoggerLogConfiguration']] log_configuration: The configuration that specifies where logs are fowarded.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: The tags of the session logger.
         """
         ...
     @overload
@@ -176,9 +176,9 @@ class SessionLogger(pulumi.CustomResource):
                  additional_encryption_context: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  customer_managed_key: pulumi.Input[Optional[_builtins.str]] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 event_filter: pulumi.Input[Optional[Union[Union['SessionLoggerEventFilter0PropertiesArgs', 'SessionLoggerEventFilter0PropertiesArgsDict'], Union['SessionLoggerEventFilter1PropertiesArgs', 'SessionLoggerEventFilter1PropertiesArgsDict']]]] = None,
-                 log_configuration: pulumi.Input[Optional[Union['SessionLoggerLogConfigurationArgs', 'SessionLoggerLogConfigurationArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 event_filter: pulumi.Input[Optional[Union[Union['SessionLoggerEventFilter0PropertiesArgs', 'SessionLoggerEventFilter0PropertiesArgsDict', 'outputs.SessionLoggerEventFilter0Properties'], Union['SessionLoggerEventFilter1PropertiesArgs', 'SessionLoggerEventFilter1PropertiesArgsDict', 'outputs.SessionLoggerEventFilter1Properties']]]] = None,
+                 log_configuration: pulumi.Input[Optional[Union['SessionLoggerLogConfigurationArgs', 'SessionLoggerLogConfigurationArgsDict', 'outputs.SessionLoggerLogConfiguration']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -278,7 +278,7 @@ class SessionLogger(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="eventFilter")
-    def event_filter(self) -> pulumi.Output[Any]:
+    def event_filter(self) -> pulumi.Output[Union['outputs.SessionLoggerEventFilter0Properties', 'outputs.SessionLoggerEventFilter1Properties']]:
         """
         The filter that specifies which events to monitor.
         """

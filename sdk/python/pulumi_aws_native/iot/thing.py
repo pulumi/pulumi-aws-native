@@ -69,7 +69,7 @@ class Thing(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 attribute_payload: pulumi.Input[Optional[Union['ThingAttributePayloadArgs', 'ThingAttributePayloadArgsDict']]] = None,
+                 attribute_payload: pulumi.Input[Optional[Union['ThingAttributePayloadArgs', 'ThingAttributePayloadArgsDict', 'outputs.ThingAttributePayload']]] = None,
                  thing_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -108,7 +108,7 @@ class Thing(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['ThingAttributePayloadArgs', 'ThingAttributePayloadArgsDict']] attribute_payload: A string that contains up to three key value pairs. Maximum length of 800. Duplicates not allowed.
+        :param pulumi.Input[Union['ThingAttributePayloadArgs', 'ThingAttributePayloadArgsDict', 'outputs.ThingAttributePayload']] attribute_payload: A string that contains up to three key value pairs. Maximum length of 800. Duplicates not allowed.
         :param pulumi.Input[_builtins.str] thing_name: The name of the thing to update.
                
                You can't change a thing's name. To change a thing's name, you must create a new thing, give it the new name, and then delete the old thing.
@@ -168,7 +168,7 @@ class Thing(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 attribute_payload: pulumi.Input[Optional[Union['ThingAttributePayloadArgs', 'ThingAttributePayloadArgsDict']]] = None,
+                 attribute_payload: pulumi.Input[Optional[Union['ThingAttributePayloadArgs', 'ThingAttributePayloadArgsDict', 'outputs.ThingAttributePayload']]] = None,
                  thing_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

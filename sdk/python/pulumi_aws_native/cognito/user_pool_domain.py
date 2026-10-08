@@ -111,10 +111,10 @@ class UserPoolDomain(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 custom_domain_config: pulumi.Input[Optional[Union['UserPoolDomainCustomDomainConfigTypeArgs', 'UserPoolDomainCustomDomainConfigTypeArgsDict']]] = None,
+                 custom_domain_config: pulumi.Input[Optional[Union['UserPoolDomainCustomDomainConfigTypeArgs', 'UserPoolDomainCustomDomainConfigTypeArgsDict', 'outputs.UserPoolDomainCustomDomainConfigType']]] = None,
                  domain: pulumi.Input[Optional[_builtins.str]] = None,
                  managed_login_version: pulumi.Input[Optional[_builtins.int]] = None,
-                 routing: pulumi.Input[Optional[Union['UserPoolDomainRoutingTypeArgs', 'UserPoolDomainRoutingTypeArgsDict']]] = None,
+                 routing: pulumi.Input[Optional[Union['UserPoolDomainRoutingTypeArgs', 'UserPoolDomainRoutingTypeArgsDict', 'outputs.UserPoolDomainRoutingType']]] = None,
                  user_pool_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -122,7 +122,7 @@ class UserPoolDomain(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['UserPoolDomainCustomDomainConfigTypeArgs', 'UserPoolDomainCustomDomainConfigTypeArgsDict']] custom_domain_config: The configuration for a custom domain that hosts the sign-up and sign-in pages for your application. Use this object to specify an SSL certificate that is managed by ACM.
+        :param pulumi.Input[Union['UserPoolDomainCustomDomainConfigTypeArgs', 'UserPoolDomainCustomDomainConfigTypeArgsDict', 'outputs.UserPoolDomainCustomDomainConfigType']] custom_domain_config: The configuration for a custom domain that hosts the sign-up and sign-in pages for your application. Use this object to specify an SSL certificate that is managed by ACM.
                
                When you create a custom domain, the passkey RP ID defaults to the custom domain. If you had a prefix domain active, this will cause passkey integration for your prefix domain to stop working due to a mismatch in RP ID. To keep the prefix domain passkey integration working, you can explicitly set RP ID to the prefix domain.
         :param pulumi.Input[_builtins.str] domain: The name of the domain that you want to update. For custom domains, this is the fully-qualified domain name, for example `auth.example.com` . For prefix domains, this is the prefix alone, such as `myprefix` .
@@ -153,10 +153,10 @@ class UserPoolDomain(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 custom_domain_config: pulumi.Input[Optional[Union['UserPoolDomainCustomDomainConfigTypeArgs', 'UserPoolDomainCustomDomainConfigTypeArgsDict']]] = None,
+                 custom_domain_config: pulumi.Input[Optional[Union['UserPoolDomainCustomDomainConfigTypeArgs', 'UserPoolDomainCustomDomainConfigTypeArgsDict', 'outputs.UserPoolDomainCustomDomainConfigType']]] = None,
                  domain: pulumi.Input[Optional[_builtins.str]] = None,
                  managed_login_version: pulumi.Input[Optional[_builtins.int]] = None,
-                 routing: pulumi.Input[Optional[Union['UserPoolDomainRoutingTypeArgs', 'UserPoolDomainRoutingTypeArgsDict']]] = None,
+                 routing: pulumi.Input[Optional[Union['UserPoolDomainRoutingTypeArgs', 'UserPoolDomainRoutingTypeArgsDict', 'outputs.UserPoolDomainRoutingType']]] = None,
                  user_pool_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

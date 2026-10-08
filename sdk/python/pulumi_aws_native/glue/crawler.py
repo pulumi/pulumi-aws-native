@@ -268,15 +268,15 @@ class Crawler(pulumi.CustomResource):
                  crawler_security_configuration: pulumi.Input[Optional[_builtins.str]] = None,
                  database_name: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 lake_formation_configuration: pulumi.Input[Optional[Union['CrawlerLakeFormationConfigurationArgs', 'CrawlerLakeFormationConfigurationArgsDict']]] = None,
+                 lake_formation_configuration: pulumi.Input[Optional[Union['CrawlerLakeFormationConfigurationArgs', 'CrawlerLakeFormationConfigurationArgsDict', 'outputs.CrawlerLakeFormationConfiguration']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 recrawl_policy: pulumi.Input[Optional[Union['CrawlerRecrawlPolicyArgs', 'CrawlerRecrawlPolicyArgsDict']]] = None,
+                 recrawl_policy: pulumi.Input[Optional[Union['CrawlerRecrawlPolicyArgs', 'CrawlerRecrawlPolicyArgsDict', 'outputs.CrawlerRecrawlPolicy']]] = None,
                  role: pulumi.Input[Optional[_builtins.str]] = None,
-                 schedule: pulumi.Input[Optional[Union['CrawlerScheduleArgs', 'CrawlerScheduleArgsDict']]] = None,
-                 schema_change_policy: pulumi.Input[Optional[Union['CrawlerSchemaChangePolicyArgs', 'CrawlerSchemaChangePolicyArgsDict']]] = None,
+                 schedule: pulumi.Input[Optional[Union['CrawlerScheduleArgs', 'CrawlerScheduleArgsDict', 'outputs.CrawlerSchedule']]] = None,
+                 schema_change_policy: pulumi.Input[Optional[Union['CrawlerSchemaChangePolicyArgs', 'CrawlerSchemaChangePolicyArgsDict', 'outputs.CrawlerSchemaChangePolicy']]] = None,
                  table_prefix: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: Optional[Any] = None,
-                 targets: pulumi.Input[Optional[Union['CrawlerTargetsArgs', 'CrawlerTargetsArgsDict']]] = None,
+                 targets: pulumi.Input[Optional[Union['CrawlerTargetsArgs', 'CrawlerTargetsArgsDict', 'outputs.CrawlerTargets']]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::Glue::Crawler
@@ -288,19 +288,19 @@ class Crawler(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] crawler_security_configuration: The name of the SecurityConfiguration structure to be used by this crawler.
         :param pulumi.Input[_builtins.str] database_name: The name of the database in which the crawler's output is stored.
         :param pulumi.Input[_builtins.str] description: A description of the crawler.
-        :param pulumi.Input[Union['CrawlerLakeFormationConfigurationArgs', 'CrawlerLakeFormationConfigurationArgsDict']] lake_formation_configuration: Specifies whether the crawler should use AWS Lake Formation credentials for the crawler instead of the IAM role credentials.
+        :param pulumi.Input[Union['CrawlerLakeFormationConfigurationArgs', 'CrawlerLakeFormationConfigurationArgsDict', 'outputs.CrawlerLakeFormationConfiguration']] lake_formation_configuration: Specifies whether the crawler should use AWS Lake Formation credentials for the crawler instead of the IAM role credentials.
         :param pulumi.Input[_builtins.str] name: The name of the crawler.
-        :param pulumi.Input[Union['CrawlerRecrawlPolicyArgs', 'CrawlerRecrawlPolicyArgsDict']] recrawl_policy: A policy that specifies whether to crawl the entire dataset again, or to crawl only folders that were added since the last crawler run.
+        :param pulumi.Input[Union['CrawlerRecrawlPolicyArgs', 'CrawlerRecrawlPolicyArgsDict', 'outputs.CrawlerRecrawlPolicy']] recrawl_policy: A policy that specifies whether to crawl the entire dataset again, or to crawl only folders that were added since the last crawler run.
         :param pulumi.Input[_builtins.str] role: The Amazon Resource Name (ARN) of an IAM role that's used to access customer resources, such as Amazon Simple Storage Service (Amazon S3) data.
-        :param pulumi.Input[Union['CrawlerScheduleArgs', 'CrawlerScheduleArgsDict']] schedule: For scheduled crawlers, the schedule when the crawler runs.
-        :param pulumi.Input[Union['CrawlerSchemaChangePolicyArgs', 'CrawlerSchemaChangePolicyArgsDict']] schema_change_policy: The policy that specifies update and delete behaviors for the crawler. The policy tells the crawler what to do in the event that it detects a change in a table that already exists in the customer's database at the time of the crawl. The `SchemaChangePolicy` does not affect whether or how new tables and partitions are added. New tables and partitions are always created regardless of the `SchemaChangePolicy` on a crawler.
+        :param pulumi.Input[Union['CrawlerScheduleArgs', 'CrawlerScheduleArgsDict', 'outputs.CrawlerSchedule']] schedule: For scheduled crawlers, the schedule when the crawler runs.
+        :param pulumi.Input[Union['CrawlerSchemaChangePolicyArgs', 'CrawlerSchemaChangePolicyArgsDict', 'outputs.CrawlerSchemaChangePolicy']] schema_change_policy: The policy that specifies update and delete behaviors for the crawler. The policy tells the crawler what to do in the event that it detects a change in a table that already exists in the customer's database at the time of the crawl. The `SchemaChangePolicy` does not affect whether or how new tables and partitions are added. New tables and partitions are always created regardless of the `SchemaChangePolicy` on a crawler.
                
                The SchemaChangePolicy consists of two components, `UpdateBehavior` and `DeleteBehavior` .
         :param pulumi.Input[_builtins.str] table_prefix: The prefix added to the names of tables that are created.
         :param Any tags: The tags to use with this crawler.
                
                Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Glue::Crawler` for more information about the expected schema for this property.
-        :param pulumi.Input[Union['CrawlerTargetsArgs', 'CrawlerTargetsArgsDict']] targets: A collection of targets to crawl.
+        :param pulumi.Input[Union['CrawlerTargetsArgs', 'CrawlerTargetsArgsDict', 'outputs.CrawlerTargets']] targets: A collection of targets to crawl.
         """
         ...
     @overload
@@ -331,15 +331,15 @@ class Crawler(pulumi.CustomResource):
                  crawler_security_configuration: pulumi.Input[Optional[_builtins.str]] = None,
                  database_name: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 lake_formation_configuration: pulumi.Input[Optional[Union['CrawlerLakeFormationConfigurationArgs', 'CrawlerLakeFormationConfigurationArgsDict']]] = None,
+                 lake_formation_configuration: pulumi.Input[Optional[Union['CrawlerLakeFormationConfigurationArgs', 'CrawlerLakeFormationConfigurationArgsDict', 'outputs.CrawlerLakeFormationConfiguration']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 recrawl_policy: pulumi.Input[Optional[Union['CrawlerRecrawlPolicyArgs', 'CrawlerRecrawlPolicyArgsDict']]] = None,
+                 recrawl_policy: pulumi.Input[Optional[Union['CrawlerRecrawlPolicyArgs', 'CrawlerRecrawlPolicyArgsDict', 'outputs.CrawlerRecrawlPolicy']]] = None,
                  role: pulumi.Input[Optional[_builtins.str]] = None,
-                 schedule: pulumi.Input[Optional[Union['CrawlerScheduleArgs', 'CrawlerScheduleArgsDict']]] = None,
-                 schema_change_policy: pulumi.Input[Optional[Union['CrawlerSchemaChangePolicyArgs', 'CrawlerSchemaChangePolicyArgsDict']]] = None,
+                 schedule: pulumi.Input[Optional[Union['CrawlerScheduleArgs', 'CrawlerScheduleArgsDict', 'outputs.CrawlerSchedule']]] = None,
+                 schema_change_policy: pulumi.Input[Optional[Union['CrawlerSchemaChangePolicyArgs', 'CrawlerSchemaChangePolicyArgsDict', 'outputs.CrawlerSchemaChangePolicy']]] = None,
                  table_prefix: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: Optional[Any] = None,
-                 targets: pulumi.Input[Optional[Union['CrawlerTargetsArgs', 'CrawlerTargetsArgsDict']]] = None,
+                 targets: pulumi.Input[Optional[Union['CrawlerTargetsArgs', 'CrawlerTargetsArgsDict', 'outputs.CrawlerTargets']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

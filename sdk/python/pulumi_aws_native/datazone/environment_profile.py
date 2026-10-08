@@ -163,7 +163,7 @@ class EnvironmentProfile(pulumi.CustomResource):
                  environment_blueprint_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  project_identifier: pulumi.Input[Optional[_builtins.str]] = None,
-                 user_parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EnvironmentProfileEnvironmentParameterArgs', 'EnvironmentProfileEnvironmentParameterArgsDict']]]]] = None,
+                 user_parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EnvironmentProfileEnvironmentParameterArgs', 'EnvironmentProfileEnvironmentParameterArgsDict', 'outputs.EnvironmentProfileEnvironmentParameter']]]]] = None,
                  __props__=None):
         """
         AWS Datazone Environment Profile is pre-configured set of resources and blueprints that provide reusable templates for creating environments.
@@ -177,7 +177,7 @@ class EnvironmentProfile(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] environment_blueprint_identifier: The ID of the blueprint with which this environment profile is created.
         :param pulumi.Input[_builtins.str] name: The name of this Amazon DataZone environment profile.
         :param pulumi.Input[_builtins.str] project_identifier: The identifier of the project in which to create the environment profile.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentProfileEnvironmentParameterArgs', 'EnvironmentProfileEnvironmentParameterArgsDict']]]] user_parameters: The user parameters of this Amazon DataZone environment profile.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentProfileEnvironmentParameterArgs', 'EnvironmentProfileEnvironmentParameterArgsDict', 'outputs.EnvironmentProfileEnvironmentParameter']]]] user_parameters: The user parameters of this Amazon DataZone environment profile.
         """
         ...
     @overload
@@ -210,7 +210,7 @@ class EnvironmentProfile(pulumi.CustomResource):
                  environment_blueprint_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  project_identifier: pulumi.Input[Optional[_builtins.str]] = None,
-                 user_parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EnvironmentProfileEnvironmentParameterArgs', 'EnvironmentProfileEnvironmentParameterArgsDict']]]]] = None,
+                 user_parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EnvironmentProfileEnvironmentParameterArgs', 'EnvironmentProfileEnvironmentParameterArgsDict', 'outputs.EnvironmentProfileEnvironmentParameter']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

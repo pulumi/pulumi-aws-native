@@ -79,7 +79,7 @@ class Type(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 fields: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TypeFieldArgs', 'TypeFieldArgsDict']]]]] = None,
+                 fields: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TypeFieldArgs', 'TypeFieldArgsDict', 'outputs.TypeField']]]]] = None,
                  keyspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                  type_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -88,7 +88,7 @@ class Type(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['TypeFieldArgs', 'TypeFieldArgsDict']]]] fields: Field definitions of the User-Defined Type
+        :param pulumi.Input[Sequence[pulumi.Input[Union['TypeFieldArgs', 'TypeFieldArgsDict', 'outputs.TypeField']]]] fields: Field definitions of the User-Defined Type
         :param pulumi.Input[_builtins.str] keyspace_name: Name of the Keyspace which contains the User-Defined Type.
         :param pulumi.Input[_builtins.str] type_name: Name of the User-Defined Type.
         """
@@ -116,7 +116,7 @@ class Type(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 fields: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TypeFieldArgs', 'TypeFieldArgsDict']]]]] = None,
+                 fields: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TypeFieldArgs', 'TypeFieldArgsDict', 'outputs.TypeField']]]]] = None,
                  keyspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                  type_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):

@@ -148,24 +148,24 @@ class Group(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 configuration: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GroupConfigurationItemArgs', 'GroupConfigurationItemArgsDict']]]]] = None,
+                 configuration: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GroupConfigurationItemArgs', 'GroupConfigurationItemArgsDict', 'outputs.GroupConfigurationItem']]]]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_query: pulumi.Input[Optional[Union['GroupResourceQueryArgs', 'GroupResourceQueryArgsDict']]] = None,
+                 resource_query: pulumi.Input[Optional[Union['GroupResourceQueryArgs', 'GroupResourceQueryArgsDict', 'outputs.GroupResourceQuery']]] = None,
                  resources: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Schema for ResourceGroups::Group
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['GroupConfigurationItemArgs', 'GroupConfigurationItemArgsDict']]]] configuration: The service configuration currently associated with the resource group and in effect for the members of the resource group. A `Configuration` consists of one or more `ConfigurationItem` entries. For information about service configurations for resource groups and how to construct them, see [Service configurations for resource groups](https://docs.aws.amazon.com//ARG/latest/APIReference/about-slg.html) in the *Resource Groups User Guide* .
+        :param pulumi.Input[Sequence[pulumi.Input[Union['GroupConfigurationItemArgs', 'GroupConfigurationItemArgsDict', 'outputs.GroupConfigurationItem']]]] configuration: The service configuration currently associated with the resource group and in effect for the members of the resource group. A `Configuration` consists of one or more `ConfigurationItem` entries. For information about service configurations for resource groups and how to construct them, see [Service configurations for resource groups](https://docs.aws.amazon.com//ARG/latest/APIReference/about-slg.html) in the *Resource Groups User Guide* .
                
                > You can include either a `Configuration` or a `ResourceQuery` , but not both.
         :param pulumi.Input[_builtins.str] description: The description of the resource group
         :param pulumi.Input[_builtins.str] name: The name of the resource group
-        :param pulumi.Input[Union['GroupResourceQueryArgs', 'GroupResourceQueryArgsDict']] resource_query: The resource query structure that is used to dynamically determine which AWS resources are members of the associated resource group. For more information about queries and how to construct them, see [Build queries and groups in Resource Groups](https://docs.aws.amazon.com//ARG/latest/userguide/gettingstarted-query.html) in the *Resource Groups User Guide*
+        :param pulumi.Input[Union['GroupResourceQueryArgs', 'GroupResourceQueryArgsDict', 'outputs.GroupResourceQuery']] resource_query: The resource query structure that is used to dynamically determine which AWS resources are members of the associated resource group. For more information about queries and how to construct them, see [Build queries and groups in Resource Groups](https://docs.aws.amazon.com//ARG/latest/userguide/gettingstarted-query.html) in the *Resource Groups User Guide*
                
                > - You can include either a `ResourceQuery` or a `Configuration` , but not both.
                > - You can specify the group's membership either by using a `ResourceQuery` or by using a list of `Resources` , but not both.
@@ -173,7 +173,7 @@ class Group(pulumi.CustomResource):
                
                > - You can specify the group membership either by using a list of `Resources` or by using a `ResourceQuery` , but not both.
                > - You can include a `Resources` property only if you also specify a `Configuration` property.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tag key and value pairs that are attached to the resource group.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: The tag key and value pairs that are attached to the resource group.
         """
         ...
     @overload
@@ -199,12 +199,12 @@ class Group(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 configuration: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GroupConfigurationItemArgs', 'GroupConfigurationItemArgsDict']]]]] = None,
+                 configuration: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GroupConfigurationItemArgs', 'GroupConfigurationItemArgsDict', 'outputs.GroupConfigurationItem']]]]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_query: pulumi.Input[Optional[Union['GroupResourceQueryArgs', 'GroupResourceQueryArgsDict']]] = None,
+                 resource_query: pulumi.Input[Optional[Union['GroupResourceQueryArgs', 'GroupResourceQueryArgsDict', 'outputs.GroupResourceQuery']]] = None,
                  resources: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

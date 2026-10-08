@@ -1504,7 +1504,7 @@ class DbCluster(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  allocated_storage: pulumi.Input[Optional[_builtins.int]] = None,
-                 associated_roles: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DbClusterDbClusterRoleArgs', 'DbClusterDbClusterRoleArgsDict']]]]] = None,
+                 associated_roles: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DbClusterDbClusterRoleArgs', 'DbClusterDbClusterRoleArgsDict', 'outputs.DbClusterDbClusterRole']]]]] = None,
                  auto_minor_version_upgrade: pulumi.Input[Optional[_builtins.bool]] = None,
                  availability_zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  backtrack_window: pulumi.Input[Optional[_builtins.int]] = None,
@@ -1538,7 +1538,7 @@ class DbCluster(pulumi.CustomResource):
                  manage_master_user_password: pulumi.Input[Optional[_builtins.bool]] = None,
                  master_user_authentication_type: pulumi.Input[Optional[_builtins.str]] = None,
                  master_user_password: pulumi.Input[Optional[_builtins.str]] = None,
-                 master_user_secret: pulumi.Input[Optional[Union['DbClusterMasterUserSecretArgs', 'DbClusterMasterUserSecretArgsDict']]] = None,
+                 master_user_secret: pulumi.Input[Optional[Union['DbClusterMasterUserSecretArgs', 'DbClusterMasterUserSecretArgsDict', 'outputs.DbClusterMasterUserSecret']]] = None,
                  master_username: pulumi.Input[Optional[_builtins.str]] = None,
                  monitoring_interval: pulumi.Input[Optional[_builtins.int]] = None,
                  monitoring_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1553,15 +1553,15 @@ class DbCluster(pulumi.CustomResource):
                  replication_source_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                  restore_to_time: pulumi.Input[Optional[_builtins.str]] = None,
                  restore_type: pulumi.Input[Optional[_builtins.str]] = None,
-                 scaling_configuration: pulumi.Input[Optional[Union['DbClusterScalingConfigurationArgs', 'DbClusterScalingConfigurationArgsDict']]] = None,
-                 serverless_v2_scaling_configuration: pulumi.Input[Optional[Union['DbClusterServerlessV2ScalingConfigurationArgs', 'DbClusterServerlessV2ScalingConfigurationArgsDict']]] = None,
+                 scaling_configuration: pulumi.Input[Optional[Union['DbClusterScalingConfigurationArgs', 'DbClusterScalingConfigurationArgsDict', 'outputs.DbClusterScalingConfiguration']]] = None,
+                 serverless_v2_scaling_configuration: pulumi.Input[Optional[Union['DbClusterServerlessV2ScalingConfigurationArgs', 'DbClusterServerlessV2ScalingConfigurationArgsDict', 'outputs.DbClusterServerlessV2ScalingConfiguration']]] = None,
                  snapshot_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                  source_db_cluster_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                  source_db_cluster_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
                  source_region: pulumi.Input[Optional[_builtins.str]] = None,
                  storage_encrypted: pulumi.Input[Optional[_builtins.bool]] = None,
                  storage_type: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  use_latest_restorable_time: pulumi.Input[Optional[_builtins.bool]] = None,
                  vpc_security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
@@ -1589,7 +1589,7 @@ class DbCluster(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] allocated_storage: The amount of storage in gibibytes (GiB) to allocate to each DB instance in the Multi-AZ DB cluster.
                 Valid for Cluster Type: Multi-AZ DB clusters only
                 This setting is required to create a Multi-AZ DB cluster.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['DbClusterDbClusterRoleArgs', 'DbClusterDbClusterRoleArgsDict']]]] associated_roles: Provides a list of the AWS Identity and Access Management (IAM) roles that are associated with the DB cluster. IAM roles that are associated with a DB cluster grant permission for the DB cluster to access other Amazon Web Services on your behalf.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DbClusterDbClusterRoleArgs', 'DbClusterDbClusterRoleArgsDict', 'outputs.DbClusterDbClusterRole']]]] associated_roles: Provides a list of the AWS Identity and Access Management (IAM) roles that are associated with the DB cluster. IAM roles that are associated with a DB cluster grant permission for the DB cluster to access other Amazon Web Services on your behalf.
                 Valid for: Aurora DB clusters and Multi-AZ DB clusters
         :param pulumi.Input[_builtins.bool] auto_minor_version_upgrade: Specifies whether minor engine upgrades are applied automatically to the DB cluster during the maintenance window. By default, minor engine upgrades are applied automatically.
                 Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB cluster.
@@ -1746,7 +1746,7 @@ class DbCluster(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] master_user_password: The master password for the DB instance.
                  If you specify the ``SourceDBClusterIdentifier``, ``SnapshotIdentifier``, or ``GlobalClusterIdentifier`` property, don't specify this property. The value is inherited from the source DB cluster, the snapshot, or the primary DB cluster for the global database cluster, respectively.
                  Valid for: Aurora DB clusters and Multi-AZ DB clusters
-        :param pulumi.Input[Union['DbClusterMasterUserSecretArgs', 'DbClusterMasterUserSecretArgsDict']] master_user_secret: The secret managed by RDS in AWS Secrets Manager for the master user password.
+        :param pulumi.Input[Union['DbClusterMasterUserSecretArgs', 'DbClusterMasterUserSecretArgsDict', 'outputs.DbClusterMasterUserSecret']] master_user_secret: The secret managed by RDS in AWS Secrets Manager for the master user password.
                  When you restore a DB cluster from a snapshot, Amazon RDS generates a new secret instead of reusing the secret specified in the ``SecretArn`` property. This ensures that the restored DB cluster is securely managed with a dedicated secret. To maintain consistent integration with your application, you might need to update resource configurations to reference the newly created secret.
                  For more information, see [Password management with Secrets Manager](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-secrets-manager.html) in the *Amazon RDS User Guide* and [Password management with Secrets Manager](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/rds-secrets-manager.html) in the *Amazon Aurora User Guide.*
         :param pulumi.Input[_builtins.str] master_username: The name of the master user for the DB cluster.
@@ -1832,10 +1832,10 @@ class DbCluster(pulumi.CustomResource):
                
                 If you don't specify a ``RestoreType`` value, then the new DB cluster is restored as a full copy of the source DB cluster.
                 Valid for: Aurora DB clusters and Multi-AZ DB clusters
-        :param pulumi.Input[Union['DbClusterScalingConfigurationArgs', 'DbClusterScalingConfigurationArgsDict']] scaling_configuration: The scaling configuration of an Aurora Serverless v1 DB cluster.
+        :param pulumi.Input[Union['DbClusterScalingConfigurationArgs', 'DbClusterScalingConfigurationArgsDict', 'outputs.DbClusterScalingConfiguration']] scaling_configuration: The scaling configuration of an Aurora Serverless v1 DB cluster.
                 This property is only supported for Aurora Serverless v1. For Aurora Serverless v2, Use the ``ServerlessV2ScalingConfiguration`` property.
                 Valid for: Aurora Serverless v1 DB clusters only
-        :param pulumi.Input[Union['DbClusterServerlessV2ScalingConfigurationArgs', 'DbClusterServerlessV2ScalingConfigurationArgsDict']] serverless_v2_scaling_configuration: The scaling configuration of an Aurora Serverless V2 DB cluster.
+        :param pulumi.Input[Union['DbClusterServerlessV2ScalingConfigurationArgs', 'DbClusterServerlessV2ScalingConfigurationArgsDict', 'outputs.DbClusterServerlessV2ScalingConfiguration']] serverless_v2_scaling_configuration: The scaling configuration of an Aurora Serverless V2 DB cluster.
                 This property is only supported for Aurora Serverless v2. For Aurora Serverless v1, Use the ``ScalingConfiguration`` property.
                 Valid for: Aurora Serverless v2 DB clusters only
         :param pulumi.Input[_builtins.str] snapshot_identifier: The identifier for the DB snapshot or DB cluster snapshot to restore from.
@@ -1886,7 +1886,7 @@ class DbCluster(pulumi.CustomResource):
                  +  Multi-AZ DB clusters - ``io1``
                
                  When you create an Aurora DB cluster with the storage type set to ``aurora-iopt1``, the storage type is returned in the response. The storage type isn't returned when you set it to ``aurora``.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Tags to assign to the DB cluster.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: Tags to assign to the DB cluster.
                 Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters
         :param pulumi.Input[_builtins.bool] use_latest_restorable_time: A value that indicates whether to restore the DB cluster to the latest restorable backup time. By default, the DB cluster is not restored to the latest restorable backup time.
                 Valid for: Aurora DB clusters and Multi-AZ DB clusters
@@ -1935,7 +1935,7 @@ class DbCluster(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  allocated_storage: pulumi.Input[Optional[_builtins.int]] = None,
-                 associated_roles: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DbClusterDbClusterRoleArgs', 'DbClusterDbClusterRoleArgsDict']]]]] = None,
+                 associated_roles: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DbClusterDbClusterRoleArgs', 'DbClusterDbClusterRoleArgsDict', 'outputs.DbClusterDbClusterRole']]]]] = None,
                  auto_minor_version_upgrade: pulumi.Input[Optional[_builtins.bool]] = None,
                  availability_zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  backtrack_window: pulumi.Input[Optional[_builtins.int]] = None,
@@ -1969,7 +1969,7 @@ class DbCluster(pulumi.CustomResource):
                  manage_master_user_password: pulumi.Input[Optional[_builtins.bool]] = None,
                  master_user_authentication_type: pulumi.Input[Optional[_builtins.str]] = None,
                  master_user_password: pulumi.Input[Optional[_builtins.str]] = None,
-                 master_user_secret: pulumi.Input[Optional[Union['DbClusterMasterUserSecretArgs', 'DbClusterMasterUserSecretArgsDict']]] = None,
+                 master_user_secret: pulumi.Input[Optional[Union['DbClusterMasterUserSecretArgs', 'DbClusterMasterUserSecretArgsDict', 'outputs.DbClusterMasterUserSecret']]] = None,
                  master_username: pulumi.Input[Optional[_builtins.str]] = None,
                  monitoring_interval: pulumi.Input[Optional[_builtins.int]] = None,
                  monitoring_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1984,15 +1984,15 @@ class DbCluster(pulumi.CustomResource):
                  replication_source_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                  restore_to_time: pulumi.Input[Optional[_builtins.str]] = None,
                  restore_type: pulumi.Input[Optional[_builtins.str]] = None,
-                 scaling_configuration: pulumi.Input[Optional[Union['DbClusterScalingConfigurationArgs', 'DbClusterScalingConfigurationArgsDict']]] = None,
-                 serverless_v2_scaling_configuration: pulumi.Input[Optional[Union['DbClusterServerlessV2ScalingConfigurationArgs', 'DbClusterServerlessV2ScalingConfigurationArgsDict']]] = None,
+                 scaling_configuration: pulumi.Input[Optional[Union['DbClusterScalingConfigurationArgs', 'DbClusterScalingConfigurationArgsDict', 'outputs.DbClusterScalingConfiguration']]] = None,
+                 serverless_v2_scaling_configuration: pulumi.Input[Optional[Union['DbClusterServerlessV2ScalingConfigurationArgs', 'DbClusterServerlessV2ScalingConfigurationArgsDict', 'outputs.DbClusterServerlessV2ScalingConfiguration']]] = None,
                  snapshot_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                  source_db_cluster_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                  source_db_cluster_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
                  source_region: pulumi.Input[Optional[_builtins.str]] = None,
                  storage_encrypted: pulumi.Input[Optional[_builtins.bool]] = None,
                  storage_type: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  use_latest_restorable_time: pulumi.Input[Optional[_builtins.bool]] = None,
                  vpc_security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):

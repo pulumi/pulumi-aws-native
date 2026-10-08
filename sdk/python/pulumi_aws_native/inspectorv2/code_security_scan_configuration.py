@@ -114,10 +114,10 @@ class CodeSecurityScanConfiguration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 configuration: pulumi.Input[Optional[Union['CodeSecurityScanConfigurationArgs', 'CodeSecurityScanConfigurationArgsDict']]] = None,
+                 configuration: pulumi.Input[Optional[Union['CodeSecurityScanConfigurationArgs', 'CodeSecurityScanConfigurationArgsDict', 'outputs.CodeSecurityScanConfiguration']]] = None,
                  level: pulumi.Input[Optional['CodeSecurityScanConfigurationConfigurationLevel']] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 scope_settings: pulumi.Input[Optional[Union['CodeSecurityScanConfigurationScopeSettingsArgs', 'CodeSecurityScanConfigurationScopeSettingsArgsDict']]] = None,
+                 scope_settings: pulumi.Input[Optional[Union['CodeSecurityScanConfigurationScopeSettingsArgs', 'CodeSecurityScanConfigurationScopeSettingsArgsDict', 'outputs.CodeSecurityScanConfigurationScopeSettings']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
@@ -125,10 +125,10 @@ class CodeSecurityScanConfiguration(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['CodeSecurityScanConfigurationArgs', 'CodeSecurityScanConfigurationArgsDict']] configuration: Code Security Scan Configuration
+        :param pulumi.Input[Union['CodeSecurityScanConfigurationArgs', 'CodeSecurityScanConfigurationArgsDict', 'outputs.CodeSecurityScanConfiguration']] configuration: Code Security Scan Configuration
         :param pulumi.Input['CodeSecurityScanConfigurationConfigurationLevel'] level: Configuration Level
         :param pulumi.Input[_builtins.str] name: Code Security Scan Configuration name
-        :param pulumi.Input[Union['CodeSecurityScanConfigurationScopeSettingsArgs', 'CodeSecurityScanConfigurationScopeSettingsArgsDict']] scope_settings: Scope Settings
+        :param pulumi.Input[Union['CodeSecurityScanConfigurationScopeSettingsArgs', 'CodeSecurityScanConfigurationScopeSettingsArgsDict', 'outputs.CodeSecurityScanConfigurationScopeSettings']] scope_settings: Scope Settings
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: The tags to apply to the scan configuration.
         """
         ...
@@ -155,10 +155,10 @@ class CodeSecurityScanConfiguration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 configuration: pulumi.Input[Optional[Union['CodeSecurityScanConfigurationArgs', 'CodeSecurityScanConfigurationArgsDict']]] = None,
+                 configuration: pulumi.Input[Optional[Union['CodeSecurityScanConfigurationArgs', 'CodeSecurityScanConfigurationArgsDict', 'outputs.CodeSecurityScanConfiguration']]] = None,
                  level: pulumi.Input[Optional['CodeSecurityScanConfigurationConfigurationLevel']] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 scope_settings: pulumi.Input[Optional[Union['CodeSecurityScanConfigurationScopeSettingsArgs', 'CodeSecurityScanConfigurationScopeSettingsArgsDict']]] = None,
+                 scope_settings: pulumi.Input[Optional[Union['CodeSecurityScanConfigurationScopeSettingsArgs', 'CodeSecurityScanConfigurationScopeSettingsArgsDict', 'outputs.CodeSecurityScanConfigurationScopeSettings']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

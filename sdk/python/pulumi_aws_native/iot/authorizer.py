@@ -182,7 +182,7 @@ class Authorizer(pulumi.CustomResource):
                  enable_caching_for_http: pulumi.Input[Optional[_builtins.bool]] = None,
                  signing_disabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  status: pulumi.Input[Optional['AuthorizerStatus']] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  token_key_name: pulumi.Input[Optional[_builtins.str]] = None,
                  token_signing_public_keys: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
@@ -198,7 +198,7 @@ class Authorizer(pulumi.CustomResource):
         :param pulumi.Input['AuthorizerStatus'] status: The status of the authorizer.
                
                Valid values: `ACTIVE` | `INACTIVE`
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Metadata which can be used to manage the custom authorizer.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: Metadata which can be used to manage the custom authorizer.
                
                > For URI Request parameters use format: ...key1=value1&key2=value2...
                > 
@@ -237,7 +237,7 @@ class Authorizer(pulumi.CustomResource):
                  enable_caching_for_http: pulumi.Input[Optional[_builtins.bool]] = None,
                  signing_disabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  status: pulumi.Input[Optional['AuthorizerStatus']] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  token_key_name: pulumi.Input[Optional[_builtins.str]] = None,
                  token_signing_public_keys: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):

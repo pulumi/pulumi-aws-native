@@ -130,11 +130,11 @@ class ApplicationVersion(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  application_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 build_configuration: pulumi.Input[Optional[Union['ApplicationVersionBuildConfigurationArgs', 'ApplicationVersionBuildConfigurationArgsDict']]] = None,
+                 build_configuration: pulumi.Input[Optional[Union['ApplicationVersionBuildConfigurationArgs', 'ApplicationVersionBuildConfigurationArgsDict', 'outputs.ApplicationVersionBuildConfiguration']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 image_configuration: pulumi.Input[Optional[Union['ApplicationVersionImageConfigurationArgs', 'ApplicationVersionImageConfigurationArgsDict']]] = None,
+                 image_configuration: pulumi.Input[Optional[Union['ApplicationVersionImageConfigurationArgs', 'ApplicationVersionImageConfigurationArgsDict', 'outputs.ApplicationVersionImageConfiguration']]] = None,
                  process: pulumi.Input[Optional[_builtins.bool]] = None,
-                 source_bundle: pulumi.Input[Optional[Union['ApplicationVersionSourceBundleArgs', 'ApplicationVersionSourceBundleArgsDict']]] = None,
+                 source_bundle: pulumi.Input[Optional[Union['ApplicationVersionSourceBundleArgs', 'ApplicationVersionSourceBundleArgsDict', 'outputs.ApplicationVersionSourceBundle']]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::ElasticBeanstalk::ApplicationVersion
@@ -142,11 +142,11 @@ class ApplicationVersion(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] application_name: The name of the Elastic Beanstalk application that is associated with this application version.
-        :param pulumi.Input[Union['ApplicationVersionBuildConfigurationArgs', 'ApplicationVersionBuildConfigurationArgsDict']] build_configuration: Settings for an AWS CodeBuild build that packages and builds an application version from source code.
+        :param pulumi.Input[Union['ApplicationVersionBuildConfigurationArgs', 'ApplicationVersionBuildConfigurationArgsDict', 'outputs.ApplicationVersionBuildConfiguration']] build_configuration: Settings for an AWS CodeBuild build that packages and builds an application version from source code.
         :param pulumi.Input[_builtins.str] description: A description of this application version.
-        :param pulumi.Input[Union['ApplicationVersionImageConfigurationArgs', 'ApplicationVersionImageConfigurationArgsDict']] image_configuration: Configuration for image-based application versions.
+        :param pulumi.Input[Union['ApplicationVersionImageConfigurationArgs', 'ApplicationVersionImageConfigurationArgsDict', 'outputs.ApplicationVersionImageConfiguration']] image_configuration: Configuration for image-based application versions.
         :param pulumi.Input[_builtins.bool] process: Pre-process and validate the environment manifest (`env.yaml`) and configuration files in the source bundle. Leave unset for the service default.
-        :param pulumi.Input[Union['ApplicationVersionSourceBundleArgs', 'ApplicationVersionSourceBundleArgsDict']] source_bundle: The Amazon S3 bucket and key that identify the location of the source bundle for this version.
+        :param pulumi.Input[Union['ApplicationVersionSourceBundleArgs', 'ApplicationVersionSourceBundleArgsDict', 'outputs.ApplicationVersionSourceBundle']] source_bundle: The Amazon S3 bucket and key that identify the location of the source bundle for this version.
         """
         ...
     @overload
@@ -173,11 +173,11 @@ class ApplicationVersion(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  application_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 build_configuration: pulumi.Input[Optional[Union['ApplicationVersionBuildConfigurationArgs', 'ApplicationVersionBuildConfigurationArgsDict']]] = None,
+                 build_configuration: pulumi.Input[Optional[Union['ApplicationVersionBuildConfigurationArgs', 'ApplicationVersionBuildConfigurationArgsDict', 'outputs.ApplicationVersionBuildConfiguration']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 image_configuration: pulumi.Input[Optional[Union['ApplicationVersionImageConfigurationArgs', 'ApplicationVersionImageConfigurationArgsDict']]] = None,
+                 image_configuration: pulumi.Input[Optional[Union['ApplicationVersionImageConfigurationArgs', 'ApplicationVersionImageConfigurationArgsDict', 'outputs.ApplicationVersionImageConfiguration']]] = None,
                  process: pulumi.Input[Optional[_builtins.bool]] = None,
-                 source_bundle: pulumi.Input[Optional[Union['ApplicationVersionSourceBundleArgs', 'ApplicationVersionSourceBundleArgsDict']]] = None,
+                 source_bundle: pulumi.Input[Optional[Union['ApplicationVersionSourceBundleArgs', 'ApplicationVersionSourceBundleArgsDict', 'outputs.ApplicationVersionSourceBundle']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

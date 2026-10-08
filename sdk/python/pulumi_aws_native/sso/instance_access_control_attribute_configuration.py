@@ -80,8 +80,8 @@ class InstanceAccessControlAttributeConfiguration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_control_attributes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['InstanceAccessControlAttributeConfigurationAccessControlAttributeArgs', 'InstanceAccessControlAttributeConfigurationAccessControlAttributeArgsDict']]]]] = None,
-                 instance_access_control_attribute_configuration: pulumi.Input[Optional[Union['InstanceAccessControlAttributeConfigurationPropertiesArgs', 'InstanceAccessControlAttributeConfigurationPropertiesArgsDict']]] = None,
+                 access_control_attributes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['InstanceAccessControlAttributeConfigurationAccessControlAttributeArgs', 'InstanceAccessControlAttributeConfigurationAccessControlAttributeArgsDict', 'outputs.InstanceAccessControlAttributeConfigurationAccessControlAttribute']]]]] = None,
+                 instance_access_control_attribute_configuration: pulumi.Input[Optional[Union['InstanceAccessControlAttributeConfigurationPropertiesArgs', 'InstanceAccessControlAttributeConfigurationPropertiesArgsDict', 'outputs.InstanceAccessControlAttributeConfigurationProperties']]] = None,
                  instance_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -124,8 +124,8 @@ class InstanceAccessControlAttributeConfiguration(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['InstanceAccessControlAttributeConfigurationAccessControlAttributeArgs', 'InstanceAccessControlAttributeConfigurationAccessControlAttributeArgsDict']]]] access_control_attributes: Lists the attributes that are configured for ABAC in the specified  instance.
-        :param pulumi.Input[Union['InstanceAccessControlAttributeConfigurationPropertiesArgs', 'InstanceAccessControlAttributeConfigurationPropertiesArgsDict']] instance_access_control_attribute_configuration: The InstanceAccessControlAttributeConfiguration property has been deprecated but is still supported for backwards compatibility purposes. We recomend that you use  AccessControlAttributes property instead.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['InstanceAccessControlAttributeConfigurationAccessControlAttributeArgs', 'InstanceAccessControlAttributeConfigurationAccessControlAttributeArgsDict', 'outputs.InstanceAccessControlAttributeConfigurationAccessControlAttribute']]]] access_control_attributes: Lists the attributes that are configured for ABAC in the specified  instance.
+        :param pulumi.Input[Union['InstanceAccessControlAttributeConfigurationPropertiesArgs', 'InstanceAccessControlAttributeConfigurationPropertiesArgsDict', 'outputs.InstanceAccessControlAttributeConfigurationProperties']] instance_access_control_attribute_configuration: The InstanceAccessControlAttributeConfiguration property has been deprecated but is still supported for backwards compatibility purposes. We recomend that you use  AccessControlAttributes property instead.
         :param pulumi.Input[_builtins.str] instance_arn: The ARN of the AWS SSO instance under which the operation will be executed.
         """
         ...
@@ -187,8 +187,8 @@ class InstanceAccessControlAttributeConfiguration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_control_attributes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['InstanceAccessControlAttributeConfigurationAccessControlAttributeArgs', 'InstanceAccessControlAttributeConfigurationAccessControlAttributeArgsDict']]]]] = None,
-                 instance_access_control_attribute_configuration: pulumi.Input[Optional[Union['InstanceAccessControlAttributeConfigurationPropertiesArgs', 'InstanceAccessControlAttributeConfigurationPropertiesArgsDict']]] = None,
+                 access_control_attributes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['InstanceAccessControlAttributeConfigurationAccessControlAttributeArgs', 'InstanceAccessControlAttributeConfigurationAccessControlAttributeArgsDict', 'outputs.InstanceAccessControlAttributeConfigurationAccessControlAttribute']]]]] = None,
+                 instance_access_control_attribute_configuration: pulumi.Input[Optional[Union['InstanceAccessControlAttributeConfigurationPropertiesArgs', 'InstanceAccessControlAttributeConfigurationPropertiesArgsDict', 'outputs.InstanceAccessControlAttributeConfigurationProperties']]] = None,
                  instance_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

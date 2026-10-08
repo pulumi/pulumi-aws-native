@@ -173,9 +173,9 @@ class Folder(pulumi.CustomResource):
                  folder_type: pulumi.Input[Optional['FolderType']] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  parent_folder_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 permissions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FolderResourcePermissionArgs', 'FolderResourcePermissionArgsDict']]]]] = None,
+                 permissions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FolderResourcePermissionArgs', 'FolderResourcePermissionArgsDict', 'outputs.FolderResourcePermission']]]]] = None,
                  sharing_model: pulumi.Input[Optional['FolderSharingModel']] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Definition of the AWS::QuickSight::Folder Resource Type.
@@ -187,11 +187,11 @@ class Folder(pulumi.CustomResource):
         :param pulumi.Input['FolderType'] folder_type: The type of folder it is.
         :param pulumi.Input[_builtins.str] name: A display name for the folder.
         :param pulumi.Input[_builtins.str] parent_folder_arn: The Amazon Resource Name (ARN) for the folder.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['FolderResourcePermissionArgs', 'FolderResourcePermissionArgsDict']]]] permissions: A structure that describes the principals and the resource-level permissions of a folder.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FolderResourcePermissionArgs', 'FolderResourcePermissionArgsDict', 'outputs.FolderResourcePermission']]]] permissions: A structure that describes the principals and the resource-level permissions of a folder.
                
                To specify no permissions, omit `Permissions` .
         :param pulumi.Input['FolderSharingModel'] sharing_model: The sharing scope of the folder.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: A list of tags for the folders that you want to apply overrides to.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: A list of tags for the folders that you want to apply overrides to.
         """
         ...
     @overload
@@ -222,9 +222,9 @@ class Folder(pulumi.CustomResource):
                  folder_type: pulumi.Input[Optional['FolderType']] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  parent_folder_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 permissions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FolderResourcePermissionArgs', 'FolderResourcePermissionArgsDict']]]]] = None,
+                 permissions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FolderResourcePermissionArgs', 'FolderResourcePermissionArgsDict', 'outputs.FolderResourcePermission']]]]] = None,
                  sharing_model: pulumi.Input[Optional['FolderSharingModel']] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -291,11 +291,11 @@ class Stack(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_endpoints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StackAccessEndpointArgs', 'StackAccessEndpointArgsDict']]]]] = None,
-                 agent_access_config: pulumi.Input[Optional[Union['StackAgentAccessConfigArgs', 'StackAgentAccessConfigArgsDict']]] = None,
-                 application_settings: pulumi.Input[Optional[Union['StackApplicationSettingsArgs', 'StackApplicationSettingsArgsDict']]] = None,
+                 access_endpoints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StackAccessEndpointArgs', 'StackAccessEndpointArgsDict', 'outputs.StackAccessEndpoint']]]]] = None,
+                 agent_access_config: pulumi.Input[Optional[Union['StackAgentAccessConfigArgs', 'StackAgentAccessConfigArgsDict', 'outputs.StackAgentAccessConfig']]] = None,
+                 application_settings: pulumi.Input[Optional[Union['StackApplicationSettingsArgs', 'StackApplicationSettingsArgsDict', 'outputs.StackApplicationSettings']]] = None,
                  attributes_to_delete: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 content_redirection: pulumi.Input[Optional[Union['StackContentRedirectionArgs', 'StackContentRedirectionArgsDict']]] = None,
+                 content_redirection: pulumi.Input[Optional[Union['StackContentRedirectionArgs', 'StackContentRedirectionArgsDict', 'outputs.StackContentRedirection']]] = None,
                  delete_storage_connectors: pulumi.Input[Optional[_builtins.bool]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -303,21 +303,21 @@ class Stack(pulumi.CustomResource):
                  feedback_url: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  redirect_url: pulumi.Input[Optional[_builtins.str]] = None,
-                 storage_connectors: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StackStorageConnectorArgs', 'StackStorageConnectorArgsDict']]]]] = None,
-                 streaming_experience_settings: pulumi.Input[Optional[Union['StackStreamingExperienceSettingsArgs', 'StackStreamingExperienceSettingsArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 user_settings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StackUserSettingArgs', 'StackUserSettingArgsDict']]]]] = None,
+                 storage_connectors: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StackStorageConnectorArgs', 'StackStorageConnectorArgsDict', 'outputs.StackStorageConnector']]]]] = None,
+                 streaming_experience_settings: pulumi.Input[Optional[Union['StackStreamingExperienceSettingsArgs', 'StackStreamingExperienceSettingsArgsDict', 'outputs.StackStreamingExperienceSettings']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
+                 user_settings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StackUserSettingArgs', 'StackUserSettingArgsDict', 'outputs.StackUserSetting']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::AppStream::Stack
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['StackAccessEndpointArgs', 'StackAccessEndpointArgsDict']]]] access_endpoints: The list of virtual private cloud (VPC) interface endpoint objects. Users of the stack can connect to AppStream 2.0 only through the specified endpoints.
-        :param pulumi.Input[Union['StackAgentAccessConfigArgs', 'StackAgentAccessConfigArgsDict']] agent_access_config: The configuration for agent access on the stack. If specified, agent access is enabled for the stack.
-        :param pulumi.Input[Union['StackApplicationSettingsArgs', 'StackApplicationSettingsArgsDict']] application_settings: The persistent application settings for users of the stack. When these settings are enabled, changes that users make to applications and Windows settings are automatically saved after each session and applied to the next session.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['StackAccessEndpointArgs', 'StackAccessEndpointArgsDict', 'outputs.StackAccessEndpoint']]]] access_endpoints: The list of virtual private cloud (VPC) interface endpoint objects. Users of the stack can connect to AppStream 2.0 only through the specified endpoints.
+        :param pulumi.Input[Union['StackAgentAccessConfigArgs', 'StackAgentAccessConfigArgsDict', 'outputs.StackAgentAccessConfig']] agent_access_config: The configuration for agent access on the stack. If specified, agent access is enabled for the stack.
+        :param pulumi.Input[Union['StackApplicationSettingsArgs', 'StackApplicationSettingsArgsDict', 'outputs.StackApplicationSettings']] application_settings: The persistent application settings for users of the stack. When these settings are enabled, changes that users make to applications and Windows settings are automatically saved after each session and applied to the next session.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] attributes_to_delete: The stack attributes to delete.
-        :param pulumi.Input[Union['StackContentRedirectionArgs', 'StackContentRedirectionArgsDict']] content_redirection: The content redirection settings for the stack. These settings control URL redirection between the streaming session and the local device.
+        :param pulumi.Input[Union['StackContentRedirectionArgs', 'StackContentRedirectionArgsDict', 'outputs.StackContentRedirection']] content_redirection: The content redirection settings for the stack. These settings control URL redirection between the streaming session and the local device.
         :param pulumi.Input[_builtins.bool] delete_storage_connectors: This parameter has been deprecated. Deletes the storage connectors currently enabled for the stack.
         :param pulumi.Input[_builtins.str] description: The description to display.
         :param pulumi.Input[_builtins.str] display_name: The stack name to display.
@@ -325,10 +325,10 @@ class Stack(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] feedback_url: The URL that users are redirected to after they click the Send Feedback link. If no URL is specified, no Send Feedback link is displayed.
         :param pulumi.Input[_builtins.str] name: The name of the stack.
         :param pulumi.Input[_builtins.str] redirect_url: The URL that users are redirected to after their streaming session ends.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['StackStorageConnectorArgs', 'StackStorageConnectorArgsDict']]]] storage_connectors: The storage connectors to enable.
-        :param pulumi.Input[Union['StackStreamingExperienceSettingsArgs', 'StackStreamingExperienceSettingsArgsDict']] streaming_experience_settings: The streaming protocol that you want your stack to prefer. This can be UDP or TCP. Currently, UDP is only supported in the Windows native client.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['StackUserSettingArgs', 'StackUserSettingArgsDict']]]] user_settings: The actions that are enabled or disabled for users during their streaming sessions. By default, these actions are enabled.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['StackStorageConnectorArgs', 'StackStorageConnectorArgsDict', 'outputs.StackStorageConnector']]]] storage_connectors: The storage connectors to enable.
+        :param pulumi.Input[Union['StackStreamingExperienceSettingsArgs', 'StackStreamingExperienceSettingsArgsDict', 'outputs.StackStreamingExperienceSettings']] streaming_experience_settings: The streaming protocol that you want your stack to prefer. This can be UDP or TCP. Currently, UDP is only supported in the Windows native client.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: An array of key-value pairs.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['StackUserSettingArgs', 'StackUserSettingArgsDict', 'outputs.StackUserSetting']]]] user_settings: The actions that are enabled or disabled for users during their streaming sessions. By default, these actions are enabled.
         """
         ...
     @overload
@@ -354,11 +354,11 @@ class Stack(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_endpoints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StackAccessEndpointArgs', 'StackAccessEndpointArgsDict']]]]] = None,
-                 agent_access_config: pulumi.Input[Optional[Union['StackAgentAccessConfigArgs', 'StackAgentAccessConfigArgsDict']]] = None,
-                 application_settings: pulumi.Input[Optional[Union['StackApplicationSettingsArgs', 'StackApplicationSettingsArgsDict']]] = None,
+                 access_endpoints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StackAccessEndpointArgs', 'StackAccessEndpointArgsDict', 'outputs.StackAccessEndpoint']]]]] = None,
+                 agent_access_config: pulumi.Input[Optional[Union['StackAgentAccessConfigArgs', 'StackAgentAccessConfigArgsDict', 'outputs.StackAgentAccessConfig']]] = None,
+                 application_settings: pulumi.Input[Optional[Union['StackApplicationSettingsArgs', 'StackApplicationSettingsArgsDict', 'outputs.StackApplicationSettings']]] = None,
                  attributes_to_delete: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 content_redirection: pulumi.Input[Optional[Union['StackContentRedirectionArgs', 'StackContentRedirectionArgsDict']]] = None,
+                 content_redirection: pulumi.Input[Optional[Union['StackContentRedirectionArgs', 'StackContentRedirectionArgsDict', 'outputs.StackContentRedirection']]] = None,
                  delete_storage_connectors: pulumi.Input[Optional[_builtins.bool]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -366,10 +366,10 @@ class Stack(pulumi.CustomResource):
                  feedback_url: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  redirect_url: pulumi.Input[Optional[_builtins.str]] = None,
-                 storage_connectors: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StackStorageConnectorArgs', 'StackStorageConnectorArgsDict']]]]] = None,
-                 streaming_experience_settings: pulumi.Input[Optional[Union['StackStreamingExperienceSettingsArgs', 'StackStreamingExperienceSettingsArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 user_settings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StackUserSettingArgs', 'StackUserSettingArgsDict']]]]] = None,
+                 storage_connectors: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StackStorageConnectorArgs', 'StackStorageConnectorArgsDict', 'outputs.StackStorageConnector']]]]] = None,
+                 streaming_experience_settings: pulumi.Input[Optional[Union['StackStreamingExperienceSettingsArgs', 'StackStreamingExperienceSettingsArgsDict', 'outputs.StackStreamingExperienceSettings']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
+                 user_settings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StackUserSettingArgs', 'StackUserSettingArgsDict', 'outputs.StackUserSetting']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
