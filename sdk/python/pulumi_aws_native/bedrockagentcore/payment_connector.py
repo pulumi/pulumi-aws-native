@@ -126,7 +126,7 @@ class PaymentConnector(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  connector_name: pulumi.Input[Optional[_builtins.str]] = None,
                  connector_type: pulumi.Input[Optional['PaymentConnectorType']] = None,
-                 credential_provider_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PaymentConnectorCredentialsProviderConfigurationArgs', 'PaymentConnectorCredentialsProviderConfigurationArgsDict']]]]] = None,
+                 credential_provider_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PaymentConnectorCredentialsProviderConfigurationArgs', 'PaymentConnectorCredentialsProviderConfigurationArgsDict', 'outputs.PaymentConnectorCredentialsProviderConfiguration']]]]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  payment_manager_id: pulumi.Input[Optional[_builtins.str]] = None,
                  provision_mode: pulumi.Input[Optional['PaymentConnectorProvisionMode']] = None,
@@ -137,7 +137,7 @@ class PaymentConnector(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] connector_name: The name of the payment connector
-        :param pulumi.Input[Sequence[pulumi.Input[Union['PaymentConnectorCredentialsProviderConfigurationArgs', 'PaymentConnectorCredentialsProviderConfigurationArgsDict']]]] credential_provider_configurations: The credential provider configurations for the connector. Required when ProvisionMode is MANUAL or not specified. Empty for QUICK_CREATE until provisioning completes.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['PaymentConnectorCredentialsProviderConfigurationArgs', 'PaymentConnectorCredentialsProviderConfigurationArgsDict', 'outputs.PaymentConnectorCredentialsProviderConfiguration']]]] credential_provider_configurations: The credential provider configurations for the connector. Required when ProvisionMode is MANUAL or not specified. Empty for QUICK_CREATE until provisioning completes.
         :param pulumi.Input[_builtins.str] description: A description of the payment connector
         :param pulumi.Input[_builtins.str] payment_manager_id: The identifier of the parent payment manager
         :param pulumi.Input['PaymentConnectorProvisionMode'] provision_mode: The provision mode for creating the connector. MANUAL requires CredentialProviderConfigurations; QUICK_CREATE orchestrates OAuth consent and credential provisioning.
@@ -168,7 +168,7 @@ class PaymentConnector(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  connector_name: pulumi.Input[Optional[_builtins.str]] = None,
                  connector_type: pulumi.Input[Optional['PaymentConnectorType']] = None,
-                 credential_provider_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PaymentConnectorCredentialsProviderConfigurationArgs', 'PaymentConnectorCredentialsProviderConfigurationArgsDict']]]]] = None,
+                 credential_provider_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PaymentConnectorCredentialsProviderConfigurationArgs', 'PaymentConnectorCredentialsProviderConfigurationArgsDict', 'outputs.PaymentConnectorCredentialsProviderConfiguration']]]]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  payment_manager_id: pulumi.Input[Optional[_builtins.str]] = None,
                  provision_mode: pulumi.Input[Optional['PaymentConnectorProvisionMode']] = None,

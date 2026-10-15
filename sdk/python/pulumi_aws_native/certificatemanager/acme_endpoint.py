@@ -110,10 +110,10 @@ class AcmeEndpoint(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  authorization_behavior: pulumi.Input[Optional[_builtins.str]] = None,
-                 certificate_authority: pulumi.Input[Optional[Union['AcmeEndpointCertificateAuthorityArgs', 'AcmeEndpointCertificateAuthorityArgsDict']]] = None,
-                 certificate_tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AcmeEndpointTagArgs', 'AcmeEndpointTagArgsDict']]]]] = None,
+                 certificate_authority: pulumi.Input[Optional[Union['AcmeEndpointCertificateAuthorityArgs', 'AcmeEndpointCertificateAuthorityArgsDict', 'outputs.AcmeEndpointCertificateAuthority']]] = None,
+                 certificate_tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AcmeEndpointTagArgs', 'AcmeEndpointTagArgsDict', 'outputs.AcmeEndpointTag']]]]] = None,
                  contact: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::CertificateManager::AcmeEndpoint
@@ -121,9 +121,9 @@ class AcmeEndpoint(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] authorization_behavior: The authorization behavior for the ACME endpoint.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AcmeEndpointTagArgs', 'AcmeEndpointTagArgsDict']]]] certificate_tags: Tags applied to certificates issued via this endpoint.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AcmeEndpointTagArgs', 'AcmeEndpointTagArgsDict', 'outputs.AcmeEndpointTag']]]] certificate_tags: Tags applied to certificates issued via this endpoint.
         :param pulumi.Input[_builtins.str] contact: Whether contact information is required for the ACME endpoint.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Tags associated with the ACME endpoint.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: Tags associated with the ACME endpoint.
         """
         ...
     @overload
@@ -150,10 +150,10 @@ class AcmeEndpoint(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  authorization_behavior: pulumi.Input[Optional[_builtins.str]] = None,
-                 certificate_authority: pulumi.Input[Optional[Union['AcmeEndpointCertificateAuthorityArgs', 'AcmeEndpointCertificateAuthorityArgsDict']]] = None,
-                 certificate_tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AcmeEndpointTagArgs', 'AcmeEndpointTagArgsDict']]]]] = None,
+                 certificate_authority: pulumi.Input[Optional[Union['AcmeEndpointCertificateAuthorityArgs', 'AcmeEndpointCertificateAuthorityArgsDict', 'outputs.AcmeEndpointCertificateAuthority']]] = None,
+                 certificate_tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AcmeEndpointTagArgs', 'AcmeEndpointTagArgsDict', 'outputs.AcmeEndpointTag']]]]] = None,
                  contact: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

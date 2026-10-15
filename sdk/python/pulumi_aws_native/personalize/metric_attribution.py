@@ -91,8 +91,8 @@ class MetricAttribution(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  dataset_group_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 metrics: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MetricAttributionMetricAttributeArgs', 'MetricAttributionMetricAttributeArgsDict']]]]] = None,
-                 metrics_output_config: pulumi.Input[Optional[Union['MetricAttributionMetricsOutputConfigArgs', 'MetricAttributionMetricsOutputConfigArgsDict']]] = None,
+                 metrics: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MetricAttributionMetricAttributeArgs', 'MetricAttributionMetricAttributeArgsDict', 'outputs.MetricAttributionMetricAttribute']]]]] = None,
+                 metrics_output_config: pulumi.Input[Optional[Union['MetricAttributionMetricsOutputConfigArgs', 'MetricAttributionMetricsOutputConfigArgsDict', 'outputs.MetricAttributionMetricsOutputConfig']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -101,7 +101,7 @@ class MetricAttribution(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] dataset_group_arn: The ARN of the destination dataset group.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['MetricAttributionMetricAttributeArgs', 'MetricAttributionMetricAttributeArgsDict']]]] metrics: A list of metric attributes for the metric attribution.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['MetricAttributionMetricAttributeArgs', 'MetricAttributionMetricAttributeArgsDict', 'outputs.MetricAttributionMetricAttribute']]]] metrics: A list of metric attributes for the metric attribution.
         :param pulumi.Input[_builtins.str] name: The name of the metric attribution.
         """
         ...
@@ -129,8 +129,8 @@ class MetricAttribution(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  dataset_group_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 metrics: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MetricAttributionMetricAttributeArgs', 'MetricAttributionMetricAttributeArgsDict']]]]] = None,
-                 metrics_output_config: pulumi.Input[Optional[Union['MetricAttributionMetricsOutputConfigArgs', 'MetricAttributionMetricsOutputConfigArgsDict']]] = None,
+                 metrics: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MetricAttributionMetricAttributeArgs', 'MetricAttributionMetricAttributeArgsDict', 'outputs.MetricAttributionMetricAttribute']]]]] = None,
+                 metrics_output_config: pulumi.Input[Optional[Union['MetricAttributionMetricsOutputConfigArgs', 'MetricAttributionMetricsOutputConfigArgsDict', 'outputs.MetricAttributionMetricsOutputConfig']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

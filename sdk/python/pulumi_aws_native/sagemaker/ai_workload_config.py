@@ -100,9 +100,9 @@ class AiWorkloadConfig(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  ai_workload_config_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 ai_workload_configs: pulumi.Input[Optional[Union['AiWorkloadConfigAiWorkloadConfigsArgs', 'AiWorkloadConfigAiWorkloadConfigsArgsDict']]] = None,
-                 dataset_config: pulumi.Input[Optional[Union['AiWorkloadConfigAiDatasetConfigArgs', 'AiWorkloadConfigAiDatasetConfigArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 ai_workload_configs: pulumi.Input[Optional[Union['AiWorkloadConfigAiWorkloadConfigsArgs', 'AiWorkloadConfigAiWorkloadConfigsArgsDict', 'outputs.AiWorkloadConfigAiWorkloadConfigs']]] = None,
+                 dataset_config: pulumi.Input[Optional[Union['AiWorkloadConfigAiDatasetConfigArgs', 'AiWorkloadConfigAiDatasetConfigArgsDict', 'outputs.AiWorkloadConfigAiDatasetConfig']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::SageMaker::AIWorkloadConfig. A reusable AI workload configuration that defines datasets, data sources and benchmark tool settings for consistent performance testing of generative AI inference deployments on Amazon SageMaker AI.
@@ -110,9 +110,9 @@ class AiWorkloadConfig(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] ai_workload_config_name: The name of the AI workload configuration. The name must be unique within your AWS account in the current AWS Region. Only lowercase letters and digits are accepted: DeleteAIWorkloadConfig lowercases the name before looking it up, so a name containing an uppercase letter produces a configuration that can be created and read but never deleted.
-        :param pulumi.Input[Union['AiWorkloadConfigAiWorkloadConfigsArgs', 'AiWorkloadConfigAiWorkloadConfigsArgsDict']] ai_workload_configs: The benchmark tool configuration and workload specification.
-        :param pulumi.Input[Union['AiWorkloadConfigAiDatasetConfigArgs', 'AiWorkloadConfigAiDatasetConfigArgsDict']] dataset_config: The dataset configuration for the workload. Specify input data channels with their data sources for benchmark workloads.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The metadata that you apply to the AI workload configuration to help you categorize and organize it.
+        :param pulumi.Input[Union['AiWorkloadConfigAiWorkloadConfigsArgs', 'AiWorkloadConfigAiWorkloadConfigsArgsDict', 'outputs.AiWorkloadConfigAiWorkloadConfigs']] ai_workload_configs: The benchmark tool configuration and workload specification.
+        :param pulumi.Input[Union['AiWorkloadConfigAiDatasetConfigArgs', 'AiWorkloadConfigAiDatasetConfigArgsDict', 'outputs.AiWorkloadConfigAiDatasetConfig']] dataset_config: The dataset configuration for the workload. Specify input data channels with their data sources for benchmark workloads.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: The metadata that you apply to the AI workload configuration to help you categorize and organize it.
         """
         ...
     @overload
@@ -139,9 +139,9 @@ class AiWorkloadConfig(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  ai_workload_config_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 ai_workload_configs: pulumi.Input[Optional[Union['AiWorkloadConfigAiWorkloadConfigsArgs', 'AiWorkloadConfigAiWorkloadConfigsArgsDict']]] = None,
-                 dataset_config: pulumi.Input[Optional[Union['AiWorkloadConfigAiDatasetConfigArgs', 'AiWorkloadConfigAiDatasetConfigArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 ai_workload_configs: pulumi.Input[Optional[Union['AiWorkloadConfigAiWorkloadConfigsArgs', 'AiWorkloadConfigAiWorkloadConfigsArgsDict', 'outputs.AiWorkloadConfigAiWorkloadConfigs']]] = None,
+                 dataset_config: pulumi.Input[Optional[Union['AiWorkloadConfigAiDatasetConfigArgs', 'AiWorkloadConfigAiDatasetConfigArgsDict', 'outputs.AiWorkloadConfigAiDatasetConfig']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

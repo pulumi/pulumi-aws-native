@@ -200,7 +200,7 @@ class TypeActivation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auto_update: pulumi.Input[Optional[_builtins.bool]] = None,
                  execution_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 logging_config: pulumi.Input[Optional[Union['TypeActivationLoggingConfigArgs', 'TypeActivationLoggingConfigArgsDict']]] = None,
+                 logging_config: pulumi.Input[Optional[Union['TypeActivationLoggingConfigArgs', 'TypeActivationLoggingConfigArgsDict', 'outputs.TypeActivationLoggingConfig']]] = None,
                  major_version: pulumi.Input[Optional[_builtins.str]] = None,
                  public_type_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  publisher_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -216,7 +216,7 @@ class TypeActivation(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] auto_update: Whether to automatically update the extension in this account and region when a new minor version is published by the extension publisher. Major versions released by the publisher must be manually updated.
         :param pulumi.Input[_builtins.str] execution_role_arn: The Amazon Resource Name (ARN) of the IAM execution role to use to register the type. If your resource type calls AWS APIs in any of its handlers, you must create an IAM execution role that includes the necessary permissions to call those AWS APIs, and provision that execution role in your account. CloudFormation then assumes that execution role to provide your resource type with the appropriate credentials.
-        :param pulumi.Input[Union['TypeActivationLoggingConfigArgs', 'TypeActivationLoggingConfigArgsDict']] logging_config: Specifies logging configuration information for a type.
+        :param pulumi.Input[Union['TypeActivationLoggingConfigArgs', 'TypeActivationLoggingConfigArgsDict', 'outputs.TypeActivationLoggingConfig']] logging_config: Specifies logging configuration information for a type.
         :param pulumi.Input[_builtins.str] major_version: The Major Version of the type you want to enable
         :param pulumi.Input[_builtins.str] public_type_arn: The Amazon Resource Number (ARN) assigned to the public extension upon publication
         :param pulumi.Input[_builtins.str] publisher_id: The reserved publisher id for this type, or the publisher id assigned by CloudFormation for publishing in this region.
@@ -253,7 +253,7 @@ class TypeActivation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auto_update: pulumi.Input[Optional[_builtins.bool]] = None,
                  execution_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 logging_config: pulumi.Input[Optional[Union['TypeActivationLoggingConfigArgs', 'TypeActivationLoggingConfigArgsDict']]] = None,
+                 logging_config: pulumi.Input[Optional[Union['TypeActivationLoggingConfigArgs', 'TypeActivationLoggingConfigArgsDict', 'outputs.TypeActivationLoggingConfig']]] = None,
                  major_version: pulumi.Input[Optional[_builtins.str]] = None,
                  public_type_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  publisher_id: pulumi.Input[Optional[_builtins.str]] = None,

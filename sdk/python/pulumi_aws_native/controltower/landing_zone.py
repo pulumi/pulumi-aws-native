@@ -102,7 +102,7 @@ class LandingZone(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  manifest: Optional[Any] = None,
                  remediation_types: pulumi.Input[Optional[Sequence[pulumi.Input['LandingZoneRemediationTypesItem']]]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  version: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -114,7 +114,7 @@ class LandingZone(pulumi.CustomResource):
                
                Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ControlTower::LandingZone` for more information about the expected schema for this property.
         :param pulumi.Input[Sequence[pulumi.Input['LandingZoneRemediationTypesItem']]] remediation_types: The types of remediation actions configured for the landing zone, such as automatic drift correction or compliance enforcement.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Tags to be applied to the landing zone.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: Tags to be applied to the landing zone.
         :param pulumi.Input[_builtins.str] version: The landing zone's current deployed version.
         """
         ...
@@ -143,7 +143,7 @@ class LandingZone(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  manifest: Optional[Any] = None,
                  remediation_types: pulumi.Input[Optional[Sequence[pulumi.Input['LandingZoneRemediationTypesItem']]]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  version: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

@@ -148,7 +148,7 @@ class VpcPeeringConnection(pulumi.CustomResource):
                  peer_region: pulumi.Input[Optional[_builtins.str]] = None,
                  peer_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  peer_vpc_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  vpc_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -161,7 +161,7 @@ class VpcPeeringConnection(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] peer_region: The Region code for the accepter VPC, if the accepter VPC is located in a Region other than the Region in which you make the request.
         :param pulumi.Input[_builtins.str] peer_role_arn: The Amazon Resource Name (ARN) of the VPC peer role for the peering connection in another AWS account.
         :param pulumi.Input[_builtins.str] peer_vpc_id: The ID of the VPC with which you are creating the VPC peering connection. You must specify this parameter in the request.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Any tags assigned to the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: Any tags assigned to the resource.
         :param pulumi.Input[_builtins.str] vpc_id: The ID of the VPC.
         """
         ...
@@ -193,7 +193,7 @@ class VpcPeeringConnection(pulumi.CustomResource):
                  peer_region: pulumi.Input[Optional[_builtins.str]] = None,
                  peer_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  peer_vpc_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  vpc_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

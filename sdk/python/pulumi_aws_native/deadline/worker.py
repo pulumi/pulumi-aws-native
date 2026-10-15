@@ -100,8 +100,8 @@ class Worker(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  farm_id: pulumi.Input[Optional[_builtins.str]] = None,
                  fleet_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 host_properties: pulumi.Input[Optional[Union['WorkerHostPropertiesRequestArgs', 'WorkerHostPropertiesRequestArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 host_properties: pulumi.Input[Optional[Union['WorkerHostPropertiesRequestArgs', 'WorkerHostPropertiesRequestArgsDict', 'outputs.WorkerHostPropertiesRequest']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Definition of AWS::Deadline::Worker Resource Type
@@ -110,8 +110,8 @@ class Worker(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] farm_id: The farm ID.
         :param pulumi.Input[_builtins.str] fleet_id: The fleet ID.
-        :param pulumi.Input[Union['WorkerHostPropertiesRequestArgs', 'WorkerHostPropertiesRequestArgsDict']] host_properties: The IP address and host name of the worker.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Union['WorkerHostPropertiesRequestArgs', 'WorkerHostPropertiesRequestArgsDict', 'outputs.WorkerHostPropertiesRequest']] host_properties: The IP address and host name of the worker.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
     @overload
@@ -139,8 +139,8 @@ class Worker(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  farm_id: pulumi.Input[Optional[_builtins.str]] = None,
                  fleet_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 host_properties: pulumi.Input[Optional[Union['WorkerHostPropertiesRequestArgs', 'WorkerHostPropertiesRequestArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 host_properties: pulumi.Input[Optional[Union['WorkerHostPropertiesRequestArgs', 'WorkerHostPropertiesRequestArgsDict', 'outputs.WorkerHostPropertiesRequest']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

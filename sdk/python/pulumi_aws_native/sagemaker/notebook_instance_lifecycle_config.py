@@ -100,9 +100,9 @@ class NotebookInstanceLifecycleConfig(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  notebook_instance_lifecycle_config_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 on_create: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NotebookInstanceLifecycleConfigNotebookInstanceLifecycleHookArgs', 'NotebookInstanceLifecycleConfigNotebookInstanceLifecycleHookArgsDict']]]]] = None,
-                 on_start: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NotebookInstanceLifecycleConfigNotebookInstanceLifecycleHookArgs', 'NotebookInstanceLifecycleConfigNotebookInstanceLifecycleHookArgsDict']]]]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 on_create: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NotebookInstanceLifecycleConfigNotebookInstanceLifecycleHookArgs', 'NotebookInstanceLifecycleConfigNotebookInstanceLifecycleHookArgsDict', 'outputs.NotebookInstanceLifecycleConfigNotebookInstanceLifecycleHook']]]]] = None,
+                 on_start: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NotebookInstanceLifecycleConfigNotebookInstanceLifecycleHookArgs', 'NotebookInstanceLifecycleConfigNotebookInstanceLifecycleHookArgsDict', 'outputs.NotebookInstanceLifecycleConfigNotebookInstanceLifecycleHook']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::SageMaker::NotebookInstanceLifecycleConfig
@@ -110,9 +110,9 @@ class NotebookInstanceLifecycleConfig(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] notebook_instance_lifecycle_config_name: The name of the lifecycle configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['NotebookInstanceLifecycleConfigNotebookInstanceLifecycleHookArgs', 'NotebookInstanceLifecycleConfigNotebookInstanceLifecycleHookArgsDict']]]] on_create: A shell script that runs only once, when you create a notebook instance. The shell script must be a base64-encoded string.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['NotebookInstanceLifecycleConfigNotebookInstanceLifecycleHookArgs', 'NotebookInstanceLifecycleConfigNotebookInstanceLifecycleHookArgsDict']]]] on_start: A shell script that runs every time you start a notebook instance, including when you create the notebook instance. The shell script must be a base64-encoded string.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['NotebookInstanceLifecycleConfigNotebookInstanceLifecycleHookArgs', 'NotebookInstanceLifecycleConfigNotebookInstanceLifecycleHookArgsDict', 'outputs.NotebookInstanceLifecycleConfigNotebookInstanceLifecycleHook']]]] on_create: A shell script that runs only once, when you create a notebook instance. The shell script must be a base64-encoded string.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['NotebookInstanceLifecycleConfigNotebookInstanceLifecycleHookArgs', 'NotebookInstanceLifecycleConfigNotebookInstanceLifecycleHookArgsDict', 'outputs.NotebookInstanceLifecycleConfigNotebookInstanceLifecycleHook']]]] on_start: A shell script that runs every time you start a notebook instance, including when you create the notebook instance. The shell script must be a base64-encoded string.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
     @overload
@@ -139,9 +139,9 @@ class NotebookInstanceLifecycleConfig(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  notebook_instance_lifecycle_config_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 on_create: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NotebookInstanceLifecycleConfigNotebookInstanceLifecycleHookArgs', 'NotebookInstanceLifecycleConfigNotebookInstanceLifecycleHookArgsDict']]]]] = None,
-                 on_start: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NotebookInstanceLifecycleConfigNotebookInstanceLifecycleHookArgs', 'NotebookInstanceLifecycleConfigNotebookInstanceLifecycleHookArgsDict']]]]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 on_create: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NotebookInstanceLifecycleConfigNotebookInstanceLifecycleHookArgs', 'NotebookInstanceLifecycleConfigNotebookInstanceLifecycleHookArgsDict', 'outputs.NotebookInstanceLifecycleConfigNotebookInstanceLifecycleHook']]]]] = None,
+                 on_start: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NotebookInstanceLifecycleConfigNotebookInstanceLifecycleHookArgs', 'NotebookInstanceLifecycleConfigNotebookInstanceLifecycleHookArgsDict', 'outputs.NotebookInstanceLifecycleConfigNotebookInstanceLifecycleHook']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

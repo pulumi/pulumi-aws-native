@@ -38,7 +38,7 @@ class GetTemplateResult:
 
     @_builtins.property
     @pulumi.getter
-    def definition(self) -> Optional[Any]:
+    def definition(self) -> Optional[Union['outputs.TemplateDefinition0Properties', 'outputs.TemplateDefinition1Properties', 'outputs.TemplateDefinition2Properties']]:
         """
         Template configuration to define the information included in certificates. Define certificate validity and renewal periods, certificate request handling and enrollment options, key usage extensions, application policies, and cryptography settings.
         """

@@ -160,12 +160,12 @@ class Program(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 ad_breaks: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ProgramAdBreakArgs', 'ProgramAdBreakArgsDict']]]]] = None,
-                 audience_media: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ProgramAudienceMediaArgs', 'ProgramAudienceMediaArgsDict']]]]] = None,
+                 ad_breaks: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ProgramAdBreakArgs', 'ProgramAdBreakArgsDict', 'outputs.ProgramAdBreak']]]]] = None,
+                 audience_media: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ProgramAudienceMediaArgs', 'ProgramAudienceMediaArgsDict', 'outputs.ProgramAudienceMedia']]]]] = None,
                  channel_name: pulumi.Input[Optional[_builtins.str]] = None,
                  live_source_name: pulumi.Input[Optional[_builtins.str]] = None,
                  program_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 schedule_configuration: pulumi.Input[Optional[Union['ProgramScheduleConfigurationArgs', 'ProgramScheduleConfigurationArgsDict']]] = None,
+                 schedule_configuration: pulumi.Input[Optional[Union['ProgramScheduleConfigurationArgs', 'ProgramScheduleConfigurationArgsDict', 'outputs.ProgramScheduleConfiguration']]] = None,
                  source_location_name: pulumi.Input[Optional[_builtins.str]] = None,
                  vod_source_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -174,12 +174,12 @@ class Program(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ProgramAdBreakArgs', 'ProgramAdBreakArgsDict']]]] ad_breaks: The ad break configuration settings.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ProgramAudienceMediaArgs', 'ProgramAudienceMediaArgsDict']]]] audience_media: The list of AudienceMedia defined in program.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ProgramAdBreakArgs', 'ProgramAdBreakArgsDict', 'outputs.ProgramAdBreak']]]] ad_breaks: The ad break configuration settings.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ProgramAudienceMediaArgs', 'ProgramAudienceMediaArgsDict', 'outputs.ProgramAudienceMedia']]]] audience_media: The list of AudienceMedia defined in program.
         :param pulumi.Input[_builtins.str] channel_name: The name of the channel for this Program.
         :param pulumi.Input[_builtins.str] live_source_name: The name of the LiveSource for this Program.
         :param pulumi.Input[_builtins.str] program_name: The name of the Program.
-        :param pulumi.Input[Union['ProgramScheduleConfigurationArgs', 'ProgramScheduleConfigurationArgsDict']] schedule_configuration: The schedule configuration settings.
+        :param pulumi.Input[Union['ProgramScheduleConfigurationArgs', 'ProgramScheduleConfigurationArgsDict', 'outputs.ProgramScheduleConfiguration']] schedule_configuration: The schedule configuration settings.
         :param pulumi.Input[_builtins.str] source_location_name: The name of the source location.
         :param pulumi.Input[_builtins.str] vod_source_name: The name that's used to refer to a VOD source.
         """
@@ -207,12 +207,12 @@ class Program(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 ad_breaks: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ProgramAdBreakArgs', 'ProgramAdBreakArgsDict']]]]] = None,
-                 audience_media: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ProgramAudienceMediaArgs', 'ProgramAudienceMediaArgsDict']]]]] = None,
+                 ad_breaks: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ProgramAdBreakArgs', 'ProgramAdBreakArgsDict', 'outputs.ProgramAdBreak']]]]] = None,
+                 audience_media: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ProgramAudienceMediaArgs', 'ProgramAudienceMediaArgsDict', 'outputs.ProgramAudienceMedia']]]]] = None,
                  channel_name: pulumi.Input[Optional[_builtins.str]] = None,
                  live_source_name: pulumi.Input[Optional[_builtins.str]] = None,
                  program_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 schedule_configuration: pulumi.Input[Optional[Union['ProgramScheduleConfigurationArgs', 'ProgramScheduleConfigurationArgsDict']]] = None,
+                 schedule_configuration: pulumi.Input[Optional[Union['ProgramScheduleConfigurationArgs', 'ProgramScheduleConfigurationArgsDict', 'outputs.ProgramScheduleConfiguration']]] = None,
                  source_location_name: pulumi.Input[Optional[_builtins.str]] = None,
                  vod_source_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):

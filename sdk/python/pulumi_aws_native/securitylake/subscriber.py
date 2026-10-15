@@ -150,11 +150,11 @@ class Subscriber(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  access_types: pulumi.Input[Optional[Sequence[pulumi.Input['SubscriberAccessTypesItem']]]] = None,
                  data_lake_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 sources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SubscriberSourceArgs', 'SubscriberSourceArgsDict']]]]] = None,
+                 sources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SubscriberSourceArgs', 'SubscriberSourceArgsDict', 'outputs.SubscriberSource']]]]] = None,
                  subscriber_description: pulumi.Input[Optional[_builtins.str]] = None,
-                 subscriber_identity: pulumi.Input[Optional[Union['SubscriberIdentityPropertiesArgs', 'SubscriberIdentityPropertiesArgsDict']]] = None,
+                 subscriber_identity: pulumi.Input[Optional[Union['SubscriberIdentityPropertiesArgs', 'SubscriberIdentityPropertiesArgsDict', 'outputs.SubscriberIdentityProperties']]] = None,
                  subscriber_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::SecurityLake::Subscriber
@@ -165,11 +165,11 @@ class Subscriber(pulumi.CustomResource):
                
                Subscribers can consume data by directly querying AWS Lake Formation tables in your Amazon S3 bucket through services like Amazon Athena. This subscription type is defined as `LAKEFORMATION` .
         :param pulumi.Input[_builtins.str] data_lake_arn: The ARN for the data lake.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['SubscriberSourceArgs', 'SubscriberSourceArgsDict']]]] sources: The supported AWS services from which logs and events are collected.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SubscriberSourceArgs', 'SubscriberSourceArgsDict', 'outputs.SubscriberSource']]]] sources: The supported AWS services from which logs and events are collected.
         :param pulumi.Input[_builtins.str] subscriber_description: The description for your subscriber account in Security Lake.
-        :param pulumi.Input[Union['SubscriberIdentityPropertiesArgs', 'SubscriberIdentityPropertiesArgsDict']] subscriber_identity: The AWS identity used to access your data.
+        :param pulumi.Input[Union['SubscriberIdentityPropertiesArgs', 'SubscriberIdentityPropertiesArgsDict', 'outputs.SubscriberIdentityProperties']] subscriber_identity: The AWS identity used to access your data.
         :param pulumi.Input[_builtins.str] subscriber_name: The name of your Security Lake subscriber account.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of objects, one for each tag to associate with the subscriber. For each tag, you must specify both a tag key and a tag value. A tag value cannot be null, but it can be an empty string.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: An array of objects, one for each tag to associate with the subscriber. For each tag, you must specify both a tag key and a tag value. A tag value cannot be null, but it can be an empty string.
         """
         ...
     @overload
@@ -197,11 +197,11 @@ class Subscriber(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  access_types: pulumi.Input[Optional[Sequence[pulumi.Input['SubscriberAccessTypesItem']]]] = None,
                  data_lake_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 sources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SubscriberSourceArgs', 'SubscriberSourceArgsDict']]]]] = None,
+                 sources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SubscriberSourceArgs', 'SubscriberSourceArgsDict', 'outputs.SubscriberSource']]]]] = None,
                  subscriber_description: pulumi.Input[Optional[_builtins.str]] = None,
-                 subscriber_identity: pulumi.Input[Optional[Union['SubscriberIdentityPropertiesArgs', 'SubscriberIdentityPropertiesArgsDict']]] = None,
+                 subscriber_identity: pulumi.Input[Optional[Union['SubscriberIdentityPropertiesArgs', 'SubscriberIdentityPropertiesArgsDict', 'outputs.SubscriberIdentityProperties']]] = None,
                  subscriber_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

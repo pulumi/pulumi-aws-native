@@ -386,10 +386,10 @@ class FlowOutput(pulumi.CustomResource):
                  cidr_allow_list: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  destination: pulumi.Input[Optional[_builtins.str]] = None,
-                 encryption: pulumi.Input[Optional[Union['FlowOutputEncryptionArgs', 'FlowOutputEncryptionArgsDict']]] = None,
+                 encryption: pulumi.Input[Optional[Union['FlowOutputEncryptionArgs', 'FlowOutputEncryptionArgsDict', 'outputs.FlowOutputEncryption']]] = None,
                  flow_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  max_latency: pulumi.Input[Optional[_builtins.int]] = None,
-                 media_stream_output_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FlowOutputMediaStreamOutputConfigurationArgs', 'FlowOutputMediaStreamOutputConfigurationArgsDict']]]]] = None,
+                 media_stream_output_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FlowOutputMediaStreamOutputConfigurationArgs', 'FlowOutputMediaStreamOutputConfigurationArgsDict', 'outputs.FlowOutputMediaStreamOutputConfiguration']]]]] = None,
                  min_latency: pulumi.Input[Optional[_builtins.int]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  ndi_output_timecode_source: pulumi.Input[Optional['FlowOutputNdiOutputTimecodeSource']] = None,
@@ -400,11 +400,11 @@ class FlowOutput(pulumi.CustomResource):
                  protocol: pulumi.Input[Optional['FlowOutputProtocol']] = None,
                  remote_id: pulumi.Input[Optional[_builtins.str]] = None,
                  router_integration_state: pulumi.Input[Optional['FlowOutputRouterIntegrationState']] = None,
-                 router_integration_transit_encryption: pulumi.Input[Optional[Union['FlowOutputFlowTransitEncryptionArgs', 'FlowOutputFlowTransitEncryptionArgsDict']]] = None,
+                 router_integration_transit_encryption: pulumi.Input[Optional[Union['FlowOutputFlowTransitEncryptionArgs', 'FlowOutputFlowTransitEncryptionArgsDict', 'outputs.FlowOutputFlowTransitEncryption']]] = None,
                  smoothing_latency: pulumi.Input[Optional[_builtins.int]] = None,
                  stream_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 vpc_interface_attachment: pulumi.Input[Optional[Union['FlowOutputVpcInterfaceAttachmentArgs', 'FlowOutputVpcInterfaceAttachmentArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
+                 vpc_interface_attachment: pulumi.Input[Optional[Union['FlowOutputVpcInterfaceAttachmentArgs', 'FlowOutputVpcInterfaceAttachmentArgsDict', 'outputs.FlowOutputVpcInterfaceAttachment']]] = None,
                  __props__=None):
         """
         Resource schema for AWS::MediaConnect::FlowOutput
@@ -414,10 +414,10 @@ class FlowOutput(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] cidr_allow_list: The range of IP addresses that should be allowed to initiate output requests to this flow. These IP addresses should be in the form of a Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0/16.
         :param pulumi.Input[_builtins.str] description: A description of the output.
         :param pulumi.Input[_builtins.str] destination: The address where you want to send the output.
-        :param pulumi.Input[Union['FlowOutputEncryptionArgs', 'FlowOutputEncryptionArgsDict']] encryption: The type of key used for the encryption. If no keyType is provided, the service will use the default setting (static-key).
+        :param pulumi.Input[Union['FlowOutputEncryptionArgs', 'FlowOutputEncryptionArgsDict', 'outputs.FlowOutputEncryption']] encryption: The type of key used for the encryption. If no keyType is provided, the service will use the default setting (static-key).
         :param pulumi.Input[_builtins.str] flow_arn: The Amazon Resource Name (ARN), a unique identifier for any AWS resource, of the flow.
         :param pulumi.Input[_builtins.int] max_latency: The maximum latency in milliseconds. This parameter applies only to RIST-based and Zixi-based streams.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['FlowOutputMediaStreamOutputConfigurationArgs', 'FlowOutputMediaStreamOutputConfigurationArgsDict']]]] media_stream_output_configurations: The definition for each media stream that is associated with the output.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FlowOutputMediaStreamOutputConfigurationArgs', 'FlowOutputMediaStreamOutputConfigurationArgsDict', 'outputs.FlowOutputMediaStreamOutputConfiguration']]]] media_stream_output_configurations: The definition for each media stream that is associated with the output.
         :param pulumi.Input[_builtins.int] min_latency: The minimum latency in milliseconds.
         :param pulumi.Input[_builtins.str] name: The name of the output. This value must be unique within the current flow.
         :param pulumi.Input['FlowOutputNdiOutputTimecodeSource'] ndi_output_timecode_source: The timecode source for the NDI output.
@@ -427,11 +427,11 @@ class FlowOutput(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] port: The port to use when content is distributed to this output.
         :param pulumi.Input['FlowOutputProtocol'] protocol: The protocol that is used by the source or output.
         :param pulumi.Input[_builtins.str] remote_id: The remote ID for the Zixi-pull stream.
-        :param pulumi.Input[Union['FlowOutputFlowTransitEncryptionArgs', 'FlowOutputFlowTransitEncryptionArgsDict']] router_integration_transit_encryption: Encryption information.
+        :param pulumi.Input[Union['FlowOutputFlowTransitEncryptionArgs', 'FlowOutputFlowTransitEncryptionArgsDict', 'outputs.FlowOutputFlowTransitEncryption']] router_integration_transit_encryption: Encryption information.
         :param pulumi.Input[_builtins.int] smoothing_latency: The smoothing latency in milliseconds for RIST, RTP, and RTP-FEC streams.
         :param pulumi.Input[_builtins.str] stream_id: The stream ID that you want to use for this transport. This parameter applies only to Zixi-based streams.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Key-value pairs that can be used to tag and organize this flow output.
-        :param pulumi.Input[Union['FlowOutputVpcInterfaceAttachmentArgs', 'FlowOutputVpcInterfaceAttachmentArgsDict']] vpc_interface_attachment: The name of the VPC interface attachment to use for this output.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: Key-value pairs that can be used to tag and organize this flow output.
+        :param pulumi.Input[Union['FlowOutputVpcInterfaceAttachmentArgs', 'FlowOutputVpcInterfaceAttachmentArgsDict', 'outputs.FlowOutputVpcInterfaceAttachment']] vpc_interface_attachment: The name of the VPC interface attachment to use for this output.
         """
         ...
     @overload
@@ -460,10 +460,10 @@ class FlowOutput(pulumi.CustomResource):
                  cidr_allow_list: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  destination: pulumi.Input[Optional[_builtins.str]] = None,
-                 encryption: pulumi.Input[Optional[Union['FlowOutputEncryptionArgs', 'FlowOutputEncryptionArgsDict']]] = None,
+                 encryption: pulumi.Input[Optional[Union['FlowOutputEncryptionArgs', 'FlowOutputEncryptionArgsDict', 'outputs.FlowOutputEncryption']]] = None,
                  flow_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  max_latency: pulumi.Input[Optional[_builtins.int]] = None,
-                 media_stream_output_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FlowOutputMediaStreamOutputConfigurationArgs', 'FlowOutputMediaStreamOutputConfigurationArgsDict']]]]] = None,
+                 media_stream_output_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FlowOutputMediaStreamOutputConfigurationArgs', 'FlowOutputMediaStreamOutputConfigurationArgsDict', 'outputs.FlowOutputMediaStreamOutputConfiguration']]]]] = None,
                  min_latency: pulumi.Input[Optional[_builtins.int]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  ndi_output_timecode_source: pulumi.Input[Optional['FlowOutputNdiOutputTimecodeSource']] = None,
@@ -474,11 +474,11 @@ class FlowOutput(pulumi.CustomResource):
                  protocol: pulumi.Input[Optional['FlowOutputProtocol']] = None,
                  remote_id: pulumi.Input[Optional[_builtins.str]] = None,
                  router_integration_state: pulumi.Input[Optional['FlowOutputRouterIntegrationState']] = None,
-                 router_integration_transit_encryption: pulumi.Input[Optional[Union['FlowOutputFlowTransitEncryptionArgs', 'FlowOutputFlowTransitEncryptionArgsDict']]] = None,
+                 router_integration_transit_encryption: pulumi.Input[Optional[Union['FlowOutputFlowTransitEncryptionArgs', 'FlowOutputFlowTransitEncryptionArgsDict', 'outputs.FlowOutputFlowTransitEncryption']]] = None,
                  smoothing_latency: pulumi.Input[Optional[_builtins.int]] = None,
                  stream_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 vpc_interface_attachment: pulumi.Input[Optional[Union['FlowOutputVpcInterfaceAttachmentArgs', 'FlowOutputVpcInterfaceAttachmentArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
+                 vpc_interface_attachment: pulumi.Input[Optional[Union['FlowOutputVpcInterfaceAttachmentArgs', 'FlowOutputVpcInterfaceAttachmentArgsDict', 'outputs.FlowOutputVpcInterfaceAttachment']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

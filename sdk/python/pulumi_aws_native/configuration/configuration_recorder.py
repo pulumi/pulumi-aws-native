@@ -113,8 +113,8 @@ class ConfigurationRecorder(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 recording_group: pulumi.Input[Optional[Union['ConfigurationRecorderRecordingGroupArgs', 'ConfigurationRecorderRecordingGroupArgsDict']]] = None,
-                 recording_mode: pulumi.Input[Optional[Union['ConfigurationRecorderRecordingModeArgs', 'ConfigurationRecorderRecordingModeArgsDict']]] = None,
+                 recording_group: pulumi.Input[Optional[Union['ConfigurationRecorderRecordingGroupArgs', 'ConfigurationRecorderRecordingGroupArgsDict', 'outputs.ConfigurationRecorderRecordingGroup']]] = None,
+                 recording_mode: pulumi.Input[Optional[Union['ConfigurationRecorderRecordingModeArgs', 'ConfigurationRecorderRecordingModeArgsDict', 'outputs.ConfigurationRecorderRecordingMode']]] = None,
                  role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  started_on_create: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
@@ -124,8 +124,8 @@ class ConfigurationRecorder(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: The name of the configuration recorder. By default, AWS Config assigns the name "default" when creating the configuration recorder. To change the configuration recorder name, you must use the DeleteConfigurationRecorder action to delete your current configuration recorder, and then you must use the PutConfigurationRecorder command to create a configuration recorder that has the desired name.
-        :param pulumi.Input[Union['ConfigurationRecorderRecordingGroupArgs', 'ConfigurationRecorderRecordingGroupArgsDict']] recording_group: Specifies which resource types are in scope for the configuration recorder to record.
-        :param pulumi.Input[Union['ConfigurationRecorderRecordingModeArgs', 'ConfigurationRecorderRecordingModeArgsDict']] recording_mode: Specifies the default recording frequency for the configuration recorder.
+        :param pulumi.Input[Union['ConfigurationRecorderRecordingGroupArgs', 'ConfigurationRecorderRecordingGroupArgsDict', 'outputs.ConfigurationRecorderRecordingGroup']] recording_group: Specifies which resource types are in scope for the configuration recorder to record.
+        :param pulumi.Input[Union['ConfigurationRecorderRecordingModeArgs', 'ConfigurationRecorderRecordingModeArgsDict', 'outputs.ConfigurationRecorderRecordingMode']] recording_mode: Specifies the default recording frequency for the configuration recorder.
         :param pulumi.Input[_builtins.str] role_arn: The Amazon Resource Name (ARN) of the role that allows AWS Config to read S3 objects.
         :param pulumi.Input[_builtins.bool] started_on_create: Defaults to 'true'. Controls whether the recorder starts recording after the create operation. Set this to 'false' for development and testing purposes.
         """
@@ -154,8 +154,8 @@ class ConfigurationRecorder(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 recording_group: pulumi.Input[Optional[Union['ConfigurationRecorderRecordingGroupArgs', 'ConfigurationRecorderRecordingGroupArgsDict']]] = None,
-                 recording_mode: pulumi.Input[Optional[Union['ConfigurationRecorderRecordingModeArgs', 'ConfigurationRecorderRecordingModeArgsDict']]] = None,
+                 recording_group: pulumi.Input[Optional[Union['ConfigurationRecorderRecordingGroupArgs', 'ConfigurationRecorderRecordingGroupArgsDict', 'outputs.ConfigurationRecorderRecordingGroup']]] = None,
+                 recording_mode: pulumi.Input[Optional[Union['ConfigurationRecorderRecordingModeArgs', 'ConfigurationRecorderRecordingModeArgsDict', 'outputs.ConfigurationRecorderRecordingMode']]] = None,
                  role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  started_on_create: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):

@@ -164,11 +164,11 @@ class NetworkMigrationDefinition(pulumi.CustomResource):
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  scope_tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 source_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NetworkMigrationDefinitionSourceConfigurationArgs', 'NetworkMigrationDefinitionSourceConfigurationArgsDict']]]]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 source_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NetworkMigrationDefinitionSourceConfigurationArgs', 'NetworkMigrationDefinitionSourceConfigurationArgsDict', 'outputs.NetworkMigrationDefinitionSourceConfiguration']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  target_deployment: pulumi.Input[Optional['NetworkMigrationDefinitionTargetDeployment']] = None,
-                 target_network: pulumi.Input[Optional[Union['NetworkMigrationDefinitionTargetNetworkArgs', 'NetworkMigrationDefinitionTargetNetworkArgsDict']]] = None,
-                 target_s3_configuration: pulumi.Input[Optional[Union['NetworkMigrationDefinitionTargetS3ConfigurationArgs', 'NetworkMigrationDefinitionTargetS3ConfigurationArgsDict']]] = None,
+                 target_network: pulumi.Input[Optional[Union['NetworkMigrationDefinitionTargetNetworkArgs', 'NetworkMigrationDefinitionTargetNetworkArgsDict', 'outputs.NetworkMigrationDefinitionTargetNetwork']]] = None,
+                 target_s3_configuration: pulumi.Input[Optional[Union['NetworkMigrationDefinitionTargetS3ConfigurationArgs', 'NetworkMigrationDefinitionTargetS3ConfigurationArgsDict', 'outputs.NetworkMigrationDefinitionTargetS3Configuration']]] = None,
                  __props__=None):
         """
         Resource schema for AWS::MGN::NetworkMigrationDefinition
@@ -178,11 +178,11 @@ class NetworkMigrationDefinition(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] description: A description of the network migration definition.
         :param pulumi.Input[_builtins.str] name: The name of the network migration definition.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] scope_tags: Scope tags for the network migration definition.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['NetworkMigrationDefinitionSourceConfigurationArgs', 'NetworkMigrationDefinitionSourceConfigurationArgsDict']]]] source_configurations: A list of source configurations for the network migration.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Tags to assign to the network migration definition.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['NetworkMigrationDefinitionSourceConfigurationArgs', 'NetworkMigrationDefinitionSourceConfigurationArgsDict', 'outputs.NetworkMigrationDefinitionSourceConfiguration']]]] source_configurations: A list of source configurations for the network migration.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: Tags to assign to the network migration definition.
         :param pulumi.Input['NetworkMigrationDefinitionTargetDeployment'] target_deployment: The target deployment configuration for the migrated network.
-        :param pulumi.Input[Union['NetworkMigrationDefinitionTargetNetworkArgs', 'NetworkMigrationDefinitionTargetNetworkArgsDict']] target_network: The target network configuration including topology and CIDR ranges.
-        :param pulumi.Input[Union['NetworkMigrationDefinitionTargetS3ConfigurationArgs', 'NetworkMigrationDefinitionTargetS3ConfigurationArgsDict']] target_s3_configuration: The S3 configuration for storing the target network artifacts.
+        :param pulumi.Input[Union['NetworkMigrationDefinitionTargetNetworkArgs', 'NetworkMigrationDefinitionTargetNetworkArgsDict', 'outputs.NetworkMigrationDefinitionTargetNetwork']] target_network: The target network configuration including topology and CIDR ranges.
+        :param pulumi.Input[Union['NetworkMigrationDefinitionTargetS3ConfigurationArgs', 'NetworkMigrationDefinitionTargetS3ConfigurationArgsDict', 'outputs.NetworkMigrationDefinitionTargetS3Configuration']] target_s3_configuration: The S3 configuration for storing the target network artifacts.
         """
         ...
     @overload
@@ -211,11 +211,11 @@ class NetworkMigrationDefinition(pulumi.CustomResource):
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  scope_tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 source_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NetworkMigrationDefinitionSourceConfigurationArgs', 'NetworkMigrationDefinitionSourceConfigurationArgsDict']]]]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 source_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NetworkMigrationDefinitionSourceConfigurationArgs', 'NetworkMigrationDefinitionSourceConfigurationArgsDict', 'outputs.NetworkMigrationDefinitionSourceConfiguration']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  target_deployment: pulumi.Input[Optional['NetworkMigrationDefinitionTargetDeployment']] = None,
-                 target_network: pulumi.Input[Optional[Union['NetworkMigrationDefinitionTargetNetworkArgs', 'NetworkMigrationDefinitionTargetNetworkArgsDict']]] = None,
-                 target_s3_configuration: pulumi.Input[Optional[Union['NetworkMigrationDefinitionTargetS3ConfigurationArgs', 'NetworkMigrationDefinitionTargetS3ConfigurationArgsDict']]] = None,
+                 target_network: pulumi.Input[Optional[Union['NetworkMigrationDefinitionTargetNetworkArgs', 'NetworkMigrationDefinitionTargetNetworkArgsDict', 'outputs.NetworkMigrationDefinitionTargetNetwork']]] = None,
+                 target_s3_configuration: pulumi.Input[Optional[Union['NetworkMigrationDefinitionTargetS3ConfigurationArgs', 'NetworkMigrationDefinitionTargetS3ConfigurationArgsDict', 'outputs.NetworkMigrationDefinitionTargetS3Configuration']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

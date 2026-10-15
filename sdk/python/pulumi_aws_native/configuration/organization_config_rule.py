@@ -115,9 +115,9 @@ class OrganizationConfigRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  excluded_accounts: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  organization_config_rule_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 organization_custom_policy_rule_metadata: pulumi.Input[Optional[Union['OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataArgs', 'OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataArgsDict']]] = None,
-                 organization_custom_rule_metadata: pulumi.Input[Optional[Union['OrganizationConfigRuleOrganizationCustomRuleMetadataArgs', 'OrganizationConfigRuleOrganizationCustomRuleMetadataArgsDict']]] = None,
-                 organization_managed_rule_metadata: pulumi.Input[Optional[Union['OrganizationConfigRuleOrganizationManagedRuleMetadataArgs', 'OrganizationConfigRuleOrganizationManagedRuleMetadataArgsDict']]] = None,
+                 organization_custom_policy_rule_metadata: pulumi.Input[Optional[Union['OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataArgs', 'OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataArgsDict', 'outputs.OrganizationConfigRuleOrganizationCustomPolicyRuleMetadata']]] = None,
+                 organization_custom_rule_metadata: pulumi.Input[Optional[Union['OrganizationConfigRuleOrganizationCustomRuleMetadataArgs', 'OrganizationConfigRuleOrganizationCustomRuleMetadataArgsDict', 'outputs.OrganizationConfigRuleOrganizationCustomRuleMetadata']]] = None,
+                 organization_managed_rule_metadata: pulumi.Input[Optional[Union['OrganizationConfigRuleOrganizationManagedRuleMetadataArgs', 'OrganizationConfigRuleOrganizationManagedRuleMetadataArgsDict', 'outputs.OrganizationConfigRuleOrganizationManagedRuleMetadata']]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::Config::OrganizationConfigRule
@@ -126,9 +126,9 @@ class OrganizationConfigRule(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] excluded_accounts: A comma-separated list of accounts that you want to exclude from an organization AWS Config rule.
         :param pulumi.Input[_builtins.str] organization_config_rule_name: The name that you assign to an organization AWS Config rule. Required.
-        :param pulumi.Input[Union['OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataArgs', 'OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataArgsDict']] organization_custom_policy_rule_metadata: This object specifies metadata for your organization's AWS Config Custom Policy rule.
-        :param pulumi.Input[Union['OrganizationConfigRuleOrganizationCustomRuleMetadataArgs', 'OrganizationConfigRuleOrganizationCustomRuleMetadataArgsDict']] organization_custom_rule_metadata: This object specifies organization custom rule metadata such as resource type, resource ID of AWS resource, Lambda function ARN, and organization trigger types that trigger AWS Config to evaluate your AWS resources against a rule.
-        :param pulumi.Input[Union['OrganizationConfigRuleOrganizationManagedRuleMetadataArgs', 'OrganizationConfigRuleOrganizationManagedRuleMetadataArgsDict']] organization_managed_rule_metadata: This object specifies organization managed rule metadata such as resource type and ID of AWS resource along with the rule identifier.
+        :param pulumi.Input[Union['OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataArgs', 'OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataArgsDict', 'outputs.OrganizationConfigRuleOrganizationCustomPolicyRuleMetadata']] organization_custom_policy_rule_metadata: This object specifies metadata for your organization's AWS Config Custom Policy rule.
+        :param pulumi.Input[Union['OrganizationConfigRuleOrganizationCustomRuleMetadataArgs', 'OrganizationConfigRuleOrganizationCustomRuleMetadataArgsDict', 'outputs.OrganizationConfigRuleOrganizationCustomRuleMetadata']] organization_custom_rule_metadata: This object specifies organization custom rule metadata such as resource type, resource ID of AWS resource, Lambda function ARN, and organization trigger types that trigger AWS Config to evaluate your AWS resources against a rule.
+        :param pulumi.Input[Union['OrganizationConfigRuleOrganizationManagedRuleMetadataArgs', 'OrganizationConfigRuleOrganizationManagedRuleMetadataArgsDict', 'outputs.OrganizationConfigRuleOrganizationManagedRuleMetadata']] organization_managed_rule_metadata: This object specifies organization managed rule metadata such as resource type and ID of AWS resource along with the rule identifier.
         """
         ...
     @overload
@@ -156,9 +156,9 @@ class OrganizationConfigRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  excluded_accounts: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  organization_config_rule_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 organization_custom_policy_rule_metadata: pulumi.Input[Optional[Union['OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataArgs', 'OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataArgsDict']]] = None,
-                 organization_custom_rule_metadata: pulumi.Input[Optional[Union['OrganizationConfigRuleOrganizationCustomRuleMetadataArgs', 'OrganizationConfigRuleOrganizationCustomRuleMetadataArgsDict']]] = None,
-                 organization_managed_rule_metadata: pulumi.Input[Optional[Union['OrganizationConfigRuleOrganizationManagedRuleMetadataArgs', 'OrganizationConfigRuleOrganizationManagedRuleMetadataArgsDict']]] = None,
+                 organization_custom_policy_rule_metadata: pulumi.Input[Optional[Union['OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataArgs', 'OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataArgsDict', 'outputs.OrganizationConfigRuleOrganizationCustomPolicyRuleMetadata']]] = None,
+                 organization_custom_rule_metadata: pulumi.Input[Optional[Union['OrganizationConfigRuleOrganizationCustomRuleMetadataArgs', 'OrganizationConfigRuleOrganizationCustomRuleMetadataArgsDict', 'outputs.OrganizationConfigRuleOrganizationCustomRuleMetadata']]] = None,
+                 organization_managed_rule_metadata: pulumi.Input[Optional[Union['OrganizationConfigRuleOrganizationManagedRuleMetadataArgs', 'OrganizationConfigRuleOrganizationManagedRuleMetadataArgsDict', 'outputs.OrganizationConfigRuleOrganizationManagedRuleMetadata']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -165,11 +165,11 @@ class Integration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  domain_name: pulumi.Input[Optional[_builtins.str]] = None,
                  event_trigger_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 flow_definition: pulumi.Input[Optional[Union['IntegrationFlowDefinitionArgs', 'IntegrationFlowDefinitionArgsDict']]] = None,
+                 flow_definition: pulumi.Input[Optional[Union['IntegrationFlowDefinitionArgs', 'IntegrationFlowDefinitionArgsDict', 'outputs.IntegrationFlowDefinition']]] = None,
                  object_type_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 object_type_names: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IntegrationObjectTypeMappingArgs', 'IntegrationObjectTypeMappingArgsDict']]]]] = None,
+                 object_type_names: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IntegrationObjectTypeMappingArgs', 'IntegrationObjectTypeMappingArgsDict', 'outputs.IntegrationObjectTypeMapping']]]]] = None,
                  scope: pulumi.Input[Optional['IntegrationScope']] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  uri: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -179,11 +179,11 @@ class Integration(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] domain_name: The unique name of the domain.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] event_trigger_names: A list of unique names for active event triggers associated with the integration.
-        :param pulumi.Input[Union['IntegrationFlowDefinitionArgs', 'IntegrationFlowDefinitionArgsDict']] flow_definition: The configuration that controls how Customer Profiles retrieves data from the source.
+        :param pulumi.Input[Union['IntegrationFlowDefinitionArgs', 'IntegrationFlowDefinitionArgsDict', 'outputs.IntegrationFlowDefinition']] flow_definition: The configuration that controls how Customer Profiles retrieves data from the source.
         :param pulumi.Input[_builtins.str] object_type_name: The name of the ObjectType defined for the 3rd party data in Profile Service
-        :param pulumi.Input[Sequence[pulumi.Input[Union['IntegrationObjectTypeMappingArgs', 'IntegrationObjectTypeMappingArgsDict']]]] object_type_names: The mapping between 3rd party event types and ObjectType names
+        :param pulumi.Input[Sequence[pulumi.Input[Union['IntegrationObjectTypeMappingArgs', 'IntegrationObjectTypeMappingArgsDict', 'outputs.IntegrationObjectTypeMapping']]]] object_type_names: The mapping between 3rd party event types and ObjectType names
         :param pulumi.Input['IntegrationScope'] scope: Scope of the integration, such as 'PROFILE' or 'DOMAIN'
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags (keys and values) associated with the integration
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: The tags (keys and values) associated with the integration
         :param pulumi.Input[_builtins.str] uri: The URI of the S3 bucket or any other type of data source.
         """
         ...
@@ -212,11 +212,11 @@ class Integration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  domain_name: pulumi.Input[Optional[_builtins.str]] = None,
                  event_trigger_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 flow_definition: pulumi.Input[Optional[Union['IntegrationFlowDefinitionArgs', 'IntegrationFlowDefinitionArgsDict']]] = None,
+                 flow_definition: pulumi.Input[Optional[Union['IntegrationFlowDefinitionArgs', 'IntegrationFlowDefinitionArgsDict', 'outputs.IntegrationFlowDefinition']]] = None,
                  object_type_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 object_type_names: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IntegrationObjectTypeMappingArgs', 'IntegrationObjectTypeMappingArgsDict']]]]] = None,
+                 object_type_names: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IntegrationObjectTypeMappingArgs', 'IntegrationObjectTypeMappingArgsDict', 'outputs.IntegrationObjectTypeMapping']]]]] = None,
                  scope: pulumi.Input[Optional['IntegrationScope']] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  uri: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

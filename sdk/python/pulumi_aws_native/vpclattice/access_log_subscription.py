@@ -100,7 +100,7 @@ class AccessLogSubscription(pulumi.CustomResource):
                  destination_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                  service_network_log_type: pulumi.Input[Optional['AccessLogSubscriptionServiceNetworkLogType']] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Enables access logs to be sent to Amazon CloudWatch, Amazon S3, and Amazon Kinesis Data Firehose. The service network owner can use the access logs to audit the services in the network. The service network owner will only see access logs from clients and services that are associated with their service network. Access log entries represent traffic originated from VPCs associated with that network.
@@ -110,7 +110,7 @@ class AccessLogSubscription(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] destination_arn: The Amazon Resource Name (ARN) of the destination. The supported destination types are CloudWatch Log groups, Kinesis Data Firehose delivery streams, and Amazon S3 buckets.
         :param pulumi.Input[_builtins.str] resource_identifier: The ID or ARN of the service network or service.
         :param pulumi.Input['AccessLogSubscriptionServiceNetworkLogType'] service_network_log_type: Log type of the service network.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags for the access log subscription.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: The tags for the access log subscription.
         """
         ...
     @overload
@@ -139,7 +139,7 @@ class AccessLogSubscription(pulumi.CustomResource):
                  destination_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                  service_network_log_type: pulumi.Input[Optional['AccessLogSubscriptionServiceNetworkLogType']] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

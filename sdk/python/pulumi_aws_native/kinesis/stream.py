@@ -185,9 +185,9 @@ class Stream(pulumi.CustomResource):
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  retention_period_hours: pulumi.Input[Optional[_builtins.int]] = None,
                  shard_count: pulumi.Input[Optional[_builtins.int]] = None,
-                 stream_encryption: pulumi.Input[Optional[Union['StreamEncryptionArgs', 'StreamEncryptionArgsDict']]] = None,
-                 stream_mode_details: pulumi.Input[Optional[Union['StreamModeDetailsArgs', 'StreamModeDetailsArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 stream_encryption: pulumi.Input[Optional[Union['StreamEncryptionArgs', 'StreamEncryptionArgsDict', 'outputs.StreamEncryption']]] = None,
+                 stream_mode_details: pulumi.Input[Optional[Union['StreamModeDetailsArgs', 'StreamModeDetailsArgsDict', 'outputs.StreamModeDetails']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  warm_throughput_mi_bps: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         """
@@ -200,9 +200,9 @@ class Stream(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] name: The name of the Kinesis stream.
         :param pulumi.Input[_builtins.int] retention_period_hours: The number of hours for the data records that are stored in shards to remain accessible.
         :param pulumi.Input[_builtins.int] shard_count: The number of shards that the stream uses. Required when StreamMode = PROVISIONED is passed.
-        :param pulumi.Input[Union['StreamEncryptionArgs', 'StreamEncryptionArgsDict']] stream_encryption: When specified, enables or updates server-side encryption using an AWS KMS key for a specified stream.
-        :param pulumi.Input[Union['StreamModeDetailsArgs', 'StreamModeDetailsArgsDict']] stream_mode_details: The mode in which the stream is running.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An arbitrary set of tags (key-value pairs) to associate with the Kinesis stream.
+        :param pulumi.Input[Union['StreamEncryptionArgs', 'StreamEncryptionArgsDict', 'outputs.StreamEncryption']] stream_encryption: When specified, enables or updates server-side encryption using an AWS KMS key for a specified stream.
+        :param pulumi.Input[Union['StreamModeDetailsArgs', 'StreamModeDetailsArgsDict', 'outputs.StreamModeDetails']] stream_mode_details: The mode in which the stream is running.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: An arbitrary set of tags (key-value pairs) to associate with the Kinesis stream.
         :param pulumi.Input[_builtins.int] warm_throughput_mi_bps: Target warm throughput in MiB/s for the stream. This property can ONLY be set when StreamMode is ON_DEMAND.
         """
         ...
@@ -234,9 +234,9 @@ class Stream(pulumi.CustomResource):
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  retention_period_hours: pulumi.Input[Optional[_builtins.int]] = None,
                  shard_count: pulumi.Input[Optional[_builtins.int]] = None,
-                 stream_encryption: pulumi.Input[Optional[Union['StreamEncryptionArgs', 'StreamEncryptionArgsDict']]] = None,
-                 stream_mode_details: pulumi.Input[Optional[Union['StreamModeDetailsArgs', 'StreamModeDetailsArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 stream_encryption: pulumi.Input[Optional[Union['StreamEncryptionArgs', 'StreamEncryptionArgsDict', 'outputs.StreamEncryption']]] = None,
+                 stream_mode_details: pulumi.Input[Optional[Union['StreamModeDetailsArgs', 'StreamModeDetailsArgsDict', 'outputs.StreamModeDetails']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  warm_throughput_mi_bps: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

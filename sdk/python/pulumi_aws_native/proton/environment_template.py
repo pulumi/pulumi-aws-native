@@ -139,7 +139,7 @@ class EnvironmentTemplate(pulumi.CustomResource):
                  encryption_key: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  provisioning: pulumi.Input[Optional['EnvironmentTemplateProvisioning']] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Definition of AWS::Proton::EnvironmentTemplate Resource Type
@@ -151,7 +151,7 @@ class EnvironmentTemplate(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] encryption_key: <p>A customer provided encryption key that Proton uses to encrypt data.</p>
         :param pulumi.Input[_builtins.str] name: The name of the environment template.
         :param pulumi.Input['EnvironmentTemplateProvisioning'] provisioning: When included, indicates that the environment template is for customer provisioned and managed infrastructure.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: <p>An optional list of metadata items that you can associate with the Proton environment template. A tag is a key-value pair.</p>
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: <p>An optional list of metadata items that you can associate with the Proton environment template. A tag is a key-value pair.</p>
                         <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html">Proton resources and tagging</a> in the
                        <i>Proton User Guide</i>.</p>
         """
@@ -184,7 +184,7 @@ class EnvironmentTemplate(pulumi.CustomResource):
                  encryption_key: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  provisioning: pulumi.Input[Optional['EnvironmentTemplateProvisioning']] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

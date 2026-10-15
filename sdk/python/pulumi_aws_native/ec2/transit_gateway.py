@@ -273,7 +273,7 @@ class TransitGateway(pulumi.CustomResource):
                  multicast_support: pulumi.Input[Optional[_builtins.str]] = None,
                  propagation_default_route_table_id: pulumi.Input[Optional[_builtins.str]] = None,
                  security_group_referencing_support: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  transit_gateway_cidr_blocks: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  vpn_ecmp_support: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -295,7 +295,7 @@ class TransitGateway(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] security_group_referencing_support: Enables you to reference a security group across VPCs attached to a transit gateway (TGW). Use this option to simplify security group management and control of instance-to-instance traffic across VPCs that are connected by transit gateway. You can also use this option to migrate from VPC peering (which was the only option that supported security group referencing) to transit gateways (which now also support security group referencing). This option is disabled by default and there are no additional costs to use this feature.
                
                For important information about this feature, see [Create a transit gateway](https://docs.aws.amazon.com/vpc/latest/tgw/tgw-transit-gateways.html#create-tgw) in the *AWS Transit Gateway Guide* .
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags for the transit gateway.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: The tags for the transit gateway.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] transit_gateway_cidr_blocks: The transit gateway CIDR blocks.
         :param pulumi.Input[_builtins.str] vpn_ecmp_support: Enable or disable Equal Cost Multipath Protocol support. Enabled by default.
         """
@@ -334,7 +334,7 @@ class TransitGateway(pulumi.CustomResource):
                  multicast_support: pulumi.Input[Optional[_builtins.str]] = None,
                  propagation_default_route_table_id: pulumi.Input[Optional[_builtins.str]] = None,
                  security_group_referencing_support: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  transit_gateway_cidr_blocks: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  vpn_ecmp_support: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):

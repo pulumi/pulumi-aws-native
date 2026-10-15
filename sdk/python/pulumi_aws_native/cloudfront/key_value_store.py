@@ -100,9 +100,9 @@ class KeyValueStore(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  comment: pulumi.Input[Optional[_builtins.str]] = None,
-                 import_source: pulumi.Input[Optional[Union['KeyValueStoreImportSourceArgs', 'KeyValueStoreImportSourceArgsDict']]] = None,
+                 import_source: pulumi.Input[Optional[Union['KeyValueStoreImportSourceArgs', 'KeyValueStoreImportSourceArgsDict', 'outputs.KeyValueStoreImportSource']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         The key value store. Use this to separate data from function code, allowing you to update data without having to publish a new version of a function. The key value store holds keys and their corresponding values.
@@ -110,9 +110,9 @@ class KeyValueStore(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] comment: A comment to describe the Key Value Store. Omitting ``Comment`` from the template during updates will clear the existing comment (set to empty string). To preserve an existing comment, you must explicitly include it in the template.
-        :param pulumi.Input[Union['KeyValueStoreImportSourceArgs', 'KeyValueStoreImportSourceArgsDict']] import_source: The import source for the key value store.
+        :param pulumi.Input[Union['KeyValueStoreImportSourceArgs', 'KeyValueStoreImportSourceArgsDict', 'outputs.KeyValueStoreImportSource']] import_source: The import source for the key value store.
         :param pulumi.Input[_builtins.str] name: The name of the key value store.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: A complex type that contains zero or more ``Tag`` elements.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: A complex type that contains zero or more ``Tag`` elements.
         """
         ...
     @overload
@@ -139,9 +139,9 @@ class KeyValueStore(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  comment: pulumi.Input[Optional[_builtins.str]] = None,
-                 import_source: pulumi.Input[Optional[Union['KeyValueStoreImportSourceArgs', 'KeyValueStoreImportSourceArgsDict']]] = None,
+                 import_source: pulumi.Input[Optional[Union['KeyValueStoreImportSourceArgs', 'KeyValueStoreImportSourceArgsDict', 'outputs.KeyValueStoreImportSource']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

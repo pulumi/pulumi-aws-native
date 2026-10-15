@@ -115,10 +115,10 @@ class Multiplex(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  availability_zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 destinations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MultiplexOutputDestinationArgs', 'MultiplexOutputDestinationArgsDict']]]]] = None,
-                 multiplex_settings: pulumi.Input[Optional[Union['MultiplexSettingsArgs', 'MultiplexSettingsArgsDict']]] = None,
+                 destinations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MultiplexOutputDestinationArgs', 'MultiplexOutputDestinationArgsDict', 'outputs.MultiplexOutputDestination']]]]] = None,
+                 multiplex_settings: pulumi.Input[Optional[Union['MultiplexSettingsArgs', 'MultiplexSettingsArgsDict', 'outputs.MultiplexSettings']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Resource schema for AWS::MediaLive::Multiplex
@@ -126,10 +126,10 @@ class Multiplex(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] availability_zones: A list of availability zones for the multiplex.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['MultiplexOutputDestinationArgs', 'MultiplexOutputDestinationArgsDict']]]] destinations: A list of the multiplex output destinations.
-        :param pulumi.Input[Union['MultiplexSettingsArgs', 'MultiplexSettingsArgsDict']] multiplex_settings: Configuration for a multiplex event.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['MultiplexOutputDestinationArgs', 'MultiplexOutputDestinationArgsDict', 'outputs.MultiplexOutputDestination']]]] destinations: A list of the multiplex output destinations.
+        :param pulumi.Input[Union['MultiplexSettingsArgs', 'MultiplexSettingsArgsDict', 'outputs.MultiplexSettings']] multiplex_settings: Configuration for a multiplex event.
         :param pulumi.Input[_builtins.str] name: Name of multiplex.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: A collection of key-value pairs.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: A collection of key-value pairs.
         """
         ...
     @overload
@@ -156,10 +156,10 @@ class Multiplex(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  availability_zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 destinations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MultiplexOutputDestinationArgs', 'MultiplexOutputDestinationArgsDict']]]]] = None,
-                 multiplex_settings: pulumi.Input[Optional[Union['MultiplexSettingsArgs', 'MultiplexSettingsArgsDict']]] = None,
+                 destinations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MultiplexOutputDestinationArgs', 'MultiplexOutputDestinationArgsDict', 'outputs.MultiplexOutputDestination']]]]] = None,
+                 multiplex_settings: pulumi.Input[Optional[Union['MultiplexSettingsArgs', 'MultiplexSettingsArgsDict', 'outputs.MultiplexSettings']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

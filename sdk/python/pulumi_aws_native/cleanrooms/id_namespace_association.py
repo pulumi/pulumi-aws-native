@@ -131,11 +131,11 @@ class IdNamespaceAssociation(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 id_mapping_config: pulumi.Input[Optional[Union['IdNamespaceAssociationIdMappingConfigArgs', 'IdNamespaceAssociationIdMappingConfigArgsDict']]] = None,
-                 input_reference_config: pulumi.Input[Optional[Union['IdNamespaceAssociationInputReferenceConfigArgs', 'IdNamespaceAssociationInputReferenceConfigArgsDict']]] = None,
+                 id_mapping_config: pulumi.Input[Optional[Union['IdNamespaceAssociationIdMappingConfigArgs', 'IdNamespaceAssociationIdMappingConfigArgsDict', 'outputs.IdNamespaceAssociationIdMappingConfig']]] = None,
+                 input_reference_config: pulumi.Input[Optional[Union['IdNamespaceAssociationInputReferenceConfigArgs', 'IdNamespaceAssociationInputReferenceConfigArgsDict', 'outputs.IdNamespaceAssociationInputReferenceConfig']]] = None,
                  membership_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Represents an association between an ID namespace and a collaboration
@@ -143,11 +143,11 @@ class IdNamespaceAssociation(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: The description of the ID namespace association.
-        :param pulumi.Input[Union['IdNamespaceAssociationIdMappingConfigArgs', 'IdNamespaceAssociationIdMappingConfigArgsDict']] id_mapping_config: The configuration settings for the ID mapping table.
-        :param pulumi.Input[Union['IdNamespaceAssociationInputReferenceConfigArgs', 'IdNamespaceAssociationInputReferenceConfigArgsDict']] input_reference_config: The input reference configuration for the ID namespace association.
+        :param pulumi.Input[Union['IdNamespaceAssociationIdMappingConfigArgs', 'IdNamespaceAssociationIdMappingConfigArgsDict', 'outputs.IdNamespaceAssociationIdMappingConfig']] id_mapping_config: The configuration settings for the ID mapping table.
+        :param pulumi.Input[Union['IdNamespaceAssociationInputReferenceConfigArgs', 'IdNamespaceAssociationInputReferenceConfigArgsDict', 'outputs.IdNamespaceAssociationInputReferenceConfig']] input_reference_config: The input reference configuration for the ID namespace association.
         :param pulumi.Input[_builtins.str] membership_identifier: The unique identifier of the membership that contains the ID namespace association.
         :param pulumi.Input[_builtins.str] name: The name of this ID namespace association.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An optional label that you can assign to a resource when you create it. Each tag consists of a key and an optional value, both of which you define. When you use tagging, you can also use tag-based access control in IAM policies to control access to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: An optional label that you can assign to a resource when you create it. Each tag consists of a key and an optional value, both of which you define. When you use tagging, you can also use tag-based access control in IAM policies to control access to this resource.
         """
         ...
     @overload
@@ -174,11 +174,11 @@ class IdNamespaceAssociation(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 id_mapping_config: pulumi.Input[Optional[Union['IdNamespaceAssociationIdMappingConfigArgs', 'IdNamespaceAssociationIdMappingConfigArgsDict']]] = None,
-                 input_reference_config: pulumi.Input[Optional[Union['IdNamespaceAssociationInputReferenceConfigArgs', 'IdNamespaceAssociationInputReferenceConfigArgsDict']]] = None,
+                 id_mapping_config: pulumi.Input[Optional[Union['IdNamespaceAssociationIdMappingConfigArgs', 'IdNamespaceAssociationIdMappingConfigArgsDict', 'outputs.IdNamespaceAssociationIdMappingConfig']]] = None,
+                 input_reference_config: pulumi.Input[Optional[Union['IdNamespaceAssociationInputReferenceConfigArgs', 'IdNamespaceAssociationInputReferenceConfigArgsDict', 'outputs.IdNamespaceAssociationInputReferenceConfig']]] = None,
                  membership_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

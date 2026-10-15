@@ -114,7 +114,7 @@ class Vocabulary(pulumi.CustomResource):
                  content: pulumi.Input[Optional[_builtins.str]] = None,
                  instance_id: pulumi.Input[Optional[_builtins.str]] = None,
                  language_code: pulumi.Input[Optional['VocabularyLanguageCode']] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  vocabulary_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -125,7 +125,7 @@ class Vocabulary(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] content: The content of the custom vocabulary in plain-text format with a table of values.
         :param pulumi.Input[_builtins.str] instance_id: The identifier of the Amazon Connect instance.
         :param pulumi.Input['VocabularyLanguageCode'] language_code: The language code of the vocabulary entries.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags used to organize, track, or control access for this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: The tags used to organize, track, or control access for this resource.
         :param pulumi.Input[_builtins.str] vocabulary_name: A unique name of the custom vocabulary.
         """
         ...
@@ -155,7 +155,7 @@ class Vocabulary(pulumi.CustomResource):
                  content: pulumi.Input[Optional[_builtins.str]] = None,
                  instance_id: pulumi.Input[Optional[_builtins.str]] = None,
                  language_code: pulumi.Input[Optional['VocabularyLanguageCode']] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  vocabulary_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

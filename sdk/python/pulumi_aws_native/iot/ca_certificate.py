@@ -177,10 +177,10 @@ class CaCertificate(pulumi.CustomResource):
                  auto_registration_status: pulumi.Input[Optional['CaCertificateAutoRegistrationStatus']] = None,
                  ca_certificate_pem: pulumi.Input[Optional[_builtins.str]] = None,
                  certificate_mode: pulumi.Input[Optional['CaCertificateCertificateMode']] = None,
-                 registration_config: pulumi.Input[Optional[Union['CaCertificateRegistrationConfigArgs', 'CaCertificateRegistrationConfigArgsDict']]] = None,
+                 registration_config: pulumi.Input[Optional[Union['CaCertificateRegistrationConfigArgs', 'CaCertificateRegistrationConfigArgsDict', 'outputs.CaCertificateRegistrationConfig']]] = None,
                  remove_auto_registration: pulumi.Input[Optional[_builtins.bool]] = None,
                  status: pulumi.Input[Optional['CaCertificateStatus']] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  verification_certificate_pem: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -195,12 +195,12 @@ class CaCertificate(pulumi.CustomResource):
                All the device certificates that are registered using this CA will be registered in the same mode as the CA. For more information about certificate mode for device certificates, see [certificate mode](https://docs.aws.amazon.com//iot/latest/apireference/API_CertificateDescription.html#iot-Type-CertificateDescription-certificateMode) .
                
                Valid values are "DEFAULT" and "SNI_ONLY".
-        :param pulumi.Input[Union['CaCertificateRegistrationConfigArgs', 'CaCertificateRegistrationConfigArgsDict']] registration_config: Information about the registration configuration.
+        :param pulumi.Input[Union['CaCertificateRegistrationConfigArgs', 'CaCertificateRegistrationConfigArgsDict', 'outputs.CaCertificateRegistrationConfig']] registration_config: Information about the registration configuration.
         :param pulumi.Input[_builtins.bool] remove_auto_registration: If true, removes auto registration.
         :param pulumi.Input['CaCertificateStatus'] status: The status of the CA certificate.
                
                Valid values are "ACTIVE" and "INACTIVE".
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: An array of key-value pairs to apply to this resource.
         :param pulumi.Input[_builtins.str] verification_certificate_pem: The private key verification certificate.
         """
         ...
@@ -230,10 +230,10 @@ class CaCertificate(pulumi.CustomResource):
                  auto_registration_status: pulumi.Input[Optional['CaCertificateAutoRegistrationStatus']] = None,
                  ca_certificate_pem: pulumi.Input[Optional[_builtins.str]] = None,
                  certificate_mode: pulumi.Input[Optional['CaCertificateCertificateMode']] = None,
-                 registration_config: pulumi.Input[Optional[Union['CaCertificateRegistrationConfigArgs', 'CaCertificateRegistrationConfigArgsDict']]] = None,
+                 registration_config: pulumi.Input[Optional[Union['CaCertificateRegistrationConfigArgs', 'CaCertificateRegistrationConfigArgsDict', 'outputs.CaCertificateRegistrationConfig']]] = None,
                  remove_auto_registration: pulumi.Input[Optional[_builtins.bool]] = None,
                  status: pulumi.Input[Optional['CaCertificateStatus']] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  verification_certificate_pem: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

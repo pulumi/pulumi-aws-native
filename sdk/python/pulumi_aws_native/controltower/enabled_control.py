@@ -98,8 +98,8 @@ class EnabledControl(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  control_identifier: pulumi.Input[Optional[_builtins.str]] = None,
-                 parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EnabledControlParameterArgs', 'EnabledControlParameterArgsDict']]]]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EnabledControlParameterArgs', 'EnabledControlParameterArgsDict', 'outputs.EnabledControlParameter']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  target_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -133,8 +133,8 @@ class EnabledControl(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] control_identifier: Arn of the control.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['EnabledControlParameterArgs', 'EnabledControlParameterArgsDict']]]] parameters: Parameters to configure the enabled control behavior.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: A set of tags to assign to the enabled control.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['EnabledControlParameterArgs', 'EnabledControlParameterArgsDict', 'outputs.EnabledControlParameter']]]] parameters: Parameters to configure the enabled control behavior.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: A set of tags to assign to the enabled control.
         :param pulumi.Input[_builtins.str] target_identifier: Arn for Organizational unit to which the control needs to be applied
         """
         ...
@@ -187,8 +187,8 @@ class EnabledControl(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  control_identifier: pulumi.Input[Optional[_builtins.str]] = None,
-                 parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EnabledControlParameterArgs', 'EnabledControlParameterArgsDict']]]]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EnabledControlParameterArgs', 'EnabledControlParameterArgsDict', 'outputs.EnabledControlParameter']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  target_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
