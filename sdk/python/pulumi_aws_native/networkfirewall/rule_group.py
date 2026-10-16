@@ -160,10 +160,10 @@ class RuleGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  capacity: pulumi.Input[Optional[_builtins.int]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 rule_group: pulumi.Input[Optional[Union['RuleGroupArgs', 'RuleGroupArgsDict']]] = None,
+                 rule_group: pulumi.Input[Optional[Union['RuleGroupArgs', 'RuleGroupArgsDict', 'outputs.RuleGroup']]] = None,
                  rule_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 summary_configuration: pulumi.Input[Optional[Union['SummaryConfigurationPropertiesArgs', 'SummaryConfigurationPropertiesArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 summary_configuration: pulumi.Input[Optional[Union['SummaryConfigurationPropertiesArgs', 'SummaryConfigurationPropertiesArgsDict', 'outputs.SummaryConfigurationProperties']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  type: pulumi.Input[Optional['RuleGroupTypeEnum']] = None,
                  __props__=None):
         """
@@ -173,13 +173,13 @@ class RuleGroup(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.int] capacity: The maximum operating resources that this rule group can use. You can't change a rule group's capacity setting after you create the rule group. When you update a rule group, you are limited to this capacity. When you reference a rule group from a firewall policy, Network Firewall reserves this capacity for the rule group.
         :param pulumi.Input[_builtins.str] description: A description of the rule group.
-        :param pulumi.Input[Union['RuleGroupArgs', 'RuleGroupArgsDict']] rule_group: An object that defines the rule group rules.
+        :param pulumi.Input[Union['RuleGroupArgs', 'RuleGroupArgsDict', 'outputs.RuleGroup']] rule_group: An object that defines the rule group rules.
         :param pulumi.Input[_builtins.str] rule_group_name: The descriptive name of the rule group. You can't change the name of a rule group after you create it.
-        :param pulumi.Input[Union['SummaryConfigurationPropertiesArgs', 'SummaryConfigurationPropertiesArgsDict']] summary_configuration: A complex type containing the currently selected rule option fields that will be displayed for rule summarization returned by `DescribeRuleGroupSummary` .
+        :param pulumi.Input[Union['SummaryConfigurationPropertiesArgs', 'SummaryConfigurationPropertiesArgsDict', 'outputs.SummaryConfigurationProperties']] summary_configuration: A complex type containing the currently selected rule option fields that will be displayed for rule summarization returned by `DescribeRuleGroupSummary` .
                
                - The `RuleOptions` specified in `SummaryConfiguration`
                - Rule metadata organization preferences
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: An array of key-value pairs to apply to this resource.
                
                For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
         :param pulumi.Input['RuleGroupTypeEnum'] type: Indicates whether the rule group is stateless or stateful. If the rule group is stateless, it contains
@@ -211,10 +211,10 @@ class RuleGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  capacity: pulumi.Input[Optional[_builtins.int]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 rule_group: pulumi.Input[Optional[Union['RuleGroupArgs', 'RuleGroupArgsDict']]] = None,
+                 rule_group: pulumi.Input[Optional[Union['RuleGroupArgs', 'RuleGroupArgsDict', 'outputs.RuleGroup']]] = None,
                  rule_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 summary_configuration: pulumi.Input[Optional[Union['SummaryConfigurationPropertiesArgs', 'SummaryConfigurationPropertiesArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 summary_configuration: pulumi.Input[Optional[Union['SummaryConfigurationPropertiesArgs', 'SummaryConfigurationPropertiesArgsDict', 'outputs.SummaryConfigurationProperties']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  type: pulumi.Input[Optional['RuleGroupTypeEnum']] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

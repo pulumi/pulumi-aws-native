@@ -115,7 +115,7 @@ class Dashboard(pulumi.CustomResource):
                  dashboard_description: pulumi.Input[Optional[_builtins.str]] = None,
                  dashboard_name: pulumi.Input[Optional[_builtins.str]] = None,
                  project_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Resource schema for AWS::IoTSiteWise::Dashboard
@@ -126,7 +126,7 @@ class Dashboard(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] dashboard_description: A description for the dashboard.
         :param pulumi.Input[_builtins.str] dashboard_name: A friendly name for the dashboard.
         :param pulumi.Input[_builtins.str] project_id: The ID of the project in which to create the dashboard.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: A list of key-value pairs that contain metadata for the dashboard.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: A list of key-value pairs that contain metadata for the dashboard.
         """
         ...
     @overload
@@ -156,7 +156,7 @@ class Dashboard(pulumi.CustomResource):
                  dashboard_description: pulumi.Input[Optional[_builtins.str]] = None,
                  dashboard_name: pulumi.Input[Optional[_builtins.str]] = None,
                  project_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

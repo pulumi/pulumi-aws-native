@@ -90,8 +90,8 @@ class EnforcedGuardrailConfiguration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  guardrail_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                  guardrail_version: pulumi.Input[Optional[_builtins.str]] = None,
-                 model_enforcement: pulumi.Input[Optional[Union['EnforcedGuardrailConfigurationModelEnforcementArgs', 'EnforcedGuardrailConfigurationModelEnforcementArgsDict']]] = None,
-                 selective_content_guarding: pulumi.Input[Optional[Union['EnforcedGuardrailConfigurationSelectiveContentGuardingArgs', 'EnforcedGuardrailConfigurationSelectiveContentGuardingArgsDict']]] = None,
+                 model_enforcement: pulumi.Input[Optional[Union['EnforcedGuardrailConfigurationModelEnforcementArgs', 'EnforcedGuardrailConfigurationModelEnforcementArgsDict', 'outputs.EnforcedGuardrailConfigurationModelEnforcement']]] = None,
+                 selective_content_guarding: pulumi.Input[Optional[Union['EnforcedGuardrailConfigurationSelectiveContentGuardingArgs', 'EnforcedGuardrailConfigurationSelectiveContentGuardingArgsDict', 'outputs.EnforcedGuardrailConfigurationSelectiveContentGuarding']]] = None,
                  __props__=None):
         """
         Definition of AWS::Bedrock::EnforcedGuardrailConfiguration Resource Type
@@ -127,8 +127,8 @@ class EnforcedGuardrailConfiguration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  guardrail_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                  guardrail_version: pulumi.Input[Optional[_builtins.str]] = None,
-                 model_enforcement: pulumi.Input[Optional[Union['EnforcedGuardrailConfigurationModelEnforcementArgs', 'EnforcedGuardrailConfigurationModelEnforcementArgsDict']]] = None,
-                 selective_content_guarding: pulumi.Input[Optional[Union['EnforcedGuardrailConfigurationSelectiveContentGuardingArgs', 'EnforcedGuardrailConfigurationSelectiveContentGuardingArgsDict']]] = None,
+                 model_enforcement: pulumi.Input[Optional[Union['EnforcedGuardrailConfigurationModelEnforcementArgs', 'EnforcedGuardrailConfigurationModelEnforcementArgsDict', 'outputs.EnforcedGuardrailConfigurationModelEnforcement']]] = None,
+                 selective_content_guarding: pulumi.Input[Optional[Union['EnforcedGuardrailConfigurationSelectiveContentGuardingArgs', 'EnforcedGuardrailConfigurationSelectiveContentGuardingArgsDict', 'outputs.EnforcedGuardrailConfigurationSelectiveContentGuarding']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

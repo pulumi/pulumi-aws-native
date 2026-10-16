@@ -170,10 +170,10 @@ class OptionGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  engine_name: pulumi.Input[Optional[_builtins.str]] = None,
                  major_engine_version: pulumi.Input[Optional[_builtins.str]] = None,
-                 option_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OptionGroupOptionConfigurationArgs', 'OptionGroupOptionConfigurationArgsDict']]]]] = None,
+                 option_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OptionGroupOptionConfigurationArgs', 'OptionGroupOptionConfigurationArgsDict', 'outputs.OptionGroupOptionConfiguration']]]]] = None,
                  option_group_description: pulumi.Input[Optional[_builtins.str]] = None,
                  option_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         The ``AWS::RDS::OptionGroup`` resource creates or updates an option group, to enable and configure features that are specific to a particular DB engine.
@@ -194,7 +194,7 @@ class OptionGroup(pulumi.CustomResource):
                  +   ``sqlserver-ex``
                  +   ``sqlserver-web``
         :param pulumi.Input[_builtins.str] major_engine_version: Specifies the major version of the engine that this option group should be associated with.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['OptionGroupOptionConfigurationArgs', 'OptionGroupOptionConfigurationArgsDict']]]] option_configurations: A list of all available options for an option group.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['OptionGroupOptionConfigurationArgs', 'OptionGroupOptionConfigurationArgsDict', 'outputs.OptionGroupOptionConfiguration']]]] option_configurations: A list of all available options for an option group.
         :param pulumi.Input[_builtins.str] option_group_description: The description of the option group.
         :param pulumi.Input[_builtins.str] option_group_name: The name of the option group to be created.
                 Constraints:
@@ -205,7 +205,7 @@ class OptionGroup(pulumi.CustomResource):
                 Example: ``myoptiongroup``
                 If you don't specify a value for ``OptionGroupName`` property, a name is automatically created for the option group.
                  This value is stored as a lowercase string.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Tags to assign to the option group.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: Tags to assign to the option group.
         """
         ...
     @overload
@@ -233,10 +233,10 @@ class OptionGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  engine_name: pulumi.Input[Optional[_builtins.str]] = None,
                  major_engine_version: pulumi.Input[Optional[_builtins.str]] = None,
-                 option_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OptionGroupOptionConfigurationArgs', 'OptionGroupOptionConfigurationArgsDict']]]]] = None,
+                 option_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OptionGroupOptionConfigurationArgs', 'OptionGroupOptionConfigurationArgsDict', 'outputs.OptionGroupOptionConfiguration']]]]] = None,
                  option_group_description: pulumi.Input[Optional[_builtins.str]] = None,
                  option_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

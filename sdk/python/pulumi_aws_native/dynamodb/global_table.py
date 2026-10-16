@@ -353,43 +353,43 @@ class GlobalTable(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 attribute_definitions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GlobalTableAttributeDefinitionArgs', 'GlobalTableAttributeDefinitionArgsDict']]]]] = None,
+                 attribute_definitions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GlobalTableAttributeDefinitionArgs', 'GlobalTableAttributeDefinitionArgsDict', 'outputs.GlobalTableAttributeDefinition']]]]] = None,
                  billing_mode: pulumi.Input[Optional[_builtins.str]] = None,
-                 global_secondary_indexes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GlobalTableGlobalSecondaryIndexArgs', 'GlobalTableGlobalSecondaryIndexArgsDict']]]]] = None,
+                 global_secondary_indexes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GlobalTableGlobalSecondaryIndexArgs', 'GlobalTableGlobalSecondaryIndexArgsDict', 'outputs.GlobalTableGlobalSecondaryIndex']]]]] = None,
                  global_table_source_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 global_table_witnesses: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GlobalTableWitnessArgs', 'GlobalTableWitnessArgsDict']]]]] = None,
-                 key_schema: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GlobalTableKeySchemaArgs', 'GlobalTableKeySchemaArgsDict']]]]] = None,
-                 local_secondary_indexes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GlobalTableLocalSecondaryIndexArgs', 'GlobalTableLocalSecondaryIndexArgsDict']]]]] = None,
+                 global_table_witnesses: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GlobalTableWitnessArgs', 'GlobalTableWitnessArgsDict', 'outputs.GlobalTableWitness']]]]] = None,
+                 key_schema: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GlobalTableKeySchemaArgs', 'GlobalTableKeySchemaArgsDict', 'outputs.GlobalTableKeySchema']]]]] = None,
+                 local_secondary_indexes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GlobalTableLocalSecondaryIndexArgs', 'GlobalTableLocalSecondaryIndexArgsDict', 'outputs.GlobalTableLocalSecondaryIndex']]]]] = None,
                  multi_region_consistency: pulumi.Input[Optional['GlobalTableMultiRegionConsistency']] = None,
-                 read_on_demand_throughput_settings: pulumi.Input[Optional[Union['GlobalTableReadOnDemandThroughputSettingsArgs', 'GlobalTableReadOnDemandThroughputSettingsArgsDict']]] = None,
-                 read_provisioned_throughput_settings: pulumi.Input[Optional[Union['GlobalTableGlobalReadProvisionedThroughputSettingsArgs', 'GlobalTableGlobalReadProvisionedThroughputSettingsArgsDict']]] = None,
-                 replicas: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GlobalTableReplicaSpecificationArgs', 'GlobalTableReplicaSpecificationArgsDict']]]]] = None,
-                 sse_specification: pulumi.Input[Optional[Union['GlobalTableSseSpecificationArgs', 'GlobalTableSseSpecificationArgsDict']]] = None,
-                 stream_specification: pulumi.Input[Optional[Union['GlobalTableStreamSpecificationArgs', 'GlobalTableStreamSpecificationArgsDict']]] = None,
+                 read_on_demand_throughput_settings: pulumi.Input[Optional[Union['GlobalTableReadOnDemandThroughputSettingsArgs', 'GlobalTableReadOnDemandThroughputSettingsArgsDict', 'outputs.GlobalTableReadOnDemandThroughputSettings']]] = None,
+                 read_provisioned_throughput_settings: pulumi.Input[Optional[Union['GlobalTableGlobalReadProvisionedThroughputSettingsArgs', 'GlobalTableGlobalReadProvisionedThroughputSettingsArgsDict', 'outputs.GlobalTableGlobalReadProvisionedThroughputSettings']]] = None,
+                 replicas: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GlobalTableReplicaSpecificationArgs', 'GlobalTableReplicaSpecificationArgsDict', 'outputs.GlobalTableReplicaSpecification']]]]] = None,
+                 sse_specification: pulumi.Input[Optional[Union['GlobalTableSseSpecificationArgs', 'GlobalTableSseSpecificationArgsDict', 'outputs.GlobalTableSseSpecification']]] = None,
+                 stream_specification: pulumi.Input[Optional[Union['GlobalTableStreamSpecificationArgs', 'GlobalTableStreamSpecificationArgsDict', 'outputs.GlobalTableStreamSpecification']]] = None,
                  table_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 time_to_live_specification: pulumi.Input[Optional[Union['GlobalTableTimeToLiveSpecificationArgs', 'GlobalTableTimeToLiveSpecificationArgsDict']]] = None,
-                 warm_throughput: pulumi.Input[Optional[Union['GlobalTableWarmThroughputArgs', 'GlobalTableWarmThroughputArgsDict']]] = None,
-                 write_on_demand_throughput_settings: pulumi.Input[Optional[Union['GlobalTableWriteOnDemandThroughputSettingsArgs', 'GlobalTableWriteOnDemandThroughputSettingsArgsDict']]] = None,
-                 write_provisioned_throughput_settings: pulumi.Input[Optional[Union['GlobalTableWriteProvisionedThroughputSettingsArgs', 'GlobalTableWriteProvisionedThroughputSettingsArgsDict']]] = None,
+                 time_to_live_specification: pulumi.Input[Optional[Union['GlobalTableTimeToLiveSpecificationArgs', 'GlobalTableTimeToLiveSpecificationArgsDict', 'outputs.GlobalTableTimeToLiveSpecification']]] = None,
+                 warm_throughput: pulumi.Input[Optional[Union['GlobalTableWarmThroughputArgs', 'GlobalTableWarmThroughputArgsDict', 'outputs.GlobalTableWarmThroughput']]] = None,
+                 write_on_demand_throughput_settings: pulumi.Input[Optional[Union['GlobalTableWriteOnDemandThroughputSettingsArgs', 'GlobalTableWriteOnDemandThroughputSettingsArgsDict', 'outputs.GlobalTableWriteOnDemandThroughputSettings']]] = None,
+                 write_provisioned_throughput_settings: pulumi.Input[Optional[Union['GlobalTableWriteProvisionedThroughputSettingsArgs', 'GlobalTableWriteProvisionedThroughputSettingsArgsDict', 'outputs.GlobalTableWriteProvisionedThroughputSettings']]] = None,
                  __props__=None):
         """
         Version: None. Resource Type definition for AWS::DynamoDB::GlobalTable
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['GlobalTableAttributeDefinitionArgs', 'GlobalTableAttributeDefinitionArgsDict']]]] attribute_definitions: A list of attributes that describe the key schema for the global table and indexes.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['GlobalTableAttributeDefinitionArgs', 'GlobalTableAttributeDefinitionArgsDict', 'outputs.GlobalTableAttributeDefinition']]]] attribute_definitions: A list of attributes that describe the key schema for the global table and indexes.
         :param pulumi.Input[_builtins.str] billing_mode: Specifies how you are charged for read and write throughput and how you manage capacity. Valid values are:
                
                - `PAY_PER_REQUEST`
                - `PROVISIONED`
                
                All replicas in your global table will have the same billing mode. If you use `PROVISIONED` billing mode, you must provide an auto scaling configuration via the `WriteProvisionedThroughputSettings` property. The default value of this property is `PROVISIONED` .
-        :param pulumi.Input[Sequence[pulumi.Input[Union['GlobalTableGlobalSecondaryIndexArgs', 'GlobalTableGlobalSecondaryIndexArgsDict']]]] global_secondary_indexes: Global secondary indexes to be created on the global table. You can create up to 20 global secondary indexes. Each replica in your global table will have the same global secondary index settings. You can only create or delete one global secondary index in a single stack operation.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['GlobalTableGlobalSecondaryIndexArgs', 'GlobalTableGlobalSecondaryIndexArgsDict', 'outputs.GlobalTableGlobalSecondaryIndex']]]] global_secondary_indexes: Global secondary indexes to be created on the global table. You can create up to 20 global secondary indexes. Each replica in your global table will have the same global secondary index settings. You can only create or delete one global secondary index in a single stack operation.
                
                Since the backfilling of an index could take a long time, CloudFormation does not wait for the index to become active. If a stack operation rolls back, CloudFormation might not delete an index that has been added. In that case, you will need to delete the index manually.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['GlobalTableWitnessArgs', 'GlobalTableWitnessArgsDict']]]] global_table_witnesses: The list of witnesses of the MRSC global table. Only one witness Region can be configured per MRSC global table.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['GlobalTableKeySchemaArgs', 'GlobalTableKeySchemaArgsDict']]]] key_schema: Specifies the attributes that make up the primary key for the table. The attributes in the `KeySchema` property must also be defined in the `AttributeDefinitions` property.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['GlobalTableLocalSecondaryIndexArgs', 'GlobalTableLocalSecondaryIndexArgsDict']]]] local_secondary_indexes: Local secondary indexes to be created on the table. You can create up to five local secondary indexes. Each index is scoped to a given hash key value. The size of each hash key can be up to 10 gigabytes. Each replica in your global table will have the same local secondary index settings.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['GlobalTableWitnessArgs', 'GlobalTableWitnessArgsDict', 'outputs.GlobalTableWitness']]]] global_table_witnesses: The list of witnesses of the MRSC global table. Only one witness Region can be configured per MRSC global table.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['GlobalTableKeySchemaArgs', 'GlobalTableKeySchemaArgsDict', 'outputs.GlobalTableKeySchema']]]] key_schema: Specifies the attributes that make up the primary key for the table. The attributes in the `KeySchema` property must also be defined in the `AttributeDefinitions` property.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['GlobalTableLocalSecondaryIndexArgs', 'GlobalTableLocalSecondaryIndexArgsDict', 'outputs.GlobalTableLocalSecondaryIndex']]]] local_secondary_indexes: Local secondary indexes to be created on the table. You can create up to five local secondary indexes. Each index is scoped to a given hash key value. The size of each hash key can be up to 10 gigabytes. Each replica in your global table will have the same local secondary index settings.
         :param pulumi.Input['GlobalTableMultiRegionConsistency'] multi_region_consistency: Specifies the consistency mode for a new global table.
                
                You can specify one of the following consistency modes:
@@ -398,22 +398,22 @@ class GlobalTable(pulumi.CustomResource):
                - `STRONG` : Configures a new global table for multi-Region strong consistency (MRSC).
                
                If you don't specify this field, the global table consistency mode defaults to `EVENTUAL` . For more information about global tables consistency modes, see [Consistency modes](https://docs.aws.amazon.com/V2globaltables_HowItWorks.html#V2globaltables_HowItWorks.consistency-modes) in DynamoDB developer guide.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['GlobalTableReplicaSpecificationArgs', 'GlobalTableReplicaSpecificationArgsDict']]]] replicas: Specifies the list of replicas for your global table. The list must contain at least one element, the region where the stack defining the global table is deployed. For example, if you define your table in a stack deployed to us-east-1, you must have an entry in `Replicas` with the region us-east-1. You cannot remove the replica in the stack region.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['GlobalTableReplicaSpecificationArgs', 'GlobalTableReplicaSpecificationArgsDict', 'outputs.GlobalTableReplicaSpecification']]]] replicas: Specifies the list of replicas for your global table. The list must contain at least one element, the region where the stack defining the global table is deployed. For example, if you define your table in a stack deployed to us-east-1, you must have an entry in `Replicas` with the region us-east-1. You cannot remove the replica in the stack region.
                
                > Adding a replica might take a few minutes for an empty table, or up to several hours for large tables. If you want to add or remove a replica, we recommend submitting an `UpdateStack` operation containing only that change.
                > 
                > If you add or delete a replica during an update, we recommend that you don't update any other resources. If your stack fails to update and is rolled back while adding a new replica, you might need to manually delete the replica.
                
                You can create a new global table with as many replicas as needed. You can add or remove replicas after table creation, but you can only add or remove a single replica in each update. For Multi-Region Strong Consistency (MRSC), you can add or remove up to 3 replicas, or 2 replicas plus a witness Region.
-        :param pulumi.Input[Union['GlobalTableSseSpecificationArgs', 'GlobalTableSseSpecificationArgsDict']] sse_specification: Specifies the settings to enable server-side encryption. These settings will be applied to all replicas. If you plan to use customer-managed KMS keys, you must provide a key for each replica using the `ReplicaSpecification.ReplicaSSESpecification` property.
-        :param pulumi.Input[Union['GlobalTableStreamSpecificationArgs', 'GlobalTableStreamSpecificationArgsDict']] stream_specification: Specifies the streams settings on your global table. You must provide a value for this property if your global table contains more than one replica. You can only change the streams settings if your global table has only one replica. For Multi-Region Strong Consistency (MRSC), you do not need to provide a value for this property and can change the settings at any time.
+        :param pulumi.Input[Union['GlobalTableSseSpecificationArgs', 'GlobalTableSseSpecificationArgsDict', 'outputs.GlobalTableSseSpecification']] sse_specification: Specifies the settings to enable server-side encryption. These settings will be applied to all replicas. If you plan to use customer-managed KMS keys, you must provide a key for each replica using the `ReplicaSpecification.ReplicaSSESpecification` property.
+        :param pulumi.Input[Union['GlobalTableStreamSpecificationArgs', 'GlobalTableStreamSpecificationArgsDict', 'outputs.GlobalTableStreamSpecification']] stream_specification: Specifies the streams settings on your global table. You must provide a value for this property if your global table contains more than one replica. You can only change the streams settings if your global table has only one replica. For Multi-Region Strong Consistency (MRSC), you do not need to provide a value for this property and can change the settings at any time.
         :param pulumi.Input[_builtins.str] table_name: A name for the global table. If you don't specify a name, AWS CloudFormation generates a unique ID and uses that ID as the table name. For more information, see [Name type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html) .
                
                > If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
-        :param pulumi.Input[Union['GlobalTableTimeToLiveSpecificationArgs', 'GlobalTableTimeToLiveSpecificationArgsDict']] time_to_live_specification: Specifies the time to live (TTL) settings for the table. This setting will be applied to all replicas.
-        :param pulumi.Input[Union['GlobalTableWarmThroughputArgs', 'GlobalTableWarmThroughputArgsDict']] warm_throughput: Provides visibility into the number of read and write operations your table or secondary index can instantaneously support. The settings can be modified using the `UpdateTable` operation to meet the throughput requirements of an upcoming peak event.
-        :param pulumi.Input[Union['GlobalTableWriteOnDemandThroughputSettingsArgs', 'GlobalTableWriteOnDemandThroughputSettingsArgsDict']] write_on_demand_throughput_settings: Sets the write request settings for a global table or a global secondary index. You can only specify this setting if your resource uses the `PAY_PER_REQUEST` `BillingMode` .
-        :param pulumi.Input[Union['GlobalTableWriteProvisionedThroughputSettingsArgs', 'GlobalTableWriteProvisionedThroughputSettingsArgsDict']] write_provisioned_throughput_settings: Specifies an auto scaling policy for write capacity. This policy will be applied to all replicas. This setting must be specified if `BillingMode` is set to `PROVISIONED` .
+        :param pulumi.Input[Union['GlobalTableTimeToLiveSpecificationArgs', 'GlobalTableTimeToLiveSpecificationArgsDict', 'outputs.GlobalTableTimeToLiveSpecification']] time_to_live_specification: Specifies the time to live (TTL) settings for the table. This setting will be applied to all replicas.
+        :param pulumi.Input[Union['GlobalTableWarmThroughputArgs', 'GlobalTableWarmThroughputArgsDict', 'outputs.GlobalTableWarmThroughput']] warm_throughput: Provides visibility into the number of read and write operations your table or secondary index can instantaneously support. The settings can be modified using the `UpdateTable` operation to meet the throughput requirements of an upcoming peak event.
+        :param pulumi.Input[Union['GlobalTableWriteOnDemandThroughputSettingsArgs', 'GlobalTableWriteOnDemandThroughputSettingsArgsDict', 'outputs.GlobalTableWriteOnDemandThroughputSettings']] write_on_demand_throughput_settings: Sets the write request settings for a global table or a global secondary index. You can only specify this setting if your resource uses the `PAY_PER_REQUEST` `BillingMode` .
+        :param pulumi.Input[Union['GlobalTableWriteProvisionedThroughputSettingsArgs', 'GlobalTableWriteProvisionedThroughputSettingsArgsDict', 'outputs.GlobalTableWriteProvisionedThroughputSettings']] write_provisioned_throughput_settings: Specifies an auto scaling policy for write capacity. This policy will be applied to all replicas. This setting must be specified if `BillingMode` is set to `PROVISIONED` .
         """
         ...
     @overload
@@ -439,24 +439,24 @@ class GlobalTable(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 attribute_definitions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GlobalTableAttributeDefinitionArgs', 'GlobalTableAttributeDefinitionArgsDict']]]]] = None,
+                 attribute_definitions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GlobalTableAttributeDefinitionArgs', 'GlobalTableAttributeDefinitionArgsDict', 'outputs.GlobalTableAttributeDefinition']]]]] = None,
                  billing_mode: pulumi.Input[Optional[_builtins.str]] = None,
-                 global_secondary_indexes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GlobalTableGlobalSecondaryIndexArgs', 'GlobalTableGlobalSecondaryIndexArgsDict']]]]] = None,
+                 global_secondary_indexes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GlobalTableGlobalSecondaryIndexArgs', 'GlobalTableGlobalSecondaryIndexArgsDict', 'outputs.GlobalTableGlobalSecondaryIndex']]]]] = None,
                  global_table_source_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 global_table_witnesses: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GlobalTableWitnessArgs', 'GlobalTableWitnessArgsDict']]]]] = None,
-                 key_schema: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GlobalTableKeySchemaArgs', 'GlobalTableKeySchemaArgsDict']]]]] = None,
-                 local_secondary_indexes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GlobalTableLocalSecondaryIndexArgs', 'GlobalTableLocalSecondaryIndexArgsDict']]]]] = None,
+                 global_table_witnesses: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GlobalTableWitnessArgs', 'GlobalTableWitnessArgsDict', 'outputs.GlobalTableWitness']]]]] = None,
+                 key_schema: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GlobalTableKeySchemaArgs', 'GlobalTableKeySchemaArgsDict', 'outputs.GlobalTableKeySchema']]]]] = None,
+                 local_secondary_indexes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GlobalTableLocalSecondaryIndexArgs', 'GlobalTableLocalSecondaryIndexArgsDict', 'outputs.GlobalTableLocalSecondaryIndex']]]]] = None,
                  multi_region_consistency: pulumi.Input[Optional['GlobalTableMultiRegionConsistency']] = None,
-                 read_on_demand_throughput_settings: pulumi.Input[Optional[Union['GlobalTableReadOnDemandThroughputSettingsArgs', 'GlobalTableReadOnDemandThroughputSettingsArgsDict']]] = None,
-                 read_provisioned_throughput_settings: pulumi.Input[Optional[Union['GlobalTableGlobalReadProvisionedThroughputSettingsArgs', 'GlobalTableGlobalReadProvisionedThroughputSettingsArgsDict']]] = None,
-                 replicas: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GlobalTableReplicaSpecificationArgs', 'GlobalTableReplicaSpecificationArgsDict']]]]] = None,
-                 sse_specification: pulumi.Input[Optional[Union['GlobalTableSseSpecificationArgs', 'GlobalTableSseSpecificationArgsDict']]] = None,
-                 stream_specification: pulumi.Input[Optional[Union['GlobalTableStreamSpecificationArgs', 'GlobalTableStreamSpecificationArgsDict']]] = None,
+                 read_on_demand_throughput_settings: pulumi.Input[Optional[Union['GlobalTableReadOnDemandThroughputSettingsArgs', 'GlobalTableReadOnDemandThroughputSettingsArgsDict', 'outputs.GlobalTableReadOnDemandThroughputSettings']]] = None,
+                 read_provisioned_throughput_settings: pulumi.Input[Optional[Union['GlobalTableGlobalReadProvisionedThroughputSettingsArgs', 'GlobalTableGlobalReadProvisionedThroughputSettingsArgsDict', 'outputs.GlobalTableGlobalReadProvisionedThroughputSettings']]] = None,
+                 replicas: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GlobalTableReplicaSpecificationArgs', 'GlobalTableReplicaSpecificationArgsDict', 'outputs.GlobalTableReplicaSpecification']]]]] = None,
+                 sse_specification: pulumi.Input[Optional[Union['GlobalTableSseSpecificationArgs', 'GlobalTableSseSpecificationArgsDict', 'outputs.GlobalTableSseSpecification']]] = None,
+                 stream_specification: pulumi.Input[Optional[Union['GlobalTableStreamSpecificationArgs', 'GlobalTableStreamSpecificationArgsDict', 'outputs.GlobalTableStreamSpecification']]] = None,
                  table_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 time_to_live_specification: pulumi.Input[Optional[Union['GlobalTableTimeToLiveSpecificationArgs', 'GlobalTableTimeToLiveSpecificationArgsDict']]] = None,
-                 warm_throughput: pulumi.Input[Optional[Union['GlobalTableWarmThroughputArgs', 'GlobalTableWarmThroughputArgsDict']]] = None,
-                 write_on_demand_throughput_settings: pulumi.Input[Optional[Union['GlobalTableWriteOnDemandThroughputSettingsArgs', 'GlobalTableWriteOnDemandThroughputSettingsArgsDict']]] = None,
-                 write_provisioned_throughput_settings: pulumi.Input[Optional[Union['GlobalTableWriteProvisionedThroughputSettingsArgs', 'GlobalTableWriteProvisionedThroughputSettingsArgsDict']]] = None,
+                 time_to_live_specification: pulumi.Input[Optional[Union['GlobalTableTimeToLiveSpecificationArgs', 'GlobalTableTimeToLiveSpecificationArgsDict', 'outputs.GlobalTableTimeToLiveSpecification']]] = None,
+                 warm_throughput: pulumi.Input[Optional[Union['GlobalTableWarmThroughputArgs', 'GlobalTableWarmThroughputArgsDict', 'outputs.GlobalTableWarmThroughput']]] = None,
+                 write_on_demand_throughput_settings: pulumi.Input[Optional[Union['GlobalTableWriteOnDemandThroughputSettingsArgs', 'GlobalTableWriteOnDemandThroughputSettingsArgsDict', 'outputs.GlobalTableWriteOnDemandThroughputSettings']]] = None,
+                 write_provisioned_throughput_settings: pulumi.Input[Optional[Union['GlobalTableWriteProvisionedThroughputSettingsArgs', 'GlobalTableWriteProvisionedThroughputSettingsArgsDict', 'outputs.GlobalTableWriteProvisionedThroughputSettings']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

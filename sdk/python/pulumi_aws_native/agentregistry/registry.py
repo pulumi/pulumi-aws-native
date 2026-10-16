@@ -160,15 +160,15 @@ class Registry(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 approval_configuration: pulumi.Input[Optional[Union['RegistryApprovalConfigurationArgs', 'RegistryApprovalConfigurationArgsDict']]] = None,
+                 approval_configuration: pulumi.Input[Optional[Union['RegistryApprovalConfigurationArgs', 'RegistryApprovalConfigurationArgsDict', 'outputs.RegistryApprovalConfiguration']]] = None,
                  authorizer_type: pulumi.Input[Optional['RegistryAuthorizerType']] = None,
                  auto_detection_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  auto_detection_scope: pulumi.Input[Optional['RegistryAutoDetectionScope']] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 discovery_configuration: pulumi.Input[Optional[Union['RegistryDiscoveryConfigurationArgs', 'RegistryDiscoveryConfigurationArgsDict']]] = None,
-                 encryption_configuration: pulumi.Input[Optional[Union['RegistryEncryptionConfigurationArgs', 'RegistryEncryptionConfigurationArgsDict']]] = None,
+                 discovery_configuration: pulumi.Input[Optional[Union['RegistryDiscoveryConfigurationArgs', 'RegistryDiscoveryConfigurationArgsDict', 'outputs.RegistryDiscoveryConfiguration']]] = None,
+                 encryption_configuration: pulumi.Input[Optional[Union['RegistryEncryptionConfigurationArgs', 'RegistryEncryptionConfigurationArgsDict', 'outputs.RegistryEncryptionConfiguration']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Definition of AWS::AgentRegistry::Registry Resource Type
@@ -178,7 +178,7 @@ class Registry(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] auto_detection_enabled: Specifies whether auto-detection is requested for the registry. Must be specified together with AutoDetectionScope. Setting this to true is necessary but not sufficient for auto-detection to become active; the preconditions of the configured scope must also be met. To turn auto-detection off, explicitly set this to false - removing AutoDetectionEnabled and AutoDetectionScope from the template is a no-op and leaves the existing auto-detection settings unchanged. A registry cannot be deleted while auto-detection is enabled: set this to false and update the stack before deleting the registry.
         :param pulumi.Input[_builtins.str] description: The description of the registry.
         :param pulumi.Input[_builtins.str] name: The name of the registry.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Tags to assign to the registry.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: Tags to assign to the registry.
         """
         ...
     @overload
@@ -204,15 +204,15 @@ class Registry(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 approval_configuration: pulumi.Input[Optional[Union['RegistryApprovalConfigurationArgs', 'RegistryApprovalConfigurationArgsDict']]] = None,
+                 approval_configuration: pulumi.Input[Optional[Union['RegistryApprovalConfigurationArgs', 'RegistryApprovalConfigurationArgsDict', 'outputs.RegistryApprovalConfiguration']]] = None,
                  authorizer_type: pulumi.Input[Optional['RegistryAuthorizerType']] = None,
                  auto_detection_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  auto_detection_scope: pulumi.Input[Optional['RegistryAutoDetectionScope']] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 discovery_configuration: pulumi.Input[Optional[Union['RegistryDiscoveryConfigurationArgs', 'RegistryDiscoveryConfigurationArgsDict']]] = None,
-                 encryption_configuration: pulumi.Input[Optional[Union['RegistryEncryptionConfigurationArgs', 'RegistryEncryptionConfigurationArgsDict']]] = None,
+                 discovery_configuration: pulumi.Input[Optional[Union['RegistryDiscoveryConfigurationArgs', 'RegistryDiscoveryConfigurationArgsDict', 'outputs.RegistryDiscoveryConfiguration']]] = None,
+                 encryption_configuration: pulumi.Input[Optional[Union['RegistryEncryptionConfigurationArgs', 'RegistryEncryptionConfigurationArgsDict', 'outputs.RegistryEncryptionConfiguration']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -150,13 +150,13 @@ class DetectorModel(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 detector_model_definition: pulumi.Input[Optional[Union['DetectorModelDefinitionArgs', 'DetectorModelDefinitionArgsDict']]] = None,
+                 detector_model_definition: pulumi.Input[Optional[Union['DetectorModelDefinitionArgs', 'DetectorModelDefinitionArgsDict', 'outputs.DetectorModelDefinition']]] = None,
                  detector_model_description: pulumi.Input[Optional[_builtins.str]] = None,
                  detector_model_name: pulumi.Input[Optional[_builtins.str]] = None,
                  evaluation_method: pulumi.Input[Optional['DetectorModelEvaluationMethod']] = None,
                  key: pulumi.Input[Optional[_builtins.str]] = None,
                  role_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         The AWS::IoTEvents::DetectorModel resource creates a detector model. You create a *detector model* (a model of your equipment or process) using *states*. For each state, you define conditional (Boolean) logic that evaluates the incoming inputs to detect significant events. When an event is detected, it can change the state or trigger custom-built or predefined actions using other AWS services. You can define additional events that trigger actions when entering or exiting a state and, optionally, when a condition is met. For more information, see [How to Use](https://docs.aws.amazon.com/iotevents/latest/developerguide/how-to-use-iotevents.html) in the *Developer Guide*.
@@ -167,14 +167,14 @@ class DetectorModel(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['DetectorModelDefinitionArgs', 'DetectorModelDefinitionArgsDict']] detector_model_definition: Information that defines how a detector operates.
+        :param pulumi.Input[Union['DetectorModelDefinitionArgs', 'DetectorModelDefinitionArgsDict', 'outputs.DetectorModelDefinition']] detector_model_definition: Information that defines how a detector operates.
         :param pulumi.Input[_builtins.str] detector_model_description: A brief description of the detector model.
         :param pulumi.Input[_builtins.str] detector_model_name: The name of the detector model.
         :param pulumi.Input['DetectorModelEvaluationMethod'] evaluation_method: Information about the order in which events are evaluated and how actions are executed.
         :param pulumi.Input[_builtins.str] key: The value used to identify a detector instance. When a device or system sends input, a new detector instance with a unique key value is created. ITE can continue to route input to its corresponding detector instance based on this identifying information.
                 This parameter uses a JSON-path expression to select the attribute-value pair in the message payload that is used for identification. To route the message to the correct detector instance, the device must send a message payload that contains the same attribute-value.
         :param pulumi.Input[_builtins.str] role_arn: The ARN of the role that grants permission to ITE to perform its operations.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: An array of key-value pairs to apply to this resource.
                 For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).
         """
         ...
@@ -205,13 +205,13 @@ class DetectorModel(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 detector_model_definition: pulumi.Input[Optional[Union['DetectorModelDefinitionArgs', 'DetectorModelDefinitionArgsDict']]] = None,
+                 detector_model_definition: pulumi.Input[Optional[Union['DetectorModelDefinitionArgs', 'DetectorModelDefinitionArgsDict', 'outputs.DetectorModelDefinition']]] = None,
                  detector_model_description: pulumi.Input[Optional[_builtins.str]] = None,
                  detector_model_name: pulumi.Input[Optional[_builtins.str]] = None,
                  evaluation_method: pulumi.Input[Optional['DetectorModelEvaluationMethod']] = None,
                  key: pulumi.Input[Optional[_builtins.str]] = None,
                  role_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

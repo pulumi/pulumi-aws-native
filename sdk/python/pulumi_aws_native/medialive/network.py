@@ -99,20 +99,20 @@ class Network(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 ip_pools: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NetworkIpPoolArgs', 'NetworkIpPoolArgsDict']]]]] = None,
+                 ip_pools: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NetworkIpPoolArgs', 'NetworkIpPoolArgsDict', 'outputs.NetworkIpPool']]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 routes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NetworkRouteArgs', 'NetworkRouteArgsDict']]]]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 routes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NetworkRouteArgs', 'NetworkRouteArgsDict', 'outputs.NetworkRoute']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Resource schema for AWS::MediaLive::Network.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['NetworkIpPoolArgs', 'NetworkIpPoolArgsDict']]]] ip_pools: The list of IP address cidr pools for the network
+        :param pulumi.Input[Sequence[pulumi.Input[Union['NetworkIpPoolArgs', 'NetworkIpPoolArgsDict', 'outputs.NetworkIpPool']]]] ip_pools: The list of IP address cidr pools for the network
         :param pulumi.Input[_builtins.str] name: The user-specified name of the Network to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['NetworkRouteArgs', 'NetworkRouteArgsDict']]]] routes: The routes for the network
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: A collection of key-value pairs.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['NetworkRouteArgs', 'NetworkRouteArgsDict', 'outputs.NetworkRoute']]]] routes: The routes for the network
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: A collection of key-value pairs.
         """
         ...
     @overload
@@ -138,10 +138,10 @@ class Network(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 ip_pools: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NetworkIpPoolArgs', 'NetworkIpPoolArgsDict']]]]] = None,
+                 ip_pools: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NetworkIpPoolArgs', 'NetworkIpPoolArgsDict', 'outputs.NetworkIpPool']]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 routes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NetworkRouteArgs', 'NetworkRouteArgsDict']]]]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 routes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NetworkRouteArgs', 'NetworkRouteArgsDict', 'outputs.NetworkRoute']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

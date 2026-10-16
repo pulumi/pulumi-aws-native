@@ -190,7 +190,7 @@ class DeploymentStrategy(pulumi.CustomResource):
                  growth_type: pulumi.Input[Optional['DeploymentStrategyGrowthType']] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  replicate_to: pulumi.Input[Optional['DeploymentStrategyReplicateTo']] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::AppConfig::DeploymentStrategy
@@ -239,7 +239,7 @@ class DeploymentStrategy(pulumi.CustomResource):
                Expressed numerically, the deployment rolls out as follows: 2% of the targets, 4% of the targets, 8% of the targets, and continues until the configuration has been deployed to all targets.
         :param pulumi.Input[_builtins.str] name: A name for the deployment strategy.
         :param pulumi.Input['DeploymentStrategyReplicateTo'] replicate_to: Save the deployment strategy to a Systems Manager (SSM) document.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Assigns metadata to an AWS AppConfig resource. Tags help organize and categorize your AWS AppConfig resources. Each tag consists of a key and an optional value, both of which you define. You can specify a maximum of 50 tags for a resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: Assigns metadata to an AWS AppConfig resource. Tags help organize and categorize your AWS AppConfig resources. Each tag consists of a key and an optional value, both of which you define. You can specify a maximum of 50 tags for a resource.
         """
         ...
     @overload
@@ -295,7 +295,7 @@ class DeploymentStrategy(pulumi.CustomResource):
                  growth_type: pulumi.Input[Optional['DeploymentStrategyGrowthType']] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  replicate_to: pulumi.Input[Optional['DeploymentStrategyReplicateTo']] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

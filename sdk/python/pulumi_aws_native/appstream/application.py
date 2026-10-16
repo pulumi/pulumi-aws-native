@@ -236,13 +236,13 @@ class Application(pulumi.CustomResource):
                  attributes_to_delete: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 icon_s3_location: pulumi.Input[Optional[Union['ApplicationS3LocationArgs', 'ApplicationS3LocationArgsDict']]] = None,
+                 icon_s3_location: pulumi.Input[Optional[Union['ApplicationS3LocationArgs', 'ApplicationS3LocationArgsDict', 'outputs.ApplicationS3Location']]] = None,
                  instance_families: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  launch_parameters: pulumi.Input[Optional[_builtins.str]] = None,
                  launch_path: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  platforms: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union[Union['ApplicationTag0PropertiesArgs', 'ApplicationTag0PropertiesArgsDict'], Union['ApplicationTag1PropertiesArgs', 'ApplicationTag1PropertiesArgsDict']]]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union[Union['ApplicationTag0PropertiesArgs', 'ApplicationTag0PropertiesArgsDict', 'outputs.ApplicationTag0Properties'], Union['ApplicationTag1PropertiesArgs', 'ApplicationTag1PropertiesArgsDict', 'outputs.ApplicationTag1Properties']]]]]] = None,
                  working_directory: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -254,7 +254,7 @@ class Application(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] attributes_to_delete: A list of attributes to delete from an application.
         :param pulumi.Input[_builtins.str] description: The description of the application.
         :param pulumi.Input[_builtins.str] display_name: The display name of the application. This name is visible to users in the application catalog.
-        :param pulumi.Input[Union['ApplicationS3LocationArgs', 'ApplicationS3LocationArgsDict']] icon_s3_location: The icon S3 location of the application.
+        :param pulumi.Input[Union['ApplicationS3LocationArgs', 'ApplicationS3LocationArgsDict', 'outputs.ApplicationS3Location']] icon_s3_location: The icon S3 location of the application.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] instance_families: The instance families the application supports.
                
                *Allowed Values* : `GENERAL_PURPOSE` | `GRAPHICS_G4`
@@ -266,7 +266,7 @@ class Application(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] platforms: The platforms the application supports.
                
                *Allowed Values* : `WINDOWS_SERVER_2019` | `AMAZON_LINUX2`
-        :param pulumi.Input[Sequence[pulumi.Input[Union[Union['ApplicationTag0PropertiesArgs', 'ApplicationTag0PropertiesArgsDict'], Union['ApplicationTag1PropertiesArgs', 'ApplicationTag1PropertiesArgsDict']]]]] tags: The tags of the application.
+        :param pulumi.Input[Sequence[pulumi.Input[Union[Union['ApplicationTag0PropertiesArgs', 'ApplicationTag0PropertiesArgsDict', 'outputs.ApplicationTag0Properties'], Union['ApplicationTag1PropertiesArgs', 'ApplicationTag1PropertiesArgsDict', 'outputs.ApplicationTag1Properties']]]]] tags: The tags of the application.
         :param pulumi.Input[_builtins.str] working_directory: The working directory of the application.
         """
         ...
@@ -297,13 +297,13 @@ class Application(pulumi.CustomResource):
                  attributes_to_delete: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 icon_s3_location: pulumi.Input[Optional[Union['ApplicationS3LocationArgs', 'ApplicationS3LocationArgsDict']]] = None,
+                 icon_s3_location: pulumi.Input[Optional[Union['ApplicationS3LocationArgs', 'ApplicationS3LocationArgsDict', 'outputs.ApplicationS3Location']]] = None,
                  instance_families: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  launch_parameters: pulumi.Input[Optional[_builtins.str]] = None,
                  launch_path: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  platforms: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union[Union['ApplicationTag0PropertiesArgs', 'ApplicationTag0PropertiesArgsDict'], Union['ApplicationTag1PropertiesArgs', 'ApplicationTag1PropertiesArgsDict']]]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union[Union['ApplicationTag0PropertiesArgs', 'ApplicationTag0PropertiesArgsDict', 'outputs.ApplicationTag0Properties'], Union['ApplicationTag1PropertiesArgs', 'ApplicationTag1PropertiesArgsDict', 'outputs.ApplicationTag1Properties']]]]]] = None,
                  working_directory: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -482,7 +482,7 @@ class Application(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence[Any]]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence[Union['outputs.ApplicationTag0Properties', 'outputs.ApplicationTag1Properties']]]]:
         """
         The tags of the application.
         """

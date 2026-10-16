@@ -120,10 +120,10 @@ class LocationS3(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  s3_bucket_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 s3_config: pulumi.Input[Optional[Union['LocationS3s3ConfigArgs', 'LocationS3s3ConfigArgsDict']]] = None,
+                 s3_config: pulumi.Input[Optional[Union['LocationS3s3ConfigArgs', 'LocationS3s3ConfigArgsDict', 'outputs.LocationS3s3Config']]] = None,
                  s3_storage_class: pulumi.Input[Optional['LocationS3S3StorageClass']] = None,
                  subdirectory: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Resource schema for AWS::DataSync::LocationS3
@@ -164,12 +164,12 @@ class LocationS3(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] s3_bucket_arn: The Amazon Resource Name (ARN) of the Amazon S3 bucket.
-        :param pulumi.Input[Union['LocationS3s3ConfigArgs', 'LocationS3s3ConfigArgsDict']] s3_config: The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that is used to access an Amazon S3 bucket.
+        :param pulumi.Input[Union['LocationS3s3ConfigArgs', 'LocationS3s3ConfigArgsDict', 'outputs.LocationS3s3Config']] s3_config: The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that is used to access an Amazon S3 bucket.
                
                For detailed information about using such a role, see [Creating a Location for Amazon S3](https://docs.aws.amazon.com/datasync/latest/userguide/working-with-locations.html#create-s3-location) in the *AWS DataSync User Guide* .
         :param pulumi.Input['LocationS3S3StorageClass'] s3_storage_class: The Amazon S3 storage class you want to store your files in when this location is used as a task destination.
         :param pulumi.Input[_builtins.str] subdirectory: A subdirectory in the Amazon S3 bucket. This subdirectory in Amazon S3 is used to read data from the S3 source location or write data to the S3 destination.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
     @overload
@@ -229,10 +229,10 @@ class LocationS3(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  s3_bucket_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 s3_config: pulumi.Input[Optional[Union['LocationS3s3ConfigArgs', 'LocationS3s3ConfigArgsDict']]] = None,
+                 s3_config: pulumi.Input[Optional[Union['LocationS3s3ConfigArgs', 'LocationS3s3ConfigArgsDict', 'outputs.LocationS3s3Config']]] = None,
                  s3_storage_class: pulumi.Input[Optional['LocationS3S3StorageClass']] = None,
                  subdirectory: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -161,11 +161,11 @@ class PublicVirtualInterface(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  allocate_public_virtual_interface_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 bgp_peers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PublicVirtualInterfaceBgpPeerArgs', 'PublicVirtualInterfaceBgpPeerArgsDict']]]]] = None,
+                 bgp_peers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PublicVirtualInterfaceBgpPeerArgs', 'PublicVirtualInterfaceBgpPeerArgsDict', 'outputs.PublicVirtualInterfaceBgpPeer']]]]] = None,
                  connection_id: pulumi.Input[Optional[_builtins.str]] = None,
                  rate_limit: pulumi.Input[Optional[_builtins.str]] = None,
                  route_filter_prefixes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  virtual_interface_name: pulumi.Input[Optional[_builtins.str]] = None,
                  vlan: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
@@ -175,11 +175,11 @@ class PublicVirtualInterface(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] allocate_public_virtual_interface_role_arn: The Amazon Resource Name (ARN) of the role to allocate the public virtual interface. Needs directconnect:AllocatePublicVirtualInterface permissions and tag permissions if applicable.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['PublicVirtualInterfaceBgpPeerArgs', 'PublicVirtualInterfaceBgpPeerArgsDict']]]] bgp_peers: The BGP peers configured on this virtual interface.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['PublicVirtualInterfaceBgpPeerArgs', 'PublicVirtualInterfaceBgpPeerArgsDict', 'outputs.PublicVirtualInterfaceBgpPeer']]]] bgp_peers: The BGP peers configured on this virtual interface.
         :param pulumi.Input[_builtins.str] connection_id: The ID or ARN of the connection or LAG.
         :param pulumi.Input[_builtins.str] rate_limit: The rate limit (bandwidth allocation) for the virtual interface. The value must be one of the supported bandwidth values (e.g., 50Mbps, 1Gbps, 10Gbps) and cannot exceed the bandwidth of the parent connection or LAG.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] route_filter_prefixes: The routes to be advertised to the AWS network in this region.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags associated with the public virtual interface.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: The tags associated with the public virtual interface.
         :param pulumi.Input[_builtins.str] virtual_interface_name: The name of the virtual interface assigned by the customer network. The name has a maximum of 100 characters. The following are valid characters: a-z, 0-9 and a hyphen (-).
         :param pulumi.Input[_builtins.int] vlan: The ID of the VLAN.
         """
@@ -208,11 +208,11 @@ class PublicVirtualInterface(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  allocate_public_virtual_interface_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 bgp_peers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PublicVirtualInterfaceBgpPeerArgs', 'PublicVirtualInterfaceBgpPeerArgsDict']]]]] = None,
+                 bgp_peers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PublicVirtualInterfaceBgpPeerArgs', 'PublicVirtualInterfaceBgpPeerArgsDict', 'outputs.PublicVirtualInterfaceBgpPeer']]]]] = None,
                  connection_id: pulumi.Input[Optional[_builtins.str]] = None,
                  rate_limit: pulumi.Input[Optional[_builtins.str]] = None,
                  route_filter_prefixes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  virtual_interface_name: pulumi.Input[Optional[_builtins.str]] = None,
                  vlan: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):

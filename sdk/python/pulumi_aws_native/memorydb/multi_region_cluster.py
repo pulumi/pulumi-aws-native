@@ -204,7 +204,7 @@ class MultiRegionCluster(pulumi.CustomResource):
                  multi_region_parameter_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  node_type: pulumi.Input[Optional[_builtins.str]] = None,
                  num_shards: pulumi.Input[Optional[_builtins.int]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  tls_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  update_strategy: pulumi.Input[Optional['MultiRegionClusterUpdateStrategy']] = None,
                  __props__=None):
@@ -220,7 +220,7 @@ class MultiRegionCluster(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] multi_region_parameter_group_name: The name of the parameter group associated with the multi region cluster.
         :param pulumi.Input[_builtins.str] node_type: The compute and memory capacity of the nodes in the multi region cluster.
         :param pulumi.Input[_builtins.int] num_shards: The number of shards the multi region cluster will contain.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this multi region cluster.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: An array of key-value pairs to apply to this multi region cluster.
         :param pulumi.Input[_builtins.bool] tls_enabled: A flag that enables in-transit encryption when set to true.
                
                You cannot modify the value of TransitEncryptionEnabled after the cluster is created. To enable in-transit encryption on a cluster you must set TransitEncryptionEnabled to true when you create a cluster.
@@ -257,7 +257,7 @@ class MultiRegionCluster(pulumi.CustomResource):
                  multi_region_parameter_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  node_type: pulumi.Input[Optional[_builtins.str]] = None,
                  num_shards: pulumi.Input[Optional[_builtins.int]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  tls_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  update_strategy: pulumi.Input[Optional['MultiRegionClusterUpdateStrategy']] = None,
                  __props__=None):

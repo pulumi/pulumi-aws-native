@@ -114,22 +114,22 @@ class EventSource(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 configuration: pulumi.Input[Optional[Union['EventSourceConfigurationArgs', 'EventSourceConfigurationArgsDict']]] = None,
+                 configuration: pulumi.Input[Optional[Union['EventSourceConfigurationArgs', 'EventSourceConfigurationArgsDict', 'outputs.EventSourceConfiguration']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  event_bus_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Resource schema for AWS::EventsV2::EventSource. A managed event source that forwards AWS service events or partner events onto a custom event bus.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['EventSourceConfigurationArgs', 'EventSourceConfigurationArgsDict']] configuration: The event source configuration. Specify exactly one of AwsServiceEventsConfiguration or PartnerEventsConfiguration.
+        :param pulumi.Input[Union['EventSourceConfigurationArgs', 'EventSourceConfigurationArgsDict', 'outputs.EventSourceConfiguration']] configuration: The event source configuration. Specify exactly one of AwsServiceEventsConfiguration or PartnerEventsConfiguration.
         :param pulumi.Input[_builtins.str] description: A description of the event source. Control characters and Unicode line separators are not allowed.
         :param pulumi.Input[_builtins.str] event_bus_arn: The ARN of the custom event bus the event source forwards onto.
         :param pulumi.Input[_builtins.str] name: The name of the event source. The first character must be alphanumeric; the remaining characters may also include '.', '-', and '_'. Names cannot begin with the reserved aws. prefix.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags assigned to the event source.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: The tags assigned to the event source.
         """
         ...
     @overload
@@ -155,11 +155,11 @@ class EventSource(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 configuration: pulumi.Input[Optional[Union['EventSourceConfigurationArgs', 'EventSourceConfigurationArgsDict']]] = None,
+                 configuration: pulumi.Input[Optional[Union['EventSourceConfigurationArgs', 'EventSourceConfigurationArgsDict', 'outputs.EventSourceConfiguration']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  event_bus_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

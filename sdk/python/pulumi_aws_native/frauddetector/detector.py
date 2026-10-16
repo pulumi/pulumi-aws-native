@@ -177,25 +177,25 @@ class Detector(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 associated_models: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DetectorModelArgs', 'DetectorModelArgsDict']]]]] = None,
+                 associated_models: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DetectorModelArgs', 'DetectorModelArgsDict', 'outputs.DetectorModel']]]]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  detector_id: pulumi.Input[Optional[_builtins.str]] = None,
                  detector_version_status: pulumi.Input[Optional['DetectorVersionStatus']] = None,
-                 event_type: pulumi.Input[Optional[Union['DetectorEventTypeArgs', 'DetectorEventTypeArgsDict']]] = None,
+                 event_type: pulumi.Input[Optional[Union['DetectorEventTypeArgs', 'DetectorEventTypeArgsDict', 'outputs.DetectorEventType']]] = None,
                  rule_execution_mode: pulumi.Input[Optional['DetectorRuleExecutionMode']] = None,
-                 rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DetectorRuleArgs', 'DetectorRuleArgsDict']]]]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DetectorRuleArgs', 'DetectorRuleArgsDict', 'outputs.DetectorRule']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         A resource schema for a Detector in Amazon Fraud Detector.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['DetectorModelArgs', 'DetectorModelArgsDict']]]] associated_models: The models to associate with this detector.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DetectorModelArgs', 'DetectorModelArgsDict', 'outputs.DetectorModel']]]] associated_models: The models to associate with this detector.
         :param pulumi.Input[_builtins.str] description: The description of the detector.
         :param pulumi.Input[_builtins.str] detector_id: The ID of the detector
         :param pulumi.Input['DetectorVersionStatus'] detector_version_status: The desired detector version status for the detector
-        :param pulumi.Input[Union['DetectorEventTypeArgs', 'DetectorEventTypeArgsDict']] event_type: The event type to associate this detector with.
+        :param pulumi.Input[Union['DetectorEventTypeArgs', 'DetectorEventTypeArgsDict', 'outputs.DetectorEventType']] event_type: The event type to associate this detector with.
         :param pulumi.Input['DetectorRuleExecutionMode'] rule_execution_mode: The rule execution mode for the rules included in the detector version.
                
                Valid values: `FIRST_MATCHED | ALL_MATCHED` Default value: `FIRST_MATCHED`
@@ -205,8 +205,8 @@ class Detector(pulumi.CustomResource):
                If you specify `FIRST_MATCHED` , Amazon Fraud Detector evaluates rules sequentially, first to last, stopping at the first matched rule. Amazon Fraud dectector then provides the outcomes for that single rule.
                
                If you specifiy `ALL_MATCHED` , Amazon Fraud Detector evaluates all rules and returns the outcomes for all matched rules.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['DetectorRuleArgs', 'DetectorRuleArgsDict']]]] rules: The rules to include in the detector version.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Tags associated with this detector.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DetectorRuleArgs', 'DetectorRuleArgsDict', 'outputs.DetectorRule']]]] rules: The rules to include in the detector version.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: Tags associated with this detector.
         """
         ...
     @overload
@@ -232,14 +232,14 @@ class Detector(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 associated_models: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DetectorModelArgs', 'DetectorModelArgsDict']]]]] = None,
+                 associated_models: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DetectorModelArgs', 'DetectorModelArgsDict', 'outputs.DetectorModel']]]]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  detector_id: pulumi.Input[Optional[_builtins.str]] = None,
                  detector_version_status: pulumi.Input[Optional['DetectorVersionStatus']] = None,
-                 event_type: pulumi.Input[Optional[Union['DetectorEventTypeArgs', 'DetectorEventTypeArgsDict']]] = None,
+                 event_type: pulumi.Input[Optional[Union['DetectorEventTypeArgs', 'DetectorEventTypeArgsDict', 'outputs.DetectorEventType']]] = None,
                  rule_execution_mode: pulumi.Input[Optional['DetectorRuleExecutionMode']] = None,
-                 rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DetectorRuleArgs', 'DetectorRuleArgsDict']]]]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DetectorRuleArgs', 'DetectorRuleArgsDict', 'outputs.DetectorRule']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

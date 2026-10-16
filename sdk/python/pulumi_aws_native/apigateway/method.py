@@ -246,8 +246,8 @@ class Method(pulumi.CustomResource):
                  authorization_type: pulumi.Input[Optional[_builtins.str]] = None,
                  authorizer_id: pulumi.Input[Optional[_builtins.str]] = None,
                  http_method: pulumi.Input[Optional[_builtins.str]] = None,
-                 integration: pulumi.Input[Optional[Union['MethodIntegrationArgs', 'MethodIntegrationArgsDict']]] = None,
-                 method_responses: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MethodResponseArgs', 'MethodResponseArgsDict']]]]] = None,
+                 integration: pulumi.Input[Optional[Union['MethodIntegrationArgs', 'MethodIntegrationArgsDict', 'outputs.MethodIntegration']]] = None,
+                 method_responses: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MethodResponseArgs', 'MethodResponseArgsDict', 'outputs.MethodResponse']]]]] = None,
                  operation_name: pulumi.Input[Optional[_builtins.str]] = None,
                  request_models: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  request_parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[Union[_builtins.bool, _builtins.str]]]]] = None,
@@ -266,8 +266,8 @@ class Method(pulumi.CustomResource):
                  If you specify the ``AuthorizerId`` property, specify ``CUSTOM`` or ``COGNITO_USER_POOLS`` for this property.
         :param pulumi.Input[_builtins.str] authorizer_id: The identifier of an authorizer to use on this method. The method's authorization type must be `CUSTOM` or `COGNITO_USER_POOLS` .
         :param pulumi.Input[_builtins.str] http_method: The method's HTTP verb.
-        :param pulumi.Input[Union['MethodIntegrationArgs', 'MethodIntegrationArgsDict']] integration: Represents an `HTTP` , `HTTP_PROXY` , `AWS` , `AWS_PROXY` , or Mock integration.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['MethodResponseArgs', 'MethodResponseArgsDict']]]] method_responses: Gets a method response associated with a given HTTP status code.
+        :param pulumi.Input[Union['MethodIntegrationArgs', 'MethodIntegrationArgsDict', 'outputs.MethodIntegration']] integration: Represents an `HTTP` , `HTTP_PROXY` , `AWS` , `AWS_PROXY` , or Mock integration.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['MethodResponseArgs', 'MethodResponseArgsDict', 'outputs.MethodResponse']]]] method_responses: Gets a method response associated with a given HTTP status code.
         :param pulumi.Input[_builtins.str] operation_name: A human-friendly operation identifier for the method. For example, you can assign the `operationName` of `ListPets` for the `GET /pets` method in the `PetStore` example.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] request_models: A key-value map specifying data schemas, represented by Model resources, (as the mapped value) of the request payloads of given content types (as the mapping key).
         :param pulumi.Input[Mapping[str, pulumi.Input[Union[_builtins.bool, _builtins.str]]]] request_parameters: A key-value map defining required or optional method request parameters that can be accepted by API Gateway. A key is a method request parameter name matching the pattern of `method.request.{location}.{name}` , where `location` is `querystring` , `path` , or `header` and `name` is a valid and unique parameter name. The value associated with the key is a Boolean flag indicating whether the parameter is required ( `true` ) or optional ( `false` ). The method request parameter names defined here are available in Integration to be mapped to integration request parameters or templates.
@@ -304,8 +304,8 @@ class Method(pulumi.CustomResource):
                  authorization_type: pulumi.Input[Optional[_builtins.str]] = None,
                  authorizer_id: pulumi.Input[Optional[_builtins.str]] = None,
                  http_method: pulumi.Input[Optional[_builtins.str]] = None,
-                 integration: pulumi.Input[Optional[Union['MethodIntegrationArgs', 'MethodIntegrationArgsDict']]] = None,
-                 method_responses: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MethodResponseArgs', 'MethodResponseArgsDict']]]]] = None,
+                 integration: pulumi.Input[Optional[Union['MethodIntegrationArgs', 'MethodIntegrationArgsDict', 'outputs.MethodIntegration']]] = None,
+                 method_responses: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MethodResponseArgs', 'MethodResponseArgsDict', 'outputs.MethodResponse']]]]] = None,
                  operation_name: pulumi.Input[Optional[_builtins.str]] = None,
                  request_models: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  request_parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[Union[_builtins.bool, _builtins.str]]]]] = None,
@@ -454,7 +454,7 @@ class Method(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="requestParameters")
-    def request_parameters(self) -> pulumi.Output[Optional[Mapping[str, Any]]]:
+    def request_parameters(self) -> pulumi.Output[Optional[Mapping[str, Union[_builtins.bool, _builtins.str]]]]:
         """
         A key-value map defining required or optional method request parameters that can be accepted by API Gateway. A key is a method request parameter name matching the pattern of `method.request.{location}.{name}` , where `location` is `querystring` , `path` , or `header` and `name` is a valid and unique parameter name. The value associated with the key is a Boolean flag indicating whether the parameter is required ( `true` ) or optional ( `false` ). The method request parameter names defined here are available in Integration to be mapped to integration request parameters or templates.
         """

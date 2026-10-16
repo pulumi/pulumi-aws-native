@@ -96,7 +96,7 @@ class Association(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  agent_space_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 configuration: pulumi.Input[Optional[Union['AssociationServiceConfigurationArgs', 'AssociationServiceConfigurationArgsDict']]] = None,
+                 configuration: pulumi.Input[Optional[Union['AssociationServiceConfigurationArgs', 'AssociationServiceConfigurationArgsDict', 'outputs.AssociationServiceConfiguration']]] = None,
                  linked_association_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  service_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -106,7 +106,7 @@ class Association(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] agent_space_id: The unique identifier of the AgentSpace
-        :param pulumi.Input[Union['AssociationServiceConfigurationArgs', 'AssociationServiceConfigurationArgsDict']] configuration: The configuration that directs how AgentSpace interacts with the given service
+        :param pulumi.Input[Union['AssociationServiceConfigurationArgs', 'AssociationServiceConfigurationArgsDict', 'outputs.AssociationServiceConfiguration']] configuration: The configuration that directs how AgentSpace interacts with the given service
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] linked_association_ids: Set of linked association IDs for parent-child relationships
         :param pulumi.Input[_builtins.str] service_id: The identifier for the associated service
         """
@@ -135,7 +135,7 @@ class Association(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  agent_space_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 configuration: pulumi.Input[Optional[Union['AssociationServiceConfigurationArgs', 'AssociationServiceConfigurationArgsDict']]] = None,
+                 configuration: pulumi.Input[Optional[Union['AssociationServiceConfigurationArgs', 'AssociationServiceConfigurationArgsDict', 'outputs.AssociationServiceConfiguration']]] = None,
                  linked_association_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  service_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):

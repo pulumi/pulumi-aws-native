@@ -133,8 +133,8 @@ class Context(pulumi.CustomResource):
                  context_type: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  properties: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 source: pulumi.Input[Optional[Union['SourcePropertiesArgs', 'SourcePropertiesArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 source: pulumi.Input[Optional[Union['SourcePropertiesArgs', 'SourcePropertiesArgsDict', 'outputs.SourceProperties']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Resource type definition for AWS::SageMaker::Context. A context is a lineage tracking entity that represents a logical grouping of other tracking or experiment entities.
@@ -145,8 +145,8 @@ class Context(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] context_type: The context type.
         :param pulumi.Input[_builtins.str] description: The description of the context.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] properties: A list of properties to add to the context.
-        :param pulumi.Input[Union['SourcePropertiesArgs', 'SourcePropertiesArgsDict']] source: The source type, ID, and URI.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: A list of tags to apply to the context.
+        :param pulumi.Input[Union['SourcePropertiesArgs', 'SourcePropertiesArgsDict', 'outputs.SourceProperties']] source: The source type, ID, and URI.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: A list of tags to apply to the context.
         """
         ...
     @overload
@@ -176,8 +176,8 @@ class Context(pulumi.CustomResource):
                  context_type: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  properties: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 source: pulumi.Input[Optional[Union['SourcePropertiesArgs', 'SourcePropertiesArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 source: pulumi.Input[Optional[Union['SourcePropertiesArgs', 'SourcePropertiesArgsDict', 'outputs.SourceProperties']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

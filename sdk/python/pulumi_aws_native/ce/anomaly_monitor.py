@@ -129,7 +129,7 @@ class AnomalyMonitor(pulumi.CustomResource):
                  monitor_name: pulumi.Input[Optional[_builtins.str]] = None,
                  monitor_specification: pulumi.Input[Optional[_builtins.str]] = None,
                  monitor_type: pulumi.Input[Optional['AnomalyMonitorMonitorType']] = None,
-                 resource_tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
+                 resource_tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict', '_root_outputs.CreateOnlyTag']]]]] = None,
                  __props__=None):
         """
         AWS Cost Anomaly Detection leverages advanced Machine Learning technologies to identify anomalous spend and root causes, so you can quickly take action. You can use Cost Anomaly Detection by creating monitor.
@@ -357,7 +357,7 @@ class AnomalyMonitor(pulumi.CustomResource):
                Set this to `CUSTOM` for a customer managed monitor. Customer managed monitors let you select specific dimension values that get monitored in aggregate.
                
                For more information about monitor types, see [Monitor types](https://docs.aws.amazon.com/cost-management/latest/userguide/getting-started-ad.html#monitor-type-def) in the *Billing and Cost Management User Guide* .
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]] resource_tags: Tags to assign to monitor.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict', '_root_outputs.CreateOnlyTag']]]] resource_tags: Tags to assign to monitor.
         """
         ...
     @overload
@@ -598,7 +598,7 @@ class AnomalyMonitor(pulumi.CustomResource):
                  monitor_name: pulumi.Input[Optional[_builtins.str]] = None,
                  monitor_specification: pulumi.Input[Optional[_builtins.str]] = None,
                  monitor_type: pulumi.Input[Optional['AnomalyMonitorMonitorType']] = None,
-                 resource_tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
+                 resource_tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict', '_root_outputs.CreateOnlyTag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

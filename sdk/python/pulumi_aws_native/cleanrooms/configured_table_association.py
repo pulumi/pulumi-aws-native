@@ -145,26 +145,26 @@ class ConfiguredTableAssociation(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 configured_table_association_analysis_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ConfiguredTableAssociationAnalysisRuleArgs', 'ConfiguredTableAssociationAnalysisRuleArgsDict']]]]] = None,
+                 configured_table_association_analysis_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ConfiguredTableAssociationAnalysisRuleArgs', 'ConfiguredTableAssociationAnalysisRuleArgsDict', 'outputs.ConfiguredTableAssociationAnalysisRule']]]]] = None,
                  configured_table_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  membership_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  role_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Represents a table that can be queried within a collaboration
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ConfiguredTableAssociationAnalysisRuleArgs', 'ConfiguredTableAssociationAnalysisRuleArgsDict']]]] configured_table_association_analysis_rules: An analysis rule for a configured table association. This analysis rule specifies how data from the table can be used within its associated collaboration. In the console, the `ConfiguredTableAssociationAnalysisRule` is referred to as the *collaboration analysis rule* .
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ConfiguredTableAssociationAnalysisRuleArgs', 'ConfiguredTableAssociationAnalysisRuleArgsDict', 'outputs.ConfiguredTableAssociationAnalysisRule']]]] configured_table_association_analysis_rules: An analysis rule for a configured table association. This analysis rule specifies how data from the table can be used within its associated collaboration. In the console, the `ConfiguredTableAssociationAnalysisRule` is referred to as the *collaboration analysis rule* .
         :param pulumi.Input[_builtins.str] configured_table_identifier: A unique identifier for the configured table to be associated to. Currently accepts a configured table ID.
         :param pulumi.Input[_builtins.str] description: A description of the configured table association.
         :param pulumi.Input[_builtins.str] membership_identifier: The unique ID for the membership this configured table association belongs to.
         :param pulumi.Input[_builtins.str] name: The name of the configured table association, in lowercase. The table is identified by this name when running protected queries against the underlying data.
         :param pulumi.Input[_builtins.str] role_arn: The service will assume this role to access catalog metadata and query the table.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An arbitrary set of tags (key-value pairs) for this cleanrooms collaboration.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: An arbitrary set of tags (key-value pairs) for this cleanrooms collaboration.
         """
         ...
     @overload
@@ -190,13 +190,13 @@ class ConfiguredTableAssociation(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 configured_table_association_analysis_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ConfiguredTableAssociationAnalysisRuleArgs', 'ConfiguredTableAssociationAnalysisRuleArgsDict']]]]] = None,
+                 configured_table_association_analysis_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ConfiguredTableAssociationAnalysisRuleArgs', 'ConfiguredTableAssociationAnalysisRuleArgsDict', 'outputs.ConfiguredTableAssociationAnalysisRule']]]]] = None,
                  configured_table_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  membership_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  role_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

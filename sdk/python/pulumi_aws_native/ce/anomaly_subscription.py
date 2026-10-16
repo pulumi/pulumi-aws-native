@@ -147,8 +147,8 @@ class AnomalySubscription(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  frequency: pulumi.Input[Optional['AnomalySubscriptionFrequency']] = None,
                  monitor_arn_list: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 resource_tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
-                 subscribers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AnomalySubscriptionSubscriberArgs', 'AnomalySubscriptionSubscriberArgsDict']]]]] = None,
+                 resource_tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict', '_root_outputs.CreateOnlyTag']]]]] = None,
+                 subscribers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AnomalySubscriptionSubscriberArgs', 'AnomalySubscriptionSubscriberArgsDict', 'outputs.AnomalySubscriptionSubscriber']]]]] = None,
                  subscription_name: pulumi.Input[Optional[_builtins.str]] = None,
                  threshold: pulumi.Input[Optional[_builtins.float]] = None,
                  threshold_expression: pulumi.Input[Optional[_builtins.str]] = None,
@@ -265,8 +265,8 @@ class AnomalySubscription(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input['AnomalySubscriptionFrequency'] frequency: The frequency at which anomaly reports are sent over email.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] monitor_arn_list: A list of cost anomaly monitors.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]] resource_tags: Tags to assign to subscription.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AnomalySubscriptionSubscriberArgs', 'AnomalySubscriptionSubscriberArgsDict']]]] subscribers: A list of subscriber
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict', '_root_outputs.CreateOnlyTag']]]] resource_tags: Tags to assign to subscription.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AnomalySubscriptionSubscriberArgs', 'AnomalySubscriptionSubscriberArgsDict', 'outputs.AnomalySubscriptionSubscriber']]]] subscribers: A list of subscriber
         :param pulumi.Input[_builtins.str] subscription_name: The name of the subscription.
         :param pulumi.Input[_builtins.float] threshold: The dollar value that triggers a notification if the threshold is exceeded.
         :param pulumi.Input[_builtins.str] threshold_expression: An Expression object in JSON String format used to specify the anomalies that you want to generate alerts for.
@@ -402,8 +402,8 @@ class AnomalySubscription(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  frequency: pulumi.Input[Optional['AnomalySubscriptionFrequency']] = None,
                  monitor_arn_list: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 resource_tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
-                 subscribers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AnomalySubscriptionSubscriberArgs', 'AnomalySubscriptionSubscriberArgsDict']]]]] = None,
+                 resource_tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict', '_root_outputs.CreateOnlyTag']]]]] = None,
+                 subscribers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AnomalySubscriptionSubscriberArgs', 'AnomalySubscriptionSubscriberArgsDict', 'outputs.AnomalySubscriptionSubscriber']]]]] = None,
                  subscription_name: pulumi.Input[Optional[_builtins.str]] = None,
                  threshold: pulumi.Input[Optional[_builtins.float]] = None,
                  threshold_expression: pulumi.Input[Optional[_builtins.str]] = None,

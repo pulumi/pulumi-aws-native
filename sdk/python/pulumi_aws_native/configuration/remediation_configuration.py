@@ -212,7 +212,7 @@ class RemediationConfiguration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  automatic: pulumi.Input[Optional[_builtins.bool]] = None,
                  config_rule_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 execution_controls: pulumi.Input[Optional[Union['RemediationConfigurationExecutionControlsArgs', 'RemediationConfigurationExecutionControlsArgsDict']]] = None,
+                 execution_controls: pulumi.Input[Optional[Union['RemediationConfigurationExecutionControlsArgs', 'RemediationConfigurationExecutionControlsArgsDict', 'outputs.RemediationConfigurationExecutionControls']]] = None,
                  maximum_automatic_attempts: pulumi.Input[Optional[_builtins.int]] = None,
                  parameters: Optional[Any] = None,
                  resource_type: pulumi.Input[Optional[_builtins.str]] = None,
@@ -228,7 +228,7 @@ class RemediationConfiguration(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] automatic: The remediation is triggered automatically.
         :param pulumi.Input[_builtins.str] config_rule_name: The name of the AWS Config rule.
-        :param pulumi.Input[Union['RemediationConfigurationExecutionControlsArgs', 'RemediationConfigurationExecutionControlsArgsDict']] execution_controls: An ExecutionControls object.
+        :param pulumi.Input[Union['RemediationConfigurationExecutionControlsArgs', 'RemediationConfigurationExecutionControlsArgsDict', 'outputs.RemediationConfigurationExecutionControls']] execution_controls: An ExecutionControls object.
         :param pulumi.Input[_builtins.int] maximum_automatic_attempts: The maximum number of failed attempts for auto-remediation. If you do not select a number, the default is 5.
                
                For example, if you specify MaximumAutomaticAttempts as 5 with RetryAttemptSeconds as 50 seconds, AWS Config will put a RemediationException on your behalf for the failing resource after the 5th failed attempt within 50 seconds.
@@ -273,7 +273,7 @@ class RemediationConfiguration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  automatic: pulumi.Input[Optional[_builtins.bool]] = None,
                  config_rule_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 execution_controls: pulumi.Input[Optional[Union['RemediationConfigurationExecutionControlsArgs', 'RemediationConfigurationExecutionControlsArgsDict']]] = None,
+                 execution_controls: pulumi.Input[Optional[Union['RemediationConfigurationExecutionControlsArgs', 'RemediationConfigurationExecutionControlsArgsDict', 'outputs.RemediationConfigurationExecutionControls']]] = None,
                  maximum_automatic_attempts: pulumi.Input[Optional[_builtins.int]] = None,
                  parameters: Optional[Any] = None,
                  resource_type: pulumi.Input[Optional[_builtins.str]] = None,

@@ -64,7 +64,7 @@ class LogDeliveryConfiguration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 log_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LogDeliveryConfigurationLogConfigurationArgs', 'LogDeliveryConfigurationLogConfigurationArgsDict']]]]] = None,
+                 log_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LogDeliveryConfigurationLogConfigurationArgs', 'LogDeliveryConfigurationLogConfigurationArgsDict', 'outputs.LogDeliveryConfigurationLogConfiguration']]]]] = None,
                  user_pool_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -72,7 +72,7 @@ class LogDeliveryConfiguration(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['LogDeliveryConfigurationLogConfigurationArgs', 'LogDeliveryConfigurationLogConfigurationArgsDict']]]] log_configurations: A logging destination of a user pool. User pools can have multiple logging destinations for message-delivery and user-activity logs.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['LogDeliveryConfigurationLogConfigurationArgs', 'LogDeliveryConfigurationLogConfigurationArgsDict', 'outputs.LogDeliveryConfigurationLogConfiguration']]]] log_configurations: A logging destination of a user pool. User pools can have multiple logging destinations for message-delivery and user-activity logs.
         :param pulumi.Input[_builtins.str] user_pool_id: The ID of the user pool where you configured logging.
         """
         ...
@@ -99,7 +99,7 @@ class LogDeliveryConfiguration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 log_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LogDeliveryConfigurationLogConfigurationArgs', 'LogDeliveryConfigurationLogConfigurationArgsDict']]]]] = None,
+                 log_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LogDeliveryConfigurationLogConfigurationArgs', 'LogDeliveryConfigurationLogConfigurationArgsDict', 'outputs.LogDeliveryConfigurationLogConfiguration']]]]] = None,
                  user_pool_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

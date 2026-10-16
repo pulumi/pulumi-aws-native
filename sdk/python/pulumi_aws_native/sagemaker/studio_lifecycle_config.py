@@ -99,7 +99,7 @@ class StudioLifecycleConfig(pulumi.CustomResource):
                  studio_lifecycle_config_app_type: pulumi.Input[Optional['StudioLifecycleConfigAppType']] = None,
                  studio_lifecycle_config_content: pulumi.Input[Optional[_builtins.str]] = None,
                  studio_lifecycle_config_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict', '_root_outputs.CreateOnlyTag']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::SageMaker::StudioLifecycleConfig
@@ -109,7 +109,7 @@ class StudioLifecycleConfig(pulumi.CustomResource):
         :param pulumi.Input['StudioLifecycleConfigAppType'] studio_lifecycle_config_app_type: The App type that the Lifecycle Configuration is attached to.
         :param pulumi.Input[_builtins.str] studio_lifecycle_config_content: The content of your Amazon SageMaker Studio Lifecycle Configuration script. This content must be base64 encoded.
         :param pulumi.Input[_builtins.str] studio_lifecycle_config_name: The name of the Amazon SageMaker Studio Lifecycle Configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]] tags: Tags to be associated with the Lifecycle Configuration. Each tag consists of a key and an optional value. Tag keys must be unique per resource. Tags are searchable using the Search API.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict', '_root_outputs.CreateOnlyTag']]]] tags: Tags to be associated with the Lifecycle Configuration. Each tag consists of a key and an optional value. Tag keys must be unique per resource. Tags are searchable using the Search API.
         """
         ...
     @overload
@@ -138,7 +138,7 @@ class StudioLifecycleConfig(pulumi.CustomResource):
                  studio_lifecycle_config_app_type: pulumi.Input[Optional['StudioLifecycleConfigAppType']] = None,
                  studio_lifecycle_config_content: pulumi.Input[Optional[_builtins.str]] = None,
                  studio_lifecycle_config_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict', '_root_outputs.CreateOnlyTag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -148,12 +148,12 @@ class Ipam(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 default_resource_discovery_organizational_unit_exclusions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IpamOrganizationalUnitExclusionArgs', 'IpamOrganizationalUnitExclusionArgsDict']]]]] = None,
+                 default_resource_discovery_organizational_unit_exclusions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IpamOrganizationalUnitExclusionArgs', 'IpamOrganizationalUnitExclusionArgsDict', 'outputs.IpamOrganizationalUnitExclusion']]]]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  enable_private_gua: pulumi.Input[Optional[_builtins.bool]] = None,
                  metered_account: pulumi.Input[Optional['IpamMeteredAccount']] = None,
-                 operating_regions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IpamOperatingRegionArgs', 'IpamOperatingRegionArgsDict']]]]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 operating_regions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IpamOperatingRegionArgs', 'IpamOperatingRegionArgsDict', 'outputs.IpamOperatingRegion']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  tier: pulumi.Input[Optional['IpamTier']] = None,
                  __props__=None):
         """
@@ -161,12 +161,12 @@ class Ipam(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['IpamOrganizationalUnitExclusionArgs', 'IpamOrganizationalUnitExclusionArgsDict']]]] default_resource_discovery_organizational_unit_exclusions: A set of organizational unit (OU) exclusions for the default resource discovery, created with this IPAM.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['IpamOrganizationalUnitExclusionArgs', 'IpamOrganizationalUnitExclusionArgsDict', 'outputs.IpamOrganizationalUnitExclusion']]]] default_resource_discovery_organizational_unit_exclusions: A set of organizational unit (OU) exclusions for the default resource discovery, created with this IPAM.
         :param pulumi.Input[_builtins.str] description: The description for the IPAM.
         :param pulumi.Input[_builtins.bool] enable_private_gua: Enable provisioning of GUA space in private pools.
         :param pulumi.Input['IpamMeteredAccount'] metered_account: A metered account is an account that is charged for active IP addresses managed in IPAM
-        :param pulumi.Input[Sequence[pulumi.Input[Union['IpamOperatingRegionArgs', 'IpamOperatingRegionArgsDict']]]] operating_regions: The regions IPAM is enabled for. Allows pools to be created in these regions, as well as enabling monitoring
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['IpamOperatingRegionArgs', 'IpamOperatingRegionArgsDict', 'outputs.IpamOperatingRegion']]]] operating_regions: The regions IPAM is enabled for. Allows pools to be created in these regions, as well as enabling monitoring
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: An array of key-value pairs to apply to this resource.
         :param pulumi.Input['IpamTier'] tier: The tier of the IPAM.
         """
         ...
@@ -193,12 +193,12 @@ class Ipam(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 default_resource_discovery_organizational_unit_exclusions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IpamOrganizationalUnitExclusionArgs', 'IpamOrganizationalUnitExclusionArgsDict']]]]] = None,
+                 default_resource_discovery_organizational_unit_exclusions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IpamOrganizationalUnitExclusionArgs', 'IpamOrganizationalUnitExclusionArgsDict', 'outputs.IpamOrganizationalUnitExclusion']]]]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  enable_private_gua: pulumi.Input[Optional[_builtins.bool]] = None,
                  metered_account: pulumi.Input[Optional['IpamMeteredAccount']] = None,
-                 operating_regions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IpamOperatingRegionArgs', 'IpamOperatingRegionArgsDict']]]]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 operating_regions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IpamOperatingRegionArgs', 'IpamOperatingRegionArgsDict', 'outputs.IpamOperatingRegion']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  tier: pulumi.Input[Optional['IpamTier']] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

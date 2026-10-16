@@ -131,11 +131,11 @@ class Evaluator(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 evaluator_config: pulumi.Input[Optional[Union['EvaluatorConfigArgs', 'EvaluatorConfigArgsDict']]] = None,
+                 evaluator_config: pulumi.Input[Optional[Union['EvaluatorConfigArgs', 'EvaluatorConfigArgsDict', 'outputs.EvaluatorConfig']]] = None,
                  evaluator_name: pulumi.Input[Optional[_builtins.str]] = None,
                  kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  level: pulumi.Input[Optional['EvaluatorLevel']] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::BedrockAgentCore::Evaluator - Creates a custom evaluator for agent quality assessment using LLM-as-a-Judge configurations.
@@ -143,11 +143,11 @@ class Evaluator(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: The description of the evaluator.
-        :param pulumi.Input[Union['EvaluatorConfigArgs', 'EvaluatorConfigArgsDict']] evaluator_config: The configuration for the evaluator.
+        :param pulumi.Input[Union['EvaluatorConfigArgs', 'EvaluatorConfigArgsDict', 'outputs.EvaluatorConfig']] evaluator_config: The configuration for the evaluator.
         :param pulumi.Input[_builtins.str] evaluator_name: The name of the evaluator. Must be unique within your account.
         :param pulumi.Input[_builtins.str] kms_key_arn: The ARN of the KMS key used to encrypt evaluator data.
         :param pulumi.Input['EvaluatorLevel'] level: The evaluation level that determines the scope of evaluation.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: A list of tags to assign to the evaluator.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: A list of tags to assign to the evaluator.
         """
         ...
     @overload
@@ -174,11 +174,11 @@ class Evaluator(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 evaluator_config: pulumi.Input[Optional[Union['EvaluatorConfigArgs', 'EvaluatorConfigArgsDict']]] = None,
+                 evaluator_config: pulumi.Input[Optional[Union['EvaluatorConfigArgs', 'EvaluatorConfigArgsDict', 'outputs.EvaluatorConfig']]] = None,
                  evaluator_name: pulumi.Input[Optional[_builtins.str]] = None,
                  kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  level: pulumi.Input[Optional['EvaluatorLevel']] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

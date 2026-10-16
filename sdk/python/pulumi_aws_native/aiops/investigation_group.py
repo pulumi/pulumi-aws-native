@@ -195,32 +195,32 @@ class InvestigationGroup(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 chatbot_notification_channels: pulumi.Input[Optional[Sequence[pulumi.Input[Union['InvestigationGroupChatbotNotificationChannelArgs', 'InvestigationGroupChatbotNotificationChannelArgsDict']]]]] = None,
-                 cross_account_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['InvestigationGroupCrossAccountConfigurationArgs', 'InvestigationGroupCrossAccountConfigurationArgsDict']]]]] = None,
-                 encryption_config: pulumi.Input[Optional[Union['InvestigationGroupEncryptionConfigMapArgs', 'InvestigationGroupEncryptionConfigMapArgsDict']]] = None,
+                 chatbot_notification_channels: pulumi.Input[Optional[Sequence[pulumi.Input[Union['InvestigationGroupChatbotNotificationChannelArgs', 'InvestigationGroupChatbotNotificationChannelArgsDict', 'outputs.InvestigationGroupChatbotNotificationChannel']]]]] = None,
+                 cross_account_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['InvestigationGroupCrossAccountConfigurationArgs', 'InvestigationGroupCrossAccountConfigurationArgsDict', 'outputs.InvestigationGroupCrossAccountConfiguration']]]]] = None,
+                 encryption_config: pulumi.Input[Optional[Union['InvestigationGroupEncryptionConfigMapArgs', 'InvestigationGroupEncryptionConfigMapArgsDict', 'outputs.InvestigationGroupEncryptionConfigMap']]] = None,
                  investigation_group_policy: pulumi.Input[Optional[_builtins.str]] = None,
                  is_cloud_trail_event_history_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  retention_in_days: pulumi.Input[Optional[_builtins.int]] = None,
                  role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  tag_key_boundaries: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Definition of AWS::AIOps::InvestigationGroup Resource Type
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['InvestigationGroupChatbotNotificationChannelArgs', 'InvestigationGroupChatbotNotificationChannelArgsDict']]]] chatbot_notification_channels: An array of key-value pairs of notification channels to apply to this resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['InvestigationGroupCrossAccountConfigurationArgs', 'InvestigationGroupCrossAccountConfigurationArgsDict']]]] cross_account_configurations: An array of cross account configurations.
-        :param pulumi.Input[Union['InvestigationGroupEncryptionConfigMapArgs', 'InvestigationGroupEncryptionConfigMapArgsDict']] encryption_config: Specifies the customer managed AWS  key that the investigation group uses to encrypt data, if there is one. If not, the investigation group uses an AWS key to encrypt the data.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['InvestigationGroupChatbotNotificationChannelArgs', 'InvestigationGroupChatbotNotificationChannelArgsDict', 'outputs.InvestigationGroupChatbotNotificationChannel']]]] chatbot_notification_channels: An array of key-value pairs of notification channels to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['InvestigationGroupCrossAccountConfigurationArgs', 'InvestigationGroupCrossAccountConfigurationArgsDict', 'outputs.InvestigationGroupCrossAccountConfiguration']]]] cross_account_configurations: An array of cross account configurations.
+        :param pulumi.Input[Union['InvestigationGroupEncryptionConfigMapArgs', 'InvestigationGroupEncryptionConfigMapArgsDict', 'outputs.InvestigationGroupEncryptionConfigMap']] encryption_config: Specifies the customer managed AWS  key that the investigation group uses to encrypt data, if there is one. If not, the investigation group uses an AWS key to encrypt the data.
         :param pulumi.Input[_builtins.str] investigation_group_policy: Investigation Group policy
         :param pulumi.Input[_builtins.bool] is_cloud_trail_event_history_enabled: Flag to enable cloud trail history
         :param pulumi.Input[_builtins.str] name: Specify either the name or the ARN of the investigation group that you want to view. This is used to set the name of the investigation group.
         :param pulumi.Input[_builtins.int] retention_in_days: The number of days to retain the investigation group
         :param pulumi.Input[_builtins.str] role_arn: The ARN of the IAM role that the investigation group uses for permissions to gather data.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] tag_key_boundaries: Displays the custom tag keys for custom applications in your system that you have specified in the investigation group. Resource tags help CloudWatch investigations narrow the search space when it is unable to discover definite relationships between resources.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
     @overload
@@ -246,16 +246,16 @@ class InvestigationGroup(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 chatbot_notification_channels: pulumi.Input[Optional[Sequence[pulumi.Input[Union['InvestigationGroupChatbotNotificationChannelArgs', 'InvestigationGroupChatbotNotificationChannelArgsDict']]]]] = None,
-                 cross_account_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['InvestigationGroupCrossAccountConfigurationArgs', 'InvestigationGroupCrossAccountConfigurationArgsDict']]]]] = None,
-                 encryption_config: pulumi.Input[Optional[Union['InvestigationGroupEncryptionConfigMapArgs', 'InvestigationGroupEncryptionConfigMapArgsDict']]] = None,
+                 chatbot_notification_channels: pulumi.Input[Optional[Sequence[pulumi.Input[Union['InvestigationGroupChatbotNotificationChannelArgs', 'InvestigationGroupChatbotNotificationChannelArgsDict', 'outputs.InvestigationGroupChatbotNotificationChannel']]]]] = None,
+                 cross_account_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['InvestigationGroupCrossAccountConfigurationArgs', 'InvestigationGroupCrossAccountConfigurationArgsDict', 'outputs.InvestigationGroupCrossAccountConfiguration']]]]] = None,
+                 encryption_config: pulumi.Input[Optional[Union['InvestigationGroupEncryptionConfigMapArgs', 'InvestigationGroupEncryptionConfigMapArgsDict', 'outputs.InvestigationGroupEncryptionConfigMap']]] = None,
                  investigation_group_policy: pulumi.Input[Optional[_builtins.str]] = None,
                  is_cloud_trail_event_history_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  retention_in_days: pulumi.Input[Optional[_builtins.int]] = None,
                  role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  tag_key_boundaries: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

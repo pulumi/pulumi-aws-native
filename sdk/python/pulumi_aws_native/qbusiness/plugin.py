@@ -162,12 +162,12 @@ class Plugin(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  application_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 auth_configuration: pulumi.Input[Optional[Union[Union['PluginAuthConfiguration0PropertiesArgs', 'PluginAuthConfiguration0PropertiesArgsDict'], Union['PluginAuthConfiguration1PropertiesArgs', 'PluginAuthConfiguration1PropertiesArgsDict'], Union['PluginAuthConfiguration2PropertiesArgs', 'PluginAuthConfiguration2PropertiesArgsDict']]]] = None,
-                 custom_plugin_configuration: pulumi.Input[Optional[Union['PluginCustomPluginConfigurationArgs', 'PluginCustomPluginConfigurationArgsDict']]] = None,
+                 auth_configuration: pulumi.Input[Optional[Union[Union['PluginAuthConfiguration0PropertiesArgs', 'PluginAuthConfiguration0PropertiesArgsDict', 'outputs.PluginAuthConfiguration0Properties'], Union['PluginAuthConfiguration1PropertiesArgs', 'PluginAuthConfiguration1PropertiesArgsDict', 'outputs.PluginAuthConfiguration1Properties'], Union['PluginAuthConfiguration2PropertiesArgs', 'PluginAuthConfiguration2PropertiesArgsDict', 'outputs.PluginAuthConfiguration2Properties']]]] = None,
+                 custom_plugin_configuration: pulumi.Input[Optional[Union['PluginCustomPluginConfigurationArgs', 'PluginCustomPluginConfigurationArgsDict', 'outputs.PluginCustomPluginConfiguration']]] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
                  server_url: pulumi.Input[Optional[_builtins.str]] = None,
                  state: pulumi.Input[Optional['PluginState']] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  type: pulumi.Input[Optional['PluginType']] = None,
                  __props__=None):
         """
@@ -176,12 +176,12 @@ class Plugin(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] application_id: The identifier of the application that will contain the plugin.
-        :param pulumi.Input[Union[Union['PluginAuthConfiguration0PropertiesArgs', 'PluginAuthConfiguration0PropertiesArgsDict'], Union['PluginAuthConfiguration1PropertiesArgs', 'PluginAuthConfiguration1PropertiesArgsDict'], Union['PluginAuthConfiguration2PropertiesArgs', 'PluginAuthConfiguration2PropertiesArgsDict']]] auth_configuration: Authentication configuration information for an Amazon Q Business plugin.
-        :param pulumi.Input[Union['PluginCustomPluginConfigurationArgs', 'PluginCustomPluginConfigurationArgsDict']] custom_plugin_configuration: Configuration information required to create a custom plugin.
+        :param pulumi.Input[Union[Union['PluginAuthConfiguration0PropertiesArgs', 'PluginAuthConfiguration0PropertiesArgsDict', 'outputs.PluginAuthConfiguration0Properties'], Union['PluginAuthConfiguration1PropertiesArgs', 'PluginAuthConfiguration1PropertiesArgsDict', 'outputs.PluginAuthConfiguration1Properties'], Union['PluginAuthConfiguration2PropertiesArgs', 'PluginAuthConfiguration2PropertiesArgsDict', 'outputs.PluginAuthConfiguration2Properties']]] auth_configuration: Authentication configuration information for an Amazon Q Business plugin.
+        :param pulumi.Input[Union['PluginCustomPluginConfigurationArgs', 'PluginCustomPluginConfigurationArgsDict', 'outputs.PluginCustomPluginConfiguration']] custom_plugin_configuration: Configuration information required to create a custom plugin.
         :param pulumi.Input[_builtins.str] display_name: The name of the plugin.
         :param pulumi.Input[_builtins.str] server_url: The plugin server URL used for configuration.
         :param pulumi.Input['PluginState'] state: The current status of the plugin.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: A list of key-value pairs that identify or categorize the data source connector. You can also use tags to help control access to the data source connector. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: A list of key-value pairs that identify or categorize the data source connector. You can also use tags to help control access to the data source connector. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
         :param pulumi.Input['PluginType'] type: The type of the plugin.
         """
         ...
@@ -209,12 +209,12 @@ class Plugin(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  application_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 auth_configuration: pulumi.Input[Optional[Union[Union['PluginAuthConfiguration0PropertiesArgs', 'PluginAuthConfiguration0PropertiesArgsDict'], Union['PluginAuthConfiguration1PropertiesArgs', 'PluginAuthConfiguration1PropertiesArgsDict'], Union['PluginAuthConfiguration2PropertiesArgs', 'PluginAuthConfiguration2PropertiesArgsDict']]]] = None,
-                 custom_plugin_configuration: pulumi.Input[Optional[Union['PluginCustomPluginConfigurationArgs', 'PluginCustomPluginConfigurationArgsDict']]] = None,
+                 auth_configuration: pulumi.Input[Optional[Union[Union['PluginAuthConfiguration0PropertiesArgs', 'PluginAuthConfiguration0PropertiesArgsDict', 'outputs.PluginAuthConfiguration0Properties'], Union['PluginAuthConfiguration1PropertiesArgs', 'PluginAuthConfiguration1PropertiesArgsDict', 'outputs.PluginAuthConfiguration1Properties'], Union['PluginAuthConfiguration2PropertiesArgs', 'PluginAuthConfiguration2PropertiesArgsDict', 'outputs.PluginAuthConfiguration2Properties']]]] = None,
+                 custom_plugin_configuration: pulumi.Input[Optional[Union['PluginCustomPluginConfigurationArgs', 'PluginCustomPluginConfigurationArgsDict', 'outputs.PluginCustomPluginConfiguration']]] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
                  server_url: pulumi.Input[Optional[_builtins.str]] = None,
                  state: pulumi.Input[Optional['PluginState']] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  type: pulumi.Input[Optional['PluginType']] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -293,7 +293,7 @@ class Plugin(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="authConfiguration")
-    def auth_configuration(self) -> pulumi.Output[Any]:
+    def auth_configuration(self) -> pulumi.Output[Union['outputs.PluginAuthConfiguration0Properties', 'outputs.PluginAuthConfiguration1Properties', 'outputs.PluginAuthConfiguration2Properties']]:
         """
         Authentication configuration information for an Amazon Q Business plugin.
         """

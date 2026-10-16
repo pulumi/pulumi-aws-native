@@ -161,8 +161,8 @@ class Entity(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 components: pulumi.Input[Optional[Mapping[str, pulumi.Input[Union['EntityComponentArgs', 'EntityComponentArgsDict']]]]] = None,
-                 composite_components: pulumi.Input[Optional[Mapping[str, pulumi.Input[Union['EntityCompositeComponentArgs', 'EntityCompositeComponentArgsDict']]]]] = None,
+                 components: pulumi.Input[Optional[Mapping[str, pulumi.Input[Union['EntityComponentArgs', 'EntityComponentArgsDict', 'outputs.EntityComponent']]]]] = None,
+                 composite_components: pulumi.Input[Optional[Mapping[str, pulumi.Input[Union['EntityCompositeComponentArgs', 'EntityCompositeComponentArgsDict', 'outputs.EntityCompositeComponent']]]]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  entity_id: pulumi.Input[Optional[_builtins.str]] = None,
                  entity_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -175,8 +175,8 @@ class Entity(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Mapping[str, pulumi.Input[Union['EntityComponentArgs', 'EntityComponentArgsDict']]]] components: A map that sets information about a component type.
-        :param pulumi.Input[Mapping[str, pulumi.Input[Union['EntityCompositeComponentArgs', 'EntityCompositeComponentArgsDict']]]] composite_components: A map that sets information about a composite component.
+        :param pulumi.Input[Mapping[str, pulumi.Input[Union['EntityComponentArgs', 'EntityComponentArgsDict', 'outputs.EntityComponent']]]] components: A map that sets information about a component type.
+        :param pulumi.Input[Mapping[str, pulumi.Input[Union['EntityCompositeComponentArgs', 'EntityCompositeComponentArgsDict', 'outputs.EntityCompositeComponent']]]] composite_components: A map that sets information about a composite component.
         :param pulumi.Input[_builtins.str] description: The description of the entity.
         :param pulumi.Input[_builtins.str] entity_id: The ID of the entity.
         :param pulumi.Input[_builtins.str] entity_name: The name of the entity.
@@ -208,8 +208,8 @@ class Entity(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 components: pulumi.Input[Optional[Mapping[str, pulumi.Input[Union['EntityComponentArgs', 'EntityComponentArgsDict']]]]] = None,
-                 composite_components: pulumi.Input[Optional[Mapping[str, pulumi.Input[Union['EntityCompositeComponentArgs', 'EntityCompositeComponentArgsDict']]]]] = None,
+                 components: pulumi.Input[Optional[Mapping[str, pulumi.Input[Union['EntityComponentArgs', 'EntityComponentArgsDict', 'outputs.EntityComponent']]]]] = None,
+                 composite_components: pulumi.Input[Optional[Mapping[str, pulumi.Input[Union['EntityCompositeComponentArgs', 'EntityCompositeComponentArgsDict', 'outputs.EntityCompositeComponent']]]]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  entity_id: pulumi.Input[Optional[_builtins.str]] = None,
                  entity_name: pulumi.Input[Optional[_builtins.str]] = None,
