@@ -260,8 +260,14 @@ __all__ = [
     'ReceiptRuleWorkmailActionArgsDict',
     'TemplateArgs',
     'TemplateArgsDict',
+    'TenantReputationEntityArgs',
+    'TenantReputationEntityArgsDict',
+    'TenantReputationPolicyArgs',
+    'TenantReputationPolicyArgsDict',
     'TenantResourceAssociationArgs',
     'TenantResourceAssociationArgsDict',
+    'TenantSuppressionAttributesArgs',
+    'TenantSuppressionAttributesArgsDict',
     'VdmAttributesDashboardAttributesArgs',
     'VdmAttributesDashboardAttributesArgsDict',
     'VdmAttributesGuardianAttributesArgs',
@@ -4912,6 +4918,64 @@ class TemplateArgs:
         pulumi.set(self, "text_part", value)
 
 
+class TenantReputationEntityArgsDict(TypedDict):
+    """
+    The reputation configuration for the tenant.
+    """
+    policy: pulumi.Input['TenantReputationPolicyArgsDict']
+
+@pulumi.input_type
+class TenantReputationEntityArgs:
+    def __init__(__self__, *,
+                 policy: pulumi.Input['TenantReputationPolicyArgs']):
+        """
+        The reputation configuration for the tenant.
+        """
+        pulumi.set(__self__, "policy", policy)
+
+    @_builtins.property
+    @pulumi.getter
+    def policy(self) -> pulumi.Input['TenantReputationPolicyArgs']:
+        return pulumi.get(self, "policy")
+
+    @policy.setter
+    def policy(self, value: pulumi.Input['TenantReputationPolicyArgs']):
+        pulumi.set(self, "policy", value)
+
+
+class TenantReputationPolicyArgsDict(TypedDict):
+    """
+    The reputation policy for the tenant.
+    """
+    reputation_entity_policy: pulumi.Input[_builtins.str]
+    """
+    The ARN of an SES-managed reputation policy.
+    """
+
+@pulumi.input_type
+class TenantReputationPolicyArgs:
+    def __init__(__self__, *,
+                 reputation_entity_policy: pulumi.Input[_builtins.str]):
+        """
+        The reputation policy for the tenant.
+
+        :param pulumi.Input[_builtins.str] reputation_entity_policy: The ARN of an SES-managed reputation policy.
+        """
+        pulumi.set(__self__, "reputation_entity_policy", reputation_entity_policy)
+
+    @_builtins.property
+    @pulumi.getter(name="reputationEntityPolicy")
+    def reputation_entity_policy(self) -> pulumi.Input[_builtins.str]:
+        """
+        The ARN of an SES-managed reputation policy.
+        """
+        return pulumi.get(self, "reputation_entity_policy")
+
+    @reputation_entity_policy.setter
+    def reputation_entity_policy(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "reputation_entity_policy", value)
+
+
 class TenantResourceAssociationArgsDict(TypedDict):
     """
     The resource to associate with the tenant
@@ -4943,6 +5007,58 @@ class TenantResourceAssociationArgs:
     @resource_arn.setter
     def resource_arn(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_arn", value)
+
+
+class TenantSuppressionAttributesArgsDict(TypedDict):
+    """
+    The suppression attributes for the tenant.
+    """
+    suppressed_reasons: pulumi.Input[Sequence[pulumi.Input['TenantSuppressionAttributesSuppressedReasonsItem']]]
+    """
+    The reasons that cause messages to be added to the suppression list.
+    """
+    suppression_scope: pulumi.Input['TenantSuppressionAttributesSuppressionScope']
+    """
+    The scope of the suppression list for the tenant.
+    """
+
+@pulumi.input_type
+class TenantSuppressionAttributesArgs:
+    def __init__(__self__, *,
+                 suppressed_reasons: pulumi.Input[Sequence[pulumi.Input['TenantSuppressionAttributesSuppressedReasonsItem']]],
+                 suppression_scope: pulumi.Input['TenantSuppressionAttributesSuppressionScope']):
+        """
+        The suppression attributes for the tenant.
+
+        :param pulumi.Input[Sequence[pulumi.Input['TenantSuppressionAttributesSuppressedReasonsItem']]] suppressed_reasons: The reasons that cause messages to be added to the suppression list.
+        :param pulumi.Input['TenantSuppressionAttributesSuppressionScope'] suppression_scope: The scope of the suppression list for the tenant.
+        """
+        pulumi.set(__self__, "suppressed_reasons", suppressed_reasons)
+        pulumi.set(__self__, "suppression_scope", suppression_scope)
+
+    @_builtins.property
+    @pulumi.getter(name="suppressedReasons")
+    def suppressed_reasons(self) -> pulumi.Input[Sequence[pulumi.Input['TenantSuppressionAttributesSuppressedReasonsItem']]]:
+        """
+        The reasons that cause messages to be added to the suppression list.
+        """
+        return pulumi.get(self, "suppressed_reasons")
+
+    @suppressed_reasons.setter
+    def suppressed_reasons(self, value: pulumi.Input[Sequence[pulumi.Input['TenantSuppressionAttributesSuppressedReasonsItem']]]):
+        pulumi.set(self, "suppressed_reasons", value)
+
+    @_builtins.property
+    @pulumi.getter(name="suppressionScope")
+    def suppression_scope(self) -> pulumi.Input['TenantSuppressionAttributesSuppressionScope']:
+        """
+        The scope of the suppression list for the tenant.
+        """
+        return pulumi.get(self, "suppression_scope")
+
+    @suppression_scope.setter
+    def suppression_scope(self, value: pulumi.Input['TenantSuppressionAttributesSuppressionScope']):
+        pulumi.set(self, "suppression_scope", value)
 
 
 class VdmAttributesDashboardAttributesArgsDict(TypedDict):

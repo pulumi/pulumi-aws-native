@@ -32,6 +32,8 @@ type Policy struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The ARN of the policy.
 	PolicyArn pulumi.StringOutput `pulumi:"policyArn"`
+	// Whether the policy is enabled to be shared with other members of the Organization. Only applicable if the policy owner is a management account or delegated admin.
+	SharingEnabled pulumi.BoolPtrOutput `pulumi:"sharingEnabled"`
 	// Tags assigned to the policy.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// The timestamp when the policy was last updated.
@@ -93,6 +95,8 @@ type policyArgs struct {
 	MultiRegion *PolicyMultiRegionTargets `pulumi:"multiRegion"`
 	// The name of the policy.
 	Name *string `pulumi:"name"`
+	// Whether the policy is enabled to be shared with other members of the Organization. Only applicable if the policy owner is a management account or delegated admin.
+	SharingEnabled *bool `pulumi:"sharingEnabled"`
 	// Tags assigned to the policy.
 	Tags []aws.Tag `pulumi:"tags"`
 }
@@ -109,6 +113,8 @@ type PolicyArgs struct {
 	MultiRegion PolicyMultiRegionTargetsPtrInput
 	// The name of the policy.
 	Name pulumi.StringPtrInput
+	// Whether the policy is enabled to be shared with other members of the Organization. Only applicable if the policy owner is a management account or delegated admin.
+	SharingEnabled pulumi.BoolPtrInput
 	// Tags assigned to the policy.
 	Tags aws.TagArrayInput
 }
@@ -194,6 +200,11 @@ func (o PolicyOutput) Name() pulumi.StringOutput {
 // The ARN of the policy.
 func (o PolicyOutput) PolicyArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Policy) pulumi.StringOutput { return v.PolicyArn }).(pulumi.StringOutput)
+}
+
+// Whether the policy is enabled to be shared with other members of the Organization. Only applicable if the policy owner is a management account or delegated admin.
+func (o PolicyOutput) SharingEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Policy) pulumi.BoolPtrOutput { return v.SharingEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // Tags assigned to the policy.

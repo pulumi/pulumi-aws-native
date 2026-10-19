@@ -13,6 +13,7 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
 from .. import outputs as _root_outputs
 
 __all__ = [
@@ -24,7 +25,10 @@ __all__ = [
 
 @pulumi.output_type
 class GetCompositeAlarmResult:
-    def __init__(__self__, actions_enabled=None, actions_suppressor=None, actions_suppressor_extension_period=None, actions_suppressor_wait_period=None, alarm_actions=None, alarm_description=None, alarm_rule=None, arn=None, insufficient_data_actions=None, ok_actions=None, tags=None):
+    def __init__(__self__, action_configuration=None, actions_enabled=None, actions_suppressor=None, actions_suppressor_extension_period=None, actions_suppressor_wait_period=None, alarm_actions=None, alarm_description=None, alarm_rule=None, arn=None, insufficient_data_actions=None, ok_actions=None, tags=None):
+        if action_configuration and not isinstance(action_configuration, dict):
+            raise TypeError("Expected argument 'action_configuration' to be a dict")
+        pulumi.set(__self__, "action_configuration", action_configuration)
         if actions_enabled and not isinstance(actions_enabled, bool):
             raise TypeError("Expected argument 'actions_enabled' to be a bool")
         pulumi.set(__self__, "actions_enabled", actions_enabled)
@@ -58,6 +62,14 @@ class GetCompositeAlarmResult:
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
+
+    @_builtins.property
+    @pulumi.getter(name="actionConfiguration")
+    def action_configuration(self) -> Optional['outputs.CompositeAlarmActionConfiguration']:
+        """
+        Configuration that applies to the notifications this alarm sends when it performs its actions.
+        """
+        return pulumi.get(self, "action_configuration")
 
     @_builtins.property
     @pulumi.getter(name="actionsEnabled")
@@ -154,6 +166,7 @@ class AwaitableGetCompositeAlarmResult(GetCompositeAlarmResult):
         if False:
             yield self
         return GetCompositeAlarmResult(
+            action_configuration=self.action_configuration,
             actions_enabled=self.actions_enabled,
             actions_suppressor=self.actions_suppressor,
             actions_suppressor_extension_period=self.actions_suppressor_extension_period,
@@ -180,6 +193,7 @@ def get_composite_alarm(alarm_name: Optional[_builtins.str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:cloudwatch:getCompositeAlarm', __args__, opts=opts, typ=GetCompositeAlarmResult).value
 
     return AwaitableGetCompositeAlarmResult(
+        action_configuration=pulumi.get(__ret__, 'action_configuration'),
         actions_enabled=pulumi.get(__ret__, 'actions_enabled'),
         actions_suppressor=pulumi.get(__ret__, 'actions_suppressor'),
         actions_suppressor_extension_period=pulumi.get(__ret__, 'actions_suppressor_extension_period'),
@@ -203,6 +217,7 @@ def get_composite_alarm_output(alarm_name: pulumi.Input[Optional[_builtins.str]]
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:cloudwatch:getCompositeAlarm', __args__, opts=opts, typ=GetCompositeAlarmResult)
     return __ret__.apply(lambda __response__: GetCompositeAlarmResult(
+        action_configuration=pulumi.get(__response__, 'action_configuration'),
         actions_enabled=pulumi.get(__response__, 'actions_enabled'),
         actions_suppressor=pulumi.get(__response__, 'actions_suppressor'),
         actions_suppressor_extension_period=pulumi.get(__response__, 'actions_suppressor_extension_period'),

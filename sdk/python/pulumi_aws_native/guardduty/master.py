@@ -26,8 +26,8 @@ class MasterArgs:
         The set of arguments for constructing a Master resource.
 
         :param pulumi.Input[_builtins.str] detector_id: Unique ID of the detector of the GuardDuty member account.
-        :param pulumi.Input[_builtins.str] master_id: ID of the account used as the master account.
-        :param pulumi.Input[_builtins.str] invitation_id: Value used to validate the master account to the member account.
+        :param pulumi.Input[_builtins.str] master_id: ID of the account used as the administrator account.
+        :param pulumi.Input[_builtins.str] invitation_id: Value used to validate the administrator account to the member account.
         """
         pulumi.set(__self__, "detector_id", detector_id)
         pulumi.set(__self__, "master_id", master_id)
@@ -50,7 +50,7 @@ class MasterArgs:
     @pulumi.getter(name="masterId")
     def master_id(self) -> pulumi.Input[_builtins.str]:
         """
-        ID of the account used as the master account.
+        ID of the account used as the administrator account.
         """
         return pulumi.get(self, "master_id")
 
@@ -62,7 +62,7 @@ class MasterArgs:
     @pulumi.getter(name="invitationId")
     def invitation_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Value used to validate the master account to the member account.
+        Value used to validate the administrator account to the member account.
         """
         return pulumi.get(self, "invitation_id")
 
@@ -87,8 +87,8 @@ class Master(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] detector_id: Unique ID of the detector of the GuardDuty member account.
-        :param pulumi.Input[_builtins.str] invitation_id: Value used to validate the master account to the member account.
-        :param pulumi.Input[_builtins.str] master_id: ID of the account used as the master account.
+        :param pulumi.Input[_builtins.str] invitation_id: Value used to validate the administrator account to the member account.
+        :param pulumi.Input[_builtins.str] master_id: ID of the account used as the administrator account.
         """
         ...
     @overload
@@ -174,7 +174,7 @@ class Master(pulumi.CustomResource):
     @pulumi.getter(name="invitationId")
     def invitation_id(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        Value used to validate the master account to the member account.
+        Value used to validate the administrator account to the member account.
         """
         return pulumi.get(self, "invitation_id")
 
@@ -182,7 +182,7 @@ class Master(pulumi.CustomResource):
     @pulumi.getter(name="masterId")
     def master_id(self) -> pulumi.Output[_builtins.str]:
         """
-        ID of the account used as the master account.
+        ID of the account used as the administrator account.
         """
         return pulumi.get(self, "master_id")
 

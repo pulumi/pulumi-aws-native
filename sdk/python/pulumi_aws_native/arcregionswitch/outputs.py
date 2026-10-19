@@ -43,6 +43,7 @@ __all__ = [
     'PlanExecutionBlockConfiguration15Properties',
     'PlanExecutionBlockConfiguration16Properties',
     'PlanExecutionBlockConfiguration17Properties',
+    'PlanExecutionBlockConfiguration18Properties',
     'PlanExecutionBlockConfiguration1Properties',
     'PlanExecutionBlockConfiguration2Properties',
     'PlanExecutionBlockConfiguration3Properties',
@@ -74,6 +75,10 @@ __all__ = [
     'PlanRoute53ResourceRecordSet',
     'PlanS3ReportOutputConfiguration',
     'PlanService',
+    'PlanSsmDocumentConfig',
+    'PlanSsmSendCommandConfiguration',
+    'PlanSsmSendCommandUngraceful',
+    'PlanSsmTarget',
     'PlanStep',
     'PlanTrigger',
     'PlanTriggerCondition',
@@ -1299,6 +1304,35 @@ class PlanExecutionBlockConfiguration17Properties(dict):
 
 
 @pulumi.output_type
+class PlanExecutionBlockConfiguration18Properties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ssmSendCommandConfig":
+            suggest = "ssm_send_command_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PlanExecutionBlockConfiguration18Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PlanExecutionBlockConfiguration18Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PlanExecutionBlockConfiguration18Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 ssm_send_command_config: 'outputs.PlanSsmSendCommandConfiguration'):
+        pulumi.set(__self__, "ssm_send_command_config", ssm_send_command_config)
+
+    @_builtins.property
+    @pulumi.getter(name="ssmSendCommandConfig")
+    def ssm_send_command_config(self) -> 'outputs.PlanSsmSendCommandConfiguration':
+        return pulumi.get(self, "ssm_send_command_config")
+
+
+@pulumi.output_type
 class PlanExecutionBlockConfiguration1Properties(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -2492,6 +2526,168 @@ class PlanService(dict):
 
 
 @pulumi.output_type
+class PlanSsmDocumentConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "documentArn":
+            suggest = "document_arn"
+        elif key == "crossAccountRole":
+            suggest = "cross_account_role"
+        elif key == "documentVersion":
+            suggest = "document_version"
+        elif key == "externalId":
+            suggest = "external_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PlanSsmDocumentConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PlanSsmDocumentConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PlanSsmDocumentConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 document_arn: _builtins.str,
+                 targets: Sequence['outputs.PlanSsmTarget'],
+                 cross_account_role: Optional[_builtins.str] = None,
+                 document_version: Optional[_builtins.str] = None,
+                 external_id: Optional[_builtins.str] = None,
+                 parameters: Optional[Mapping[str, Sequence[_builtins.str]]] = None):
+        pulumi.set(__self__, "document_arn", document_arn)
+        pulumi.set(__self__, "targets", targets)
+        if cross_account_role is not None:
+            pulumi.set(__self__, "cross_account_role", cross_account_role)
+        if document_version is not None:
+            pulumi.set(__self__, "document_version", document_version)
+        if external_id is not None:
+            pulumi.set(__self__, "external_id", external_id)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+
+    @_builtins.property
+    @pulumi.getter(name="documentArn")
+    def document_arn(self) -> _builtins.str:
+        return pulumi.get(self, "document_arn")
+
+    @_builtins.property
+    @pulumi.getter
+    def targets(self) -> Sequence['outputs.PlanSsmTarget']:
+        return pulumi.get(self, "targets")
+
+    @_builtins.property
+    @pulumi.getter(name="crossAccountRole")
+    def cross_account_role(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "cross_account_role")
+
+    @_builtins.property
+    @pulumi.getter(name="documentVersion")
+    def document_version(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "document_version")
+
+    @_builtins.property
+    @pulumi.getter(name="externalId")
+    def external_id(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "external_id")
+
+    @_builtins.property
+    @pulumi.getter
+    def parameters(self) -> Optional[Mapping[str, Sequence[_builtins.str]]]:
+        return pulumi.get(self, "parameters")
+
+
+@pulumi.output_type
+class PlanSsmSendCommandConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "regionDocuments":
+            suggest = "region_documents"
+        elif key == "retryIntervalMinutes":
+            suggest = "retry_interval_minutes"
+        elif key == "timeoutMinutes":
+            suggest = "timeout_minutes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PlanSsmSendCommandConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PlanSsmSendCommandConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PlanSsmSendCommandConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 region_documents: Mapping[str, 'outputs.PlanSsmDocumentConfig'],
+                 retry_interval_minutes: _builtins.float,
+                 timeout_minutes: Optional[_builtins.float] = None,
+                 ungraceful: Optional['outputs.PlanSsmSendCommandUngraceful'] = None):
+        pulumi.set(__self__, "region_documents", region_documents)
+        pulumi.set(__self__, "retry_interval_minutes", retry_interval_minutes)
+        if timeout_minutes is not None:
+            pulumi.set(__self__, "timeout_minutes", timeout_minutes)
+        if ungraceful is not None:
+            pulumi.set(__self__, "ungraceful", ungraceful)
+
+    @_builtins.property
+    @pulumi.getter(name="regionDocuments")
+    def region_documents(self) -> Mapping[str, 'outputs.PlanSsmDocumentConfig']:
+        return pulumi.get(self, "region_documents")
+
+    @_builtins.property
+    @pulumi.getter(name="retryIntervalMinutes")
+    def retry_interval_minutes(self) -> _builtins.float:
+        return pulumi.get(self, "retry_interval_minutes")
+
+    @_builtins.property
+    @pulumi.getter(name="timeoutMinutes")
+    def timeout_minutes(self) -> Optional[_builtins.float]:
+        return pulumi.get(self, "timeout_minutes")
+
+    @_builtins.property
+    @pulumi.getter
+    def ungraceful(self) -> Optional['outputs.PlanSsmSendCommandUngraceful']:
+        return pulumi.get(self, "ungraceful")
+
+
+@pulumi.output_type
+class PlanSsmSendCommandUngraceful(dict):
+    def __init__(__self__, *,
+                 behavior: Optional['PlanSsmSendCommandUngracefulBehavior'] = None):
+        if behavior is not None:
+            pulumi.set(__self__, "behavior", behavior)
+
+    @_builtins.property
+    @pulumi.getter
+    def behavior(self) -> Optional['PlanSsmSendCommandUngracefulBehavior']:
+        return pulumi.get(self, "behavior")
+
+
+@pulumi.output_type
+class PlanSsmTarget(dict):
+    def __init__(__self__, *,
+                 key: _builtins.str,
+                 values: Sequence[_builtins.str]):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "values", values)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def values(self) -> Sequence[_builtins.str]:
+        return pulumi.get(self, "values")
+
+
+@pulumi.output_type
 class PlanStep(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -2518,7 +2714,7 @@ class PlanStep(dict):
                  name: _builtins.str,
                  description: Optional[_builtins.str] = None):
         """
-        :param Union['PlanExecutionBlockConfiguration0Properties', 'PlanExecutionBlockConfiguration1Properties', 'PlanExecutionBlockConfiguration2Properties', 'PlanExecutionBlockConfiguration3Properties', 'PlanExecutionBlockConfiguration4Properties', 'PlanExecutionBlockConfiguration5Properties', 'PlanExecutionBlockConfiguration6Properties', 'PlanExecutionBlockConfiguration7Properties', 'PlanExecutionBlockConfiguration8Properties', 'PlanExecutionBlockConfiguration9Properties', 'PlanExecutionBlockConfiguration10Properties', 'PlanExecutionBlockConfiguration11Properties', 'PlanExecutionBlockConfiguration12Properties', 'PlanExecutionBlockConfiguration13Properties', 'PlanExecutionBlockConfiguration14Properties', 'PlanExecutionBlockConfiguration15Properties', 'PlanExecutionBlockConfiguration16Properties', 'PlanExecutionBlockConfiguration17Properties'] execution_block_configuration: The configuration for an execution block in a workflow.
+        :param Union['PlanExecutionBlockConfiguration0Properties', 'PlanExecutionBlockConfiguration1Properties', 'PlanExecutionBlockConfiguration2Properties', 'PlanExecutionBlockConfiguration3Properties', 'PlanExecutionBlockConfiguration4Properties', 'PlanExecutionBlockConfiguration5Properties', 'PlanExecutionBlockConfiguration6Properties', 'PlanExecutionBlockConfiguration7Properties', 'PlanExecutionBlockConfiguration8Properties', 'PlanExecutionBlockConfiguration9Properties', 'PlanExecutionBlockConfiguration10Properties', 'PlanExecutionBlockConfiguration11Properties', 'PlanExecutionBlockConfiguration12Properties', 'PlanExecutionBlockConfiguration13Properties', 'PlanExecutionBlockConfiguration14Properties', 'PlanExecutionBlockConfiguration15Properties', 'PlanExecutionBlockConfiguration16Properties', 'PlanExecutionBlockConfiguration17Properties', 'PlanExecutionBlockConfiguration18Properties'] execution_block_configuration: The configuration for an execution block in a workflow.
         :param 'PlanExecutionBlockType' execution_block_type: The type of an execution block in a workflow.
         :param _builtins.str name: The name of a step in a workflow.
         :param _builtins.str description: The description of a step in a workflow.

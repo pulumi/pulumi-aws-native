@@ -30,6 +30,10 @@ __all__ = [
     'ServiceAssociatedSystemArgsDict',
     'ServiceCrossAccountRoleConfigurationArgs',
     'ServiceCrossAccountRoleConfigurationArgsDict',
+    'ServiceEksLabelSelectorArgs',
+    'ServiceEksLabelSelectorArgsDict',
+    'ServiceEksLabelSelectorRequirementArgs',
+    'ServiceEksLabelSelectorRequirementArgsDict',
     'ServiceEksSourceArgs',
     'ServiceEksSourceArgsDict',
     'ServiceInputSourceDefinitionArgs',
@@ -373,6 +377,132 @@ class ServiceCrossAccountRoleConfigurationArgs:
         pulumi.set(self, "external_id", value)
 
 
+class ServiceEksLabelSelectorArgsDict(TypedDict):
+    """
+    Kubernetes label selector that scopes discovery to matching objects in the specified namespaces. An object must satisfy both MatchLabels and MatchExpressions. Specify at least one of them; a selector carrying neither is treated as though no selector were supplied, and all supported objects in the specified namespaces are discovered.
+    """
+    match_expressions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceEksLabelSelectorRequirementArgsDict']]]]]
+    """
+    Label selector requirements an object must satisfy to be discovered. Up to 20 requirements, all of which must match.
+    """
+    match_labels: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
+    """
+    Label key/value pairs an object must carry to be discovered. Up to 20 pairs.
+    """
+
+@pulumi.input_type
+class ServiceEksLabelSelectorArgs:
+    def __init__(__self__, *,
+                 match_expressions: pulumi.Input[Optional[Sequence[pulumi.Input['ServiceEksLabelSelectorRequirementArgs']]]] = None,
+                 match_labels: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+        """
+        Kubernetes label selector that scopes discovery to matching objects in the specified namespaces. An object must satisfy both MatchLabels and MatchExpressions. Specify at least one of them; a selector carrying neither is treated as though no selector were supplied, and all supported objects in the specified namespaces are discovered.
+
+        :param pulumi.Input[Sequence[pulumi.Input['ServiceEksLabelSelectorRequirementArgs']]] match_expressions: Label selector requirements an object must satisfy to be discovered. Up to 20 requirements, all of which must match.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] match_labels: Label key/value pairs an object must carry to be discovered. Up to 20 pairs.
+        """
+        if match_expressions is not None:
+            pulumi.set(__self__, "match_expressions", match_expressions)
+        if match_labels is not None:
+            pulumi.set(__self__, "match_labels", match_labels)
+
+    @_builtins.property
+    @pulumi.getter(name="matchExpressions")
+    def match_expressions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ServiceEksLabelSelectorRequirementArgs']]]]:
+        """
+        Label selector requirements an object must satisfy to be discovered. Up to 20 requirements, all of which must match.
+        """
+        return pulumi.get(self, "match_expressions")
+
+    @match_expressions.setter
+    def match_expressions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ServiceEksLabelSelectorRequirementArgs']]]]):
+        pulumi.set(self, "match_expressions", value)
+
+    @_builtins.property
+    @pulumi.getter(name="matchLabels")
+    def match_labels(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
+        """
+        Label key/value pairs an object must carry to be discovered. Up to 20 pairs.
+        """
+        return pulumi.get(self, "match_labels")
+
+    @match_labels.setter
+    def match_labels(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "match_labels", value)
+
+
+class ServiceEksLabelSelectorRequirementArgsDict(TypedDict):
+    """
+    A single label selector requirement. Specify Values when Operator is IN or NOT_IN, and omit Values when Operator is EXISTS or DOES_NOT_EXIST.
+    """
+    key: pulumi.Input[_builtins.str]
+    """
+    Label key the requirement applies to.
+    """
+    operator: pulumi.Input['ServiceEksLabelSelectorRequirementOperator']
+    """
+    Operator applied to the label key.
+    """
+    values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    Label values the requirement compares against. Up to 20 values. Required for IN and NOT_IN; omit for EXISTS and DOES_NOT_EXIST.
+    """
+
+@pulumi.input_type
+class ServiceEksLabelSelectorRequirementArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[_builtins.str],
+                 operator: pulumi.Input['ServiceEksLabelSelectorRequirementOperator'],
+                 values: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        A single label selector requirement. Specify Values when Operator is IN or NOT_IN, and omit Values when Operator is EXISTS or DOES_NOT_EXIST.
+
+        :param pulumi.Input[_builtins.str] key: Label key the requirement applies to.
+        :param pulumi.Input['ServiceEksLabelSelectorRequirementOperator'] operator: Operator applied to the label key.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: Label values the requirement compares against. Up to 20 values. Required for IN and NOT_IN; omit for EXISTS and DOES_NOT_EXIST.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "operator", operator)
+        if values is not None:
+            pulumi.set(__self__, "values", values)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[_builtins.str]:
+        """
+        Label key the requirement applies to.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "key", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def operator(self) -> pulumi.Input['ServiceEksLabelSelectorRequirementOperator']:
+        """
+        Operator applied to the label key.
+        """
+        return pulumi.get(self, "operator")
+
+    @operator.setter
+    def operator(self, value: pulumi.Input['ServiceEksLabelSelectorRequirementOperator']):
+        pulumi.set(self, "operator", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Label values the requirement compares against. Up to 20 values. Required for IN and NOT_IN; omit for EXISTS and DOES_NOT_EXIST.
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "values", value)
+
+
 class ServiceEksSourceArgsDict(TypedDict):
     cluster_arn: pulumi.Input[_builtins.str]
     """
@@ -382,18 +512,22 @@ class ServiceEksSourceArgsDict(TypedDict):
     """
     EKS namespaces.
     """
+    label_selector: NotRequired[pulumi.Input[Optional['ServiceEksLabelSelectorArgsDict']]]
 
 @pulumi.input_type
 class ServiceEksSourceArgs:
     def __init__(__self__, *,
                  cluster_arn: pulumi.Input[_builtins.str],
-                 namespaces: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+                 namespaces: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
+                 label_selector: pulumi.Input[Optional['ServiceEksLabelSelectorArgs']] = None):
         """
         :param pulumi.Input[_builtins.str] cluster_arn: ARN of the EKS cluster.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] namespaces: EKS namespaces.
         """
         pulumi.set(__self__, "cluster_arn", cluster_arn)
         pulumi.set(__self__, "namespaces", namespaces)
+        if label_selector is not None:
+            pulumi.set(__self__, "label_selector", label_selector)
 
     @_builtins.property
     @pulumi.getter(name="clusterArn")
@@ -418,6 +552,15 @@ class ServiceEksSourceArgs:
     @namespaces.setter
     def namespaces(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
         pulumi.set(self, "namespaces", value)
+
+    @_builtins.property
+    @pulumi.getter(name="labelSelector")
+    def label_selector(self) -> pulumi.Input[Optional['ServiceEksLabelSelectorArgs']]:
+        return pulumi.get(self, "label_selector")
+
+    @label_selector.setter
+    def label_selector(self, value: pulumi.Input[Optional['ServiceEksLabelSelectorArgs']]):
+        pulumi.set(self, "label_selector", value)
 
 
 class ServiceInputSourceDefinitionArgsDict(TypedDict):

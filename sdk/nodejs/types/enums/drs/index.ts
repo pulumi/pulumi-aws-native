@@ -23,6 +23,16 @@ export const LaunchConfigurationTemplateTargetInstanceTypeRightSizingMethod = {
  */
 export type LaunchConfigurationTemplateTargetInstanceTypeRightSizingMethod = (typeof LaunchConfigurationTemplateTargetInstanceTypeRightSizingMethod)[keyof typeof LaunchConfigurationTemplateTargetInstanceTypeRightSizingMethod];
 
+export const RecoveryPlanStatus = {
+    Active: "ACTIVE",
+    Invalid: "INVALID",
+} as const;
+
+/**
+ * The status of the Recovery Plan. ACTIVE means executable. INVALID means the plan has no SERVER type steps and cannot be executed.
+ */
+export type RecoveryPlanStatus = (typeof RecoveryPlanStatus)[keyof typeof RecoveryPlanStatus];
+
 export const ReplicationConfigurationTemplateDataPlaneRouting = {
     PrivateIp: "PRIVATE_IP",
     PublicIp: "PUBLIC_IP",

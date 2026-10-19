@@ -56,7 +56,7 @@ export class ComputeNodeGroup extends pulumi.CustomResource {
     /**
      * An Amazon EC2 launch template AWS PCS uses to launch compute nodes.
      */
-    declare public readonly customLaunchTemplate: pulumi.Output<outputs.pcs.CustomLaunchTemplateProperties>;
+    declare public readonly customLaunchTemplate: pulumi.Output<outputs.pcs.CustomLaunchTemplateProperties | undefined>;
     /**
      * The list of errors that occurred during compute node group provisioning.
      */
@@ -116,9 +116,6 @@ export class ComputeNodeGroup extends pulumi.CustomResource {
         if (!opts.id) {
             if (args?.clusterId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'clusterId'");
-            }
-            if (args?.customLaunchTemplate === undefined && !opts.urn) {
-                throw new Error("Missing required property 'customLaunchTemplate'");
             }
             if (args?.iamInstanceProfileArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'iamInstanceProfileArn'");
@@ -190,7 +187,7 @@ export interface ComputeNodeGroupArgs {
     /**
      * An Amazon EC2 launch template AWS PCS uses to launch compute nodes.
      */
-    customLaunchTemplate: pulumi.Input<inputs.pcs.CustomLaunchTemplatePropertiesArgs>;
+    customLaunchTemplate?: pulumi.Input<inputs.pcs.CustomLaunchTemplatePropertiesArgs | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the IAM instance profile used to pass an IAM role when launching EC2 instances. The role contained in your instance profile must have pcs:RegisterComputeNodeGroupInstance permissions attached to provision instances correctly.
      */

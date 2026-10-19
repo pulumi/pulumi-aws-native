@@ -13,6 +13,10 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Outputs
     [OutputType]
     public sealed class HarnessCustomJwtAuthorizerConfiguration
     {
+        /// <summary>
+        /// A map that associates each scope in AllowedScopes with a corresponding advertised scope value. The advertised scope appears in OAuth protected resource metadata and WWW-Authenticate response headers.
+        /// </summary>
+        public readonly ImmutableDictionary<string, string>? AdvertisedScopeMapping;
         public readonly ImmutableArray<string> AllowedAudience;
         public readonly ImmutableArray<string> AllowedClients;
         public readonly ImmutableArray<string> AllowedScopes;
@@ -23,6 +27,8 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Outputs
 
         [OutputConstructor]
         private HarnessCustomJwtAuthorizerConfiguration(
+            ImmutableDictionary<string, string>? advertisedScopeMapping,
+
             ImmutableArray<string> allowedAudience,
 
             ImmutableArray<string> allowedClients,
@@ -37,6 +43,7 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Outputs
 
             ImmutableArray<Outputs.HarnessPrivateEndpointOverride> privateEndpointOverrides)
         {
+            AdvertisedScopeMapping = advertisedScopeMapping;
             AllowedAudience = allowedAudience;
             AllowedClients = allowedClients;
             AllowedScopes = allowedScopes;

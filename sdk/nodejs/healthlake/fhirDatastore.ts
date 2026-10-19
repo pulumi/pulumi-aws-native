@@ -37,6 +37,7 @@ export class FhirDatastore extends pulumi.CustomResource {
         return obj['__pulumiType'] === FhirDatastore.__pulumiType;
     }
 
+    declare public readonly analyticsConfiguration: pulumi.Output<outputs.healthlake.FhirDatastoreAnalyticsConfiguration | undefined>;
     declare public /*out*/ readonly createdAt: pulumi.Output<outputs.healthlake.FhirDatastoreCreatedAt>;
     /**
      * The Data Store ARN is generated during the creation of the Data Store and can be found in the output from the initial Data Store creation request.
@@ -66,10 +67,12 @@ export class FhirDatastore extends pulumi.CustomResource {
      * The identity provider configuration selected when the data store was created.
      */
     declare public readonly identityProviderConfiguration: pulumi.Output<outputs.healthlake.FhirDatastoreIdentityProviderConfiguration | undefined>;
+    declare public readonly nlpConfiguration: pulumi.Output<outputs.healthlake.FhirDatastoreNlpConfiguration | undefined>;
     /**
      * The preloaded Synthea data configuration for the data store.
      */
     declare public readonly preloadDataConfig: pulumi.Output<outputs.healthlake.FhirDatastorePreloadDataConfig | undefined>;
+    declare public readonly profileConfiguration: pulumi.Output<outputs.healthlake.FhirDatastoreProfileConfiguration | undefined>;
     /**
      * The server-side encryption key configuration for a customer-provided encryption key specified for creating a data store.
      */
@@ -95,10 +98,13 @@ export class FhirDatastore extends pulumi.CustomResource {
             if (args?.datastoreTypeVersion === undefined && !opts.urn) {
                 throw new Error("Missing required property 'datastoreTypeVersion'");
             }
+            resourceInputs["analyticsConfiguration"] = args?.analyticsConfiguration;
             resourceInputs["datastoreName"] = args?.datastoreName;
             resourceInputs["datastoreTypeVersion"] = args?.datastoreTypeVersion;
             resourceInputs["identityProviderConfiguration"] = args?.identityProviderConfiguration;
+            resourceInputs["nlpConfiguration"] = args?.nlpConfiguration;
             resourceInputs["preloadDataConfig"] = args?.preloadDataConfig;
+            resourceInputs["profileConfiguration"] = args?.profileConfiguration;
             resourceInputs["sseConfiguration"] = args?.sseConfiguration;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["createdAt"] = undefined /*out*/;
@@ -107,6 +113,7 @@ export class FhirDatastore extends pulumi.CustomResource {
             resourceInputs["datastoreId"] = undefined /*out*/;
             resourceInputs["datastoreStatus"] = undefined /*out*/;
         } else {
+            resourceInputs["analyticsConfiguration"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["datastoreArn"] = undefined /*out*/;
             resourceInputs["datastoreEndpoint"] = undefined /*out*/;
@@ -115,12 +122,14 @@ export class FhirDatastore extends pulumi.CustomResource {
             resourceInputs["datastoreStatus"] = undefined /*out*/;
             resourceInputs["datastoreTypeVersion"] = undefined /*out*/;
             resourceInputs["identityProviderConfiguration"] = undefined /*out*/;
+            resourceInputs["nlpConfiguration"] = undefined /*out*/;
             resourceInputs["preloadDataConfig"] = undefined /*out*/;
+            resourceInputs["profileConfiguration"] = undefined /*out*/;
             resourceInputs["sseConfiguration"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["datastoreName", "datastoreTypeVersion", "identityProviderConfiguration", "preloadDataConfig", "sseConfiguration"] };
+        const replaceOnChanges = { replaceOnChanges: ["datastoreTypeVersion", "preloadDataConfig", "sseConfiguration"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(FhirDatastore.__pulumiType, name, resourceInputs, opts);
     }
@@ -130,6 +139,7 @@ export class FhirDatastore extends pulumi.CustomResource {
  * The set of arguments for constructing a FhirDatastore resource.
  */
 export interface FhirDatastoreArgs {
+    analyticsConfiguration?: pulumi.Input<inputs.healthlake.FhirDatastoreAnalyticsConfigurationArgs | undefined>;
     /**
      * The data store name (user-generated).
      */
@@ -142,10 +152,12 @@ export interface FhirDatastoreArgs {
      * The identity provider configuration selected when the data store was created.
      */
     identityProviderConfiguration?: pulumi.Input<inputs.healthlake.FhirDatastoreIdentityProviderConfigurationArgs | undefined>;
+    nlpConfiguration?: pulumi.Input<inputs.healthlake.FhirDatastoreNlpConfigurationArgs | undefined>;
     /**
      * The preloaded Synthea data configuration for the data store.
      */
     preloadDataConfig?: pulumi.Input<inputs.healthlake.FhirDatastorePreloadDataConfigArgs | undefined>;
+    profileConfiguration?: pulumi.Input<inputs.healthlake.FhirDatastoreProfileConfigurationArgs | undefined>;
     /**
      * The server-side encryption key configuration for a customer-provided encryption key specified for creating a data store.
      */

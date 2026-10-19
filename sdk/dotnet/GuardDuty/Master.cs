@@ -22,13 +22,13 @@ namespace Pulumi.AwsNative.GuardDuty
         public Output<string> DetectorId { get; private set; } = null!;
 
         /// <summary>
-        /// Value used to validate the master account to the member account.
+        /// Value used to validate the administrator account to the member account.
         /// </summary>
         [Output("invitationId")]
         public Output<string?> InvitationId { get; private set; } = null!;
 
         /// <summary>
-        /// ID of the account used as the master account.
+        /// ID of the account used as the administrator account.
         /// </summary>
         [Output("masterId")]
         public Output<string> MasterId { get; private set; } = null!;
@@ -91,13 +91,13 @@ namespace Pulumi.AwsNative.GuardDuty
         public Input<string> DetectorId { get; set; } = null!;
 
         /// <summary>
-        /// Value used to validate the master account to the member account.
+        /// Value used to validate the administrator account to the member account.
         /// </summary>
         [Input("invitationId")]
         public Input<string>? InvitationId { get; set; }
 
         /// <summary>
-        /// ID of the account used as the master account.
+        /// ID of the account used as the administrator account.
         /// </summary>
         [Input("masterId", required: true)]
         public Input<string> MasterId { get; set; } = null!;

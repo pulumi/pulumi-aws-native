@@ -73,6 +73,7 @@ type GlobalTable struct {
 	TableName pulumi.StringPtrOutput `pulumi:"tableName"`
 	// Specifies the time to live (TTL) settings for the table. This setting will be applied to all replicas.
 	TimeToLiveSpecification GlobalTableTimeToLiveSpecificationPtrOutput `pulumi:"timeToLiveSpecification"`
+	VectorIndexes           GlobalTableVectorIndexArrayOutput           `pulumi:"vectorIndexes"`
 	// Provides visibility into the number of read and write operations your table or secondary index can instantaneously support. The settings can be modified using the `UpdateTable` operation to meet the throughput requirements of an upcoming peak event.
 	WarmThroughput GlobalTableWarmThroughputPtrOutput `pulumi:"warmThroughput"`
 	// Sets the write request settings for a global table or a global secondary index. You can only specify this setting if your resource uses the `PAY_PER_REQUEST` `BillingMode` .
@@ -177,6 +178,7 @@ type globalTableArgs struct {
 	TableName *string `pulumi:"tableName"`
 	// Specifies the time to live (TTL) settings for the table. This setting will be applied to all replicas.
 	TimeToLiveSpecification *GlobalTableTimeToLiveSpecification `pulumi:"timeToLiveSpecification"`
+	VectorIndexes           []GlobalTableVectorIndex            `pulumi:"vectorIndexes"`
 	// Provides visibility into the number of read and write operations your table or secondary index can instantaneously support. The settings can be modified using the `UpdateTable` operation to meet the throughput requirements of an upcoming peak event.
 	WarmThroughput *GlobalTableWarmThroughput `pulumi:"warmThroughput"`
 	// Sets the write request settings for a global table or a global secondary index. You can only specify this setting if your resource uses the `PAY_PER_REQUEST` `BillingMode` .
@@ -236,6 +238,7 @@ type GlobalTableArgs struct {
 	TableName pulumi.StringPtrInput
 	// Specifies the time to live (TTL) settings for the table. This setting will be applied to all replicas.
 	TimeToLiveSpecification GlobalTableTimeToLiveSpecificationPtrInput
+	VectorIndexes           GlobalTableVectorIndexArrayInput
 	// Provides visibility into the number of read and write operations your table or secondary index can instantaneously support. The settings can be modified using the `UpdateTable` operation to meet the throughput requirements of an upcoming peak event.
 	WarmThroughput GlobalTableWarmThroughputPtrInput
 	// Sets the write request settings for a global table or a global secondary index. You can only specify this setting if your resource uses the `PAY_PER_REQUEST` `BillingMode` .
@@ -394,6 +397,10 @@ func (o GlobalTableOutput) TableName() pulumi.StringPtrOutput {
 // Specifies the time to live (TTL) settings for the table. This setting will be applied to all replicas.
 func (o GlobalTableOutput) TimeToLiveSpecification() GlobalTableTimeToLiveSpecificationPtrOutput {
 	return o.ApplyT(func(v *GlobalTable) GlobalTableTimeToLiveSpecificationPtrOutput { return v.TimeToLiveSpecification }).(GlobalTableTimeToLiveSpecificationPtrOutput)
+}
+
+func (o GlobalTableOutput) VectorIndexes() GlobalTableVectorIndexArrayOutput {
+	return o.ApplyT(func(v *GlobalTable) GlobalTableVectorIndexArrayOutput { return v.VectorIndexes }).(GlobalTableVectorIndexArrayOutput)
 }
 
 // Provides visibility into the number of read and write operations your table or secondary index can instantaneously support. The settings can be modified using the `UpdateTable` operation to meet the throughput requirements of an upcoming peak event.

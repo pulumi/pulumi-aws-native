@@ -538,6 +538,144 @@ type ChannelTag struct {
 	Value *string `pulumi:"value"`
 }
 
+// <p>The configuration that controls the content key period timing information that MediaPackage signals to your DRM key provider.</p>
+type OriginEndpointContentKeyPeriodConfiguration struct {
+	ContentKeyPeriodTiming *OriginEndpointContentKeyPeriodTiming `pulumi:"contentKeyPeriodTiming"`
+}
+
+// OriginEndpointContentKeyPeriodConfigurationInput is an input type that accepts OriginEndpointContentKeyPeriodConfigurationArgs and OriginEndpointContentKeyPeriodConfigurationOutput values.
+// You can construct a concrete instance of `OriginEndpointContentKeyPeriodConfigurationInput` via:
+//
+//	OriginEndpointContentKeyPeriodConfigurationArgs{...}
+type OriginEndpointContentKeyPeriodConfigurationInput interface {
+	pulumi.Input
+
+	ToOriginEndpointContentKeyPeriodConfigurationOutput() OriginEndpointContentKeyPeriodConfigurationOutput
+	ToOriginEndpointContentKeyPeriodConfigurationOutputWithContext(context.Context) OriginEndpointContentKeyPeriodConfigurationOutput
+}
+
+// <p>The configuration that controls the content key period timing information that MediaPackage signals to your DRM key provider.</p>
+type OriginEndpointContentKeyPeriodConfigurationArgs struct {
+	ContentKeyPeriodTiming OriginEndpointContentKeyPeriodTimingPtrInput `pulumi:"contentKeyPeriodTiming"`
+}
+
+func (OriginEndpointContentKeyPeriodConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OriginEndpointContentKeyPeriodConfiguration)(nil)).Elem()
+}
+
+func (i OriginEndpointContentKeyPeriodConfigurationArgs) ToOriginEndpointContentKeyPeriodConfigurationOutput() OriginEndpointContentKeyPeriodConfigurationOutput {
+	return i.ToOriginEndpointContentKeyPeriodConfigurationOutputWithContext(context.Background())
+}
+
+func (i OriginEndpointContentKeyPeriodConfigurationArgs) ToOriginEndpointContentKeyPeriodConfigurationOutputWithContext(ctx context.Context) OriginEndpointContentKeyPeriodConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OriginEndpointContentKeyPeriodConfigurationOutput)
+}
+
+func (i OriginEndpointContentKeyPeriodConfigurationArgs) ToOriginEndpointContentKeyPeriodConfigurationPtrOutput() OriginEndpointContentKeyPeriodConfigurationPtrOutput {
+	return i.ToOriginEndpointContentKeyPeriodConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i OriginEndpointContentKeyPeriodConfigurationArgs) ToOriginEndpointContentKeyPeriodConfigurationPtrOutputWithContext(ctx context.Context) OriginEndpointContentKeyPeriodConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OriginEndpointContentKeyPeriodConfigurationOutput).ToOriginEndpointContentKeyPeriodConfigurationPtrOutputWithContext(ctx)
+}
+
+// OriginEndpointContentKeyPeriodConfigurationPtrInput is an input type that accepts OriginEndpointContentKeyPeriodConfigurationArgs, OriginEndpointContentKeyPeriodConfigurationPtr and OriginEndpointContentKeyPeriodConfigurationPtrOutput values.
+// You can construct a concrete instance of `OriginEndpointContentKeyPeriodConfigurationPtrInput` via:
+//
+//	        OriginEndpointContentKeyPeriodConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type OriginEndpointContentKeyPeriodConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToOriginEndpointContentKeyPeriodConfigurationPtrOutput() OriginEndpointContentKeyPeriodConfigurationPtrOutput
+	ToOriginEndpointContentKeyPeriodConfigurationPtrOutputWithContext(context.Context) OriginEndpointContentKeyPeriodConfigurationPtrOutput
+}
+
+type originEndpointContentKeyPeriodConfigurationPtrType OriginEndpointContentKeyPeriodConfigurationArgs
+
+func OriginEndpointContentKeyPeriodConfigurationPtr(v *OriginEndpointContentKeyPeriodConfigurationArgs) OriginEndpointContentKeyPeriodConfigurationPtrInput {
+	return (*originEndpointContentKeyPeriodConfigurationPtrType)(v)
+}
+
+func (*originEndpointContentKeyPeriodConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OriginEndpointContentKeyPeriodConfiguration)(nil)).Elem()
+}
+
+func (i *originEndpointContentKeyPeriodConfigurationPtrType) ToOriginEndpointContentKeyPeriodConfigurationPtrOutput() OriginEndpointContentKeyPeriodConfigurationPtrOutput {
+	return i.ToOriginEndpointContentKeyPeriodConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *originEndpointContentKeyPeriodConfigurationPtrType) ToOriginEndpointContentKeyPeriodConfigurationPtrOutputWithContext(ctx context.Context) OriginEndpointContentKeyPeriodConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OriginEndpointContentKeyPeriodConfigurationPtrOutput)
+}
+
+// <p>The configuration that controls the content key period timing information that MediaPackage signals to your DRM key provider.</p>
+type OriginEndpointContentKeyPeriodConfigurationOutput struct{ *pulumi.OutputState }
+
+func (OriginEndpointContentKeyPeriodConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OriginEndpointContentKeyPeriodConfiguration)(nil)).Elem()
+}
+
+func (o OriginEndpointContentKeyPeriodConfigurationOutput) ToOriginEndpointContentKeyPeriodConfigurationOutput() OriginEndpointContentKeyPeriodConfigurationOutput {
+	return o
+}
+
+func (o OriginEndpointContentKeyPeriodConfigurationOutput) ToOriginEndpointContentKeyPeriodConfigurationOutputWithContext(ctx context.Context) OriginEndpointContentKeyPeriodConfigurationOutput {
+	return o
+}
+
+func (o OriginEndpointContentKeyPeriodConfigurationOutput) ToOriginEndpointContentKeyPeriodConfigurationPtrOutput() OriginEndpointContentKeyPeriodConfigurationPtrOutput {
+	return o.ToOriginEndpointContentKeyPeriodConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o OriginEndpointContentKeyPeriodConfigurationOutput) ToOriginEndpointContentKeyPeriodConfigurationPtrOutputWithContext(ctx context.Context) OriginEndpointContentKeyPeriodConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OriginEndpointContentKeyPeriodConfiguration) *OriginEndpointContentKeyPeriodConfiguration {
+		return &v
+	}).(OriginEndpointContentKeyPeriodConfigurationPtrOutput)
+}
+
+func (o OriginEndpointContentKeyPeriodConfigurationOutput) ContentKeyPeriodTiming() OriginEndpointContentKeyPeriodTimingPtrOutput {
+	return o.ApplyT(func(v OriginEndpointContentKeyPeriodConfiguration) *OriginEndpointContentKeyPeriodTiming {
+		return v.ContentKeyPeriodTiming
+	}).(OriginEndpointContentKeyPeriodTimingPtrOutput)
+}
+
+type OriginEndpointContentKeyPeriodConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (OriginEndpointContentKeyPeriodConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OriginEndpointContentKeyPeriodConfiguration)(nil)).Elem()
+}
+
+func (o OriginEndpointContentKeyPeriodConfigurationPtrOutput) ToOriginEndpointContentKeyPeriodConfigurationPtrOutput() OriginEndpointContentKeyPeriodConfigurationPtrOutput {
+	return o
+}
+
+func (o OriginEndpointContentKeyPeriodConfigurationPtrOutput) ToOriginEndpointContentKeyPeriodConfigurationPtrOutputWithContext(ctx context.Context) OriginEndpointContentKeyPeriodConfigurationPtrOutput {
+	return o
+}
+
+func (o OriginEndpointContentKeyPeriodConfigurationPtrOutput) Elem() OriginEndpointContentKeyPeriodConfigurationOutput {
+	return o.ApplyT(func(v *OriginEndpointContentKeyPeriodConfiguration) OriginEndpointContentKeyPeriodConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret OriginEndpointContentKeyPeriodConfiguration
+		return ret
+	}).(OriginEndpointContentKeyPeriodConfigurationOutput)
+}
+
+func (o OriginEndpointContentKeyPeriodConfigurationPtrOutput) ContentKeyPeriodTiming() OriginEndpointContentKeyPeriodTimingPtrOutput {
+	return o.ApplyT(func(v *OriginEndpointContentKeyPeriodConfiguration) *OriginEndpointContentKeyPeriodTiming {
+		if v == nil {
+			return nil
+		}
+		return v.ContentKeyPeriodTiming
+	}).(OriginEndpointContentKeyPeriodTimingPtrOutput)
+}
+
 // <p>The configuration for the DASH <code>availabilityStartTime</code> attribute of the Media Presentation Description (MPD). Use this configuration to set a custom availability start time for your DASH manifest.</p>
 type OriginEndpointDashAvailabilityStartTimeConfiguration0Properties struct {
 	// <p>The fixed availability start time for the DASH manifest, in ISO 8601 date-time format. The value must have hourly granularity, meaning that the minutes, seconds, and fractional seconds must be zero. The value must be on or after <code>2024-01-01T00:00:00Z</code> and must be at least 14 days before the current time.</p>
@@ -2872,7 +3010,8 @@ type OriginEndpointFilterConfiguration struct {
 	// <p>Optionally specify the end time for all of your manifest egress requests. When you include end time, note that you cannot use end time query parameters for this manifest's endpoint URL.</p>
 	End *string `pulumi:"end"`
 	// <p>Optionally specify one or more manifest filters for all of your manifest egress requests. When you include a manifest filter, note that you cannot use an identical manifest filter query parameter for this manifest's endpoint URL.</p>
-	ManifestFilter *string `pulumi:"manifestFilter"`
+	ManifestFilter *string                                     `pulumi:"manifestFilter"`
+	Multiview      *OriginEndpointMultiviewFilterConfiguration `pulumi:"multiview"`
 	// <p>Optionally specify the start time for all of your manifest egress requests. When you include start time, note that you cannot use start time query parameters for this manifest's endpoint URL.</p>
 	Start *string `pulumi:"start"`
 	// <p>Optionally specify the time delay for all of your manifest egress requests. Enter a value that is smaller than your endpoint's startover window. When you include time delay, note that you cannot use time delay query parameters for this manifest's endpoint URL.</p>
@@ -2899,7 +3038,8 @@ type OriginEndpointFilterConfigurationArgs struct {
 	// <p>Optionally specify the end time for all of your manifest egress requests. When you include end time, note that you cannot use end time query parameters for this manifest's endpoint URL.</p>
 	End pulumi.StringPtrInput `pulumi:"end"`
 	// <p>Optionally specify one or more manifest filters for all of your manifest egress requests. When you include a manifest filter, note that you cannot use an identical manifest filter query parameter for this manifest's endpoint URL.</p>
-	ManifestFilter pulumi.StringPtrInput `pulumi:"manifestFilter"`
+	ManifestFilter pulumi.StringPtrInput                              `pulumi:"manifestFilter"`
+	Multiview      OriginEndpointMultiviewFilterConfigurationPtrInput `pulumi:"multiview"`
 	// <p>Optionally specify the start time for all of your manifest egress requests. When you include start time, note that you cannot use start time query parameters for this manifest's endpoint URL.</p>
 	Start pulumi.StringPtrInput `pulumi:"start"`
 	// <p>Optionally specify the time delay for all of your manifest egress requests. Enter a value that is smaller than your endpoint's startover window. When you include time delay, note that you cannot use time delay query parameters for this manifest's endpoint URL.</p>
@@ -3004,6 +3144,12 @@ func (o OriginEndpointFilterConfigurationOutput) ManifestFilter() pulumi.StringP
 	return o.ApplyT(func(v OriginEndpointFilterConfiguration) *string { return v.ManifestFilter }).(pulumi.StringPtrOutput)
 }
 
+func (o OriginEndpointFilterConfigurationOutput) Multiview() OriginEndpointMultiviewFilterConfigurationPtrOutput {
+	return o.ApplyT(func(v OriginEndpointFilterConfiguration) *OriginEndpointMultiviewFilterConfiguration {
+		return v.Multiview
+	}).(OriginEndpointMultiviewFilterConfigurationPtrOutput)
+}
+
 // <p>Optionally specify the start time for all of your manifest egress requests. When you include start time, note that you cannot use start time query parameters for this manifest's endpoint URL.</p>
 func (o OriginEndpointFilterConfigurationOutput) Start() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OriginEndpointFilterConfiguration) *string { return v.Start }).(pulumi.StringPtrOutput)
@@ -3076,6 +3222,15 @@ func (o OriginEndpointFilterConfigurationPtrOutput) ManifestFilter() pulumi.Stri
 		}
 		return v.ManifestFilter
 	}).(pulumi.StringPtrOutput)
+}
+
+func (o OriginEndpointFilterConfigurationPtrOutput) Multiview() OriginEndpointMultiviewFilterConfigurationPtrOutput {
+	return o.ApplyT(func(v *OriginEndpointFilterConfiguration) *OriginEndpointMultiviewFilterConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.Multiview
+	}).(OriginEndpointMultiviewFilterConfigurationPtrOutput)
 }
 
 // <p>Optionally specify the start time for all of your manifest egress requests. When you include start time, note that you cannot use start time query parameters for this manifest's endpoint URL.</p>
@@ -3420,12 +3575,247 @@ func (o OriginEndpointHlsManifestConfigurationArrayOutput) Index(i pulumi.IntInp
 	}).(OriginEndpointHlsManifestConfigurationOutput)
 }
 
+// <p>Filter configuration includes settings for manifest filtering, start and end times, and time delay that apply to all of your egress requests for this manifest. </p>
+type OriginEndpointLowLatencyHlsFilterConfiguration struct {
+	// <p>Optionally specify the clip start time for all of your manifest egress requests. When you include clip start time, note that you cannot use clip start time query parameters for this manifest's endpoint URL.</p>
+	ClipStartTime *string `pulumi:"clipStartTime"`
+	// <p>Optionally specify one or more DRM settings for all of your manifest egress requests. When you include a DRM setting, note that you cannot use an identical DRM setting query parameter for this manifest's endpoint URL.</p>
+	DrmSettings *string `pulumi:"drmSettings"`
+	// <p>Optionally specify the end time for all of your manifest egress requests. When you include end time, note that you cannot use end time query parameters for this manifest's endpoint URL.</p>
+	End *string `pulumi:"end"`
+	// <p>Optionally specify one or more manifest filters for all of your manifest egress requests. When you include a manifest filter, note that you cannot use an identical manifest filter query parameter for this manifest's endpoint URL.</p>
+	ManifestFilter *string `pulumi:"manifestFilter"`
+	// <p>Optionally specify the start time for all of your manifest egress requests. When you include start time, note that you cannot use start time query parameters for this manifest's endpoint URL.</p>
+	Start *string `pulumi:"start"`
+	// <p>Optionally specify the time delay for all of your manifest egress requests. Enter a value that is smaller than your endpoint's startover window. When you include time delay, note that you cannot use time delay query parameters for this manifest's endpoint URL.</p>
+	TimeDelaySeconds *int `pulumi:"timeDelaySeconds"`
+}
+
+// OriginEndpointLowLatencyHlsFilterConfigurationInput is an input type that accepts OriginEndpointLowLatencyHlsFilterConfigurationArgs and OriginEndpointLowLatencyHlsFilterConfigurationOutput values.
+// You can construct a concrete instance of `OriginEndpointLowLatencyHlsFilterConfigurationInput` via:
+//
+//	OriginEndpointLowLatencyHlsFilterConfigurationArgs{...}
+type OriginEndpointLowLatencyHlsFilterConfigurationInput interface {
+	pulumi.Input
+
+	ToOriginEndpointLowLatencyHlsFilterConfigurationOutput() OriginEndpointLowLatencyHlsFilterConfigurationOutput
+	ToOriginEndpointLowLatencyHlsFilterConfigurationOutputWithContext(context.Context) OriginEndpointLowLatencyHlsFilterConfigurationOutput
+}
+
+// <p>Filter configuration includes settings for manifest filtering, start and end times, and time delay that apply to all of your egress requests for this manifest. </p>
+type OriginEndpointLowLatencyHlsFilterConfigurationArgs struct {
+	// <p>Optionally specify the clip start time for all of your manifest egress requests. When you include clip start time, note that you cannot use clip start time query parameters for this manifest's endpoint URL.</p>
+	ClipStartTime pulumi.StringPtrInput `pulumi:"clipStartTime"`
+	// <p>Optionally specify one or more DRM settings for all of your manifest egress requests. When you include a DRM setting, note that you cannot use an identical DRM setting query parameter for this manifest's endpoint URL.</p>
+	DrmSettings pulumi.StringPtrInput `pulumi:"drmSettings"`
+	// <p>Optionally specify the end time for all of your manifest egress requests. When you include end time, note that you cannot use end time query parameters for this manifest's endpoint URL.</p>
+	End pulumi.StringPtrInput `pulumi:"end"`
+	// <p>Optionally specify one or more manifest filters for all of your manifest egress requests. When you include a manifest filter, note that you cannot use an identical manifest filter query parameter for this manifest's endpoint URL.</p>
+	ManifestFilter pulumi.StringPtrInput `pulumi:"manifestFilter"`
+	// <p>Optionally specify the start time for all of your manifest egress requests. When you include start time, note that you cannot use start time query parameters for this manifest's endpoint URL.</p>
+	Start pulumi.StringPtrInput `pulumi:"start"`
+	// <p>Optionally specify the time delay for all of your manifest egress requests. Enter a value that is smaller than your endpoint's startover window. When you include time delay, note that you cannot use time delay query parameters for this manifest's endpoint URL.</p>
+	TimeDelaySeconds pulumi.IntPtrInput `pulumi:"timeDelaySeconds"`
+}
+
+func (OriginEndpointLowLatencyHlsFilterConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OriginEndpointLowLatencyHlsFilterConfiguration)(nil)).Elem()
+}
+
+func (i OriginEndpointLowLatencyHlsFilterConfigurationArgs) ToOriginEndpointLowLatencyHlsFilterConfigurationOutput() OriginEndpointLowLatencyHlsFilterConfigurationOutput {
+	return i.ToOriginEndpointLowLatencyHlsFilterConfigurationOutputWithContext(context.Background())
+}
+
+func (i OriginEndpointLowLatencyHlsFilterConfigurationArgs) ToOriginEndpointLowLatencyHlsFilterConfigurationOutputWithContext(ctx context.Context) OriginEndpointLowLatencyHlsFilterConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OriginEndpointLowLatencyHlsFilterConfigurationOutput)
+}
+
+func (i OriginEndpointLowLatencyHlsFilterConfigurationArgs) ToOriginEndpointLowLatencyHlsFilterConfigurationPtrOutput() OriginEndpointLowLatencyHlsFilterConfigurationPtrOutput {
+	return i.ToOriginEndpointLowLatencyHlsFilterConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i OriginEndpointLowLatencyHlsFilterConfigurationArgs) ToOriginEndpointLowLatencyHlsFilterConfigurationPtrOutputWithContext(ctx context.Context) OriginEndpointLowLatencyHlsFilterConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OriginEndpointLowLatencyHlsFilterConfigurationOutput).ToOriginEndpointLowLatencyHlsFilterConfigurationPtrOutputWithContext(ctx)
+}
+
+// OriginEndpointLowLatencyHlsFilterConfigurationPtrInput is an input type that accepts OriginEndpointLowLatencyHlsFilterConfigurationArgs, OriginEndpointLowLatencyHlsFilterConfigurationPtr and OriginEndpointLowLatencyHlsFilterConfigurationPtrOutput values.
+// You can construct a concrete instance of `OriginEndpointLowLatencyHlsFilterConfigurationPtrInput` via:
+//
+//	        OriginEndpointLowLatencyHlsFilterConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type OriginEndpointLowLatencyHlsFilterConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToOriginEndpointLowLatencyHlsFilterConfigurationPtrOutput() OriginEndpointLowLatencyHlsFilterConfigurationPtrOutput
+	ToOriginEndpointLowLatencyHlsFilterConfigurationPtrOutputWithContext(context.Context) OriginEndpointLowLatencyHlsFilterConfigurationPtrOutput
+}
+
+type originEndpointLowLatencyHlsFilterConfigurationPtrType OriginEndpointLowLatencyHlsFilterConfigurationArgs
+
+func OriginEndpointLowLatencyHlsFilterConfigurationPtr(v *OriginEndpointLowLatencyHlsFilterConfigurationArgs) OriginEndpointLowLatencyHlsFilterConfigurationPtrInput {
+	return (*originEndpointLowLatencyHlsFilterConfigurationPtrType)(v)
+}
+
+func (*originEndpointLowLatencyHlsFilterConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OriginEndpointLowLatencyHlsFilterConfiguration)(nil)).Elem()
+}
+
+func (i *originEndpointLowLatencyHlsFilterConfigurationPtrType) ToOriginEndpointLowLatencyHlsFilterConfigurationPtrOutput() OriginEndpointLowLatencyHlsFilterConfigurationPtrOutput {
+	return i.ToOriginEndpointLowLatencyHlsFilterConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *originEndpointLowLatencyHlsFilterConfigurationPtrType) ToOriginEndpointLowLatencyHlsFilterConfigurationPtrOutputWithContext(ctx context.Context) OriginEndpointLowLatencyHlsFilterConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OriginEndpointLowLatencyHlsFilterConfigurationPtrOutput)
+}
+
+// <p>Filter configuration includes settings for manifest filtering, start and end times, and time delay that apply to all of your egress requests for this manifest. </p>
+type OriginEndpointLowLatencyHlsFilterConfigurationOutput struct{ *pulumi.OutputState }
+
+func (OriginEndpointLowLatencyHlsFilterConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OriginEndpointLowLatencyHlsFilterConfiguration)(nil)).Elem()
+}
+
+func (o OriginEndpointLowLatencyHlsFilterConfigurationOutput) ToOriginEndpointLowLatencyHlsFilterConfigurationOutput() OriginEndpointLowLatencyHlsFilterConfigurationOutput {
+	return o
+}
+
+func (o OriginEndpointLowLatencyHlsFilterConfigurationOutput) ToOriginEndpointLowLatencyHlsFilterConfigurationOutputWithContext(ctx context.Context) OriginEndpointLowLatencyHlsFilterConfigurationOutput {
+	return o
+}
+
+func (o OriginEndpointLowLatencyHlsFilterConfigurationOutput) ToOriginEndpointLowLatencyHlsFilterConfigurationPtrOutput() OriginEndpointLowLatencyHlsFilterConfigurationPtrOutput {
+	return o.ToOriginEndpointLowLatencyHlsFilterConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o OriginEndpointLowLatencyHlsFilterConfigurationOutput) ToOriginEndpointLowLatencyHlsFilterConfigurationPtrOutputWithContext(ctx context.Context) OriginEndpointLowLatencyHlsFilterConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OriginEndpointLowLatencyHlsFilterConfiguration) *OriginEndpointLowLatencyHlsFilterConfiguration {
+		return &v
+	}).(OriginEndpointLowLatencyHlsFilterConfigurationPtrOutput)
+}
+
+// <p>Optionally specify the clip start time for all of your manifest egress requests. When you include clip start time, note that you cannot use clip start time query parameters for this manifest's endpoint URL.</p>
+func (o OriginEndpointLowLatencyHlsFilterConfigurationOutput) ClipStartTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OriginEndpointLowLatencyHlsFilterConfiguration) *string { return v.ClipStartTime }).(pulumi.StringPtrOutput)
+}
+
+// <p>Optionally specify one or more DRM settings for all of your manifest egress requests. When you include a DRM setting, note that you cannot use an identical DRM setting query parameter for this manifest's endpoint URL.</p>
+func (o OriginEndpointLowLatencyHlsFilterConfigurationOutput) DrmSettings() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OriginEndpointLowLatencyHlsFilterConfiguration) *string { return v.DrmSettings }).(pulumi.StringPtrOutput)
+}
+
+// <p>Optionally specify the end time for all of your manifest egress requests. When you include end time, note that you cannot use end time query parameters for this manifest's endpoint URL.</p>
+func (o OriginEndpointLowLatencyHlsFilterConfigurationOutput) End() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OriginEndpointLowLatencyHlsFilterConfiguration) *string { return v.End }).(pulumi.StringPtrOutput)
+}
+
+// <p>Optionally specify one or more manifest filters for all of your manifest egress requests. When you include a manifest filter, note that you cannot use an identical manifest filter query parameter for this manifest's endpoint URL.</p>
+func (o OriginEndpointLowLatencyHlsFilterConfigurationOutput) ManifestFilter() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OriginEndpointLowLatencyHlsFilterConfiguration) *string { return v.ManifestFilter }).(pulumi.StringPtrOutput)
+}
+
+// <p>Optionally specify the start time for all of your manifest egress requests. When you include start time, note that you cannot use start time query parameters for this manifest's endpoint URL.</p>
+func (o OriginEndpointLowLatencyHlsFilterConfigurationOutput) Start() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OriginEndpointLowLatencyHlsFilterConfiguration) *string { return v.Start }).(pulumi.StringPtrOutput)
+}
+
+// <p>Optionally specify the time delay for all of your manifest egress requests. Enter a value that is smaller than your endpoint's startover window. When you include time delay, note that you cannot use time delay query parameters for this manifest's endpoint URL.</p>
+func (o OriginEndpointLowLatencyHlsFilterConfigurationOutput) TimeDelaySeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v OriginEndpointLowLatencyHlsFilterConfiguration) *int { return v.TimeDelaySeconds }).(pulumi.IntPtrOutput)
+}
+
+type OriginEndpointLowLatencyHlsFilterConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (OriginEndpointLowLatencyHlsFilterConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OriginEndpointLowLatencyHlsFilterConfiguration)(nil)).Elem()
+}
+
+func (o OriginEndpointLowLatencyHlsFilterConfigurationPtrOutput) ToOriginEndpointLowLatencyHlsFilterConfigurationPtrOutput() OriginEndpointLowLatencyHlsFilterConfigurationPtrOutput {
+	return o
+}
+
+func (o OriginEndpointLowLatencyHlsFilterConfigurationPtrOutput) ToOriginEndpointLowLatencyHlsFilterConfigurationPtrOutputWithContext(ctx context.Context) OriginEndpointLowLatencyHlsFilterConfigurationPtrOutput {
+	return o
+}
+
+func (o OriginEndpointLowLatencyHlsFilterConfigurationPtrOutput) Elem() OriginEndpointLowLatencyHlsFilterConfigurationOutput {
+	return o.ApplyT(func(v *OriginEndpointLowLatencyHlsFilterConfiguration) OriginEndpointLowLatencyHlsFilterConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret OriginEndpointLowLatencyHlsFilterConfiguration
+		return ret
+	}).(OriginEndpointLowLatencyHlsFilterConfigurationOutput)
+}
+
+// <p>Optionally specify the clip start time for all of your manifest egress requests. When you include clip start time, note that you cannot use clip start time query parameters for this manifest's endpoint URL.</p>
+func (o OriginEndpointLowLatencyHlsFilterConfigurationPtrOutput) ClipStartTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OriginEndpointLowLatencyHlsFilterConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ClipStartTime
+	}).(pulumi.StringPtrOutput)
+}
+
+// <p>Optionally specify one or more DRM settings for all of your manifest egress requests. When you include a DRM setting, note that you cannot use an identical DRM setting query parameter for this manifest's endpoint URL.</p>
+func (o OriginEndpointLowLatencyHlsFilterConfigurationPtrOutput) DrmSettings() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OriginEndpointLowLatencyHlsFilterConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DrmSettings
+	}).(pulumi.StringPtrOutput)
+}
+
+// <p>Optionally specify the end time for all of your manifest egress requests. When you include end time, note that you cannot use end time query parameters for this manifest's endpoint URL.</p>
+func (o OriginEndpointLowLatencyHlsFilterConfigurationPtrOutput) End() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OriginEndpointLowLatencyHlsFilterConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.End
+	}).(pulumi.StringPtrOutput)
+}
+
+// <p>Optionally specify one or more manifest filters for all of your manifest egress requests. When you include a manifest filter, note that you cannot use an identical manifest filter query parameter for this manifest's endpoint URL.</p>
+func (o OriginEndpointLowLatencyHlsFilterConfigurationPtrOutput) ManifestFilter() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OriginEndpointLowLatencyHlsFilterConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ManifestFilter
+	}).(pulumi.StringPtrOutput)
+}
+
+// <p>Optionally specify the start time for all of your manifest egress requests. When you include start time, note that you cannot use start time query parameters for this manifest's endpoint URL.</p>
+func (o OriginEndpointLowLatencyHlsFilterConfigurationPtrOutput) Start() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OriginEndpointLowLatencyHlsFilterConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Start
+	}).(pulumi.StringPtrOutput)
+}
+
+// <p>Optionally specify the time delay for all of your manifest egress requests. Enter a value that is smaller than your endpoint's startover window. When you include time delay, note that you cannot use time delay query parameters for this manifest's endpoint URL.</p>
+func (o OriginEndpointLowLatencyHlsFilterConfigurationPtrOutput) TimeDelaySeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *OriginEndpointLowLatencyHlsFilterConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.TimeDelaySeconds
+	}).(pulumi.IntPtrOutput)
+}
+
 // <p>Retrieve the low-latency HTTP live streaming (HLS) manifest configuration.</p>
 type OriginEndpointLowLatencyHlsManifestConfiguration struct {
 	// <p>A short string that's appended to the endpoint URL. The child manifest name creates a unique path to this endpoint. If you don't enter a value, MediaPackage uses the default child manifest name, index_1. The manifestName on the HLSManifest object overrides the manifestName you provided on the originEndpoint object.</p>
 	ChildManifestName *string `pulumi:"childManifestName"`
 	// Filter configuration includes settings for manifest filtering, start and end times, and time delay that apply to all of your egress requests for this manifest.
-	FilterConfiguration *OriginEndpointFilterConfiguration `pulumi:"filterConfiguration"`
+	FilterConfiguration *OriginEndpointLowLatencyHlsFilterConfiguration `pulumi:"filterConfiguration"`
 	// <p>A short short string that's appended to the endpoint URL. The manifest name creates a unique path to this endpoint. If you don't enter a value, MediaPackage uses the default manifest name, index. MediaPackage automatically inserts the format extension, such as .m3u8. You can't use the same manifest name if you use HLS manifest and low-latency HLS manifest. The manifestName on the HLSManifest object overrides the manifestName you provided on the originEndpoint object.</p>
 	ManifestName string `pulumi:"manifestName"`
 	// <p>The total duration (in seconds) of the manifest's content.</p>
@@ -3459,7 +3849,7 @@ type OriginEndpointLowLatencyHlsManifestConfigurationArgs struct {
 	// <p>A short string that's appended to the endpoint URL. The child manifest name creates a unique path to this endpoint. If you don't enter a value, MediaPackage uses the default child manifest name, index_1. The manifestName on the HLSManifest object overrides the manifestName you provided on the originEndpoint object.</p>
 	ChildManifestName pulumi.StringPtrInput `pulumi:"childManifestName"`
 	// Filter configuration includes settings for manifest filtering, start and end times, and time delay that apply to all of your egress requests for this manifest.
-	FilterConfiguration OriginEndpointFilterConfigurationPtrInput `pulumi:"filterConfiguration"`
+	FilterConfiguration OriginEndpointLowLatencyHlsFilterConfigurationPtrInput `pulumi:"filterConfiguration"`
 	// <p>A short short string that's appended to the endpoint URL. The manifest name creates a unique path to this endpoint. If you don't enter a value, MediaPackage uses the default manifest name, index. MediaPackage automatically inserts the format extension, such as .m3u8. You can't use the same manifest name if you use HLS manifest and low-latency HLS manifest. The manifestName on the HLSManifest object overrides the manifestName you provided on the originEndpoint object.</p>
 	ManifestName pulumi.StringInput `pulumi:"manifestName"`
 	// <p>The total duration (in seconds) of the manifest's content.</p>
@@ -3535,10 +3925,10 @@ func (o OriginEndpointLowLatencyHlsManifestConfigurationOutput) ChildManifestNam
 }
 
 // Filter configuration includes settings for manifest filtering, start and end times, and time delay that apply to all of your egress requests for this manifest.
-func (o OriginEndpointLowLatencyHlsManifestConfigurationOutput) FilterConfiguration() OriginEndpointFilterConfigurationPtrOutput {
-	return o.ApplyT(func(v OriginEndpointLowLatencyHlsManifestConfiguration) *OriginEndpointFilterConfiguration {
+func (o OriginEndpointLowLatencyHlsManifestConfigurationOutput) FilterConfiguration() OriginEndpointLowLatencyHlsFilterConfigurationPtrOutput {
+	return o.ApplyT(func(v OriginEndpointLowLatencyHlsManifestConfiguration) *OriginEndpointLowLatencyHlsFilterConfiguration {
 		return v.FilterConfiguration
-	}).(OriginEndpointFilterConfigurationPtrOutput)
+	}).(OriginEndpointLowLatencyHlsFilterConfigurationPtrOutput)
 }
 
 // <p>A short short string that's appended to the endpoint URL. The manifest name creates a unique path to this endpoint. If you don't enter a value, MediaPackage uses the default manifest name, index. MediaPackage automatically inserts the format extension, such as .m3u8. You can't use the same manifest name if you use HLS manifest and low-latency HLS manifest. The manifestName on the HLSManifest object overrides the manifestName you provided on the originEndpoint object.</p>
@@ -3602,10 +3992,245 @@ func (o OriginEndpointLowLatencyHlsManifestConfigurationArrayOutput) Index(i pul
 	}).(OriginEndpointLowLatencyHlsManifestConfigurationOutput)
 }
 
+// <p>Filter configuration includes settings for manifest filtering, start and end times, and time delay that apply to all of your egress requests for this manifest. </p>
+type OriginEndpointMssFilterConfiguration struct {
+	// <p>Optionally specify the clip start time for all of your manifest egress requests. When you include clip start time, note that you cannot use clip start time query parameters for this manifest's endpoint URL.</p>
+	ClipStartTime *string `pulumi:"clipStartTime"`
+	// <p>Optionally specify one or more DRM settings for all of your manifest egress requests. When you include a DRM setting, note that you cannot use an identical DRM setting query parameter for this manifest's endpoint URL.</p>
+	DrmSettings *string `pulumi:"drmSettings"`
+	// <p>Optionally specify the end time for all of your manifest egress requests. When you include end time, note that you cannot use end time query parameters for this manifest's endpoint URL.</p>
+	End *string `pulumi:"end"`
+	// <p>Optionally specify one or more manifest filters for all of your manifest egress requests. When you include a manifest filter, note that you cannot use an identical manifest filter query parameter for this manifest's endpoint URL.</p>
+	ManifestFilter *string `pulumi:"manifestFilter"`
+	// <p>Optionally specify the start time for all of your manifest egress requests. When you include start time, note that you cannot use start time query parameters for this manifest's endpoint URL.</p>
+	Start *string `pulumi:"start"`
+	// <p>Optionally specify the time delay for all of your manifest egress requests. Enter a value that is smaller than your endpoint's startover window. When you include time delay, note that you cannot use time delay query parameters for this manifest's endpoint URL.</p>
+	TimeDelaySeconds *int `pulumi:"timeDelaySeconds"`
+}
+
+// OriginEndpointMssFilterConfigurationInput is an input type that accepts OriginEndpointMssFilterConfigurationArgs and OriginEndpointMssFilterConfigurationOutput values.
+// You can construct a concrete instance of `OriginEndpointMssFilterConfigurationInput` via:
+//
+//	OriginEndpointMssFilterConfigurationArgs{...}
+type OriginEndpointMssFilterConfigurationInput interface {
+	pulumi.Input
+
+	ToOriginEndpointMssFilterConfigurationOutput() OriginEndpointMssFilterConfigurationOutput
+	ToOriginEndpointMssFilterConfigurationOutputWithContext(context.Context) OriginEndpointMssFilterConfigurationOutput
+}
+
+// <p>Filter configuration includes settings for manifest filtering, start and end times, and time delay that apply to all of your egress requests for this manifest. </p>
+type OriginEndpointMssFilterConfigurationArgs struct {
+	// <p>Optionally specify the clip start time for all of your manifest egress requests. When you include clip start time, note that you cannot use clip start time query parameters for this manifest's endpoint URL.</p>
+	ClipStartTime pulumi.StringPtrInput `pulumi:"clipStartTime"`
+	// <p>Optionally specify one or more DRM settings for all of your manifest egress requests. When you include a DRM setting, note that you cannot use an identical DRM setting query parameter for this manifest's endpoint URL.</p>
+	DrmSettings pulumi.StringPtrInput `pulumi:"drmSettings"`
+	// <p>Optionally specify the end time for all of your manifest egress requests. When you include end time, note that you cannot use end time query parameters for this manifest's endpoint URL.</p>
+	End pulumi.StringPtrInput `pulumi:"end"`
+	// <p>Optionally specify one or more manifest filters for all of your manifest egress requests. When you include a manifest filter, note that you cannot use an identical manifest filter query parameter for this manifest's endpoint URL.</p>
+	ManifestFilter pulumi.StringPtrInput `pulumi:"manifestFilter"`
+	// <p>Optionally specify the start time for all of your manifest egress requests. When you include start time, note that you cannot use start time query parameters for this manifest's endpoint URL.</p>
+	Start pulumi.StringPtrInput `pulumi:"start"`
+	// <p>Optionally specify the time delay for all of your manifest egress requests. Enter a value that is smaller than your endpoint's startover window. When you include time delay, note that you cannot use time delay query parameters for this manifest's endpoint URL.</p>
+	TimeDelaySeconds pulumi.IntPtrInput `pulumi:"timeDelaySeconds"`
+}
+
+func (OriginEndpointMssFilterConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OriginEndpointMssFilterConfiguration)(nil)).Elem()
+}
+
+func (i OriginEndpointMssFilterConfigurationArgs) ToOriginEndpointMssFilterConfigurationOutput() OriginEndpointMssFilterConfigurationOutput {
+	return i.ToOriginEndpointMssFilterConfigurationOutputWithContext(context.Background())
+}
+
+func (i OriginEndpointMssFilterConfigurationArgs) ToOriginEndpointMssFilterConfigurationOutputWithContext(ctx context.Context) OriginEndpointMssFilterConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OriginEndpointMssFilterConfigurationOutput)
+}
+
+func (i OriginEndpointMssFilterConfigurationArgs) ToOriginEndpointMssFilterConfigurationPtrOutput() OriginEndpointMssFilterConfigurationPtrOutput {
+	return i.ToOriginEndpointMssFilterConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i OriginEndpointMssFilterConfigurationArgs) ToOriginEndpointMssFilterConfigurationPtrOutputWithContext(ctx context.Context) OriginEndpointMssFilterConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OriginEndpointMssFilterConfigurationOutput).ToOriginEndpointMssFilterConfigurationPtrOutputWithContext(ctx)
+}
+
+// OriginEndpointMssFilterConfigurationPtrInput is an input type that accepts OriginEndpointMssFilterConfigurationArgs, OriginEndpointMssFilterConfigurationPtr and OriginEndpointMssFilterConfigurationPtrOutput values.
+// You can construct a concrete instance of `OriginEndpointMssFilterConfigurationPtrInput` via:
+//
+//	        OriginEndpointMssFilterConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type OriginEndpointMssFilterConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToOriginEndpointMssFilterConfigurationPtrOutput() OriginEndpointMssFilterConfigurationPtrOutput
+	ToOriginEndpointMssFilterConfigurationPtrOutputWithContext(context.Context) OriginEndpointMssFilterConfigurationPtrOutput
+}
+
+type originEndpointMssFilterConfigurationPtrType OriginEndpointMssFilterConfigurationArgs
+
+func OriginEndpointMssFilterConfigurationPtr(v *OriginEndpointMssFilterConfigurationArgs) OriginEndpointMssFilterConfigurationPtrInput {
+	return (*originEndpointMssFilterConfigurationPtrType)(v)
+}
+
+func (*originEndpointMssFilterConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OriginEndpointMssFilterConfiguration)(nil)).Elem()
+}
+
+func (i *originEndpointMssFilterConfigurationPtrType) ToOriginEndpointMssFilterConfigurationPtrOutput() OriginEndpointMssFilterConfigurationPtrOutput {
+	return i.ToOriginEndpointMssFilterConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *originEndpointMssFilterConfigurationPtrType) ToOriginEndpointMssFilterConfigurationPtrOutputWithContext(ctx context.Context) OriginEndpointMssFilterConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OriginEndpointMssFilterConfigurationPtrOutput)
+}
+
+// <p>Filter configuration includes settings for manifest filtering, start and end times, and time delay that apply to all of your egress requests for this manifest. </p>
+type OriginEndpointMssFilterConfigurationOutput struct{ *pulumi.OutputState }
+
+func (OriginEndpointMssFilterConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OriginEndpointMssFilterConfiguration)(nil)).Elem()
+}
+
+func (o OriginEndpointMssFilterConfigurationOutput) ToOriginEndpointMssFilterConfigurationOutput() OriginEndpointMssFilterConfigurationOutput {
+	return o
+}
+
+func (o OriginEndpointMssFilterConfigurationOutput) ToOriginEndpointMssFilterConfigurationOutputWithContext(ctx context.Context) OriginEndpointMssFilterConfigurationOutput {
+	return o
+}
+
+func (o OriginEndpointMssFilterConfigurationOutput) ToOriginEndpointMssFilterConfigurationPtrOutput() OriginEndpointMssFilterConfigurationPtrOutput {
+	return o.ToOriginEndpointMssFilterConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o OriginEndpointMssFilterConfigurationOutput) ToOriginEndpointMssFilterConfigurationPtrOutputWithContext(ctx context.Context) OriginEndpointMssFilterConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OriginEndpointMssFilterConfiguration) *OriginEndpointMssFilterConfiguration {
+		return &v
+	}).(OriginEndpointMssFilterConfigurationPtrOutput)
+}
+
+// <p>Optionally specify the clip start time for all of your manifest egress requests. When you include clip start time, note that you cannot use clip start time query parameters for this manifest's endpoint URL.</p>
+func (o OriginEndpointMssFilterConfigurationOutput) ClipStartTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OriginEndpointMssFilterConfiguration) *string { return v.ClipStartTime }).(pulumi.StringPtrOutput)
+}
+
+// <p>Optionally specify one or more DRM settings for all of your manifest egress requests. When you include a DRM setting, note that you cannot use an identical DRM setting query parameter for this manifest's endpoint URL.</p>
+func (o OriginEndpointMssFilterConfigurationOutput) DrmSettings() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OriginEndpointMssFilterConfiguration) *string { return v.DrmSettings }).(pulumi.StringPtrOutput)
+}
+
+// <p>Optionally specify the end time for all of your manifest egress requests. When you include end time, note that you cannot use end time query parameters for this manifest's endpoint URL.</p>
+func (o OriginEndpointMssFilterConfigurationOutput) End() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OriginEndpointMssFilterConfiguration) *string { return v.End }).(pulumi.StringPtrOutput)
+}
+
+// <p>Optionally specify one or more manifest filters for all of your manifest egress requests. When you include a manifest filter, note that you cannot use an identical manifest filter query parameter for this manifest's endpoint URL.</p>
+func (o OriginEndpointMssFilterConfigurationOutput) ManifestFilter() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OriginEndpointMssFilterConfiguration) *string { return v.ManifestFilter }).(pulumi.StringPtrOutput)
+}
+
+// <p>Optionally specify the start time for all of your manifest egress requests. When you include start time, note that you cannot use start time query parameters for this manifest's endpoint URL.</p>
+func (o OriginEndpointMssFilterConfigurationOutput) Start() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OriginEndpointMssFilterConfiguration) *string { return v.Start }).(pulumi.StringPtrOutput)
+}
+
+// <p>Optionally specify the time delay for all of your manifest egress requests. Enter a value that is smaller than your endpoint's startover window. When you include time delay, note that you cannot use time delay query parameters for this manifest's endpoint URL.</p>
+func (o OriginEndpointMssFilterConfigurationOutput) TimeDelaySeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v OriginEndpointMssFilterConfiguration) *int { return v.TimeDelaySeconds }).(pulumi.IntPtrOutput)
+}
+
+type OriginEndpointMssFilterConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (OriginEndpointMssFilterConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OriginEndpointMssFilterConfiguration)(nil)).Elem()
+}
+
+func (o OriginEndpointMssFilterConfigurationPtrOutput) ToOriginEndpointMssFilterConfigurationPtrOutput() OriginEndpointMssFilterConfigurationPtrOutput {
+	return o
+}
+
+func (o OriginEndpointMssFilterConfigurationPtrOutput) ToOriginEndpointMssFilterConfigurationPtrOutputWithContext(ctx context.Context) OriginEndpointMssFilterConfigurationPtrOutput {
+	return o
+}
+
+func (o OriginEndpointMssFilterConfigurationPtrOutput) Elem() OriginEndpointMssFilterConfigurationOutput {
+	return o.ApplyT(func(v *OriginEndpointMssFilterConfiguration) OriginEndpointMssFilterConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret OriginEndpointMssFilterConfiguration
+		return ret
+	}).(OriginEndpointMssFilterConfigurationOutput)
+}
+
+// <p>Optionally specify the clip start time for all of your manifest egress requests. When you include clip start time, note that you cannot use clip start time query parameters for this manifest's endpoint URL.</p>
+func (o OriginEndpointMssFilterConfigurationPtrOutput) ClipStartTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OriginEndpointMssFilterConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ClipStartTime
+	}).(pulumi.StringPtrOutput)
+}
+
+// <p>Optionally specify one or more DRM settings for all of your manifest egress requests. When you include a DRM setting, note that you cannot use an identical DRM setting query parameter for this manifest's endpoint URL.</p>
+func (o OriginEndpointMssFilterConfigurationPtrOutput) DrmSettings() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OriginEndpointMssFilterConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DrmSettings
+	}).(pulumi.StringPtrOutput)
+}
+
+// <p>Optionally specify the end time for all of your manifest egress requests. When you include end time, note that you cannot use end time query parameters for this manifest's endpoint URL.</p>
+func (o OriginEndpointMssFilterConfigurationPtrOutput) End() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OriginEndpointMssFilterConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.End
+	}).(pulumi.StringPtrOutput)
+}
+
+// <p>Optionally specify one or more manifest filters for all of your manifest egress requests. When you include a manifest filter, note that you cannot use an identical manifest filter query parameter for this manifest's endpoint URL.</p>
+func (o OriginEndpointMssFilterConfigurationPtrOutput) ManifestFilter() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OriginEndpointMssFilterConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ManifestFilter
+	}).(pulumi.StringPtrOutput)
+}
+
+// <p>Optionally specify the start time for all of your manifest egress requests. When you include start time, note that you cannot use start time query parameters for this manifest's endpoint URL.</p>
+func (o OriginEndpointMssFilterConfigurationPtrOutput) Start() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OriginEndpointMssFilterConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Start
+	}).(pulumi.StringPtrOutput)
+}
+
+// <p>Optionally specify the time delay for all of your manifest egress requests. Enter a value that is smaller than your endpoint's startover window. When you include time delay, note that you cannot use time delay query parameters for this manifest's endpoint URL.</p>
+func (o OriginEndpointMssFilterConfigurationPtrOutput) TimeDelaySeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *OriginEndpointMssFilterConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.TimeDelaySeconds
+	}).(pulumi.IntPtrOutput)
+}
+
 // <p>Configuration details for a Microsoft Smooth Streaming (MSS) manifest associated with an origin endpoint. This includes all the settings and properties that define how the MSS content is packaged and delivered.</p>
 type OriginEndpointMssManifestConfiguration struct {
-	FilterConfiguration *OriginEndpointFilterConfiguration `pulumi:"filterConfiguration"`
-	ManifestLayout      *OriginEndpointMssManifestLayout   `pulumi:"manifestLayout"`
+	FilterConfiguration *OriginEndpointMssFilterConfiguration `pulumi:"filterConfiguration"`
+	ManifestLayout      *OriginEndpointMssManifestLayout      `pulumi:"manifestLayout"`
 	// <p>The name of the MSS manifest. This name is appended to the origin endpoint URL to create the unique path for accessing this specific MSS manifest.</p>
 	ManifestName string `pulumi:"manifestName"`
 	// <p>The duration (in seconds) of the manifest window. This represents the total amount of content available in the manifest at any given time.</p>
@@ -3625,8 +4250,8 @@ type OriginEndpointMssManifestConfigurationInput interface {
 
 // <p>Configuration details for a Microsoft Smooth Streaming (MSS) manifest associated with an origin endpoint. This includes all the settings and properties that define how the MSS content is packaged and delivered.</p>
 type OriginEndpointMssManifestConfigurationArgs struct {
-	FilterConfiguration OriginEndpointFilterConfigurationPtrInput `pulumi:"filterConfiguration"`
-	ManifestLayout      OriginEndpointMssManifestLayoutPtrInput   `pulumi:"manifestLayout"`
+	FilterConfiguration OriginEndpointMssFilterConfigurationPtrInput `pulumi:"filterConfiguration"`
+	ManifestLayout      OriginEndpointMssManifestLayoutPtrInput      `pulumi:"manifestLayout"`
 	// <p>The name of the MSS manifest. This name is appended to the origin endpoint URL to create the unique path for accessing this specific MSS manifest.</p>
 	ManifestName pulumi.StringInput `pulumi:"manifestName"`
 	// <p>The duration (in seconds) of the manifest window. This represents the total amount of content available in the manifest at any given time.</p>
@@ -3685,10 +4310,10 @@ func (o OriginEndpointMssManifestConfigurationOutput) ToOriginEndpointMssManifes
 	return o
 }
 
-func (o OriginEndpointMssManifestConfigurationOutput) FilterConfiguration() OriginEndpointFilterConfigurationPtrOutput {
-	return o.ApplyT(func(v OriginEndpointMssManifestConfiguration) *OriginEndpointFilterConfiguration {
+func (o OriginEndpointMssManifestConfigurationOutput) FilterConfiguration() OriginEndpointMssFilterConfigurationPtrOutput {
+	return o.ApplyT(func(v OriginEndpointMssManifestConfiguration) *OriginEndpointMssFilterConfiguration {
 		return v.FilterConfiguration
-	}).(OriginEndpointFilterConfigurationPtrOutput)
+	}).(OriginEndpointMssFilterConfigurationPtrOutput)
 }
 
 func (o OriginEndpointMssManifestConfigurationOutput) ManifestLayout() OriginEndpointMssManifestLayoutPtrOutput {
@@ -3725,6 +4350,161 @@ func (o OriginEndpointMssManifestConfigurationArrayOutput) Index(i pulumi.IntInp
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OriginEndpointMssManifestConfiguration {
 		return vs[0].([]OriginEndpointMssManifestConfiguration)[vs[1].(int)]
 	}).(OriginEndpointMssManifestConfigurationOutput)
+}
+
+// <p>The multiview combination for a pinned manifest. MediaPackage serves the manifest with this layout and these sources, so players request it without an <code>aws.multiview</code> query parameter.</p> <p>If a request for a pinned manifest also includes an <code>aws.multiview</code> query parameter, MediaPackage rejects the request, even when that parameter requests the same combination.</p>
+type OriginEndpointMultiviewFilterConfiguration struct {
+	Layout OriginEndpointMultiviewLayoutType `pulumi:"layout"`
+	// <p>The source channels to composite, in tile order. Each channel must be one of the <code>AvailableSources</code> of the channel that this origin endpoint is on, and the number of channels must equal the number of tiles in <code>Layout</code>.</p>
+	Sources []string `pulumi:"sources"`
+}
+
+// OriginEndpointMultiviewFilterConfigurationInput is an input type that accepts OriginEndpointMultiviewFilterConfigurationArgs and OriginEndpointMultiviewFilterConfigurationOutput values.
+// You can construct a concrete instance of `OriginEndpointMultiviewFilterConfigurationInput` via:
+//
+//	OriginEndpointMultiviewFilterConfigurationArgs{...}
+type OriginEndpointMultiviewFilterConfigurationInput interface {
+	pulumi.Input
+
+	ToOriginEndpointMultiviewFilterConfigurationOutput() OriginEndpointMultiviewFilterConfigurationOutput
+	ToOriginEndpointMultiviewFilterConfigurationOutputWithContext(context.Context) OriginEndpointMultiviewFilterConfigurationOutput
+}
+
+// <p>The multiview combination for a pinned manifest. MediaPackage serves the manifest with this layout and these sources, so players request it without an <code>aws.multiview</code> query parameter.</p> <p>If a request for a pinned manifest also includes an <code>aws.multiview</code> query parameter, MediaPackage rejects the request, even when that parameter requests the same combination.</p>
+type OriginEndpointMultiviewFilterConfigurationArgs struct {
+	Layout OriginEndpointMultiviewLayoutTypeInput `pulumi:"layout"`
+	// <p>The source channels to composite, in tile order. Each channel must be one of the <code>AvailableSources</code> of the channel that this origin endpoint is on, and the number of channels must equal the number of tiles in <code>Layout</code>.</p>
+	Sources pulumi.StringArrayInput `pulumi:"sources"`
+}
+
+func (OriginEndpointMultiviewFilterConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OriginEndpointMultiviewFilterConfiguration)(nil)).Elem()
+}
+
+func (i OriginEndpointMultiviewFilterConfigurationArgs) ToOriginEndpointMultiviewFilterConfigurationOutput() OriginEndpointMultiviewFilterConfigurationOutput {
+	return i.ToOriginEndpointMultiviewFilterConfigurationOutputWithContext(context.Background())
+}
+
+func (i OriginEndpointMultiviewFilterConfigurationArgs) ToOriginEndpointMultiviewFilterConfigurationOutputWithContext(ctx context.Context) OriginEndpointMultiviewFilterConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OriginEndpointMultiviewFilterConfigurationOutput)
+}
+
+func (i OriginEndpointMultiviewFilterConfigurationArgs) ToOriginEndpointMultiviewFilterConfigurationPtrOutput() OriginEndpointMultiviewFilterConfigurationPtrOutput {
+	return i.ToOriginEndpointMultiviewFilterConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i OriginEndpointMultiviewFilterConfigurationArgs) ToOriginEndpointMultiviewFilterConfigurationPtrOutputWithContext(ctx context.Context) OriginEndpointMultiviewFilterConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OriginEndpointMultiviewFilterConfigurationOutput).ToOriginEndpointMultiviewFilterConfigurationPtrOutputWithContext(ctx)
+}
+
+// OriginEndpointMultiviewFilterConfigurationPtrInput is an input type that accepts OriginEndpointMultiviewFilterConfigurationArgs, OriginEndpointMultiviewFilterConfigurationPtr and OriginEndpointMultiviewFilterConfigurationPtrOutput values.
+// You can construct a concrete instance of `OriginEndpointMultiviewFilterConfigurationPtrInput` via:
+//
+//	        OriginEndpointMultiviewFilterConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type OriginEndpointMultiviewFilterConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToOriginEndpointMultiviewFilterConfigurationPtrOutput() OriginEndpointMultiviewFilterConfigurationPtrOutput
+	ToOriginEndpointMultiviewFilterConfigurationPtrOutputWithContext(context.Context) OriginEndpointMultiviewFilterConfigurationPtrOutput
+}
+
+type originEndpointMultiviewFilterConfigurationPtrType OriginEndpointMultiviewFilterConfigurationArgs
+
+func OriginEndpointMultiviewFilterConfigurationPtr(v *OriginEndpointMultiviewFilterConfigurationArgs) OriginEndpointMultiviewFilterConfigurationPtrInput {
+	return (*originEndpointMultiviewFilterConfigurationPtrType)(v)
+}
+
+func (*originEndpointMultiviewFilterConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OriginEndpointMultiviewFilterConfiguration)(nil)).Elem()
+}
+
+func (i *originEndpointMultiviewFilterConfigurationPtrType) ToOriginEndpointMultiviewFilterConfigurationPtrOutput() OriginEndpointMultiviewFilterConfigurationPtrOutput {
+	return i.ToOriginEndpointMultiviewFilterConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *originEndpointMultiviewFilterConfigurationPtrType) ToOriginEndpointMultiviewFilterConfigurationPtrOutputWithContext(ctx context.Context) OriginEndpointMultiviewFilterConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OriginEndpointMultiviewFilterConfigurationPtrOutput)
+}
+
+// <p>The multiview combination for a pinned manifest. MediaPackage serves the manifest with this layout and these sources, so players request it without an <code>aws.multiview</code> query parameter.</p> <p>If a request for a pinned manifest also includes an <code>aws.multiview</code> query parameter, MediaPackage rejects the request, even when that parameter requests the same combination.</p>
+type OriginEndpointMultiviewFilterConfigurationOutput struct{ *pulumi.OutputState }
+
+func (OriginEndpointMultiviewFilterConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OriginEndpointMultiviewFilterConfiguration)(nil)).Elem()
+}
+
+func (o OriginEndpointMultiviewFilterConfigurationOutput) ToOriginEndpointMultiviewFilterConfigurationOutput() OriginEndpointMultiviewFilterConfigurationOutput {
+	return o
+}
+
+func (o OriginEndpointMultiviewFilterConfigurationOutput) ToOriginEndpointMultiviewFilterConfigurationOutputWithContext(ctx context.Context) OriginEndpointMultiviewFilterConfigurationOutput {
+	return o
+}
+
+func (o OriginEndpointMultiviewFilterConfigurationOutput) ToOriginEndpointMultiviewFilterConfigurationPtrOutput() OriginEndpointMultiviewFilterConfigurationPtrOutput {
+	return o.ToOriginEndpointMultiviewFilterConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o OriginEndpointMultiviewFilterConfigurationOutput) ToOriginEndpointMultiviewFilterConfigurationPtrOutputWithContext(ctx context.Context) OriginEndpointMultiviewFilterConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OriginEndpointMultiviewFilterConfiguration) *OriginEndpointMultiviewFilterConfiguration {
+		return &v
+	}).(OriginEndpointMultiviewFilterConfigurationPtrOutput)
+}
+
+func (o OriginEndpointMultiviewFilterConfigurationOutput) Layout() OriginEndpointMultiviewLayoutTypeOutput {
+	return o.ApplyT(func(v OriginEndpointMultiviewFilterConfiguration) OriginEndpointMultiviewLayoutType { return v.Layout }).(OriginEndpointMultiviewLayoutTypeOutput)
+}
+
+// <p>The source channels to composite, in tile order. Each channel must be one of the <code>AvailableSources</code> of the channel that this origin endpoint is on, and the number of channels must equal the number of tiles in <code>Layout</code>.</p>
+func (o OriginEndpointMultiviewFilterConfigurationOutput) Sources() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v OriginEndpointMultiviewFilterConfiguration) []string { return v.Sources }).(pulumi.StringArrayOutput)
+}
+
+type OriginEndpointMultiviewFilterConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (OriginEndpointMultiviewFilterConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OriginEndpointMultiviewFilterConfiguration)(nil)).Elem()
+}
+
+func (o OriginEndpointMultiviewFilterConfigurationPtrOutput) ToOriginEndpointMultiviewFilterConfigurationPtrOutput() OriginEndpointMultiviewFilterConfigurationPtrOutput {
+	return o
+}
+
+func (o OriginEndpointMultiviewFilterConfigurationPtrOutput) ToOriginEndpointMultiviewFilterConfigurationPtrOutputWithContext(ctx context.Context) OriginEndpointMultiviewFilterConfigurationPtrOutput {
+	return o
+}
+
+func (o OriginEndpointMultiviewFilterConfigurationPtrOutput) Elem() OriginEndpointMultiviewFilterConfigurationOutput {
+	return o.ApplyT(func(v *OriginEndpointMultiviewFilterConfiguration) OriginEndpointMultiviewFilterConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret OriginEndpointMultiviewFilterConfiguration
+		return ret
+	}).(OriginEndpointMultiviewFilterConfigurationOutput)
+}
+
+func (o OriginEndpointMultiviewFilterConfigurationPtrOutput) Layout() OriginEndpointMultiviewLayoutTypePtrOutput {
+	return o.ApplyT(func(v *OriginEndpointMultiviewFilterConfiguration) *OriginEndpointMultiviewLayoutType {
+		if v == nil {
+			return nil
+		}
+		return &v.Layout
+	}).(OriginEndpointMultiviewLayoutTypePtrOutput)
+}
+
+// <p>The source channels to composite, in tile order. Each channel must be one of the <code>AvailableSources</code> of the channel that this origin endpoint is on, and the number of channels must equal the number of tiles in <code>Layout</code>.</p>
+func (o OriginEndpointMultiviewFilterConfigurationPtrOutput) Sources() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *OriginEndpointMultiviewFilterConfiguration) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Sources
+	}).(pulumi.StringArrayOutput)
 }
 
 // <p>The settings to enable CDN authorization headers in MediaPackage.</p>
@@ -4686,7 +5466,8 @@ func (o OriginEndpointSegmentPtrOutput) TsUseAudioRenditionGroup() pulumi.BoolPt
 // <p>The parameters for the SPEKE key provider.</p>
 type OriginEndpointSpekeKeyProvider struct {
 	// <p>The ARN for the certificate that you imported to Amazon Web Services Certificate Manager to add content key encryption to this endpoint. For this feature to work, your DRM key provider must support content key encryption.</p>
-	CertificateArn *string `pulumi:"certificateArn"`
+	CertificateArn                *string                                      `pulumi:"certificateArn"`
+	ContentKeyPeriodConfiguration *OriginEndpointContentKeyPeriodConfiguration `pulumi:"contentKeyPeriodConfiguration"`
 	// <p>The DRM solution provider you're using to protect your content during distribution.</p>
 	DrmSystems []OriginEndpointDrmSystem `pulumi:"drmSystems"`
 	// The encryption contract configuration associated with the SPEKE key provider.
@@ -4694,7 +5475,8 @@ type OriginEndpointSpekeKeyProvider struct {
 	// <p>The unique identifier for the content. The service sends this to the key server to identify the current endpoint. How unique you make this depends on how fine-grained you want access controls to be. The service does not permit you to use the same ID for two simultaneous encryption processes. The resource ID is also known as the content ID.</p> <p>The following example shows a resource ID: <code>MovieNight20171126093045</code> </p>
 	ResourceId string `pulumi:"resourceId"`
 	// <p>The ARN for the IAM role granted by the key provider that provides access to the key provider API. This role must have a trust policy that allows MediaPackage to assume the role, and it must have a sufficient permissions policy to allow access to the specific key retrieval URL. Get this from your DRM solution provider.</p> <p>Valid format: <code>arn:aws:iam::{accountID}:role/{name}</code>. The following example shows a role ARN: <code>arn:aws:iam::444455556666:role/SpekeAccess</code> </p>
-	RoleArn string `pulumi:"roleArn"`
+	RoleArn      string                      `pulumi:"roleArn"`
+	SpekeVersion *OriginEndpointSpekeVersion `pulumi:"spekeVersion"`
 	// <p>The URL of the API Gateway proxy that you set up to talk to your key server. The API Gateway proxy must reside in the same AWS Region as MediaPackage and must start with https://.</p> <p>The following example shows a URL: <code>https://1wm2dx1f33.execute-api.us-west-2.amazonaws.com/SpekeSample/copyProtection</code> </p>
 	Url string `pulumi:"url"`
 }
@@ -4713,7 +5495,8 @@ type OriginEndpointSpekeKeyProviderInput interface {
 // <p>The parameters for the SPEKE key provider.</p>
 type OriginEndpointSpekeKeyProviderArgs struct {
 	// <p>The ARN for the certificate that you imported to Amazon Web Services Certificate Manager to add content key encryption to this endpoint. For this feature to work, your DRM key provider must support content key encryption.</p>
-	CertificateArn pulumi.StringPtrInput `pulumi:"certificateArn"`
+	CertificateArn                pulumi.StringPtrInput                               `pulumi:"certificateArn"`
+	ContentKeyPeriodConfiguration OriginEndpointContentKeyPeriodConfigurationPtrInput `pulumi:"contentKeyPeriodConfiguration"`
 	// <p>The DRM solution provider you're using to protect your content during distribution.</p>
 	DrmSystems OriginEndpointDrmSystemArrayInput `pulumi:"drmSystems"`
 	// The encryption contract configuration associated with the SPEKE key provider.
@@ -4721,7 +5504,8 @@ type OriginEndpointSpekeKeyProviderArgs struct {
 	// <p>The unique identifier for the content. The service sends this to the key server to identify the current endpoint. How unique you make this depends on how fine-grained you want access controls to be. The service does not permit you to use the same ID for two simultaneous encryption processes. The resource ID is also known as the content ID.</p> <p>The following example shows a resource ID: <code>MovieNight20171126093045</code> </p>
 	ResourceId pulumi.StringInput `pulumi:"resourceId"`
 	// <p>The ARN for the IAM role granted by the key provider that provides access to the key provider API. This role must have a trust policy that allows MediaPackage to assume the role, and it must have a sufficient permissions policy to allow access to the specific key retrieval URL. Get this from your DRM solution provider.</p> <p>Valid format: <code>arn:aws:iam::{accountID}:role/{name}</code>. The following example shows a role ARN: <code>arn:aws:iam::444455556666:role/SpekeAccess</code> </p>
-	RoleArn pulumi.StringInput `pulumi:"roleArn"`
+	RoleArn      pulumi.StringInput                 `pulumi:"roleArn"`
+	SpekeVersion OriginEndpointSpekeVersionPtrInput `pulumi:"spekeVersion"`
 	// <p>The URL of the API Gateway proxy that you set up to talk to your key server. The API Gateway proxy must reside in the same AWS Region as MediaPackage and must start with https://.</p> <p>The following example shows a URL: <code>https://1wm2dx1f33.execute-api.us-west-2.amazonaws.com/SpekeSample/copyProtection</code> </p>
 	Url pulumi.StringInput `pulumi:"url"`
 }
@@ -4809,6 +5593,12 @@ func (o OriginEndpointSpekeKeyProviderOutput) CertificateArn() pulumi.StringPtrO
 	return o.ApplyT(func(v OriginEndpointSpekeKeyProvider) *string { return v.CertificateArn }).(pulumi.StringPtrOutput)
 }
 
+func (o OriginEndpointSpekeKeyProviderOutput) ContentKeyPeriodConfiguration() OriginEndpointContentKeyPeriodConfigurationPtrOutput {
+	return o.ApplyT(func(v OriginEndpointSpekeKeyProvider) *OriginEndpointContentKeyPeriodConfiguration {
+		return v.ContentKeyPeriodConfiguration
+	}).(OriginEndpointContentKeyPeriodConfigurationPtrOutput)
+}
+
 // <p>The DRM solution provider you're using to protect your content during distribution.</p>
 func (o OriginEndpointSpekeKeyProviderOutput) DrmSystems() OriginEndpointDrmSystemArrayOutput {
 	return o.ApplyT(func(v OriginEndpointSpekeKeyProvider) []OriginEndpointDrmSystem { return v.DrmSystems }).(OriginEndpointDrmSystemArrayOutput)
@@ -4829,6 +5619,10 @@ func (o OriginEndpointSpekeKeyProviderOutput) ResourceId() pulumi.StringOutput {
 // <p>The ARN for the IAM role granted by the key provider that provides access to the key provider API. This role must have a trust policy that allows MediaPackage to assume the role, and it must have a sufficient permissions policy to allow access to the specific key retrieval URL. Get this from your DRM solution provider.</p> <p>Valid format: <code>arn:aws:iam::{accountID}:role/{name}</code>. The following example shows a role ARN: <code>arn:aws:iam::444455556666:role/SpekeAccess</code> </p>
 func (o OriginEndpointSpekeKeyProviderOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v OriginEndpointSpekeKeyProvider) string { return v.RoleArn }).(pulumi.StringOutput)
+}
+
+func (o OriginEndpointSpekeKeyProviderOutput) SpekeVersion() OriginEndpointSpekeVersionPtrOutput {
+	return o.ApplyT(func(v OriginEndpointSpekeKeyProvider) *OriginEndpointSpekeVersion { return v.SpekeVersion }).(OriginEndpointSpekeVersionPtrOutput)
 }
 
 // <p>The URL of the API Gateway proxy that you set up to talk to your key server. The API Gateway proxy must reside in the same AWS Region as MediaPackage and must start with https://.</p> <p>The following example shows a URL: <code>https://1wm2dx1f33.execute-api.us-west-2.amazonaws.com/SpekeSample/copyProtection</code> </p>
@@ -4870,6 +5664,15 @@ func (o OriginEndpointSpekeKeyProviderPtrOutput) CertificateArn() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
+func (o OriginEndpointSpekeKeyProviderPtrOutput) ContentKeyPeriodConfiguration() OriginEndpointContentKeyPeriodConfigurationPtrOutput {
+	return o.ApplyT(func(v *OriginEndpointSpekeKeyProvider) *OriginEndpointContentKeyPeriodConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.ContentKeyPeriodConfiguration
+	}).(OriginEndpointContentKeyPeriodConfigurationPtrOutput)
+}
+
 // <p>The DRM solution provider you're using to protect your content during distribution.</p>
 func (o OriginEndpointSpekeKeyProviderPtrOutput) DrmSystems() OriginEndpointDrmSystemArrayOutput {
 	return o.ApplyT(func(v *OriginEndpointSpekeKeyProvider) []OriginEndpointDrmSystem {
@@ -4908,6 +5711,15 @@ func (o OriginEndpointSpekeKeyProviderPtrOutput) RoleArn() pulumi.StringPtrOutpu
 		}
 		return &v.RoleArn
 	}).(pulumi.StringPtrOutput)
+}
+
+func (o OriginEndpointSpekeKeyProviderPtrOutput) SpekeVersion() OriginEndpointSpekeVersionPtrOutput {
+	return o.ApplyT(func(v *OriginEndpointSpekeKeyProvider) *OriginEndpointSpekeVersion {
+		if v == nil {
+			return nil
+		}
+		return v.SpekeVersion
+	}).(OriginEndpointSpekeVersionPtrOutput)
 }
 
 // <p>The URL of the API Gateway proxy that you set up to talk to your key server. The API Gateway proxy must reside in the same AWS Region as MediaPackage and must start with https://.</p> <p>The following example shows a URL: <code>https://1wm2dx1f33.execute-api.us-west-2.amazonaws.com/SpekeSample/copyProtection</code> </p>
@@ -5093,6 +5905,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelMultiviewConfigurationPtrInput)(nil)).Elem(), ChannelMultiviewConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelOutputHeaderConfigurationInput)(nil)).Elem(), ChannelOutputHeaderConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelOutputHeaderConfigurationPtrInput)(nil)).Elem(), ChannelOutputHeaderConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointContentKeyPeriodConfigurationInput)(nil)).Elem(), OriginEndpointContentKeyPeriodConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointContentKeyPeriodConfigurationPtrInput)(nil)).Elem(), OriginEndpointContentKeyPeriodConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointDashAvailabilityStartTimeConfigurationPropertiesInput)(nil)).Elem(), OriginEndpointDashAvailabilityStartTimeConfigurationPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointDashAvailabilityStartTimeConfigurationPropertiesPtrInput)(nil)).Elem(), OriginEndpointDashAvailabilityStartTimeConfigurationPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointDashBaseUrlInput)(nil)).Elem(), OriginEndpointDashBaseUrlArgs{})
@@ -5125,10 +5939,16 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointForceEndpointErrorConfigurationPtrInput)(nil)).Elem(), OriginEndpointForceEndpointErrorConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointHlsManifestConfigurationInput)(nil)).Elem(), OriginEndpointHlsManifestConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointHlsManifestConfigurationArrayInput)(nil)).Elem(), OriginEndpointHlsManifestConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointLowLatencyHlsFilterConfigurationInput)(nil)).Elem(), OriginEndpointLowLatencyHlsFilterConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointLowLatencyHlsFilterConfigurationPtrInput)(nil)).Elem(), OriginEndpointLowLatencyHlsFilterConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointLowLatencyHlsManifestConfigurationInput)(nil)).Elem(), OriginEndpointLowLatencyHlsManifestConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointLowLatencyHlsManifestConfigurationArrayInput)(nil)).Elem(), OriginEndpointLowLatencyHlsManifestConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointMssFilterConfigurationInput)(nil)).Elem(), OriginEndpointMssFilterConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointMssFilterConfigurationPtrInput)(nil)).Elem(), OriginEndpointMssFilterConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointMssManifestConfigurationInput)(nil)).Elem(), OriginEndpointMssManifestConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointMssManifestConfigurationArrayInput)(nil)).Elem(), OriginEndpointMssManifestConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointMultiviewFilterConfigurationInput)(nil)).Elem(), OriginEndpointMultiviewFilterConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointMultiviewFilterConfigurationPtrInput)(nil)).Elem(), OriginEndpointMultiviewFilterConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointPolicyCdnAuthConfigurationInput)(nil)).Elem(), OriginEndpointPolicyCdnAuthConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointPolicyCdnAuthConfigurationPtrInput)(nil)).Elem(), OriginEndpointPolicyCdnAuthConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointScteInput)(nil)).Elem(), OriginEndpointScteArgs{})
@@ -5151,6 +5971,8 @@ func init() {
 	pulumi.RegisterOutputType(ChannelMultiviewConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ChannelOutputHeaderConfigurationOutput{})
 	pulumi.RegisterOutputType(ChannelOutputHeaderConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(OriginEndpointContentKeyPeriodConfigurationOutput{})
+	pulumi.RegisterOutputType(OriginEndpointContentKeyPeriodConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(OriginEndpointDashAvailabilityStartTimeConfigurationPropertiesOutput{})
 	pulumi.RegisterOutputType(OriginEndpointDashAvailabilityStartTimeConfigurationPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(OriginEndpointDashBaseUrlOutput{})
@@ -5183,10 +6005,16 @@ func init() {
 	pulumi.RegisterOutputType(OriginEndpointForceEndpointErrorConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(OriginEndpointHlsManifestConfigurationOutput{})
 	pulumi.RegisterOutputType(OriginEndpointHlsManifestConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(OriginEndpointLowLatencyHlsFilterConfigurationOutput{})
+	pulumi.RegisterOutputType(OriginEndpointLowLatencyHlsFilterConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(OriginEndpointLowLatencyHlsManifestConfigurationOutput{})
 	pulumi.RegisterOutputType(OriginEndpointLowLatencyHlsManifestConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(OriginEndpointMssFilterConfigurationOutput{})
+	pulumi.RegisterOutputType(OriginEndpointMssFilterConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(OriginEndpointMssManifestConfigurationOutput{})
 	pulumi.RegisterOutputType(OriginEndpointMssManifestConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(OriginEndpointMultiviewFilterConfigurationOutput{})
+	pulumi.RegisterOutputType(OriginEndpointMultiviewFilterConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(OriginEndpointPolicyCdnAuthConfigurationOutput{})
 	pulumi.RegisterOutputType(OriginEndpointPolicyCdnAuthConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(OriginEndpointScteOutput{})

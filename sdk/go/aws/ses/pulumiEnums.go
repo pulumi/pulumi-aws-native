@@ -6137,6 +6137,382 @@ func (in *mailManagerTrafficPolicyIngressTlsProtocolOperatorPtr) ToMailManagerTr
 	return pulumi.ToOutputWithContext(ctx, in).(MailManagerTrafficPolicyIngressTlsProtocolOperatorPtrOutput)
 }
 
+type TenantSuppressionAttributesSuppressedReasonsItem string
+
+const (
+	TenantSuppressionAttributesSuppressedReasonsItemBounce    = TenantSuppressionAttributesSuppressedReasonsItem("BOUNCE")
+	TenantSuppressionAttributesSuppressedReasonsItemComplaint = TenantSuppressionAttributesSuppressedReasonsItem("COMPLAINT")
+)
+
+func (TenantSuppressionAttributesSuppressedReasonsItem) ElementType() reflect.Type {
+	return reflect.TypeOf((*TenantSuppressionAttributesSuppressedReasonsItem)(nil)).Elem()
+}
+
+func (e TenantSuppressionAttributesSuppressedReasonsItem) ToTenantSuppressionAttributesSuppressedReasonsItemOutput() TenantSuppressionAttributesSuppressedReasonsItemOutput {
+	return pulumi.ToOutput(e).(TenantSuppressionAttributesSuppressedReasonsItemOutput)
+}
+
+func (e TenantSuppressionAttributesSuppressedReasonsItem) ToTenantSuppressionAttributesSuppressedReasonsItemOutputWithContext(ctx context.Context) TenantSuppressionAttributesSuppressedReasonsItemOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(TenantSuppressionAttributesSuppressedReasonsItemOutput)
+}
+
+func (e TenantSuppressionAttributesSuppressedReasonsItem) ToTenantSuppressionAttributesSuppressedReasonsItemPtrOutput() TenantSuppressionAttributesSuppressedReasonsItemPtrOutput {
+	return e.ToTenantSuppressionAttributesSuppressedReasonsItemPtrOutputWithContext(context.Background())
+}
+
+func (e TenantSuppressionAttributesSuppressedReasonsItem) ToTenantSuppressionAttributesSuppressedReasonsItemPtrOutputWithContext(ctx context.Context) TenantSuppressionAttributesSuppressedReasonsItemPtrOutput {
+	return TenantSuppressionAttributesSuppressedReasonsItem(e).ToTenantSuppressionAttributesSuppressedReasonsItemOutputWithContext(ctx).ToTenantSuppressionAttributesSuppressedReasonsItemPtrOutputWithContext(ctx)
+}
+
+func (e TenantSuppressionAttributesSuppressedReasonsItem) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TenantSuppressionAttributesSuppressedReasonsItem) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TenantSuppressionAttributesSuppressedReasonsItem) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e TenantSuppressionAttributesSuppressedReasonsItem) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type TenantSuppressionAttributesSuppressedReasonsItemOutput struct{ *pulumi.OutputState }
+
+func (TenantSuppressionAttributesSuppressedReasonsItemOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TenantSuppressionAttributesSuppressedReasonsItem)(nil)).Elem()
+}
+
+func (o TenantSuppressionAttributesSuppressedReasonsItemOutput) ToTenantSuppressionAttributesSuppressedReasonsItemOutput() TenantSuppressionAttributesSuppressedReasonsItemOutput {
+	return o
+}
+
+func (o TenantSuppressionAttributesSuppressedReasonsItemOutput) ToTenantSuppressionAttributesSuppressedReasonsItemOutputWithContext(ctx context.Context) TenantSuppressionAttributesSuppressedReasonsItemOutput {
+	return o
+}
+
+func (o TenantSuppressionAttributesSuppressedReasonsItemOutput) ToTenantSuppressionAttributesSuppressedReasonsItemPtrOutput() TenantSuppressionAttributesSuppressedReasonsItemPtrOutput {
+	return o.ToTenantSuppressionAttributesSuppressedReasonsItemPtrOutputWithContext(context.Background())
+}
+
+func (o TenantSuppressionAttributesSuppressedReasonsItemOutput) ToTenantSuppressionAttributesSuppressedReasonsItemPtrOutputWithContext(ctx context.Context) TenantSuppressionAttributesSuppressedReasonsItemPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TenantSuppressionAttributesSuppressedReasonsItem) *TenantSuppressionAttributesSuppressedReasonsItem {
+		return &v
+	}).(TenantSuppressionAttributesSuppressedReasonsItemPtrOutput)
+}
+
+func (o TenantSuppressionAttributesSuppressedReasonsItemOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o TenantSuppressionAttributesSuppressedReasonsItemOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TenantSuppressionAttributesSuppressedReasonsItem) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o TenantSuppressionAttributesSuppressedReasonsItemOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TenantSuppressionAttributesSuppressedReasonsItemOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TenantSuppressionAttributesSuppressedReasonsItem) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type TenantSuppressionAttributesSuppressedReasonsItemPtrOutput struct{ *pulumi.OutputState }
+
+func (TenantSuppressionAttributesSuppressedReasonsItemPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TenantSuppressionAttributesSuppressedReasonsItem)(nil)).Elem()
+}
+
+func (o TenantSuppressionAttributesSuppressedReasonsItemPtrOutput) ToTenantSuppressionAttributesSuppressedReasonsItemPtrOutput() TenantSuppressionAttributesSuppressedReasonsItemPtrOutput {
+	return o
+}
+
+func (o TenantSuppressionAttributesSuppressedReasonsItemPtrOutput) ToTenantSuppressionAttributesSuppressedReasonsItemPtrOutputWithContext(ctx context.Context) TenantSuppressionAttributesSuppressedReasonsItemPtrOutput {
+	return o
+}
+
+func (o TenantSuppressionAttributesSuppressedReasonsItemPtrOutput) Elem() TenantSuppressionAttributesSuppressedReasonsItemOutput {
+	return o.ApplyT(func(v *TenantSuppressionAttributesSuppressedReasonsItem) TenantSuppressionAttributesSuppressedReasonsItem {
+		if v != nil {
+			return *v
+		}
+		var ret TenantSuppressionAttributesSuppressedReasonsItem
+		return ret
+	}).(TenantSuppressionAttributesSuppressedReasonsItemOutput)
+}
+
+func (o TenantSuppressionAttributesSuppressedReasonsItemPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TenantSuppressionAttributesSuppressedReasonsItemPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *TenantSuppressionAttributesSuppressedReasonsItem) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// TenantSuppressionAttributesSuppressedReasonsItemInput is an input type that accepts values of the TenantSuppressionAttributesSuppressedReasonsItem enum
+// A concrete instance of `TenantSuppressionAttributesSuppressedReasonsItemInput` can be one of the following:
+//
+//	TenantSuppressionAttributesSuppressedReasonsItemBounce
+//	TenantSuppressionAttributesSuppressedReasonsItemComplaint
+type TenantSuppressionAttributesSuppressedReasonsItemInput interface {
+	pulumi.Input
+
+	ToTenantSuppressionAttributesSuppressedReasonsItemOutput() TenantSuppressionAttributesSuppressedReasonsItemOutput
+	ToTenantSuppressionAttributesSuppressedReasonsItemOutputWithContext(context.Context) TenantSuppressionAttributesSuppressedReasonsItemOutput
+}
+
+var tenantSuppressionAttributesSuppressedReasonsItemPtrType = reflect.TypeOf((**TenantSuppressionAttributesSuppressedReasonsItem)(nil)).Elem()
+
+type TenantSuppressionAttributesSuppressedReasonsItemPtrInput interface {
+	pulumi.Input
+
+	ToTenantSuppressionAttributesSuppressedReasonsItemPtrOutput() TenantSuppressionAttributesSuppressedReasonsItemPtrOutput
+	ToTenantSuppressionAttributesSuppressedReasonsItemPtrOutputWithContext(context.Context) TenantSuppressionAttributesSuppressedReasonsItemPtrOutput
+}
+
+type tenantSuppressionAttributesSuppressedReasonsItemPtr string
+
+func TenantSuppressionAttributesSuppressedReasonsItemPtr(v string) TenantSuppressionAttributesSuppressedReasonsItemPtrInput {
+	return (*tenantSuppressionAttributesSuppressedReasonsItemPtr)(&v)
+}
+
+func (*tenantSuppressionAttributesSuppressedReasonsItemPtr) ElementType() reflect.Type {
+	return tenantSuppressionAttributesSuppressedReasonsItemPtrType
+}
+
+func (in *tenantSuppressionAttributesSuppressedReasonsItemPtr) ToTenantSuppressionAttributesSuppressedReasonsItemPtrOutput() TenantSuppressionAttributesSuppressedReasonsItemPtrOutput {
+	return pulumi.ToOutput(in).(TenantSuppressionAttributesSuppressedReasonsItemPtrOutput)
+}
+
+func (in *tenantSuppressionAttributesSuppressedReasonsItemPtr) ToTenantSuppressionAttributesSuppressedReasonsItemPtrOutputWithContext(ctx context.Context) TenantSuppressionAttributesSuppressedReasonsItemPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(TenantSuppressionAttributesSuppressedReasonsItemPtrOutput)
+}
+
+// TenantSuppressionAttributesSuppressedReasonsItemArrayInput is an input type that accepts TenantSuppressionAttributesSuppressedReasonsItemArray and TenantSuppressionAttributesSuppressedReasonsItemArrayOutput values.
+// You can construct a concrete instance of `TenantSuppressionAttributesSuppressedReasonsItemArrayInput` via:
+//
+//	TenantSuppressionAttributesSuppressedReasonsItemArray{ TenantSuppressionAttributesSuppressedReasonsItemArgs{...} }
+type TenantSuppressionAttributesSuppressedReasonsItemArrayInput interface {
+	pulumi.Input
+
+	ToTenantSuppressionAttributesSuppressedReasonsItemArrayOutput() TenantSuppressionAttributesSuppressedReasonsItemArrayOutput
+	ToTenantSuppressionAttributesSuppressedReasonsItemArrayOutputWithContext(context.Context) TenantSuppressionAttributesSuppressedReasonsItemArrayOutput
+}
+
+type TenantSuppressionAttributesSuppressedReasonsItemArray []TenantSuppressionAttributesSuppressedReasonsItem
+
+func (TenantSuppressionAttributesSuppressedReasonsItemArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TenantSuppressionAttributesSuppressedReasonsItem)(nil)).Elem()
+}
+
+func (i TenantSuppressionAttributesSuppressedReasonsItemArray) ToTenantSuppressionAttributesSuppressedReasonsItemArrayOutput() TenantSuppressionAttributesSuppressedReasonsItemArrayOutput {
+	return i.ToTenantSuppressionAttributesSuppressedReasonsItemArrayOutputWithContext(context.Background())
+}
+
+func (i TenantSuppressionAttributesSuppressedReasonsItemArray) ToTenantSuppressionAttributesSuppressedReasonsItemArrayOutputWithContext(ctx context.Context) TenantSuppressionAttributesSuppressedReasonsItemArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TenantSuppressionAttributesSuppressedReasonsItemArrayOutput)
+}
+
+type TenantSuppressionAttributesSuppressedReasonsItemArrayOutput struct{ *pulumi.OutputState }
+
+func (TenantSuppressionAttributesSuppressedReasonsItemArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TenantSuppressionAttributesSuppressedReasonsItem)(nil)).Elem()
+}
+
+func (o TenantSuppressionAttributesSuppressedReasonsItemArrayOutput) ToTenantSuppressionAttributesSuppressedReasonsItemArrayOutput() TenantSuppressionAttributesSuppressedReasonsItemArrayOutput {
+	return o
+}
+
+func (o TenantSuppressionAttributesSuppressedReasonsItemArrayOutput) ToTenantSuppressionAttributesSuppressedReasonsItemArrayOutputWithContext(ctx context.Context) TenantSuppressionAttributesSuppressedReasonsItemArrayOutput {
+	return o
+}
+
+func (o TenantSuppressionAttributesSuppressedReasonsItemArrayOutput) Index(i pulumi.IntInput) TenantSuppressionAttributesSuppressedReasonsItemOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TenantSuppressionAttributesSuppressedReasonsItem {
+		return vs[0].([]TenantSuppressionAttributesSuppressedReasonsItem)[vs[1].(int)]
+	}).(TenantSuppressionAttributesSuppressedReasonsItemOutput)
+}
+
+// The scope of the suppression list for the tenant.
+type TenantSuppressionAttributesSuppressionScope string
+
+const (
+	TenantSuppressionAttributesSuppressionScopeAccount = TenantSuppressionAttributesSuppressionScope("ACCOUNT")
+	TenantSuppressionAttributesSuppressionScopeTenant  = TenantSuppressionAttributesSuppressionScope("TENANT")
+)
+
+func (TenantSuppressionAttributesSuppressionScope) ElementType() reflect.Type {
+	return reflect.TypeOf((*TenantSuppressionAttributesSuppressionScope)(nil)).Elem()
+}
+
+func (e TenantSuppressionAttributesSuppressionScope) ToTenantSuppressionAttributesSuppressionScopeOutput() TenantSuppressionAttributesSuppressionScopeOutput {
+	return pulumi.ToOutput(e).(TenantSuppressionAttributesSuppressionScopeOutput)
+}
+
+func (e TenantSuppressionAttributesSuppressionScope) ToTenantSuppressionAttributesSuppressionScopeOutputWithContext(ctx context.Context) TenantSuppressionAttributesSuppressionScopeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(TenantSuppressionAttributesSuppressionScopeOutput)
+}
+
+func (e TenantSuppressionAttributesSuppressionScope) ToTenantSuppressionAttributesSuppressionScopePtrOutput() TenantSuppressionAttributesSuppressionScopePtrOutput {
+	return e.ToTenantSuppressionAttributesSuppressionScopePtrOutputWithContext(context.Background())
+}
+
+func (e TenantSuppressionAttributesSuppressionScope) ToTenantSuppressionAttributesSuppressionScopePtrOutputWithContext(ctx context.Context) TenantSuppressionAttributesSuppressionScopePtrOutput {
+	return TenantSuppressionAttributesSuppressionScope(e).ToTenantSuppressionAttributesSuppressionScopeOutputWithContext(ctx).ToTenantSuppressionAttributesSuppressionScopePtrOutputWithContext(ctx)
+}
+
+func (e TenantSuppressionAttributesSuppressionScope) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TenantSuppressionAttributesSuppressionScope) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TenantSuppressionAttributesSuppressionScope) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e TenantSuppressionAttributesSuppressionScope) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type TenantSuppressionAttributesSuppressionScopeOutput struct{ *pulumi.OutputState }
+
+func (TenantSuppressionAttributesSuppressionScopeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TenantSuppressionAttributesSuppressionScope)(nil)).Elem()
+}
+
+func (o TenantSuppressionAttributesSuppressionScopeOutput) ToTenantSuppressionAttributesSuppressionScopeOutput() TenantSuppressionAttributesSuppressionScopeOutput {
+	return o
+}
+
+func (o TenantSuppressionAttributesSuppressionScopeOutput) ToTenantSuppressionAttributesSuppressionScopeOutputWithContext(ctx context.Context) TenantSuppressionAttributesSuppressionScopeOutput {
+	return o
+}
+
+func (o TenantSuppressionAttributesSuppressionScopeOutput) ToTenantSuppressionAttributesSuppressionScopePtrOutput() TenantSuppressionAttributesSuppressionScopePtrOutput {
+	return o.ToTenantSuppressionAttributesSuppressionScopePtrOutputWithContext(context.Background())
+}
+
+func (o TenantSuppressionAttributesSuppressionScopeOutput) ToTenantSuppressionAttributesSuppressionScopePtrOutputWithContext(ctx context.Context) TenantSuppressionAttributesSuppressionScopePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TenantSuppressionAttributesSuppressionScope) *TenantSuppressionAttributesSuppressionScope {
+		return &v
+	}).(TenantSuppressionAttributesSuppressionScopePtrOutput)
+}
+
+func (o TenantSuppressionAttributesSuppressionScopeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o TenantSuppressionAttributesSuppressionScopeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TenantSuppressionAttributesSuppressionScope) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o TenantSuppressionAttributesSuppressionScopeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TenantSuppressionAttributesSuppressionScopeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TenantSuppressionAttributesSuppressionScope) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type TenantSuppressionAttributesSuppressionScopePtrOutput struct{ *pulumi.OutputState }
+
+func (TenantSuppressionAttributesSuppressionScopePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TenantSuppressionAttributesSuppressionScope)(nil)).Elem()
+}
+
+func (o TenantSuppressionAttributesSuppressionScopePtrOutput) ToTenantSuppressionAttributesSuppressionScopePtrOutput() TenantSuppressionAttributesSuppressionScopePtrOutput {
+	return o
+}
+
+func (o TenantSuppressionAttributesSuppressionScopePtrOutput) ToTenantSuppressionAttributesSuppressionScopePtrOutputWithContext(ctx context.Context) TenantSuppressionAttributesSuppressionScopePtrOutput {
+	return o
+}
+
+func (o TenantSuppressionAttributesSuppressionScopePtrOutput) Elem() TenantSuppressionAttributesSuppressionScopeOutput {
+	return o.ApplyT(func(v *TenantSuppressionAttributesSuppressionScope) TenantSuppressionAttributesSuppressionScope {
+		if v != nil {
+			return *v
+		}
+		var ret TenantSuppressionAttributesSuppressionScope
+		return ret
+	}).(TenantSuppressionAttributesSuppressionScopeOutput)
+}
+
+func (o TenantSuppressionAttributesSuppressionScopePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TenantSuppressionAttributesSuppressionScopePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *TenantSuppressionAttributesSuppressionScope) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// TenantSuppressionAttributesSuppressionScopeInput is an input type that accepts values of the TenantSuppressionAttributesSuppressionScope enum
+// A concrete instance of `TenantSuppressionAttributesSuppressionScopeInput` can be one of the following:
+//
+//	TenantSuppressionAttributesSuppressionScopeAccount
+//	TenantSuppressionAttributesSuppressionScopeTenant
+type TenantSuppressionAttributesSuppressionScopeInput interface {
+	pulumi.Input
+
+	ToTenantSuppressionAttributesSuppressionScopeOutput() TenantSuppressionAttributesSuppressionScopeOutput
+	ToTenantSuppressionAttributesSuppressionScopeOutputWithContext(context.Context) TenantSuppressionAttributesSuppressionScopeOutput
+}
+
+var tenantSuppressionAttributesSuppressionScopePtrType = reflect.TypeOf((**TenantSuppressionAttributesSuppressionScope)(nil)).Elem()
+
+type TenantSuppressionAttributesSuppressionScopePtrInput interface {
+	pulumi.Input
+
+	ToTenantSuppressionAttributesSuppressionScopePtrOutput() TenantSuppressionAttributesSuppressionScopePtrOutput
+	ToTenantSuppressionAttributesSuppressionScopePtrOutputWithContext(context.Context) TenantSuppressionAttributesSuppressionScopePtrOutput
+}
+
+type tenantSuppressionAttributesSuppressionScopePtr string
+
+func TenantSuppressionAttributesSuppressionScopePtr(v string) TenantSuppressionAttributesSuppressionScopePtrInput {
+	return (*tenantSuppressionAttributesSuppressionScopePtr)(&v)
+}
+
+func (*tenantSuppressionAttributesSuppressionScopePtr) ElementType() reflect.Type {
+	return tenantSuppressionAttributesSuppressionScopePtrType
+}
+
+func (in *tenantSuppressionAttributesSuppressionScopePtr) ToTenantSuppressionAttributesSuppressionScopePtrOutput() TenantSuppressionAttributesSuppressionScopePtrOutput {
+	return pulumi.ToOutput(in).(TenantSuppressionAttributesSuppressionScopePtrOutput)
+}
+
+func (in *tenantSuppressionAttributesSuppressionScopePtr) ToTenantSuppressionAttributesSuppressionScopePtrOutputWithContext(ctx context.Context) TenantSuppressionAttributesSuppressionScopePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(TenantSuppressionAttributesSuppressionScopePtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerArchiveRetentionPeriodInput)(nil)).Elem(), MailManagerArchiveRetentionPeriod("THREE_MONTHS"))
 	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerArchiveRetentionPeriodPtrInput)(nil)).Elem(), MailManagerArchiveRetentionPeriod("THREE_MONTHS"))
@@ -6210,6 +6586,11 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerTrafficPolicyIngressTlsProtocolAttributePtrInput)(nil)).Elem(), MailManagerTrafficPolicyIngressTlsProtocolAttribute("TLS1_2"))
 	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerTrafficPolicyIngressTlsProtocolOperatorInput)(nil)).Elem(), MailManagerTrafficPolicyIngressTlsProtocolOperator("MINIMUM_TLS_VERSION"))
 	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerTrafficPolicyIngressTlsProtocolOperatorPtrInput)(nil)).Elem(), MailManagerTrafficPolicyIngressTlsProtocolOperator("MINIMUM_TLS_VERSION"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TenantSuppressionAttributesSuppressedReasonsItemInput)(nil)).Elem(), TenantSuppressionAttributesSuppressedReasonsItem("BOUNCE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TenantSuppressionAttributesSuppressedReasonsItemPtrInput)(nil)).Elem(), TenantSuppressionAttributesSuppressedReasonsItem("BOUNCE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TenantSuppressionAttributesSuppressedReasonsItemArrayInput)(nil)).Elem(), TenantSuppressionAttributesSuppressedReasonsItemArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TenantSuppressionAttributesSuppressionScopeInput)(nil)).Elem(), TenantSuppressionAttributesSuppressionScope("ACCOUNT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TenantSuppressionAttributesSuppressionScopePtrInput)(nil)).Elem(), TenantSuppressionAttributesSuppressionScope("ACCOUNT"))
 	pulumi.RegisterOutputType(MailManagerArchiveArchiveStateOutput{})
 	pulumi.RegisterOutputType(MailManagerArchiveArchiveStatePtrOutput{})
 	pulumi.RegisterOutputType(MailManagerArchiveRetentionPeriodOutput{})
@@ -6286,4 +6667,9 @@ func init() {
 	pulumi.RegisterOutputType(MailManagerTrafficPolicyIngressTlsProtocolAttributePtrOutput{})
 	pulumi.RegisterOutputType(MailManagerTrafficPolicyIngressTlsProtocolOperatorOutput{})
 	pulumi.RegisterOutputType(MailManagerTrafficPolicyIngressTlsProtocolOperatorPtrOutput{})
+	pulumi.RegisterOutputType(TenantSuppressionAttributesSuppressedReasonsItemOutput{})
+	pulumi.RegisterOutputType(TenantSuppressionAttributesSuppressedReasonsItemPtrOutput{})
+	pulumi.RegisterOutputType(TenantSuppressionAttributesSuppressedReasonsItemArrayOutput{})
+	pulumi.RegisterOutputType(TenantSuppressionAttributesSuppressionScopeOutput{})
+	pulumi.RegisterOutputType(TenantSuppressionAttributesSuppressionScopePtrOutput{})
 }

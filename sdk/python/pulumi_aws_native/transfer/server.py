@@ -25,6 +25,7 @@ __all__ = ['ServerArgs', 'Server']
 class ServerArgs:
     def __init__(__self__, *,
                  certificate: pulumi.Input[Optional[_builtins.str]] = None,
+                 create_with_host_key: pulumi.Input[Optional[_builtins.bool]] = None,
                  domain: pulumi.Input[Optional['ServerDomain']] = None,
                  endpoint_details: pulumi.Input[Optional['ServerEndpointDetailsArgs']] = None,
                  endpoint_type: pulumi.Input[Optional['ServerEndpointType']] = None,
@@ -61,6 +62,7 @@ class ServerArgs:
                - Elliptic Prime Curve 521 bit (EC_secp521r1)
                
                > The certificate must be a valid SSL/TLS X.509 version 3 certificate with FQDN or IP address specified and information about the issuer.
+        :param pulumi.Input[_builtins.bool] create_with_host_key: When this property is `true`, AWS Transfer Family will generate an initial host key for your server, making it immediately available to SFTP clients. When set to `false`, clients will not be able to establish an SFTP session until you import one or more host keys (see AWS::Transfer::HostKey). This property cannot be changed after resource creation. Default: `true`.
         :param pulumi.Input['ServerDomain'] domain: Specifies the domain of the storage system that is used for file transfers. There are two domains available: Amazon Simple Storage Service (Amazon S3) and Amazon Elastic File System (Amazon EFS). The default value is S3.
         :param pulumi.Input['ServerEndpointDetailsArgs'] endpoint_details: The virtual private cloud (VPC) endpoint settings that are configured for your server. When you host your endpoint within your VPC, you can make your endpoint accessible only to resources within your VPC, or you can attach Elastic IP addresses and make your endpoint accessible to clients over the internet. Your VPC's default security groups are automatically assigned to your endpoint.
         :param pulumi.Input['ServerEndpointType'] endpoint_type: The type of endpoint that you want your server to use. You can choose to make your server's endpoint publicly accessible (PUBLIC) or host it inside your VPC. With an endpoint that is hosted in a VPC, you can restrict access to your server and resources only within your VPC or choose to make it internet facing by attaching Elastic IP addresses directly to it.
@@ -141,6 +143,8 @@ class ServerArgs:
         """
         if certificate is not None:
             pulumi.set(__self__, "certificate", certificate)
+        if create_with_host_key is not None:
+            pulumi.set(__self__, "create_with_host_key", create_with_host_key)
         if domain is not None:
             pulumi.set(__self__, "domain", domain)
         if endpoint_details is not None:
@@ -201,6 +205,18 @@ class ServerArgs:
     @certificate.setter
     def certificate(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "certificate", value)
+
+    @_builtins.property
+    @pulumi.getter(name="createWithHostKey")
+    def create_with_host_key(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        When this property is `true`, AWS Transfer Family will generate an initial host key for your server, making it immediately available to SFTP clients. When set to `false`, clients will not be able to establish an SFTP session until you import one or more host keys (see AWS::Transfer::HostKey). This property cannot be changed after resource creation. Default: `true`.
+        """
+        return pulumi.get(self, "create_with_host_key")
+
+    @create_with_host_key.setter
+    def create_with_host_key(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "create_with_host_key", value)
 
     @_builtins.property
     @pulumi.getter
@@ -463,6 +479,7 @@ class Server(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  certificate: pulumi.Input[Optional[_builtins.str]] = None,
+                 create_with_host_key: pulumi.Input[Optional[_builtins.bool]] = None,
                  domain: pulumi.Input[Optional['ServerDomain']] = None,
                  endpoint_details: pulumi.Input[Optional[Union['ServerEndpointDetailsArgs', 'ServerEndpointDetailsArgsDict']]] = None,
                  endpoint_type: pulumi.Input[Optional['ServerEndpointType']] = None,
@@ -691,6 +708,7 @@ class Server(pulumi.CustomResource):
                - Elliptic Prime Curve 521 bit (EC_secp521r1)
                
                > The certificate must be a valid SSL/TLS X.509 version 3 certificate with FQDN or IP address specified and information about the issuer.
+        :param pulumi.Input[_builtins.bool] create_with_host_key: When this property is `true`, AWS Transfer Family will generate an initial host key for your server, making it immediately available to SFTP clients. When set to `false`, clients will not be able to establish an SFTP session until you import one or more host keys (see AWS::Transfer::HostKey). This property cannot be changed after resource creation. Default: `true`.
         :param pulumi.Input['ServerDomain'] domain: Specifies the domain of the storage system that is used for file transfers. There are two domains available: Amazon Simple Storage Service (Amazon S3) and Amazon Elastic File System (Amazon EFS). The default value is S3.
         :param pulumi.Input[Union['ServerEndpointDetailsArgs', 'ServerEndpointDetailsArgsDict']] endpoint_details: The virtual private cloud (VPC) endpoint settings that are configured for your server. When you host your endpoint within your VPC, you can make your endpoint accessible only to resources within your VPC, or you can attach Elastic IP addresses and make your endpoint accessible to clients over the internet. Your VPC's default security groups are automatically assigned to your endpoint.
         :param pulumi.Input['ServerEndpointType'] endpoint_type: The type of endpoint that you want your server to use. You can choose to make your server's endpoint publicly accessible (PUBLIC) or host it inside your VPC. With an endpoint that is hosted in a VPC, you can restrict access to your server and resources only within your VPC or choose to make it internet facing by attaching Elastic IP addresses directly to it.
@@ -983,6 +1001,7 @@ class Server(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  certificate: pulumi.Input[Optional[_builtins.str]] = None,
+                 create_with_host_key: pulumi.Input[Optional[_builtins.bool]] = None,
                  domain: pulumi.Input[Optional['ServerDomain']] = None,
                  endpoint_details: pulumi.Input[Optional[Union['ServerEndpointDetailsArgs', 'ServerEndpointDetailsArgsDict']]] = None,
                  endpoint_type: pulumi.Input[Optional['ServerEndpointType']] = None,
@@ -1009,6 +1028,7 @@ class Server(pulumi.CustomResource):
             __props__ = ServerArgs.__new__(ServerArgs)
 
             __props__.__dict__["certificate"] = certificate
+            __props__.__dict__["create_with_host_key"] = create_with_host_key
             __props__.__dict__["domain"] = domain
             __props__.__dict__["endpoint_details"] = endpoint_details
             __props__.__dict__["endpoint_type"] = endpoint_type
@@ -1056,6 +1076,7 @@ class Server(pulumi.CustomResource):
         __props__.__dict__["arn"] = None
         __props__.__dict__["as2_service_managed_egress_ip_addresses"] = None
         __props__.__dict__["certificate"] = None
+        __props__.__dict__["create_with_host_key"] = None
         __props__.__dict__["domain"] = None
         __props__.__dict__["endpoint_details"] = None
         __props__.__dict__["endpoint_type"] = None
@@ -1115,6 +1136,14 @@ class Server(pulumi.CustomResource):
         > The certificate must be a valid SSL/TLS X.509 version 3 certificate with FQDN or IP address specified and information about the issuer.
         """
         return pulumi.get(self, "certificate")
+
+    @_builtins.property
+    @pulumi.getter(name="createWithHostKey")
+    def create_with_host_key(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        When this property is `true`, AWS Transfer Family will generate an initial host key for your server, making it immediately available to SFTP clients. When set to `false`, clients will not be able to establish an SFTP session until you import one or more host keys (see AWS::Transfer::HostKey). This property cannot be changed after resource creation. Default: `true`.
+        """
+        return pulumi.get(self, "create_with_host_key")
 
     @_builtins.property
     @pulumi.getter

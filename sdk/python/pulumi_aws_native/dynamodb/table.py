@@ -43,6 +43,7 @@ class TableArgs:
                  table_name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
                  time_to_live_specification: pulumi.Input[Optional['TableTimeToLiveSpecificationArgs']] = None,
+                 vector_indexes: pulumi.Input[Optional[Sequence[pulumi.Input['TableVectorIndexArgs']]]] = None,
                  warm_throughput: pulumi.Input[Optional['TableWarmThroughputArgs']] = None):
         """
         The set of arguments for constructing a Table resource.
@@ -50,7 +51,7 @@ class TableArgs:
         :param pulumi.Input[Union[Sequence[pulumi.Input['TableKeySchemaArgs']], Any]] key_schema: Specifies the attributes that make up the primary key for the table. The attributes in the ``KeySchema`` property must also be defined in the ``AttributeDefinitions`` property.
         :param pulumi.Input[Sequence[pulumi.Input['TableAttributeDefinitionArgs']]] attribute_definitions: A list of attributes that describe the key schema for the table and indexes.
                 This property is required to create a DDB table.
-                Update requires: [Some interruptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-some-interrupt). Replacement if you edit an existing AttributeDefinition.
+                You can add an ``AttributeDefinition`` without interruption. Changing the type of an existing ``AttributeDefinition`` requires replacement of the table.
         :param pulumi.Input[_builtins.str] billing_mode: Specify how you are charged for read and write throughput and how you manage capacity.
                 Valid values include:
                  +  ``PAY_PER_REQUEST`` - We recommend using ``PAY_PER_REQUEST`` for most DynamoDB workloads. ``PAY_PER_REQUEST`` sets the billing mode to [On-demand capacity mode](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/on-demand-capacity-mode.html).
@@ -125,6 +126,8 @@ class TableArgs:
             pulumi.set(__self__, "tags", tags)
         if time_to_live_specification is not None:
             pulumi.set(__self__, "time_to_live_specification", time_to_live_specification)
+        if vector_indexes is not None:
+            pulumi.set(__self__, "vector_indexes", vector_indexes)
         if warm_throughput is not None:
             pulumi.set(__self__, "warm_throughput", warm_throughput)
 
@@ -146,7 +149,7 @@ class TableArgs:
         """
         A list of attributes that describe the key schema for the table and indexes.
          This property is required to create a DDB table.
-         Update requires: [Some interruptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-some-interrupt). Replacement if you edit an existing AttributeDefinition.
+         You can add an ``AttributeDefinition`` without interruption. Changing the type of an existing ``AttributeDefinition`` requires replacement of the table.
         """
         return pulumi.get(self, "attribute_definitions")
 
@@ -377,6 +380,15 @@ class TableArgs:
         pulumi.set(self, "time_to_live_specification", value)
 
     @_builtins.property
+    @pulumi.getter(name="vectorIndexes")
+    def vector_indexes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['TableVectorIndexArgs']]]]:
+        return pulumi.get(self, "vector_indexes")
+
+    @vector_indexes.setter
+    def vector_indexes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['TableVectorIndexArgs']]]]):
+        pulumi.set(self, "vector_indexes", value)
+
+    @_builtins.property
     @pulumi.getter(name="warmThroughput")
     def warm_throughput(self) -> pulumi.Input[Optional['TableWarmThroughputArgs']]:
         """
@@ -414,6 +426,7 @@ class Table(pulumi.CustomResource):
                  table_name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  time_to_live_specification: pulumi.Input[Optional[Union['TableTimeToLiveSpecificationArgs', 'TableTimeToLiveSpecificationArgsDict']]] = None,
+                 vector_indexes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TableVectorIndexArgs', 'TableVectorIndexArgsDict']]]]] = None,
                  warm_throughput: pulumi.Input[Optional[Union['TableWarmThroughputArgs', 'TableWarmThroughputArgsDict']]] = None,
                  __props__=None):
         """
@@ -654,7 +667,7 @@ class Table(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['TableAttributeDefinitionArgs', 'TableAttributeDefinitionArgsDict']]]] attribute_definitions: A list of attributes that describe the key schema for the table and indexes.
                 This property is required to create a DDB table.
-                Update requires: [Some interruptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-some-interrupt). Replacement if you edit an existing AttributeDefinition.
+                You can add an ``AttributeDefinition`` without interruption. Changing the type of an existing ``AttributeDefinition`` requires replacement of the table.
         :param pulumi.Input[_builtins.str] billing_mode: Specify how you are charged for read and write throughput and how you manage capacity.
                 Valid values include:
                  +  ``PAY_PER_REQUEST`` - We recommend using ``PAY_PER_REQUEST`` for most DynamoDB workloads. ``PAY_PER_REQUEST`` sets the billing mode to [On-demand capacity mode](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/on-demand-capacity-mode.html).
@@ -967,6 +980,7 @@ class Table(pulumi.CustomResource):
                  table_name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  time_to_live_specification: pulumi.Input[Optional[Union['TableTimeToLiveSpecificationArgs', 'TableTimeToLiveSpecificationArgsDict']]] = None,
+                 vector_indexes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TableVectorIndexArgs', 'TableVectorIndexArgsDict']]]]] = None,
                  warm_throughput: pulumi.Input[Optional[Union['TableWarmThroughputArgs', 'TableWarmThroughputArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -998,6 +1012,7 @@ class Table(pulumi.CustomResource):
             __props__.__dict__["table_name"] = table_name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["time_to_live_specification"] = time_to_live_specification
+            __props__.__dict__["vector_indexes"] = vector_indexes
             __props__.__dict__["warm_throughput"] = warm_throughput
             __props__.__dict__["arn"] = None
             __props__.__dict__["stream_arn"] = None
@@ -1046,6 +1061,7 @@ class Table(pulumi.CustomResource):
         __props__.__dict__["table_name"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["time_to_live_specification"] = None
+        __props__.__dict__["vector_indexes"] = None
         __props__.__dict__["warm_throughput"] = None
         return Table(resource_name, opts=opts, __props__=__props__)
 
@@ -1063,7 +1079,7 @@ class Table(pulumi.CustomResource):
         """
         A list of attributes that describe the key schema for the table and indexes.
          This property is required to create a DDB table.
-         Update requires: [Some interruptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-some-interrupt). Replacement if you edit an existing AttributeDefinition.
+         You can add an ``AttributeDefinition`` without interruption. Changing the type of an existing ``AttributeDefinition`` requires replacement of the table.
         """
         return pulumi.get(self, "attribute_definitions")
 
@@ -1238,6 +1254,11 @@ class Table(pulumi.CustomResource):
           For detailed information about the limits in DynamoDB, see [Limits in Amazon DynamoDB](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html) in the Amazon DynamoDB Developer Guide.
         """
         return pulumi.get(self, "time_to_live_specification")
+
+    @_builtins.property
+    @pulumi.getter(name="vectorIndexes")
+    def vector_indexes(self) -> pulumi.Output[Optional[Sequence['outputs.TableVectorIndex']]]:
+        return pulumi.get(self, "vector_indexes")
 
     @_builtins.property
     @pulumi.getter(name="warmThroughput")

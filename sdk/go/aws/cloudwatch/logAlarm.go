@@ -17,6 +17,8 @@ import (
 type LogAlarm struct {
 	pulumi.CustomResourceState
 
+	// Configuration that applies to the notifications this alarm sends when it performs its actions.
+	ActionConfiguration LogAlarmActionConfigurationPtrOutput `pulumi:"actionConfiguration"`
 	// The number of log lines to include in alarm notifications. Valid values are 0 to 50.
 	ActionLogLineCount pulumi.IntPtrOutput `pulumi:"actionLogLineCount"`
 	// The ARN of the IAM role that grants CloudWatch permissions to fetch log lines for alarm notifications. Required when ActionLogLineCount is greater than 0.
@@ -112,6 +114,8 @@ func (LogAlarmState) ElementType() reflect.Type {
 }
 
 type logAlarmArgs struct {
+	// Configuration that applies to the notifications this alarm sends when it performs its actions.
+	ActionConfiguration *LogAlarmActionConfiguration `pulumi:"actionConfiguration"`
 	// The number of log lines to include in alarm notifications. Valid values are 0 to 50.
 	ActionLogLineCount *int `pulumi:"actionLogLineCount"`
 	// The ARN of the IAM role that grants CloudWatch permissions to fetch log lines for alarm notifications. Required when ActionLogLineCount is greater than 0.
@@ -148,6 +152,8 @@ type logAlarmArgs struct {
 
 // The set of arguments for constructing a LogAlarm resource.
 type LogAlarmArgs struct {
+	// Configuration that applies to the notifications this alarm sends when it performs its actions.
+	ActionConfiguration LogAlarmActionConfigurationPtrInput
 	// The number of log lines to include in alarm notifications. Valid values are 0 to 50.
 	ActionLogLineCount pulumi.IntPtrInput
 	// The ARN of the IAM role that grants CloudWatch permissions to fetch log lines for alarm notifications. Required when ActionLogLineCount is greater than 0.
@@ -217,6 +223,11 @@ func (o LogAlarmOutput) ToLogAlarmOutput() LogAlarmOutput {
 
 func (o LogAlarmOutput) ToLogAlarmOutputWithContext(ctx context.Context) LogAlarmOutput {
 	return o
+}
+
+// Configuration that applies to the notifications this alarm sends when it performs its actions.
+func (o LogAlarmOutput) ActionConfiguration() LogAlarmActionConfigurationPtrOutput {
+	return o.ApplyT(func(v *LogAlarm) LogAlarmActionConfigurationPtrOutput { return v.ActionConfiguration }).(LogAlarmActionConfigurationPtrOutput)
 }
 
 // The number of log lines to include in alarm notifications. Valid values are 0 to 50.

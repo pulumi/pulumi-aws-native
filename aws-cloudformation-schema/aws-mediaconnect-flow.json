@@ -680,6 +680,12 @@
       "properties" : {
         "SourceName" : {
           "type" : "string"
+        },
+        "AudioReferenceLevel" : {
+          "type" : "integer",
+          "minimum" : -40,
+          "maximum" : 0,
+          "description" : "The audio reference level of the NDI sender, in dBFS."
         }
       },
       "additionalProperties" : false

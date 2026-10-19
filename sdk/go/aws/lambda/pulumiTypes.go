@@ -9037,7 +9037,7 @@ type NetworkConnectorVpcEgressConfiguration struct {
 	AssociatedComputeResourceTypes []NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItem `pulumi:"associatedComputeResourceTypes"`
 	// The network protocol for the connector. Specify IPv4 for IPv4-only networking, or DualStack for both IPv4 and IPv6.
 	NetworkProtocol NetworkConnectorVpcEgressConfigurationNetworkProtocol `pulumi:"networkProtocol"`
-	// The IDs of the VPC security groups to attach to the ENIs. Specify 0 to 5 security groups. All security groups must be in the same VPC as the subnets.
+	// The IDs of the VPC security groups to attach to the ENIs. All security groups must be in the same VPC as the subnets.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
 	// The IDs of the VPC subnets where Lambda provisions elastic network interfaces (ENIs). Specify 1 to 16 subnets. All subnets must be in the same VPC.
 	SubnetIds []string `pulumi:"subnetIds"`
@@ -9060,7 +9060,7 @@ type NetworkConnectorVpcEgressConfigurationArgs struct {
 	AssociatedComputeResourceTypes NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItemArrayInput `pulumi:"associatedComputeResourceTypes"`
 	// The network protocol for the connector. Specify IPv4 for IPv4-only networking, or DualStack for both IPv4 and IPv6.
 	NetworkProtocol NetworkConnectorVpcEgressConfigurationNetworkProtocolInput `pulumi:"networkProtocol"`
-	// The IDs of the VPC security groups to attach to the ENIs. Specify 0 to 5 security groups. All security groups must be in the same VPC as the subnets.
+	// The IDs of the VPC security groups to attach to the ENIs. All security groups must be in the same VPC as the subnets.
 	SecurityGroupIds pulumi.StringArrayInput `pulumi:"securityGroupIds"`
 	// The IDs of the VPC subnets where Lambda provisions elastic network interfaces (ENIs). Specify 1 to 16 subnets. All subnets must be in the same VPC.
 	SubnetIds pulumi.StringArrayInput `pulumi:"subnetIds"`
@@ -9107,7 +9107,7 @@ func (o NetworkConnectorVpcEgressConfigurationOutput) NetworkProtocol() NetworkC
 	}).(NetworkConnectorVpcEgressConfigurationNetworkProtocolOutput)
 }
 
-// The IDs of the VPC security groups to attach to the ENIs. Specify 0 to 5 security groups. All security groups must be in the same VPC as the subnets.
+// The IDs of the VPC security groups to attach to the ENIs. All security groups must be in the same VPC as the subnets.
 func (o NetworkConnectorVpcEgressConfigurationOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v NetworkConnectorVpcEgressConfiguration) []string { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
 }
@@ -9161,7 +9161,7 @@ func (o NetworkConnectorVpcEgressConfigurationPtrOutput) NetworkProtocol() Netwo
 	}).(NetworkConnectorVpcEgressConfigurationNetworkProtocolPtrOutput)
 }
 
-// The IDs of the VPC security groups to attach to the ENIs. Specify 0 to 5 security groups. All security groups must be in the same VPC as the subnets.
+// The IDs of the VPC security groups to attach to the ENIs. All security groups must be in the same VPC as the subnets.
 func (o NetworkConnectorVpcEgressConfigurationPtrOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *NetworkConnectorVpcEgressConfiguration) []string {
 		if v == nil {
@@ -9183,6 +9183,8 @@ func (o NetworkConnectorVpcEgressConfigurationPtrOutput) SubnetIds() pulumi.Stri
 
 // The service configuration for the revision.
 type ServiceConfigProperties struct {
+	// The versioned ARN of the network connector used for outbound network access from the revision.
+	EgressNetworkConnectorArn *string `pulumi:"egressNetworkConnectorArn"`
 	// Environment variables for the function.
 	EnvironmentVariables map[string]string `pulumi:"environmentVariables"`
 	// The ARN of the execution role.
@@ -9208,6 +9210,8 @@ type ServiceConfigPropertiesInput interface {
 
 // The service configuration for the revision.
 type ServiceConfigPropertiesArgs struct {
+	// The versioned ARN of the network connector used for outbound network access from the revision.
+	EgressNetworkConnectorArn pulumi.StringPtrInput `pulumi:"egressNetworkConnectorArn"`
 	// Environment variables for the function.
 	EnvironmentVariables pulumi.StringMapInput `pulumi:"environmentVariables"`
 	// The ARN of the execution role.
@@ -9245,6 +9249,11 @@ func (o ServiceConfigPropertiesOutput) ToServiceConfigPropertiesOutput() Service
 
 func (o ServiceConfigPropertiesOutput) ToServiceConfigPropertiesOutputWithContext(ctx context.Context) ServiceConfigPropertiesOutput {
 	return o
+}
+
+// The versioned ARN of the network connector used for outbound network access from the revision.
+func (o ServiceConfigPropertiesOutput) EgressNetworkConnectorArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceConfigProperties) *string { return v.EgressNetworkConnectorArn }).(pulumi.StringPtrOutput)
 }
 
 // Environment variables for the function.

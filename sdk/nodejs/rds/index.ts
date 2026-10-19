@@ -20,6 +20,11 @@ export type DbCluster = import("./dbCluster").DbCluster;
 export const DbCluster: typeof import("./dbCluster").DbCluster = null as any;
 utilities.lazyLoad(exports, ["DbCluster"], () => require("./dbCluster"));
 
+export { DbClusterEndpointArgs } from "./dbClusterEndpoint";
+export type DbClusterEndpoint = import("./dbClusterEndpoint").DbClusterEndpoint;
+export const DbClusterEndpoint: typeof import("./dbClusterEndpoint").DbClusterEndpoint = null as any;
+utilities.lazyLoad(exports, ["DbClusterEndpoint"], () => require("./dbClusterEndpoint"));
+
 export { DbClusterParameterGroupArgs } from "./dbClusterParameterGroup";
 export type DbClusterParameterGroup = import("./dbClusterParameterGroup").DbClusterParameterGroup;
 export const DbClusterParameterGroup: typeof import("./dbClusterParameterGroup").DbClusterParameterGroup = null as any;
@@ -65,6 +70,11 @@ export type DbSubnetGroup = import("./dbSubnetGroup").DbSubnetGroup;
 export const DbSubnetGroup: typeof import("./dbSubnetGroup").DbSubnetGroup = null as any;
 utilities.lazyLoad(exports, ["DbSubnetGroup"], () => require("./dbSubnetGroup"));
 
+export { DeploymentArgs } from "./deployment";
+export type Deployment = import("./deployment").Deployment;
+export const Deployment: typeof import("./deployment").Deployment = null as any;
+utilities.lazyLoad(exports, ["Deployment"], () => require("./deployment"));
+
 export { EventSubscriptionArgs } from "./eventSubscription";
 export type EventSubscription = import("./eventSubscription").EventSubscription;
 export const EventSubscription: typeof import("./eventSubscription").EventSubscription = null as any;
@@ -84,6 +94,11 @@ export { GetDbClusterArgs, GetDbClusterResult, GetDbClusterOutputArgs } from "./
 export const getDbCluster: typeof import("./getDbCluster").getDbCluster = null as any;
 export const getDbClusterOutput: typeof import("./getDbCluster").getDbClusterOutput = null as any;
 utilities.lazyLoad(exports, ["getDbCluster","getDbClusterOutput"], () => require("./getDbCluster"));
+
+export { GetDbClusterEndpointArgs, GetDbClusterEndpointResult, GetDbClusterEndpointOutputArgs } from "./getDbClusterEndpoint";
+export const getDbClusterEndpoint: typeof import("./getDbClusterEndpoint").getDbClusterEndpoint = null as any;
+export const getDbClusterEndpointOutput: typeof import("./getDbClusterEndpoint").getDbClusterEndpointOutput = null as any;
+utilities.lazyLoad(exports, ["getDbClusterEndpoint","getDbClusterEndpointOutput"], () => require("./getDbClusterEndpoint"));
 
 export { GetDbClusterParameterGroupArgs, GetDbClusterParameterGroupResult, GetDbClusterParameterGroupOutputArgs } from "./getDbClusterParameterGroup";
 export const getDbClusterParameterGroup: typeof import("./getDbClusterParameterGroup").getDbClusterParameterGroup = null as any;
@@ -129,6 +144,11 @@ export { GetDbSubnetGroupArgs, GetDbSubnetGroupResult, GetDbSubnetGroupOutputArg
 export const getDbSubnetGroup: typeof import("./getDbSubnetGroup").getDbSubnetGroup = null as any;
 export const getDbSubnetGroupOutput: typeof import("./getDbSubnetGroup").getDbSubnetGroupOutput = null as any;
 utilities.lazyLoad(exports, ["getDbSubnetGroup","getDbSubnetGroupOutput"], () => require("./getDbSubnetGroup"));
+
+export { GetDeploymentArgs, GetDeploymentResult, GetDeploymentOutputArgs } from "./getDeployment";
+export const getDeployment: typeof import("./getDeployment").getDeployment = null as any;
+export const getDeploymentOutput: typeof import("./getDeployment").getDeploymentOutput = null as any;
+utilities.lazyLoad(exports, ["getDeployment","getDeploymentOutput"], () => require("./getDeployment"));
 
 export { GetEventSubscriptionArgs, GetEventSubscriptionResult, GetEventSubscriptionOutputArgs } from "./getEventSubscription";
 export const getEventSubscription: typeof import("./getEventSubscription").getEventSubscription = null as any;
@@ -179,6 +199,8 @@ const _module = {
                 return new CustomDbEngineVersion(name, <any>undefined, { urn })
             case "aws-native:rds:DbCluster":
                 return new DbCluster(name, <any>undefined, { urn })
+            case "aws-native:rds:DbClusterEndpoint":
+                return new DbClusterEndpoint(name, <any>undefined, { urn })
             case "aws-native:rds:DbClusterParameterGroup":
                 return new DbClusterParameterGroup(name, <any>undefined, { urn })
             case "aws-native:rds:DbInstance":
@@ -197,6 +219,8 @@ const _module = {
                 return new DbSnapshot(name, <any>undefined, { urn })
             case "aws-native:rds:DbSubnetGroup":
                 return new DbSubnetGroup(name, <any>undefined, { urn })
+            case "aws-native:rds:Deployment":
+                return new Deployment(name, <any>undefined, { urn })
             case "aws-native:rds:EventSubscription":
                 return new EventSubscription(name, <any>undefined, { urn })
             case "aws-native:rds:GlobalCluster":

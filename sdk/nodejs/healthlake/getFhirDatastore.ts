@@ -25,6 +25,7 @@ export interface GetFhirDatastoreArgs {
 }
 
 export interface GetFhirDatastoreResult {
+    readonly analyticsConfiguration?: outputs.healthlake.FhirDatastoreAnalyticsConfiguration;
     readonly createdAt?: outputs.healthlake.FhirDatastoreCreatedAt;
     /**
      * The Data Store ARN is generated during the creation of the Data Store and can be found in the output from the initial Data Store creation request.
@@ -39,9 +40,19 @@ export interface GetFhirDatastoreResult {
      */
     readonly datastoreId?: string;
     /**
+     * The data store name (user-generated).
+     */
+    readonly datastoreName?: string;
+    /**
      * The status of the FHIR Data Store. Possible statuses are ‘CREATING’, ‘ACTIVE’, ‘DELETING’, ‘DELETED’.
      */
     readonly datastoreStatus?: enums.healthlake.FhirDatastoreDatastoreStatus;
+    /**
+     * The identity provider configuration selected when the data store was created.
+     */
+    readonly identityProviderConfiguration?: outputs.healthlake.FhirDatastoreIdentityProviderConfiguration;
+    readonly nlpConfiguration?: outputs.healthlake.FhirDatastoreNlpConfiguration;
+    readonly profileConfiguration?: outputs.healthlake.FhirDatastoreProfileConfiguration;
     /**
      * An array of key-value pairs to apply to this resource.
      *

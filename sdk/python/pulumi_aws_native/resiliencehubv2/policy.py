@@ -31,6 +31,7 @@ class PolicyArgs:
                  multi_az: pulumi.Input[Optional['PolicyMultiAzTargetsArgs']] = None,
                  multi_region: pulumi.Input[Optional['PolicyMultiRegionTargetsArgs']] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sharing_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Policy resource.
@@ -38,6 +39,7 @@ class PolicyArgs:
         :param pulumi.Input[_builtins.str] description: The description of the policy.
         :param pulumi.Input[_builtins.str] kms_key_id: The KMS key ID for encrypting policy data.
         :param pulumi.Input[_builtins.str] name: The name of the policy.
+        :param pulumi.Input[_builtins.bool] sharing_enabled: Whether the policy is enabled to be shared with other members of the Organization. Only applicable if the policy owner is a management account or delegated admin.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: Tags assigned to the policy.
         """
         if availability_slo is not None:
@@ -54,6 +56,8 @@ class PolicyArgs:
             pulumi.set(__self__, "multi_region", multi_region)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if sharing_enabled is not None:
+            pulumi.set(__self__, "sharing_enabled", sharing_enabled)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -130,6 +134,18 @@ class PolicyArgs:
         pulumi.set(self, "name", value)
 
     @_builtins.property
+    @pulumi.getter(name="sharingEnabled")
+    def sharing_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Whether the policy is enabled to be shared with other members of the Organization. Only applicable if the policy owner is a management account or delegated admin.
+        """
+        return pulumi.get(self, "sharing_enabled")
+
+    @sharing_enabled.setter
+    def sharing_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "sharing_enabled", value)
+
+    @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
@@ -155,6 +171,7 @@ class Policy(pulumi.CustomResource):
                  multi_az: pulumi.Input[Optional[Union['PolicyMultiAzTargetsArgs', 'PolicyMultiAzTargetsArgsDict']]] = None,
                  multi_region: pulumi.Input[Optional[Union['PolicyMultiRegionTargetsArgs', 'PolicyMultiRegionTargetsArgsDict']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sharing_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
@@ -165,6 +182,7 @@ class Policy(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] description: The description of the policy.
         :param pulumi.Input[_builtins.str] kms_key_id: The KMS key ID for encrypting policy data.
         :param pulumi.Input[_builtins.str] name: The name of the policy.
+        :param pulumi.Input[_builtins.bool] sharing_enabled: Whether the policy is enabled to be shared with other members of the Organization. Only applicable if the policy owner is a management account or delegated admin.
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Tags assigned to the policy.
         """
         ...
@@ -198,6 +216,7 @@ class Policy(pulumi.CustomResource):
                  multi_az: pulumi.Input[Optional[Union['PolicyMultiAzTargetsArgs', 'PolicyMultiAzTargetsArgsDict']]] = None,
                  multi_region: pulumi.Input[Optional[Union['PolicyMultiRegionTargetsArgs', 'PolicyMultiRegionTargetsArgsDict']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sharing_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -215,6 +234,7 @@ class Policy(pulumi.CustomResource):
             __props__.__dict__["multi_az"] = multi_az
             __props__.__dict__["multi_region"] = multi_region
             __props__.__dict__["name"] = name
+            __props__.__dict__["sharing_enabled"] = sharing_enabled
             __props__.__dict__["tags"] = tags
             __props__.__dict__["associated_service_count"] = None
             __props__.__dict__["created_at"] = None
@@ -254,6 +274,7 @@ class Policy(pulumi.CustomResource):
         __props__.__dict__["multi_region"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["policy_arn"] = None
+        __props__.__dict__["sharing_enabled"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["updated_at"] = None
         return Policy(resource_name, opts=opts, __props__=__props__)
@@ -325,6 +346,14 @@ class Policy(pulumi.CustomResource):
         The ARN of the policy.
         """
         return pulumi.get(self, "policy_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="sharingEnabled")
+    def sharing_enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Whether the policy is enabled to be shared with other members of the Organization. Only applicable if the policy owner is a management account or delegated admin.
+        """
+        return pulumi.get(self, "sharing_enabled")
 
     @_builtins.property
     @pulumi.getter

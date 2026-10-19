@@ -26,7 +26,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetServiceResult:
-    def __init__(__self__, accessible_resources=None, additional_service_details=None, arn=None, service_id=None, tags=None):
+    def __init__(__self__, accessible_resources=None, additional_service_details=None, arn=None, name=None, service_id=None, tags=None):
         if accessible_resources and not isinstance(accessible_resources, list):
             raise TypeError("Expected argument 'accessible_resources' to be a list")
         pulumi.set(__self__, "accessible_resources", accessible_resources)
@@ -36,6 +36,9 @@ class GetServiceResult:
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
         if service_id and not isinstance(service_id, str):
             raise TypeError("Expected argument 'service_id' to be a str")
         pulumi.set(__self__, "service_id", service_id)
@@ -68,6 +71,14 @@ class GetServiceResult:
         return pulumi.get(self, "arn")
 
     @_builtins.property
+    @pulumi.getter
+    def name(self) -> Optional[_builtins.str]:
+        """
+        The display name for the service registration.
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
     @pulumi.getter(name="serviceId")
     def service_id(self) -> Optional[_builtins.str]:
         """
@@ -93,6 +104,7 @@ class AwaitableGetServiceResult(GetServiceResult):
             accessible_resources=self.accessible_resources,
             additional_service_details=self.additional_service_details,
             arn=self.arn,
+            name=self.name,
             service_id=self.service_id,
             tags=self.tags)
 
@@ -113,6 +125,7 @@ def get_service(service_id: Optional[_builtins.str] = None,
         accessible_resources=pulumi.get(__ret__, 'accessible_resources'),
         additional_service_details=pulumi.get(__ret__, 'additional_service_details'),
         arn=pulumi.get(__ret__, 'arn'),
+        name=pulumi.get(__ret__, 'name'),
         service_id=pulumi.get(__ret__, 'service_id'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_service_output(service_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -130,5 +143,6 @@ def get_service_output(service_id: pulumi.Input[Optional[_builtins.str]] = None,
         accessible_resources=pulumi.get(__response__, 'accessible_resources'),
         additional_service_details=pulumi.get(__response__, 'additional_service_details'),
         arn=pulumi.get(__response__, 'arn'),
+        name=pulumi.get(__response__, 'name'),
         service_id=pulumi.get(__response__, 'service_id'),
         tags=pulumi.get(__response__, 'tags')))

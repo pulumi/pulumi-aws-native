@@ -283,6 +283,8 @@ class CapabilityArgoCd(dict):
         suggest = None
         if key == "awsIdc":
             suggest = "aws_idc"
+        elif key == "endpointPrefix":
+            suggest = "endpoint_prefix"
         elif key == "networkAccess":
             suggest = "network_access"
         elif key == "rbacRoleMappings":
@@ -303,6 +305,7 @@ class CapabilityArgoCd(dict):
 
     def __init__(__self__, *,
                  aws_idc: 'outputs.CapabilityAwsIdc',
+                 endpoint_prefix: Optional[_builtins.str] = None,
                  namespace: Optional[_builtins.str] = None,
                  network_access: Optional['outputs.CapabilityNetworkAccess'] = None,
                  rbac_role_mappings: Optional[Sequence['outputs.CapabilityArgoCdRoleMapping']] = None,
@@ -310,11 +313,14 @@ class CapabilityArgoCd(dict):
         """
         Configuration settings for an Argo CD capability. This includes the Kubernetes namespace, IAM Identity Center integration, RBAC role mappings, and network access configuration.
 
+        :param _builtins.str endpoint_prefix: An optional prefix for the Argo CD server endpoint. When specified, EKS uses this prefix to generate the server endpoint; otherwise, the endpoint is generated automatically. This value cannot be changed after the capability is created.
         :param _builtins.str namespace: The Kubernetes namespace where Argo CD resources will be created. If not specified, the default namespace is used.
         :param Sequence['CapabilityArgoCdRoleMapping'] rbac_role_mappings: A list of role mappings that define which IAM Identity Center users or groups have which Argo CD roles. Each mapping associates an Argo CD role (ADMIN, EDITOR, or VIEWER) with one or more IAM Identity Center identities.
         :param _builtins.str server_url: The URL of the Argo CD server. Use this URL to access the Argo CD web interface and API.
         """
         pulumi.set(__self__, "aws_idc", aws_idc)
+        if endpoint_prefix is not None:
+            pulumi.set(__self__, "endpoint_prefix", endpoint_prefix)
         if namespace is not None:
             pulumi.set(__self__, "namespace", namespace)
         if network_access is not None:
@@ -328,6 +334,14 @@ class CapabilityArgoCd(dict):
     @pulumi.getter(name="awsIdc")
     def aws_idc(self) -> 'outputs.CapabilityAwsIdc':
         return pulumi.get(self, "aws_idc")
+
+    @_builtins.property
+    @pulumi.getter(name="endpointPrefix")
+    def endpoint_prefix(self) -> Optional[_builtins.str]:
+        """
+        An optional prefix for the Argo CD server endpoint. When specified, EKS uses this prefix to generate the server endpoint; otherwise, the endpoint is generated automatically. This value cannot be changed after the capability is created.
+        """
+        return pulumi.get(self, "endpoint_prefix")
 
     @_builtins.property
     @pulumi.getter

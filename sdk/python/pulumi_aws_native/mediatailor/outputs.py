@@ -38,8 +38,10 @@ __all__ = [
     'PlaybackConfigurationAdsPersonalizationConcurrency',
     'PlaybackConfigurationAdsPersonalizationTimeouts',
     'PlaybackConfigurationAvailSuppression',
+    'PlaybackConfigurationBeaconingConfiguration',
     'PlaybackConfigurationBumper',
     'PlaybackConfigurationCdnConfiguration',
+    'PlaybackConfigurationClientSideBeaconingConfiguration',
     'PlaybackConfigurationDashConfiguration',
     'PlaybackConfigurationHlsConfiguration',
     'PlaybackConfigurationHttpRequest',
@@ -1473,6 +1475,47 @@ class PlaybackConfigurationAvailSuppression(dict):
 
 
 @pulumi.output_type
+class PlaybackConfigurationBeaconingConfiguration(dict):
+    """
+    The beaconing configuration for a playback configuration. Beaconing controls whether AWS Elemental MediaTailor includes its own beacons in the ad tracking response, in addition to the ad server beacons. If you omit this setting, MediaTailor uses INSIGHTS.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientSide":
+            suggest = "client_side"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PlaybackConfigurationBeaconingConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PlaybackConfigurationBeaconingConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PlaybackConfigurationBeaconingConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 client_side: Optional['outputs.PlaybackConfigurationClientSideBeaconingConfiguration'] = None):
+        """
+        The beaconing configuration for a playback configuration. Beaconing controls whether AWS Elemental MediaTailor includes its own beacons in the ad tracking response, in addition to the ad server beacons. If you omit this setting, MediaTailor uses INSIGHTS.
+
+        :param 'PlaybackConfigurationClientSideBeaconingConfiguration' client_side: The beaconing settings for client-side reporting sessions. If you omit this object, MediaTailor uses INSIGHTS reporting mode.
+        """
+        if client_side is not None:
+            pulumi.set(__self__, "client_side", client_side)
+
+    @_builtins.property
+    @pulumi.getter(name="clientSide")
+    def client_side(self) -> Optional['outputs.PlaybackConfigurationClientSideBeaconingConfiguration']:
+        """
+        The beaconing settings for client-side reporting sessions. If you omit this object, MediaTailor uses INSIGHTS reporting mode.
+        """
+        return pulumi.get(self, "client_side")
+
+
+@pulumi.output_type
 class PlaybackConfigurationBumper(dict):
     """
     The configuration for bumpers. Bumpers are short audio or video clips that play at the start or before the end of an ad break. To learn more about bumpers, see Bumpers (https://docs.aws.amazon.com/mediatailor/latest/ug/bumpers.html).
@@ -1580,6 +1623,60 @@ class PlaybackConfigurationCdnConfiguration(dict):
         A content delivery network (CDN) to cache content segments, so that content requests don't always have to go to the origin server. First, create a rule in your CDN for the content segment origin server. Then specify the rule's name in this ContentSegmentUrlPrefix. When AWS Elemental MediaTailor serves a manifest, it reports your CDN as the source for content segments.
         """
         return pulumi.get(self, "content_segment_url_prefix")
+
+
+@pulumi.output_type
+class PlaybackConfigurationClientSideBeaconingConfiguration(dict):
+    """
+    The beaconing settings that apply to client-side reporting sessions: whether AWS Elemental MediaTailor includes its beacons in the ad tracking response, and which player operation events it reports on. If you omit this object, MediaTailor uses INSIGHTS reporting mode.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "reportingMode":
+            suggest = "reporting_mode"
+        elif key == "additionalEventTypes":
+            suggest = "additional_event_types"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PlaybackConfigurationClientSideBeaconingConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PlaybackConfigurationClientSideBeaconingConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PlaybackConfigurationClientSideBeaconingConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 reporting_mode: 'PlaybackConfigurationClientSideBeaconingConfigurationReportingMode',
+                 additional_event_types: Optional[Sequence['PlaybackConfigurationClientSideBeaconingConfigurationAdditionalEventTypesItem']] = None):
+        """
+        The beaconing settings that apply to client-side reporting sessions: whether AWS Elemental MediaTailor includes its beacons in the ad tracking response, and which player operation events it reports on. If you omit this object, MediaTailor uses INSIGHTS reporting mode.
+
+        :param 'PlaybackConfigurationClientSideBeaconingConfigurationReportingMode' reporting_mode: Specifies whether MediaTailor includes its beacons in the ad tracking response. INSIGHTS includes MediaTailor beacons; DISABLED does not. Values are case-sensitive. This setting is required when ClientSide is present. If BeaconingConfiguration or ClientSide is omitted, MediaTailor uses INSIGHTS. To keep beaconing off, retain DISABLED in subsequent updates.
+        :param Sequence['PlaybackConfigurationClientSideBeaconingConfigurationAdditionalEventTypesItem'] additional_event_types: The player operation events to report on, in addition to the ad progress events that MediaTailor always reports on. Valid values are MUTE, UNMUTE, PAUSE, and SKIP. The default is an empty list. This parameter is valid only when ReportingMode is INSIGHTS. MediaTailor rejects the request if you specify a value while ReportingMode is DISABLED, or if you specify duplicate values.
+        """
+        pulumi.set(__self__, "reporting_mode", reporting_mode)
+        if additional_event_types is not None:
+            pulumi.set(__self__, "additional_event_types", additional_event_types)
+
+    @_builtins.property
+    @pulumi.getter(name="reportingMode")
+    def reporting_mode(self) -> 'PlaybackConfigurationClientSideBeaconingConfigurationReportingMode':
+        """
+        Specifies whether MediaTailor includes its beacons in the ad tracking response. INSIGHTS includes MediaTailor beacons; DISABLED does not. Values are case-sensitive. This setting is required when ClientSide is present. If BeaconingConfiguration or ClientSide is omitted, MediaTailor uses INSIGHTS. To keep beaconing off, retain DISABLED in subsequent updates.
+        """
+        return pulumi.get(self, "reporting_mode")
+
+    @_builtins.property
+    @pulumi.getter(name="additionalEventTypes")
+    def additional_event_types(self) -> Optional[Sequence['PlaybackConfigurationClientSideBeaconingConfigurationAdditionalEventTypesItem']]:
+        """
+        The player operation events to report on, in addition to the ad progress events that MediaTailor always reports on. Valid values are MUTE, UNMUTE, PAUSE, and SKIP. The default is an empty list. This parameter is valid only when ReportingMode is INSIGHTS. MediaTailor rejects the request if you specify a value while ReportingMode is DISABLED, or if you specify duplicate values.
+        """
+        return pulumi.get(self, "additional_event_types")
 
 
 @pulumi.output_type

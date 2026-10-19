@@ -17,6 +17,10 @@ namespace Pulumi.AwsNative.Lambda.Outputs
     public sealed class ServiceConfigProperties
     {
         /// <summary>
+        /// The versioned ARN of the network connector used for outbound network access from the revision.
+        /// </summary>
+        public readonly string? EgressNetworkConnectorArn;
+        /// <summary>
         /// Environment variables for the function.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? EnvironmentVariables;
@@ -39,6 +43,8 @@ namespace Pulumi.AwsNative.Lambda.Outputs
 
         [OutputConstructor]
         private ServiceConfigProperties(
+            string? egressNetworkConnectorArn,
+
             ImmutableDictionary<string, string>? environmentVariables,
 
             string executionRoleArn,
@@ -49,6 +55,7 @@ namespace Pulumi.AwsNative.Lambda.Outputs
 
             int? timeoutSeconds)
         {
+            EgressNetworkConnectorArn = egressNetworkConnectorArn;
             EnvironmentVariables = environmentVariables;
             ExecutionRoleArn = executionRoleArn;
             MaxConcurrencyPerEnvironment = maxConcurrencyPerEnvironment;

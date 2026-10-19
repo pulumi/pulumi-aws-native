@@ -66,6 +66,7 @@ __all__ = [
     'RuleAssignSlaActionSlaAssignmentType',
     'RulePublishStatus',
     'RuleReferenceType',
+    'RuleSendInAppNotificationActionPriority',
     'RuleSendNotificationActionContentType',
     'RuleSendNotificationActionDeliveryMethod',
     'RuleTriggerEventSourceEventSourceName',
@@ -696,6 +697,15 @@ class RuleReferenceType(_builtins.str, Enum):
     STRING = "STRING"
     DATE = "DATE"
     EMAIL = "EMAIL"
+
+
+@pulumi.type_token("aws-native:connect:RuleSendInAppNotificationActionPriority")
+class RuleSendInAppNotificationActionPriority(_builtins.str, Enum):
+    """
+    The priority of the notification.
+    """
+    HIGH = "HIGH"
+    LOW = "LOW"
 
 
 @pulumi.type_token("aws-native:connect:RuleSendNotificationActionContentType")

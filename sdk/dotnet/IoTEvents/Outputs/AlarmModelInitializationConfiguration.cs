@@ -10,14 +10,11 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.IoTEvents.Outputs
 {
 
-    /// <summary>
-    /// Specifies the default alarm state. The configuration applies to all alarms that were created based on this alarm model.
-    /// </summary>
     [OutputType]
     public sealed class AlarmModelInitializationConfiguration
     {
         /// <summary>
-        /// The value must be ``TRUE`` or ``FALSE``. If ``FALSE``, all alarm instances created based on the alarm model are activated. The default value is ``TRUE``.
+        /// The value must be `TRUE` or `FALSE` . If `FALSE` , all alarm instances created based on the alarm model are activated. The default value is `TRUE` .
         /// </summary>
         public readonly bool DisabledOnInitialization;
 

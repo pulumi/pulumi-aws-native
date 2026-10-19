@@ -14,6 +14,14 @@ namespace Pulumi.AwsNative.PaymentCryptography.Outputs
     public sealed class KeyReplicationStatusType
     {
         /// <summary>
+        /// The ARN of the AWS KMS key that protects the replica in this region.
+        /// </summary>
+        public readonly string? KmsKeyArn;
+        /// <summary>
+        /// The AWS KMS key requested for this region, when replication failed before its ARN was known.
+        /// </summary>
+        public readonly string? KmsKeyId;
+        /// <summary>
         /// The current status of key replication in this AWS Region .
         /// 
         /// This field indicates whether the key replication is in progress, completed successfully, or has encountered an error. Possible values include states such as `SYNCRHONIZED` , `IN_PROGRESS` , `DELETE_IN_PROGRESS` , or `FAILED` . This provides visibility into the replication process for monitoring and troubleshooting purposes.
@@ -28,10 +36,16 @@ namespace Pulumi.AwsNative.PaymentCryptography.Outputs
 
         [OutputConstructor]
         private KeyReplicationStatusType(
+            string? kmsKeyArn,
+
+            string? kmsKeyId,
+
             Pulumi.AwsNative.PaymentCryptography.KeyReplicationState status,
 
             string? statusMessage)
         {
+            KmsKeyArn = kmsKeyArn;
+            KmsKeyId = kmsKeyId;
             Status = status;
             StatusMessage = statusMessage;
         }

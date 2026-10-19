@@ -35,6 +35,11 @@ export type ConfigurationBundle = import("./configurationBundle").ConfigurationB
 export const ConfigurationBundle: typeof import("./configurationBundle").ConfigurationBundle = null as any;
 utilities.lazyLoad(exports, ["ConfigurationBundle"], () => require("./configurationBundle"));
 
+export { ConsentPortalArgs } from "./consentPortal";
+export type ConsentPortal = import("./consentPortal").ConsentPortal;
+export const ConsentPortal: typeof import("./consentPortal").ConsentPortal = null as any;
+utilities.lazyLoad(exports, ["ConsentPortal"], () => require("./consentPortal"));
+
 export { DatasetArgs } from "./dataset";
 export type Dataset = import("./dataset").Dataset;
 export const Dataset: typeof import("./dataset").Dataset = null as any;
@@ -94,6 +99,11 @@ export { GetConfigurationBundleArgs, GetConfigurationBundleResult, GetConfigurat
 export const getConfigurationBundle: typeof import("./getConfigurationBundle").getConfigurationBundle = null as any;
 export const getConfigurationBundleOutput: typeof import("./getConfigurationBundle").getConfigurationBundleOutput = null as any;
 utilities.lazyLoad(exports, ["getConfigurationBundle","getConfigurationBundleOutput"], () => require("./getConfigurationBundle"));
+
+export { GetConsentPortalArgs, GetConsentPortalResult, GetConsentPortalOutputArgs } from "./getConsentPortal";
+export const getConsentPortal: typeof import("./getConsentPortal").getConsentPortal = null as any;
+export const getConsentPortalOutput: typeof import("./getConsentPortal").getConsentPortalOutput = null as any;
+utilities.lazyLoad(exports, ["getConsentPortal","getConsentPortalOutput"], () => require("./getConsentPortal"));
 
 export { GetDatasetArgs, GetDatasetResult, GetDatasetOutputArgs } from "./getDataset";
 export const getDataset: typeof import("./getDataset").getDataset = null as any;
@@ -285,6 +295,8 @@ const _module = {
                 return new CodeInterpreterCustom(name, <any>undefined, { urn })
             case "aws-native:bedrockagentcore:ConfigurationBundle":
                 return new ConfigurationBundle(name, <any>undefined, { urn })
+            case "aws-native:bedrockagentcore:ConsentPortal":
+                return new ConsentPortal(name, <any>undefined, { urn })
             case "aws-native:bedrockagentcore:Dataset":
                 return new Dataset(name, <any>undefined, { urn })
             case "aws-native:bedrockagentcore:Evaluator":

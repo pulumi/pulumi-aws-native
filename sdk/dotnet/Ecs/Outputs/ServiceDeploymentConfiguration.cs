@@ -39,6 +39,9 @@ namespace Pulumi.AwsNative.Ecs.Outputs
         ///   The *deployment circuit breaker* determines whether a service deployment will fail if the service can't reach a steady state. If you use the deployment circuit breaker, a service deployment will transition to a failed state and stop launching new tasks. If you use the rollback option, when a service deployment fails, the service is rolled back to the last deployment that completed successfully. For more information, see [Rolling update](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-type-ecs.html) in the *Amazon Elastic Container Service Developer Guide*
         /// </summary>
         public readonly Outputs.ServiceDeploymentCircuitBreaker? DeploymentCircuitBreaker;
+        /// <summary>
+        /// The early success criteria configuration for a rolling deployment. With early success criteria, you can configure an Amazon ECS deployment to complete faster. Amazon ECS declares a deployment successful once a target percentage of tasks are healthy, instead of waiting for the service to fully stabilize.
+        /// </summary>
         public readonly Outputs.ServiceDeploymentEarlySuccessCriteria? EarlySuccessCriteria;
         /// <summary>
         /// An array of deployment lifecycle hook objects to run custom logic or pause the deployment at specific stages of the deployment lifecycle.

@@ -18,9 +18,9 @@ type Master struct {
 
 	// Unique ID of the detector of the GuardDuty member account.
 	DetectorId pulumi.StringOutput `pulumi:"detectorId"`
-	// Value used to validate the master account to the member account.
+	// Value used to validate the administrator account to the member account.
 	InvitationId pulumi.StringPtrOutput `pulumi:"invitationId"`
-	// ID of the account used as the master account.
+	// ID of the account used as the administrator account.
 	MasterId pulumi.StringOutput `pulumi:"masterId"`
 }
 
@@ -78,9 +78,9 @@ func (MasterState) ElementType() reflect.Type {
 type masterArgs struct {
 	// Unique ID of the detector of the GuardDuty member account.
 	DetectorId string `pulumi:"detectorId"`
-	// Value used to validate the master account to the member account.
+	// Value used to validate the administrator account to the member account.
 	InvitationId *string `pulumi:"invitationId"`
-	// ID of the account used as the master account.
+	// ID of the account used as the administrator account.
 	MasterId string `pulumi:"masterId"`
 }
 
@@ -88,9 +88,9 @@ type masterArgs struct {
 type MasterArgs struct {
 	// Unique ID of the detector of the GuardDuty member account.
 	DetectorId pulumi.StringInput
-	// Value used to validate the master account to the member account.
+	// Value used to validate the administrator account to the member account.
 	InvitationId pulumi.StringPtrInput
-	// ID of the account used as the master account.
+	// ID of the account used as the administrator account.
 	MasterId pulumi.StringInput
 }
 
@@ -136,12 +136,12 @@ func (o MasterOutput) DetectorId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Master) pulumi.StringOutput { return v.DetectorId }).(pulumi.StringOutput)
 }
 
-// Value used to validate the master account to the member account.
+// Value used to validate the administrator account to the member account.
 func (o MasterOutput) InvitationId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Master) pulumi.StringPtrOutput { return v.InvitationId }).(pulumi.StringPtrOutput)
 }
 
-// ID of the account used as the master account.
+// ID of the account used as the administrator account.
 func (o MasterOutput) MasterId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Master) pulumi.StringOutput { return v.MasterId }).(pulumi.StringOutput)
 }

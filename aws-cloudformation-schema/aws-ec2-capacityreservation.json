@@ -28,7 +28,7 @@
   "readOnlyProperties" : [ "/properties/Id", "/properties/AvailableInstanceCount", "/properties/TotalInstanceCount", "/properties/StartDate", "/properties/CapacityReservationArn", "/properties/CreateDate", "/properties/State", "/properties/OwnerId", "/properties/ReservationType", "/properties/CapacityAllocationSet", "/properties/CommitmentInfo", "/properties/DeliveryPreference", "/properties/CapacityReservationFleetId" ],
   "description" : "Resource Type definition for AWS::EC2::CapacityReservation",
   "writeOnlyProperties" : [ "/properties/UnusedReservationBillingOwnerId" ],
-  "createOnlyProperties" : [ "/properties/Tenancy", "/properties/InstancePlatform", "/properties/InstanceType", "/properties/AvailabilityZone", "/properties/TagSpecifications", "/properties/OutPostArn", "/properties/EphemeralStorage", "/properties/EbsOptimized", "/properties/PlacementGroupArn", "/properties/AvailabilityZoneId" ],
+  "createOnlyProperties" : [ "/properties/Tenancy", "/properties/InstancePlatform", "/properties/InstanceType", "/properties/AvailabilityZone", "/properties/OutPostArn", "/properties/EphemeralStorage", "/properties/EbsOptimized", "/properties/PlacementGroupArn", "/properties/AvailabilityZoneId" ],
   "additionalProperties" : false,
   "primaryIdentifier" : [ "/properties/Id" ],
   "definitions" : {

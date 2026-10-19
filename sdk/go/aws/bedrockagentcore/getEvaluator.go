@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource Type definition for AWS::BedrockAgentCore::Evaluator - Creates a custom evaluator for agent quality assessment using LLM-as-a-Judge configurations.
+// Resource Type definition for AWS::BedrockAgentCore::Evaluator - Creates a custom evaluator for agent quality assessment using LLM-as-a-Judge, code-based, or derived evaluator configurations. Derived evaluators run an existing built-in or third-party evaluator's logic on a model that you supply.
 func LookupEvaluator(ctx *pulumi.Context, args *LookupEvaluatorArgs, opts ...pulumi.InvokeOption) (*LookupEvaluatorResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupEvaluatorResult
@@ -35,14 +35,18 @@ type LookupEvaluatorResult struct {
 	Description *string `pulumi:"description"`
 	// The Amazon Resource Name (ARN) of the evaluator.
 	EvaluatorArn *string `pulumi:"evaluatorArn"`
-	// The configuration for the evaluator.
+	// The configuration for the evaluator, including LLM-as-a-Judge, code-based, or derived settings.
 	EvaluatorConfig *EvaluatorConfig `pulumi:"evaluatorConfig"`
 	// The unique identifier of the evaluator.
 	EvaluatorId *string `pulumi:"evaluatorId"`
+	// The kind of evaluator resource. Builtin and ThirdParty are AWS-managed global evaluators that you reference but don't create; Custom, CustomCode, and CustomDerived are evaluators that you create.
+	EvaluatorType *EvaluatorType `pulumi:"evaluatorType"`
 	// The ARN of the KMS key used to encrypt evaluator data.
 	KmsKeyArn *string `pulumi:"kmsKeyArn"`
-	// The evaluation level that determines the scope of evaluation.
+	// The evaluation level that determines the scope of evaluation. Required for all evaluator configuration types. For Derived evaluators it must match the level of the base evaluator identified by BaseEvaluatorId.
 	Level *EvaluatorLevel `pulumi:"level"`
+	// Where the evaluator's logic comes from: AWS, a third-party library (DeepEval or AutoEval), or you. Derived evaluators inherit the provider of their base evaluator.
+	Provider *EvaluatorProvider `pulumi:"provider"`
 	// The current status of the evaluator.
 	Status *EvaluatorStatus `pulumi:"status"`
 	// A list of tags to assign to the evaluator.
@@ -94,7 +98,7 @@ func (o LookupEvaluatorResultOutput) EvaluatorArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupEvaluatorResult) *string { return v.EvaluatorArn }).(pulumi.StringPtrOutput)
 }
 
-// The configuration for the evaluator.
+// The configuration for the evaluator, including LLM-as-a-Judge, code-based, or derived settings.
 func (o LookupEvaluatorResultOutput) EvaluatorConfig() EvaluatorConfigPtrOutput {
 	return o.ApplyT(func(v LookupEvaluatorResult) *EvaluatorConfig { return v.EvaluatorConfig }).(EvaluatorConfigPtrOutput)
 }
@@ -104,14 +108,24 @@ func (o LookupEvaluatorResultOutput) EvaluatorId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupEvaluatorResult) *string { return v.EvaluatorId }).(pulumi.StringPtrOutput)
 }
 
+// The kind of evaluator resource. Builtin and ThirdParty are AWS-managed global evaluators that you reference but don't create; Custom, CustomCode, and CustomDerived are evaluators that you create.
+func (o LookupEvaluatorResultOutput) EvaluatorType() EvaluatorTypePtrOutput {
+	return o.ApplyT(func(v LookupEvaluatorResult) *EvaluatorType { return v.EvaluatorType }).(EvaluatorTypePtrOutput)
+}
+
 // The ARN of the KMS key used to encrypt evaluator data.
 func (o LookupEvaluatorResultOutput) KmsKeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupEvaluatorResult) *string { return v.KmsKeyArn }).(pulumi.StringPtrOutput)
 }
 
-// The evaluation level that determines the scope of evaluation.
+// The evaluation level that determines the scope of evaluation. Required for all evaluator configuration types. For Derived evaluators it must match the level of the base evaluator identified by BaseEvaluatorId.
 func (o LookupEvaluatorResultOutput) Level() EvaluatorLevelPtrOutput {
 	return o.ApplyT(func(v LookupEvaluatorResult) *EvaluatorLevel { return v.Level }).(EvaluatorLevelPtrOutput)
+}
+
+// Where the evaluator's logic comes from: AWS, a third-party library (DeepEval or AutoEval), or you. Derived evaluators inherit the provider of their base evaluator.
+func (o LookupEvaluatorResultOutput) Provider() EvaluatorProviderPtrOutput {
+	return o.ApplyT(func(v LookupEvaluatorResult) *EvaluatorProvider { return v.Provider }).(EvaluatorProviderPtrOutput)
 }
 
 // The current status of the evaluator.

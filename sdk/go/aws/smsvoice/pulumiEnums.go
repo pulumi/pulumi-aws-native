@@ -10,6 +10,661 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type NotifyConfigurationEnabledChannelsItem string
+
+const (
+	NotifyConfigurationEnabledChannelsItemSms   = NotifyConfigurationEnabledChannelsItem("SMS")
+	NotifyConfigurationEnabledChannelsItemVoice = NotifyConfigurationEnabledChannelsItem("VOICE")
+	NotifyConfigurationEnabledChannelsItemMms   = NotifyConfigurationEnabledChannelsItem("MMS")
+	NotifyConfigurationEnabledChannelsItemRcs   = NotifyConfigurationEnabledChannelsItem("RCS")
+)
+
+func (NotifyConfigurationEnabledChannelsItem) ElementType() reflect.Type {
+	return reflect.TypeOf((*NotifyConfigurationEnabledChannelsItem)(nil)).Elem()
+}
+
+func (e NotifyConfigurationEnabledChannelsItem) ToNotifyConfigurationEnabledChannelsItemOutput() NotifyConfigurationEnabledChannelsItemOutput {
+	return pulumi.ToOutput(e).(NotifyConfigurationEnabledChannelsItemOutput)
+}
+
+func (e NotifyConfigurationEnabledChannelsItem) ToNotifyConfigurationEnabledChannelsItemOutputWithContext(ctx context.Context) NotifyConfigurationEnabledChannelsItemOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(NotifyConfigurationEnabledChannelsItemOutput)
+}
+
+func (e NotifyConfigurationEnabledChannelsItem) ToNotifyConfigurationEnabledChannelsItemPtrOutput() NotifyConfigurationEnabledChannelsItemPtrOutput {
+	return e.ToNotifyConfigurationEnabledChannelsItemPtrOutputWithContext(context.Background())
+}
+
+func (e NotifyConfigurationEnabledChannelsItem) ToNotifyConfigurationEnabledChannelsItemPtrOutputWithContext(ctx context.Context) NotifyConfigurationEnabledChannelsItemPtrOutput {
+	return NotifyConfigurationEnabledChannelsItem(e).ToNotifyConfigurationEnabledChannelsItemOutputWithContext(ctx).ToNotifyConfigurationEnabledChannelsItemPtrOutputWithContext(ctx)
+}
+
+func (e NotifyConfigurationEnabledChannelsItem) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e NotifyConfigurationEnabledChannelsItem) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e NotifyConfigurationEnabledChannelsItem) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e NotifyConfigurationEnabledChannelsItem) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type NotifyConfigurationEnabledChannelsItemOutput struct{ *pulumi.OutputState }
+
+func (NotifyConfigurationEnabledChannelsItemOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NotifyConfigurationEnabledChannelsItem)(nil)).Elem()
+}
+
+func (o NotifyConfigurationEnabledChannelsItemOutput) ToNotifyConfigurationEnabledChannelsItemOutput() NotifyConfigurationEnabledChannelsItemOutput {
+	return o
+}
+
+func (o NotifyConfigurationEnabledChannelsItemOutput) ToNotifyConfigurationEnabledChannelsItemOutputWithContext(ctx context.Context) NotifyConfigurationEnabledChannelsItemOutput {
+	return o
+}
+
+func (o NotifyConfigurationEnabledChannelsItemOutput) ToNotifyConfigurationEnabledChannelsItemPtrOutput() NotifyConfigurationEnabledChannelsItemPtrOutput {
+	return o.ToNotifyConfigurationEnabledChannelsItemPtrOutputWithContext(context.Background())
+}
+
+func (o NotifyConfigurationEnabledChannelsItemOutput) ToNotifyConfigurationEnabledChannelsItemPtrOutputWithContext(ctx context.Context) NotifyConfigurationEnabledChannelsItemPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NotifyConfigurationEnabledChannelsItem) *NotifyConfigurationEnabledChannelsItem {
+		return &v
+	}).(NotifyConfigurationEnabledChannelsItemPtrOutput)
+}
+
+func (o NotifyConfigurationEnabledChannelsItemOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o NotifyConfigurationEnabledChannelsItemOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e NotifyConfigurationEnabledChannelsItem) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o NotifyConfigurationEnabledChannelsItemOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o NotifyConfigurationEnabledChannelsItemOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e NotifyConfigurationEnabledChannelsItem) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type NotifyConfigurationEnabledChannelsItemPtrOutput struct{ *pulumi.OutputState }
+
+func (NotifyConfigurationEnabledChannelsItemPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NotifyConfigurationEnabledChannelsItem)(nil)).Elem()
+}
+
+func (o NotifyConfigurationEnabledChannelsItemPtrOutput) ToNotifyConfigurationEnabledChannelsItemPtrOutput() NotifyConfigurationEnabledChannelsItemPtrOutput {
+	return o
+}
+
+func (o NotifyConfigurationEnabledChannelsItemPtrOutput) ToNotifyConfigurationEnabledChannelsItemPtrOutputWithContext(ctx context.Context) NotifyConfigurationEnabledChannelsItemPtrOutput {
+	return o
+}
+
+func (o NotifyConfigurationEnabledChannelsItemPtrOutput) Elem() NotifyConfigurationEnabledChannelsItemOutput {
+	return o.ApplyT(func(v *NotifyConfigurationEnabledChannelsItem) NotifyConfigurationEnabledChannelsItem {
+		if v != nil {
+			return *v
+		}
+		var ret NotifyConfigurationEnabledChannelsItem
+		return ret
+	}).(NotifyConfigurationEnabledChannelsItemOutput)
+}
+
+func (o NotifyConfigurationEnabledChannelsItemPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o NotifyConfigurationEnabledChannelsItemPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *NotifyConfigurationEnabledChannelsItem) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// NotifyConfigurationEnabledChannelsItemInput is an input type that accepts values of the NotifyConfigurationEnabledChannelsItem enum
+// A concrete instance of `NotifyConfigurationEnabledChannelsItemInput` can be one of the following:
+//
+//	NotifyConfigurationEnabledChannelsItemSms
+//	NotifyConfigurationEnabledChannelsItemVoice
+//	NotifyConfigurationEnabledChannelsItemMms
+//	NotifyConfigurationEnabledChannelsItemRcs
+type NotifyConfigurationEnabledChannelsItemInput interface {
+	pulumi.Input
+
+	ToNotifyConfigurationEnabledChannelsItemOutput() NotifyConfigurationEnabledChannelsItemOutput
+	ToNotifyConfigurationEnabledChannelsItemOutputWithContext(context.Context) NotifyConfigurationEnabledChannelsItemOutput
+}
+
+var notifyConfigurationEnabledChannelsItemPtrType = reflect.TypeOf((**NotifyConfigurationEnabledChannelsItem)(nil)).Elem()
+
+type NotifyConfigurationEnabledChannelsItemPtrInput interface {
+	pulumi.Input
+
+	ToNotifyConfigurationEnabledChannelsItemPtrOutput() NotifyConfigurationEnabledChannelsItemPtrOutput
+	ToNotifyConfigurationEnabledChannelsItemPtrOutputWithContext(context.Context) NotifyConfigurationEnabledChannelsItemPtrOutput
+}
+
+type notifyConfigurationEnabledChannelsItemPtr string
+
+func NotifyConfigurationEnabledChannelsItemPtr(v string) NotifyConfigurationEnabledChannelsItemPtrInput {
+	return (*notifyConfigurationEnabledChannelsItemPtr)(&v)
+}
+
+func (*notifyConfigurationEnabledChannelsItemPtr) ElementType() reflect.Type {
+	return notifyConfigurationEnabledChannelsItemPtrType
+}
+
+func (in *notifyConfigurationEnabledChannelsItemPtr) ToNotifyConfigurationEnabledChannelsItemPtrOutput() NotifyConfigurationEnabledChannelsItemPtrOutput {
+	return pulumi.ToOutput(in).(NotifyConfigurationEnabledChannelsItemPtrOutput)
+}
+
+func (in *notifyConfigurationEnabledChannelsItemPtr) ToNotifyConfigurationEnabledChannelsItemPtrOutputWithContext(ctx context.Context) NotifyConfigurationEnabledChannelsItemPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(NotifyConfigurationEnabledChannelsItemPtrOutput)
+}
+
+// NotifyConfigurationEnabledChannelsItemArrayInput is an input type that accepts NotifyConfigurationEnabledChannelsItemArray and NotifyConfigurationEnabledChannelsItemArrayOutput values.
+// You can construct a concrete instance of `NotifyConfigurationEnabledChannelsItemArrayInput` via:
+//
+//	NotifyConfigurationEnabledChannelsItemArray{ NotifyConfigurationEnabledChannelsItemArgs{...} }
+type NotifyConfigurationEnabledChannelsItemArrayInput interface {
+	pulumi.Input
+
+	ToNotifyConfigurationEnabledChannelsItemArrayOutput() NotifyConfigurationEnabledChannelsItemArrayOutput
+	ToNotifyConfigurationEnabledChannelsItemArrayOutputWithContext(context.Context) NotifyConfigurationEnabledChannelsItemArrayOutput
+}
+
+type NotifyConfigurationEnabledChannelsItemArray []NotifyConfigurationEnabledChannelsItem
+
+func (NotifyConfigurationEnabledChannelsItemArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NotifyConfigurationEnabledChannelsItem)(nil)).Elem()
+}
+
+func (i NotifyConfigurationEnabledChannelsItemArray) ToNotifyConfigurationEnabledChannelsItemArrayOutput() NotifyConfigurationEnabledChannelsItemArrayOutput {
+	return i.ToNotifyConfigurationEnabledChannelsItemArrayOutputWithContext(context.Background())
+}
+
+func (i NotifyConfigurationEnabledChannelsItemArray) ToNotifyConfigurationEnabledChannelsItemArrayOutputWithContext(ctx context.Context) NotifyConfigurationEnabledChannelsItemArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NotifyConfigurationEnabledChannelsItemArrayOutput)
+}
+
+type NotifyConfigurationEnabledChannelsItemArrayOutput struct{ *pulumi.OutputState }
+
+func (NotifyConfigurationEnabledChannelsItemArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NotifyConfigurationEnabledChannelsItem)(nil)).Elem()
+}
+
+func (o NotifyConfigurationEnabledChannelsItemArrayOutput) ToNotifyConfigurationEnabledChannelsItemArrayOutput() NotifyConfigurationEnabledChannelsItemArrayOutput {
+	return o
+}
+
+func (o NotifyConfigurationEnabledChannelsItemArrayOutput) ToNotifyConfigurationEnabledChannelsItemArrayOutputWithContext(ctx context.Context) NotifyConfigurationEnabledChannelsItemArrayOutput {
+	return o
+}
+
+func (o NotifyConfigurationEnabledChannelsItemArrayOutput) Index(i pulumi.IntInput) NotifyConfigurationEnabledChannelsItemOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NotifyConfigurationEnabledChannelsItem {
+		return vs[0].([]NotifyConfigurationEnabledChannelsItem)[vs[1].(int)]
+	}).(NotifyConfigurationEnabledChannelsItemOutput)
+}
+
+// The current status of the notify configuration.
+type NotifyConfigurationStatus string
+
+const (
+	NotifyConfigurationStatusPending              = NotifyConfigurationStatus("PENDING")
+	NotifyConfigurationStatusActive               = NotifyConfigurationStatus("ACTIVE")
+	NotifyConfigurationStatusRejected             = NotifyConfigurationStatus("REJECTED")
+	NotifyConfigurationStatusRequiresVerification = NotifyConfigurationStatus("REQUIRES_VERIFICATION")
+)
+
+type NotifyConfigurationStatusOutput struct{ *pulumi.OutputState }
+
+func (NotifyConfigurationStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NotifyConfigurationStatus)(nil)).Elem()
+}
+
+func (o NotifyConfigurationStatusOutput) ToNotifyConfigurationStatusOutput() NotifyConfigurationStatusOutput {
+	return o
+}
+
+func (o NotifyConfigurationStatusOutput) ToNotifyConfigurationStatusOutputWithContext(ctx context.Context) NotifyConfigurationStatusOutput {
+	return o
+}
+
+func (o NotifyConfigurationStatusOutput) ToNotifyConfigurationStatusPtrOutput() NotifyConfigurationStatusPtrOutput {
+	return o.ToNotifyConfigurationStatusPtrOutputWithContext(context.Background())
+}
+
+func (o NotifyConfigurationStatusOutput) ToNotifyConfigurationStatusPtrOutputWithContext(ctx context.Context) NotifyConfigurationStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NotifyConfigurationStatus) *NotifyConfigurationStatus {
+		return &v
+	}).(NotifyConfigurationStatusPtrOutput)
+}
+
+func (o NotifyConfigurationStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o NotifyConfigurationStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e NotifyConfigurationStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o NotifyConfigurationStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o NotifyConfigurationStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e NotifyConfigurationStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type NotifyConfigurationStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (NotifyConfigurationStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NotifyConfigurationStatus)(nil)).Elem()
+}
+
+func (o NotifyConfigurationStatusPtrOutput) ToNotifyConfigurationStatusPtrOutput() NotifyConfigurationStatusPtrOutput {
+	return o
+}
+
+func (o NotifyConfigurationStatusPtrOutput) ToNotifyConfigurationStatusPtrOutputWithContext(ctx context.Context) NotifyConfigurationStatusPtrOutput {
+	return o
+}
+
+func (o NotifyConfigurationStatusPtrOutput) Elem() NotifyConfigurationStatusOutput {
+	return o.ApplyT(func(v *NotifyConfigurationStatus) NotifyConfigurationStatus {
+		if v != nil {
+			return *v
+		}
+		var ret NotifyConfigurationStatus
+		return ret
+	}).(NotifyConfigurationStatusOutput)
+}
+
+func (o NotifyConfigurationStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o NotifyConfigurationStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *NotifyConfigurationStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// The tier of the notify configuration.
+type NotifyConfigurationTier string
+
+const (
+	NotifyConfigurationTierBasic    = NotifyConfigurationTier("BASIC")
+	NotifyConfigurationTierAdvanced = NotifyConfigurationTier("ADVANCED")
+)
+
+type NotifyConfigurationTierOutput struct{ *pulumi.OutputState }
+
+func (NotifyConfigurationTierOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NotifyConfigurationTier)(nil)).Elem()
+}
+
+func (o NotifyConfigurationTierOutput) ToNotifyConfigurationTierOutput() NotifyConfigurationTierOutput {
+	return o
+}
+
+func (o NotifyConfigurationTierOutput) ToNotifyConfigurationTierOutputWithContext(ctx context.Context) NotifyConfigurationTierOutput {
+	return o
+}
+
+func (o NotifyConfigurationTierOutput) ToNotifyConfigurationTierPtrOutput() NotifyConfigurationTierPtrOutput {
+	return o.ToNotifyConfigurationTierPtrOutputWithContext(context.Background())
+}
+
+func (o NotifyConfigurationTierOutput) ToNotifyConfigurationTierPtrOutputWithContext(ctx context.Context) NotifyConfigurationTierPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NotifyConfigurationTier) *NotifyConfigurationTier {
+		return &v
+	}).(NotifyConfigurationTierPtrOutput)
+}
+
+func (o NotifyConfigurationTierOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o NotifyConfigurationTierOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e NotifyConfigurationTier) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o NotifyConfigurationTierOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o NotifyConfigurationTierOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e NotifyConfigurationTier) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type NotifyConfigurationTierPtrOutput struct{ *pulumi.OutputState }
+
+func (NotifyConfigurationTierPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NotifyConfigurationTier)(nil)).Elem()
+}
+
+func (o NotifyConfigurationTierPtrOutput) ToNotifyConfigurationTierPtrOutput() NotifyConfigurationTierPtrOutput {
+	return o
+}
+
+func (o NotifyConfigurationTierPtrOutput) ToNotifyConfigurationTierPtrOutputWithContext(ctx context.Context) NotifyConfigurationTierPtrOutput {
+	return o
+}
+
+func (o NotifyConfigurationTierPtrOutput) Elem() NotifyConfigurationTierOutput {
+	return o.ApplyT(func(v *NotifyConfigurationTier) NotifyConfigurationTier {
+		if v != nil {
+			return *v
+		}
+		var ret NotifyConfigurationTier
+		return ret
+	}).(NotifyConfigurationTierOutput)
+}
+
+func (o NotifyConfigurationTierPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o NotifyConfigurationTierPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *NotifyConfigurationTier) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// The tier upgrade status of the notify configuration.
+type NotifyConfigurationTierUpgradeStatus string
+
+const (
+	NotifyConfigurationTierUpgradeStatusBasic          = NotifyConfigurationTierUpgradeStatus("BASIC")
+	NotifyConfigurationTierUpgradeStatusPendingUpgrade = NotifyConfigurationTierUpgradeStatus("PENDING_UPGRADE")
+	NotifyConfigurationTierUpgradeStatusAdvanced       = NotifyConfigurationTierUpgradeStatus("ADVANCED")
+	NotifyConfigurationTierUpgradeStatusRejected       = NotifyConfigurationTierUpgradeStatus("REJECTED")
+)
+
+type NotifyConfigurationTierUpgradeStatusOutput struct{ *pulumi.OutputState }
+
+func (NotifyConfigurationTierUpgradeStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NotifyConfigurationTierUpgradeStatus)(nil)).Elem()
+}
+
+func (o NotifyConfigurationTierUpgradeStatusOutput) ToNotifyConfigurationTierUpgradeStatusOutput() NotifyConfigurationTierUpgradeStatusOutput {
+	return o
+}
+
+func (o NotifyConfigurationTierUpgradeStatusOutput) ToNotifyConfigurationTierUpgradeStatusOutputWithContext(ctx context.Context) NotifyConfigurationTierUpgradeStatusOutput {
+	return o
+}
+
+func (o NotifyConfigurationTierUpgradeStatusOutput) ToNotifyConfigurationTierUpgradeStatusPtrOutput() NotifyConfigurationTierUpgradeStatusPtrOutput {
+	return o.ToNotifyConfigurationTierUpgradeStatusPtrOutputWithContext(context.Background())
+}
+
+func (o NotifyConfigurationTierUpgradeStatusOutput) ToNotifyConfigurationTierUpgradeStatusPtrOutputWithContext(ctx context.Context) NotifyConfigurationTierUpgradeStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NotifyConfigurationTierUpgradeStatus) *NotifyConfigurationTierUpgradeStatus {
+		return &v
+	}).(NotifyConfigurationTierUpgradeStatusPtrOutput)
+}
+
+func (o NotifyConfigurationTierUpgradeStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o NotifyConfigurationTierUpgradeStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e NotifyConfigurationTierUpgradeStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o NotifyConfigurationTierUpgradeStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o NotifyConfigurationTierUpgradeStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e NotifyConfigurationTierUpgradeStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type NotifyConfigurationTierUpgradeStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (NotifyConfigurationTierUpgradeStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NotifyConfigurationTierUpgradeStatus)(nil)).Elem()
+}
+
+func (o NotifyConfigurationTierUpgradeStatusPtrOutput) ToNotifyConfigurationTierUpgradeStatusPtrOutput() NotifyConfigurationTierUpgradeStatusPtrOutput {
+	return o
+}
+
+func (o NotifyConfigurationTierUpgradeStatusPtrOutput) ToNotifyConfigurationTierUpgradeStatusPtrOutputWithContext(ctx context.Context) NotifyConfigurationTierUpgradeStatusPtrOutput {
+	return o
+}
+
+func (o NotifyConfigurationTierUpgradeStatusPtrOutput) Elem() NotifyConfigurationTierUpgradeStatusOutput {
+	return o.ApplyT(func(v *NotifyConfigurationTierUpgradeStatus) NotifyConfigurationTierUpgradeStatus {
+		if v != nil {
+			return *v
+		}
+		var ret NotifyConfigurationTierUpgradeStatus
+		return ret
+	}).(NotifyConfigurationTierUpgradeStatusOutput)
+}
+
+func (o NotifyConfigurationTierUpgradeStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o NotifyConfigurationTierUpgradeStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *NotifyConfigurationTierUpgradeStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// The use case for the notify configuration.
+type NotifyConfigurationUseCase string
+
+const (
+	NotifyConfigurationUseCaseCodeVerification = NotifyConfigurationUseCase("CODE_VERIFICATION")
+)
+
+func (NotifyConfigurationUseCase) ElementType() reflect.Type {
+	return reflect.TypeOf((*NotifyConfigurationUseCase)(nil)).Elem()
+}
+
+func (e NotifyConfigurationUseCase) ToNotifyConfigurationUseCaseOutput() NotifyConfigurationUseCaseOutput {
+	return pulumi.ToOutput(e).(NotifyConfigurationUseCaseOutput)
+}
+
+func (e NotifyConfigurationUseCase) ToNotifyConfigurationUseCaseOutputWithContext(ctx context.Context) NotifyConfigurationUseCaseOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(NotifyConfigurationUseCaseOutput)
+}
+
+func (e NotifyConfigurationUseCase) ToNotifyConfigurationUseCasePtrOutput() NotifyConfigurationUseCasePtrOutput {
+	return e.ToNotifyConfigurationUseCasePtrOutputWithContext(context.Background())
+}
+
+func (e NotifyConfigurationUseCase) ToNotifyConfigurationUseCasePtrOutputWithContext(ctx context.Context) NotifyConfigurationUseCasePtrOutput {
+	return NotifyConfigurationUseCase(e).ToNotifyConfigurationUseCaseOutputWithContext(ctx).ToNotifyConfigurationUseCasePtrOutputWithContext(ctx)
+}
+
+func (e NotifyConfigurationUseCase) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e NotifyConfigurationUseCase) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e NotifyConfigurationUseCase) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e NotifyConfigurationUseCase) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type NotifyConfigurationUseCaseOutput struct{ *pulumi.OutputState }
+
+func (NotifyConfigurationUseCaseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NotifyConfigurationUseCase)(nil)).Elem()
+}
+
+func (o NotifyConfigurationUseCaseOutput) ToNotifyConfigurationUseCaseOutput() NotifyConfigurationUseCaseOutput {
+	return o
+}
+
+func (o NotifyConfigurationUseCaseOutput) ToNotifyConfigurationUseCaseOutputWithContext(ctx context.Context) NotifyConfigurationUseCaseOutput {
+	return o
+}
+
+func (o NotifyConfigurationUseCaseOutput) ToNotifyConfigurationUseCasePtrOutput() NotifyConfigurationUseCasePtrOutput {
+	return o.ToNotifyConfigurationUseCasePtrOutputWithContext(context.Background())
+}
+
+func (o NotifyConfigurationUseCaseOutput) ToNotifyConfigurationUseCasePtrOutputWithContext(ctx context.Context) NotifyConfigurationUseCasePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NotifyConfigurationUseCase) *NotifyConfigurationUseCase {
+		return &v
+	}).(NotifyConfigurationUseCasePtrOutput)
+}
+
+func (o NotifyConfigurationUseCaseOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o NotifyConfigurationUseCaseOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e NotifyConfigurationUseCase) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o NotifyConfigurationUseCaseOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o NotifyConfigurationUseCaseOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e NotifyConfigurationUseCase) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type NotifyConfigurationUseCasePtrOutput struct{ *pulumi.OutputState }
+
+func (NotifyConfigurationUseCasePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NotifyConfigurationUseCase)(nil)).Elem()
+}
+
+func (o NotifyConfigurationUseCasePtrOutput) ToNotifyConfigurationUseCasePtrOutput() NotifyConfigurationUseCasePtrOutput {
+	return o
+}
+
+func (o NotifyConfigurationUseCasePtrOutput) ToNotifyConfigurationUseCasePtrOutputWithContext(ctx context.Context) NotifyConfigurationUseCasePtrOutput {
+	return o
+}
+
+func (o NotifyConfigurationUseCasePtrOutput) Elem() NotifyConfigurationUseCaseOutput {
+	return o.ApplyT(func(v *NotifyConfigurationUseCase) NotifyConfigurationUseCase {
+		if v != nil {
+			return *v
+		}
+		var ret NotifyConfigurationUseCase
+		return ret
+	}).(NotifyConfigurationUseCaseOutput)
+}
+
+func (o NotifyConfigurationUseCasePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o NotifyConfigurationUseCasePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *NotifyConfigurationUseCase) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// NotifyConfigurationUseCaseInput is an input type that accepts values of the NotifyConfigurationUseCase enum
+// A concrete instance of `NotifyConfigurationUseCaseInput` can be one of the following:
+//
+//	NotifyConfigurationUseCaseCodeVerification
+type NotifyConfigurationUseCaseInput interface {
+	pulumi.Input
+
+	ToNotifyConfigurationUseCaseOutput() NotifyConfigurationUseCaseOutput
+	ToNotifyConfigurationUseCaseOutputWithContext(context.Context) NotifyConfigurationUseCaseOutput
+}
+
+var notifyConfigurationUseCasePtrType = reflect.TypeOf((**NotifyConfigurationUseCase)(nil)).Elem()
+
+type NotifyConfigurationUseCasePtrInput interface {
+	pulumi.Input
+
+	ToNotifyConfigurationUseCasePtrOutput() NotifyConfigurationUseCasePtrOutput
+	ToNotifyConfigurationUseCasePtrOutputWithContext(context.Context) NotifyConfigurationUseCasePtrOutput
+}
+
+type notifyConfigurationUseCasePtr string
+
+func NotifyConfigurationUseCasePtr(v string) NotifyConfigurationUseCasePtrInput {
+	return (*notifyConfigurationUseCasePtr)(&v)
+}
+
+func (*notifyConfigurationUseCasePtr) ElementType() reflect.Type {
+	return notifyConfigurationUseCasePtrType
+}
+
+func (in *notifyConfigurationUseCasePtr) ToNotifyConfigurationUseCasePtrOutput() NotifyConfigurationUseCasePtrOutput {
+	return pulumi.ToOutput(in).(NotifyConfigurationUseCasePtrOutput)
+}
+
+func (in *notifyConfigurationUseCasePtr) ToNotifyConfigurationUseCasePtrOutputWithContext(ctx context.Context) NotifyConfigurationUseCasePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(NotifyConfigurationUseCasePtrOutput)
+}
+
 type PhoneNumberNumberCapabilitiesItem string
 
 const (
@@ -898,6 +1553,193 @@ func (in *protectConfigurationCountryRuleProtectStatusPtr) ToProtectConfiguratio
 	return pulumi.ToOutputWithContext(ctx, in).(ProtectConfigurationCountryRuleProtectStatusPtrOutput)
 }
 
+// The current status of the RCS agent. CREATED means the agent exists but no registration has been submitted. PENDING means a registration is awaiting processing. TESTING means the testing registration is approved and the agent can message registered test devices. PARTIAL means at least one country launch is active. ACTIVE means all submitted country launches are active. DELETED means the agent has been deleted.
+type RcsAgentStatus string
+
+const (
+	RcsAgentStatusCreated = RcsAgentStatus("CREATED")
+	RcsAgentStatusPending = RcsAgentStatus("PENDING")
+	RcsAgentStatusTesting = RcsAgentStatus("TESTING")
+	RcsAgentStatusPartial = RcsAgentStatus("PARTIAL")
+	RcsAgentStatusActive  = RcsAgentStatus("ACTIVE")
+	RcsAgentStatusDeleted = RcsAgentStatus("DELETED")
+)
+
+type RcsAgentStatusOutput struct{ *pulumi.OutputState }
+
+func (RcsAgentStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RcsAgentStatus)(nil)).Elem()
+}
+
+func (o RcsAgentStatusOutput) ToRcsAgentStatusOutput() RcsAgentStatusOutput {
+	return o
+}
+
+func (o RcsAgentStatusOutput) ToRcsAgentStatusOutputWithContext(ctx context.Context) RcsAgentStatusOutput {
+	return o
+}
+
+func (o RcsAgentStatusOutput) ToRcsAgentStatusPtrOutput() RcsAgentStatusPtrOutput {
+	return o.ToRcsAgentStatusPtrOutputWithContext(context.Background())
+}
+
+func (o RcsAgentStatusOutput) ToRcsAgentStatusPtrOutputWithContext(ctx context.Context) RcsAgentStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RcsAgentStatus) *RcsAgentStatus {
+		return &v
+	}).(RcsAgentStatusPtrOutput)
+}
+
+func (o RcsAgentStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o RcsAgentStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RcsAgentStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o RcsAgentStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RcsAgentStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RcsAgentStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type RcsAgentStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (RcsAgentStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RcsAgentStatus)(nil)).Elem()
+}
+
+func (o RcsAgentStatusPtrOutput) ToRcsAgentStatusPtrOutput() RcsAgentStatusPtrOutput {
+	return o
+}
+
+func (o RcsAgentStatusPtrOutput) ToRcsAgentStatusPtrOutputWithContext(ctx context.Context) RcsAgentStatusPtrOutput {
+	return o
+}
+
+func (o RcsAgentStatusPtrOutput) Elem() RcsAgentStatusOutput {
+	return o.ApplyT(func(v *RcsAgentStatus) RcsAgentStatus {
+		if v != nil {
+			return *v
+		}
+		var ret RcsAgentStatus
+		return ret
+	}).(RcsAgentStatusOutput)
+}
+
+func (o RcsAgentStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RcsAgentStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *RcsAgentStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// The status of the testing agent. Named distinctly from the resource-level Status property, which has its own larger set of values.
+type RcsAgentTestingAgentInformationTestingAgentStatus string
+
+const (
+	RcsAgentTestingAgentInformationTestingAgentStatusCreated = RcsAgentTestingAgentInformationTestingAgentStatus("CREATED")
+	RcsAgentTestingAgentInformationTestingAgentStatusPending = RcsAgentTestingAgentInformationTestingAgentStatus("PENDING")
+	RcsAgentTestingAgentInformationTestingAgentStatusActive  = RcsAgentTestingAgentInformationTestingAgentStatus("ACTIVE")
+)
+
+type RcsAgentTestingAgentInformationTestingAgentStatusOutput struct{ *pulumi.OutputState }
+
+func (RcsAgentTestingAgentInformationTestingAgentStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RcsAgentTestingAgentInformationTestingAgentStatus)(nil)).Elem()
+}
+
+func (o RcsAgentTestingAgentInformationTestingAgentStatusOutput) ToRcsAgentTestingAgentInformationTestingAgentStatusOutput() RcsAgentTestingAgentInformationTestingAgentStatusOutput {
+	return o
+}
+
+func (o RcsAgentTestingAgentInformationTestingAgentStatusOutput) ToRcsAgentTestingAgentInformationTestingAgentStatusOutputWithContext(ctx context.Context) RcsAgentTestingAgentInformationTestingAgentStatusOutput {
+	return o
+}
+
+func (o RcsAgentTestingAgentInformationTestingAgentStatusOutput) ToRcsAgentTestingAgentInformationTestingAgentStatusPtrOutput() RcsAgentTestingAgentInformationTestingAgentStatusPtrOutput {
+	return o.ToRcsAgentTestingAgentInformationTestingAgentStatusPtrOutputWithContext(context.Background())
+}
+
+func (o RcsAgentTestingAgentInformationTestingAgentStatusOutput) ToRcsAgentTestingAgentInformationTestingAgentStatusPtrOutputWithContext(ctx context.Context) RcsAgentTestingAgentInformationTestingAgentStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RcsAgentTestingAgentInformationTestingAgentStatus) *RcsAgentTestingAgentInformationTestingAgentStatus {
+		return &v
+	}).(RcsAgentTestingAgentInformationTestingAgentStatusPtrOutput)
+}
+
+func (o RcsAgentTestingAgentInformationTestingAgentStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o RcsAgentTestingAgentInformationTestingAgentStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RcsAgentTestingAgentInformationTestingAgentStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o RcsAgentTestingAgentInformationTestingAgentStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RcsAgentTestingAgentInformationTestingAgentStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RcsAgentTestingAgentInformationTestingAgentStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type RcsAgentTestingAgentInformationTestingAgentStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (RcsAgentTestingAgentInformationTestingAgentStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RcsAgentTestingAgentInformationTestingAgentStatus)(nil)).Elem()
+}
+
+func (o RcsAgentTestingAgentInformationTestingAgentStatusPtrOutput) ToRcsAgentTestingAgentInformationTestingAgentStatusPtrOutput() RcsAgentTestingAgentInformationTestingAgentStatusPtrOutput {
+	return o
+}
+
+func (o RcsAgentTestingAgentInformationTestingAgentStatusPtrOutput) ToRcsAgentTestingAgentInformationTestingAgentStatusPtrOutputWithContext(ctx context.Context) RcsAgentTestingAgentInformationTestingAgentStatusPtrOutput {
+	return o
+}
+
+func (o RcsAgentTestingAgentInformationTestingAgentStatusPtrOutput) Elem() RcsAgentTestingAgentInformationTestingAgentStatusOutput {
+	return o.ApplyT(func(v *RcsAgentTestingAgentInformationTestingAgentStatus) RcsAgentTestingAgentInformationTestingAgentStatus {
+		if v != nil {
+			return *v
+		}
+		var ret RcsAgentTestingAgentInformationTestingAgentStatus
+		return ret
+	}).(RcsAgentTestingAgentInformationTestingAgentStatusOutput)
+}
+
+func (o RcsAgentTestingAgentInformationTestingAgentStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RcsAgentTestingAgentInformationTestingAgentStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *RcsAgentTestingAgentInformationTestingAgentStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
 // The status of the registration attachment.
 type RegistrationAttachmentAttachmentStatus string
 
@@ -1183,6 +2025,11 @@ func (o VerifiedDestinationNumberStatusPtrOutput) ToStringPtrOutputWithContext(c
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*NotifyConfigurationEnabledChannelsItemInput)(nil)).Elem(), NotifyConfigurationEnabledChannelsItem("SMS"))
+	pulumi.RegisterInputType(reflect.TypeOf((*NotifyConfigurationEnabledChannelsItemPtrInput)(nil)).Elem(), NotifyConfigurationEnabledChannelsItem("SMS"))
+	pulumi.RegisterInputType(reflect.TypeOf((*NotifyConfigurationEnabledChannelsItemArrayInput)(nil)).Elem(), NotifyConfigurationEnabledChannelsItemArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NotifyConfigurationUseCaseInput)(nil)).Elem(), NotifyConfigurationUseCase("CODE_VERIFICATION"))
+	pulumi.RegisterInputType(reflect.TypeOf((*NotifyConfigurationUseCasePtrInput)(nil)).Elem(), NotifyConfigurationUseCase("CODE_VERIFICATION"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PhoneNumberNumberCapabilitiesItemInput)(nil)).Elem(), PhoneNumberNumberCapabilitiesItem("SMS"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PhoneNumberNumberCapabilitiesItemPtrInput)(nil)).Elem(), PhoneNumberNumberCapabilitiesItem("SMS"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PhoneNumberNumberCapabilitiesItemArrayInput)(nil)).Elem(), PhoneNumberNumberCapabilitiesItemArray{})
@@ -1194,6 +2041,17 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PoolOptionalKeywordActionPtrInput)(nil)).Elem(), PoolOptionalKeywordAction("AUTOMATIC_RESPONSE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ProtectConfigurationCountryRuleProtectStatusInput)(nil)).Elem(), ProtectConfigurationCountryRuleProtectStatus("ALLOW"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ProtectConfigurationCountryRuleProtectStatusPtrInput)(nil)).Elem(), ProtectConfigurationCountryRuleProtectStatus("ALLOW"))
+	pulumi.RegisterOutputType(NotifyConfigurationEnabledChannelsItemOutput{})
+	pulumi.RegisterOutputType(NotifyConfigurationEnabledChannelsItemPtrOutput{})
+	pulumi.RegisterOutputType(NotifyConfigurationEnabledChannelsItemArrayOutput{})
+	pulumi.RegisterOutputType(NotifyConfigurationStatusOutput{})
+	pulumi.RegisterOutputType(NotifyConfigurationStatusPtrOutput{})
+	pulumi.RegisterOutputType(NotifyConfigurationTierOutput{})
+	pulumi.RegisterOutputType(NotifyConfigurationTierPtrOutput{})
+	pulumi.RegisterOutputType(NotifyConfigurationTierUpgradeStatusOutput{})
+	pulumi.RegisterOutputType(NotifyConfigurationTierUpgradeStatusPtrOutput{})
+	pulumi.RegisterOutputType(NotifyConfigurationUseCaseOutput{})
+	pulumi.RegisterOutputType(NotifyConfigurationUseCasePtrOutput{})
 	pulumi.RegisterOutputType(PhoneNumberNumberCapabilitiesItemOutput{})
 	pulumi.RegisterOutputType(PhoneNumberNumberCapabilitiesItemPtrOutput{})
 	pulumi.RegisterOutputType(PhoneNumberNumberCapabilitiesItemArrayOutput{})
@@ -1205,6 +2063,10 @@ func init() {
 	pulumi.RegisterOutputType(PoolOptionalKeywordActionPtrOutput{})
 	pulumi.RegisterOutputType(ProtectConfigurationCountryRuleProtectStatusOutput{})
 	pulumi.RegisterOutputType(ProtectConfigurationCountryRuleProtectStatusPtrOutput{})
+	pulumi.RegisterOutputType(RcsAgentStatusOutput{})
+	pulumi.RegisterOutputType(RcsAgentStatusPtrOutput{})
+	pulumi.RegisterOutputType(RcsAgentTestingAgentInformationTestingAgentStatusOutput{})
+	pulumi.RegisterOutputType(RcsAgentTestingAgentInformationTestingAgentStatusPtrOutput{})
 	pulumi.RegisterOutputType(RegistrationAttachmentAttachmentStatusOutput{})
 	pulumi.RegisterOutputType(RegistrationAttachmentAttachmentStatusPtrOutput{})
 	pulumi.RegisterOutputType(RegistrationStatusOutput{})

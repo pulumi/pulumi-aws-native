@@ -33,6 +33,7 @@ type LookupAlarmArgs struct {
 }
 
 type LookupAlarmResult struct {
+	ActionConfiguration *AlarmActionConfiguration `pulumi:"actionConfiguration"`
 	// Indicates whether actions should be executed during any changes to the alarm state. The default is TRUE.
 	ActionsEnabled *bool `pulumi:"actionsEnabled"`
 	// The list of actions to execute when this alarm transitions into an ALARM state from any other state. Specify each action as an Amazon Resource Name (ARN). For more information about creating alarms and the actions that you can specify, see [PutMetricAlarm](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_PutMetricAlarm.html) in the *API Reference*.
@@ -128,6 +129,10 @@ func (o LookupAlarmResultOutput) ToLookupAlarmResultOutput() LookupAlarmResultOu
 
 func (o LookupAlarmResultOutput) ToLookupAlarmResultOutputWithContext(ctx context.Context) LookupAlarmResultOutput {
 	return o
+}
+
+func (o LookupAlarmResultOutput) ActionConfiguration() AlarmActionConfigurationPtrOutput {
+	return o.ApplyT(func(v LookupAlarmResult) *AlarmActionConfiguration { return v.ActionConfiguration }).(AlarmActionConfigurationPtrOutput)
 }
 
 // Indicates whether actions should be executed during any changes to the alarm state. The default is TRUE.

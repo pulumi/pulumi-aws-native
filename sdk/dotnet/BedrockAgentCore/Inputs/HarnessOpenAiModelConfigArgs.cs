@@ -18,6 +18,12 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Inputs
         [Input("additionalParams")]
         public Input<object>? AdditionalParams { get; set; }
 
+        /// <summary>
+        /// Optional custom endpoint URL for an OpenAI-compatible endpoint.
+        /// </summary>
+        [Input("apiBase")]
+        public Input<string>? ApiBase { get; set; }
+
         [Input("apiFormat")]
         public Input<Pulumi.AwsNative.BedrockAgentCore.HarnessOpenAiModelConfigApiFormat>? ApiFormat { get; set; }
 

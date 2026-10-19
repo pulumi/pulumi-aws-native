@@ -41,6 +41,7 @@ __all__ = [
     'FleetServiceManagedEc2FleetConfiguration',
     'FleetServiceManagedEc2InstanceCapabilities',
     'FleetServiceManagedEc2InstanceMarketOptions',
+    'FleetSoftwareAddOn',
     'FleetVCpuCountRange',
     'FleetVpcConfiguration',
     'QueueJobAttachmentSettings',
@@ -1048,6 +1049,8 @@ class FleetServiceManagedEc2InstanceCapabilities(dict):
             suggest = "excluded_instance_types"
         elif key == "rootEbsVolume":
             suggest = "root_ebs_volume"
+        elif key == "softwareAddOns":
+            suggest = "software_add_ons"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in FleetServiceManagedEc2InstanceCapabilities. Access the value via the '{suggest}' property getter instead.")
@@ -1070,7 +1073,8 @@ class FleetServiceManagedEc2InstanceCapabilities(dict):
                  custom_amounts: Optional[Sequence['outputs.FleetAmountCapability']] = None,
                  custom_attributes: Optional[Sequence['outputs.FleetAttributeCapability']] = None,
                  excluded_instance_types: Optional[Sequence[_builtins.str]] = None,
-                 root_ebs_volume: Optional['outputs.FleetEc2EbsVolume'] = None):
+                 root_ebs_volume: Optional['outputs.FleetEc2EbsVolume'] = None,
+                 software_add_ons: Optional[Sequence['outputs.FleetSoftwareAddOn']] = None):
         pulumi.set(__self__, "cpu_architecture_type", cpu_architecture_type)
         pulumi.set(__self__, "memory_mi_b", memory_mi_b)
         pulumi.set(__self__, "os_family", os_family)
@@ -1087,6 +1091,8 @@ class FleetServiceManagedEc2InstanceCapabilities(dict):
             pulumi.set(__self__, "excluded_instance_types", excluded_instance_types)
         if root_ebs_volume is not None:
             pulumi.set(__self__, "root_ebs_volume", root_ebs_volume)
+        if software_add_ons is not None:
+            pulumi.set(__self__, "software_add_ons", software_add_ons)
 
     @_builtins.property
     @pulumi.getter(name="cpuArchitectureType")
@@ -1138,6 +1144,11 @@ class FleetServiceManagedEc2InstanceCapabilities(dict):
     def root_ebs_volume(self) -> Optional['outputs.FleetEc2EbsVolume']:
         return pulumi.get(self, "root_ebs_volume")
 
+    @_builtins.property
+    @pulumi.getter(name="softwareAddOns")
+    def software_add_ons(self) -> Optional[Sequence['outputs.FleetSoftwareAddOn']]:
+        return pulumi.get(self, "software_add_ons")
+
 
 @pulumi.output_type
 class FleetServiceManagedEc2InstanceMarketOptions(dict):
@@ -1149,6 +1160,18 @@ class FleetServiceManagedEc2InstanceMarketOptions(dict):
     @pulumi.getter
     def type(self) -> 'FleetEc2MarketType':
         return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class FleetSoftwareAddOn(dict):
+    def __init__(__self__, *,
+                 name: 'FleetSoftwareAddOnName'):
+        pulumi.set(__self__, "name", name)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> 'FleetSoftwareAddOnName':
+        return pulumi.get(self, "name")
 
 
 @pulumi.output_type

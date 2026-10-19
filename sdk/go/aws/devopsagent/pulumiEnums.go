@@ -10,6 +10,172 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// The external identity provider type.
+type AgentSpaceIdpAuthConfigurationProvider string
+
+const (
+	AgentSpaceIdpAuthConfigurationProviderOkta  = AgentSpaceIdpAuthConfigurationProvider("okta")
+	AgentSpaceIdpAuthConfigurationProviderEntra = AgentSpaceIdpAuthConfigurationProvider("entra")
+)
+
+func (AgentSpaceIdpAuthConfigurationProvider) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentSpaceIdpAuthConfigurationProvider)(nil)).Elem()
+}
+
+func (e AgentSpaceIdpAuthConfigurationProvider) ToAgentSpaceIdpAuthConfigurationProviderOutput() AgentSpaceIdpAuthConfigurationProviderOutput {
+	return pulumi.ToOutput(e).(AgentSpaceIdpAuthConfigurationProviderOutput)
+}
+
+func (e AgentSpaceIdpAuthConfigurationProvider) ToAgentSpaceIdpAuthConfigurationProviderOutputWithContext(ctx context.Context) AgentSpaceIdpAuthConfigurationProviderOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(AgentSpaceIdpAuthConfigurationProviderOutput)
+}
+
+func (e AgentSpaceIdpAuthConfigurationProvider) ToAgentSpaceIdpAuthConfigurationProviderPtrOutput() AgentSpaceIdpAuthConfigurationProviderPtrOutput {
+	return e.ToAgentSpaceIdpAuthConfigurationProviderPtrOutputWithContext(context.Background())
+}
+
+func (e AgentSpaceIdpAuthConfigurationProvider) ToAgentSpaceIdpAuthConfigurationProviderPtrOutputWithContext(ctx context.Context) AgentSpaceIdpAuthConfigurationProviderPtrOutput {
+	return AgentSpaceIdpAuthConfigurationProvider(e).ToAgentSpaceIdpAuthConfigurationProviderOutputWithContext(ctx).ToAgentSpaceIdpAuthConfigurationProviderPtrOutputWithContext(ctx)
+}
+
+func (e AgentSpaceIdpAuthConfigurationProvider) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AgentSpaceIdpAuthConfigurationProvider) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AgentSpaceIdpAuthConfigurationProvider) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e AgentSpaceIdpAuthConfigurationProvider) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type AgentSpaceIdpAuthConfigurationProviderOutput struct{ *pulumi.OutputState }
+
+func (AgentSpaceIdpAuthConfigurationProviderOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentSpaceIdpAuthConfigurationProvider)(nil)).Elem()
+}
+
+func (o AgentSpaceIdpAuthConfigurationProviderOutput) ToAgentSpaceIdpAuthConfigurationProviderOutput() AgentSpaceIdpAuthConfigurationProviderOutput {
+	return o
+}
+
+func (o AgentSpaceIdpAuthConfigurationProviderOutput) ToAgentSpaceIdpAuthConfigurationProviderOutputWithContext(ctx context.Context) AgentSpaceIdpAuthConfigurationProviderOutput {
+	return o
+}
+
+func (o AgentSpaceIdpAuthConfigurationProviderOutput) ToAgentSpaceIdpAuthConfigurationProviderPtrOutput() AgentSpaceIdpAuthConfigurationProviderPtrOutput {
+	return o.ToAgentSpaceIdpAuthConfigurationProviderPtrOutputWithContext(context.Background())
+}
+
+func (o AgentSpaceIdpAuthConfigurationProviderOutput) ToAgentSpaceIdpAuthConfigurationProviderPtrOutputWithContext(ctx context.Context) AgentSpaceIdpAuthConfigurationProviderPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentSpaceIdpAuthConfigurationProvider) *AgentSpaceIdpAuthConfigurationProvider {
+		return &v
+	}).(AgentSpaceIdpAuthConfigurationProviderPtrOutput)
+}
+
+func (o AgentSpaceIdpAuthConfigurationProviderOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o AgentSpaceIdpAuthConfigurationProviderOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AgentSpaceIdpAuthConfigurationProvider) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o AgentSpaceIdpAuthConfigurationProviderOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AgentSpaceIdpAuthConfigurationProviderOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AgentSpaceIdpAuthConfigurationProvider) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type AgentSpaceIdpAuthConfigurationProviderPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentSpaceIdpAuthConfigurationProviderPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentSpaceIdpAuthConfigurationProvider)(nil)).Elem()
+}
+
+func (o AgentSpaceIdpAuthConfigurationProviderPtrOutput) ToAgentSpaceIdpAuthConfigurationProviderPtrOutput() AgentSpaceIdpAuthConfigurationProviderPtrOutput {
+	return o
+}
+
+func (o AgentSpaceIdpAuthConfigurationProviderPtrOutput) ToAgentSpaceIdpAuthConfigurationProviderPtrOutputWithContext(ctx context.Context) AgentSpaceIdpAuthConfigurationProviderPtrOutput {
+	return o
+}
+
+func (o AgentSpaceIdpAuthConfigurationProviderPtrOutput) Elem() AgentSpaceIdpAuthConfigurationProviderOutput {
+	return o.ApplyT(func(v *AgentSpaceIdpAuthConfigurationProvider) AgentSpaceIdpAuthConfigurationProvider {
+		if v != nil {
+			return *v
+		}
+		var ret AgentSpaceIdpAuthConfigurationProvider
+		return ret
+	}).(AgentSpaceIdpAuthConfigurationProviderOutput)
+}
+
+func (o AgentSpaceIdpAuthConfigurationProviderPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AgentSpaceIdpAuthConfigurationProviderPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AgentSpaceIdpAuthConfigurationProvider) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// AgentSpaceIdpAuthConfigurationProviderInput is an input type that accepts values of the AgentSpaceIdpAuthConfigurationProvider enum
+// A concrete instance of `AgentSpaceIdpAuthConfigurationProviderInput` can be one of the following:
+//
+//	AgentSpaceIdpAuthConfigurationProviderOkta
+//	AgentSpaceIdpAuthConfigurationProviderEntra
+type AgentSpaceIdpAuthConfigurationProviderInput interface {
+	pulumi.Input
+
+	ToAgentSpaceIdpAuthConfigurationProviderOutput() AgentSpaceIdpAuthConfigurationProviderOutput
+	ToAgentSpaceIdpAuthConfigurationProviderOutputWithContext(context.Context) AgentSpaceIdpAuthConfigurationProviderOutput
+}
+
+var agentSpaceIdpAuthConfigurationProviderPtrType = reflect.TypeOf((**AgentSpaceIdpAuthConfigurationProvider)(nil)).Elem()
+
+type AgentSpaceIdpAuthConfigurationProviderPtrInput interface {
+	pulumi.Input
+
+	ToAgentSpaceIdpAuthConfigurationProviderPtrOutput() AgentSpaceIdpAuthConfigurationProviderPtrOutput
+	ToAgentSpaceIdpAuthConfigurationProviderPtrOutputWithContext(context.Context) AgentSpaceIdpAuthConfigurationProviderPtrOutput
+}
+
+type agentSpaceIdpAuthConfigurationProviderPtr string
+
+func AgentSpaceIdpAuthConfigurationProviderPtr(v string) AgentSpaceIdpAuthConfigurationProviderPtrInput {
+	return (*agentSpaceIdpAuthConfigurationProviderPtr)(&v)
+}
+
+func (*agentSpaceIdpAuthConfigurationProviderPtr) ElementType() reflect.Type {
+	return agentSpaceIdpAuthConfigurationProviderPtrType
+}
+
+func (in *agentSpaceIdpAuthConfigurationProviderPtr) ToAgentSpaceIdpAuthConfigurationProviderPtrOutput() AgentSpaceIdpAuthConfigurationProviderPtrOutput {
+	return pulumi.ToOutput(in).(AgentSpaceIdpAuthConfigurationProviderPtrOutput)
+}
+
+func (in *agentSpaceIdpAuthConfigurationProviderPtr) ToAgentSpaceIdpAuthConfigurationProviderPtrOutputWithContext(ctx context.Context) AgentSpaceIdpAuthConfigurationProviderPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(AgentSpaceIdpAuthConfigurationProviderPtrOutput)
+}
+
 // Account Type 'monitor' for DevOpsAgent monitoring
 type AssociationAwsConfigurationAccountType string
 
@@ -1346,6 +1512,174 @@ func (o PrivateConnectionStatusPtrOutput) ToStringPtrOutputWithContext(ctx conte
 	}).(pulumi.StringPtrOutput)
 }
 
+// Permission variant of the DevOps Agent GitHub App that must already be installed on the organization or account
+type ServiceGitHubAppVerificationDetailsAppVariant string
+
+const (
+	ServiceGitHubAppVerificationDetailsAppVariantReadOnly  = ServiceGitHubAppVerificationDetailsAppVariant("READ_ONLY")
+	ServiceGitHubAppVerificationDetailsAppVariantReadWrite = ServiceGitHubAppVerificationDetailsAppVariant("READ_WRITE")
+	ServiceGitHubAppVerificationDetailsAppVariantCustomApp = ServiceGitHubAppVerificationDetailsAppVariant("CUSTOM_APP")
+)
+
+func (ServiceGitHubAppVerificationDetailsAppVariant) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceGitHubAppVerificationDetailsAppVariant)(nil)).Elem()
+}
+
+func (e ServiceGitHubAppVerificationDetailsAppVariant) ToServiceGitHubAppVerificationDetailsAppVariantOutput() ServiceGitHubAppVerificationDetailsAppVariantOutput {
+	return pulumi.ToOutput(e).(ServiceGitHubAppVerificationDetailsAppVariantOutput)
+}
+
+func (e ServiceGitHubAppVerificationDetailsAppVariant) ToServiceGitHubAppVerificationDetailsAppVariantOutputWithContext(ctx context.Context) ServiceGitHubAppVerificationDetailsAppVariantOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ServiceGitHubAppVerificationDetailsAppVariantOutput)
+}
+
+func (e ServiceGitHubAppVerificationDetailsAppVariant) ToServiceGitHubAppVerificationDetailsAppVariantPtrOutput() ServiceGitHubAppVerificationDetailsAppVariantPtrOutput {
+	return e.ToServiceGitHubAppVerificationDetailsAppVariantPtrOutputWithContext(context.Background())
+}
+
+func (e ServiceGitHubAppVerificationDetailsAppVariant) ToServiceGitHubAppVerificationDetailsAppVariantPtrOutputWithContext(ctx context.Context) ServiceGitHubAppVerificationDetailsAppVariantPtrOutput {
+	return ServiceGitHubAppVerificationDetailsAppVariant(e).ToServiceGitHubAppVerificationDetailsAppVariantOutputWithContext(ctx).ToServiceGitHubAppVerificationDetailsAppVariantPtrOutputWithContext(ctx)
+}
+
+func (e ServiceGitHubAppVerificationDetailsAppVariant) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ServiceGitHubAppVerificationDetailsAppVariant) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ServiceGitHubAppVerificationDetailsAppVariant) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ServiceGitHubAppVerificationDetailsAppVariant) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ServiceGitHubAppVerificationDetailsAppVariantOutput struct{ *pulumi.OutputState }
+
+func (ServiceGitHubAppVerificationDetailsAppVariantOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceGitHubAppVerificationDetailsAppVariant)(nil)).Elem()
+}
+
+func (o ServiceGitHubAppVerificationDetailsAppVariantOutput) ToServiceGitHubAppVerificationDetailsAppVariantOutput() ServiceGitHubAppVerificationDetailsAppVariantOutput {
+	return o
+}
+
+func (o ServiceGitHubAppVerificationDetailsAppVariantOutput) ToServiceGitHubAppVerificationDetailsAppVariantOutputWithContext(ctx context.Context) ServiceGitHubAppVerificationDetailsAppVariantOutput {
+	return o
+}
+
+func (o ServiceGitHubAppVerificationDetailsAppVariantOutput) ToServiceGitHubAppVerificationDetailsAppVariantPtrOutput() ServiceGitHubAppVerificationDetailsAppVariantPtrOutput {
+	return o.ToServiceGitHubAppVerificationDetailsAppVariantPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceGitHubAppVerificationDetailsAppVariantOutput) ToServiceGitHubAppVerificationDetailsAppVariantPtrOutputWithContext(ctx context.Context) ServiceGitHubAppVerificationDetailsAppVariantPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceGitHubAppVerificationDetailsAppVariant) *ServiceGitHubAppVerificationDetailsAppVariant {
+		return &v
+	}).(ServiceGitHubAppVerificationDetailsAppVariantPtrOutput)
+}
+
+func (o ServiceGitHubAppVerificationDetailsAppVariantOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ServiceGitHubAppVerificationDetailsAppVariantOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ServiceGitHubAppVerificationDetailsAppVariant) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ServiceGitHubAppVerificationDetailsAppVariantOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceGitHubAppVerificationDetailsAppVariantOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ServiceGitHubAppVerificationDetailsAppVariant) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ServiceGitHubAppVerificationDetailsAppVariantPtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceGitHubAppVerificationDetailsAppVariantPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceGitHubAppVerificationDetailsAppVariant)(nil)).Elem()
+}
+
+func (o ServiceGitHubAppVerificationDetailsAppVariantPtrOutput) ToServiceGitHubAppVerificationDetailsAppVariantPtrOutput() ServiceGitHubAppVerificationDetailsAppVariantPtrOutput {
+	return o
+}
+
+func (o ServiceGitHubAppVerificationDetailsAppVariantPtrOutput) ToServiceGitHubAppVerificationDetailsAppVariantPtrOutputWithContext(ctx context.Context) ServiceGitHubAppVerificationDetailsAppVariantPtrOutput {
+	return o
+}
+
+func (o ServiceGitHubAppVerificationDetailsAppVariantPtrOutput) Elem() ServiceGitHubAppVerificationDetailsAppVariantOutput {
+	return o.ApplyT(func(v *ServiceGitHubAppVerificationDetailsAppVariant) ServiceGitHubAppVerificationDetailsAppVariant {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceGitHubAppVerificationDetailsAppVariant
+		return ret
+	}).(ServiceGitHubAppVerificationDetailsAppVariantOutput)
+}
+
+func (o ServiceGitHubAppVerificationDetailsAppVariantPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceGitHubAppVerificationDetailsAppVariantPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ServiceGitHubAppVerificationDetailsAppVariant) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ServiceGitHubAppVerificationDetailsAppVariantInput is an input type that accepts values of the ServiceGitHubAppVerificationDetailsAppVariant enum
+// A concrete instance of `ServiceGitHubAppVerificationDetailsAppVariantInput` can be one of the following:
+//
+//	ServiceGitHubAppVerificationDetailsAppVariantReadOnly
+//	ServiceGitHubAppVerificationDetailsAppVariantReadWrite
+//	ServiceGitHubAppVerificationDetailsAppVariantCustomApp
+type ServiceGitHubAppVerificationDetailsAppVariantInput interface {
+	pulumi.Input
+
+	ToServiceGitHubAppVerificationDetailsAppVariantOutput() ServiceGitHubAppVerificationDetailsAppVariantOutput
+	ToServiceGitHubAppVerificationDetailsAppVariantOutputWithContext(context.Context) ServiceGitHubAppVerificationDetailsAppVariantOutput
+}
+
+var serviceGitHubAppVerificationDetailsAppVariantPtrType = reflect.TypeOf((**ServiceGitHubAppVerificationDetailsAppVariant)(nil)).Elem()
+
+type ServiceGitHubAppVerificationDetailsAppVariantPtrInput interface {
+	pulumi.Input
+
+	ToServiceGitHubAppVerificationDetailsAppVariantPtrOutput() ServiceGitHubAppVerificationDetailsAppVariantPtrOutput
+	ToServiceGitHubAppVerificationDetailsAppVariantPtrOutputWithContext(context.Context) ServiceGitHubAppVerificationDetailsAppVariantPtrOutput
+}
+
+type serviceGitHubAppVerificationDetailsAppVariantPtr string
+
+func ServiceGitHubAppVerificationDetailsAppVariantPtr(v string) ServiceGitHubAppVerificationDetailsAppVariantPtrInput {
+	return (*serviceGitHubAppVerificationDetailsAppVariantPtr)(&v)
+}
+
+func (*serviceGitHubAppVerificationDetailsAppVariantPtr) ElementType() reflect.Type {
+	return serviceGitHubAppVerificationDetailsAppVariantPtrType
+}
+
+func (in *serviceGitHubAppVerificationDetailsAppVariantPtr) ToServiceGitHubAppVerificationDetailsAppVariantPtrOutput() ServiceGitHubAppVerificationDetailsAppVariantPtrOutput {
+	return pulumi.ToOutput(in).(ServiceGitHubAppVerificationDetailsAppVariantPtrOutput)
+}
+
+func (in *serviceGitHubAppVerificationDetailsAppVariantPtr) ToServiceGitHubAppVerificationDetailsAppVariantPtrOutputWithContext(ctx context.Context) ServiceGitHubAppVerificationDetailsAppVariantPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ServiceGitHubAppVerificationDetailsAppVariantPtrOutput)
+}
+
 // Type of GitLab access token
 type ServiceGitLabDetailsTokenType string
 
@@ -1676,6 +2010,372 @@ func (in *serviceNewRelicApiKeyConfigRegionPtr) ToServiceNewRelicApiKeyConfigReg
 
 func (in *serviceNewRelicApiKeyConfigRegionPtr) ToServiceNewRelicApiKeyConfigRegionPtrOutputWithContext(ctx context.Context) ServiceNewRelicApiKeyConfigRegionPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ServiceNewRelicApiKeyConfigRegionPtrOutput)
+}
+
+// The GitHub App variant the service was registered with
+type ServiceRegisteredGitHubServiceDetailsAppVariant string
+
+const (
+	ServiceRegisteredGitHubServiceDetailsAppVariantReadOnly  = ServiceRegisteredGitHubServiceDetailsAppVariant("READ_ONLY")
+	ServiceRegisteredGitHubServiceDetailsAppVariantReadWrite = ServiceRegisteredGitHubServiceDetailsAppVariant("READ_WRITE")
+	ServiceRegisteredGitHubServiceDetailsAppVariantCustomApp = ServiceRegisteredGitHubServiceDetailsAppVariant("CUSTOM_APP")
+)
+
+type ServiceRegisteredGitHubServiceDetailsAppVariantOutput struct{ *pulumi.OutputState }
+
+func (ServiceRegisteredGitHubServiceDetailsAppVariantOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceRegisteredGitHubServiceDetailsAppVariant)(nil)).Elem()
+}
+
+func (o ServiceRegisteredGitHubServiceDetailsAppVariantOutput) ToServiceRegisteredGitHubServiceDetailsAppVariantOutput() ServiceRegisteredGitHubServiceDetailsAppVariantOutput {
+	return o
+}
+
+func (o ServiceRegisteredGitHubServiceDetailsAppVariantOutput) ToServiceRegisteredGitHubServiceDetailsAppVariantOutputWithContext(ctx context.Context) ServiceRegisteredGitHubServiceDetailsAppVariantOutput {
+	return o
+}
+
+func (o ServiceRegisteredGitHubServiceDetailsAppVariantOutput) ToServiceRegisteredGitHubServiceDetailsAppVariantPtrOutput() ServiceRegisteredGitHubServiceDetailsAppVariantPtrOutput {
+	return o.ToServiceRegisteredGitHubServiceDetailsAppVariantPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceRegisteredGitHubServiceDetailsAppVariantOutput) ToServiceRegisteredGitHubServiceDetailsAppVariantPtrOutputWithContext(ctx context.Context) ServiceRegisteredGitHubServiceDetailsAppVariantPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceRegisteredGitHubServiceDetailsAppVariant) *ServiceRegisteredGitHubServiceDetailsAppVariant {
+		return &v
+	}).(ServiceRegisteredGitHubServiceDetailsAppVariantPtrOutput)
+}
+
+func (o ServiceRegisteredGitHubServiceDetailsAppVariantOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ServiceRegisteredGitHubServiceDetailsAppVariantOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ServiceRegisteredGitHubServiceDetailsAppVariant) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ServiceRegisteredGitHubServiceDetailsAppVariantOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceRegisteredGitHubServiceDetailsAppVariantOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ServiceRegisteredGitHubServiceDetailsAppVariant) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ServiceRegisteredGitHubServiceDetailsAppVariantPtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceRegisteredGitHubServiceDetailsAppVariantPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceRegisteredGitHubServiceDetailsAppVariant)(nil)).Elem()
+}
+
+func (o ServiceRegisteredGitHubServiceDetailsAppVariantPtrOutput) ToServiceRegisteredGitHubServiceDetailsAppVariantPtrOutput() ServiceRegisteredGitHubServiceDetailsAppVariantPtrOutput {
+	return o
+}
+
+func (o ServiceRegisteredGitHubServiceDetailsAppVariantPtrOutput) ToServiceRegisteredGitHubServiceDetailsAppVariantPtrOutputWithContext(ctx context.Context) ServiceRegisteredGitHubServiceDetailsAppVariantPtrOutput {
+	return o
+}
+
+func (o ServiceRegisteredGitHubServiceDetailsAppVariantPtrOutput) Elem() ServiceRegisteredGitHubServiceDetailsAppVariantOutput {
+	return o.ApplyT(func(v *ServiceRegisteredGitHubServiceDetailsAppVariant) ServiceRegisteredGitHubServiceDetailsAppVariant {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceRegisteredGitHubServiceDetailsAppVariant
+		return ret
+	}).(ServiceRegisteredGitHubServiceDetailsAppVariantOutput)
+}
+
+func (o ServiceRegisteredGitHubServiceDetailsAppVariantPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceRegisteredGitHubServiceDetailsAppVariantPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ServiceRegisteredGitHubServiceDetailsAppVariant) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// How the service authenticates against the GitHub API: app after AppVerification, pat after DirectAccess
+type ServiceRegisteredGitHubServiceDetailsAuthMode string
+
+const (
+	ServiceRegisteredGitHubServiceDetailsAuthModeApp = ServiceRegisteredGitHubServiceDetailsAuthMode("app")
+	ServiceRegisteredGitHubServiceDetailsAuthModePat = ServiceRegisteredGitHubServiceDetailsAuthMode("pat")
+)
+
+type ServiceRegisteredGitHubServiceDetailsAuthModeOutput struct{ *pulumi.OutputState }
+
+func (ServiceRegisteredGitHubServiceDetailsAuthModeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceRegisteredGitHubServiceDetailsAuthMode)(nil)).Elem()
+}
+
+func (o ServiceRegisteredGitHubServiceDetailsAuthModeOutput) ToServiceRegisteredGitHubServiceDetailsAuthModeOutput() ServiceRegisteredGitHubServiceDetailsAuthModeOutput {
+	return o
+}
+
+func (o ServiceRegisteredGitHubServiceDetailsAuthModeOutput) ToServiceRegisteredGitHubServiceDetailsAuthModeOutputWithContext(ctx context.Context) ServiceRegisteredGitHubServiceDetailsAuthModeOutput {
+	return o
+}
+
+func (o ServiceRegisteredGitHubServiceDetailsAuthModeOutput) ToServiceRegisteredGitHubServiceDetailsAuthModePtrOutput() ServiceRegisteredGitHubServiceDetailsAuthModePtrOutput {
+	return o.ToServiceRegisteredGitHubServiceDetailsAuthModePtrOutputWithContext(context.Background())
+}
+
+func (o ServiceRegisteredGitHubServiceDetailsAuthModeOutput) ToServiceRegisteredGitHubServiceDetailsAuthModePtrOutputWithContext(ctx context.Context) ServiceRegisteredGitHubServiceDetailsAuthModePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceRegisteredGitHubServiceDetailsAuthMode) *ServiceRegisteredGitHubServiceDetailsAuthMode {
+		return &v
+	}).(ServiceRegisteredGitHubServiceDetailsAuthModePtrOutput)
+}
+
+func (o ServiceRegisteredGitHubServiceDetailsAuthModeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ServiceRegisteredGitHubServiceDetailsAuthModeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ServiceRegisteredGitHubServiceDetailsAuthMode) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ServiceRegisteredGitHubServiceDetailsAuthModeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceRegisteredGitHubServiceDetailsAuthModeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ServiceRegisteredGitHubServiceDetailsAuthMode) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ServiceRegisteredGitHubServiceDetailsAuthModePtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceRegisteredGitHubServiceDetailsAuthModePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceRegisteredGitHubServiceDetailsAuthMode)(nil)).Elem()
+}
+
+func (o ServiceRegisteredGitHubServiceDetailsAuthModePtrOutput) ToServiceRegisteredGitHubServiceDetailsAuthModePtrOutput() ServiceRegisteredGitHubServiceDetailsAuthModePtrOutput {
+	return o
+}
+
+func (o ServiceRegisteredGitHubServiceDetailsAuthModePtrOutput) ToServiceRegisteredGitHubServiceDetailsAuthModePtrOutputWithContext(ctx context.Context) ServiceRegisteredGitHubServiceDetailsAuthModePtrOutput {
+	return o
+}
+
+func (o ServiceRegisteredGitHubServiceDetailsAuthModePtrOutput) Elem() ServiceRegisteredGitHubServiceDetailsAuthModeOutput {
+	return o.ApplyT(func(v *ServiceRegisteredGitHubServiceDetailsAuthMode) ServiceRegisteredGitHubServiceDetailsAuthMode {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceRegisteredGitHubServiceDetailsAuthMode
+		return ret
+	}).(ServiceRegisteredGitHubServiceDetailsAuthModeOutput)
+}
+
+func (o ServiceRegisteredGitHubServiceDetailsAuthModePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceRegisteredGitHubServiceDetailsAuthModePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ServiceRegisteredGitHubServiceDetailsAuthMode) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// The GitHub hosting type the service was registered with
+type ServiceRegisteredGitHubServiceDetailsHostingType string
+
+const (
+	ServiceRegisteredGitHubServiceDetailsHostingTypeSaas        = ServiceRegisteredGitHubServiceDetailsHostingType("SAAS")
+	ServiceRegisteredGitHubServiceDetailsHostingTypeSelfManaged = ServiceRegisteredGitHubServiceDetailsHostingType("SELF_MANAGED")
+	ServiceRegisteredGitHubServiceDetailsHostingTypeDedicated   = ServiceRegisteredGitHubServiceDetailsHostingType("DEDICATED")
+)
+
+type ServiceRegisteredGitHubServiceDetailsHostingTypeOutput struct{ *pulumi.OutputState }
+
+func (ServiceRegisteredGitHubServiceDetailsHostingTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceRegisteredGitHubServiceDetailsHostingType)(nil)).Elem()
+}
+
+func (o ServiceRegisteredGitHubServiceDetailsHostingTypeOutput) ToServiceRegisteredGitHubServiceDetailsHostingTypeOutput() ServiceRegisteredGitHubServiceDetailsHostingTypeOutput {
+	return o
+}
+
+func (o ServiceRegisteredGitHubServiceDetailsHostingTypeOutput) ToServiceRegisteredGitHubServiceDetailsHostingTypeOutputWithContext(ctx context.Context) ServiceRegisteredGitHubServiceDetailsHostingTypeOutput {
+	return o
+}
+
+func (o ServiceRegisteredGitHubServiceDetailsHostingTypeOutput) ToServiceRegisteredGitHubServiceDetailsHostingTypePtrOutput() ServiceRegisteredGitHubServiceDetailsHostingTypePtrOutput {
+	return o.ToServiceRegisteredGitHubServiceDetailsHostingTypePtrOutputWithContext(context.Background())
+}
+
+func (o ServiceRegisteredGitHubServiceDetailsHostingTypeOutput) ToServiceRegisteredGitHubServiceDetailsHostingTypePtrOutputWithContext(ctx context.Context) ServiceRegisteredGitHubServiceDetailsHostingTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceRegisteredGitHubServiceDetailsHostingType) *ServiceRegisteredGitHubServiceDetailsHostingType {
+		return &v
+	}).(ServiceRegisteredGitHubServiceDetailsHostingTypePtrOutput)
+}
+
+func (o ServiceRegisteredGitHubServiceDetailsHostingTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ServiceRegisteredGitHubServiceDetailsHostingTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ServiceRegisteredGitHubServiceDetailsHostingType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ServiceRegisteredGitHubServiceDetailsHostingTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceRegisteredGitHubServiceDetailsHostingTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ServiceRegisteredGitHubServiceDetailsHostingType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ServiceRegisteredGitHubServiceDetailsHostingTypePtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceRegisteredGitHubServiceDetailsHostingTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceRegisteredGitHubServiceDetailsHostingType)(nil)).Elem()
+}
+
+func (o ServiceRegisteredGitHubServiceDetailsHostingTypePtrOutput) ToServiceRegisteredGitHubServiceDetailsHostingTypePtrOutput() ServiceRegisteredGitHubServiceDetailsHostingTypePtrOutput {
+	return o
+}
+
+func (o ServiceRegisteredGitHubServiceDetailsHostingTypePtrOutput) ToServiceRegisteredGitHubServiceDetailsHostingTypePtrOutputWithContext(ctx context.Context) ServiceRegisteredGitHubServiceDetailsHostingTypePtrOutput {
+	return o
+}
+
+func (o ServiceRegisteredGitHubServiceDetailsHostingTypePtrOutput) Elem() ServiceRegisteredGitHubServiceDetailsHostingTypeOutput {
+	return o.ApplyT(func(v *ServiceRegisteredGitHubServiceDetailsHostingType) ServiceRegisteredGitHubServiceDetailsHostingType {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceRegisteredGitHubServiceDetailsHostingType
+		return ret
+	}).(ServiceRegisteredGitHubServiceDetailsHostingTypeOutput)
+}
+
+func (o ServiceRegisteredGitHubServiceDetailsHostingTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceRegisteredGitHubServiceDetailsHostingTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ServiceRegisteredGitHubServiceDetailsHostingType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// Type of repository owner
+type ServiceRegisteredGitHubServiceDetailsOwnerType string
+
+const (
+	ServiceRegisteredGitHubServiceDetailsOwnerTypeOrganization = ServiceRegisteredGitHubServiceDetailsOwnerType("organization")
+	ServiceRegisteredGitHubServiceDetailsOwnerTypeUser         = ServiceRegisteredGitHubServiceDetailsOwnerType("user")
+)
+
+type ServiceRegisteredGitHubServiceDetailsOwnerTypeOutput struct{ *pulumi.OutputState }
+
+func (ServiceRegisteredGitHubServiceDetailsOwnerTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceRegisteredGitHubServiceDetailsOwnerType)(nil)).Elem()
+}
+
+func (o ServiceRegisteredGitHubServiceDetailsOwnerTypeOutput) ToServiceRegisteredGitHubServiceDetailsOwnerTypeOutput() ServiceRegisteredGitHubServiceDetailsOwnerTypeOutput {
+	return o
+}
+
+func (o ServiceRegisteredGitHubServiceDetailsOwnerTypeOutput) ToServiceRegisteredGitHubServiceDetailsOwnerTypeOutputWithContext(ctx context.Context) ServiceRegisteredGitHubServiceDetailsOwnerTypeOutput {
+	return o
+}
+
+func (o ServiceRegisteredGitHubServiceDetailsOwnerTypeOutput) ToServiceRegisteredGitHubServiceDetailsOwnerTypePtrOutput() ServiceRegisteredGitHubServiceDetailsOwnerTypePtrOutput {
+	return o.ToServiceRegisteredGitHubServiceDetailsOwnerTypePtrOutputWithContext(context.Background())
+}
+
+func (o ServiceRegisteredGitHubServiceDetailsOwnerTypeOutput) ToServiceRegisteredGitHubServiceDetailsOwnerTypePtrOutputWithContext(ctx context.Context) ServiceRegisteredGitHubServiceDetailsOwnerTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceRegisteredGitHubServiceDetailsOwnerType) *ServiceRegisteredGitHubServiceDetailsOwnerType {
+		return &v
+	}).(ServiceRegisteredGitHubServiceDetailsOwnerTypePtrOutput)
+}
+
+func (o ServiceRegisteredGitHubServiceDetailsOwnerTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ServiceRegisteredGitHubServiceDetailsOwnerTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ServiceRegisteredGitHubServiceDetailsOwnerType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ServiceRegisteredGitHubServiceDetailsOwnerTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceRegisteredGitHubServiceDetailsOwnerTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ServiceRegisteredGitHubServiceDetailsOwnerType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ServiceRegisteredGitHubServiceDetailsOwnerTypePtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceRegisteredGitHubServiceDetailsOwnerTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceRegisteredGitHubServiceDetailsOwnerType)(nil)).Elem()
+}
+
+func (o ServiceRegisteredGitHubServiceDetailsOwnerTypePtrOutput) ToServiceRegisteredGitHubServiceDetailsOwnerTypePtrOutput() ServiceRegisteredGitHubServiceDetailsOwnerTypePtrOutput {
+	return o
+}
+
+func (o ServiceRegisteredGitHubServiceDetailsOwnerTypePtrOutput) ToServiceRegisteredGitHubServiceDetailsOwnerTypePtrOutputWithContext(ctx context.Context) ServiceRegisteredGitHubServiceDetailsOwnerTypePtrOutput {
+	return o
+}
+
+func (o ServiceRegisteredGitHubServiceDetailsOwnerTypePtrOutput) Elem() ServiceRegisteredGitHubServiceDetailsOwnerTypeOutput {
+	return o.ApplyT(func(v *ServiceRegisteredGitHubServiceDetailsOwnerType) ServiceRegisteredGitHubServiceDetailsOwnerType {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceRegisteredGitHubServiceDetailsOwnerType
+		return ret
+	}).(ServiceRegisteredGitHubServiceDetailsOwnerTypeOutput)
+}
+
+func (o ServiceRegisteredGitHubServiceDetailsOwnerTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceRegisteredGitHubServiceDetailsOwnerTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ServiceRegisteredGitHubServiceDetailsOwnerType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
 }
 
 // Type of GitLab access token
@@ -2051,6 +2751,7 @@ const (
 	ServiceTypeMcpserversplunk   = ServiceType("mcpserversplunk")
 	ServiceTypeMcpservernewrelic = ServiceType("mcpservernewrelic")
 	ServiceTypeGitlab            = ServiceType("gitlab")
+	ServiceTypeGithub            = ServiceType("github")
 	ServiceTypeServicenow        = ServiceType("servicenow")
 	ServiceTypePagerduty         = ServiceType("pagerduty")
 	ServiceTypeAzureidentity     = ServiceType("azureidentity")
@@ -2185,6 +2886,7 @@ func (o ServiceTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) 
 //	ServiceTypeMcpserversplunk
 //	ServiceTypeMcpservernewrelic
 //	ServiceTypeGitlab
+//	ServiceTypeGithub
 //	ServiceTypeServicenow
 //	ServiceTypePagerduty
 //	ServiceTypeAzureidentity
@@ -2555,6 +3257,8 @@ func (in *triggerTypePtr) ToTriggerTypePtrOutputWithContext(ctx context.Context)
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentSpaceIdpAuthConfigurationProviderInput)(nil)).Elem(), AgentSpaceIdpAuthConfigurationProvider("okta"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentSpaceIdpAuthConfigurationProviderPtrInput)(nil)).Elem(), AgentSpaceIdpAuthConfigurationProvider("okta"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AssociationAwsConfigurationAccountTypeInput)(nil)).Elem(), AssociationAwsConfigurationAccountType("monitor"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AssociationAwsConfigurationAccountTypePtrInput)(nil)).Elem(), AssociationAwsConfigurationAccountType("monitor"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AssociationAwsResourceResourceTypeInput)(nil)).Elem(), AssociationAwsResourceResourceType("AWS::CloudFormation::Stack"))
@@ -2570,6 +3274,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PrivateConnectionServiceManagedModeDnsResolutionPtrInput)(nil)).Elem(), PrivateConnectionServiceManagedModeDnsResolution("PUBLIC"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PrivateConnectionServiceManagedModeIpAddressTypeInput)(nil)).Elem(), PrivateConnectionServiceManagedModeIpAddressType("IPV4"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PrivateConnectionServiceManagedModeIpAddressTypePtrInput)(nil)).Elem(), PrivateConnectionServiceManagedModeIpAddressType("IPV4"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceGitHubAppVerificationDetailsAppVariantInput)(nil)).Elem(), ServiceGitHubAppVerificationDetailsAppVariant("READ_ONLY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceGitHubAppVerificationDetailsAppVariantPtrInput)(nil)).Elem(), ServiceGitHubAppVerificationDetailsAppVariant("READ_ONLY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceGitLabDetailsTokenTypeInput)(nil)).Elem(), ServiceGitLabDetailsTokenType("personal"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceGitLabDetailsTokenTypePtrInput)(nil)).Elem(), ServiceGitLabDetailsTokenType("personal"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceNewRelicApiKeyConfigRegionInput)(nil)).Elem(), ServiceNewRelicApiKeyConfigRegion("US"))
@@ -2580,6 +3286,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TriggerStatusPtrInput)(nil)).Elem(), TriggerStatus("Active"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TriggerTypeInput)(nil)).Elem(), TriggerType("TIME_BASED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TriggerTypePtrInput)(nil)).Elem(), TriggerType("TIME_BASED"))
+	pulumi.RegisterOutputType(AgentSpaceIdpAuthConfigurationProviderOutput{})
+	pulumi.RegisterOutputType(AgentSpaceIdpAuthConfigurationProviderPtrOutput{})
 	pulumi.RegisterOutputType(AssociationAwsConfigurationAccountTypeOutput{})
 	pulumi.RegisterOutputType(AssociationAwsConfigurationAccountTypePtrOutput{})
 	pulumi.RegisterOutputType(AssociationAwsResourceResourceTypeOutput{})
@@ -2597,10 +3305,20 @@ func init() {
 	pulumi.RegisterOutputType(PrivateConnectionServiceManagedModeIpAddressTypePtrOutput{})
 	pulumi.RegisterOutputType(PrivateConnectionStatusOutput{})
 	pulumi.RegisterOutputType(PrivateConnectionStatusPtrOutput{})
+	pulumi.RegisterOutputType(ServiceGitHubAppVerificationDetailsAppVariantOutput{})
+	pulumi.RegisterOutputType(ServiceGitHubAppVerificationDetailsAppVariantPtrOutput{})
 	pulumi.RegisterOutputType(ServiceGitLabDetailsTokenTypeOutput{})
 	pulumi.RegisterOutputType(ServiceGitLabDetailsTokenTypePtrOutput{})
 	pulumi.RegisterOutputType(ServiceNewRelicApiKeyConfigRegionOutput{})
 	pulumi.RegisterOutputType(ServiceNewRelicApiKeyConfigRegionPtrOutput{})
+	pulumi.RegisterOutputType(ServiceRegisteredGitHubServiceDetailsAppVariantOutput{})
+	pulumi.RegisterOutputType(ServiceRegisteredGitHubServiceDetailsAppVariantPtrOutput{})
+	pulumi.RegisterOutputType(ServiceRegisteredGitHubServiceDetailsAuthModeOutput{})
+	pulumi.RegisterOutputType(ServiceRegisteredGitHubServiceDetailsAuthModePtrOutput{})
+	pulumi.RegisterOutputType(ServiceRegisteredGitHubServiceDetailsHostingTypeOutput{})
+	pulumi.RegisterOutputType(ServiceRegisteredGitHubServiceDetailsHostingTypePtrOutput{})
+	pulumi.RegisterOutputType(ServiceRegisteredGitHubServiceDetailsOwnerTypeOutput{})
+	pulumi.RegisterOutputType(ServiceRegisteredGitHubServiceDetailsOwnerTypePtrOutput{})
 	pulumi.RegisterOutputType(ServiceRegisteredGitLabServiceDetailsTokenTypeOutput{})
 	pulumi.RegisterOutputType(ServiceRegisteredGitLabServiceDetailsTokenTypePtrOutput{})
 	pulumi.RegisterOutputType(ServiceRegisteredMcpServerDetailsAuthorizationMethodOutput{})

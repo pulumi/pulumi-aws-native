@@ -49,6 +49,7 @@ export class Registry extends pulumi.CustomResource {
      * The timestamp when the registry was created.
      */
     declare public /*out*/ readonly createdAt: pulumi.Output<string>;
+    declare public readonly customMetadataSchemaConfiguration: pulumi.Output<outputs.agentregistry.RegistryCustomMetadataSchemaConfiguration | undefined>;
     /**
      * The description of the registry.
      */
@@ -92,6 +93,7 @@ export class Registry extends pulumi.CustomResource {
             resourceInputs["authorizerType"] = args?.authorizerType;
             resourceInputs["autoDetectionEnabled"] = args?.autoDetectionEnabled;
             resourceInputs["autoDetectionScope"] = args?.autoDetectionScope;
+            resourceInputs["customMetadataSchemaConfiguration"] = args?.customMetadataSchemaConfiguration;
             resourceInputs["description"] = args?.description;
             resourceInputs["discoveryConfiguration"] = args?.discoveryConfiguration;
             resourceInputs["encryptionConfiguration"] = args?.encryptionConfiguration;
@@ -110,6 +112,7 @@ export class Registry extends pulumi.CustomResource {
             resourceInputs["autoDetectionScope"] = undefined /*out*/;
             resourceInputs["autoDetectionStatus"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
+            resourceInputs["customMetadataSchemaConfiguration"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["discoveryConfiguration"] = undefined /*out*/;
             resourceInputs["encryptionConfiguration"] = undefined /*out*/;
@@ -138,6 +141,7 @@ export interface RegistryArgs {
      */
     autoDetectionEnabled?: pulumi.Input<boolean | undefined>;
     autoDetectionScope?: pulumi.Input<enums.agentregistry.RegistryAutoDetectionScope | undefined>;
+    customMetadataSchemaConfiguration?: pulumi.Input<inputs.agentregistry.RegistryCustomMetadataSchemaConfigurationArgs | undefined>;
     /**
      * The description of the registry.
      */

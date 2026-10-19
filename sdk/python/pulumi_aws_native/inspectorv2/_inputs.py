@@ -933,6 +933,7 @@ class FilterCriteriaArgsDict(TypedDict):
     """
     Details of the Amazon ECR image hashes used to filter findings.
     """
+    ecr_image_in_use_count: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FilterNumberFilterArgsDict']]]]]
     ecr_image_pushed_at: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FilterDateFilterArgsDict']]]]]
     """
     Details on the Amazon ECR image push date and time used to filter findings.
@@ -1048,6 +1049,7 @@ class FilterCriteriaArgs:
                  ec2_instance_vpc_id: pulumi.Input[Optional[Sequence[pulumi.Input['FilterStringFilterArgs']]]] = None,
                  ecr_image_architecture: pulumi.Input[Optional[Sequence[pulumi.Input['FilterStringFilterArgs']]]] = None,
                  ecr_image_hash: pulumi.Input[Optional[Sequence[pulumi.Input['FilterStringFilterArgs']]]] = None,
+                 ecr_image_in_use_count: pulumi.Input[Optional[Sequence[pulumi.Input['FilterNumberFilterArgs']]]] = None,
                  ecr_image_pushed_at: pulumi.Input[Optional[Sequence[pulumi.Input['FilterDateFilterArgs']]]] = None,
                  ecr_image_registry: pulumi.Input[Optional[Sequence[pulumi.Input['FilterStringFilterArgs']]]] = None,
                  ecr_image_repository_name: pulumi.Input[Optional[Sequence[pulumi.Input['FilterStringFilterArgs']]]] = None,
@@ -1134,6 +1136,8 @@ class FilterCriteriaArgs:
             pulumi.set(__self__, "ecr_image_architecture", ecr_image_architecture)
         if ecr_image_hash is not None:
             pulumi.set(__self__, "ecr_image_hash", ecr_image_hash)
+        if ecr_image_in_use_count is not None:
+            pulumi.set(__self__, "ecr_image_in_use_count", ecr_image_in_use_count)
         if ecr_image_pushed_at is not None:
             pulumi.set(__self__, "ecr_image_pushed_at", ecr_image_pushed_at)
         if ecr_image_registry is not None:
@@ -1319,6 +1323,15 @@ class FilterCriteriaArgs:
     @ecr_image_hash.setter
     def ecr_image_hash(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FilterStringFilterArgs']]]]):
         pulumi.set(self, "ecr_image_hash", value)
+
+    @_builtins.property
+    @pulumi.getter(name="ecrImageInUseCount")
+    def ecr_image_in_use_count(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FilterNumberFilterArgs']]]]:
+        return pulumi.get(self, "ecr_image_in_use_count")
+
+    @ecr_image_in_use_count.setter
+    def ecr_image_in_use_count(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FilterNumberFilterArgs']]]]):
+        pulumi.set(self, "ecr_image_in_use_count", value)
 
     @_builtins.property
     @pulumi.getter(name="ecrImagePushedAt")

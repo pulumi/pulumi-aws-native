@@ -31,7 +31,7 @@ type ImagePipeline struct {
 	ExecutionRole pulumi.StringPtrOutput `pulumi:"executionRole"`
 	// The Amazon Resource Name (ARN) of the image recipe that defines how images are configured, tested, and assessed.
 	ImageRecipeArn pulumi.StringPtrOutput `pulumi:"imageRecipeArn"`
-	// Contains settings for vulnerability scans.
+	// Contains settings for vulnerability scans that Amazon Inspector runs against the test instance during image creation.
 	ImageScanningConfiguration ImagePipelineImageScanningConfigurationPtrOutput `pulumi:"imageScanningConfiguration"`
 	// The tags to be applied to images created by this pipeline.
 	ImageTags pulumi.StringMapOutput `pulumi:"imageTags"`
@@ -109,7 +109,7 @@ type imagePipelineArgs struct {
 	ExecutionRole *string `pulumi:"executionRole"`
 	// The Amazon Resource Name (ARN) of the image recipe that defines how images are configured, tested, and assessed.
 	ImageRecipeArn *string `pulumi:"imageRecipeArn"`
-	// Contains settings for vulnerability scans.
+	// Contains settings for vulnerability scans that Amazon Inspector runs against the test instance during image creation.
 	ImageScanningConfiguration *ImagePipelineImageScanningConfiguration `pulumi:"imageScanningConfiguration"`
 	// The tags to be applied to images created by this pipeline.
 	ImageTags map[string]string `pulumi:"imageTags"`
@@ -145,7 +145,7 @@ type ImagePipelineArgs struct {
 	ExecutionRole pulumi.StringPtrInput
 	// The Amazon Resource Name (ARN) of the image recipe that defines how images are configured, tested, and assessed.
 	ImageRecipeArn pulumi.StringPtrInput
-	// Contains settings for vulnerability scans.
+	// Contains settings for vulnerability scans that Amazon Inspector runs against the test instance during image creation.
 	ImageScanningConfiguration ImagePipelineImageScanningConfigurationPtrInput
 	// The tags to be applied to images created by this pipeline.
 	ImageTags pulumi.StringMapInput
@@ -244,7 +244,7 @@ func (o ImagePipelineOutput) ImageRecipeArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ImagePipeline) pulumi.StringPtrOutput { return v.ImageRecipeArn }).(pulumi.StringPtrOutput)
 }
 
-// Contains settings for vulnerability scans.
+// Contains settings for vulnerability scans that Amazon Inspector runs against the test instance during image creation.
 func (o ImagePipelineOutput) ImageScanningConfiguration() ImagePipelineImageScanningConfigurationPtrOutput {
 	return o.ApplyT(func(v *ImagePipeline) ImagePipelineImageScanningConfigurationPtrOutput {
 		return v.ImageScanningConfiguration

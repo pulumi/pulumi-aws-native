@@ -19,6 +19,38 @@ export const ArtifactType = {
  */
 export type ArtifactType = (typeof ArtifactType)[keyof typeof ArtifactType];
 
+export const IntegrationGitLabInputTokenType = {
+    Personal: "PERSONAL",
+    Group: "GROUP",
+} as const;
+
+/**
+ * The type of GitLab access token.
+ */
+export type IntegrationGitLabInputTokenType = (typeof IntegrationGitLabInputTokenType)[keyof typeof IntegrationGitLabInputTokenType];
+
+export const IntegrationProvider = {
+    Github: "GITHUB",
+    Gitlab: "GITLAB",
+    Bitbucket: "BITBUCKET",
+    Confluence: "CONFLUENCE",
+} as const;
+
+/**
+ * The integration provider.
+ */
+export type IntegrationProvider = (typeof IntegrationProvider)[keyof typeof IntegrationProvider];
+
+export const IntegrationProviderType = {
+    SourceCode: "SOURCE_CODE",
+    Documentation: "DOCUMENTATION",
+} as const;
+
+/**
+ * The type of the integration provider.
+ */
+export type IntegrationProviderType = (typeof IntegrationProviderType)[keyof typeof IntegrationProviderType];
+
 export const PentestAuthenticationProviderType = {
     SecretsManager: "SECRETS_MANAGER",
     AwsLambda: "AWS_LAMBDA",

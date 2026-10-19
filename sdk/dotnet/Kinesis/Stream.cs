@@ -40,6 +40,12 @@ namespace Pulumi.AwsNative.Kinesis
         public Output<string?> Name { get; private set; } = null!;
 
         /// <summary>
+        /// The record distribution strategy for the stream. This property can ONLY be set when StreamMode is ON_DEMAND
+        /// </summary>
+        [Output("recordDistributionStrategy")]
+        public Output<Pulumi.AwsNative.Kinesis.StreamRecordDistributionStrategy?> RecordDistributionStrategy { get; private set; } = null!;
+
+        /// <summary>
         /// The number of hours for the data records that are stored in shards to remain accessible.
         /// </summary>
         [Output("retentionPeriodHours")]
@@ -153,6 +159,12 @@ namespace Pulumi.AwsNative.Kinesis
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// The record distribution strategy for the stream. This property can ONLY be set when StreamMode is ON_DEMAND
+        /// </summary>
+        [Input("recordDistributionStrategy")]
+        public Input<Pulumi.AwsNative.Kinesis.StreamRecordDistributionStrategy>? RecordDistributionStrategy { get; set; }
 
         /// <summary>
         /// The number of hours for the data records that are stored in shards to remain accessible.

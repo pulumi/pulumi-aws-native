@@ -16,6 +16,12 @@ namespace Pulumi.AwsNative.CloudWatch
     public partial class LogAlarm : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// Configuration that applies to the notifications this alarm sends when it performs its actions.
+        /// </summary>
+        [Output("actionConfiguration")]
+        public Output<Outputs.LogAlarmActionConfiguration?> ActionConfiguration { get; private set; } = null!;
+
+        /// <summary>
         /// The number of log lines to include in alarm notifications. Valid values are 0 to 50.
         /// </summary>
         [Output("actionLogLineCount")]
@@ -166,6 +172,12 @@ namespace Pulumi.AwsNative.CloudWatch
 
     public sealed class LogAlarmArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Configuration that applies to the notifications this alarm sends when it performs its actions.
+        /// </summary>
+        [Input("actionConfiguration")]
+        public Input<Inputs.LogAlarmActionConfigurationArgs>? ActionConfiguration { get; set; }
+
         /// <summary>
         /// The number of log lines to include in alarm notifications. Valid values are 0 to 50.
         /// </summary>

@@ -37,6 +37,7 @@ class GlobalTableArgs:
                  stream_specification: pulumi.Input[Optional['GlobalTableStreamSpecificationArgs']] = None,
                  table_name: pulumi.Input[Optional[_builtins.str]] = None,
                  time_to_live_specification: pulumi.Input[Optional['GlobalTableTimeToLiveSpecificationArgs']] = None,
+                 vector_indexes: pulumi.Input[Optional[Sequence[pulumi.Input['GlobalTableVectorIndexArgs']]]] = None,
                  warm_throughput: pulumi.Input[Optional['GlobalTableWarmThroughputArgs']] = None,
                  write_on_demand_throughput_settings: pulumi.Input[Optional['GlobalTableWriteOnDemandThroughputSettingsArgs']] = None,
                  write_provisioned_throughput_settings: pulumi.Input[Optional['GlobalTableWriteProvisionedThroughputSettingsArgs']] = None):
@@ -110,6 +111,8 @@ class GlobalTableArgs:
             pulumi.set(__self__, "table_name", table_name)
         if time_to_live_specification is not None:
             pulumi.set(__self__, "time_to_live_specification", time_to_live_specification)
+        if vector_indexes is not None:
+            pulumi.set(__self__, "vector_indexes", vector_indexes)
         if warm_throughput is not None:
             pulumi.set(__self__, "warm_throughput", warm_throughput)
         if write_on_demand_throughput_settings is not None:
@@ -311,6 +314,15 @@ class GlobalTableArgs:
         pulumi.set(self, "time_to_live_specification", value)
 
     @_builtins.property
+    @pulumi.getter(name="vectorIndexes")
+    def vector_indexes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['GlobalTableVectorIndexArgs']]]]:
+        return pulumi.get(self, "vector_indexes")
+
+    @vector_indexes.setter
+    def vector_indexes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['GlobalTableVectorIndexArgs']]]]):
+        pulumi.set(self, "vector_indexes", value)
+
+    @_builtins.property
     @pulumi.getter(name="warmThroughput")
     def warm_throughput(self) -> pulumi.Input[Optional['GlobalTableWarmThroughputArgs']]:
         """
@@ -368,6 +380,7 @@ class GlobalTable(pulumi.CustomResource):
                  stream_specification: pulumi.Input[Optional[Union['GlobalTableStreamSpecificationArgs', 'GlobalTableStreamSpecificationArgsDict']]] = None,
                  table_name: pulumi.Input[Optional[_builtins.str]] = None,
                  time_to_live_specification: pulumi.Input[Optional[Union['GlobalTableTimeToLiveSpecificationArgs', 'GlobalTableTimeToLiveSpecificationArgsDict']]] = None,
+                 vector_indexes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GlobalTableVectorIndexArgs', 'GlobalTableVectorIndexArgsDict']]]]] = None,
                  warm_throughput: pulumi.Input[Optional[Union['GlobalTableWarmThroughputArgs', 'GlobalTableWarmThroughputArgsDict']]] = None,
                  write_on_demand_throughput_settings: pulumi.Input[Optional[Union['GlobalTableWriteOnDemandThroughputSettingsArgs', 'GlobalTableWriteOnDemandThroughputSettingsArgsDict']]] = None,
                  write_provisioned_throughput_settings: pulumi.Input[Optional[Union['GlobalTableWriteProvisionedThroughputSettingsArgs', 'GlobalTableWriteProvisionedThroughputSettingsArgsDict']]] = None,
@@ -454,6 +467,7 @@ class GlobalTable(pulumi.CustomResource):
                  stream_specification: pulumi.Input[Optional[Union['GlobalTableStreamSpecificationArgs', 'GlobalTableStreamSpecificationArgsDict']]] = None,
                  table_name: pulumi.Input[Optional[_builtins.str]] = None,
                  time_to_live_specification: pulumi.Input[Optional[Union['GlobalTableTimeToLiveSpecificationArgs', 'GlobalTableTimeToLiveSpecificationArgsDict']]] = None,
+                 vector_indexes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GlobalTableVectorIndexArgs', 'GlobalTableVectorIndexArgsDict']]]]] = None,
                  warm_throughput: pulumi.Input[Optional[Union['GlobalTableWarmThroughputArgs', 'GlobalTableWarmThroughputArgsDict']]] = None,
                  write_on_demand_throughput_settings: pulumi.Input[Optional[Union['GlobalTableWriteOnDemandThroughputSettingsArgs', 'GlobalTableWriteOnDemandThroughputSettingsArgsDict']]] = None,
                  write_provisioned_throughput_settings: pulumi.Input[Optional[Union['GlobalTableWriteProvisionedThroughputSettingsArgs', 'GlobalTableWriteProvisionedThroughputSettingsArgsDict']]] = None,
@@ -483,6 +497,7 @@ class GlobalTable(pulumi.CustomResource):
             __props__.__dict__["stream_specification"] = stream_specification
             __props__.__dict__["table_name"] = table_name
             __props__.__dict__["time_to_live_specification"] = time_to_live_specification
+            __props__.__dict__["vector_indexes"] = vector_indexes
             __props__.__dict__["warm_throughput"] = warm_throughput
             __props__.__dict__["write_on_demand_throughput_settings"] = write_on_demand_throughput_settings
             __props__.__dict__["write_provisioned_throughput_settings"] = write_provisioned_throughput_settings
@@ -531,6 +546,7 @@ class GlobalTable(pulumi.CustomResource):
         __props__.__dict__["table_id"] = None
         __props__.__dict__["table_name"] = None
         __props__.__dict__["time_to_live_specification"] = None
+        __props__.__dict__["vector_indexes"] = None
         __props__.__dict__["warm_throughput"] = None
         __props__.__dict__["write_on_demand_throughput_settings"] = None
         __props__.__dict__["write_provisioned_throughput_settings"] = None
@@ -694,6 +710,11 @@ class GlobalTable(pulumi.CustomResource):
         Specifies the time to live (TTL) settings for the table. This setting will be applied to all replicas.
         """
         return pulumi.get(self, "time_to_live_specification")
+
+    @_builtins.property
+    @pulumi.getter(name="vectorIndexes")
+    def vector_indexes(self) -> pulumi.Output[Optional[Sequence['outputs.GlobalTableVectorIndex']]]:
+        return pulumi.get(self, "vector_indexes")
 
     @_builtins.property
     @pulumi.getter(name="warmThroughput")

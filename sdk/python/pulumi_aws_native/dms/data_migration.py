@@ -38,7 +38,7 @@ class DataMigrationArgs:
         :param pulumi.Input['DataMigrationType'] data_migration_type: The property describes the type of migration.
         :param pulumi.Input[_builtins.str] migration_project_identifier: The property describes an identifier for the migration project. It is used for describing/deleting/modifying can be name/arn
         :param pulumi.Input[_builtins.str] service_access_role_arn: The property describes Amazon Resource Name (ARN) of the service access role.
-        :param pulumi.Input[_builtins.str] data_migration_identifier: The property describes an ARN of the data migration.
+        :param pulumi.Input[_builtins.str] data_migration_identifier: [DEPRECATED] This property is unused and will be ignored. Identity is managed via the resource ARN (primaryIdentifier) and Name (additionalIdentifier).
         :param pulumi.Input[_builtins.str] data_migration_name: The property describes a name to identify the data migration.
         :param pulumi.Input['DataMigrationSettingsArgs'] data_migration_settings: The property describes the settings for the data migration.
         :param pulumi.Input[Sequence[pulumi.Input['DataMigrationSourceDataSettingsArgs']]] source_data_settings: The property describes the settings for the data migration.
@@ -98,7 +98,7 @@ class DataMigrationArgs:
     @pulumi.getter(name="dataMigrationIdentifier")
     def data_migration_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The property describes an ARN of the data migration.
+        [DEPRECATED] This property is unused and will be ignored. Identity is managed via the resource ARN (primaryIdentifier) and Name (additionalIdentifier).
         """
         return pulumi.get(self, "data_migration_identifier")
 
@@ -175,7 +175,7 @@ class DataMigration(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] data_migration_identifier: The property describes an ARN of the data migration.
+        :param pulumi.Input[_builtins.str] data_migration_identifier: [DEPRECATED] This property is unused and will be ignored. Identity is managed via the resource ARN (primaryIdentifier) and Name (additionalIdentifier).
         :param pulumi.Input[_builtins.str] data_migration_name: The property describes a name to identify the data migration.
         :param pulumi.Input[Union['DataMigrationSettingsArgs', 'DataMigrationSettingsArgsDict']] data_migration_settings: The property describes the settings for the data migration.
         :param pulumi.Input['DataMigrationType'] data_migration_type: The property describes the type of migration.
@@ -295,7 +295,7 @@ class DataMigration(pulumi.CustomResource):
     @pulumi.getter(name="dataMigrationIdentifier")
     def data_migration_identifier(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The property describes an ARN of the data migration.
+        [DEPRECATED] This property is unused and will be ignored. Identity is managed via the resource ARN (primaryIdentifier) and Name (additionalIdentifier).
         """
         return pulumi.get(self, "data_migration_identifier")
 

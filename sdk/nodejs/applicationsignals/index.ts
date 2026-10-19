@@ -20,6 +20,11 @@ export const getGroupingConfiguration: typeof import("./getGroupingConfiguration
 export const getGroupingConfigurationOutput: typeof import("./getGroupingConfiguration").getGroupingConfigurationOutput = null as any;
 utilities.lazyLoad(exports, ["getGroupingConfiguration","getGroupingConfigurationOutput"], () => require("./getGroupingConfiguration"));
 
+export { GetInstrumentationConfigArgs, GetInstrumentationConfigResult, GetInstrumentationConfigOutputArgs } from "./getInstrumentationConfig";
+export const getInstrumentationConfig: typeof import("./getInstrumentationConfig").getInstrumentationConfig = null as any;
+export const getInstrumentationConfigOutput: typeof import("./getInstrumentationConfig").getInstrumentationConfigOutput = null as any;
+utilities.lazyLoad(exports, ["getInstrumentationConfig","getInstrumentationConfigOutput"], () => require("./getInstrumentationConfig"));
+
 export { GetServiceLevelObjectiveArgs, GetServiceLevelObjectiveResult, GetServiceLevelObjectiveOutputArgs } from "./getServiceLevelObjective";
 export const getServiceLevelObjective: typeof import("./getServiceLevelObjective").getServiceLevelObjective = null as any;
 export const getServiceLevelObjectiveOutput: typeof import("./getServiceLevelObjective").getServiceLevelObjectiveOutput = null as any;
@@ -29,6 +34,11 @@ export { GroupingConfigurationArgs } from "./groupingConfiguration";
 export type GroupingConfiguration = import("./groupingConfiguration").GroupingConfiguration;
 export const GroupingConfiguration: typeof import("./groupingConfiguration").GroupingConfiguration = null as any;
 utilities.lazyLoad(exports, ["GroupingConfiguration"], () => require("./groupingConfiguration"));
+
+export { InstrumentationConfigArgs } from "./instrumentationConfig";
+export type InstrumentationConfig = import("./instrumentationConfig").InstrumentationConfig;
+export const InstrumentationConfig: typeof import("./instrumentationConfig").InstrumentationConfig = null as any;
+utilities.lazyLoad(exports, ["InstrumentationConfig"], () => require("./instrumentationConfig"));
 
 export { ServiceLevelObjectiveArgs } from "./serviceLevelObjective";
 export type ServiceLevelObjective = import("./serviceLevelObjective").ServiceLevelObjective;
@@ -47,6 +57,8 @@ const _module = {
                 return new Discovery(name, <any>undefined, { urn })
             case "aws-native:applicationsignals:GroupingConfiguration":
                 return new GroupingConfiguration(name, <any>undefined, { urn })
+            case "aws-native:applicationsignals:InstrumentationConfig":
+                return new InstrumentationConfig(name, <any>undefined, { urn })
             case "aws-native:applicationsignals:ServiceLevelObjective":
                 return new ServiceLevelObjective(name, <any>undefined, { urn })
             default:

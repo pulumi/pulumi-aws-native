@@ -42,9 +42,17 @@ export class Tenant extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
+     * The reputation configuration for the tenant. Sending status remains managed by SES.
+     */
+    declare public readonly reputationEntity: pulumi.Output<outputs.ses.TenantReputationEntity | undefined>;
+    /**
      * The list of resources to associate with the tenant.
      */
     declare public readonly resourceAssociations: pulumi.Output<outputs.ses.TenantResourceAssociation[] | undefined>;
+    /**
+     * The suppression attributes for the tenant.
+     */
+    declare public readonly suppressionAttributes: pulumi.Output<outputs.ses.TenantSuppressionAttributes | undefined>;
     /**
      * The tags (keys and values) associated with the tenant.
      */
@@ -65,13 +73,17 @@ export class Tenant extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            resourceInputs["reputationEntity"] = args?.reputationEntity;
             resourceInputs["resourceAssociations"] = args?.resourceAssociations;
+            resourceInputs["suppressionAttributes"] = args?.suppressionAttributes;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["tenantName"] = args?.tenantName;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["reputationEntity"] = undefined /*out*/;
             resourceInputs["resourceAssociations"] = undefined /*out*/;
+            resourceInputs["suppressionAttributes"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["tenantName"] = undefined /*out*/;
         }
@@ -87,9 +99,17 @@ export class Tenant extends pulumi.CustomResource {
  */
 export interface TenantArgs {
     /**
+     * The reputation configuration for the tenant. Sending status remains managed by SES.
+     */
+    reputationEntity?: pulumi.Input<inputs.ses.TenantReputationEntityArgs | undefined>;
+    /**
      * The list of resources to associate with the tenant.
      */
     resourceAssociations?: pulumi.Input<pulumi.Input<inputs.ses.TenantResourceAssociationArgs>[] | undefined>;
+    /**
+     * The suppression attributes for the tenant.
+     */
+    suppressionAttributes?: pulumi.Input<inputs.ses.TenantSuppressionAttributesArgs | undefined>;
     /**
      * The tags (keys and values) associated with the tenant.
      */

@@ -14,6 +14,7 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from ._enums import *
 
 __all__ = [
     'LicenseAssetGroupConfiguration',
@@ -27,6 +28,8 @@ __all__ = [
     'LicenseAssetRuleSetOrRuleStatement',
     'LicenseAssetRuleSetRuleStatement',
     'LicenseBorrowConfiguration',
+    'LicenseConfigurationProductInformation',
+    'LicenseConfigurationProductInformationFilter',
     'LicenseConsumptionConfiguration',
     'LicenseEntitlement',
     'LicenseIssuerData',
@@ -527,6 +530,126 @@ class LicenseBorrowConfiguration(dict):
         Maximum time for the borrow configuration, in minutes.
         """
         return pulumi.get(self, "max_time_to_live_in_minutes")
+
+
+@pulumi.output_type
+class LicenseConfigurationProductInformation(dict):
+    """
+    Describes product information for a license configuration.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "productInformationFilterList":
+            suggest = "product_information_filter_list"
+        elif key == "resourceType":
+            suggest = "resource_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LicenseConfigurationProductInformation. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LicenseConfigurationProductInformation.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LicenseConfigurationProductInformation.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 product_information_filter_list: Sequence['outputs.LicenseConfigurationProductInformationFilter'],
+                 resource_type: _builtins.str):
+        """
+        Describes product information for a license configuration.
+
+        :param Sequence['LicenseConfigurationProductInformationFilter'] product_information_filter_list: A product information filter list.
+        :param _builtins.str resource_type: Resource type. The possible values are SSM_MANAGED | RDS.
+        """
+        pulumi.set(__self__, "product_information_filter_list", product_information_filter_list)
+        pulumi.set(__self__, "resource_type", resource_type)
+
+    @_builtins.property
+    @pulumi.getter(name="productInformationFilterList")
+    def product_information_filter_list(self) -> Sequence['outputs.LicenseConfigurationProductInformationFilter']:
+        """
+        A product information filter list.
+        """
+        return pulumi.get(self, "product_information_filter_list")
+
+    @_builtins.property
+    @pulumi.getter(name="resourceType")
+    def resource_type(self) -> _builtins.str:
+        """
+        Resource type. The possible values are SSM_MANAGED | RDS.
+        """
+        return pulumi.get(self, "resource_type")
+
+
+@pulumi.output_type
+class LicenseConfigurationProductInformationFilter(dict):
+    """
+    Describes a product information filter.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "productInformationFilterComparator":
+            suggest = "product_information_filter_comparator"
+        elif key == "productInformationFilterName":
+            suggest = "product_information_filter_name"
+        elif key == "productInformationFilterValue":
+            suggest = "product_information_filter_value"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LicenseConfigurationProductInformationFilter. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LicenseConfigurationProductInformationFilter.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LicenseConfigurationProductInformationFilter.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 product_information_filter_comparator: _builtins.str,
+                 product_information_filter_name: _builtins.str,
+                 product_information_filter_value: Optional[Sequence[_builtins.str]] = None):
+        """
+        Describes a product information filter.
+
+        :param _builtins.str product_information_filter_comparator: Logical operator.
+        :param _builtins.str product_information_filter_name: Filter name.
+        :param Sequence[_builtins.str] product_information_filter_value: Filter value.
+        """
+        pulumi.set(__self__, "product_information_filter_comparator", product_information_filter_comparator)
+        pulumi.set(__self__, "product_information_filter_name", product_information_filter_name)
+        if product_information_filter_value is not None:
+            pulumi.set(__self__, "product_information_filter_value", product_information_filter_value)
+
+    @_builtins.property
+    @pulumi.getter(name="productInformationFilterComparator")
+    def product_information_filter_comparator(self) -> _builtins.str:
+        """
+        Logical operator.
+        """
+        return pulumi.get(self, "product_information_filter_comparator")
+
+    @_builtins.property
+    @pulumi.getter(name="productInformationFilterName")
+    def product_information_filter_name(self) -> _builtins.str:
+        """
+        Filter name.
+        """
+        return pulumi.get(self, "product_information_filter_name")
+
+    @_builtins.property
+    @pulumi.getter(name="productInformationFilterValue")
+    def product_information_filter_value(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        Filter value.
+        """
+        return pulumi.get(self, "product_information_filter_value")
 
 
 @pulumi.output_type

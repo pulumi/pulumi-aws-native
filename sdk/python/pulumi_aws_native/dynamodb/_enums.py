@@ -13,8 +13,12 @@ __all__ = [
     'GlobalTableKinesisStreamSpecificationApproximateCreationDateTimePrecision',
     'GlobalTableMultiRegionConsistency',
     'GlobalTableReplicaSpecificationGlobalTableSettingsReplicationMode',
+    'GlobalTableSearchSchemaElementSearchSchemaElementType',
+    'GlobalTableVectorIndexDistanceFunction',
     'TableContributorInsightsSpecificationMode',
     'TableKinesisStreamSpecificationApproximateCreationDateTimePrecision',
+    'TableSearchSchemaElementSearchSchemaElementType',
+    'TableVectorIndexDistanceFunction',
 ]
 
 
@@ -78,6 +82,19 @@ class GlobalTableReplicaSpecificationGlobalTableSettingsReplicationMode(_builtin
     DISABLED = "DISABLED"
 
 
+@pulumi.type_token("aws-native:dynamodb:GlobalTableSearchSchemaElementSearchSchemaElementType")
+class GlobalTableSearchSchemaElementSearchSchemaElementType(_builtins.str, Enum):
+    HASH = "HASH"
+    INLINE_FILTER = "INLINE_FILTER"
+
+
+@pulumi.type_token("aws-native:dynamodb:GlobalTableVectorIndexDistanceFunction")
+class GlobalTableVectorIndexDistanceFunction(_builtins.str, Enum):
+    COSINE = "COSINE"
+    DOT_PRODUCT = "DOT_PRODUCT"
+    EUCLIDEAN = "EUCLIDEAN"
+
+
 @pulumi.type_token("aws-native:dynamodb:TableContributorInsightsSpecificationMode")
 class TableContributorInsightsSpecificationMode(_builtins.str, Enum):
     """
@@ -94,3 +111,16 @@ class TableKinesisStreamSpecificationApproximateCreationDateTimePrecision(_built
     """
     MICROSECOND = "MICROSECOND"
     MILLISECOND = "MILLISECOND"
+
+
+@pulumi.type_token("aws-native:dynamodb:TableSearchSchemaElementSearchSchemaElementType")
+class TableSearchSchemaElementSearchSchemaElementType(_builtins.str, Enum):
+    HASH = "HASH"
+    INLINE_FILTER = "INLINE_FILTER"
+
+
+@pulumi.type_token("aws-native:dynamodb:TableVectorIndexDistanceFunction")
+class TableVectorIndexDistanceFunction(_builtins.str, Enum):
+    COSINE = "COSINE"
+    DOT_PRODUCT = "DOT_PRODUCT"
+    EUCLIDEAN = "EUCLIDEAN"

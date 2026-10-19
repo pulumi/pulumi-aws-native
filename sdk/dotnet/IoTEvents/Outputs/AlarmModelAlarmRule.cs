@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.IoTEvents.Outputs
 {
 
-    /// <summary>
-    /// Defines when your alarm is invoked.
-    /// </summary>
     [OutputType]
     public sealed class AlarmModelAlarmRule
     {

@@ -28,6 +28,7 @@ class RegistryArgs:
                  authorizer_type: pulumi.Input[Optional['RegistryAuthorizerType']] = None,
                  auto_detection_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  auto_detection_scope: pulumi.Input[Optional['RegistryAutoDetectionScope']] = None,
+                 custom_metadata_schema_configuration: pulumi.Input[Optional['RegistryCustomMetadataSchemaConfigurationArgs']] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  discovery_configuration: pulumi.Input[Optional['RegistryDiscoveryConfigurationArgs']] = None,
                  encryption_configuration: pulumi.Input[Optional['RegistryEncryptionConfigurationArgs']] = None,
@@ -49,6 +50,8 @@ class RegistryArgs:
             pulumi.set(__self__, "auto_detection_enabled", auto_detection_enabled)
         if auto_detection_scope is not None:
             pulumi.set(__self__, "auto_detection_scope", auto_detection_scope)
+        if custom_metadata_schema_configuration is not None:
+            pulumi.set(__self__, "custom_metadata_schema_configuration", custom_metadata_schema_configuration)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if discovery_configuration is not None:
@@ -98,6 +101,15 @@ class RegistryArgs:
     @auto_detection_scope.setter
     def auto_detection_scope(self, value: pulumi.Input[Optional['RegistryAutoDetectionScope']]):
         pulumi.set(self, "auto_detection_scope", value)
+
+    @_builtins.property
+    @pulumi.getter(name="customMetadataSchemaConfiguration")
+    def custom_metadata_schema_configuration(self) -> pulumi.Input[Optional['RegistryCustomMetadataSchemaConfigurationArgs']]:
+        return pulumi.get(self, "custom_metadata_schema_configuration")
+
+    @custom_metadata_schema_configuration.setter
+    def custom_metadata_schema_configuration(self, value: pulumi.Input[Optional['RegistryCustomMetadataSchemaConfigurationArgs']]):
+        pulumi.set(self, "custom_metadata_schema_configuration", value)
 
     @_builtins.property
     @pulumi.getter
@@ -164,6 +176,7 @@ class Registry(pulumi.CustomResource):
                  authorizer_type: pulumi.Input[Optional['RegistryAuthorizerType']] = None,
                  auto_detection_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  auto_detection_scope: pulumi.Input[Optional['RegistryAutoDetectionScope']] = None,
+                 custom_metadata_schema_configuration: pulumi.Input[Optional[Union['RegistryCustomMetadataSchemaConfigurationArgs', 'RegistryCustomMetadataSchemaConfigurationArgsDict']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  discovery_configuration: pulumi.Input[Optional[Union['RegistryDiscoveryConfigurationArgs', 'RegistryDiscoveryConfigurationArgsDict']]] = None,
                  encryption_configuration: pulumi.Input[Optional[Union['RegistryEncryptionConfigurationArgs', 'RegistryEncryptionConfigurationArgsDict']]] = None,
@@ -208,6 +221,7 @@ class Registry(pulumi.CustomResource):
                  authorizer_type: pulumi.Input[Optional['RegistryAuthorizerType']] = None,
                  auto_detection_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  auto_detection_scope: pulumi.Input[Optional['RegistryAutoDetectionScope']] = None,
+                 custom_metadata_schema_configuration: pulumi.Input[Optional[Union['RegistryCustomMetadataSchemaConfigurationArgs', 'RegistryCustomMetadataSchemaConfigurationArgsDict']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  discovery_configuration: pulumi.Input[Optional[Union['RegistryDiscoveryConfigurationArgs', 'RegistryDiscoveryConfigurationArgsDict']]] = None,
                  encryption_configuration: pulumi.Input[Optional[Union['RegistryEncryptionConfigurationArgs', 'RegistryEncryptionConfigurationArgsDict']]] = None,
@@ -226,6 +240,7 @@ class Registry(pulumi.CustomResource):
             __props__.__dict__["authorizer_type"] = authorizer_type
             __props__.__dict__["auto_detection_enabled"] = auto_detection_enabled
             __props__.__dict__["auto_detection_scope"] = auto_detection_scope
+            __props__.__dict__["custom_metadata_schema_configuration"] = custom_metadata_schema_configuration
             __props__.__dict__["description"] = description
             __props__.__dict__["discovery_configuration"] = discovery_configuration
             __props__.__dict__["encryption_configuration"] = encryption_configuration
@@ -267,6 +282,7 @@ class Registry(pulumi.CustomResource):
         __props__.__dict__["auto_detection_scope"] = None
         __props__.__dict__["auto_detection_status"] = None
         __props__.__dict__["created_at"] = None
+        __props__.__dict__["custom_metadata_schema_configuration"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["discovery_configuration"] = None
         __props__.__dict__["encryption_configuration"] = None
@@ -313,6 +329,11 @@ class Registry(pulumi.CustomResource):
         The timestamp when the registry was created.
         """
         return pulumi.get(self, "created_at")
+
+    @_builtins.property
+    @pulumi.getter(name="customMetadataSchemaConfiguration")
+    def custom_metadata_schema_configuration(self) -> pulumi.Output[Optional['outputs.RegistryCustomMetadataSchemaConfiguration']]:
+        return pulumi.get(self, "custom_metadata_schema_configuration")
 
     @_builtins.property
     @pulumi.getter

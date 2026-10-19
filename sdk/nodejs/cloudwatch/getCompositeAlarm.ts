@@ -26,6 +26,10 @@ export interface GetCompositeAlarmArgs {
 
 export interface GetCompositeAlarmResult {
     /**
+     * Configuration that applies to the notifications this alarm sends when it performs its actions.
+     */
+    readonly actionConfiguration?: outputs.cloudwatch.CompositeAlarmActionConfiguration;
+    /**
      * Indicates whether actions should be executed during any changes to the alarm state. The default is TRUE.
      */
     readonly actionsEnabled?: boolean;

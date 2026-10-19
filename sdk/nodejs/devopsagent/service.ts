@@ -58,6 +58,10 @@ export class Service extends pulumi.CustomResource {
      */
     declare public readonly kmsKeyArn: pulumi.Output<string | undefined>;
     /**
+     * The display name for the service registration.
+     */
+    declare public readonly name: pulumi.Output<string | undefined>;
+    /**
      * The name of the private connection to use for VPC connectivity.
      */
     declare public readonly privateConnectionName: pulumi.Output<string | undefined>;
@@ -98,6 +102,7 @@ export class Service extends pulumi.CustomResource {
             }
             resourceInputs["exchangeUrlPrivateConnectionName"] = args?.exchangeUrlPrivateConnectionName;
             resourceInputs["kmsKeyArn"] = args?.kmsKeyArn;
+            resourceInputs["name"] = args?.name;
             resourceInputs["privateConnectionName"] = args?.privateConnectionName;
             resourceInputs["serviceDetails"] = args?.serviceDetails;
             resourceInputs["serviceType"] = args?.serviceType;
@@ -113,6 +118,7 @@ export class Service extends pulumi.CustomResource {
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["exchangeUrlPrivateConnectionName"] = undefined /*out*/;
             resourceInputs["kmsKeyArn"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
             resourceInputs["privateConnectionName"] = undefined /*out*/;
             resourceInputs["serviceDetails"] = undefined /*out*/;
             resourceInputs["serviceId"] = undefined /*out*/;
@@ -121,7 +127,7 @@ export class Service extends pulumi.CustomResource {
             resourceInputs["targetUrlPrivateConnectionName"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["exchangeUrlPrivateConnectionName", "kmsKeyArn", "privateConnectionName", "serviceDetails.azureIdentity", "serviceDetails.dynatrace", "serviceDetails.mcpServerSplunk", "serviceDetails.pagerDuty", "serviceDetails.serviceNow", "serviceType", "targetUrlPrivateConnectionName"] };
+        const replaceOnChanges = { replaceOnChanges: ["exchangeUrlPrivateConnectionName", "kmsKeyArn", "privateConnectionName", "serviceDetails.azureIdentity", "serviceDetails.dynatrace", "serviceDetails.gitHub", "serviceDetails.mcpServerSplunk", "serviceDetails.pagerDuty", "serviceDetails.serviceNow", "serviceType", "targetUrlPrivateConnectionName"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Service.__pulumiType, name, resourceInputs, opts);
     }
@@ -139,6 +145,10 @@ export interface ServiceArgs {
      * The ARN of the KMS key to use for encryption.
      */
     kmsKeyArn?: pulumi.Input<string | undefined>;
+    /**
+     * The display name for the service registration.
+     */
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the private connection to use for VPC connectivity.
      */

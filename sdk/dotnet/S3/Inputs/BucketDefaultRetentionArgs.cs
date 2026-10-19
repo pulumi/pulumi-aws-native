@@ -23,6 +23,10 @@ namespace Pulumi.AwsNative.S3.Inputs
         [Input("days")]
         public Input<int>? Days { get; set; }
 
+        /// <summary>
+        /// The default Object Lock event hold duration that you want to apply to new objects placed in the specified bucket. When the event hold is released, Amazon S3 retains the object version for this duration.
+        ///   If you specify both a default retention period (``Days`` or ``Years``) and a ``DefaultEventHold``, the event hold duration can't exceed the default retention period.
+        /// </summary>
         [Input("defaultEventHold")]
         public Input<Inputs.BucketDefaultEventHoldArgs>? DefaultEventHold { get; set; }
 

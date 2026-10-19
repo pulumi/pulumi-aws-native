@@ -204,6 +204,30 @@ __all__ = [
     'SessionConnectionsListArgsDict',
     'SourceProcessingPropertiesPropertiesArgs',
     'SourceProcessingPropertiesPropertiesArgsDict',
+    'TableColumnArgs',
+    'TableColumnArgsDict',
+    'TableIcebergInputArgs',
+    'TableIcebergInputArgsDict',
+    'TableIcebergPartitionFieldArgs',
+    'TableIcebergPartitionFieldArgsDict',
+    'TableIcebergPartitionSpecArgs',
+    'TableIcebergPartitionSpecArgsDict',
+    'TableIcebergSchemaArgs',
+    'TableIcebergSchemaArgsDict',
+    'TableIcebergSortFieldArgs',
+    'TableIcebergSortFieldArgsDict',
+    'TableIcebergSortOrderArgs',
+    'TableIcebergSortOrderArgsDict',
+    'TableIcebergStructFieldArgs',
+    'TableIcebergStructFieldArgsDict',
+    'TableIcebergTableInputArgs',
+    'TableIcebergTableInputArgsDict',
+    'TableIdentifierArgs',
+    'TableIdentifierArgsDict',
+    'TableInputArgs',
+    'TableInputArgsDict',
+    'TableOpenTableFormatInputArgs',
+    'TableOpenTableFormatInputArgsDict',
     'TableOptimizerCompactionConfigurationArgs',
     'TableOptimizerCompactionConfigurationArgsDict',
     'TableOptimizerConfigurationArgs',
@@ -220,6 +244,22 @@ __all__ = [
     'TableOptimizerRetentionConfigurationArgsDict',
     'TableOptimizerVpcConfigurationArgs',
     'TableOptimizerVpcConfigurationArgsDict',
+    'TableOrderArgs',
+    'TableOrderArgsDict',
+    'TableSchemaIdArgs',
+    'TableSchemaIdArgsDict',
+    'TableSchemaReferenceArgs',
+    'TableSchemaReferenceArgsDict',
+    'TableSerdeInfoArgs',
+    'TableSerdeInfoArgsDict',
+    'TableSkewedInfoArgs',
+    'TableSkewedInfoArgsDict',
+    'TableStorageDescriptorArgs',
+    'TableStorageDescriptorArgsDict',
+    'TableViewDefinitionArgs',
+    'TableViewDefinitionArgsDict',
+    'TableViewRepresentationArgs',
+    'TableViewRepresentationArgsDict',
     'TargetProcessingPropertiesPropertiesArgs',
     'TargetProcessingPropertiesPropertiesArgsDict',
     'TriggerActionArgs',
@@ -7475,6 +7515,1136 @@ class SourceProcessingPropertiesPropertiesArgs:
         pulumi.set(self, "role_arn", value)
 
 
+class TableColumnArgsDict(TypedDict):
+    """
+    A column in a Table.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the Column.
+    """
+    comment: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A free-form text comment.
+    """
+    type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The data type of the Column.
+    """
+
+@pulumi.input_type
+class TableColumnArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[_builtins.str],
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        A column in a Table.
+
+        :param pulumi.Input[_builtins.str] name: The name of the Column.
+        :param pulumi.Input[_builtins.str] comment: A free-form text comment.
+        :param pulumi.Input[_builtins.str] type: The data type of the Column.
+        """
+        pulumi.set(__self__, "name", name)
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the Column.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def comment(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A free-form text comment.
+        """
+        return pulumi.get(self, "comment")
+
+    @comment.setter
+    def comment(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "comment", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The data type of the Column.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "type", value)
+
+
+class TableIcebergInputArgsDict(TypedDict):
+    """
+    Specifies an input structure that defines an Apache Iceberg metadata table.
+    """
+    iceberg_table_input: NotRequired[pulumi.Input[Optional['TableIcebergTableInputArgsDict']]]
+    """
+    Specifies the Iceberg table configuration.
+    """
+    metadata_operation: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A required metadata operation. Can only be set to CREATE.
+    """
+    version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The table version of the Iceberg table. Defaults to 2.
+    """
+
+@pulumi.input_type
+class TableIcebergInputArgs:
+    def __init__(__self__, *,
+                 iceberg_table_input: pulumi.Input[Optional['TableIcebergTableInputArgs']] = None,
+                 metadata_operation: pulumi.Input[Optional[_builtins.str]] = None,
+                 version: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        Specifies an input structure that defines an Apache Iceberg metadata table.
+
+        :param pulumi.Input['TableIcebergTableInputArgs'] iceberg_table_input: Specifies the Iceberg table configuration.
+        :param pulumi.Input[_builtins.str] metadata_operation: A required metadata operation. Can only be set to CREATE.
+        :param pulumi.Input[_builtins.str] version: The table version of the Iceberg table. Defaults to 2.
+        """
+        if iceberg_table_input is not None:
+            pulumi.set(__self__, "iceberg_table_input", iceberg_table_input)
+        if metadata_operation is not None:
+            pulumi.set(__self__, "metadata_operation", metadata_operation)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
+
+    @_builtins.property
+    @pulumi.getter(name="icebergTableInput")
+    def iceberg_table_input(self) -> pulumi.Input[Optional['TableIcebergTableInputArgs']]:
+        """
+        Specifies the Iceberg table configuration.
+        """
+        return pulumi.get(self, "iceberg_table_input")
+
+    @iceberg_table_input.setter
+    def iceberg_table_input(self, value: pulumi.Input[Optional['TableIcebergTableInputArgs']]):
+        pulumi.set(self, "iceberg_table_input", value)
+
+    @_builtins.property
+    @pulumi.getter(name="metadataOperation")
+    def metadata_operation(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A required metadata operation. Can only be set to CREATE.
+        """
+        return pulumi.get(self, "metadata_operation")
+
+    @metadata_operation.setter
+    def metadata_operation(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "metadata_operation", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def version(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The table version of the Iceberg table. Defaults to 2.
+        """
+        return pulumi.get(self, "version")
+
+    @version.setter
+    def version(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "version", value)
+
+
+class TableIcebergPartitionFieldArgsDict(TypedDict):
+    """
+    A partition field in an Iceberg partition spec.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The partition field name.
+    """
+    source_id: pulumi.Input[_builtins.int]
+    """
+    The source field ID.
+    """
+    transform: pulumi.Input[_builtins.str]
+    """
+    The transform to apply.
+    """
+    field_id: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    The partition field ID.
+    """
+
+@pulumi.input_type
+class TableIcebergPartitionFieldArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[_builtins.str],
+                 source_id: pulumi.Input[_builtins.int],
+                 transform: pulumi.Input[_builtins.str],
+                 field_id: pulumi.Input[Optional[_builtins.int]] = None):
+        """
+        A partition field in an Iceberg partition spec.
+
+        :param pulumi.Input[_builtins.str] name: The partition field name.
+        :param pulumi.Input[_builtins.int] source_id: The source field ID.
+        :param pulumi.Input[_builtins.str] transform: The transform to apply.
+        :param pulumi.Input[_builtins.int] field_id: The partition field ID.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "source_id", source_id)
+        pulumi.set(__self__, "transform", transform)
+        if field_id is not None:
+            pulumi.set(__self__, "field_id", field_id)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The partition field name.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="sourceId")
+    def source_id(self) -> pulumi.Input[_builtins.int]:
+        """
+        The source field ID.
+        """
+        return pulumi.get(self, "source_id")
+
+    @source_id.setter
+    def source_id(self, value: pulumi.Input[_builtins.int]):
+        pulumi.set(self, "source_id", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def transform(self) -> pulumi.Input[_builtins.str]:
+        """
+        The transform to apply.
+        """
+        return pulumi.get(self, "transform")
+
+    @transform.setter
+    def transform(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "transform", value)
+
+    @_builtins.property
+    @pulumi.getter(name="fieldId")
+    def field_id(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        The partition field ID.
+        """
+        return pulumi.get(self, "field_id")
+
+    @field_id.setter
+    def field_id(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "field_id", value)
+
+
+class TableIcebergPartitionSpecArgsDict(TypedDict):
+    """
+    The partition spec for an Iceberg table.
+    """
+    fields: pulumi.Input[Sequence[pulumi.Input['TableIcebergPartitionFieldArgsDict']]]
+    """
+    The partition fields.
+    """
+    spec_id: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    The spec ID.
+    """
+
+@pulumi.input_type
+class TableIcebergPartitionSpecArgs:
+    def __init__(__self__, *,
+                 fields: pulumi.Input[Sequence[pulumi.Input['TableIcebergPartitionFieldArgs']]],
+                 spec_id: pulumi.Input[Optional[_builtins.int]] = None):
+        """
+        The partition spec for an Iceberg table.
+
+        :param pulumi.Input[Sequence[pulumi.Input['TableIcebergPartitionFieldArgs']]] fields: The partition fields.
+        :param pulumi.Input[_builtins.int] spec_id: The spec ID.
+        """
+        pulumi.set(__self__, "fields", fields)
+        if spec_id is not None:
+            pulumi.set(__self__, "spec_id", spec_id)
+
+    @_builtins.property
+    @pulumi.getter
+    def fields(self) -> pulumi.Input[Sequence[pulumi.Input['TableIcebergPartitionFieldArgs']]]:
+        """
+        The partition fields.
+        """
+        return pulumi.get(self, "fields")
+
+    @fields.setter
+    def fields(self, value: pulumi.Input[Sequence[pulumi.Input['TableIcebergPartitionFieldArgs']]]):
+        pulumi.set(self, "fields", value)
+
+    @_builtins.property
+    @pulumi.getter(name="specId")
+    def spec_id(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        The spec ID.
+        """
+        return pulumi.get(self, "spec_id")
+
+    @spec_id.setter
+    def spec_id(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "spec_id", value)
+
+
+class TableIcebergSchemaArgsDict(TypedDict):
+    """
+    The schema for an Iceberg table.
+    """
+    fields: pulumi.Input[Sequence[pulumi.Input['TableIcebergStructFieldArgsDict']]]
+    """
+    The fields in the schema.
+    """
+    identifier_field_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]]]
+    """
+    The identifier field IDs.
+    """
+    schema_id: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    The schema ID.
+    """
+    type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The type of the schema.
+    """
+
+@pulumi.input_type
+class TableIcebergSchemaArgs:
+    def __init__(__self__, *,
+                 fields: pulumi.Input[Sequence[pulumi.Input['TableIcebergStructFieldArgs']]],
+                 identifier_field_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]] = None,
+                 schema_id: pulumi.Input[Optional[_builtins.int]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        The schema for an Iceberg table.
+
+        :param pulumi.Input[Sequence[pulumi.Input['TableIcebergStructFieldArgs']]] fields: The fields in the schema.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] identifier_field_ids: The identifier field IDs.
+        :param pulumi.Input[_builtins.int] schema_id: The schema ID.
+        :param pulumi.Input[_builtins.str] type: The type of the schema.
+        """
+        pulumi.set(__self__, "fields", fields)
+        if identifier_field_ids is not None:
+            pulumi.set(__self__, "identifier_field_ids", identifier_field_ids)
+        if schema_id is not None:
+            pulumi.set(__self__, "schema_id", schema_id)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter
+    def fields(self) -> pulumi.Input[Sequence[pulumi.Input['TableIcebergStructFieldArgs']]]:
+        """
+        The fields in the schema.
+        """
+        return pulumi.get(self, "fields")
+
+    @fields.setter
+    def fields(self, value: pulumi.Input[Sequence[pulumi.Input['TableIcebergStructFieldArgs']]]):
+        pulumi.set(self, "fields", value)
+
+    @_builtins.property
+    @pulumi.getter(name="identifierFieldIds")
+    def identifier_field_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]]:
+        """
+        The identifier field IDs.
+        """
+        return pulumi.get(self, "identifier_field_ids")
+
+    @identifier_field_ids.setter
+    def identifier_field_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]]):
+        pulumi.set(self, "identifier_field_ids", value)
+
+    @_builtins.property
+    @pulumi.getter(name="schemaId")
+    def schema_id(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        The schema ID.
+        """
+        return pulumi.get(self, "schema_id")
+
+    @schema_id.setter
+    def schema_id(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "schema_id", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The type of the schema.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "type", value)
+
+
+class TableIcebergSortFieldArgsDict(TypedDict):
+    """
+    A sort field in an Iceberg sort order.
+    """
+    direction: pulumi.Input[_builtins.str]
+    """
+    The sort direction.
+    """
+    null_order: pulumi.Input[_builtins.str]
+    """
+    The null ordering.
+    """
+    source_id: pulumi.Input[_builtins.int]
+    """
+    The source field ID.
+    """
+    transform: pulumi.Input[_builtins.str]
+    """
+    The transform to apply.
+    """
+
+@pulumi.input_type
+class TableIcebergSortFieldArgs:
+    def __init__(__self__, *,
+                 direction: pulumi.Input[_builtins.str],
+                 null_order: pulumi.Input[_builtins.str],
+                 source_id: pulumi.Input[_builtins.int],
+                 transform: pulumi.Input[_builtins.str]):
+        """
+        A sort field in an Iceberg sort order.
+
+        :param pulumi.Input[_builtins.str] direction: The sort direction.
+        :param pulumi.Input[_builtins.str] null_order: The null ordering.
+        :param pulumi.Input[_builtins.int] source_id: The source field ID.
+        :param pulumi.Input[_builtins.str] transform: The transform to apply.
+        """
+        pulumi.set(__self__, "direction", direction)
+        pulumi.set(__self__, "null_order", null_order)
+        pulumi.set(__self__, "source_id", source_id)
+        pulumi.set(__self__, "transform", transform)
+
+    @_builtins.property
+    @pulumi.getter
+    def direction(self) -> pulumi.Input[_builtins.str]:
+        """
+        The sort direction.
+        """
+        return pulumi.get(self, "direction")
+
+    @direction.setter
+    def direction(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "direction", value)
+
+    @_builtins.property
+    @pulumi.getter(name="nullOrder")
+    def null_order(self) -> pulumi.Input[_builtins.str]:
+        """
+        The null ordering.
+        """
+        return pulumi.get(self, "null_order")
+
+    @null_order.setter
+    def null_order(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "null_order", value)
+
+    @_builtins.property
+    @pulumi.getter(name="sourceId")
+    def source_id(self) -> pulumi.Input[_builtins.int]:
+        """
+        The source field ID.
+        """
+        return pulumi.get(self, "source_id")
+
+    @source_id.setter
+    def source_id(self, value: pulumi.Input[_builtins.int]):
+        pulumi.set(self, "source_id", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def transform(self) -> pulumi.Input[_builtins.str]:
+        """
+        The transform to apply.
+        """
+        return pulumi.get(self, "transform")
+
+    @transform.setter
+    def transform(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "transform", value)
+
+
+class TableIcebergSortOrderArgsDict(TypedDict):
+    """
+    The sort order for an Iceberg table.
+    """
+    fields: pulumi.Input[Sequence[pulumi.Input['TableIcebergSortFieldArgsDict']]]
+    """
+    The sort fields.
+    """
+    order_id: pulumi.Input[_builtins.int]
+    """
+    The order ID.
+    """
+
+@pulumi.input_type
+class TableIcebergSortOrderArgs:
+    def __init__(__self__, *,
+                 fields: pulumi.Input[Sequence[pulumi.Input['TableIcebergSortFieldArgs']]],
+                 order_id: pulumi.Input[_builtins.int]):
+        """
+        The sort order for an Iceberg table.
+
+        :param pulumi.Input[Sequence[pulumi.Input['TableIcebergSortFieldArgs']]] fields: The sort fields.
+        :param pulumi.Input[_builtins.int] order_id: The order ID.
+        """
+        pulumi.set(__self__, "fields", fields)
+        pulumi.set(__self__, "order_id", order_id)
+
+    @_builtins.property
+    @pulumi.getter
+    def fields(self) -> pulumi.Input[Sequence[pulumi.Input['TableIcebergSortFieldArgs']]]:
+        """
+        The sort fields.
+        """
+        return pulumi.get(self, "fields")
+
+    @fields.setter
+    def fields(self, value: pulumi.Input[Sequence[pulumi.Input['TableIcebergSortFieldArgs']]]):
+        pulumi.set(self, "fields", value)
+
+    @_builtins.property
+    @pulumi.getter(name="orderId")
+    def order_id(self) -> pulumi.Input[_builtins.int]:
+        """
+        The order ID.
+        """
+        return pulumi.get(self, "order_id")
+
+    @order_id.setter
+    def order_id(self, value: pulumi.Input[_builtins.int]):
+        pulumi.set(self, "order_id", value)
+
+
+class TableIcebergStructFieldArgsDict(TypedDict):
+    """
+    A field in an Iceberg schema.
+    """
+    id: pulumi.Input[_builtins.int]
+    """
+    The field ID.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The field name.
+    """
+    required: pulumi.Input[_builtins.bool]
+    """
+    Whether the field is required.
+    """
+    type: pulumi.Input[_builtins.str]
+    """
+    The field type.
+    """
+    doc: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Documentation for the field.
+    """
+
+@pulumi.input_type
+class TableIcebergStructFieldArgs:
+    def __init__(__self__, *,
+                 id: pulumi.Input[_builtins.int],
+                 name: pulumi.Input[_builtins.str],
+                 required: pulumi.Input[_builtins.bool],
+                 type: pulumi.Input[_builtins.str],
+                 doc: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        A field in an Iceberg schema.
+
+        :param pulumi.Input[_builtins.int] id: The field ID.
+        :param pulumi.Input[_builtins.str] name: The field name.
+        :param pulumi.Input[_builtins.bool] required: Whether the field is required.
+        :param pulumi.Input[_builtins.str] type: The field type.
+        :param pulumi.Input[_builtins.str] doc: Documentation for the field.
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "required", required)
+        pulumi.set(__self__, "type", type)
+        if doc is not None:
+            pulumi.set(__self__, "doc", doc)
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> pulumi.Input[_builtins.int]:
+        """
+        The field ID.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: pulumi.Input[_builtins.int]):
+        pulumi.set(self, "id", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The field name.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def required(self) -> pulumi.Input[_builtins.bool]:
+        """
+        Whether the field is required.
+        """
+        return pulumi.get(self, "required")
+
+    @required.setter
+    def required(self, value: pulumi.Input[_builtins.bool]):
+        pulumi.set(self, "required", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[_builtins.str]:
+        """
+        The field type.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "type", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def doc(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Documentation for the field.
+        """
+        return pulumi.get(self, "doc")
+
+    @doc.setter
+    def doc(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "doc", value)
+
+
+class TableIcebergTableInputArgsDict(TypedDict):
+    """
+    Specifies the Iceberg table configuration.
+    """
+    location: pulumi.Input[_builtins.str]
+    """
+    The location of the Iceberg table.
+    """
+    schema: pulumi.Input['TableIcebergSchemaArgsDict']
+    """
+    The schema for the Iceberg table.
+    """
+    partition_spec: NotRequired[pulumi.Input[Optional['TableIcebergPartitionSpecArgsDict']]]
+    """
+    The partition spec for the Iceberg table.
+    """
+    properties: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
+    """
+    The properties for the Iceberg table.
+    """
+    write_order: NotRequired[pulumi.Input[Optional['TableIcebergSortOrderArgsDict']]]
+    """
+    The write order for the Iceberg table.
+    """
+
+@pulumi.input_type
+class TableIcebergTableInputArgs:
+    def __init__(__self__, *,
+                 location: pulumi.Input[_builtins.str],
+                 schema: pulumi.Input['TableIcebergSchemaArgs'],
+                 partition_spec: pulumi.Input[Optional['TableIcebergPartitionSpecArgs']] = None,
+                 properties: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 write_order: pulumi.Input[Optional['TableIcebergSortOrderArgs']] = None):
+        """
+        Specifies the Iceberg table configuration.
+
+        :param pulumi.Input[_builtins.str] location: The location of the Iceberg table.
+        :param pulumi.Input['TableIcebergSchemaArgs'] schema: The schema for the Iceberg table.
+        :param pulumi.Input['TableIcebergPartitionSpecArgs'] partition_spec: The partition spec for the Iceberg table.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] properties: The properties for the Iceberg table.
+        :param pulumi.Input['TableIcebergSortOrderArgs'] write_order: The write order for the Iceberg table.
+        """
+        pulumi.set(__self__, "location", location)
+        pulumi.set(__self__, "schema", schema)
+        if partition_spec is not None:
+            pulumi.set(__self__, "partition_spec", partition_spec)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
+        if write_order is not None:
+            pulumi.set(__self__, "write_order", write_order)
+
+    @_builtins.property
+    @pulumi.getter
+    def location(self) -> pulumi.Input[_builtins.str]:
+        """
+        The location of the Iceberg table.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "location", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def schema(self) -> pulumi.Input['TableIcebergSchemaArgs']:
+        """
+        The schema for the Iceberg table.
+        """
+        return pulumi.get(self, "schema")
+
+    @schema.setter
+    def schema(self, value: pulumi.Input['TableIcebergSchemaArgs']):
+        pulumi.set(self, "schema", value)
+
+    @_builtins.property
+    @pulumi.getter(name="partitionSpec")
+    def partition_spec(self) -> pulumi.Input[Optional['TableIcebergPartitionSpecArgs']]:
+        """
+        The partition spec for the Iceberg table.
+        """
+        return pulumi.get(self, "partition_spec")
+
+    @partition_spec.setter
+    def partition_spec(self, value: pulumi.Input[Optional['TableIcebergPartitionSpecArgs']]):
+        pulumi.set(self, "partition_spec", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def properties(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
+        """
+        The properties for the Iceberg table.
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "properties", value)
+
+    @_builtins.property
+    @pulumi.getter(name="writeOrder")
+    def write_order(self) -> pulumi.Input[Optional['TableIcebergSortOrderArgs']]:
+        """
+        The write order for the Iceberg table.
+        """
+        return pulumi.get(self, "write_order")
+
+    @write_order.setter
+    def write_order(self, value: pulumi.Input[Optional['TableIcebergSortOrderArgs']]):
+        pulumi.set(self, "write_order", value)
+
+
+class TableIdentifierArgsDict(TypedDict):
+    """
+    A structure that describes a target table for resource linking.
+    """
+    catalog_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The ID of the Data Catalog in which the table resides.
+    """
+    database_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The name of the catalog database that contains the target table.
+    """
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The name of the target table.
+    """
+    region: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The Region of the table.
+    """
+
+@pulumi.input_type
+class TableIdentifierArgs:
+    def __init__(__self__, *,
+                 catalog_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 database_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        A structure that describes a target table for resource linking.
+
+        :param pulumi.Input[_builtins.str] catalog_id: The ID of the Data Catalog in which the table resides.
+        :param pulumi.Input[_builtins.str] database_name: The name of the catalog database that contains the target table.
+        :param pulumi.Input[_builtins.str] name: The name of the target table.
+        :param pulumi.Input[_builtins.str] region: The Region of the table.
+        """
+        if catalog_id is not None:
+            pulumi.set(__self__, "catalog_id", catalog_id)
+        if database_name is not None:
+            pulumi.set(__self__, "database_name", database_name)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
+
+    @_builtins.property
+    @pulumi.getter(name="catalogId")
+    def catalog_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The ID of the Data Catalog in which the table resides.
+        """
+        return pulumi.get(self, "catalog_id")
+
+    @catalog_id.setter
+    def catalog_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "catalog_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the catalog database that contains the target table.
+        """
+        return pulumi.get(self, "database_name")
+
+    @database_name.setter
+    def database_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "database_name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the target table.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The Region of the table.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "region", value)
+
+
+class TableInputArgsDict(TypedDict):
+    """
+    A structure used to define a table.
+    """
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A description of the table.
+    """
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The table name. For Hive compatibility, this is folded to lowercase when it is stored.
+    """
+    owner: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The table owner. Included for Apache Hive compatibility. Not used in the normal course of AWS Glue operations.
+    """
+    parameters: NotRequired[Any]
+    """
+    These key-value pairs define properties associated with the table.
+    """
+    partition_keys: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TableColumnArgsDict']]]]]
+    """
+    A list of columns by which the table is partitioned. Only primitive types are supported as partition keys.
+    """
+    retention: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    The retention time for this table.
+    """
+    storage_descriptor: NotRequired[pulumi.Input[Optional['TableStorageDescriptorArgsDict']]]
+    """
+    A storage descriptor containing information about the physical storage of this table.
+    """
+    table_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The type of this table. AWS Glue will create tables with the EXTERNAL_TABLE type. Other services, such as Athena, may create tables with additional table types.
+    """
+    target_table: NotRequired[pulumi.Input[Optional['TableIdentifierArgsDict']]]
+    """
+    A TableIdentifier structure that describes a target table for resource linking.
+    """
+    view_definition: NotRequired[pulumi.Input[Optional['TableViewDefinitionArgsDict']]]
+    """
+    The view definition for the table.
+    """
+    view_expanded_text: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Included for Apache Hive compatibility. Not used in the normal course of AWS Glue operations.
+    """
+    view_original_text: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Included for Apache Hive compatibility. Not used in the normal course of AWS Glue operations.
+    """
+
+@pulumi.input_type
+class TableInputArgs:
+    def __init__(__self__, *,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 owner: pulumi.Input[Optional[_builtins.str]] = None,
+                 parameters: Optional[Any] = None,
+                 partition_keys: pulumi.Input[Optional[Sequence[pulumi.Input['TableColumnArgs']]]] = None,
+                 retention: pulumi.Input[Optional[_builtins.int]] = None,
+                 storage_descriptor: pulumi.Input[Optional['TableStorageDescriptorArgs']] = None,
+                 table_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_table: pulumi.Input[Optional['TableIdentifierArgs']] = None,
+                 view_definition: pulumi.Input[Optional['TableViewDefinitionArgs']] = None,
+                 view_expanded_text: pulumi.Input[Optional[_builtins.str]] = None,
+                 view_original_text: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        A structure used to define a table.
+
+        :param pulumi.Input[_builtins.str] description: A description of the table.
+        :param pulumi.Input[_builtins.str] name: The table name. For Hive compatibility, this is folded to lowercase when it is stored.
+        :param pulumi.Input[_builtins.str] owner: The table owner. Included for Apache Hive compatibility. Not used in the normal course of AWS Glue operations.
+        :param Any parameters: These key-value pairs define properties associated with the table.
+        :param pulumi.Input[Sequence[pulumi.Input['TableColumnArgs']]] partition_keys: A list of columns by which the table is partitioned. Only primitive types are supported as partition keys.
+        :param pulumi.Input[_builtins.int] retention: The retention time for this table.
+        :param pulumi.Input['TableStorageDescriptorArgs'] storage_descriptor: A storage descriptor containing information about the physical storage of this table.
+        :param pulumi.Input[_builtins.str] table_type: The type of this table. AWS Glue will create tables with the EXTERNAL_TABLE type. Other services, such as Athena, may create tables with additional table types.
+        :param pulumi.Input['TableIdentifierArgs'] target_table: A TableIdentifier structure that describes a target table for resource linking.
+        :param pulumi.Input['TableViewDefinitionArgs'] view_definition: The view definition for the table.
+        :param pulumi.Input[_builtins.str] view_expanded_text: Included for Apache Hive compatibility. Not used in the normal course of AWS Glue operations.
+        :param pulumi.Input[_builtins.str] view_original_text: Included for Apache Hive compatibility. Not used in the normal course of AWS Glue operations.
+        """
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if owner is not None:
+            pulumi.set(__self__, "owner", owner)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+        if partition_keys is not None:
+            pulumi.set(__self__, "partition_keys", partition_keys)
+        if retention is not None:
+            pulumi.set(__self__, "retention", retention)
+        if storage_descriptor is not None:
+            pulumi.set(__self__, "storage_descriptor", storage_descriptor)
+        if table_type is not None:
+            pulumi.set(__self__, "table_type", table_type)
+        if target_table is not None:
+            pulumi.set(__self__, "target_table", target_table)
+        if view_definition is not None:
+            pulumi.set(__self__, "view_definition", view_definition)
+        if view_expanded_text is not None:
+            pulumi.set(__self__, "view_expanded_text", view_expanded_text)
+        if view_original_text is not None:
+            pulumi.set(__self__, "view_original_text", view_original_text)
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A description of the table.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "description", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The table name. For Hive compatibility, this is folded to lowercase when it is stored.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def owner(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The table owner. Included for Apache Hive compatibility. Not used in the normal course of AWS Glue operations.
+        """
+        return pulumi.get(self, "owner")
+
+    @owner.setter
+    def owner(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "owner", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def parameters(self) -> Optional[Any]:
+        """
+        These key-value pairs define properties associated with the table.
+        """
+        return pulumi.get(self, "parameters")
+
+    @parameters.setter
+    def parameters(self, value: Optional[Any]):
+        pulumi.set(self, "parameters", value)
+
+    @_builtins.property
+    @pulumi.getter(name="partitionKeys")
+    def partition_keys(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['TableColumnArgs']]]]:
+        """
+        A list of columns by which the table is partitioned. Only primitive types are supported as partition keys.
+        """
+        return pulumi.get(self, "partition_keys")
+
+    @partition_keys.setter
+    def partition_keys(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['TableColumnArgs']]]]):
+        pulumi.set(self, "partition_keys", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def retention(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        The retention time for this table.
+        """
+        return pulumi.get(self, "retention")
+
+    @retention.setter
+    def retention(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "retention", value)
+
+    @_builtins.property
+    @pulumi.getter(name="storageDescriptor")
+    def storage_descriptor(self) -> pulumi.Input[Optional['TableStorageDescriptorArgs']]:
+        """
+        A storage descriptor containing information about the physical storage of this table.
+        """
+        return pulumi.get(self, "storage_descriptor")
+
+    @storage_descriptor.setter
+    def storage_descriptor(self, value: pulumi.Input[Optional['TableStorageDescriptorArgs']]):
+        pulumi.set(self, "storage_descriptor", value)
+
+    @_builtins.property
+    @pulumi.getter(name="tableType")
+    def table_type(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The type of this table. AWS Glue will create tables with the EXTERNAL_TABLE type. Other services, such as Athena, may create tables with additional table types.
+        """
+        return pulumi.get(self, "table_type")
+
+    @table_type.setter
+    def table_type(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "table_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="targetTable")
+    def target_table(self) -> pulumi.Input[Optional['TableIdentifierArgs']]:
+        """
+        A TableIdentifier structure that describes a target table for resource linking.
+        """
+        return pulumi.get(self, "target_table")
+
+    @target_table.setter
+    def target_table(self, value: pulumi.Input[Optional['TableIdentifierArgs']]):
+        pulumi.set(self, "target_table", value)
+
+    @_builtins.property
+    @pulumi.getter(name="viewDefinition")
+    def view_definition(self) -> pulumi.Input[Optional['TableViewDefinitionArgs']]:
+        """
+        The view definition for the table.
+        """
+        return pulumi.get(self, "view_definition")
+
+    @view_definition.setter
+    def view_definition(self, value: pulumi.Input[Optional['TableViewDefinitionArgs']]):
+        pulumi.set(self, "view_definition", value)
+
+    @_builtins.property
+    @pulumi.getter(name="viewExpandedText")
+    def view_expanded_text(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Included for Apache Hive compatibility. Not used in the normal course of AWS Glue operations.
+        """
+        return pulumi.get(self, "view_expanded_text")
+
+    @view_expanded_text.setter
+    def view_expanded_text(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "view_expanded_text", value)
+
+    @_builtins.property
+    @pulumi.getter(name="viewOriginalText")
+    def view_original_text(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Included for Apache Hive compatibility. Not used in the normal course of AWS Glue operations.
+        """
+        return pulumi.get(self, "view_original_text")
+
+    @view_original_text.setter
+    def view_original_text(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "view_original_text", value)
+
+
+class TableOpenTableFormatInputArgsDict(TypedDict):
+    """
+    Specifies an OpenTableFormatInput structure when creating an open format table.
+    """
+    iceberg_input: NotRequired[pulumi.Input[Optional['TableIcebergInputArgsDict']]]
+    """
+    Specifies an IcebergInput structure that defines an Apache Iceberg metadata table.
+    """
+
+@pulumi.input_type
+class TableOpenTableFormatInputArgs:
+    def __init__(__self__, *,
+                 iceberg_input: pulumi.Input[Optional['TableIcebergInputArgs']] = None):
+        """
+        Specifies an OpenTableFormatInput structure when creating an open format table.
+
+        :param pulumi.Input['TableIcebergInputArgs'] iceberg_input: Specifies an IcebergInput structure that defines an Apache Iceberg metadata table.
+        """
+        if iceberg_input is not None:
+            pulumi.set(__self__, "iceberg_input", iceberg_input)
+
+    @_builtins.property
+    @pulumi.getter(name="icebergInput")
+    def iceberg_input(self) -> pulumi.Input[Optional['TableIcebergInputArgs']]:
+        """
+        Specifies an IcebergInput structure that defines an Apache Iceberg metadata table.
+        """
+        return pulumi.get(self, "iceberg_input")
+
+    @iceberg_input.setter
+    def iceberg_input(self, value: pulumi.Input[Optional['TableIcebergInputArgs']]):
+        pulumi.set(self, "iceberg_input", value)
+
+
 class TableOptimizerCompactionConfigurationArgsDict(TypedDict):
     iceberg_configuration: NotRequired[pulumi.Input[Optional['TableOptimizerIcebergCompactionConfigurationArgsDict']]]
     """
@@ -7880,6 +9050,836 @@ class TableOptimizerVpcConfigurationArgs:
     @glue_connection_name.setter
     def glue_connection_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "glue_connection_name", value)
+
+
+class TableOrderArgsDict(TypedDict):
+    """
+    Specifies the sort order of a sorted column.
+    """
+    column: pulumi.Input[_builtins.str]
+    """
+    The name of the column.
+    """
+    sort_order: pulumi.Input[_builtins.int]
+    """
+    Indicates that the column is sorted in ascending order (==1), or in descending order (==0).
+    """
+
+@pulumi.input_type
+class TableOrderArgs:
+    def __init__(__self__, *,
+                 column: pulumi.Input[_builtins.str],
+                 sort_order: pulumi.Input[_builtins.int]):
+        """
+        Specifies the sort order of a sorted column.
+
+        :param pulumi.Input[_builtins.str] column: The name of the column.
+        :param pulumi.Input[_builtins.int] sort_order: Indicates that the column is sorted in ascending order (==1), or in descending order (==0).
+        """
+        pulumi.set(__self__, "column", column)
+        pulumi.set(__self__, "sort_order", sort_order)
+
+    @_builtins.property
+    @pulumi.getter
+    def column(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the column.
+        """
+        return pulumi.get(self, "column")
+
+    @column.setter
+    def column(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "column", value)
+
+    @_builtins.property
+    @pulumi.getter(name="sortOrder")
+    def sort_order(self) -> pulumi.Input[_builtins.int]:
+        """
+        Indicates that the column is sorted in ascending order (==1), or in descending order (==0).
+        """
+        return pulumi.get(self, "sort_order")
+
+    @sort_order.setter
+    def sort_order(self, value: pulumi.Input[_builtins.int]):
+        pulumi.set(self, "sort_order", value)
+
+
+class TableSchemaIdArgsDict(TypedDict):
+    """
+    A structure that contains schema identity fields. Either this or the SchemaVersionId has to be provided.
+    """
+    registry_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The name of the schema registry that contains the schema.
+    """
+    schema_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The Amazon Resource Name (ARN) of the schema. One of SchemaArn or SchemaName has to be provided.
+    """
+    schema_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The name of the schema. One of SchemaArn or SchemaName has to be provided.
+    """
+
+@pulumi.input_type
+class TableSchemaIdArgs:
+    def __init__(__self__, *,
+                 registry_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 schema_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 schema_name: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        A structure that contains schema identity fields. Either this or the SchemaVersionId has to be provided.
+
+        :param pulumi.Input[_builtins.str] registry_name: The name of the schema registry that contains the schema.
+        :param pulumi.Input[_builtins.str] schema_arn: The Amazon Resource Name (ARN) of the schema. One of SchemaArn or SchemaName has to be provided.
+        :param pulumi.Input[_builtins.str] schema_name: The name of the schema. One of SchemaArn or SchemaName has to be provided.
+        """
+        if registry_name is not None:
+            pulumi.set(__self__, "registry_name", registry_name)
+        if schema_arn is not None:
+            pulumi.set(__self__, "schema_arn", schema_arn)
+        if schema_name is not None:
+            pulumi.set(__self__, "schema_name", schema_name)
+
+    @_builtins.property
+    @pulumi.getter(name="registryName")
+    def registry_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the schema registry that contains the schema.
+        """
+        return pulumi.get(self, "registry_name")
+
+    @registry_name.setter
+    def registry_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "registry_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="schemaArn")
+    def schema_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The Amazon Resource Name (ARN) of the schema. One of SchemaArn or SchemaName has to be provided.
+        """
+        return pulumi.get(self, "schema_arn")
+
+    @schema_arn.setter
+    def schema_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "schema_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="schemaName")
+    def schema_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the schema. One of SchemaArn or SchemaName has to be provided.
+        """
+        return pulumi.get(self, "schema_name")
+
+    @schema_name.setter
+    def schema_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "schema_name", value)
+
+
+class TableSchemaReferenceArgsDict(TypedDict):
+    """
+    An object that references a schema stored in the AWS Glue Schema Registry.
+    """
+    schema_id: NotRequired[pulumi.Input[Optional['TableSchemaIdArgsDict']]]
+    """
+    A structure that contains schema identity fields. Either this or the SchemaVersionId has to be provided.
+    """
+    schema_version_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The unique ID assigned to a version of the schema. Either this or the SchemaId has to be provided.
+    """
+    schema_version_number: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    The version number of the schema.
+    """
+
+@pulumi.input_type
+class TableSchemaReferenceArgs:
+    def __init__(__self__, *,
+                 schema_id: pulumi.Input[Optional['TableSchemaIdArgs']] = None,
+                 schema_version_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 schema_version_number: pulumi.Input[Optional[_builtins.int]] = None):
+        """
+        An object that references a schema stored in the AWS Glue Schema Registry.
+
+        :param pulumi.Input['TableSchemaIdArgs'] schema_id: A structure that contains schema identity fields. Either this or the SchemaVersionId has to be provided.
+        :param pulumi.Input[_builtins.str] schema_version_id: The unique ID assigned to a version of the schema. Either this or the SchemaId has to be provided.
+        :param pulumi.Input[_builtins.int] schema_version_number: The version number of the schema.
+        """
+        if schema_id is not None:
+            pulumi.set(__self__, "schema_id", schema_id)
+        if schema_version_id is not None:
+            pulumi.set(__self__, "schema_version_id", schema_version_id)
+        if schema_version_number is not None:
+            pulumi.set(__self__, "schema_version_number", schema_version_number)
+
+    @_builtins.property
+    @pulumi.getter(name="schemaId")
+    def schema_id(self) -> pulumi.Input[Optional['TableSchemaIdArgs']]:
+        """
+        A structure that contains schema identity fields. Either this or the SchemaVersionId has to be provided.
+        """
+        return pulumi.get(self, "schema_id")
+
+    @schema_id.setter
+    def schema_id(self, value: pulumi.Input[Optional['TableSchemaIdArgs']]):
+        pulumi.set(self, "schema_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="schemaVersionId")
+    def schema_version_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The unique ID assigned to a version of the schema. Either this or the SchemaId has to be provided.
+        """
+        return pulumi.get(self, "schema_version_id")
+
+    @schema_version_id.setter
+    def schema_version_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "schema_version_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="schemaVersionNumber")
+    def schema_version_number(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        The version number of the schema.
+        """
+        return pulumi.get(self, "schema_version_number")
+
+    @schema_version_number.setter
+    def schema_version_number(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "schema_version_number", value)
+
+
+class TableSerdeInfoArgsDict(TypedDict):
+    """
+    Information about a serialization/deserialization program (SerDe) that serves as an extractor an loader.
+    """
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Name of the SerDe.
+    """
+    parameters: NotRequired[Any]
+    """
+    These key-value pairs define initialization parameters for the SerDe.
+    """
+    serialization_library: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Usually the class that implements the SerDe. An example is org.apache.hadoop.hive.serde2.columnar.ColumnarSerDe.
+    """
+
+@pulumi.input_type
+class TableSerdeInfoArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 parameters: Optional[Any] = None,
+                 serialization_library: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        Information about a serialization/deserialization program (SerDe) that serves as an extractor an loader.
+
+        :param pulumi.Input[_builtins.str] name: Name of the SerDe.
+        :param Any parameters: These key-value pairs define initialization parameters for the SerDe.
+        :param pulumi.Input[_builtins.str] serialization_library: Usually the class that implements the SerDe. An example is org.apache.hadoop.hive.serde2.columnar.ColumnarSerDe.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+        if serialization_library is not None:
+            pulumi.set(__self__, "serialization_library", serialization_library)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name of the SerDe.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def parameters(self) -> Optional[Any]:
+        """
+        These key-value pairs define initialization parameters for the SerDe.
+        """
+        return pulumi.get(self, "parameters")
+
+    @parameters.setter
+    def parameters(self, value: Optional[Any]):
+        pulumi.set(self, "parameters", value)
+
+    @_builtins.property
+    @pulumi.getter(name="serializationLibrary")
+    def serialization_library(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Usually the class that implements the SerDe. An example is org.apache.hadoop.hive.serde2.columnar.ColumnarSerDe.
+        """
+        return pulumi.get(self, "serialization_library")
+
+    @serialization_library.setter
+    def serialization_library(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "serialization_library", value)
+
+
+class TableSkewedInfoArgsDict(TypedDict):
+    """
+    Specifies skewed values in a table. Skewed values are those that occur with very high frequency.
+    """
+    skewed_column_names: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    A list of names of columns that contain skewed values.
+    """
+    skewed_column_value_location_maps: NotRequired[Any]
+    """
+    A mapping of skewed values to the columns that contain them.
+    """
+    skewed_column_values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    A list of names of columns that contain skewed values.
+    """
+
+@pulumi.input_type
+class TableSkewedInfoArgs:
+    def __init__(__self__, *,
+                 skewed_column_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 skewed_column_value_location_maps: Optional[Any] = None,
+                 skewed_column_values: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        Specifies skewed values in a table. Skewed values are those that occur with very high frequency.
+
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] skewed_column_names: A list of names of columns that contain skewed values.
+        :param Any skewed_column_value_location_maps: A mapping of skewed values to the columns that contain them.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] skewed_column_values: A list of names of columns that contain skewed values.
+        """
+        if skewed_column_names is not None:
+            pulumi.set(__self__, "skewed_column_names", skewed_column_names)
+        if skewed_column_value_location_maps is not None:
+            pulumi.set(__self__, "skewed_column_value_location_maps", skewed_column_value_location_maps)
+        if skewed_column_values is not None:
+            pulumi.set(__self__, "skewed_column_values", skewed_column_values)
+
+    @_builtins.property
+    @pulumi.getter(name="skewedColumnNames")
+    def skewed_column_names(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        A list of names of columns that contain skewed values.
+        """
+        return pulumi.get(self, "skewed_column_names")
+
+    @skewed_column_names.setter
+    def skewed_column_names(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "skewed_column_names", value)
+
+    @_builtins.property
+    @pulumi.getter(name="skewedColumnValueLocationMaps")
+    def skewed_column_value_location_maps(self) -> Optional[Any]:
+        """
+        A mapping of skewed values to the columns that contain them.
+        """
+        return pulumi.get(self, "skewed_column_value_location_maps")
+
+    @skewed_column_value_location_maps.setter
+    def skewed_column_value_location_maps(self, value: Optional[Any]):
+        pulumi.set(self, "skewed_column_value_location_maps", value)
+
+    @_builtins.property
+    @pulumi.getter(name="skewedColumnValues")
+    def skewed_column_values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        A list of names of columns that contain skewed values.
+        """
+        return pulumi.get(self, "skewed_column_values")
+
+    @skewed_column_values.setter
+    def skewed_column_values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "skewed_column_values", value)
+
+
+class TableStorageDescriptorArgsDict(TypedDict):
+    """
+    Describes the physical storage of table data.
+    """
+    bucket_columns: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    A list of reducer grouping columns, clustering columns, and bucketing columns in the table.
+    """
+    columns: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TableColumnArgsDict']]]]]
+    """
+    A list of the Columns in the table.
+    """
+    compressed: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    True if the data in the table is compressed, or False if not.
+    """
+    input_format: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The input format: SequenceFileInputFormat (binary), or TextInputFormat, or a custom format.
+    """
+    location: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The physical location of the table. By default, this takes the form of the warehouse location, followed by the database location in the warehouse, followed by the table name.
+    """
+    number_of_buckets: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    Must be specified if the table contains any dimension columns.
+    """
+    output_format: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The output format: SequenceFileOutputFormat (binary), or IgnoreKeyTextOutputFormat, or a custom format.
+    """
+    parameters: NotRequired[Any]
+    """
+    The user-supplied properties in key-value form.
+    """
+    schema_reference: NotRequired[pulumi.Input[Optional['TableSchemaReferenceArgsDict']]]
+    """
+    An object that references a schema stored in the AWS Glue Schema Registry.
+    """
+    serde_info: NotRequired[pulumi.Input[Optional['TableSerdeInfoArgsDict']]]
+    """
+    The serialization/deserialization (SerDe) information.
+    """
+    skewed_info: NotRequired[pulumi.Input[Optional['TableSkewedInfoArgsDict']]]
+    """
+    The information about values that appear frequently in a column (skewed values).
+    """
+    sort_columns: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TableOrderArgsDict']]]]]
+    """
+    A list specifying the sort order of each bucket in the table.
+    """
+    stored_as_sub_directories: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    True if the table data is stored in subdirectories, or False if not.
+    """
+
+@pulumi.input_type
+class TableStorageDescriptorArgs:
+    def __init__(__self__, *,
+                 bucket_columns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 columns: pulumi.Input[Optional[Sequence[pulumi.Input['TableColumnArgs']]]] = None,
+                 compressed: pulumi.Input[Optional[_builtins.bool]] = None,
+                 input_format: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 number_of_buckets: pulumi.Input[Optional[_builtins.int]] = None,
+                 output_format: pulumi.Input[Optional[_builtins.str]] = None,
+                 parameters: Optional[Any] = None,
+                 schema_reference: pulumi.Input[Optional['TableSchemaReferenceArgs']] = None,
+                 serde_info: pulumi.Input[Optional['TableSerdeInfoArgs']] = None,
+                 skewed_info: pulumi.Input[Optional['TableSkewedInfoArgs']] = None,
+                 sort_columns: pulumi.Input[Optional[Sequence[pulumi.Input['TableOrderArgs']]]] = None,
+                 stored_as_sub_directories: pulumi.Input[Optional[_builtins.bool]] = None):
+        """
+        Describes the physical storage of table data.
+
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] bucket_columns: A list of reducer grouping columns, clustering columns, and bucketing columns in the table.
+        :param pulumi.Input[Sequence[pulumi.Input['TableColumnArgs']]] columns: A list of the Columns in the table.
+        :param pulumi.Input[_builtins.bool] compressed: True if the data in the table is compressed, or False if not.
+        :param pulumi.Input[_builtins.str] input_format: The input format: SequenceFileInputFormat (binary), or TextInputFormat, or a custom format.
+        :param pulumi.Input[_builtins.str] location: The physical location of the table. By default, this takes the form of the warehouse location, followed by the database location in the warehouse, followed by the table name.
+        :param pulumi.Input[_builtins.int] number_of_buckets: Must be specified if the table contains any dimension columns.
+        :param pulumi.Input[_builtins.str] output_format: The output format: SequenceFileOutputFormat (binary), or IgnoreKeyTextOutputFormat, or a custom format.
+        :param Any parameters: The user-supplied properties in key-value form.
+        :param pulumi.Input['TableSchemaReferenceArgs'] schema_reference: An object that references a schema stored in the AWS Glue Schema Registry.
+        :param pulumi.Input['TableSerdeInfoArgs'] serde_info: The serialization/deserialization (SerDe) information.
+        :param pulumi.Input['TableSkewedInfoArgs'] skewed_info: The information about values that appear frequently in a column (skewed values).
+        :param pulumi.Input[Sequence[pulumi.Input['TableOrderArgs']]] sort_columns: A list specifying the sort order of each bucket in the table.
+        :param pulumi.Input[_builtins.bool] stored_as_sub_directories: True if the table data is stored in subdirectories, or False if not.
+        """
+        if bucket_columns is not None:
+            pulumi.set(__self__, "bucket_columns", bucket_columns)
+        if columns is not None:
+            pulumi.set(__self__, "columns", columns)
+        if compressed is not None:
+            pulumi.set(__self__, "compressed", compressed)
+        if input_format is not None:
+            pulumi.set(__self__, "input_format", input_format)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if number_of_buckets is not None:
+            pulumi.set(__self__, "number_of_buckets", number_of_buckets)
+        if output_format is not None:
+            pulumi.set(__self__, "output_format", output_format)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+        if schema_reference is not None:
+            pulumi.set(__self__, "schema_reference", schema_reference)
+        if serde_info is not None:
+            pulumi.set(__self__, "serde_info", serde_info)
+        if skewed_info is not None:
+            pulumi.set(__self__, "skewed_info", skewed_info)
+        if sort_columns is not None:
+            pulumi.set(__self__, "sort_columns", sort_columns)
+        if stored_as_sub_directories is not None:
+            pulumi.set(__self__, "stored_as_sub_directories", stored_as_sub_directories)
+
+    @_builtins.property
+    @pulumi.getter(name="bucketColumns")
+    def bucket_columns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        A list of reducer grouping columns, clustering columns, and bucketing columns in the table.
+        """
+        return pulumi.get(self, "bucket_columns")
+
+    @bucket_columns.setter
+    def bucket_columns(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "bucket_columns", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def columns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['TableColumnArgs']]]]:
+        """
+        A list of the Columns in the table.
+        """
+        return pulumi.get(self, "columns")
+
+    @columns.setter
+    def columns(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['TableColumnArgs']]]]):
+        pulumi.set(self, "columns", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def compressed(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        True if the data in the table is compressed, or False if not.
+        """
+        return pulumi.get(self, "compressed")
+
+    @compressed.setter
+    def compressed(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "compressed", value)
+
+    @_builtins.property
+    @pulumi.getter(name="inputFormat")
+    def input_format(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The input format: SequenceFileInputFormat (binary), or TextInputFormat, or a custom format.
+        """
+        return pulumi.get(self, "input_format")
+
+    @input_format.setter
+    def input_format(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "input_format", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The physical location of the table. By default, this takes the form of the warehouse location, followed by the database location in the warehouse, followed by the table name.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "location", value)
+
+    @_builtins.property
+    @pulumi.getter(name="numberOfBuckets")
+    def number_of_buckets(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Must be specified if the table contains any dimension columns.
+        """
+        return pulumi.get(self, "number_of_buckets")
+
+    @number_of_buckets.setter
+    def number_of_buckets(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "number_of_buckets", value)
+
+    @_builtins.property
+    @pulumi.getter(name="outputFormat")
+    def output_format(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The output format: SequenceFileOutputFormat (binary), or IgnoreKeyTextOutputFormat, or a custom format.
+        """
+        return pulumi.get(self, "output_format")
+
+    @output_format.setter
+    def output_format(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "output_format", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def parameters(self) -> Optional[Any]:
+        """
+        The user-supplied properties in key-value form.
+        """
+        return pulumi.get(self, "parameters")
+
+    @parameters.setter
+    def parameters(self, value: Optional[Any]):
+        pulumi.set(self, "parameters", value)
+
+    @_builtins.property
+    @pulumi.getter(name="schemaReference")
+    def schema_reference(self) -> pulumi.Input[Optional['TableSchemaReferenceArgs']]:
+        """
+        An object that references a schema stored in the AWS Glue Schema Registry.
+        """
+        return pulumi.get(self, "schema_reference")
+
+    @schema_reference.setter
+    def schema_reference(self, value: pulumi.Input[Optional['TableSchemaReferenceArgs']]):
+        pulumi.set(self, "schema_reference", value)
+
+    @_builtins.property
+    @pulumi.getter(name="serdeInfo")
+    def serde_info(self) -> pulumi.Input[Optional['TableSerdeInfoArgs']]:
+        """
+        The serialization/deserialization (SerDe) information.
+        """
+        return pulumi.get(self, "serde_info")
+
+    @serde_info.setter
+    def serde_info(self, value: pulumi.Input[Optional['TableSerdeInfoArgs']]):
+        pulumi.set(self, "serde_info", value)
+
+    @_builtins.property
+    @pulumi.getter(name="skewedInfo")
+    def skewed_info(self) -> pulumi.Input[Optional['TableSkewedInfoArgs']]:
+        """
+        The information about values that appear frequently in a column (skewed values).
+        """
+        return pulumi.get(self, "skewed_info")
+
+    @skewed_info.setter
+    def skewed_info(self, value: pulumi.Input[Optional['TableSkewedInfoArgs']]):
+        pulumi.set(self, "skewed_info", value)
+
+    @_builtins.property
+    @pulumi.getter(name="sortColumns")
+    def sort_columns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['TableOrderArgs']]]]:
+        """
+        A list specifying the sort order of each bucket in the table.
+        """
+        return pulumi.get(self, "sort_columns")
+
+    @sort_columns.setter
+    def sort_columns(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['TableOrderArgs']]]]):
+        pulumi.set(self, "sort_columns", value)
+
+    @_builtins.property
+    @pulumi.getter(name="storedAsSubDirectories")
+    def stored_as_sub_directories(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        True if the table data is stored in subdirectories, or False if not.
+        """
+        return pulumi.get(self, "stored_as_sub_directories")
+
+    @stored_as_sub_directories.setter
+    def stored_as_sub_directories(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "stored_as_sub_directories", value)
+
+
+class TableViewDefinitionArgsDict(TypedDict):
+    """
+    A structure that defines the view.
+    """
+    definer: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The definer of the view.
+    """
+    is_protected: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    Indicates whether the view is protected.
+    """
+    representations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TableViewRepresentationArgsDict']]]]]
+    """
+    The representations of the view.
+    """
+    sub_objects: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    The sub-objects of the view.
+    """
+
+@pulumi.input_type
+class TableViewDefinitionArgs:
+    def __init__(__self__, *,
+                 definer: pulumi.Input[Optional[_builtins.str]] = None,
+                 is_protected: pulumi.Input[Optional[_builtins.bool]] = None,
+                 representations: pulumi.Input[Optional[Sequence[pulumi.Input['TableViewRepresentationArgs']]]] = None,
+                 sub_objects: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        A structure that defines the view.
+
+        :param pulumi.Input[_builtins.str] definer: The definer of the view.
+        :param pulumi.Input[_builtins.bool] is_protected: Indicates whether the view is protected.
+        :param pulumi.Input[Sequence[pulumi.Input['TableViewRepresentationArgs']]] representations: The representations of the view.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] sub_objects: The sub-objects of the view.
+        """
+        if definer is not None:
+            pulumi.set(__self__, "definer", definer)
+        if is_protected is not None:
+            pulumi.set(__self__, "is_protected", is_protected)
+        if representations is not None:
+            pulumi.set(__self__, "representations", representations)
+        if sub_objects is not None:
+            pulumi.set(__self__, "sub_objects", sub_objects)
+
+    @_builtins.property
+    @pulumi.getter
+    def definer(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The definer of the view.
+        """
+        return pulumi.get(self, "definer")
+
+    @definer.setter
+    def definer(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "definer", value)
+
+    @_builtins.property
+    @pulumi.getter(name="isProtected")
+    def is_protected(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Indicates whether the view is protected.
+        """
+        return pulumi.get(self, "is_protected")
+
+    @is_protected.setter
+    def is_protected(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "is_protected", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def representations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['TableViewRepresentationArgs']]]]:
+        """
+        The representations of the view.
+        """
+        return pulumi.get(self, "representations")
+
+    @representations.setter
+    def representations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['TableViewRepresentationArgs']]]]):
+        pulumi.set(self, "representations", value)
+
+    @_builtins.property
+    @pulumi.getter(name="subObjects")
+    def sub_objects(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        The sub-objects of the view.
+        """
+        return pulumi.get(self, "sub_objects")
+
+    @sub_objects.setter
+    def sub_objects(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "sub_objects", value)
+
+
+class TableViewRepresentationArgsDict(TypedDict):
+    """
+    A structure that defines a view representation.
+    """
+    dialect: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The dialect of the view representation.
+    """
+    dialect_version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The version of the dialect.
+    """
+    validation_connection: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The connection used for validation.
+    """
+    view_expanded_text: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The expanded text of the view.
+    """
+    view_original_text: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The original text of the view.
+    """
+
+@pulumi.input_type
+class TableViewRepresentationArgs:
+    def __init__(__self__, *,
+                 dialect: pulumi.Input[Optional[_builtins.str]] = None,
+                 dialect_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 validation_connection: pulumi.Input[Optional[_builtins.str]] = None,
+                 view_expanded_text: pulumi.Input[Optional[_builtins.str]] = None,
+                 view_original_text: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        A structure that defines a view representation.
+
+        :param pulumi.Input[_builtins.str] dialect: The dialect of the view representation.
+        :param pulumi.Input[_builtins.str] dialect_version: The version of the dialect.
+        :param pulumi.Input[_builtins.str] validation_connection: The connection used for validation.
+        :param pulumi.Input[_builtins.str] view_expanded_text: The expanded text of the view.
+        :param pulumi.Input[_builtins.str] view_original_text: The original text of the view.
+        """
+        if dialect is not None:
+            pulumi.set(__self__, "dialect", dialect)
+        if dialect_version is not None:
+            pulumi.set(__self__, "dialect_version", dialect_version)
+        if validation_connection is not None:
+            pulumi.set(__self__, "validation_connection", validation_connection)
+        if view_expanded_text is not None:
+            pulumi.set(__self__, "view_expanded_text", view_expanded_text)
+        if view_original_text is not None:
+            pulumi.set(__self__, "view_original_text", view_original_text)
+
+    @_builtins.property
+    @pulumi.getter
+    def dialect(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The dialect of the view representation.
+        """
+        return pulumi.get(self, "dialect")
+
+    @dialect.setter
+    def dialect(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "dialect", value)
+
+    @_builtins.property
+    @pulumi.getter(name="dialectVersion")
+    def dialect_version(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The version of the dialect.
+        """
+        return pulumi.get(self, "dialect_version")
+
+    @dialect_version.setter
+    def dialect_version(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "dialect_version", value)
+
+    @_builtins.property
+    @pulumi.getter(name="validationConnection")
+    def validation_connection(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The connection used for validation.
+        """
+        return pulumi.get(self, "validation_connection")
+
+    @validation_connection.setter
+    def validation_connection(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "validation_connection", value)
+
+    @_builtins.property
+    @pulumi.getter(name="viewExpandedText")
+    def view_expanded_text(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The expanded text of the view.
+        """
+        return pulumi.get(self, "view_expanded_text")
+
+    @view_expanded_text.setter
+    def view_expanded_text(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "view_expanded_text", value)
+
+    @_builtins.property
+    @pulumi.getter(name="viewOriginalText")
+    def view_original_text(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The original text of the view.
+        """
+        return pulumi.get(self, "view_original_text")
+
+    @view_original_text.setter
+    def view_original_text(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "view_original_text", value)
 
 
 class TargetProcessingPropertiesPropertiesArgsDict(TypedDict):

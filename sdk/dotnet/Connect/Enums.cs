@@ -1915,6 +1915,37 @@ namespace Pulumi.AwsNative.Connect
     }
 
     /// <summary>
+    /// The priority of the notification.
+    /// </summary>
+    [EnumType]
+    public readonly struct RuleSendInAppNotificationActionPriority : IEquatable<RuleSendInAppNotificationActionPriority>
+    {
+        private readonly string _value;
+
+        private RuleSendInAppNotificationActionPriority(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static RuleSendInAppNotificationActionPriority High { get; } = new RuleSendInAppNotificationActionPriority("HIGH");
+        public static RuleSendInAppNotificationActionPriority Low { get; } = new RuleSendInAppNotificationActionPriority("LOW");
+
+        public static bool operator ==(RuleSendInAppNotificationActionPriority left, RuleSendInAppNotificationActionPriority right) => left.Equals(right);
+        public static bool operator !=(RuleSendInAppNotificationActionPriority left, RuleSendInAppNotificationActionPriority right) => !left.Equals(right);
+
+        public static explicit operator string(RuleSendInAppNotificationActionPriority value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is RuleSendInAppNotificationActionPriority other && Equals(other);
+        public bool Equals(RuleSendInAppNotificationActionPriority other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Content type format.
     ///  *Allowed value*: ``PLAIN_TEXT``
     /// </summary>

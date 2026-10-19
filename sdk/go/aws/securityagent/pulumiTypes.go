@@ -2644,6 +2644,1002 @@ type ApplicationTag struct {
 	Value string `pulumi:"value"`
 }
 
+// The input required to create a Bitbucket integration.
+type IntegrationBitbucketInput struct {
+	// The OAuth 2.0 authorization code returned from the consent redirect.
+	Code string `pulumi:"code"`
+	// The Atlassian installation identifier, available from the Atlassian administration console.
+	InstallationId string `pulumi:"installationId"`
+	// The CSRF state token echoed back from the OAuth redirect.
+	State string `pulumi:"state"`
+	// The Bitbucket workspace slug that identifies the workspace to integrate.
+	Workspace string `pulumi:"workspace"`
+}
+
+// IntegrationBitbucketInputInput is an input type that accepts IntegrationBitbucketInputArgs and IntegrationBitbucketInputOutput values.
+// You can construct a concrete instance of `IntegrationBitbucketInputInput` via:
+//
+//	IntegrationBitbucketInputArgs{...}
+type IntegrationBitbucketInputInput interface {
+	pulumi.Input
+
+	ToIntegrationBitbucketInputOutput() IntegrationBitbucketInputOutput
+	ToIntegrationBitbucketInputOutputWithContext(context.Context) IntegrationBitbucketInputOutput
+}
+
+// The input required to create a Bitbucket integration.
+type IntegrationBitbucketInputArgs struct {
+	// The OAuth 2.0 authorization code returned from the consent redirect.
+	Code pulumi.StringInput `pulumi:"code"`
+	// The Atlassian installation identifier, available from the Atlassian administration console.
+	InstallationId pulumi.StringInput `pulumi:"installationId"`
+	// The CSRF state token echoed back from the OAuth redirect.
+	State pulumi.StringInput `pulumi:"state"`
+	// The Bitbucket workspace slug that identifies the workspace to integrate.
+	Workspace pulumi.StringInput `pulumi:"workspace"`
+}
+
+func (IntegrationBitbucketInputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationBitbucketInput)(nil)).Elem()
+}
+
+func (i IntegrationBitbucketInputArgs) ToIntegrationBitbucketInputOutput() IntegrationBitbucketInputOutput {
+	return i.ToIntegrationBitbucketInputOutputWithContext(context.Background())
+}
+
+func (i IntegrationBitbucketInputArgs) ToIntegrationBitbucketInputOutputWithContext(ctx context.Context) IntegrationBitbucketInputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationBitbucketInputOutput)
+}
+
+func (i IntegrationBitbucketInputArgs) ToIntegrationBitbucketInputPtrOutput() IntegrationBitbucketInputPtrOutput {
+	return i.ToIntegrationBitbucketInputPtrOutputWithContext(context.Background())
+}
+
+func (i IntegrationBitbucketInputArgs) ToIntegrationBitbucketInputPtrOutputWithContext(ctx context.Context) IntegrationBitbucketInputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationBitbucketInputOutput).ToIntegrationBitbucketInputPtrOutputWithContext(ctx)
+}
+
+// IntegrationBitbucketInputPtrInput is an input type that accepts IntegrationBitbucketInputArgs, IntegrationBitbucketInputPtr and IntegrationBitbucketInputPtrOutput values.
+// You can construct a concrete instance of `IntegrationBitbucketInputPtrInput` via:
+//
+//	        IntegrationBitbucketInputArgs{...}
+//
+//	or:
+//
+//	        nil
+type IntegrationBitbucketInputPtrInput interface {
+	pulumi.Input
+
+	ToIntegrationBitbucketInputPtrOutput() IntegrationBitbucketInputPtrOutput
+	ToIntegrationBitbucketInputPtrOutputWithContext(context.Context) IntegrationBitbucketInputPtrOutput
+}
+
+type integrationBitbucketInputPtrType IntegrationBitbucketInputArgs
+
+func IntegrationBitbucketInputPtr(v *IntegrationBitbucketInputArgs) IntegrationBitbucketInputPtrInput {
+	return (*integrationBitbucketInputPtrType)(v)
+}
+
+func (*integrationBitbucketInputPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IntegrationBitbucketInput)(nil)).Elem()
+}
+
+func (i *integrationBitbucketInputPtrType) ToIntegrationBitbucketInputPtrOutput() IntegrationBitbucketInputPtrOutput {
+	return i.ToIntegrationBitbucketInputPtrOutputWithContext(context.Background())
+}
+
+func (i *integrationBitbucketInputPtrType) ToIntegrationBitbucketInputPtrOutputWithContext(ctx context.Context) IntegrationBitbucketInputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationBitbucketInputPtrOutput)
+}
+
+// The input required to create a Bitbucket integration.
+type IntegrationBitbucketInputOutput struct{ *pulumi.OutputState }
+
+func (IntegrationBitbucketInputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationBitbucketInput)(nil)).Elem()
+}
+
+func (o IntegrationBitbucketInputOutput) ToIntegrationBitbucketInputOutput() IntegrationBitbucketInputOutput {
+	return o
+}
+
+func (o IntegrationBitbucketInputOutput) ToIntegrationBitbucketInputOutputWithContext(ctx context.Context) IntegrationBitbucketInputOutput {
+	return o
+}
+
+func (o IntegrationBitbucketInputOutput) ToIntegrationBitbucketInputPtrOutput() IntegrationBitbucketInputPtrOutput {
+	return o.ToIntegrationBitbucketInputPtrOutputWithContext(context.Background())
+}
+
+func (o IntegrationBitbucketInputOutput) ToIntegrationBitbucketInputPtrOutputWithContext(ctx context.Context) IntegrationBitbucketInputPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IntegrationBitbucketInput) *IntegrationBitbucketInput {
+		return &v
+	}).(IntegrationBitbucketInputPtrOutput)
+}
+
+// The OAuth 2.0 authorization code returned from the consent redirect.
+func (o IntegrationBitbucketInputOutput) Code() pulumi.StringOutput {
+	return o.ApplyT(func(v IntegrationBitbucketInput) string { return v.Code }).(pulumi.StringOutput)
+}
+
+// The Atlassian installation identifier, available from the Atlassian administration console.
+func (o IntegrationBitbucketInputOutput) InstallationId() pulumi.StringOutput {
+	return o.ApplyT(func(v IntegrationBitbucketInput) string { return v.InstallationId }).(pulumi.StringOutput)
+}
+
+// The CSRF state token echoed back from the OAuth redirect.
+func (o IntegrationBitbucketInputOutput) State() pulumi.StringOutput {
+	return o.ApplyT(func(v IntegrationBitbucketInput) string { return v.State }).(pulumi.StringOutput)
+}
+
+// The Bitbucket workspace slug that identifies the workspace to integrate.
+func (o IntegrationBitbucketInputOutput) Workspace() pulumi.StringOutput {
+	return o.ApplyT(func(v IntegrationBitbucketInput) string { return v.Workspace }).(pulumi.StringOutput)
+}
+
+type IntegrationBitbucketInputPtrOutput struct{ *pulumi.OutputState }
+
+func (IntegrationBitbucketInputPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IntegrationBitbucketInput)(nil)).Elem()
+}
+
+func (o IntegrationBitbucketInputPtrOutput) ToIntegrationBitbucketInputPtrOutput() IntegrationBitbucketInputPtrOutput {
+	return o
+}
+
+func (o IntegrationBitbucketInputPtrOutput) ToIntegrationBitbucketInputPtrOutputWithContext(ctx context.Context) IntegrationBitbucketInputPtrOutput {
+	return o
+}
+
+func (o IntegrationBitbucketInputPtrOutput) Elem() IntegrationBitbucketInputOutput {
+	return o.ApplyT(func(v *IntegrationBitbucketInput) IntegrationBitbucketInput {
+		if v != nil {
+			return *v
+		}
+		var ret IntegrationBitbucketInput
+		return ret
+	}).(IntegrationBitbucketInputOutput)
+}
+
+// The OAuth 2.0 authorization code returned from the consent redirect.
+func (o IntegrationBitbucketInputPtrOutput) Code() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IntegrationBitbucketInput) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Code
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Atlassian installation identifier, available from the Atlassian administration console.
+func (o IntegrationBitbucketInputPtrOutput) InstallationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IntegrationBitbucketInput) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.InstallationId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The CSRF state token echoed back from the OAuth redirect.
+func (o IntegrationBitbucketInputPtrOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IntegrationBitbucketInput) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.State
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Bitbucket workspace slug that identifies the workspace to integrate.
+func (o IntegrationBitbucketInputPtrOutput) Workspace() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IntegrationBitbucketInput) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Workspace
+	}).(pulumi.StringPtrOutput)
+}
+
+// The input required to create a Confluence integration.
+type IntegrationConfluenceInput struct {
+	// The OAuth 2.0 authorization code returned from the consent redirect.
+	Code string `pulumi:"code"`
+	// The Atlassian installation identifier, available from the Atlassian administration console.
+	InstallationId string `pulumi:"installationId"`
+	// The Confluence Cloud site URL, for example https://mysite.atlassian.net.
+	SiteUrl string `pulumi:"siteUrl"`
+	// The CSRF state token echoed back from the OAuth redirect.
+	State string `pulumi:"state"`
+}
+
+// IntegrationConfluenceInputInput is an input type that accepts IntegrationConfluenceInputArgs and IntegrationConfluenceInputOutput values.
+// You can construct a concrete instance of `IntegrationConfluenceInputInput` via:
+//
+//	IntegrationConfluenceInputArgs{...}
+type IntegrationConfluenceInputInput interface {
+	pulumi.Input
+
+	ToIntegrationConfluenceInputOutput() IntegrationConfluenceInputOutput
+	ToIntegrationConfluenceInputOutputWithContext(context.Context) IntegrationConfluenceInputOutput
+}
+
+// The input required to create a Confluence integration.
+type IntegrationConfluenceInputArgs struct {
+	// The OAuth 2.0 authorization code returned from the consent redirect.
+	Code pulumi.StringInput `pulumi:"code"`
+	// The Atlassian installation identifier, available from the Atlassian administration console.
+	InstallationId pulumi.StringInput `pulumi:"installationId"`
+	// The Confluence Cloud site URL, for example https://mysite.atlassian.net.
+	SiteUrl pulumi.StringInput `pulumi:"siteUrl"`
+	// The CSRF state token echoed back from the OAuth redirect.
+	State pulumi.StringInput `pulumi:"state"`
+}
+
+func (IntegrationConfluenceInputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationConfluenceInput)(nil)).Elem()
+}
+
+func (i IntegrationConfluenceInputArgs) ToIntegrationConfluenceInputOutput() IntegrationConfluenceInputOutput {
+	return i.ToIntegrationConfluenceInputOutputWithContext(context.Background())
+}
+
+func (i IntegrationConfluenceInputArgs) ToIntegrationConfluenceInputOutputWithContext(ctx context.Context) IntegrationConfluenceInputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationConfluenceInputOutput)
+}
+
+func (i IntegrationConfluenceInputArgs) ToIntegrationConfluenceInputPtrOutput() IntegrationConfluenceInputPtrOutput {
+	return i.ToIntegrationConfluenceInputPtrOutputWithContext(context.Background())
+}
+
+func (i IntegrationConfluenceInputArgs) ToIntegrationConfluenceInputPtrOutputWithContext(ctx context.Context) IntegrationConfluenceInputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationConfluenceInputOutput).ToIntegrationConfluenceInputPtrOutputWithContext(ctx)
+}
+
+// IntegrationConfluenceInputPtrInput is an input type that accepts IntegrationConfluenceInputArgs, IntegrationConfluenceInputPtr and IntegrationConfluenceInputPtrOutput values.
+// You can construct a concrete instance of `IntegrationConfluenceInputPtrInput` via:
+//
+//	        IntegrationConfluenceInputArgs{...}
+//
+//	or:
+//
+//	        nil
+type IntegrationConfluenceInputPtrInput interface {
+	pulumi.Input
+
+	ToIntegrationConfluenceInputPtrOutput() IntegrationConfluenceInputPtrOutput
+	ToIntegrationConfluenceInputPtrOutputWithContext(context.Context) IntegrationConfluenceInputPtrOutput
+}
+
+type integrationConfluenceInputPtrType IntegrationConfluenceInputArgs
+
+func IntegrationConfluenceInputPtr(v *IntegrationConfluenceInputArgs) IntegrationConfluenceInputPtrInput {
+	return (*integrationConfluenceInputPtrType)(v)
+}
+
+func (*integrationConfluenceInputPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IntegrationConfluenceInput)(nil)).Elem()
+}
+
+func (i *integrationConfluenceInputPtrType) ToIntegrationConfluenceInputPtrOutput() IntegrationConfluenceInputPtrOutput {
+	return i.ToIntegrationConfluenceInputPtrOutputWithContext(context.Background())
+}
+
+func (i *integrationConfluenceInputPtrType) ToIntegrationConfluenceInputPtrOutputWithContext(ctx context.Context) IntegrationConfluenceInputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationConfluenceInputPtrOutput)
+}
+
+// The input required to create a Confluence integration.
+type IntegrationConfluenceInputOutput struct{ *pulumi.OutputState }
+
+func (IntegrationConfluenceInputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationConfluenceInput)(nil)).Elem()
+}
+
+func (o IntegrationConfluenceInputOutput) ToIntegrationConfluenceInputOutput() IntegrationConfluenceInputOutput {
+	return o
+}
+
+func (o IntegrationConfluenceInputOutput) ToIntegrationConfluenceInputOutputWithContext(ctx context.Context) IntegrationConfluenceInputOutput {
+	return o
+}
+
+func (o IntegrationConfluenceInputOutput) ToIntegrationConfluenceInputPtrOutput() IntegrationConfluenceInputPtrOutput {
+	return o.ToIntegrationConfluenceInputPtrOutputWithContext(context.Background())
+}
+
+func (o IntegrationConfluenceInputOutput) ToIntegrationConfluenceInputPtrOutputWithContext(ctx context.Context) IntegrationConfluenceInputPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IntegrationConfluenceInput) *IntegrationConfluenceInput {
+		return &v
+	}).(IntegrationConfluenceInputPtrOutput)
+}
+
+// The OAuth 2.0 authorization code returned from the consent redirect.
+func (o IntegrationConfluenceInputOutput) Code() pulumi.StringOutput {
+	return o.ApplyT(func(v IntegrationConfluenceInput) string { return v.Code }).(pulumi.StringOutput)
+}
+
+// The Atlassian installation identifier, available from the Atlassian administration console.
+func (o IntegrationConfluenceInputOutput) InstallationId() pulumi.StringOutput {
+	return o.ApplyT(func(v IntegrationConfluenceInput) string { return v.InstallationId }).(pulumi.StringOutput)
+}
+
+// The Confluence Cloud site URL, for example https://mysite.atlassian.net.
+func (o IntegrationConfluenceInputOutput) SiteUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v IntegrationConfluenceInput) string { return v.SiteUrl }).(pulumi.StringOutput)
+}
+
+// The CSRF state token echoed back from the OAuth redirect.
+func (o IntegrationConfluenceInputOutput) State() pulumi.StringOutput {
+	return o.ApplyT(func(v IntegrationConfluenceInput) string { return v.State }).(pulumi.StringOutput)
+}
+
+type IntegrationConfluenceInputPtrOutput struct{ *pulumi.OutputState }
+
+func (IntegrationConfluenceInputPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IntegrationConfluenceInput)(nil)).Elem()
+}
+
+func (o IntegrationConfluenceInputPtrOutput) ToIntegrationConfluenceInputPtrOutput() IntegrationConfluenceInputPtrOutput {
+	return o
+}
+
+func (o IntegrationConfluenceInputPtrOutput) ToIntegrationConfluenceInputPtrOutputWithContext(ctx context.Context) IntegrationConfluenceInputPtrOutput {
+	return o
+}
+
+func (o IntegrationConfluenceInputPtrOutput) Elem() IntegrationConfluenceInputOutput {
+	return o.ApplyT(func(v *IntegrationConfluenceInput) IntegrationConfluenceInput {
+		if v != nil {
+			return *v
+		}
+		var ret IntegrationConfluenceInput
+		return ret
+	}).(IntegrationConfluenceInputOutput)
+}
+
+// The OAuth 2.0 authorization code returned from the consent redirect.
+func (o IntegrationConfluenceInputPtrOutput) Code() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IntegrationConfluenceInput) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Code
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Atlassian installation identifier, available from the Atlassian administration console.
+func (o IntegrationConfluenceInputPtrOutput) InstallationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IntegrationConfluenceInput) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.InstallationId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Confluence Cloud site URL, for example https://mysite.atlassian.net.
+func (o IntegrationConfluenceInputPtrOutput) SiteUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IntegrationConfluenceInput) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SiteUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+// The CSRF state token echoed back from the OAuth redirect.
+func (o IntegrationConfluenceInputPtrOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IntegrationConfluenceInput) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.State
+	}).(pulumi.StringPtrOutput)
+}
+
+// The input required to create a GitHub integration.
+type IntegrationGitHubInput struct {
+	// The OAuth authorization code received from GitHub.
+	Code string `pulumi:"code"`
+	// The installation identifier provided by GitHub Enterprise Server on the install callback. Required for GitHub Enterprise Server integrations and ignored for GitHub.com.
+	InstallationId *string `pulumi:"installationId"`
+	// The name of the GitHub organization to integrate with.
+	OrganizationName *string `pulumi:"organizationName"`
+	// The CSRF state token for validating the OAuth flow.
+	State string `pulumi:"state"`
+	// The HTTPS URL of a self-hosted GitHub Enterprise Server instance. Omit this value for GitHub.com.
+	TargetUrl *string `pulumi:"targetUrl"`
+}
+
+// IntegrationGitHubInputInput is an input type that accepts IntegrationGitHubInputArgs and IntegrationGitHubInputOutput values.
+// You can construct a concrete instance of `IntegrationGitHubInputInput` via:
+//
+//	IntegrationGitHubInputArgs{...}
+type IntegrationGitHubInputInput interface {
+	pulumi.Input
+
+	ToIntegrationGitHubInputOutput() IntegrationGitHubInputOutput
+	ToIntegrationGitHubInputOutputWithContext(context.Context) IntegrationGitHubInputOutput
+}
+
+// The input required to create a GitHub integration.
+type IntegrationGitHubInputArgs struct {
+	// The OAuth authorization code received from GitHub.
+	Code pulumi.StringInput `pulumi:"code"`
+	// The installation identifier provided by GitHub Enterprise Server on the install callback. Required for GitHub Enterprise Server integrations and ignored for GitHub.com.
+	InstallationId pulumi.StringPtrInput `pulumi:"installationId"`
+	// The name of the GitHub organization to integrate with.
+	OrganizationName pulumi.StringPtrInput `pulumi:"organizationName"`
+	// The CSRF state token for validating the OAuth flow.
+	State pulumi.StringInput `pulumi:"state"`
+	// The HTTPS URL of a self-hosted GitHub Enterprise Server instance. Omit this value for GitHub.com.
+	TargetUrl pulumi.StringPtrInput `pulumi:"targetUrl"`
+}
+
+func (IntegrationGitHubInputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationGitHubInput)(nil)).Elem()
+}
+
+func (i IntegrationGitHubInputArgs) ToIntegrationGitHubInputOutput() IntegrationGitHubInputOutput {
+	return i.ToIntegrationGitHubInputOutputWithContext(context.Background())
+}
+
+func (i IntegrationGitHubInputArgs) ToIntegrationGitHubInputOutputWithContext(ctx context.Context) IntegrationGitHubInputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationGitHubInputOutput)
+}
+
+func (i IntegrationGitHubInputArgs) ToIntegrationGitHubInputPtrOutput() IntegrationGitHubInputPtrOutput {
+	return i.ToIntegrationGitHubInputPtrOutputWithContext(context.Background())
+}
+
+func (i IntegrationGitHubInputArgs) ToIntegrationGitHubInputPtrOutputWithContext(ctx context.Context) IntegrationGitHubInputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationGitHubInputOutput).ToIntegrationGitHubInputPtrOutputWithContext(ctx)
+}
+
+// IntegrationGitHubInputPtrInput is an input type that accepts IntegrationGitHubInputArgs, IntegrationGitHubInputPtr and IntegrationGitHubInputPtrOutput values.
+// You can construct a concrete instance of `IntegrationGitHubInputPtrInput` via:
+//
+//	        IntegrationGitHubInputArgs{...}
+//
+//	or:
+//
+//	        nil
+type IntegrationGitHubInputPtrInput interface {
+	pulumi.Input
+
+	ToIntegrationGitHubInputPtrOutput() IntegrationGitHubInputPtrOutput
+	ToIntegrationGitHubInputPtrOutputWithContext(context.Context) IntegrationGitHubInputPtrOutput
+}
+
+type integrationGitHubInputPtrType IntegrationGitHubInputArgs
+
+func IntegrationGitHubInputPtr(v *IntegrationGitHubInputArgs) IntegrationGitHubInputPtrInput {
+	return (*integrationGitHubInputPtrType)(v)
+}
+
+func (*integrationGitHubInputPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IntegrationGitHubInput)(nil)).Elem()
+}
+
+func (i *integrationGitHubInputPtrType) ToIntegrationGitHubInputPtrOutput() IntegrationGitHubInputPtrOutput {
+	return i.ToIntegrationGitHubInputPtrOutputWithContext(context.Background())
+}
+
+func (i *integrationGitHubInputPtrType) ToIntegrationGitHubInputPtrOutputWithContext(ctx context.Context) IntegrationGitHubInputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationGitHubInputPtrOutput)
+}
+
+// The input required to create a GitHub integration.
+type IntegrationGitHubInputOutput struct{ *pulumi.OutputState }
+
+func (IntegrationGitHubInputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationGitHubInput)(nil)).Elem()
+}
+
+func (o IntegrationGitHubInputOutput) ToIntegrationGitHubInputOutput() IntegrationGitHubInputOutput {
+	return o
+}
+
+func (o IntegrationGitHubInputOutput) ToIntegrationGitHubInputOutputWithContext(ctx context.Context) IntegrationGitHubInputOutput {
+	return o
+}
+
+func (o IntegrationGitHubInputOutput) ToIntegrationGitHubInputPtrOutput() IntegrationGitHubInputPtrOutput {
+	return o.ToIntegrationGitHubInputPtrOutputWithContext(context.Background())
+}
+
+func (o IntegrationGitHubInputOutput) ToIntegrationGitHubInputPtrOutputWithContext(ctx context.Context) IntegrationGitHubInputPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IntegrationGitHubInput) *IntegrationGitHubInput {
+		return &v
+	}).(IntegrationGitHubInputPtrOutput)
+}
+
+// The OAuth authorization code received from GitHub.
+func (o IntegrationGitHubInputOutput) Code() pulumi.StringOutput {
+	return o.ApplyT(func(v IntegrationGitHubInput) string { return v.Code }).(pulumi.StringOutput)
+}
+
+// The installation identifier provided by GitHub Enterprise Server on the install callback. Required for GitHub Enterprise Server integrations and ignored for GitHub.com.
+func (o IntegrationGitHubInputOutput) InstallationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IntegrationGitHubInput) *string { return v.InstallationId }).(pulumi.StringPtrOutput)
+}
+
+// The name of the GitHub organization to integrate with.
+func (o IntegrationGitHubInputOutput) OrganizationName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IntegrationGitHubInput) *string { return v.OrganizationName }).(pulumi.StringPtrOutput)
+}
+
+// The CSRF state token for validating the OAuth flow.
+func (o IntegrationGitHubInputOutput) State() pulumi.StringOutput {
+	return o.ApplyT(func(v IntegrationGitHubInput) string { return v.State }).(pulumi.StringOutput)
+}
+
+// The HTTPS URL of a self-hosted GitHub Enterprise Server instance. Omit this value for GitHub.com.
+func (o IntegrationGitHubInputOutput) TargetUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IntegrationGitHubInput) *string { return v.TargetUrl }).(pulumi.StringPtrOutput)
+}
+
+type IntegrationGitHubInputPtrOutput struct{ *pulumi.OutputState }
+
+func (IntegrationGitHubInputPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IntegrationGitHubInput)(nil)).Elem()
+}
+
+func (o IntegrationGitHubInputPtrOutput) ToIntegrationGitHubInputPtrOutput() IntegrationGitHubInputPtrOutput {
+	return o
+}
+
+func (o IntegrationGitHubInputPtrOutput) ToIntegrationGitHubInputPtrOutputWithContext(ctx context.Context) IntegrationGitHubInputPtrOutput {
+	return o
+}
+
+func (o IntegrationGitHubInputPtrOutput) Elem() IntegrationGitHubInputOutput {
+	return o.ApplyT(func(v *IntegrationGitHubInput) IntegrationGitHubInput {
+		if v != nil {
+			return *v
+		}
+		var ret IntegrationGitHubInput
+		return ret
+	}).(IntegrationGitHubInputOutput)
+}
+
+// The OAuth authorization code received from GitHub.
+func (o IntegrationGitHubInputPtrOutput) Code() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IntegrationGitHubInput) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Code
+	}).(pulumi.StringPtrOutput)
+}
+
+// The installation identifier provided by GitHub Enterprise Server on the install callback. Required for GitHub Enterprise Server integrations and ignored for GitHub.com.
+func (o IntegrationGitHubInputPtrOutput) InstallationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IntegrationGitHubInput) *string {
+		if v == nil {
+			return nil
+		}
+		return v.InstallationId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the GitHub organization to integrate with.
+func (o IntegrationGitHubInputPtrOutput) OrganizationName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IntegrationGitHubInput) *string {
+		if v == nil {
+			return nil
+		}
+		return v.OrganizationName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The CSRF state token for validating the OAuth flow.
+func (o IntegrationGitHubInputPtrOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IntegrationGitHubInput) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.State
+	}).(pulumi.StringPtrOutput)
+}
+
+// The HTTPS URL of a self-hosted GitHub Enterprise Server instance. Omit this value for GitHub.com.
+func (o IntegrationGitHubInputPtrOutput) TargetUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IntegrationGitHubInput) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TargetUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+// The input required to create a GitLab integration.
+type IntegrationGitLabInput struct {
+	// The GitLab access token used to authenticate. This can be a personal access token or a group access token.
+	AccessToken string `pulumi:"accessToken"`
+	// The identifier of the GitLab group. Required when TokenType is GROUP and ignored for personal tokens.
+	GroupId *string `pulumi:"groupId"`
+	// The HTTPS URL of a self-managed GitLab instance. Omit this value for GitLab SaaS (gitlab.com).
+	TargetUrl *string `pulumi:"targetUrl"`
+	// The type of GitLab access token.
+	TokenType IntegrationGitLabInputTokenType `pulumi:"tokenType"`
+}
+
+// IntegrationGitLabInputInput is an input type that accepts IntegrationGitLabInputArgs and IntegrationGitLabInputOutput values.
+// You can construct a concrete instance of `IntegrationGitLabInputInput` via:
+//
+//	IntegrationGitLabInputArgs{...}
+type IntegrationGitLabInputInput interface {
+	pulumi.Input
+
+	ToIntegrationGitLabInputOutput() IntegrationGitLabInputOutput
+	ToIntegrationGitLabInputOutputWithContext(context.Context) IntegrationGitLabInputOutput
+}
+
+// The input required to create a GitLab integration.
+type IntegrationGitLabInputArgs struct {
+	// The GitLab access token used to authenticate. This can be a personal access token or a group access token.
+	AccessToken pulumi.StringInput `pulumi:"accessToken"`
+	// The identifier of the GitLab group. Required when TokenType is GROUP and ignored for personal tokens.
+	GroupId pulumi.StringPtrInput `pulumi:"groupId"`
+	// The HTTPS URL of a self-managed GitLab instance. Omit this value for GitLab SaaS (gitlab.com).
+	TargetUrl pulumi.StringPtrInput `pulumi:"targetUrl"`
+	// The type of GitLab access token.
+	TokenType IntegrationGitLabInputTokenTypeInput `pulumi:"tokenType"`
+}
+
+func (IntegrationGitLabInputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationGitLabInput)(nil)).Elem()
+}
+
+func (i IntegrationGitLabInputArgs) ToIntegrationGitLabInputOutput() IntegrationGitLabInputOutput {
+	return i.ToIntegrationGitLabInputOutputWithContext(context.Background())
+}
+
+func (i IntegrationGitLabInputArgs) ToIntegrationGitLabInputOutputWithContext(ctx context.Context) IntegrationGitLabInputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationGitLabInputOutput)
+}
+
+func (i IntegrationGitLabInputArgs) ToIntegrationGitLabInputPtrOutput() IntegrationGitLabInputPtrOutput {
+	return i.ToIntegrationGitLabInputPtrOutputWithContext(context.Background())
+}
+
+func (i IntegrationGitLabInputArgs) ToIntegrationGitLabInputPtrOutputWithContext(ctx context.Context) IntegrationGitLabInputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationGitLabInputOutput).ToIntegrationGitLabInputPtrOutputWithContext(ctx)
+}
+
+// IntegrationGitLabInputPtrInput is an input type that accepts IntegrationGitLabInputArgs, IntegrationGitLabInputPtr and IntegrationGitLabInputPtrOutput values.
+// You can construct a concrete instance of `IntegrationGitLabInputPtrInput` via:
+//
+//	        IntegrationGitLabInputArgs{...}
+//
+//	or:
+//
+//	        nil
+type IntegrationGitLabInputPtrInput interface {
+	pulumi.Input
+
+	ToIntegrationGitLabInputPtrOutput() IntegrationGitLabInputPtrOutput
+	ToIntegrationGitLabInputPtrOutputWithContext(context.Context) IntegrationGitLabInputPtrOutput
+}
+
+type integrationGitLabInputPtrType IntegrationGitLabInputArgs
+
+func IntegrationGitLabInputPtr(v *IntegrationGitLabInputArgs) IntegrationGitLabInputPtrInput {
+	return (*integrationGitLabInputPtrType)(v)
+}
+
+func (*integrationGitLabInputPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IntegrationGitLabInput)(nil)).Elem()
+}
+
+func (i *integrationGitLabInputPtrType) ToIntegrationGitLabInputPtrOutput() IntegrationGitLabInputPtrOutput {
+	return i.ToIntegrationGitLabInputPtrOutputWithContext(context.Background())
+}
+
+func (i *integrationGitLabInputPtrType) ToIntegrationGitLabInputPtrOutputWithContext(ctx context.Context) IntegrationGitLabInputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationGitLabInputPtrOutput)
+}
+
+// The input required to create a GitLab integration.
+type IntegrationGitLabInputOutput struct{ *pulumi.OutputState }
+
+func (IntegrationGitLabInputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationGitLabInput)(nil)).Elem()
+}
+
+func (o IntegrationGitLabInputOutput) ToIntegrationGitLabInputOutput() IntegrationGitLabInputOutput {
+	return o
+}
+
+func (o IntegrationGitLabInputOutput) ToIntegrationGitLabInputOutputWithContext(ctx context.Context) IntegrationGitLabInputOutput {
+	return o
+}
+
+func (o IntegrationGitLabInputOutput) ToIntegrationGitLabInputPtrOutput() IntegrationGitLabInputPtrOutput {
+	return o.ToIntegrationGitLabInputPtrOutputWithContext(context.Background())
+}
+
+func (o IntegrationGitLabInputOutput) ToIntegrationGitLabInputPtrOutputWithContext(ctx context.Context) IntegrationGitLabInputPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IntegrationGitLabInput) *IntegrationGitLabInput {
+		return &v
+	}).(IntegrationGitLabInputPtrOutput)
+}
+
+// The GitLab access token used to authenticate. This can be a personal access token or a group access token.
+func (o IntegrationGitLabInputOutput) AccessToken() pulumi.StringOutput {
+	return o.ApplyT(func(v IntegrationGitLabInput) string { return v.AccessToken }).(pulumi.StringOutput)
+}
+
+// The identifier of the GitLab group. Required when TokenType is GROUP and ignored for personal tokens.
+func (o IntegrationGitLabInputOutput) GroupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IntegrationGitLabInput) *string { return v.GroupId }).(pulumi.StringPtrOutput)
+}
+
+// The HTTPS URL of a self-managed GitLab instance. Omit this value for GitLab SaaS (gitlab.com).
+func (o IntegrationGitLabInputOutput) TargetUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IntegrationGitLabInput) *string { return v.TargetUrl }).(pulumi.StringPtrOutput)
+}
+
+// The type of GitLab access token.
+func (o IntegrationGitLabInputOutput) TokenType() IntegrationGitLabInputTokenTypeOutput {
+	return o.ApplyT(func(v IntegrationGitLabInput) IntegrationGitLabInputTokenType { return v.TokenType }).(IntegrationGitLabInputTokenTypeOutput)
+}
+
+type IntegrationGitLabInputPtrOutput struct{ *pulumi.OutputState }
+
+func (IntegrationGitLabInputPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IntegrationGitLabInput)(nil)).Elem()
+}
+
+func (o IntegrationGitLabInputPtrOutput) ToIntegrationGitLabInputPtrOutput() IntegrationGitLabInputPtrOutput {
+	return o
+}
+
+func (o IntegrationGitLabInputPtrOutput) ToIntegrationGitLabInputPtrOutputWithContext(ctx context.Context) IntegrationGitLabInputPtrOutput {
+	return o
+}
+
+func (o IntegrationGitLabInputPtrOutput) Elem() IntegrationGitLabInputOutput {
+	return o.ApplyT(func(v *IntegrationGitLabInput) IntegrationGitLabInput {
+		if v != nil {
+			return *v
+		}
+		var ret IntegrationGitLabInput
+		return ret
+	}).(IntegrationGitLabInputOutput)
+}
+
+// The GitLab access token used to authenticate. This can be a personal access token or a group access token.
+func (o IntegrationGitLabInputPtrOutput) AccessToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IntegrationGitLabInput) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AccessToken
+	}).(pulumi.StringPtrOutput)
+}
+
+// The identifier of the GitLab group. Required when TokenType is GROUP and ignored for personal tokens.
+func (o IntegrationGitLabInputPtrOutput) GroupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IntegrationGitLabInput) *string {
+		if v == nil {
+			return nil
+		}
+		return v.GroupId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The HTTPS URL of a self-managed GitLab instance. Omit this value for GitLab SaaS (gitlab.com).
+func (o IntegrationGitLabInputPtrOutput) TargetUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IntegrationGitLabInput) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TargetUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of GitLab access token.
+func (o IntegrationGitLabInputPtrOutput) TokenType() IntegrationGitLabInputTokenTypePtrOutput {
+	return o.ApplyT(func(v *IntegrationGitLabInput) *IntegrationGitLabInputTokenType {
+		if v == nil {
+			return nil
+		}
+		return &v.TokenType
+	}).(IntegrationGitLabInputTokenTypePtrOutput)
+}
+
+// The provider-specific input required to create the integration. Exactly one of the provider input objects must be specified.
+type IntegrationProviderEnumInput struct {
+	Bitbucket  *IntegrationBitbucketInput  `pulumi:"bitbucket"`
+	Confluence *IntegrationConfluenceInput `pulumi:"confluence"`
+	Github     *IntegrationGitHubInput     `pulumi:"github"`
+	Gitlab     *IntegrationGitLabInput     `pulumi:"gitlab"`
+}
+
+// IntegrationProviderEnumInputInput is an input type that accepts IntegrationProviderEnumInputArgs and IntegrationProviderEnumInputOutput values.
+// You can construct a concrete instance of `IntegrationProviderEnumInputInput` via:
+//
+//	IntegrationProviderEnumInputArgs{...}
+type IntegrationProviderEnumInputInput interface {
+	pulumi.Input
+
+	ToIntegrationProviderEnumInputOutput() IntegrationProviderEnumInputOutput
+	ToIntegrationProviderEnumInputOutputWithContext(context.Context) IntegrationProviderEnumInputOutput
+}
+
+// The provider-specific input required to create the integration. Exactly one of the provider input objects must be specified.
+type IntegrationProviderEnumInputArgs struct {
+	Bitbucket  IntegrationBitbucketInputPtrInput  `pulumi:"bitbucket"`
+	Confluence IntegrationConfluenceInputPtrInput `pulumi:"confluence"`
+	Github     IntegrationGitHubInputPtrInput     `pulumi:"github"`
+	Gitlab     IntegrationGitLabInputPtrInput     `pulumi:"gitlab"`
+}
+
+func (IntegrationProviderEnumInputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationProviderEnumInput)(nil)).Elem()
+}
+
+func (i IntegrationProviderEnumInputArgs) ToIntegrationProviderEnumInputOutput() IntegrationProviderEnumInputOutput {
+	return i.ToIntegrationProviderEnumInputOutputWithContext(context.Background())
+}
+
+func (i IntegrationProviderEnumInputArgs) ToIntegrationProviderEnumInputOutputWithContext(ctx context.Context) IntegrationProviderEnumInputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationProviderEnumInputOutput)
+}
+
+func (i IntegrationProviderEnumInputArgs) ToIntegrationProviderEnumInputPtrOutput() IntegrationProviderEnumInputPtrOutput {
+	return i.ToIntegrationProviderEnumInputPtrOutputWithContext(context.Background())
+}
+
+func (i IntegrationProviderEnumInputArgs) ToIntegrationProviderEnumInputPtrOutputWithContext(ctx context.Context) IntegrationProviderEnumInputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationProviderEnumInputOutput).ToIntegrationProviderEnumInputPtrOutputWithContext(ctx)
+}
+
+// IntegrationProviderEnumInputPtrInput is an input type that accepts IntegrationProviderEnumInputArgs, IntegrationProviderEnumInputPtr and IntegrationProviderEnumInputPtrOutput values.
+// You can construct a concrete instance of `IntegrationProviderEnumInputPtrInput` via:
+//
+//	        IntegrationProviderEnumInputArgs{...}
+//
+//	or:
+//
+//	        nil
+type IntegrationProviderEnumInputPtrInput interface {
+	pulumi.Input
+
+	ToIntegrationProviderEnumInputPtrOutput() IntegrationProviderEnumInputPtrOutput
+	ToIntegrationProviderEnumInputPtrOutputWithContext(context.Context) IntegrationProviderEnumInputPtrOutput
+}
+
+type integrationProviderEnumInputPtrType IntegrationProviderEnumInputArgs
+
+func IntegrationProviderEnumInputPtr(v *IntegrationProviderEnumInputArgs) IntegrationProviderEnumInputPtrInput {
+	return (*integrationProviderEnumInputPtrType)(v)
+}
+
+func (*integrationProviderEnumInputPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IntegrationProviderEnumInput)(nil)).Elem()
+}
+
+func (i *integrationProviderEnumInputPtrType) ToIntegrationProviderEnumInputPtrOutput() IntegrationProviderEnumInputPtrOutput {
+	return i.ToIntegrationProviderEnumInputPtrOutputWithContext(context.Background())
+}
+
+func (i *integrationProviderEnumInputPtrType) ToIntegrationProviderEnumInputPtrOutputWithContext(ctx context.Context) IntegrationProviderEnumInputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationProviderEnumInputPtrOutput)
+}
+
+// The provider-specific input required to create the integration. Exactly one of the provider input objects must be specified.
+type IntegrationProviderEnumInputOutput struct{ *pulumi.OutputState }
+
+func (IntegrationProviderEnumInputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationProviderEnumInput)(nil)).Elem()
+}
+
+func (o IntegrationProviderEnumInputOutput) ToIntegrationProviderEnumInputOutput() IntegrationProviderEnumInputOutput {
+	return o
+}
+
+func (o IntegrationProviderEnumInputOutput) ToIntegrationProviderEnumInputOutputWithContext(ctx context.Context) IntegrationProviderEnumInputOutput {
+	return o
+}
+
+func (o IntegrationProviderEnumInputOutput) ToIntegrationProviderEnumInputPtrOutput() IntegrationProviderEnumInputPtrOutput {
+	return o.ToIntegrationProviderEnumInputPtrOutputWithContext(context.Background())
+}
+
+func (o IntegrationProviderEnumInputOutput) ToIntegrationProviderEnumInputPtrOutputWithContext(ctx context.Context) IntegrationProviderEnumInputPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IntegrationProviderEnumInput) *IntegrationProviderEnumInput {
+		return &v
+	}).(IntegrationProviderEnumInputPtrOutput)
+}
+
+func (o IntegrationProviderEnumInputOutput) Bitbucket() IntegrationBitbucketInputPtrOutput {
+	return o.ApplyT(func(v IntegrationProviderEnumInput) *IntegrationBitbucketInput { return v.Bitbucket }).(IntegrationBitbucketInputPtrOutput)
+}
+
+func (o IntegrationProviderEnumInputOutput) Confluence() IntegrationConfluenceInputPtrOutput {
+	return o.ApplyT(func(v IntegrationProviderEnumInput) *IntegrationConfluenceInput { return v.Confluence }).(IntegrationConfluenceInputPtrOutput)
+}
+
+func (o IntegrationProviderEnumInputOutput) Github() IntegrationGitHubInputPtrOutput {
+	return o.ApplyT(func(v IntegrationProviderEnumInput) *IntegrationGitHubInput { return v.Github }).(IntegrationGitHubInputPtrOutput)
+}
+
+func (o IntegrationProviderEnumInputOutput) Gitlab() IntegrationGitLabInputPtrOutput {
+	return o.ApplyT(func(v IntegrationProviderEnumInput) *IntegrationGitLabInput { return v.Gitlab }).(IntegrationGitLabInputPtrOutput)
+}
+
+type IntegrationProviderEnumInputPtrOutput struct{ *pulumi.OutputState }
+
+func (IntegrationProviderEnumInputPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IntegrationProviderEnumInput)(nil)).Elem()
+}
+
+func (o IntegrationProviderEnumInputPtrOutput) ToIntegrationProviderEnumInputPtrOutput() IntegrationProviderEnumInputPtrOutput {
+	return o
+}
+
+func (o IntegrationProviderEnumInputPtrOutput) ToIntegrationProviderEnumInputPtrOutputWithContext(ctx context.Context) IntegrationProviderEnumInputPtrOutput {
+	return o
+}
+
+func (o IntegrationProviderEnumInputPtrOutput) Elem() IntegrationProviderEnumInputOutput {
+	return o.ApplyT(func(v *IntegrationProviderEnumInput) IntegrationProviderEnumInput {
+		if v != nil {
+			return *v
+		}
+		var ret IntegrationProviderEnumInput
+		return ret
+	}).(IntegrationProviderEnumInputOutput)
+}
+
+func (o IntegrationProviderEnumInputPtrOutput) Bitbucket() IntegrationBitbucketInputPtrOutput {
+	return o.ApplyT(func(v *IntegrationProviderEnumInput) *IntegrationBitbucketInput {
+		if v == nil {
+			return nil
+		}
+		return v.Bitbucket
+	}).(IntegrationBitbucketInputPtrOutput)
+}
+
+func (o IntegrationProviderEnumInputPtrOutput) Confluence() IntegrationConfluenceInputPtrOutput {
+	return o.ApplyT(func(v *IntegrationProviderEnumInput) *IntegrationConfluenceInput {
+		if v == nil {
+			return nil
+		}
+		return v.Confluence
+	}).(IntegrationConfluenceInputPtrOutput)
+}
+
+func (o IntegrationProviderEnumInputPtrOutput) Github() IntegrationGitHubInputPtrOutput {
+	return o.ApplyT(func(v *IntegrationProviderEnumInput) *IntegrationGitHubInput {
+		if v == nil {
+			return nil
+		}
+		return v.Github
+	}).(IntegrationGitHubInputPtrOutput)
+}
+
+func (o IntegrationProviderEnumInputPtrOutput) Gitlab() IntegrationGitLabInputPtrOutput {
+	return o.ApplyT(func(v *IntegrationProviderEnumInput) *IntegrationGitLabInput {
+		if v == nil {
+			return nil
+		}
+		return v.Gitlab
+	}).(IntegrationGitLabInputPtrOutput)
+}
+
+// A key-value pair to associate with a resource.
+type IntegrationTag struct {
+	// The key name of the tag.
+	Key string `pulumi:"key"`
+	// The value for the tag.
+	Value string `pulumi:"value"`
+}
+
 // An authenticated actor to be used during pentest execution
 type PentestActor struct {
 	// Authentication credentials for this actor
@@ -4894,6 +5890,16 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentSpaceVpcConfigArrayInput)(nil)).Elem(), AgentSpaceVpcConfigArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationIdCConfigurationInput)(nil)).Elem(), ApplicationIdCConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationIdCConfigurationPtrInput)(nil)).Elem(), ApplicationIdCConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationBitbucketInputInput)(nil)).Elem(), IntegrationBitbucketInputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationBitbucketInputPtrInput)(nil)).Elem(), IntegrationBitbucketInputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationConfluenceInputInput)(nil)).Elem(), IntegrationConfluenceInputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationConfluenceInputPtrInput)(nil)).Elem(), IntegrationConfluenceInputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationGitHubInputInput)(nil)).Elem(), IntegrationGitHubInputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationGitHubInputPtrInput)(nil)).Elem(), IntegrationGitHubInputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationGitLabInputInput)(nil)).Elem(), IntegrationGitLabInputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationGitLabInputPtrInput)(nil)).Elem(), IntegrationGitLabInputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationProviderEnumInputInput)(nil)).Elem(), IntegrationProviderEnumInputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationProviderEnumInputPtrInput)(nil)).Elem(), IntegrationProviderEnumInputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PentestActorInput)(nil)).Elem(), PentestActorArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PentestActorArrayInput)(nil)).Elem(), PentestActorArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PentestAssetsInput)(nil)).Elem(), PentestAssetsArgs{})
@@ -4954,6 +5960,16 @@ func init() {
 	pulumi.RegisterOutputType(AgentSpaceVpcConfigArrayOutput{})
 	pulumi.RegisterOutputType(ApplicationIdCConfigurationOutput{})
 	pulumi.RegisterOutputType(ApplicationIdCConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(IntegrationBitbucketInputOutput{})
+	pulumi.RegisterOutputType(IntegrationBitbucketInputPtrOutput{})
+	pulumi.RegisterOutputType(IntegrationConfluenceInputOutput{})
+	pulumi.RegisterOutputType(IntegrationConfluenceInputPtrOutput{})
+	pulumi.RegisterOutputType(IntegrationGitHubInputOutput{})
+	pulumi.RegisterOutputType(IntegrationGitHubInputPtrOutput{})
+	pulumi.RegisterOutputType(IntegrationGitLabInputOutput{})
+	pulumi.RegisterOutputType(IntegrationGitLabInputPtrOutput{})
+	pulumi.RegisterOutputType(IntegrationProviderEnumInputOutput{})
+	pulumi.RegisterOutputType(IntegrationProviderEnumInputPtrOutput{})
 	pulumi.RegisterOutputType(PentestActorOutput{})
 	pulumi.RegisterOutputType(PentestActorArrayOutput{})
 	pulumi.RegisterOutputType(PentestAssetsOutput{})

@@ -1752,7 +1752,7 @@ class ImagePipelineImageScanningConfigurationArgsDict(TypedDict):
     """
     image_scanning_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
-    This sets whether Image Builder keeps a snapshot of the vulnerability scans that Amazon Inspector runs against the build instance when you create a new image.
+    This sets whether Image Builder keeps a snapshot of the vulnerability scans that Amazon Inspector runs against the test instance when you create a new image.
     """
 
 @pulumi.input_type
@@ -1764,7 +1764,7 @@ class ImagePipelineImageScanningConfigurationArgs:
         Determines if tests should run after building the image. Image Builder defaults to enable tests to run following the image build, before image distribution.
 
         :param pulumi.Input['ImagePipelineEcrConfigurationArgs'] ecr_configuration: Contains ECR settings for vulnerability scans.
-        :param pulumi.Input[_builtins.bool] image_scanning_enabled: This sets whether Image Builder keeps a snapshot of the vulnerability scans that Amazon Inspector runs against the build instance when you create a new image.
+        :param pulumi.Input[_builtins.bool] image_scanning_enabled: This sets whether Image Builder keeps a snapshot of the vulnerability scans that Amazon Inspector runs against the test instance when you create a new image.
         """
         if ecr_configuration is not None:
             pulumi.set(__self__, "ecr_configuration", ecr_configuration)
@@ -1787,7 +1787,7 @@ class ImagePipelineImageScanningConfigurationArgs:
     @pulumi.getter(name="imageScanningEnabled")
     def image_scanning_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        This sets whether Image Builder keeps a snapshot of the vulnerability scans that Amazon Inspector runs against the build instance when you create a new image.
+        This sets whether Image Builder keeps a snapshot of the vulnerability scans that Amazon Inspector runs against the test instance when you create a new image.
         """
         return pulumi.get(self, "image_scanning_enabled")
 
@@ -2618,7 +2618,7 @@ class ImageScanningConfigurationArgsDict(TypedDict):
     """
     image_scanning_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
-    This sets whether Image Builder keeps a snapshot of the vulnerability scans that Amazon Inspector runs against the build instance when you create a new image.
+    This sets whether Image Builder keeps a snapshot of the vulnerability scans that Amazon Inspector runs against the test instance when you create a new image.
     """
 
 @pulumi.input_type
@@ -2630,7 +2630,7 @@ class ImageScanningConfigurationArgs:
         Contains settings for Image Builder image resource and container image scans.
 
         :param pulumi.Input['ImageEcrConfigurationArgs'] ecr_configuration: Contains ECR settings for vulnerability scans.
-        :param pulumi.Input[_builtins.bool] image_scanning_enabled: This sets whether Image Builder keeps a snapshot of the vulnerability scans that Amazon Inspector runs against the build instance when you create a new image.
+        :param pulumi.Input[_builtins.bool] image_scanning_enabled: This sets whether Image Builder keeps a snapshot of the vulnerability scans that Amazon Inspector runs against the test instance when you create a new image.
         """
         if ecr_configuration is not None:
             pulumi.set(__self__, "ecr_configuration", ecr_configuration)
@@ -2653,7 +2653,7 @@ class ImageScanningConfigurationArgs:
     @pulumi.getter(name="imageScanningEnabled")
     def image_scanning_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        This sets whether Image Builder keeps a snapshot of the vulnerability scans that Amazon Inspector runs against the build instance when you create a new image.
+        This sets whether Image Builder keeps a snapshot of the vulnerability scans that Amazon Inspector runs against the test instance when you create a new image.
         """
         return pulumi.get(self, "image_scanning_enabled")
 

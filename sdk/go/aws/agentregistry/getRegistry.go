@@ -35,7 +35,8 @@ type LookupRegistryResult struct {
 	AutoDetectionScope   *RegistryAutoDetectionScope  `pulumi:"autoDetectionScope"`
 	AutoDetectionStatus  *RegistryAutoDetectionStatus `pulumi:"autoDetectionStatus"`
 	// The timestamp when the registry was created.
-	CreatedAt *string `pulumi:"createdAt"`
+	CreatedAt                         *string                                    `pulumi:"createdAt"`
+	CustomMetadataSchemaConfiguration *RegistryCustomMetadataSchemaConfiguration `pulumi:"customMetadataSchemaConfiguration"`
 	// The description of the registry.
 	Description            *string                         `pulumi:"description"`
 	DiscoveryConfiguration *RegistryDiscoveryConfiguration `pulumi:"discoveryConfiguration"`
@@ -100,6 +101,12 @@ func (o LookupRegistryResultOutput) AutoDetectionStatus() RegistryAutoDetectionS
 // The timestamp when the registry was created.
 func (o LookupRegistryResultOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupRegistryResult) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupRegistryResultOutput) CustomMetadataSchemaConfiguration() RegistryCustomMetadataSchemaConfigurationPtrOutput {
+	return o.ApplyT(func(v LookupRegistryResult) *RegistryCustomMetadataSchemaConfiguration {
+		return v.CustomMetadataSchemaConfiguration
+	}).(RegistryCustomMetadataSchemaConfigurationPtrOutput)
 }
 
 // The description of the registry.

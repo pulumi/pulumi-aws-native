@@ -3834,7 +3834,7 @@ func (o ImagePipelineExecutionSettingsPtrOutput) OnUpdate() pulumi.BoolPtrOutput
 type ImagePipelineImageScanningConfiguration struct {
 	// Contains ECR settings for vulnerability scans.
 	EcrConfiguration *ImagePipelineEcrConfiguration `pulumi:"ecrConfiguration"`
-	// This sets whether Image Builder keeps a snapshot of the vulnerability scans that Amazon Inspector runs against the build instance when you create a new image.
+	// This sets whether Image Builder keeps a snapshot of the vulnerability scans that Amazon Inspector runs against the test instance when you create a new image.
 	ImageScanningEnabled *bool `pulumi:"imageScanningEnabled"`
 }
 
@@ -3853,7 +3853,7 @@ type ImagePipelineImageScanningConfigurationInput interface {
 type ImagePipelineImageScanningConfigurationArgs struct {
 	// Contains ECR settings for vulnerability scans.
 	EcrConfiguration ImagePipelineEcrConfigurationPtrInput `pulumi:"ecrConfiguration"`
-	// This sets whether Image Builder keeps a snapshot of the vulnerability scans that Amazon Inspector runs against the build instance when you create a new image.
+	// This sets whether Image Builder keeps a snapshot of the vulnerability scans that Amazon Inspector runs against the test instance when you create a new image.
 	ImageScanningEnabled pulumi.BoolPtrInput `pulumi:"imageScanningEnabled"`
 }
 
@@ -3942,7 +3942,7 @@ func (o ImagePipelineImageScanningConfigurationOutput) EcrConfiguration() ImageP
 	}).(ImagePipelineEcrConfigurationPtrOutput)
 }
 
-// This sets whether Image Builder keeps a snapshot of the vulnerability scans that Amazon Inspector runs against the build instance when you create a new image.
+// This sets whether Image Builder keeps a snapshot of the vulnerability scans that Amazon Inspector runs against the test instance when you create a new image.
 func (o ImagePipelineImageScanningConfigurationOutput) ImageScanningEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ImagePipelineImageScanningConfiguration) *bool { return v.ImageScanningEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -3981,7 +3981,7 @@ func (o ImagePipelineImageScanningConfigurationPtrOutput) EcrConfiguration() Ima
 	}).(ImagePipelineEcrConfigurationPtrOutput)
 }
 
-// This sets whether Image Builder keeps a snapshot of the vulnerability scans that Amazon Inspector runs against the build instance when you create a new image.
+// This sets whether Image Builder keeps a snapshot of the vulnerability scans that Amazon Inspector runs against the test instance when you create a new image.
 func (o ImagePipelineImageScanningConfigurationPtrOutput) ImageScanningEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ImagePipelineImageScanningConfiguration) *bool {
 		if v == nil {
@@ -5784,7 +5784,7 @@ func (o ImageRecipeSystemsManagerAgentPtrOutput) UninstallAfterBuild() pulumi.Bo
 type ImageScanningConfiguration struct {
 	// Contains ECR settings for vulnerability scans.
 	EcrConfiguration *ImageEcrConfiguration `pulumi:"ecrConfiguration"`
-	// This sets whether Image Builder keeps a snapshot of the vulnerability scans that Amazon Inspector runs against the build instance when you create a new image.
+	// This sets whether Image Builder keeps a snapshot of the vulnerability scans that Amazon Inspector runs against the test instance when you create a new image.
 	ImageScanningEnabled *bool `pulumi:"imageScanningEnabled"`
 }
 
@@ -5803,7 +5803,7 @@ type ImageScanningConfigurationInput interface {
 type ImageScanningConfigurationArgs struct {
 	// Contains ECR settings for vulnerability scans.
 	EcrConfiguration ImageEcrConfigurationPtrInput `pulumi:"ecrConfiguration"`
-	// This sets whether Image Builder keeps a snapshot of the vulnerability scans that Amazon Inspector runs against the build instance when you create a new image.
+	// This sets whether Image Builder keeps a snapshot of the vulnerability scans that Amazon Inspector runs against the test instance when you create a new image.
 	ImageScanningEnabled pulumi.BoolPtrInput `pulumi:"imageScanningEnabled"`
 }
 
@@ -5890,7 +5890,7 @@ func (o ImageScanningConfigurationOutput) EcrConfiguration() ImageEcrConfigurati
 	return o.ApplyT(func(v ImageScanningConfiguration) *ImageEcrConfiguration { return v.EcrConfiguration }).(ImageEcrConfigurationPtrOutput)
 }
 
-// This sets whether Image Builder keeps a snapshot of the vulnerability scans that Amazon Inspector runs against the build instance when you create a new image.
+// This sets whether Image Builder keeps a snapshot of the vulnerability scans that Amazon Inspector runs against the test instance when you create a new image.
 func (o ImageScanningConfigurationOutput) ImageScanningEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ImageScanningConfiguration) *bool { return v.ImageScanningEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -5929,7 +5929,7 @@ func (o ImageScanningConfigurationPtrOutput) EcrConfiguration() ImageEcrConfigur
 	}).(ImageEcrConfigurationPtrOutput)
 }
 
-// This sets whether Image Builder keeps a snapshot of the vulnerability scans that Amazon Inspector runs against the build instance when you create a new image.
+// This sets whether Image Builder keeps a snapshot of the vulnerability scans that Amazon Inspector runs against the test instance when you create a new image.
 func (o ImageScanningConfigurationPtrOutput) ImageScanningEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ImageScanningConfiguration) *bool {
 		if v == nil {

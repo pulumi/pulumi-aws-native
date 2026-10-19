@@ -46,6 +46,12 @@ namespace Pulumi.AwsNative.DevOpsAgent
         public Output<string?> KmsKeyArn { get; private set; } = null!;
 
         /// <summary>
+        /// The display name for the service registration.
+        /// </summary>
+        [Output("name")]
+        public Output<string?> Name { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the private connection to use for VPC connectivity.
         /// </summary>
         [Output("privateConnectionName")]
@@ -111,6 +117,7 @@ namespace Pulumi.AwsNative.DevOpsAgent
                     "privateConnectionName",
                     "serviceDetails.azureIdentity",
                     "serviceDetails.dynatrace",
+                    "serviceDetails.gitHub",
                     "serviceDetails.mcpServerSplunk",
                     "serviceDetails.pagerDuty",
                     "serviceDetails.serviceNow",
@@ -150,6 +157,12 @@ namespace Pulumi.AwsNative.DevOpsAgent
         /// </summary>
         [Input("kmsKeyArn")]
         public Input<string>? KmsKeyArn { get; set; }
+
+        /// <summary>
+        /// The display name for the service registration.
+        /// </summary>
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         /// <summary>
         /// The name of the private connection to use for VPC connectivity.

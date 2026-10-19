@@ -26,6 +26,7 @@ class RegistryRecordArgs:
     def __init__(__self__, *,
                  descriptors: pulumi.Input['RegistryRecordDescriptorsArgs'],
                  record_type: pulumi.Input['RegistryRecordRecordType'],
+                 custom_metadata: Optional[Any] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -35,6 +36,9 @@ class RegistryRecordArgs:
         """
         The set of arguments for constructing a RegistryRecord resource.
 
+        :param Any custom_metadata: The custom metadata to attach to the registry record. Each key must match a property defined in the registry's custom metadata schema. Values can be strings (maximum 128 characters) or native JSON booleans (true or false).
+               
+               Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::AgentRegistry::RegistryRecord` for more information about the expected schema for this property.
         :param pulumi.Input[_builtins.str] description: The description of the registry record.
         :param pulumi.Input[_builtins.str] display_name: The human-readable display name of the registry record.
         :param pulumi.Input[_builtins.str] name: The name of the registry record.
@@ -44,6 +48,8 @@ class RegistryRecordArgs:
         """
         pulumi.set(__self__, "descriptors", descriptors)
         pulumi.set(__self__, "record_type", record_type)
+        if custom_metadata is not None:
+            pulumi.set(__self__, "custom_metadata", custom_metadata)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if display_name is not None:
@@ -74,6 +80,20 @@ class RegistryRecordArgs:
     @record_type.setter
     def record_type(self, value: pulumi.Input['RegistryRecordRecordType']):
         pulumi.set(self, "record_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="customMetadata")
+    def custom_metadata(self) -> Optional[Any]:
+        """
+        The custom metadata to attach to the registry record. Each key must match a property defined in the registry's custom metadata schema. Values can be strings (maximum 128 characters) or native JSON booleans (true or false).
+
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::AgentRegistry::RegistryRecord` for more information about the expected schema for this property.
+        """
+        return pulumi.get(self, "custom_metadata")
+
+    @custom_metadata.setter
+    def custom_metadata(self, value: Optional[Any]):
+        pulumi.set(self, "custom_metadata", value)
 
     @_builtins.property
     @pulumi.getter
@@ -154,6 +174,7 @@ class RegistryRecord(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 custom_metadata: Optional[Any] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  descriptors: pulumi.Input[Optional[Union['RegistryRecordDescriptorsArgs', 'RegistryRecordDescriptorsArgsDict']]] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -168,6 +189,9 @@ class RegistryRecord(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param Any custom_metadata: The custom metadata to attach to the registry record. Each key must match a property defined in the registry's custom metadata schema. Values can be strings (maximum 128 characters) or native JSON booleans (true or false).
+               
+               Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::AgentRegistry::RegistryRecord` for more information about the expected schema for this property.
         :param pulumi.Input[_builtins.str] description: The description of the registry record.
         :param pulumi.Input[_builtins.str] display_name: The human-readable display name of the registry record.
         :param pulumi.Input[_builtins.str] name: The name of the registry record.
@@ -199,6 +223,7 @@ class RegistryRecord(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 custom_metadata: Optional[Any] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  descriptors: pulumi.Input[Optional[Union['RegistryRecordDescriptorsArgs', 'RegistryRecordDescriptorsArgsDict']]] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -216,6 +241,7 @@ class RegistryRecord(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = RegistryRecordArgs.__new__(RegistryRecordArgs)
 
+            __props__.__dict__["custom_metadata"] = custom_metadata
             __props__.__dict__["description"] = description
             if descriptors is None and not opts.urn:
                 raise TypeError("Missing required property 'descriptors'")
@@ -261,6 +287,7 @@ class RegistryRecord(pulumi.CustomResource):
 
         __props__.__dict__["created_at"] = None
         __props__.__dict__["created_by"] = None
+        __props__.__dict__["custom_metadata"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["descriptors"] = None
         __props__.__dict__["display_name"] = None
@@ -291,6 +318,16 @@ class RegistryRecord(pulumi.CustomResource):
         The identifier of the AWS account that created the registry record.
         """
         return pulumi.get(self, "created_by")
+
+    @_builtins.property
+    @pulumi.getter(name="customMetadata")
+    def custom_metadata(self) -> pulumi.Output[Optional[Any]]:
+        """
+        The custom metadata to attach to the registry record. Each key must match a property defined in the registry's custom metadata schema. Values can be strings (maximum 128 characters) or native JSON booleans (true or false).
+
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::AgentRegistry::RegistryRecord` for more information about the expected schema for this property.
+        """
+        return pulumi.get(self, "custom_metadata")
 
     @_builtins.property
     @pulumi.getter

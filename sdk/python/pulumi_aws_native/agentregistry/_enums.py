@@ -17,6 +17,7 @@ __all__ = [
     'RegistryRecordOAuthCredentialProviderGrantType',
     'RegistryRecordRecordType',
     'RegistryRecordStatus',
+    'RegistryRecordTypeSchemaOverrideRecordType',
     'RegistryStatus',
 ]
 
@@ -105,6 +106,18 @@ class RegistryRecordStatus(_builtins.str, Enum):
     UPDATING = "UPDATING"
     CREATE_FAILED = "CREATE_FAILED"
     UPDATE_FAILED = "UPDATE_FAILED"
+
+
+@pulumi.type_token("aws-native:agentregistry:RegistryRecordTypeSchemaOverrideRecordType")
+class RegistryRecordTypeSchemaOverrideRecordType(_builtins.str, Enum):
+    """
+    The record type that this schema override applies to.
+    """
+    MCP = "MCP"
+    AGENT = "AGENT"
+    SKILL = "SKILL"
+    GATEWAY = "GATEWAY"
+    CUSTOM = "CUSTOM"
 
 
 @pulumi.type_token("aws-native:agentregistry:RegistryStatus")

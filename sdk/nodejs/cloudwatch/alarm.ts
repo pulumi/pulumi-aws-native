@@ -39,6 +39,7 @@ export class Alarm extends pulumi.CustomResource {
         return obj['__pulumiType'] === Alarm.__pulumiType;
     }
 
+    declare public readonly actionConfiguration: pulumi.Output<outputs.cloudwatch.AlarmActionConfiguration | undefined>;
     /**
      * Indicates whether actions should be executed during any changes to the alarm state. The default is TRUE.
      */
@@ -174,6 +175,7 @@ export class Alarm extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            resourceInputs["actionConfiguration"] = args?.actionConfiguration;
             resourceInputs["actionsEnabled"] = args?.actionsEnabled;
             resourceInputs["alarmActions"] = args?.alarmActions;
             resourceInputs["alarmDescription"] = args?.alarmDescription;
@@ -202,6 +204,7 @@ export class Alarm extends pulumi.CustomResource {
             resourceInputs["warmUpConfiguration"] = args?.warmUpConfiguration;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
+            resourceInputs["actionConfiguration"] = undefined /*out*/;
             resourceInputs["actionsEnabled"] = undefined /*out*/;
             resourceInputs["alarmActions"] = undefined /*out*/;
             resourceInputs["alarmDescription"] = undefined /*out*/;
@@ -241,6 +244,7 @@ export class Alarm extends pulumi.CustomResource {
  * The set of arguments for constructing a Alarm resource.
  */
 export interface AlarmArgs {
+    actionConfiguration?: pulumi.Input<inputs.cloudwatch.AlarmActionConfigurationArgs | undefined>;
     /**
      * Indicates whether actions should be executed during any changes to the alarm state. The default is TRUE.
      */

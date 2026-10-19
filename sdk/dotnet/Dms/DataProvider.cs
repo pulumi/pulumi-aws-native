@@ -28,7 +28,7 @@ namespace Pulumi.AwsNative.Dms
         public Output<string> DataProviderCreationTime { get; private set; } = null!;
 
         /// <summary>
-        /// The property describes an identifier for the data provider. It is used for describing/deleting/modifying can be name/arn
+        /// [DEPRECATED] This property is unused and will be ignored. Identity is managed via the resource ARN (primaryIdentifier) and Name (additionalIdentifier).
         /// </summary>
         [Output("dataProviderIdentifier")]
         public Output<string?> DataProviderIdentifier { get; private set; } = null!;
@@ -121,7 +121,7 @@ namespace Pulumi.AwsNative.Dms
     public sealed class DataProviderArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The property describes an identifier for the data provider. It is used for describing/deleting/modifying can be name/arn
+        /// [DEPRECATED] This property is unused and will be ignored. Identity is managed via the resource ARN (primaryIdentifier) and Name (additionalIdentifier).
         /// </summary>
         [Input("dataProviderIdentifier")]
         public Input<string>? DataProviderIdentifier { get; set; }

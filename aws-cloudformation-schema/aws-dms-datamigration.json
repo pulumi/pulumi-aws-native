@@ -92,7 +92,7 @@
       "maxLength" : 300
     },
     "DataMigrationIdentifier" : {
-      "description" : "The property describes an ARN of the data migration.",
+      "description" : "[DEPRECATED] This property is unused and will be ignored. Identity is managed via the resource ARN (primaryIdentifier) and Name (additionalIdentifier).",
       "type" : "string",
       "minLength" : 1,
       "maxLength" : 300
@@ -147,6 +147,7 @@
   "additionalIdentifiers" : [ [ "/properties/DataMigrationName" ] ],
   "readOnlyProperties" : [ "/properties/DataMigrationArn", "/properties/DataMigrationCreateTime" ],
   "writeOnlyProperties" : [ "/properties/DataMigrationIdentifier" ],
+  "deprecatedProperties" : [ "/properties/DataMigrationIdentifier" ],
   "required" : [ "DataMigrationType", "MigrationProjectIdentifier", "ServiceAccessRoleArn" ],
   "additionalProperties" : false,
   "handlers" : {

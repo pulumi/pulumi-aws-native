@@ -1085,4 +1085,63 @@ namespace Pulumi.AwsNative.Ses
 
         public override string ToString() => _value;
     }
+
+    [EnumType]
+    public readonly struct TenantSuppressionAttributesSuppressedReasonsItem : IEquatable<TenantSuppressionAttributesSuppressedReasonsItem>
+    {
+        private readonly string _value;
+
+        private TenantSuppressionAttributesSuppressedReasonsItem(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static TenantSuppressionAttributesSuppressedReasonsItem Bounce { get; } = new TenantSuppressionAttributesSuppressedReasonsItem("BOUNCE");
+        public static TenantSuppressionAttributesSuppressedReasonsItem Complaint { get; } = new TenantSuppressionAttributesSuppressedReasonsItem("COMPLAINT");
+
+        public static bool operator ==(TenantSuppressionAttributesSuppressedReasonsItem left, TenantSuppressionAttributesSuppressedReasonsItem right) => left.Equals(right);
+        public static bool operator !=(TenantSuppressionAttributesSuppressedReasonsItem left, TenantSuppressionAttributesSuppressedReasonsItem right) => !left.Equals(right);
+
+        public static explicit operator string(TenantSuppressionAttributesSuppressedReasonsItem value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TenantSuppressionAttributesSuppressedReasonsItem other && Equals(other);
+        public bool Equals(TenantSuppressionAttributesSuppressedReasonsItem other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The scope of the suppression list for the tenant.
+    /// </summary>
+    [EnumType]
+    public readonly struct TenantSuppressionAttributesSuppressionScope : IEquatable<TenantSuppressionAttributesSuppressionScope>
+    {
+        private readonly string _value;
+
+        private TenantSuppressionAttributesSuppressionScope(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static TenantSuppressionAttributesSuppressionScope Account { get; } = new TenantSuppressionAttributesSuppressionScope("ACCOUNT");
+        public static TenantSuppressionAttributesSuppressionScope Tenant { get; } = new TenantSuppressionAttributesSuppressionScope("TENANT");
+
+        public static bool operator ==(TenantSuppressionAttributesSuppressionScope left, TenantSuppressionAttributesSuppressionScope right) => left.Equals(right);
+        public static bool operator !=(TenantSuppressionAttributesSuppressionScope left, TenantSuppressionAttributesSuppressionScope right) => !left.Equals(right);
+
+        public static explicit operator string(TenantSuppressionAttributesSuppressionScope value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TenantSuppressionAttributesSuppressionScope other && Equals(other);
+        public bool Equals(TenantSuppressionAttributesSuppressionScope other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
 }

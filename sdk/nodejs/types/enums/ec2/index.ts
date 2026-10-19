@@ -611,6 +611,35 @@ export const IpamExternalResourceVerificationTokenStatus = {
  */
 export type IpamExternalResourceVerificationTokenStatus = (typeof IpamExternalResourceVerificationTokenStatus)[keyof typeof IpamExternalResourceVerificationTokenStatus];
 
+export const IpamInternetRegistryAssociationRir = {
+    Ripe: "RIPE",
+    Apnic: "APNIC",
+    Arin: "ARIN",
+    Lacnic: "LACNIC",
+} as const;
+
+/**
+ * The Regional Internet Registry to associate with. The service returns these values in upper case, so the enum uses the round-tripping form.
+ */
+export type IpamInternetRegistryAssociationRir = (typeof IpamInternetRegistryAssociationRir)[keyof typeof IpamInternetRegistryAssociationRir];
+
+export const IpamInternetRegistryAssociationState = {
+    PendingEnable: "pending-enable",
+    CreateInProgress: "create-in-progress",
+    CreateFailed: "create-failed",
+    EnableInProgress: "enable-in-progress",
+    EnableComplete: "enable-complete",
+    EnableFailed: "enable-failed",
+    DeleteInProgress: "delete-in-progress",
+    DeleteComplete: "delete-complete",
+    DeleteFailed: "delete-failed",
+} as const;
+
+/**
+ * The state of the internet registry association.
+ */
+export type IpamInternetRegistryAssociationState = (typeof IpamInternetRegistryAssociationState)[keyof typeof IpamInternetRegistryAssociationState];
+
 export const IpamMeteredAccount = {
     IpamOwner: "ipam-owner",
     ResourceOwner: "resource-owner",

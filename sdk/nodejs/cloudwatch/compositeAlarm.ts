@@ -38,6 +38,10 @@ export class CompositeAlarm extends pulumi.CustomResource {
     }
 
     /**
+     * Configuration that applies to the notifications this alarm sends when it performs its actions.
+     */
+    declare public readonly actionConfiguration: pulumi.Output<outputs.cloudwatch.CompositeAlarmActionConfiguration | undefined>;
+    /**
      * Indicates whether actions should be executed during any changes to the alarm state. The default is TRUE.
      */
     declare public readonly actionsEnabled: pulumi.Output<boolean | undefined>;
@@ -100,6 +104,7 @@ export class CompositeAlarm extends pulumi.CustomResource {
             if (args?.alarmRule === undefined && !opts.urn) {
                 throw new Error("Missing required property 'alarmRule'");
             }
+            resourceInputs["actionConfiguration"] = args?.actionConfiguration;
             resourceInputs["actionsEnabled"] = args?.actionsEnabled;
             resourceInputs["actionsSuppressor"] = args?.actionsSuppressor;
             resourceInputs["actionsSuppressorExtensionPeriod"] = args?.actionsSuppressorExtensionPeriod;
@@ -113,6 +118,7 @@ export class CompositeAlarm extends pulumi.CustomResource {
             resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
+            resourceInputs["actionConfiguration"] = undefined /*out*/;
             resourceInputs["actionsEnabled"] = undefined /*out*/;
             resourceInputs["actionsSuppressor"] = undefined /*out*/;
             resourceInputs["actionsSuppressorExtensionPeriod"] = undefined /*out*/;
@@ -137,6 +143,10 @@ export class CompositeAlarm extends pulumi.CustomResource {
  * The set of arguments for constructing a CompositeAlarm resource.
  */
 export interface CompositeAlarmArgs {
+    /**
+     * Configuration that applies to the notifications this alarm sends when it performs its actions.
+     */
+    actionConfiguration?: pulumi.Input<inputs.cloudwatch.CompositeAlarmActionConfigurationArgs | undefined>;
     /**
      * Indicates whether actions should be executed during any changes to the alarm state. The default is TRUE.
      */

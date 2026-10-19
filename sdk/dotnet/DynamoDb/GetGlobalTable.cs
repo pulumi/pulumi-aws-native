@@ -147,6 +147,7 @@ namespace Pulumi.AwsNative.DynamoDb
         /// Specifies the time to live (TTL) settings for the table. This setting will be applied to all replicas.
         /// </summary>
         public readonly Outputs.GlobalTableTimeToLiveSpecification? TimeToLiveSpecification;
+        public readonly ImmutableArray<Outputs.GlobalTableVectorIndex> VectorIndexes;
         /// <summary>
         /// Provides visibility into the number of read and write operations your table or secondary index can instantaneously support. The settings can be modified using the `UpdateTable` operation to meet the throughput requirements of an upcoming peak event.
         /// </summary>
@@ -194,6 +195,8 @@ namespace Pulumi.AwsNative.DynamoDb
 
             Outputs.GlobalTableTimeToLiveSpecification? timeToLiveSpecification,
 
+            ImmutableArray<Outputs.GlobalTableVectorIndex> vectorIndexes,
+
             Outputs.GlobalTableWarmThroughput? warmThroughput,
 
             Outputs.GlobalTableWriteOnDemandThroughputSettings? writeOnDemandThroughputSettings,
@@ -216,6 +219,7 @@ namespace Pulumi.AwsNative.DynamoDb
             StreamSpecification = streamSpecification;
             TableId = tableId;
             TimeToLiveSpecification = timeToLiveSpecification;
+            VectorIndexes = vectorIndexes;
             WarmThroughput = warmThroughput;
             WriteOnDemandThroughputSettings = writeOnDemandThroughputSettings;
             WriteProvisionedThroughputSettings = writeProvisionedThroughputSettings;

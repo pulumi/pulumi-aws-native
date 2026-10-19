@@ -393,6 +393,2998 @@ func (o EventBridgeRuleTemplateTargetArrayOutput) Index(i pulumi.IntInput) Event
 	}).(EventBridgeRuleTemplateTargetOutput)
 }
 
+// The settings for a PUSH type input.
+type InputDestination struct {
+	// The system-generated static IP address of endpoint.
+	// It remains fixed for the lifetime of the input.
+	Ip *string `pulumi:"ip"`
+	// The ID of the attached network.
+	Network *string `pulumi:"network"`
+	// If the push input has an input location of ON-PREM it's a requirement to specify what the route of the input
+	// is going to be on the customer local network.
+	NetworkRoutes []InputDestinationRoute `pulumi:"networkRoutes"`
+	// The port number for the input.
+	Port *string `pulumi:"port"`
+	// The static IP address for the input destination.
+	StaticIpAddress *string `pulumi:"staticIpAddress"`
+	// The stream name for the input destination.
+	StreamName *string `pulumi:"streamName"`
+	// This represents the endpoint that the customer stream will be
+	// pushed to.
+	Url *string `pulumi:"url"`
+	// The properties for a VPC type input destination.
+	Vpc *InputDestinationVpc `pulumi:"vpc"`
+}
+
+// InputDestinationInput is an input type that accepts InputDestinationArgs and InputDestinationOutput values.
+// You can construct a concrete instance of `InputDestinationInput` via:
+//
+//	InputDestinationArgs{...}
+type InputDestinationInput interface {
+	pulumi.Input
+
+	ToInputDestinationOutput() InputDestinationOutput
+	ToInputDestinationOutputWithContext(context.Context) InputDestinationOutput
+}
+
+// The settings for a PUSH type input.
+type InputDestinationArgs struct {
+	// The system-generated static IP address of endpoint.
+	// It remains fixed for the lifetime of the input.
+	Ip pulumi.StringPtrInput `pulumi:"ip"`
+	// The ID of the attached network.
+	Network pulumi.StringPtrInput `pulumi:"network"`
+	// If the push input has an input location of ON-PREM it's a requirement to specify what the route of the input
+	// is going to be on the customer local network.
+	NetworkRoutes InputDestinationRouteArrayInput `pulumi:"networkRoutes"`
+	// The port number for the input.
+	Port pulumi.StringPtrInput `pulumi:"port"`
+	// The static IP address for the input destination.
+	StaticIpAddress pulumi.StringPtrInput `pulumi:"staticIpAddress"`
+	// The stream name for the input destination.
+	StreamName pulumi.StringPtrInput `pulumi:"streamName"`
+	// This represents the endpoint that the customer stream will be
+	// pushed to.
+	Url pulumi.StringPtrInput `pulumi:"url"`
+	// The properties for a VPC type input destination.
+	Vpc InputDestinationVpcPtrInput `pulumi:"vpc"`
+}
+
+func (InputDestinationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InputDestination)(nil)).Elem()
+}
+
+func (i InputDestinationArgs) ToInputDestinationOutput() InputDestinationOutput {
+	return i.ToInputDestinationOutputWithContext(context.Background())
+}
+
+func (i InputDestinationArgs) ToInputDestinationOutputWithContext(ctx context.Context) InputDestinationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InputDestinationOutput)
+}
+
+// InputDestinationArrayInput is an input type that accepts InputDestinationArray and InputDestinationArrayOutput values.
+// You can construct a concrete instance of `InputDestinationArrayInput` via:
+//
+//	InputDestinationArray{ InputDestinationArgs{...} }
+type InputDestinationArrayInput interface {
+	pulumi.Input
+
+	ToInputDestinationArrayOutput() InputDestinationArrayOutput
+	ToInputDestinationArrayOutputWithContext(context.Context) InputDestinationArrayOutput
+}
+
+type InputDestinationArray []InputDestinationInput
+
+func (InputDestinationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InputDestination)(nil)).Elem()
+}
+
+func (i InputDestinationArray) ToInputDestinationArrayOutput() InputDestinationArrayOutput {
+	return i.ToInputDestinationArrayOutputWithContext(context.Background())
+}
+
+func (i InputDestinationArray) ToInputDestinationArrayOutputWithContext(ctx context.Context) InputDestinationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InputDestinationArrayOutput)
+}
+
+// The settings for a PUSH type input.
+type InputDestinationOutput struct{ *pulumi.OutputState }
+
+func (InputDestinationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InputDestination)(nil)).Elem()
+}
+
+func (o InputDestinationOutput) ToInputDestinationOutput() InputDestinationOutput {
+	return o
+}
+
+func (o InputDestinationOutput) ToInputDestinationOutputWithContext(ctx context.Context) InputDestinationOutput {
+	return o
+}
+
+// The system-generated static IP address of endpoint.
+// It remains fixed for the lifetime of the input.
+func (o InputDestinationOutput) Ip() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InputDestination) *string { return v.Ip }).(pulumi.StringPtrOutput)
+}
+
+// The ID of the attached network.
+func (o InputDestinationOutput) Network() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InputDestination) *string { return v.Network }).(pulumi.StringPtrOutput)
+}
+
+// If the push input has an input location of ON-PREM it's a requirement to specify what the route of the input
+// is going to be on the customer local network.
+func (o InputDestinationOutput) NetworkRoutes() InputDestinationRouteArrayOutput {
+	return o.ApplyT(func(v InputDestination) []InputDestinationRoute { return v.NetworkRoutes }).(InputDestinationRouteArrayOutput)
+}
+
+// The port number for the input.
+func (o InputDestinationOutput) Port() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InputDestination) *string { return v.Port }).(pulumi.StringPtrOutput)
+}
+
+// The static IP address for the input destination.
+func (o InputDestinationOutput) StaticIpAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InputDestination) *string { return v.StaticIpAddress }).(pulumi.StringPtrOutput)
+}
+
+// The stream name for the input destination.
+func (o InputDestinationOutput) StreamName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InputDestination) *string { return v.StreamName }).(pulumi.StringPtrOutput)
+}
+
+// This represents the endpoint that the customer stream will be
+// pushed to.
+func (o InputDestinationOutput) Url() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InputDestination) *string { return v.Url }).(pulumi.StringPtrOutput)
+}
+
+// The properties for a VPC type input destination.
+func (o InputDestinationOutput) Vpc() InputDestinationVpcPtrOutput {
+	return o.ApplyT(func(v InputDestination) *InputDestinationVpc { return v.Vpc }).(InputDestinationVpcPtrOutput)
+}
+
+type InputDestinationArrayOutput struct{ *pulumi.OutputState }
+
+func (InputDestinationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InputDestination)(nil)).Elem()
+}
+
+func (o InputDestinationArrayOutput) ToInputDestinationArrayOutput() InputDestinationArrayOutput {
+	return o
+}
+
+func (o InputDestinationArrayOutput) ToInputDestinationArrayOutputWithContext(ctx context.Context) InputDestinationArrayOutput {
+	return o
+}
+
+func (o InputDestinationArrayOutput) Index(i pulumi.IntInput) InputDestinationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) InputDestination {
+		return vs[0].([]InputDestination)[vs[1].(int)]
+	}).(InputDestinationOutput)
+}
+
+// A network route configuration.
+type InputDestinationRoute struct {
+	// The CIDR of the route.
+	Cidr *string `pulumi:"cidr"`
+	// An optional gateway for the route.
+	Gateway *string `pulumi:"gateway"`
+}
+
+// InputDestinationRouteInput is an input type that accepts InputDestinationRouteArgs and InputDestinationRouteOutput values.
+// You can construct a concrete instance of `InputDestinationRouteInput` via:
+//
+//	InputDestinationRouteArgs{...}
+type InputDestinationRouteInput interface {
+	pulumi.Input
+
+	ToInputDestinationRouteOutput() InputDestinationRouteOutput
+	ToInputDestinationRouteOutputWithContext(context.Context) InputDestinationRouteOutput
+}
+
+// A network route configuration.
+type InputDestinationRouteArgs struct {
+	// The CIDR of the route.
+	Cidr pulumi.StringPtrInput `pulumi:"cidr"`
+	// An optional gateway for the route.
+	Gateway pulumi.StringPtrInput `pulumi:"gateway"`
+}
+
+func (InputDestinationRouteArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InputDestinationRoute)(nil)).Elem()
+}
+
+func (i InputDestinationRouteArgs) ToInputDestinationRouteOutput() InputDestinationRouteOutput {
+	return i.ToInputDestinationRouteOutputWithContext(context.Background())
+}
+
+func (i InputDestinationRouteArgs) ToInputDestinationRouteOutputWithContext(ctx context.Context) InputDestinationRouteOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InputDestinationRouteOutput)
+}
+
+// InputDestinationRouteArrayInput is an input type that accepts InputDestinationRouteArray and InputDestinationRouteArrayOutput values.
+// You can construct a concrete instance of `InputDestinationRouteArrayInput` via:
+//
+//	InputDestinationRouteArray{ InputDestinationRouteArgs{...} }
+type InputDestinationRouteArrayInput interface {
+	pulumi.Input
+
+	ToInputDestinationRouteArrayOutput() InputDestinationRouteArrayOutput
+	ToInputDestinationRouteArrayOutputWithContext(context.Context) InputDestinationRouteArrayOutput
+}
+
+type InputDestinationRouteArray []InputDestinationRouteInput
+
+func (InputDestinationRouteArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InputDestinationRoute)(nil)).Elem()
+}
+
+func (i InputDestinationRouteArray) ToInputDestinationRouteArrayOutput() InputDestinationRouteArrayOutput {
+	return i.ToInputDestinationRouteArrayOutputWithContext(context.Background())
+}
+
+func (i InputDestinationRouteArray) ToInputDestinationRouteArrayOutputWithContext(ctx context.Context) InputDestinationRouteArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InputDestinationRouteArrayOutput)
+}
+
+// A network route configuration.
+type InputDestinationRouteOutput struct{ *pulumi.OutputState }
+
+func (InputDestinationRouteOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InputDestinationRoute)(nil)).Elem()
+}
+
+func (o InputDestinationRouteOutput) ToInputDestinationRouteOutput() InputDestinationRouteOutput {
+	return o
+}
+
+func (o InputDestinationRouteOutput) ToInputDestinationRouteOutputWithContext(ctx context.Context) InputDestinationRouteOutput {
+	return o
+}
+
+// The CIDR of the route.
+func (o InputDestinationRouteOutput) Cidr() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InputDestinationRoute) *string { return v.Cidr }).(pulumi.StringPtrOutput)
+}
+
+// An optional gateway for the route.
+func (o InputDestinationRouteOutput) Gateway() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InputDestinationRoute) *string { return v.Gateway }).(pulumi.StringPtrOutput)
+}
+
+type InputDestinationRouteArrayOutput struct{ *pulumi.OutputState }
+
+func (InputDestinationRouteArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InputDestinationRoute)(nil)).Elem()
+}
+
+func (o InputDestinationRouteArrayOutput) ToInputDestinationRouteArrayOutput() InputDestinationRouteArrayOutput {
+	return o
+}
+
+func (o InputDestinationRouteArrayOutput) ToInputDestinationRouteArrayOutputWithContext(ctx context.Context) InputDestinationRouteArrayOutput {
+	return o
+}
+
+func (o InputDestinationRouteArrayOutput) Index(i pulumi.IntInput) InputDestinationRouteOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) InputDestinationRoute {
+		return vs[0].([]InputDestinationRoute)[vs[1].(int)]
+	}).(InputDestinationRouteOutput)
+}
+
+// The properties for a VPC type input destination.
+type InputDestinationVpc struct {
+	// The availability zone of the Input destination.
+	AvailabilityZone *string `pulumi:"availabilityZone"`
+	// The network interface ID of the Input destination in the VPC.
+	NetworkInterfaceId *string `pulumi:"networkInterfaceId"`
+}
+
+// InputDestinationVpcInput is an input type that accepts InputDestinationVpcArgs and InputDestinationVpcOutput values.
+// You can construct a concrete instance of `InputDestinationVpcInput` via:
+//
+//	InputDestinationVpcArgs{...}
+type InputDestinationVpcInput interface {
+	pulumi.Input
+
+	ToInputDestinationVpcOutput() InputDestinationVpcOutput
+	ToInputDestinationVpcOutputWithContext(context.Context) InputDestinationVpcOutput
+}
+
+// The properties for a VPC type input destination.
+type InputDestinationVpcArgs struct {
+	// The availability zone of the Input destination.
+	AvailabilityZone pulumi.StringPtrInput `pulumi:"availabilityZone"`
+	// The network interface ID of the Input destination in the VPC.
+	NetworkInterfaceId pulumi.StringPtrInput `pulumi:"networkInterfaceId"`
+}
+
+func (InputDestinationVpcArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InputDestinationVpc)(nil)).Elem()
+}
+
+func (i InputDestinationVpcArgs) ToInputDestinationVpcOutput() InputDestinationVpcOutput {
+	return i.ToInputDestinationVpcOutputWithContext(context.Background())
+}
+
+func (i InputDestinationVpcArgs) ToInputDestinationVpcOutputWithContext(ctx context.Context) InputDestinationVpcOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InputDestinationVpcOutput)
+}
+
+func (i InputDestinationVpcArgs) ToInputDestinationVpcPtrOutput() InputDestinationVpcPtrOutput {
+	return i.ToInputDestinationVpcPtrOutputWithContext(context.Background())
+}
+
+func (i InputDestinationVpcArgs) ToInputDestinationVpcPtrOutputWithContext(ctx context.Context) InputDestinationVpcPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InputDestinationVpcOutput).ToInputDestinationVpcPtrOutputWithContext(ctx)
+}
+
+// InputDestinationVpcPtrInput is an input type that accepts InputDestinationVpcArgs, InputDestinationVpcPtr and InputDestinationVpcPtrOutput values.
+// You can construct a concrete instance of `InputDestinationVpcPtrInput` via:
+//
+//	        InputDestinationVpcArgs{...}
+//
+//	or:
+//
+//	        nil
+type InputDestinationVpcPtrInput interface {
+	pulumi.Input
+
+	ToInputDestinationVpcPtrOutput() InputDestinationVpcPtrOutput
+	ToInputDestinationVpcPtrOutputWithContext(context.Context) InputDestinationVpcPtrOutput
+}
+
+type inputDestinationVpcPtrType InputDestinationVpcArgs
+
+func InputDestinationVpcPtr(v *InputDestinationVpcArgs) InputDestinationVpcPtrInput {
+	return (*inputDestinationVpcPtrType)(v)
+}
+
+func (*inputDestinationVpcPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**InputDestinationVpc)(nil)).Elem()
+}
+
+func (i *inputDestinationVpcPtrType) ToInputDestinationVpcPtrOutput() InputDestinationVpcPtrOutput {
+	return i.ToInputDestinationVpcPtrOutputWithContext(context.Background())
+}
+
+func (i *inputDestinationVpcPtrType) ToInputDestinationVpcPtrOutputWithContext(ctx context.Context) InputDestinationVpcPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InputDestinationVpcPtrOutput)
+}
+
+// The properties for a VPC type input destination.
+type InputDestinationVpcOutput struct{ *pulumi.OutputState }
+
+func (InputDestinationVpcOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InputDestinationVpc)(nil)).Elem()
+}
+
+func (o InputDestinationVpcOutput) ToInputDestinationVpcOutput() InputDestinationVpcOutput {
+	return o
+}
+
+func (o InputDestinationVpcOutput) ToInputDestinationVpcOutputWithContext(ctx context.Context) InputDestinationVpcOutput {
+	return o
+}
+
+func (o InputDestinationVpcOutput) ToInputDestinationVpcPtrOutput() InputDestinationVpcPtrOutput {
+	return o.ToInputDestinationVpcPtrOutputWithContext(context.Background())
+}
+
+func (o InputDestinationVpcOutput) ToInputDestinationVpcPtrOutputWithContext(ctx context.Context) InputDestinationVpcPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InputDestinationVpc) *InputDestinationVpc {
+		return &v
+	}).(InputDestinationVpcPtrOutput)
+}
+
+// The availability zone of the Input destination.
+func (o InputDestinationVpcOutput) AvailabilityZone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InputDestinationVpc) *string { return v.AvailabilityZone }).(pulumi.StringPtrOutput)
+}
+
+// The network interface ID of the Input destination in the VPC.
+func (o InputDestinationVpcOutput) NetworkInterfaceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InputDestinationVpc) *string { return v.NetworkInterfaceId }).(pulumi.StringPtrOutput)
+}
+
+type InputDestinationVpcPtrOutput struct{ *pulumi.OutputState }
+
+func (InputDestinationVpcPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InputDestinationVpc)(nil)).Elem()
+}
+
+func (o InputDestinationVpcPtrOutput) ToInputDestinationVpcPtrOutput() InputDestinationVpcPtrOutput {
+	return o
+}
+
+func (o InputDestinationVpcPtrOutput) ToInputDestinationVpcPtrOutputWithContext(ctx context.Context) InputDestinationVpcPtrOutput {
+	return o
+}
+
+func (o InputDestinationVpcPtrOutput) Elem() InputDestinationVpcOutput {
+	return o.ApplyT(func(v *InputDestinationVpc) InputDestinationVpc {
+		if v != nil {
+			return *v
+		}
+		var ret InputDestinationVpc
+		return ret
+	}).(InputDestinationVpcOutput)
+}
+
+// The availability zone of the Input destination.
+func (o InputDestinationVpcPtrOutput) AvailabilityZone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InputDestinationVpc) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AvailabilityZone
+	}).(pulumi.StringPtrOutput)
+}
+
+// The network interface ID of the Input destination in the VPC.
+func (o InputDestinationVpcPtrOutput) NetworkInterfaceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InputDestinationVpc) *string {
+		if v == nil {
+			return nil
+		}
+		return v.NetworkInterfaceId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Settings for an input device.
+type InputDeviceSettings struct {
+	// The unique ID for the device.
+	Id *string `pulumi:"id"`
+}
+
+// InputDeviceSettingsInput is an input type that accepts InputDeviceSettingsArgs and InputDeviceSettingsOutput values.
+// You can construct a concrete instance of `InputDeviceSettingsInput` via:
+//
+//	InputDeviceSettingsArgs{...}
+type InputDeviceSettingsInput interface {
+	pulumi.Input
+
+	ToInputDeviceSettingsOutput() InputDeviceSettingsOutput
+	ToInputDeviceSettingsOutputWithContext(context.Context) InputDeviceSettingsOutput
+}
+
+// Settings for an input device.
+type InputDeviceSettingsArgs struct {
+	// The unique ID for the device.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+}
+
+func (InputDeviceSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InputDeviceSettings)(nil)).Elem()
+}
+
+func (i InputDeviceSettingsArgs) ToInputDeviceSettingsOutput() InputDeviceSettingsOutput {
+	return i.ToInputDeviceSettingsOutputWithContext(context.Background())
+}
+
+func (i InputDeviceSettingsArgs) ToInputDeviceSettingsOutputWithContext(ctx context.Context) InputDeviceSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InputDeviceSettingsOutput)
+}
+
+// InputDeviceSettingsArrayInput is an input type that accepts InputDeviceSettingsArray and InputDeviceSettingsArrayOutput values.
+// You can construct a concrete instance of `InputDeviceSettingsArrayInput` via:
+//
+//	InputDeviceSettingsArray{ InputDeviceSettingsArgs{...} }
+type InputDeviceSettingsArrayInput interface {
+	pulumi.Input
+
+	ToInputDeviceSettingsArrayOutput() InputDeviceSettingsArrayOutput
+	ToInputDeviceSettingsArrayOutputWithContext(context.Context) InputDeviceSettingsArrayOutput
+}
+
+type InputDeviceSettingsArray []InputDeviceSettingsInput
+
+func (InputDeviceSettingsArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InputDeviceSettings)(nil)).Elem()
+}
+
+func (i InputDeviceSettingsArray) ToInputDeviceSettingsArrayOutput() InputDeviceSettingsArrayOutput {
+	return i.ToInputDeviceSettingsArrayOutputWithContext(context.Background())
+}
+
+func (i InputDeviceSettingsArray) ToInputDeviceSettingsArrayOutputWithContext(ctx context.Context) InputDeviceSettingsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InputDeviceSettingsArrayOutput)
+}
+
+// Settings for an input device.
+type InputDeviceSettingsOutput struct{ *pulumi.OutputState }
+
+func (InputDeviceSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InputDeviceSettings)(nil)).Elem()
+}
+
+func (o InputDeviceSettingsOutput) ToInputDeviceSettingsOutput() InputDeviceSettingsOutput {
+	return o
+}
+
+func (o InputDeviceSettingsOutput) ToInputDeviceSettingsOutputWithContext(ctx context.Context) InputDeviceSettingsOutput {
+	return o
+}
+
+// The unique ID for the device.
+func (o InputDeviceSettingsOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InputDeviceSettings) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+type InputDeviceSettingsArrayOutput struct{ *pulumi.OutputState }
+
+func (InputDeviceSettingsArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InputDeviceSettings)(nil)).Elem()
+}
+
+func (o InputDeviceSettingsArrayOutput) ToInputDeviceSettingsArrayOutput() InputDeviceSettingsArrayOutput {
+	return o
+}
+
+func (o InputDeviceSettingsArrayOutput) ToInputDeviceSettingsArrayOutputWithContext(ctx context.Context) InputDeviceSettingsArrayOutput {
+	return o
+}
+
+func (o InputDeviceSettingsArrayOutput) Index(i pulumi.IntInput) InputDeviceSettingsOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) InputDeviceSettings {
+		return vs[0].([]InputDeviceSettings)[vs[1].(int)]
+	}).(InputDeviceSettingsOutput)
+}
+
+// The settings for a MediaConnect Flow.
+type InputMediaConnectFlow struct {
+	// The unique ARN of the MediaConnect Flow being used as a source.
+	FlowArn *string `pulumi:"flowArn"`
+}
+
+// InputMediaConnectFlowInput is an input type that accepts InputMediaConnectFlowArgs and InputMediaConnectFlowOutput values.
+// You can construct a concrete instance of `InputMediaConnectFlowInput` via:
+//
+//	InputMediaConnectFlowArgs{...}
+type InputMediaConnectFlowInput interface {
+	pulumi.Input
+
+	ToInputMediaConnectFlowOutput() InputMediaConnectFlowOutput
+	ToInputMediaConnectFlowOutputWithContext(context.Context) InputMediaConnectFlowOutput
+}
+
+// The settings for a MediaConnect Flow.
+type InputMediaConnectFlowArgs struct {
+	// The unique ARN of the MediaConnect Flow being used as a source.
+	FlowArn pulumi.StringPtrInput `pulumi:"flowArn"`
+}
+
+func (InputMediaConnectFlowArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InputMediaConnectFlow)(nil)).Elem()
+}
+
+func (i InputMediaConnectFlowArgs) ToInputMediaConnectFlowOutput() InputMediaConnectFlowOutput {
+	return i.ToInputMediaConnectFlowOutputWithContext(context.Background())
+}
+
+func (i InputMediaConnectFlowArgs) ToInputMediaConnectFlowOutputWithContext(ctx context.Context) InputMediaConnectFlowOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InputMediaConnectFlowOutput)
+}
+
+// InputMediaConnectFlowArrayInput is an input type that accepts InputMediaConnectFlowArray and InputMediaConnectFlowArrayOutput values.
+// You can construct a concrete instance of `InputMediaConnectFlowArrayInput` via:
+//
+//	InputMediaConnectFlowArray{ InputMediaConnectFlowArgs{...} }
+type InputMediaConnectFlowArrayInput interface {
+	pulumi.Input
+
+	ToInputMediaConnectFlowArrayOutput() InputMediaConnectFlowArrayOutput
+	ToInputMediaConnectFlowArrayOutputWithContext(context.Context) InputMediaConnectFlowArrayOutput
+}
+
+type InputMediaConnectFlowArray []InputMediaConnectFlowInput
+
+func (InputMediaConnectFlowArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InputMediaConnectFlow)(nil)).Elem()
+}
+
+func (i InputMediaConnectFlowArray) ToInputMediaConnectFlowArrayOutput() InputMediaConnectFlowArrayOutput {
+	return i.ToInputMediaConnectFlowArrayOutputWithContext(context.Background())
+}
+
+func (i InputMediaConnectFlowArray) ToInputMediaConnectFlowArrayOutputWithContext(ctx context.Context) InputMediaConnectFlowArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InputMediaConnectFlowArrayOutput)
+}
+
+// The settings for a MediaConnect Flow.
+type InputMediaConnectFlowOutput struct{ *pulumi.OutputState }
+
+func (InputMediaConnectFlowOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InputMediaConnectFlow)(nil)).Elem()
+}
+
+func (o InputMediaConnectFlowOutput) ToInputMediaConnectFlowOutput() InputMediaConnectFlowOutput {
+	return o
+}
+
+func (o InputMediaConnectFlowOutput) ToInputMediaConnectFlowOutputWithContext(ctx context.Context) InputMediaConnectFlowOutput {
+	return o
+}
+
+// The unique ARN of the MediaConnect Flow being used as a source.
+func (o InputMediaConnectFlowOutput) FlowArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InputMediaConnectFlow) *string { return v.FlowArn }).(pulumi.StringPtrOutput)
+}
+
+type InputMediaConnectFlowArrayOutput struct{ *pulumi.OutputState }
+
+func (InputMediaConnectFlowArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InputMediaConnectFlow)(nil)).Elem()
+}
+
+func (o InputMediaConnectFlowArrayOutput) ToInputMediaConnectFlowArrayOutput() InputMediaConnectFlowArrayOutput {
+	return o
+}
+
+func (o InputMediaConnectFlowArrayOutput) ToInputMediaConnectFlowArrayOutputWithContext(ctx context.Context) InputMediaConnectFlowArrayOutput {
+	return o
+}
+
+func (o InputMediaConnectFlowArrayOutput) Index(i pulumi.IntInput) InputMediaConnectFlowOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) InputMediaConnectFlow {
+		return vs[0].([]InputMediaConnectFlow)[vs[1].(int)]
+	}).(InputMediaConnectFlowOutput)
+}
+
+// Settings for a Multicast input. Contains a list of multicast Urls and optional source ip addresses.
+type InputMulticastSettings struct {
+	// Placeholder documentation for __listOfMulticastSource
+	Sources []InputMulticastSource `pulumi:"sources"`
+}
+
+// InputMulticastSettingsInput is an input type that accepts InputMulticastSettingsArgs and InputMulticastSettingsOutput values.
+// You can construct a concrete instance of `InputMulticastSettingsInput` via:
+//
+//	InputMulticastSettingsArgs{...}
+type InputMulticastSettingsInput interface {
+	pulumi.Input
+
+	ToInputMulticastSettingsOutput() InputMulticastSettingsOutput
+	ToInputMulticastSettingsOutputWithContext(context.Context) InputMulticastSettingsOutput
+}
+
+// Settings for a Multicast input. Contains a list of multicast Urls and optional source ip addresses.
+type InputMulticastSettingsArgs struct {
+	// Placeholder documentation for __listOfMulticastSource
+	Sources InputMulticastSourceArrayInput `pulumi:"sources"`
+}
+
+func (InputMulticastSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InputMulticastSettings)(nil)).Elem()
+}
+
+func (i InputMulticastSettingsArgs) ToInputMulticastSettingsOutput() InputMulticastSettingsOutput {
+	return i.ToInputMulticastSettingsOutputWithContext(context.Background())
+}
+
+func (i InputMulticastSettingsArgs) ToInputMulticastSettingsOutputWithContext(ctx context.Context) InputMulticastSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InputMulticastSettingsOutput)
+}
+
+func (i InputMulticastSettingsArgs) ToInputMulticastSettingsPtrOutput() InputMulticastSettingsPtrOutput {
+	return i.ToInputMulticastSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i InputMulticastSettingsArgs) ToInputMulticastSettingsPtrOutputWithContext(ctx context.Context) InputMulticastSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InputMulticastSettingsOutput).ToInputMulticastSettingsPtrOutputWithContext(ctx)
+}
+
+// InputMulticastSettingsPtrInput is an input type that accepts InputMulticastSettingsArgs, InputMulticastSettingsPtr and InputMulticastSettingsPtrOutput values.
+// You can construct a concrete instance of `InputMulticastSettingsPtrInput` via:
+//
+//	        InputMulticastSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type InputMulticastSettingsPtrInput interface {
+	pulumi.Input
+
+	ToInputMulticastSettingsPtrOutput() InputMulticastSettingsPtrOutput
+	ToInputMulticastSettingsPtrOutputWithContext(context.Context) InputMulticastSettingsPtrOutput
+}
+
+type inputMulticastSettingsPtrType InputMulticastSettingsArgs
+
+func InputMulticastSettingsPtr(v *InputMulticastSettingsArgs) InputMulticastSettingsPtrInput {
+	return (*inputMulticastSettingsPtrType)(v)
+}
+
+func (*inputMulticastSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**InputMulticastSettings)(nil)).Elem()
+}
+
+func (i *inputMulticastSettingsPtrType) ToInputMulticastSettingsPtrOutput() InputMulticastSettingsPtrOutput {
+	return i.ToInputMulticastSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *inputMulticastSettingsPtrType) ToInputMulticastSettingsPtrOutputWithContext(ctx context.Context) InputMulticastSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InputMulticastSettingsPtrOutput)
+}
+
+// Settings for a Multicast input. Contains a list of multicast Urls and optional source ip addresses.
+type InputMulticastSettingsOutput struct{ *pulumi.OutputState }
+
+func (InputMulticastSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InputMulticastSettings)(nil)).Elem()
+}
+
+func (o InputMulticastSettingsOutput) ToInputMulticastSettingsOutput() InputMulticastSettingsOutput {
+	return o
+}
+
+func (o InputMulticastSettingsOutput) ToInputMulticastSettingsOutputWithContext(ctx context.Context) InputMulticastSettingsOutput {
+	return o
+}
+
+func (o InputMulticastSettingsOutput) ToInputMulticastSettingsPtrOutput() InputMulticastSettingsPtrOutput {
+	return o.ToInputMulticastSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o InputMulticastSettingsOutput) ToInputMulticastSettingsPtrOutputWithContext(ctx context.Context) InputMulticastSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InputMulticastSettings) *InputMulticastSettings {
+		return &v
+	}).(InputMulticastSettingsPtrOutput)
+}
+
+// Placeholder documentation for __listOfMulticastSource
+func (o InputMulticastSettingsOutput) Sources() InputMulticastSourceArrayOutput {
+	return o.ApplyT(func(v InputMulticastSettings) []InputMulticastSource { return v.Sources }).(InputMulticastSourceArrayOutput)
+}
+
+type InputMulticastSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (InputMulticastSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InputMulticastSettings)(nil)).Elem()
+}
+
+func (o InputMulticastSettingsPtrOutput) ToInputMulticastSettingsPtrOutput() InputMulticastSettingsPtrOutput {
+	return o
+}
+
+func (o InputMulticastSettingsPtrOutput) ToInputMulticastSettingsPtrOutputWithContext(ctx context.Context) InputMulticastSettingsPtrOutput {
+	return o
+}
+
+func (o InputMulticastSettingsPtrOutput) Elem() InputMulticastSettingsOutput {
+	return o.ApplyT(func(v *InputMulticastSettings) InputMulticastSettings {
+		if v != nil {
+			return *v
+		}
+		var ret InputMulticastSettings
+		return ret
+	}).(InputMulticastSettingsOutput)
+}
+
+// Placeholder documentation for __listOfMulticastSource
+func (o InputMulticastSettingsPtrOutput) Sources() InputMulticastSourceArrayOutput {
+	return o.ApplyT(func(v *InputMulticastSettings) []InputMulticastSource {
+		if v == nil {
+			return nil
+		}
+		return v.Sources
+	}).(InputMulticastSourceArrayOutput)
+}
+
+// Pair of multicast url and source ip address (optional) that make up a multicast source.
+type InputMulticastSource struct {
+	// This represents the ip address of the device sending the multicast stream.
+	SourceIp *string `pulumi:"sourceIp"`
+	// This represents the customer's source URL where multicast stream is pulled from.
+	Url string `pulumi:"url"`
+}
+
+// InputMulticastSourceInput is an input type that accepts InputMulticastSourceArgs and InputMulticastSourceOutput values.
+// You can construct a concrete instance of `InputMulticastSourceInput` via:
+//
+//	InputMulticastSourceArgs{...}
+type InputMulticastSourceInput interface {
+	pulumi.Input
+
+	ToInputMulticastSourceOutput() InputMulticastSourceOutput
+	ToInputMulticastSourceOutputWithContext(context.Context) InputMulticastSourceOutput
+}
+
+// Pair of multicast url and source ip address (optional) that make up a multicast source.
+type InputMulticastSourceArgs struct {
+	// This represents the ip address of the device sending the multicast stream.
+	SourceIp pulumi.StringPtrInput `pulumi:"sourceIp"`
+	// This represents the customer's source URL where multicast stream is pulled from.
+	Url pulumi.StringInput `pulumi:"url"`
+}
+
+func (InputMulticastSourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InputMulticastSource)(nil)).Elem()
+}
+
+func (i InputMulticastSourceArgs) ToInputMulticastSourceOutput() InputMulticastSourceOutput {
+	return i.ToInputMulticastSourceOutputWithContext(context.Background())
+}
+
+func (i InputMulticastSourceArgs) ToInputMulticastSourceOutputWithContext(ctx context.Context) InputMulticastSourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InputMulticastSourceOutput)
+}
+
+// InputMulticastSourceArrayInput is an input type that accepts InputMulticastSourceArray and InputMulticastSourceArrayOutput values.
+// You can construct a concrete instance of `InputMulticastSourceArrayInput` via:
+//
+//	InputMulticastSourceArray{ InputMulticastSourceArgs{...} }
+type InputMulticastSourceArrayInput interface {
+	pulumi.Input
+
+	ToInputMulticastSourceArrayOutput() InputMulticastSourceArrayOutput
+	ToInputMulticastSourceArrayOutputWithContext(context.Context) InputMulticastSourceArrayOutput
+}
+
+type InputMulticastSourceArray []InputMulticastSourceInput
+
+func (InputMulticastSourceArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InputMulticastSource)(nil)).Elem()
+}
+
+func (i InputMulticastSourceArray) ToInputMulticastSourceArrayOutput() InputMulticastSourceArrayOutput {
+	return i.ToInputMulticastSourceArrayOutputWithContext(context.Background())
+}
+
+func (i InputMulticastSourceArray) ToInputMulticastSourceArrayOutputWithContext(ctx context.Context) InputMulticastSourceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InputMulticastSourceArrayOutput)
+}
+
+// Pair of multicast url and source ip address (optional) that make up a multicast source.
+type InputMulticastSourceOutput struct{ *pulumi.OutputState }
+
+func (InputMulticastSourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InputMulticastSource)(nil)).Elem()
+}
+
+func (o InputMulticastSourceOutput) ToInputMulticastSourceOutput() InputMulticastSourceOutput {
+	return o
+}
+
+func (o InputMulticastSourceOutput) ToInputMulticastSourceOutputWithContext(ctx context.Context) InputMulticastSourceOutput {
+	return o
+}
+
+// This represents the ip address of the device sending the multicast stream.
+func (o InputMulticastSourceOutput) SourceIp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InputMulticastSource) *string { return v.SourceIp }).(pulumi.StringPtrOutput)
+}
+
+// This represents the customer's source URL where multicast stream is pulled from.
+func (o InputMulticastSourceOutput) Url() pulumi.StringOutput {
+	return o.ApplyT(func(v InputMulticastSource) string { return v.Url }).(pulumi.StringOutput)
+}
+
+type InputMulticastSourceArrayOutput struct{ *pulumi.OutputState }
+
+func (InputMulticastSourceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InputMulticastSource)(nil)).Elem()
+}
+
+func (o InputMulticastSourceArrayOutput) ToInputMulticastSourceArrayOutput() InputMulticastSourceArrayOutput {
+	return o
+}
+
+func (o InputMulticastSourceArrayOutput) ToInputMulticastSourceArrayOutputWithContext(ctx context.Context) InputMulticastSourceArrayOutput {
+	return o
+}
+
+func (o InputMulticastSourceArrayOutput) Index(i pulumi.IntInput) InputMulticastSourceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) InputMulticastSource {
+		return vs[0].([]InputMulticastSource)[vs[1].(int)]
+	}).(InputMulticastSourceOutput)
+}
+
+// A MediaConnect Router destination associated with a MediaLive Input. RouterOutputArn is server-assigned.
+type InputRouterDestinationSettings struct {
+	// The Availability Zone (AZ) name this destination is created in.
+	AvailabilityZoneName string `pulumi:"availabilityZoneName"`
+	// The ARN of the MediaConnect Router output currently connected to this input.
+	RouterOutputArn *string `pulumi:"routerOutputArn"`
+}
+
+// InputRouterDestinationSettingsInput is an input type that accepts InputRouterDestinationSettingsArgs and InputRouterDestinationSettingsOutput values.
+// You can construct a concrete instance of `InputRouterDestinationSettingsInput` via:
+//
+//	InputRouterDestinationSettingsArgs{...}
+type InputRouterDestinationSettingsInput interface {
+	pulumi.Input
+
+	ToInputRouterDestinationSettingsOutput() InputRouterDestinationSettingsOutput
+	ToInputRouterDestinationSettingsOutputWithContext(context.Context) InputRouterDestinationSettingsOutput
+}
+
+// A MediaConnect Router destination associated with a MediaLive Input. RouterOutputArn is server-assigned.
+type InputRouterDestinationSettingsArgs struct {
+	// The Availability Zone (AZ) name this destination is created in.
+	AvailabilityZoneName pulumi.StringInput `pulumi:"availabilityZoneName"`
+	// The ARN of the MediaConnect Router output currently connected to this input.
+	RouterOutputArn pulumi.StringPtrInput `pulumi:"routerOutputArn"`
+}
+
+func (InputRouterDestinationSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InputRouterDestinationSettings)(nil)).Elem()
+}
+
+func (i InputRouterDestinationSettingsArgs) ToInputRouterDestinationSettingsOutput() InputRouterDestinationSettingsOutput {
+	return i.ToInputRouterDestinationSettingsOutputWithContext(context.Background())
+}
+
+func (i InputRouterDestinationSettingsArgs) ToInputRouterDestinationSettingsOutputWithContext(ctx context.Context) InputRouterDestinationSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InputRouterDestinationSettingsOutput)
+}
+
+// InputRouterDestinationSettingsArrayInput is an input type that accepts InputRouterDestinationSettingsArray and InputRouterDestinationSettingsArrayOutput values.
+// You can construct a concrete instance of `InputRouterDestinationSettingsArrayInput` via:
+//
+//	InputRouterDestinationSettingsArray{ InputRouterDestinationSettingsArgs{...} }
+type InputRouterDestinationSettingsArrayInput interface {
+	pulumi.Input
+
+	ToInputRouterDestinationSettingsArrayOutput() InputRouterDestinationSettingsArrayOutput
+	ToInputRouterDestinationSettingsArrayOutputWithContext(context.Context) InputRouterDestinationSettingsArrayOutput
+}
+
+type InputRouterDestinationSettingsArray []InputRouterDestinationSettingsInput
+
+func (InputRouterDestinationSettingsArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InputRouterDestinationSettings)(nil)).Elem()
+}
+
+func (i InputRouterDestinationSettingsArray) ToInputRouterDestinationSettingsArrayOutput() InputRouterDestinationSettingsArrayOutput {
+	return i.ToInputRouterDestinationSettingsArrayOutputWithContext(context.Background())
+}
+
+func (i InputRouterDestinationSettingsArray) ToInputRouterDestinationSettingsArrayOutputWithContext(ctx context.Context) InputRouterDestinationSettingsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InputRouterDestinationSettingsArrayOutput)
+}
+
+// A MediaConnect Router destination associated with a MediaLive Input. RouterOutputArn is server-assigned.
+type InputRouterDestinationSettingsOutput struct{ *pulumi.OutputState }
+
+func (InputRouterDestinationSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InputRouterDestinationSettings)(nil)).Elem()
+}
+
+func (o InputRouterDestinationSettingsOutput) ToInputRouterDestinationSettingsOutput() InputRouterDestinationSettingsOutput {
+	return o
+}
+
+func (o InputRouterDestinationSettingsOutput) ToInputRouterDestinationSettingsOutputWithContext(ctx context.Context) InputRouterDestinationSettingsOutput {
+	return o
+}
+
+// The Availability Zone (AZ) name this destination is created in.
+func (o InputRouterDestinationSettingsOutput) AvailabilityZoneName() pulumi.StringOutput {
+	return o.ApplyT(func(v InputRouterDestinationSettings) string { return v.AvailabilityZoneName }).(pulumi.StringOutput)
+}
+
+// The ARN of the MediaConnect Router output currently connected to this input.
+func (o InputRouterDestinationSettingsOutput) RouterOutputArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InputRouterDestinationSettings) *string { return v.RouterOutputArn }).(pulumi.StringPtrOutput)
+}
+
+type InputRouterDestinationSettingsArrayOutput struct{ *pulumi.OutputState }
+
+func (InputRouterDestinationSettingsArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InputRouterDestinationSettings)(nil)).Elem()
+}
+
+func (o InputRouterDestinationSettingsArrayOutput) ToInputRouterDestinationSettingsArrayOutput() InputRouterDestinationSettingsArrayOutput {
+	return o
+}
+
+func (o InputRouterDestinationSettingsArrayOutput) ToInputRouterDestinationSettingsArrayOutputWithContext(ctx context.Context) InputRouterDestinationSettingsArrayOutput {
+	return o
+}
+
+func (o InputRouterDestinationSettingsArrayOutput) Index(i pulumi.IntInput) InputRouterDestinationSettingsOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) InputRouterDestinationSettings {
+		return vs[0].([]InputRouterDestinationSettings)[vs[1].(int)]
+	}).(InputRouterDestinationSettingsOutput)
+}
+
+// Information about the MediaConnect Router association for this input.
+type InputRouterSettings struct {
+	// MediaConnect Router destinations associated with this input.
+	Destinations []InputRouterDestinationSettings `pulumi:"destinations"`
+	// Encryption configuration for the MediaConnect Router association. AUTOMATIC uses a service-managed secret; SECRETS_MANAGER requires SecretArn.
+	EncryptionType *InputRouterSettingsEncryptionType `pulumi:"encryptionType"`
+	// The ARN of the Secrets Manager secret used to encrypt this input. Required when EncryptionType is SECRETS_MANAGER.
+	SecretArn *string `pulumi:"secretArn"`
+}
+
+// InputRouterSettingsInput is an input type that accepts InputRouterSettingsArgs and InputRouterSettingsOutput values.
+// You can construct a concrete instance of `InputRouterSettingsInput` via:
+//
+//	InputRouterSettingsArgs{...}
+type InputRouterSettingsInput interface {
+	pulumi.Input
+
+	ToInputRouterSettingsOutput() InputRouterSettingsOutput
+	ToInputRouterSettingsOutputWithContext(context.Context) InputRouterSettingsOutput
+}
+
+// Information about the MediaConnect Router association for this input.
+type InputRouterSettingsArgs struct {
+	// MediaConnect Router destinations associated with this input.
+	Destinations InputRouterDestinationSettingsArrayInput `pulumi:"destinations"`
+	// Encryption configuration for the MediaConnect Router association. AUTOMATIC uses a service-managed secret; SECRETS_MANAGER requires SecretArn.
+	EncryptionType InputRouterSettingsEncryptionTypePtrInput `pulumi:"encryptionType"`
+	// The ARN of the Secrets Manager secret used to encrypt this input. Required when EncryptionType is SECRETS_MANAGER.
+	SecretArn pulumi.StringPtrInput `pulumi:"secretArn"`
+}
+
+func (InputRouterSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InputRouterSettings)(nil)).Elem()
+}
+
+func (i InputRouterSettingsArgs) ToInputRouterSettingsOutput() InputRouterSettingsOutput {
+	return i.ToInputRouterSettingsOutputWithContext(context.Background())
+}
+
+func (i InputRouterSettingsArgs) ToInputRouterSettingsOutputWithContext(ctx context.Context) InputRouterSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InputRouterSettingsOutput)
+}
+
+func (i InputRouterSettingsArgs) ToInputRouterSettingsPtrOutput() InputRouterSettingsPtrOutput {
+	return i.ToInputRouterSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i InputRouterSettingsArgs) ToInputRouterSettingsPtrOutputWithContext(ctx context.Context) InputRouterSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InputRouterSettingsOutput).ToInputRouterSettingsPtrOutputWithContext(ctx)
+}
+
+// InputRouterSettingsPtrInput is an input type that accepts InputRouterSettingsArgs, InputRouterSettingsPtr and InputRouterSettingsPtrOutput values.
+// You can construct a concrete instance of `InputRouterSettingsPtrInput` via:
+//
+//	        InputRouterSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type InputRouterSettingsPtrInput interface {
+	pulumi.Input
+
+	ToInputRouterSettingsPtrOutput() InputRouterSettingsPtrOutput
+	ToInputRouterSettingsPtrOutputWithContext(context.Context) InputRouterSettingsPtrOutput
+}
+
+type inputRouterSettingsPtrType InputRouterSettingsArgs
+
+func InputRouterSettingsPtr(v *InputRouterSettingsArgs) InputRouterSettingsPtrInput {
+	return (*inputRouterSettingsPtrType)(v)
+}
+
+func (*inputRouterSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**InputRouterSettings)(nil)).Elem()
+}
+
+func (i *inputRouterSettingsPtrType) ToInputRouterSettingsPtrOutput() InputRouterSettingsPtrOutput {
+	return i.ToInputRouterSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *inputRouterSettingsPtrType) ToInputRouterSettingsPtrOutputWithContext(ctx context.Context) InputRouterSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InputRouterSettingsPtrOutput)
+}
+
+// Information about the MediaConnect Router association for this input.
+type InputRouterSettingsOutput struct{ *pulumi.OutputState }
+
+func (InputRouterSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InputRouterSettings)(nil)).Elem()
+}
+
+func (o InputRouterSettingsOutput) ToInputRouterSettingsOutput() InputRouterSettingsOutput {
+	return o
+}
+
+func (o InputRouterSettingsOutput) ToInputRouterSettingsOutputWithContext(ctx context.Context) InputRouterSettingsOutput {
+	return o
+}
+
+func (o InputRouterSettingsOutput) ToInputRouterSettingsPtrOutput() InputRouterSettingsPtrOutput {
+	return o.ToInputRouterSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o InputRouterSettingsOutput) ToInputRouterSettingsPtrOutputWithContext(ctx context.Context) InputRouterSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InputRouterSettings) *InputRouterSettings {
+		return &v
+	}).(InputRouterSettingsPtrOutput)
+}
+
+// MediaConnect Router destinations associated with this input.
+func (o InputRouterSettingsOutput) Destinations() InputRouterDestinationSettingsArrayOutput {
+	return o.ApplyT(func(v InputRouterSettings) []InputRouterDestinationSettings { return v.Destinations }).(InputRouterDestinationSettingsArrayOutput)
+}
+
+// Encryption configuration for the MediaConnect Router association. AUTOMATIC uses a service-managed secret; SECRETS_MANAGER requires SecretArn.
+func (o InputRouterSettingsOutput) EncryptionType() InputRouterSettingsEncryptionTypePtrOutput {
+	return o.ApplyT(func(v InputRouterSettings) *InputRouterSettingsEncryptionType { return v.EncryptionType }).(InputRouterSettingsEncryptionTypePtrOutput)
+}
+
+// The ARN of the Secrets Manager secret used to encrypt this input. Required when EncryptionType is SECRETS_MANAGER.
+func (o InputRouterSettingsOutput) SecretArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InputRouterSettings) *string { return v.SecretArn }).(pulumi.StringPtrOutput)
+}
+
+type InputRouterSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (InputRouterSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InputRouterSettings)(nil)).Elem()
+}
+
+func (o InputRouterSettingsPtrOutput) ToInputRouterSettingsPtrOutput() InputRouterSettingsPtrOutput {
+	return o
+}
+
+func (o InputRouterSettingsPtrOutput) ToInputRouterSettingsPtrOutputWithContext(ctx context.Context) InputRouterSettingsPtrOutput {
+	return o
+}
+
+func (o InputRouterSettingsPtrOutput) Elem() InputRouterSettingsOutput {
+	return o.ApplyT(func(v *InputRouterSettings) InputRouterSettings {
+		if v != nil {
+			return *v
+		}
+		var ret InputRouterSettings
+		return ret
+	}).(InputRouterSettingsOutput)
+}
+
+// MediaConnect Router destinations associated with this input.
+func (o InputRouterSettingsPtrOutput) Destinations() InputRouterDestinationSettingsArrayOutput {
+	return o.ApplyT(func(v *InputRouterSettings) []InputRouterDestinationSettings {
+		if v == nil {
+			return nil
+		}
+		return v.Destinations
+	}).(InputRouterDestinationSettingsArrayOutput)
+}
+
+// Encryption configuration for the MediaConnect Router association. AUTOMATIC uses a service-managed secret; SECRETS_MANAGER requires SecretArn.
+func (o InputRouterSettingsPtrOutput) EncryptionType() InputRouterSettingsEncryptionTypePtrOutput {
+	return o.ApplyT(func(v *InputRouterSettings) *InputRouterSettingsEncryptionType {
+		if v == nil {
+			return nil
+		}
+		return v.EncryptionType
+	}).(InputRouterSettingsEncryptionTypePtrOutput)
+}
+
+// The ARN of the Secrets Manager secret used to encrypt this input. Required when EncryptionType is SECRETS_MANAGER.
+func (o InputRouterSettingsPtrOutput) SecretArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InputRouterSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SecretArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The location of the SDP file for one of the SMPTE 2110 streams in a receiver group.
+type InputSdpLocation struct {
+	// The index of the media stream in the SDP file for one SMPTE 2110 stream.
+	MediaIndex *int `pulumi:"mediaIndex"`
+	// The URL of the SDP file for one SMPTE 2110 stream.
+	SdpUrl *string `pulumi:"sdpUrl"`
+}
+
+// InputSdpLocationInput is an input type that accepts InputSdpLocationArgs and InputSdpLocationOutput values.
+// You can construct a concrete instance of `InputSdpLocationInput` via:
+//
+//	InputSdpLocationArgs{...}
+type InputSdpLocationInput interface {
+	pulumi.Input
+
+	ToInputSdpLocationOutput() InputSdpLocationOutput
+	ToInputSdpLocationOutputWithContext(context.Context) InputSdpLocationOutput
+}
+
+// The location of the SDP file for one of the SMPTE 2110 streams in a receiver group.
+type InputSdpLocationArgs struct {
+	// The index of the media stream in the SDP file for one SMPTE 2110 stream.
+	MediaIndex pulumi.IntPtrInput `pulumi:"mediaIndex"`
+	// The URL of the SDP file for one SMPTE 2110 stream.
+	SdpUrl pulumi.StringPtrInput `pulumi:"sdpUrl"`
+}
+
+func (InputSdpLocationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InputSdpLocation)(nil)).Elem()
+}
+
+func (i InputSdpLocationArgs) ToInputSdpLocationOutput() InputSdpLocationOutput {
+	return i.ToInputSdpLocationOutputWithContext(context.Background())
+}
+
+func (i InputSdpLocationArgs) ToInputSdpLocationOutputWithContext(ctx context.Context) InputSdpLocationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InputSdpLocationOutput)
+}
+
+func (i InputSdpLocationArgs) ToInputSdpLocationPtrOutput() InputSdpLocationPtrOutput {
+	return i.ToInputSdpLocationPtrOutputWithContext(context.Background())
+}
+
+func (i InputSdpLocationArgs) ToInputSdpLocationPtrOutputWithContext(ctx context.Context) InputSdpLocationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InputSdpLocationOutput).ToInputSdpLocationPtrOutputWithContext(ctx)
+}
+
+// InputSdpLocationPtrInput is an input type that accepts InputSdpLocationArgs, InputSdpLocationPtr and InputSdpLocationPtrOutput values.
+// You can construct a concrete instance of `InputSdpLocationPtrInput` via:
+//
+//	        InputSdpLocationArgs{...}
+//
+//	or:
+//
+//	        nil
+type InputSdpLocationPtrInput interface {
+	pulumi.Input
+
+	ToInputSdpLocationPtrOutput() InputSdpLocationPtrOutput
+	ToInputSdpLocationPtrOutputWithContext(context.Context) InputSdpLocationPtrOutput
+}
+
+type inputSdpLocationPtrType InputSdpLocationArgs
+
+func InputSdpLocationPtr(v *InputSdpLocationArgs) InputSdpLocationPtrInput {
+	return (*inputSdpLocationPtrType)(v)
+}
+
+func (*inputSdpLocationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**InputSdpLocation)(nil)).Elem()
+}
+
+func (i *inputSdpLocationPtrType) ToInputSdpLocationPtrOutput() InputSdpLocationPtrOutput {
+	return i.ToInputSdpLocationPtrOutputWithContext(context.Background())
+}
+
+func (i *inputSdpLocationPtrType) ToInputSdpLocationPtrOutputWithContext(ctx context.Context) InputSdpLocationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InputSdpLocationPtrOutput)
+}
+
+// InputSdpLocationArrayInput is an input type that accepts InputSdpLocationArray and InputSdpLocationArrayOutput values.
+// You can construct a concrete instance of `InputSdpLocationArrayInput` via:
+//
+//	InputSdpLocationArray{ InputSdpLocationArgs{...} }
+type InputSdpLocationArrayInput interface {
+	pulumi.Input
+
+	ToInputSdpLocationArrayOutput() InputSdpLocationArrayOutput
+	ToInputSdpLocationArrayOutputWithContext(context.Context) InputSdpLocationArrayOutput
+}
+
+type InputSdpLocationArray []InputSdpLocationInput
+
+func (InputSdpLocationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InputSdpLocation)(nil)).Elem()
+}
+
+func (i InputSdpLocationArray) ToInputSdpLocationArrayOutput() InputSdpLocationArrayOutput {
+	return i.ToInputSdpLocationArrayOutputWithContext(context.Background())
+}
+
+func (i InputSdpLocationArray) ToInputSdpLocationArrayOutputWithContext(ctx context.Context) InputSdpLocationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InputSdpLocationArrayOutput)
+}
+
+// The location of the SDP file for one of the SMPTE 2110 streams in a receiver group.
+type InputSdpLocationOutput struct{ *pulumi.OutputState }
+
+func (InputSdpLocationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InputSdpLocation)(nil)).Elem()
+}
+
+func (o InputSdpLocationOutput) ToInputSdpLocationOutput() InputSdpLocationOutput {
+	return o
+}
+
+func (o InputSdpLocationOutput) ToInputSdpLocationOutputWithContext(ctx context.Context) InputSdpLocationOutput {
+	return o
+}
+
+func (o InputSdpLocationOutput) ToInputSdpLocationPtrOutput() InputSdpLocationPtrOutput {
+	return o.ToInputSdpLocationPtrOutputWithContext(context.Background())
+}
+
+func (o InputSdpLocationOutput) ToInputSdpLocationPtrOutputWithContext(ctx context.Context) InputSdpLocationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InputSdpLocation) *InputSdpLocation {
+		return &v
+	}).(InputSdpLocationPtrOutput)
+}
+
+// The index of the media stream in the SDP file for one SMPTE 2110 stream.
+func (o InputSdpLocationOutput) MediaIndex() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v InputSdpLocation) *int { return v.MediaIndex }).(pulumi.IntPtrOutput)
+}
+
+// The URL of the SDP file for one SMPTE 2110 stream.
+func (o InputSdpLocationOutput) SdpUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InputSdpLocation) *string { return v.SdpUrl }).(pulumi.StringPtrOutput)
+}
+
+type InputSdpLocationPtrOutput struct{ *pulumi.OutputState }
+
+func (InputSdpLocationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InputSdpLocation)(nil)).Elem()
+}
+
+func (o InputSdpLocationPtrOutput) ToInputSdpLocationPtrOutput() InputSdpLocationPtrOutput {
+	return o
+}
+
+func (o InputSdpLocationPtrOutput) ToInputSdpLocationPtrOutputWithContext(ctx context.Context) InputSdpLocationPtrOutput {
+	return o
+}
+
+func (o InputSdpLocationPtrOutput) Elem() InputSdpLocationOutput {
+	return o.ApplyT(func(v *InputSdpLocation) InputSdpLocation {
+		if v != nil {
+			return *v
+		}
+		var ret InputSdpLocation
+		return ret
+	}).(InputSdpLocationOutput)
+}
+
+// The index of the media stream in the SDP file for one SMPTE 2110 stream.
+func (o InputSdpLocationPtrOutput) MediaIndex() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *InputSdpLocation) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MediaIndex
+	}).(pulumi.IntPtrOutput)
+}
+
+// The URL of the SDP file for one SMPTE 2110 stream.
+func (o InputSdpLocationPtrOutput) SdpUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InputSdpLocation) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SdpUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+type InputSdpLocationArrayOutput struct{ *pulumi.OutputState }
+
+func (InputSdpLocationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InputSdpLocation)(nil)).Elem()
+}
+
+func (o InputSdpLocationArrayOutput) ToInputSdpLocationArrayOutput() InputSdpLocationArrayOutput {
+	return o
+}
+
+func (o InputSdpLocationArrayOutput) ToInputSdpLocationArrayOutputWithContext(ctx context.Context) InputSdpLocationArrayOutput {
+	return o
+}
+
+func (o InputSdpLocationArrayOutput) Index(i pulumi.IntInput) InputSdpLocationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) InputSdpLocation {
+		return vs[0].([]InputSdpLocation)[vs[1].(int)]
+	}).(InputSdpLocationOutput)
+}
+
+// Whitelist rule
+type InputSecurityGroupInputWhitelistRule struct {
+	// The IPv4 CIDR that's whitelisted.
+	Cidr *string `pulumi:"cidr"`
+}
+
+// InputSecurityGroupInputWhitelistRuleInput is an input type that accepts InputSecurityGroupInputWhitelistRuleArgs and InputSecurityGroupInputWhitelistRuleOutput values.
+// You can construct a concrete instance of `InputSecurityGroupInputWhitelistRuleInput` via:
+//
+//	InputSecurityGroupInputWhitelistRuleArgs{...}
+type InputSecurityGroupInputWhitelistRuleInput interface {
+	pulumi.Input
+
+	ToInputSecurityGroupInputWhitelistRuleOutput() InputSecurityGroupInputWhitelistRuleOutput
+	ToInputSecurityGroupInputWhitelistRuleOutputWithContext(context.Context) InputSecurityGroupInputWhitelistRuleOutput
+}
+
+// Whitelist rule
+type InputSecurityGroupInputWhitelistRuleArgs struct {
+	// The IPv4 CIDR that's whitelisted.
+	Cidr pulumi.StringPtrInput `pulumi:"cidr"`
+}
+
+func (InputSecurityGroupInputWhitelistRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InputSecurityGroupInputWhitelistRule)(nil)).Elem()
+}
+
+func (i InputSecurityGroupInputWhitelistRuleArgs) ToInputSecurityGroupInputWhitelistRuleOutput() InputSecurityGroupInputWhitelistRuleOutput {
+	return i.ToInputSecurityGroupInputWhitelistRuleOutputWithContext(context.Background())
+}
+
+func (i InputSecurityGroupInputWhitelistRuleArgs) ToInputSecurityGroupInputWhitelistRuleOutputWithContext(ctx context.Context) InputSecurityGroupInputWhitelistRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InputSecurityGroupInputWhitelistRuleOutput)
+}
+
+// InputSecurityGroupInputWhitelistRuleArrayInput is an input type that accepts InputSecurityGroupInputWhitelistRuleArray and InputSecurityGroupInputWhitelistRuleArrayOutput values.
+// You can construct a concrete instance of `InputSecurityGroupInputWhitelistRuleArrayInput` via:
+//
+//	InputSecurityGroupInputWhitelistRuleArray{ InputSecurityGroupInputWhitelistRuleArgs{...} }
+type InputSecurityGroupInputWhitelistRuleArrayInput interface {
+	pulumi.Input
+
+	ToInputSecurityGroupInputWhitelistRuleArrayOutput() InputSecurityGroupInputWhitelistRuleArrayOutput
+	ToInputSecurityGroupInputWhitelistRuleArrayOutputWithContext(context.Context) InputSecurityGroupInputWhitelistRuleArrayOutput
+}
+
+type InputSecurityGroupInputWhitelistRuleArray []InputSecurityGroupInputWhitelistRuleInput
+
+func (InputSecurityGroupInputWhitelistRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InputSecurityGroupInputWhitelistRule)(nil)).Elem()
+}
+
+func (i InputSecurityGroupInputWhitelistRuleArray) ToInputSecurityGroupInputWhitelistRuleArrayOutput() InputSecurityGroupInputWhitelistRuleArrayOutput {
+	return i.ToInputSecurityGroupInputWhitelistRuleArrayOutputWithContext(context.Background())
+}
+
+func (i InputSecurityGroupInputWhitelistRuleArray) ToInputSecurityGroupInputWhitelistRuleArrayOutputWithContext(ctx context.Context) InputSecurityGroupInputWhitelistRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InputSecurityGroupInputWhitelistRuleArrayOutput)
+}
+
+// Whitelist rule
+type InputSecurityGroupInputWhitelistRuleOutput struct{ *pulumi.OutputState }
+
+func (InputSecurityGroupInputWhitelistRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InputSecurityGroupInputWhitelistRule)(nil)).Elem()
+}
+
+func (o InputSecurityGroupInputWhitelistRuleOutput) ToInputSecurityGroupInputWhitelistRuleOutput() InputSecurityGroupInputWhitelistRuleOutput {
+	return o
+}
+
+func (o InputSecurityGroupInputWhitelistRuleOutput) ToInputSecurityGroupInputWhitelistRuleOutputWithContext(ctx context.Context) InputSecurityGroupInputWhitelistRuleOutput {
+	return o
+}
+
+// The IPv4 CIDR that's whitelisted.
+func (o InputSecurityGroupInputWhitelistRuleOutput) Cidr() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InputSecurityGroupInputWhitelistRule) *string { return v.Cidr }).(pulumi.StringPtrOutput)
+}
+
+type InputSecurityGroupInputWhitelistRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (InputSecurityGroupInputWhitelistRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InputSecurityGroupInputWhitelistRule)(nil)).Elem()
+}
+
+func (o InputSecurityGroupInputWhitelistRuleArrayOutput) ToInputSecurityGroupInputWhitelistRuleArrayOutput() InputSecurityGroupInputWhitelistRuleArrayOutput {
+	return o
+}
+
+func (o InputSecurityGroupInputWhitelistRuleArrayOutput) ToInputSecurityGroupInputWhitelistRuleArrayOutputWithContext(ctx context.Context) InputSecurityGroupInputWhitelistRuleArrayOutput {
+	return o
+}
+
+func (o InputSecurityGroupInputWhitelistRuleArrayOutput) Index(i pulumi.IntInput) InputSecurityGroupInputWhitelistRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) InputSecurityGroupInputWhitelistRule {
+		return vs[0].([]InputSecurityGroupInputWhitelistRule)[vs[1].(int)]
+	}).(InputSecurityGroupInputWhitelistRuleOutput)
+}
+
+// A receiver group is a collection of video, audio, and ancillary streams that you want to group together and attach to one input.
+type InputSmpte2110ReceiverGroup struct {
+	// The single Smpte2110ReceiverGroupSdpSettings that identify the video, audio, and ancillary streams for this receiver group.
+	SdpSettings *InputSmpte2110ReceiverGroupSdpSettings `pulumi:"sdpSettings"`
+}
+
+// InputSmpte2110ReceiverGroupInput is an input type that accepts InputSmpte2110ReceiverGroupArgs and InputSmpte2110ReceiverGroupOutput values.
+// You can construct a concrete instance of `InputSmpte2110ReceiverGroupInput` via:
+//
+//	InputSmpte2110ReceiverGroupArgs{...}
+type InputSmpte2110ReceiverGroupInput interface {
+	pulumi.Input
+
+	ToInputSmpte2110ReceiverGroupOutput() InputSmpte2110ReceiverGroupOutput
+	ToInputSmpte2110ReceiverGroupOutputWithContext(context.Context) InputSmpte2110ReceiverGroupOutput
+}
+
+// A receiver group is a collection of video, audio, and ancillary streams that you want to group together and attach to one input.
+type InputSmpte2110ReceiverGroupArgs struct {
+	// The single Smpte2110ReceiverGroupSdpSettings that identify the video, audio, and ancillary streams for this receiver group.
+	SdpSettings InputSmpte2110ReceiverGroupSdpSettingsPtrInput `pulumi:"sdpSettings"`
+}
+
+func (InputSmpte2110ReceiverGroupArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InputSmpte2110ReceiverGroup)(nil)).Elem()
+}
+
+func (i InputSmpte2110ReceiverGroupArgs) ToInputSmpte2110ReceiverGroupOutput() InputSmpte2110ReceiverGroupOutput {
+	return i.ToInputSmpte2110ReceiverGroupOutputWithContext(context.Background())
+}
+
+func (i InputSmpte2110ReceiverGroupArgs) ToInputSmpte2110ReceiverGroupOutputWithContext(ctx context.Context) InputSmpte2110ReceiverGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InputSmpte2110ReceiverGroupOutput)
+}
+
+// InputSmpte2110ReceiverGroupArrayInput is an input type that accepts InputSmpte2110ReceiverGroupArray and InputSmpte2110ReceiverGroupArrayOutput values.
+// You can construct a concrete instance of `InputSmpte2110ReceiverGroupArrayInput` via:
+//
+//	InputSmpte2110ReceiverGroupArray{ InputSmpte2110ReceiverGroupArgs{...} }
+type InputSmpte2110ReceiverGroupArrayInput interface {
+	pulumi.Input
+
+	ToInputSmpte2110ReceiverGroupArrayOutput() InputSmpte2110ReceiverGroupArrayOutput
+	ToInputSmpte2110ReceiverGroupArrayOutputWithContext(context.Context) InputSmpte2110ReceiverGroupArrayOutput
+}
+
+type InputSmpte2110ReceiverGroupArray []InputSmpte2110ReceiverGroupInput
+
+func (InputSmpte2110ReceiverGroupArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InputSmpte2110ReceiverGroup)(nil)).Elem()
+}
+
+func (i InputSmpte2110ReceiverGroupArray) ToInputSmpte2110ReceiverGroupArrayOutput() InputSmpte2110ReceiverGroupArrayOutput {
+	return i.ToInputSmpte2110ReceiverGroupArrayOutputWithContext(context.Background())
+}
+
+func (i InputSmpte2110ReceiverGroupArray) ToInputSmpte2110ReceiverGroupArrayOutputWithContext(ctx context.Context) InputSmpte2110ReceiverGroupArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InputSmpte2110ReceiverGroupArrayOutput)
+}
+
+// A receiver group is a collection of video, audio, and ancillary streams that you want to group together and attach to one input.
+type InputSmpte2110ReceiverGroupOutput struct{ *pulumi.OutputState }
+
+func (InputSmpte2110ReceiverGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InputSmpte2110ReceiverGroup)(nil)).Elem()
+}
+
+func (o InputSmpte2110ReceiverGroupOutput) ToInputSmpte2110ReceiverGroupOutput() InputSmpte2110ReceiverGroupOutput {
+	return o
+}
+
+func (o InputSmpte2110ReceiverGroupOutput) ToInputSmpte2110ReceiverGroupOutputWithContext(ctx context.Context) InputSmpte2110ReceiverGroupOutput {
+	return o
+}
+
+// The single Smpte2110ReceiverGroupSdpSettings that identify the video, audio, and ancillary streams for this receiver group.
+func (o InputSmpte2110ReceiverGroupOutput) SdpSettings() InputSmpte2110ReceiverGroupSdpSettingsPtrOutput {
+	return o.ApplyT(func(v InputSmpte2110ReceiverGroup) *InputSmpte2110ReceiverGroupSdpSettings { return v.SdpSettings }).(InputSmpte2110ReceiverGroupSdpSettingsPtrOutput)
+}
+
+type InputSmpte2110ReceiverGroupArrayOutput struct{ *pulumi.OutputState }
+
+func (InputSmpte2110ReceiverGroupArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InputSmpte2110ReceiverGroup)(nil)).Elem()
+}
+
+func (o InputSmpte2110ReceiverGroupArrayOutput) ToInputSmpte2110ReceiverGroupArrayOutput() InputSmpte2110ReceiverGroupArrayOutput {
+	return o
+}
+
+func (o InputSmpte2110ReceiverGroupArrayOutput) ToInputSmpte2110ReceiverGroupArrayOutputWithContext(ctx context.Context) InputSmpte2110ReceiverGroupArrayOutput {
+	return o
+}
+
+func (o InputSmpte2110ReceiverGroupArrayOutput) Index(i pulumi.IntInput) InputSmpte2110ReceiverGroupOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) InputSmpte2110ReceiverGroup {
+		return vs[0].([]InputSmpte2110ReceiverGroup)[vs[1].(int)]
+	}).(InputSmpte2110ReceiverGroupOutput)
+}
+
+// Information about the SDP files that describe the SMPTE 2110 streams that go into one SMPTE 2110 receiver group.
+type InputSmpte2110ReceiverGroupSdpSettings struct {
+	// A list of InputSdpLocations. Each item in the list specifies the SDP file and index for one ancillary SMPTE 2110 stream.
+	// Each stream encapsulates one captions stream (out of any number you can include) or the single SCTE 35 stream that you can include.
+	AncillarySdps []InputSdpLocation `pulumi:"ancillarySdps"`
+	// A list of InputSdpLocations. Each item in the list specifies the SDP file and index for one audio SMPTE 2110 stream.
+	AudioSdps []InputSdpLocation `pulumi:"audioSdps"`
+	// The InputSdpLocation that specifies the SDP file and index for the single video SMPTE 2110 stream for this 2110 input.
+	VideoSdp *InputSdpLocation `pulumi:"videoSdp"`
+}
+
+// InputSmpte2110ReceiverGroupSdpSettingsInput is an input type that accepts InputSmpte2110ReceiverGroupSdpSettingsArgs and InputSmpte2110ReceiverGroupSdpSettingsOutput values.
+// You can construct a concrete instance of `InputSmpte2110ReceiverGroupSdpSettingsInput` via:
+//
+//	InputSmpte2110ReceiverGroupSdpSettingsArgs{...}
+type InputSmpte2110ReceiverGroupSdpSettingsInput interface {
+	pulumi.Input
+
+	ToInputSmpte2110ReceiverGroupSdpSettingsOutput() InputSmpte2110ReceiverGroupSdpSettingsOutput
+	ToInputSmpte2110ReceiverGroupSdpSettingsOutputWithContext(context.Context) InputSmpte2110ReceiverGroupSdpSettingsOutput
+}
+
+// Information about the SDP files that describe the SMPTE 2110 streams that go into one SMPTE 2110 receiver group.
+type InputSmpte2110ReceiverGroupSdpSettingsArgs struct {
+	// A list of InputSdpLocations. Each item in the list specifies the SDP file and index for one ancillary SMPTE 2110 stream.
+	// Each stream encapsulates one captions stream (out of any number you can include) or the single SCTE 35 stream that you can include.
+	AncillarySdps InputSdpLocationArrayInput `pulumi:"ancillarySdps"`
+	// A list of InputSdpLocations. Each item in the list specifies the SDP file and index for one audio SMPTE 2110 stream.
+	AudioSdps InputSdpLocationArrayInput `pulumi:"audioSdps"`
+	// The InputSdpLocation that specifies the SDP file and index for the single video SMPTE 2110 stream for this 2110 input.
+	VideoSdp InputSdpLocationPtrInput `pulumi:"videoSdp"`
+}
+
+func (InputSmpte2110ReceiverGroupSdpSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InputSmpte2110ReceiverGroupSdpSettings)(nil)).Elem()
+}
+
+func (i InputSmpte2110ReceiverGroupSdpSettingsArgs) ToInputSmpte2110ReceiverGroupSdpSettingsOutput() InputSmpte2110ReceiverGroupSdpSettingsOutput {
+	return i.ToInputSmpte2110ReceiverGroupSdpSettingsOutputWithContext(context.Background())
+}
+
+func (i InputSmpte2110ReceiverGroupSdpSettingsArgs) ToInputSmpte2110ReceiverGroupSdpSettingsOutputWithContext(ctx context.Context) InputSmpte2110ReceiverGroupSdpSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InputSmpte2110ReceiverGroupSdpSettingsOutput)
+}
+
+func (i InputSmpte2110ReceiverGroupSdpSettingsArgs) ToInputSmpte2110ReceiverGroupSdpSettingsPtrOutput() InputSmpte2110ReceiverGroupSdpSettingsPtrOutput {
+	return i.ToInputSmpte2110ReceiverGroupSdpSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i InputSmpte2110ReceiverGroupSdpSettingsArgs) ToInputSmpte2110ReceiverGroupSdpSettingsPtrOutputWithContext(ctx context.Context) InputSmpte2110ReceiverGroupSdpSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InputSmpte2110ReceiverGroupSdpSettingsOutput).ToInputSmpte2110ReceiverGroupSdpSettingsPtrOutputWithContext(ctx)
+}
+
+// InputSmpte2110ReceiverGroupSdpSettingsPtrInput is an input type that accepts InputSmpte2110ReceiverGroupSdpSettingsArgs, InputSmpte2110ReceiverGroupSdpSettingsPtr and InputSmpte2110ReceiverGroupSdpSettingsPtrOutput values.
+// You can construct a concrete instance of `InputSmpte2110ReceiverGroupSdpSettingsPtrInput` via:
+//
+//	        InputSmpte2110ReceiverGroupSdpSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type InputSmpte2110ReceiverGroupSdpSettingsPtrInput interface {
+	pulumi.Input
+
+	ToInputSmpte2110ReceiverGroupSdpSettingsPtrOutput() InputSmpte2110ReceiverGroupSdpSettingsPtrOutput
+	ToInputSmpte2110ReceiverGroupSdpSettingsPtrOutputWithContext(context.Context) InputSmpte2110ReceiverGroupSdpSettingsPtrOutput
+}
+
+type inputSmpte2110ReceiverGroupSdpSettingsPtrType InputSmpte2110ReceiverGroupSdpSettingsArgs
+
+func InputSmpte2110ReceiverGroupSdpSettingsPtr(v *InputSmpte2110ReceiverGroupSdpSettingsArgs) InputSmpte2110ReceiverGroupSdpSettingsPtrInput {
+	return (*inputSmpte2110ReceiverGroupSdpSettingsPtrType)(v)
+}
+
+func (*inputSmpte2110ReceiverGroupSdpSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**InputSmpte2110ReceiverGroupSdpSettings)(nil)).Elem()
+}
+
+func (i *inputSmpte2110ReceiverGroupSdpSettingsPtrType) ToInputSmpte2110ReceiverGroupSdpSettingsPtrOutput() InputSmpte2110ReceiverGroupSdpSettingsPtrOutput {
+	return i.ToInputSmpte2110ReceiverGroupSdpSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *inputSmpte2110ReceiverGroupSdpSettingsPtrType) ToInputSmpte2110ReceiverGroupSdpSettingsPtrOutputWithContext(ctx context.Context) InputSmpte2110ReceiverGroupSdpSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InputSmpte2110ReceiverGroupSdpSettingsPtrOutput)
+}
+
+// Information about the SDP files that describe the SMPTE 2110 streams that go into one SMPTE 2110 receiver group.
+type InputSmpte2110ReceiverGroupSdpSettingsOutput struct{ *pulumi.OutputState }
+
+func (InputSmpte2110ReceiverGroupSdpSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InputSmpte2110ReceiverGroupSdpSettings)(nil)).Elem()
+}
+
+func (o InputSmpte2110ReceiverGroupSdpSettingsOutput) ToInputSmpte2110ReceiverGroupSdpSettingsOutput() InputSmpte2110ReceiverGroupSdpSettingsOutput {
+	return o
+}
+
+func (o InputSmpte2110ReceiverGroupSdpSettingsOutput) ToInputSmpte2110ReceiverGroupSdpSettingsOutputWithContext(ctx context.Context) InputSmpte2110ReceiverGroupSdpSettingsOutput {
+	return o
+}
+
+func (o InputSmpte2110ReceiverGroupSdpSettingsOutput) ToInputSmpte2110ReceiverGroupSdpSettingsPtrOutput() InputSmpte2110ReceiverGroupSdpSettingsPtrOutput {
+	return o.ToInputSmpte2110ReceiverGroupSdpSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o InputSmpte2110ReceiverGroupSdpSettingsOutput) ToInputSmpte2110ReceiverGroupSdpSettingsPtrOutputWithContext(ctx context.Context) InputSmpte2110ReceiverGroupSdpSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InputSmpte2110ReceiverGroupSdpSettings) *InputSmpte2110ReceiverGroupSdpSettings {
+		return &v
+	}).(InputSmpte2110ReceiverGroupSdpSettingsPtrOutput)
+}
+
+// A list of InputSdpLocations. Each item in the list specifies the SDP file and index for one ancillary SMPTE 2110 stream.
+// Each stream encapsulates one captions stream (out of any number you can include) or the single SCTE 35 stream that you can include.
+func (o InputSmpte2110ReceiverGroupSdpSettingsOutput) AncillarySdps() InputSdpLocationArrayOutput {
+	return o.ApplyT(func(v InputSmpte2110ReceiverGroupSdpSettings) []InputSdpLocation { return v.AncillarySdps }).(InputSdpLocationArrayOutput)
+}
+
+// A list of InputSdpLocations. Each item in the list specifies the SDP file and index for one audio SMPTE 2110 stream.
+func (o InputSmpte2110ReceiverGroupSdpSettingsOutput) AudioSdps() InputSdpLocationArrayOutput {
+	return o.ApplyT(func(v InputSmpte2110ReceiverGroupSdpSettings) []InputSdpLocation { return v.AudioSdps }).(InputSdpLocationArrayOutput)
+}
+
+// The InputSdpLocation that specifies the SDP file and index for the single video SMPTE 2110 stream for this 2110 input.
+func (o InputSmpte2110ReceiverGroupSdpSettingsOutput) VideoSdp() InputSdpLocationPtrOutput {
+	return o.ApplyT(func(v InputSmpte2110ReceiverGroupSdpSettings) *InputSdpLocation { return v.VideoSdp }).(InputSdpLocationPtrOutput)
+}
+
+type InputSmpte2110ReceiverGroupSdpSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (InputSmpte2110ReceiverGroupSdpSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InputSmpte2110ReceiverGroupSdpSettings)(nil)).Elem()
+}
+
+func (o InputSmpte2110ReceiverGroupSdpSettingsPtrOutput) ToInputSmpte2110ReceiverGroupSdpSettingsPtrOutput() InputSmpte2110ReceiverGroupSdpSettingsPtrOutput {
+	return o
+}
+
+func (o InputSmpte2110ReceiverGroupSdpSettingsPtrOutput) ToInputSmpte2110ReceiverGroupSdpSettingsPtrOutputWithContext(ctx context.Context) InputSmpte2110ReceiverGroupSdpSettingsPtrOutput {
+	return o
+}
+
+func (o InputSmpte2110ReceiverGroupSdpSettingsPtrOutput) Elem() InputSmpte2110ReceiverGroupSdpSettingsOutput {
+	return o.ApplyT(func(v *InputSmpte2110ReceiverGroupSdpSettings) InputSmpte2110ReceiverGroupSdpSettings {
+		if v != nil {
+			return *v
+		}
+		var ret InputSmpte2110ReceiverGroupSdpSettings
+		return ret
+	}).(InputSmpte2110ReceiverGroupSdpSettingsOutput)
+}
+
+// A list of InputSdpLocations. Each item in the list specifies the SDP file and index for one ancillary SMPTE 2110 stream.
+// Each stream encapsulates one captions stream (out of any number you can include) or the single SCTE 35 stream that you can include.
+func (o InputSmpte2110ReceiverGroupSdpSettingsPtrOutput) AncillarySdps() InputSdpLocationArrayOutput {
+	return o.ApplyT(func(v *InputSmpte2110ReceiverGroupSdpSettings) []InputSdpLocation {
+		if v == nil {
+			return nil
+		}
+		return v.AncillarySdps
+	}).(InputSdpLocationArrayOutput)
+}
+
+// A list of InputSdpLocations. Each item in the list specifies the SDP file and index for one audio SMPTE 2110 stream.
+func (o InputSmpte2110ReceiverGroupSdpSettingsPtrOutput) AudioSdps() InputSdpLocationArrayOutput {
+	return o.ApplyT(func(v *InputSmpte2110ReceiverGroupSdpSettings) []InputSdpLocation {
+		if v == nil {
+			return nil
+		}
+		return v.AudioSdps
+	}).(InputSdpLocationArrayOutput)
+}
+
+// The InputSdpLocation that specifies the SDP file and index for the single video SMPTE 2110 stream for this 2110 input.
+func (o InputSmpte2110ReceiverGroupSdpSettingsPtrOutput) VideoSdp() InputSdpLocationPtrOutput {
+	return o.ApplyT(func(v *InputSmpte2110ReceiverGroupSdpSettings) *InputSdpLocation {
+		if v == nil {
+			return nil
+		}
+		return v.VideoSdp
+	}).(InputSdpLocationPtrOutput)
+}
+
+// Configures the sources for the SMPTE 2110 Receiver Group input.
+type InputSmpte2110ReceiverGroupSettings struct {
+	// Placeholder documentation for __listOfSmpte2110ReceiverGroup
+	Smpte2110ReceiverGroups []InputSmpte2110ReceiverGroup `pulumi:"smpte2110ReceiverGroups"`
+}
+
+// InputSmpte2110ReceiverGroupSettingsInput is an input type that accepts InputSmpte2110ReceiverGroupSettingsArgs and InputSmpte2110ReceiverGroupSettingsOutput values.
+// You can construct a concrete instance of `InputSmpte2110ReceiverGroupSettingsInput` via:
+//
+//	InputSmpte2110ReceiverGroupSettingsArgs{...}
+type InputSmpte2110ReceiverGroupSettingsInput interface {
+	pulumi.Input
+
+	ToInputSmpte2110ReceiverGroupSettingsOutput() InputSmpte2110ReceiverGroupSettingsOutput
+	ToInputSmpte2110ReceiverGroupSettingsOutputWithContext(context.Context) InputSmpte2110ReceiverGroupSettingsOutput
+}
+
+// Configures the sources for the SMPTE 2110 Receiver Group input.
+type InputSmpte2110ReceiverGroupSettingsArgs struct {
+	// Placeholder documentation for __listOfSmpte2110ReceiverGroup
+	Smpte2110ReceiverGroups InputSmpte2110ReceiverGroupArrayInput `pulumi:"smpte2110ReceiverGroups"`
+}
+
+func (InputSmpte2110ReceiverGroupSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InputSmpte2110ReceiverGroupSettings)(nil)).Elem()
+}
+
+func (i InputSmpte2110ReceiverGroupSettingsArgs) ToInputSmpte2110ReceiverGroupSettingsOutput() InputSmpte2110ReceiverGroupSettingsOutput {
+	return i.ToInputSmpte2110ReceiverGroupSettingsOutputWithContext(context.Background())
+}
+
+func (i InputSmpte2110ReceiverGroupSettingsArgs) ToInputSmpte2110ReceiverGroupSettingsOutputWithContext(ctx context.Context) InputSmpte2110ReceiverGroupSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InputSmpte2110ReceiverGroupSettingsOutput)
+}
+
+func (i InputSmpte2110ReceiverGroupSettingsArgs) ToInputSmpte2110ReceiverGroupSettingsPtrOutput() InputSmpte2110ReceiverGroupSettingsPtrOutput {
+	return i.ToInputSmpte2110ReceiverGroupSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i InputSmpte2110ReceiverGroupSettingsArgs) ToInputSmpte2110ReceiverGroupSettingsPtrOutputWithContext(ctx context.Context) InputSmpte2110ReceiverGroupSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InputSmpte2110ReceiverGroupSettingsOutput).ToInputSmpte2110ReceiverGroupSettingsPtrOutputWithContext(ctx)
+}
+
+// InputSmpte2110ReceiverGroupSettingsPtrInput is an input type that accepts InputSmpte2110ReceiverGroupSettingsArgs, InputSmpte2110ReceiverGroupSettingsPtr and InputSmpte2110ReceiverGroupSettingsPtrOutput values.
+// You can construct a concrete instance of `InputSmpte2110ReceiverGroupSettingsPtrInput` via:
+//
+//	        InputSmpte2110ReceiverGroupSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type InputSmpte2110ReceiverGroupSettingsPtrInput interface {
+	pulumi.Input
+
+	ToInputSmpte2110ReceiverGroupSettingsPtrOutput() InputSmpte2110ReceiverGroupSettingsPtrOutput
+	ToInputSmpte2110ReceiverGroupSettingsPtrOutputWithContext(context.Context) InputSmpte2110ReceiverGroupSettingsPtrOutput
+}
+
+type inputSmpte2110ReceiverGroupSettingsPtrType InputSmpte2110ReceiverGroupSettingsArgs
+
+func InputSmpte2110ReceiverGroupSettingsPtr(v *InputSmpte2110ReceiverGroupSettingsArgs) InputSmpte2110ReceiverGroupSettingsPtrInput {
+	return (*inputSmpte2110ReceiverGroupSettingsPtrType)(v)
+}
+
+func (*inputSmpte2110ReceiverGroupSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**InputSmpte2110ReceiverGroupSettings)(nil)).Elem()
+}
+
+func (i *inputSmpte2110ReceiverGroupSettingsPtrType) ToInputSmpte2110ReceiverGroupSettingsPtrOutput() InputSmpte2110ReceiverGroupSettingsPtrOutput {
+	return i.ToInputSmpte2110ReceiverGroupSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *inputSmpte2110ReceiverGroupSettingsPtrType) ToInputSmpte2110ReceiverGroupSettingsPtrOutputWithContext(ctx context.Context) InputSmpte2110ReceiverGroupSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InputSmpte2110ReceiverGroupSettingsPtrOutput)
+}
+
+// Configures the sources for the SMPTE 2110 Receiver Group input.
+type InputSmpte2110ReceiverGroupSettingsOutput struct{ *pulumi.OutputState }
+
+func (InputSmpte2110ReceiverGroupSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InputSmpte2110ReceiverGroupSettings)(nil)).Elem()
+}
+
+func (o InputSmpte2110ReceiverGroupSettingsOutput) ToInputSmpte2110ReceiverGroupSettingsOutput() InputSmpte2110ReceiverGroupSettingsOutput {
+	return o
+}
+
+func (o InputSmpte2110ReceiverGroupSettingsOutput) ToInputSmpte2110ReceiverGroupSettingsOutputWithContext(ctx context.Context) InputSmpte2110ReceiverGroupSettingsOutput {
+	return o
+}
+
+func (o InputSmpte2110ReceiverGroupSettingsOutput) ToInputSmpte2110ReceiverGroupSettingsPtrOutput() InputSmpte2110ReceiverGroupSettingsPtrOutput {
+	return o.ToInputSmpte2110ReceiverGroupSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o InputSmpte2110ReceiverGroupSettingsOutput) ToInputSmpte2110ReceiverGroupSettingsPtrOutputWithContext(ctx context.Context) InputSmpte2110ReceiverGroupSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InputSmpte2110ReceiverGroupSettings) *InputSmpte2110ReceiverGroupSettings {
+		return &v
+	}).(InputSmpte2110ReceiverGroupSettingsPtrOutput)
+}
+
+// Placeholder documentation for __listOfSmpte2110ReceiverGroup
+func (o InputSmpte2110ReceiverGroupSettingsOutput) Smpte2110ReceiverGroups() InputSmpte2110ReceiverGroupArrayOutput {
+	return o.ApplyT(func(v InputSmpte2110ReceiverGroupSettings) []InputSmpte2110ReceiverGroup {
+		return v.Smpte2110ReceiverGroups
+	}).(InputSmpte2110ReceiverGroupArrayOutput)
+}
+
+type InputSmpte2110ReceiverGroupSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (InputSmpte2110ReceiverGroupSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InputSmpte2110ReceiverGroupSettings)(nil)).Elem()
+}
+
+func (o InputSmpte2110ReceiverGroupSettingsPtrOutput) ToInputSmpte2110ReceiverGroupSettingsPtrOutput() InputSmpte2110ReceiverGroupSettingsPtrOutput {
+	return o
+}
+
+func (o InputSmpte2110ReceiverGroupSettingsPtrOutput) ToInputSmpte2110ReceiverGroupSettingsPtrOutputWithContext(ctx context.Context) InputSmpte2110ReceiverGroupSettingsPtrOutput {
+	return o
+}
+
+func (o InputSmpte2110ReceiverGroupSettingsPtrOutput) Elem() InputSmpte2110ReceiverGroupSettingsOutput {
+	return o.ApplyT(func(v *InputSmpte2110ReceiverGroupSettings) InputSmpte2110ReceiverGroupSettings {
+		if v != nil {
+			return *v
+		}
+		var ret InputSmpte2110ReceiverGroupSettings
+		return ret
+	}).(InputSmpte2110ReceiverGroupSettingsOutput)
+}
+
+// Placeholder documentation for __listOfSmpte2110ReceiverGroup
+func (o InputSmpte2110ReceiverGroupSettingsPtrOutput) Smpte2110ReceiverGroups() InputSmpte2110ReceiverGroupArrayOutput {
+	return o.ApplyT(func(v *InputSmpte2110ReceiverGroupSettings) []InputSmpte2110ReceiverGroup {
+		if v == nil {
+			return nil
+		}
+		return v.Smpte2110ReceiverGroups
+	}).(InputSmpte2110ReceiverGroupArrayOutput)
+}
+
+// The settings for a PULL type input.
+type InputSource struct {
+	// The key used to extract the password from EC2 Parameter store.
+	PasswordParam *string `pulumi:"passwordParam"`
+	// This represents the customer's source URL where stream is
+	// pulled from.
+	Url *string `pulumi:"url"`
+	// The username for the input source.
+	Username *string `pulumi:"username"`
+}
+
+// InputSourceInput is an input type that accepts InputSourceArgs and InputSourceOutput values.
+// You can construct a concrete instance of `InputSourceInput` via:
+//
+//	InputSourceArgs{...}
+type InputSourceInput interface {
+	pulumi.Input
+
+	ToInputSourceOutput() InputSourceOutput
+	ToInputSourceOutputWithContext(context.Context) InputSourceOutput
+}
+
+// The settings for a PULL type input.
+type InputSourceArgs struct {
+	// The key used to extract the password from EC2 Parameter store.
+	PasswordParam pulumi.StringPtrInput `pulumi:"passwordParam"`
+	// This represents the customer's source URL where stream is
+	// pulled from.
+	Url pulumi.StringPtrInput `pulumi:"url"`
+	// The username for the input source.
+	Username pulumi.StringPtrInput `pulumi:"username"`
+}
+
+func (InputSourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InputSource)(nil)).Elem()
+}
+
+func (i InputSourceArgs) ToInputSourceOutput() InputSourceOutput {
+	return i.ToInputSourceOutputWithContext(context.Background())
+}
+
+func (i InputSourceArgs) ToInputSourceOutputWithContext(ctx context.Context) InputSourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InputSourceOutput)
+}
+
+// InputSourceArrayInput is an input type that accepts InputSourceArray and InputSourceArrayOutput values.
+// You can construct a concrete instance of `InputSourceArrayInput` via:
+//
+//	InputSourceArray{ InputSourceArgs{...} }
+type InputSourceArrayInput interface {
+	pulumi.Input
+
+	ToInputSourceArrayOutput() InputSourceArrayOutput
+	ToInputSourceArrayOutputWithContext(context.Context) InputSourceArrayOutput
+}
+
+type InputSourceArray []InputSourceInput
+
+func (InputSourceArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InputSource)(nil)).Elem()
+}
+
+func (i InputSourceArray) ToInputSourceArrayOutput() InputSourceArrayOutput {
+	return i.ToInputSourceArrayOutputWithContext(context.Background())
+}
+
+func (i InputSourceArray) ToInputSourceArrayOutputWithContext(ctx context.Context) InputSourceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InputSourceArrayOutput)
+}
+
+// The settings for a PULL type input.
+type InputSourceOutput struct{ *pulumi.OutputState }
+
+func (InputSourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InputSource)(nil)).Elem()
+}
+
+func (o InputSourceOutput) ToInputSourceOutput() InputSourceOutput {
+	return o
+}
+
+func (o InputSourceOutput) ToInputSourceOutputWithContext(ctx context.Context) InputSourceOutput {
+	return o
+}
+
+// The key used to extract the password from EC2 Parameter store.
+func (o InputSourceOutput) PasswordParam() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InputSource) *string { return v.PasswordParam }).(pulumi.StringPtrOutput)
+}
+
+// This represents the customer's source URL where stream is
+// pulled from.
+func (o InputSourceOutput) Url() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InputSource) *string { return v.Url }).(pulumi.StringPtrOutput)
+}
+
+// The username for the input source.
+func (o InputSourceOutput) Username() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InputSource) *string { return v.Username }).(pulumi.StringPtrOutput)
+}
+
+type InputSourceArrayOutput struct{ *pulumi.OutputState }
+
+func (InputSourceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InputSource)(nil)).Elem()
+}
+
+func (o InputSourceArrayOutput) ToInputSourceArrayOutput() InputSourceArrayOutput {
+	return o
+}
+
+func (o InputSourceArrayOutput) ToInputSourceArrayOutputWithContext(ctx context.Context) InputSourceArrayOutput {
+	return o
+}
+
+func (o InputSourceArrayOutput) Index(i pulumi.IntInput) InputSourceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) InputSource {
+		return vs[0].([]InputSource)[vs[1].(int)]
+	}).(InputSourceOutput)
+}
+
+// The decryption settings for the SRT caller source. Present only if the source has decryption enabled.
+type InputSrtCallerDecryption struct {
+	// The algorithm used to encrypt content.
+	Algorithm *InputAlgorithm `pulumi:"algorithm"`
+	// The ARN for the secret in Secrets Manager. Someone in your organization must create a secret and provide you with its ARN. The secret holds the passphrase that MediaLive uses to decrypt the source content.
+	PassphraseSecretArn *string `pulumi:"passphraseSecretArn"`
+}
+
+// InputSrtCallerDecryptionInput is an input type that accepts InputSrtCallerDecryptionArgs and InputSrtCallerDecryptionOutput values.
+// You can construct a concrete instance of `InputSrtCallerDecryptionInput` via:
+//
+//	InputSrtCallerDecryptionArgs{...}
+type InputSrtCallerDecryptionInput interface {
+	pulumi.Input
+
+	ToInputSrtCallerDecryptionOutput() InputSrtCallerDecryptionOutput
+	ToInputSrtCallerDecryptionOutputWithContext(context.Context) InputSrtCallerDecryptionOutput
+}
+
+// The decryption settings for the SRT caller source. Present only if the source has decryption enabled.
+type InputSrtCallerDecryptionArgs struct {
+	// The algorithm used to encrypt content.
+	Algorithm InputAlgorithmPtrInput `pulumi:"algorithm"`
+	// The ARN for the secret in Secrets Manager. Someone in your organization must create a secret and provide you with its ARN. The secret holds the passphrase that MediaLive uses to decrypt the source content.
+	PassphraseSecretArn pulumi.StringPtrInput `pulumi:"passphraseSecretArn"`
+}
+
+func (InputSrtCallerDecryptionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InputSrtCallerDecryption)(nil)).Elem()
+}
+
+func (i InputSrtCallerDecryptionArgs) ToInputSrtCallerDecryptionOutput() InputSrtCallerDecryptionOutput {
+	return i.ToInputSrtCallerDecryptionOutputWithContext(context.Background())
+}
+
+func (i InputSrtCallerDecryptionArgs) ToInputSrtCallerDecryptionOutputWithContext(ctx context.Context) InputSrtCallerDecryptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InputSrtCallerDecryptionOutput)
+}
+
+func (i InputSrtCallerDecryptionArgs) ToInputSrtCallerDecryptionPtrOutput() InputSrtCallerDecryptionPtrOutput {
+	return i.ToInputSrtCallerDecryptionPtrOutputWithContext(context.Background())
+}
+
+func (i InputSrtCallerDecryptionArgs) ToInputSrtCallerDecryptionPtrOutputWithContext(ctx context.Context) InputSrtCallerDecryptionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InputSrtCallerDecryptionOutput).ToInputSrtCallerDecryptionPtrOutputWithContext(ctx)
+}
+
+// InputSrtCallerDecryptionPtrInput is an input type that accepts InputSrtCallerDecryptionArgs, InputSrtCallerDecryptionPtr and InputSrtCallerDecryptionPtrOutput values.
+// You can construct a concrete instance of `InputSrtCallerDecryptionPtrInput` via:
+//
+//	        InputSrtCallerDecryptionArgs{...}
+//
+//	or:
+//
+//	        nil
+type InputSrtCallerDecryptionPtrInput interface {
+	pulumi.Input
+
+	ToInputSrtCallerDecryptionPtrOutput() InputSrtCallerDecryptionPtrOutput
+	ToInputSrtCallerDecryptionPtrOutputWithContext(context.Context) InputSrtCallerDecryptionPtrOutput
+}
+
+type inputSrtCallerDecryptionPtrType InputSrtCallerDecryptionArgs
+
+func InputSrtCallerDecryptionPtr(v *InputSrtCallerDecryptionArgs) InputSrtCallerDecryptionPtrInput {
+	return (*inputSrtCallerDecryptionPtrType)(v)
+}
+
+func (*inputSrtCallerDecryptionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**InputSrtCallerDecryption)(nil)).Elem()
+}
+
+func (i *inputSrtCallerDecryptionPtrType) ToInputSrtCallerDecryptionPtrOutput() InputSrtCallerDecryptionPtrOutput {
+	return i.ToInputSrtCallerDecryptionPtrOutputWithContext(context.Background())
+}
+
+func (i *inputSrtCallerDecryptionPtrType) ToInputSrtCallerDecryptionPtrOutputWithContext(ctx context.Context) InputSrtCallerDecryptionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InputSrtCallerDecryptionPtrOutput)
+}
+
+// The decryption settings for the SRT caller source. Present only if the source has decryption enabled.
+type InputSrtCallerDecryptionOutput struct{ *pulumi.OutputState }
+
+func (InputSrtCallerDecryptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InputSrtCallerDecryption)(nil)).Elem()
+}
+
+func (o InputSrtCallerDecryptionOutput) ToInputSrtCallerDecryptionOutput() InputSrtCallerDecryptionOutput {
+	return o
+}
+
+func (o InputSrtCallerDecryptionOutput) ToInputSrtCallerDecryptionOutputWithContext(ctx context.Context) InputSrtCallerDecryptionOutput {
+	return o
+}
+
+func (o InputSrtCallerDecryptionOutput) ToInputSrtCallerDecryptionPtrOutput() InputSrtCallerDecryptionPtrOutput {
+	return o.ToInputSrtCallerDecryptionPtrOutputWithContext(context.Background())
+}
+
+func (o InputSrtCallerDecryptionOutput) ToInputSrtCallerDecryptionPtrOutputWithContext(ctx context.Context) InputSrtCallerDecryptionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InputSrtCallerDecryption) *InputSrtCallerDecryption {
+		return &v
+	}).(InputSrtCallerDecryptionPtrOutput)
+}
+
+// The algorithm used to encrypt content.
+func (o InputSrtCallerDecryptionOutput) Algorithm() InputAlgorithmPtrOutput {
+	return o.ApplyT(func(v InputSrtCallerDecryption) *InputAlgorithm { return v.Algorithm }).(InputAlgorithmPtrOutput)
+}
+
+// The ARN for the secret in Secrets Manager. Someone in your organization must create a secret and provide you with its ARN. The secret holds the passphrase that MediaLive uses to decrypt the source content.
+func (o InputSrtCallerDecryptionOutput) PassphraseSecretArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InputSrtCallerDecryption) *string { return v.PassphraseSecretArn }).(pulumi.StringPtrOutput)
+}
+
+type InputSrtCallerDecryptionPtrOutput struct{ *pulumi.OutputState }
+
+func (InputSrtCallerDecryptionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InputSrtCallerDecryption)(nil)).Elem()
+}
+
+func (o InputSrtCallerDecryptionPtrOutput) ToInputSrtCallerDecryptionPtrOutput() InputSrtCallerDecryptionPtrOutput {
+	return o
+}
+
+func (o InputSrtCallerDecryptionPtrOutput) ToInputSrtCallerDecryptionPtrOutputWithContext(ctx context.Context) InputSrtCallerDecryptionPtrOutput {
+	return o
+}
+
+func (o InputSrtCallerDecryptionPtrOutput) Elem() InputSrtCallerDecryptionOutput {
+	return o.ApplyT(func(v *InputSrtCallerDecryption) InputSrtCallerDecryption {
+		if v != nil {
+			return *v
+		}
+		var ret InputSrtCallerDecryption
+		return ret
+	}).(InputSrtCallerDecryptionOutput)
+}
+
+// The algorithm used to encrypt content.
+func (o InputSrtCallerDecryptionPtrOutput) Algorithm() InputAlgorithmPtrOutput {
+	return o.ApplyT(func(v *InputSrtCallerDecryption) *InputAlgorithm {
+		if v == nil {
+			return nil
+		}
+		return v.Algorithm
+	}).(InputAlgorithmPtrOutput)
+}
+
+// The ARN for the secret in Secrets Manager. Someone in your organization must create a secret and provide you with its ARN. The secret holds the passphrase that MediaLive uses to decrypt the source content.
+func (o InputSrtCallerDecryptionPtrOutput) PassphraseSecretArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InputSrtCallerDecryption) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PassphraseSecretArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The configuration for a source that uses SRT as the connection protocol. In terms of establishing the connection, MediaLive is always caller and the upstream system is always the listener. In terms of transmission of the source content, MediaLive is always the receiver and the upstream system is always the sender.
+type InputSrtCallerSource struct {
+	// The decryption settings for the SRT caller source. Present only if the source has decryption enabled.
+	Decryption *InputSrtCallerDecryption `pulumi:"decryption"`
+	// The preferred latency (in milliseconds) for implementing packet loss and recovery. Packet recovery is a key feature of SRT.
+	MinimumLatency *int `pulumi:"minimumLatency"`
+	// The IP address at the upstream system (the listener) that MediaLive (the caller) connects to.
+	SrtListenerAddress *string `pulumi:"srtListenerAddress"`
+	// The port at the upstream system (the listener) that MediaLive (the caller) connects to.
+	SrtListenerPort *string `pulumi:"srtListenerPort"`
+	// The stream ID, if the upstream system uses this identifier.
+	StreamId *string `pulumi:"streamId"`
+}
+
+// InputSrtCallerSourceInput is an input type that accepts InputSrtCallerSourceArgs and InputSrtCallerSourceOutput values.
+// You can construct a concrete instance of `InputSrtCallerSourceInput` via:
+//
+//	InputSrtCallerSourceArgs{...}
+type InputSrtCallerSourceInput interface {
+	pulumi.Input
+
+	ToInputSrtCallerSourceOutput() InputSrtCallerSourceOutput
+	ToInputSrtCallerSourceOutputWithContext(context.Context) InputSrtCallerSourceOutput
+}
+
+// The configuration for a source that uses SRT as the connection protocol. In terms of establishing the connection, MediaLive is always caller and the upstream system is always the listener. In terms of transmission of the source content, MediaLive is always the receiver and the upstream system is always the sender.
+type InputSrtCallerSourceArgs struct {
+	// The decryption settings for the SRT caller source. Present only if the source has decryption enabled.
+	Decryption InputSrtCallerDecryptionPtrInput `pulumi:"decryption"`
+	// The preferred latency (in milliseconds) for implementing packet loss and recovery. Packet recovery is a key feature of SRT.
+	MinimumLatency pulumi.IntPtrInput `pulumi:"minimumLatency"`
+	// The IP address at the upstream system (the listener) that MediaLive (the caller) connects to.
+	SrtListenerAddress pulumi.StringPtrInput `pulumi:"srtListenerAddress"`
+	// The port at the upstream system (the listener) that MediaLive (the caller) connects to.
+	SrtListenerPort pulumi.StringPtrInput `pulumi:"srtListenerPort"`
+	// The stream ID, if the upstream system uses this identifier.
+	StreamId pulumi.StringPtrInput `pulumi:"streamId"`
+}
+
+func (InputSrtCallerSourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InputSrtCallerSource)(nil)).Elem()
+}
+
+func (i InputSrtCallerSourceArgs) ToInputSrtCallerSourceOutput() InputSrtCallerSourceOutput {
+	return i.ToInputSrtCallerSourceOutputWithContext(context.Background())
+}
+
+func (i InputSrtCallerSourceArgs) ToInputSrtCallerSourceOutputWithContext(ctx context.Context) InputSrtCallerSourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InputSrtCallerSourceOutput)
+}
+
+// InputSrtCallerSourceArrayInput is an input type that accepts InputSrtCallerSourceArray and InputSrtCallerSourceArrayOutput values.
+// You can construct a concrete instance of `InputSrtCallerSourceArrayInput` via:
+//
+//	InputSrtCallerSourceArray{ InputSrtCallerSourceArgs{...} }
+type InputSrtCallerSourceArrayInput interface {
+	pulumi.Input
+
+	ToInputSrtCallerSourceArrayOutput() InputSrtCallerSourceArrayOutput
+	ToInputSrtCallerSourceArrayOutputWithContext(context.Context) InputSrtCallerSourceArrayOutput
+}
+
+type InputSrtCallerSourceArray []InputSrtCallerSourceInput
+
+func (InputSrtCallerSourceArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InputSrtCallerSource)(nil)).Elem()
+}
+
+func (i InputSrtCallerSourceArray) ToInputSrtCallerSourceArrayOutput() InputSrtCallerSourceArrayOutput {
+	return i.ToInputSrtCallerSourceArrayOutputWithContext(context.Background())
+}
+
+func (i InputSrtCallerSourceArray) ToInputSrtCallerSourceArrayOutputWithContext(ctx context.Context) InputSrtCallerSourceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InputSrtCallerSourceArrayOutput)
+}
+
+// The configuration for a source that uses SRT as the connection protocol. In terms of establishing the connection, MediaLive is always caller and the upstream system is always the listener. In terms of transmission of the source content, MediaLive is always the receiver and the upstream system is always the sender.
+type InputSrtCallerSourceOutput struct{ *pulumi.OutputState }
+
+func (InputSrtCallerSourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InputSrtCallerSource)(nil)).Elem()
+}
+
+func (o InputSrtCallerSourceOutput) ToInputSrtCallerSourceOutput() InputSrtCallerSourceOutput {
+	return o
+}
+
+func (o InputSrtCallerSourceOutput) ToInputSrtCallerSourceOutputWithContext(ctx context.Context) InputSrtCallerSourceOutput {
+	return o
+}
+
+// The decryption settings for the SRT caller source. Present only if the source has decryption enabled.
+func (o InputSrtCallerSourceOutput) Decryption() InputSrtCallerDecryptionPtrOutput {
+	return o.ApplyT(func(v InputSrtCallerSource) *InputSrtCallerDecryption { return v.Decryption }).(InputSrtCallerDecryptionPtrOutput)
+}
+
+// The preferred latency (in milliseconds) for implementing packet loss and recovery. Packet recovery is a key feature of SRT.
+func (o InputSrtCallerSourceOutput) MinimumLatency() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v InputSrtCallerSource) *int { return v.MinimumLatency }).(pulumi.IntPtrOutput)
+}
+
+// The IP address at the upstream system (the listener) that MediaLive (the caller) connects to.
+func (o InputSrtCallerSourceOutput) SrtListenerAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InputSrtCallerSource) *string { return v.SrtListenerAddress }).(pulumi.StringPtrOutput)
+}
+
+// The port at the upstream system (the listener) that MediaLive (the caller) connects to.
+func (o InputSrtCallerSourceOutput) SrtListenerPort() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InputSrtCallerSource) *string { return v.SrtListenerPort }).(pulumi.StringPtrOutput)
+}
+
+// The stream ID, if the upstream system uses this identifier.
+func (o InputSrtCallerSourceOutput) StreamId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InputSrtCallerSource) *string { return v.StreamId }).(pulumi.StringPtrOutput)
+}
+
+type InputSrtCallerSourceArrayOutput struct{ *pulumi.OutputState }
+
+func (InputSrtCallerSourceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InputSrtCallerSource)(nil)).Elem()
+}
+
+func (o InputSrtCallerSourceArrayOutput) ToInputSrtCallerSourceArrayOutput() InputSrtCallerSourceArrayOutput {
+	return o
+}
+
+func (o InputSrtCallerSourceArrayOutput) ToInputSrtCallerSourceArrayOutputWithContext(ctx context.Context) InputSrtCallerSourceArrayOutput {
+	return o
+}
+
+func (o InputSrtCallerSourceArrayOutput) Index(i pulumi.IntInput) InputSrtCallerSourceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) InputSrtCallerSource {
+		return vs[0].([]InputSrtCallerSource)[vs[1].(int)]
+	}).(InputSrtCallerSourceOutput)
+}
+
+// The decryption settings for the SRT listener source. Present only if the source has decryption enabled.
+type InputSrtListenerDecryption struct {
+	// The algorithm used to encrypt content.
+	Algorithm *InputAlgorithm `pulumi:"algorithm"`
+	// The ARN for the secret in Secrets Manager. Someone in your organization must create a secret and provide you with its ARN. The secret holds the passphrase that MediaLive uses to decrypt the source content.
+	PassphraseSecretArn *string `pulumi:"passphraseSecretArn"`
+}
+
+// InputSrtListenerDecryptionInput is an input type that accepts InputSrtListenerDecryptionArgs and InputSrtListenerDecryptionOutput values.
+// You can construct a concrete instance of `InputSrtListenerDecryptionInput` via:
+//
+//	InputSrtListenerDecryptionArgs{...}
+type InputSrtListenerDecryptionInput interface {
+	pulumi.Input
+
+	ToInputSrtListenerDecryptionOutput() InputSrtListenerDecryptionOutput
+	ToInputSrtListenerDecryptionOutputWithContext(context.Context) InputSrtListenerDecryptionOutput
+}
+
+// The decryption settings for the SRT listener source. Present only if the source has decryption enabled.
+type InputSrtListenerDecryptionArgs struct {
+	// The algorithm used to encrypt content.
+	Algorithm InputAlgorithmPtrInput `pulumi:"algorithm"`
+	// The ARN for the secret in Secrets Manager. Someone in your organization must create a secret and provide you with its ARN. The secret holds the passphrase that MediaLive uses to decrypt the source content.
+	PassphraseSecretArn pulumi.StringPtrInput `pulumi:"passphraseSecretArn"`
+}
+
+func (InputSrtListenerDecryptionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InputSrtListenerDecryption)(nil)).Elem()
+}
+
+func (i InputSrtListenerDecryptionArgs) ToInputSrtListenerDecryptionOutput() InputSrtListenerDecryptionOutput {
+	return i.ToInputSrtListenerDecryptionOutputWithContext(context.Background())
+}
+
+func (i InputSrtListenerDecryptionArgs) ToInputSrtListenerDecryptionOutputWithContext(ctx context.Context) InputSrtListenerDecryptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InputSrtListenerDecryptionOutput)
+}
+
+func (i InputSrtListenerDecryptionArgs) ToInputSrtListenerDecryptionPtrOutput() InputSrtListenerDecryptionPtrOutput {
+	return i.ToInputSrtListenerDecryptionPtrOutputWithContext(context.Background())
+}
+
+func (i InputSrtListenerDecryptionArgs) ToInputSrtListenerDecryptionPtrOutputWithContext(ctx context.Context) InputSrtListenerDecryptionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InputSrtListenerDecryptionOutput).ToInputSrtListenerDecryptionPtrOutputWithContext(ctx)
+}
+
+// InputSrtListenerDecryptionPtrInput is an input type that accepts InputSrtListenerDecryptionArgs, InputSrtListenerDecryptionPtr and InputSrtListenerDecryptionPtrOutput values.
+// You can construct a concrete instance of `InputSrtListenerDecryptionPtrInput` via:
+//
+//	        InputSrtListenerDecryptionArgs{...}
+//
+//	or:
+//
+//	        nil
+type InputSrtListenerDecryptionPtrInput interface {
+	pulumi.Input
+
+	ToInputSrtListenerDecryptionPtrOutput() InputSrtListenerDecryptionPtrOutput
+	ToInputSrtListenerDecryptionPtrOutputWithContext(context.Context) InputSrtListenerDecryptionPtrOutput
+}
+
+type inputSrtListenerDecryptionPtrType InputSrtListenerDecryptionArgs
+
+func InputSrtListenerDecryptionPtr(v *InputSrtListenerDecryptionArgs) InputSrtListenerDecryptionPtrInput {
+	return (*inputSrtListenerDecryptionPtrType)(v)
+}
+
+func (*inputSrtListenerDecryptionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**InputSrtListenerDecryption)(nil)).Elem()
+}
+
+func (i *inputSrtListenerDecryptionPtrType) ToInputSrtListenerDecryptionPtrOutput() InputSrtListenerDecryptionPtrOutput {
+	return i.ToInputSrtListenerDecryptionPtrOutputWithContext(context.Background())
+}
+
+func (i *inputSrtListenerDecryptionPtrType) ToInputSrtListenerDecryptionPtrOutputWithContext(ctx context.Context) InputSrtListenerDecryptionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InputSrtListenerDecryptionPtrOutput)
+}
+
+// The decryption settings for the SRT listener source. Present only if the source has decryption enabled.
+type InputSrtListenerDecryptionOutput struct{ *pulumi.OutputState }
+
+func (InputSrtListenerDecryptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InputSrtListenerDecryption)(nil)).Elem()
+}
+
+func (o InputSrtListenerDecryptionOutput) ToInputSrtListenerDecryptionOutput() InputSrtListenerDecryptionOutput {
+	return o
+}
+
+func (o InputSrtListenerDecryptionOutput) ToInputSrtListenerDecryptionOutputWithContext(ctx context.Context) InputSrtListenerDecryptionOutput {
+	return o
+}
+
+func (o InputSrtListenerDecryptionOutput) ToInputSrtListenerDecryptionPtrOutput() InputSrtListenerDecryptionPtrOutput {
+	return o.ToInputSrtListenerDecryptionPtrOutputWithContext(context.Background())
+}
+
+func (o InputSrtListenerDecryptionOutput) ToInputSrtListenerDecryptionPtrOutputWithContext(ctx context.Context) InputSrtListenerDecryptionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InputSrtListenerDecryption) *InputSrtListenerDecryption {
+		return &v
+	}).(InputSrtListenerDecryptionPtrOutput)
+}
+
+// The algorithm used to encrypt content.
+func (o InputSrtListenerDecryptionOutput) Algorithm() InputAlgorithmPtrOutput {
+	return o.ApplyT(func(v InputSrtListenerDecryption) *InputAlgorithm { return v.Algorithm }).(InputAlgorithmPtrOutput)
+}
+
+// The ARN for the secret in Secrets Manager. Someone in your organization must create a secret and provide you with its ARN. The secret holds the passphrase that MediaLive uses to decrypt the source content.
+func (o InputSrtListenerDecryptionOutput) PassphraseSecretArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InputSrtListenerDecryption) *string { return v.PassphraseSecretArn }).(pulumi.StringPtrOutput)
+}
+
+type InputSrtListenerDecryptionPtrOutput struct{ *pulumi.OutputState }
+
+func (InputSrtListenerDecryptionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InputSrtListenerDecryption)(nil)).Elem()
+}
+
+func (o InputSrtListenerDecryptionPtrOutput) ToInputSrtListenerDecryptionPtrOutput() InputSrtListenerDecryptionPtrOutput {
+	return o
+}
+
+func (o InputSrtListenerDecryptionPtrOutput) ToInputSrtListenerDecryptionPtrOutputWithContext(ctx context.Context) InputSrtListenerDecryptionPtrOutput {
+	return o
+}
+
+func (o InputSrtListenerDecryptionPtrOutput) Elem() InputSrtListenerDecryptionOutput {
+	return o.ApplyT(func(v *InputSrtListenerDecryption) InputSrtListenerDecryption {
+		if v != nil {
+			return *v
+		}
+		var ret InputSrtListenerDecryption
+		return ret
+	}).(InputSrtListenerDecryptionOutput)
+}
+
+// The algorithm used to encrypt content.
+func (o InputSrtListenerDecryptionPtrOutput) Algorithm() InputAlgorithmPtrOutput {
+	return o.ApplyT(func(v *InputSrtListenerDecryption) *InputAlgorithm {
+		if v == nil {
+			return nil
+		}
+		return v.Algorithm
+	}).(InputAlgorithmPtrOutput)
+}
+
+// The ARN for the secret in Secrets Manager. Someone in your organization must create a secret and provide you with its ARN. The secret holds the passphrase that MediaLive uses to decrypt the source content.
+func (o InputSrtListenerDecryptionPtrOutput) PassphraseSecretArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InputSrtListenerDecryption) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PassphraseSecretArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The configuration for a source that uses SRT as the connection protocol. In terms of establishing the connection, MediaLive is the listener and the upstream system is the caller.
+type InputSrtListenerSettings struct {
+	// The decryption settings for the SRT listener source. Present only if the source has decryption enabled.
+	Decryption *InputSrtListenerDecryption `pulumi:"decryption"`
+	// The preferred latency (in milliseconds) for implementing packet loss and recovery. Packet recovery is a key feature of SRT.
+	MinimumLatency *int `pulumi:"minimumLatency"`
+	// The stream ID, if the upstream system uses this identifier.
+	StreamId *string `pulumi:"streamId"`
+}
+
+// InputSrtListenerSettingsInput is an input type that accepts InputSrtListenerSettingsArgs and InputSrtListenerSettingsOutput values.
+// You can construct a concrete instance of `InputSrtListenerSettingsInput` via:
+//
+//	InputSrtListenerSettingsArgs{...}
+type InputSrtListenerSettingsInput interface {
+	pulumi.Input
+
+	ToInputSrtListenerSettingsOutput() InputSrtListenerSettingsOutput
+	ToInputSrtListenerSettingsOutputWithContext(context.Context) InputSrtListenerSettingsOutput
+}
+
+// The configuration for a source that uses SRT as the connection protocol. In terms of establishing the connection, MediaLive is the listener and the upstream system is the caller.
+type InputSrtListenerSettingsArgs struct {
+	// The decryption settings for the SRT listener source. Present only if the source has decryption enabled.
+	Decryption InputSrtListenerDecryptionPtrInput `pulumi:"decryption"`
+	// The preferred latency (in milliseconds) for implementing packet loss and recovery. Packet recovery is a key feature of SRT.
+	MinimumLatency pulumi.IntPtrInput `pulumi:"minimumLatency"`
+	// The stream ID, if the upstream system uses this identifier.
+	StreamId pulumi.StringPtrInput `pulumi:"streamId"`
+}
+
+func (InputSrtListenerSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InputSrtListenerSettings)(nil)).Elem()
+}
+
+func (i InputSrtListenerSettingsArgs) ToInputSrtListenerSettingsOutput() InputSrtListenerSettingsOutput {
+	return i.ToInputSrtListenerSettingsOutputWithContext(context.Background())
+}
+
+func (i InputSrtListenerSettingsArgs) ToInputSrtListenerSettingsOutputWithContext(ctx context.Context) InputSrtListenerSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InputSrtListenerSettingsOutput)
+}
+
+func (i InputSrtListenerSettingsArgs) ToInputSrtListenerSettingsPtrOutput() InputSrtListenerSettingsPtrOutput {
+	return i.ToInputSrtListenerSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i InputSrtListenerSettingsArgs) ToInputSrtListenerSettingsPtrOutputWithContext(ctx context.Context) InputSrtListenerSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InputSrtListenerSettingsOutput).ToInputSrtListenerSettingsPtrOutputWithContext(ctx)
+}
+
+// InputSrtListenerSettingsPtrInput is an input type that accepts InputSrtListenerSettingsArgs, InputSrtListenerSettingsPtr and InputSrtListenerSettingsPtrOutput values.
+// You can construct a concrete instance of `InputSrtListenerSettingsPtrInput` via:
+//
+//	        InputSrtListenerSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type InputSrtListenerSettingsPtrInput interface {
+	pulumi.Input
+
+	ToInputSrtListenerSettingsPtrOutput() InputSrtListenerSettingsPtrOutput
+	ToInputSrtListenerSettingsPtrOutputWithContext(context.Context) InputSrtListenerSettingsPtrOutput
+}
+
+type inputSrtListenerSettingsPtrType InputSrtListenerSettingsArgs
+
+func InputSrtListenerSettingsPtr(v *InputSrtListenerSettingsArgs) InputSrtListenerSettingsPtrInput {
+	return (*inputSrtListenerSettingsPtrType)(v)
+}
+
+func (*inputSrtListenerSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**InputSrtListenerSettings)(nil)).Elem()
+}
+
+func (i *inputSrtListenerSettingsPtrType) ToInputSrtListenerSettingsPtrOutput() InputSrtListenerSettingsPtrOutput {
+	return i.ToInputSrtListenerSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *inputSrtListenerSettingsPtrType) ToInputSrtListenerSettingsPtrOutputWithContext(ctx context.Context) InputSrtListenerSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InputSrtListenerSettingsPtrOutput)
+}
+
+// The configuration for a source that uses SRT as the connection protocol. In terms of establishing the connection, MediaLive is the listener and the upstream system is the caller.
+type InputSrtListenerSettingsOutput struct{ *pulumi.OutputState }
+
+func (InputSrtListenerSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InputSrtListenerSettings)(nil)).Elem()
+}
+
+func (o InputSrtListenerSettingsOutput) ToInputSrtListenerSettingsOutput() InputSrtListenerSettingsOutput {
+	return o
+}
+
+func (o InputSrtListenerSettingsOutput) ToInputSrtListenerSettingsOutputWithContext(ctx context.Context) InputSrtListenerSettingsOutput {
+	return o
+}
+
+func (o InputSrtListenerSettingsOutput) ToInputSrtListenerSettingsPtrOutput() InputSrtListenerSettingsPtrOutput {
+	return o.ToInputSrtListenerSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o InputSrtListenerSettingsOutput) ToInputSrtListenerSettingsPtrOutputWithContext(ctx context.Context) InputSrtListenerSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InputSrtListenerSettings) *InputSrtListenerSettings {
+		return &v
+	}).(InputSrtListenerSettingsPtrOutput)
+}
+
+// The decryption settings for the SRT listener source. Present only if the source has decryption enabled.
+func (o InputSrtListenerSettingsOutput) Decryption() InputSrtListenerDecryptionPtrOutput {
+	return o.ApplyT(func(v InputSrtListenerSettings) *InputSrtListenerDecryption { return v.Decryption }).(InputSrtListenerDecryptionPtrOutput)
+}
+
+// The preferred latency (in milliseconds) for implementing packet loss and recovery. Packet recovery is a key feature of SRT.
+func (o InputSrtListenerSettingsOutput) MinimumLatency() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v InputSrtListenerSettings) *int { return v.MinimumLatency }).(pulumi.IntPtrOutput)
+}
+
+// The stream ID, if the upstream system uses this identifier.
+func (o InputSrtListenerSettingsOutput) StreamId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InputSrtListenerSettings) *string { return v.StreamId }).(pulumi.StringPtrOutput)
+}
+
+type InputSrtListenerSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (InputSrtListenerSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InputSrtListenerSettings)(nil)).Elem()
+}
+
+func (o InputSrtListenerSettingsPtrOutput) ToInputSrtListenerSettingsPtrOutput() InputSrtListenerSettingsPtrOutput {
+	return o
+}
+
+func (o InputSrtListenerSettingsPtrOutput) ToInputSrtListenerSettingsPtrOutputWithContext(ctx context.Context) InputSrtListenerSettingsPtrOutput {
+	return o
+}
+
+func (o InputSrtListenerSettingsPtrOutput) Elem() InputSrtListenerSettingsOutput {
+	return o.ApplyT(func(v *InputSrtListenerSettings) InputSrtListenerSettings {
+		if v != nil {
+			return *v
+		}
+		var ret InputSrtListenerSettings
+		return ret
+	}).(InputSrtListenerSettingsOutput)
+}
+
+// The decryption settings for the SRT listener source. Present only if the source has decryption enabled.
+func (o InputSrtListenerSettingsPtrOutput) Decryption() InputSrtListenerDecryptionPtrOutput {
+	return o.ApplyT(func(v *InputSrtListenerSettings) *InputSrtListenerDecryption {
+		if v == nil {
+			return nil
+		}
+		return v.Decryption
+	}).(InputSrtListenerDecryptionPtrOutput)
+}
+
+// The preferred latency (in milliseconds) for implementing packet loss and recovery. Packet recovery is a key feature of SRT.
+func (o InputSrtListenerSettingsPtrOutput) MinimumLatency() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *InputSrtListenerSettings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MinimumLatency
+	}).(pulumi.IntPtrOutput)
+}
+
+// The stream ID, if the upstream system uses this identifier.
+func (o InputSrtListenerSettingsPtrOutput) StreamId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InputSrtListenerSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.StreamId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The configured sources for this SRT input.
+type InputSrtSettings struct {
+	// Placeholder documentation for __listOfSrtCallerSource
+	SrtCallerSources []InputSrtCallerSource `pulumi:"srtCallerSources"`
+	// Settings for an SRT listener input. Configured only when the input uses the SRT_LISTENER input type.
+	SrtListenerSettings *InputSrtListenerSettings `pulumi:"srtListenerSettings"`
+}
+
+// InputSrtSettingsInput is an input type that accepts InputSrtSettingsArgs and InputSrtSettingsOutput values.
+// You can construct a concrete instance of `InputSrtSettingsInput` via:
+//
+//	InputSrtSettingsArgs{...}
+type InputSrtSettingsInput interface {
+	pulumi.Input
+
+	ToInputSrtSettingsOutput() InputSrtSettingsOutput
+	ToInputSrtSettingsOutputWithContext(context.Context) InputSrtSettingsOutput
+}
+
+// The configured sources for this SRT input.
+type InputSrtSettingsArgs struct {
+	// Placeholder documentation for __listOfSrtCallerSource
+	SrtCallerSources InputSrtCallerSourceArrayInput `pulumi:"srtCallerSources"`
+	// Settings for an SRT listener input. Configured only when the input uses the SRT_LISTENER input type.
+	SrtListenerSettings InputSrtListenerSettingsPtrInput `pulumi:"srtListenerSettings"`
+}
+
+func (InputSrtSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InputSrtSettings)(nil)).Elem()
+}
+
+func (i InputSrtSettingsArgs) ToInputSrtSettingsOutput() InputSrtSettingsOutput {
+	return i.ToInputSrtSettingsOutputWithContext(context.Background())
+}
+
+func (i InputSrtSettingsArgs) ToInputSrtSettingsOutputWithContext(ctx context.Context) InputSrtSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InputSrtSettingsOutput)
+}
+
+func (i InputSrtSettingsArgs) ToInputSrtSettingsPtrOutput() InputSrtSettingsPtrOutput {
+	return i.ToInputSrtSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i InputSrtSettingsArgs) ToInputSrtSettingsPtrOutputWithContext(ctx context.Context) InputSrtSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InputSrtSettingsOutput).ToInputSrtSettingsPtrOutputWithContext(ctx)
+}
+
+// InputSrtSettingsPtrInput is an input type that accepts InputSrtSettingsArgs, InputSrtSettingsPtr and InputSrtSettingsPtrOutput values.
+// You can construct a concrete instance of `InputSrtSettingsPtrInput` via:
+//
+//	        InputSrtSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type InputSrtSettingsPtrInput interface {
+	pulumi.Input
+
+	ToInputSrtSettingsPtrOutput() InputSrtSettingsPtrOutput
+	ToInputSrtSettingsPtrOutputWithContext(context.Context) InputSrtSettingsPtrOutput
+}
+
+type inputSrtSettingsPtrType InputSrtSettingsArgs
+
+func InputSrtSettingsPtr(v *InputSrtSettingsArgs) InputSrtSettingsPtrInput {
+	return (*inputSrtSettingsPtrType)(v)
+}
+
+func (*inputSrtSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**InputSrtSettings)(nil)).Elem()
+}
+
+func (i *inputSrtSettingsPtrType) ToInputSrtSettingsPtrOutput() InputSrtSettingsPtrOutput {
+	return i.ToInputSrtSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *inputSrtSettingsPtrType) ToInputSrtSettingsPtrOutputWithContext(ctx context.Context) InputSrtSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InputSrtSettingsPtrOutput)
+}
+
+// The configured sources for this SRT input.
+type InputSrtSettingsOutput struct{ *pulumi.OutputState }
+
+func (InputSrtSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InputSrtSettings)(nil)).Elem()
+}
+
+func (o InputSrtSettingsOutput) ToInputSrtSettingsOutput() InputSrtSettingsOutput {
+	return o
+}
+
+func (o InputSrtSettingsOutput) ToInputSrtSettingsOutputWithContext(ctx context.Context) InputSrtSettingsOutput {
+	return o
+}
+
+func (o InputSrtSettingsOutput) ToInputSrtSettingsPtrOutput() InputSrtSettingsPtrOutput {
+	return o.ToInputSrtSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o InputSrtSettingsOutput) ToInputSrtSettingsPtrOutputWithContext(ctx context.Context) InputSrtSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InputSrtSettings) *InputSrtSettings {
+		return &v
+	}).(InputSrtSettingsPtrOutput)
+}
+
+// Placeholder documentation for __listOfSrtCallerSource
+func (o InputSrtSettingsOutput) SrtCallerSources() InputSrtCallerSourceArrayOutput {
+	return o.ApplyT(func(v InputSrtSettings) []InputSrtCallerSource { return v.SrtCallerSources }).(InputSrtCallerSourceArrayOutput)
+}
+
+// Settings for an SRT listener input. Configured only when the input uses the SRT_LISTENER input type.
+func (o InputSrtSettingsOutput) SrtListenerSettings() InputSrtListenerSettingsPtrOutput {
+	return o.ApplyT(func(v InputSrtSettings) *InputSrtListenerSettings { return v.SrtListenerSettings }).(InputSrtListenerSettingsPtrOutput)
+}
+
+type InputSrtSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (InputSrtSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InputSrtSettings)(nil)).Elem()
+}
+
+func (o InputSrtSettingsPtrOutput) ToInputSrtSettingsPtrOutput() InputSrtSettingsPtrOutput {
+	return o
+}
+
+func (o InputSrtSettingsPtrOutput) ToInputSrtSettingsPtrOutputWithContext(ctx context.Context) InputSrtSettingsPtrOutput {
+	return o
+}
+
+func (o InputSrtSettingsPtrOutput) Elem() InputSrtSettingsOutput {
+	return o.ApplyT(func(v *InputSrtSettings) InputSrtSettings {
+		if v != nil {
+			return *v
+		}
+		var ret InputSrtSettings
+		return ret
+	}).(InputSrtSettingsOutput)
+}
+
+// Placeholder documentation for __listOfSrtCallerSource
+func (o InputSrtSettingsPtrOutput) SrtCallerSources() InputSrtCallerSourceArrayOutput {
+	return o.ApplyT(func(v *InputSrtSettings) []InputSrtCallerSource {
+		if v == nil {
+			return nil
+		}
+		return v.SrtCallerSources
+	}).(InputSrtCallerSourceArrayOutput)
+}
+
+// Settings for an SRT listener input. Configured only when the input uses the SRT_LISTENER input type.
+func (o InputSrtSettingsPtrOutput) SrtListenerSettings() InputSrtListenerSettingsPtrOutput {
+	return o.ApplyT(func(v *InputSrtSettings) *InputSrtListenerSettings {
+		if v == nil {
+			return nil
+		}
+		return v.SrtListenerSettings
+	}).(InputSrtListenerSettingsPtrOutput)
+}
+
+// Settings for a private VPC Input.
+// When this property is specified, the input destination addresses will be created in a VPC rather than with public Internet addresses.
+// This property requires setting the roleArn property on Input creation.
+// Not compatible with the inputSecurityGroups property.
+type InputVpcRequest struct {
+	// A list of up to 5 EC2 VPC security group IDs to attach to the Input VPC network interfaces.
+	// Requires subnetIds. If none are specified then the VPC default security group will be used.
+	SecurityGroupIds []string `pulumi:"securityGroupIds"`
+	// A list of 2 VPC subnet IDs from the same VPC.
+	// Subnet IDs must be mapped to two unique availability zones (AZ).
+	SubnetIds []string `pulumi:"subnetIds"`
+}
+
+// InputVpcRequestInput is an input type that accepts InputVpcRequestArgs and InputVpcRequestOutput values.
+// You can construct a concrete instance of `InputVpcRequestInput` via:
+//
+//	InputVpcRequestArgs{...}
+type InputVpcRequestInput interface {
+	pulumi.Input
+
+	ToInputVpcRequestOutput() InputVpcRequestOutput
+	ToInputVpcRequestOutputWithContext(context.Context) InputVpcRequestOutput
+}
+
+// Settings for a private VPC Input.
+// When this property is specified, the input destination addresses will be created in a VPC rather than with public Internet addresses.
+// This property requires setting the roleArn property on Input creation.
+// Not compatible with the inputSecurityGroups property.
+type InputVpcRequestArgs struct {
+	// A list of up to 5 EC2 VPC security group IDs to attach to the Input VPC network interfaces.
+	// Requires subnetIds. If none are specified then the VPC default security group will be used.
+	SecurityGroupIds pulumi.StringArrayInput `pulumi:"securityGroupIds"`
+	// A list of 2 VPC subnet IDs from the same VPC.
+	// Subnet IDs must be mapped to two unique availability zones (AZ).
+	SubnetIds pulumi.StringArrayInput `pulumi:"subnetIds"`
+}
+
+func (InputVpcRequestArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InputVpcRequest)(nil)).Elem()
+}
+
+func (i InputVpcRequestArgs) ToInputVpcRequestOutput() InputVpcRequestOutput {
+	return i.ToInputVpcRequestOutputWithContext(context.Background())
+}
+
+func (i InputVpcRequestArgs) ToInputVpcRequestOutputWithContext(ctx context.Context) InputVpcRequestOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InputVpcRequestOutput)
+}
+
+func (i InputVpcRequestArgs) ToInputVpcRequestPtrOutput() InputVpcRequestPtrOutput {
+	return i.ToInputVpcRequestPtrOutputWithContext(context.Background())
+}
+
+func (i InputVpcRequestArgs) ToInputVpcRequestPtrOutputWithContext(ctx context.Context) InputVpcRequestPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InputVpcRequestOutput).ToInputVpcRequestPtrOutputWithContext(ctx)
+}
+
+// InputVpcRequestPtrInput is an input type that accepts InputVpcRequestArgs, InputVpcRequestPtr and InputVpcRequestPtrOutput values.
+// You can construct a concrete instance of `InputVpcRequestPtrInput` via:
+//
+//	        InputVpcRequestArgs{...}
+//
+//	or:
+//
+//	        nil
+type InputVpcRequestPtrInput interface {
+	pulumi.Input
+
+	ToInputVpcRequestPtrOutput() InputVpcRequestPtrOutput
+	ToInputVpcRequestPtrOutputWithContext(context.Context) InputVpcRequestPtrOutput
+}
+
+type inputVpcRequestPtrType InputVpcRequestArgs
+
+func InputVpcRequestPtr(v *InputVpcRequestArgs) InputVpcRequestPtrInput {
+	return (*inputVpcRequestPtrType)(v)
+}
+
+func (*inputVpcRequestPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**InputVpcRequest)(nil)).Elem()
+}
+
+func (i *inputVpcRequestPtrType) ToInputVpcRequestPtrOutput() InputVpcRequestPtrOutput {
+	return i.ToInputVpcRequestPtrOutputWithContext(context.Background())
+}
+
+func (i *inputVpcRequestPtrType) ToInputVpcRequestPtrOutputWithContext(ctx context.Context) InputVpcRequestPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InputVpcRequestPtrOutput)
+}
+
+// Settings for a private VPC Input.
+// When this property is specified, the input destination addresses will be created in a VPC rather than with public Internet addresses.
+// This property requires setting the roleArn property on Input creation.
+// Not compatible with the inputSecurityGroups property.
+type InputVpcRequestOutput struct{ *pulumi.OutputState }
+
+func (InputVpcRequestOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InputVpcRequest)(nil)).Elem()
+}
+
+func (o InputVpcRequestOutput) ToInputVpcRequestOutput() InputVpcRequestOutput {
+	return o
+}
+
+func (o InputVpcRequestOutput) ToInputVpcRequestOutputWithContext(ctx context.Context) InputVpcRequestOutput {
+	return o
+}
+
+func (o InputVpcRequestOutput) ToInputVpcRequestPtrOutput() InputVpcRequestPtrOutput {
+	return o.ToInputVpcRequestPtrOutputWithContext(context.Background())
+}
+
+func (o InputVpcRequestOutput) ToInputVpcRequestPtrOutputWithContext(ctx context.Context) InputVpcRequestPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InputVpcRequest) *InputVpcRequest {
+		return &v
+	}).(InputVpcRequestPtrOutput)
+}
+
+// A list of up to 5 EC2 VPC security group IDs to attach to the Input VPC network interfaces.
+// Requires subnetIds. If none are specified then the VPC default security group will be used.
+func (o InputVpcRequestOutput) SecurityGroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v InputVpcRequest) []string { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
+}
+
+// A list of 2 VPC subnet IDs from the same VPC.
+// Subnet IDs must be mapped to two unique availability zones (AZ).
+func (o InputVpcRequestOutput) SubnetIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v InputVpcRequest) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
+}
+
+type InputVpcRequestPtrOutput struct{ *pulumi.OutputState }
+
+func (InputVpcRequestPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InputVpcRequest)(nil)).Elem()
+}
+
+func (o InputVpcRequestPtrOutput) ToInputVpcRequestPtrOutput() InputVpcRequestPtrOutput {
+	return o
+}
+
+func (o InputVpcRequestPtrOutput) ToInputVpcRequestPtrOutputWithContext(ctx context.Context) InputVpcRequestPtrOutput {
+	return o
+}
+
+func (o InputVpcRequestPtrOutput) Elem() InputVpcRequestOutput {
+	return o.ApplyT(func(v *InputVpcRequest) InputVpcRequest {
+		if v != nil {
+			return *v
+		}
+		var ret InputVpcRequest
+		return ret
+	}).(InputVpcRequestOutput)
+}
+
+// A list of up to 5 EC2 VPC security group IDs to attach to the Input VPC network interfaces.
+// Requires subnetIds. If none are specified then the VPC default security group will be used.
+func (o InputVpcRequestPtrOutput) SecurityGroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *InputVpcRequest) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SecurityGroupIds
+	}).(pulumi.StringArrayOutput)
+}
+
+// A list of 2 VPC subnet IDs from the same VPC.
+// Subnet IDs must be mapped to two unique availability zones (AZ).
+func (o InputVpcRequestPtrOutput) SubnetIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *InputVpcRequest) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SubnetIds
+	}).(pulumi.StringArrayOutput)
+}
+
 // Multiplex MediaConnect output destination settings.
 type MultiplexOutputDestination struct {
 	// Multiplex MediaConnect output destination settings.
@@ -2676,6 +5668,49 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterNetworkSettingsPtrInput)(nil)).Elem(), ClusterNetworkSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventBridgeRuleTemplateTargetInput)(nil)).Elem(), EventBridgeRuleTemplateTargetArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventBridgeRuleTemplateTargetArrayInput)(nil)).Elem(), EventBridgeRuleTemplateTargetArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InputDestinationInput)(nil)).Elem(), InputDestinationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InputDestinationArrayInput)(nil)).Elem(), InputDestinationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InputDestinationRouteInput)(nil)).Elem(), InputDestinationRouteArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InputDestinationRouteArrayInput)(nil)).Elem(), InputDestinationRouteArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InputDestinationVpcInput)(nil)).Elem(), InputDestinationVpcArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InputDestinationVpcPtrInput)(nil)).Elem(), InputDestinationVpcArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InputDeviceSettingsInput)(nil)).Elem(), InputDeviceSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InputDeviceSettingsArrayInput)(nil)).Elem(), InputDeviceSettingsArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InputMediaConnectFlowInput)(nil)).Elem(), InputMediaConnectFlowArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InputMediaConnectFlowArrayInput)(nil)).Elem(), InputMediaConnectFlowArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InputMulticastSettingsInput)(nil)).Elem(), InputMulticastSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InputMulticastSettingsPtrInput)(nil)).Elem(), InputMulticastSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InputMulticastSourceInput)(nil)).Elem(), InputMulticastSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InputMulticastSourceArrayInput)(nil)).Elem(), InputMulticastSourceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InputRouterDestinationSettingsInput)(nil)).Elem(), InputRouterDestinationSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InputRouterDestinationSettingsArrayInput)(nil)).Elem(), InputRouterDestinationSettingsArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InputRouterSettingsInput)(nil)).Elem(), InputRouterSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InputRouterSettingsPtrInput)(nil)).Elem(), InputRouterSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InputSdpLocationInput)(nil)).Elem(), InputSdpLocationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InputSdpLocationPtrInput)(nil)).Elem(), InputSdpLocationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InputSdpLocationArrayInput)(nil)).Elem(), InputSdpLocationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InputSecurityGroupInputWhitelistRuleInput)(nil)).Elem(), InputSecurityGroupInputWhitelistRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InputSecurityGroupInputWhitelistRuleArrayInput)(nil)).Elem(), InputSecurityGroupInputWhitelistRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InputSmpte2110ReceiverGroupInput)(nil)).Elem(), InputSmpte2110ReceiverGroupArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InputSmpte2110ReceiverGroupArrayInput)(nil)).Elem(), InputSmpte2110ReceiverGroupArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InputSmpte2110ReceiverGroupSdpSettingsInput)(nil)).Elem(), InputSmpte2110ReceiverGroupSdpSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InputSmpte2110ReceiverGroupSdpSettingsPtrInput)(nil)).Elem(), InputSmpte2110ReceiverGroupSdpSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InputSmpte2110ReceiverGroupSettingsInput)(nil)).Elem(), InputSmpte2110ReceiverGroupSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InputSmpte2110ReceiverGroupSettingsPtrInput)(nil)).Elem(), InputSmpte2110ReceiverGroupSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InputSourceInput)(nil)).Elem(), InputSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InputSourceArrayInput)(nil)).Elem(), InputSourceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InputSrtCallerDecryptionInput)(nil)).Elem(), InputSrtCallerDecryptionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InputSrtCallerDecryptionPtrInput)(nil)).Elem(), InputSrtCallerDecryptionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InputSrtCallerSourceInput)(nil)).Elem(), InputSrtCallerSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InputSrtCallerSourceArrayInput)(nil)).Elem(), InputSrtCallerSourceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InputSrtListenerDecryptionInput)(nil)).Elem(), InputSrtListenerDecryptionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InputSrtListenerDecryptionPtrInput)(nil)).Elem(), InputSrtListenerDecryptionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InputSrtListenerSettingsInput)(nil)).Elem(), InputSrtListenerSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InputSrtListenerSettingsPtrInput)(nil)).Elem(), InputSrtListenerSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InputSrtSettingsInput)(nil)).Elem(), InputSrtSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InputSrtSettingsPtrInput)(nil)).Elem(), InputSrtSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InputVpcRequestInput)(nil)).Elem(), InputVpcRequestArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InputVpcRequestPtrInput)(nil)).Elem(), InputVpcRequestArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MultiplexOutputDestinationInput)(nil)).Elem(), MultiplexOutputDestinationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MultiplexOutputDestinationArrayInput)(nil)).Elem(), MultiplexOutputDestinationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MultiplexOutputDestinationMultiplexMediaConnectOutputDestinationSettingsPropertiesInput)(nil)).Elem(), MultiplexOutputDestinationMultiplexMediaConnectOutputDestinationSettingsPropertiesArgs{})
@@ -2707,6 +5742,49 @@ func init() {
 	pulumi.RegisterOutputType(ClusterNetworkSettingsPtrOutput{})
 	pulumi.RegisterOutputType(EventBridgeRuleTemplateTargetOutput{})
 	pulumi.RegisterOutputType(EventBridgeRuleTemplateTargetArrayOutput{})
+	pulumi.RegisterOutputType(InputDestinationOutput{})
+	pulumi.RegisterOutputType(InputDestinationArrayOutput{})
+	pulumi.RegisterOutputType(InputDestinationRouteOutput{})
+	pulumi.RegisterOutputType(InputDestinationRouteArrayOutput{})
+	pulumi.RegisterOutputType(InputDestinationVpcOutput{})
+	pulumi.RegisterOutputType(InputDestinationVpcPtrOutput{})
+	pulumi.RegisterOutputType(InputDeviceSettingsOutput{})
+	pulumi.RegisterOutputType(InputDeviceSettingsArrayOutput{})
+	pulumi.RegisterOutputType(InputMediaConnectFlowOutput{})
+	pulumi.RegisterOutputType(InputMediaConnectFlowArrayOutput{})
+	pulumi.RegisterOutputType(InputMulticastSettingsOutput{})
+	pulumi.RegisterOutputType(InputMulticastSettingsPtrOutput{})
+	pulumi.RegisterOutputType(InputMulticastSourceOutput{})
+	pulumi.RegisterOutputType(InputMulticastSourceArrayOutput{})
+	pulumi.RegisterOutputType(InputRouterDestinationSettingsOutput{})
+	pulumi.RegisterOutputType(InputRouterDestinationSettingsArrayOutput{})
+	pulumi.RegisterOutputType(InputRouterSettingsOutput{})
+	pulumi.RegisterOutputType(InputRouterSettingsPtrOutput{})
+	pulumi.RegisterOutputType(InputSdpLocationOutput{})
+	pulumi.RegisterOutputType(InputSdpLocationPtrOutput{})
+	pulumi.RegisterOutputType(InputSdpLocationArrayOutput{})
+	pulumi.RegisterOutputType(InputSecurityGroupInputWhitelistRuleOutput{})
+	pulumi.RegisterOutputType(InputSecurityGroupInputWhitelistRuleArrayOutput{})
+	pulumi.RegisterOutputType(InputSmpte2110ReceiverGroupOutput{})
+	pulumi.RegisterOutputType(InputSmpte2110ReceiverGroupArrayOutput{})
+	pulumi.RegisterOutputType(InputSmpte2110ReceiverGroupSdpSettingsOutput{})
+	pulumi.RegisterOutputType(InputSmpte2110ReceiverGroupSdpSettingsPtrOutput{})
+	pulumi.RegisterOutputType(InputSmpte2110ReceiverGroupSettingsOutput{})
+	pulumi.RegisterOutputType(InputSmpte2110ReceiverGroupSettingsPtrOutput{})
+	pulumi.RegisterOutputType(InputSourceOutput{})
+	pulumi.RegisterOutputType(InputSourceArrayOutput{})
+	pulumi.RegisterOutputType(InputSrtCallerDecryptionOutput{})
+	pulumi.RegisterOutputType(InputSrtCallerDecryptionPtrOutput{})
+	pulumi.RegisterOutputType(InputSrtCallerSourceOutput{})
+	pulumi.RegisterOutputType(InputSrtCallerSourceArrayOutput{})
+	pulumi.RegisterOutputType(InputSrtListenerDecryptionOutput{})
+	pulumi.RegisterOutputType(InputSrtListenerDecryptionPtrOutput{})
+	pulumi.RegisterOutputType(InputSrtListenerSettingsOutput{})
+	pulumi.RegisterOutputType(InputSrtListenerSettingsPtrOutput{})
+	pulumi.RegisterOutputType(InputSrtSettingsOutput{})
+	pulumi.RegisterOutputType(InputSrtSettingsPtrOutput{})
+	pulumi.RegisterOutputType(InputVpcRequestOutput{})
+	pulumi.RegisterOutputType(InputVpcRequestPtrOutput{})
 	pulumi.RegisterOutputType(MultiplexOutputDestinationOutput{})
 	pulumi.RegisterOutputType(MultiplexOutputDestinationArrayOutput{})
 	pulumi.RegisterOutputType(MultiplexOutputDestinationMultiplexMediaConnectOutputDestinationSettingsPropertiesOutput{})

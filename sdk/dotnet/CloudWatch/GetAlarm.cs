@@ -71,6 +71,7 @@ namespace Pulumi.AwsNative.CloudWatch
     [OutputType]
     public sealed class GetAlarmResult
     {
+        public readonly Outputs.AlarmActionConfiguration? ActionConfiguration;
         /// <summary>
         /// Indicates whether actions should be executed during any changes to the alarm state. The default is TRUE.
         /// </summary>
@@ -192,6 +193,8 @@ namespace Pulumi.AwsNative.CloudWatch
 
         [OutputConstructor]
         private GetAlarmResult(
+            Outputs.AlarmActionConfiguration? actionConfiguration,
+
             bool? actionsEnabled,
 
             ImmutableArray<string> alarmActions,
@@ -244,6 +247,7 @@ namespace Pulumi.AwsNative.CloudWatch
 
             Outputs.AlarmWarmUpConfiguration? warmUpConfiguration)
         {
+            ActionConfiguration = actionConfiguration;
             ActionsEnabled = actionsEnabled;
             AlarmActions = alarmActions;
             AlarmDescription = alarmDescription;

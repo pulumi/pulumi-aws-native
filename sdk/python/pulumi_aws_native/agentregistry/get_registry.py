@@ -26,7 +26,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetRegistryResult:
-    def __init__(__self__, approval_configuration=None, auto_detection_enabled=None, auto_detection_scope=None, auto_detection_status=None, created_at=None, description=None, discovery_configuration=None, name=None, registry_arn=None, registry_id=None, status=None, tags=None, updated_at=None):
+    def __init__(__self__, approval_configuration=None, auto_detection_enabled=None, auto_detection_scope=None, auto_detection_status=None, created_at=None, custom_metadata_schema_configuration=None, description=None, discovery_configuration=None, name=None, registry_arn=None, registry_id=None, status=None, tags=None, updated_at=None):
         if approval_configuration and not isinstance(approval_configuration, dict):
             raise TypeError("Expected argument 'approval_configuration' to be a dict")
         pulumi.set(__self__, "approval_configuration", approval_configuration)
@@ -42,6 +42,9 @@ class GetRegistryResult:
         if created_at and not isinstance(created_at, str):
             raise TypeError("Expected argument 'created_at' to be a str")
         pulumi.set(__self__, "created_at", created_at)
+        if custom_metadata_schema_configuration and not isinstance(custom_metadata_schema_configuration, dict):
+            raise TypeError("Expected argument 'custom_metadata_schema_configuration' to be a dict")
+        pulumi.set(__self__, "custom_metadata_schema_configuration", custom_metadata_schema_configuration)
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
@@ -97,6 +100,11 @@ class GetRegistryResult:
         The timestamp when the registry was created.
         """
         return pulumi.get(self, "created_at")
+
+    @_builtins.property
+    @pulumi.getter(name="customMetadataSchemaConfiguration")
+    def custom_metadata_schema_configuration(self) -> Optional['outputs.RegistryCustomMetadataSchemaConfiguration']:
+        return pulumi.get(self, "custom_metadata_schema_configuration")
 
     @_builtins.property
     @pulumi.getter
@@ -168,6 +176,7 @@ class AwaitableGetRegistryResult(GetRegistryResult):
             auto_detection_scope=self.auto_detection_scope,
             auto_detection_status=self.auto_detection_status,
             created_at=self.created_at,
+            custom_metadata_schema_configuration=self.custom_metadata_schema_configuration,
             description=self.description,
             discovery_configuration=self.discovery_configuration,
             name=self.name,
@@ -196,6 +205,7 @@ def get_registry(registry_arn: Optional[_builtins.str] = None,
         auto_detection_scope=pulumi.get(__ret__, 'auto_detection_scope'),
         auto_detection_status=pulumi.get(__ret__, 'auto_detection_status'),
         created_at=pulumi.get(__ret__, 'created_at'),
+        custom_metadata_schema_configuration=pulumi.get(__ret__, 'custom_metadata_schema_configuration'),
         description=pulumi.get(__ret__, 'description'),
         discovery_configuration=pulumi.get(__ret__, 'discovery_configuration'),
         name=pulumi.get(__ret__, 'name'),
@@ -221,6 +231,7 @@ def get_registry_output(registry_arn: pulumi.Input[Optional[_builtins.str]] = No
         auto_detection_scope=pulumi.get(__response__, 'auto_detection_scope'),
         auto_detection_status=pulumi.get(__response__, 'auto_detection_status'),
         created_at=pulumi.get(__response__, 'created_at'),
+        custom_metadata_schema_configuration=pulumi.get(__response__, 'custom_metadata_schema_configuration'),
         description=pulumi.get(__response__, 'description'),
         discovery_configuration=pulumi.get(__response__, 'discovery_configuration'),
         name=pulumi.get(__response__, 'name'),

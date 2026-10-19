@@ -3694,6 +3694,148 @@ func (o PlaybackConfigurationAvailSuppressionPtrOutput) Value() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
+// The beaconing configuration for a playback configuration. Beaconing controls whether AWS Elemental MediaTailor includes its own beacons in the ad tracking response, in addition to the ad server beacons. If you omit this setting, MediaTailor uses INSIGHTS.
+type PlaybackConfigurationBeaconingConfiguration struct {
+	// The beaconing settings for client-side reporting sessions. If you omit this object, MediaTailor uses INSIGHTS reporting mode.
+	ClientSide *PlaybackConfigurationClientSideBeaconingConfiguration `pulumi:"clientSide"`
+}
+
+// PlaybackConfigurationBeaconingConfigurationInput is an input type that accepts PlaybackConfigurationBeaconingConfigurationArgs and PlaybackConfigurationBeaconingConfigurationOutput values.
+// You can construct a concrete instance of `PlaybackConfigurationBeaconingConfigurationInput` via:
+//
+//	PlaybackConfigurationBeaconingConfigurationArgs{...}
+type PlaybackConfigurationBeaconingConfigurationInput interface {
+	pulumi.Input
+
+	ToPlaybackConfigurationBeaconingConfigurationOutput() PlaybackConfigurationBeaconingConfigurationOutput
+	ToPlaybackConfigurationBeaconingConfigurationOutputWithContext(context.Context) PlaybackConfigurationBeaconingConfigurationOutput
+}
+
+// The beaconing configuration for a playback configuration. Beaconing controls whether AWS Elemental MediaTailor includes its own beacons in the ad tracking response, in addition to the ad server beacons. If you omit this setting, MediaTailor uses INSIGHTS.
+type PlaybackConfigurationBeaconingConfigurationArgs struct {
+	// The beaconing settings for client-side reporting sessions. If you omit this object, MediaTailor uses INSIGHTS reporting mode.
+	ClientSide PlaybackConfigurationClientSideBeaconingConfigurationPtrInput `pulumi:"clientSide"`
+}
+
+func (PlaybackConfigurationBeaconingConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlaybackConfigurationBeaconingConfiguration)(nil)).Elem()
+}
+
+func (i PlaybackConfigurationBeaconingConfigurationArgs) ToPlaybackConfigurationBeaconingConfigurationOutput() PlaybackConfigurationBeaconingConfigurationOutput {
+	return i.ToPlaybackConfigurationBeaconingConfigurationOutputWithContext(context.Background())
+}
+
+func (i PlaybackConfigurationBeaconingConfigurationArgs) ToPlaybackConfigurationBeaconingConfigurationOutputWithContext(ctx context.Context) PlaybackConfigurationBeaconingConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PlaybackConfigurationBeaconingConfigurationOutput)
+}
+
+func (i PlaybackConfigurationBeaconingConfigurationArgs) ToPlaybackConfigurationBeaconingConfigurationPtrOutput() PlaybackConfigurationBeaconingConfigurationPtrOutput {
+	return i.ToPlaybackConfigurationBeaconingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i PlaybackConfigurationBeaconingConfigurationArgs) ToPlaybackConfigurationBeaconingConfigurationPtrOutputWithContext(ctx context.Context) PlaybackConfigurationBeaconingConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PlaybackConfigurationBeaconingConfigurationOutput).ToPlaybackConfigurationBeaconingConfigurationPtrOutputWithContext(ctx)
+}
+
+// PlaybackConfigurationBeaconingConfigurationPtrInput is an input type that accepts PlaybackConfigurationBeaconingConfigurationArgs, PlaybackConfigurationBeaconingConfigurationPtr and PlaybackConfigurationBeaconingConfigurationPtrOutput values.
+// You can construct a concrete instance of `PlaybackConfigurationBeaconingConfigurationPtrInput` via:
+//
+//	        PlaybackConfigurationBeaconingConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type PlaybackConfigurationBeaconingConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToPlaybackConfigurationBeaconingConfigurationPtrOutput() PlaybackConfigurationBeaconingConfigurationPtrOutput
+	ToPlaybackConfigurationBeaconingConfigurationPtrOutputWithContext(context.Context) PlaybackConfigurationBeaconingConfigurationPtrOutput
+}
+
+type playbackConfigurationBeaconingConfigurationPtrType PlaybackConfigurationBeaconingConfigurationArgs
+
+func PlaybackConfigurationBeaconingConfigurationPtr(v *PlaybackConfigurationBeaconingConfigurationArgs) PlaybackConfigurationBeaconingConfigurationPtrInput {
+	return (*playbackConfigurationBeaconingConfigurationPtrType)(v)
+}
+
+func (*playbackConfigurationBeaconingConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PlaybackConfigurationBeaconingConfiguration)(nil)).Elem()
+}
+
+func (i *playbackConfigurationBeaconingConfigurationPtrType) ToPlaybackConfigurationBeaconingConfigurationPtrOutput() PlaybackConfigurationBeaconingConfigurationPtrOutput {
+	return i.ToPlaybackConfigurationBeaconingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *playbackConfigurationBeaconingConfigurationPtrType) ToPlaybackConfigurationBeaconingConfigurationPtrOutputWithContext(ctx context.Context) PlaybackConfigurationBeaconingConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PlaybackConfigurationBeaconingConfigurationPtrOutput)
+}
+
+// The beaconing configuration for a playback configuration. Beaconing controls whether AWS Elemental MediaTailor includes its own beacons in the ad tracking response, in addition to the ad server beacons. If you omit this setting, MediaTailor uses INSIGHTS.
+type PlaybackConfigurationBeaconingConfigurationOutput struct{ *pulumi.OutputState }
+
+func (PlaybackConfigurationBeaconingConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlaybackConfigurationBeaconingConfiguration)(nil)).Elem()
+}
+
+func (o PlaybackConfigurationBeaconingConfigurationOutput) ToPlaybackConfigurationBeaconingConfigurationOutput() PlaybackConfigurationBeaconingConfigurationOutput {
+	return o
+}
+
+func (o PlaybackConfigurationBeaconingConfigurationOutput) ToPlaybackConfigurationBeaconingConfigurationOutputWithContext(ctx context.Context) PlaybackConfigurationBeaconingConfigurationOutput {
+	return o
+}
+
+func (o PlaybackConfigurationBeaconingConfigurationOutput) ToPlaybackConfigurationBeaconingConfigurationPtrOutput() PlaybackConfigurationBeaconingConfigurationPtrOutput {
+	return o.ToPlaybackConfigurationBeaconingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o PlaybackConfigurationBeaconingConfigurationOutput) ToPlaybackConfigurationBeaconingConfigurationPtrOutputWithContext(ctx context.Context) PlaybackConfigurationBeaconingConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PlaybackConfigurationBeaconingConfiguration) *PlaybackConfigurationBeaconingConfiguration {
+		return &v
+	}).(PlaybackConfigurationBeaconingConfigurationPtrOutput)
+}
+
+// The beaconing settings for client-side reporting sessions. If you omit this object, MediaTailor uses INSIGHTS reporting mode.
+func (o PlaybackConfigurationBeaconingConfigurationOutput) ClientSide() PlaybackConfigurationClientSideBeaconingConfigurationPtrOutput {
+	return o.ApplyT(func(v PlaybackConfigurationBeaconingConfiguration) *PlaybackConfigurationClientSideBeaconingConfiguration {
+		return v.ClientSide
+	}).(PlaybackConfigurationClientSideBeaconingConfigurationPtrOutput)
+}
+
+type PlaybackConfigurationBeaconingConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (PlaybackConfigurationBeaconingConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PlaybackConfigurationBeaconingConfiguration)(nil)).Elem()
+}
+
+func (o PlaybackConfigurationBeaconingConfigurationPtrOutput) ToPlaybackConfigurationBeaconingConfigurationPtrOutput() PlaybackConfigurationBeaconingConfigurationPtrOutput {
+	return o
+}
+
+func (o PlaybackConfigurationBeaconingConfigurationPtrOutput) ToPlaybackConfigurationBeaconingConfigurationPtrOutputWithContext(ctx context.Context) PlaybackConfigurationBeaconingConfigurationPtrOutput {
+	return o
+}
+
+func (o PlaybackConfigurationBeaconingConfigurationPtrOutput) Elem() PlaybackConfigurationBeaconingConfigurationOutput {
+	return o.ApplyT(func(v *PlaybackConfigurationBeaconingConfiguration) PlaybackConfigurationBeaconingConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret PlaybackConfigurationBeaconingConfiguration
+		return ret
+	}).(PlaybackConfigurationBeaconingConfigurationOutput)
+}
+
+// The beaconing settings for client-side reporting sessions. If you omit this object, MediaTailor uses INSIGHTS reporting mode.
+func (o PlaybackConfigurationBeaconingConfigurationPtrOutput) ClientSide() PlaybackConfigurationClientSideBeaconingConfigurationPtrOutput {
+	return o.ApplyT(func(v *PlaybackConfigurationBeaconingConfiguration) *PlaybackConfigurationClientSideBeaconingConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.ClientSide
+	}).(PlaybackConfigurationClientSideBeaconingConfigurationPtrOutput)
+}
+
 // The configuration for bumpers. Bumpers are short audio or video clips that play at the start or before the end of an ad break. To learn more about bumpers, see Bumpers (https://docs.aws.amazon.com/mediatailor/latest/ug/bumpers.html).
 type PlaybackConfigurationBumper struct {
 	// The URL for the end bumper asset.
@@ -4010,6 +4152,169 @@ func (o PlaybackConfigurationCdnConfigurationPtrOutput) ContentSegmentUrlPrefix(
 		}
 		return v.ContentSegmentUrlPrefix
 	}).(pulumi.StringPtrOutput)
+}
+
+// The beaconing settings that apply to client-side reporting sessions: whether AWS Elemental MediaTailor includes its beacons in the ad tracking response, and which player operation events it reports on. If you omit this object, MediaTailor uses INSIGHTS reporting mode.
+type PlaybackConfigurationClientSideBeaconingConfiguration struct {
+	// The player operation events to report on, in addition to the ad progress events that MediaTailor always reports on. Valid values are MUTE, UNMUTE, PAUSE, and SKIP. The default is an empty list. This parameter is valid only when ReportingMode is INSIGHTS. MediaTailor rejects the request if you specify a value while ReportingMode is DISABLED, or if you specify duplicate values.
+	AdditionalEventTypes []PlaybackConfigurationClientSideBeaconingConfigurationAdditionalEventTypesItem `pulumi:"additionalEventTypes"`
+	// Specifies whether MediaTailor includes its beacons in the ad tracking response. INSIGHTS includes MediaTailor beacons; DISABLED does not. Values are case-sensitive. This setting is required when ClientSide is present. If BeaconingConfiguration or ClientSide is omitted, MediaTailor uses INSIGHTS. To keep beaconing off, retain DISABLED in subsequent updates.
+	ReportingMode PlaybackConfigurationClientSideBeaconingConfigurationReportingMode `pulumi:"reportingMode"`
+}
+
+// PlaybackConfigurationClientSideBeaconingConfigurationInput is an input type that accepts PlaybackConfigurationClientSideBeaconingConfigurationArgs and PlaybackConfigurationClientSideBeaconingConfigurationOutput values.
+// You can construct a concrete instance of `PlaybackConfigurationClientSideBeaconingConfigurationInput` via:
+//
+//	PlaybackConfigurationClientSideBeaconingConfigurationArgs{...}
+type PlaybackConfigurationClientSideBeaconingConfigurationInput interface {
+	pulumi.Input
+
+	ToPlaybackConfigurationClientSideBeaconingConfigurationOutput() PlaybackConfigurationClientSideBeaconingConfigurationOutput
+	ToPlaybackConfigurationClientSideBeaconingConfigurationOutputWithContext(context.Context) PlaybackConfigurationClientSideBeaconingConfigurationOutput
+}
+
+// The beaconing settings that apply to client-side reporting sessions: whether AWS Elemental MediaTailor includes its beacons in the ad tracking response, and which player operation events it reports on. If you omit this object, MediaTailor uses INSIGHTS reporting mode.
+type PlaybackConfigurationClientSideBeaconingConfigurationArgs struct {
+	// The player operation events to report on, in addition to the ad progress events that MediaTailor always reports on. Valid values are MUTE, UNMUTE, PAUSE, and SKIP. The default is an empty list. This parameter is valid only when ReportingMode is INSIGHTS. MediaTailor rejects the request if you specify a value while ReportingMode is DISABLED, or if you specify duplicate values.
+	AdditionalEventTypes PlaybackConfigurationClientSideBeaconingConfigurationAdditionalEventTypesItemArrayInput `pulumi:"additionalEventTypes"`
+	// Specifies whether MediaTailor includes its beacons in the ad tracking response. INSIGHTS includes MediaTailor beacons; DISABLED does not. Values are case-sensitive. This setting is required when ClientSide is present. If BeaconingConfiguration or ClientSide is omitted, MediaTailor uses INSIGHTS. To keep beaconing off, retain DISABLED in subsequent updates.
+	ReportingMode PlaybackConfigurationClientSideBeaconingConfigurationReportingModeInput `pulumi:"reportingMode"`
+}
+
+func (PlaybackConfigurationClientSideBeaconingConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlaybackConfigurationClientSideBeaconingConfiguration)(nil)).Elem()
+}
+
+func (i PlaybackConfigurationClientSideBeaconingConfigurationArgs) ToPlaybackConfigurationClientSideBeaconingConfigurationOutput() PlaybackConfigurationClientSideBeaconingConfigurationOutput {
+	return i.ToPlaybackConfigurationClientSideBeaconingConfigurationOutputWithContext(context.Background())
+}
+
+func (i PlaybackConfigurationClientSideBeaconingConfigurationArgs) ToPlaybackConfigurationClientSideBeaconingConfigurationOutputWithContext(ctx context.Context) PlaybackConfigurationClientSideBeaconingConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PlaybackConfigurationClientSideBeaconingConfigurationOutput)
+}
+
+func (i PlaybackConfigurationClientSideBeaconingConfigurationArgs) ToPlaybackConfigurationClientSideBeaconingConfigurationPtrOutput() PlaybackConfigurationClientSideBeaconingConfigurationPtrOutput {
+	return i.ToPlaybackConfigurationClientSideBeaconingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i PlaybackConfigurationClientSideBeaconingConfigurationArgs) ToPlaybackConfigurationClientSideBeaconingConfigurationPtrOutputWithContext(ctx context.Context) PlaybackConfigurationClientSideBeaconingConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PlaybackConfigurationClientSideBeaconingConfigurationOutput).ToPlaybackConfigurationClientSideBeaconingConfigurationPtrOutputWithContext(ctx)
+}
+
+// PlaybackConfigurationClientSideBeaconingConfigurationPtrInput is an input type that accepts PlaybackConfigurationClientSideBeaconingConfigurationArgs, PlaybackConfigurationClientSideBeaconingConfigurationPtr and PlaybackConfigurationClientSideBeaconingConfigurationPtrOutput values.
+// You can construct a concrete instance of `PlaybackConfigurationClientSideBeaconingConfigurationPtrInput` via:
+//
+//	        PlaybackConfigurationClientSideBeaconingConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type PlaybackConfigurationClientSideBeaconingConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToPlaybackConfigurationClientSideBeaconingConfigurationPtrOutput() PlaybackConfigurationClientSideBeaconingConfigurationPtrOutput
+	ToPlaybackConfigurationClientSideBeaconingConfigurationPtrOutputWithContext(context.Context) PlaybackConfigurationClientSideBeaconingConfigurationPtrOutput
+}
+
+type playbackConfigurationClientSideBeaconingConfigurationPtrType PlaybackConfigurationClientSideBeaconingConfigurationArgs
+
+func PlaybackConfigurationClientSideBeaconingConfigurationPtr(v *PlaybackConfigurationClientSideBeaconingConfigurationArgs) PlaybackConfigurationClientSideBeaconingConfigurationPtrInput {
+	return (*playbackConfigurationClientSideBeaconingConfigurationPtrType)(v)
+}
+
+func (*playbackConfigurationClientSideBeaconingConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PlaybackConfigurationClientSideBeaconingConfiguration)(nil)).Elem()
+}
+
+func (i *playbackConfigurationClientSideBeaconingConfigurationPtrType) ToPlaybackConfigurationClientSideBeaconingConfigurationPtrOutput() PlaybackConfigurationClientSideBeaconingConfigurationPtrOutput {
+	return i.ToPlaybackConfigurationClientSideBeaconingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *playbackConfigurationClientSideBeaconingConfigurationPtrType) ToPlaybackConfigurationClientSideBeaconingConfigurationPtrOutputWithContext(ctx context.Context) PlaybackConfigurationClientSideBeaconingConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PlaybackConfigurationClientSideBeaconingConfigurationPtrOutput)
+}
+
+// The beaconing settings that apply to client-side reporting sessions: whether AWS Elemental MediaTailor includes its beacons in the ad tracking response, and which player operation events it reports on. If you omit this object, MediaTailor uses INSIGHTS reporting mode.
+type PlaybackConfigurationClientSideBeaconingConfigurationOutput struct{ *pulumi.OutputState }
+
+func (PlaybackConfigurationClientSideBeaconingConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlaybackConfigurationClientSideBeaconingConfiguration)(nil)).Elem()
+}
+
+func (o PlaybackConfigurationClientSideBeaconingConfigurationOutput) ToPlaybackConfigurationClientSideBeaconingConfigurationOutput() PlaybackConfigurationClientSideBeaconingConfigurationOutput {
+	return o
+}
+
+func (o PlaybackConfigurationClientSideBeaconingConfigurationOutput) ToPlaybackConfigurationClientSideBeaconingConfigurationOutputWithContext(ctx context.Context) PlaybackConfigurationClientSideBeaconingConfigurationOutput {
+	return o
+}
+
+func (o PlaybackConfigurationClientSideBeaconingConfigurationOutput) ToPlaybackConfigurationClientSideBeaconingConfigurationPtrOutput() PlaybackConfigurationClientSideBeaconingConfigurationPtrOutput {
+	return o.ToPlaybackConfigurationClientSideBeaconingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o PlaybackConfigurationClientSideBeaconingConfigurationOutput) ToPlaybackConfigurationClientSideBeaconingConfigurationPtrOutputWithContext(ctx context.Context) PlaybackConfigurationClientSideBeaconingConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PlaybackConfigurationClientSideBeaconingConfiguration) *PlaybackConfigurationClientSideBeaconingConfiguration {
+		return &v
+	}).(PlaybackConfigurationClientSideBeaconingConfigurationPtrOutput)
+}
+
+// The player operation events to report on, in addition to the ad progress events that MediaTailor always reports on. Valid values are MUTE, UNMUTE, PAUSE, and SKIP. The default is an empty list. This parameter is valid only when ReportingMode is INSIGHTS. MediaTailor rejects the request if you specify a value while ReportingMode is DISABLED, or if you specify duplicate values.
+func (o PlaybackConfigurationClientSideBeaconingConfigurationOutput) AdditionalEventTypes() PlaybackConfigurationClientSideBeaconingConfigurationAdditionalEventTypesItemArrayOutput {
+	return o.ApplyT(func(v PlaybackConfigurationClientSideBeaconingConfiguration) []PlaybackConfigurationClientSideBeaconingConfigurationAdditionalEventTypesItem {
+		return v.AdditionalEventTypes
+	}).(PlaybackConfigurationClientSideBeaconingConfigurationAdditionalEventTypesItemArrayOutput)
+}
+
+// Specifies whether MediaTailor includes its beacons in the ad tracking response. INSIGHTS includes MediaTailor beacons; DISABLED does not. Values are case-sensitive. This setting is required when ClientSide is present. If BeaconingConfiguration or ClientSide is omitted, MediaTailor uses INSIGHTS. To keep beaconing off, retain DISABLED in subsequent updates.
+func (o PlaybackConfigurationClientSideBeaconingConfigurationOutput) ReportingMode() PlaybackConfigurationClientSideBeaconingConfigurationReportingModeOutput {
+	return o.ApplyT(func(v PlaybackConfigurationClientSideBeaconingConfiguration) PlaybackConfigurationClientSideBeaconingConfigurationReportingMode {
+		return v.ReportingMode
+	}).(PlaybackConfigurationClientSideBeaconingConfigurationReportingModeOutput)
+}
+
+type PlaybackConfigurationClientSideBeaconingConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (PlaybackConfigurationClientSideBeaconingConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PlaybackConfigurationClientSideBeaconingConfiguration)(nil)).Elem()
+}
+
+func (o PlaybackConfigurationClientSideBeaconingConfigurationPtrOutput) ToPlaybackConfigurationClientSideBeaconingConfigurationPtrOutput() PlaybackConfigurationClientSideBeaconingConfigurationPtrOutput {
+	return o
+}
+
+func (o PlaybackConfigurationClientSideBeaconingConfigurationPtrOutput) ToPlaybackConfigurationClientSideBeaconingConfigurationPtrOutputWithContext(ctx context.Context) PlaybackConfigurationClientSideBeaconingConfigurationPtrOutput {
+	return o
+}
+
+func (o PlaybackConfigurationClientSideBeaconingConfigurationPtrOutput) Elem() PlaybackConfigurationClientSideBeaconingConfigurationOutput {
+	return o.ApplyT(func(v *PlaybackConfigurationClientSideBeaconingConfiguration) PlaybackConfigurationClientSideBeaconingConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret PlaybackConfigurationClientSideBeaconingConfiguration
+		return ret
+	}).(PlaybackConfigurationClientSideBeaconingConfigurationOutput)
+}
+
+// The player operation events to report on, in addition to the ad progress events that MediaTailor always reports on. Valid values are MUTE, UNMUTE, PAUSE, and SKIP. The default is an empty list. This parameter is valid only when ReportingMode is INSIGHTS. MediaTailor rejects the request if you specify a value while ReportingMode is DISABLED, or if you specify duplicate values.
+func (o PlaybackConfigurationClientSideBeaconingConfigurationPtrOutput) AdditionalEventTypes() PlaybackConfigurationClientSideBeaconingConfigurationAdditionalEventTypesItemArrayOutput {
+	return o.ApplyT(func(v *PlaybackConfigurationClientSideBeaconingConfiguration) []PlaybackConfigurationClientSideBeaconingConfigurationAdditionalEventTypesItem {
+		if v == nil {
+			return nil
+		}
+		return v.AdditionalEventTypes
+	}).(PlaybackConfigurationClientSideBeaconingConfigurationAdditionalEventTypesItemArrayOutput)
+}
+
+// Specifies whether MediaTailor includes its beacons in the ad tracking response. INSIGHTS includes MediaTailor beacons; DISABLED does not. Values are case-sensitive. This setting is required when ClientSide is present. If BeaconingConfiguration or ClientSide is omitted, MediaTailor uses INSIGHTS. To keep beaconing off, retain DISABLED in subsequent updates.
+func (o PlaybackConfigurationClientSideBeaconingConfigurationPtrOutput) ReportingMode() PlaybackConfigurationClientSideBeaconingConfigurationReportingModePtrOutput {
+	return o.ApplyT(func(v *PlaybackConfigurationClientSideBeaconingConfiguration) *PlaybackConfigurationClientSideBeaconingConfigurationReportingMode {
+		if v == nil {
+			return nil
+		}
+		return &v.ReportingMode
+	}).(PlaybackConfigurationClientSideBeaconingConfigurationReportingModePtrOutput)
 }
 
 // The configuration for DASH PUT operations.
@@ -9556,10 +9861,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PlaybackConfigurationAdsPersonalizationTimeoutsPtrInput)(nil)).Elem(), PlaybackConfigurationAdsPersonalizationTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PlaybackConfigurationAvailSuppressionInput)(nil)).Elem(), PlaybackConfigurationAvailSuppressionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PlaybackConfigurationAvailSuppressionPtrInput)(nil)).Elem(), PlaybackConfigurationAvailSuppressionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PlaybackConfigurationBeaconingConfigurationInput)(nil)).Elem(), PlaybackConfigurationBeaconingConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PlaybackConfigurationBeaconingConfigurationPtrInput)(nil)).Elem(), PlaybackConfigurationBeaconingConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PlaybackConfigurationBumperInput)(nil)).Elem(), PlaybackConfigurationBumperArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PlaybackConfigurationBumperPtrInput)(nil)).Elem(), PlaybackConfigurationBumperArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PlaybackConfigurationCdnConfigurationInput)(nil)).Elem(), PlaybackConfigurationCdnConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PlaybackConfigurationCdnConfigurationPtrInput)(nil)).Elem(), PlaybackConfigurationCdnConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PlaybackConfigurationClientSideBeaconingConfigurationInput)(nil)).Elem(), PlaybackConfigurationClientSideBeaconingConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PlaybackConfigurationClientSideBeaconingConfigurationPtrInput)(nil)).Elem(), PlaybackConfigurationClientSideBeaconingConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PlaybackConfigurationDashConfigurationInput)(nil)).Elem(), PlaybackConfigurationDashConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PlaybackConfigurationDashConfigurationPtrInput)(nil)).Elem(), PlaybackConfigurationDashConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PlaybackConfigurationHlsConfigurationInput)(nil)).Elem(), PlaybackConfigurationHlsConfigurationArgs{})
@@ -9671,10 +9980,14 @@ func init() {
 	pulumi.RegisterOutputType(PlaybackConfigurationAdsPersonalizationTimeoutsPtrOutput{})
 	pulumi.RegisterOutputType(PlaybackConfigurationAvailSuppressionOutput{})
 	pulumi.RegisterOutputType(PlaybackConfigurationAvailSuppressionPtrOutput{})
+	pulumi.RegisterOutputType(PlaybackConfigurationBeaconingConfigurationOutput{})
+	pulumi.RegisterOutputType(PlaybackConfigurationBeaconingConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(PlaybackConfigurationBumperOutput{})
 	pulumi.RegisterOutputType(PlaybackConfigurationBumperPtrOutput{})
 	pulumi.RegisterOutputType(PlaybackConfigurationCdnConfigurationOutput{})
 	pulumi.RegisterOutputType(PlaybackConfigurationCdnConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(PlaybackConfigurationClientSideBeaconingConfigurationOutput{})
+	pulumi.RegisterOutputType(PlaybackConfigurationClientSideBeaconingConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(PlaybackConfigurationDashConfigurationOutput{})
 	pulumi.RegisterOutputType(PlaybackConfigurationDashConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(PlaybackConfigurationHlsConfigurationOutput{})

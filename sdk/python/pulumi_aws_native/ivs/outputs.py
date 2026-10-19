@@ -17,6 +17,8 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'AdConfigurationMediaTailorPlaybackConfiguration',
+    'AdConfigurationPostRollConfiguration',
     'ChannelMultitrackInputConfiguration',
     'RecordingConfigurationDestinationConfiguration',
     'RecordingConfigurationRenditionConfiguration',
@@ -30,6 +32,98 @@ __all__ = [
     'StorageConfigurationS3StorageConfiguration',
     'VideoProperties',
 ]
+
+@pulumi.output_type
+class AdConfigurationMediaTailorPlaybackConfiguration(dict):
+    """
+    Object specifying a configuration for integration with an AWS Elemental MediaTailor (EMT).
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "playbackConfigurationArn":
+            suggest = "playback_configuration_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AdConfigurationMediaTailorPlaybackConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AdConfigurationMediaTailorPlaybackConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AdConfigurationMediaTailorPlaybackConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 playback_configuration_arn: Optional[_builtins.str] = None):
+        """
+        Object specifying a configuration for integration with an AWS Elemental MediaTailor (EMT).
+
+        :param _builtins.str playback_configuration_arn: ARN of the customer-created EMT PlaybackConfiguration resource in the same region and account.
+        """
+        if playback_configuration_arn is not None:
+            pulumi.set(__self__, "playback_configuration_arn", playback_configuration_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="playbackConfigurationArn")
+    def playback_configuration_arn(self) -> Optional[_builtins.str]:
+        """
+        ARN of the customer-created EMT PlaybackConfiguration resource in the same region and account.
+        """
+        return pulumi.get(self, "playback_configuration_arn")
+
+
+@pulumi.output_type
+class AdConfigurationPostRollConfiguration(dict):
+    """
+    Configuration for the post-roll ad break to use for this ad configuration.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "durationSeconds":
+            suggest = "duration_seconds"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AdConfigurationPostRollConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AdConfigurationPostRollConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AdConfigurationPostRollConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 duration_seconds: _builtins.int,
+                 enabled: _builtins.bool):
+        """
+        Configuration for the post-roll ad break to use for this ad configuration.
+
+        :param _builtins.int duration_seconds: Duration of the post-roll ad break, in seconds.
+        :param _builtins.bool enabled: Whether the post-roll ad configuration is enabled.
+        """
+        pulumi.set(__self__, "duration_seconds", duration_seconds)
+        pulumi.set(__self__, "enabled", enabled)
+
+    @_builtins.property
+    @pulumi.getter(name="durationSeconds")
+    def duration_seconds(self) -> _builtins.int:
+        """
+        Duration of the post-roll ad break, in seconds.
+        """
+        return pulumi.get(self, "duration_seconds")
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> _builtins.bool:
+        """
+        Whether the post-roll ad configuration is enabled.
+        """
+        return pulumi.get(self, "enabled")
+
 
 @pulumi.output_type
 class ChannelMultitrackInputConfiguration(dict):

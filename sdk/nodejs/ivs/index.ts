@@ -5,6 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { AdConfigurationArgs } from "./adConfiguration";
+export type AdConfiguration = import("./adConfiguration").AdConfiguration;
+export const AdConfiguration: typeof import("./adConfiguration").AdConfiguration = null as any;
+utilities.lazyLoad(exports, ["AdConfiguration"], () => require("./adConfiguration"));
+
 export { ChannelArgs } from "./channel";
 export type Channel = import("./channel").Channel;
 export const Channel: typeof import("./channel").Channel = null as any;
@@ -14,6 +19,11 @@ export { EncoderConfigurationArgs } from "./encoderConfiguration";
 export type EncoderConfiguration = import("./encoderConfiguration").EncoderConfiguration;
 export const EncoderConfiguration: typeof import("./encoderConfiguration").EncoderConfiguration = null as any;
 utilities.lazyLoad(exports, ["EncoderConfiguration"], () => require("./encoderConfiguration"));
+
+export { GetAdConfigurationArgs, GetAdConfigurationResult, GetAdConfigurationOutputArgs } from "./getAdConfiguration";
+export const getAdConfiguration: typeof import("./getAdConfiguration").getAdConfiguration = null as any;
+export const getAdConfigurationOutput: typeof import("./getAdConfiguration").getAdConfigurationOutput = null as any;
+utilities.lazyLoad(exports, ["getAdConfiguration","getAdConfigurationOutput"], () => require("./getAdConfiguration"));
 
 export { GetChannelArgs, GetChannelResult, GetChannelOutputArgs } from "./getChannel";
 export const getChannel: typeof import("./getChannel").getChannel = null as any;
@@ -113,6 +123,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws-native:ivs:AdConfiguration":
+                return new AdConfiguration(name, <any>undefined, { urn })
             case "aws-native:ivs:Channel":
                 return new Channel(name, <any>undefined, { urn })
             case "aws-native:ivs:EncoderConfiguration":

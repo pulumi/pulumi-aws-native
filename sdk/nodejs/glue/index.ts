@@ -160,6 +160,11 @@ export const getSession: typeof import("./getSession").getSession = null as any;
 export const getSessionOutput: typeof import("./getSession").getSessionOutput = null as any;
 utilities.lazyLoad(exports, ["getSession","getSessionOutput"], () => require("./getSession"));
 
+export { GetTableArgs, GetTableResult, GetTableOutputArgs } from "./getTable";
+export const getTable: typeof import("./getTable").getTable = null as any;
+export const getTableOutput: typeof import("./getTable").getTableOutput = null as any;
+utilities.lazyLoad(exports, ["getTable","getTableOutput"], () => require("./getTable"));
+
 export { GetTableOptimizerArgs, GetTableOptimizerResult, GetTableOptimizerOutputArgs } from "./getTableOptimizer";
 export const getTableOptimizer: typeof import("./getTableOptimizer").getTableOptimizer = null as any;
 export const getTableOptimizerOutput: typeof import("./getTableOptimizer").getTableOptimizerOutput = null as any;
@@ -245,6 +250,11 @@ export type Session = import("./session").Session;
 export const Session: typeof import("./session").Session = null as any;
 utilities.lazyLoad(exports, ["Session"], () => require("./session"));
 
+export { TableArgs } from "./table";
+export type Table = import("./table").Table;
+export const Table: typeof import("./table").Table = null as any;
+utilities.lazyLoad(exports, ["Table"], () => require("./table"));
+
 export { TableOptimizerArgs } from "./tableOptimizer";
 export type TableOptimizer = import("./tableOptimizer").TableOptimizer;
 export const TableOptimizer: typeof import("./tableOptimizer").TableOptimizer = null as any;
@@ -322,6 +332,8 @@ const _module = {
                 return new SecurityConfiguration(name, <any>undefined, { urn })
             case "aws-native:glue:Session":
                 return new Session(name, <any>undefined, { urn })
+            case "aws-native:glue:Table":
+                return new Table(name, <any>undefined, { urn })
             case "aws-native:glue:TableOptimizer":
                 return new TableOptimizer(name, <any>undefined, { urn })
             case "aws-native:glue:Trigger":

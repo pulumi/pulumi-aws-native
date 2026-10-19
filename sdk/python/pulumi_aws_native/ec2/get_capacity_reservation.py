@@ -24,7 +24,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetCapacityReservationResult:
-    def __init__(__self__, available_instance_count=None, capacity_allocation_set=None, capacity_reservation_arn=None, capacity_reservation_fleet_id=None, commitment_info=None, create_date=None, delivery_preference=None, end_date=None, end_date_type=None, id=None, instance_count=None, instance_match_criteria=None, owner_id=None, reservation_type=None, start_date=None, state=None, total_instance_count=None):
+    def __init__(__self__, available_instance_count=None, capacity_allocation_set=None, capacity_reservation_arn=None, capacity_reservation_fleet_id=None, commitment_info=None, create_date=None, delivery_preference=None, end_date=None, end_date_type=None, id=None, instance_count=None, instance_match_criteria=None, owner_id=None, reservation_type=None, start_date=None, state=None, tag_specifications=None, total_instance_count=None):
         if available_instance_count and not isinstance(available_instance_count, int):
             raise TypeError("Expected argument 'available_instance_count' to be a int")
         pulumi.set(__self__, "available_instance_count", available_instance_count)
@@ -73,6 +73,9 @@ class GetCapacityReservationResult:
         if state and not isinstance(state, str):
             raise TypeError("Expected argument 'state' to be a str")
         pulumi.set(__self__, "state", state)
+        if tag_specifications and not isinstance(tag_specifications, list):
+            raise TypeError("Expected argument 'tag_specifications' to be a list")
+        pulumi.set(__self__, "tag_specifications", tag_specifications)
         if total_instance_count and not isinstance(total_instance_count, int):
             raise TypeError("Expected argument 'total_instance_count' to be a int")
         pulumi.set(__self__, "total_instance_count", total_instance_count)
@@ -232,6 +235,14 @@ class GetCapacityReservationResult:
         return pulumi.get(self, "state")
 
     @_builtins.property
+    @pulumi.getter(name="tagSpecifications")
+    def tag_specifications(self) -> Optional[Sequence['outputs.CapacityReservationTagSpecification']]:
+        """
+        The tags to apply to the Capacity Reservation during launch.
+        """
+        return pulumi.get(self, "tag_specifications")
+
+    @_builtins.property
     @pulumi.getter(name="totalInstanceCount")
     def total_instance_count(self) -> Optional[_builtins.int]:
         """
@@ -262,6 +273,7 @@ class AwaitableGetCapacityReservationResult(GetCapacityReservationResult):
             reservation_type=self.reservation_type,
             start_date=self.start_date,
             state=self.state,
+            tag_specifications=self.tag_specifications,
             total_instance_count=self.total_instance_count)
 
 
@@ -294,6 +306,7 @@ def get_capacity_reservation(id: Optional[_builtins.str] = None,
         reservation_type=pulumi.get(__ret__, 'reservation_type'),
         start_date=pulumi.get(__ret__, 'start_date'),
         state=pulumi.get(__ret__, 'state'),
+        tag_specifications=pulumi.get(__ret__, 'tag_specifications'),
         total_instance_count=pulumi.get(__ret__, 'total_instance_count'))
 def get_capacity_reservation_output(id: pulumi.Input[Optional[_builtins.str]] = None,
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCapacityReservationResult]:
@@ -323,4 +336,5 @@ def get_capacity_reservation_output(id: pulumi.Input[Optional[_builtins.str]] = 
         reservation_type=pulumi.get(__response__, 'reservation_type'),
         start_date=pulumi.get(__response__, 'start_date'),
         state=pulumi.get(__response__, 'state'),
+        tag_specifications=pulumi.get(__response__, 'tag_specifications'),
         total_instance_count=pulumi.get(__response__, 'total_instance_count')))

@@ -15,11 +15,17 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     /// </summary>
     public sealed class DataSourceDatabricksParametersArgs : global::Pulumi.ResourceArgs
     {
+        [Input("authenticationType")]
+        public Input<Pulumi.AwsNative.QuickSight.DataSourceAuthenticationType>? AuthenticationType { get; set; }
+
         /// <summary>
         /// &lt;p&gt;The host name of the Databricks data source.&lt;/p&gt;
         /// </summary>
         [Input("host", required: true)]
         public Input<string> Host { get; set; } = null!;
+
+        [Input("oAuthParameters")]
+        public Input<Inputs.DataSourceOAuthParametersArgs>? OAuthParameters { get; set; }
 
         /// <summary>
         /// &lt;p&gt;The port for the Databricks data source.&lt;/p&gt;

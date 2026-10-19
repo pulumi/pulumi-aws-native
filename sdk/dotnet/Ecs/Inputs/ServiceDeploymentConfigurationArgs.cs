@@ -46,6 +46,9 @@ namespace Pulumi.AwsNative.Ecs.Inputs
         [Input("deploymentCircuitBreaker")]
         public Input<Inputs.ServiceDeploymentCircuitBreakerArgs>? DeploymentCircuitBreaker { get; set; }
 
+        /// <summary>
+        /// The early success criteria configuration for a rolling deployment. With early success criteria, you can configure an Amazon ECS deployment to complete faster. Amazon ECS declares a deployment successful once a target percentage of tasks are healthy, instead of waiting for the service to fully stabilize.
+        /// </summary>
         [Input("earlySuccessCriteria")]
         public Input<Inputs.ServiceDeploymentEarlySuccessCriteriaArgs>? EarlySuccessCriteria { get; set; }
 

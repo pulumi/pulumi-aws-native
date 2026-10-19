@@ -38,6 +38,10 @@ export class LogAlarm extends pulumi.CustomResource {
     }
 
     /**
+     * Configuration that applies to the notifications this alarm sends when it performs its actions.
+     */
+    declare public readonly actionConfiguration: pulumi.Output<outputs.cloudwatch.LogAlarmActionConfiguration | undefined>;
+    /**
      * The number of log lines to include in alarm notifications. Valid values are 0 to 50.
      */
     declare public readonly actionLogLineCount: pulumi.Output<number | undefined>;
@@ -132,6 +136,7 @@ export class LogAlarm extends pulumi.CustomResource {
             if (args?.threshold === undefined && !opts.urn) {
                 throw new Error("Missing required property 'threshold'");
             }
+            resourceInputs["actionConfiguration"] = args?.actionConfiguration;
             resourceInputs["actionLogLineCount"] = args?.actionLogLineCount;
             resourceInputs["actionLogLineRoleArn"] = args?.actionLogLineRoleArn;
             resourceInputs["actionsEnabled"] = args?.actionsEnabled;
@@ -150,6 +155,7 @@ export class LogAlarm extends pulumi.CustomResource {
             resourceInputs["warmUpConfiguration"] = args?.warmUpConfiguration;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
+            resourceInputs["actionConfiguration"] = undefined /*out*/;
             resourceInputs["actionLogLineCount"] = undefined /*out*/;
             resourceInputs["actionLogLineRoleArn"] = undefined /*out*/;
             resourceInputs["actionsEnabled"] = undefined /*out*/;
@@ -179,6 +185,10 @@ export class LogAlarm extends pulumi.CustomResource {
  * The set of arguments for constructing a LogAlarm resource.
  */
 export interface LogAlarmArgs {
+    /**
+     * Configuration that applies to the notifications this alarm sends when it performs its actions.
+     */
+    actionConfiguration?: pulumi.Input<inputs.cloudwatch.LogAlarmActionConfigurationArgs | undefined>;
     /**
      * The number of log lines to include in alarm notifications. Valid values are 0 to 50.
      */

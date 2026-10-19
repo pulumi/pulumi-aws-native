@@ -46,6 +46,14 @@ export interface GetHostKeyResult {
      */
     readonly hostKeyId?: string;
     /**
+     * The Amazon Resource Name (ARN) of the Secrets Manager secret that holds the host key. Returned only when StorageType is SECRETS_MANAGER.
+     */
+    readonly secretId?: string;
+    /**
+     * The type of storage used for the host key. SERVICE_MANAGED keys are stored within the Transfer Family service. SECRETS_MANAGER keys are stored in an AWS Secrets Manager secret in your account.
+     */
+    readonly storageType?: enums.transfer.HostKeyStorageType;
+    /**
      * Key-value pairs that can be used to group and search for host keys.
      */
     readonly tags?: outputs.Tag[];

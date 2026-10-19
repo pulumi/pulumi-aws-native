@@ -32,6 +32,8 @@ __all__ = [
     'DbInstanceProcessorFeature',
     'DbProxyAuthFormat',
     'DbProxyTargetGroupConnectionPoolConfigurationInfoFormat',
+    'DeploymentSwitchoverDetail',
+    'DeploymentTask',
     'GlobalClusterGlobalEndpoint',
     'OptionGroupOptionConfiguration',
     'OptionGroupOptionSetting',
@@ -1106,6 +1108,120 @@ class DbProxyTargetGroupConnectionPoolConfigurationInfoFormat(dict):
         Each item in the list represents a class of SQL operations that normally cause all later statements in a session using a proxy to be pinned to the same underlying database connection.
         """
         return pulumi.get(self, "session_pinning_filters")
+
+
+@pulumi.output_type
+class DeploymentSwitchoverDetail(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sourceMember":
+            suggest = "source_member"
+        elif key == "switchoverDetailStatus":
+            suggest = "switchover_detail_status"
+        elif key == "targetMember":
+            suggest = "target_member"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DeploymentSwitchoverDetail. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DeploymentSwitchoverDetail.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DeploymentSwitchoverDetail.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 source_member: Optional[_builtins.str] = None,
+                 switchover_detail_status: Optional[_builtins.str] = None,
+                 target_member: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str source_member: The source database member in the Blue/Green Deployment.
+        :param _builtins.str switchover_detail_status: The status of this source and target member pair.
+        :param _builtins.str target_member: The target database member in the Blue/Green Deployment.
+        """
+        if source_member is not None:
+            pulumi.set(__self__, "source_member", source_member)
+        if switchover_detail_status is not None:
+            pulumi.set(__self__, "switchover_detail_status", switchover_detail_status)
+        if target_member is not None:
+            pulumi.set(__self__, "target_member", target_member)
+
+    @_builtins.property
+    @pulumi.getter(name="sourceMember")
+    def source_member(self) -> Optional[_builtins.str]:
+        """
+        The source database member in the Blue/Green Deployment.
+        """
+        return pulumi.get(self, "source_member")
+
+    @_builtins.property
+    @pulumi.getter(name="switchoverDetailStatus")
+    def switchover_detail_status(self) -> Optional[_builtins.str]:
+        """
+        The status of this source and target member pair.
+        """
+        return pulumi.get(self, "switchover_detail_status")
+
+    @_builtins.property
+    @pulumi.getter(name="targetMember")
+    def target_member(self) -> Optional[_builtins.str]:
+        """
+        The target database member in the Blue/Green Deployment.
+        """
+        return pulumi.get(self, "target_member")
+
+
+@pulumi.output_type
+class DeploymentTask(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "taskName":
+            suggest = "task_name"
+        elif key == "taskStatus":
+            suggest = "task_status"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DeploymentTask. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DeploymentTask.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DeploymentTask.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 task_name: Optional[_builtins.str] = None,
+                 task_status: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str task_name: The name of a Blue/Green Deployment provisioning task.
+        :param _builtins.str task_status: The status of a Blue/Green Deployment provisioning task.
+        """
+        if task_name is not None:
+            pulumi.set(__self__, "task_name", task_name)
+        if task_status is not None:
+            pulumi.set(__self__, "task_status", task_status)
+
+    @_builtins.property
+    @pulumi.getter(name="taskName")
+    def task_name(self) -> Optional[_builtins.str]:
+        """
+        The name of a Blue/Green Deployment provisioning task.
+        """
+        return pulumi.get(self, "task_name")
+
+    @_builtins.property
+    @pulumi.getter(name="taskStatus")
+    def task_status(self) -> Optional[_builtins.str]:
+        """
+        The status of a Blue/Green Deployment provisioning task.
+        """
+        return pulumi.get(self, "task_status")
 
 
 @pulumi.output_type

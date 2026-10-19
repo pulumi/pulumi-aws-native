@@ -84,6 +84,10 @@ namespace Pulumi.AwsNative.ResilienceHubV2
         /// </summary>
         public readonly string? PolicyArn;
         /// <summary>
+        /// Whether the policy is enabled to be shared with other members of the Organization. Only applicable if the policy owner is a management account or delegated admin.
+        /// </summary>
+        public readonly bool? SharingEnabled;
+        /// <summary>
         /// Tags assigned to the policy.
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
@@ -110,6 +114,8 @@ namespace Pulumi.AwsNative.ResilienceHubV2
 
             string? policyArn,
 
+            bool? sharingEnabled,
+
             ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
             string? updatedAt)
@@ -122,6 +128,7 @@ namespace Pulumi.AwsNative.ResilienceHubV2
             MultiAz = multiAz;
             MultiRegion = multiRegion;
             PolicyArn = policyArn;
+            SharingEnabled = sharingEnabled;
             Tags = tags;
             UpdatedAt = updatedAt;
         }

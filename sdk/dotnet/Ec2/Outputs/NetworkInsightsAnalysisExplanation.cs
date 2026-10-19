@@ -192,6 +192,8 @@ namespace Pulumi.AwsNative.Ec2.Outputs
         /// The transit gateway attachment.
         /// </summary>
         public readonly Outputs.NetworkInsightsAnalysisAnalysisComponent? TransitGatewayAttachment;
+        public readonly Outputs.NetworkInsightsAnalysisAnalysisComponent? TransitGatewayPolicyTable;
+        public readonly Outputs.NetworkInsightsAnalysisAnalysisTransitGatewayPolicyTableEntry? TransitGatewayPolicyTableEntry;
         /// <summary>
         /// The transit gateway route table.
         /// </summary>
@@ -311,6 +313,10 @@ namespace Pulumi.AwsNative.Ec2.Outputs
 
             Outputs.NetworkInsightsAnalysisAnalysisComponent? transitGatewayAttachment,
 
+            Outputs.NetworkInsightsAnalysisAnalysisComponent? transitGatewayPolicyTable,
+
+            Outputs.NetworkInsightsAnalysisAnalysisTransitGatewayPolicyTableEntry? transitGatewayPolicyTableEntry,
+
             Outputs.NetworkInsightsAnalysisAnalysisComponent? transitGatewayRouteTable,
 
             Outputs.NetworkInsightsAnalysisTransitGatewayRouteTableRoute? transitGatewayRouteTableRoute,
@@ -369,6 +375,8 @@ namespace Pulumi.AwsNative.Ec2.Outputs
             SubnetRouteTable = subnetRouteTable;
             TransitGateway = transitGateway;
             TransitGatewayAttachment = transitGatewayAttachment;
+            TransitGatewayPolicyTable = transitGatewayPolicyTable;
+            TransitGatewayPolicyTableEntry = transitGatewayPolicyTableEntry;
             TransitGatewayRouteTable = transitGatewayRouteTable;
             TransitGatewayRouteTableRoute = transitGatewayRouteTableRoute;
             Vpc = vpc;

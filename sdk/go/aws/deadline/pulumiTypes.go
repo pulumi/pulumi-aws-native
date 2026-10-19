@@ -2895,6 +2895,7 @@ type FleetServiceManagedEc2InstanceCapabilities struct {
 	MemoryMiB               FleetMemoryMiBRange                           `pulumi:"memoryMiB"`
 	OsFamily                FleetServiceManagedFleetOperatingSystemFamily `pulumi:"osFamily"`
 	RootEbsVolume           *FleetEc2EbsVolume                            `pulumi:"rootEbsVolume"`
+	SoftwareAddOns          []FleetSoftwareAddOn                          `pulumi:"softwareAddOns"`
 	VCpuCount               FleetVCpuCountRange                           `pulumi:"vCpuCount"`
 }
 
@@ -2919,6 +2920,7 @@ type FleetServiceManagedEc2InstanceCapabilitiesArgs struct {
 	MemoryMiB               FleetMemoryMiBRangeInput                           `pulumi:"memoryMiB"`
 	OsFamily                FleetServiceManagedFleetOperatingSystemFamilyInput `pulumi:"osFamily"`
 	RootEbsVolume           FleetEc2EbsVolumePtrInput                          `pulumi:"rootEbsVolume"`
+	SoftwareAddOns          FleetSoftwareAddOnArrayInput                       `pulumi:"softwareAddOns"`
 	VCpuCount               FleetVCpuCountRangeInput                           `pulumi:"vCpuCount"`
 }
 
@@ -2990,6 +2992,10 @@ func (o FleetServiceManagedEc2InstanceCapabilitiesOutput) OsFamily() FleetServic
 
 func (o FleetServiceManagedEc2InstanceCapabilitiesOutput) RootEbsVolume() FleetEc2EbsVolumePtrOutput {
 	return o.ApplyT(func(v FleetServiceManagedEc2InstanceCapabilities) *FleetEc2EbsVolume { return v.RootEbsVolume }).(FleetEc2EbsVolumePtrOutput)
+}
+
+func (o FleetServiceManagedEc2InstanceCapabilitiesOutput) SoftwareAddOns() FleetSoftwareAddOnArrayOutput {
+	return o.ApplyT(func(v FleetServiceManagedEc2InstanceCapabilities) []FleetSoftwareAddOn { return v.SoftwareAddOns }).(FleetSoftwareAddOnArrayOutput)
 }
 
 func (o FleetServiceManagedEc2InstanceCapabilitiesOutput) VCpuCount() FleetVCpuCountRangeOutput {
@@ -3101,6 +3107,15 @@ func (o FleetServiceManagedEc2InstanceCapabilitiesPtrOutput) RootEbsVolume() Fle
 	}).(FleetEc2EbsVolumePtrOutput)
 }
 
+func (o FleetServiceManagedEc2InstanceCapabilitiesPtrOutput) SoftwareAddOns() FleetSoftwareAddOnArrayOutput {
+	return o.ApplyT(func(v *FleetServiceManagedEc2InstanceCapabilities) []FleetSoftwareAddOn {
+		if v == nil {
+			return nil
+		}
+		return v.SoftwareAddOns
+	}).(FleetSoftwareAddOnArrayOutput)
+}
+
 func (o FleetServiceManagedEc2InstanceCapabilitiesPtrOutput) VCpuCount() FleetVCpuCountRangePtrOutput {
 	return o.ApplyT(func(v *FleetServiceManagedEc2InstanceCapabilities) *FleetVCpuCountRange {
 		if v == nil {
@@ -3190,6 +3205,100 @@ func (o FleetServiceManagedEc2InstanceMarketOptionsPtrOutput) Type() FleetEc2Mar
 		}
 		return &v.Type
 	}).(FleetEc2MarketTypePtrOutput)
+}
+
+type FleetSoftwareAddOn struct {
+	Name FleetSoftwareAddOnName `pulumi:"name"`
+}
+
+// FleetSoftwareAddOnInput is an input type that accepts FleetSoftwareAddOnArgs and FleetSoftwareAddOnOutput values.
+// You can construct a concrete instance of `FleetSoftwareAddOnInput` via:
+//
+//	FleetSoftwareAddOnArgs{...}
+type FleetSoftwareAddOnInput interface {
+	pulumi.Input
+
+	ToFleetSoftwareAddOnOutput() FleetSoftwareAddOnOutput
+	ToFleetSoftwareAddOnOutputWithContext(context.Context) FleetSoftwareAddOnOutput
+}
+
+type FleetSoftwareAddOnArgs struct {
+	Name FleetSoftwareAddOnNameInput `pulumi:"name"`
+}
+
+func (FleetSoftwareAddOnArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FleetSoftwareAddOn)(nil)).Elem()
+}
+
+func (i FleetSoftwareAddOnArgs) ToFleetSoftwareAddOnOutput() FleetSoftwareAddOnOutput {
+	return i.ToFleetSoftwareAddOnOutputWithContext(context.Background())
+}
+
+func (i FleetSoftwareAddOnArgs) ToFleetSoftwareAddOnOutputWithContext(ctx context.Context) FleetSoftwareAddOnOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FleetSoftwareAddOnOutput)
+}
+
+// FleetSoftwareAddOnArrayInput is an input type that accepts FleetSoftwareAddOnArray and FleetSoftwareAddOnArrayOutput values.
+// You can construct a concrete instance of `FleetSoftwareAddOnArrayInput` via:
+//
+//	FleetSoftwareAddOnArray{ FleetSoftwareAddOnArgs{...} }
+type FleetSoftwareAddOnArrayInput interface {
+	pulumi.Input
+
+	ToFleetSoftwareAddOnArrayOutput() FleetSoftwareAddOnArrayOutput
+	ToFleetSoftwareAddOnArrayOutputWithContext(context.Context) FleetSoftwareAddOnArrayOutput
+}
+
+type FleetSoftwareAddOnArray []FleetSoftwareAddOnInput
+
+func (FleetSoftwareAddOnArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FleetSoftwareAddOn)(nil)).Elem()
+}
+
+func (i FleetSoftwareAddOnArray) ToFleetSoftwareAddOnArrayOutput() FleetSoftwareAddOnArrayOutput {
+	return i.ToFleetSoftwareAddOnArrayOutputWithContext(context.Background())
+}
+
+func (i FleetSoftwareAddOnArray) ToFleetSoftwareAddOnArrayOutputWithContext(ctx context.Context) FleetSoftwareAddOnArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FleetSoftwareAddOnArrayOutput)
+}
+
+type FleetSoftwareAddOnOutput struct{ *pulumi.OutputState }
+
+func (FleetSoftwareAddOnOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FleetSoftwareAddOn)(nil)).Elem()
+}
+
+func (o FleetSoftwareAddOnOutput) ToFleetSoftwareAddOnOutput() FleetSoftwareAddOnOutput {
+	return o
+}
+
+func (o FleetSoftwareAddOnOutput) ToFleetSoftwareAddOnOutputWithContext(ctx context.Context) FleetSoftwareAddOnOutput {
+	return o
+}
+
+func (o FleetSoftwareAddOnOutput) Name() FleetSoftwareAddOnNameOutput {
+	return o.ApplyT(func(v FleetSoftwareAddOn) FleetSoftwareAddOnName { return v.Name }).(FleetSoftwareAddOnNameOutput)
+}
+
+type FleetSoftwareAddOnArrayOutput struct{ *pulumi.OutputState }
+
+func (FleetSoftwareAddOnArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FleetSoftwareAddOn)(nil)).Elem()
+}
+
+func (o FleetSoftwareAddOnArrayOutput) ToFleetSoftwareAddOnArrayOutput() FleetSoftwareAddOnArrayOutput {
+	return o
+}
+
+func (o FleetSoftwareAddOnArrayOutput) ToFleetSoftwareAddOnArrayOutputWithContext(ctx context.Context) FleetSoftwareAddOnArrayOutput {
+	return o
+}
+
+func (o FleetSoftwareAddOnArrayOutput) Index(i pulumi.IntInput) FleetSoftwareAddOnOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FleetSoftwareAddOn {
+		return vs[0].([]FleetSoftwareAddOn)[vs[1].(int)]
+	}).(FleetSoftwareAddOnOutput)
 }
 
 // A key-value pair to associate with a resource.
@@ -5726,6 +5835,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetServiceManagedEc2FleetConfigurationInput)(nil)).Elem(), FleetServiceManagedEc2FleetConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetServiceManagedEc2InstanceCapabilitiesInput)(nil)).Elem(), FleetServiceManagedEc2InstanceCapabilitiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetServiceManagedEc2InstanceMarketOptionsInput)(nil)).Elem(), FleetServiceManagedEc2InstanceMarketOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FleetSoftwareAddOnInput)(nil)).Elem(), FleetSoftwareAddOnArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FleetSoftwareAddOnArrayInput)(nil)).Elem(), FleetSoftwareAddOnArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetVCpuCountRangeInput)(nil)).Elem(), FleetVCpuCountRangeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetVpcConfigurationInput)(nil)).Elem(), FleetVpcConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetVpcConfigurationPtrInput)(nil)).Elem(), FleetVpcConfigurationArgs{})
@@ -5806,6 +5917,8 @@ func init() {
 	pulumi.RegisterOutputType(FleetServiceManagedEc2InstanceCapabilitiesPtrOutput{})
 	pulumi.RegisterOutputType(FleetServiceManagedEc2InstanceMarketOptionsOutput{})
 	pulumi.RegisterOutputType(FleetServiceManagedEc2InstanceMarketOptionsPtrOutput{})
+	pulumi.RegisterOutputType(FleetSoftwareAddOnOutput{})
+	pulumi.RegisterOutputType(FleetSoftwareAddOnArrayOutput{})
 	pulumi.RegisterOutputType(FleetVCpuCountRangeOutput{})
 	pulumi.RegisterOutputType(FleetVCpuCountRangePtrOutput{})
 	pulumi.RegisterOutputType(FleetVpcConfigurationOutput{})

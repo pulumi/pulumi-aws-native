@@ -20,7 +20,7 @@ export const ChannelMultiviewLayoutType = {
 } as const;
 
 /**
- * <p>A tile layout for a multiview channel. Each layout determines how many source tiles are composited into the output and how those tiles are arranged.</p> <p>The allowed values are:</p> <ul> <li> <p> <code>LAYOUT_SINGLE</code> – One tile at full resolution. Use this to serve a single source as a standard stream.</p> </li> <li> <p> <code>LAYOUT_2EH</code> – Two tiles of equal size, arranged horizontally.</p> </li> <li> <p> <code>LAYOUT_2PL</code> – Two tiles, with one larger primary tile.</p> </li> <li> <p> <code>LAYOUT_3EB</code> – Three tiles of equal size, with two on top and one below.</p> </li> <li> <p> <code>LAYOUT_3EL</code> – Three tiles of equal size, arranged in two columns.</p> </li> <li> <p> <code>LAYOUT_3PL</code> – Three tiles, with one larger primary tile on the left and two stacked on the right.</p> </li> <li> <p> <code>LAYOUT_4E</code> – Four tiles of equal size, arranged in a two-by-two grid.</p> </li> <li> <p> <code>LAYOUT_4PL</code> – Four tiles, with one larger primary tile on the left and three stacked on the right.</p> </li> </ul>
+ * <p>A tile layout for a multiview channel. Each layout determines how many source tiles are composited into the output and how those tiles are arranged.</p> <p>The allowed values are:</p> <ul> <li> <p> <code>LAYOUT_2EH</code> – Two tiles of equal size, arranged horizontally.</p> </li> <li> <p> <code>LAYOUT_2PL</code> – Two tiles, with one larger primary tile.</p> </li> <li> <p> <code>LAYOUT_3EL</code> – Three tiles of equal size, arranged in two columns.</p> </li> <li> <p> <code>LAYOUT_3PL</code> – Three tiles, with one larger primary tile on the left and two stacked on the right.</p> </li> <li> <p> <code>LAYOUT_4E</code> – Four tiles of equal size, arranged in a two-by-two grid.</p> </li> <li> <p> <code>LAYOUT_4PL</code> – Four tiles, with one larger primary tile on the left and three stacked on the right.</p> </li> </ul>
  */
 export type ChannelMultiviewLayoutType = (typeof ChannelMultiviewLayoutType)[keyof typeof ChannelMultiviewLayoutType];
 
@@ -59,6 +59,14 @@ export const OriginEndpointContainerType = {
 } as const;
 
 export type OriginEndpointContainerType = (typeof OriginEndpointContainerType)[keyof typeof OriginEndpointContainerType];
+
+export const OriginEndpointContentKeyPeriodTiming = {
+    IndexOnly: "INDEX_ONLY",
+    StartEndOnly: "START_END_ONLY",
+    IndexWithStartEnd: "INDEX_WITH_START_END",
+} as const;
+
+export type OriginEndpointContentKeyPeriodTiming = (typeof OriginEndpointContentKeyPeriodTiming)[keyof typeof OriginEndpointContentKeyPeriodTiming];
 
 export const OriginEndpointCustomAdType = {
     Program: "PROGRAM",
@@ -161,6 +169,20 @@ export const OriginEndpointMssManifestLayout = {
 
 export type OriginEndpointMssManifestLayout = (typeof OriginEndpointMssManifestLayout)[keyof typeof OriginEndpointMssManifestLayout];
 
+export const OriginEndpointMultiviewLayoutType = {
+    Layout2eh: "LAYOUT_2EH",
+    Layout2pl: "LAYOUT_2PL",
+    Layout3el: "LAYOUT_3EL",
+    Layout3pl: "LAYOUT_3PL",
+    Layout4e: "LAYOUT_4E",
+    Layout4pl: "LAYOUT_4PL",
+} as const;
+
+/**
+ * <p>A tile layout for a multiview channel. Each layout determines how many source tiles are composited into the output and how those tiles are arranged.</p> <p>The allowed values are:</p> <ul> <li> <p> <code>LAYOUT_2EH</code> – Two tiles of equal size, arranged horizontally.</p> </li> <li> <p> <code>LAYOUT_2PL</code> – Two tiles, with one larger primary tile.</p> </li> <li> <p> <code>LAYOUT_3EL</code> – Three tiles of equal size, arranged in two columns.</p> </li> <li> <p> <code>LAYOUT_3PL</code> – Three tiles, with one larger primary tile on the left and two stacked on the right.</p> </li> <li> <p> <code>LAYOUT_4E</code> – Four tiles of equal size, arranged in a two-by-two grid.</p> </li> <li> <p> <code>LAYOUT_4PL</code> – Four tiles, with one larger primary tile on the left and three stacked on the right.</p> </li> </ul>
+ */
+export type OriginEndpointMultiviewLayoutType = (typeof OriginEndpointMultiviewLayoutType)[keyof typeof OriginEndpointMultiviewLayoutType];
+
 export const OriginEndpointOutputTimestampMode = {
     Passthrough: "PASSTHROUGH",
     RebasedToChannelStart: "REBASED_TO_CHANNEL_START",
@@ -231,6 +253,13 @@ export const OriginEndpointScteInSegments = {
 } as const;
 
 export type OriginEndpointScteInSegments = (typeof OriginEndpointScteInSegments)[keyof typeof OriginEndpointScteInSegments];
+
+export const OriginEndpointSpekeVersion = {
+    V20: "V2_0",
+    V21: "V2_1",
+} as const;
+
+export type OriginEndpointSpekeVersion = (typeof OriginEndpointSpekeVersion)[keyof typeof OriginEndpointSpekeVersion];
 
 export const OriginEndpointStreamNameOutputMode = {
     Index: "INDEX",

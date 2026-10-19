@@ -224,7 +224,7 @@ class AwaitableGetCloudFormationProvisionedProductResult(GetCloudFormationProvis
 def get_cloud_formation_provisioned_product(provisioned_product_id: Optional[_builtins.str] = None,
                                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCloudFormationProvisionedProductResult:
     """
-    Resource Schema for AWS::ServiceCatalog::CloudFormationProvisionedProduct
+    Resource Type definition for AWS::ServiceCatalog::CloudFormationProvisionedProduct
 
     :param _builtins.str provisioned_product_id: The ID of the provisioned product.
     """
@@ -251,7 +251,7 @@ def get_cloud_formation_provisioned_product(provisioned_product_id: Optional[_bu
 def get_cloud_formation_provisioned_product_output(provisioned_product_id: pulumi.Input[Optional[_builtins.str]] = None,
                                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCloudFormationProvisionedProductResult]:
     """
-    Resource Schema for AWS::ServiceCatalog::CloudFormationProvisionedProduct
+    Resource Type definition for AWS::ServiceCatalog::CloudFormationProvisionedProduct
 
     :param _builtins.str provisioned_product_id: The ID of the provisioned product.
     """

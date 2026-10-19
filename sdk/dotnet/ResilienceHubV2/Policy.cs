@@ -64,6 +64,12 @@ namespace Pulumi.AwsNative.ResilienceHubV2
         public Output<string> PolicyArn { get; private set; } = null!;
 
         /// <summary>
+        /// Whether the policy is enabled to be shared with other members of the Organization. Only applicable if the policy owner is a management account or delegated admin.
+        /// </summary>
+        [Output("sharingEnabled")]
+        public Output<bool?> SharingEnabled { get; private set; } = null!;
+
+        /// <summary>
         /// Tags assigned to the policy.
         /// </summary>
         [Output("tags")]
@@ -154,6 +160,12 @@ namespace Pulumi.AwsNative.ResilienceHubV2
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// Whether the policy is enabled to be shared with other members of the Organization. Only applicable if the policy owner is a management account or delegated admin.
+        /// </summary>
+        [Input("sharingEnabled")]
+        public Input<bool>? SharingEnabled { get; set; }
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;

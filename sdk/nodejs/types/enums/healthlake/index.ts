@@ -21,15 +21,27 @@ export const DataTransformationProfileTargetFormat = {
  */
 export type DataTransformationProfileTargetFormat = (typeof DataTransformationProfileTargetFormat)[keyof typeof DataTransformationProfileTargetFormat];
 
+export const FhirDatastoreAnalyticsConfigurationStatus = {
+    Enabled: "ENABLED",
+    Paused: "PAUSED",
+} as const;
+
+/**
+ * The analytics status for the Data Store.
+ */
+export type FhirDatastoreAnalyticsConfigurationStatus = (typeof FhirDatastoreAnalyticsConfigurationStatus)[keyof typeof FhirDatastoreAnalyticsConfigurationStatus];
+
 export const FhirDatastoreDatastoreStatus = {
     Creating: "CREATING",
     Active: "ACTIVE",
+    Updating: "UPDATING",
+    UpdateFailed: "UPDATE_FAILED",
     Deleting: "DELETING",
     Deleted: "DELETED",
 } as const;
 
 /**
- * The status of the Data Store. Possible statuses are 'CREATING', 'ACTIVE', 'DELETING', or 'DELETED'.
+ * The status of the Data Store. Possible statuses are 'CREATING', 'ACTIVE', 'UPDATING', 'UPDATE_FAILED', 'DELETING', or 'DELETED'.
  */
 export type FhirDatastoreDatastoreStatus = (typeof FhirDatastoreDatastoreStatus)[keyof typeof FhirDatastoreDatastoreStatus];
 
@@ -62,6 +74,16 @@ export const FhirDatastoreKmsEncryptionConfigCmkType = {
  * The type of customer-managed-key (CMK) used for encryption. The two types of supported CMKs are customer owned CMKs and AWS owned CMKs.
  */
 export type FhirDatastoreKmsEncryptionConfigCmkType = (typeof FhirDatastoreKmsEncryptionConfigCmkType)[keyof typeof FhirDatastoreKmsEncryptionConfigCmkType];
+
+export const FhirDatastoreNlpConfigurationStatus = {
+    Enabled: "ENABLED",
+    Disabled: "DISABLED",
+} as const;
+
+/**
+ * The NLP status for the Data Store.
+ */
+export type FhirDatastoreNlpConfigurationStatus = (typeof FhirDatastoreNlpConfigurationStatus)[keyof typeof FhirDatastoreNlpConfigurationStatus];
 
 export const FhirDatastorePreloadDataConfigPreloadDataType = {
     Synthea: "SYNTHEA",

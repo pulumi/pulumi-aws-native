@@ -369,9 +369,275 @@ func (o AgentSpaceIdcAuthConfigurationPtrOutput) UpdatedAt() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
+// External identity provider configuration for the Operator App.
+type AgentSpaceIdpAuthConfiguration struct {
+	// The OIDC client identifier for the external identity provider application.
+	ClientId string `pulumi:"clientId"`
+	// The OIDC client secret for the external identity provider application. Use a Secrets Manager dynamic reference to avoid storing the secret in the template.
+	ClientSecret string  `pulumi:"clientSecret"`
+	CreatedAt    *string `pulumi:"createdAt"`
+	// The OIDC issuer URL for the external identity provider.
+	IssuerUrl string `pulumi:"issuerUrl"`
+	// The IAM role that Operator App users assume to access DevOps Agent APIs.
+	OperatorAppRoleArn string `pulumi:"operatorAppRoleArn"`
+	// The external identity provider type.
+	Provider  AgentSpaceIdpAuthConfigurationProvider `pulumi:"provider"`
+	UpdatedAt *string                                `pulumi:"updatedAt"`
+	// The identity claim used to identify users. This value is selected by the service for the configured provider.
+	UserIdClaim *string `pulumi:"userIdClaim"`
+}
+
+// AgentSpaceIdpAuthConfigurationInput is an input type that accepts AgentSpaceIdpAuthConfigurationArgs and AgentSpaceIdpAuthConfigurationOutput values.
+// You can construct a concrete instance of `AgentSpaceIdpAuthConfigurationInput` via:
+//
+//	AgentSpaceIdpAuthConfigurationArgs{...}
+type AgentSpaceIdpAuthConfigurationInput interface {
+	pulumi.Input
+
+	ToAgentSpaceIdpAuthConfigurationOutput() AgentSpaceIdpAuthConfigurationOutput
+	ToAgentSpaceIdpAuthConfigurationOutputWithContext(context.Context) AgentSpaceIdpAuthConfigurationOutput
+}
+
+// External identity provider configuration for the Operator App.
+type AgentSpaceIdpAuthConfigurationArgs struct {
+	// The OIDC client identifier for the external identity provider application.
+	ClientId pulumi.StringInput `pulumi:"clientId"`
+	// The OIDC client secret for the external identity provider application. Use a Secrets Manager dynamic reference to avoid storing the secret in the template.
+	ClientSecret pulumi.StringInput    `pulumi:"clientSecret"`
+	CreatedAt    pulumi.StringPtrInput `pulumi:"createdAt"`
+	// The OIDC issuer URL for the external identity provider.
+	IssuerUrl pulumi.StringInput `pulumi:"issuerUrl"`
+	// The IAM role that Operator App users assume to access DevOps Agent APIs.
+	OperatorAppRoleArn pulumi.StringInput `pulumi:"operatorAppRoleArn"`
+	// The external identity provider type.
+	Provider  AgentSpaceIdpAuthConfigurationProviderInput `pulumi:"provider"`
+	UpdatedAt pulumi.StringPtrInput                       `pulumi:"updatedAt"`
+	// The identity claim used to identify users. This value is selected by the service for the configured provider.
+	UserIdClaim pulumi.StringPtrInput `pulumi:"userIdClaim"`
+}
+
+func (AgentSpaceIdpAuthConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentSpaceIdpAuthConfiguration)(nil)).Elem()
+}
+
+func (i AgentSpaceIdpAuthConfigurationArgs) ToAgentSpaceIdpAuthConfigurationOutput() AgentSpaceIdpAuthConfigurationOutput {
+	return i.ToAgentSpaceIdpAuthConfigurationOutputWithContext(context.Background())
+}
+
+func (i AgentSpaceIdpAuthConfigurationArgs) ToAgentSpaceIdpAuthConfigurationOutputWithContext(ctx context.Context) AgentSpaceIdpAuthConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentSpaceIdpAuthConfigurationOutput)
+}
+
+func (i AgentSpaceIdpAuthConfigurationArgs) ToAgentSpaceIdpAuthConfigurationPtrOutput() AgentSpaceIdpAuthConfigurationPtrOutput {
+	return i.ToAgentSpaceIdpAuthConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i AgentSpaceIdpAuthConfigurationArgs) ToAgentSpaceIdpAuthConfigurationPtrOutputWithContext(ctx context.Context) AgentSpaceIdpAuthConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentSpaceIdpAuthConfigurationOutput).ToAgentSpaceIdpAuthConfigurationPtrOutputWithContext(ctx)
+}
+
+// AgentSpaceIdpAuthConfigurationPtrInput is an input type that accepts AgentSpaceIdpAuthConfigurationArgs, AgentSpaceIdpAuthConfigurationPtr and AgentSpaceIdpAuthConfigurationPtrOutput values.
+// You can construct a concrete instance of `AgentSpaceIdpAuthConfigurationPtrInput` via:
+//
+//	        AgentSpaceIdpAuthConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentSpaceIdpAuthConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToAgentSpaceIdpAuthConfigurationPtrOutput() AgentSpaceIdpAuthConfigurationPtrOutput
+	ToAgentSpaceIdpAuthConfigurationPtrOutputWithContext(context.Context) AgentSpaceIdpAuthConfigurationPtrOutput
+}
+
+type agentSpaceIdpAuthConfigurationPtrType AgentSpaceIdpAuthConfigurationArgs
+
+func AgentSpaceIdpAuthConfigurationPtr(v *AgentSpaceIdpAuthConfigurationArgs) AgentSpaceIdpAuthConfigurationPtrInput {
+	return (*agentSpaceIdpAuthConfigurationPtrType)(v)
+}
+
+func (*agentSpaceIdpAuthConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentSpaceIdpAuthConfiguration)(nil)).Elem()
+}
+
+func (i *agentSpaceIdpAuthConfigurationPtrType) ToAgentSpaceIdpAuthConfigurationPtrOutput() AgentSpaceIdpAuthConfigurationPtrOutput {
+	return i.ToAgentSpaceIdpAuthConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *agentSpaceIdpAuthConfigurationPtrType) ToAgentSpaceIdpAuthConfigurationPtrOutputWithContext(ctx context.Context) AgentSpaceIdpAuthConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentSpaceIdpAuthConfigurationPtrOutput)
+}
+
+// External identity provider configuration for the Operator App.
+type AgentSpaceIdpAuthConfigurationOutput struct{ *pulumi.OutputState }
+
+func (AgentSpaceIdpAuthConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentSpaceIdpAuthConfiguration)(nil)).Elem()
+}
+
+func (o AgentSpaceIdpAuthConfigurationOutput) ToAgentSpaceIdpAuthConfigurationOutput() AgentSpaceIdpAuthConfigurationOutput {
+	return o
+}
+
+func (o AgentSpaceIdpAuthConfigurationOutput) ToAgentSpaceIdpAuthConfigurationOutputWithContext(ctx context.Context) AgentSpaceIdpAuthConfigurationOutput {
+	return o
+}
+
+func (o AgentSpaceIdpAuthConfigurationOutput) ToAgentSpaceIdpAuthConfigurationPtrOutput() AgentSpaceIdpAuthConfigurationPtrOutput {
+	return o.ToAgentSpaceIdpAuthConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o AgentSpaceIdpAuthConfigurationOutput) ToAgentSpaceIdpAuthConfigurationPtrOutputWithContext(ctx context.Context) AgentSpaceIdpAuthConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentSpaceIdpAuthConfiguration) *AgentSpaceIdpAuthConfiguration {
+		return &v
+	}).(AgentSpaceIdpAuthConfigurationPtrOutput)
+}
+
+// The OIDC client identifier for the external identity provider application.
+func (o AgentSpaceIdpAuthConfigurationOutput) ClientId() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentSpaceIdpAuthConfiguration) string { return v.ClientId }).(pulumi.StringOutput)
+}
+
+// The OIDC client secret for the external identity provider application. Use a Secrets Manager dynamic reference to avoid storing the secret in the template.
+func (o AgentSpaceIdpAuthConfigurationOutput) ClientSecret() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentSpaceIdpAuthConfiguration) string { return v.ClientSecret }).(pulumi.StringOutput)
+}
+
+func (o AgentSpaceIdpAuthConfigurationOutput) CreatedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentSpaceIdpAuthConfiguration) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
+}
+
+// The OIDC issuer URL for the external identity provider.
+func (o AgentSpaceIdpAuthConfigurationOutput) IssuerUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentSpaceIdpAuthConfiguration) string { return v.IssuerUrl }).(pulumi.StringOutput)
+}
+
+// The IAM role that Operator App users assume to access DevOps Agent APIs.
+func (o AgentSpaceIdpAuthConfigurationOutput) OperatorAppRoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentSpaceIdpAuthConfiguration) string { return v.OperatorAppRoleArn }).(pulumi.StringOutput)
+}
+
+// The external identity provider type.
+func (o AgentSpaceIdpAuthConfigurationOutput) Provider() AgentSpaceIdpAuthConfigurationProviderOutput {
+	return o.ApplyT(func(v AgentSpaceIdpAuthConfiguration) AgentSpaceIdpAuthConfigurationProvider { return v.Provider }).(AgentSpaceIdpAuthConfigurationProviderOutput)
+}
+
+func (o AgentSpaceIdpAuthConfigurationOutput) UpdatedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentSpaceIdpAuthConfiguration) *string { return v.UpdatedAt }).(pulumi.StringPtrOutput)
+}
+
+// The identity claim used to identify users. This value is selected by the service for the configured provider.
+func (o AgentSpaceIdpAuthConfigurationOutput) UserIdClaim() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentSpaceIdpAuthConfiguration) *string { return v.UserIdClaim }).(pulumi.StringPtrOutput)
+}
+
+type AgentSpaceIdpAuthConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentSpaceIdpAuthConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentSpaceIdpAuthConfiguration)(nil)).Elem()
+}
+
+func (o AgentSpaceIdpAuthConfigurationPtrOutput) ToAgentSpaceIdpAuthConfigurationPtrOutput() AgentSpaceIdpAuthConfigurationPtrOutput {
+	return o
+}
+
+func (o AgentSpaceIdpAuthConfigurationPtrOutput) ToAgentSpaceIdpAuthConfigurationPtrOutputWithContext(ctx context.Context) AgentSpaceIdpAuthConfigurationPtrOutput {
+	return o
+}
+
+func (o AgentSpaceIdpAuthConfigurationPtrOutput) Elem() AgentSpaceIdpAuthConfigurationOutput {
+	return o.ApplyT(func(v *AgentSpaceIdpAuthConfiguration) AgentSpaceIdpAuthConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret AgentSpaceIdpAuthConfiguration
+		return ret
+	}).(AgentSpaceIdpAuthConfigurationOutput)
+}
+
+// The OIDC client identifier for the external identity provider application.
+func (o AgentSpaceIdpAuthConfigurationPtrOutput) ClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentSpaceIdpAuthConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ClientId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The OIDC client secret for the external identity provider application. Use a Secrets Manager dynamic reference to avoid storing the secret in the template.
+func (o AgentSpaceIdpAuthConfigurationPtrOutput) ClientSecret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentSpaceIdpAuthConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ClientSecret
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o AgentSpaceIdpAuthConfigurationPtrOutput) CreatedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentSpaceIdpAuthConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CreatedAt
+	}).(pulumi.StringPtrOutput)
+}
+
+// The OIDC issuer URL for the external identity provider.
+func (o AgentSpaceIdpAuthConfigurationPtrOutput) IssuerUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentSpaceIdpAuthConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.IssuerUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+// The IAM role that Operator App users assume to access DevOps Agent APIs.
+func (o AgentSpaceIdpAuthConfigurationPtrOutput) OperatorAppRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentSpaceIdpAuthConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.OperatorAppRoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The external identity provider type.
+func (o AgentSpaceIdpAuthConfigurationPtrOutput) Provider() AgentSpaceIdpAuthConfigurationProviderPtrOutput {
+	return o.ApplyT(func(v *AgentSpaceIdpAuthConfiguration) *AgentSpaceIdpAuthConfigurationProvider {
+		if v == nil {
+			return nil
+		}
+		return &v.Provider
+	}).(AgentSpaceIdpAuthConfigurationProviderPtrOutput)
+}
+
+func (o AgentSpaceIdpAuthConfigurationPtrOutput) UpdatedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentSpaceIdpAuthConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UpdatedAt
+	}).(pulumi.StringPtrOutput)
+}
+
+// The identity claim used to identify users. This value is selected by the service for the configured provider.
+func (o AgentSpaceIdpAuthConfigurationPtrOutput) UserIdClaim() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentSpaceIdpAuthConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UserIdClaim
+	}).(pulumi.StringPtrOutput)
+}
+
 type AgentSpaceOperatorApp struct {
 	Iam *AgentSpaceIamAuthConfiguration `pulumi:"iam"`
 	Idc *AgentSpaceIdcAuthConfiguration `pulumi:"idc"`
+	Idp *AgentSpaceIdpAuthConfiguration `pulumi:"idp"`
 }
 
 // AgentSpaceOperatorAppInput is an input type that accepts AgentSpaceOperatorAppArgs and AgentSpaceOperatorAppOutput values.
@@ -388,6 +654,7 @@ type AgentSpaceOperatorAppInput interface {
 type AgentSpaceOperatorAppArgs struct {
 	Iam AgentSpaceIamAuthConfigurationPtrInput `pulumi:"iam"`
 	Idc AgentSpaceIdcAuthConfigurationPtrInput `pulumi:"idc"`
+	Idp AgentSpaceIdpAuthConfigurationPtrInput `pulumi:"idp"`
 }
 
 func (AgentSpaceOperatorAppArgs) ElementType() reflect.Type {
@@ -475,6 +742,10 @@ func (o AgentSpaceOperatorAppOutput) Idc() AgentSpaceIdcAuthConfigurationPtrOutp
 	return o.ApplyT(func(v AgentSpaceOperatorApp) *AgentSpaceIdcAuthConfiguration { return v.Idc }).(AgentSpaceIdcAuthConfigurationPtrOutput)
 }
 
+func (o AgentSpaceOperatorAppOutput) Idp() AgentSpaceIdpAuthConfigurationPtrOutput {
+	return o.ApplyT(func(v AgentSpaceOperatorApp) *AgentSpaceIdpAuthConfiguration { return v.Idp }).(AgentSpaceIdpAuthConfigurationPtrOutput)
+}
+
 type AgentSpaceOperatorAppPtrOutput struct{ *pulumi.OutputState }
 
 func (AgentSpaceOperatorAppPtrOutput) ElementType() reflect.Type {
@@ -515,6 +786,15 @@ func (o AgentSpaceOperatorAppPtrOutput) Idc() AgentSpaceIdcAuthConfigurationPtrO
 		}
 		return v.Idc
 	}).(AgentSpaceIdcAuthConfigurationPtrOutput)
+}
+
+func (o AgentSpaceOperatorAppPtrOutput) Idp() AgentSpaceIdpAuthConfigurationPtrOutput {
+	return o.ApplyT(func(v *AgentSpaceOperatorApp) *AgentSpaceIdpAuthConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.Idp
+	}).(AgentSpaceIdpAuthConfigurationPtrOutput)
 }
 
 // Preferences that configure behavior of this AgentSpace. This container fully owns the AgentSpace preferences: the properties supplied here replace the stored preferences in their entirety, and omitting the Preferences container reverts all preferences to their service defaults.
@@ -798,6 +1078,8 @@ type AssociationAwsConfiguration struct {
 	AccountId string `pulumi:"accountId"`
 	// Account Type 'monitor' for DevOpsAgent monitoring
 	AccountType AssociationAwsConfigurationAccountType `pulumi:"accountType"`
+	// The IAM role that AWS DevOps Agent assumes to perform elevated directed actions in this AWS account. Elevated actions also require ElevatedActionsEnabled to be set in the Preferences of the AgentSpace. When not provided, only non-elevated directed actions are available. Removing this property from the template clears the role on update. Setting this role is subject to the same iam:PassRole requirement as AssumableRoleArn.
+	AgentElevatedRoleArn *string `pulumi:"agentElevatedRoleArn"`
 	// Role ARN to be assumed by DevOpsAgent to operate on behalf of customer
 	AssumableRoleArn string                    `pulumi:"assumableRoleArn"`
 	Resources        []AssociationAwsResource  `pulumi:"resources"`
@@ -821,6 +1103,8 @@ type AssociationAwsConfigurationArgs struct {
 	AccountId pulumi.StringInput `pulumi:"accountId"`
 	// Account Type 'monitor' for DevOpsAgent monitoring
 	AccountType AssociationAwsConfigurationAccountTypeInput `pulumi:"accountType"`
+	// The IAM role that AWS DevOps Agent assumes to perform elevated directed actions in this AWS account. Elevated actions also require ElevatedActionsEnabled to be set in the Preferences of the AgentSpace. When not provided, only non-elevated directed actions are available. Removing this property from the template clears the role on update. Setting this role is subject to the same iam:PassRole requirement as AssumableRoleArn.
+	AgentElevatedRoleArn pulumi.StringPtrInput `pulumi:"agentElevatedRoleArn"`
 	// Role ARN to be assumed by DevOpsAgent to operate on behalf of customer
 	AssumableRoleArn pulumi.StringInput                `pulumi:"assumableRoleArn"`
 	Resources        AssociationAwsResourceArrayInput  `pulumi:"resources"`
@@ -915,6 +1199,11 @@ func (o AssociationAwsConfigurationOutput) AccountType() AssociationAwsConfigura
 	return o.ApplyT(func(v AssociationAwsConfiguration) AssociationAwsConfigurationAccountType { return v.AccountType }).(AssociationAwsConfigurationAccountTypeOutput)
 }
 
+// The IAM role that AWS DevOps Agent assumes to perform elevated directed actions in this AWS account. Elevated actions also require ElevatedActionsEnabled to be set in the Preferences of the AgentSpace. When not provided, only non-elevated directed actions are available. Removing this property from the template clears the role on update. Setting this role is subject to the same iam:PassRole requirement as AssumableRoleArn.
+func (o AssociationAwsConfigurationOutput) AgentElevatedRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AssociationAwsConfiguration) *string { return v.AgentElevatedRoleArn }).(pulumi.StringPtrOutput)
+}
+
 // Role ARN to be assumed by DevOpsAgent to operate on behalf of customer
 func (o AssociationAwsConfigurationOutput) AssumableRoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v AssociationAwsConfiguration) string { return v.AssumableRoleArn }).(pulumi.StringOutput)
@@ -970,6 +1259,16 @@ func (o AssociationAwsConfigurationPtrOutput) AccountType() AssociationAwsConfig
 		}
 		return &v.AccountType
 	}).(AssociationAwsConfigurationAccountTypePtrOutput)
+}
+
+// The IAM role that AWS DevOps Agent assumes to perform elevated directed actions in this AWS account. Elevated actions also require ElevatedActionsEnabled to be set in the Preferences of the AgentSpace. When not provided, only non-elevated directed actions are available. Removing this property from the template clears the role on update. Setting this role is subject to the same iam:PassRole requirement as AssumableRoleArn.
+func (o AssociationAwsConfigurationPtrOutput) AgentElevatedRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AssociationAwsConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AgentElevatedRoleArn
+	}).(pulumi.StringPtrOutput)
 }
 
 // Role ARN to be assumed by DevOpsAgent to operate on behalf of customer
@@ -2295,6 +2594,8 @@ type AssociationMcpServerDatadogConfiguration struct {
 	Description *string `pulumi:"description"`
 	// When set to true, enables the Agent Space to create and update webhooks for receiving notifications and events from the service
 	EnableWebhookUpdates *bool `pulumi:"enableWebhookUpdates"`
+	// The mutative MCP tools enabled for this integration, by tool name. Only tools the service classifies as MUTATIVE may be listed; other names are rejected. Tool names can be found in the console or from the association's current configuration. The list fully replaces the stored value on update: removing a name disables that tool, and removing the property disables all elevated tools.
+	EnabledElevatedTools []string `pulumi:"enabledElevatedTools"`
 	// MCP server endpoint URL
 	Endpoint *string `pulumi:"endpoint"`
 	// The name of the MCP server
@@ -2318,6 +2619,8 @@ type AssociationMcpServerDatadogConfigurationArgs struct {
 	Description pulumi.StringPtrInput `pulumi:"description"`
 	// When set to true, enables the Agent Space to create and update webhooks for receiving notifications and events from the service
 	EnableWebhookUpdates pulumi.BoolPtrInput `pulumi:"enableWebhookUpdates"`
+	// The mutative MCP tools enabled for this integration, by tool name. Only tools the service classifies as MUTATIVE may be listed; other names are rejected. Tool names can be found in the console or from the association's current configuration. The list fully replaces the stored value on update: removing a name disables that tool, and removing the property disables all elevated tools.
+	EnabledElevatedTools pulumi.StringArrayInput `pulumi:"enabledElevatedTools"`
 	// MCP server endpoint URL
 	Endpoint pulumi.StringPtrInput `pulumi:"endpoint"`
 	// The name of the MCP server
@@ -2412,6 +2715,11 @@ func (o AssociationMcpServerDatadogConfigurationOutput) EnableWebhookUpdates() p
 	return o.ApplyT(func(v AssociationMcpServerDatadogConfiguration) *bool { return v.EnableWebhookUpdates }).(pulumi.BoolPtrOutput)
 }
 
+// The mutative MCP tools enabled for this integration, by tool name. Only tools the service classifies as MUTATIVE may be listed; other names are rejected. Tool names can be found in the console or from the association's current configuration. The list fully replaces the stored value on update: removing a name disables that tool, and removing the property disables all elevated tools.
+func (o AssociationMcpServerDatadogConfigurationOutput) EnabledElevatedTools() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AssociationMcpServerDatadogConfiguration) []string { return v.EnabledElevatedTools }).(pulumi.StringArrayOutput)
+}
+
 // MCP server endpoint URL
 func (o AssociationMcpServerDatadogConfigurationOutput) Endpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AssociationMcpServerDatadogConfiguration) *string { return v.Endpoint }).(pulumi.StringPtrOutput)
@@ -2466,6 +2774,16 @@ func (o AssociationMcpServerDatadogConfigurationPtrOutput) EnableWebhookUpdates(
 	}).(pulumi.BoolPtrOutput)
 }
 
+// The mutative MCP tools enabled for this integration, by tool name. Only tools the service classifies as MUTATIVE may be listed; other names are rejected. Tool names can be found in the console or from the association's current configuration. The list fully replaces the stored value on update: removing a name disables that tool, and removing the property disables all elevated tools.
+func (o AssociationMcpServerDatadogConfigurationPtrOutput) EnabledElevatedTools() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AssociationMcpServerDatadogConfiguration) []string {
+		if v == nil {
+			return nil
+		}
+		return v.EnabledElevatedTools
+	}).(pulumi.StringArrayOutput)
+}
+
 // MCP server endpoint URL
 func (o AssociationMcpServerDatadogConfigurationPtrOutput) Endpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AssociationMcpServerDatadogConfiguration) *string {
@@ -2490,6 +2808,8 @@ func (o AssociationMcpServerDatadogConfigurationPtrOutput) Name() pulumi.StringP
 type AssociationMcpServerGrafanaConfiguration struct {
 	// When set to true, enables the Agent Space to create and update webhooks for receiving notifications and events from the service
 	EnableWebhookUpdates *bool `pulumi:"enableWebhookUpdates"`
+	// The mutative MCP tools enabled for this integration, by tool name. Only tools the service classifies as MUTATIVE may be listed; other names are rejected. Tool names can be found in the console or from the association's current configuration. The list fully replaces the stored value on update: removing a name disables that tool, and removing the property disables all elevated tools. Independent of Tools, which selects the toolsets available to the agent.
+	EnabledElevatedTools []string `pulumi:"enabledElevatedTools"`
 	// MCP server endpoint URL
 	Endpoint string `pulumi:"endpoint"`
 	// List of tool categories to enable for the Grafana MCP server
@@ -2511,6 +2831,8 @@ type AssociationMcpServerGrafanaConfigurationInput interface {
 type AssociationMcpServerGrafanaConfigurationArgs struct {
 	// When set to true, enables the Agent Space to create and update webhooks for receiving notifications and events from the service
 	EnableWebhookUpdates pulumi.BoolPtrInput `pulumi:"enableWebhookUpdates"`
+	// The mutative MCP tools enabled for this integration, by tool name. Only tools the service classifies as MUTATIVE may be listed; other names are rejected. Tool names can be found in the console or from the association's current configuration. The list fully replaces the stored value on update: removing a name disables that tool, and removing the property disables all elevated tools. Independent of Tools, which selects the toolsets available to the agent.
+	EnabledElevatedTools pulumi.StringArrayInput `pulumi:"enabledElevatedTools"`
 	// MCP server endpoint URL
 	Endpoint pulumi.StringInput `pulumi:"endpoint"`
 	// List of tool categories to enable for the Grafana MCP server
@@ -2600,6 +2922,11 @@ func (o AssociationMcpServerGrafanaConfigurationOutput) EnableWebhookUpdates() p
 	return o.ApplyT(func(v AssociationMcpServerGrafanaConfiguration) *bool { return v.EnableWebhookUpdates }).(pulumi.BoolPtrOutput)
 }
 
+// The mutative MCP tools enabled for this integration, by tool name. Only tools the service classifies as MUTATIVE may be listed; other names are rejected. Tool names can be found in the console or from the association's current configuration. The list fully replaces the stored value on update: removing a name disables that tool, and removing the property disables all elevated tools. Independent of Tools, which selects the toolsets available to the agent.
+func (o AssociationMcpServerGrafanaConfigurationOutput) EnabledElevatedTools() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AssociationMcpServerGrafanaConfiguration) []string { return v.EnabledElevatedTools }).(pulumi.StringArrayOutput)
+}
+
 // MCP server endpoint URL
 func (o AssociationMcpServerGrafanaConfigurationOutput) Endpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v AssociationMcpServerGrafanaConfiguration) string { return v.Endpoint }).(pulumi.StringOutput)
@@ -2644,6 +2971,16 @@ func (o AssociationMcpServerGrafanaConfigurationPtrOutput) EnableWebhookUpdates(
 		}
 		return v.EnableWebhookUpdates
 	}).(pulumi.BoolPtrOutput)
+}
+
+// The mutative MCP tools enabled for this integration, by tool name. Only tools the service classifies as MUTATIVE may be listed; other names are rejected. Tool names can be found in the console or from the association's current configuration. The list fully replaces the stored value on update: removing a name disables that tool, and removing the property disables all elevated tools. Independent of Tools, which selects the toolsets available to the agent.
+func (o AssociationMcpServerGrafanaConfigurationPtrOutput) EnabledElevatedTools() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AssociationMcpServerGrafanaConfiguration) []string {
+		if v == nil {
+			return nil
+		}
+		return v.EnabledElevatedTools
+	}).(pulumi.StringArrayOutput)
 }
 
 // MCP server endpoint URL
@@ -3819,6 +4156,165 @@ func (o AssociationServiceNowConfigurationPtrOutput) InstanceId() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
+// Optional bidirectional communication configuration. Supply this configuration and set Enabled to true so you can interact with the agent directly from Slack
+type AssociationSlackBidirectionalConfiguration struct {
+	// Whether bidirectional communication is enabled for this association. When set to true, you can mention the agent in a configured Slack channel and it responds in that channel. When omitted or set to false, the agent ignores mentions and only sends notifications
+	Enabled *bool `pulumi:"enabled"`
+	// IAM role ARN that AWS DevOps Agent assumes to exchange messages with your Slack workspace on behalf of this association
+	RoleArn string `pulumi:"roleArn"`
+}
+
+// AssociationSlackBidirectionalConfigurationInput is an input type that accepts AssociationSlackBidirectionalConfigurationArgs and AssociationSlackBidirectionalConfigurationOutput values.
+// You can construct a concrete instance of `AssociationSlackBidirectionalConfigurationInput` via:
+//
+//	AssociationSlackBidirectionalConfigurationArgs{...}
+type AssociationSlackBidirectionalConfigurationInput interface {
+	pulumi.Input
+
+	ToAssociationSlackBidirectionalConfigurationOutput() AssociationSlackBidirectionalConfigurationOutput
+	ToAssociationSlackBidirectionalConfigurationOutputWithContext(context.Context) AssociationSlackBidirectionalConfigurationOutput
+}
+
+// Optional bidirectional communication configuration. Supply this configuration and set Enabled to true so you can interact with the agent directly from Slack
+type AssociationSlackBidirectionalConfigurationArgs struct {
+	// Whether bidirectional communication is enabled for this association. When set to true, you can mention the agent in a configured Slack channel and it responds in that channel. When omitted or set to false, the agent ignores mentions and only sends notifications
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// IAM role ARN that AWS DevOps Agent assumes to exchange messages with your Slack workspace on behalf of this association
+	RoleArn pulumi.StringInput `pulumi:"roleArn"`
+}
+
+func (AssociationSlackBidirectionalConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssociationSlackBidirectionalConfiguration)(nil)).Elem()
+}
+
+func (i AssociationSlackBidirectionalConfigurationArgs) ToAssociationSlackBidirectionalConfigurationOutput() AssociationSlackBidirectionalConfigurationOutput {
+	return i.ToAssociationSlackBidirectionalConfigurationOutputWithContext(context.Background())
+}
+
+func (i AssociationSlackBidirectionalConfigurationArgs) ToAssociationSlackBidirectionalConfigurationOutputWithContext(ctx context.Context) AssociationSlackBidirectionalConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssociationSlackBidirectionalConfigurationOutput)
+}
+
+func (i AssociationSlackBidirectionalConfigurationArgs) ToAssociationSlackBidirectionalConfigurationPtrOutput() AssociationSlackBidirectionalConfigurationPtrOutput {
+	return i.ToAssociationSlackBidirectionalConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i AssociationSlackBidirectionalConfigurationArgs) ToAssociationSlackBidirectionalConfigurationPtrOutputWithContext(ctx context.Context) AssociationSlackBidirectionalConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssociationSlackBidirectionalConfigurationOutput).ToAssociationSlackBidirectionalConfigurationPtrOutputWithContext(ctx)
+}
+
+// AssociationSlackBidirectionalConfigurationPtrInput is an input type that accepts AssociationSlackBidirectionalConfigurationArgs, AssociationSlackBidirectionalConfigurationPtr and AssociationSlackBidirectionalConfigurationPtrOutput values.
+// You can construct a concrete instance of `AssociationSlackBidirectionalConfigurationPtrInput` via:
+//
+//	        AssociationSlackBidirectionalConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type AssociationSlackBidirectionalConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToAssociationSlackBidirectionalConfigurationPtrOutput() AssociationSlackBidirectionalConfigurationPtrOutput
+	ToAssociationSlackBidirectionalConfigurationPtrOutputWithContext(context.Context) AssociationSlackBidirectionalConfigurationPtrOutput
+}
+
+type associationSlackBidirectionalConfigurationPtrType AssociationSlackBidirectionalConfigurationArgs
+
+func AssociationSlackBidirectionalConfigurationPtr(v *AssociationSlackBidirectionalConfigurationArgs) AssociationSlackBidirectionalConfigurationPtrInput {
+	return (*associationSlackBidirectionalConfigurationPtrType)(v)
+}
+
+func (*associationSlackBidirectionalConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AssociationSlackBidirectionalConfiguration)(nil)).Elem()
+}
+
+func (i *associationSlackBidirectionalConfigurationPtrType) ToAssociationSlackBidirectionalConfigurationPtrOutput() AssociationSlackBidirectionalConfigurationPtrOutput {
+	return i.ToAssociationSlackBidirectionalConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *associationSlackBidirectionalConfigurationPtrType) ToAssociationSlackBidirectionalConfigurationPtrOutputWithContext(ctx context.Context) AssociationSlackBidirectionalConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssociationSlackBidirectionalConfigurationPtrOutput)
+}
+
+// Optional bidirectional communication configuration. Supply this configuration and set Enabled to true so you can interact with the agent directly from Slack
+type AssociationSlackBidirectionalConfigurationOutput struct{ *pulumi.OutputState }
+
+func (AssociationSlackBidirectionalConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssociationSlackBidirectionalConfiguration)(nil)).Elem()
+}
+
+func (o AssociationSlackBidirectionalConfigurationOutput) ToAssociationSlackBidirectionalConfigurationOutput() AssociationSlackBidirectionalConfigurationOutput {
+	return o
+}
+
+func (o AssociationSlackBidirectionalConfigurationOutput) ToAssociationSlackBidirectionalConfigurationOutputWithContext(ctx context.Context) AssociationSlackBidirectionalConfigurationOutput {
+	return o
+}
+
+func (o AssociationSlackBidirectionalConfigurationOutput) ToAssociationSlackBidirectionalConfigurationPtrOutput() AssociationSlackBidirectionalConfigurationPtrOutput {
+	return o.ToAssociationSlackBidirectionalConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o AssociationSlackBidirectionalConfigurationOutput) ToAssociationSlackBidirectionalConfigurationPtrOutputWithContext(ctx context.Context) AssociationSlackBidirectionalConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AssociationSlackBidirectionalConfiguration) *AssociationSlackBidirectionalConfiguration {
+		return &v
+	}).(AssociationSlackBidirectionalConfigurationPtrOutput)
+}
+
+// Whether bidirectional communication is enabled for this association. When set to true, you can mention the agent in a configured Slack channel and it responds in that channel. When omitted or set to false, the agent ignores mentions and only sends notifications
+func (o AssociationSlackBidirectionalConfigurationOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AssociationSlackBidirectionalConfiguration) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// IAM role ARN that AWS DevOps Agent assumes to exchange messages with your Slack workspace on behalf of this association
+func (o AssociationSlackBidirectionalConfigurationOutput) RoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v AssociationSlackBidirectionalConfiguration) string { return v.RoleArn }).(pulumi.StringOutput)
+}
+
+type AssociationSlackBidirectionalConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (AssociationSlackBidirectionalConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AssociationSlackBidirectionalConfiguration)(nil)).Elem()
+}
+
+func (o AssociationSlackBidirectionalConfigurationPtrOutput) ToAssociationSlackBidirectionalConfigurationPtrOutput() AssociationSlackBidirectionalConfigurationPtrOutput {
+	return o
+}
+
+func (o AssociationSlackBidirectionalConfigurationPtrOutput) ToAssociationSlackBidirectionalConfigurationPtrOutputWithContext(ctx context.Context) AssociationSlackBidirectionalConfigurationPtrOutput {
+	return o
+}
+
+func (o AssociationSlackBidirectionalConfigurationPtrOutput) Elem() AssociationSlackBidirectionalConfigurationOutput {
+	return o.ApplyT(func(v *AssociationSlackBidirectionalConfiguration) AssociationSlackBidirectionalConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret AssociationSlackBidirectionalConfiguration
+		return ret
+	}).(AssociationSlackBidirectionalConfigurationOutput)
+}
+
+// Whether bidirectional communication is enabled for this association. When set to true, you can mention the agent in a configured Slack channel and it responds in that channel. When omitted or set to false, the agent ignores mentions and only sends notifications
+func (o AssociationSlackBidirectionalConfigurationPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AssociationSlackBidirectionalConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// IAM role ARN that AWS DevOps Agent assumes to exchange messages with your Slack workspace on behalf of this association
+func (o AssociationSlackBidirectionalConfigurationPtrOutput) RoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AssociationSlackBidirectionalConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
 // Slack channel configuration
 type AssociationSlackChannel struct {
 	// Slack channel ID
@@ -3980,7 +4476,8 @@ func (o AssociationSlackChannelPtrOutput) ChannelName() pulumi.StringPtrOutput {
 
 // Slack workspace integration configuration
 type AssociationSlackConfiguration struct {
-	TransmissionTarget AssociationSlackTransmissionTarget `pulumi:"transmissionTarget"`
+	Bidirectional      *AssociationSlackBidirectionalConfiguration `pulumi:"bidirectional"`
+	TransmissionTarget AssociationSlackTransmissionTarget          `pulumi:"transmissionTarget"`
 	// Associated Slack workspace ID
 	WorkspaceId string `pulumi:"workspaceId"`
 	// Associated Slack workspace name
@@ -4000,7 +4497,8 @@ type AssociationSlackConfigurationInput interface {
 
 // Slack workspace integration configuration
 type AssociationSlackConfigurationArgs struct {
-	TransmissionTarget AssociationSlackTransmissionTargetInput `pulumi:"transmissionTarget"`
+	Bidirectional      AssociationSlackBidirectionalConfigurationPtrInput `pulumi:"bidirectional"`
+	TransmissionTarget AssociationSlackTransmissionTargetInput            `pulumi:"transmissionTarget"`
 	// Associated Slack workspace ID
 	WorkspaceId pulumi.StringInput `pulumi:"workspaceId"`
 	// Associated Slack workspace name
@@ -4085,6 +4583,12 @@ func (o AssociationSlackConfigurationOutput) ToAssociationSlackConfigurationPtrO
 	}).(AssociationSlackConfigurationPtrOutput)
 }
 
+func (o AssociationSlackConfigurationOutput) Bidirectional() AssociationSlackBidirectionalConfigurationPtrOutput {
+	return o.ApplyT(func(v AssociationSlackConfiguration) *AssociationSlackBidirectionalConfiguration {
+		return v.Bidirectional
+	}).(AssociationSlackBidirectionalConfigurationPtrOutput)
+}
+
 func (o AssociationSlackConfigurationOutput) TransmissionTarget() AssociationSlackTransmissionTargetOutput {
 	return o.ApplyT(func(v AssociationSlackConfiguration) AssociationSlackTransmissionTarget { return v.TransmissionTarget }).(AssociationSlackTransmissionTargetOutput)
 }
@@ -4121,6 +4625,15 @@ func (o AssociationSlackConfigurationPtrOutput) Elem() AssociationSlackConfigura
 		var ret AssociationSlackConfiguration
 		return ret
 	}).(AssociationSlackConfigurationOutput)
+}
+
+func (o AssociationSlackConfigurationPtrOutput) Bidirectional() AssociationSlackBidirectionalConfigurationPtrOutput {
+	return o.ApplyT(func(v *AssociationSlackConfiguration) *AssociationSlackBidirectionalConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.Bidirectional
+	}).(AssociationSlackBidirectionalConfigurationPtrOutput)
 }
 
 func (o AssociationSlackConfigurationPtrOutput) TransmissionTarget() AssociationSlackTransmissionTargetPtrOutput {
@@ -4298,6 +4811,8 @@ type AssociationSourceAwsConfiguration struct {
 	AccountId string `pulumi:"accountId"`
 	// Account Type 'source' for DevOpsAgent monitoring
 	AccountType AssociationSourceAwsConfigurationAccountType `pulumi:"accountType"`
+	// The IAM role that AWS DevOps Agent assumes to perform elevated directed actions in this AWS account. Elevated actions also require ElevatedActionsEnabled to be set in the Preferences of the AgentSpace. When not provided, only non-elevated directed actions are available. Removing this property from the template clears the role on update. Setting this role is subject to the same iam:PassRole requirement as AssumableRoleArn.
+	AgentElevatedRoleArn *string `pulumi:"agentElevatedRoleArn"`
 	// Role ARN to be assumed by DevOpsAgent to operate on behalf of customer
 	AssumableRoleArn string                    `pulumi:"assumableRoleArn"`
 	Resources        []AssociationAwsResource  `pulumi:"resources"`
@@ -4321,6 +4836,8 @@ type AssociationSourceAwsConfigurationArgs struct {
 	AccountId pulumi.StringInput `pulumi:"accountId"`
 	// Account Type 'source' for DevOpsAgent monitoring
 	AccountType AssociationSourceAwsConfigurationAccountTypeInput `pulumi:"accountType"`
+	// The IAM role that AWS DevOps Agent assumes to perform elevated directed actions in this AWS account. Elevated actions also require ElevatedActionsEnabled to be set in the Preferences of the AgentSpace. When not provided, only non-elevated directed actions are available. Removing this property from the template clears the role on update. Setting this role is subject to the same iam:PassRole requirement as AssumableRoleArn.
+	AgentElevatedRoleArn pulumi.StringPtrInput `pulumi:"agentElevatedRoleArn"`
 	// Role ARN to be assumed by DevOpsAgent to operate on behalf of customer
 	AssumableRoleArn pulumi.StringInput                `pulumi:"assumableRoleArn"`
 	Resources        AssociationAwsResourceArrayInput  `pulumi:"resources"`
@@ -4417,6 +4934,11 @@ func (o AssociationSourceAwsConfigurationOutput) AccountType() AssociationSource
 	}).(AssociationSourceAwsConfigurationAccountTypeOutput)
 }
 
+// The IAM role that AWS DevOps Agent assumes to perform elevated directed actions in this AWS account. Elevated actions also require ElevatedActionsEnabled to be set in the Preferences of the AgentSpace. When not provided, only non-elevated directed actions are available. Removing this property from the template clears the role on update. Setting this role is subject to the same iam:PassRole requirement as AssumableRoleArn.
+func (o AssociationSourceAwsConfigurationOutput) AgentElevatedRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AssociationSourceAwsConfiguration) *string { return v.AgentElevatedRoleArn }).(pulumi.StringPtrOutput)
+}
+
 // Role ARN to be assumed by DevOpsAgent to operate on behalf of customer
 func (o AssociationSourceAwsConfigurationOutput) AssumableRoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v AssociationSourceAwsConfiguration) string { return v.AssumableRoleArn }).(pulumi.StringOutput)
@@ -4472,6 +4994,16 @@ func (o AssociationSourceAwsConfigurationPtrOutput) AccountType() AssociationSou
 		}
 		return &v.AccountType
 	}).(AssociationSourceAwsConfigurationAccountTypePtrOutput)
+}
+
+// The IAM role that AWS DevOps Agent assumes to perform elevated directed actions in this AWS account. Elevated actions also require ElevatedActionsEnabled to be set in the Preferences of the AgentSpace. When not provided, only non-elevated directed actions are available. Removing this property from the template clears the role on update. Setting this role is subject to the same iam:PassRole requirement as AssumableRoleArn.
+func (o AssociationSourceAwsConfigurationPtrOutput) AgentElevatedRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AssociationSourceAwsConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AgentElevatedRoleArn
+	}).(pulumi.StringPtrOutput)
 }
 
 // Role ARN to be assumed by DevOpsAgent to operate on behalf of customer
@@ -4993,6 +5525,7 @@ type PrivateConnectionTag struct {
 type ServiceAdditionalServiceDetails struct {
 	AzureIdentity     *ServiceRegisteredAzureIdentityDetails    `pulumi:"azureIdentity"`
 	Dynatrace         *ServiceRegisteredDynatraceDetails        `pulumi:"dynatrace"`
+	GitHub            *ServiceRegisteredGitHubServiceDetails    `pulumi:"gitHub"`
 	GitLab            *ServiceRegisteredGitLabServiceDetails    `pulumi:"gitLab"`
 	McpServer         *ServiceRegisteredMcpServerDetails        `pulumi:"mcpServer"`
 	McpServerGrafana  *ServiceRegisteredMcpServerGrafanaDetails `pulumi:"mcpServerGrafana"`
@@ -5024,6 +5557,10 @@ func (o ServiceAdditionalServiceDetailsOutput) AzureIdentity() ServiceRegistered
 
 func (o ServiceAdditionalServiceDetailsOutput) Dynatrace() ServiceRegisteredDynatraceDetailsPtrOutput {
 	return o.ApplyT(func(v ServiceAdditionalServiceDetails) *ServiceRegisteredDynatraceDetails { return v.Dynatrace }).(ServiceRegisteredDynatraceDetailsPtrOutput)
+}
+
+func (o ServiceAdditionalServiceDetailsOutput) GitHub() ServiceRegisteredGitHubServiceDetailsPtrOutput {
+	return o.ApplyT(func(v ServiceAdditionalServiceDetails) *ServiceRegisteredGitHubServiceDetails { return v.GitHub }).(ServiceRegisteredGitHubServiceDetailsPtrOutput)
 }
 
 func (o ServiceAdditionalServiceDetailsOutput) GitLab() ServiceRegisteredGitLabServiceDetailsPtrOutput {
@@ -5102,6 +5639,15 @@ func (o ServiceAdditionalServiceDetailsPtrOutput) Dynatrace() ServiceRegisteredD
 		}
 		return v.Dynatrace
 	}).(ServiceRegisteredDynatraceDetailsPtrOutput)
+}
+
+func (o ServiceAdditionalServiceDetailsPtrOutput) GitHub() ServiceRegisteredGitHubServiceDetailsPtrOutput {
+	return o.ApplyT(func(v *ServiceAdditionalServiceDetails) *ServiceRegisteredGitHubServiceDetails {
+		if v == nil {
+			return nil
+		}
+		return v.GitHub
+	}).(ServiceRegisteredGitHubServiceDetailsPtrOutput)
 }
 
 func (o ServiceAdditionalServiceDetailsPtrOutput) GitLab() ServiceRegisteredGitLabServiceDetailsPtrOutput {
@@ -5729,10 +6275,11 @@ func (o ServiceBearerTokenDetailsPtrOutput) TokenValue() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// Service-specific configuration details - MCPServerSigV4 supports in-place updates; GitLab (TokenValue), MCPServer (ApiKey or BearerToken credential rotation), MCPServerNewRelic (ApiKey rotation), and MCPServerGrafana (BearerToken rotation) support in-place credential rotation; all other service types and fields require replacement when modified
+// Service-specific configuration details - MCPServerSigV4 supports in-place updates; GitLab (TokenValue), MCPServer (ApiKey or BearerToken credential rotation), MCPServerNewRelic (ApiKey rotation), and MCPServerGrafana (BearerToken rotation) support in-place credential rotation; all other service types and fields, including GitHub, require replacement when modified
 type ServiceDetails struct {
 	AzureIdentity     *ServiceAzureIdentityServiceDetails `pulumi:"azureIdentity"`
 	Dynatrace         *ServiceDynatraceServiceDetails     `pulumi:"dynatrace"`
+	GitHub            *ServiceGitHubDetails               `pulumi:"gitHub"`
 	GitLab            *ServiceGitLabDetails               `pulumi:"gitLab"`
 	McpServer         *ServiceMcpServerDetails            `pulumi:"mcpServer"`
 	McpServerGrafana  *ServiceMcpServerGrafanaDetails     `pulumi:"mcpServerGrafana"`
@@ -5754,10 +6301,11 @@ type ServiceDetailsInput interface {
 	ToServiceDetailsOutputWithContext(context.Context) ServiceDetailsOutput
 }
 
-// Service-specific configuration details - MCPServerSigV4 supports in-place updates; GitLab (TokenValue), MCPServer (ApiKey or BearerToken credential rotation), MCPServerNewRelic (ApiKey rotation), and MCPServerGrafana (BearerToken rotation) support in-place credential rotation; all other service types and fields require replacement when modified
+// Service-specific configuration details - MCPServerSigV4 supports in-place updates; GitLab (TokenValue), MCPServer (ApiKey or BearerToken credential rotation), MCPServerNewRelic (ApiKey rotation), and MCPServerGrafana (BearerToken rotation) support in-place credential rotation; all other service types and fields, including GitHub, require replacement when modified
 type ServiceDetailsArgs struct {
 	AzureIdentity     ServiceAzureIdentityServiceDetailsPtrInput `pulumi:"azureIdentity"`
 	Dynatrace         ServiceDynatraceServiceDetailsPtrInput     `pulumi:"dynatrace"`
+	GitHub            ServiceGitHubDetailsPtrInput               `pulumi:"gitHub"`
 	GitLab            ServiceGitLabDetailsPtrInput               `pulumi:"gitLab"`
 	McpServer         ServiceMcpServerDetailsPtrInput            `pulumi:"mcpServer"`
 	McpServerGrafana  ServiceMcpServerGrafanaDetailsPtrInput     `pulumi:"mcpServerGrafana"`
@@ -5821,7 +6369,7 @@ func (i *serviceDetailsPtrType) ToServiceDetailsPtrOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceDetailsPtrOutput)
 }
 
-// Service-specific configuration details - MCPServerSigV4 supports in-place updates; GitLab (TokenValue), MCPServer (ApiKey or BearerToken credential rotation), MCPServerNewRelic (ApiKey rotation), and MCPServerGrafana (BearerToken rotation) support in-place credential rotation; all other service types and fields require replacement when modified
+// Service-specific configuration details - MCPServerSigV4 supports in-place updates; GitLab (TokenValue), MCPServer (ApiKey or BearerToken credential rotation), MCPServerNewRelic (ApiKey rotation), and MCPServerGrafana (BearerToken rotation) support in-place credential rotation; all other service types and fields, including GitHub, require replacement when modified
 type ServiceDetailsOutput struct{ *pulumi.OutputState }
 
 func (ServiceDetailsOutput) ElementType() reflect.Type {
@@ -5852,6 +6400,10 @@ func (o ServiceDetailsOutput) AzureIdentity() ServiceAzureIdentityServiceDetails
 
 func (o ServiceDetailsOutput) Dynatrace() ServiceDynatraceServiceDetailsPtrOutput {
 	return o.ApplyT(func(v ServiceDetails) *ServiceDynatraceServiceDetails { return v.Dynatrace }).(ServiceDynatraceServiceDetailsPtrOutput)
+}
+
+func (o ServiceDetailsOutput) GitHub() ServiceGitHubDetailsPtrOutput {
+	return o.ApplyT(func(v ServiceDetails) *ServiceGitHubDetails { return v.GitHub }).(ServiceGitHubDetailsPtrOutput)
 }
 
 func (o ServiceDetailsOutput) GitLab() ServiceGitLabDetailsPtrOutput {
@@ -5926,6 +6478,15 @@ func (o ServiceDetailsPtrOutput) Dynatrace() ServiceDynatraceServiceDetailsPtrOu
 		}
 		return v.Dynatrace
 	}).(ServiceDynatraceServiceDetailsPtrOutput)
+}
+
+func (o ServiceDetailsPtrOutput) GitHub() ServiceGitHubDetailsPtrOutput {
+	return o.ApplyT(func(v *ServiceDetails) *ServiceGitHubDetails {
+		if v == nil {
+			return nil
+		}
+		return v.GitHub
+	}).(ServiceGitHubDetailsPtrOutput)
 }
 
 func (o ServiceDetailsPtrOutput) GitLab() ServiceGitLabDetailsPtrOutput {
@@ -6293,6 +6854,534 @@ func (o ServiceDynatraceServiceDetailsPtrOutput) AuthorizationConfig() ServiceDy
 		}
 		return v.AuthorizationConfig
 	}).(ServiceDynatraceAuthorizationConfigPtrOutput)
+}
+
+// The token verifies an existing DevOps Agent GitHub App installation on github.com and is then discarded. Not supported for GitHub Enterprise Server
+type ServiceGitHubAppVerificationDetails struct {
+	// Permission variant of the DevOps Agent GitHub App that must already be installed on the organization or account
+	AppVariant ServiceGitHubAppVerificationDetailsAppVariant `pulumi:"appVariant"`
+	// GitHub organization to scope the service to. The token must be an active member of the organization and only that organization's repositories are accessible. Omit to register the token's own user account
+	OrganizationName *string `pulumi:"organizationName"`
+	// GitHub instance URL. Omit for github.com. Provide the instance host for GitHub Enterprise Server or GitHub Enterprise Cloud with data residency (e.g. https://github.example.com)
+	TargetUrl *string `pulumi:"targetUrl"`
+	// GitHub personal access token (PAT) value. Accepts classic PATs (ghp_...), fine-grained PATs (github_pat_...), and GitHub Enterprise Server token formats
+	TokenValue string `pulumi:"tokenValue"`
+}
+
+// ServiceGitHubAppVerificationDetailsInput is an input type that accepts ServiceGitHubAppVerificationDetailsArgs and ServiceGitHubAppVerificationDetailsOutput values.
+// You can construct a concrete instance of `ServiceGitHubAppVerificationDetailsInput` via:
+//
+//	ServiceGitHubAppVerificationDetailsArgs{...}
+type ServiceGitHubAppVerificationDetailsInput interface {
+	pulumi.Input
+
+	ToServiceGitHubAppVerificationDetailsOutput() ServiceGitHubAppVerificationDetailsOutput
+	ToServiceGitHubAppVerificationDetailsOutputWithContext(context.Context) ServiceGitHubAppVerificationDetailsOutput
+}
+
+// The token verifies an existing DevOps Agent GitHub App installation on github.com and is then discarded. Not supported for GitHub Enterprise Server
+type ServiceGitHubAppVerificationDetailsArgs struct {
+	// Permission variant of the DevOps Agent GitHub App that must already be installed on the organization or account
+	AppVariant ServiceGitHubAppVerificationDetailsAppVariantInput `pulumi:"appVariant"`
+	// GitHub organization to scope the service to. The token must be an active member of the organization and only that organization's repositories are accessible. Omit to register the token's own user account
+	OrganizationName pulumi.StringPtrInput `pulumi:"organizationName"`
+	// GitHub instance URL. Omit for github.com. Provide the instance host for GitHub Enterprise Server or GitHub Enterprise Cloud with data residency (e.g. https://github.example.com)
+	TargetUrl pulumi.StringPtrInput `pulumi:"targetUrl"`
+	// GitHub personal access token (PAT) value. Accepts classic PATs (ghp_...), fine-grained PATs (github_pat_...), and GitHub Enterprise Server token formats
+	TokenValue pulumi.StringInput `pulumi:"tokenValue"`
+}
+
+func (ServiceGitHubAppVerificationDetailsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceGitHubAppVerificationDetails)(nil)).Elem()
+}
+
+func (i ServiceGitHubAppVerificationDetailsArgs) ToServiceGitHubAppVerificationDetailsOutput() ServiceGitHubAppVerificationDetailsOutput {
+	return i.ToServiceGitHubAppVerificationDetailsOutputWithContext(context.Background())
+}
+
+func (i ServiceGitHubAppVerificationDetailsArgs) ToServiceGitHubAppVerificationDetailsOutputWithContext(ctx context.Context) ServiceGitHubAppVerificationDetailsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceGitHubAppVerificationDetailsOutput)
+}
+
+func (i ServiceGitHubAppVerificationDetailsArgs) ToServiceGitHubAppVerificationDetailsPtrOutput() ServiceGitHubAppVerificationDetailsPtrOutput {
+	return i.ToServiceGitHubAppVerificationDetailsPtrOutputWithContext(context.Background())
+}
+
+func (i ServiceGitHubAppVerificationDetailsArgs) ToServiceGitHubAppVerificationDetailsPtrOutputWithContext(ctx context.Context) ServiceGitHubAppVerificationDetailsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceGitHubAppVerificationDetailsOutput).ToServiceGitHubAppVerificationDetailsPtrOutputWithContext(ctx)
+}
+
+// ServiceGitHubAppVerificationDetailsPtrInput is an input type that accepts ServiceGitHubAppVerificationDetailsArgs, ServiceGitHubAppVerificationDetailsPtr and ServiceGitHubAppVerificationDetailsPtrOutput values.
+// You can construct a concrete instance of `ServiceGitHubAppVerificationDetailsPtrInput` via:
+//
+//	        ServiceGitHubAppVerificationDetailsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ServiceGitHubAppVerificationDetailsPtrInput interface {
+	pulumi.Input
+
+	ToServiceGitHubAppVerificationDetailsPtrOutput() ServiceGitHubAppVerificationDetailsPtrOutput
+	ToServiceGitHubAppVerificationDetailsPtrOutputWithContext(context.Context) ServiceGitHubAppVerificationDetailsPtrOutput
+}
+
+type serviceGitHubAppVerificationDetailsPtrType ServiceGitHubAppVerificationDetailsArgs
+
+func ServiceGitHubAppVerificationDetailsPtr(v *ServiceGitHubAppVerificationDetailsArgs) ServiceGitHubAppVerificationDetailsPtrInput {
+	return (*serviceGitHubAppVerificationDetailsPtrType)(v)
+}
+
+func (*serviceGitHubAppVerificationDetailsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceGitHubAppVerificationDetails)(nil)).Elem()
+}
+
+func (i *serviceGitHubAppVerificationDetailsPtrType) ToServiceGitHubAppVerificationDetailsPtrOutput() ServiceGitHubAppVerificationDetailsPtrOutput {
+	return i.ToServiceGitHubAppVerificationDetailsPtrOutputWithContext(context.Background())
+}
+
+func (i *serviceGitHubAppVerificationDetailsPtrType) ToServiceGitHubAppVerificationDetailsPtrOutputWithContext(ctx context.Context) ServiceGitHubAppVerificationDetailsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceGitHubAppVerificationDetailsPtrOutput)
+}
+
+// The token verifies an existing DevOps Agent GitHub App installation on github.com and is then discarded. Not supported for GitHub Enterprise Server
+type ServiceGitHubAppVerificationDetailsOutput struct{ *pulumi.OutputState }
+
+func (ServiceGitHubAppVerificationDetailsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceGitHubAppVerificationDetails)(nil)).Elem()
+}
+
+func (o ServiceGitHubAppVerificationDetailsOutput) ToServiceGitHubAppVerificationDetailsOutput() ServiceGitHubAppVerificationDetailsOutput {
+	return o
+}
+
+func (o ServiceGitHubAppVerificationDetailsOutput) ToServiceGitHubAppVerificationDetailsOutputWithContext(ctx context.Context) ServiceGitHubAppVerificationDetailsOutput {
+	return o
+}
+
+func (o ServiceGitHubAppVerificationDetailsOutput) ToServiceGitHubAppVerificationDetailsPtrOutput() ServiceGitHubAppVerificationDetailsPtrOutput {
+	return o.ToServiceGitHubAppVerificationDetailsPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceGitHubAppVerificationDetailsOutput) ToServiceGitHubAppVerificationDetailsPtrOutputWithContext(ctx context.Context) ServiceGitHubAppVerificationDetailsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceGitHubAppVerificationDetails) *ServiceGitHubAppVerificationDetails {
+		return &v
+	}).(ServiceGitHubAppVerificationDetailsPtrOutput)
+}
+
+// Permission variant of the DevOps Agent GitHub App that must already be installed on the organization or account
+func (o ServiceGitHubAppVerificationDetailsOutput) AppVariant() ServiceGitHubAppVerificationDetailsAppVariantOutput {
+	return o.ApplyT(func(v ServiceGitHubAppVerificationDetails) ServiceGitHubAppVerificationDetailsAppVariant {
+		return v.AppVariant
+	}).(ServiceGitHubAppVerificationDetailsAppVariantOutput)
+}
+
+// GitHub organization to scope the service to. The token must be an active member of the organization and only that organization's repositories are accessible. Omit to register the token's own user account
+func (o ServiceGitHubAppVerificationDetailsOutput) OrganizationName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceGitHubAppVerificationDetails) *string { return v.OrganizationName }).(pulumi.StringPtrOutput)
+}
+
+// GitHub instance URL. Omit for github.com. Provide the instance host for GitHub Enterprise Server or GitHub Enterprise Cloud with data residency (e.g. https://github.example.com)
+func (o ServiceGitHubAppVerificationDetailsOutput) TargetUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceGitHubAppVerificationDetails) *string { return v.TargetUrl }).(pulumi.StringPtrOutput)
+}
+
+// GitHub personal access token (PAT) value. Accepts classic PATs (ghp_...), fine-grained PATs (github_pat_...), and GitHub Enterprise Server token formats
+func (o ServiceGitHubAppVerificationDetailsOutput) TokenValue() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceGitHubAppVerificationDetails) string { return v.TokenValue }).(pulumi.StringOutput)
+}
+
+type ServiceGitHubAppVerificationDetailsPtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceGitHubAppVerificationDetailsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceGitHubAppVerificationDetails)(nil)).Elem()
+}
+
+func (o ServiceGitHubAppVerificationDetailsPtrOutput) ToServiceGitHubAppVerificationDetailsPtrOutput() ServiceGitHubAppVerificationDetailsPtrOutput {
+	return o
+}
+
+func (o ServiceGitHubAppVerificationDetailsPtrOutput) ToServiceGitHubAppVerificationDetailsPtrOutputWithContext(ctx context.Context) ServiceGitHubAppVerificationDetailsPtrOutput {
+	return o
+}
+
+func (o ServiceGitHubAppVerificationDetailsPtrOutput) Elem() ServiceGitHubAppVerificationDetailsOutput {
+	return o.ApplyT(func(v *ServiceGitHubAppVerificationDetails) ServiceGitHubAppVerificationDetails {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceGitHubAppVerificationDetails
+		return ret
+	}).(ServiceGitHubAppVerificationDetailsOutput)
+}
+
+// Permission variant of the DevOps Agent GitHub App that must already be installed on the organization or account
+func (o ServiceGitHubAppVerificationDetailsPtrOutput) AppVariant() ServiceGitHubAppVerificationDetailsAppVariantPtrOutput {
+	return o.ApplyT(func(v *ServiceGitHubAppVerificationDetails) *ServiceGitHubAppVerificationDetailsAppVariant {
+		if v == nil {
+			return nil
+		}
+		return &v.AppVariant
+	}).(ServiceGitHubAppVerificationDetailsAppVariantPtrOutput)
+}
+
+// GitHub organization to scope the service to. The token must be an active member of the organization and only that organization's repositories are accessible. Omit to register the token's own user account
+func (o ServiceGitHubAppVerificationDetailsPtrOutput) OrganizationName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceGitHubAppVerificationDetails) *string {
+		if v == nil {
+			return nil
+		}
+		return v.OrganizationName
+	}).(pulumi.StringPtrOutput)
+}
+
+// GitHub instance URL. Omit for github.com. Provide the instance host for GitHub Enterprise Server or GitHub Enterprise Cloud with data residency (e.g. https://github.example.com)
+func (o ServiceGitHubAppVerificationDetailsPtrOutput) TargetUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceGitHubAppVerificationDetails) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TargetUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+// GitHub personal access token (PAT) value. Accepts classic PATs (ghp_...), fine-grained PATs (github_pat_...), and GitHub Enterprise Server token formats
+func (o ServiceGitHubAppVerificationDetailsPtrOutput) TokenValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceGitHubAppVerificationDetails) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TokenValue
+	}).(pulumi.StringPtrOutput)
+}
+
+// GitHub personal access token (PAT) service configuration. Exactly one of AppVerification or DirectAccess selects how the token is used
+type ServiceGitHubDetails struct {
+	AppVerification *ServiceGitHubAppVerificationDetails `pulumi:"appVerification"`
+	DirectAccess    *ServiceGitHubPatDetails             `pulumi:"directAccess"`
+}
+
+// ServiceGitHubDetailsInput is an input type that accepts ServiceGitHubDetailsArgs and ServiceGitHubDetailsOutput values.
+// You can construct a concrete instance of `ServiceGitHubDetailsInput` via:
+//
+//	ServiceGitHubDetailsArgs{...}
+type ServiceGitHubDetailsInput interface {
+	pulumi.Input
+
+	ToServiceGitHubDetailsOutput() ServiceGitHubDetailsOutput
+	ToServiceGitHubDetailsOutputWithContext(context.Context) ServiceGitHubDetailsOutput
+}
+
+// GitHub personal access token (PAT) service configuration. Exactly one of AppVerification or DirectAccess selects how the token is used
+type ServiceGitHubDetailsArgs struct {
+	AppVerification ServiceGitHubAppVerificationDetailsPtrInput `pulumi:"appVerification"`
+	DirectAccess    ServiceGitHubPatDetailsPtrInput             `pulumi:"directAccess"`
+}
+
+func (ServiceGitHubDetailsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceGitHubDetails)(nil)).Elem()
+}
+
+func (i ServiceGitHubDetailsArgs) ToServiceGitHubDetailsOutput() ServiceGitHubDetailsOutput {
+	return i.ToServiceGitHubDetailsOutputWithContext(context.Background())
+}
+
+func (i ServiceGitHubDetailsArgs) ToServiceGitHubDetailsOutputWithContext(ctx context.Context) ServiceGitHubDetailsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceGitHubDetailsOutput)
+}
+
+func (i ServiceGitHubDetailsArgs) ToServiceGitHubDetailsPtrOutput() ServiceGitHubDetailsPtrOutput {
+	return i.ToServiceGitHubDetailsPtrOutputWithContext(context.Background())
+}
+
+func (i ServiceGitHubDetailsArgs) ToServiceGitHubDetailsPtrOutputWithContext(ctx context.Context) ServiceGitHubDetailsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceGitHubDetailsOutput).ToServiceGitHubDetailsPtrOutputWithContext(ctx)
+}
+
+// ServiceGitHubDetailsPtrInput is an input type that accepts ServiceGitHubDetailsArgs, ServiceGitHubDetailsPtr and ServiceGitHubDetailsPtrOutput values.
+// You can construct a concrete instance of `ServiceGitHubDetailsPtrInput` via:
+//
+//	        ServiceGitHubDetailsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ServiceGitHubDetailsPtrInput interface {
+	pulumi.Input
+
+	ToServiceGitHubDetailsPtrOutput() ServiceGitHubDetailsPtrOutput
+	ToServiceGitHubDetailsPtrOutputWithContext(context.Context) ServiceGitHubDetailsPtrOutput
+}
+
+type serviceGitHubDetailsPtrType ServiceGitHubDetailsArgs
+
+func ServiceGitHubDetailsPtr(v *ServiceGitHubDetailsArgs) ServiceGitHubDetailsPtrInput {
+	return (*serviceGitHubDetailsPtrType)(v)
+}
+
+func (*serviceGitHubDetailsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceGitHubDetails)(nil)).Elem()
+}
+
+func (i *serviceGitHubDetailsPtrType) ToServiceGitHubDetailsPtrOutput() ServiceGitHubDetailsPtrOutput {
+	return i.ToServiceGitHubDetailsPtrOutputWithContext(context.Background())
+}
+
+func (i *serviceGitHubDetailsPtrType) ToServiceGitHubDetailsPtrOutputWithContext(ctx context.Context) ServiceGitHubDetailsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceGitHubDetailsPtrOutput)
+}
+
+// GitHub personal access token (PAT) service configuration. Exactly one of AppVerification or DirectAccess selects how the token is used
+type ServiceGitHubDetailsOutput struct{ *pulumi.OutputState }
+
+func (ServiceGitHubDetailsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceGitHubDetails)(nil)).Elem()
+}
+
+func (o ServiceGitHubDetailsOutput) ToServiceGitHubDetailsOutput() ServiceGitHubDetailsOutput {
+	return o
+}
+
+func (o ServiceGitHubDetailsOutput) ToServiceGitHubDetailsOutputWithContext(ctx context.Context) ServiceGitHubDetailsOutput {
+	return o
+}
+
+func (o ServiceGitHubDetailsOutput) ToServiceGitHubDetailsPtrOutput() ServiceGitHubDetailsPtrOutput {
+	return o.ToServiceGitHubDetailsPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceGitHubDetailsOutput) ToServiceGitHubDetailsPtrOutputWithContext(ctx context.Context) ServiceGitHubDetailsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceGitHubDetails) *ServiceGitHubDetails {
+		return &v
+	}).(ServiceGitHubDetailsPtrOutput)
+}
+
+func (o ServiceGitHubDetailsOutput) AppVerification() ServiceGitHubAppVerificationDetailsPtrOutput {
+	return o.ApplyT(func(v ServiceGitHubDetails) *ServiceGitHubAppVerificationDetails { return v.AppVerification }).(ServiceGitHubAppVerificationDetailsPtrOutput)
+}
+
+func (o ServiceGitHubDetailsOutput) DirectAccess() ServiceGitHubPatDetailsPtrOutput {
+	return o.ApplyT(func(v ServiceGitHubDetails) *ServiceGitHubPatDetails { return v.DirectAccess }).(ServiceGitHubPatDetailsPtrOutput)
+}
+
+type ServiceGitHubDetailsPtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceGitHubDetailsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceGitHubDetails)(nil)).Elem()
+}
+
+func (o ServiceGitHubDetailsPtrOutput) ToServiceGitHubDetailsPtrOutput() ServiceGitHubDetailsPtrOutput {
+	return o
+}
+
+func (o ServiceGitHubDetailsPtrOutput) ToServiceGitHubDetailsPtrOutputWithContext(ctx context.Context) ServiceGitHubDetailsPtrOutput {
+	return o
+}
+
+func (o ServiceGitHubDetailsPtrOutput) Elem() ServiceGitHubDetailsOutput {
+	return o.ApplyT(func(v *ServiceGitHubDetails) ServiceGitHubDetails {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceGitHubDetails
+		return ret
+	}).(ServiceGitHubDetailsOutput)
+}
+
+func (o ServiceGitHubDetailsPtrOutput) AppVerification() ServiceGitHubAppVerificationDetailsPtrOutput {
+	return o.ApplyT(func(v *ServiceGitHubDetails) *ServiceGitHubAppVerificationDetails {
+		if v == nil {
+			return nil
+		}
+		return v.AppVerification
+	}).(ServiceGitHubAppVerificationDetailsPtrOutput)
+}
+
+func (o ServiceGitHubDetailsPtrOutput) DirectAccess() ServiceGitHubPatDetailsPtrOutput {
+	return o.ApplyT(func(v *ServiceGitHubDetails) *ServiceGitHubPatDetails {
+		if v == nil {
+			return nil
+		}
+		return v.DirectAccess
+	}).(ServiceGitHubPatDetailsPtrOutput)
+}
+
+// The token is stored and used as the long-lived credential for GitHub API access
+type ServiceGitHubPatDetails struct {
+	// GitHub organization to scope the service to. The token must be an active member of the organization and only that organization's repositories are accessible. Omit to register the token's own user account
+	OrganizationName *string `pulumi:"organizationName"`
+	// GitHub instance URL. Omit for github.com. Provide the instance host for GitHub Enterprise Server or GitHub Enterprise Cloud with data residency (e.g. https://github.example.com)
+	TargetUrl *string `pulumi:"targetUrl"`
+	// GitHub personal access token (PAT) value. Accepts classic PATs (ghp_...), fine-grained PATs (github_pat_...), and GitHub Enterprise Server token formats
+	TokenValue string `pulumi:"tokenValue"`
+}
+
+// ServiceGitHubPatDetailsInput is an input type that accepts ServiceGitHubPatDetailsArgs and ServiceGitHubPatDetailsOutput values.
+// You can construct a concrete instance of `ServiceGitHubPatDetailsInput` via:
+//
+//	ServiceGitHubPatDetailsArgs{...}
+type ServiceGitHubPatDetailsInput interface {
+	pulumi.Input
+
+	ToServiceGitHubPatDetailsOutput() ServiceGitHubPatDetailsOutput
+	ToServiceGitHubPatDetailsOutputWithContext(context.Context) ServiceGitHubPatDetailsOutput
+}
+
+// The token is stored and used as the long-lived credential for GitHub API access
+type ServiceGitHubPatDetailsArgs struct {
+	// GitHub organization to scope the service to. The token must be an active member of the organization and only that organization's repositories are accessible. Omit to register the token's own user account
+	OrganizationName pulumi.StringPtrInput `pulumi:"organizationName"`
+	// GitHub instance URL. Omit for github.com. Provide the instance host for GitHub Enterprise Server or GitHub Enterprise Cloud with data residency (e.g. https://github.example.com)
+	TargetUrl pulumi.StringPtrInput `pulumi:"targetUrl"`
+	// GitHub personal access token (PAT) value. Accepts classic PATs (ghp_...), fine-grained PATs (github_pat_...), and GitHub Enterprise Server token formats
+	TokenValue pulumi.StringInput `pulumi:"tokenValue"`
+}
+
+func (ServiceGitHubPatDetailsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceGitHubPatDetails)(nil)).Elem()
+}
+
+func (i ServiceGitHubPatDetailsArgs) ToServiceGitHubPatDetailsOutput() ServiceGitHubPatDetailsOutput {
+	return i.ToServiceGitHubPatDetailsOutputWithContext(context.Background())
+}
+
+func (i ServiceGitHubPatDetailsArgs) ToServiceGitHubPatDetailsOutputWithContext(ctx context.Context) ServiceGitHubPatDetailsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceGitHubPatDetailsOutput)
+}
+
+func (i ServiceGitHubPatDetailsArgs) ToServiceGitHubPatDetailsPtrOutput() ServiceGitHubPatDetailsPtrOutput {
+	return i.ToServiceGitHubPatDetailsPtrOutputWithContext(context.Background())
+}
+
+func (i ServiceGitHubPatDetailsArgs) ToServiceGitHubPatDetailsPtrOutputWithContext(ctx context.Context) ServiceGitHubPatDetailsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceGitHubPatDetailsOutput).ToServiceGitHubPatDetailsPtrOutputWithContext(ctx)
+}
+
+// ServiceGitHubPatDetailsPtrInput is an input type that accepts ServiceGitHubPatDetailsArgs, ServiceGitHubPatDetailsPtr and ServiceGitHubPatDetailsPtrOutput values.
+// You can construct a concrete instance of `ServiceGitHubPatDetailsPtrInput` via:
+//
+//	        ServiceGitHubPatDetailsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ServiceGitHubPatDetailsPtrInput interface {
+	pulumi.Input
+
+	ToServiceGitHubPatDetailsPtrOutput() ServiceGitHubPatDetailsPtrOutput
+	ToServiceGitHubPatDetailsPtrOutputWithContext(context.Context) ServiceGitHubPatDetailsPtrOutput
+}
+
+type serviceGitHubPatDetailsPtrType ServiceGitHubPatDetailsArgs
+
+func ServiceGitHubPatDetailsPtr(v *ServiceGitHubPatDetailsArgs) ServiceGitHubPatDetailsPtrInput {
+	return (*serviceGitHubPatDetailsPtrType)(v)
+}
+
+func (*serviceGitHubPatDetailsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceGitHubPatDetails)(nil)).Elem()
+}
+
+func (i *serviceGitHubPatDetailsPtrType) ToServiceGitHubPatDetailsPtrOutput() ServiceGitHubPatDetailsPtrOutput {
+	return i.ToServiceGitHubPatDetailsPtrOutputWithContext(context.Background())
+}
+
+func (i *serviceGitHubPatDetailsPtrType) ToServiceGitHubPatDetailsPtrOutputWithContext(ctx context.Context) ServiceGitHubPatDetailsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceGitHubPatDetailsPtrOutput)
+}
+
+// The token is stored and used as the long-lived credential for GitHub API access
+type ServiceGitHubPatDetailsOutput struct{ *pulumi.OutputState }
+
+func (ServiceGitHubPatDetailsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceGitHubPatDetails)(nil)).Elem()
+}
+
+func (o ServiceGitHubPatDetailsOutput) ToServiceGitHubPatDetailsOutput() ServiceGitHubPatDetailsOutput {
+	return o
+}
+
+func (o ServiceGitHubPatDetailsOutput) ToServiceGitHubPatDetailsOutputWithContext(ctx context.Context) ServiceGitHubPatDetailsOutput {
+	return o
+}
+
+func (o ServiceGitHubPatDetailsOutput) ToServiceGitHubPatDetailsPtrOutput() ServiceGitHubPatDetailsPtrOutput {
+	return o.ToServiceGitHubPatDetailsPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceGitHubPatDetailsOutput) ToServiceGitHubPatDetailsPtrOutputWithContext(ctx context.Context) ServiceGitHubPatDetailsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceGitHubPatDetails) *ServiceGitHubPatDetails {
+		return &v
+	}).(ServiceGitHubPatDetailsPtrOutput)
+}
+
+// GitHub organization to scope the service to. The token must be an active member of the organization and only that organization's repositories are accessible. Omit to register the token's own user account
+func (o ServiceGitHubPatDetailsOutput) OrganizationName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceGitHubPatDetails) *string { return v.OrganizationName }).(pulumi.StringPtrOutput)
+}
+
+// GitHub instance URL. Omit for github.com. Provide the instance host for GitHub Enterprise Server or GitHub Enterprise Cloud with data residency (e.g. https://github.example.com)
+func (o ServiceGitHubPatDetailsOutput) TargetUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceGitHubPatDetails) *string { return v.TargetUrl }).(pulumi.StringPtrOutput)
+}
+
+// GitHub personal access token (PAT) value. Accepts classic PATs (ghp_...), fine-grained PATs (github_pat_...), and GitHub Enterprise Server token formats
+func (o ServiceGitHubPatDetailsOutput) TokenValue() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceGitHubPatDetails) string { return v.TokenValue }).(pulumi.StringOutput)
+}
+
+type ServiceGitHubPatDetailsPtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceGitHubPatDetailsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceGitHubPatDetails)(nil)).Elem()
+}
+
+func (o ServiceGitHubPatDetailsPtrOutput) ToServiceGitHubPatDetailsPtrOutput() ServiceGitHubPatDetailsPtrOutput {
+	return o
+}
+
+func (o ServiceGitHubPatDetailsPtrOutput) ToServiceGitHubPatDetailsPtrOutputWithContext(ctx context.Context) ServiceGitHubPatDetailsPtrOutput {
+	return o
+}
+
+func (o ServiceGitHubPatDetailsPtrOutput) Elem() ServiceGitHubPatDetailsOutput {
+	return o.ApplyT(func(v *ServiceGitHubPatDetails) ServiceGitHubPatDetails {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceGitHubPatDetails
+		return ret
+	}).(ServiceGitHubPatDetailsOutput)
+}
+
+// GitHub organization to scope the service to. The token must be an active member of the organization and only that organization's repositories are accessible. Omit to register the token's own user account
+func (o ServiceGitHubPatDetailsPtrOutput) OrganizationName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceGitHubPatDetails) *string {
+		if v == nil {
+			return nil
+		}
+		return v.OrganizationName
+	}).(pulumi.StringPtrOutput)
+}
+
+// GitHub instance URL. Omit for github.com. Provide the instance host for GitHub Enterprise Server or GitHub Enterprise Cloud with data residency (e.g. https://github.example.com)
+func (o ServiceGitHubPatDetailsPtrOutput) TargetUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceGitHubPatDetails) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TargetUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+// GitHub personal access token (PAT) value. Accepts classic PATs (ghp_...), fine-grained PATs (github_pat_...), and GitHub Enterprise Server token formats
+func (o ServiceGitHubPatDetailsPtrOutput) TokenValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceGitHubPatDetails) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TokenValue
+	}).(pulumi.StringPtrOutput)
 }
 
 // GitLab service configuration
@@ -9620,6 +10709,159 @@ func (o ServiceRegisteredDynatraceDetailsPtrOutput) AccountUrn() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
+// GitHub service details returned after registration
+type ServiceRegisteredGitHubServiceDetails struct {
+	// The GitHub App variant the service was registered with
+	AppVariant *ServiceRegisteredGitHubServiceDetailsAppVariant `pulumi:"appVariant"`
+	// How the service authenticates against the GitHub API: app after AppVerification, pat after DirectAccess
+	AuthMode *ServiceRegisteredGitHubServiceDetailsAuthMode `pulumi:"authMode"`
+	// The GitHub hosting type the service was registered with
+	HostingType *ServiceRegisteredGitHubServiceDetailsHostingType `pulumi:"hostingType"`
+	// The GitHub repository owner name derived from the token
+	Owner string `pulumi:"owner"`
+	// Type of repository owner
+	OwnerType ServiceRegisteredGitHubServiceDetailsOwnerType `pulumi:"ownerType"`
+	// GitHub instance URL (absent for github.com)
+	TargetUrl *string `pulumi:"targetUrl"`
+}
+
+// GitHub service details returned after registration
+type ServiceRegisteredGitHubServiceDetailsOutput struct{ *pulumi.OutputState }
+
+func (ServiceRegisteredGitHubServiceDetailsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceRegisteredGitHubServiceDetails)(nil)).Elem()
+}
+
+func (o ServiceRegisteredGitHubServiceDetailsOutput) ToServiceRegisteredGitHubServiceDetailsOutput() ServiceRegisteredGitHubServiceDetailsOutput {
+	return o
+}
+
+func (o ServiceRegisteredGitHubServiceDetailsOutput) ToServiceRegisteredGitHubServiceDetailsOutputWithContext(ctx context.Context) ServiceRegisteredGitHubServiceDetailsOutput {
+	return o
+}
+
+// The GitHub App variant the service was registered with
+func (o ServiceRegisteredGitHubServiceDetailsOutput) AppVariant() ServiceRegisteredGitHubServiceDetailsAppVariantPtrOutput {
+	return o.ApplyT(func(v ServiceRegisteredGitHubServiceDetails) *ServiceRegisteredGitHubServiceDetailsAppVariant {
+		return v.AppVariant
+	}).(ServiceRegisteredGitHubServiceDetailsAppVariantPtrOutput)
+}
+
+// How the service authenticates against the GitHub API: app after AppVerification, pat after DirectAccess
+func (o ServiceRegisteredGitHubServiceDetailsOutput) AuthMode() ServiceRegisteredGitHubServiceDetailsAuthModePtrOutput {
+	return o.ApplyT(func(v ServiceRegisteredGitHubServiceDetails) *ServiceRegisteredGitHubServiceDetailsAuthMode {
+		return v.AuthMode
+	}).(ServiceRegisteredGitHubServiceDetailsAuthModePtrOutput)
+}
+
+// The GitHub hosting type the service was registered with
+func (o ServiceRegisteredGitHubServiceDetailsOutput) HostingType() ServiceRegisteredGitHubServiceDetailsHostingTypePtrOutput {
+	return o.ApplyT(func(v ServiceRegisteredGitHubServiceDetails) *ServiceRegisteredGitHubServiceDetailsHostingType {
+		return v.HostingType
+	}).(ServiceRegisteredGitHubServiceDetailsHostingTypePtrOutput)
+}
+
+// The GitHub repository owner name derived from the token
+func (o ServiceRegisteredGitHubServiceDetailsOutput) Owner() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceRegisteredGitHubServiceDetails) string { return v.Owner }).(pulumi.StringOutput)
+}
+
+// Type of repository owner
+func (o ServiceRegisteredGitHubServiceDetailsOutput) OwnerType() ServiceRegisteredGitHubServiceDetailsOwnerTypeOutput {
+	return o.ApplyT(func(v ServiceRegisteredGitHubServiceDetails) ServiceRegisteredGitHubServiceDetailsOwnerType {
+		return v.OwnerType
+	}).(ServiceRegisteredGitHubServiceDetailsOwnerTypeOutput)
+}
+
+// GitHub instance URL (absent for github.com)
+func (o ServiceRegisteredGitHubServiceDetailsOutput) TargetUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceRegisteredGitHubServiceDetails) *string { return v.TargetUrl }).(pulumi.StringPtrOutput)
+}
+
+type ServiceRegisteredGitHubServiceDetailsPtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceRegisteredGitHubServiceDetailsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceRegisteredGitHubServiceDetails)(nil)).Elem()
+}
+
+func (o ServiceRegisteredGitHubServiceDetailsPtrOutput) ToServiceRegisteredGitHubServiceDetailsPtrOutput() ServiceRegisteredGitHubServiceDetailsPtrOutput {
+	return o
+}
+
+func (o ServiceRegisteredGitHubServiceDetailsPtrOutput) ToServiceRegisteredGitHubServiceDetailsPtrOutputWithContext(ctx context.Context) ServiceRegisteredGitHubServiceDetailsPtrOutput {
+	return o
+}
+
+func (o ServiceRegisteredGitHubServiceDetailsPtrOutput) Elem() ServiceRegisteredGitHubServiceDetailsOutput {
+	return o.ApplyT(func(v *ServiceRegisteredGitHubServiceDetails) ServiceRegisteredGitHubServiceDetails {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceRegisteredGitHubServiceDetails
+		return ret
+	}).(ServiceRegisteredGitHubServiceDetailsOutput)
+}
+
+// The GitHub App variant the service was registered with
+func (o ServiceRegisteredGitHubServiceDetailsPtrOutput) AppVariant() ServiceRegisteredGitHubServiceDetailsAppVariantPtrOutput {
+	return o.ApplyT(func(v *ServiceRegisteredGitHubServiceDetails) *ServiceRegisteredGitHubServiceDetailsAppVariant {
+		if v == nil {
+			return nil
+		}
+		return v.AppVariant
+	}).(ServiceRegisteredGitHubServiceDetailsAppVariantPtrOutput)
+}
+
+// How the service authenticates against the GitHub API: app after AppVerification, pat after DirectAccess
+func (o ServiceRegisteredGitHubServiceDetailsPtrOutput) AuthMode() ServiceRegisteredGitHubServiceDetailsAuthModePtrOutput {
+	return o.ApplyT(func(v *ServiceRegisteredGitHubServiceDetails) *ServiceRegisteredGitHubServiceDetailsAuthMode {
+		if v == nil {
+			return nil
+		}
+		return v.AuthMode
+	}).(ServiceRegisteredGitHubServiceDetailsAuthModePtrOutput)
+}
+
+// The GitHub hosting type the service was registered with
+func (o ServiceRegisteredGitHubServiceDetailsPtrOutput) HostingType() ServiceRegisteredGitHubServiceDetailsHostingTypePtrOutput {
+	return o.ApplyT(func(v *ServiceRegisteredGitHubServiceDetails) *ServiceRegisteredGitHubServiceDetailsHostingType {
+		if v == nil {
+			return nil
+		}
+		return v.HostingType
+	}).(ServiceRegisteredGitHubServiceDetailsHostingTypePtrOutput)
+}
+
+// The GitHub repository owner name derived from the token
+func (o ServiceRegisteredGitHubServiceDetailsPtrOutput) Owner() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceRegisteredGitHubServiceDetails) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Owner
+	}).(pulumi.StringPtrOutput)
+}
+
+// Type of repository owner
+func (o ServiceRegisteredGitHubServiceDetailsPtrOutput) OwnerType() ServiceRegisteredGitHubServiceDetailsOwnerTypePtrOutput {
+	return o.ApplyT(func(v *ServiceRegisteredGitHubServiceDetails) *ServiceRegisteredGitHubServiceDetailsOwnerType {
+		if v == nil {
+			return nil
+		}
+		return &v.OwnerType
+	}).(ServiceRegisteredGitHubServiceDetailsOwnerTypePtrOutput)
+}
+
+// GitHub instance URL (absent for github.com)
+func (o ServiceRegisteredGitHubServiceDetailsPtrOutput) TargetUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceRegisteredGitHubServiceDetails) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TargetUrl
+	}).(pulumi.StringPtrOutput)
+}
+
 // GitLab service details returned after registration
 type ServiceRegisteredGitLabServiceDetails struct {
 	// Optional GitLab group ID for group-level access tokens
@@ -10472,6 +11714,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentSpaceIamAuthConfigurationPtrInput)(nil)).Elem(), AgentSpaceIamAuthConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentSpaceIdcAuthConfigurationInput)(nil)).Elem(), AgentSpaceIdcAuthConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentSpaceIdcAuthConfigurationPtrInput)(nil)).Elem(), AgentSpaceIdcAuthConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentSpaceIdpAuthConfigurationInput)(nil)).Elem(), AgentSpaceIdpAuthConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentSpaceIdpAuthConfigurationPtrInput)(nil)).Elem(), AgentSpaceIdpAuthConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentSpaceOperatorAppInput)(nil)).Elem(), AgentSpaceOperatorAppArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentSpaceOperatorAppPtrInput)(nil)).Elem(), AgentSpaceOperatorAppArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentSpacePreferencesInput)(nil)).Elem(), AgentSpacePreferencesArgs{})
@@ -10511,6 +11755,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AssociationServiceConfigurationInput)(nil)).Elem(), AssociationServiceConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AssociationServiceNowConfigurationInput)(nil)).Elem(), AssociationServiceNowConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AssociationServiceNowConfigurationPtrInput)(nil)).Elem(), AssociationServiceNowConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AssociationSlackBidirectionalConfigurationInput)(nil)).Elem(), AssociationSlackBidirectionalConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AssociationSlackBidirectionalConfigurationPtrInput)(nil)).Elem(), AssociationSlackBidirectionalConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AssociationSlackChannelInput)(nil)).Elem(), AssociationSlackChannelArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AssociationSlackChannelPtrInput)(nil)).Elem(), AssociationSlackChannelArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AssociationSlackConfigurationInput)(nil)).Elem(), AssociationSlackConfigurationArgs{})
@@ -10536,6 +11782,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceDynatraceAuthorizationConfigPtrInput)(nil)).Elem(), ServiceDynatraceAuthorizationConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceDynatraceServiceDetailsInput)(nil)).Elem(), ServiceDynatraceServiceDetailsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceDynatraceServiceDetailsPtrInput)(nil)).Elem(), ServiceDynatraceServiceDetailsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceGitHubAppVerificationDetailsInput)(nil)).Elem(), ServiceGitHubAppVerificationDetailsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceGitHubAppVerificationDetailsPtrInput)(nil)).Elem(), ServiceGitHubAppVerificationDetailsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceGitHubDetailsInput)(nil)).Elem(), ServiceGitHubDetailsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceGitHubDetailsPtrInput)(nil)).Elem(), ServiceGitHubDetailsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceGitHubPatDetailsInput)(nil)).Elem(), ServiceGitHubPatDetailsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceGitHubPatDetailsPtrInput)(nil)).Elem(), ServiceGitHubPatDetailsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceGitLabDetailsInput)(nil)).Elem(), ServiceGitLabDetailsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceGitLabDetailsPtrInput)(nil)).Elem(), ServiceGitLabDetailsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceMcpServerAuthorizationConfigInput)(nil)).Elem(), ServiceMcpServerAuthorizationConfigArgs{})
@@ -10578,6 +11830,8 @@ func init() {
 	pulumi.RegisterOutputType(AgentSpaceIamAuthConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(AgentSpaceIdcAuthConfigurationOutput{})
 	pulumi.RegisterOutputType(AgentSpaceIdcAuthConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(AgentSpaceIdpAuthConfigurationOutput{})
+	pulumi.RegisterOutputType(AgentSpaceIdpAuthConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(AgentSpaceOperatorAppOutput{})
 	pulumi.RegisterOutputType(AgentSpaceOperatorAppPtrOutput{})
 	pulumi.RegisterOutputType(AgentSpacePreferencesOutput{})
@@ -10618,6 +11872,8 @@ func init() {
 	pulumi.RegisterOutputType(AssociationServiceConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(AssociationServiceNowConfigurationOutput{})
 	pulumi.RegisterOutputType(AssociationServiceNowConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(AssociationSlackBidirectionalConfigurationOutput{})
+	pulumi.RegisterOutputType(AssociationSlackBidirectionalConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(AssociationSlackChannelOutput{})
 	pulumi.RegisterOutputType(AssociationSlackChannelPtrOutput{})
 	pulumi.RegisterOutputType(AssociationSlackConfigurationOutput{})
@@ -10645,6 +11901,12 @@ func init() {
 	pulumi.RegisterOutputType(ServiceDynatraceAuthorizationConfigPtrOutput{})
 	pulumi.RegisterOutputType(ServiceDynatraceServiceDetailsOutput{})
 	pulumi.RegisterOutputType(ServiceDynatraceServiceDetailsPtrOutput{})
+	pulumi.RegisterOutputType(ServiceGitHubAppVerificationDetailsOutput{})
+	pulumi.RegisterOutputType(ServiceGitHubAppVerificationDetailsPtrOutput{})
+	pulumi.RegisterOutputType(ServiceGitHubDetailsOutput{})
+	pulumi.RegisterOutputType(ServiceGitHubDetailsPtrOutput{})
+	pulumi.RegisterOutputType(ServiceGitHubPatDetailsOutput{})
+	pulumi.RegisterOutputType(ServiceGitHubPatDetailsPtrOutput{})
 	pulumi.RegisterOutputType(ServiceGitLabDetailsOutput{})
 	pulumi.RegisterOutputType(ServiceGitLabDetailsPtrOutput{})
 	pulumi.RegisterOutputType(ServiceMcpServerAuthorizationConfigOutput{})
@@ -10685,6 +11947,8 @@ func init() {
 	pulumi.RegisterOutputType(ServiceRegisteredAzureIdentityDetailsPtrOutput{})
 	pulumi.RegisterOutputType(ServiceRegisteredDynatraceDetailsOutput{})
 	pulumi.RegisterOutputType(ServiceRegisteredDynatraceDetailsPtrOutput{})
+	pulumi.RegisterOutputType(ServiceRegisteredGitHubServiceDetailsOutput{})
+	pulumi.RegisterOutputType(ServiceRegisteredGitHubServiceDetailsPtrOutput{})
 	pulumi.RegisterOutputType(ServiceRegisteredGitLabServiceDetailsOutput{})
 	pulumi.RegisterOutputType(ServiceRegisteredGitLabServiceDetailsPtrOutput{})
 	pulumi.RegisterOutputType(ServiceRegisteredMcpServerDetailsOutput{})

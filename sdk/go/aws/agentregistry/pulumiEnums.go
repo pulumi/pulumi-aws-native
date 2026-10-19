@@ -1570,6 +1570,178 @@ func (o RegistryRecordStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.
 	}).(pulumi.StringPtrOutput)
 }
 
+// The record type that this schema override applies to.
+type RegistryRecordTypeSchemaOverrideRecordType string
+
+const (
+	RegistryRecordTypeSchemaOverrideRecordTypeMcp     = RegistryRecordTypeSchemaOverrideRecordType("MCP")
+	RegistryRecordTypeSchemaOverrideRecordTypeAgent   = RegistryRecordTypeSchemaOverrideRecordType("AGENT")
+	RegistryRecordTypeSchemaOverrideRecordTypeSkill   = RegistryRecordTypeSchemaOverrideRecordType("SKILL")
+	RegistryRecordTypeSchemaOverrideRecordTypeGateway = RegistryRecordTypeSchemaOverrideRecordType("GATEWAY")
+	RegistryRecordTypeSchemaOverrideRecordTypeCustom  = RegistryRecordTypeSchemaOverrideRecordType("CUSTOM")
+)
+
+func (RegistryRecordTypeSchemaOverrideRecordType) ElementType() reflect.Type {
+	return reflect.TypeOf((*RegistryRecordTypeSchemaOverrideRecordType)(nil)).Elem()
+}
+
+func (e RegistryRecordTypeSchemaOverrideRecordType) ToRegistryRecordTypeSchemaOverrideRecordTypeOutput() RegistryRecordTypeSchemaOverrideRecordTypeOutput {
+	return pulumi.ToOutput(e).(RegistryRecordTypeSchemaOverrideRecordTypeOutput)
+}
+
+func (e RegistryRecordTypeSchemaOverrideRecordType) ToRegistryRecordTypeSchemaOverrideRecordTypeOutputWithContext(ctx context.Context) RegistryRecordTypeSchemaOverrideRecordTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(RegistryRecordTypeSchemaOverrideRecordTypeOutput)
+}
+
+func (e RegistryRecordTypeSchemaOverrideRecordType) ToRegistryRecordTypeSchemaOverrideRecordTypePtrOutput() RegistryRecordTypeSchemaOverrideRecordTypePtrOutput {
+	return e.ToRegistryRecordTypeSchemaOverrideRecordTypePtrOutputWithContext(context.Background())
+}
+
+func (e RegistryRecordTypeSchemaOverrideRecordType) ToRegistryRecordTypeSchemaOverrideRecordTypePtrOutputWithContext(ctx context.Context) RegistryRecordTypeSchemaOverrideRecordTypePtrOutput {
+	return RegistryRecordTypeSchemaOverrideRecordType(e).ToRegistryRecordTypeSchemaOverrideRecordTypeOutputWithContext(ctx).ToRegistryRecordTypeSchemaOverrideRecordTypePtrOutputWithContext(ctx)
+}
+
+func (e RegistryRecordTypeSchemaOverrideRecordType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e RegistryRecordTypeSchemaOverrideRecordType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e RegistryRecordTypeSchemaOverrideRecordType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e RegistryRecordTypeSchemaOverrideRecordType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type RegistryRecordTypeSchemaOverrideRecordTypeOutput struct{ *pulumi.OutputState }
+
+func (RegistryRecordTypeSchemaOverrideRecordTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RegistryRecordTypeSchemaOverrideRecordType)(nil)).Elem()
+}
+
+func (o RegistryRecordTypeSchemaOverrideRecordTypeOutput) ToRegistryRecordTypeSchemaOverrideRecordTypeOutput() RegistryRecordTypeSchemaOverrideRecordTypeOutput {
+	return o
+}
+
+func (o RegistryRecordTypeSchemaOverrideRecordTypeOutput) ToRegistryRecordTypeSchemaOverrideRecordTypeOutputWithContext(ctx context.Context) RegistryRecordTypeSchemaOverrideRecordTypeOutput {
+	return o
+}
+
+func (o RegistryRecordTypeSchemaOverrideRecordTypeOutput) ToRegistryRecordTypeSchemaOverrideRecordTypePtrOutput() RegistryRecordTypeSchemaOverrideRecordTypePtrOutput {
+	return o.ToRegistryRecordTypeSchemaOverrideRecordTypePtrOutputWithContext(context.Background())
+}
+
+func (o RegistryRecordTypeSchemaOverrideRecordTypeOutput) ToRegistryRecordTypeSchemaOverrideRecordTypePtrOutputWithContext(ctx context.Context) RegistryRecordTypeSchemaOverrideRecordTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RegistryRecordTypeSchemaOverrideRecordType) *RegistryRecordTypeSchemaOverrideRecordType {
+		return &v
+	}).(RegistryRecordTypeSchemaOverrideRecordTypePtrOutput)
+}
+
+func (o RegistryRecordTypeSchemaOverrideRecordTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o RegistryRecordTypeSchemaOverrideRecordTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RegistryRecordTypeSchemaOverrideRecordType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o RegistryRecordTypeSchemaOverrideRecordTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RegistryRecordTypeSchemaOverrideRecordTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RegistryRecordTypeSchemaOverrideRecordType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type RegistryRecordTypeSchemaOverrideRecordTypePtrOutput struct{ *pulumi.OutputState }
+
+func (RegistryRecordTypeSchemaOverrideRecordTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RegistryRecordTypeSchemaOverrideRecordType)(nil)).Elem()
+}
+
+func (o RegistryRecordTypeSchemaOverrideRecordTypePtrOutput) ToRegistryRecordTypeSchemaOverrideRecordTypePtrOutput() RegistryRecordTypeSchemaOverrideRecordTypePtrOutput {
+	return o
+}
+
+func (o RegistryRecordTypeSchemaOverrideRecordTypePtrOutput) ToRegistryRecordTypeSchemaOverrideRecordTypePtrOutputWithContext(ctx context.Context) RegistryRecordTypeSchemaOverrideRecordTypePtrOutput {
+	return o
+}
+
+func (o RegistryRecordTypeSchemaOverrideRecordTypePtrOutput) Elem() RegistryRecordTypeSchemaOverrideRecordTypeOutput {
+	return o.ApplyT(func(v *RegistryRecordTypeSchemaOverrideRecordType) RegistryRecordTypeSchemaOverrideRecordType {
+		if v != nil {
+			return *v
+		}
+		var ret RegistryRecordTypeSchemaOverrideRecordType
+		return ret
+	}).(RegistryRecordTypeSchemaOverrideRecordTypeOutput)
+}
+
+func (o RegistryRecordTypeSchemaOverrideRecordTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RegistryRecordTypeSchemaOverrideRecordTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *RegistryRecordTypeSchemaOverrideRecordType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// RegistryRecordTypeSchemaOverrideRecordTypeInput is an input type that accepts values of the RegistryRecordTypeSchemaOverrideRecordType enum
+// A concrete instance of `RegistryRecordTypeSchemaOverrideRecordTypeInput` can be one of the following:
+//
+//	RegistryRecordTypeSchemaOverrideRecordTypeMcp
+//	RegistryRecordTypeSchemaOverrideRecordTypeAgent
+//	RegistryRecordTypeSchemaOverrideRecordTypeSkill
+//	RegistryRecordTypeSchemaOverrideRecordTypeGateway
+//	RegistryRecordTypeSchemaOverrideRecordTypeCustom
+type RegistryRecordTypeSchemaOverrideRecordTypeInput interface {
+	pulumi.Input
+
+	ToRegistryRecordTypeSchemaOverrideRecordTypeOutput() RegistryRecordTypeSchemaOverrideRecordTypeOutput
+	ToRegistryRecordTypeSchemaOverrideRecordTypeOutputWithContext(context.Context) RegistryRecordTypeSchemaOverrideRecordTypeOutput
+}
+
+var registryRecordTypeSchemaOverrideRecordTypePtrType = reflect.TypeOf((**RegistryRecordTypeSchemaOverrideRecordType)(nil)).Elem()
+
+type RegistryRecordTypeSchemaOverrideRecordTypePtrInput interface {
+	pulumi.Input
+
+	ToRegistryRecordTypeSchemaOverrideRecordTypePtrOutput() RegistryRecordTypeSchemaOverrideRecordTypePtrOutput
+	ToRegistryRecordTypeSchemaOverrideRecordTypePtrOutputWithContext(context.Context) RegistryRecordTypeSchemaOverrideRecordTypePtrOutput
+}
+
+type registryRecordTypeSchemaOverrideRecordTypePtr string
+
+func RegistryRecordTypeSchemaOverrideRecordTypePtr(v string) RegistryRecordTypeSchemaOverrideRecordTypePtrInput {
+	return (*registryRecordTypeSchemaOverrideRecordTypePtr)(&v)
+}
+
+func (*registryRecordTypeSchemaOverrideRecordTypePtr) ElementType() reflect.Type {
+	return registryRecordTypeSchemaOverrideRecordTypePtrType
+}
+
+func (in *registryRecordTypeSchemaOverrideRecordTypePtr) ToRegistryRecordTypeSchemaOverrideRecordTypePtrOutput() RegistryRecordTypeSchemaOverrideRecordTypePtrOutput {
+	return pulumi.ToOutput(in).(RegistryRecordTypeSchemaOverrideRecordTypePtrOutput)
+}
+
+func (in *registryRecordTypeSchemaOverrideRecordTypePtr) ToRegistryRecordTypeSchemaOverrideRecordTypePtrOutputWithContext(ctx context.Context) RegistryRecordTypeSchemaOverrideRecordTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(RegistryRecordTypeSchemaOverrideRecordTypePtrOutput)
+}
+
 // The status of the registry.
 type RegistryStatus string
 
@@ -1684,6 +1856,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RegistryRecordOAuthCredentialProviderGrantTypePtrInput)(nil)).Elem(), RegistryRecordOAuthCredentialProviderGrantType("CLIENT_CREDENTIALS"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RegistryRecordRecordTypeInput)(nil)).Elem(), RegistryRecordRecordType("MCP"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RegistryRecordRecordTypePtrInput)(nil)).Elem(), RegistryRecordRecordType("MCP"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RegistryRecordTypeSchemaOverrideRecordTypeInput)(nil)).Elem(), RegistryRecordTypeSchemaOverrideRecordType("MCP"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RegistryRecordTypeSchemaOverrideRecordTypePtrInput)(nil)).Elem(), RegistryRecordTypeSchemaOverrideRecordType("MCP"))
 	pulumi.RegisterOutputType(RegistryAuthorizerTypeOutput{})
 	pulumi.RegisterOutputType(RegistryAuthorizerTypePtrOutput{})
 	pulumi.RegisterOutputType(RegistryAuthorizingClaimMatchValueTypeClaimMatchOperatorOutput{})
@@ -1705,6 +1879,8 @@ func init() {
 	pulumi.RegisterOutputType(RegistryRecordRecordTypePtrOutput{})
 	pulumi.RegisterOutputType(RegistryRecordStatusOutput{})
 	pulumi.RegisterOutputType(RegistryRecordStatusPtrOutput{})
+	pulumi.RegisterOutputType(RegistryRecordTypeSchemaOverrideRecordTypeOutput{})
+	pulumi.RegisterOutputType(RegistryRecordTypeSchemaOverrideRecordTypePtrOutput{})
 	pulumi.RegisterOutputType(RegistryStatusOutput{})
 	pulumi.RegisterOutputType(RegistryStatusPtrOutput{})
 }

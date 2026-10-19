@@ -5,6 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { CertificateAssociationArgs } from "./certificateAssociation";
+export type CertificateAssociation = import("./certificateAssociation").CertificateAssociation;
+export const CertificateAssociation: typeof import("./certificateAssociation").CertificateAssociation = null as any;
+utilities.lazyLoad(exports, ["CertificateAssociation"], () => require("./certificateAssociation"));
+
 export { GetJobTemplateArgs, GetJobTemplateResult, GetJobTemplateOutputArgs } from "./getJobTemplate";
 export const getJobTemplate: typeof import("./getJobTemplate").getJobTemplate = null as any;
 export const getJobTemplateOutput: typeof import("./getJobTemplate").getJobTemplateOutput = null as any;
@@ -40,6 +45,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws-native:mediaconvert:CertificateAssociation":
+                return new CertificateAssociation(name, <any>undefined, { urn })
             case "aws-native:mediaconvert:JobTemplate":
                 return new JobTemplate(name, <any>undefined, { urn })
             case "aws-native:mediaconvert:Preset":

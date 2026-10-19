@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource Schema for AWS::ServiceCatalog::CloudFormationProvisionedProduct
+// Resource Type definition for AWS::ServiceCatalog::CloudFormationProvisionedProduct
 type CloudFormationProvisionedProduct struct {
 	pulumi.CustomResourceState
 

@@ -15,6 +15,11 @@ export const getConfigurationSet: typeof import("./getConfigurationSet").getConf
 export const getConfigurationSetOutput: typeof import("./getConfigurationSet").getConfigurationSetOutput = null as any;
 utilities.lazyLoad(exports, ["getConfigurationSet","getConfigurationSetOutput"], () => require("./getConfigurationSet"));
 
+export { GetNotifyConfigurationArgs, GetNotifyConfigurationResult, GetNotifyConfigurationOutputArgs } from "./getNotifyConfiguration";
+export const getNotifyConfiguration: typeof import("./getNotifyConfiguration").getNotifyConfiguration = null as any;
+export const getNotifyConfigurationOutput: typeof import("./getNotifyConfiguration").getNotifyConfigurationOutput = null as any;
+utilities.lazyLoad(exports, ["getNotifyConfiguration","getNotifyConfigurationOutput"], () => require("./getNotifyConfiguration"));
+
 export { GetOptOutListArgs, GetOptOutListResult, GetOptOutListOutputArgs } from "./getOptOutList";
 export const getOptOutList: typeof import("./getOptOutList").getOptOutList = null as any;
 export const getOptOutListOutput: typeof import("./getOptOutList").getOptOutListOutput = null as any;
@@ -34,6 +39,11 @@ export { GetProtectConfigurationArgs, GetProtectConfigurationResult, GetProtectC
 export const getProtectConfiguration: typeof import("./getProtectConfiguration").getProtectConfiguration = null as any;
 export const getProtectConfigurationOutput: typeof import("./getProtectConfiguration").getProtectConfigurationOutput = null as any;
 utilities.lazyLoad(exports, ["getProtectConfiguration","getProtectConfigurationOutput"], () => require("./getProtectConfiguration"));
+
+export { GetRcsAgentArgs, GetRcsAgentResult, GetRcsAgentOutputArgs } from "./getRcsAgent";
+export const getRcsAgent: typeof import("./getRcsAgent").getRcsAgent = null as any;
+export const getRcsAgentOutput: typeof import("./getRcsAgent").getRcsAgentOutput = null as any;
+utilities.lazyLoad(exports, ["getRcsAgent","getRcsAgentOutput"], () => require("./getRcsAgent"));
 
 export { GetRegistrationArgs, GetRegistrationResult, GetRegistrationOutputArgs } from "./getRegistration";
 export const getRegistration: typeof import("./getRegistration").getRegistration = null as any;
@@ -60,6 +70,11 @@ export const getVerifiedDestinationNumber: typeof import("./getVerifiedDestinati
 export const getVerifiedDestinationNumberOutput: typeof import("./getVerifiedDestinationNumber").getVerifiedDestinationNumberOutput = null as any;
 utilities.lazyLoad(exports, ["getVerifiedDestinationNumber","getVerifiedDestinationNumberOutput"], () => require("./getVerifiedDestinationNumber"));
 
+export { NotifyConfigurationArgs } from "./notifyConfiguration";
+export type NotifyConfiguration = import("./notifyConfiguration").NotifyConfiguration;
+export const NotifyConfiguration: typeof import("./notifyConfiguration").NotifyConfiguration = null as any;
+utilities.lazyLoad(exports, ["NotifyConfiguration"], () => require("./notifyConfiguration"));
+
 export { OptOutListArgs } from "./optOutList";
 export type OptOutList = import("./optOutList").OptOutList;
 export const OptOutList: typeof import("./optOutList").OptOutList = null as any;
@@ -79,6 +94,11 @@ export { ProtectConfigurationArgs } from "./protectConfiguration";
 export type ProtectConfiguration = import("./protectConfiguration").ProtectConfiguration;
 export const ProtectConfiguration: typeof import("./protectConfiguration").ProtectConfiguration = null as any;
 utilities.lazyLoad(exports, ["ProtectConfiguration"], () => require("./protectConfiguration"));
+
+export { RcsAgentArgs } from "./rcsAgent";
+export type RcsAgent = import("./rcsAgent").RcsAgent;
+export const RcsAgent: typeof import("./rcsAgent").RcsAgent = null as any;
+utilities.lazyLoad(exports, ["RcsAgent"], () => require("./rcsAgent"));
 
 export { RegistrationArgs } from "./registration";
 export type Registration = import("./registration").Registration;
@@ -115,6 +135,8 @@ const _module = {
         switch (type) {
             case "aws-native:smsvoice:ConfigurationSet":
                 return new ConfigurationSet(name, <any>undefined, { urn })
+            case "aws-native:smsvoice:NotifyConfiguration":
+                return new NotifyConfiguration(name, <any>undefined, { urn })
             case "aws-native:smsvoice:OptOutList":
                 return new OptOutList(name, <any>undefined, { urn })
             case "aws-native:smsvoice:PhoneNumber":
@@ -123,6 +145,8 @@ const _module = {
                 return new Pool(name, <any>undefined, { urn })
             case "aws-native:smsvoice:ProtectConfiguration":
                 return new ProtectConfiguration(name, <any>undefined, { urn })
+            case "aws-native:smsvoice:RcsAgent":
+                return new RcsAgent(name, <any>undefined, { urn })
             case "aws-native:smsvoice:Registration":
                 return new Registration(name, <any>undefined, { urn })
             case "aws-native:smsvoice:RegistrationAttachment":

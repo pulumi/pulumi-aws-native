@@ -18,8 +18,12 @@ type Tenant struct {
 
 	// Amazon Resource Name (ARN) of the tenant.
 	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The reputation configuration for the tenant. Sending status remains managed by SES.
+	ReputationEntity TenantReputationEntityPtrOutput `pulumi:"reputationEntity"`
 	// The list of resources to associate with the tenant.
 	ResourceAssociations TenantResourceAssociationArrayOutput `pulumi:"resourceAssociations"`
+	// The suppression attributes for the tenant.
+	SuppressionAttributes TenantSuppressionAttributesPtrOutput `pulumi:"suppressionAttributes"`
 	// The tags (keys and values) associated with the tenant.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// The name of the tenant.
@@ -70,8 +74,12 @@ func (TenantState) ElementType() reflect.Type {
 }
 
 type tenantArgs struct {
+	// The reputation configuration for the tenant. Sending status remains managed by SES.
+	ReputationEntity *TenantReputationEntity `pulumi:"reputationEntity"`
 	// The list of resources to associate with the tenant.
 	ResourceAssociations []TenantResourceAssociation `pulumi:"resourceAssociations"`
+	// The suppression attributes for the tenant.
+	SuppressionAttributes *TenantSuppressionAttributes `pulumi:"suppressionAttributes"`
 	// The tags (keys and values) associated with the tenant.
 	Tags []aws.Tag `pulumi:"tags"`
 	// The name of the tenant.
@@ -80,8 +88,12 @@ type tenantArgs struct {
 
 // The set of arguments for constructing a Tenant resource.
 type TenantArgs struct {
+	// The reputation configuration for the tenant. Sending status remains managed by SES.
+	ReputationEntity TenantReputationEntityPtrInput
 	// The list of resources to associate with the tenant.
 	ResourceAssociations TenantResourceAssociationArrayInput
+	// The suppression attributes for the tenant.
+	SuppressionAttributes TenantSuppressionAttributesPtrInput
 	// The tags (keys and values) associated with the tenant.
 	Tags aws.TagArrayInput
 	// The name of the tenant.
@@ -130,9 +142,19 @@ func (o TenantOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Tenant) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// The reputation configuration for the tenant. Sending status remains managed by SES.
+func (o TenantOutput) ReputationEntity() TenantReputationEntityPtrOutput {
+	return o.ApplyT(func(v *Tenant) TenantReputationEntityPtrOutput { return v.ReputationEntity }).(TenantReputationEntityPtrOutput)
+}
+
 // The list of resources to associate with the tenant.
 func (o TenantOutput) ResourceAssociations() TenantResourceAssociationArrayOutput {
 	return o.ApplyT(func(v *Tenant) TenantResourceAssociationArrayOutput { return v.ResourceAssociations }).(TenantResourceAssociationArrayOutput)
+}
+
+// The suppression attributes for the tenant.
+func (o TenantOutput) SuppressionAttributes() TenantSuppressionAttributesPtrOutput {
+	return o.ApplyT(func(v *Tenant) TenantSuppressionAttributesPtrOutput { return v.SuppressionAttributes }).(TenantSuppressionAttributesPtrOutput)
 }
 
 // The tags (keys and values) associated with the tenant.

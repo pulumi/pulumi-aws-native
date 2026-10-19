@@ -291,6 +291,20 @@
         "additionalProperties" : false
       } ]
     },
+    "FleetSoftwareAddOn" : {
+      "type" : "object",
+      "properties" : {
+        "Name" : {
+          "$ref" : "#/definitions/FleetSoftwareAddOnName"
+        }
+      },
+      "required" : [ "Name" ],
+      "additionalProperties" : false
+    },
+    "FleetSoftwareAddOnName" : {
+      "type" : "string",
+      "enum" : [ "docker" ]
+    },
     "FleetStatus" : {
       "type" : "string",
       "enum" : [ "ACTIVE", "CREATE_IN_PROGRESS", "UPDATE_IN_PROGRESS", "CREATE_FAILED", "UPDATE_FAILED", "SUSPENDED" ]
@@ -479,6 +493,15 @@
           },
           "maxItems" : 15,
           "minItems" : 1
+        },
+        "SoftwareAddOns" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/FleetSoftwareAddOn"
+          },
+          "maxItems" : 10,
+          "minItems" : 0,
+          "uniqueItems" : true
         }
       },
       "required" : [ "CpuArchitectureType", "MemoryMiB", "OsFamily", "VCpuCount" ],

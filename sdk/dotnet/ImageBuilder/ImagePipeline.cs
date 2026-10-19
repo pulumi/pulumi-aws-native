@@ -64,7 +64,7 @@ namespace Pulumi.AwsNative.ImageBuilder
         public Output<string?> ImageRecipeArn { get; private set; } = null!;
 
         /// <summary>
-        /// Contains settings for vulnerability scans.
+        /// Contains settings for vulnerability scans that Amazon Inspector runs against the test instance during image creation.
         /// </summary>
         [Output("imageScanningConfiguration")]
         public Output<Outputs.ImagePipelineImageScanningConfiguration?> ImageScanningConfiguration { get; private set; } = null!;
@@ -209,7 +209,7 @@ namespace Pulumi.AwsNative.ImageBuilder
         public Input<string>? ImageRecipeArn { get; set; }
 
         /// <summary>
-        /// Contains settings for vulnerability scans.
+        /// Contains settings for vulnerability scans that Amazon Inspector runs against the test instance during image creation.
         /// </summary>
         [Input("imageScanningConfiguration")]
         public Input<Inputs.ImagePipelineImageScanningConfigurationArgs>? ImageScanningConfiguration { get; set; }

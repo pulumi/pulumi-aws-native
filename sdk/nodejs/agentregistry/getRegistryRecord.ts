@@ -34,6 +34,12 @@ export interface GetRegistryRecordResult {
      */
     readonly createdBy?: string;
     /**
+     * The custom metadata to attach to the registry record. Each key must match a property defined in the registry's custom metadata schema. Values can be strings (maximum 128 characters) or native JSON booleans (true or false).
+     *
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::AgentRegistry::RegistryRecord` for more information about the expected schema for this property.
+     */
+    readonly customMetadata?: any;
+    /**
      * The description of the registry record.
      */
     readonly description?: string;

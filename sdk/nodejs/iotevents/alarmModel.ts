@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Represents an alarm model to monitor an ITE input attribute. You can use the alarm to get notified when the value is outside a specified range. For more information, see [Create an alarm model](https://docs.aws.amazon.com/iotevents/latest/developerguide/create-alarms.html) in the *Developer Guide*.
+ * Resource Type definition for AWS::IoTEvents::AlarmModel
  */
 export class AlarmModel extends pulumi.CustomResource {
     /**
@@ -57,12 +57,13 @@ export class AlarmModel extends pulumi.CustomResource {
      * Defines when your alarm is invoked.
      */
     declare public readonly alarmRule: pulumi.Output<outputs.iotevents.AlarmModelAlarmRule>;
+    declare public /*out*/ readonly awsId: pulumi.Output<string>;
     /**
-     * An input attribute used as a key to create an alarm. ITE routes [inputs](https://docs.aws.amazon.com/iotevents/latest/apireference/API_Input.html) associated with this key to the alarm.
+     * An input attribute used as a key to create an alarm. AWS IoT Events routes [inputs](https://docs.aws.amazon.com/iotevents/latest/apireference/API_Input.html) associated with this key to the alarm.
      */
     declare public readonly key: pulumi.Output<string | undefined>;
     /**
-     * The ARN of the IAM role that allows the alarm to perform actions and access AWS resources. For more information, see [Amazon Resource Names (ARNs)](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *General Reference*.
+     * The ARN of the IAM role that allows the alarm to perform actions and access AWS resources. For more information, see [Amazon Resource Names (ARNs)](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *AWS General Reference* .
      */
     declare public readonly roleArn: pulumi.Output<string>;
     /**
@@ -70,8 +71,9 @@ export class AlarmModel extends pulumi.CustomResource {
      */
     declare public readonly severity: pulumi.Output<number | undefined>;
     /**
-     * A list of key-value pairs that contain metadata for the alarm model. The tags help you manage the alarm model. For more information, see [Tagging your resources](https://docs.aws.amazon.com/iotevents/latest/developerguide/tagging-iotevents.html) in the *Developer Guide*.
-     *  You can create up to 50 tags for one alarm model.
+     * A list of key-value pairs that contain metadata for the alarm model. The tags help you manage the alarm model. For more information, see [Tagging your AWS IoT Events resources](https://docs.aws.amazon.com/iotevents/latest/developerguide/tagging-iotevents.html) in the *AWS IoT Events Developer Guide* .
+     *
+     * You can create up to 50 tags for one alarm model.
      */
     declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
@@ -101,12 +103,14 @@ export class AlarmModel extends pulumi.CustomResource {
             resourceInputs["roleArn"] = args?.roleArn;
             resourceInputs["severity"] = args?.severity;
             resourceInputs["tags"] = args?.tags;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
             resourceInputs["alarmCapabilities"] = undefined /*out*/;
             resourceInputs["alarmEventActions"] = undefined /*out*/;
             resourceInputs["alarmModelDescription"] = undefined /*out*/;
             resourceInputs["alarmModelName"] = undefined /*out*/;
             resourceInputs["alarmRule"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["key"] = undefined /*out*/;
             resourceInputs["roleArn"] = undefined /*out*/;
             resourceInputs["severity"] = undefined /*out*/;
@@ -144,11 +148,11 @@ export interface AlarmModelArgs {
      */
     alarmRule: pulumi.Input<inputs.iotevents.AlarmModelAlarmRuleArgs>;
     /**
-     * An input attribute used as a key to create an alarm. ITE routes [inputs](https://docs.aws.amazon.com/iotevents/latest/apireference/API_Input.html) associated with this key to the alarm.
+     * An input attribute used as a key to create an alarm. AWS IoT Events routes [inputs](https://docs.aws.amazon.com/iotevents/latest/apireference/API_Input.html) associated with this key to the alarm.
      */
     key?: pulumi.Input<string | undefined>;
     /**
-     * The ARN of the IAM role that allows the alarm to perform actions and access AWS resources. For more information, see [Amazon Resource Names (ARNs)](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *General Reference*.
+     * The ARN of the IAM role that allows the alarm to perform actions and access AWS resources. For more information, see [Amazon Resource Names (ARNs)](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *AWS General Reference* .
      */
     roleArn: pulumi.Input<string>;
     /**
@@ -156,8 +160,9 @@ export interface AlarmModelArgs {
      */
     severity?: pulumi.Input<number | undefined>;
     /**
-     * A list of key-value pairs that contain metadata for the alarm model. The tags help you manage the alarm model. For more information, see [Tagging your resources](https://docs.aws.amazon.com/iotevents/latest/developerguide/tagging-iotevents.html) in the *Developer Guide*.
-     *  You can create up to 50 tags for one alarm model.
+     * A list of key-value pairs that contain metadata for the alarm model. The tags help you manage the alarm model. For more information, see [Tagging your AWS IoT Events resources](https://docs.aws.amazon.com/iotevents/latest/developerguide/tagging-iotevents.html) in the *AWS IoT Events Developer Guide* .
+     *
+     * You can create up to 50 tags for one alarm model.
      */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

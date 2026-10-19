@@ -70,7 +70,7 @@ export class ImagePipeline extends pulumi.CustomResource {
      */
     declare public readonly imageRecipeArn: pulumi.Output<string | undefined>;
     /**
-     * Contains settings for vulnerability scans.
+     * Contains settings for vulnerability scans that Amazon Inspector runs against the test instance during image creation.
      */
     declare public readonly imageScanningConfiguration: pulumi.Output<outputs.imagebuilder.ImagePipelineImageScanningConfiguration | undefined>;
     /**
@@ -195,7 +195,7 @@ export interface ImagePipelineArgs {
      */
     imageRecipeArn?: pulumi.Input<string | undefined>;
     /**
-     * Contains settings for vulnerability scans.
+     * Contains settings for vulnerability scans that Amazon Inspector runs against the test instance during image creation.
      */
     imageScanningConfiguration?: pulumi.Input<inputs.imagebuilder.ImagePipelineImageScanningConfigurationArgs | undefined>;
     /**

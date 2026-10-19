@@ -78,6 +78,10 @@ __all__ = [
     'ConfigurationBundleComponentConfigurationArgsDict',
     'ConfigurationBundleVersionCreatedBySourceArgs',
     'ConfigurationBundleVersionCreatedBySourceArgsDict',
+    'ConsentPortalIdpConfigArgs',
+    'ConsentPortalIdpConfigArgsDict',
+    'ConsentPortalSourceArgs',
+    'ConsentPortalSourceArgsDict',
     'DatasetDataSourceTypeArgs',
     'DatasetDataSourceTypeArgsDict',
     'DatasetInlineExamplesSourceArgs',
@@ -92,6 +96,12 @@ __all__ = [
     'EvaluatorCodeBasedEvaluatorConfigArgsDict',
     'EvaluatorConfigArgs',
     'EvaluatorConfigArgsDict',
+    'EvaluatorDerivedEvaluatorConfigArgs',
+    'EvaluatorDerivedEvaluatorConfigArgsDict',
+    'EvaluatorDimensionRatingScaleArgs',
+    'EvaluatorDimensionRatingScaleArgsDict',
+    'EvaluatorEvaluationDimensionArgs',
+    'EvaluatorEvaluationDimensionArgsDict',
     'EvaluatorInferenceConfigurationArgs',
     'EvaluatorInferenceConfigurationArgsDict',
     'EvaluatorLambdaEvaluatorConfigArgs',
@@ -2473,6 +2483,90 @@ class ConfigurationBundleVersionCreatedBySourceArgs:
         pulumi.set(self, "arn", value)
 
 
+class ConsentPortalIdpConfigArgsDict(TypedDict):
+    credential_provider_arn: pulumi.Input[_builtins.str]
+    """
+    The ARN of an AWS::BedrockAgentCore::OAuth2CredentialProvider resource.
+    """
+    scopes: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    audience: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+
+@pulumi.input_type
+class ConsentPortalIdpConfigArgs:
+    def __init__(__self__, *,
+                 credential_provider_arn: pulumi.Input[_builtins.str],
+                 scopes: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
+                 audience: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] credential_provider_arn: The ARN of an AWS::BedrockAgentCore::OAuth2CredentialProvider resource.
+        """
+        pulumi.set(__self__, "credential_provider_arn", credential_provider_arn)
+        pulumi.set(__self__, "scopes", scopes)
+        if audience is not None:
+            pulumi.set(__self__, "audience", audience)
+
+    @_builtins.property
+    @pulumi.getter(name="credentialProviderArn")
+    def credential_provider_arn(self) -> pulumi.Input[_builtins.str]:
+        """
+        The ARN of an AWS::BedrockAgentCore::OAuth2CredentialProvider resource.
+        """
+        return pulumi.get(self, "credential_provider_arn")
+
+    @credential_provider_arn.setter
+    def credential_provider_arn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "credential_provider_arn", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def scopes(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        return pulumi.get(self, "scopes")
+
+    @scopes.setter
+    def scopes(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "scopes", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def audience(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "audience")
+
+    @audience.setter
+    def audience(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "audience", value)
+
+
+class ConsentPortalSourceArgsDict(TypedDict):
+    identifier: pulumi.Input[_builtins.str]
+    type: pulumi.Input['ConsentPortalSourceType']
+
+@pulumi.input_type
+class ConsentPortalSourceArgs:
+    def __init__(__self__, *,
+                 identifier: pulumi.Input[_builtins.str],
+                 type: pulumi.Input['ConsentPortalSourceType']):
+        pulumi.set(__self__, "identifier", identifier)
+        pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter
+    def identifier(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "identifier")
+
+    @identifier.setter
+    def identifier(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "identifier", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> pulumi.Input['ConsentPortalSourceType']:
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input['ConsentPortalSourceType']):
+        pulumi.set(self, "type", value)
+
+
 class DatasetDataSourceTypeArgsDict(TypedDict):
     """
     Source of initial examples. Provide either inline examples or an S3 URI pointing to a JSONL file.
@@ -2726,18 +2820,22 @@ class EvaluatorConfigArgsDict(TypedDict):
     The configuration that defines how an evaluator assesses agent performance.
     """
     code_based: NotRequired[pulumi.Input[Optional['EvaluatorCodeBasedEvaluatorConfigArgsDict']]]
+    derived: NotRequired[pulumi.Input[Optional['EvaluatorDerivedEvaluatorConfigArgsDict']]]
     llm_as_a_judge: NotRequired[pulumi.Input[Optional['EvaluatorLlmAsAJudgeEvaluatorConfigArgsDict']]]
 
 @pulumi.input_type
 class EvaluatorConfigArgs:
     def __init__(__self__, *,
                  code_based: pulumi.Input[Optional['EvaluatorCodeBasedEvaluatorConfigArgs']] = None,
+                 derived: pulumi.Input[Optional['EvaluatorDerivedEvaluatorConfigArgs']] = None,
                  llm_as_a_judge: pulumi.Input[Optional['EvaluatorLlmAsAJudgeEvaluatorConfigArgs']] = None):
         """
         The configuration that defines how an evaluator assesses agent performance.
         """
         if code_based is not None:
             pulumi.set(__self__, "code_based", code_based)
+        if derived is not None:
+            pulumi.set(__self__, "derived", derived)
         if llm_as_a_judge is not None:
             pulumi.set(__self__, "llm_as_a_judge", llm_as_a_judge)
 
@@ -2751,6 +2849,15 @@ class EvaluatorConfigArgs:
         pulumi.set(self, "code_based", value)
 
     @_builtins.property
+    @pulumi.getter
+    def derived(self) -> pulumi.Input[Optional['EvaluatorDerivedEvaluatorConfigArgs']]:
+        return pulumi.get(self, "derived")
+
+    @derived.setter
+    def derived(self, value: pulumi.Input[Optional['EvaluatorDerivedEvaluatorConfigArgs']]):
+        pulumi.set(self, "derived", value)
+
+    @_builtins.property
     @pulumi.getter(name="llmAsAJudge")
     def llm_as_a_judge(self) -> pulumi.Input[Optional['EvaluatorLlmAsAJudgeEvaluatorConfigArgs']]:
         return pulumi.get(self, "llm_as_a_judge")
@@ -2760,6 +2867,169 @@ class EvaluatorConfigArgs:
         pulumi.set(self, "llm_as_a_judge", value)
 
 
+class EvaluatorDerivedEvaluatorConfigArgsDict(TypedDict):
+    """
+    The configuration for an evaluator derived from an existing base evaluator (a built-in or third-party evaluator), run on your own model. The base evaluator supplies the prompt and scoring logic.
+    """
+    base_evaluator_id: pulumi.Input[_builtins.str]
+    """
+    The identifier of the base evaluator whose logic to run (a Builtin.* or ThirdParty.* evaluator).
+    """
+    model_config: pulumi.Input['EvaluatorModelConfigArgsDict']
+
+@pulumi.input_type
+class EvaluatorDerivedEvaluatorConfigArgs:
+    def __init__(__self__, *,
+                 base_evaluator_id: pulumi.Input[_builtins.str],
+                 model_config: pulumi.Input['EvaluatorModelConfigArgs']):
+        """
+        The configuration for an evaluator derived from an existing base evaluator (a built-in or third-party evaluator), run on your own model. The base evaluator supplies the prompt and scoring logic.
+
+        :param pulumi.Input[_builtins.str] base_evaluator_id: The identifier of the base evaluator whose logic to run (a Builtin.* or ThirdParty.* evaluator).
+        """
+        pulumi.set(__self__, "base_evaluator_id", base_evaluator_id)
+        pulumi.set(__self__, "model_config", model_config)
+
+    @_builtins.property
+    @pulumi.getter(name="baseEvaluatorId")
+    def base_evaluator_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        The identifier of the base evaluator whose logic to run (a Builtin.* or ThirdParty.* evaluator).
+        """
+        return pulumi.get(self, "base_evaluator_id")
+
+    @base_evaluator_id.setter
+    def base_evaluator_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "base_evaluator_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="modelConfig")
+    def model_config(self) -> pulumi.Input['EvaluatorModelConfigArgs']:
+        return pulumi.get(self, "model_config")
+
+    @model_config.setter
+    def model_config(self, value: pulumi.Input['EvaluatorModelConfigArgs']):
+        pulumi.set(self, "model_config", value)
+
+
+class EvaluatorDimensionRatingScaleArgsDict(TypedDict):
+    """
+    The rating scale for one dimension of an LLM-as-a-Judge evaluator.
+    """
+    categorical: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EvaluatorCategoricalScaleDefinitionArgsDict']]]]]
+    """
+    The categorical rating scale for this dimension.
+    """
+    numerical: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EvaluatorNumericalScaleDefinitionArgsDict']]]]]
+    """
+    The numerical rating scale for this dimension.
+    """
+
+@pulumi.input_type
+class EvaluatorDimensionRatingScaleArgs:
+    def __init__(__self__, *,
+                 categorical: pulumi.Input[Optional[Sequence[pulumi.Input['EvaluatorCategoricalScaleDefinitionArgs']]]] = None,
+                 numerical: pulumi.Input[Optional[Sequence[pulumi.Input['EvaluatorNumericalScaleDefinitionArgs']]]] = None):
+        """
+        The rating scale for one dimension of an LLM-as-a-Judge evaluator.
+
+        :param pulumi.Input[Sequence[pulumi.Input['EvaluatorCategoricalScaleDefinitionArgs']]] categorical: The categorical rating scale for this dimension.
+        :param pulumi.Input[Sequence[pulumi.Input['EvaluatorNumericalScaleDefinitionArgs']]] numerical: The numerical rating scale for this dimension.
+        """
+        if categorical is not None:
+            pulumi.set(__self__, "categorical", categorical)
+        if numerical is not None:
+            pulumi.set(__self__, "numerical", numerical)
+
+    @_builtins.property
+    @pulumi.getter
+    def categorical(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['EvaluatorCategoricalScaleDefinitionArgs']]]]:
+        """
+        The categorical rating scale for this dimension.
+        """
+        return pulumi.get(self, "categorical")
+
+    @categorical.setter
+    def categorical(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['EvaluatorCategoricalScaleDefinitionArgs']]]]):
+        pulumi.set(self, "categorical", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def numerical(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['EvaluatorNumericalScaleDefinitionArgs']]]]:
+        """
+        The numerical rating scale for this dimension.
+        """
+        return pulumi.get(self, "numerical")
+
+    @numerical.setter
+    def numerical(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['EvaluatorNumericalScaleDefinitionArgs']]]]):
+        pulumi.set(self, "numerical", value)
+
+
+class EvaluatorEvaluationDimensionArgsDict(TypedDict):
+    """
+    One dimension of an LLM-as-a-Judge evaluator.
+    """
+    dimension_instruction: pulumi.Input[_builtins.str]
+    """
+    The instruction to the evaluator model describing what to judge for this dimension.
+    """
+    dimension_name: pulumi.Input[_builtins.str]
+    """
+    The name of the dimension. Must be unique within the evaluator.
+    """
+    dimension_rating_scale: pulumi.Input['EvaluatorDimensionRatingScaleArgsDict']
+
+@pulumi.input_type
+class EvaluatorEvaluationDimensionArgs:
+    def __init__(__self__, *,
+                 dimension_instruction: pulumi.Input[_builtins.str],
+                 dimension_name: pulumi.Input[_builtins.str],
+                 dimension_rating_scale: pulumi.Input['EvaluatorDimensionRatingScaleArgs']):
+        """
+        One dimension of an LLM-as-a-Judge evaluator.
+
+        :param pulumi.Input[_builtins.str] dimension_instruction: The instruction to the evaluator model describing what to judge for this dimension.
+        :param pulumi.Input[_builtins.str] dimension_name: The name of the dimension. Must be unique within the evaluator.
+        """
+        pulumi.set(__self__, "dimension_instruction", dimension_instruction)
+        pulumi.set(__self__, "dimension_name", dimension_name)
+        pulumi.set(__self__, "dimension_rating_scale", dimension_rating_scale)
+
+    @_builtins.property
+    @pulumi.getter(name="dimensionInstruction")
+    def dimension_instruction(self) -> pulumi.Input[_builtins.str]:
+        """
+        The instruction to the evaluator model describing what to judge for this dimension.
+        """
+        return pulumi.get(self, "dimension_instruction")
+
+    @dimension_instruction.setter
+    def dimension_instruction(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "dimension_instruction", value)
+
+    @_builtins.property
+    @pulumi.getter(name="dimensionName")
+    def dimension_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the dimension. Must be unique within the evaluator.
+        """
+        return pulumi.get(self, "dimension_name")
+
+    @dimension_name.setter
+    def dimension_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "dimension_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="dimensionRatingScale")
+    def dimension_rating_scale(self) -> pulumi.Input['EvaluatorDimensionRatingScaleArgs']:
+        return pulumi.get(self, "dimension_rating_scale")
+
+    @dimension_rating_scale.setter
+    def dimension_rating_scale(self, value: pulumi.Input['EvaluatorDimensionRatingScaleArgs']):
+        pulumi.set(self, "dimension_rating_scale", value)
+
+
 class EvaluatorInferenceConfigurationArgsDict(TypedDict):
     """
     The inference configuration parameters that control model behavior during evaluation.
@@ -2767,6 +3037,10 @@ class EvaluatorInferenceConfigurationArgsDict(TypedDict):
     max_tokens: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The maximum number of tokens to generate in the model response.
+    """
+    stop_sequences: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    The sequences that make the model stop generating further tokens.
     """
     temperature: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
@@ -2781,17 +3055,21 @@ class EvaluatorInferenceConfigurationArgsDict(TypedDict):
 class EvaluatorInferenceConfigurationArgs:
     def __init__(__self__, *,
                  max_tokens: pulumi.Input[Optional[_builtins.int]] = None,
+                 stop_sequences: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  temperature: pulumi.Input[Optional[_builtins.float]] = None,
                  top_p: pulumi.Input[Optional[_builtins.float]] = None):
         """
         The inference configuration parameters that control model behavior during evaluation.
 
         :param pulumi.Input[_builtins.int] max_tokens: The maximum number of tokens to generate in the model response.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] stop_sequences: The sequences that make the model stop generating further tokens.
         :param pulumi.Input[_builtins.float] temperature: The temperature value that controls randomness in the model's responses.
         :param pulumi.Input[_builtins.float] top_p: The top-p sampling parameter that controls the diversity of the model's responses.
         """
         if max_tokens is not None:
             pulumi.set(__self__, "max_tokens", max_tokens)
+        if stop_sequences is not None:
+            pulumi.set(__self__, "stop_sequences", stop_sequences)
         if temperature is not None:
             pulumi.set(__self__, "temperature", temperature)
         if top_p is not None:
@@ -2808,6 +3086,18 @@ class EvaluatorInferenceConfigurationArgs:
     @max_tokens.setter
     def max_tokens(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_tokens", value)
+
+    @_builtins.property
+    @pulumi.getter(name="stopSequences")
+    def stop_sequences(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        The sequences that make the model stop generating further tokens.
+        """
+        return pulumi.get(self, "stop_sequences")
+
+    @stop_sequences.setter
+    def stop_sequences(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "stop_sequences", value)
 
     @_builtins.property
     @pulumi.getter
@@ -3165,18 +3455,27 @@ class EvaluatorRatingScaleArgsDict(TypedDict):
     The rating scale that defines how evaluators should score agent performance.
     """
     categorical: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EvaluatorCategoricalScaleDefinitionArgsDict']]]]]
+    multi_dimensional: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EvaluatorEvaluationDimensionArgsDict']]]]]
+    """
+    The dimensions an LLM-as-a-Judge evaluator scores in a single judge call. Each dimension has its own instruction and rating scale.
+    """
     numerical: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EvaluatorNumericalScaleDefinitionArgsDict']]]]]
 
 @pulumi.input_type
 class EvaluatorRatingScaleArgs:
     def __init__(__self__, *,
                  categorical: pulumi.Input[Optional[Sequence[pulumi.Input['EvaluatorCategoricalScaleDefinitionArgs']]]] = None,
+                 multi_dimensional: pulumi.Input[Optional[Sequence[pulumi.Input['EvaluatorEvaluationDimensionArgs']]]] = None,
                  numerical: pulumi.Input[Optional[Sequence[pulumi.Input['EvaluatorNumericalScaleDefinitionArgs']]]] = None):
         """
         The rating scale that defines how evaluators should score agent performance.
+
+        :param pulumi.Input[Sequence[pulumi.Input['EvaluatorEvaluationDimensionArgs']]] multi_dimensional: The dimensions an LLM-as-a-Judge evaluator scores in a single judge call. Each dimension has its own instruction and rating scale.
         """
         if categorical is not None:
             pulumi.set(__self__, "categorical", categorical)
+        if multi_dimensional is not None:
+            pulumi.set(__self__, "multi_dimensional", multi_dimensional)
         if numerical is not None:
             pulumi.set(__self__, "numerical", numerical)
 
@@ -3188,6 +3487,18 @@ class EvaluatorRatingScaleArgs:
     @categorical.setter
     def categorical(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['EvaluatorCategoricalScaleDefinitionArgs']]]]):
         pulumi.set(self, "categorical", value)
+
+    @_builtins.property
+    @pulumi.getter(name="multiDimensional")
+    def multi_dimensional(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['EvaluatorEvaluationDimensionArgs']]]]:
+        """
+        The dimensions an LLM-as-a-Judge evaluator scores in a single judge call. Each dimension has its own instruction and rating scale.
+        """
+        return pulumi.get(self, "multi_dimensional")
+
+    @multi_dimensional.setter
+    def multi_dimensional(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['EvaluatorEvaluationDimensionArgs']]]]):
+        pulumi.set(self, "multi_dimensional", value)
 
     @_builtins.property
     @pulumi.getter
@@ -6569,25 +6880,25 @@ class HarnessAgentCoreMemoryConfigurationArgs:
 
 
 class HarnessAgentCoreMemoryRetrievalConfigArgsDict(TypedDict):
-    relevance_score: NotRequired[pulumi.Input[Optional[Union[_builtins.float, _builtins.str]]]]
+    relevance_score: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
-    Minimum relevance score for retrieved memories. Typed as both number and string because CloudFormation marshals scalars nested in dynamic-key (patternProperties) maps as strings, while direct API/CDK callers send a JSON number; both forms must validate.
+    Minimum relevance score for retrieved memories.
     """
     strategy_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
-    top_k: NotRequired[pulumi.Input[Optional[Union[_builtins.int, _builtins.str]]]]
+    top_k: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
-    Maximum number of memory records to retrieve. Typed as both integer and string because CloudFormation marshals scalars nested in dynamic-key (patternProperties) maps as strings, while direct API/CDK callers send a JSON integer; both forms must validate.
+    Maximum number of memory records to retrieve.
     """
 
 @pulumi.input_type
 class HarnessAgentCoreMemoryRetrievalConfigArgs:
     def __init__(__self__, *,
-                 relevance_score: pulumi.Input[Optional[Union[_builtins.float, _builtins.str]]] = None,
+                 relevance_score: pulumi.Input[Optional[_builtins.float]] = None,
                  strategy_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 top_k: pulumi.Input[Optional[Union[_builtins.int, _builtins.str]]] = None):
+                 top_k: pulumi.Input[Optional[_builtins.int]] = None):
         """
-        :param pulumi.Input[Union[_builtins.float, _builtins.str]] relevance_score: Minimum relevance score for retrieved memories. Typed as both number and string because CloudFormation marshals scalars nested in dynamic-key (patternProperties) maps as strings, while direct API/CDK callers send a JSON number; both forms must validate.
-        :param pulumi.Input[Union[_builtins.int, _builtins.str]] top_k: Maximum number of memory records to retrieve. Typed as both integer and string because CloudFormation marshals scalars nested in dynamic-key (patternProperties) maps as strings, while direct API/CDK callers send a JSON integer; both forms must validate.
+        :param pulumi.Input[_builtins.float] relevance_score: Minimum relevance score for retrieved memories.
+        :param pulumi.Input[_builtins.int] top_k: Maximum number of memory records to retrieve.
         """
         if relevance_score is not None:
             pulumi.set(__self__, "relevance_score", relevance_score)
@@ -6598,14 +6909,14 @@ class HarnessAgentCoreMemoryRetrievalConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="relevanceScore")
-    def relevance_score(self) -> pulumi.Input[Optional[Union[_builtins.float, _builtins.str]]]:
+    def relevance_score(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
-        Minimum relevance score for retrieved memories. Typed as both number and string because CloudFormation marshals scalars nested in dynamic-key (patternProperties) maps as strings, while direct API/CDK callers send a JSON number; both forms must validate.
+        Minimum relevance score for retrieved memories.
         """
         return pulumi.get(self, "relevance_score")
 
     @relevance_score.setter
-    def relevance_score(self, value: pulumi.Input[Optional[Union[_builtins.float, _builtins.str]]]):
+    def relevance_score(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "relevance_score", value)
 
     @_builtins.property
@@ -6619,14 +6930,14 @@ class HarnessAgentCoreMemoryRetrievalConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="topK")
-    def top_k(self) -> pulumi.Input[Optional[Union[_builtins.int, _builtins.str]]]:
+    def top_k(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        Maximum number of memory records to retrieve. Typed as both integer and string because CloudFormation marshals scalars nested in dynamic-key (patternProperties) maps as strings, while direct API/CDK callers send a JSON integer; both forms must validate.
+        Maximum number of memory records to retrieve.
         """
         return pulumi.get(self, "top_k")
 
     @top_k.setter
-    def top_k(self, value: pulumi.Input[Optional[Union[_builtins.int, _builtins.str]]]):
+    def top_k(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "top_k", value)
 
 
@@ -7078,6 +7389,10 @@ class HarnessCustomClaimValidationTypeArgs:
 
 class HarnessCustomJwtAuthorizerConfigurationArgsDict(TypedDict):
     discovery_url: pulumi.Input[_builtins.str]
+    advertised_scope_mapping: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
+    """
+    A map that associates each scope in AllowedScopes with a corresponding advertised scope value. The advertised scope appears in OAuth protected resource metadata and WWW-Authenticate response headers.
+    """
     allowed_audience: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     allowed_clients: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     allowed_scopes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
@@ -7089,13 +7404,19 @@ class HarnessCustomJwtAuthorizerConfigurationArgsDict(TypedDict):
 class HarnessCustomJwtAuthorizerConfigurationArgs:
     def __init__(__self__, *,
                  discovery_url: pulumi.Input[_builtins.str],
+                 advertised_scope_mapping: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  allowed_audience: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  allowed_clients: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  allowed_scopes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  custom_claims: pulumi.Input[Optional[Sequence[pulumi.Input['HarnessCustomClaimValidationTypeArgs']]]] = None,
                  private_endpoint: pulumi.Input[Optional['HarnessPrivateEndpointArgs']] = None,
                  private_endpoint_overrides: pulumi.Input[Optional[Sequence[pulumi.Input['HarnessPrivateEndpointOverrideArgs']]]] = None):
+        """
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] advertised_scope_mapping: A map that associates each scope in AllowedScopes with a corresponding advertised scope value. The advertised scope appears in OAuth protected resource metadata and WWW-Authenticate response headers.
+        """
         pulumi.set(__self__, "discovery_url", discovery_url)
+        if advertised_scope_mapping is not None:
+            pulumi.set(__self__, "advertised_scope_mapping", advertised_scope_mapping)
         if allowed_audience is not None:
             pulumi.set(__self__, "allowed_audience", allowed_audience)
         if allowed_clients is not None:
@@ -7117,6 +7438,18 @@ class HarnessCustomJwtAuthorizerConfigurationArgs:
     @discovery_url.setter
     def discovery_url(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "discovery_url", value)
+
+    @_builtins.property
+    @pulumi.getter(name="advertisedScopeMapping")
+    def advertised_scope_mapping(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
+        """
+        A map that associates each scope in AllowedScopes with a corresponding advertised scope value. The advertised scope appears in OAuth protected resource metadata and WWW-Authenticate response headers.
+        """
+        return pulumi.get(self, "advertised_scope_mapping")
+
+    @advertised_scope_mapping.setter
+    def advertised_scope_mapping(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "advertised_scope_mapping", value)
 
     @_builtins.property
     @pulumi.getter(name="allowedAudience")
@@ -7360,6 +7693,10 @@ class HarnessGatewayOutboundAuthArgs:
 class HarnessGeminiModelConfigArgsDict(TypedDict):
     api_key_arn: pulumi.Input[_builtins.str]
     model_id: pulumi.Input[_builtins.str]
+    additional_params: NotRequired[Any]
+    """
+    Provider-specific parameters passed through to the Gemini model provider unchanged.
+    """
     max_tokens: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     temperature: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     top_k: NotRequired[pulumi.Input[Optional[_builtins.int]]]
@@ -7370,12 +7707,18 @@ class HarnessGeminiModelConfigArgs:
     def __init__(__self__, *,
                  api_key_arn: pulumi.Input[_builtins.str],
                  model_id: pulumi.Input[_builtins.str],
+                 additional_params: Optional[Any] = None,
                  max_tokens: pulumi.Input[Optional[_builtins.int]] = None,
                  temperature: pulumi.Input[Optional[_builtins.float]] = None,
                  top_k: pulumi.Input[Optional[_builtins.int]] = None,
                  top_p: pulumi.Input[Optional[_builtins.float]] = None):
+        """
+        :param Any additional_params: Provider-specific parameters passed through to the Gemini model provider unchanged.
+        """
         pulumi.set(__self__, "api_key_arn", api_key_arn)
         pulumi.set(__self__, "model_id", model_id)
+        if additional_params is not None:
+            pulumi.set(__self__, "additional_params", additional_params)
         if max_tokens is not None:
             pulumi.set(__self__, "max_tokens", max_tokens)
         if temperature is not None:
@@ -7402,6 +7745,18 @@ class HarnessGeminiModelConfigArgs:
     @model_id.setter
     def model_id(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "model_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="additionalParams")
+    def additional_params(self) -> Optional[Any]:
+        """
+        Provider-specific parameters passed through to the Gemini model provider unchanged.
+        """
+        return pulumi.get(self, "additional_params")
+
+    @additional_params.setter
+    def additional_params(self, value: Optional[Any]):
+        pulumi.set(self, "additional_params", value)
 
     @_builtins.property
     @pulumi.getter(name="maxTokens")
@@ -8271,6 +8626,10 @@ class HarnessOpenAiModelConfigArgsDict(TypedDict):
     """
     Provider-specific parameters passed through to the model provider unchanged.
     """
+    api_base: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Optional custom endpoint URL for an OpenAI-compatible endpoint.
+    """
     api_format: NotRequired[pulumi.Input[Optional['HarnessOpenAiModelConfigApiFormat']]]
     max_tokens: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     temperature: NotRequired[pulumi.Input[Optional[_builtins.float]]]
@@ -8282,17 +8641,21 @@ class HarnessOpenAiModelConfigArgs:
                  api_key_arn: pulumi.Input[_builtins.str],
                  model_id: pulumi.Input[_builtins.str],
                  additional_params: Optional[Any] = None,
+                 api_base: pulumi.Input[Optional[_builtins.str]] = None,
                  api_format: pulumi.Input[Optional['HarnessOpenAiModelConfigApiFormat']] = None,
                  max_tokens: pulumi.Input[Optional[_builtins.int]] = None,
                  temperature: pulumi.Input[Optional[_builtins.float]] = None,
                  top_p: pulumi.Input[Optional[_builtins.float]] = None):
         """
         :param Any additional_params: Provider-specific parameters passed through to the model provider unchanged.
+        :param pulumi.Input[_builtins.str] api_base: Optional custom endpoint URL for an OpenAI-compatible endpoint.
         """
         pulumi.set(__self__, "api_key_arn", api_key_arn)
         pulumi.set(__self__, "model_id", model_id)
         if additional_params is not None:
             pulumi.set(__self__, "additional_params", additional_params)
+        if api_base is not None:
+            pulumi.set(__self__, "api_base", api_base)
         if api_format is not None:
             pulumi.set(__self__, "api_format", api_format)
         if max_tokens is not None:
@@ -8331,6 +8694,18 @@ class HarnessOpenAiModelConfigArgs:
     @additional_params.setter
     def additional_params(self, value: Optional[Any]):
         pulumi.set(self, "additional_params", value)
+
+    @_builtins.property
+    @pulumi.getter(name="apiBase")
+    def api_base(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Optional custom endpoint URL for an OpenAI-compatible endpoint.
+        """
+        return pulumi.get(self, "api_base")
+
+    @api_base.setter
+    def api_base(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "api_base", value)
 
     @_builtins.property
     @pulumi.getter(name="apiFormat")
@@ -13113,7 +13488,7 @@ class OnlineEvaluationConfigEvaluatorReferenceArgsDict(TypedDict):
     """
     evaluator_id: pulumi.Input[_builtins.str]
     """
-    The unique identifier of the evaluator.
+    The ID of the evaluator: a built-in evaluator ID (Builtin.*), a managed third-party evaluator ID (ThirdParty.<provider>.<name>), or a custom evaluator ID. For a custom evaluator in the same template, use Fn::GetAtt with EvaluatorId. Ref returns the evaluator ARN, which this property does not accept.
     """
 
 @pulumi.input_type
@@ -13123,7 +13498,7 @@ class OnlineEvaluationConfigEvaluatorReferenceArgs:
         """
         The reference to an evaluator used in online evaluation configurations.
 
-        :param pulumi.Input[_builtins.str] evaluator_id: The unique identifier of the evaluator.
+        :param pulumi.Input[_builtins.str] evaluator_id: The ID of the evaluator: a built-in evaluator ID (Builtin.*), a managed third-party evaluator ID (ThirdParty.<provider>.<name>), or a custom evaluator ID. For a custom evaluator in the same template, use Fn::GetAtt with EvaluatorId. Ref returns the evaluator ARN, which this property does not accept.
         """
         pulumi.set(__self__, "evaluator_id", evaluator_id)
 
@@ -13131,7 +13506,7 @@ class OnlineEvaluationConfigEvaluatorReferenceArgs:
     @pulumi.getter(name="evaluatorId")
     def evaluator_id(self) -> pulumi.Input[_builtins.str]:
         """
-        The unique identifier of the evaluator.
+        The ID of the evaluator: a built-in evaluator ID (Builtin.*), a managed third-party evaluator ID (ThirdParty.<provider>.<name>), or a custom evaluator ID. For a custom evaluator in the same template, use Fn::GetAtt with EvaluatorId. Ref returns the evaluator ARN, which this property does not accept.
         """
         return pulumi.get(self, "evaluator_id")
 

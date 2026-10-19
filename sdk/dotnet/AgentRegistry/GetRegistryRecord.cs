@@ -72,6 +72,12 @@ namespace Pulumi.AwsNative.AgentRegistry
         /// </summary>
         public readonly string? CreatedBy;
         /// <summary>
+        /// The custom metadata to attach to the registry record. Each key must match a property defined in the registry's custom metadata schema. Values can be strings (maximum 128 characters) or native JSON booleans (true or false).
+        /// 
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::AgentRegistry::RegistryRecord` for more information about the expected schema for this property.
+        /// </summary>
+        public readonly object? CustomMetadata;
+        /// <summary>
         /// The description of the registry record.
         /// </summary>
         public readonly string? Description;
@@ -116,6 +122,8 @@ namespace Pulumi.AwsNative.AgentRegistry
 
             string? createdBy,
 
+            object? customMetadata,
+
             string? description,
 
             Outputs.RegistryRecordDescriptors? descriptors,
@@ -140,6 +148,7 @@ namespace Pulumi.AwsNative.AgentRegistry
         {
             CreatedAt = createdAt;
             CreatedBy = createdBy;
+            CustomMetadata = customMetadata;
             Description = description;
             Descriptors = descriptors;
             DisplayName = displayName;

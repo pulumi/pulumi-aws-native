@@ -10,6 +10,504 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// The programming language for this instrumentation point.
+type InstrumentationConfigCodeLocationLanguage string
+
+const (
+	InstrumentationConfigCodeLocationLanguageJava       = InstrumentationConfigCodeLocationLanguage("Java")
+	InstrumentationConfigCodeLocationLanguagePython     = InstrumentationConfigCodeLocationLanguage("Python")
+	InstrumentationConfigCodeLocationLanguageJavascript = InstrumentationConfigCodeLocationLanguage("Javascript")
+)
+
+func (InstrumentationConfigCodeLocationLanguage) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstrumentationConfigCodeLocationLanguage)(nil)).Elem()
+}
+
+func (e InstrumentationConfigCodeLocationLanguage) ToInstrumentationConfigCodeLocationLanguageOutput() InstrumentationConfigCodeLocationLanguageOutput {
+	return pulumi.ToOutput(e).(InstrumentationConfigCodeLocationLanguageOutput)
+}
+
+func (e InstrumentationConfigCodeLocationLanguage) ToInstrumentationConfigCodeLocationLanguageOutputWithContext(ctx context.Context) InstrumentationConfigCodeLocationLanguageOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(InstrumentationConfigCodeLocationLanguageOutput)
+}
+
+func (e InstrumentationConfigCodeLocationLanguage) ToInstrumentationConfigCodeLocationLanguagePtrOutput() InstrumentationConfigCodeLocationLanguagePtrOutput {
+	return e.ToInstrumentationConfigCodeLocationLanguagePtrOutputWithContext(context.Background())
+}
+
+func (e InstrumentationConfigCodeLocationLanguage) ToInstrumentationConfigCodeLocationLanguagePtrOutputWithContext(ctx context.Context) InstrumentationConfigCodeLocationLanguagePtrOutput {
+	return InstrumentationConfigCodeLocationLanguage(e).ToInstrumentationConfigCodeLocationLanguageOutputWithContext(ctx).ToInstrumentationConfigCodeLocationLanguagePtrOutputWithContext(ctx)
+}
+
+func (e InstrumentationConfigCodeLocationLanguage) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e InstrumentationConfigCodeLocationLanguage) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e InstrumentationConfigCodeLocationLanguage) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e InstrumentationConfigCodeLocationLanguage) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type InstrumentationConfigCodeLocationLanguageOutput struct{ *pulumi.OutputState }
+
+func (InstrumentationConfigCodeLocationLanguageOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstrumentationConfigCodeLocationLanguage)(nil)).Elem()
+}
+
+func (o InstrumentationConfigCodeLocationLanguageOutput) ToInstrumentationConfigCodeLocationLanguageOutput() InstrumentationConfigCodeLocationLanguageOutput {
+	return o
+}
+
+func (o InstrumentationConfigCodeLocationLanguageOutput) ToInstrumentationConfigCodeLocationLanguageOutputWithContext(ctx context.Context) InstrumentationConfigCodeLocationLanguageOutput {
+	return o
+}
+
+func (o InstrumentationConfigCodeLocationLanguageOutput) ToInstrumentationConfigCodeLocationLanguagePtrOutput() InstrumentationConfigCodeLocationLanguagePtrOutput {
+	return o.ToInstrumentationConfigCodeLocationLanguagePtrOutputWithContext(context.Background())
+}
+
+func (o InstrumentationConfigCodeLocationLanguageOutput) ToInstrumentationConfigCodeLocationLanguagePtrOutputWithContext(ctx context.Context) InstrumentationConfigCodeLocationLanguagePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InstrumentationConfigCodeLocationLanguage) *InstrumentationConfigCodeLocationLanguage {
+		return &v
+	}).(InstrumentationConfigCodeLocationLanguagePtrOutput)
+}
+
+func (o InstrumentationConfigCodeLocationLanguageOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o InstrumentationConfigCodeLocationLanguageOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e InstrumentationConfigCodeLocationLanguage) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o InstrumentationConfigCodeLocationLanguageOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o InstrumentationConfigCodeLocationLanguageOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e InstrumentationConfigCodeLocationLanguage) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type InstrumentationConfigCodeLocationLanguagePtrOutput struct{ *pulumi.OutputState }
+
+func (InstrumentationConfigCodeLocationLanguagePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InstrumentationConfigCodeLocationLanguage)(nil)).Elem()
+}
+
+func (o InstrumentationConfigCodeLocationLanguagePtrOutput) ToInstrumentationConfigCodeLocationLanguagePtrOutput() InstrumentationConfigCodeLocationLanguagePtrOutput {
+	return o
+}
+
+func (o InstrumentationConfigCodeLocationLanguagePtrOutput) ToInstrumentationConfigCodeLocationLanguagePtrOutputWithContext(ctx context.Context) InstrumentationConfigCodeLocationLanguagePtrOutput {
+	return o
+}
+
+func (o InstrumentationConfigCodeLocationLanguagePtrOutput) Elem() InstrumentationConfigCodeLocationLanguageOutput {
+	return o.ApplyT(func(v *InstrumentationConfigCodeLocationLanguage) InstrumentationConfigCodeLocationLanguage {
+		if v != nil {
+			return *v
+		}
+		var ret InstrumentationConfigCodeLocationLanguage
+		return ret
+	}).(InstrumentationConfigCodeLocationLanguageOutput)
+}
+
+func (o InstrumentationConfigCodeLocationLanguagePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o InstrumentationConfigCodeLocationLanguagePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *InstrumentationConfigCodeLocationLanguage) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// InstrumentationConfigCodeLocationLanguageInput is an input type that accepts values of the InstrumentationConfigCodeLocationLanguage enum
+// A concrete instance of `InstrumentationConfigCodeLocationLanguageInput` can be one of the following:
+//
+//	InstrumentationConfigCodeLocationLanguageJava
+//	InstrumentationConfigCodeLocationLanguagePython
+//	InstrumentationConfigCodeLocationLanguageJavascript
+type InstrumentationConfigCodeLocationLanguageInput interface {
+	pulumi.Input
+
+	ToInstrumentationConfigCodeLocationLanguageOutput() InstrumentationConfigCodeLocationLanguageOutput
+	ToInstrumentationConfigCodeLocationLanguageOutputWithContext(context.Context) InstrumentationConfigCodeLocationLanguageOutput
+}
+
+var instrumentationConfigCodeLocationLanguagePtrType = reflect.TypeOf((**InstrumentationConfigCodeLocationLanguage)(nil)).Elem()
+
+type InstrumentationConfigCodeLocationLanguagePtrInput interface {
+	pulumi.Input
+
+	ToInstrumentationConfigCodeLocationLanguagePtrOutput() InstrumentationConfigCodeLocationLanguagePtrOutput
+	ToInstrumentationConfigCodeLocationLanguagePtrOutputWithContext(context.Context) InstrumentationConfigCodeLocationLanguagePtrOutput
+}
+
+type instrumentationConfigCodeLocationLanguagePtr string
+
+func InstrumentationConfigCodeLocationLanguagePtr(v string) InstrumentationConfigCodeLocationLanguagePtrInput {
+	return (*instrumentationConfigCodeLocationLanguagePtr)(&v)
+}
+
+func (*instrumentationConfigCodeLocationLanguagePtr) ElementType() reflect.Type {
+	return instrumentationConfigCodeLocationLanguagePtrType
+}
+
+func (in *instrumentationConfigCodeLocationLanguagePtr) ToInstrumentationConfigCodeLocationLanguagePtrOutput() InstrumentationConfigCodeLocationLanguagePtrOutput {
+	return pulumi.ToOutput(in).(InstrumentationConfigCodeLocationLanguagePtrOutput)
+}
+
+func (in *instrumentationConfigCodeLocationLanguagePtr) ToInstrumentationConfigCodeLocationLanguagePtrOutputWithContext(ctx context.Context) InstrumentationConfigCodeLocationLanguagePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(InstrumentationConfigCodeLocationLanguagePtrOutput)
+}
+
+// Type of instrumentation: BREAKPOINT (temporary, expires after 24 hours) or PROBE (permanent, persists until deleted).
+type InstrumentationConfigInstrumentationType string
+
+const (
+	InstrumentationConfigInstrumentationTypeBreakpoint = InstrumentationConfigInstrumentationType("BREAKPOINT")
+	InstrumentationConfigInstrumentationTypeProbe      = InstrumentationConfigInstrumentationType("PROBE")
+)
+
+func (InstrumentationConfigInstrumentationType) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstrumentationConfigInstrumentationType)(nil)).Elem()
+}
+
+func (e InstrumentationConfigInstrumentationType) ToInstrumentationConfigInstrumentationTypeOutput() InstrumentationConfigInstrumentationTypeOutput {
+	return pulumi.ToOutput(e).(InstrumentationConfigInstrumentationTypeOutput)
+}
+
+func (e InstrumentationConfigInstrumentationType) ToInstrumentationConfigInstrumentationTypeOutputWithContext(ctx context.Context) InstrumentationConfigInstrumentationTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(InstrumentationConfigInstrumentationTypeOutput)
+}
+
+func (e InstrumentationConfigInstrumentationType) ToInstrumentationConfigInstrumentationTypePtrOutput() InstrumentationConfigInstrumentationTypePtrOutput {
+	return e.ToInstrumentationConfigInstrumentationTypePtrOutputWithContext(context.Background())
+}
+
+func (e InstrumentationConfigInstrumentationType) ToInstrumentationConfigInstrumentationTypePtrOutputWithContext(ctx context.Context) InstrumentationConfigInstrumentationTypePtrOutput {
+	return InstrumentationConfigInstrumentationType(e).ToInstrumentationConfigInstrumentationTypeOutputWithContext(ctx).ToInstrumentationConfigInstrumentationTypePtrOutputWithContext(ctx)
+}
+
+func (e InstrumentationConfigInstrumentationType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e InstrumentationConfigInstrumentationType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e InstrumentationConfigInstrumentationType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e InstrumentationConfigInstrumentationType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type InstrumentationConfigInstrumentationTypeOutput struct{ *pulumi.OutputState }
+
+func (InstrumentationConfigInstrumentationTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstrumentationConfigInstrumentationType)(nil)).Elem()
+}
+
+func (o InstrumentationConfigInstrumentationTypeOutput) ToInstrumentationConfigInstrumentationTypeOutput() InstrumentationConfigInstrumentationTypeOutput {
+	return o
+}
+
+func (o InstrumentationConfigInstrumentationTypeOutput) ToInstrumentationConfigInstrumentationTypeOutputWithContext(ctx context.Context) InstrumentationConfigInstrumentationTypeOutput {
+	return o
+}
+
+func (o InstrumentationConfigInstrumentationTypeOutput) ToInstrumentationConfigInstrumentationTypePtrOutput() InstrumentationConfigInstrumentationTypePtrOutput {
+	return o.ToInstrumentationConfigInstrumentationTypePtrOutputWithContext(context.Background())
+}
+
+func (o InstrumentationConfigInstrumentationTypeOutput) ToInstrumentationConfigInstrumentationTypePtrOutputWithContext(ctx context.Context) InstrumentationConfigInstrumentationTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InstrumentationConfigInstrumentationType) *InstrumentationConfigInstrumentationType {
+		return &v
+	}).(InstrumentationConfigInstrumentationTypePtrOutput)
+}
+
+func (o InstrumentationConfigInstrumentationTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o InstrumentationConfigInstrumentationTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e InstrumentationConfigInstrumentationType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o InstrumentationConfigInstrumentationTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o InstrumentationConfigInstrumentationTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e InstrumentationConfigInstrumentationType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type InstrumentationConfigInstrumentationTypePtrOutput struct{ *pulumi.OutputState }
+
+func (InstrumentationConfigInstrumentationTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InstrumentationConfigInstrumentationType)(nil)).Elem()
+}
+
+func (o InstrumentationConfigInstrumentationTypePtrOutput) ToInstrumentationConfigInstrumentationTypePtrOutput() InstrumentationConfigInstrumentationTypePtrOutput {
+	return o
+}
+
+func (o InstrumentationConfigInstrumentationTypePtrOutput) ToInstrumentationConfigInstrumentationTypePtrOutputWithContext(ctx context.Context) InstrumentationConfigInstrumentationTypePtrOutput {
+	return o
+}
+
+func (o InstrumentationConfigInstrumentationTypePtrOutput) Elem() InstrumentationConfigInstrumentationTypeOutput {
+	return o.ApplyT(func(v *InstrumentationConfigInstrumentationType) InstrumentationConfigInstrumentationType {
+		if v != nil {
+			return *v
+		}
+		var ret InstrumentationConfigInstrumentationType
+		return ret
+	}).(InstrumentationConfigInstrumentationTypeOutput)
+}
+
+func (o InstrumentationConfigInstrumentationTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o InstrumentationConfigInstrumentationTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *InstrumentationConfigInstrumentationType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// InstrumentationConfigInstrumentationTypeInput is an input type that accepts values of the InstrumentationConfigInstrumentationType enum
+// A concrete instance of `InstrumentationConfigInstrumentationTypeInput` can be one of the following:
+//
+//	InstrumentationConfigInstrumentationTypeBreakpoint
+//	InstrumentationConfigInstrumentationTypeProbe
+type InstrumentationConfigInstrumentationTypeInput interface {
+	pulumi.Input
+
+	ToInstrumentationConfigInstrumentationTypeOutput() InstrumentationConfigInstrumentationTypeOutput
+	ToInstrumentationConfigInstrumentationTypeOutputWithContext(context.Context) InstrumentationConfigInstrumentationTypeOutput
+}
+
+var instrumentationConfigInstrumentationTypePtrType = reflect.TypeOf((**InstrumentationConfigInstrumentationType)(nil)).Elem()
+
+type InstrumentationConfigInstrumentationTypePtrInput interface {
+	pulumi.Input
+
+	ToInstrumentationConfigInstrumentationTypePtrOutput() InstrumentationConfigInstrumentationTypePtrOutput
+	ToInstrumentationConfigInstrumentationTypePtrOutputWithContext(context.Context) InstrumentationConfigInstrumentationTypePtrOutput
+}
+
+type instrumentationConfigInstrumentationTypePtr string
+
+func InstrumentationConfigInstrumentationTypePtr(v string) InstrumentationConfigInstrumentationTypePtrInput {
+	return (*instrumentationConfigInstrumentationTypePtr)(&v)
+}
+
+func (*instrumentationConfigInstrumentationTypePtr) ElementType() reflect.Type {
+	return instrumentationConfigInstrumentationTypePtrType
+}
+
+func (in *instrumentationConfigInstrumentationTypePtr) ToInstrumentationConfigInstrumentationTypePtrOutput() InstrumentationConfigInstrumentationTypePtrOutput {
+	return pulumi.ToOutput(in).(InstrumentationConfigInstrumentationTypePtrOutput)
+}
+
+func (in *instrumentationConfigInstrumentationTypePtr) ToInstrumentationConfigInstrumentationTypePtrOutputWithContext(ctx context.Context) InstrumentationConfigInstrumentationTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(InstrumentationConfigInstrumentationTypePtrOutput)
+}
+
+// The telemetry signal type to emit for this instrumentation. The supported value is SNAPSHOT.
+type InstrumentationConfigSignalType string
+
+const (
+	InstrumentationConfigSignalTypeSnapshot = InstrumentationConfigSignalType("SNAPSHOT")
+)
+
+func (InstrumentationConfigSignalType) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstrumentationConfigSignalType)(nil)).Elem()
+}
+
+func (e InstrumentationConfigSignalType) ToInstrumentationConfigSignalTypeOutput() InstrumentationConfigSignalTypeOutput {
+	return pulumi.ToOutput(e).(InstrumentationConfigSignalTypeOutput)
+}
+
+func (e InstrumentationConfigSignalType) ToInstrumentationConfigSignalTypeOutputWithContext(ctx context.Context) InstrumentationConfigSignalTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(InstrumentationConfigSignalTypeOutput)
+}
+
+func (e InstrumentationConfigSignalType) ToInstrumentationConfigSignalTypePtrOutput() InstrumentationConfigSignalTypePtrOutput {
+	return e.ToInstrumentationConfigSignalTypePtrOutputWithContext(context.Background())
+}
+
+func (e InstrumentationConfigSignalType) ToInstrumentationConfigSignalTypePtrOutputWithContext(ctx context.Context) InstrumentationConfigSignalTypePtrOutput {
+	return InstrumentationConfigSignalType(e).ToInstrumentationConfigSignalTypeOutputWithContext(ctx).ToInstrumentationConfigSignalTypePtrOutputWithContext(ctx)
+}
+
+func (e InstrumentationConfigSignalType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e InstrumentationConfigSignalType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e InstrumentationConfigSignalType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e InstrumentationConfigSignalType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type InstrumentationConfigSignalTypeOutput struct{ *pulumi.OutputState }
+
+func (InstrumentationConfigSignalTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstrumentationConfigSignalType)(nil)).Elem()
+}
+
+func (o InstrumentationConfigSignalTypeOutput) ToInstrumentationConfigSignalTypeOutput() InstrumentationConfigSignalTypeOutput {
+	return o
+}
+
+func (o InstrumentationConfigSignalTypeOutput) ToInstrumentationConfigSignalTypeOutputWithContext(ctx context.Context) InstrumentationConfigSignalTypeOutput {
+	return o
+}
+
+func (o InstrumentationConfigSignalTypeOutput) ToInstrumentationConfigSignalTypePtrOutput() InstrumentationConfigSignalTypePtrOutput {
+	return o.ToInstrumentationConfigSignalTypePtrOutputWithContext(context.Background())
+}
+
+func (o InstrumentationConfigSignalTypeOutput) ToInstrumentationConfigSignalTypePtrOutputWithContext(ctx context.Context) InstrumentationConfigSignalTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InstrumentationConfigSignalType) *InstrumentationConfigSignalType {
+		return &v
+	}).(InstrumentationConfigSignalTypePtrOutput)
+}
+
+func (o InstrumentationConfigSignalTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o InstrumentationConfigSignalTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e InstrumentationConfigSignalType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o InstrumentationConfigSignalTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o InstrumentationConfigSignalTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e InstrumentationConfigSignalType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type InstrumentationConfigSignalTypePtrOutput struct{ *pulumi.OutputState }
+
+func (InstrumentationConfigSignalTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InstrumentationConfigSignalType)(nil)).Elem()
+}
+
+func (o InstrumentationConfigSignalTypePtrOutput) ToInstrumentationConfigSignalTypePtrOutput() InstrumentationConfigSignalTypePtrOutput {
+	return o
+}
+
+func (o InstrumentationConfigSignalTypePtrOutput) ToInstrumentationConfigSignalTypePtrOutputWithContext(ctx context.Context) InstrumentationConfigSignalTypePtrOutput {
+	return o
+}
+
+func (o InstrumentationConfigSignalTypePtrOutput) Elem() InstrumentationConfigSignalTypeOutput {
+	return o.ApplyT(func(v *InstrumentationConfigSignalType) InstrumentationConfigSignalType {
+		if v != nil {
+			return *v
+		}
+		var ret InstrumentationConfigSignalType
+		return ret
+	}).(InstrumentationConfigSignalTypeOutput)
+}
+
+func (o InstrumentationConfigSignalTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o InstrumentationConfigSignalTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *InstrumentationConfigSignalType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// InstrumentationConfigSignalTypeInput is an input type that accepts values of the InstrumentationConfigSignalType enum
+// A concrete instance of `InstrumentationConfigSignalTypeInput` can be one of the following:
+//
+//	InstrumentationConfigSignalTypeSnapshot
+type InstrumentationConfigSignalTypeInput interface {
+	pulumi.Input
+
+	ToInstrumentationConfigSignalTypeOutput() InstrumentationConfigSignalTypeOutput
+	ToInstrumentationConfigSignalTypeOutputWithContext(context.Context) InstrumentationConfigSignalTypeOutput
+}
+
+var instrumentationConfigSignalTypePtrType = reflect.TypeOf((**InstrumentationConfigSignalType)(nil)).Elem()
+
+type InstrumentationConfigSignalTypePtrInput interface {
+	pulumi.Input
+
+	ToInstrumentationConfigSignalTypePtrOutput() InstrumentationConfigSignalTypePtrOutput
+	ToInstrumentationConfigSignalTypePtrOutputWithContext(context.Context) InstrumentationConfigSignalTypePtrOutput
+}
+
+type instrumentationConfigSignalTypePtr string
+
+func InstrumentationConfigSignalTypePtr(v string) InstrumentationConfigSignalTypePtrInput {
+	return (*instrumentationConfigSignalTypePtr)(&v)
+}
+
+func (*instrumentationConfigSignalTypePtr) ElementType() reflect.Type {
+	return instrumentationConfigSignalTypePtrType
+}
+
+func (in *instrumentationConfigSignalTypePtr) ToInstrumentationConfigSignalTypePtrOutput() InstrumentationConfigSignalTypePtrOutput {
+	return pulumi.ToOutput(in).(InstrumentationConfigSignalTypePtrOutput)
+}
+
+func (in *instrumentationConfigSignalTypePtr) ToInstrumentationConfigSignalTypePtrOutputWithContext(ctx context.Context) InstrumentationConfigSignalTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(InstrumentationConfigSignalTypePtrOutput)
+}
+
 // Specifies the interval unit.
 type ServiceLevelObjectiveDurationUnit string
 
@@ -1111,6 +1609,12 @@ func (in *serviceLevelObjectiveSliMetricMetricTypePtr) ToServiceLevelObjectiveSl
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*InstrumentationConfigCodeLocationLanguageInput)(nil)).Elem(), InstrumentationConfigCodeLocationLanguage("Java"))
+	pulumi.RegisterInputType(reflect.TypeOf((*InstrumentationConfigCodeLocationLanguagePtrInput)(nil)).Elem(), InstrumentationConfigCodeLocationLanguage("Java"))
+	pulumi.RegisterInputType(reflect.TypeOf((*InstrumentationConfigInstrumentationTypeInput)(nil)).Elem(), InstrumentationConfigInstrumentationType("BREAKPOINT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*InstrumentationConfigInstrumentationTypePtrInput)(nil)).Elem(), InstrumentationConfigInstrumentationType("BREAKPOINT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*InstrumentationConfigSignalTypeInput)(nil)).Elem(), InstrumentationConfigSignalType("SNAPSHOT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*InstrumentationConfigSignalTypePtrInput)(nil)).Elem(), InstrumentationConfigSignalType("SNAPSHOT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelObjectiveDurationUnitInput)(nil)).Elem(), ServiceLevelObjectiveDurationUnit("MINUTE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelObjectiveDurationUnitPtrInput)(nil)).Elem(), ServiceLevelObjectiveDurationUnit("MINUTE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelObjectiveRequestBasedSliComparisonOperatorInput)(nil)).Elem(), ServiceLevelObjectiveRequestBasedSliComparisonOperator("GreaterThanOrEqualTo"))
@@ -1123,6 +1627,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelObjectiveSliComparisonOperatorPtrInput)(nil)).Elem(), ServiceLevelObjectiveSliComparisonOperator("GreaterThanOrEqualTo"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelObjectiveSliMetricMetricTypeInput)(nil)).Elem(), ServiceLevelObjectiveSliMetricMetricType("LATENCY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelObjectiveSliMetricMetricTypePtrInput)(nil)).Elem(), ServiceLevelObjectiveSliMetricMetricType("LATENCY"))
+	pulumi.RegisterOutputType(InstrumentationConfigCodeLocationLanguageOutput{})
+	pulumi.RegisterOutputType(InstrumentationConfigCodeLocationLanguagePtrOutput{})
+	pulumi.RegisterOutputType(InstrumentationConfigInstrumentationTypeOutput{})
+	pulumi.RegisterOutputType(InstrumentationConfigInstrumentationTypePtrOutput{})
+	pulumi.RegisterOutputType(InstrumentationConfigSignalTypeOutput{})
+	pulumi.RegisterOutputType(InstrumentationConfigSignalTypePtrOutput{})
 	pulumi.RegisterOutputType(ServiceLevelObjectiveDurationUnitOutput{})
 	pulumi.RegisterOutputType(ServiceLevelObjectiveDurationUnitPtrOutput{})
 	pulumi.RegisterOutputType(ServiceLevelObjectiveEvaluationTypeOutput{})

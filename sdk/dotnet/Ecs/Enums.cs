@@ -990,6 +990,11 @@ namespace Pulumi.AwsNative.Ecs
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// The time when Amazon ECS removes the source revisions' tasks relative to deployment completion. The valid values are:
+    ///   +  ``BLOCKING``—Amazon ECS removes the previous tasks before it marks the deployment as successful.
+    ///   +  ``DEFERRED``—Amazon ECS marks the deployment successful, and then removes the previous tasks in the background.
+    /// </summary>
     [EnumType]
     public readonly struct ServiceDeploymentEarlySuccessCriteriaSourceServiceRevisionCleanup : IEquatable<ServiceDeploymentEarlySuccessCriteriaSourceServiceRevisionCleanup>
     {

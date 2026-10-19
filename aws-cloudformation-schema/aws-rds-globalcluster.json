@@ -100,13 +100,13 @@
   "primaryIdentifier" : [ "/properties/GlobalClusterIdentifier" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "rds:CreateGlobalCluster", "rds:DescribeDBClusters", "rds:DescribeGlobalClusters" ]
+      "permissions" : [ "rds:CreateGlobalCluster", "rds:DescribeDBClusters", "rds:DescribeGlobalClusters", "rds:ListTagsForResource" ]
     },
     "read" : {
-      "permissions" : [ "rds:DescribeGlobalClusters" ]
+      "permissions" : [ "rds:DescribeGlobalClusters", "rds:ListTagsForResource" ]
     },
     "update" : {
-      "permissions" : [ "rds:ModifyGlobalCluster", "rds:DescribeGlobalClusters", "rds:AddTagsToResource", "rds:RemoveTagsFromResource" ]
+      "permissions" : [ "rds:ModifyGlobalCluster", "rds:DescribeGlobalClusters", "rds:AddTagsToResource", "rds:ListTagsForResource", "rds:RemoveTagsFromResource" ]
     },
     "delete" : {
       "permissions" : [ "rds:DescribeGlobalClusters", "rds:DeleteGlobalCluster", "rds:RemoveFromGlobalCluster", "rds:DescribeDBClusters" ]

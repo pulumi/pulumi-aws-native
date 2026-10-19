@@ -63,6 +63,14 @@ namespace Pulumi.AwsNative.Connect.Inputs
             set => _eventBridgeActions = value;
         }
 
+        [Input("sendInAppNotificationActions")]
+        private InputList<Inputs.RuleSendInAppNotificationActionArgs>? _sendInAppNotificationActions;
+        public InputList<Inputs.RuleSendInAppNotificationActionArgs> SendInAppNotificationActions
+        {
+            get => _sendInAppNotificationActions ?? (_sendInAppNotificationActions = new InputList<Inputs.RuleSendInAppNotificationActionArgs>());
+            set => _sendInAppNotificationActions = value;
+        }
+
         [Input("sendNotificationActions")]
         private InputList<Inputs.RuleSendNotificationActionArgs>? _sendNotificationActions;
 

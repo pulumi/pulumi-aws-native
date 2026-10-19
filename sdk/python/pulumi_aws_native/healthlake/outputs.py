@@ -21,10 +21,13 @@ __all__ = [
     'DataTransformationProfileProfileMappingSource',
     'DataTransformationProfileSource',
     'DataTransformationProfileStarterProfileSource',
+    'FhirDatastoreAnalyticsConfiguration',
     'FhirDatastoreCreatedAt',
     'FhirDatastoreIdentityProviderConfiguration',
     'FhirDatastoreKmsEncryptionConfig',
+    'FhirDatastoreNlpConfiguration',
     'FhirDatastorePreloadDataConfig',
+    'FhirDatastoreProfileConfiguration',
     'FhirDatastoreSseConfiguration',
 ]
 
@@ -216,6 +219,29 @@ class DataTransformationProfileStarterProfileSource(dict):
 
 
 @pulumi.output_type
+class FhirDatastoreAnalyticsConfiguration(dict):
+    """
+    The analytics configuration for the Data Store. Omitted when the Data Store can't carry analytics.
+    """
+    def __init__(__self__, *,
+                 status: 'FhirDatastoreAnalyticsConfigurationStatus'):
+        """
+        The analytics configuration for the Data Store. Omitted when the Data Store can't carry analytics.
+
+        :param 'FhirDatastoreAnalyticsConfigurationStatus' status: The analytics status for the Data Store.
+        """
+        pulumi.set(__self__, "status", status)
+
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> 'FhirDatastoreAnalyticsConfigurationStatus':
+        """
+        The analytics status for the Data Store.
+        """
+        return pulumi.get(self, "status")
+
+
+@pulumi.output_type
 class FhirDatastoreCreatedAt(dict):
     """
     The time that a Data Store was created.
@@ -384,6 +410,29 @@ class FhirDatastoreKmsEncryptionConfig(dict):
 
 
 @pulumi.output_type
+class FhirDatastoreNlpConfiguration(dict):
+    """
+    The natural language processing (NLP) configuration for the Data Store.
+    """
+    def __init__(__self__, *,
+                 status: 'FhirDatastoreNlpConfigurationStatus'):
+        """
+        The natural language processing (NLP) configuration for the Data Store.
+
+        :param 'FhirDatastoreNlpConfigurationStatus' status: The NLP status for the Data Store.
+        """
+        pulumi.set(__self__, "status", status)
+
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> 'FhirDatastoreNlpConfigurationStatus':
+        """
+        The NLP status for the Data Store.
+        """
+        return pulumi.get(self, "status")
+
+
+@pulumi.output_type
 class FhirDatastorePreloadDataConfig(dict):
     """
     The preloaded data configuration for the Data Store. Only data preloaded from Synthea is supported.
@@ -421,6 +470,46 @@ class FhirDatastorePreloadDataConfig(dict):
         The type of preloaded data. Only Synthea preloaded data is supported.
         """
         return pulumi.get(self, "preload_data_type")
+
+
+@pulumi.output_type
+class FhirDatastoreProfileConfiguration(dict):
+    """
+    The profile configuration for the Data Store.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "defaultProfiles":
+            suggest = "default_profiles"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FhirDatastoreProfileConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FhirDatastoreProfileConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FhirDatastoreProfileConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 default_profiles: Sequence[_builtins.str]):
+        """
+        The profile configuration for the Data Store.
+
+        :param Sequence[_builtins.str] default_profiles: The FHIR profiles the Data Store validates resources against by default, for example us-core-3.1.1.
+        """
+        pulumi.set(__self__, "default_profiles", default_profiles)
+
+    @_builtins.property
+    @pulumi.getter(name="defaultProfiles")
+    def default_profiles(self) -> Sequence[_builtins.str]:
+        """
+        The FHIR profiles the Data Store validates resources against by default, for example us-core-3.1.1.
+        """
+        return pulumi.get(self, "default_profiles")
 
 
 @pulumi.output_type

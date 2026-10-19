@@ -22,10 +22,22 @@ namespace Pulumi.AwsNative.Ses
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
+        /// The reputation configuration for the tenant. Sending status remains managed by SES.
+        /// </summary>
+        [Output("reputationEntity")]
+        public Output<Outputs.TenantReputationEntity?> ReputationEntity { get; private set; } = null!;
+
+        /// <summary>
         /// The list of resources to associate with the tenant.
         /// </summary>
         [Output("resourceAssociations")]
         public Output<ImmutableArray<Outputs.TenantResourceAssociation>> ResourceAssociations { get; private set; } = null!;
+
+        /// <summary>
+        /// The suppression attributes for the tenant.
+        /// </summary>
+        [Output("suppressionAttributes")]
+        public Output<Outputs.TenantSuppressionAttributes?> SuppressionAttributes { get; private set; } = null!;
 
         /// <summary>
         /// The tags (keys and values) associated with the tenant.
@@ -88,6 +100,12 @@ namespace Pulumi.AwsNative.Ses
 
     public sealed class TenantArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The reputation configuration for the tenant. Sending status remains managed by SES.
+        /// </summary>
+        [Input("reputationEntity")]
+        public Input<Inputs.TenantReputationEntityArgs>? ReputationEntity { get; set; }
+
         [Input("resourceAssociations")]
         private InputList<Inputs.TenantResourceAssociationArgs>? _resourceAssociations;
 
@@ -99,6 +117,12 @@ namespace Pulumi.AwsNative.Ses
             get => _resourceAssociations ?? (_resourceAssociations = new InputList<Inputs.TenantResourceAssociationArgs>());
             set => _resourceAssociations = value;
         }
+
+        /// <summary>
+        /// The suppression attributes for the tenant.
+        /// </summary>
+        [Input("suppressionAttributes")]
+        public Input<Inputs.TenantSuppressionAttributesArgs>? SuppressionAttributes { get; set; }
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;

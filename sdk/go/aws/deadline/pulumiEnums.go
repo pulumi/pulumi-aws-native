@@ -1475,6 +1475,169 @@ func (in *fleetServiceManagedFleetOperatingSystemFamilyPtr) ToFleetServiceManage
 	return pulumi.ToOutputWithContext(ctx, in).(FleetServiceManagedFleetOperatingSystemFamilyPtrOutput)
 }
 
+type FleetSoftwareAddOnName string
+
+const (
+	FleetSoftwareAddOnNameDocker = FleetSoftwareAddOnName("docker")
+)
+
+func (FleetSoftwareAddOnName) ElementType() reflect.Type {
+	return reflect.TypeOf((*FleetSoftwareAddOnName)(nil)).Elem()
+}
+
+func (e FleetSoftwareAddOnName) ToFleetSoftwareAddOnNameOutput() FleetSoftwareAddOnNameOutput {
+	return pulumi.ToOutput(e).(FleetSoftwareAddOnNameOutput)
+}
+
+func (e FleetSoftwareAddOnName) ToFleetSoftwareAddOnNameOutputWithContext(ctx context.Context) FleetSoftwareAddOnNameOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(FleetSoftwareAddOnNameOutput)
+}
+
+func (e FleetSoftwareAddOnName) ToFleetSoftwareAddOnNamePtrOutput() FleetSoftwareAddOnNamePtrOutput {
+	return e.ToFleetSoftwareAddOnNamePtrOutputWithContext(context.Background())
+}
+
+func (e FleetSoftwareAddOnName) ToFleetSoftwareAddOnNamePtrOutputWithContext(ctx context.Context) FleetSoftwareAddOnNamePtrOutput {
+	return FleetSoftwareAddOnName(e).ToFleetSoftwareAddOnNameOutputWithContext(ctx).ToFleetSoftwareAddOnNamePtrOutputWithContext(ctx)
+}
+
+func (e FleetSoftwareAddOnName) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FleetSoftwareAddOnName) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FleetSoftwareAddOnName) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e FleetSoftwareAddOnName) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type FleetSoftwareAddOnNameOutput struct{ *pulumi.OutputState }
+
+func (FleetSoftwareAddOnNameOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FleetSoftwareAddOnName)(nil)).Elem()
+}
+
+func (o FleetSoftwareAddOnNameOutput) ToFleetSoftwareAddOnNameOutput() FleetSoftwareAddOnNameOutput {
+	return o
+}
+
+func (o FleetSoftwareAddOnNameOutput) ToFleetSoftwareAddOnNameOutputWithContext(ctx context.Context) FleetSoftwareAddOnNameOutput {
+	return o
+}
+
+func (o FleetSoftwareAddOnNameOutput) ToFleetSoftwareAddOnNamePtrOutput() FleetSoftwareAddOnNamePtrOutput {
+	return o.ToFleetSoftwareAddOnNamePtrOutputWithContext(context.Background())
+}
+
+func (o FleetSoftwareAddOnNameOutput) ToFleetSoftwareAddOnNamePtrOutputWithContext(ctx context.Context) FleetSoftwareAddOnNamePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FleetSoftwareAddOnName) *FleetSoftwareAddOnName {
+		return &v
+	}).(FleetSoftwareAddOnNamePtrOutput)
+}
+
+func (o FleetSoftwareAddOnNameOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o FleetSoftwareAddOnNameOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FleetSoftwareAddOnName) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o FleetSoftwareAddOnNameOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FleetSoftwareAddOnNameOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FleetSoftwareAddOnName) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type FleetSoftwareAddOnNamePtrOutput struct{ *pulumi.OutputState }
+
+func (FleetSoftwareAddOnNamePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FleetSoftwareAddOnName)(nil)).Elem()
+}
+
+func (o FleetSoftwareAddOnNamePtrOutput) ToFleetSoftwareAddOnNamePtrOutput() FleetSoftwareAddOnNamePtrOutput {
+	return o
+}
+
+func (o FleetSoftwareAddOnNamePtrOutput) ToFleetSoftwareAddOnNamePtrOutputWithContext(ctx context.Context) FleetSoftwareAddOnNamePtrOutput {
+	return o
+}
+
+func (o FleetSoftwareAddOnNamePtrOutput) Elem() FleetSoftwareAddOnNameOutput {
+	return o.ApplyT(func(v *FleetSoftwareAddOnName) FleetSoftwareAddOnName {
+		if v != nil {
+			return *v
+		}
+		var ret FleetSoftwareAddOnName
+		return ret
+	}).(FleetSoftwareAddOnNameOutput)
+}
+
+func (o FleetSoftwareAddOnNamePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FleetSoftwareAddOnNamePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *FleetSoftwareAddOnName) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// FleetSoftwareAddOnNameInput is an input type that accepts values of the FleetSoftwareAddOnName enum
+// A concrete instance of `FleetSoftwareAddOnNameInput` can be one of the following:
+//
+//	FleetSoftwareAddOnNameDocker
+type FleetSoftwareAddOnNameInput interface {
+	pulumi.Input
+
+	ToFleetSoftwareAddOnNameOutput() FleetSoftwareAddOnNameOutput
+	ToFleetSoftwareAddOnNameOutputWithContext(context.Context) FleetSoftwareAddOnNameOutput
+}
+
+var fleetSoftwareAddOnNamePtrType = reflect.TypeOf((**FleetSoftwareAddOnName)(nil)).Elem()
+
+type FleetSoftwareAddOnNamePtrInput interface {
+	pulumi.Input
+
+	ToFleetSoftwareAddOnNamePtrOutput() FleetSoftwareAddOnNamePtrOutput
+	ToFleetSoftwareAddOnNamePtrOutputWithContext(context.Context) FleetSoftwareAddOnNamePtrOutput
+}
+
+type fleetSoftwareAddOnNamePtr string
+
+func FleetSoftwareAddOnNamePtr(v string) FleetSoftwareAddOnNamePtrInput {
+	return (*fleetSoftwareAddOnNamePtr)(&v)
+}
+
+func (*fleetSoftwareAddOnNamePtr) ElementType() reflect.Type {
+	return fleetSoftwareAddOnNamePtrType
+}
+
+func (in *fleetSoftwareAddOnNamePtr) ToFleetSoftwareAddOnNamePtrOutput() FleetSoftwareAddOnNamePtrOutput {
+	return pulumi.ToOutput(in).(FleetSoftwareAddOnNamePtrOutput)
+}
+
+func (in *fleetSoftwareAddOnNamePtr) ToFleetSoftwareAddOnNamePtrOutputWithContext(ctx context.Context) FleetSoftwareAddOnNamePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(FleetSoftwareAddOnNamePtrOutput)
+}
+
 type FleetStatus string
 
 const (
@@ -2770,6 +2933,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetEc2MarketTypePtrInput)(nil)).Elem(), FleetEc2MarketType("on-demand"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetServiceManagedFleetOperatingSystemFamilyInput)(nil)).Elem(), FleetServiceManagedFleetOperatingSystemFamily("LINUX"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetServiceManagedFleetOperatingSystemFamilyPtrInput)(nil)).Elem(), FleetServiceManagedFleetOperatingSystemFamily("LINUX"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FleetSoftwareAddOnNameInput)(nil)).Elem(), FleetSoftwareAddOnName("docker"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FleetSoftwareAddOnNamePtrInput)(nil)).Elem(), FleetSoftwareAddOnName("docker"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetTagPropagationModeInput)(nil)).Elem(), FleetTagPropagationMode("NO_PROPAGATION"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetTagPropagationModePtrInput)(nil)).Elem(), FleetTagPropagationMode("NO_PROPAGATION"))
 	pulumi.RegisterInputType(reflect.TypeOf((*QueueDefaultQueueBudgetActionInput)(nil)).Elem(), QueueDefaultQueueBudgetAction("NONE"))
@@ -2801,6 +2966,8 @@ func init() {
 	pulumi.RegisterOutputType(FleetEc2MarketTypePtrOutput{})
 	pulumi.RegisterOutputType(FleetServiceManagedFleetOperatingSystemFamilyOutput{})
 	pulumi.RegisterOutputType(FleetServiceManagedFleetOperatingSystemFamilyPtrOutput{})
+	pulumi.RegisterOutputType(FleetSoftwareAddOnNameOutput{})
+	pulumi.RegisterOutputType(FleetSoftwareAddOnNamePtrOutput{})
 	pulumi.RegisterOutputType(FleetStatusOutput{})
 	pulumi.RegisterOutputType(FleetStatusPtrOutput{})
 	pulumi.RegisterOutputType(FleetTagPropagationModeOutput{})

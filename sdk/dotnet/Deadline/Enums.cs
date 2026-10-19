@@ -270,6 +270,33 @@ namespace Pulumi.AwsNative.Deadline
     }
 
     [EnumType]
+    public readonly struct FleetSoftwareAddOnName : IEquatable<FleetSoftwareAddOnName>
+    {
+        private readonly string _value;
+
+        private FleetSoftwareAddOnName(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static FleetSoftwareAddOnName Docker { get; } = new FleetSoftwareAddOnName("docker");
+
+        public static bool operator ==(FleetSoftwareAddOnName left, FleetSoftwareAddOnName right) => left.Equals(right);
+        public static bool operator !=(FleetSoftwareAddOnName left, FleetSoftwareAddOnName right) => !left.Equals(right);
+
+        public static explicit operator string(FleetSoftwareAddOnName value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is FleetSoftwareAddOnName other && Equals(other);
+        public bool Equals(FleetSoftwareAddOnName other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct FleetStatus : IEquatable<FleetStatus>
     {
         private readonly string _value;

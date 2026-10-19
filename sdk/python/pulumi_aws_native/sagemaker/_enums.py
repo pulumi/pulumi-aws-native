@@ -28,6 +28,11 @@ __all__ = [
     'ClusterSlurmConfigNodeType',
     'ClusterStatus',
     'ClusterTieredStorageConfigMode',
+    'ComputeQuotaAcceleratorPartitionConfigType',
+    'ComputeQuotaActivationState',
+    'ComputeQuotaConfigPreemptTeamTasks',
+    'ComputeQuotaResourceSharingConfigStrategy',
+    'ComputeQuotaStatus',
     'DataQualityJobDefinitionBatchTransformInputS3DataDistributionType',
     'DataQualityJobDefinitionBatchTransformInputS3InputMode',
     'DataQualityJobDefinitionEndpointInputS3DataDistributionType',
@@ -517,6 +522,88 @@ class ClusterTieredStorageConfigMode(_builtins.str, Enum):
     """
     ENABLE = "Enable"
     DISABLE = "Disable"
+
+
+@pulumi.type_token("aws-native:sagemaker:ComputeQuotaAcceleratorPartitionConfigType")
+class ComputeQuotaAcceleratorPartitionConfigType(_builtins.str, Enum):
+    """
+    MIG profile type. Service rejects MIG profiles that the chosen InstanceType does not support.
+    """
+    MIG1G5GB = "mig-1g.5gb"
+    MIG1G10GB = "mig-1g.10gb"
+    MIG1G18GB = "mig-1g.18gb"
+    MIG1G20GB = "mig-1g.20gb"
+    MIG1G23GB = "mig-1g.23gb"
+    MIG1G35GB = "mig-1g.35gb"
+    MIG1G45GB = "mig-1g.45gb"
+    MIG1G47GB = "mig-1g.47gb"
+    MIG2G10GB = "mig-2g.10gb"
+    MIG2G20GB = "mig-2g.20gb"
+    MIG2G35GB = "mig-2g.35gb"
+    MIG2G45GB = "mig-2g.45gb"
+    MIG2G47GB = "mig-2g.47gb"
+    MIG3G20GB = "mig-3g.20gb"
+    MIG3G40GB = "mig-3g.40gb"
+    MIG3G71GB = "mig-3g.71gb"
+    MIG3G90GB = "mig-3g.90gb"
+    MIG3G93GB = "mig-3g.93gb"
+    MIG4G20GB = "mig-4g.20gb"
+    MIG4G40GB = "mig-4g.40gb"
+    MIG4G71GB = "mig-4g.71gb"
+    MIG4G90GB = "mig-4g.90gb"
+    MIG4G93GB = "mig-4g.93gb"
+    MIG7G40GB = "mig-7g.40gb"
+    MIG7G80GB = "mig-7g.80gb"
+    MIG7G141GB = "mig-7g.141gb"
+    MIG7G180GB = "mig-7g.180gb"
+    MIG7G186GB = "mig-7g.186gb"
+
+
+@pulumi.type_token("aws-native:sagemaker:ComputeQuotaActivationState")
+class ComputeQuotaActivationState(_builtins.str, Enum):
+    """
+    Whether the compute allocation rule is active. Defaults service-side to 'Enabled' when omitted on Create.
+    """
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
+
+
+@pulumi.type_token("aws-native:sagemaker:ComputeQuotaConfigPreemptTeamTasks")
+class ComputeQuotaConfigPreemptTeamTasks(_builtins.str, Enum):
+    """
+    Team-task preemption policy. Defaults service-side to 'LowerPriority' when omitted on Create.
+    """
+    NEVER = "Never"
+    LOWER_PRIORITY = "LowerPriority"
+
+
+@pulumi.type_token("aws-native:sagemaker:ComputeQuotaResourceSharingConfigStrategy")
+class ComputeQuotaResourceSharingConfigStrategy(_builtins.str, Enum):
+    """
+    How this team participates in idle-resource sharing.
+    """
+    LEND = "Lend"
+    DONT_LEND = "DontLend"
+    LEND_AND_BORROW = "LendAndBorrow"
+
+
+@pulumi.type_token("aws-native:sagemaker:ComputeQuotaStatus")
+class ComputeQuotaStatus(_builtins.str, Enum):
+    """
+    The current lifecycle status of the compute allocation definition.
+    """
+    CREATING = "Creating"
+    CREATED = "Created"
+    CREATE_FAILED = "CreateFailed"
+    CREATE_ROLLBACK_FAILED = "CreateRollbackFailed"
+    UPDATING = "Updating"
+    UPDATED = "Updated"
+    UPDATE_FAILED = "UpdateFailed"
+    UPDATE_ROLLBACK_FAILED = "UpdateRollbackFailed"
+    DELETING = "Deleting"
+    DELETED = "Deleted"
+    DELETE_FAILED = "DeleteFailed"
+    DELETE_ROLLBACK_FAILED = "DeleteRollbackFailed"
 
 
 @pulumi.type_token("aws-native:sagemaker:DataQualityJobDefinitionBatchTransformInputS3DataDistributionType")

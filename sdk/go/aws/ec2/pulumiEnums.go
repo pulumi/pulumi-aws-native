@@ -8510,6 +8510,274 @@ func (o IpamExternalResourceVerificationTokenStatusPtrOutput) ToStringPtrOutputW
 	}).(pulumi.StringPtrOutput)
 }
 
+// The Regional Internet Registry to associate with. The service returns these values in upper case, so the enum uses the round-tripping form.
+type IpamInternetRegistryAssociationRir string
+
+const (
+	IpamInternetRegistryAssociationRirRipe   = IpamInternetRegistryAssociationRir("RIPE")
+	IpamInternetRegistryAssociationRirApnic  = IpamInternetRegistryAssociationRir("APNIC")
+	IpamInternetRegistryAssociationRirArin   = IpamInternetRegistryAssociationRir("ARIN")
+	IpamInternetRegistryAssociationRirLacnic = IpamInternetRegistryAssociationRir("LACNIC")
+)
+
+func (IpamInternetRegistryAssociationRir) ElementType() reflect.Type {
+	return reflect.TypeOf((*IpamInternetRegistryAssociationRir)(nil)).Elem()
+}
+
+func (e IpamInternetRegistryAssociationRir) ToIpamInternetRegistryAssociationRirOutput() IpamInternetRegistryAssociationRirOutput {
+	return pulumi.ToOutput(e).(IpamInternetRegistryAssociationRirOutput)
+}
+
+func (e IpamInternetRegistryAssociationRir) ToIpamInternetRegistryAssociationRirOutputWithContext(ctx context.Context) IpamInternetRegistryAssociationRirOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(IpamInternetRegistryAssociationRirOutput)
+}
+
+func (e IpamInternetRegistryAssociationRir) ToIpamInternetRegistryAssociationRirPtrOutput() IpamInternetRegistryAssociationRirPtrOutput {
+	return e.ToIpamInternetRegistryAssociationRirPtrOutputWithContext(context.Background())
+}
+
+func (e IpamInternetRegistryAssociationRir) ToIpamInternetRegistryAssociationRirPtrOutputWithContext(ctx context.Context) IpamInternetRegistryAssociationRirPtrOutput {
+	return IpamInternetRegistryAssociationRir(e).ToIpamInternetRegistryAssociationRirOutputWithContext(ctx).ToIpamInternetRegistryAssociationRirPtrOutputWithContext(ctx)
+}
+
+func (e IpamInternetRegistryAssociationRir) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e IpamInternetRegistryAssociationRir) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e IpamInternetRegistryAssociationRir) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e IpamInternetRegistryAssociationRir) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type IpamInternetRegistryAssociationRirOutput struct{ *pulumi.OutputState }
+
+func (IpamInternetRegistryAssociationRirOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IpamInternetRegistryAssociationRir)(nil)).Elem()
+}
+
+func (o IpamInternetRegistryAssociationRirOutput) ToIpamInternetRegistryAssociationRirOutput() IpamInternetRegistryAssociationRirOutput {
+	return o
+}
+
+func (o IpamInternetRegistryAssociationRirOutput) ToIpamInternetRegistryAssociationRirOutputWithContext(ctx context.Context) IpamInternetRegistryAssociationRirOutput {
+	return o
+}
+
+func (o IpamInternetRegistryAssociationRirOutput) ToIpamInternetRegistryAssociationRirPtrOutput() IpamInternetRegistryAssociationRirPtrOutput {
+	return o.ToIpamInternetRegistryAssociationRirPtrOutputWithContext(context.Background())
+}
+
+func (o IpamInternetRegistryAssociationRirOutput) ToIpamInternetRegistryAssociationRirPtrOutputWithContext(ctx context.Context) IpamInternetRegistryAssociationRirPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IpamInternetRegistryAssociationRir) *IpamInternetRegistryAssociationRir {
+		return &v
+	}).(IpamInternetRegistryAssociationRirPtrOutput)
+}
+
+func (o IpamInternetRegistryAssociationRirOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o IpamInternetRegistryAssociationRirOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e IpamInternetRegistryAssociationRir) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o IpamInternetRegistryAssociationRirOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o IpamInternetRegistryAssociationRirOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e IpamInternetRegistryAssociationRir) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type IpamInternetRegistryAssociationRirPtrOutput struct{ *pulumi.OutputState }
+
+func (IpamInternetRegistryAssociationRirPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IpamInternetRegistryAssociationRir)(nil)).Elem()
+}
+
+func (o IpamInternetRegistryAssociationRirPtrOutput) ToIpamInternetRegistryAssociationRirPtrOutput() IpamInternetRegistryAssociationRirPtrOutput {
+	return o
+}
+
+func (o IpamInternetRegistryAssociationRirPtrOutput) ToIpamInternetRegistryAssociationRirPtrOutputWithContext(ctx context.Context) IpamInternetRegistryAssociationRirPtrOutput {
+	return o
+}
+
+func (o IpamInternetRegistryAssociationRirPtrOutput) Elem() IpamInternetRegistryAssociationRirOutput {
+	return o.ApplyT(func(v *IpamInternetRegistryAssociationRir) IpamInternetRegistryAssociationRir {
+		if v != nil {
+			return *v
+		}
+		var ret IpamInternetRegistryAssociationRir
+		return ret
+	}).(IpamInternetRegistryAssociationRirOutput)
+}
+
+func (o IpamInternetRegistryAssociationRirPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o IpamInternetRegistryAssociationRirPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *IpamInternetRegistryAssociationRir) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// IpamInternetRegistryAssociationRirInput is an input type that accepts values of the IpamInternetRegistryAssociationRir enum
+// A concrete instance of `IpamInternetRegistryAssociationRirInput` can be one of the following:
+//
+//	IpamInternetRegistryAssociationRirRipe
+//	IpamInternetRegistryAssociationRirApnic
+//	IpamInternetRegistryAssociationRirArin
+//	IpamInternetRegistryAssociationRirLacnic
+type IpamInternetRegistryAssociationRirInput interface {
+	pulumi.Input
+
+	ToIpamInternetRegistryAssociationRirOutput() IpamInternetRegistryAssociationRirOutput
+	ToIpamInternetRegistryAssociationRirOutputWithContext(context.Context) IpamInternetRegistryAssociationRirOutput
+}
+
+var ipamInternetRegistryAssociationRirPtrType = reflect.TypeOf((**IpamInternetRegistryAssociationRir)(nil)).Elem()
+
+type IpamInternetRegistryAssociationRirPtrInput interface {
+	pulumi.Input
+
+	ToIpamInternetRegistryAssociationRirPtrOutput() IpamInternetRegistryAssociationRirPtrOutput
+	ToIpamInternetRegistryAssociationRirPtrOutputWithContext(context.Context) IpamInternetRegistryAssociationRirPtrOutput
+}
+
+type ipamInternetRegistryAssociationRirPtr string
+
+func IpamInternetRegistryAssociationRirPtr(v string) IpamInternetRegistryAssociationRirPtrInput {
+	return (*ipamInternetRegistryAssociationRirPtr)(&v)
+}
+
+func (*ipamInternetRegistryAssociationRirPtr) ElementType() reflect.Type {
+	return ipamInternetRegistryAssociationRirPtrType
+}
+
+func (in *ipamInternetRegistryAssociationRirPtr) ToIpamInternetRegistryAssociationRirPtrOutput() IpamInternetRegistryAssociationRirPtrOutput {
+	return pulumi.ToOutput(in).(IpamInternetRegistryAssociationRirPtrOutput)
+}
+
+func (in *ipamInternetRegistryAssociationRirPtr) ToIpamInternetRegistryAssociationRirPtrOutputWithContext(ctx context.Context) IpamInternetRegistryAssociationRirPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(IpamInternetRegistryAssociationRirPtrOutput)
+}
+
+// The state of the internet registry association.
+type IpamInternetRegistryAssociationStateEnum string
+
+const (
+	IpamInternetRegistryAssociationStateEnumPendingEnable    = IpamInternetRegistryAssociationStateEnum("pending-enable")
+	IpamInternetRegistryAssociationStateEnumCreateInProgress = IpamInternetRegistryAssociationStateEnum("create-in-progress")
+	IpamInternetRegistryAssociationStateEnumCreateFailed     = IpamInternetRegistryAssociationStateEnum("create-failed")
+	IpamInternetRegistryAssociationStateEnumEnableInProgress = IpamInternetRegistryAssociationStateEnum("enable-in-progress")
+	IpamInternetRegistryAssociationStateEnumEnableComplete   = IpamInternetRegistryAssociationStateEnum("enable-complete")
+	IpamInternetRegistryAssociationStateEnumEnableFailed     = IpamInternetRegistryAssociationStateEnum("enable-failed")
+	IpamInternetRegistryAssociationStateEnumDeleteInProgress = IpamInternetRegistryAssociationStateEnum("delete-in-progress")
+	IpamInternetRegistryAssociationStateEnumDeleteComplete   = IpamInternetRegistryAssociationStateEnum("delete-complete")
+	IpamInternetRegistryAssociationStateEnumDeleteFailed     = IpamInternetRegistryAssociationStateEnum("delete-failed")
+)
+
+type IpamInternetRegistryAssociationStateEnumOutput struct{ *pulumi.OutputState }
+
+func (IpamInternetRegistryAssociationStateEnumOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IpamInternetRegistryAssociationStateEnum)(nil)).Elem()
+}
+
+func (o IpamInternetRegistryAssociationStateEnumOutput) ToIpamInternetRegistryAssociationStateEnumOutput() IpamInternetRegistryAssociationStateEnumOutput {
+	return o
+}
+
+func (o IpamInternetRegistryAssociationStateEnumOutput) ToIpamInternetRegistryAssociationStateEnumOutputWithContext(ctx context.Context) IpamInternetRegistryAssociationStateEnumOutput {
+	return o
+}
+
+func (o IpamInternetRegistryAssociationStateEnumOutput) ToIpamInternetRegistryAssociationStateEnumPtrOutput() IpamInternetRegistryAssociationStateEnumPtrOutput {
+	return o.ToIpamInternetRegistryAssociationStateEnumPtrOutputWithContext(context.Background())
+}
+
+func (o IpamInternetRegistryAssociationStateEnumOutput) ToIpamInternetRegistryAssociationStateEnumPtrOutputWithContext(ctx context.Context) IpamInternetRegistryAssociationStateEnumPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IpamInternetRegistryAssociationStateEnum) *IpamInternetRegistryAssociationStateEnum {
+		return &v
+	}).(IpamInternetRegistryAssociationStateEnumPtrOutput)
+}
+
+func (o IpamInternetRegistryAssociationStateEnumOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o IpamInternetRegistryAssociationStateEnumOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e IpamInternetRegistryAssociationStateEnum) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o IpamInternetRegistryAssociationStateEnumOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o IpamInternetRegistryAssociationStateEnumOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e IpamInternetRegistryAssociationStateEnum) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type IpamInternetRegistryAssociationStateEnumPtrOutput struct{ *pulumi.OutputState }
+
+func (IpamInternetRegistryAssociationStateEnumPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IpamInternetRegistryAssociationStateEnum)(nil)).Elem()
+}
+
+func (o IpamInternetRegistryAssociationStateEnumPtrOutput) ToIpamInternetRegistryAssociationStateEnumPtrOutput() IpamInternetRegistryAssociationStateEnumPtrOutput {
+	return o
+}
+
+func (o IpamInternetRegistryAssociationStateEnumPtrOutput) ToIpamInternetRegistryAssociationStateEnumPtrOutputWithContext(ctx context.Context) IpamInternetRegistryAssociationStateEnumPtrOutput {
+	return o
+}
+
+func (o IpamInternetRegistryAssociationStateEnumPtrOutput) Elem() IpamInternetRegistryAssociationStateEnumOutput {
+	return o.ApplyT(func(v *IpamInternetRegistryAssociationStateEnum) IpamInternetRegistryAssociationStateEnum {
+		if v != nil {
+			return *v
+		}
+		var ret IpamInternetRegistryAssociationStateEnum
+		return ret
+	}).(IpamInternetRegistryAssociationStateEnumOutput)
+}
+
+func (o IpamInternetRegistryAssociationStateEnumPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o IpamInternetRegistryAssociationStateEnumPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *IpamInternetRegistryAssociationStateEnum) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
 // A metered account is an account that is charged for active IP addresses managed in IPAM
 type IpamMeteredAccount string
 
@@ -23235,6 +23503,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceMetadataOptionsInstanceMetadataTagsPtrInput)(nil)).Elem(), InstanceMetadataOptionsInstanceMetadataTags("disabled"))
 	pulumi.RegisterInputType(reflect.TypeOf((*InstancePrivateDnsNameOptionsHostnameTypeInput)(nil)).Elem(), InstancePrivateDnsNameOptionsHostnameType("ip-name"))
 	pulumi.RegisterInputType(reflect.TypeOf((*InstancePrivateDnsNameOptionsHostnameTypePtrInput)(nil)).Elem(), InstancePrivateDnsNameOptionsHostnameType("ip-name"))
+	pulumi.RegisterInputType(reflect.TypeOf((*IpamInternetRegistryAssociationRirInput)(nil)).Elem(), IpamInternetRegistryAssociationRir("RIPE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*IpamInternetRegistryAssociationRirPtrInput)(nil)).Elem(), IpamInternetRegistryAssociationRir("RIPE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*IpamMeteredAccountInput)(nil)).Elem(), IpamMeteredAccount("ipam-owner"))
 	pulumi.RegisterInputType(reflect.TypeOf((*IpamMeteredAccountPtrInput)(nil)).Elem(), IpamMeteredAccount("ipam-owner"))
 	pulumi.RegisterInputType(reflect.TypeOf((*IpamPoolAwsServiceInput)(nil)).Elem(), IpamPoolAwsService("ec2"))
@@ -23506,6 +23776,10 @@ func init() {
 	pulumi.RegisterOutputType(IpamExternalResourceVerificationTokenStateEnumPtrOutput{})
 	pulumi.RegisterOutputType(IpamExternalResourceVerificationTokenStatusOutput{})
 	pulumi.RegisterOutputType(IpamExternalResourceVerificationTokenStatusPtrOutput{})
+	pulumi.RegisterOutputType(IpamInternetRegistryAssociationRirOutput{})
+	pulumi.RegisterOutputType(IpamInternetRegistryAssociationRirPtrOutput{})
+	pulumi.RegisterOutputType(IpamInternetRegistryAssociationStateEnumOutput{})
+	pulumi.RegisterOutputType(IpamInternetRegistryAssociationStateEnumPtrOutput{})
 	pulumi.RegisterOutputType(IpamMeteredAccountOutput{})
 	pulumi.RegisterOutputType(IpamMeteredAccountPtrOutput{})
 	pulumi.RegisterOutputType(IpamPoolAwsServiceOutput{})

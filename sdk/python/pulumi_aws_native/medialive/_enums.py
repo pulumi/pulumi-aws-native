@@ -15,6 +15,13 @@ __all__ = [
     'ClusterState',
     'ClusterType',
     'EventBridgeRuleTemplateEventType',
+    'InputAlgorithm',
+    'InputClass',
+    'InputNetworkLocation',
+    'InputRouterSettingsEncryptionType',
+    'InputSourceType',
+    'InputState',
+    'InputType',
     'MultiplexState',
     'MultiplexprogramPreferredChannelPipeline',
     'NetworkState',
@@ -134,6 +141,90 @@ class EventBridgeRuleTemplateEventType(_builtins.str, Enum):
     MEDIACONNECT_SOURCE_HEALTH = "MEDIACONNECT_SOURCE_HEALTH"
     MEDIACONNECT_OUTPUT_HEALTH = "MEDIACONNECT_OUTPUT_HEALTH"
     MEDIACONNECT_FLOW_STATUS_CHANGE = "MEDIACONNECT_FLOW_STATUS_CHANGE"
+
+
+@pulumi.type_token("aws-native:medialive:InputAlgorithm")
+class InputAlgorithm(_builtins.str, Enum):
+    """
+    Placeholder documentation for Algorithm
+    """
+    AES128 = "AES128"
+    AES192 = "AES192"
+    AES256 = "AES256"
+
+
+@pulumi.type_token("aws-native:medialive:InputClass")
+class InputClass(_builtins.str, Enum):
+    """
+    A standard input has two sources and a single pipeline input only has one.
+    """
+    STANDARD = "STANDARD"
+    SINGLE_PIPELINE = "SINGLE_PIPELINE"
+
+
+@pulumi.type_token("aws-native:medialive:InputNetworkLocation")
+class InputNetworkLocation(_builtins.str, Enum):
+    """
+    With the introduction of MediaLive Anywhere, a MediaLive input can now exist in two different places: AWS or
+    inside an on-premises datacenter. By default all inputs will continue to be AWS inputs.
+    """
+    AWS = "AWS"
+    ON_PREMISES = "ON_PREMISES"
+
+
+@pulumi.type_token("aws-native:medialive:InputRouterSettingsEncryptionType")
+class InputRouterSettingsEncryptionType(_builtins.str, Enum):
+    """
+    Encryption configuration for the MediaConnect Router association. AUTOMATIC uses a service-managed secret; SECRETS_MANAGER requires SecretArn.
+    """
+    AUTOMATIC = "AUTOMATIC"
+    SECRETS_MANAGER = "SECRETS_MANAGER"
+
+
+@pulumi.type_token("aws-native:medialive:InputSourceType")
+class InputSourceType(_builtins.str, Enum):
+    """
+    There are two types of input sources, static and dynamic. If an input source is dynamic you can
+    change the source url of the input dynamically using an input switch action. Currently, two input types
+    support a dynamic url at this time, MP4_FILE and TS_FILE. By default all input sources are static.
+    """
+    STATIC = "STATIC"
+    DYNAMIC = "DYNAMIC"
+
+
+@pulumi.type_token("aws-native:medialive:InputState")
+class InputState(_builtins.str, Enum):
+    """
+    Placeholder documentation for InputState
+    """
+    CREATING = "CREATING"
+    DETACHED = "DETACHED"
+    ATTACHED = "ATTACHED"
+    DELETING = "DELETING"
+    DELETED = "DELETED"
+
+
+@pulumi.type_token("aws-native:medialive:InputType")
+class InputType(_builtins.str, Enum):
+    """
+    The different types of inputs that AWS Elemental MediaLive supports.
+    """
+    UDP_PUSH = "UDP_PUSH"
+    RTP_PUSH = "RTP_PUSH"
+    RTMP_PUSH = "RTMP_PUSH"
+    RTMP_PULL = "RTMP_PULL"
+    URL_PULL = "URL_PULL"
+    MP4_FILE = "MP4_FILE"
+    MEDIACONNECT = "MEDIACONNECT"
+    INPUT_DEVICE = "INPUT_DEVICE"
+    AWS_CDI = "AWS_CDI"
+    TS_FILE = "TS_FILE"
+    SRT_CALLER = "SRT_CALLER"
+    MULTICAST = "MULTICAST"
+    SMPTE2110_RECEIVER_GROUP = "SMPTE_2110_RECEIVER_GROUP"
+    SDI = "SDI"
+    MEDIACONNECT_ROUTER = "MEDIACONNECT_ROUTER"
+    SRT_LISTENER = "SRT_LISTENER"
 
 
 @pulumi.type_token("aws-native:medialive:MultiplexState")

@@ -23,7 +23,8 @@ type Registry struct {
 	AutoDetectionScope   RegistryAutoDetectionScopePtrOutput `pulumi:"autoDetectionScope"`
 	AutoDetectionStatus  RegistryAutoDetectionStatusOutput   `pulumi:"autoDetectionStatus"`
 	// The timestamp when the registry was created.
-	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
+	CreatedAt                         pulumi.StringOutput                                `pulumi:"createdAt"`
+	CustomMetadataSchemaConfiguration RegistryCustomMetadataSchemaConfigurationPtrOutput `pulumi:"customMetadataSchemaConfiguration"`
 	// The description of the registry.
 	Description             pulumi.StringPtrOutput                   `pulumi:"description"`
 	DiscoveryConfiguration  RegistryDiscoveryConfigurationPtrOutput  `pulumi:"discoveryConfiguration"`
@@ -89,8 +90,9 @@ type registryArgs struct {
 	ApprovalConfiguration *RegistryApprovalConfiguration `pulumi:"approvalConfiguration"`
 	AuthorizerType        *RegistryAuthorizerType        `pulumi:"authorizerType"`
 	// Specifies whether auto-detection is requested for the registry. Must be specified together with AutoDetectionScope. Setting this to true is necessary but not sufficient for auto-detection to become active; the preconditions of the configured scope must also be met. To turn auto-detection off, explicitly set this to false - removing AutoDetectionEnabled and AutoDetectionScope from the template is a no-op and leaves the existing auto-detection settings unchanged. A registry cannot be deleted while auto-detection is enabled: set this to false and update the stack before deleting the registry.
-	AutoDetectionEnabled *bool                       `pulumi:"autoDetectionEnabled"`
-	AutoDetectionScope   *RegistryAutoDetectionScope `pulumi:"autoDetectionScope"`
+	AutoDetectionEnabled              *bool                                      `pulumi:"autoDetectionEnabled"`
+	AutoDetectionScope                *RegistryAutoDetectionScope                `pulumi:"autoDetectionScope"`
+	CustomMetadataSchemaConfiguration *RegistryCustomMetadataSchemaConfiguration `pulumi:"customMetadataSchemaConfiguration"`
 	// The description of the registry.
 	Description             *string                          `pulumi:"description"`
 	DiscoveryConfiguration  *RegistryDiscoveryConfiguration  `pulumi:"discoveryConfiguration"`
@@ -106,8 +108,9 @@ type RegistryArgs struct {
 	ApprovalConfiguration RegistryApprovalConfigurationPtrInput
 	AuthorizerType        RegistryAuthorizerTypePtrInput
 	// Specifies whether auto-detection is requested for the registry. Must be specified together with AutoDetectionScope. Setting this to true is necessary but not sufficient for auto-detection to become active; the preconditions of the configured scope must also be met. To turn auto-detection off, explicitly set this to false - removing AutoDetectionEnabled and AutoDetectionScope from the template is a no-op and leaves the existing auto-detection settings unchanged. A registry cannot be deleted while auto-detection is enabled: set this to false and update the stack before deleting the registry.
-	AutoDetectionEnabled pulumi.BoolPtrInput
-	AutoDetectionScope   RegistryAutoDetectionScopePtrInput
+	AutoDetectionEnabled              pulumi.BoolPtrInput
+	AutoDetectionScope                RegistryAutoDetectionScopePtrInput
+	CustomMetadataSchemaConfiguration RegistryCustomMetadataSchemaConfigurationPtrInput
 	// The description of the registry.
 	Description             pulumi.StringPtrInput
 	DiscoveryConfiguration  RegistryDiscoveryConfigurationPtrInput
@@ -179,6 +182,12 @@ func (o RegistryOutput) AutoDetectionStatus() RegistryAutoDetectionStatusOutput 
 // The timestamp when the registry was created.
 func (o RegistryOutput) CreatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *Registry) pulumi.StringOutput { return v.CreatedAt }).(pulumi.StringOutput)
+}
+
+func (o RegistryOutput) CustomMetadataSchemaConfiguration() RegistryCustomMetadataSchemaConfigurationPtrOutput {
+	return o.ApplyT(func(v *Registry) RegistryCustomMetadataSchemaConfigurationPtrOutput {
+		return v.CustomMetadataSchemaConfiguration
+	}).(RegistryCustomMetadataSchemaConfigurationPtrOutput)
 }
 
 // The description of the registry.

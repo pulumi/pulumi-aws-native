@@ -21,10 +21,14 @@ __all__ = [
     'CapacityProviderStatus',
     'CodeInterpreterCustomCodeInterpreterNetworkMode',
     'CodeInterpreterCustomCodeInterpreterStatus',
+    'ConsentPortalSourceType',
+    'ConsentPortalStatus',
     'DatasetSchemaType',
     'DatasetStatus',
     'EvaluatorLevel',
+    'EvaluatorProvider',
     'EvaluatorStatus',
+    'EvaluatorType',
     'GatewayAuthorizerType',
     'GatewayClaimMatchOperatorType',
     'GatewayEndpointIpAddressType',
@@ -281,6 +285,21 @@ class CodeInterpreterCustomCodeInterpreterStatus(_builtins.str, Enum):
     DELETED = "DELETED"
 
 
+@pulumi.type_token("aws-native:bedrockagentcore:ConsentPortalSourceType")
+class ConsentPortalSourceType(_builtins.str, Enum):
+    AGENTCORE_GATEWAY = "agentcore-gateway"
+
+
+@pulumi.type_token("aws-native:bedrockagentcore:ConsentPortalStatus")
+class ConsentPortalStatus(_builtins.str, Enum):
+    CREATING = "CREATING"
+    ACTIVE = "ACTIVE"
+    UPDATING = "UPDATING"
+    UPDATE_FAILED = "UPDATE_FAILED"
+    DELETING = "DELETING"
+    FAILED = "FAILED"
+
+
 @pulumi.type_token("aws-native:bedrockagentcore:DatasetSchemaType")
 class DatasetSchemaType(_builtins.str, Enum):
     """
@@ -288,6 +307,8 @@ class DatasetSchemaType(_builtins.str, Enum):
     """
     AGENTCORE_EVALUATION_PREDEFINED_V1 = "AGENTCORE_EVALUATION_PREDEFINED_V1"
     AGENTCORE_EVALUATION_SIMULATED_V1 = "AGENTCORE_EVALUATION_SIMULATED_V1"
+    GENERIC_EVALUATION_PREDEFINED_V1 = "GENERIC_EVALUATION_PREDEFINED_V1"
+    THIRD_PARTY_EVALUATION_V1 = "THIRD_PARTY_EVALUATION_V1"
 
 
 @pulumi.type_token("aws-native:bedrockagentcore:DatasetStatus")
@@ -311,6 +332,17 @@ class EvaluatorLevel(_builtins.str, Enum):
     SESSION = "SESSION"
 
 
+@pulumi.type_token("aws-native:bedrockagentcore:EvaluatorProvider")
+class EvaluatorProvider(_builtins.str, Enum):
+    """
+    Where the evaluator's logic comes from: AWS for AWS-authored evaluators, DeepEval or AutoEval for the corresponding third-party libraries, or Custom for an evaluator that you authored.
+    """
+    AWS = "AWS"
+    DEEP_EVAL = "DeepEval"
+    AUTO_EVAL = "AutoEval"
+    CUSTOM = "Custom"
+
+
 @pulumi.type_token("aws-native:bedrockagentcore:EvaluatorStatus")
 class EvaluatorStatus(_builtins.str, Enum):
     ACTIVE = "ACTIVE"
@@ -319,6 +351,18 @@ class EvaluatorStatus(_builtins.str, Enum):
     UPDATING = "UPDATING"
     UPDATE_FAILED = "UPDATE_FAILED"
     DELETING = "DELETING"
+
+
+@pulumi.type_token("aws-native:bedrockagentcore:EvaluatorType")
+class EvaluatorType(_builtins.str, Enum):
+    """
+    The kind of evaluator resource. Builtin and ThirdParty are AWS-managed global evaluators that you reference but don't create; Custom, CustomCode, and CustomDerived are evaluators that you create.
+    """
+    BUILTIN = "Builtin"
+    THIRD_PARTY = "ThirdParty"
+    CUSTOM = "Custom"
+    CUSTOM_CODE = "CustomCode"
+    CUSTOM_DERIVED = "CustomDerived"
 
 
 @pulumi.type_token("aws-native:bedrockagentcore:GatewayAuthorizerType")
@@ -983,6 +1027,7 @@ class OnlineEvaluationConfigStatus(_builtins.str, Enum):
     UPDATING = "UPDATING"
     UPDATE_FAILED = "UPDATE_FAILED"
     DELETING = "DELETING"
+    ERROR = "ERROR"
 
 
 @pulumi.type_token("aws-native:bedrockagentcore:PaymentConnectorProvisionMode")

@@ -12,6 +12,55 @@
     "permissions" : [ "cloudwatch:TagResource", "cloudwatch:UntagResource", "cloudwatch:ListTagsForResource" ]
   },
   "definitions" : {
+    "ActionConfiguration" : {
+      "description" : "Configuration that applies to the notifications this alarm sends when it performs its actions.",
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "AlarmTagsPropagation" : {
+          "description" : "Whether the alarm's tags are included in its action notifications and state-change events.",
+          "$ref" : "#/definitions/AlarmTagsPropagation"
+        }
+      }
+    },
+    "AlarmTagsPropagation" : {
+      "description" : "Controls whether the alarm's tags are included in its action notifications and state-change events, and which tag keys are included. Specify IncludedTagKeys or ExcludedTagKeys, but not both. Omit both to include every tag.",
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "Enabled" : {
+          "description" : "Whether the alarm's tags are included in its action notifications and state-change events.",
+          "type" : "boolean"
+        },
+        "IncludedTagKeys" : {
+          "description" : "The only tag keys to include. Cannot be specified together with ExcludedTagKeys.",
+          "type" : "array",
+          "insertionOrder" : false,
+          "uniqueItems" : true,
+          "minItems" : 1,
+          "maxItems" : 50,
+          "items" : {
+            "type" : "string",
+            "minLength" : 1,
+            "maxLength" : 128
+          }
+        },
+        "ExcludedTagKeys" : {
+          "description" : "The tag keys to leave out. Cannot be specified together with IncludedTagKeys.",
+          "type" : "array",
+          "insertionOrder" : false,
+          "uniqueItems" : true,
+          "minItems" : 1,
+          "maxItems" : 50,
+          "items" : {
+            "type" : "string",
+            "minLength" : 1,
+            "maxLength" : 128
+          }
+        }
+      },
+      "required" : [ "Enabled" ]
+    },
     "Tag" : {
       "description" : "Metadata that you can assign to a log alarm. Tags can help you organize and categorize your resources.",
       "type" : "object",
@@ -205,6 +254,10 @@
         "$ref" : "#/definitions/Tag"
       }
     },
+    "ActionConfiguration" : {
+      "description" : "Configuration that applies to the notifications this alarm sends when it performs its actions.",
+      "$ref" : "#/definitions/ActionConfiguration"
+    },
     "Arn" : {
       "description" : "The ARN of the log alarm.",
       "type" : "string"
@@ -216,10 +269,10 @@
   "createOnlyProperties" : [ "/properties/AlarmName" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "cloudwatch:PutLogAlarm", "cloudwatch:DescribeAlarms", "cloudwatch:TagResource", "logs:GetScheduledQuery", "logs:CreateScheduledQuery", "logs:UpdateScheduledQuery", "logs:DeleteScheduledQuery", "logs:ListTagsForResource", "logs:TagResource", "iam:PassRole" ]
+      "permissions" : [ "cloudwatch:PutLogAlarm", "cloudwatch:DescribeAlarms", "cloudwatch:TagResource", "cloudwatch:ListTagsForResource", "logs:GetScheduledQuery", "logs:CreateScheduledQuery", "logs:UpdateScheduledQuery", "logs:DeleteScheduledQuery", "logs:ListTagsForResource", "logs:TagResource", "iam:PassRole" ]
     },
     "update" : {
-      "permissions" : [ "cloudwatch:PutLogAlarm", "cloudwatch:DescribeAlarms", "cloudwatch:TagResource", "cloudwatch:UntagResource", "logs:GetScheduledQuery", "logs:CreateScheduledQuery", "logs:UpdateScheduledQuery", "logs:DeleteScheduledQuery", "logs:ListTagsForResource", "logs:TagResource", "logs:UntagResource", "iam:PassRole" ]
+      "permissions" : [ "cloudwatch:PutLogAlarm", "cloudwatch:DescribeAlarms", "cloudwatch:TagResource", "cloudwatch:UntagResource", "cloudwatch:ListTagsForResource", "logs:GetScheduledQuery", "logs:CreateScheduledQuery", "logs:UpdateScheduledQuery", "logs:DeleteScheduledQuery", "logs:ListTagsForResource", "logs:TagResource", "logs:UntagResource", "iam:PassRole" ]
     },
     "delete" : {
       "permissions" : [ "cloudwatch:DeleteAlarms", "cloudwatch:DescribeAlarms", "logs:GetScheduledQuery", "logs:CreateScheduledQuery", "logs:DeleteScheduledQuery" ]

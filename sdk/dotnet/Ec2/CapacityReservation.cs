@@ -255,7 +255,6 @@ namespace Pulumi.AwsNative.Ec2
                     "instanceType",
                     "outPostArn",
                     "placementGroupArn",
-                    "tagSpecifications[*]",
                     "tenancy",
                 },
             };

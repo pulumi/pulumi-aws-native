@@ -71,6 +71,37 @@ namespace Pulumi.AwsNative.Drs
     }
 
     /// <summary>
+    /// The status of the Recovery Plan. ACTIVE means executable. INVALID means the plan has no SERVER type steps and cannot be executed.
+    /// </summary>
+    [EnumType]
+    public readonly struct RecoveryPlanStatus : IEquatable<RecoveryPlanStatus>
+    {
+        private readonly string _value;
+
+        private RecoveryPlanStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static RecoveryPlanStatus Active { get; } = new RecoveryPlanStatus("ACTIVE");
+        public static RecoveryPlanStatus Invalid { get; } = new RecoveryPlanStatus("INVALID");
+
+        public static bool operator ==(RecoveryPlanStatus left, RecoveryPlanStatus right) => left.Equals(right);
+        public static bool operator !=(RecoveryPlanStatus left, RecoveryPlanStatus right) => !left.Equals(right);
+
+        public static explicit operator string(RecoveryPlanStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is RecoveryPlanStatus other && Equals(other);
+        public bool Equals(RecoveryPlanStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The data plane routing mechanism that will be used for replication.
     /// </summary>
     [EnumType]

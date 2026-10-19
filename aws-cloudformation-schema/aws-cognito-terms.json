@@ -71,7 +71,7 @@
   "primaryIdentifier" : [ "/properties/UserPoolId", "/properties/TermsId" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "cognito-idp:CreateTerms" ],
+      "permissions" : [ "cognito-idp:CreateTerms", "cognito-idp:DescribeTerms", "cognito-idp:DescribeTermsByClient" ],
       "timeoutInMinutes" : 2
     },
     "read" : {

@@ -39,7 +39,7 @@ type LookupTableResult struct {
 	Arn *string `pulumi:"arn"`
 	// A list of attributes that describe the key schema for the table and indexes.
 	//  This property is required to create a DDB table.
-	//  Update requires: [Some interruptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-some-interrupt). Replacement if you edit an existing AttributeDefinition.
+	//  You can add an ``AttributeDefinition`` without interruption. Changing the type of an existing ``AttributeDefinition`` requires replacement of the table.
 	AttributeDefinitions []TableAttributeDefinition `pulumi:"attributeDefinitions"`
 	// Specify how you are charged for read and write throughput and how you manage capacity.
 	//  Valid values include:
@@ -93,6 +93,7 @@ type LookupTableResult struct {
 	// Specifies the Time to Live (TTL) settings for the table.
 	//   For detailed information about the limits in DynamoDB, see [Limits in Amazon DynamoDB](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html) in the Amazon DynamoDB Developer Guide.
 	TimeToLiveSpecification *TableTimeToLiveSpecification `pulumi:"timeToLiveSpecification"`
+	VectorIndexes           []TableVectorIndex            `pulumi:"vectorIndexes"`
 	// Represents the warm throughput (in read units per second and write units per second) for creating a table.
 	WarmThroughput *TableWarmThroughput `pulumi:"warmThroughput"`
 }
@@ -134,7 +135,7 @@ func (o LookupTableResultOutput) Arn() pulumi.StringPtrOutput {
 // A list of attributes that describe the key schema for the table and indexes.
 //
 //	This property is required to create a DDB table.
-//	Update requires: [Some interruptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-some-interrupt). Replacement if you edit an existing AttributeDefinition.
+//	You can add an ``AttributeDefinition`` without interruption. Changing the type of an existing ``AttributeDefinition`` requires replacement of the table.
 func (o LookupTableResultOutput) AttributeDefinitions() TableAttributeDefinitionArrayOutput {
 	return o.ApplyT(func(v LookupTableResult) []TableAttributeDefinition { return v.AttributeDefinitions }).(TableAttributeDefinitionArrayOutput)
 }
@@ -250,6 +251,10 @@ func (o LookupTableResultOutput) Tags() aws.TagArrayOutput {
 //	For detailed information about the limits in DynamoDB, see [Limits in Amazon DynamoDB](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html) in the Amazon DynamoDB Developer Guide.
 func (o LookupTableResultOutput) TimeToLiveSpecification() TableTimeToLiveSpecificationPtrOutput {
 	return o.ApplyT(func(v LookupTableResult) *TableTimeToLiveSpecification { return v.TimeToLiveSpecification }).(TableTimeToLiveSpecificationPtrOutput)
+}
+
+func (o LookupTableResultOutput) VectorIndexes() TableVectorIndexArrayOutput {
+	return o.ApplyT(func(v LookupTableResult) []TableVectorIndex { return v.VectorIndexes }).(TableVectorIndexArrayOutput)
 }
 
 // Represents the warm throughput (in read units per second and write units per second) for creating a table.

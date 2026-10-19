@@ -10,17 +10,17 @@
   "typeName" : "AWS::ImageBuilder::Image",
   "readOnlyProperties" : [ "/properties/Arn", "/properties/Name", "/properties/ImageId", "/properties/ImageUri", "/properties/LatestVersion", "/properties/LatestVersion/Arn", "/properties/LatestVersion/Major", "/properties/LatestVersion/Minor", "/properties/LatestVersion/Patch" ],
   "description" : "Resource Type definition for AWS::ImageBuilder::Image",
-  "createOnlyProperties" : [ "/properties/ImageRecipeArn", "/properties/ContainerRecipeArn", "/properties/InfrastructureConfigurationArn", "/properties/Workflows", "/properties/DistributionConfigurationArn", "/properties/ImageTestsConfiguration", "/properties/ImageScanningConfiguration", "/properties/EnhancedImageMetadataEnabled" ],
-  "primaryIdentifier" : [ "/properties/Arn" ],
-  "conditionalCreateOnlyProperties" : [ "/properties/ImagePipelineExecutionSettings" ],
-  "sourceUrl" : "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-imagebuilder",
-  "oneOf" : [ {
+  "anyOf" : [ {
     "required" : [ "ContainerRecipeArn", "InfrastructureConfigurationArn" ]
   }, {
     "required" : [ "ImageRecipeArn", "InfrastructureConfigurationArn" ]
   }, {
     "required" : [ "ImagePipelineExecutionSettings" ]
   } ],
+  "createOnlyProperties" : [ "/properties/ImageRecipeArn", "/properties/ContainerRecipeArn", "/properties/InfrastructureConfigurationArn", "/properties/Workflows", "/properties/DistributionConfigurationArn", "/properties/ImageTestsConfiguration", "/properties/ImageScanningConfiguration", "/properties/EnhancedImageMetadataEnabled" ],
+  "primaryIdentifier" : [ "/properties/Arn" ],
+  "conditionalCreateOnlyProperties" : [ "/properties/ImagePipelineExecutionSettings" ],
+  "sourceUrl" : "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-imagebuilder",
   "handlers" : {
     "read" : {
       "permissions" : [ "imagebuilder:GetImage" ]
@@ -70,7 +70,7 @@
           "$ref" : "#/definitions/EcrConfiguration"
         },
         "ImageScanningEnabled" : {
-          "description" : "This sets whether Image Builder keeps a snapshot of the vulnerability scans that Amazon Inspector runs against the build instance when you create a new image.",
+          "description" : "This sets whether Image Builder keeps a snapshot of the vulnerability scans that Amazon Inspector runs against the test instance when you create a new image.",
           "type" : "boolean"
         }
       }
@@ -213,7 +213,7 @@
   },
   "properties" : {
     "ImageScanningConfiguration" : {
-      "description" : "Contains settings for vulnerability scans.",
+      "description" : "Contains settings for vulnerability scans that Amazon Inspector runs against the test instance during image creation.",
       "$ref" : "#/definitions/ImageScanningConfiguration"
     },
     "ContainerRecipeArn" : {

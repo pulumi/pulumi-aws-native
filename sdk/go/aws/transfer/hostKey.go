@@ -29,8 +29,14 @@ type HostKey struct {
 	HostKeyFingerprint pulumi.StringOutput `pulumi:"hostKeyFingerprint"`
 	// A unique identifier for the host key.
 	HostKeyId pulumi.StringOutput `pulumi:"hostKeyId"`
+	// The Amazon Resource Name (ARN) of a customer managed key used to encrypt the Secrets Manager secret that holds the host key. Applies only when StorageType is SECRETS_MANAGER. If omitted, the AWS managed key is used.
+	KmsKey pulumi.StringPtrOutput `pulumi:"kmsKey"`
+	// The Amazon Resource Name (ARN) of the Secrets Manager secret that holds the host key. Returned only when StorageType is SECRETS_MANAGER.
+	SecretId pulumi.StringOutput `pulumi:"secretId"`
 	// The identifier of the server that contains the host key.
 	ServerId pulumi.StringOutput `pulumi:"serverId"`
+	// The type of storage used for the host key. SERVICE_MANAGED keys are stored within the Transfer Family service. SECRETS_MANAGER keys are stored in an AWS Secrets Manager secret in your account.
+	StorageType HostKeyStorageTypePtrOutput `pulumi:"storageType"`
 	// Key-value pairs that can be used to group and search for host keys.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// The encryption algorithm that is used for the host key.
@@ -89,8 +95,12 @@ type hostKeyArgs struct {
 	Description *string `pulumi:"description"`
 	// The private key portion of an SSH key pair. Transfer Family accepts RSA, ECDSA, and ED25519 keys.
 	HostKeyBody *string `pulumi:"hostKeyBody"`
+	// The Amazon Resource Name (ARN) of a customer managed key used to encrypt the Secrets Manager secret that holds the host key. Applies only when StorageType is SECRETS_MANAGER. If omitted, the AWS managed key is used.
+	KmsKey *string `pulumi:"kmsKey"`
 	// The identifier of the server that contains the host key.
 	ServerId string `pulumi:"serverId"`
+	// The type of storage used for the host key. SERVICE_MANAGED keys are stored within the Transfer Family service. SECRETS_MANAGER keys are stored in an AWS Secrets Manager secret in your account.
+	StorageType *HostKeyStorageType `pulumi:"storageType"`
 	// Key-value pairs that can be used to group and search for host keys.
 	Tags []aws.Tag `pulumi:"tags"`
 }
@@ -101,8 +111,12 @@ type HostKeyArgs struct {
 	Description pulumi.StringPtrInput
 	// The private key portion of an SSH key pair. Transfer Family accepts RSA, ECDSA, and ED25519 keys.
 	HostKeyBody pulumi.StringPtrInput
+	// The Amazon Resource Name (ARN) of a customer managed key used to encrypt the Secrets Manager secret that holds the host key. Applies only when StorageType is SECRETS_MANAGER. If omitted, the AWS managed key is used.
+	KmsKey pulumi.StringPtrInput
 	// The identifier of the server that contains the host key.
 	ServerId pulumi.StringInput
+	// The type of storage used for the host key. SERVICE_MANAGED keys are stored within the Transfer Family service. SECRETS_MANAGER keys are stored in an AWS Secrets Manager secret in your account.
+	StorageType HostKeyStorageTypePtrInput
 	// Key-value pairs that can be used to group and search for host keys.
 	Tags aws.TagArrayInput
 }
@@ -174,9 +188,24 @@ func (o HostKeyOutput) HostKeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v *HostKey) pulumi.StringOutput { return v.HostKeyId }).(pulumi.StringOutput)
 }
 
+// The Amazon Resource Name (ARN) of a customer managed key used to encrypt the Secrets Manager secret that holds the host key. Applies only when StorageType is SECRETS_MANAGER. If omitted, the AWS managed key is used.
+func (o HostKeyOutput) KmsKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HostKey) pulumi.StringPtrOutput { return v.KmsKey }).(pulumi.StringPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the Secrets Manager secret that holds the host key. Returned only when StorageType is SECRETS_MANAGER.
+func (o HostKeyOutput) SecretId() pulumi.StringOutput {
+	return o.ApplyT(func(v *HostKey) pulumi.StringOutput { return v.SecretId }).(pulumi.StringOutput)
+}
+
 // The identifier of the server that contains the host key.
 func (o HostKeyOutput) ServerId() pulumi.StringOutput {
 	return o.ApplyT(func(v *HostKey) pulumi.StringOutput { return v.ServerId }).(pulumi.StringOutput)
+}
+
+// The type of storage used for the host key. SERVICE_MANAGED keys are stored within the Transfer Family service. SECRETS_MANAGER keys are stored in an AWS Secrets Manager secret in your account.
+func (o HostKeyOutput) StorageType() HostKeyStorageTypePtrOutput {
+	return o.ApplyT(func(v *HostKey) HostKeyStorageTypePtrOutput { return v.StorageType }).(HostKeyStorageTypePtrOutput)
 }
 
 // Key-value pairs that can be used to group and search for host keys.

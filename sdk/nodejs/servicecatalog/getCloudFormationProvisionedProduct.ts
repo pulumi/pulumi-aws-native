@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Resource Schema for AWS::ServiceCatalog::CloudFormationProvisionedProduct
+ * Resource Type definition for AWS::ServiceCatalog::CloudFormationProvisionedProduct
  */
 export function getCloudFormationProvisionedProduct(args: GetCloudFormationProvisionedProductArgs, opts?: pulumi.InvokeOptions): Promise<GetCloudFormationProvisionedProductResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -99,7 +99,7 @@ export interface GetCloudFormationProvisionedProductResult {
     readonly tags?: outputs.Tag[];
 }
 /**
- * Resource Schema for AWS::ServiceCatalog::CloudFormationProvisionedProduct
+ * Resource Type definition for AWS::ServiceCatalog::CloudFormationProvisionedProduct
  */
 export function getCloudFormationProvisionedProductOutput(args: GetCloudFormationProvisionedProductOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCloudFormationProvisionedProductResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

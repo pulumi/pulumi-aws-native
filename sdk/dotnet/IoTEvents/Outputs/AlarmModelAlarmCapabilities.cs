@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.IoTEvents.Outputs
 {
 
-    /// <summary>
-    /// Contains the configuration information of alarm state changes.
-    /// </summary>
     [OutputType]
     public sealed class AlarmModelAlarmCapabilities
     {

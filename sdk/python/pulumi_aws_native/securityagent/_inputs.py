@@ -48,6 +48,16 @@ __all__ = [
     'AgentSpaceVpcConfigArgsDict',
     'ApplicationIdCConfigurationArgs',
     'ApplicationIdCConfigurationArgsDict',
+    'IntegrationBitbucketInputArgs',
+    'IntegrationBitbucketInputArgsDict',
+    'IntegrationConfluenceInputArgs',
+    'IntegrationConfluenceInputArgsDict',
+    'IntegrationGitHubInputArgs',
+    'IntegrationGitHubInputArgsDict',
+    'IntegrationGitLabInputArgs',
+    'IntegrationGitLabInputArgsDict',
+    'IntegrationProviderInputArgs',
+    'IntegrationProviderInputArgsDict',
     'PentestActorArgs',
     'PentestActorArgsDict',
     'PentestAssetsArgs',
@@ -1193,6 +1203,455 @@ class ApplicationIdCConfigurationArgs:
     @id_c_instance_arn.setter
     def id_c_instance_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id_c_instance_arn", value)
+
+
+class IntegrationBitbucketInputArgsDict(TypedDict):
+    """
+    The input required to create a Bitbucket integration.
+    """
+    code: pulumi.Input[_builtins.str]
+    """
+    The OAuth 2.0 authorization code returned from the consent redirect.
+    """
+    installation_id: pulumi.Input[_builtins.str]
+    """
+    The Atlassian installation identifier, available from the Atlassian administration console.
+    """
+    state: pulumi.Input[_builtins.str]
+    """
+    The CSRF state token echoed back from the OAuth redirect.
+    """
+    workspace: pulumi.Input[_builtins.str]
+    """
+    The Bitbucket workspace slug that identifies the workspace to integrate.
+    """
+
+@pulumi.input_type
+class IntegrationBitbucketInputArgs:
+    def __init__(__self__, *,
+                 code: pulumi.Input[_builtins.str],
+                 installation_id: pulumi.Input[_builtins.str],
+                 state: pulumi.Input[_builtins.str],
+                 workspace: pulumi.Input[_builtins.str]):
+        """
+        The input required to create a Bitbucket integration.
+
+        :param pulumi.Input[_builtins.str] code: The OAuth 2.0 authorization code returned from the consent redirect.
+        :param pulumi.Input[_builtins.str] installation_id: The Atlassian installation identifier, available from the Atlassian administration console.
+        :param pulumi.Input[_builtins.str] state: The CSRF state token echoed back from the OAuth redirect.
+        :param pulumi.Input[_builtins.str] workspace: The Bitbucket workspace slug that identifies the workspace to integrate.
+        """
+        pulumi.set(__self__, "code", code)
+        pulumi.set(__self__, "installation_id", installation_id)
+        pulumi.set(__self__, "state", state)
+        pulumi.set(__self__, "workspace", workspace)
+
+    @_builtins.property
+    @pulumi.getter
+    def code(self) -> pulumi.Input[_builtins.str]:
+        """
+        The OAuth 2.0 authorization code returned from the consent redirect.
+        """
+        return pulumi.get(self, "code")
+
+    @code.setter
+    def code(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "code", value)
+
+    @_builtins.property
+    @pulumi.getter(name="installationId")
+    def installation_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        The Atlassian installation identifier, available from the Atlassian administration console.
+        """
+        return pulumi.get(self, "installation_id")
+
+    @installation_id.setter
+    def installation_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "installation_id", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def state(self) -> pulumi.Input[_builtins.str]:
+        """
+        The CSRF state token echoed back from the OAuth redirect.
+        """
+        return pulumi.get(self, "state")
+
+    @state.setter
+    def state(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "state", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def workspace(self) -> pulumi.Input[_builtins.str]:
+        """
+        The Bitbucket workspace slug that identifies the workspace to integrate.
+        """
+        return pulumi.get(self, "workspace")
+
+    @workspace.setter
+    def workspace(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "workspace", value)
+
+
+class IntegrationConfluenceInputArgsDict(TypedDict):
+    """
+    The input required to create a Confluence integration.
+    """
+    code: pulumi.Input[_builtins.str]
+    """
+    The OAuth 2.0 authorization code returned from the consent redirect.
+    """
+    installation_id: pulumi.Input[_builtins.str]
+    """
+    The Atlassian installation identifier, available from the Atlassian administration console.
+    """
+    site_url: pulumi.Input[_builtins.str]
+    """
+    The Confluence Cloud site URL, for example https://mysite.atlassian.net.
+    """
+    state: pulumi.Input[_builtins.str]
+    """
+    The CSRF state token echoed back from the OAuth redirect.
+    """
+
+@pulumi.input_type
+class IntegrationConfluenceInputArgs:
+    def __init__(__self__, *,
+                 code: pulumi.Input[_builtins.str],
+                 installation_id: pulumi.Input[_builtins.str],
+                 site_url: pulumi.Input[_builtins.str],
+                 state: pulumi.Input[_builtins.str]):
+        """
+        The input required to create a Confluence integration.
+
+        :param pulumi.Input[_builtins.str] code: The OAuth 2.0 authorization code returned from the consent redirect.
+        :param pulumi.Input[_builtins.str] installation_id: The Atlassian installation identifier, available from the Atlassian administration console.
+        :param pulumi.Input[_builtins.str] site_url: The Confluence Cloud site URL, for example https://mysite.atlassian.net.
+        :param pulumi.Input[_builtins.str] state: The CSRF state token echoed back from the OAuth redirect.
+        """
+        pulumi.set(__self__, "code", code)
+        pulumi.set(__self__, "installation_id", installation_id)
+        pulumi.set(__self__, "site_url", site_url)
+        pulumi.set(__self__, "state", state)
+
+    @_builtins.property
+    @pulumi.getter
+    def code(self) -> pulumi.Input[_builtins.str]:
+        """
+        The OAuth 2.0 authorization code returned from the consent redirect.
+        """
+        return pulumi.get(self, "code")
+
+    @code.setter
+    def code(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "code", value)
+
+    @_builtins.property
+    @pulumi.getter(name="installationId")
+    def installation_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        The Atlassian installation identifier, available from the Atlassian administration console.
+        """
+        return pulumi.get(self, "installation_id")
+
+    @installation_id.setter
+    def installation_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "installation_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="siteUrl")
+    def site_url(self) -> pulumi.Input[_builtins.str]:
+        """
+        The Confluence Cloud site URL, for example https://mysite.atlassian.net.
+        """
+        return pulumi.get(self, "site_url")
+
+    @site_url.setter
+    def site_url(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "site_url", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def state(self) -> pulumi.Input[_builtins.str]:
+        """
+        The CSRF state token echoed back from the OAuth redirect.
+        """
+        return pulumi.get(self, "state")
+
+    @state.setter
+    def state(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "state", value)
+
+
+class IntegrationGitHubInputArgsDict(TypedDict):
+    """
+    The input required to create a GitHub integration.
+    """
+    code: pulumi.Input[_builtins.str]
+    """
+    The OAuth authorization code received from GitHub.
+    """
+    state: pulumi.Input[_builtins.str]
+    """
+    The CSRF state token for validating the OAuth flow.
+    """
+    installation_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The installation identifier provided by GitHub Enterprise Server on the install callback. Required for GitHub Enterprise Server integrations and ignored for GitHub.com.
+    """
+    organization_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The name of the GitHub organization to integrate with.
+    """
+    target_url: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The HTTPS URL of a self-hosted GitHub Enterprise Server instance. Omit this value for GitHub.com.
+    """
+
+@pulumi.input_type
+class IntegrationGitHubInputArgs:
+    def __init__(__self__, *,
+                 code: pulumi.Input[_builtins.str],
+                 state: pulumi.Input[_builtins.str],
+                 installation_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 organization_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_url: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        The input required to create a GitHub integration.
+
+        :param pulumi.Input[_builtins.str] code: The OAuth authorization code received from GitHub.
+        :param pulumi.Input[_builtins.str] state: The CSRF state token for validating the OAuth flow.
+        :param pulumi.Input[_builtins.str] installation_id: The installation identifier provided by GitHub Enterprise Server on the install callback. Required for GitHub Enterprise Server integrations and ignored for GitHub.com.
+        :param pulumi.Input[_builtins.str] organization_name: The name of the GitHub organization to integrate with.
+        :param pulumi.Input[_builtins.str] target_url: The HTTPS URL of a self-hosted GitHub Enterprise Server instance. Omit this value for GitHub.com.
+        """
+        pulumi.set(__self__, "code", code)
+        pulumi.set(__self__, "state", state)
+        if installation_id is not None:
+            pulumi.set(__self__, "installation_id", installation_id)
+        if organization_name is not None:
+            pulumi.set(__self__, "organization_name", organization_name)
+        if target_url is not None:
+            pulumi.set(__self__, "target_url", target_url)
+
+    @_builtins.property
+    @pulumi.getter
+    def code(self) -> pulumi.Input[_builtins.str]:
+        """
+        The OAuth authorization code received from GitHub.
+        """
+        return pulumi.get(self, "code")
+
+    @code.setter
+    def code(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "code", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def state(self) -> pulumi.Input[_builtins.str]:
+        """
+        The CSRF state token for validating the OAuth flow.
+        """
+        return pulumi.get(self, "state")
+
+    @state.setter
+    def state(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "state", value)
+
+    @_builtins.property
+    @pulumi.getter(name="installationId")
+    def installation_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The installation identifier provided by GitHub Enterprise Server on the install callback. Required for GitHub Enterprise Server integrations and ignored for GitHub.com.
+        """
+        return pulumi.get(self, "installation_id")
+
+    @installation_id.setter
+    def installation_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "installation_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="organizationName")
+    def organization_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the GitHub organization to integrate with.
+        """
+        return pulumi.get(self, "organization_name")
+
+    @organization_name.setter
+    def organization_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "organization_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="targetUrl")
+    def target_url(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The HTTPS URL of a self-hosted GitHub Enterprise Server instance. Omit this value for GitHub.com.
+        """
+        return pulumi.get(self, "target_url")
+
+    @target_url.setter
+    def target_url(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "target_url", value)
+
+
+class IntegrationGitLabInputArgsDict(TypedDict):
+    """
+    The input required to create a GitLab integration.
+    """
+    access_token: pulumi.Input[_builtins.str]
+    """
+    The GitLab access token used to authenticate. This can be a personal access token or a group access token.
+    """
+    token_type: pulumi.Input['IntegrationGitLabInputTokenType']
+    """
+    The type of GitLab access token.
+    """
+    group_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The identifier of the GitLab group. Required when TokenType is GROUP and ignored for personal tokens.
+    """
+    target_url: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The HTTPS URL of a self-managed GitLab instance. Omit this value for GitLab SaaS (gitlab.com).
+    """
+
+@pulumi.input_type
+class IntegrationGitLabInputArgs:
+    def __init__(__self__, *,
+                 access_token: pulumi.Input[_builtins.str],
+                 token_type: pulumi.Input['IntegrationGitLabInputTokenType'],
+                 group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_url: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        The input required to create a GitLab integration.
+
+        :param pulumi.Input[_builtins.str] access_token: The GitLab access token used to authenticate. This can be a personal access token or a group access token.
+        :param pulumi.Input['IntegrationGitLabInputTokenType'] token_type: The type of GitLab access token.
+        :param pulumi.Input[_builtins.str] group_id: The identifier of the GitLab group. Required when TokenType is GROUP and ignored for personal tokens.
+        :param pulumi.Input[_builtins.str] target_url: The HTTPS URL of a self-managed GitLab instance. Omit this value for GitLab SaaS (gitlab.com).
+        """
+        pulumi.set(__self__, "access_token", access_token)
+        pulumi.set(__self__, "token_type", token_type)
+        if group_id is not None:
+            pulumi.set(__self__, "group_id", group_id)
+        if target_url is not None:
+            pulumi.set(__self__, "target_url", target_url)
+
+    @_builtins.property
+    @pulumi.getter(name="accessToken")
+    def access_token(self) -> pulumi.Input[_builtins.str]:
+        """
+        The GitLab access token used to authenticate. This can be a personal access token or a group access token.
+        """
+        return pulumi.get(self, "access_token")
+
+    @access_token.setter
+    def access_token(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "access_token", value)
+
+    @_builtins.property
+    @pulumi.getter(name="tokenType")
+    def token_type(self) -> pulumi.Input['IntegrationGitLabInputTokenType']:
+        """
+        The type of GitLab access token.
+        """
+        return pulumi.get(self, "token_type")
+
+    @token_type.setter
+    def token_type(self, value: pulumi.Input['IntegrationGitLabInputTokenType']):
+        pulumi.set(self, "token_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="groupId")
+    def group_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The identifier of the GitLab group. Required when TokenType is GROUP and ignored for personal tokens.
+        """
+        return pulumi.get(self, "group_id")
+
+    @group_id.setter
+    def group_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "group_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="targetUrl")
+    def target_url(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The HTTPS URL of a self-managed GitLab instance. Omit this value for GitLab SaaS (gitlab.com).
+        """
+        return pulumi.get(self, "target_url")
+
+    @target_url.setter
+    def target_url(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "target_url", value)
+
+
+class IntegrationProviderInputArgsDict(TypedDict):
+    """
+    The provider-specific input required to create the integration. Exactly one of the provider input objects must be specified.
+    """
+    bitbucket: NotRequired[pulumi.Input[Optional['IntegrationBitbucketInputArgsDict']]]
+    confluence: NotRequired[pulumi.Input[Optional['IntegrationConfluenceInputArgsDict']]]
+    github: NotRequired[pulumi.Input[Optional['IntegrationGitHubInputArgsDict']]]
+    gitlab: NotRequired[pulumi.Input[Optional['IntegrationGitLabInputArgsDict']]]
+
+@pulumi.input_type
+class IntegrationProviderInputArgs:
+    def __init__(__self__, *,
+                 bitbucket: pulumi.Input[Optional['IntegrationBitbucketInputArgs']] = None,
+                 confluence: pulumi.Input[Optional['IntegrationConfluenceInputArgs']] = None,
+                 github: pulumi.Input[Optional['IntegrationGitHubInputArgs']] = None,
+                 gitlab: pulumi.Input[Optional['IntegrationGitLabInputArgs']] = None):
+        """
+        The provider-specific input required to create the integration. Exactly one of the provider input objects must be specified.
+        """
+        if bitbucket is not None:
+            pulumi.set(__self__, "bitbucket", bitbucket)
+        if confluence is not None:
+            pulumi.set(__self__, "confluence", confluence)
+        if github is not None:
+            pulumi.set(__self__, "github", github)
+        if gitlab is not None:
+            pulumi.set(__self__, "gitlab", gitlab)
+
+    @_builtins.property
+    @pulumi.getter
+    def bitbucket(self) -> pulumi.Input[Optional['IntegrationBitbucketInputArgs']]:
+        return pulumi.get(self, "bitbucket")
+
+    @bitbucket.setter
+    def bitbucket(self, value: pulumi.Input[Optional['IntegrationBitbucketInputArgs']]):
+        pulumi.set(self, "bitbucket", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def confluence(self) -> pulumi.Input[Optional['IntegrationConfluenceInputArgs']]:
+        return pulumi.get(self, "confluence")
+
+    @confluence.setter
+    def confluence(self, value: pulumi.Input[Optional['IntegrationConfluenceInputArgs']]):
+        pulumi.set(self, "confluence", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def github(self) -> pulumi.Input[Optional['IntegrationGitHubInputArgs']]:
+        return pulumi.get(self, "github")
+
+    @github.setter
+    def github(self, value: pulumi.Input[Optional['IntegrationGitHubInputArgs']]):
+        pulumi.set(self, "github", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def gitlab(self) -> pulumi.Input[Optional['IntegrationGitLabInputArgs']]:
+        return pulumi.get(self, "gitlab")
+
+    @gitlab.setter
+    def gitlab(self, value: pulumi.Input[Optional['IntegrationGitLabInputArgs']]):
+        pulumi.set(self, "gitlab", value)
 
 
 class PentestActorArgsDict(TypedDict):

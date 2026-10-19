@@ -19,6 +19,7 @@ import (
 type Alarm struct {
 	pulumi.CustomResourceState
 
+	ActionConfiguration AlarmActionConfigurationPtrOutput `pulumi:"actionConfiguration"`
 	// Indicates whether actions should be executed during any changes to the alarm state. The default is TRUE.
 	ActionsEnabled pulumi.BoolPtrOutput `pulumi:"actionsEnabled"`
 	// The list of actions to execute when this alarm transitions into an ALARM state from any other state. Specify each action as an Amazon Resource Name (ARN). For more information about creating alarms and the actions that you can specify, see [PutMetricAlarm](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_PutMetricAlarm.html) in the *API Reference*.
@@ -134,6 +135,7 @@ func (AlarmState) ElementType() reflect.Type {
 }
 
 type alarmArgs struct {
+	ActionConfiguration *AlarmActionConfiguration `pulumi:"actionConfiguration"`
 	// Indicates whether actions should be executed during any changes to the alarm state. The default is TRUE.
 	ActionsEnabled *bool `pulumi:"actionsEnabled"`
 	// The list of actions to execute when this alarm transitions into an ALARM state from any other state. Specify each action as an Amazon Resource Name (ARN). For more information about creating alarms and the actions that you can specify, see [PutMetricAlarm](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_PutMetricAlarm.html) in the *API Reference*.
@@ -205,6 +207,7 @@ type alarmArgs struct {
 
 // The set of arguments for constructing a Alarm resource.
 type AlarmArgs struct {
+	ActionConfiguration AlarmActionConfigurationPtrInput
 	// Indicates whether actions should be executed during any changes to the alarm state. The default is TRUE.
 	ActionsEnabled pulumi.BoolPtrInput
 	// The list of actions to execute when this alarm transitions into an ALARM state from any other state. Specify each action as an Amazon Resource Name (ARN). For more information about creating alarms and the actions that you can specify, see [PutMetricAlarm](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_PutMetricAlarm.html) in the *API Reference*.
@@ -309,6 +312,10 @@ func (o AlarmOutput) ToAlarmOutput() AlarmOutput {
 
 func (o AlarmOutput) ToAlarmOutputWithContext(ctx context.Context) AlarmOutput {
 	return o
+}
+
+func (o AlarmOutput) ActionConfiguration() AlarmActionConfigurationPtrOutput {
+	return o.ApplyT(func(v *Alarm) AlarmActionConfigurationPtrOutput { return v.ActionConfiguration }).(AlarmActionConfigurationPtrOutput)
 }
 
 // Indicates whether actions should be executed during any changes to the alarm state. The default is TRUE.

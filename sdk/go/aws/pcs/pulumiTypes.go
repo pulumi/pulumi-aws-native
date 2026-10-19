@@ -928,6 +928,47 @@ func (i CustomLaunchTemplatePropertiesArgs) ToCustomLaunchTemplatePropertiesOutp
 	return pulumi.ToOutputWithContext(ctx, i).(CustomLaunchTemplatePropertiesOutput)
 }
 
+func (i CustomLaunchTemplatePropertiesArgs) ToCustomLaunchTemplatePropertiesPtrOutput() CustomLaunchTemplatePropertiesPtrOutput {
+	return i.ToCustomLaunchTemplatePropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i CustomLaunchTemplatePropertiesArgs) ToCustomLaunchTemplatePropertiesPtrOutputWithContext(ctx context.Context) CustomLaunchTemplatePropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CustomLaunchTemplatePropertiesOutput).ToCustomLaunchTemplatePropertiesPtrOutputWithContext(ctx)
+}
+
+// CustomLaunchTemplatePropertiesPtrInput is an input type that accepts CustomLaunchTemplatePropertiesArgs, CustomLaunchTemplatePropertiesPtr and CustomLaunchTemplatePropertiesPtrOutput values.
+// You can construct a concrete instance of `CustomLaunchTemplatePropertiesPtrInput` via:
+//
+//	        CustomLaunchTemplatePropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type CustomLaunchTemplatePropertiesPtrInput interface {
+	pulumi.Input
+
+	ToCustomLaunchTemplatePropertiesPtrOutput() CustomLaunchTemplatePropertiesPtrOutput
+	ToCustomLaunchTemplatePropertiesPtrOutputWithContext(context.Context) CustomLaunchTemplatePropertiesPtrOutput
+}
+
+type customLaunchTemplatePropertiesPtrType CustomLaunchTemplatePropertiesArgs
+
+func CustomLaunchTemplatePropertiesPtr(v *CustomLaunchTemplatePropertiesArgs) CustomLaunchTemplatePropertiesPtrInput {
+	return (*customLaunchTemplatePropertiesPtrType)(v)
+}
+
+func (*customLaunchTemplatePropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CustomLaunchTemplateProperties)(nil)).Elem()
+}
+
+func (i *customLaunchTemplatePropertiesPtrType) ToCustomLaunchTemplatePropertiesPtrOutput() CustomLaunchTemplatePropertiesPtrOutput {
+	return i.ToCustomLaunchTemplatePropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *customLaunchTemplatePropertiesPtrType) ToCustomLaunchTemplatePropertiesPtrOutputWithContext(ctx context.Context) CustomLaunchTemplatePropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CustomLaunchTemplatePropertiesPtrOutput)
+}
+
 // An Amazon EC2 launch template AWS PCS uses to launch compute nodes.
 type CustomLaunchTemplatePropertiesOutput struct{ *pulumi.OutputState }
 
@@ -941,6 +982,16 @@ func (o CustomLaunchTemplatePropertiesOutput) ToCustomLaunchTemplatePropertiesOu
 
 func (o CustomLaunchTemplatePropertiesOutput) ToCustomLaunchTemplatePropertiesOutputWithContext(ctx context.Context) CustomLaunchTemplatePropertiesOutput {
 	return o
+}
+
+func (o CustomLaunchTemplatePropertiesOutput) ToCustomLaunchTemplatePropertiesPtrOutput() CustomLaunchTemplatePropertiesPtrOutput {
+	return o.ToCustomLaunchTemplatePropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o CustomLaunchTemplatePropertiesOutput) ToCustomLaunchTemplatePropertiesPtrOutputWithContext(ctx context.Context) CustomLaunchTemplatePropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CustomLaunchTemplateProperties) *CustomLaunchTemplateProperties {
+		return &v
+	}).(CustomLaunchTemplatePropertiesPtrOutput)
 }
 
 // The ID of the EC2 launch template to use to provision instances.
@@ -1841,6 +1892,7 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ComputeNodeGroupNodeLifecycleStagesPtrInput)(nil)).Elem(), ComputeNodeGroupNodeLifecycleStagesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ComputeNodeGroupScriptSourceInput)(nil)).Elem(), ComputeNodeGroupScriptSourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CustomLaunchTemplatePropertiesInput)(nil)).Elem(), CustomLaunchTemplatePropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CustomLaunchTemplatePropertiesPtrInput)(nil)).Elem(), CustomLaunchTemplatePropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkingPropertiesInput)(nil)).Elem(), NetworkingPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*QueueComputeNodeGroupConfigurationInput)(nil)).Elem(), QueueComputeNodeGroupConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*QueueComputeNodeGroupConfigurationArrayInput)(nil)).Elem(), QueueComputeNodeGroupConfigurationArray{})

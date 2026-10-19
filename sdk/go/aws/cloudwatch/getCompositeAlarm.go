@@ -29,6 +29,8 @@ type LookupCompositeAlarmArgs struct {
 }
 
 type LookupCompositeAlarmResult struct {
+	// Configuration that applies to the notifications this alarm sends when it performs its actions.
+	ActionConfiguration *CompositeAlarmActionConfiguration `pulumi:"actionConfiguration"`
 	// Indicates whether actions should be executed during any changes to the alarm state. The default is TRUE.
 	ActionsEnabled *bool `pulumi:"actionsEnabled"`
 	// Actions will be suppressed if the suppressor alarm is in the ALARM state. ActionsSuppressor can be an AlarmName or an Amazon Resource Name (ARN) from an existing alarm.
@@ -79,6 +81,11 @@ func (o LookupCompositeAlarmResultOutput) ToLookupCompositeAlarmResultOutput() L
 
 func (o LookupCompositeAlarmResultOutput) ToLookupCompositeAlarmResultOutputWithContext(ctx context.Context) LookupCompositeAlarmResultOutput {
 	return o
+}
+
+// Configuration that applies to the notifications this alarm sends when it performs its actions.
+func (o LookupCompositeAlarmResultOutput) ActionConfiguration() CompositeAlarmActionConfigurationPtrOutput {
+	return o.ApplyT(func(v LookupCompositeAlarmResult) *CompositeAlarmActionConfiguration { return v.ActionConfiguration }).(CompositeAlarmActionConfigurationPtrOutput)
 }
 
 // Indicates whether actions should be executed during any changes to the alarm state. The default is TRUE.

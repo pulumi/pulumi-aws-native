@@ -17,15 +17,22 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Outputs
     public sealed class EvaluatorRatingScale
     {
         public readonly ImmutableArray<Outputs.EvaluatorCategoricalScaleDefinition> Categorical;
+        /// <summary>
+        /// The dimensions an LLM-as-a-Judge evaluator scores in a single judge call. Each dimension has its own instruction and rating scale.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.EvaluatorEvaluationDimension> MultiDimensional;
         public readonly ImmutableArray<Outputs.EvaluatorNumericalScaleDefinition> Numerical;
 
         [OutputConstructor]
         private EvaluatorRatingScale(
             ImmutableArray<Outputs.EvaluatorCategoricalScaleDefinition> categorical,
 
+            ImmutableArray<Outputs.EvaluatorEvaluationDimension> multiDimensional,
+
             ImmutableArray<Outputs.EvaluatorNumericalScaleDefinition> numerical)
         {
             Categorical = categorical;
+            MultiDimensional = multiDimensional;
             Numerical = numerical;
         }
     }

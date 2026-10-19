@@ -16,6 +16,7 @@ namespace Pulumi.AwsNative.DevOpsAgent.Outputs
     [OutputType]
     public sealed class AssociationSlackConfiguration
     {
+        public readonly Outputs.AssociationSlackBidirectionalConfiguration? Bidirectional;
         public readonly Outputs.AssociationSlackTransmissionTarget TransmissionTarget;
         /// <summary>
         /// Associated Slack workspace ID
@@ -28,12 +29,15 @@ namespace Pulumi.AwsNative.DevOpsAgent.Outputs
 
         [OutputConstructor]
         private AssociationSlackConfiguration(
+            Outputs.AssociationSlackBidirectionalConfiguration? bidirectional,
+
             Outputs.AssociationSlackTransmissionTarget transmissionTarget,
 
             string workspaceId,
 
             string workspaceName)
         {
+            Bidirectional = bidirectional;
             TransmissionTarget = transmissionTarget;
             WorkspaceId = workspaceId;
             WorkspaceName = workspaceName;

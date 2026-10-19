@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.IoTEvents.Outputs
 {
 
-    /// <summary>
-    /// Information required to publish the Amazon SNS message.
-    /// </summary>
     [OutputType]
     public sealed class AlarmModelSns
     {

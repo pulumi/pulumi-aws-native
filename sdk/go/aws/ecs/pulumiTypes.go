@@ -13398,8 +13398,9 @@ type ServiceDeploymentConfiguration struct {
 	CanaryConfiguration *ServiceCanaryConfiguration `pulumi:"canaryConfiguration"`
 	// The deployment circuit breaker can only be used for services using the rolling update (``ECS``) deployment type.
 	//   The *deployment circuit breaker* determines whether a service deployment will fail if the service can't reach a steady state. If you use the deployment circuit breaker, a service deployment will transition to a failed state and stop launching new tasks. If you use the rollback option, when a service deployment fails, the service is rolled back to the last deployment that completed successfully. For more information, see [Rolling update](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-type-ecs.html) in the *Amazon Elastic Container Service Developer Guide*
-	DeploymentCircuitBreaker *ServiceDeploymentCircuitBreaker       `pulumi:"deploymentCircuitBreaker"`
-	EarlySuccessCriteria     *ServiceDeploymentEarlySuccessCriteria `pulumi:"earlySuccessCriteria"`
+	DeploymentCircuitBreaker *ServiceDeploymentCircuitBreaker `pulumi:"deploymentCircuitBreaker"`
+	// The early success criteria configuration for a rolling deployment. With early success criteria, you can configure an Amazon ECS deployment to complete faster. Amazon ECS declares a deployment successful once a target percentage of tasks are healthy, instead of waiting for the service to fully stabilize.
+	EarlySuccessCriteria *ServiceDeploymentEarlySuccessCriteria `pulumi:"earlySuccessCriteria"`
 	// An array of deployment lifecycle hook objects to run custom logic or pause the deployment at specific stages of the deployment lifecycle.
 	LifecycleHooks []ServiceDeploymentLifecycleHook `pulumi:"lifecycleHooks"`
 	// Configuration for linear deployment strategy. Only valid when the deployment strategy is ``LINEAR``. This configuration enables progressive traffic shifting in equal percentage increments with configurable bake times between each step.
@@ -13462,8 +13463,9 @@ type ServiceDeploymentConfigurationArgs struct {
 	CanaryConfiguration ServiceCanaryConfigurationPtrInput `pulumi:"canaryConfiguration"`
 	// The deployment circuit breaker can only be used for services using the rolling update (``ECS``) deployment type.
 	//   The *deployment circuit breaker* determines whether a service deployment will fail if the service can't reach a steady state. If you use the deployment circuit breaker, a service deployment will transition to a failed state and stop launching new tasks. If you use the rollback option, when a service deployment fails, the service is rolled back to the last deployment that completed successfully. For more information, see [Rolling update](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-type-ecs.html) in the *Amazon Elastic Container Service Developer Guide*
-	DeploymentCircuitBreaker ServiceDeploymentCircuitBreakerPtrInput       `pulumi:"deploymentCircuitBreaker"`
-	EarlySuccessCriteria     ServiceDeploymentEarlySuccessCriteriaPtrInput `pulumi:"earlySuccessCriteria"`
+	DeploymentCircuitBreaker ServiceDeploymentCircuitBreakerPtrInput `pulumi:"deploymentCircuitBreaker"`
+	// The early success criteria configuration for a rolling deployment. With early success criteria, you can configure an Amazon ECS deployment to complete faster. Amazon ECS declares a deployment successful once a target percentage of tasks are healthy, instead of waiting for the service to fully stabilize.
+	EarlySuccessCriteria ServiceDeploymentEarlySuccessCriteriaPtrInput `pulumi:"earlySuccessCriteria"`
 	// An array of deployment lifecycle hook objects to run custom logic or pause the deployment at specific stages of the deployment lifecycle.
 	LifecycleHooks ServiceDeploymentLifecycleHookArrayInput `pulumi:"lifecycleHooks"`
 	// Configuration for linear deployment strategy. Only valid when the deployment strategy is ``LINEAR``. This configuration enables progressive traffic shifting in equal percentage increments with configurable bake times between each step.
@@ -13608,6 +13610,7 @@ func (o ServiceDeploymentConfigurationOutput) DeploymentCircuitBreaker() Service
 	}).(ServiceDeploymentCircuitBreakerPtrOutput)
 }
 
+// The early success criteria configuration for a rolling deployment. With early success criteria, you can configure an Amazon ECS deployment to complete faster. Amazon ECS declares a deployment successful once a target percentage of tasks are healthy, instead of waiting for the service to fully stabilize.
 func (o ServiceDeploymentConfigurationOutput) EarlySuccessCriteria() ServiceDeploymentEarlySuccessCriteriaPtrOutput {
 	return o.ApplyT(func(v ServiceDeploymentConfiguration) *ServiceDeploymentEarlySuccessCriteria {
 		return v.EarlySuccessCriteria
@@ -13737,6 +13740,7 @@ func (o ServiceDeploymentConfigurationPtrOutput) DeploymentCircuitBreaker() Serv
 	}).(ServiceDeploymentCircuitBreakerPtrOutput)
 }
 
+// The early success criteria configuration for a rolling deployment. With early success criteria, you can configure an Amazon ECS deployment to complete faster. Amazon ECS declares a deployment successful once a target percentage of tasks are healthy, instead of waiting for the service to fully stabilize.
 func (o ServiceDeploymentConfigurationPtrOutput) EarlySuccessCriteria() ServiceDeploymentEarlySuccessCriteriaPtrOutput {
 	return o.ApplyT(func(v *ServiceDeploymentConfiguration) *ServiceDeploymentEarlySuccessCriteria {
 		if v == nil {
@@ -14091,9 +14095,19 @@ func (o ServiceDeploymentControllerPtrOutput) Type() ServiceDeploymentController
 	}).(ServiceDeploymentControllerTypePtrOutput)
 }
 
+// You can use early success criteria only with rolling deployment strategy.
+//
+//	The configuration that determines when a rolling update deployment is considered successful. Early success criteria defines the percentage of tasks that must be healthy before a deployment completes. It also controls whether Amazon ECS must remove the previous tasks before a deployment completes.
 type ServiceDeploymentEarlySuccessCriteria struct {
-	Enable                       *bool                                                              `pulumi:"enable"`
-	HealthyPercent               *int                                                               `pulumi:"healthyPercent"`
+	// Specifies whether to use the early success criteria for the service deployment. When set to ``false``, the deployment uses the default behavior, where Amazon ECS considers the deployment successful when the target service revision fully stabilizes and the previous tasks are removed. The default value is ``false``.
+	//  When set to ``true``, Amazon ECS monitors the deployment to meet early success criteria. You must also specify ``healthyPercent`` and ``sourceServiceRevisionCleanup``.
+	Enable *bool `pulumi:"enable"`
+	// The percentage of healthy tasks that the target service revision must reach before Amazon ECS considers the deployment successful. This percentage is relative to the service's ``desiredCount`` and must be an integer between ``0`` and ``100``. This value must be greater than or equal to the ``minimumHealthyPercent`` value.
+	//  After this percentage of tasks is healthy and the bake time elapses, Amazon ECS completes the deployment. Amazon ECS continues to scale the target service revision to 100 percent in the background.
+	HealthyPercent *int `pulumi:"healthyPercent"`
+	// The time when Amazon ECS removes the source revisions' tasks relative to deployment completion. The valid values are:
+	//   +  ``BLOCKING``—Amazon ECS removes the previous tasks before it marks the deployment as successful.
+	//   +  ``DEFERRED``—Amazon ECS marks the deployment successful, and then removes the previous tasks in the background.
 	SourceServiceRevisionCleanup *ServiceDeploymentEarlySuccessCriteriaSourceServiceRevisionCleanup `pulumi:"sourceServiceRevisionCleanup"`
 }
 
@@ -14108,9 +14122,19 @@ type ServiceDeploymentEarlySuccessCriteriaInput interface {
 	ToServiceDeploymentEarlySuccessCriteriaOutputWithContext(context.Context) ServiceDeploymentEarlySuccessCriteriaOutput
 }
 
+// You can use early success criteria only with rolling deployment strategy.
+//
+//	The configuration that determines when a rolling update deployment is considered successful. Early success criteria defines the percentage of tasks that must be healthy before a deployment completes. It also controls whether Amazon ECS must remove the previous tasks before a deployment completes.
 type ServiceDeploymentEarlySuccessCriteriaArgs struct {
-	Enable                       pulumi.BoolPtrInput                                                       `pulumi:"enable"`
-	HealthyPercent               pulumi.IntPtrInput                                                        `pulumi:"healthyPercent"`
+	// Specifies whether to use the early success criteria for the service deployment. When set to ``false``, the deployment uses the default behavior, where Amazon ECS considers the deployment successful when the target service revision fully stabilizes and the previous tasks are removed. The default value is ``false``.
+	//  When set to ``true``, Amazon ECS monitors the deployment to meet early success criteria. You must also specify ``healthyPercent`` and ``sourceServiceRevisionCleanup``.
+	Enable pulumi.BoolPtrInput `pulumi:"enable"`
+	// The percentage of healthy tasks that the target service revision must reach before Amazon ECS considers the deployment successful. This percentage is relative to the service's ``desiredCount`` and must be an integer between ``0`` and ``100``. This value must be greater than or equal to the ``minimumHealthyPercent`` value.
+	//  After this percentage of tasks is healthy and the bake time elapses, Amazon ECS completes the deployment. Amazon ECS continues to scale the target service revision to 100 percent in the background.
+	HealthyPercent pulumi.IntPtrInput `pulumi:"healthyPercent"`
+	// The time when Amazon ECS removes the source revisions' tasks relative to deployment completion. The valid values are:
+	//   +  ``BLOCKING``—Amazon ECS removes the previous tasks before it marks the deployment as successful.
+	//   +  ``DEFERRED``—Amazon ECS marks the deployment successful, and then removes the previous tasks in the background.
 	SourceServiceRevisionCleanup ServiceDeploymentEarlySuccessCriteriaSourceServiceRevisionCleanupPtrInput `pulumi:"sourceServiceRevisionCleanup"`
 }
 
@@ -14167,6 +14191,9 @@ func (i *serviceDeploymentEarlySuccessCriteriaPtrType) ToServiceDeploymentEarlyS
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceDeploymentEarlySuccessCriteriaPtrOutput)
 }
 
+// You can use early success criteria only with rolling deployment strategy.
+//
+//	The configuration that determines when a rolling update deployment is considered successful. Early success criteria defines the percentage of tasks that must be healthy before a deployment completes. It also controls whether Amazon ECS must remove the previous tasks before a deployment completes.
 type ServiceDeploymentEarlySuccessCriteriaOutput struct{ *pulumi.OutputState }
 
 func (ServiceDeploymentEarlySuccessCriteriaOutput) ElementType() reflect.Type {
@@ -14191,14 +14218,23 @@ func (o ServiceDeploymentEarlySuccessCriteriaOutput) ToServiceDeploymentEarlySuc
 	}).(ServiceDeploymentEarlySuccessCriteriaPtrOutput)
 }
 
+// Specifies whether to use the early success criteria for the service deployment. When set to “false“, the deployment uses the default behavior, where Amazon ECS considers the deployment successful when the target service revision fully stabilizes and the previous tasks are removed. The default value is “false“.
+//
+//	When set to ``true``, Amazon ECS monitors the deployment to meet early success criteria. You must also specify ``healthyPercent`` and ``sourceServiceRevisionCleanup``.
 func (o ServiceDeploymentEarlySuccessCriteriaOutput) Enable() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ServiceDeploymentEarlySuccessCriteria) *bool { return v.Enable }).(pulumi.BoolPtrOutput)
 }
 
+// The percentage of healthy tasks that the target service revision must reach before Amazon ECS considers the deployment successful. This percentage is relative to the service's “desiredCount“ and must be an integer between “0“ and “100“. This value must be greater than or equal to the “minimumHealthyPercent“ value.
+//
+//	After this percentage of tasks is healthy and the bake time elapses, Amazon ECS completes the deployment. Amazon ECS continues to scale the target service revision to 100 percent in the background.
 func (o ServiceDeploymentEarlySuccessCriteriaOutput) HealthyPercent() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ServiceDeploymentEarlySuccessCriteria) *int { return v.HealthyPercent }).(pulumi.IntPtrOutput)
 }
 
+// The time when Amazon ECS removes the source revisions' tasks relative to deployment completion. The valid values are:
+//   - “BLOCKING“—Amazon ECS removes the previous tasks before it marks the deployment as successful.
+//   - “DEFERRED“—Amazon ECS marks the deployment successful, and then removes the previous tasks in the background.
 func (o ServiceDeploymentEarlySuccessCriteriaOutput) SourceServiceRevisionCleanup() ServiceDeploymentEarlySuccessCriteriaSourceServiceRevisionCleanupPtrOutput {
 	return o.ApplyT(func(v ServiceDeploymentEarlySuccessCriteria) *ServiceDeploymentEarlySuccessCriteriaSourceServiceRevisionCleanup {
 		return v.SourceServiceRevisionCleanup
@@ -14229,6 +14265,9 @@ func (o ServiceDeploymentEarlySuccessCriteriaPtrOutput) Elem() ServiceDeployment
 	}).(ServiceDeploymentEarlySuccessCriteriaOutput)
 }
 
+// Specifies whether to use the early success criteria for the service deployment. When set to “false“, the deployment uses the default behavior, where Amazon ECS considers the deployment successful when the target service revision fully stabilizes and the previous tasks are removed. The default value is “false“.
+//
+//	When set to ``true``, Amazon ECS monitors the deployment to meet early success criteria. You must also specify ``healthyPercent`` and ``sourceServiceRevisionCleanup``.
 func (o ServiceDeploymentEarlySuccessCriteriaPtrOutput) Enable() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ServiceDeploymentEarlySuccessCriteria) *bool {
 		if v == nil {
@@ -14238,6 +14277,9 @@ func (o ServiceDeploymentEarlySuccessCriteriaPtrOutput) Enable() pulumi.BoolPtrO
 	}).(pulumi.BoolPtrOutput)
 }
 
+// The percentage of healthy tasks that the target service revision must reach before Amazon ECS considers the deployment successful. This percentage is relative to the service's “desiredCount“ and must be an integer between “0“ and “100“. This value must be greater than or equal to the “minimumHealthyPercent“ value.
+//
+//	After this percentage of tasks is healthy and the bake time elapses, Amazon ECS completes the deployment. Amazon ECS continues to scale the target service revision to 100 percent in the background.
 func (o ServiceDeploymentEarlySuccessCriteriaPtrOutput) HealthyPercent() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ServiceDeploymentEarlySuccessCriteria) *int {
 		if v == nil {
@@ -14247,6 +14289,9 @@ func (o ServiceDeploymentEarlySuccessCriteriaPtrOutput) HealthyPercent() pulumi.
 	}).(pulumi.IntPtrOutput)
 }
 
+// The time when Amazon ECS removes the source revisions' tasks relative to deployment completion. The valid values are:
+//   - “BLOCKING“—Amazon ECS removes the previous tasks before it marks the deployment as successful.
+//   - “DEFERRED“—Amazon ECS marks the deployment successful, and then removes the previous tasks in the background.
 func (o ServiceDeploymentEarlySuccessCriteriaPtrOutput) SourceServiceRevisionCleanup() ServiceDeploymentEarlySuccessCriteriaSourceServiceRevisionCleanupPtrOutput {
 	return o.ApplyT(func(v *ServiceDeploymentEarlySuccessCriteria) *ServiceDeploymentEarlySuccessCriteriaSourceServiceRevisionCleanup {
 		if v == nil {

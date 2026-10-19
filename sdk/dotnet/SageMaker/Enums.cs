@@ -826,6 +826,198 @@ namespace Pulumi.AwsNative.SageMaker
     }
 
     /// <summary>
+    /// MIG profile type. Service rejects MIG profiles that the chosen InstanceType does not support.
+    /// </summary>
+    [EnumType]
+    public readonly struct ComputeQuotaAcceleratorPartitionConfigType : IEquatable<ComputeQuotaAcceleratorPartitionConfigType>
+    {
+        private readonly string _value;
+
+        private ComputeQuotaAcceleratorPartitionConfigType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ComputeQuotaAcceleratorPartitionConfigType Mig1g5gb { get; } = new ComputeQuotaAcceleratorPartitionConfigType("mig-1g.5gb");
+        public static ComputeQuotaAcceleratorPartitionConfigType Mig1g10gb { get; } = new ComputeQuotaAcceleratorPartitionConfigType("mig-1g.10gb");
+        public static ComputeQuotaAcceleratorPartitionConfigType Mig1g18gb { get; } = new ComputeQuotaAcceleratorPartitionConfigType("mig-1g.18gb");
+        public static ComputeQuotaAcceleratorPartitionConfigType Mig1g20gb { get; } = new ComputeQuotaAcceleratorPartitionConfigType("mig-1g.20gb");
+        public static ComputeQuotaAcceleratorPartitionConfigType Mig1g23gb { get; } = new ComputeQuotaAcceleratorPartitionConfigType("mig-1g.23gb");
+        public static ComputeQuotaAcceleratorPartitionConfigType Mig1g35gb { get; } = new ComputeQuotaAcceleratorPartitionConfigType("mig-1g.35gb");
+        public static ComputeQuotaAcceleratorPartitionConfigType Mig1g45gb { get; } = new ComputeQuotaAcceleratorPartitionConfigType("mig-1g.45gb");
+        public static ComputeQuotaAcceleratorPartitionConfigType Mig1g47gb { get; } = new ComputeQuotaAcceleratorPartitionConfigType("mig-1g.47gb");
+        public static ComputeQuotaAcceleratorPartitionConfigType Mig2g10gb { get; } = new ComputeQuotaAcceleratorPartitionConfigType("mig-2g.10gb");
+        public static ComputeQuotaAcceleratorPartitionConfigType Mig2g20gb { get; } = new ComputeQuotaAcceleratorPartitionConfigType("mig-2g.20gb");
+        public static ComputeQuotaAcceleratorPartitionConfigType Mig2g35gb { get; } = new ComputeQuotaAcceleratorPartitionConfigType("mig-2g.35gb");
+        public static ComputeQuotaAcceleratorPartitionConfigType Mig2g45gb { get; } = new ComputeQuotaAcceleratorPartitionConfigType("mig-2g.45gb");
+        public static ComputeQuotaAcceleratorPartitionConfigType Mig2g47gb { get; } = new ComputeQuotaAcceleratorPartitionConfigType("mig-2g.47gb");
+        public static ComputeQuotaAcceleratorPartitionConfigType Mig3g20gb { get; } = new ComputeQuotaAcceleratorPartitionConfigType("mig-3g.20gb");
+        public static ComputeQuotaAcceleratorPartitionConfigType Mig3g40gb { get; } = new ComputeQuotaAcceleratorPartitionConfigType("mig-3g.40gb");
+        public static ComputeQuotaAcceleratorPartitionConfigType Mig3g71gb { get; } = new ComputeQuotaAcceleratorPartitionConfigType("mig-3g.71gb");
+        public static ComputeQuotaAcceleratorPartitionConfigType Mig3g90gb { get; } = new ComputeQuotaAcceleratorPartitionConfigType("mig-3g.90gb");
+        public static ComputeQuotaAcceleratorPartitionConfigType Mig3g93gb { get; } = new ComputeQuotaAcceleratorPartitionConfigType("mig-3g.93gb");
+        public static ComputeQuotaAcceleratorPartitionConfigType Mig4g20gb { get; } = new ComputeQuotaAcceleratorPartitionConfigType("mig-4g.20gb");
+        public static ComputeQuotaAcceleratorPartitionConfigType Mig4g40gb { get; } = new ComputeQuotaAcceleratorPartitionConfigType("mig-4g.40gb");
+        public static ComputeQuotaAcceleratorPartitionConfigType Mig4g71gb { get; } = new ComputeQuotaAcceleratorPartitionConfigType("mig-4g.71gb");
+        public static ComputeQuotaAcceleratorPartitionConfigType Mig4g90gb { get; } = new ComputeQuotaAcceleratorPartitionConfigType("mig-4g.90gb");
+        public static ComputeQuotaAcceleratorPartitionConfigType Mig4g93gb { get; } = new ComputeQuotaAcceleratorPartitionConfigType("mig-4g.93gb");
+        public static ComputeQuotaAcceleratorPartitionConfigType Mig7g40gb { get; } = new ComputeQuotaAcceleratorPartitionConfigType("mig-7g.40gb");
+        public static ComputeQuotaAcceleratorPartitionConfigType Mig7g80gb { get; } = new ComputeQuotaAcceleratorPartitionConfigType("mig-7g.80gb");
+        public static ComputeQuotaAcceleratorPartitionConfigType Mig7g141gb { get; } = new ComputeQuotaAcceleratorPartitionConfigType("mig-7g.141gb");
+        public static ComputeQuotaAcceleratorPartitionConfigType Mig7g180gb { get; } = new ComputeQuotaAcceleratorPartitionConfigType("mig-7g.180gb");
+        public static ComputeQuotaAcceleratorPartitionConfigType Mig7g186gb { get; } = new ComputeQuotaAcceleratorPartitionConfigType("mig-7g.186gb");
+
+        public static bool operator ==(ComputeQuotaAcceleratorPartitionConfigType left, ComputeQuotaAcceleratorPartitionConfigType right) => left.Equals(right);
+        public static bool operator !=(ComputeQuotaAcceleratorPartitionConfigType left, ComputeQuotaAcceleratorPartitionConfigType right) => !left.Equals(right);
+
+        public static explicit operator string(ComputeQuotaAcceleratorPartitionConfigType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ComputeQuotaAcceleratorPartitionConfigType other && Equals(other);
+        public bool Equals(ComputeQuotaAcceleratorPartitionConfigType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Whether the compute allocation rule is active. Defaults service-side to 'Enabled' when omitted on Create.
+    /// </summary>
+    [EnumType]
+    public readonly struct ComputeQuotaActivationState : IEquatable<ComputeQuotaActivationState>
+    {
+        private readonly string _value;
+
+        private ComputeQuotaActivationState(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ComputeQuotaActivationState Enabled { get; } = new ComputeQuotaActivationState("Enabled");
+        public static ComputeQuotaActivationState Disabled { get; } = new ComputeQuotaActivationState("Disabled");
+
+        public static bool operator ==(ComputeQuotaActivationState left, ComputeQuotaActivationState right) => left.Equals(right);
+        public static bool operator !=(ComputeQuotaActivationState left, ComputeQuotaActivationState right) => !left.Equals(right);
+
+        public static explicit operator string(ComputeQuotaActivationState value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ComputeQuotaActivationState other && Equals(other);
+        public bool Equals(ComputeQuotaActivationState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Team-task preemption policy. Defaults service-side to 'LowerPriority' when omitted on Create.
+    /// </summary>
+    [EnumType]
+    public readonly struct ComputeQuotaConfigPreemptTeamTasks : IEquatable<ComputeQuotaConfigPreemptTeamTasks>
+    {
+        private readonly string _value;
+
+        private ComputeQuotaConfigPreemptTeamTasks(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ComputeQuotaConfigPreemptTeamTasks Never { get; } = new ComputeQuotaConfigPreemptTeamTasks("Never");
+        public static ComputeQuotaConfigPreemptTeamTasks LowerPriority { get; } = new ComputeQuotaConfigPreemptTeamTasks("LowerPriority");
+
+        public static bool operator ==(ComputeQuotaConfigPreemptTeamTasks left, ComputeQuotaConfigPreemptTeamTasks right) => left.Equals(right);
+        public static bool operator !=(ComputeQuotaConfigPreemptTeamTasks left, ComputeQuotaConfigPreemptTeamTasks right) => !left.Equals(right);
+
+        public static explicit operator string(ComputeQuotaConfigPreemptTeamTasks value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ComputeQuotaConfigPreemptTeamTasks other && Equals(other);
+        public bool Equals(ComputeQuotaConfigPreemptTeamTasks other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// How this team participates in idle-resource sharing.
+    /// </summary>
+    [EnumType]
+    public readonly struct ComputeQuotaResourceSharingConfigStrategy : IEquatable<ComputeQuotaResourceSharingConfigStrategy>
+    {
+        private readonly string _value;
+
+        private ComputeQuotaResourceSharingConfigStrategy(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ComputeQuotaResourceSharingConfigStrategy Lend { get; } = new ComputeQuotaResourceSharingConfigStrategy("Lend");
+        public static ComputeQuotaResourceSharingConfigStrategy DontLend { get; } = new ComputeQuotaResourceSharingConfigStrategy("DontLend");
+        public static ComputeQuotaResourceSharingConfigStrategy LendAndBorrow { get; } = new ComputeQuotaResourceSharingConfigStrategy("LendAndBorrow");
+
+        public static bool operator ==(ComputeQuotaResourceSharingConfigStrategy left, ComputeQuotaResourceSharingConfigStrategy right) => left.Equals(right);
+        public static bool operator !=(ComputeQuotaResourceSharingConfigStrategy left, ComputeQuotaResourceSharingConfigStrategy right) => !left.Equals(right);
+
+        public static explicit operator string(ComputeQuotaResourceSharingConfigStrategy value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ComputeQuotaResourceSharingConfigStrategy other && Equals(other);
+        public bool Equals(ComputeQuotaResourceSharingConfigStrategy other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The current lifecycle status of the compute allocation definition.
+    /// </summary>
+    [EnumType]
+    public readonly struct ComputeQuotaStatus : IEquatable<ComputeQuotaStatus>
+    {
+        private readonly string _value;
+
+        private ComputeQuotaStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ComputeQuotaStatus Creating { get; } = new ComputeQuotaStatus("Creating");
+        public static ComputeQuotaStatus Created { get; } = new ComputeQuotaStatus("Created");
+        public static ComputeQuotaStatus CreateFailed { get; } = new ComputeQuotaStatus("CreateFailed");
+        public static ComputeQuotaStatus CreateRollbackFailed { get; } = new ComputeQuotaStatus("CreateRollbackFailed");
+        public static ComputeQuotaStatus Updating { get; } = new ComputeQuotaStatus("Updating");
+        public static ComputeQuotaStatus Updated { get; } = new ComputeQuotaStatus("Updated");
+        public static ComputeQuotaStatus UpdateFailed { get; } = new ComputeQuotaStatus("UpdateFailed");
+        public static ComputeQuotaStatus UpdateRollbackFailed { get; } = new ComputeQuotaStatus("UpdateRollbackFailed");
+        public static ComputeQuotaStatus Deleting { get; } = new ComputeQuotaStatus("Deleting");
+        public static ComputeQuotaStatus Deleted { get; } = new ComputeQuotaStatus("Deleted");
+        public static ComputeQuotaStatus DeleteFailed { get; } = new ComputeQuotaStatus("DeleteFailed");
+        public static ComputeQuotaStatus DeleteRollbackFailed { get; } = new ComputeQuotaStatus("DeleteRollbackFailed");
+
+        public static bool operator ==(ComputeQuotaStatus left, ComputeQuotaStatus right) => left.Equals(right);
+        public static bool operator !=(ComputeQuotaStatus left, ComputeQuotaStatus right) => !left.Equals(right);
+
+        public static explicit operator string(ComputeQuotaStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ComputeQuotaStatus other && Equals(other);
+        public bool Equals(ComputeQuotaStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
     /// </summary>
     [EnumType]

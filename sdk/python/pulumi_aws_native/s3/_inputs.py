@@ -1016,14 +1016,31 @@ class BucketDataExportArgs:
 
 
 class BucketDefaultEventHoldArgsDict(TypedDict):
+    """
+    The default Object Lock event hold duration that you want to apply to new objects placed in the specified bucket, unless an object's upload request specifies its own Object Lock settings. New object versions are placed under an event hold and remain protected while the hold is active. When the event hold is released, Amazon S3 retains the object version for this duration, measured from the time the hold is released.
+      The ``DefaultEventHold`` duration can be specified in either ``Days`` or ``Years``, but you must select one. You can't specify ``Days`` and ``Years`` at the same time.
+    """
     days: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    The number of days that you want to specify for the default event hold duration. Valid values are ``1`` to ``36500`` days. You must specify either ``Days`` or ``Years``, but not both.
+    """
     years: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    The number of years that you want to specify for the default event hold duration. Valid values are ``1`` to ``100`` years. You must specify either ``Days`` or ``Years``, but not both.
+    """
 
 @pulumi.input_type
 class BucketDefaultEventHoldArgs:
     def __init__(__self__, *,
                  days: pulumi.Input[Optional[_builtins.int]] = None,
                  years: pulumi.Input[Optional[_builtins.int]] = None):
+        """
+        The default Object Lock event hold duration that you want to apply to new objects placed in the specified bucket, unless an object's upload request specifies its own Object Lock settings. New object versions are placed under an event hold and remain protected while the hold is active. When the event hold is released, Amazon S3 retains the object version for this duration, measured from the time the hold is released.
+          The ``DefaultEventHold`` duration can be specified in either ``Days`` or ``Years``, but you must select one. You can't specify ``Days`` and ``Years`` at the same time.
+
+        :param pulumi.Input[_builtins.int] days: The number of days that you want to specify for the default event hold duration. Valid values are ``1`` to ``36500`` days. You must specify either ``Days`` or ``Years``, but not both.
+        :param pulumi.Input[_builtins.int] years: The number of years that you want to specify for the default event hold duration. Valid values are ``1`` to ``100`` years. You must specify either ``Days`` or ``Years``, but not both.
+        """
         if days is not None:
             pulumi.set(__self__, "days", days)
         if years is not None:
@@ -1032,6 +1049,9 @@ class BucketDefaultEventHoldArgs:
     @_builtins.property
     @pulumi.getter
     def days(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        The number of days that you want to specify for the default event hold duration. Valid values are ``1`` to ``36500`` days. You must specify either ``Days`` or ``Years``, but not both.
+        """
         return pulumi.get(self, "days")
 
     @days.setter
@@ -1041,6 +1061,9 @@ class BucketDefaultEventHoldArgs:
     @_builtins.property
     @pulumi.getter
     def years(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        The number of years that you want to specify for the default event hold duration. Valid values are ``1`` to ``100`` years. You must specify either ``Days`` or ``Years``, but not both.
+        """
         return pulumi.get(self, "years")
 
     @years.setter
@@ -1059,6 +1082,10 @@ class BucketDefaultRetentionArgsDict(TypedDict):
     The number of days that you want to specify for the default retention period. If Object Lock is turned on, you must specify ``Mode`` and specify either ``Days`` or ``Years``.
     """
     default_event_hold: NotRequired[pulumi.Input[Optional['BucketDefaultEventHoldArgsDict']]]
+    """
+    The default Object Lock event hold duration that you want to apply to new objects placed in the specified bucket. When the event hold is released, Amazon S3 retains the object version for this duration.
+      If you specify both a default retention period (``Days`` or ``Years``) and a ``DefaultEventHold``, the event hold duration can't exceed the default retention period.
+    """
     mode: NotRequired[pulumi.Input[Optional['BucketDefaultRetentionMode']]]
     """
     The default Object Lock retention mode you want to apply to new objects placed in the specified bucket. If Object Lock is turned on, you must specify ``Mode`` and specify either ``Days`` or ``Years``.
@@ -1081,6 +1108,8 @@ class BucketDefaultRetentionArgs:
           +  The ``DefaultRetention`` period can be either ``Days`` or ``Years`` but you must select one. You cannot specify ``Days`` and ``Years`` at the same time.
 
         :param pulumi.Input[_builtins.int] days: The number of days that you want to specify for the default retention period. If Object Lock is turned on, you must specify ``Mode`` and specify either ``Days`` or ``Years``.
+        :param pulumi.Input['BucketDefaultEventHoldArgs'] default_event_hold: The default Object Lock event hold duration that you want to apply to new objects placed in the specified bucket. When the event hold is released, Amazon S3 retains the object version for this duration.
+                 If you specify both a default retention period (``Days`` or ``Years``) and a ``DefaultEventHold``, the event hold duration can't exceed the default retention period.
         :param pulumi.Input['BucketDefaultRetentionMode'] mode: The default Object Lock retention mode you want to apply to new objects placed in the specified bucket. If Object Lock is turned on, you must specify ``Mode`` and specify either ``Days`` or ``Years``.
         :param pulumi.Input[_builtins.int] years: The number of years that you want to specify for the default retention period. If Object Lock is turned on, you must specify ``Mode`` and specify either ``Days`` or ``Years``.
         """
@@ -1108,6 +1137,10 @@ class BucketDefaultRetentionArgs:
     @_builtins.property
     @pulumi.getter(name="defaultEventHold")
     def default_event_hold(self) -> pulumi.Input[Optional['BucketDefaultEventHoldArgs']]:
+        """
+        The default Object Lock event hold duration that you want to apply to new objects placed in the specified bucket. When the event hold is released, Amazon S3 retains the object version for this duration.
+          If you specify both a default retention period (``Days`` or ``Years``) and a ``DefaultEventHold``, the event hold duration can't exceed the default retention period.
+        """
         return pulumi.get(self, "default_event_hold")
 
     @default_event_hold.setter

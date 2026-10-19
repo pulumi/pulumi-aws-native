@@ -13,6 +13,60 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+// Specifies what to capture when the instrumentation point is hit.
+type CaptureConfigurationProperties struct {
+	CodeCapture InstrumentationConfigCodeCaptureConfiguration `pulumi:"codeCapture"`
+}
+
+// CaptureConfigurationPropertiesInput is an input type that accepts CaptureConfigurationPropertiesArgs and CaptureConfigurationPropertiesOutput values.
+// You can construct a concrete instance of `CaptureConfigurationPropertiesInput` via:
+//
+//	CaptureConfigurationPropertiesArgs{...}
+type CaptureConfigurationPropertiesInput interface {
+	pulumi.Input
+
+	ToCaptureConfigurationPropertiesOutput() CaptureConfigurationPropertiesOutput
+	ToCaptureConfigurationPropertiesOutputWithContext(context.Context) CaptureConfigurationPropertiesOutput
+}
+
+// Specifies what to capture when the instrumentation point is hit.
+type CaptureConfigurationPropertiesArgs struct {
+	CodeCapture InstrumentationConfigCodeCaptureConfigurationInput `pulumi:"codeCapture"`
+}
+
+func (CaptureConfigurationPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CaptureConfigurationProperties)(nil)).Elem()
+}
+
+func (i CaptureConfigurationPropertiesArgs) ToCaptureConfigurationPropertiesOutput() CaptureConfigurationPropertiesOutput {
+	return i.ToCaptureConfigurationPropertiesOutputWithContext(context.Background())
+}
+
+func (i CaptureConfigurationPropertiesArgs) ToCaptureConfigurationPropertiesOutputWithContext(ctx context.Context) CaptureConfigurationPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CaptureConfigurationPropertiesOutput)
+}
+
+// Specifies what to capture when the instrumentation point is hit.
+type CaptureConfigurationPropertiesOutput struct{ *pulumi.OutputState }
+
+func (CaptureConfigurationPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CaptureConfigurationProperties)(nil)).Elem()
+}
+
+func (o CaptureConfigurationPropertiesOutput) ToCaptureConfigurationPropertiesOutput() CaptureConfigurationPropertiesOutput {
+	return o
+}
+
+func (o CaptureConfigurationPropertiesOutput) ToCaptureConfigurationPropertiesOutputWithContext(ctx context.Context) CaptureConfigurationPropertiesOutput {
+	return o
+}
+
+func (o CaptureConfigurationPropertiesOutput) CodeCapture() InstrumentationConfigCodeCaptureConfigurationOutput {
+	return o.ApplyT(func(v CaptureConfigurationProperties) InstrumentationConfigCodeCaptureConfiguration {
+		return v.CodeCapture
+	}).(InstrumentationConfigCodeCaptureConfigurationOutput)
+}
+
 type GroupingConfigurationGroupingAttributeDefinition struct {
 	DefaultGroupingValue *string  `pulumi:"defaultGroupingValue"`
 	GroupingName         string   `pulumi:"groupingName"`
@@ -117,6 +171,374 @@ func (o GroupingConfigurationGroupingAttributeDefinitionArrayOutput) Index(i pul
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GroupingConfigurationGroupingAttributeDefinition {
 		return vs[0].([]GroupingConfigurationGroupingAttributeDefinition)[vs[1].(int)]
 	}).(GroupingConfigurationGroupingAttributeDefinitionOutput)
+}
+
+// Safety limits that bound what is captured.
+type InstrumentationConfigCaptureLimitsConfig struct {
+	// Maximum nesting depth to traverse inside collections.
+	MaxCollectionDepth *int `pulumi:"maxCollectionDepth"`
+	// Maximum number of items to capture from any collection.
+	MaxCollectionWidth *int `pulumi:"maxCollectionWidth"`
+	// Maximum number of fields to capture for any object.
+	MaxFieldsPerObject *int `pulumi:"maxFieldsPerObject"`
+	// Maximum number of times the instrumentation point can be hit before disabled.
+	MaxHits *int `pulumi:"maxHits"`
+	// Maximum depth for nested object traversal.
+	MaxObjectDepth *int `pulumi:"maxObjectDepth"`
+	// Maximum number of stack frames to capture.
+	MaxStackFrames *int `pulumi:"maxStackFrames"`
+	// Maximum total size in bytes of a captured stack trace.
+	MaxStackTraceSize *int `pulumi:"maxStackTraceSize"`
+	// Maximum length of captured string values in characters.
+	MaxStringLength *int `pulumi:"maxStringLength"`
+}
+
+// InstrumentationConfigCaptureLimitsConfigInput is an input type that accepts InstrumentationConfigCaptureLimitsConfigArgs and InstrumentationConfigCaptureLimitsConfigOutput values.
+// You can construct a concrete instance of `InstrumentationConfigCaptureLimitsConfigInput` via:
+//
+//	InstrumentationConfigCaptureLimitsConfigArgs{...}
+type InstrumentationConfigCaptureLimitsConfigInput interface {
+	pulumi.Input
+
+	ToInstrumentationConfigCaptureLimitsConfigOutput() InstrumentationConfigCaptureLimitsConfigOutput
+	ToInstrumentationConfigCaptureLimitsConfigOutputWithContext(context.Context) InstrumentationConfigCaptureLimitsConfigOutput
+}
+
+// Safety limits that bound what is captured.
+type InstrumentationConfigCaptureLimitsConfigArgs struct {
+	// Maximum nesting depth to traverse inside collections.
+	MaxCollectionDepth pulumi.IntPtrInput `pulumi:"maxCollectionDepth"`
+	// Maximum number of items to capture from any collection.
+	MaxCollectionWidth pulumi.IntPtrInput `pulumi:"maxCollectionWidth"`
+	// Maximum number of fields to capture for any object.
+	MaxFieldsPerObject pulumi.IntPtrInput `pulumi:"maxFieldsPerObject"`
+	// Maximum number of times the instrumentation point can be hit before disabled.
+	MaxHits pulumi.IntPtrInput `pulumi:"maxHits"`
+	// Maximum depth for nested object traversal.
+	MaxObjectDepth pulumi.IntPtrInput `pulumi:"maxObjectDepth"`
+	// Maximum number of stack frames to capture.
+	MaxStackFrames pulumi.IntPtrInput `pulumi:"maxStackFrames"`
+	// Maximum total size in bytes of a captured stack trace.
+	MaxStackTraceSize pulumi.IntPtrInput `pulumi:"maxStackTraceSize"`
+	// Maximum length of captured string values in characters.
+	MaxStringLength pulumi.IntPtrInput `pulumi:"maxStringLength"`
+}
+
+func (InstrumentationConfigCaptureLimitsConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstrumentationConfigCaptureLimitsConfig)(nil)).Elem()
+}
+
+func (i InstrumentationConfigCaptureLimitsConfigArgs) ToInstrumentationConfigCaptureLimitsConfigOutput() InstrumentationConfigCaptureLimitsConfigOutput {
+	return i.ToInstrumentationConfigCaptureLimitsConfigOutputWithContext(context.Background())
+}
+
+func (i InstrumentationConfigCaptureLimitsConfigArgs) ToInstrumentationConfigCaptureLimitsConfigOutputWithContext(ctx context.Context) InstrumentationConfigCaptureLimitsConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstrumentationConfigCaptureLimitsConfigOutput)
+}
+
+// Safety limits that bound what is captured.
+type InstrumentationConfigCaptureLimitsConfigOutput struct{ *pulumi.OutputState }
+
+func (InstrumentationConfigCaptureLimitsConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstrumentationConfigCaptureLimitsConfig)(nil)).Elem()
+}
+
+func (o InstrumentationConfigCaptureLimitsConfigOutput) ToInstrumentationConfigCaptureLimitsConfigOutput() InstrumentationConfigCaptureLimitsConfigOutput {
+	return o
+}
+
+func (o InstrumentationConfigCaptureLimitsConfigOutput) ToInstrumentationConfigCaptureLimitsConfigOutputWithContext(ctx context.Context) InstrumentationConfigCaptureLimitsConfigOutput {
+	return o
+}
+
+// Maximum nesting depth to traverse inside collections.
+func (o InstrumentationConfigCaptureLimitsConfigOutput) MaxCollectionDepth() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v InstrumentationConfigCaptureLimitsConfig) *int { return v.MaxCollectionDepth }).(pulumi.IntPtrOutput)
+}
+
+// Maximum number of items to capture from any collection.
+func (o InstrumentationConfigCaptureLimitsConfigOutput) MaxCollectionWidth() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v InstrumentationConfigCaptureLimitsConfig) *int { return v.MaxCollectionWidth }).(pulumi.IntPtrOutput)
+}
+
+// Maximum number of fields to capture for any object.
+func (o InstrumentationConfigCaptureLimitsConfigOutput) MaxFieldsPerObject() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v InstrumentationConfigCaptureLimitsConfig) *int { return v.MaxFieldsPerObject }).(pulumi.IntPtrOutput)
+}
+
+// Maximum number of times the instrumentation point can be hit before disabled.
+func (o InstrumentationConfigCaptureLimitsConfigOutput) MaxHits() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v InstrumentationConfigCaptureLimitsConfig) *int { return v.MaxHits }).(pulumi.IntPtrOutput)
+}
+
+// Maximum depth for nested object traversal.
+func (o InstrumentationConfigCaptureLimitsConfigOutput) MaxObjectDepth() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v InstrumentationConfigCaptureLimitsConfig) *int { return v.MaxObjectDepth }).(pulumi.IntPtrOutput)
+}
+
+// Maximum number of stack frames to capture.
+func (o InstrumentationConfigCaptureLimitsConfigOutput) MaxStackFrames() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v InstrumentationConfigCaptureLimitsConfig) *int { return v.MaxStackFrames }).(pulumi.IntPtrOutput)
+}
+
+// Maximum total size in bytes of a captured stack trace.
+func (o InstrumentationConfigCaptureLimitsConfigOutput) MaxStackTraceSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v InstrumentationConfigCaptureLimitsConfig) *int { return v.MaxStackTraceSize }).(pulumi.IntPtrOutput)
+}
+
+// Maximum length of captured string values in characters.
+func (o InstrumentationConfigCaptureLimitsConfigOutput) MaxStringLength() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v InstrumentationConfigCaptureLimitsConfig) *int { return v.MaxStringLength }).(pulumi.IntPtrOutput)
+}
+
+// Defines what data to capture for code-level instrumentation.
+type InstrumentationConfigCodeCaptureConfiguration struct {
+	// The function arguments to capture.
+	CaptureArguments []string                                 `pulumi:"captureArguments"`
+	CaptureLimits    InstrumentationConfigCaptureLimitsConfig `pulumi:"captureLimits"`
+	// The local variables to capture by name.
+	CaptureLocals []string `pulumi:"captureLocals"`
+	// Whether to capture the return value. Defaults to false.
+	CaptureReturn *bool `pulumi:"captureReturn"`
+	// Whether to capture a stack trace. Defaults to true.
+	CaptureStackTrace *bool `pulumi:"captureStackTrace"`
+}
+
+// InstrumentationConfigCodeCaptureConfigurationInput is an input type that accepts InstrumentationConfigCodeCaptureConfigurationArgs and InstrumentationConfigCodeCaptureConfigurationOutput values.
+// You can construct a concrete instance of `InstrumentationConfigCodeCaptureConfigurationInput` via:
+//
+//	InstrumentationConfigCodeCaptureConfigurationArgs{...}
+type InstrumentationConfigCodeCaptureConfigurationInput interface {
+	pulumi.Input
+
+	ToInstrumentationConfigCodeCaptureConfigurationOutput() InstrumentationConfigCodeCaptureConfigurationOutput
+	ToInstrumentationConfigCodeCaptureConfigurationOutputWithContext(context.Context) InstrumentationConfigCodeCaptureConfigurationOutput
+}
+
+// Defines what data to capture for code-level instrumentation.
+type InstrumentationConfigCodeCaptureConfigurationArgs struct {
+	// The function arguments to capture.
+	CaptureArguments pulumi.StringArrayInput                       `pulumi:"captureArguments"`
+	CaptureLimits    InstrumentationConfigCaptureLimitsConfigInput `pulumi:"captureLimits"`
+	// The local variables to capture by name.
+	CaptureLocals pulumi.StringArrayInput `pulumi:"captureLocals"`
+	// Whether to capture the return value. Defaults to false.
+	CaptureReturn pulumi.BoolPtrInput `pulumi:"captureReturn"`
+	// Whether to capture a stack trace. Defaults to true.
+	CaptureStackTrace pulumi.BoolPtrInput `pulumi:"captureStackTrace"`
+}
+
+func (InstrumentationConfigCodeCaptureConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstrumentationConfigCodeCaptureConfiguration)(nil)).Elem()
+}
+
+func (i InstrumentationConfigCodeCaptureConfigurationArgs) ToInstrumentationConfigCodeCaptureConfigurationOutput() InstrumentationConfigCodeCaptureConfigurationOutput {
+	return i.ToInstrumentationConfigCodeCaptureConfigurationOutputWithContext(context.Background())
+}
+
+func (i InstrumentationConfigCodeCaptureConfigurationArgs) ToInstrumentationConfigCodeCaptureConfigurationOutputWithContext(ctx context.Context) InstrumentationConfigCodeCaptureConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstrumentationConfigCodeCaptureConfigurationOutput)
+}
+
+// Defines what data to capture for code-level instrumentation.
+type InstrumentationConfigCodeCaptureConfigurationOutput struct{ *pulumi.OutputState }
+
+func (InstrumentationConfigCodeCaptureConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstrumentationConfigCodeCaptureConfiguration)(nil)).Elem()
+}
+
+func (o InstrumentationConfigCodeCaptureConfigurationOutput) ToInstrumentationConfigCodeCaptureConfigurationOutput() InstrumentationConfigCodeCaptureConfigurationOutput {
+	return o
+}
+
+func (o InstrumentationConfigCodeCaptureConfigurationOutput) ToInstrumentationConfigCodeCaptureConfigurationOutputWithContext(ctx context.Context) InstrumentationConfigCodeCaptureConfigurationOutput {
+	return o
+}
+
+// The function arguments to capture.
+func (o InstrumentationConfigCodeCaptureConfigurationOutput) CaptureArguments() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v InstrumentationConfigCodeCaptureConfiguration) []string { return v.CaptureArguments }).(pulumi.StringArrayOutput)
+}
+
+func (o InstrumentationConfigCodeCaptureConfigurationOutput) CaptureLimits() InstrumentationConfigCaptureLimitsConfigOutput {
+	return o.ApplyT(func(v InstrumentationConfigCodeCaptureConfiguration) InstrumentationConfigCaptureLimitsConfig {
+		return v.CaptureLimits
+	}).(InstrumentationConfigCaptureLimitsConfigOutput)
+}
+
+// The local variables to capture by name.
+func (o InstrumentationConfigCodeCaptureConfigurationOutput) CaptureLocals() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v InstrumentationConfigCodeCaptureConfiguration) []string { return v.CaptureLocals }).(pulumi.StringArrayOutput)
+}
+
+// Whether to capture the return value. Defaults to false.
+func (o InstrumentationConfigCodeCaptureConfigurationOutput) CaptureReturn() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v InstrumentationConfigCodeCaptureConfiguration) *bool { return v.CaptureReturn }).(pulumi.BoolPtrOutput)
+}
+
+// Whether to capture a stack trace. Defaults to true.
+func (o InstrumentationConfigCodeCaptureConfigurationOutput) CaptureStackTrace() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v InstrumentationConfigCodeCaptureConfiguration) *bool { return v.CaptureStackTrace }).(pulumi.BoolPtrOutput)
+}
+
+// Identifies a code location to instrument.
+type InstrumentationConfigCodeLocation struct {
+	// The class or type name that contains the method.
+	ClassName *string `pulumi:"className"`
+	// The package, module, or namespace that contains the target code.
+	CodeUnit *string `pulumi:"codeUnit"`
+	// The source file path relative to the project or source root.
+	FilePath string `pulumi:"filePath"`
+	// The programming language for this instrumentation point.
+	Language InstrumentationConfigCodeLocationLanguage `pulumi:"language"`
+	// The line number to instrument.
+	LineNumber *int `pulumi:"lineNumber"`
+	// The method or function name to instrument.
+	MethodName *string `pulumi:"methodName"`
+}
+
+// InstrumentationConfigCodeLocationInput is an input type that accepts InstrumentationConfigCodeLocationArgs and InstrumentationConfigCodeLocationOutput values.
+// You can construct a concrete instance of `InstrumentationConfigCodeLocationInput` via:
+//
+//	InstrumentationConfigCodeLocationArgs{...}
+type InstrumentationConfigCodeLocationInput interface {
+	pulumi.Input
+
+	ToInstrumentationConfigCodeLocationOutput() InstrumentationConfigCodeLocationOutput
+	ToInstrumentationConfigCodeLocationOutputWithContext(context.Context) InstrumentationConfigCodeLocationOutput
+}
+
+// Identifies a code location to instrument.
+type InstrumentationConfigCodeLocationArgs struct {
+	// The class or type name that contains the method.
+	ClassName pulumi.StringPtrInput `pulumi:"className"`
+	// The package, module, or namespace that contains the target code.
+	CodeUnit pulumi.StringPtrInput `pulumi:"codeUnit"`
+	// The source file path relative to the project or source root.
+	FilePath pulumi.StringInput `pulumi:"filePath"`
+	// The programming language for this instrumentation point.
+	Language InstrumentationConfigCodeLocationLanguageInput `pulumi:"language"`
+	// The line number to instrument.
+	LineNumber pulumi.IntPtrInput `pulumi:"lineNumber"`
+	// The method or function name to instrument.
+	MethodName pulumi.StringPtrInput `pulumi:"methodName"`
+}
+
+func (InstrumentationConfigCodeLocationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstrumentationConfigCodeLocation)(nil)).Elem()
+}
+
+func (i InstrumentationConfigCodeLocationArgs) ToInstrumentationConfigCodeLocationOutput() InstrumentationConfigCodeLocationOutput {
+	return i.ToInstrumentationConfigCodeLocationOutputWithContext(context.Background())
+}
+
+func (i InstrumentationConfigCodeLocationArgs) ToInstrumentationConfigCodeLocationOutputWithContext(ctx context.Context) InstrumentationConfigCodeLocationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstrumentationConfigCodeLocationOutput)
+}
+
+// Identifies a code location to instrument.
+type InstrumentationConfigCodeLocationOutput struct{ *pulumi.OutputState }
+
+func (InstrumentationConfigCodeLocationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstrumentationConfigCodeLocation)(nil)).Elem()
+}
+
+func (o InstrumentationConfigCodeLocationOutput) ToInstrumentationConfigCodeLocationOutput() InstrumentationConfigCodeLocationOutput {
+	return o
+}
+
+func (o InstrumentationConfigCodeLocationOutput) ToInstrumentationConfigCodeLocationOutputWithContext(ctx context.Context) InstrumentationConfigCodeLocationOutput {
+	return o
+}
+
+// The class or type name that contains the method.
+func (o InstrumentationConfigCodeLocationOutput) ClassName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InstrumentationConfigCodeLocation) *string { return v.ClassName }).(pulumi.StringPtrOutput)
+}
+
+// The package, module, or namespace that contains the target code.
+func (o InstrumentationConfigCodeLocationOutput) CodeUnit() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InstrumentationConfigCodeLocation) *string { return v.CodeUnit }).(pulumi.StringPtrOutput)
+}
+
+// The source file path relative to the project or source root.
+func (o InstrumentationConfigCodeLocationOutput) FilePath() pulumi.StringOutput {
+	return o.ApplyT(func(v InstrumentationConfigCodeLocation) string { return v.FilePath }).(pulumi.StringOutput)
+}
+
+// The programming language for this instrumentation point.
+func (o InstrumentationConfigCodeLocationOutput) Language() InstrumentationConfigCodeLocationLanguageOutput {
+	return o.ApplyT(func(v InstrumentationConfigCodeLocation) InstrumentationConfigCodeLocationLanguage { return v.Language }).(InstrumentationConfigCodeLocationLanguageOutput)
+}
+
+// The line number to instrument.
+func (o InstrumentationConfigCodeLocationOutput) LineNumber() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v InstrumentationConfigCodeLocation) *int { return v.LineNumber }).(pulumi.IntPtrOutput)
+}
+
+// The method or function name to instrument.
+func (o InstrumentationConfigCodeLocationOutput) MethodName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InstrumentationConfigCodeLocation) *string { return v.MethodName }).(pulumi.StringPtrOutput)
+}
+
+// A key-value pair to associate with the resource.
+type InstrumentationConfigTag struct {
+	// The tag key.
+	Key string `pulumi:"key"`
+	// The tag value.
+	Value string `pulumi:"value"`
+}
+
+// The location where instrumentation should be applied.
+type LocationProperties struct {
+	CodeLocation InstrumentationConfigCodeLocation `pulumi:"codeLocation"`
+}
+
+// LocationPropertiesInput is an input type that accepts LocationPropertiesArgs and LocationPropertiesOutput values.
+// You can construct a concrete instance of `LocationPropertiesInput` via:
+//
+//	LocationPropertiesArgs{...}
+type LocationPropertiesInput interface {
+	pulumi.Input
+
+	ToLocationPropertiesOutput() LocationPropertiesOutput
+	ToLocationPropertiesOutputWithContext(context.Context) LocationPropertiesOutput
+}
+
+// The location where instrumentation should be applied.
+type LocationPropertiesArgs struct {
+	CodeLocation InstrumentationConfigCodeLocationInput `pulumi:"codeLocation"`
+}
+
+func (LocationPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LocationProperties)(nil)).Elem()
+}
+
+func (i LocationPropertiesArgs) ToLocationPropertiesOutput() LocationPropertiesOutput {
+	return i.ToLocationPropertiesOutputWithContext(context.Background())
+}
+
+func (i LocationPropertiesArgs) ToLocationPropertiesOutputWithContext(ctx context.Context) LocationPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LocationPropertiesOutput)
+}
+
+// The location where instrumentation should be applied.
+type LocationPropertiesOutput struct{ *pulumi.OutputState }
+
+func (LocationPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LocationProperties)(nil)).Elem()
+}
+
+func (o LocationPropertiesOutput) ToLocationPropertiesOutput() LocationPropertiesOutput {
+	return o
+}
+
+func (o LocationPropertiesOutput) ToLocationPropertiesOutputWithContext(ctx context.Context) LocationPropertiesOutput {
+	return o
+}
+
+func (o LocationPropertiesOutput) CodeLocation() InstrumentationConfigCodeLocationOutput {
+	return o.ApplyT(func(v LocationProperties) InstrumentationConfigCodeLocation { return v.CodeLocation }).(InstrumentationConfigCodeLocationOutput)
 }
 
 // This object defines the length of the look-back window used to calculate one burn rate metric for this SLO. The burn rate measures how fast the service is consuming the error budget, relative to the attainment goal of the SLO. A burn rate of exactly 1 indicates that the SLO goal will be met exactly.
@@ -3778,8 +4200,13 @@ func (o ServiceLevelObjectiveWindowOutput) DurationUnit() ServiceLevelObjectiveD
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*CaptureConfigurationPropertiesInput)(nil)).Elem(), CaptureConfigurationPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GroupingConfigurationGroupingAttributeDefinitionInput)(nil)).Elem(), GroupingConfigurationGroupingAttributeDefinitionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GroupingConfigurationGroupingAttributeDefinitionArrayInput)(nil)).Elem(), GroupingConfigurationGroupingAttributeDefinitionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InstrumentationConfigCaptureLimitsConfigInput)(nil)).Elem(), InstrumentationConfigCaptureLimitsConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InstrumentationConfigCodeCaptureConfigurationInput)(nil)).Elem(), InstrumentationConfigCodeCaptureConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InstrumentationConfigCodeLocationInput)(nil)).Elem(), InstrumentationConfigCodeLocationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LocationPropertiesInput)(nil)).Elem(), LocationPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelObjectiveBurnRateConfigurationInput)(nil)).Elem(), ServiceLevelObjectiveBurnRateConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelObjectiveBurnRateConfigurationArrayInput)(nil)).Elem(), ServiceLevelObjectiveBurnRateConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelObjectiveCalendarIntervalInput)(nil)).Elem(), ServiceLevelObjectiveCalendarIntervalArgs{})
@@ -3823,8 +4250,13 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelObjectiveSliMetricInput)(nil)).Elem(), ServiceLevelObjectiveSliMetricArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelObjectiveSliMetricPtrInput)(nil)).Elem(), ServiceLevelObjectiveSliMetricArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelObjectiveWindowInput)(nil)).Elem(), ServiceLevelObjectiveWindowArgs{})
+	pulumi.RegisterOutputType(CaptureConfigurationPropertiesOutput{})
 	pulumi.RegisterOutputType(GroupingConfigurationGroupingAttributeDefinitionOutput{})
 	pulumi.RegisterOutputType(GroupingConfigurationGroupingAttributeDefinitionArrayOutput{})
+	pulumi.RegisterOutputType(InstrumentationConfigCaptureLimitsConfigOutput{})
+	pulumi.RegisterOutputType(InstrumentationConfigCodeCaptureConfigurationOutput{})
+	pulumi.RegisterOutputType(InstrumentationConfigCodeLocationOutput{})
+	pulumi.RegisterOutputType(LocationPropertiesOutput{})
 	pulumi.RegisterOutputType(ServiceLevelObjectiveBurnRateConfigurationOutput{})
 	pulumi.RegisterOutputType(ServiceLevelObjectiveBurnRateConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(ServiceLevelObjectiveCalendarIntervalOutput{})

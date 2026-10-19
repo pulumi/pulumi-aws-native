@@ -27,6 +27,7 @@ namespace Pulumi.AwsNative.Connect.Outputs
         /// Information about the EV action.
         /// </summary>
         public readonly ImmutableArray<Outputs.RuleEventBridgeAction> EventBridgeActions;
+        public readonly ImmutableArray<Outputs.RuleSendInAppNotificationAction> SendInAppNotificationActions;
         /// <summary>
         /// Information about the send notification action.
         /// </summary>
@@ -50,6 +51,8 @@ namespace Pulumi.AwsNative.Connect.Outputs
 
             ImmutableArray<Outputs.RuleEventBridgeAction> eventBridgeActions,
 
+            ImmutableArray<Outputs.RuleSendInAppNotificationAction> sendInAppNotificationActions,
+
             ImmutableArray<Outputs.RuleSendNotificationAction> sendNotificationActions,
 
             ImmutableArray<Outputs.RuleSubmitAutoEvaluationAction> submitAutoEvaluationActions,
@@ -63,6 +66,7 @@ namespace Pulumi.AwsNative.Connect.Outputs
             CreateCaseActions = createCaseActions;
             EndAssociatedTasksActions = endAssociatedTasksActions;
             EventBridgeActions = eventBridgeActions;
+            SendInAppNotificationActions = sendInAppNotificationActions;
             SendNotificationActions = sendNotificationActions;
             SubmitAutoEvaluationActions = submitAutoEvaluationActions;
             TaskActions = taskActions;

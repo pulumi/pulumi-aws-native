@@ -28,6 +28,7 @@ export interface GetAlarmArgs {
 }
 
 export interface GetAlarmResult {
+    readonly actionConfiguration?: outputs.cloudwatch.AlarmActionConfiguration;
     /**
      * Indicates whether actions should be executed during any changes to the alarm state. The default is TRUE.
      */

@@ -31,6 +31,7 @@ class PlaybackConfigurationArgs:
                  ads_personalization_concurrency: pulumi.Input[Optional['PlaybackConfigurationAdsPersonalizationConcurrencyArgs']] = None,
                  ads_personalization_timeouts: pulumi.Input[Optional['PlaybackConfigurationAdsPersonalizationTimeoutsArgs']] = None,
                  avail_suppression: pulumi.Input[Optional['PlaybackConfigurationAvailSuppressionArgs']] = None,
+                 beaconing_configuration: pulumi.Input[Optional['PlaybackConfigurationBeaconingConfigurationArgs']] = None,
                  bumper: pulumi.Input[Optional['PlaybackConfigurationBumperArgs']] = None,
                  cdn_configuration: pulumi.Input[Optional['PlaybackConfigurationCdnConfigurationArgs']] = None,
                  configuration_aliases: pulumi.Input[Optional[Mapping[str, Any]]] = None,
@@ -55,6 +56,7 @@ class PlaybackConfigurationArgs:
         :param pulumi.Input['PlaybackConfigurationAdsPersonalizationConcurrencyArgs'] ads_personalization_concurrency: The settings that control how many concurrent requests MediaTailor makes to the ad decision server (ADS).
         :param pulumi.Input['PlaybackConfigurationAdsPersonalizationTimeoutsArgs'] ads_personalization_timeouts: The ad decision server (ADS) request timeouts and personalization time budgets for live, VOD, and prefetch workflows.
         :param pulumi.Input['PlaybackConfigurationAvailSuppressionArgs'] avail_suppression: The configuration for avail suppression, also known as ad suppression. For more information about ad suppression, see Ad Suppression (https://docs.aws.amazon.com/mediatailor/latest/ug/ad-behavior.html).
+        :param pulumi.Input['PlaybackConfigurationBeaconingConfigurationArgs'] beaconing_configuration: The beaconing configuration for this playback configuration, which controls whether AWS Elemental MediaTailor includes beacons of its own in the ad tracking response. If you omit this setting, MediaTailor uses INSIGHTS.
         :param pulumi.Input['PlaybackConfigurationBumperArgs'] bumper: The configuration for bumpers. Bumpers are short audio or video clips that play at the start or before the end of an ad break. To learn more about bumpers, see Bumpers (https://docs.aws.amazon.com/mediatailor/latest/ug/bumpers.html).
         :param pulumi.Input['PlaybackConfigurationCdnConfigurationArgs'] cdn_configuration: The configuration for using a content delivery network (CDN), like Amazon CloudFront, for content and ad segment management.
         :param pulumi.Input[Mapping[str, Any]] configuration_aliases: The player parameters and aliases used as dynamic variables during session initialization. For more information, see Domain Variables.
@@ -83,6 +85,8 @@ class PlaybackConfigurationArgs:
             pulumi.set(__self__, "ads_personalization_timeouts", ads_personalization_timeouts)
         if avail_suppression is not None:
             pulumi.set(__self__, "avail_suppression", avail_suppression)
+        if beaconing_configuration is not None:
+            pulumi.set(__self__, "beaconing_configuration", beaconing_configuration)
         if bumper is not None:
             pulumi.set(__self__, "bumper", bumper)
         if cdn_configuration is not None:
@@ -194,6 +198,18 @@ class PlaybackConfigurationArgs:
     @avail_suppression.setter
     def avail_suppression(self, value: pulumi.Input[Optional['PlaybackConfigurationAvailSuppressionArgs']]):
         pulumi.set(self, "avail_suppression", value)
+
+    @_builtins.property
+    @pulumi.getter(name="beaconingConfiguration")
+    def beaconing_configuration(self) -> pulumi.Input[Optional['PlaybackConfigurationBeaconingConfigurationArgs']]:
+        """
+        The beaconing configuration for this playback configuration, which controls whether AWS Elemental MediaTailor includes beacons of its own in the ad tracking response. If you omit this setting, MediaTailor uses INSIGHTS.
+        """
+        return pulumi.get(self, "beaconing_configuration")
+
+    @beaconing_configuration.setter
+    def beaconing_configuration(self, value: pulumi.Input[Optional['PlaybackConfigurationBeaconingConfigurationArgs']]):
+        pulumi.set(self, "beaconing_configuration", value)
 
     @_builtins.property
     @pulumi.getter
@@ -388,6 +404,7 @@ class PlaybackConfiguration(pulumi.CustomResource):
                  ads_personalization_concurrency: pulumi.Input[Optional[Union['PlaybackConfigurationAdsPersonalizationConcurrencyArgs', 'PlaybackConfigurationAdsPersonalizationConcurrencyArgsDict']]] = None,
                  ads_personalization_timeouts: pulumi.Input[Optional[Union['PlaybackConfigurationAdsPersonalizationTimeoutsArgs', 'PlaybackConfigurationAdsPersonalizationTimeoutsArgsDict']]] = None,
                  avail_suppression: pulumi.Input[Optional[Union['PlaybackConfigurationAvailSuppressionArgs', 'PlaybackConfigurationAvailSuppressionArgsDict']]] = None,
+                 beaconing_configuration: pulumi.Input[Optional[Union['PlaybackConfigurationBeaconingConfigurationArgs', 'PlaybackConfigurationBeaconingConfigurationArgsDict']]] = None,
                  bumper: pulumi.Input[Optional[Union['PlaybackConfigurationBumperArgs', 'PlaybackConfigurationBumperArgsDict']]] = None,
                  cdn_configuration: pulumi.Input[Optional[Union['PlaybackConfigurationCdnConfigurationArgs', 'PlaybackConfigurationCdnConfigurationArgsDict']]] = None,
                  configuration_aliases: pulumi.Input[Optional[Mapping[str, Any]]] = None,
@@ -415,6 +432,7 @@ class PlaybackConfiguration(pulumi.CustomResource):
         :param pulumi.Input[Union['PlaybackConfigurationAdsPersonalizationConcurrencyArgs', 'PlaybackConfigurationAdsPersonalizationConcurrencyArgsDict']] ads_personalization_concurrency: The settings that control how many concurrent requests MediaTailor makes to the ad decision server (ADS).
         :param pulumi.Input[Union['PlaybackConfigurationAdsPersonalizationTimeoutsArgs', 'PlaybackConfigurationAdsPersonalizationTimeoutsArgsDict']] ads_personalization_timeouts: The ad decision server (ADS) request timeouts and personalization time budgets for live, VOD, and prefetch workflows.
         :param pulumi.Input[Union['PlaybackConfigurationAvailSuppressionArgs', 'PlaybackConfigurationAvailSuppressionArgsDict']] avail_suppression: The configuration for avail suppression, also known as ad suppression. For more information about ad suppression, see Ad Suppression (https://docs.aws.amazon.com/mediatailor/latest/ug/ad-behavior.html).
+        :param pulumi.Input[Union['PlaybackConfigurationBeaconingConfigurationArgs', 'PlaybackConfigurationBeaconingConfigurationArgsDict']] beaconing_configuration: The beaconing configuration for this playback configuration, which controls whether AWS Elemental MediaTailor includes beacons of its own in the ad tracking response. If you omit this setting, MediaTailor uses INSIGHTS.
         :param pulumi.Input[Union['PlaybackConfigurationBumperArgs', 'PlaybackConfigurationBumperArgsDict']] bumper: The configuration for bumpers. Bumpers are short audio or video clips that play at the start or before the end of an ad break. To learn more about bumpers, see Bumpers (https://docs.aws.amazon.com/mediatailor/latest/ug/bumpers.html).
         :param pulumi.Input[Union['PlaybackConfigurationCdnConfigurationArgs', 'PlaybackConfigurationCdnConfigurationArgsDict']] cdn_configuration: The configuration for using a content delivery network (CDN), like Amazon CloudFront, for content and ad segment management.
         :param pulumi.Input[Mapping[str, Any]] configuration_aliases: The player parameters and aliases used as dynamic variables during session initialization. For more information, see Domain Variables.
@@ -462,6 +480,7 @@ class PlaybackConfiguration(pulumi.CustomResource):
                  ads_personalization_concurrency: pulumi.Input[Optional[Union['PlaybackConfigurationAdsPersonalizationConcurrencyArgs', 'PlaybackConfigurationAdsPersonalizationConcurrencyArgsDict']]] = None,
                  ads_personalization_timeouts: pulumi.Input[Optional[Union['PlaybackConfigurationAdsPersonalizationTimeoutsArgs', 'PlaybackConfigurationAdsPersonalizationTimeoutsArgsDict']]] = None,
                  avail_suppression: pulumi.Input[Optional[Union['PlaybackConfigurationAvailSuppressionArgs', 'PlaybackConfigurationAvailSuppressionArgsDict']]] = None,
+                 beaconing_configuration: pulumi.Input[Optional[Union['PlaybackConfigurationBeaconingConfigurationArgs', 'PlaybackConfigurationBeaconingConfigurationArgsDict']]] = None,
                  bumper: pulumi.Input[Optional[Union['PlaybackConfigurationBumperArgs', 'PlaybackConfigurationBumperArgsDict']]] = None,
                  cdn_configuration: pulumi.Input[Optional[Union['PlaybackConfigurationCdnConfigurationArgs', 'PlaybackConfigurationCdnConfigurationArgsDict']]] = None,
                  configuration_aliases: pulumi.Input[Optional[Mapping[str, Any]]] = None,
@@ -495,6 +514,7 @@ class PlaybackConfiguration(pulumi.CustomResource):
             __props__.__dict__["ads_personalization_concurrency"] = ads_personalization_concurrency
             __props__.__dict__["ads_personalization_timeouts"] = ads_personalization_timeouts
             __props__.__dict__["avail_suppression"] = avail_suppression
+            __props__.__dict__["beaconing_configuration"] = beaconing_configuration
             __props__.__dict__["bumper"] = bumper
             __props__.__dict__["cdn_configuration"] = cdn_configuration
             __props__.__dict__["configuration_aliases"] = configuration_aliases
@@ -546,6 +566,7 @@ class PlaybackConfiguration(pulumi.CustomResource):
         __props__.__dict__["ads_personalization_concurrency"] = None
         __props__.__dict__["ads_personalization_timeouts"] = None
         __props__.__dict__["avail_suppression"] = None
+        __props__.__dict__["beaconing_configuration"] = None
         __props__.__dict__["bumper"] = None
         __props__.__dict__["cdn_configuration"] = None
         __props__.__dict__["configuration_aliases"] = None
@@ -611,6 +632,14 @@ class PlaybackConfiguration(pulumi.CustomResource):
         The configuration for avail suppression, also known as ad suppression. For more information about ad suppression, see Ad Suppression (https://docs.aws.amazon.com/mediatailor/latest/ug/ad-behavior.html).
         """
         return pulumi.get(self, "avail_suppression")
+
+    @_builtins.property
+    @pulumi.getter(name="beaconingConfiguration")
+    def beaconing_configuration(self) -> pulumi.Output[Optional['outputs.PlaybackConfigurationBeaconingConfiguration']]:
+        """
+        The beaconing configuration for this playback configuration, which controls whether AWS Elemental MediaTailor includes beacons of its own in the ad tracking response. If you omit this setting, MediaTailor uses INSIGHTS.
+        """
+        return pulumi.get(self, "beaconing_configuration")
 
     @_builtins.property
     @pulumi.getter

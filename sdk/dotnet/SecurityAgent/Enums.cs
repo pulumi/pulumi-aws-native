@@ -46,6 +46,101 @@ namespace Pulumi.AwsNative.SecurityAgent
     }
 
     /// <summary>
+    /// The type of GitLab access token.
+    /// </summary>
+    [EnumType]
+    public readonly struct IntegrationGitLabInputTokenType : IEquatable<IntegrationGitLabInputTokenType>
+    {
+        private readonly string _value;
+
+        private IntegrationGitLabInputTokenType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static IntegrationGitLabInputTokenType Personal { get; } = new IntegrationGitLabInputTokenType("PERSONAL");
+        public static IntegrationGitLabInputTokenType Group { get; } = new IntegrationGitLabInputTokenType("GROUP");
+
+        public static bool operator ==(IntegrationGitLabInputTokenType left, IntegrationGitLabInputTokenType right) => left.Equals(right);
+        public static bool operator !=(IntegrationGitLabInputTokenType left, IntegrationGitLabInputTokenType right) => !left.Equals(right);
+
+        public static explicit operator string(IntegrationGitLabInputTokenType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is IntegrationGitLabInputTokenType other && Equals(other);
+        public bool Equals(IntegrationGitLabInputTokenType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The integration provider.
+    /// </summary>
+    [EnumType]
+    public readonly struct IntegrationProvider : IEquatable<IntegrationProvider>
+    {
+        private readonly string _value;
+
+        private IntegrationProvider(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static IntegrationProvider Github { get; } = new IntegrationProvider("GITHUB");
+        public static IntegrationProvider Gitlab { get; } = new IntegrationProvider("GITLAB");
+        public static IntegrationProvider Bitbucket { get; } = new IntegrationProvider("BITBUCKET");
+        public static IntegrationProvider Confluence { get; } = new IntegrationProvider("CONFLUENCE");
+
+        public static bool operator ==(IntegrationProvider left, IntegrationProvider right) => left.Equals(right);
+        public static bool operator !=(IntegrationProvider left, IntegrationProvider right) => !left.Equals(right);
+
+        public static explicit operator string(IntegrationProvider value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is IntegrationProvider other && Equals(other);
+        public bool Equals(IntegrationProvider other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The type of the integration provider.
+    /// </summary>
+    [EnumType]
+    public readonly struct IntegrationProviderType : IEquatable<IntegrationProviderType>
+    {
+        private readonly string _value;
+
+        private IntegrationProviderType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static IntegrationProviderType SourceCode { get; } = new IntegrationProviderType("SOURCE_CODE");
+        public static IntegrationProviderType Documentation { get; } = new IntegrationProviderType("DOCUMENTATION");
+
+        public static bool operator ==(IntegrationProviderType left, IntegrationProviderType right) => left.Equals(right);
+        public static bool operator !=(IntegrationProviderType left, IntegrationProviderType right) => !left.Equals(right);
+
+        public static explicit operator string(IntegrationProviderType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is IntegrationProviderType other && Equals(other);
+        public bool Equals(IntegrationProviderType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Type of authentication provider
     /// </summary>
     [EnumType]

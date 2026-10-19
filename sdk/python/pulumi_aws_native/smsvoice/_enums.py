@@ -7,15 +7,69 @@ import pulumi
 from enum import Enum
 
 __all__ = [
+    'NotifyConfigurationEnabledChannelsItem',
+    'NotifyConfigurationStatus',
+    'NotifyConfigurationTier',
+    'NotifyConfigurationTierUpgradeStatus',
+    'NotifyConfigurationUseCase',
     'PhoneNumberNumberCapabilitiesItem',
     'PhoneNumberNumberType',
     'PhoneNumberOptionalKeywordAction',
     'PoolOptionalKeywordAction',
     'ProtectConfigurationCountryRuleProtectStatus',
+    'RcsAgentStatus',
+    'RcsAgentTestingAgentInformationTestingAgentStatus',
     'RegistrationAttachmentAttachmentStatus',
     'RegistrationStatus',
     'VerifiedDestinationNumberStatus',
 ]
+
+
+@pulumi.type_token("aws-native:smsvoice:NotifyConfigurationEnabledChannelsItem")
+class NotifyConfigurationEnabledChannelsItem(_builtins.str, Enum):
+    SMS = "SMS"
+    VOICE = "VOICE"
+    MMS = "MMS"
+    RCS = "RCS"
+
+
+@pulumi.type_token("aws-native:smsvoice:NotifyConfigurationStatus")
+class NotifyConfigurationStatus(_builtins.str, Enum):
+    """
+    The current status of the notify configuration.
+    """
+    PENDING = "PENDING"
+    ACTIVE = "ACTIVE"
+    REJECTED = "REJECTED"
+    REQUIRES_VERIFICATION = "REQUIRES_VERIFICATION"
+
+
+@pulumi.type_token("aws-native:smsvoice:NotifyConfigurationTier")
+class NotifyConfigurationTier(_builtins.str, Enum):
+    """
+    The tier of the notify configuration.
+    """
+    BASIC = "BASIC"
+    ADVANCED = "ADVANCED"
+
+
+@pulumi.type_token("aws-native:smsvoice:NotifyConfigurationTierUpgradeStatus")
+class NotifyConfigurationTierUpgradeStatus(_builtins.str, Enum):
+    """
+    The tier upgrade status of the notify configuration.
+    """
+    BASIC = "BASIC"
+    PENDING_UPGRADE = "PENDING_UPGRADE"
+    ADVANCED = "ADVANCED"
+    REJECTED = "REJECTED"
+
+
+@pulumi.type_token("aws-native:smsvoice:NotifyConfigurationUseCase")
+class NotifyConfigurationUseCase(_builtins.str, Enum):
+    """
+    The use case for the notify configuration.
+    """
+    CODE_VERIFICATION = "CODE_VERIFICATION"
 
 
 @pulumi.type_token("aws-native:smsvoice:PhoneNumberNumberCapabilitiesItem")
@@ -65,6 +119,29 @@ class ProtectConfigurationCountryRuleProtectStatus(_builtins.str, Enum):
     BLOCK = "BLOCK"
     MONITOR = "MONITOR"
     FILTER = "FILTER"
+
+
+@pulumi.type_token("aws-native:smsvoice:RcsAgentStatus")
+class RcsAgentStatus(_builtins.str, Enum):
+    """
+    The current status of the RCS agent. CREATED means the agent exists but no registration has been submitted. PENDING means a registration is awaiting processing. TESTING means the testing registration is approved and the agent can message registered test devices. PARTIAL means at least one country launch is active. ACTIVE means all submitted country launches are active. DELETED means the agent has been deleted.
+    """
+    CREATED = "CREATED"
+    PENDING = "PENDING"
+    TESTING = "TESTING"
+    PARTIAL = "PARTIAL"
+    ACTIVE = "ACTIVE"
+    DELETED = "DELETED"
+
+
+@pulumi.type_token("aws-native:smsvoice:RcsAgentTestingAgentInformationTestingAgentStatus")
+class RcsAgentTestingAgentInformationTestingAgentStatus(_builtins.str, Enum):
+    """
+    The status of the testing agent. Named distinctly from the resource-level Status property, which has its own larger set of values.
+    """
+    CREATED = "CREATED"
+    PENDING = "PENDING"
+    ACTIVE = "ACTIVE"
 
 
 @pulumi.type_token("aws-native:smsvoice:RegistrationAttachmentAttachmentStatus")

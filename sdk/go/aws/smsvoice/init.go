@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "aws-native:smsvoice:ConfigurationSet":
 		r = &ConfigurationSet{}
+	case "aws-native:smsvoice:NotifyConfiguration":
+		r = &NotifyConfiguration{}
 	case "aws-native:smsvoice:OptOutList":
 		r = &OptOutList{}
 	case "aws-native:smsvoice:PhoneNumber":
@@ -31,6 +33,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Pool{}
 	case "aws-native:smsvoice:ProtectConfiguration":
 		r = &ProtectConfiguration{}
+	case "aws-native:smsvoice:RcsAgent":
+		r = &RcsAgent{}
 	case "aws-native:smsvoice:Registration":
 		r = &Registration{}
 	case "aws-native:smsvoice:RegistrationAttachment":

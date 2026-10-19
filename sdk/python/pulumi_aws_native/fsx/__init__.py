@@ -14,8 +14,12 @@ from .get_backup import *
 from .get_data_repository_association import *
 from .get_file_cache import *
 from .get_s3_access_point_attachment import *
+from .get_snapshot import *
+from .get_storage_virtual_machine import *
 from .get_volume import *
 from .s3_access_point_attachment import *
+from .snapshot import *
+from .storage_virtual_machine import *
 from .volume import *
 from ._inputs import *
 from . import outputs

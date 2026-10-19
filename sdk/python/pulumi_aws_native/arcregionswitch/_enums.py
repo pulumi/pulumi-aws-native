@@ -19,6 +19,7 @@ __all__ = [
     'PlanRecoveryApproach',
     'PlanRegionToRunIn',
     'PlanRoutingControlStateChange',
+    'PlanSsmSendCommandUngracefulBehavior',
     'PlanWaitElbTargetGroupHealthy',
     'PlanWorkflowTargetAction',
 ]
@@ -61,6 +62,7 @@ class PlanExecutionBlockType(_builtins.str, Enum):
     RDS_PROMOTE_READ_REPLICA = "RdsPromoteReadReplica"
     RDS_SWITCHOVER_READ_REPLICA = "RdsSwitchoverReadReplica"
     ROUTE53_HEALTH_CHECK = "Route53HealthCheck"
+    SSM_SEND_COMMAND = "SSMSendCommand"
 
 
 @pulumi.type_token("aws-native:arcregionswitch:PlanGlobalAuroraUngracefulBehavior")
@@ -107,6 +109,11 @@ class PlanRegionToRunIn(_builtins.str, Enum):
 class PlanRoutingControlStateChange(_builtins.str, Enum):
     ON = "On"
     OFF = "Off"
+
+
+@pulumi.type_token("aws-native:arcregionswitch:PlanSsmSendCommandUngracefulBehavior")
+class PlanSsmSendCommandUngracefulBehavior(_builtins.str, Enum):
+    SKIP = "skip"
 
 
 @pulumi.type_token("aws-native:arcregionswitch:PlanWaitElbTargetGroupHealthy")

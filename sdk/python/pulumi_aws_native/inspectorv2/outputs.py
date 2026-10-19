@@ -974,6 +974,8 @@ class FilterCriteria(dict):
             suggest = "ecr_image_architecture"
         elif key == "ecrImageHash":
             suggest = "ecr_image_hash"
+        elif key == "ecrImageInUseCount":
+            suggest = "ecr_image_in_use_count"
         elif key == "ecrImagePushedAt":
             suggest = "ecr_image_pushed_at"
         elif key == "ecrImageRegistry":
@@ -1056,6 +1058,7 @@ class FilterCriteria(dict):
                  ec2_instance_vpc_id: Optional[Sequence['outputs.FilterStringFilter']] = None,
                  ecr_image_architecture: Optional[Sequence['outputs.FilterStringFilter']] = None,
                  ecr_image_hash: Optional[Sequence['outputs.FilterStringFilter']] = None,
+                 ecr_image_in_use_count: Optional[Sequence['outputs.FilterNumberFilter']] = None,
                  ecr_image_pushed_at: Optional[Sequence['outputs.FilterDateFilter']] = None,
                  ecr_image_registry: Optional[Sequence['outputs.FilterStringFilter']] = None,
                  ecr_image_repository_name: Optional[Sequence['outputs.FilterStringFilter']] = None,
@@ -1142,6 +1145,8 @@ class FilterCriteria(dict):
             pulumi.set(__self__, "ecr_image_architecture", ecr_image_architecture)
         if ecr_image_hash is not None:
             pulumi.set(__self__, "ecr_image_hash", ecr_image_hash)
+        if ecr_image_in_use_count is not None:
+            pulumi.set(__self__, "ecr_image_in_use_count", ecr_image_in_use_count)
         if ecr_image_pushed_at is not None:
             pulumi.set(__self__, "ecr_image_pushed_at", ecr_image_pushed_at)
         if ecr_image_registry is not None:
@@ -1283,6 +1288,11 @@ class FilterCriteria(dict):
         Details of the Amazon ECR image hashes used to filter findings.
         """
         return pulumi.get(self, "ecr_image_hash")
+
+    @_builtins.property
+    @pulumi.getter(name="ecrImageInUseCount")
+    def ecr_image_in_use_count(self) -> Optional[Sequence['outputs.FilterNumberFilter']]:
+        return pulumi.get(self, "ecr_image_in_use_count")
 
     @_builtins.property
     @pulumi.getter(name="ecrImagePushedAt")

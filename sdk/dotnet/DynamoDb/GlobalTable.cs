@@ -138,6 +138,9 @@ namespace Pulumi.AwsNative.DynamoDb
         [Output("timeToLiveSpecification")]
         public Output<Outputs.GlobalTableTimeToLiveSpecification?> TimeToLiveSpecification { get; private set; } = null!;
 
+        [Output("vectorIndexes")]
+        public Output<ImmutableArray<Outputs.GlobalTableVectorIndex>> VectorIndexes { get; private set; } = null!;
+
         /// <summary>
         /// Provides visibility into the number of read and write operations your table or secondary index can instantaneously support. The settings can be modified using the `UpdateTable` operation to meet the throughput requirements of an upcoming peak event.
         /// </summary>
@@ -343,6 +346,14 @@ namespace Pulumi.AwsNative.DynamoDb
         /// </summary>
         [Input("timeToLiveSpecification")]
         public Input<Inputs.GlobalTableTimeToLiveSpecificationArgs>? TimeToLiveSpecification { get; set; }
+
+        [Input("vectorIndexes")]
+        private InputList<Inputs.GlobalTableVectorIndexArgs>? _vectorIndexes;
+        public InputList<Inputs.GlobalTableVectorIndexArgs> VectorIndexes
+        {
+            get => _vectorIndexes ?? (_vectorIndexes = new InputList<Inputs.GlobalTableVectorIndexArgs>());
+            set => _vectorIndexes = value;
+        }
 
         /// <summary>
         /// Provides visibility into the number of read and write operations your table or secondary index can instantaneously support. The settings can be modified using the `UpdateTable` operation to meet the throughput requirements of an upcoming peak event.

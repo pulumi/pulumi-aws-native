@@ -45,7 +45,7 @@ class ImageArgs:
         :param pulumi.Input[_builtins.str] execution_role: The execution role name/ARN for the image build, if provided
         :param pulumi.Input['ImagePipelineExecutionSettingsArgs'] image_pipeline_execution_settings: The image pipeline execution settings of the image.
         :param pulumi.Input[_builtins.str] image_recipe_arn: The Amazon Resource Name (ARN) of the image recipe that defines how images are configured, tested, and assessed.
-        :param pulumi.Input['ImageScanningConfigurationArgs'] image_scanning_configuration: Contains settings for vulnerability scans.
+        :param pulumi.Input['ImageScanningConfigurationArgs'] image_scanning_configuration: Contains settings for vulnerability scans that Amazon Inspector runs against the test instance during image creation.
         :param pulumi.Input['ImageTestsConfigurationArgs'] image_tests_configuration: The image tests configuration used when creating this image.
         :param pulumi.Input[_builtins.str] infrastructure_configuration_arn: The Amazon Resource Name (ARN) of the infrastructure configuration.
         :param pulumi.Input['ImageLoggingConfigurationArgs'] logging_configuration: The logging configuration settings for the image.
@@ -167,7 +167,7 @@ class ImageArgs:
     @pulumi.getter(name="imageScanningConfiguration")
     def image_scanning_configuration(self) -> pulumi.Input[Optional['ImageScanningConfigurationArgs']]:
         """
-        Contains settings for vulnerability scans.
+        Contains settings for vulnerability scans that Amazon Inspector runs against the test instance during image creation.
         """
         return pulumi.get(self, "image_scanning_configuration")
 
@@ -268,7 +268,7 @@ class Image(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] execution_role: The execution role name/ARN for the image build, if provided
         :param pulumi.Input[Union['ImagePipelineExecutionSettingsArgs', 'ImagePipelineExecutionSettingsArgsDict']] image_pipeline_execution_settings: The image pipeline execution settings of the image.
         :param pulumi.Input[_builtins.str] image_recipe_arn: The Amazon Resource Name (ARN) of the image recipe that defines how images are configured, tested, and assessed.
-        :param pulumi.Input[Union['ImageScanningConfigurationArgs', 'ImageScanningConfigurationArgsDict']] image_scanning_configuration: Contains settings for vulnerability scans.
+        :param pulumi.Input[Union['ImageScanningConfigurationArgs', 'ImageScanningConfigurationArgsDict']] image_scanning_configuration: Contains settings for vulnerability scans that Amazon Inspector runs against the test instance during image creation.
         :param pulumi.Input[Union['ImageTestsConfigurationArgs', 'ImageTestsConfigurationArgsDict']] image_tests_configuration: The image tests configuration used when creating this image.
         :param pulumi.Input[_builtins.str] infrastructure_configuration_arn: The Amazon Resource Name (ARN) of the infrastructure configuration.
         :param pulumi.Input[Union['ImageLoggingConfigurationArgs', 'ImageLoggingConfigurationArgsDict']] logging_configuration: The logging configuration settings for the image.
@@ -459,7 +459,7 @@ class Image(pulumi.CustomResource):
     @pulumi.getter(name="imageScanningConfiguration")
     def image_scanning_configuration(self) -> pulumi.Output[Optional['outputs.ImageScanningConfiguration']]:
         """
-        Contains settings for vulnerability scans.
+        Contains settings for vulnerability scans that Amazon Inspector runs against the test instance during image creation.
         """
         return pulumi.get(self, "image_scanning_configuration")
 

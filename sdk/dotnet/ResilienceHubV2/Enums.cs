@@ -108,6 +108,39 @@ namespace Pulumi.AwsNative.ResilienceHubV2
     }
 
     /// <summary>
+    /// Operator applied to the label key.
+    /// </summary>
+    [EnumType]
+    public readonly struct ServiceEksLabelSelectorRequirementOperator : IEquatable<ServiceEksLabelSelectorRequirementOperator>
+    {
+        private readonly string _value;
+
+        private ServiceEksLabelSelectorRequirementOperator(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ServiceEksLabelSelectorRequirementOperator In { get; } = new ServiceEksLabelSelectorRequirementOperator("IN");
+        public static ServiceEksLabelSelectorRequirementOperator NotIn { get; } = new ServiceEksLabelSelectorRequirementOperator("NOT_IN");
+        public static ServiceEksLabelSelectorRequirementOperator Exists { get; } = new ServiceEksLabelSelectorRequirementOperator("EXISTS");
+        public static ServiceEksLabelSelectorRequirementOperator DoesNotExist { get; } = new ServiceEksLabelSelectorRequirementOperator("DOES_NOT_EXIST");
+
+        public static bool operator ==(ServiceEksLabelSelectorRequirementOperator left, ServiceEksLabelSelectorRequirementOperator right) => left.Equals(right);
+        public static bool operator !=(ServiceEksLabelSelectorRequirementOperator left, ServiceEksLabelSelectorRequirementOperator right) => !left.Equals(right);
+
+        public static explicit operator string(ServiceEksLabelSelectorRequirementOperator value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ServiceEksLabelSelectorRequirementOperator other && Equals(other);
+        public bool Equals(ServiceEksLabelSelectorRequirementOperator other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The criticality of the service function.
     /// </summary>
     [EnumType]

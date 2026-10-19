@@ -11,13 +11,14 @@ namespace Pulumi.AwsNative.DevOpsAgent.Outputs
 {
 
     /// <summary>
-    /// Service-specific configuration details - MCPServerSigV4 supports in-place updates; GitLab (TokenValue), MCPServer (ApiKey or BearerToken credential rotation), MCPServerNewRelic (ApiKey rotation), and MCPServerGrafana (BearerToken rotation) support in-place credential rotation; all other service types and fields require replacement when modified
+    /// Service-specific configuration details - MCPServerSigV4 supports in-place updates; GitLab (TokenValue), MCPServer (ApiKey or BearerToken credential rotation), MCPServerNewRelic (ApiKey rotation), and MCPServerGrafana (BearerToken rotation) support in-place credential rotation; all other service types and fields, including GitHub, require replacement when modified
     /// </summary>
     [OutputType]
     public sealed class ServiceDetails
     {
         public readonly Outputs.ServiceAzureIdentityServiceDetails? AzureIdentity;
         public readonly Outputs.ServiceDynatraceServiceDetails? Dynatrace;
+        public readonly Outputs.ServiceGitHubDetails? GitHub;
         public readonly Outputs.ServiceGitLabDetails? GitLab;
         public readonly Outputs.ServiceMcpServerDetails? McpServer;
         public readonly Outputs.ServiceMcpServerGrafanaDetails? McpServerGrafana;
@@ -32,6 +33,8 @@ namespace Pulumi.AwsNative.DevOpsAgent.Outputs
             Outputs.ServiceAzureIdentityServiceDetails? azureIdentity,
 
             Outputs.ServiceDynatraceServiceDetails? dynatrace,
+
+            Outputs.ServiceGitHubDetails? gitHub,
 
             Outputs.ServiceGitLabDetails? gitLab,
 
@@ -51,6 +54,7 @@ namespace Pulumi.AwsNative.DevOpsAgent.Outputs
         {
             AzureIdentity = azureIdentity;
             Dynatrace = dynatrace;
+            GitHub = gitHub;
             GitLab = gitLab;
             McpServer = mcpServer;
             McpServerGrafana = mcpServerGrafana;

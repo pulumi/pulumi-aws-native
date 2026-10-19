@@ -55,7 +55,7 @@ namespace Pulumi.AwsNative.EventsV2
         /// Configuration for how the subscriber invokes its target, including the target ARN, the IAM role used to invoke it, and, optionally, the target-specific parameters object that matches the target type.
         /// </summary>
         [Output("invokeConfiguration")]
-        public Output<Outputs.SubscriberInvokeConfigurationProperties> InvokeConfiguration { get; private set; } = null!;
+        public Output<Outputs.SubscriberInvokeConfiguration> InvokeConfiguration { get; private set; } = null!;
 
         /// <summary>
         /// Last-modification timestamp (ISO-8601), read-only.
@@ -161,6 +161,7 @@ namespace Pulumi.AwsNative.EventsV2
                 ReplaceOnChanges =
                 {
                     "eventBusArn",
+                    "invokeConfiguration.targetArn",
                     "name",
                     "pointInTimeConfiguration",
                     "startingPosition",
@@ -216,7 +217,7 @@ namespace Pulumi.AwsNative.EventsV2
         /// Configuration for how the subscriber invokes its target, including the target ARN, the IAM role used to invoke it, and, optionally, the target-specific parameters object that matches the target type.
         /// </summary>
         [Input("invokeConfiguration", required: true)]
-        public Input<Inputs.SubscriberInvokeConfigurationPropertiesArgs> InvokeConfiguration { get; set; } = null!;
+        public Input<Inputs.SubscriberInvokeConfigurationArgs> InvokeConfiguration { get; set; } = null!;
 
         /// <summary>
         /// Delivery logging configuration for the subscriber.

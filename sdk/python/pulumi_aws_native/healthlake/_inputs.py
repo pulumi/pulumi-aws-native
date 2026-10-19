@@ -24,12 +24,18 @@ __all__ = [
     'DataTransformationProfileSourceArgsDict',
     'DataTransformationProfileStarterProfileSourceArgs',
     'DataTransformationProfileStarterProfileSourceArgsDict',
+    'FhirDatastoreAnalyticsConfigurationArgs',
+    'FhirDatastoreAnalyticsConfigurationArgsDict',
     'FhirDatastoreIdentityProviderConfigurationArgs',
     'FhirDatastoreIdentityProviderConfigurationArgsDict',
     'FhirDatastoreKmsEncryptionConfigArgs',
     'FhirDatastoreKmsEncryptionConfigArgsDict',
+    'FhirDatastoreNlpConfigurationArgs',
+    'FhirDatastoreNlpConfigurationArgsDict',
     'FhirDatastorePreloadDataConfigArgs',
     'FhirDatastorePreloadDataConfigArgsDict',
+    'FhirDatastoreProfileConfigurationArgs',
+    'FhirDatastoreProfileConfigurationArgsDict',
     'FhirDatastoreSseConfigurationArgs',
     'FhirDatastoreSseConfigurationArgsDict',
 ]
@@ -204,6 +210,39 @@ class DataTransformationProfileStarterProfileSourceArgs:
         pulumi.set(self, "starter_profile_name", value)
 
 
+class FhirDatastoreAnalyticsConfigurationArgsDict(TypedDict):
+    """
+    The analytics configuration for the Data Store. Omitted when the Data Store can't carry analytics.
+    """
+    status: pulumi.Input['FhirDatastoreAnalyticsConfigurationStatus']
+    """
+    The analytics status for the Data Store.
+    """
+
+@pulumi.input_type
+class FhirDatastoreAnalyticsConfigurationArgs:
+    def __init__(__self__, *,
+                 status: pulumi.Input['FhirDatastoreAnalyticsConfigurationStatus']):
+        """
+        The analytics configuration for the Data Store. Omitted when the Data Store can't carry analytics.
+
+        :param pulumi.Input['FhirDatastoreAnalyticsConfigurationStatus'] status: The analytics status for the Data Store.
+        """
+        pulumi.set(__self__, "status", status)
+
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> pulumi.Input['FhirDatastoreAnalyticsConfigurationStatus']:
+        """
+        The analytics status for the Data Store.
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: pulumi.Input['FhirDatastoreAnalyticsConfigurationStatus']):
+        pulumi.set(self, "status", value)
+
+
 class FhirDatastoreIdentityProviderConfigurationArgsDict(TypedDict):
     """
     The identity provider configuration for the datastore
@@ -350,6 +389,39 @@ class FhirDatastoreKmsEncryptionConfigArgs:
         pulumi.set(self, "kms_key_id", value)
 
 
+class FhirDatastoreNlpConfigurationArgsDict(TypedDict):
+    """
+    The natural language processing (NLP) configuration for the Data Store.
+    """
+    status: pulumi.Input['FhirDatastoreNlpConfigurationStatus']
+    """
+    The NLP status for the Data Store.
+    """
+
+@pulumi.input_type
+class FhirDatastoreNlpConfigurationArgs:
+    def __init__(__self__, *,
+                 status: pulumi.Input['FhirDatastoreNlpConfigurationStatus']):
+        """
+        The natural language processing (NLP) configuration for the Data Store.
+
+        :param pulumi.Input['FhirDatastoreNlpConfigurationStatus'] status: The NLP status for the Data Store.
+        """
+        pulumi.set(__self__, "status", status)
+
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> pulumi.Input['FhirDatastoreNlpConfigurationStatus']:
+        """
+        The NLP status for the Data Store.
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: pulumi.Input['FhirDatastoreNlpConfigurationStatus']):
+        pulumi.set(self, "status", value)
+
+
 class FhirDatastorePreloadDataConfigArgsDict(TypedDict):
     """
     The preloaded data configuration for the Data Store. Only data preloaded from Synthea is supported.
@@ -381,6 +453,39 @@ class FhirDatastorePreloadDataConfigArgs:
     @preload_data_type.setter
     def preload_data_type(self, value: pulumi.Input['FhirDatastorePreloadDataConfigPreloadDataType']):
         pulumi.set(self, "preload_data_type", value)
+
+
+class FhirDatastoreProfileConfigurationArgsDict(TypedDict):
+    """
+    The profile configuration for the Data Store.
+    """
+    default_profiles: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    The FHIR profiles the Data Store validates resources against by default, for example us-core-3.1.1.
+    """
+
+@pulumi.input_type
+class FhirDatastoreProfileConfigurationArgs:
+    def __init__(__self__, *,
+                 default_profiles: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        """
+        The profile configuration for the Data Store.
+
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] default_profiles: The FHIR profiles the Data Store validates resources against by default, for example us-core-3.1.1.
+        """
+        pulumi.set(__self__, "default_profiles", default_profiles)
+
+    @_builtins.property
+    @pulumi.getter(name="defaultProfiles")
+    def default_profiles(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        """
+        The FHIR profiles the Data Store validates resources against by default, for example us-core-3.1.1.
+        """
+        return pulumi.get(self, "default_profiles")
+
+    @default_profiles.setter
+    def default_profiles(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "default_profiles", value)
 
 
 class FhirDatastoreSseConfigurationArgsDict(TypedDict):

@@ -2673,6 +2673,438 @@ func (o S3AccessPointAttachmentS3AccessPointVpcConfigurationPtrOutput) VpcId() p
 	}).(pulumi.StringPtrOutput)
 }
 
+type SnapshotTag struct {
+	// A value that specifies the TagKey, the name of the tag. Tag keys must be unique for the resource to which they are attached.
+	Key string `pulumi:"key"`
+	// A value that specifies the TagValue, the value assigned to the corresponding tag key. Tag values can be null and don't have to be unique in a tag set. For example, you can have a key-value pair in a tag set of finances : April and also of payroll : April.
+	Value string `pulumi:"value"`
+}
+
+// Describes the self-managed Microsoft Active Directory to which you want to join the SVM.
+type StorageVirtualMachineActiveDirectoryConfiguration struct {
+	// The NetBIOS name of the Active Directory computer object that will be created for your SVM. Minimum values: 1. Maximum values: 15. Pattern: `^[^\u0000\u0085\u2028\u2029\r\n]{1,255}$`
+	NetBiosName *string `pulumi:"netBiosName"`
+	// The configuration that Amazon FSx uses to join the ONTAP storage virtual machine (SVM) to your self-managed (including on-premises) Microsoft Active Directory directory.
+	SelfManagedActiveDirectoryConfiguration *StorageVirtualMachineSelfManagedActiveDirectoryConfiguration `pulumi:"selfManagedActiveDirectoryConfiguration"`
+}
+
+// StorageVirtualMachineActiveDirectoryConfigurationInput is an input type that accepts StorageVirtualMachineActiveDirectoryConfigurationArgs and StorageVirtualMachineActiveDirectoryConfigurationOutput values.
+// You can construct a concrete instance of `StorageVirtualMachineActiveDirectoryConfigurationInput` via:
+//
+//	StorageVirtualMachineActiveDirectoryConfigurationArgs{...}
+type StorageVirtualMachineActiveDirectoryConfigurationInput interface {
+	pulumi.Input
+
+	ToStorageVirtualMachineActiveDirectoryConfigurationOutput() StorageVirtualMachineActiveDirectoryConfigurationOutput
+	ToStorageVirtualMachineActiveDirectoryConfigurationOutputWithContext(context.Context) StorageVirtualMachineActiveDirectoryConfigurationOutput
+}
+
+// Describes the self-managed Microsoft Active Directory to which you want to join the SVM.
+type StorageVirtualMachineActiveDirectoryConfigurationArgs struct {
+	// The NetBIOS name of the Active Directory computer object that will be created for your SVM. Minimum values: 1. Maximum values: 15. Pattern: `^[^\u0000\u0085\u2028\u2029\r\n]{1,255}$`
+	NetBiosName pulumi.StringPtrInput `pulumi:"netBiosName"`
+	// The configuration that Amazon FSx uses to join the ONTAP storage virtual machine (SVM) to your self-managed (including on-premises) Microsoft Active Directory directory.
+	SelfManagedActiveDirectoryConfiguration StorageVirtualMachineSelfManagedActiveDirectoryConfigurationPtrInput `pulumi:"selfManagedActiveDirectoryConfiguration"`
+}
+
+func (StorageVirtualMachineActiveDirectoryConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageVirtualMachineActiveDirectoryConfiguration)(nil)).Elem()
+}
+
+func (i StorageVirtualMachineActiveDirectoryConfigurationArgs) ToStorageVirtualMachineActiveDirectoryConfigurationOutput() StorageVirtualMachineActiveDirectoryConfigurationOutput {
+	return i.ToStorageVirtualMachineActiveDirectoryConfigurationOutputWithContext(context.Background())
+}
+
+func (i StorageVirtualMachineActiveDirectoryConfigurationArgs) ToStorageVirtualMachineActiveDirectoryConfigurationOutputWithContext(ctx context.Context) StorageVirtualMachineActiveDirectoryConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageVirtualMachineActiveDirectoryConfigurationOutput)
+}
+
+func (i StorageVirtualMachineActiveDirectoryConfigurationArgs) ToStorageVirtualMachineActiveDirectoryConfigurationPtrOutput() StorageVirtualMachineActiveDirectoryConfigurationPtrOutput {
+	return i.ToStorageVirtualMachineActiveDirectoryConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i StorageVirtualMachineActiveDirectoryConfigurationArgs) ToStorageVirtualMachineActiveDirectoryConfigurationPtrOutputWithContext(ctx context.Context) StorageVirtualMachineActiveDirectoryConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageVirtualMachineActiveDirectoryConfigurationOutput).ToStorageVirtualMachineActiveDirectoryConfigurationPtrOutputWithContext(ctx)
+}
+
+// StorageVirtualMachineActiveDirectoryConfigurationPtrInput is an input type that accepts StorageVirtualMachineActiveDirectoryConfigurationArgs, StorageVirtualMachineActiveDirectoryConfigurationPtr and StorageVirtualMachineActiveDirectoryConfigurationPtrOutput values.
+// You can construct a concrete instance of `StorageVirtualMachineActiveDirectoryConfigurationPtrInput` via:
+//
+//	        StorageVirtualMachineActiveDirectoryConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type StorageVirtualMachineActiveDirectoryConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToStorageVirtualMachineActiveDirectoryConfigurationPtrOutput() StorageVirtualMachineActiveDirectoryConfigurationPtrOutput
+	ToStorageVirtualMachineActiveDirectoryConfigurationPtrOutputWithContext(context.Context) StorageVirtualMachineActiveDirectoryConfigurationPtrOutput
+}
+
+type storageVirtualMachineActiveDirectoryConfigurationPtrType StorageVirtualMachineActiveDirectoryConfigurationArgs
+
+func StorageVirtualMachineActiveDirectoryConfigurationPtr(v *StorageVirtualMachineActiveDirectoryConfigurationArgs) StorageVirtualMachineActiveDirectoryConfigurationPtrInput {
+	return (*storageVirtualMachineActiveDirectoryConfigurationPtrType)(v)
+}
+
+func (*storageVirtualMachineActiveDirectoryConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**StorageVirtualMachineActiveDirectoryConfiguration)(nil)).Elem()
+}
+
+func (i *storageVirtualMachineActiveDirectoryConfigurationPtrType) ToStorageVirtualMachineActiveDirectoryConfigurationPtrOutput() StorageVirtualMachineActiveDirectoryConfigurationPtrOutput {
+	return i.ToStorageVirtualMachineActiveDirectoryConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *storageVirtualMachineActiveDirectoryConfigurationPtrType) ToStorageVirtualMachineActiveDirectoryConfigurationPtrOutputWithContext(ctx context.Context) StorageVirtualMachineActiveDirectoryConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageVirtualMachineActiveDirectoryConfigurationPtrOutput)
+}
+
+// Describes the self-managed Microsoft Active Directory to which you want to join the SVM.
+type StorageVirtualMachineActiveDirectoryConfigurationOutput struct{ *pulumi.OutputState }
+
+func (StorageVirtualMachineActiveDirectoryConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageVirtualMachineActiveDirectoryConfiguration)(nil)).Elem()
+}
+
+func (o StorageVirtualMachineActiveDirectoryConfigurationOutput) ToStorageVirtualMachineActiveDirectoryConfigurationOutput() StorageVirtualMachineActiveDirectoryConfigurationOutput {
+	return o
+}
+
+func (o StorageVirtualMachineActiveDirectoryConfigurationOutput) ToStorageVirtualMachineActiveDirectoryConfigurationOutputWithContext(ctx context.Context) StorageVirtualMachineActiveDirectoryConfigurationOutput {
+	return o
+}
+
+func (o StorageVirtualMachineActiveDirectoryConfigurationOutput) ToStorageVirtualMachineActiveDirectoryConfigurationPtrOutput() StorageVirtualMachineActiveDirectoryConfigurationPtrOutput {
+	return o.ToStorageVirtualMachineActiveDirectoryConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o StorageVirtualMachineActiveDirectoryConfigurationOutput) ToStorageVirtualMachineActiveDirectoryConfigurationPtrOutputWithContext(ctx context.Context) StorageVirtualMachineActiveDirectoryConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StorageVirtualMachineActiveDirectoryConfiguration) *StorageVirtualMachineActiveDirectoryConfiguration {
+		return &v
+	}).(StorageVirtualMachineActiveDirectoryConfigurationPtrOutput)
+}
+
+// The NetBIOS name of the Active Directory computer object that will be created for your SVM. Minimum values: 1. Maximum values: 15. Pattern: `^[^\u0000\u0085\u2028\u2029\r\n]{1,255}$`
+func (o StorageVirtualMachineActiveDirectoryConfigurationOutput) NetBiosName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StorageVirtualMachineActiveDirectoryConfiguration) *string { return v.NetBiosName }).(pulumi.StringPtrOutput)
+}
+
+// The configuration that Amazon FSx uses to join the ONTAP storage virtual machine (SVM) to your self-managed (including on-premises) Microsoft Active Directory directory.
+func (o StorageVirtualMachineActiveDirectoryConfigurationOutput) SelfManagedActiveDirectoryConfiguration() StorageVirtualMachineSelfManagedActiveDirectoryConfigurationPtrOutput {
+	return o.ApplyT(func(v StorageVirtualMachineActiveDirectoryConfiguration) *StorageVirtualMachineSelfManagedActiveDirectoryConfiguration {
+		return v.SelfManagedActiveDirectoryConfiguration
+	}).(StorageVirtualMachineSelfManagedActiveDirectoryConfigurationPtrOutput)
+}
+
+type StorageVirtualMachineActiveDirectoryConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (StorageVirtualMachineActiveDirectoryConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StorageVirtualMachineActiveDirectoryConfiguration)(nil)).Elem()
+}
+
+func (o StorageVirtualMachineActiveDirectoryConfigurationPtrOutput) ToStorageVirtualMachineActiveDirectoryConfigurationPtrOutput() StorageVirtualMachineActiveDirectoryConfigurationPtrOutput {
+	return o
+}
+
+func (o StorageVirtualMachineActiveDirectoryConfigurationPtrOutput) ToStorageVirtualMachineActiveDirectoryConfigurationPtrOutputWithContext(ctx context.Context) StorageVirtualMachineActiveDirectoryConfigurationPtrOutput {
+	return o
+}
+
+func (o StorageVirtualMachineActiveDirectoryConfigurationPtrOutput) Elem() StorageVirtualMachineActiveDirectoryConfigurationOutput {
+	return o.ApplyT(func(v *StorageVirtualMachineActiveDirectoryConfiguration) StorageVirtualMachineActiveDirectoryConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret StorageVirtualMachineActiveDirectoryConfiguration
+		return ret
+	}).(StorageVirtualMachineActiveDirectoryConfigurationOutput)
+}
+
+// The NetBIOS name of the Active Directory computer object that will be created for your SVM. Minimum values: 1. Maximum values: 15. Pattern: `^[^\u0000\u0085\u2028\u2029\r\n]{1,255}$`
+func (o StorageVirtualMachineActiveDirectoryConfigurationPtrOutput) NetBiosName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StorageVirtualMachineActiveDirectoryConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.NetBiosName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The configuration that Amazon FSx uses to join the ONTAP storage virtual machine (SVM) to your self-managed (including on-premises) Microsoft Active Directory directory.
+func (o StorageVirtualMachineActiveDirectoryConfigurationPtrOutput) SelfManagedActiveDirectoryConfiguration() StorageVirtualMachineSelfManagedActiveDirectoryConfigurationPtrOutput {
+	return o.ApplyT(func(v *StorageVirtualMachineActiveDirectoryConfiguration) *StorageVirtualMachineSelfManagedActiveDirectoryConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.SelfManagedActiveDirectoryConfiguration
+	}).(StorageVirtualMachineSelfManagedActiveDirectoryConfigurationPtrOutput)
+}
+
+type StorageVirtualMachineSelfManagedActiveDirectoryConfiguration struct {
+	// A list of IP addresses of DNS servers or domain controllers in the self-managed AD directory. Minimum: 1. Maximum: 3.
+	DnsIps []string `pulumi:"dnsIps"`
+	// The Amazon Resource Name (ARN) of the AWS Secrets Manager secret containing the self-managed Active Directory domain join service account credentials. Minimum: 64. Maximum: 1024.
+	DomainJoinServiceAccountSecret *string `pulumi:"domainJoinServiceAccountSecret"`
+	// The fully qualified domain name of the self-managed AD directory, such as corp.example.com. Minimum: 1. Maximum: 255. Pattern: `^[^\u0000\u0085\u2028\u2029\r\n]{1,255}$`
+	DomainName *string `pulumi:"domainName"`
+	// The name of the domain group whose members are granted administrative privileges for the file system. Minimum: 1. Maximum: 256. Pattern: `^[^\u0000\u0085\u2028\u2029\r\n]{1,256}$`
+	FileSystemAdministratorsGroup *string `pulumi:"fileSystemAdministratorsGroup"`
+	// The fully qualified distinguished name of the organizational unit within your self-managed AD directory. Minimum: 1. Maximum: 2000. Pattern: `^[^\u0000\u0085\u2028\u2029\r\n]{1,2000}$`
+	OrganizationalUnitDistinguishedName *string `pulumi:"organizationalUnitDistinguishedName"`
+	// The password for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain. Minimum: 1. Maximum: 256. Pattern: `^.{1,256}$`
+	Password *string `pulumi:"password"`
+	// The user name for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain. Minimum: 1. Maximum: 256. Pattern: `^[^\u0000\u0085\u2028\u2029\r\n]{1,256}$`
+	UserName *string `pulumi:"userName"`
+}
+
+// StorageVirtualMachineSelfManagedActiveDirectoryConfigurationInput is an input type that accepts StorageVirtualMachineSelfManagedActiveDirectoryConfigurationArgs and StorageVirtualMachineSelfManagedActiveDirectoryConfigurationOutput values.
+// You can construct a concrete instance of `StorageVirtualMachineSelfManagedActiveDirectoryConfigurationInput` via:
+//
+//	StorageVirtualMachineSelfManagedActiveDirectoryConfigurationArgs{...}
+type StorageVirtualMachineSelfManagedActiveDirectoryConfigurationInput interface {
+	pulumi.Input
+
+	ToStorageVirtualMachineSelfManagedActiveDirectoryConfigurationOutput() StorageVirtualMachineSelfManagedActiveDirectoryConfigurationOutput
+	ToStorageVirtualMachineSelfManagedActiveDirectoryConfigurationOutputWithContext(context.Context) StorageVirtualMachineSelfManagedActiveDirectoryConfigurationOutput
+}
+
+type StorageVirtualMachineSelfManagedActiveDirectoryConfigurationArgs struct {
+	// A list of IP addresses of DNS servers or domain controllers in the self-managed AD directory. Minimum: 1. Maximum: 3.
+	DnsIps pulumi.StringArrayInput `pulumi:"dnsIps"`
+	// The Amazon Resource Name (ARN) of the AWS Secrets Manager secret containing the self-managed Active Directory domain join service account credentials. Minimum: 64. Maximum: 1024.
+	DomainJoinServiceAccountSecret pulumi.StringPtrInput `pulumi:"domainJoinServiceAccountSecret"`
+	// The fully qualified domain name of the self-managed AD directory, such as corp.example.com. Minimum: 1. Maximum: 255. Pattern: `^[^\u0000\u0085\u2028\u2029\r\n]{1,255}$`
+	DomainName pulumi.StringPtrInput `pulumi:"domainName"`
+	// The name of the domain group whose members are granted administrative privileges for the file system. Minimum: 1. Maximum: 256. Pattern: `^[^\u0000\u0085\u2028\u2029\r\n]{1,256}$`
+	FileSystemAdministratorsGroup pulumi.StringPtrInput `pulumi:"fileSystemAdministratorsGroup"`
+	// The fully qualified distinguished name of the organizational unit within your self-managed AD directory. Minimum: 1. Maximum: 2000. Pattern: `^[^\u0000\u0085\u2028\u2029\r\n]{1,2000}$`
+	OrganizationalUnitDistinguishedName pulumi.StringPtrInput `pulumi:"organizationalUnitDistinguishedName"`
+	// The password for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain. Minimum: 1. Maximum: 256. Pattern: `^.{1,256}$`
+	Password pulumi.StringPtrInput `pulumi:"password"`
+	// The user name for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain. Minimum: 1. Maximum: 256. Pattern: `^[^\u0000\u0085\u2028\u2029\r\n]{1,256}$`
+	UserName pulumi.StringPtrInput `pulumi:"userName"`
+}
+
+func (StorageVirtualMachineSelfManagedActiveDirectoryConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageVirtualMachineSelfManagedActiveDirectoryConfiguration)(nil)).Elem()
+}
+
+func (i StorageVirtualMachineSelfManagedActiveDirectoryConfigurationArgs) ToStorageVirtualMachineSelfManagedActiveDirectoryConfigurationOutput() StorageVirtualMachineSelfManagedActiveDirectoryConfigurationOutput {
+	return i.ToStorageVirtualMachineSelfManagedActiveDirectoryConfigurationOutputWithContext(context.Background())
+}
+
+func (i StorageVirtualMachineSelfManagedActiveDirectoryConfigurationArgs) ToStorageVirtualMachineSelfManagedActiveDirectoryConfigurationOutputWithContext(ctx context.Context) StorageVirtualMachineSelfManagedActiveDirectoryConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageVirtualMachineSelfManagedActiveDirectoryConfigurationOutput)
+}
+
+func (i StorageVirtualMachineSelfManagedActiveDirectoryConfigurationArgs) ToStorageVirtualMachineSelfManagedActiveDirectoryConfigurationPtrOutput() StorageVirtualMachineSelfManagedActiveDirectoryConfigurationPtrOutput {
+	return i.ToStorageVirtualMachineSelfManagedActiveDirectoryConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i StorageVirtualMachineSelfManagedActiveDirectoryConfigurationArgs) ToStorageVirtualMachineSelfManagedActiveDirectoryConfigurationPtrOutputWithContext(ctx context.Context) StorageVirtualMachineSelfManagedActiveDirectoryConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageVirtualMachineSelfManagedActiveDirectoryConfigurationOutput).ToStorageVirtualMachineSelfManagedActiveDirectoryConfigurationPtrOutputWithContext(ctx)
+}
+
+// StorageVirtualMachineSelfManagedActiveDirectoryConfigurationPtrInput is an input type that accepts StorageVirtualMachineSelfManagedActiveDirectoryConfigurationArgs, StorageVirtualMachineSelfManagedActiveDirectoryConfigurationPtr and StorageVirtualMachineSelfManagedActiveDirectoryConfigurationPtrOutput values.
+// You can construct a concrete instance of `StorageVirtualMachineSelfManagedActiveDirectoryConfigurationPtrInput` via:
+//
+//	        StorageVirtualMachineSelfManagedActiveDirectoryConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type StorageVirtualMachineSelfManagedActiveDirectoryConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToStorageVirtualMachineSelfManagedActiveDirectoryConfigurationPtrOutput() StorageVirtualMachineSelfManagedActiveDirectoryConfigurationPtrOutput
+	ToStorageVirtualMachineSelfManagedActiveDirectoryConfigurationPtrOutputWithContext(context.Context) StorageVirtualMachineSelfManagedActiveDirectoryConfigurationPtrOutput
+}
+
+type storageVirtualMachineSelfManagedActiveDirectoryConfigurationPtrType StorageVirtualMachineSelfManagedActiveDirectoryConfigurationArgs
+
+func StorageVirtualMachineSelfManagedActiveDirectoryConfigurationPtr(v *StorageVirtualMachineSelfManagedActiveDirectoryConfigurationArgs) StorageVirtualMachineSelfManagedActiveDirectoryConfigurationPtrInput {
+	return (*storageVirtualMachineSelfManagedActiveDirectoryConfigurationPtrType)(v)
+}
+
+func (*storageVirtualMachineSelfManagedActiveDirectoryConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**StorageVirtualMachineSelfManagedActiveDirectoryConfiguration)(nil)).Elem()
+}
+
+func (i *storageVirtualMachineSelfManagedActiveDirectoryConfigurationPtrType) ToStorageVirtualMachineSelfManagedActiveDirectoryConfigurationPtrOutput() StorageVirtualMachineSelfManagedActiveDirectoryConfigurationPtrOutput {
+	return i.ToStorageVirtualMachineSelfManagedActiveDirectoryConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *storageVirtualMachineSelfManagedActiveDirectoryConfigurationPtrType) ToStorageVirtualMachineSelfManagedActiveDirectoryConfigurationPtrOutputWithContext(ctx context.Context) StorageVirtualMachineSelfManagedActiveDirectoryConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageVirtualMachineSelfManagedActiveDirectoryConfigurationPtrOutput)
+}
+
+type StorageVirtualMachineSelfManagedActiveDirectoryConfigurationOutput struct{ *pulumi.OutputState }
+
+func (StorageVirtualMachineSelfManagedActiveDirectoryConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageVirtualMachineSelfManagedActiveDirectoryConfiguration)(nil)).Elem()
+}
+
+func (o StorageVirtualMachineSelfManagedActiveDirectoryConfigurationOutput) ToStorageVirtualMachineSelfManagedActiveDirectoryConfigurationOutput() StorageVirtualMachineSelfManagedActiveDirectoryConfigurationOutput {
+	return o
+}
+
+func (o StorageVirtualMachineSelfManagedActiveDirectoryConfigurationOutput) ToStorageVirtualMachineSelfManagedActiveDirectoryConfigurationOutputWithContext(ctx context.Context) StorageVirtualMachineSelfManagedActiveDirectoryConfigurationOutput {
+	return o
+}
+
+func (o StorageVirtualMachineSelfManagedActiveDirectoryConfigurationOutput) ToStorageVirtualMachineSelfManagedActiveDirectoryConfigurationPtrOutput() StorageVirtualMachineSelfManagedActiveDirectoryConfigurationPtrOutput {
+	return o.ToStorageVirtualMachineSelfManagedActiveDirectoryConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o StorageVirtualMachineSelfManagedActiveDirectoryConfigurationOutput) ToStorageVirtualMachineSelfManagedActiveDirectoryConfigurationPtrOutputWithContext(ctx context.Context) StorageVirtualMachineSelfManagedActiveDirectoryConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StorageVirtualMachineSelfManagedActiveDirectoryConfiguration) *StorageVirtualMachineSelfManagedActiveDirectoryConfiguration {
+		return &v
+	}).(StorageVirtualMachineSelfManagedActiveDirectoryConfigurationPtrOutput)
+}
+
+// A list of IP addresses of DNS servers or domain controllers in the self-managed AD directory. Minimum: 1. Maximum: 3.
+func (o StorageVirtualMachineSelfManagedActiveDirectoryConfigurationOutput) DnsIps() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v StorageVirtualMachineSelfManagedActiveDirectoryConfiguration) []string { return v.DnsIps }).(pulumi.StringArrayOutput)
+}
+
+// The Amazon Resource Name (ARN) of the AWS Secrets Manager secret containing the self-managed Active Directory domain join service account credentials. Minimum: 64. Maximum: 1024.
+func (o StorageVirtualMachineSelfManagedActiveDirectoryConfigurationOutput) DomainJoinServiceAccountSecret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StorageVirtualMachineSelfManagedActiveDirectoryConfiguration) *string {
+		return v.DomainJoinServiceAccountSecret
+	}).(pulumi.StringPtrOutput)
+}
+
+// The fully qualified domain name of the self-managed AD directory, such as corp.example.com. Minimum: 1. Maximum: 255. Pattern: `^[^\u0000\u0085\u2028\u2029\r\n]{1,255}$`
+func (o StorageVirtualMachineSelfManagedActiveDirectoryConfigurationOutput) DomainName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StorageVirtualMachineSelfManagedActiveDirectoryConfiguration) *string { return v.DomainName }).(pulumi.StringPtrOutput)
+}
+
+// The name of the domain group whose members are granted administrative privileges for the file system. Minimum: 1. Maximum: 256. Pattern: `^[^\u0000\u0085\u2028\u2029\r\n]{1,256}$`
+func (o StorageVirtualMachineSelfManagedActiveDirectoryConfigurationOutput) FileSystemAdministratorsGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StorageVirtualMachineSelfManagedActiveDirectoryConfiguration) *string {
+		return v.FileSystemAdministratorsGroup
+	}).(pulumi.StringPtrOutput)
+}
+
+// The fully qualified distinguished name of the organizational unit within your self-managed AD directory. Minimum: 1. Maximum: 2000. Pattern: `^[^\u0000\u0085\u2028\u2029\r\n]{1,2000}$`
+func (o StorageVirtualMachineSelfManagedActiveDirectoryConfigurationOutput) OrganizationalUnitDistinguishedName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StorageVirtualMachineSelfManagedActiveDirectoryConfiguration) *string {
+		return v.OrganizationalUnitDistinguishedName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The password for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain. Minimum: 1. Maximum: 256. Pattern: `^.{1,256}$`
+func (o StorageVirtualMachineSelfManagedActiveDirectoryConfigurationOutput) Password() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StorageVirtualMachineSelfManagedActiveDirectoryConfiguration) *string { return v.Password }).(pulumi.StringPtrOutput)
+}
+
+// The user name for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain. Minimum: 1. Maximum: 256. Pattern: `^[^\u0000\u0085\u2028\u2029\r\n]{1,256}$`
+func (o StorageVirtualMachineSelfManagedActiveDirectoryConfigurationOutput) UserName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StorageVirtualMachineSelfManagedActiveDirectoryConfiguration) *string { return v.UserName }).(pulumi.StringPtrOutput)
+}
+
+type StorageVirtualMachineSelfManagedActiveDirectoryConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (StorageVirtualMachineSelfManagedActiveDirectoryConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StorageVirtualMachineSelfManagedActiveDirectoryConfiguration)(nil)).Elem()
+}
+
+func (o StorageVirtualMachineSelfManagedActiveDirectoryConfigurationPtrOutput) ToStorageVirtualMachineSelfManagedActiveDirectoryConfigurationPtrOutput() StorageVirtualMachineSelfManagedActiveDirectoryConfigurationPtrOutput {
+	return o
+}
+
+func (o StorageVirtualMachineSelfManagedActiveDirectoryConfigurationPtrOutput) ToStorageVirtualMachineSelfManagedActiveDirectoryConfigurationPtrOutputWithContext(ctx context.Context) StorageVirtualMachineSelfManagedActiveDirectoryConfigurationPtrOutput {
+	return o
+}
+
+func (o StorageVirtualMachineSelfManagedActiveDirectoryConfigurationPtrOutput) Elem() StorageVirtualMachineSelfManagedActiveDirectoryConfigurationOutput {
+	return o.ApplyT(func(v *StorageVirtualMachineSelfManagedActiveDirectoryConfiguration) StorageVirtualMachineSelfManagedActiveDirectoryConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret StorageVirtualMachineSelfManagedActiveDirectoryConfiguration
+		return ret
+	}).(StorageVirtualMachineSelfManagedActiveDirectoryConfigurationOutput)
+}
+
+// A list of IP addresses of DNS servers or domain controllers in the self-managed AD directory. Minimum: 1. Maximum: 3.
+func (o StorageVirtualMachineSelfManagedActiveDirectoryConfigurationPtrOutput) DnsIps() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *StorageVirtualMachineSelfManagedActiveDirectoryConfiguration) []string {
+		if v == nil {
+			return nil
+		}
+		return v.DnsIps
+	}).(pulumi.StringArrayOutput)
+}
+
+// The Amazon Resource Name (ARN) of the AWS Secrets Manager secret containing the self-managed Active Directory domain join service account credentials. Minimum: 64. Maximum: 1024.
+func (o StorageVirtualMachineSelfManagedActiveDirectoryConfigurationPtrOutput) DomainJoinServiceAccountSecret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StorageVirtualMachineSelfManagedActiveDirectoryConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DomainJoinServiceAccountSecret
+	}).(pulumi.StringPtrOutput)
+}
+
+// The fully qualified domain name of the self-managed AD directory, such as corp.example.com. Minimum: 1. Maximum: 255. Pattern: `^[^\u0000\u0085\u2028\u2029\r\n]{1,255}$`
+func (o StorageVirtualMachineSelfManagedActiveDirectoryConfigurationPtrOutput) DomainName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StorageVirtualMachineSelfManagedActiveDirectoryConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DomainName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the domain group whose members are granted administrative privileges for the file system. Minimum: 1. Maximum: 256. Pattern: `^[^\u0000\u0085\u2028\u2029\r\n]{1,256}$`
+func (o StorageVirtualMachineSelfManagedActiveDirectoryConfigurationPtrOutput) FileSystemAdministratorsGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StorageVirtualMachineSelfManagedActiveDirectoryConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.FileSystemAdministratorsGroup
+	}).(pulumi.StringPtrOutput)
+}
+
+// The fully qualified distinguished name of the organizational unit within your self-managed AD directory. Minimum: 1. Maximum: 2000. Pattern: `^[^\u0000\u0085\u2028\u2029\r\n]{1,2000}$`
+func (o StorageVirtualMachineSelfManagedActiveDirectoryConfigurationPtrOutput) OrganizationalUnitDistinguishedName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StorageVirtualMachineSelfManagedActiveDirectoryConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.OrganizationalUnitDistinguishedName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The password for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain. Minimum: 1. Maximum: 256. Pattern: `^.{1,256}$`
+func (o StorageVirtualMachineSelfManagedActiveDirectoryConfigurationPtrOutput) Password() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StorageVirtualMachineSelfManagedActiveDirectoryConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Password
+	}).(pulumi.StringPtrOutput)
+}
+
+// The user name for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain. Minimum: 1. Maximum: 256. Pattern: `^[^\u0000\u0085\u2028\u2029\r\n]{1,256}$`
+func (o StorageVirtualMachineSelfManagedActiveDirectoryConfigurationPtrOutput) UserName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StorageVirtualMachineSelfManagedActiveDirectoryConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UserName
+	}).(pulumi.StringPtrOutput)
+}
+
+type StorageVirtualMachineTag struct {
+	// A value that specifies the `TagKey` , the name of the tag. Tag keys must be unique for the resource to which they are attached.
+	Key string `pulumi:"key"`
+	// A value that specifies the `TagValue` , the value assigned to the corresponding tag key. Tag values can be null and don't have to be unique in a tag set. For example, you can have a key-value pair in a tag set of `finances : April` and also of `payroll : April` .
+	Value string `pulumi:"value"`
+}
+
 type VolumeAggregateConfiguration struct {
 	// The list of aggregates that this volume resides on. Aggregates are storage pools which make up your primary storage tier.
 	Aggregates []string `pulumi:"aggregates"`
@@ -4915,6 +5347,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*S3AccessPointAttachmentS3AccessPointOpenZfsConfigurationPtrInput)(nil)).Elem(), S3AccessPointAttachmentS3AccessPointOpenZfsConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*S3AccessPointAttachmentS3AccessPointVpcConfigurationInput)(nil)).Elem(), S3AccessPointAttachmentS3AccessPointVpcConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*S3AccessPointAttachmentS3AccessPointVpcConfigurationPtrInput)(nil)).Elem(), S3AccessPointAttachmentS3AccessPointVpcConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StorageVirtualMachineActiveDirectoryConfigurationInput)(nil)).Elem(), StorageVirtualMachineActiveDirectoryConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StorageVirtualMachineActiveDirectoryConfigurationPtrInput)(nil)).Elem(), StorageVirtualMachineActiveDirectoryConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StorageVirtualMachineSelfManagedActiveDirectoryConfigurationInput)(nil)).Elem(), StorageVirtualMachineSelfManagedActiveDirectoryConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StorageVirtualMachineSelfManagedActiveDirectoryConfigurationPtrInput)(nil)).Elem(), StorageVirtualMachineSelfManagedActiveDirectoryConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VolumeAggregateConfigurationInput)(nil)).Elem(), VolumeAggregateConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VolumeAggregateConfigurationPtrInput)(nil)).Elem(), VolumeAggregateConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VolumeAutocommitPeriodInput)(nil)).Elem(), VolumeAutocommitPeriodArgs{})
@@ -4973,6 +5409,10 @@ func init() {
 	pulumi.RegisterOutputType(S3AccessPointAttachmentS3AccessPointOpenZfsConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(S3AccessPointAttachmentS3AccessPointVpcConfigurationOutput{})
 	pulumi.RegisterOutputType(S3AccessPointAttachmentS3AccessPointVpcConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(StorageVirtualMachineActiveDirectoryConfigurationOutput{})
+	pulumi.RegisterOutputType(StorageVirtualMachineActiveDirectoryConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(StorageVirtualMachineSelfManagedActiveDirectoryConfigurationOutput{})
+	pulumi.RegisterOutputType(StorageVirtualMachineSelfManagedActiveDirectoryConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(VolumeAggregateConfigurationOutput{})
 	pulumi.RegisterOutputType(VolumeAggregateConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(VolumeAutocommitPeriodOutput{})

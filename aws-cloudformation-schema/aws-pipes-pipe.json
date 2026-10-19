@@ -1628,7 +1628,7 @@
     "taggable" : true,
     "tagOnCreate" : true,
     "tagUpdatable" : true,
-    "cloudFormationSystemTags" : false,
+    "cloudFormationSystemTags" : true,
     "tagProperty" : "/properties/Tags",
     "permissions" : [ "pipes:TagResource", "pipes:UntagResource", "pipes:ListTagsForResource" ]
   },

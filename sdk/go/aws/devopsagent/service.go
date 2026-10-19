@@ -27,6 +27,8 @@ type Service struct {
 	ExchangeUrlPrivateConnectionName pulumi.StringPtrOutput `pulumi:"exchangeUrlPrivateConnectionName"`
 	// The ARN of the KMS key to use for encryption.
 	KmsKeyArn pulumi.StringPtrOutput `pulumi:"kmsKeyArn"`
+	// The display name for the service registration.
+	Name pulumi.StringPtrOutput `pulumi:"name"`
 	// The name of the private connection to use for VPC connectivity.
 	PrivateConnectionName pulumi.StringPtrOutput `pulumi:"privateConnectionName"`
 	// Service-specific configuration details for create operation
@@ -57,6 +59,7 @@ func NewService(ctx *pulumi.Context,
 		"privateConnectionName",
 		"serviceDetails.azureIdentity",
 		"serviceDetails.dynatrace",
+		"serviceDetails.gitHub",
 		"serviceDetails.mcpServerSplunk",
 		"serviceDetails.pagerDuty",
 		"serviceDetails.serviceNow",
@@ -101,6 +104,8 @@ type serviceArgs struct {
 	ExchangeUrlPrivateConnectionName *string `pulumi:"exchangeUrlPrivateConnectionName"`
 	// The ARN of the KMS key to use for encryption.
 	KmsKeyArn *string `pulumi:"kmsKeyArn"`
+	// The display name for the service registration.
+	Name *string `pulumi:"name"`
 	// The name of the private connection to use for VPC connectivity.
 	PrivateConnectionName *string `pulumi:"privateConnectionName"`
 	// Service-specific configuration details for create operation
@@ -119,6 +124,8 @@ type ServiceArgs struct {
 	ExchangeUrlPrivateConnectionName pulumi.StringPtrInput
 	// The ARN of the KMS key to use for encryption.
 	KmsKeyArn pulumi.StringPtrInput
+	// The display name for the service registration.
+	Name pulumi.StringPtrInput
 	// The name of the private connection to use for VPC connectivity.
 	PrivateConnectionName pulumi.StringPtrInput
 	// Service-specific configuration details for create operation
@@ -191,6 +198,11 @@ func (o ServiceOutput) ExchangeUrlPrivateConnectionName() pulumi.StringPtrOutput
 // The ARN of the KMS key to use for encryption.
 func (o ServiceOutput) KmsKeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Service) pulumi.StringPtrOutput { return v.KmsKeyArn }).(pulumi.StringPtrOutput)
+}
+
+// The display name for the service registration.
+func (o ServiceOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Service) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 // The name of the private connection to use for VPC connectivity.

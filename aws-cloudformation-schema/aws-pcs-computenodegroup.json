@@ -13,11 +13,11 @@
       "permissions" : [ "pcs:GetComputeNodeGroup", "pcs:ListTagsForResource" ]
     },
     "create" : {
-      "permissions" : [ "ec2:DescribeImages", "ec2:DescribeVpcs", "ec2:DescribeSubnets", "ec2:DescribeSecurityGroups", "ec2:DescribeLaunchTemplates", "ec2:DescribeLaunchTemplateVersions", "ec2:DescribeInstanceTypes", "ec2:DescribeInstanceTypeOfferings", "ec2:RunInstances", "ec2:CreateFleet", "ec2:CreateTags", "iam:PassRole", "iam:GetInstanceProfile", "pcs:CreateComputeNodeGroup", "pcs:GetComputeNodeGroup", "pcs:ListTagsForResource", "pcs:TagResource" ],
+      "permissions" : [ "ec2:DescribeImages", "ec2:DescribeVpcs", "ec2:DescribeSubnets", "ec2:DescribeSecurityGroups", "ec2:DescribeKeyPairs", "ec2:DescribeLaunchTemplates", "ec2:DescribeLaunchTemplateVersions", "ec2:DescribeInstanceTypes", "ec2:DescribeInstanceTypeOfferings", "ec2:RunInstances", "ec2:CreateFleet", "ec2:CreateTags", "iam:PassRole", "iam:GetInstanceProfile", "pcs:CreateComputeNodeGroup", "pcs:GetComputeNodeGroup", "pcs:ListTagsForResource", "pcs:TagResource" ],
       "timeoutInMinutes" : 160
     },
     "update" : {
-      "permissions" : [ "ec2:DescribeImages", "ec2:DescribeVpcs", "ec2:DescribeSubnets", "ec2:DescribeSecurityGroups", "ec2:DescribeLaunchTemplates", "ec2:DescribeLaunchTemplateVersions", "ec2:DescribeInstanceTypes", "ec2:DescribeInstanceTypeOfferings", "ec2:RunInstances", "ec2:CreateFleet", "ec2:CreateTags", "iam:PassRole", "iam:GetInstanceProfile", "pcs:GetComputeNodeGroup", "pcs:UpdateComputeNodeGroup", "pcs:ListTagsForResource", "pcs:TagResource", "pcs:UntagResource" ],
+      "permissions" : [ "ec2:DescribeImages", "ec2:DescribeVpcs", "ec2:DescribeSubnets", "ec2:DescribeSecurityGroups", "ec2:DescribeKeyPairs", "ec2:DescribeLaunchTemplates", "ec2:DescribeLaunchTemplateVersions", "ec2:DescribeInstanceTypes", "ec2:DescribeInstanceTypeOfferings", "ec2:RunInstances", "ec2:CreateFleet", "ec2:CreateTags", "iam:PassRole", "iam:GetInstanceProfile", "pcs:GetComputeNodeGroup", "pcs:UpdateComputeNodeGroup", "pcs:ListTagsForResource", "pcs:TagResource", "pcs:UntagResource" ],
       "timeoutInMinutes" : 160
     },
     "list" : {
@@ -144,6 +144,10 @@
         }
       }
     },
+    "SecurityGroupId" : {
+      "description" : "An EC2 security group ID.",
+      "type" : "string"
+    },
     "NodeLifecycleActions" : {
       "description" : "Custom scripts that run at defined points in a compute node's lifecycle.",
       "additionalProperties" : false,
@@ -208,7 +212,7 @@
       "required" : [ "ParameterName", "ParameterValue" ]
     }
   },
-  "required" : [ "ClusterId", "CustomLaunchTemplate", "IamInstanceProfileArn", "InstanceConfigs", "ScalingConfiguration", "SubnetIds" ],
+  "required" : [ "ClusterId", "IamInstanceProfileArn", "InstanceConfigs", "ScalingConfiguration", "SubnetIds" ],
   "properties" : {
     "Status" : {
       "description" : "The provisioning status of the compute node group. The provisioning status doesn't indicate the overall health of the compute node group.",

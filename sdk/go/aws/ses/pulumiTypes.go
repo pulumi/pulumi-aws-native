@@ -11551,6 +11551,282 @@ type TemplateTag struct {
 	Value string `pulumi:"value"`
 }
 
+// The reputation configuration for the tenant.
+type TenantReputationEntity struct {
+	Policy TenantReputationPolicy `pulumi:"policy"`
+}
+
+// TenantReputationEntityInput is an input type that accepts TenantReputationEntityArgs and TenantReputationEntityOutput values.
+// You can construct a concrete instance of `TenantReputationEntityInput` via:
+//
+//	TenantReputationEntityArgs{...}
+type TenantReputationEntityInput interface {
+	pulumi.Input
+
+	ToTenantReputationEntityOutput() TenantReputationEntityOutput
+	ToTenantReputationEntityOutputWithContext(context.Context) TenantReputationEntityOutput
+}
+
+// The reputation configuration for the tenant.
+type TenantReputationEntityArgs struct {
+	Policy TenantReputationPolicyInput `pulumi:"policy"`
+}
+
+func (TenantReputationEntityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TenantReputationEntity)(nil)).Elem()
+}
+
+func (i TenantReputationEntityArgs) ToTenantReputationEntityOutput() TenantReputationEntityOutput {
+	return i.ToTenantReputationEntityOutputWithContext(context.Background())
+}
+
+func (i TenantReputationEntityArgs) ToTenantReputationEntityOutputWithContext(ctx context.Context) TenantReputationEntityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TenantReputationEntityOutput)
+}
+
+func (i TenantReputationEntityArgs) ToTenantReputationEntityPtrOutput() TenantReputationEntityPtrOutput {
+	return i.ToTenantReputationEntityPtrOutputWithContext(context.Background())
+}
+
+func (i TenantReputationEntityArgs) ToTenantReputationEntityPtrOutputWithContext(ctx context.Context) TenantReputationEntityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TenantReputationEntityOutput).ToTenantReputationEntityPtrOutputWithContext(ctx)
+}
+
+// TenantReputationEntityPtrInput is an input type that accepts TenantReputationEntityArgs, TenantReputationEntityPtr and TenantReputationEntityPtrOutput values.
+// You can construct a concrete instance of `TenantReputationEntityPtrInput` via:
+//
+//	        TenantReputationEntityArgs{...}
+//
+//	or:
+//
+//	        nil
+type TenantReputationEntityPtrInput interface {
+	pulumi.Input
+
+	ToTenantReputationEntityPtrOutput() TenantReputationEntityPtrOutput
+	ToTenantReputationEntityPtrOutputWithContext(context.Context) TenantReputationEntityPtrOutput
+}
+
+type tenantReputationEntityPtrType TenantReputationEntityArgs
+
+func TenantReputationEntityPtr(v *TenantReputationEntityArgs) TenantReputationEntityPtrInput {
+	return (*tenantReputationEntityPtrType)(v)
+}
+
+func (*tenantReputationEntityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TenantReputationEntity)(nil)).Elem()
+}
+
+func (i *tenantReputationEntityPtrType) ToTenantReputationEntityPtrOutput() TenantReputationEntityPtrOutput {
+	return i.ToTenantReputationEntityPtrOutputWithContext(context.Background())
+}
+
+func (i *tenantReputationEntityPtrType) ToTenantReputationEntityPtrOutputWithContext(ctx context.Context) TenantReputationEntityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TenantReputationEntityPtrOutput)
+}
+
+// The reputation configuration for the tenant.
+type TenantReputationEntityOutput struct{ *pulumi.OutputState }
+
+func (TenantReputationEntityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TenantReputationEntity)(nil)).Elem()
+}
+
+func (o TenantReputationEntityOutput) ToTenantReputationEntityOutput() TenantReputationEntityOutput {
+	return o
+}
+
+func (o TenantReputationEntityOutput) ToTenantReputationEntityOutputWithContext(ctx context.Context) TenantReputationEntityOutput {
+	return o
+}
+
+func (o TenantReputationEntityOutput) ToTenantReputationEntityPtrOutput() TenantReputationEntityPtrOutput {
+	return o.ToTenantReputationEntityPtrOutputWithContext(context.Background())
+}
+
+func (o TenantReputationEntityOutput) ToTenantReputationEntityPtrOutputWithContext(ctx context.Context) TenantReputationEntityPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TenantReputationEntity) *TenantReputationEntity {
+		return &v
+	}).(TenantReputationEntityPtrOutput)
+}
+
+func (o TenantReputationEntityOutput) Policy() TenantReputationPolicyOutput {
+	return o.ApplyT(func(v TenantReputationEntity) TenantReputationPolicy { return v.Policy }).(TenantReputationPolicyOutput)
+}
+
+type TenantReputationEntityPtrOutput struct{ *pulumi.OutputState }
+
+func (TenantReputationEntityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TenantReputationEntity)(nil)).Elem()
+}
+
+func (o TenantReputationEntityPtrOutput) ToTenantReputationEntityPtrOutput() TenantReputationEntityPtrOutput {
+	return o
+}
+
+func (o TenantReputationEntityPtrOutput) ToTenantReputationEntityPtrOutputWithContext(ctx context.Context) TenantReputationEntityPtrOutput {
+	return o
+}
+
+func (o TenantReputationEntityPtrOutput) Elem() TenantReputationEntityOutput {
+	return o.ApplyT(func(v *TenantReputationEntity) TenantReputationEntity {
+		if v != nil {
+			return *v
+		}
+		var ret TenantReputationEntity
+		return ret
+	}).(TenantReputationEntityOutput)
+}
+
+func (o TenantReputationEntityPtrOutput) Policy() TenantReputationPolicyPtrOutput {
+	return o.ApplyT(func(v *TenantReputationEntity) *TenantReputationPolicy {
+		if v == nil {
+			return nil
+		}
+		return &v.Policy
+	}).(TenantReputationPolicyPtrOutput)
+}
+
+// The reputation policy for the tenant.
+type TenantReputationPolicy struct {
+	// The ARN of an SES-managed reputation policy.
+	ReputationEntityPolicy string `pulumi:"reputationEntityPolicy"`
+}
+
+// TenantReputationPolicyInput is an input type that accepts TenantReputationPolicyArgs and TenantReputationPolicyOutput values.
+// You can construct a concrete instance of `TenantReputationPolicyInput` via:
+//
+//	TenantReputationPolicyArgs{...}
+type TenantReputationPolicyInput interface {
+	pulumi.Input
+
+	ToTenantReputationPolicyOutput() TenantReputationPolicyOutput
+	ToTenantReputationPolicyOutputWithContext(context.Context) TenantReputationPolicyOutput
+}
+
+// The reputation policy for the tenant.
+type TenantReputationPolicyArgs struct {
+	// The ARN of an SES-managed reputation policy.
+	ReputationEntityPolicy pulumi.StringInput `pulumi:"reputationEntityPolicy"`
+}
+
+func (TenantReputationPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TenantReputationPolicy)(nil)).Elem()
+}
+
+func (i TenantReputationPolicyArgs) ToTenantReputationPolicyOutput() TenantReputationPolicyOutput {
+	return i.ToTenantReputationPolicyOutputWithContext(context.Background())
+}
+
+func (i TenantReputationPolicyArgs) ToTenantReputationPolicyOutputWithContext(ctx context.Context) TenantReputationPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TenantReputationPolicyOutput)
+}
+
+func (i TenantReputationPolicyArgs) ToTenantReputationPolicyPtrOutput() TenantReputationPolicyPtrOutput {
+	return i.ToTenantReputationPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i TenantReputationPolicyArgs) ToTenantReputationPolicyPtrOutputWithContext(ctx context.Context) TenantReputationPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TenantReputationPolicyOutput).ToTenantReputationPolicyPtrOutputWithContext(ctx)
+}
+
+// TenantReputationPolicyPtrInput is an input type that accepts TenantReputationPolicyArgs, TenantReputationPolicyPtr and TenantReputationPolicyPtrOutput values.
+// You can construct a concrete instance of `TenantReputationPolicyPtrInput` via:
+//
+//	        TenantReputationPolicyArgs{...}
+//
+//	or:
+//
+//	        nil
+type TenantReputationPolicyPtrInput interface {
+	pulumi.Input
+
+	ToTenantReputationPolicyPtrOutput() TenantReputationPolicyPtrOutput
+	ToTenantReputationPolicyPtrOutputWithContext(context.Context) TenantReputationPolicyPtrOutput
+}
+
+type tenantReputationPolicyPtrType TenantReputationPolicyArgs
+
+func TenantReputationPolicyPtr(v *TenantReputationPolicyArgs) TenantReputationPolicyPtrInput {
+	return (*tenantReputationPolicyPtrType)(v)
+}
+
+func (*tenantReputationPolicyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TenantReputationPolicy)(nil)).Elem()
+}
+
+func (i *tenantReputationPolicyPtrType) ToTenantReputationPolicyPtrOutput() TenantReputationPolicyPtrOutput {
+	return i.ToTenantReputationPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *tenantReputationPolicyPtrType) ToTenantReputationPolicyPtrOutputWithContext(ctx context.Context) TenantReputationPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TenantReputationPolicyPtrOutput)
+}
+
+// The reputation policy for the tenant.
+type TenantReputationPolicyOutput struct{ *pulumi.OutputState }
+
+func (TenantReputationPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TenantReputationPolicy)(nil)).Elem()
+}
+
+func (o TenantReputationPolicyOutput) ToTenantReputationPolicyOutput() TenantReputationPolicyOutput {
+	return o
+}
+
+func (o TenantReputationPolicyOutput) ToTenantReputationPolicyOutputWithContext(ctx context.Context) TenantReputationPolicyOutput {
+	return o
+}
+
+func (o TenantReputationPolicyOutput) ToTenantReputationPolicyPtrOutput() TenantReputationPolicyPtrOutput {
+	return o.ToTenantReputationPolicyPtrOutputWithContext(context.Background())
+}
+
+func (o TenantReputationPolicyOutput) ToTenantReputationPolicyPtrOutputWithContext(ctx context.Context) TenantReputationPolicyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TenantReputationPolicy) *TenantReputationPolicy {
+		return &v
+	}).(TenantReputationPolicyPtrOutput)
+}
+
+// The ARN of an SES-managed reputation policy.
+func (o TenantReputationPolicyOutput) ReputationEntityPolicy() pulumi.StringOutput {
+	return o.ApplyT(func(v TenantReputationPolicy) string { return v.ReputationEntityPolicy }).(pulumi.StringOutput)
+}
+
+type TenantReputationPolicyPtrOutput struct{ *pulumi.OutputState }
+
+func (TenantReputationPolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TenantReputationPolicy)(nil)).Elem()
+}
+
+func (o TenantReputationPolicyPtrOutput) ToTenantReputationPolicyPtrOutput() TenantReputationPolicyPtrOutput {
+	return o
+}
+
+func (o TenantReputationPolicyPtrOutput) ToTenantReputationPolicyPtrOutputWithContext(ctx context.Context) TenantReputationPolicyPtrOutput {
+	return o
+}
+
+func (o TenantReputationPolicyPtrOutput) Elem() TenantReputationPolicyOutput {
+	return o.ApplyT(func(v *TenantReputationPolicy) TenantReputationPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret TenantReputationPolicy
+		return ret
+	}).(TenantReputationPolicyOutput)
+}
+
+// The ARN of an SES-managed reputation policy.
+func (o TenantReputationPolicyPtrOutput) ReputationEntityPolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TenantReputationPolicy) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ReputationEntityPolicy
+	}).(pulumi.StringPtrOutput)
+}
+
 // The resource to associate with the tenant
 type TenantResourceAssociation struct {
 	// The ARN of the resource to associate with the tenant
@@ -11649,6 +11925,169 @@ func (o TenantResourceAssociationArrayOutput) Index(i pulumi.IntInput) TenantRes
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TenantResourceAssociation {
 		return vs[0].([]TenantResourceAssociation)[vs[1].(int)]
 	}).(TenantResourceAssociationOutput)
+}
+
+// The suppression attributes for the tenant.
+type TenantSuppressionAttributes struct {
+	// The reasons that cause messages to be added to the suppression list.
+	SuppressedReasons []TenantSuppressionAttributesSuppressedReasonsItem `pulumi:"suppressedReasons"`
+	// The scope of the suppression list for the tenant.
+	SuppressionScope TenantSuppressionAttributesSuppressionScope `pulumi:"suppressionScope"`
+}
+
+// TenantSuppressionAttributesInput is an input type that accepts TenantSuppressionAttributesArgs and TenantSuppressionAttributesOutput values.
+// You can construct a concrete instance of `TenantSuppressionAttributesInput` via:
+//
+//	TenantSuppressionAttributesArgs{...}
+type TenantSuppressionAttributesInput interface {
+	pulumi.Input
+
+	ToTenantSuppressionAttributesOutput() TenantSuppressionAttributesOutput
+	ToTenantSuppressionAttributesOutputWithContext(context.Context) TenantSuppressionAttributesOutput
+}
+
+// The suppression attributes for the tenant.
+type TenantSuppressionAttributesArgs struct {
+	// The reasons that cause messages to be added to the suppression list.
+	SuppressedReasons TenantSuppressionAttributesSuppressedReasonsItemArrayInput `pulumi:"suppressedReasons"`
+	// The scope of the suppression list for the tenant.
+	SuppressionScope TenantSuppressionAttributesSuppressionScopeInput `pulumi:"suppressionScope"`
+}
+
+func (TenantSuppressionAttributesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TenantSuppressionAttributes)(nil)).Elem()
+}
+
+func (i TenantSuppressionAttributesArgs) ToTenantSuppressionAttributesOutput() TenantSuppressionAttributesOutput {
+	return i.ToTenantSuppressionAttributesOutputWithContext(context.Background())
+}
+
+func (i TenantSuppressionAttributesArgs) ToTenantSuppressionAttributesOutputWithContext(ctx context.Context) TenantSuppressionAttributesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TenantSuppressionAttributesOutput)
+}
+
+func (i TenantSuppressionAttributesArgs) ToTenantSuppressionAttributesPtrOutput() TenantSuppressionAttributesPtrOutput {
+	return i.ToTenantSuppressionAttributesPtrOutputWithContext(context.Background())
+}
+
+func (i TenantSuppressionAttributesArgs) ToTenantSuppressionAttributesPtrOutputWithContext(ctx context.Context) TenantSuppressionAttributesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TenantSuppressionAttributesOutput).ToTenantSuppressionAttributesPtrOutputWithContext(ctx)
+}
+
+// TenantSuppressionAttributesPtrInput is an input type that accepts TenantSuppressionAttributesArgs, TenantSuppressionAttributesPtr and TenantSuppressionAttributesPtrOutput values.
+// You can construct a concrete instance of `TenantSuppressionAttributesPtrInput` via:
+//
+//	        TenantSuppressionAttributesArgs{...}
+//
+//	or:
+//
+//	        nil
+type TenantSuppressionAttributesPtrInput interface {
+	pulumi.Input
+
+	ToTenantSuppressionAttributesPtrOutput() TenantSuppressionAttributesPtrOutput
+	ToTenantSuppressionAttributesPtrOutputWithContext(context.Context) TenantSuppressionAttributesPtrOutput
+}
+
+type tenantSuppressionAttributesPtrType TenantSuppressionAttributesArgs
+
+func TenantSuppressionAttributesPtr(v *TenantSuppressionAttributesArgs) TenantSuppressionAttributesPtrInput {
+	return (*tenantSuppressionAttributesPtrType)(v)
+}
+
+func (*tenantSuppressionAttributesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TenantSuppressionAttributes)(nil)).Elem()
+}
+
+func (i *tenantSuppressionAttributesPtrType) ToTenantSuppressionAttributesPtrOutput() TenantSuppressionAttributesPtrOutput {
+	return i.ToTenantSuppressionAttributesPtrOutputWithContext(context.Background())
+}
+
+func (i *tenantSuppressionAttributesPtrType) ToTenantSuppressionAttributesPtrOutputWithContext(ctx context.Context) TenantSuppressionAttributesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TenantSuppressionAttributesPtrOutput)
+}
+
+// The suppression attributes for the tenant.
+type TenantSuppressionAttributesOutput struct{ *pulumi.OutputState }
+
+func (TenantSuppressionAttributesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TenantSuppressionAttributes)(nil)).Elem()
+}
+
+func (o TenantSuppressionAttributesOutput) ToTenantSuppressionAttributesOutput() TenantSuppressionAttributesOutput {
+	return o
+}
+
+func (o TenantSuppressionAttributesOutput) ToTenantSuppressionAttributesOutputWithContext(ctx context.Context) TenantSuppressionAttributesOutput {
+	return o
+}
+
+func (o TenantSuppressionAttributesOutput) ToTenantSuppressionAttributesPtrOutput() TenantSuppressionAttributesPtrOutput {
+	return o.ToTenantSuppressionAttributesPtrOutputWithContext(context.Background())
+}
+
+func (o TenantSuppressionAttributesOutput) ToTenantSuppressionAttributesPtrOutputWithContext(ctx context.Context) TenantSuppressionAttributesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TenantSuppressionAttributes) *TenantSuppressionAttributes {
+		return &v
+	}).(TenantSuppressionAttributesPtrOutput)
+}
+
+// The reasons that cause messages to be added to the suppression list.
+func (o TenantSuppressionAttributesOutput) SuppressedReasons() TenantSuppressionAttributesSuppressedReasonsItemArrayOutput {
+	return o.ApplyT(func(v TenantSuppressionAttributes) []TenantSuppressionAttributesSuppressedReasonsItem {
+		return v.SuppressedReasons
+	}).(TenantSuppressionAttributesSuppressedReasonsItemArrayOutput)
+}
+
+// The scope of the suppression list for the tenant.
+func (o TenantSuppressionAttributesOutput) SuppressionScope() TenantSuppressionAttributesSuppressionScopeOutput {
+	return o.ApplyT(func(v TenantSuppressionAttributes) TenantSuppressionAttributesSuppressionScope {
+		return v.SuppressionScope
+	}).(TenantSuppressionAttributesSuppressionScopeOutput)
+}
+
+type TenantSuppressionAttributesPtrOutput struct{ *pulumi.OutputState }
+
+func (TenantSuppressionAttributesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TenantSuppressionAttributes)(nil)).Elem()
+}
+
+func (o TenantSuppressionAttributesPtrOutput) ToTenantSuppressionAttributesPtrOutput() TenantSuppressionAttributesPtrOutput {
+	return o
+}
+
+func (o TenantSuppressionAttributesPtrOutput) ToTenantSuppressionAttributesPtrOutputWithContext(ctx context.Context) TenantSuppressionAttributesPtrOutput {
+	return o
+}
+
+func (o TenantSuppressionAttributesPtrOutput) Elem() TenantSuppressionAttributesOutput {
+	return o.ApplyT(func(v *TenantSuppressionAttributes) TenantSuppressionAttributes {
+		if v != nil {
+			return *v
+		}
+		var ret TenantSuppressionAttributes
+		return ret
+	}).(TenantSuppressionAttributesOutput)
+}
+
+// The reasons that cause messages to be added to the suppression list.
+func (o TenantSuppressionAttributesPtrOutput) SuppressedReasons() TenantSuppressionAttributesSuppressedReasonsItemArrayOutput {
+	return o.ApplyT(func(v *TenantSuppressionAttributes) []TenantSuppressionAttributesSuppressedReasonsItem {
+		if v == nil {
+			return nil
+		}
+		return v.SuppressedReasons
+	}).(TenantSuppressionAttributesSuppressedReasonsItemArrayOutput)
+}
+
+// The scope of the suppression list for the tenant.
+func (o TenantSuppressionAttributesPtrOutput) SuppressionScope() TenantSuppressionAttributesSuppressionScopePtrOutput {
+	return o.ApplyT(func(v *TenantSuppressionAttributes) *TenantSuppressionAttributesSuppressionScope {
+		if v == nil {
+			return nil
+		}
+		return &v.SuppressionScope
+	}).(TenantSuppressionAttributesSuppressionScopePtrOutput)
 }
 
 // An object that defines the tags (keys and values) that you want to associate with the tenant.
@@ -12108,8 +12547,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ReceiptRuleWorkmailActionPtrInput)(nil)).Elem(), ReceiptRuleWorkmailActionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateTypeInput)(nil)).Elem(), TemplateTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateTypePtrInput)(nil)).Elem(), TemplateTypeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TenantReputationEntityInput)(nil)).Elem(), TenantReputationEntityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TenantReputationEntityPtrInput)(nil)).Elem(), TenantReputationEntityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TenantReputationPolicyInput)(nil)).Elem(), TenantReputationPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TenantReputationPolicyPtrInput)(nil)).Elem(), TenantReputationPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TenantResourceAssociationInput)(nil)).Elem(), TenantResourceAssociationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TenantResourceAssociationArrayInput)(nil)).Elem(), TenantResourceAssociationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TenantSuppressionAttributesInput)(nil)).Elem(), TenantSuppressionAttributesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TenantSuppressionAttributesPtrInput)(nil)).Elem(), TenantSuppressionAttributesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VdmAttributesDashboardAttributesInput)(nil)).Elem(), VdmAttributesDashboardAttributesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VdmAttributesDashboardAttributesPtrInput)(nil)).Elem(), VdmAttributesDashboardAttributesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VdmAttributesGuardianAttributesInput)(nil)).Elem(), VdmAttributesGuardianAttributesArgs{})
@@ -12287,8 +12732,14 @@ func init() {
 	pulumi.RegisterOutputType(ReceiptRuleWorkmailActionPtrOutput{})
 	pulumi.RegisterOutputType(TemplateTypeOutput{})
 	pulumi.RegisterOutputType(TemplateTypePtrOutput{})
+	pulumi.RegisterOutputType(TenantReputationEntityOutput{})
+	pulumi.RegisterOutputType(TenantReputationEntityPtrOutput{})
+	pulumi.RegisterOutputType(TenantReputationPolicyOutput{})
+	pulumi.RegisterOutputType(TenantReputationPolicyPtrOutput{})
 	pulumi.RegisterOutputType(TenantResourceAssociationOutput{})
 	pulumi.RegisterOutputType(TenantResourceAssociationArrayOutput{})
+	pulumi.RegisterOutputType(TenantSuppressionAttributesOutput{})
+	pulumi.RegisterOutputType(TenantSuppressionAttributesPtrOutput{})
 	pulumi.RegisterOutputType(VdmAttributesDashboardAttributesOutput{})
 	pulumi.RegisterOutputType(VdmAttributesDashboardAttributesPtrOutput{})
 	pulumi.RegisterOutputType(VdmAttributesGuardianAttributesOutput{})

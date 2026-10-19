@@ -69,7 +69,38 @@ namespace Pulumi.AwsNative.HealthLake
     }
 
     /// <summary>
-    /// The status of the Data Store. Possible statuses are 'CREATING', 'ACTIVE', 'DELETING', or 'DELETED'.
+    /// The analytics status for the Data Store.
+    /// </summary>
+    [EnumType]
+    public readonly struct FhirDatastoreAnalyticsConfigurationStatus : IEquatable<FhirDatastoreAnalyticsConfigurationStatus>
+    {
+        private readonly string _value;
+
+        private FhirDatastoreAnalyticsConfigurationStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static FhirDatastoreAnalyticsConfigurationStatus Enabled { get; } = new FhirDatastoreAnalyticsConfigurationStatus("ENABLED");
+        public static FhirDatastoreAnalyticsConfigurationStatus Paused { get; } = new FhirDatastoreAnalyticsConfigurationStatus("PAUSED");
+
+        public static bool operator ==(FhirDatastoreAnalyticsConfigurationStatus left, FhirDatastoreAnalyticsConfigurationStatus right) => left.Equals(right);
+        public static bool operator !=(FhirDatastoreAnalyticsConfigurationStatus left, FhirDatastoreAnalyticsConfigurationStatus right) => !left.Equals(right);
+
+        public static explicit operator string(FhirDatastoreAnalyticsConfigurationStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is FhirDatastoreAnalyticsConfigurationStatus other && Equals(other);
+        public bool Equals(FhirDatastoreAnalyticsConfigurationStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The status of the Data Store. Possible statuses are 'CREATING', 'ACTIVE', 'UPDATING', 'UPDATE_FAILED', 'DELETING', or 'DELETED'.
     /// </summary>
     [EnumType]
     public readonly struct FhirDatastoreDatastoreStatus : IEquatable<FhirDatastoreDatastoreStatus>
@@ -83,6 +114,8 @@ namespace Pulumi.AwsNative.HealthLake
 
         public static FhirDatastoreDatastoreStatus Creating { get; } = new FhirDatastoreDatastoreStatus("CREATING");
         public static FhirDatastoreDatastoreStatus Active { get; } = new FhirDatastoreDatastoreStatus("ACTIVE");
+        public static FhirDatastoreDatastoreStatus Updating { get; } = new FhirDatastoreDatastoreStatus("UPDATING");
+        public static FhirDatastoreDatastoreStatus UpdateFailed { get; } = new FhirDatastoreDatastoreStatus("UPDATE_FAILED");
         public static FhirDatastoreDatastoreStatus Deleting { get; } = new FhirDatastoreDatastoreStatus("DELETING");
         public static FhirDatastoreDatastoreStatus Deleted { get; } = new FhirDatastoreDatastoreStatus("DELETED");
 
@@ -187,6 +220,37 @@ namespace Pulumi.AwsNative.HealthLake
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is FhirDatastoreKmsEncryptionConfigCmkType other && Equals(other);
         public bool Equals(FhirDatastoreKmsEncryptionConfigCmkType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The NLP status for the Data Store.
+    /// </summary>
+    [EnumType]
+    public readonly struct FhirDatastoreNlpConfigurationStatus : IEquatable<FhirDatastoreNlpConfigurationStatus>
+    {
+        private readonly string _value;
+
+        private FhirDatastoreNlpConfigurationStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static FhirDatastoreNlpConfigurationStatus Enabled { get; } = new FhirDatastoreNlpConfigurationStatus("ENABLED");
+        public static FhirDatastoreNlpConfigurationStatus Disabled { get; } = new FhirDatastoreNlpConfigurationStatus("DISABLED");
+
+        public static bool operator ==(FhirDatastoreNlpConfigurationStatus left, FhirDatastoreNlpConfigurationStatus right) => left.Equals(right);
+        public static bool operator !=(FhirDatastoreNlpConfigurationStatus left, FhirDatastoreNlpConfigurationStatus right) => !left.Equals(right);
+
+        public static explicit operator string(FhirDatastoreNlpConfigurationStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is FhirDatastoreNlpConfigurationStatus other && Equals(other);
+        public bool Equals(FhirDatastoreNlpConfigurationStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

@@ -42,6 +42,9 @@
         "type" : "string"
       }
     },
+    "DevicePostureOptions" : {
+      "$ref" : "#/definitions/DevicePostureOptions"
+    },
     "SecurityGroupIds" : {
       "type" : "array",
       "uniqueItems" : false,
@@ -54,6 +57,9 @@
     },
     "ConnectionLogOptions" : {
       "$ref" : "#/definitions/ConnectionLogOptions"
+    },
+    "AuthorizationPolicy" : {
+      "$ref" : "#/definitions/AuthorizationPolicy"
     },
     "SplitTunnel" : {
       "type" : "boolean"
@@ -87,22 +93,6 @@
     }
   },
   "definitions" : {
-    "ConnectionLogOptions" : {
-      "type" : "object",
-      "additionalProperties" : false,
-      "properties" : {
-        "Enabled" : {
-          "type" : "boolean"
-        },
-        "CloudwatchLogGroup" : {
-          "type" : "string"
-        },
-        "CloudwatchLogStream" : {
-          "type" : "string"
-        }
-      },
-      "required" : [ "Enabled" ]
-    },
     "ClientConnectOptions" : {
       "type" : "object",
       "additionalProperties" : false,
@@ -116,6 +106,129 @@
       },
       "required" : [ "Enabled" ]
     },
+    "ClientRouteEnforcementOptions" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "Enforced" : {
+          "type" : "boolean"
+        }
+      }
+    },
+    "CertificateAuthenticationRequest" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "ClientRootCertificateChainArn" : {
+          "type" : "string"
+        }
+      },
+      "required" : [ "ClientRootCertificateChainArn" ]
+    },
+    "DevicePostureOptions" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "TrustProviders" : {
+          "type" : "array",
+          "uniqueItems" : false,
+          "items" : {
+            "$ref" : "#/definitions/DevicePostureTrustProvider"
+          }
+        },
+        "Enabled" : {
+          "type" : "boolean"
+        }
+      },
+      "required" : [ "TrustProviders", "Enabled" ]
+    },
+    "ClientAuthenticationRequest" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "MutualAuthentication" : {
+          "$ref" : "#/definitions/CertificateAuthenticationRequest"
+        },
+        "Type" : {
+          "type" : "string"
+        },
+        "ActiveDirectory" : {
+          "$ref" : "#/definitions/DirectoryServiceAuthenticationRequest"
+        },
+        "FederatedAuthentication" : {
+          "$ref" : "#/definitions/FederatedAuthenticationRequest"
+        }
+      },
+      "required" : [ "Type" ]
+    },
+    "TagSpecification" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "ResourceType" : {
+          "type" : "string"
+        },
+        "Tags" : {
+          "type" : "array",
+          "uniqueItems" : false,
+          "items" : {
+            "$ref" : "#/definitions/Tag"
+          }
+        }
+      },
+      "required" : [ "ResourceType", "Tags" ]
+    },
+    "DevicePostureTrustProvider" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "TrustProviderType" : {
+          "type" : "string"
+        },
+        "TenantId" : {
+          "type" : "string"
+        },
+        "PublicSigningKeyUrl" : {
+          "type" : "string"
+        }
+      },
+      "required" : [ "TenantId", "TrustProviderType" ]
+    },
+    "ConnectionLogOptions" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "Enabled" : {
+          "type" : "boolean"
+        },
+        "CloudwatchLogGroup" : {
+          "type" : "string"
+        },
+        "IncludeAuthorizationPolicyContext" : {
+          "type" : "boolean"
+        },
+        "CloudwatchLogStream" : {
+          "type" : "string"
+        }
+      },
+      "required" : [ "Enabled" ]
+    },
+    "AuthorizationPolicy" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "PolicyDocument" : {
+          "type" : "string"
+        },
+        "ShadowMode" : {
+          "type" : "string"
+        },
+        "Description" : {
+          "type" : "string"
+        }
+      },
+      "required" : [ "PolicyDocument" ]
+    },
     "FederatedAuthenticationRequest" : {
       "type" : "object",
       "additionalProperties" : false,
@@ -128,15 +241,6 @@
         }
       },
       "required" : [ "SAMLProviderArn" ]
-    },
-    "ClientRouteEnforcementOptions" : {
-      "type" : "object",
-      "additionalProperties" : false,
-      "properties" : {
-        "Enforced" : {
-          "type" : "boolean"
-        }
-      }
     },
     "ClientLoginBannerOptions" : {
       "type" : "object",
@@ -185,35 +289,6 @@
       },
       "required" : [ "TransitGatewayId" ]
     },
-    "CertificateAuthenticationRequest" : {
-      "type" : "object",
-      "additionalProperties" : false,
-      "properties" : {
-        "ClientRootCertificateChainArn" : {
-          "type" : "string"
-        }
-      },
-      "required" : [ "ClientRootCertificateChainArn" ]
-    },
-    "ClientAuthenticationRequest" : {
-      "type" : "object",
-      "additionalProperties" : false,
-      "properties" : {
-        "MutualAuthentication" : {
-          "$ref" : "#/definitions/CertificateAuthenticationRequest"
-        },
-        "Type" : {
-          "type" : "string"
-        },
-        "ActiveDirectory" : {
-          "$ref" : "#/definitions/DirectoryServiceAuthenticationRequest"
-        },
-        "FederatedAuthentication" : {
-          "$ref" : "#/definitions/FederatedAuthenticationRequest"
-        }
-      },
-      "required" : [ "Type" ]
-    },
     "Tag" : {
       "type" : "object",
       "additionalProperties" : false,
@@ -226,23 +301,6 @@
         }
       },
       "required" : [ "Value", "Key" ]
-    },
-    "TagSpecification" : {
-      "type" : "object",
-      "additionalProperties" : false,
-      "properties" : {
-        "ResourceType" : {
-          "type" : "string"
-        },
-        "Tags" : {
-          "type" : "array",
-          "uniqueItems" : false,
-          "items" : {
-            "$ref" : "#/definitions/Tag"
-          }
-        }
-      },
-      "required" : [ "ResourceType", "Tags" ]
     }
   },
   "required" : [ "ConnectionLogOptions", "AuthenticationOptions", "ServerCertificateArn" ],

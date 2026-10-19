@@ -37,7 +37,7 @@ namespace Pulumi.AwsNative.MediaPackageV2
     }
 
     /// <summary>
-    /// &lt;p&gt;A tile layout for a multiview channel. Each layout determines how many source tiles are composited into the output and how those tiles are arranged.&lt;/p&gt; &lt;p&gt;The allowed values are:&lt;/p&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt; &lt;code&gt;LAYOUT_SINGLE&lt;/code&gt; – One tile at full resolution. Use this to serve a single source as a standard stream.&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; &lt;code&gt;LAYOUT_2EH&lt;/code&gt; – Two tiles of equal size, arranged horizontally.&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; &lt;code&gt;LAYOUT_2PL&lt;/code&gt; – Two tiles, with one larger primary tile.&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; &lt;code&gt;LAYOUT_3EB&lt;/code&gt; – Three tiles of equal size, with two on top and one below.&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; &lt;code&gt;LAYOUT_3EL&lt;/code&gt; – Three tiles of equal size, arranged in two columns.&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; &lt;code&gt;LAYOUT_3PL&lt;/code&gt; – Three tiles, with one larger primary tile on the left and two stacked on the right.&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; &lt;code&gt;LAYOUT_4E&lt;/code&gt; – Four tiles of equal size, arranged in a two-by-two grid.&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; &lt;code&gt;LAYOUT_4PL&lt;/code&gt; – Four tiles, with one larger primary tile on the left and three stacked on the right.&lt;/p&gt; &lt;/li&gt; &lt;/ul&gt;
+    /// &lt;p&gt;A tile layout for a multiview channel. Each layout determines how many source tiles are composited into the output and how those tiles are arranged.&lt;/p&gt; &lt;p&gt;The allowed values are:&lt;/p&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt; &lt;code&gt;LAYOUT_2EH&lt;/code&gt; – Two tiles of equal size, arranged horizontally.&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; &lt;code&gt;LAYOUT_2PL&lt;/code&gt; – Two tiles, with one larger primary tile.&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; &lt;code&gt;LAYOUT_3EL&lt;/code&gt; – Three tiles of equal size, arranged in two columns.&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; &lt;code&gt;LAYOUT_3PL&lt;/code&gt; – Three tiles, with one larger primary tile on the left and two stacked on the right.&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; &lt;code&gt;LAYOUT_4E&lt;/code&gt; – Four tiles of equal size, arranged in a two-by-two grid.&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; &lt;code&gt;LAYOUT_4PL&lt;/code&gt; – Four tiles, with one larger primary tile on the left and three stacked on the right.&lt;/p&gt; &lt;/li&gt; &lt;/ul&gt;
     /// </summary>
     [EnumType]
     public readonly struct ChannelMultiviewLayoutType : IEquatable<ChannelMultiviewLayoutType>
@@ -205,6 +205,35 @@ namespace Pulumi.AwsNative.MediaPackageV2
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is OriginEndpointContainerType other && Equals(other);
         public bool Equals(OriginEndpointContainerType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct OriginEndpointContentKeyPeriodTiming : IEquatable<OriginEndpointContentKeyPeriodTiming>
+    {
+        private readonly string _value;
+
+        private OriginEndpointContentKeyPeriodTiming(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static OriginEndpointContentKeyPeriodTiming IndexOnly { get; } = new OriginEndpointContentKeyPeriodTiming("INDEX_ONLY");
+        public static OriginEndpointContentKeyPeriodTiming StartEndOnly { get; } = new OriginEndpointContentKeyPeriodTiming("START_END_ONLY");
+        public static OriginEndpointContentKeyPeriodTiming IndexWithStartEnd { get; } = new OriginEndpointContentKeyPeriodTiming("INDEX_WITH_START_END");
+
+        public static bool operator ==(OriginEndpointContentKeyPeriodTiming left, OriginEndpointContentKeyPeriodTiming right) => left.Equals(right);
+        public static bool operator !=(OriginEndpointContentKeyPeriodTiming left, OriginEndpointContentKeyPeriodTiming right) => !left.Equals(right);
+
+        public static explicit operator string(OriginEndpointContentKeyPeriodTiming value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is OriginEndpointContentKeyPeriodTiming other && Equals(other);
+        public bool Equals(OriginEndpointContentKeyPeriodTiming other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -586,6 +615,41 @@ namespace Pulumi.AwsNative.MediaPackageV2
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// &lt;p&gt;A tile layout for a multiview channel. Each layout determines how many source tiles are composited into the output and how those tiles are arranged.&lt;/p&gt; &lt;p&gt;The allowed values are:&lt;/p&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt; &lt;code&gt;LAYOUT_2EH&lt;/code&gt; – Two tiles of equal size, arranged horizontally.&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; &lt;code&gt;LAYOUT_2PL&lt;/code&gt; – Two tiles, with one larger primary tile.&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; &lt;code&gt;LAYOUT_3EL&lt;/code&gt; – Three tiles of equal size, arranged in two columns.&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; &lt;code&gt;LAYOUT_3PL&lt;/code&gt; – Three tiles, with one larger primary tile on the left and two stacked on the right.&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; &lt;code&gt;LAYOUT_4E&lt;/code&gt; – Four tiles of equal size, arranged in a two-by-two grid.&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; &lt;code&gt;LAYOUT_4PL&lt;/code&gt; – Four tiles, with one larger primary tile on the left and three stacked on the right.&lt;/p&gt; &lt;/li&gt; &lt;/ul&gt;
+    /// </summary>
+    [EnumType]
+    public readonly struct OriginEndpointMultiviewLayoutType : IEquatable<OriginEndpointMultiviewLayoutType>
+    {
+        private readonly string _value;
+
+        private OriginEndpointMultiviewLayoutType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static OriginEndpointMultiviewLayoutType Layout2eh { get; } = new OriginEndpointMultiviewLayoutType("LAYOUT_2EH");
+        public static OriginEndpointMultiviewLayoutType Layout2pl { get; } = new OriginEndpointMultiviewLayoutType("LAYOUT_2PL");
+        public static OriginEndpointMultiviewLayoutType Layout3el { get; } = new OriginEndpointMultiviewLayoutType("LAYOUT_3EL");
+        public static OriginEndpointMultiviewLayoutType Layout3pl { get; } = new OriginEndpointMultiviewLayoutType("LAYOUT_3PL");
+        public static OriginEndpointMultiviewLayoutType Layout4e { get; } = new OriginEndpointMultiviewLayoutType("LAYOUT_4E");
+        public static OriginEndpointMultiviewLayoutType Layout4pl { get; } = new OriginEndpointMultiviewLayoutType("LAYOUT_4PL");
+
+        public static bool operator ==(OriginEndpointMultiviewLayoutType left, OriginEndpointMultiviewLayoutType right) => left.Equals(right);
+        public static bool operator !=(OriginEndpointMultiviewLayoutType left, OriginEndpointMultiviewLayoutType right) => !left.Equals(right);
+
+        public static explicit operator string(OriginEndpointMultiviewLayoutType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is OriginEndpointMultiviewLayoutType other && Equals(other);
+        public bool Equals(OriginEndpointMultiviewLayoutType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     [EnumType]
     public readonly struct OriginEndpointOutputTimestampMode : IEquatable<OriginEndpointOutputTimestampMode>
     {
@@ -776,6 +840,34 @@ namespace Pulumi.AwsNative.MediaPackageV2
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is OriginEndpointScteInSegments other && Equals(other);
         public bool Equals(OriginEndpointScteInSegments other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct OriginEndpointSpekeVersion : IEquatable<OriginEndpointSpekeVersion>
+    {
+        private readonly string _value;
+
+        private OriginEndpointSpekeVersion(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static OriginEndpointSpekeVersion V20 { get; } = new OriginEndpointSpekeVersion("V2_0");
+        public static OriginEndpointSpekeVersion V21 { get; } = new OriginEndpointSpekeVersion("V2_1");
+
+        public static bool operator ==(OriginEndpointSpekeVersion left, OriginEndpointSpekeVersion right) => left.Equals(right);
+        public static bool operator !=(OriginEndpointSpekeVersion left, OriginEndpointSpekeVersion right) => !left.Equals(right);
+
+        public static explicit operator string(OriginEndpointSpekeVersion value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is OriginEndpointSpekeVersion other && Equals(other);
+        public bool Equals(OriginEndpointSpekeVersion other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

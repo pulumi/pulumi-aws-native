@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.IoTEvents.Inputs
 {
 
-    /// <summary>
-    /// Sends information about the detector model instance and the event that triggered the action to an Amazon SQS queue.
-    /// </summary>
     public sealed class AlarmModelSqsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>

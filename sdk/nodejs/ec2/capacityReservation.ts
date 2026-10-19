@@ -268,7 +268,7 @@ export class CapacityReservation extends pulumi.CustomResource {
             resourceInputs["unusedReservationBillingOwnerId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["availabilityZone", "availabilityZoneId", "ebsOptimized", "ephemeralStorage", "instancePlatform", "instanceType", "outPostArn", "placementGroupArn", "tagSpecifications[*]", "tenancy"] };
+        const replaceOnChanges = { replaceOnChanges: ["availabilityZone", "availabilityZoneId", "ebsOptimized", "ephemeralStorage", "instancePlatform", "instanceType", "outPostArn", "placementGroupArn", "tenancy"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(CapacityReservation.__pulumiType, name, resourceInputs, opts);
     }

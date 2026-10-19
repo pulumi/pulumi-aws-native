@@ -3859,6 +3859,227 @@ func (o ConfigurationBundleVersionLineageMetadataPtrOutput) ParentVersionIds() p
 	}).(pulumi.StringArrayOutput)
 }
 
+type ConsentPortalIdpConfig struct {
+	Audience *string `pulumi:"audience"`
+	// The ARN of an AWS::BedrockAgentCore::OAuth2CredentialProvider resource.
+	CredentialProviderArn string   `pulumi:"credentialProviderArn"`
+	Scopes                []string `pulumi:"scopes"`
+}
+
+// ConsentPortalIdpConfigInput is an input type that accepts ConsentPortalIdpConfigArgs and ConsentPortalIdpConfigOutput values.
+// You can construct a concrete instance of `ConsentPortalIdpConfigInput` via:
+//
+//	ConsentPortalIdpConfigArgs{...}
+type ConsentPortalIdpConfigInput interface {
+	pulumi.Input
+
+	ToConsentPortalIdpConfigOutput() ConsentPortalIdpConfigOutput
+	ToConsentPortalIdpConfigOutputWithContext(context.Context) ConsentPortalIdpConfigOutput
+}
+
+type ConsentPortalIdpConfigArgs struct {
+	Audience pulumi.StringPtrInput `pulumi:"audience"`
+	// The ARN of an AWS::BedrockAgentCore::OAuth2CredentialProvider resource.
+	CredentialProviderArn pulumi.StringInput      `pulumi:"credentialProviderArn"`
+	Scopes                pulumi.StringArrayInput `pulumi:"scopes"`
+}
+
+func (ConsentPortalIdpConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConsentPortalIdpConfig)(nil)).Elem()
+}
+
+func (i ConsentPortalIdpConfigArgs) ToConsentPortalIdpConfigOutput() ConsentPortalIdpConfigOutput {
+	return i.ToConsentPortalIdpConfigOutputWithContext(context.Background())
+}
+
+func (i ConsentPortalIdpConfigArgs) ToConsentPortalIdpConfigOutputWithContext(ctx context.Context) ConsentPortalIdpConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConsentPortalIdpConfigOutput)
+}
+
+type ConsentPortalIdpConfigOutput struct{ *pulumi.OutputState }
+
+func (ConsentPortalIdpConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConsentPortalIdpConfig)(nil)).Elem()
+}
+
+func (o ConsentPortalIdpConfigOutput) ToConsentPortalIdpConfigOutput() ConsentPortalIdpConfigOutput {
+	return o
+}
+
+func (o ConsentPortalIdpConfigOutput) ToConsentPortalIdpConfigOutputWithContext(ctx context.Context) ConsentPortalIdpConfigOutput {
+	return o
+}
+
+func (o ConsentPortalIdpConfigOutput) Audience() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConsentPortalIdpConfig) *string { return v.Audience }).(pulumi.StringPtrOutput)
+}
+
+// The ARN of an AWS::BedrockAgentCore::OAuth2CredentialProvider resource.
+func (o ConsentPortalIdpConfigOutput) CredentialProviderArn() pulumi.StringOutput {
+	return o.ApplyT(func(v ConsentPortalIdpConfig) string { return v.CredentialProviderArn }).(pulumi.StringOutput)
+}
+
+func (o ConsentPortalIdpConfigOutput) Scopes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ConsentPortalIdpConfig) []string { return v.Scopes }).(pulumi.StringArrayOutput)
+}
+
+type ConsentPortalIdpConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ConsentPortalIdpConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConsentPortalIdpConfig)(nil)).Elem()
+}
+
+func (o ConsentPortalIdpConfigPtrOutput) ToConsentPortalIdpConfigPtrOutput() ConsentPortalIdpConfigPtrOutput {
+	return o
+}
+
+func (o ConsentPortalIdpConfigPtrOutput) ToConsentPortalIdpConfigPtrOutputWithContext(ctx context.Context) ConsentPortalIdpConfigPtrOutput {
+	return o
+}
+
+func (o ConsentPortalIdpConfigPtrOutput) Elem() ConsentPortalIdpConfigOutput {
+	return o.ApplyT(func(v *ConsentPortalIdpConfig) ConsentPortalIdpConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ConsentPortalIdpConfig
+		return ret
+	}).(ConsentPortalIdpConfigOutput)
+}
+
+func (o ConsentPortalIdpConfigPtrOutput) Audience() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConsentPortalIdpConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Audience
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ARN of an AWS::BedrockAgentCore::OAuth2CredentialProvider resource.
+func (o ConsentPortalIdpConfigPtrOutput) CredentialProviderArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConsentPortalIdpConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.CredentialProviderArn
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ConsentPortalIdpConfigPtrOutput) Scopes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ConsentPortalIdpConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Scopes
+	}).(pulumi.StringArrayOutput)
+}
+
+type ConsentPortalSource struct {
+	Identifier string                  `pulumi:"identifier"`
+	Type       ConsentPortalSourceType `pulumi:"type"`
+}
+
+// ConsentPortalSourceInput is an input type that accepts ConsentPortalSourceArgs and ConsentPortalSourceOutput values.
+// You can construct a concrete instance of `ConsentPortalSourceInput` via:
+//
+//	ConsentPortalSourceArgs{...}
+type ConsentPortalSourceInput interface {
+	pulumi.Input
+
+	ToConsentPortalSourceOutput() ConsentPortalSourceOutput
+	ToConsentPortalSourceOutputWithContext(context.Context) ConsentPortalSourceOutput
+}
+
+type ConsentPortalSourceArgs struct {
+	Identifier pulumi.StringInput           `pulumi:"identifier"`
+	Type       ConsentPortalSourceTypeInput `pulumi:"type"`
+}
+
+func (ConsentPortalSourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConsentPortalSource)(nil)).Elem()
+}
+
+func (i ConsentPortalSourceArgs) ToConsentPortalSourceOutput() ConsentPortalSourceOutput {
+	return i.ToConsentPortalSourceOutputWithContext(context.Background())
+}
+
+func (i ConsentPortalSourceArgs) ToConsentPortalSourceOutputWithContext(ctx context.Context) ConsentPortalSourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConsentPortalSourceOutput)
+}
+
+// ConsentPortalSourceArrayInput is an input type that accepts ConsentPortalSourceArray and ConsentPortalSourceArrayOutput values.
+// You can construct a concrete instance of `ConsentPortalSourceArrayInput` via:
+//
+//	ConsentPortalSourceArray{ ConsentPortalSourceArgs{...} }
+type ConsentPortalSourceArrayInput interface {
+	pulumi.Input
+
+	ToConsentPortalSourceArrayOutput() ConsentPortalSourceArrayOutput
+	ToConsentPortalSourceArrayOutputWithContext(context.Context) ConsentPortalSourceArrayOutput
+}
+
+type ConsentPortalSourceArray []ConsentPortalSourceInput
+
+func (ConsentPortalSourceArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ConsentPortalSource)(nil)).Elem()
+}
+
+func (i ConsentPortalSourceArray) ToConsentPortalSourceArrayOutput() ConsentPortalSourceArrayOutput {
+	return i.ToConsentPortalSourceArrayOutputWithContext(context.Background())
+}
+
+func (i ConsentPortalSourceArray) ToConsentPortalSourceArrayOutputWithContext(ctx context.Context) ConsentPortalSourceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConsentPortalSourceArrayOutput)
+}
+
+type ConsentPortalSourceOutput struct{ *pulumi.OutputState }
+
+func (ConsentPortalSourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConsentPortalSource)(nil)).Elem()
+}
+
+func (o ConsentPortalSourceOutput) ToConsentPortalSourceOutput() ConsentPortalSourceOutput {
+	return o
+}
+
+func (o ConsentPortalSourceOutput) ToConsentPortalSourceOutputWithContext(ctx context.Context) ConsentPortalSourceOutput {
+	return o
+}
+
+func (o ConsentPortalSourceOutput) Identifier() pulumi.StringOutput {
+	return o.ApplyT(func(v ConsentPortalSource) string { return v.Identifier }).(pulumi.StringOutput)
+}
+
+func (o ConsentPortalSourceOutput) Type() ConsentPortalSourceTypeOutput {
+	return o.ApplyT(func(v ConsentPortalSource) ConsentPortalSourceType { return v.Type }).(ConsentPortalSourceTypeOutput)
+}
+
+type ConsentPortalSourceArrayOutput struct{ *pulumi.OutputState }
+
+func (ConsentPortalSourceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ConsentPortalSource)(nil)).Elem()
+}
+
+func (o ConsentPortalSourceArrayOutput) ToConsentPortalSourceArrayOutput() ConsentPortalSourceArrayOutput {
+	return o
+}
+
+func (o ConsentPortalSourceArrayOutput) ToConsentPortalSourceArrayOutputWithContext(ctx context.Context) ConsentPortalSourceArrayOutput {
+	return o
+}
+
+func (o ConsentPortalSourceArrayOutput) Index(i pulumi.IntInput) ConsentPortalSourceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ConsentPortalSource {
+		return vs[0].([]ConsentPortalSource)[vs[1].(int)]
+	}).(ConsentPortalSourceOutput)
+}
+
+type ConsentPortalTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
 // Source of initial examples. Provide either inline examples or an S3 URI pointing to a JSONL file.
 type DatasetDataSourceType struct {
 	InlineExamples *DatasetInlineExamplesSource `pulumi:"inlineExamples"`
@@ -4719,6 +4940,7 @@ func (o EvaluatorCodeBasedEvaluatorConfigPtrOutput) LambdaConfig() EvaluatorLamb
 // The configuration that defines how an evaluator assesses agent performance.
 type EvaluatorConfig struct {
 	CodeBased   *EvaluatorCodeBasedEvaluatorConfig   `pulumi:"codeBased"`
+	Derived     *EvaluatorDerivedEvaluatorConfig     `pulumi:"derived"`
 	LlmAsAJudge *EvaluatorLlmAsAJudgeEvaluatorConfig `pulumi:"llmAsAJudge"`
 }
 
@@ -4736,6 +4958,7 @@ type EvaluatorConfigInput interface {
 // The configuration that defines how an evaluator assesses agent performance.
 type EvaluatorConfigArgs struct {
 	CodeBased   EvaluatorCodeBasedEvaluatorConfigPtrInput   `pulumi:"codeBased"`
+	Derived     EvaluatorDerivedEvaluatorConfigPtrInput     `pulumi:"derived"`
 	LlmAsAJudge EvaluatorLlmAsAJudgeEvaluatorConfigPtrInput `pulumi:"llmAsAJudge"`
 }
 
@@ -4768,6 +4991,10 @@ func (o EvaluatorConfigOutput) ToEvaluatorConfigOutputWithContext(ctx context.Co
 
 func (o EvaluatorConfigOutput) CodeBased() EvaluatorCodeBasedEvaluatorConfigPtrOutput {
 	return o.ApplyT(func(v EvaluatorConfig) *EvaluatorCodeBasedEvaluatorConfig { return v.CodeBased }).(EvaluatorCodeBasedEvaluatorConfigPtrOutput)
+}
+
+func (o EvaluatorConfigOutput) Derived() EvaluatorDerivedEvaluatorConfigPtrOutput {
+	return o.ApplyT(func(v EvaluatorConfig) *EvaluatorDerivedEvaluatorConfig { return v.Derived }).(EvaluatorDerivedEvaluatorConfigPtrOutput)
 }
 
 func (o EvaluatorConfigOutput) LlmAsAJudge() EvaluatorLlmAsAJudgeEvaluatorConfigPtrOutput {
@@ -4807,6 +5034,15 @@ func (o EvaluatorConfigPtrOutput) CodeBased() EvaluatorCodeBasedEvaluatorConfigP
 	}).(EvaluatorCodeBasedEvaluatorConfigPtrOutput)
 }
 
+func (o EvaluatorConfigPtrOutput) Derived() EvaluatorDerivedEvaluatorConfigPtrOutput {
+	return o.ApplyT(func(v *EvaluatorConfig) *EvaluatorDerivedEvaluatorConfig {
+		if v == nil {
+			return nil
+		}
+		return v.Derived
+	}).(EvaluatorDerivedEvaluatorConfigPtrOutput)
+}
+
 func (o EvaluatorConfigPtrOutput) LlmAsAJudge() EvaluatorLlmAsAJudgeEvaluatorConfigPtrOutput {
 	return o.ApplyT(func(v *EvaluatorConfig) *EvaluatorLlmAsAJudgeEvaluatorConfig {
 		if v == nil {
@@ -4816,10 +5052,346 @@ func (o EvaluatorConfigPtrOutput) LlmAsAJudge() EvaluatorLlmAsAJudgeEvaluatorCon
 	}).(EvaluatorLlmAsAJudgeEvaluatorConfigPtrOutput)
 }
 
+// The configuration for an evaluator derived from an existing base evaluator (a built-in or third-party evaluator), run on your own model. The base evaluator supplies the prompt and scoring logic.
+type EvaluatorDerivedEvaluatorConfig struct {
+	// The identifier of the base evaluator whose logic to run (a Builtin.* or ThirdParty.* evaluator).
+	BaseEvaluatorId string               `pulumi:"baseEvaluatorId"`
+	ModelConfig     EvaluatorModelConfig `pulumi:"modelConfig"`
+}
+
+// EvaluatorDerivedEvaluatorConfigInput is an input type that accepts EvaluatorDerivedEvaluatorConfigArgs and EvaluatorDerivedEvaluatorConfigOutput values.
+// You can construct a concrete instance of `EvaluatorDerivedEvaluatorConfigInput` via:
+//
+//	EvaluatorDerivedEvaluatorConfigArgs{...}
+type EvaluatorDerivedEvaluatorConfigInput interface {
+	pulumi.Input
+
+	ToEvaluatorDerivedEvaluatorConfigOutput() EvaluatorDerivedEvaluatorConfigOutput
+	ToEvaluatorDerivedEvaluatorConfigOutputWithContext(context.Context) EvaluatorDerivedEvaluatorConfigOutput
+}
+
+// The configuration for an evaluator derived from an existing base evaluator (a built-in or third-party evaluator), run on your own model. The base evaluator supplies the prompt and scoring logic.
+type EvaluatorDerivedEvaluatorConfigArgs struct {
+	// The identifier of the base evaluator whose logic to run (a Builtin.* or ThirdParty.* evaluator).
+	BaseEvaluatorId pulumi.StringInput        `pulumi:"baseEvaluatorId"`
+	ModelConfig     EvaluatorModelConfigInput `pulumi:"modelConfig"`
+}
+
+func (EvaluatorDerivedEvaluatorConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EvaluatorDerivedEvaluatorConfig)(nil)).Elem()
+}
+
+func (i EvaluatorDerivedEvaluatorConfigArgs) ToEvaluatorDerivedEvaluatorConfigOutput() EvaluatorDerivedEvaluatorConfigOutput {
+	return i.ToEvaluatorDerivedEvaluatorConfigOutputWithContext(context.Background())
+}
+
+func (i EvaluatorDerivedEvaluatorConfigArgs) ToEvaluatorDerivedEvaluatorConfigOutputWithContext(ctx context.Context) EvaluatorDerivedEvaluatorConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EvaluatorDerivedEvaluatorConfigOutput)
+}
+
+func (i EvaluatorDerivedEvaluatorConfigArgs) ToEvaluatorDerivedEvaluatorConfigPtrOutput() EvaluatorDerivedEvaluatorConfigPtrOutput {
+	return i.ToEvaluatorDerivedEvaluatorConfigPtrOutputWithContext(context.Background())
+}
+
+func (i EvaluatorDerivedEvaluatorConfigArgs) ToEvaluatorDerivedEvaluatorConfigPtrOutputWithContext(ctx context.Context) EvaluatorDerivedEvaluatorConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EvaluatorDerivedEvaluatorConfigOutput).ToEvaluatorDerivedEvaluatorConfigPtrOutputWithContext(ctx)
+}
+
+// EvaluatorDerivedEvaluatorConfigPtrInput is an input type that accepts EvaluatorDerivedEvaluatorConfigArgs, EvaluatorDerivedEvaluatorConfigPtr and EvaluatorDerivedEvaluatorConfigPtrOutput values.
+// You can construct a concrete instance of `EvaluatorDerivedEvaluatorConfigPtrInput` via:
+//
+//	        EvaluatorDerivedEvaluatorConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type EvaluatorDerivedEvaluatorConfigPtrInput interface {
+	pulumi.Input
+
+	ToEvaluatorDerivedEvaluatorConfigPtrOutput() EvaluatorDerivedEvaluatorConfigPtrOutput
+	ToEvaluatorDerivedEvaluatorConfigPtrOutputWithContext(context.Context) EvaluatorDerivedEvaluatorConfigPtrOutput
+}
+
+type evaluatorDerivedEvaluatorConfigPtrType EvaluatorDerivedEvaluatorConfigArgs
+
+func EvaluatorDerivedEvaluatorConfigPtr(v *EvaluatorDerivedEvaluatorConfigArgs) EvaluatorDerivedEvaluatorConfigPtrInput {
+	return (*evaluatorDerivedEvaluatorConfigPtrType)(v)
+}
+
+func (*evaluatorDerivedEvaluatorConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EvaluatorDerivedEvaluatorConfig)(nil)).Elem()
+}
+
+func (i *evaluatorDerivedEvaluatorConfigPtrType) ToEvaluatorDerivedEvaluatorConfigPtrOutput() EvaluatorDerivedEvaluatorConfigPtrOutput {
+	return i.ToEvaluatorDerivedEvaluatorConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *evaluatorDerivedEvaluatorConfigPtrType) ToEvaluatorDerivedEvaluatorConfigPtrOutputWithContext(ctx context.Context) EvaluatorDerivedEvaluatorConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EvaluatorDerivedEvaluatorConfigPtrOutput)
+}
+
+// The configuration for an evaluator derived from an existing base evaluator (a built-in or third-party evaluator), run on your own model. The base evaluator supplies the prompt and scoring logic.
+type EvaluatorDerivedEvaluatorConfigOutput struct{ *pulumi.OutputState }
+
+func (EvaluatorDerivedEvaluatorConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EvaluatorDerivedEvaluatorConfig)(nil)).Elem()
+}
+
+func (o EvaluatorDerivedEvaluatorConfigOutput) ToEvaluatorDerivedEvaluatorConfigOutput() EvaluatorDerivedEvaluatorConfigOutput {
+	return o
+}
+
+func (o EvaluatorDerivedEvaluatorConfigOutput) ToEvaluatorDerivedEvaluatorConfigOutputWithContext(ctx context.Context) EvaluatorDerivedEvaluatorConfigOutput {
+	return o
+}
+
+func (o EvaluatorDerivedEvaluatorConfigOutput) ToEvaluatorDerivedEvaluatorConfigPtrOutput() EvaluatorDerivedEvaluatorConfigPtrOutput {
+	return o.ToEvaluatorDerivedEvaluatorConfigPtrOutputWithContext(context.Background())
+}
+
+func (o EvaluatorDerivedEvaluatorConfigOutput) ToEvaluatorDerivedEvaluatorConfigPtrOutputWithContext(ctx context.Context) EvaluatorDerivedEvaluatorConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EvaluatorDerivedEvaluatorConfig) *EvaluatorDerivedEvaluatorConfig {
+		return &v
+	}).(EvaluatorDerivedEvaluatorConfigPtrOutput)
+}
+
+// The identifier of the base evaluator whose logic to run (a Builtin.* or ThirdParty.* evaluator).
+func (o EvaluatorDerivedEvaluatorConfigOutput) BaseEvaluatorId() pulumi.StringOutput {
+	return o.ApplyT(func(v EvaluatorDerivedEvaluatorConfig) string { return v.BaseEvaluatorId }).(pulumi.StringOutput)
+}
+
+func (o EvaluatorDerivedEvaluatorConfigOutput) ModelConfig() EvaluatorModelConfigOutput {
+	return o.ApplyT(func(v EvaluatorDerivedEvaluatorConfig) EvaluatorModelConfig { return v.ModelConfig }).(EvaluatorModelConfigOutput)
+}
+
+type EvaluatorDerivedEvaluatorConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (EvaluatorDerivedEvaluatorConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EvaluatorDerivedEvaluatorConfig)(nil)).Elem()
+}
+
+func (o EvaluatorDerivedEvaluatorConfigPtrOutput) ToEvaluatorDerivedEvaluatorConfigPtrOutput() EvaluatorDerivedEvaluatorConfigPtrOutput {
+	return o
+}
+
+func (o EvaluatorDerivedEvaluatorConfigPtrOutput) ToEvaluatorDerivedEvaluatorConfigPtrOutputWithContext(ctx context.Context) EvaluatorDerivedEvaluatorConfigPtrOutput {
+	return o
+}
+
+func (o EvaluatorDerivedEvaluatorConfigPtrOutput) Elem() EvaluatorDerivedEvaluatorConfigOutput {
+	return o.ApplyT(func(v *EvaluatorDerivedEvaluatorConfig) EvaluatorDerivedEvaluatorConfig {
+		if v != nil {
+			return *v
+		}
+		var ret EvaluatorDerivedEvaluatorConfig
+		return ret
+	}).(EvaluatorDerivedEvaluatorConfigOutput)
+}
+
+// The identifier of the base evaluator whose logic to run (a Builtin.* or ThirdParty.* evaluator).
+func (o EvaluatorDerivedEvaluatorConfigPtrOutput) BaseEvaluatorId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EvaluatorDerivedEvaluatorConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.BaseEvaluatorId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o EvaluatorDerivedEvaluatorConfigPtrOutput) ModelConfig() EvaluatorModelConfigPtrOutput {
+	return o.ApplyT(func(v *EvaluatorDerivedEvaluatorConfig) *EvaluatorModelConfig {
+		if v == nil {
+			return nil
+		}
+		return &v.ModelConfig
+	}).(EvaluatorModelConfigPtrOutput)
+}
+
+// The rating scale for one dimension of an LLM-as-a-Judge evaluator.
+type EvaluatorDimensionRatingScale struct {
+	// The categorical rating scale for this dimension.
+	Categorical []EvaluatorCategoricalScaleDefinition `pulumi:"categorical"`
+	// The numerical rating scale for this dimension.
+	Numerical []EvaluatorNumericalScaleDefinition `pulumi:"numerical"`
+}
+
+// EvaluatorDimensionRatingScaleInput is an input type that accepts EvaluatorDimensionRatingScaleArgs and EvaluatorDimensionRatingScaleOutput values.
+// You can construct a concrete instance of `EvaluatorDimensionRatingScaleInput` via:
+//
+//	EvaluatorDimensionRatingScaleArgs{...}
+type EvaluatorDimensionRatingScaleInput interface {
+	pulumi.Input
+
+	ToEvaluatorDimensionRatingScaleOutput() EvaluatorDimensionRatingScaleOutput
+	ToEvaluatorDimensionRatingScaleOutputWithContext(context.Context) EvaluatorDimensionRatingScaleOutput
+}
+
+// The rating scale for one dimension of an LLM-as-a-Judge evaluator.
+type EvaluatorDimensionRatingScaleArgs struct {
+	// The categorical rating scale for this dimension.
+	Categorical EvaluatorCategoricalScaleDefinitionArrayInput `pulumi:"categorical"`
+	// The numerical rating scale for this dimension.
+	Numerical EvaluatorNumericalScaleDefinitionArrayInput `pulumi:"numerical"`
+}
+
+func (EvaluatorDimensionRatingScaleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EvaluatorDimensionRatingScale)(nil)).Elem()
+}
+
+func (i EvaluatorDimensionRatingScaleArgs) ToEvaluatorDimensionRatingScaleOutput() EvaluatorDimensionRatingScaleOutput {
+	return i.ToEvaluatorDimensionRatingScaleOutputWithContext(context.Background())
+}
+
+func (i EvaluatorDimensionRatingScaleArgs) ToEvaluatorDimensionRatingScaleOutputWithContext(ctx context.Context) EvaluatorDimensionRatingScaleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EvaluatorDimensionRatingScaleOutput)
+}
+
+// The rating scale for one dimension of an LLM-as-a-Judge evaluator.
+type EvaluatorDimensionRatingScaleOutput struct{ *pulumi.OutputState }
+
+func (EvaluatorDimensionRatingScaleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EvaluatorDimensionRatingScale)(nil)).Elem()
+}
+
+func (o EvaluatorDimensionRatingScaleOutput) ToEvaluatorDimensionRatingScaleOutput() EvaluatorDimensionRatingScaleOutput {
+	return o
+}
+
+func (o EvaluatorDimensionRatingScaleOutput) ToEvaluatorDimensionRatingScaleOutputWithContext(ctx context.Context) EvaluatorDimensionRatingScaleOutput {
+	return o
+}
+
+// The categorical rating scale for this dimension.
+func (o EvaluatorDimensionRatingScaleOutput) Categorical() EvaluatorCategoricalScaleDefinitionArrayOutput {
+	return o.ApplyT(func(v EvaluatorDimensionRatingScale) []EvaluatorCategoricalScaleDefinition { return v.Categorical }).(EvaluatorCategoricalScaleDefinitionArrayOutput)
+}
+
+// The numerical rating scale for this dimension.
+func (o EvaluatorDimensionRatingScaleOutput) Numerical() EvaluatorNumericalScaleDefinitionArrayOutput {
+	return o.ApplyT(func(v EvaluatorDimensionRatingScale) []EvaluatorNumericalScaleDefinition { return v.Numerical }).(EvaluatorNumericalScaleDefinitionArrayOutput)
+}
+
+// One dimension of an LLM-as-a-Judge evaluator.
+type EvaluatorEvaluationDimension struct {
+	// The instruction to the evaluator model describing what to judge for this dimension.
+	DimensionInstruction string `pulumi:"dimensionInstruction"`
+	// The name of the dimension. Must be unique within the evaluator.
+	DimensionName        string                        `pulumi:"dimensionName"`
+	DimensionRatingScale EvaluatorDimensionRatingScale `pulumi:"dimensionRatingScale"`
+}
+
+// EvaluatorEvaluationDimensionInput is an input type that accepts EvaluatorEvaluationDimensionArgs and EvaluatorEvaluationDimensionOutput values.
+// You can construct a concrete instance of `EvaluatorEvaluationDimensionInput` via:
+//
+//	EvaluatorEvaluationDimensionArgs{...}
+type EvaluatorEvaluationDimensionInput interface {
+	pulumi.Input
+
+	ToEvaluatorEvaluationDimensionOutput() EvaluatorEvaluationDimensionOutput
+	ToEvaluatorEvaluationDimensionOutputWithContext(context.Context) EvaluatorEvaluationDimensionOutput
+}
+
+// One dimension of an LLM-as-a-Judge evaluator.
+type EvaluatorEvaluationDimensionArgs struct {
+	// The instruction to the evaluator model describing what to judge for this dimension.
+	DimensionInstruction pulumi.StringInput `pulumi:"dimensionInstruction"`
+	// The name of the dimension. Must be unique within the evaluator.
+	DimensionName        pulumi.StringInput                 `pulumi:"dimensionName"`
+	DimensionRatingScale EvaluatorDimensionRatingScaleInput `pulumi:"dimensionRatingScale"`
+}
+
+func (EvaluatorEvaluationDimensionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EvaluatorEvaluationDimension)(nil)).Elem()
+}
+
+func (i EvaluatorEvaluationDimensionArgs) ToEvaluatorEvaluationDimensionOutput() EvaluatorEvaluationDimensionOutput {
+	return i.ToEvaluatorEvaluationDimensionOutputWithContext(context.Background())
+}
+
+func (i EvaluatorEvaluationDimensionArgs) ToEvaluatorEvaluationDimensionOutputWithContext(ctx context.Context) EvaluatorEvaluationDimensionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EvaluatorEvaluationDimensionOutput)
+}
+
+// EvaluatorEvaluationDimensionArrayInput is an input type that accepts EvaluatorEvaluationDimensionArray and EvaluatorEvaluationDimensionArrayOutput values.
+// You can construct a concrete instance of `EvaluatorEvaluationDimensionArrayInput` via:
+//
+//	EvaluatorEvaluationDimensionArray{ EvaluatorEvaluationDimensionArgs{...} }
+type EvaluatorEvaluationDimensionArrayInput interface {
+	pulumi.Input
+
+	ToEvaluatorEvaluationDimensionArrayOutput() EvaluatorEvaluationDimensionArrayOutput
+	ToEvaluatorEvaluationDimensionArrayOutputWithContext(context.Context) EvaluatorEvaluationDimensionArrayOutput
+}
+
+type EvaluatorEvaluationDimensionArray []EvaluatorEvaluationDimensionInput
+
+func (EvaluatorEvaluationDimensionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EvaluatorEvaluationDimension)(nil)).Elem()
+}
+
+func (i EvaluatorEvaluationDimensionArray) ToEvaluatorEvaluationDimensionArrayOutput() EvaluatorEvaluationDimensionArrayOutput {
+	return i.ToEvaluatorEvaluationDimensionArrayOutputWithContext(context.Background())
+}
+
+func (i EvaluatorEvaluationDimensionArray) ToEvaluatorEvaluationDimensionArrayOutputWithContext(ctx context.Context) EvaluatorEvaluationDimensionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EvaluatorEvaluationDimensionArrayOutput)
+}
+
+// One dimension of an LLM-as-a-Judge evaluator.
+type EvaluatorEvaluationDimensionOutput struct{ *pulumi.OutputState }
+
+func (EvaluatorEvaluationDimensionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EvaluatorEvaluationDimension)(nil)).Elem()
+}
+
+func (o EvaluatorEvaluationDimensionOutput) ToEvaluatorEvaluationDimensionOutput() EvaluatorEvaluationDimensionOutput {
+	return o
+}
+
+func (o EvaluatorEvaluationDimensionOutput) ToEvaluatorEvaluationDimensionOutputWithContext(ctx context.Context) EvaluatorEvaluationDimensionOutput {
+	return o
+}
+
+// The instruction to the evaluator model describing what to judge for this dimension.
+func (o EvaluatorEvaluationDimensionOutput) DimensionInstruction() pulumi.StringOutput {
+	return o.ApplyT(func(v EvaluatorEvaluationDimension) string { return v.DimensionInstruction }).(pulumi.StringOutput)
+}
+
+// The name of the dimension. Must be unique within the evaluator.
+func (o EvaluatorEvaluationDimensionOutput) DimensionName() pulumi.StringOutput {
+	return o.ApplyT(func(v EvaluatorEvaluationDimension) string { return v.DimensionName }).(pulumi.StringOutput)
+}
+
+func (o EvaluatorEvaluationDimensionOutput) DimensionRatingScale() EvaluatorDimensionRatingScaleOutput {
+	return o.ApplyT(func(v EvaluatorEvaluationDimension) EvaluatorDimensionRatingScale { return v.DimensionRatingScale }).(EvaluatorDimensionRatingScaleOutput)
+}
+
+type EvaluatorEvaluationDimensionArrayOutput struct{ *pulumi.OutputState }
+
+func (EvaluatorEvaluationDimensionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EvaluatorEvaluationDimension)(nil)).Elem()
+}
+
+func (o EvaluatorEvaluationDimensionArrayOutput) ToEvaluatorEvaluationDimensionArrayOutput() EvaluatorEvaluationDimensionArrayOutput {
+	return o
+}
+
+func (o EvaluatorEvaluationDimensionArrayOutput) ToEvaluatorEvaluationDimensionArrayOutputWithContext(ctx context.Context) EvaluatorEvaluationDimensionArrayOutput {
+	return o
+}
+
+func (o EvaluatorEvaluationDimensionArrayOutput) Index(i pulumi.IntInput) EvaluatorEvaluationDimensionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EvaluatorEvaluationDimension {
+		return vs[0].([]EvaluatorEvaluationDimension)[vs[1].(int)]
+	}).(EvaluatorEvaluationDimensionOutput)
+}
+
 // The inference configuration parameters that control model behavior during evaluation.
 type EvaluatorInferenceConfiguration struct {
 	// The maximum number of tokens to generate in the model response.
 	MaxTokens *int `pulumi:"maxTokens"`
+	// The sequences that make the model stop generating further tokens.
+	StopSequences []string `pulumi:"stopSequences"`
 	// The temperature value that controls randomness in the model's responses.
 	Temperature *float64 `pulumi:"temperature"`
 	// The top-p sampling parameter that controls the diversity of the model's responses.
@@ -4841,6 +5413,8 @@ type EvaluatorInferenceConfigurationInput interface {
 type EvaluatorInferenceConfigurationArgs struct {
 	// The maximum number of tokens to generate in the model response.
 	MaxTokens pulumi.IntPtrInput `pulumi:"maxTokens"`
+	// The sequences that make the model stop generating further tokens.
+	StopSequences pulumi.StringArrayInput `pulumi:"stopSequences"`
 	// The temperature value that controls randomness in the model's responses.
 	Temperature pulumi.Float64PtrInput `pulumi:"temperature"`
 	// The top-p sampling parameter that controls the diversity of the model's responses.
@@ -4930,6 +5504,11 @@ func (o EvaluatorInferenceConfigurationOutput) MaxTokens() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v EvaluatorInferenceConfiguration) *int { return v.MaxTokens }).(pulumi.IntPtrOutput)
 }
 
+// The sequences that make the model stop generating further tokens.
+func (o EvaluatorInferenceConfigurationOutput) StopSequences() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v EvaluatorInferenceConfiguration) []string { return v.StopSequences }).(pulumi.StringArrayOutput)
+}
+
 // The temperature value that controls randomness in the model's responses.
 func (o EvaluatorInferenceConfigurationOutput) Temperature() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v EvaluatorInferenceConfiguration) *float64 { return v.Temperature }).(pulumi.Float64PtrOutput)
@@ -4972,6 +5551,16 @@ func (o EvaluatorInferenceConfigurationPtrOutput) MaxTokens() pulumi.IntPtrOutpu
 		}
 		return v.MaxTokens
 	}).(pulumi.IntPtrOutput)
+}
+
+// The sequences that make the model stop generating further tokens.
+func (o EvaluatorInferenceConfigurationPtrOutput) StopSequences() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *EvaluatorInferenceConfiguration) []string {
+		if v == nil {
+			return nil
+		}
+		return v.StopSequences
+	}).(pulumi.StringArrayOutput)
 }
 
 // The temperature value that controls randomness in the model's responses.
@@ -5813,7 +6402,9 @@ func (o EvaluatorOpenResponsesEvaluatorModelConfigPtrOutput) TopP() pulumi.Float
 // The rating scale that defines how evaluators should score agent performance.
 type EvaluatorRatingScale struct {
 	Categorical []EvaluatorCategoricalScaleDefinition `pulumi:"categorical"`
-	Numerical   []EvaluatorNumericalScaleDefinition   `pulumi:"numerical"`
+	// The dimensions an LLM-as-a-Judge evaluator scores in a single judge call. Each dimension has its own instruction and rating scale.
+	MultiDimensional []EvaluatorEvaluationDimension      `pulumi:"multiDimensional"`
+	Numerical        []EvaluatorNumericalScaleDefinition `pulumi:"numerical"`
 }
 
 // EvaluatorRatingScaleInput is an input type that accepts EvaluatorRatingScaleArgs and EvaluatorRatingScaleOutput values.
@@ -5830,7 +6421,9 @@ type EvaluatorRatingScaleInput interface {
 // The rating scale that defines how evaluators should score agent performance.
 type EvaluatorRatingScaleArgs struct {
 	Categorical EvaluatorCategoricalScaleDefinitionArrayInput `pulumi:"categorical"`
-	Numerical   EvaluatorNumericalScaleDefinitionArrayInput   `pulumi:"numerical"`
+	// The dimensions an LLM-as-a-Judge evaluator scores in a single judge call. Each dimension has its own instruction and rating scale.
+	MultiDimensional EvaluatorEvaluationDimensionArrayInput      `pulumi:"multiDimensional"`
+	Numerical        EvaluatorNumericalScaleDefinitionArrayInput `pulumi:"numerical"`
 }
 
 func (EvaluatorRatingScaleArgs) ElementType() reflect.Type {
@@ -5915,6 +6508,11 @@ func (o EvaluatorRatingScaleOutput) Categorical() EvaluatorCategoricalScaleDefin
 	return o.ApplyT(func(v EvaluatorRatingScale) []EvaluatorCategoricalScaleDefinition { return v.Categorical }).(EvaluatorCategoricalScaleDefinitionArrayOutput)
 }
 
+// The dimensions an LLM-as-a-Judge evaluator scores in a single judge call. Each dimension has its own instruction and rating scale.
+func (o EvaluatorRatingScaleOutput) MultiDimensional() EvaluatorEvaluationDimensionArrayOutput {
+	return o.ApplyT(func(v EvaluatorRatingScale) []EvaluatorEvaluationDimension { return v.MultiDimensional }).(EvaluatorEvaluationDimensionArrayOutput)
+}
+
 func (o EvaluatorRatingScaleOutput) Numerical() EvaluatorNumericalScaleDefinitionArrayOutput {
 	return o.ApplyT(func(v EvaluatorRatingScale) []EvaluatorNumericalScaleDefinition { return v.Numerical }).(EvaluatorNumericalScaleDefinitionArrayOutput)
 }
@@ -5950,6 +6548,16 @@ func (o EvaluatorRatingScalePtrOutput) Categorical() EvaluatorCategoricalScaleDe
 		}
 		return v.Categorical
 	}).(EvaluatorCategoricalScaleDefinitionArrayOutput)
+}
+
+// The dimensions an LLM-as-a-Judge evaluator scores in a single judge call. Each dimension has its own instruction and rating scale.
+func (o EvaluatorRatingScalePtrOutput) MultiDimensional() EvaluatorEvaluationDimensionArrayOutput {
+	return o.ApplyT(func(v *EvaluatorRatingScale) []EvaluatorEvaluationDimension {
+		if v == nil {
+			return nil
+		}
+		return v.MultiDimensional
+	}).(EvaluatorEvaluationDimensionArrayOutput)
 }
 
 func (o EvaluatorRatingScalePtrOutput) Numerical() EvaluatorNumericalScaleDefinitionArrayOutput {
@@ -18044,11 +18652,11 @@ func (o HarnessAgentCoreMemoryConfigurationPtrOutput) RetrievalConfig() HarnessA
 }
 
 type HarnessAgentCoreMemoryRetrievalConfig struct {
-	// Minimum relevance score for retrieved memories. Typed as both number and string because CloudFormation marshals scalars nested in dynamic-key (patternProperties) maps as strings, while direct API/CDK callers send a JSON number; both forms must validate.
-	RelevanceScore interface{} `pulumi:"relevanceScore"`
-	StrategyId     *string     `pulumi:"strategyId"`
-	// Maximum number of memory records to retrieve. Typed as both integer and string because CloudFormation marshals scalars nested in dynamic-key (patternProperties) maps as strings, while direct API/CDK callers send a JSON integer; both forms must validate.
-	TopK interface{} `pulumi:"topK"`
+	// Minimum relevance score for retrieved memories.
+	RelevanceScore *float64 `pulumi:"relevanceScore"`
+	StrategyId     *string  `pulumi:"strategyId"`
+	// Maximum number of memory records to retrieve.
+	TopK *int `pulumi:"topK"`
 }
 
 // HarnessAgentCoreMemoryRetrievalConfigInput is an input type that accepts HarnessAgentCoreMemoryRetrievalConfigArgs and HarnessAgentCoreMemoryRetrievalConfigOutput values.
@@ -18063,11 +18671,11 @@ type HarnessAgentCoreMemoryRetrievalConfigInput interface {
 }
 
 type HarnessAgentCoreMemoryRetrievalConfigArgs struct {
-	// Minimum relevance score for retrieved memories. Typed as both number and string because CloudFormation marshals scalars nested in dynamic-key (patternProperties) maps as strings, while direct API/CDK callers send a JSON number; both forms must validate.
-	RelevanceScore pulumi.Input          `pulumi:"relevanceScore"`
-	StrategyId     pulumi.StringPtrInput `pulumi:"strategyId"`
-	// Maximum number of memory records to retrieve. Typed as both integer and string because CloudFormation marshals scalars nested in dynamic-key (patternProperties) maps as strings, while direct API/CDK callers send a JSON integer; both forms must validate.
-	TopK pulumi.Input `pulumi:"topK"`
+	// Minimum relevance score for retrieved memories.
+	RelevanceScore pulumi.Float64PtrInput `pulumi:"relevanceScore"`
+	StrategyId     pulumi.StringPtrInput  `pulumi:"strategyId"`
+	// Maximum number of memory records to retrieve.
+	TopK pulumi.IntPtrInput `pulumi:"topK"`
 }
 
 func (HarnessAgentCoreMemoryRetrievalConfigArgs) ElementType() reflect.Type {
@@ -18121,18 +18729,18 @@ func (o HarnessAgentCoreMemoryRetrievalConfigOutput) ToHarnessAgentCoreMemoryRet
 	return o
 }
 
-// Minimum relevance score for retrieved memories. Typed as both number and string because CloudFormation marshals scalars nested in dynamic-key (patternProperties) maps as strings, while direct API/CDK callers send a JSON number; both forms must validate.
-func (o HarnessAgentCoreMemoryRetrievalConfigOutput) RelevanceScore() pulumi.AnyOutput {
-	return o.ApplyT(func(v HarnessAgentCoreMemoryRetrievalConfig) interface{} { return v.RelevanceScore }).(pulumi.AnyOutput)
+// Minimum relevance score for retrieved memories.
+func (o HarnessAgentCoreMemoryRetrievalConfigOutput) RelevanceScore() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v HarnessAgentCoreMemoryRetrievalConfig) *float64 { return v.RelevanceScore }).(pulumi.Float64PtrOutput)
 }
 
 func (o HarnessAgentCoreMemoryRetrievalConfigOutput) StrategyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HarnessAgentCoreMemoryRetrievalConfig) *string { return v.StrategyId }).(pulumi.StringPtrOutput)
 }
 
-// Maximum number of memory records to retrieve. Typed as both integer and string because CloudFormation marshals scalars nested in dynamic-key (patternProperties) maps as strings, while direct API/CDK callers send a JSON integer; both forms must validate.
-func (o HarnessAgentCoreMemoryRetrievalConfigOutput) TopK() pulumi.AnyOutput {
-	return o.ApplyT(func(v HarnessAgentCoreMemoryRetrievalConfig) interface{} { return v.TopK }).(pulumi.AnyOutput)
+// Maximum number of memory records to retrieve.
+func (o HarnessAgentCoreMemoryRetrievalConfigOutput) TopK() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v HarnessAgentCoreMemoryRetrievalConfig) *int { return v.TopK }).(pulumi.IntPtrOutput)
 }
 
 type HarnessAgentCoreMemoryRetrievalConfigMapOutput struct{ *pulumi.OutputState }
@@ -19396,6 +20004,8 @@ func (o HarnessCustomClaimValidationTypeArrayOutput) Index(i pulumi.IntInput) Ha
 }
 
 type HarnessCustomJwtAuthorizerConfiguration struct {
+	// A map that associates each scope in AllowedScopes with a corresponding advertised scope value. The advertised scope appears in OAuth protected resource metadata and WWW-Authenticate response headers.
+	AdvertisedScopeMapping   map[string]string                  `pulumi:"advertisedScopeMapping"`
 	AllowedAudience          []string                           `pulumi:"allowedAudience"`
 	AllowedClients           []string                           `pulumi:"allowedClients"`
 	AllowedScopes            []string                           `pulumi:"allowedScopes"`
@@ -19417,6 +20027,8 @@ type HarnessCustomJwtAuthorizerConfigurationInput interface {
 }
 
 type HarnessCustomJwtAuthorizerConfigurationArgs struct {
+	// A map that associates each scope in AllowedScopes with a corresponding advertised scope value. The advertised scope appears in OAuth protected resource metadata and WWW-Authenticate response headers.
+	AdvertisedScopeMapping   pulumi.StringMapInput                      `pulumi:"advertisedScopeMapping"`
 	AllowedAudience          pulumi.StringArrayInput                    `pulumi:"allowedAudience"`
 	AllowedClients           pulumi.StringArrayInput                    `pulumi:"allowedClients"`
 	AllowedScopes            pulumi.StringArrayInput                    `pulumi:"allowedScopes"`
@@ -19503,6 +20115,11 @@ func (o HarnessCustomJwtAuthorizerConfigurationOutput) ToHarnessCustomJwtAuthori
 	}).(HarnessCustomJwtAuthorizerConfigurationPtrOutput)
 }
 
+// A map that associates each scope in AllowedScopes with a corresponding advertised scope value. The advertised scope appears in OAuth protected resource metadata and WWW-Authenticate response headers.
+func (o HarnessCustomJwtAuthorizerConfigurationOutput) AdvertisedScopeMapping() pulumi.StringMapOutput {
+	return o.ApplyT(func(v HarnessCustomJwtAuthorizerConfiguration) map[string]string { return v.AdvertisedScopeMapping }).(pulumi.StringMapOutput)
+}
+
 func (o HarnessCustomJwtAuthorizerConfigurationOutput) AllowedAudience() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v HarnessCustomJwtAuthorizerConfiguration) []string { return v.AllowedAudience }).(pulumi.StringArrayOutput)
 }
@@ -19557,6 +20174,16 @@ func (o HarnessCustomJwtAuthorizerConfigurationPtrOutput) Elem() HarnessCustomJw
 		var ret HarnessCustomJwtAuthorizerConfiguration
 		return ret
 	}).(HarnessCustomJwtAuthorizerConfigurationOutput)
+}
+
+// A map that associates each scope in AllowedScopes with a corresponding advertised scope value. The advertised scope appears in OAuth protected resource metadata and WWW-Authenticate response headers.
+func (o HarnessCustomJwtAuthorizerConfigurationPtrOutput) AdvertisedScopeMapping() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *HarnessCustomJwtAuthorizerConfiguration) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.AdvertisedScopeMapping
+	}).(pulumi.StringMapOutput)
 }
 
 func (o HarnessCustomJwtAuthorizerConfigurationPtrOutput) AllowedAudience() pulumi.StringArrayOutput {
@@ -20439,12 +21066,14 @@ func (o HarnessGatewayOutboundAuthPtrOutput) Oauth() HarnessOAuthCredentialProvi
 }
 
 type HarnessGeminiModelConfig struct {
-	ApiKeyArn   string   `pulumi:"apiKeyArn"`
-	MaxTokens   *int     `pulumi:"maxTokens"`
-	ModelId     string   `pulumi:"modelId"`
-	Temperature *float64 `pulumi:"temperature"`
-	TopK        *int     `pulumi:"topK"`
-	TopP        *float64 `pulumi:"topP"`
+	// Provider-specific parameters passed through to the Gemini model provider unchanged.
+	AdditionalParams interface{} `pulumi:"additionalParams"`
+	ApiKeyArn        string      `pulumi:"apiKeyArn"`
+	MaxTokens        *int        `pulumi:"maxTokens"`
+	ModelId          string      `pulumi:"modelId"`
+	Temperature      *float64    `pulumi:"temperature"`
+	TopK             *int        `pulumi:"topK"`
+	TopP             *float64    `pulumi:"topP"`
 }
 
 // HarnessGeminiModelConfigInput is an input type that accepts HarnessGeminiModelConfigArgs and HarnessGeminiModelConfigOutput values.
@@ -20459,12 +21088,14 @@ type HarnessGeminiModelConfigInput interface {
 }
 
 type HarnessGeminiModelConfigArgs struct {
-	ApiKeyArn   pulumi.StringInput     `pulumi:"apiKeyArn"`
-	MaxTokens   pulumi.IntPtrInput     `pulumi:"maxTokens"`
-	ModelId     pulumi.StringInput     `pulumi:"modelId"`
-	Temperature pulumi.Float64PtrInput `pulumi:"temperature"`
-	TopK        pulumi.IntPtrInput     `pulumi:"topK"`
-	TopP        pulumi.Float64PtrInput `pulumi:"topP"`
+	// Provider-specific parameters passed through to the Gemini model provider unchanged.
+	AdditionalParams pulumi.Input           `pulumi:"additionalParams"`
+	ApiKeyArn        pulumi.StringInput     `pulumi:"apiKeyArn"`
+	MaxTokens        pulumi.IntPtrInput     `pulumi:"maxTokens"`
+	ModelId          pulumi.StringInput     `pulumi:"modelId"`
+	Temperature      pulumi.Float64PtrInput `pulumi:"temperature"`
+	TopK             pulumi.IntPtrInput     `pulumi:"topK"`
+	TopP             pulumi.Float64PtrInput `pulumi:"topP"`
 }
 
 func (HarnessGeminiModelConfigArgs) ElementType() reflect.Type {
@@ -20544,6 +21175,11 @@ func (o HarnessGeminiModelConfigOutput) ToHarnessGeminiModelConfigPtrOutputWithC
 	}).(HarnessGeminiModelConfigPtrOutput)
 }
 
+// Provider-specific parameters passed through to the Gemini model provider unchanged.
+func (o HarnessGeminiModelConfigOutput) AdditionalParams() pulumi.AnyOutput {
+	return o.ApplyT(func(v HarnessGeminiModelConfig) interface{} { return v.AdditionalParams }).(pulumi.AnyOutput)
+}
+
 func (o HarnessGeminiModelConfigOutput) ApiKeyArn() pulumi.StringOutput {
 	return o.ApplyT(func(v HarnessGeminiModelConfig) string { return v.ApiKeyArn }).(pulumi.StringOutput)
 }
@@ -20590,6 +21226,16 @@ func (o HarnessGeminiModelConfigPtrOutput) Elem() HarnessGeminiModelConfigOutput
 		var ret HarnessGeminiModelConfig
 		return ret
 	}).(HarnessGeminiModelConfigOutput)
+}
+
+// Provider-specific parameters passed through to the Gemini model provider unchanged.
+func (o HarnessGeminiModelConfigPtrOutput) AdditionalParams() pulumi.AnyOutput {
+	return o.ApplyT(func(v *HarnessGeminiModelConfig) interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.AdditionalParams
+	}).(pulumi.AnyOutput)
 }
 
 func (o HarnessGeminiModelConfigPtrOutput) ApiKeyArn() pulumi.StringPtrOutput {
@@ -22961,13 +23607,15 @@ func (o HarnessOAuthCredentialProviderPtrOutput) Scopes() pulumi.StringArrayOutp
 
 type HarnessOpenAiModelConfig struct {
 	// Provider-specific parameters passed through to the model provider unchanged.
-	AdditionalParams interface{}                        `pulumi:"additionalParams"`
-	ApiFormat        *HarnessOpenAiModelConfigApiFormat `pulumi:"apiFormat"`
-	ApiKeyArn        string                             `pulumi:"apiKeyArn"`
-	MaxTokens        *int                               `pulumi:"maxTokens"`
-	ModelId          string                             `pulumi:"modelId"`
-	Temperature      *float64                           `pulumi:"temperature"`
-	TopP             *float64                           `pulumi:"topP"`
+	AdditionalParams interface{} `pulumi:"additionalParams"`
+	// Optional custom endpoint URL for an OpenAI-compatible endpoint.
+	ApiBase     *string                            `pulumi:"apiBase"`
+	ApiFormat   *HarnessOpenAiModelConfigApiFormat `pulumi:"apiFormat"`
+	ApiKeyArn   string                             `pulumi:"apiKeyArn"`
+	MaxTokens   *int                               `pulumi:"maxTokens"`
+	ModelId     string                             `pulumi:"modelId"`
+	Temperature *float64                           `pulumi:"temperature"`
+	TopP        *float64                           `pulumi:"topP"`
 }
 
 // HarnessOpenAiModelConfigInput is an input type that accepts HarnessOpenAiModelConfigArgs and HarnessOpenAiModelConfigOutput values.
@@ -22983,13 +23631,15 @@ type HarnessOpenAiModelConfigInput interface {
 
 type HarnessOpenAiModelConfigArgs struct {
 	// Provider-specific parameters passed through to the model provider unchanged.
-	AdditionalParams pulumi.Input                              `pulumi:"additionalParams"`
-	ApiFormat        HarnessOpenAiModelConfigApiFormatPtrInput `pulumi:"apiFormat"`
-	ApiKeyArn        pulumi.StringInput                        `pulumi:"apiKeyArn"`
-	MaxTokens        pulumi.IntPtrInput                        `pulumi:"maxTokens"`
-	ModelId          pulumi.StringInput                        `pulumi:"modelId"`
-	Temperature      pulumi.Float64PtrInput                    `pulumi:"temperature"`
-	TopP             pulumi.Float64PtrInput                    `pulumi:"topP"`
+	AdditionalParams pulumi.Input `pulumi:"additionalParams"`
+	// Optional custom endpoint URL for an OpenAI-compatible endpoint.
+	ApiBase     pulumi.StringPtrInput                     `pulumi:"apiBase"`
+	ApiFormat   HarnessOpenAiModelConfigApiFormatPtrInput `pulumi:"apiFormat"`
+	ApiKeyArn   pulumi.StringInput                        `pulumi:"apiKeyArn"`
+	MaxTokens   pulumi.IntPtrInput                        `pulumi:"maxTokens"`
+	ModelId     pulumi.StringInput                        `pulumi:"modelId"`
+	Temperature pulumi.Float64PtrInput                    `pulumi:"temperature"`
+	TopP        pulumi.Float64PtrInput                    `pulumi:"topP"`
 }
 
 func (HarnessOpenAiModelConfigArgs) ElementType() reflect.Type {
@@ -23074,6 +23724,11 @@ func (o HarnessOpenAiModelConfigOutput) AdditionalParams() pulumi.AnyOutput {
 	return o.ApplyT(func(v HarnessOpenAiModelConfig) interface{} { return v.AdditionalParams }).(pulumi.AnyOutput)
 }
 
+// Optional custom endpoint URL for an OpenAI-compatible endpoint.
+func (o HarnessOpenAiModelConfigOutput) ApiBase() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HarnessOpenAiModelConfig) *string { return v.ApiBase }).(pulumi.StringPtrOutput)
+}
+
 func (o HarnessOpenAiModelConfigOutput) ApiFormat() HarnessOpenAiModelConfigApiFormatPtrOutput {
 	return o.ApplyT(func(v HarnessOpenAiModelConfig) *HarnessOpenAiModelConfigApiFormat { return v.ApiFormat }).(HarnessOpenAiModelConfigApiFormatPtrOutput)
 }
@@ -23130,6 +23785,16 @@ func (o HarnessOpenAiModelConfigPtrOutput) AdditionalParams() pulumi.AnyOutput {
 		}
 		return v.AdditionalParams
 	}).(pulumi.AnyOutput)
+}
+
+// Optional custom endpoint URL for an OpenAI-compatible endpoint.
+func (o HarnessOpenAiModelConfigPtrOutput) ApiBase() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HarnessOpenAiModelConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ApiBase
+	}).(pulumi.StringPtrOutput)
 }
 
 func (o HarnessOpenAiModelConfigPtrOutput) ApiFormat() HarnessOpenAiModelConfigApiFormatPtrOutput {
@@ -37360,7 +38025,7 @@ func (o OnlineEvaluationConfigDataSourceConfigPtrOutput) CloudWatchLogs() Online
 
 // The reference to an evaluator used in online evaluation configurations.
 type OnlineEvaluationConfigEvaluatorReference struct {
-	// The unique identifier of the evaluator.
+	// The ID of the evaluator: a built-in evaluator ID (Builtin.*), a managed third-party evaluator ID (ThirdParty.<provider>.<name>), or a custom evaluator ID. For a custom evaluator in the same template, use Fn::GetAtt with EvaluatorId. Ref returns the evaluator ARN, which this property does not accept.
 	EvaluatorId string `pulumi:"evaluatorId"`
 }
 
@@ -37377,7 +38042,7 @@ type OnlineEvaluationConfigEvaluatorReferenceInput interface {
 
 // The reference to an evaluator used in online evaluation configurations.
 type OnlineEvaluationConfigEvaluatorReferenceArgs struct {
-	// The unique identifier of the evaluator.
+	// The ID of the evaluator: a built-in evaluator ID (Builtin.*), a managed third-party evaluator ID (ThirdParty.<provider>.<name>), or a custom evaluator ID. For a custom evaluator in the same template, use Fn::GetAtt with EvaluatorId. Ref returns the evaluator ARN, which this property does not accept.
 	EvaluatorId pulumi.StringInput `pulumi:"evaluatorId"`
 }
 
@@ -37433,7 +38098,7 @@ func (o OnlineEvaluationConfigEvaluatorReferenceOutput) ToOnlineEvaluationConfig
 	return o
 }
 
-// The unique identifier of the evaluator.
+// The ID of the evaluator: a built-in evaluator ID (Builtin.*), a managed third-party evaluator ID (ThirdParty.<provider>.<name>), or a custom evaluator ID. For a custom evaluator in the same template, use Fn::GetAtt with EvaluatorId. Ref returns the evaluator ARN, which this property does not accept.
 func (o OnlineEvaluationConfigEvaluatorReferenceOutput) EvaluatorId() pulumi.StringOutput {
 	return o.ApplyT(func(v OnlineEvaluationConfigEvaluatorReference) string { return v.EvaluatorId }).(pulumi.StringOutput)
 }
@@ -44572,6 +45237,9 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationBundleComponentConfigurationMapInput)(nil)).Elem(), ConfigurationBundleComponentConfigurationMap{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationBundleVersionCreatedBySourceInput)(nil)).Elem(), ConfigurationBundleVersionCreatedBySourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationBundleVersionCreatedBySourcePtrInput)(nil)).Elem(), ConfigurationBundleVersionCreatedBySourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConsentPortalIdpConfigInput)(nil)).Elem(), ConsentPortalIdpConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConsentPortalSourceInput)(nil)).Elem(), ConsentPortalSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConsentPortalSourceArrayInput)(nil)).Elem(), ConsentPortalSourceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DatasetDataSourceTypeInput)(nil)).Elem(), DatasetDataSourceTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DatasetDataSourceTypePtrInput)(nil)).Elem(), DatasetDataSourceTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DatasetInlineExamplesSourceInput)(nil)).Elem(), DatasetInlineExamplesSourceArgs{})
@@ -44585,6 +45253,11 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EvaluatorCodeBasedEvaluatorConfigInput)(nil)).Elem(), EvaluatorCodeBasedEvaluatorConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EvaluatorCodeBasedEvaluatorConfigPtrInput)(nil)).Elem(), EvaluatorCodeBasedEvaluatorConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EvaluatorConfigInput)(nil)).Elem(), EvaluatorConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EvaluatorDerivedEvaluatorConfigInput)(nil)).Elem(), EvaluatorDerivedEvaluatorConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EvaluatorDerivedEvaluatorConfigPtrInput)(nil)).Elem(), EvaluatorDerivedEvaluatorConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EvaluatorDimensionRatingScaleInput)(nil)).Elem(), EvaluatorDimensionRatingScaleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EvaluatorEvaluationDimensionInput)(nil)).Elem(), EvaluatorEvaluationDimensionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EvaluatorEvaluationDimensionArrayInput)(nil)).Elem(), EvaluatorEvaluationDimensionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EvaluatorInferenceConfigurationInput)(nil)).Elem(), EvaluatorInferenceConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EvaluatorInferenceConfigurationPtrInput)(nil)).Elem(), EvaluatorInferenceConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EvaluatorLambdaEvaluatorConfigInput)(nil)).Elem(), EvaluatorLambdaEvaluatorConfigArgs{})
@@ -45140,6 +45813,10 @@ func init() {
 	pulumi.RegisterOutputType(ConfigurationBundleVersionCreatedBySourcePtrOutput{})
 	pulumi.RegisterOutputType(ConfigurationBundleVersionLineageMetadataOutput{})
 	pulumi.RegisterOutputType(ConfigurationBundleVersionLineageMetadataPtrOutput{})
+	pulumi.RegisterOutputType(ConsentPortalIdpConfigOutput{})
+	pulumi.RegisterOutputType(ConsentPortalIdpConfigPtrOutput{})
+	pulumi.RegisterOutputType(ConsentPortalSourceOutput{})
+	pulumi.RegisterOutputType(ConsentPortalSourceArrayOutput{})
 	pulumi.RegisterOutputType(DatasetDataSourceTypeOutput{})
 	pulumi.RegisterOutputType(DatasetDataSourceTypePtrOutput{})
 	pulumi.RegisterOutputType(DatasetInlineExamplesSourceOutput{})
@@ -45154,6 +45831,11 @@ func init() {
 	pulumi.RegisterOutputType(EvaluatorCodeBasedEvaluatorConfigPtrOutput{})
 	pulumi.RegisterOutputType(EvaluatorConfigOutput{})
 	pulumi.RegisterOutputType(EvaluatorConfigPtrOutput{})
+	pulumi.RegisterOutputType(EvaluatorDerivedEvaluatorConfigOutput{})
+	pulumi.RegisterOutputType(EvaluatorDerivedEvaluatorConfigPtrOutput{})
+	pulumi.RegisterOutputType(EvaluatorDimensionRatingScaleOutput{})
+	pulumi.RegisterOutputType(EvaluatorEvaluationDimensionOutput{})
+	pulumi.RegisterOutputType(EvaluatorEvaluationDimensionArrayOutput{})
 	pulumi.RegisterOutputType(EvaluatorInferenceConfigurationOutput{})
 	pulumi.RegisterOutputType(EvaluatorInferenceConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(EvaluatorLambdaEvaluatorConfigOutput{})

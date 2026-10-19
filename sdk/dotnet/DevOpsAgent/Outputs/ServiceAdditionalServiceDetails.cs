@@ -18,6 +18,7 @@ namespace Pulumi.AwsNative.DevOpsAgent.Outputs
     {
         public readonly Outputs.ServiceRegisteredAzureIdentityDetails? AzureIdentity;
         public readonly Outputs.ServiceRegisteredDynatraceDetails? Dynatrace;
+        public readonly Outputs.ServiceRegisteredGitHubServiceDetails? GitHub;
         public readonly Outputs.ServiceRegisteredGitLabServiceDetails? GitLab;
         public readonly Outputs.ServiceRegisteredMcpServerDetails? McpServer;
         public readonly Outputs.ServiceRegisteredMcpServerGrafanaDetails? McpServerGrafana;
@@ -32,6 +33,8 @@ namespace Pulumi.AwsNative.DevOpsAgent.Outputs
             Outputs.ServiceRegisteredAzureIdentityDetails? azureIdentity,
 
             Outputs.ServiceRegisteredDynatraceDetails? dynatrace,
+
+            Outputs.ServiceRegisteredGitHubServiceDetails? gitHub,
 
             Outputs.ServiceRegisteredGitLabServiceDetails? gitLab,
 
@@ -51,6 +54,7 @@ namespace Pulumi.AwsNative.DevOpsAgent.Outputs
         {
             AzureIdentity = azureIdentity;
             Dynatrace = dynatrace;
+            GitHub = gitHub;
             GitLab = gitLab;
             McpServer = mcpServer;
             McpServerGrafana = mcpServerGrafana;
