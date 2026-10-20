@@ -64,7 +64,7 @@ export class Integration extends pulumi.CustomResource {
     /**
      * The integration provider.
      */
-    declare public readonly provider: pulumi.Output<enums.securityagent.IntegrationProvider>;
+    declare public readonly provider: pulumi.Output<enums.securityagent.IntegrationProviderEnum>;
     declare public readonly providerInput: pulumi.Output<outputs.securityagent.IntegrationProviderInput | undefined>;
     /**
      * The type of the integration provider.
@@ -146,7 +146,7 @@ export interface IntegrationArgs {
     /**
      * The integration provider.
      */
-    provider: pulumi.Input<enums.securityagent.IntegrationProvider>;
+    provider: pulumi.Input<enums.securityagent.IntegrationProviderEnum>;
     providerInput?: pulumi.Input<inputs.securityagent.IntegrationProviderInputArgs | undefined>;
     /**
      * The tags to associate with the integration.

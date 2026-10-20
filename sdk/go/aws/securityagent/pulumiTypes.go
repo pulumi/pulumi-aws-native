@@ -3452,152 +3452,152 @@ func (o IntegrationGitLabInputPtrOutput) TokenType() IntegrationGitLabInputToken
 }
 
 // The provider-specific input required to create the integration. Exactly one of the provider input objects must be specified.
-type IntegrationProviderEnumInput struct {
+type IntegrationProviderInput struct {
 	Bitbucket  *IntegrationBitbucketInput  `pulumi:"bitbucket"`
 	Confluence *IntegrationConfluenceInput `pulumi:"confluence"`
 	Github     *IntegrationGitHubInput     `pulumi:"github"`
 	Gitlab     *IntegrationGitLabInput     `pulumi:"gitlab"`
 }
 
-// IntegrationProviderEnumInputInput is an input type that accepts IntegrationProviderEnumInputArgs and IntegrationProviderEnumInputOutput values.
-// You can construct a concrete instance of `IntegrationProviderEnumInputInput` via:
+// IntegrationProviderInputInput is an input type that accepts IntegrationProviderInputArgs and IntegrationProviderInputOutput values.
+// You can construct a concrete instance of `IntegrationProviderInputInput` via:
 //
-//	IntegrationProviderEnumInputArgs{...}
-type IntegrationProviderEnumInputInput interface {
+//	IntegrationProviderInputArgs{...}
+type IntegrationProviderInputInput interface {
 	pulumi.Input
 
-	ToIntegrationProviderEnumInputOutput() IntegrationProviderEnumInputOutput
-	ToIntegrationProviderEnumInputOutputWithContext(context.Context) IntegrationProviderEnumInputOutput
+	ToIntegrationProviderInputOutput() IntegrationProviderInputOutput
+	ToIntegrationProviderInputOutputWithContext(context.Context) IntegrationProviderInputOutput
 }
 
 // The provider-specific input required to create the integration. Exactly one of the provider input objects must be specified.
-type IntegrationProviderEnumInputArgs struct {
+type IntegrationProviderInputArgs struct {
 	Bitbucket  IntegrationBitbucketInputPtrInput  `pulumi:"bitbucket"`
 	Confluence IntegrationConfluenceInputPtrInput `pulumi:"confluence"`
 	Github     IntegrationGitHubInputPtrInput     `pulumi:"github"`
 	Gitlab     IntegrationGitLabInputPtrInput     `pulumi:"gitlab"`
 }
 
-func (IntegrationProviderEnumInputArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*IntegrationProviderEnumInput)(nil)).Elem()
+func (IntegrationProviderInputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationProviderInput)(nil)).Elem()
 }
 
-func (i IntegrationProviderEnumInputArgs) ToIntegrationProviderEnumInputOutput() IntegrationProviderEnumInputOutput {
-	return i.ToIntegrationProviderEnumInputOutputWithContext(context.Background())
+func (i IntegrationProviderInputArgs) ToIntegrationProviderInputOutput() IntegrationProviderInputOutput {
+	return i.ToIntegrationProviderInputOutputWithContext(context.Background())
 }
 
-func (i IntegrationProviderEnumInputArgs) ToIntegrationProviderEnumInputOutputWithContext(ctx context.Context) IntegrationProviderEnumInputOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IntegrationProviderEnumInputOutput)
+func (i IntegrationProviderInputArgs) ToIntegrationProviderInputOutputWithContext(ctx context.Context) IntegrationProviderInputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationProviderInputOutput)
 }
 
-func (i IntegrationProviderEnumInputArgs) ToIntegrationProviderEnumInputPtrOutput() IntegrationProviderEnumInputPtrOutput {
-	return i.ToIntegrationProviderEnumInputPtrOutputWithContext(context.Background())
+func (i IntegrationProviderInputArgs) ToIntegrationProviderInputPtrOutput() IntegrationProviderInputPtrOutput {
+	return i.ToIntegrationProviderInputPtrOutputWithContext(context.Background())
 }
 
-func (i IntegrationProviderEnumInputArgs) ToIntegrationProviderEnumInputPtrOutputWithContext(ctx context.Context) IntegrationProviderEnumInputPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IntegrationProviderEnumInputOutput).ToIntegrationProviderEnumInputPtrOutputWithContext(ctx)
+func (i IntegrationProviderInputArgs) ToIntegrationProviderInputPtrOutputWithContext(ctx context.Context) IntegrationProviderInputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationProviderInputOutput).ToIntegrationProviderInputPtrOutputWithContext(ctx)
 }
 
-// IntegrationProviderEnumInputPtrInput is an input type that accepts IntegrationProviderEnumInputArgs, IntegrationProviderEnumInputPtr and IntegrationProviderEnumInputPtrOutput values.
-// You can construct a concrete instance of `IntegrationProviderEnumInputPtrInput` via:
+// IntegrationProviderInputPtrInput is an input type that accepts IntegrationProviderInputArgs, IntegrationProviderInputPtr and IntegrationProviderInputPtrOutput values.
+// You can construct a concrete instance of `IntegrationProviderInputPtrInput` via:
 //
-//	        IntegrationProviderEnumInputArgs{...}
+//	        IntegrationProviderInputArgs{...}
 //
 //	or:
 //
 //	        nil
-type IntegrationProviderEnumInputPtrInput interface {
+type IntegrationProviderInputPtrInput interface {
 	pulumi.Input
 
-	ToIntegrationProviderEnumInputPtrOutput() IntegrationProviderEnumInputPtrOutput
-	ToIntegrationProviderEnumInputPtrOutputWithContext(context.Context) IntegrationProviderEnumInputPtrOutput
+	ToIntegrationProviderInputPtrOutput() IntegrationProviderInputPtrOutput
+	ToIntegrationProviderInputPtrOutputWithContext(context.Context) IntegrationProviderInputPtrOutput
 }
 
-type integrationProviderEnumInputPtrType IntegrationProviderEnumInputArgs
+type integrationProviderInputPtrType IntegrationProviderInputArgs
 
-func IntegrationProviderEnumInputPtr(v *IntegrationProviderEnumInputArgs) IntegrationProviderEnumInputPtrInput {
-	return (*integrationProviderEnumInputPtrType)(v)
+func IntegrationProviderInputPtr(v *IntegrationProviderInputArgs) IntegrationProviderInputPtrInput {
+	return (*integrationProviderInputPtrType)(v)
 }
 
-func (*integrationProviderEnumInputPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**IntegrationProviderEnumInput)(nil)).Elem()
+func (*integrationProviderInputPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IntegrationProviderInput)(nil)).Elem()
 }
 
-func (i *integrationProviderEnumInputPtrType) ToIntegrationProviderEnumInputPtrOutput() IntegrationProviderEnumInputPtrOutput {
-	return i.ToIntegrationProviderEnumInputPtrOutputWithContext(context.Background())
+func (i *integrationProviderInputPtrType) ToIntegrationProviderInputPtrOutput() IntegrationProviderInputPtrOutput {
+	return i.ToIntegrationProviderInputPtrOutputWithContext(context.Background())
 }
 
-func (i *integrationProviderEnumInputPtrType) ToIntegrationProviderEnumInputPtrOutputWithContext(ctx context.Context) IntegrationProviderEnumInputPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IntegrationProviderEnumInputPtrOutput)
+func (i *integrationProviderInputPtrType) ToIntegrationProviderInputPtrOutputWithContext(ctx context.Context) IntegrationProviderInputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationProviderInputPtrOutput)
 }
 
 // The provider-specific input required to create the integration. Exactly one of the provider input objects must be specified.
-type IntegrationProviderEnumInputOutput struct{ *pulumi.OutputState }
+type IntegrationProviderInputOutput struct{ *pulumi.OutputState }
 
-func (IntegrationProviderEnumInputOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*IntegrationProviderEnumInput)(nil)).Elem()
+func (IntegrationProviderInputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationProviderInput)(nil)).Elem()
 }
 
-func (o IntegrationProviderEnumInputOutput) ToIntegrationProviderEnumInputOutput() IntegrationProviderEnumInputOutput {
+func (o IntegrationProviderInputOutput) ToIntegrationProviderInputOutput() IntegrationProviderInputOutput {
 	return o
 }
 
-func (o IntegrationProviderEnumInputOutput) ToIntegrationProviderEnumInputOutputWithContext(ctx context.Context) IntegrationProviderEnumInputOutput {
+func (o IntegrationProviderInputOutput) ToIntegrationProviderInputOutputWithContext(ctx context.Context) IntegrationProviderInputOutput {
 	return o
 }
 
-func (o IntegrationProviderEnumInputOutput) ToIntegrationProviderEnumInputPtrOutput() IntegrationProviderEnumInputPtrOutput {
-	return o.ToIntegrationProviderEnumInputPtrOutputWithContext(context.Background())
+func (o IntegrationProviderInputOutput) ToIntegrationProviderInputPtrOutput() IntegrationProviderInputPtrOutput {
+	return o.ToIntegrationProviderInputPtrOutputWithContext(context.Background())
 }
 
-func (o IntegrationProviderEnumInputOutput) ToIntegrationProviderEnumInputPtrOutputWithContext(ctx context.Context) IntegrationProviderEnumInputPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v IntegrationProviderEnumInput) *IntegrationProviderEnumInput {
+func (o IntegrationProviderInputOutput) ToIntegrationProviderInputPtrOutputWithContext(ctx context.Context) IntegrationProviderInputPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IntegrationProviderInput) *IntegrationProviderInput {
 		return &v
-	}).(IntegrationProviderEnumInputPtrOutput)
+	}).(IntegrationProviderInputPtrOutput)
 }
 
-func (o IntegrationProviderEnumInputOutput) Bitbucket() IntegrationBitbucketInputPtrOutput {
-	return o.ApplyT(func(v IntegrationProviderEnumInput) *IntegrationBitbucketInput { return v.Bitbucket }).(IntegrationBitbucketInputPtrOutput)
+func (o IntegrationProviderInputOutput) Bitbucket() IntegrationBitbucketInputPtrOutput {
+	return o.ApplyT(func(v IntegrationProviderInput) *IntegrationBitbucketInput { return v.Bitbucket }).(IntegrationBitbucketInputPtrOutput)
 }
 
-func (o IntegrationProviderEnumInputOutput) Confluence() IntegrationConfluenceInputPtrOutput {
-	return o.ApplyT(func(v IntegrationProviderEnumInput) *IntegrationConfluenceInput { return v.Confluence }).(IntegrationConfluenceInputPtrOutput)
+func (o IntegrationProviderInputOutput) Confluence() IntegrationConfluenceInputPtrOutput {
+	return o.ApplyT(func(v IntegrationProviderInput) *IntegrationConfluenceInput { return v.Confluence }).(IntegrationConfluenceInputPtrOutput)
 }
 
-func (o IntegrationProviderEnumInputOutput) Github() IntegrationGitHubInputPtrOutput {
-	return o.ApplyT(func(v IntegrationProviderEnumInput) *IntegrationGitHubInput { return v.Github }).(IntegrationGitHubInputPtrOutput)
+func (o IntegrationProviderInputOutput) Github() IntegrationGitHubInputPtrOutput {
+	return o.ApplyT(func(v IntegrationProviderInput) *IntegrationGitHubInput { return v.Github }).(IntegrationGitHubInputPtrOutput)
 }
 
-func (o IntegrationProviderEnumInputOutput) Gitlab() IntegrationGitLabInputPtrOutput {
-	return o.ApplyT(func(v IntegrationProviderEnumInput) *IntegrationGitLabInput { return v.Gitlab }).(IntegrationGitLabInputPtrOutput)
+func (o IntegrationProviderInputOutput) Gitlab() IntegrationGitLabInputPtrOutput {
+	return o.ApplyT(func(v IntegrationProviderInput) *IntegrationGitLabInput { return v.Gitlab }).(IntegrationGitLabInputPtrOutput)
 }
 
-type IntegrationProviderEnumInputPtrOutput struct{ *pulumi.OutputState }
+type IntegrationProviderInputPtrOutput struct{ *pulumi.OutputState }
 
-func (IntegrationProviderEnumInputPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**IntegrationProviderEnumInput)(nil)).Elem()
+func (IntegrationProviderInputPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IntegrationProviderInput)(nil)).Elem()
 }
 
-func (o IntegrationProviderEnumInputPtrOutput) ToIntegrationProviderEnumInputPtrOutput() IntegrationProviderEnumInputPtrOutput {
+func (o IntegrationProviderInputPtrOutput) ToIntegrationProviderInputPtrOutput() IntegrationProviderInputPtrOutput {
 	return o
 }
 
-func (o IntegrationProviderEnumInputPtrOutput) ToIntegrationProviderEnumInputPtrOutputWithContext(ctx context.Context) IntegrationProviderEnumInputPtrOutput {
+func (o IntegrationProviderInputPtrOutput) ToIntegrationProviderInputPtrOutputWithContext(ctx context.Context) IntegrationProviderInputPtrOutput {
 	return o
 }
 
-func (o IntegrationProviderEnumInputPtrOutput) Elem() IntegrationProviderEnumInputOutput {
-	return o.ApplyT(func(v *IntegrationProviderEnumInput) IntegrationProviderEnumInput {
+func (o IntegrationProviderInputPtrOutput) Elem() IntegrationProviderInputOutput {
+	return o.ApplyT(func(v *IntegrationProviderInput) IntegrationProviderInput {
 		if v != nil {
 			return *v
 		}
-		var ret IntegrationProviderEnumInput
+		var ret IntegrationProviderInput
 		return ret
-	}).(IntegrationProviderEnumInputOutput)
+	}).(IntegrationProviderInputOutput)
 }
 
-func (o IntegrationProviderEnumInputPtrOutput) Bitbucket() IntegrationBitbucketInputPtrOutput {
-	return o.ApplyT(func(v *IntegrationProviderEnumInput) *IntegrationBitbucketInput {
+func (o IntegrationProviderInputPtrOutput) Bitbucket() IntegrationBitbucketInputPtrOutput {
+	return o.ApplyT(func(v *IntegrationProviderInput) *IntegrationBitbucketInput {
 		if v == nil {
 			return nil
 		}
@@ -3605,8 +3605,8 @@ func (o IntegrationProviderEnumInputPtrOutput) Bitbucket() IntegrationBitbucketI
 	}).(IntegrationBitbucketInputPtrOutput)
 }
 
-func (o IntegrationProviderEnumInputPtrOutput) Confluence() IntegrationConfluenceInputPtrOutput {
-	return o.ApplyT(func(v *IntegrationProviderEnumInput) *IntegrationConfluenceInput {
+func (o IntegrationProviderInputPtrOutput) Confluence() IntegrationConfluenceInputPtrOutput {
+	return o.ApplyT(func(v *IntegrationProviderInput) *IntegrationConfluenceInput {
 		if v == nil {
 			return nil
 		}
@@ -3614,8 +3614,8 @@ func (o IntegrationProviderEnumInputPtrOutput) Confluence() IntegrationConfluenc
 	}).(IntegrationConfluenceInputPtrOutput)
 }
 
-func (o IntegrationProviderEnumInputPtrOutput) Github() IntegrationGitHubInputPtrOutput {
-	return o.ApplyT(func(v *IntegrationProviderEnumInput) *IntegrationGitHubInput {
+func (o IntegrationProviderInputPtrOutput) Github() IntegrationGitHubInputPtrOutput {
+	return o.ApplyT(func(v *IntegrationProviderInput) *IntegrationGitHubInput {
 		if v == nil {
 			return nil
 		}
@@ -3623,8 +3623,8 @@ func (o IntegrationProviderEnumInputPtrOutput) Github() IntegrationGitHubInputPt
 	}).(IntegrationGitHubInputPtrOutput)
 }
 
-func (o IntegrationProviderEnumInputPtrOutput) Gitlab() IntegrationGitLabInputPtrOutput {
-	return o.ApplyT(func(v *IntegrationProviderEnumInput) *IntegrationGitLabInput {
+func (o IntegrationProviderInputPtrOutput) Gitlab() IntegrationGitLabInputPtrOutput {
+	return o.ApplyT(func(v *IntegrationProviderInput) *IntegrationGitLabInput {
 		if v == nil {
 			return nil
 		}
@@ -5898,8 +5898,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationGitHubInputPtrInput)(nil)).Elem(), IntegrationGitHubInputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationGitLabInputInput)(nil)).Elem(), IntegrationGitLabInputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationGitLabInputPtrInput)(nil)).Elem(), IntegrationGitLabInputArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationProviderEnumInputInput)(nil)).Elem(), IntegrationProviderEnumInputArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationProviderEnumInputPtrInput)(nil)).Elem(), IntegrationProviderEnumInputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationProviderInputInput)(nil)).Elem(), IntegrationProviderInputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationProviderInputPtrInput)(nil)).Elem(), IntegrationProviderInputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PentestActorInput)(nil)).Elem(), PentestActorArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PentestActorArrayInput)(nil)).Elem(), PentestActorArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PentestAssetsInput)(nil)).Elem(), PentestAssetsArgs{})
@@ -5968,8 +5968,8 @@ func init() {
 	pulumi.RegisterOutputType(IntegrationGitHubInputPtrOutput{})
 	pulumi.RegisterOutputType(IntegrationGitLabInputOutput{})
 	pulumi.RegisterOutputType(IntegrationGitLabInputPtrOutput{})
-	pulumi.RegisterOutputType(IntegrationProviderEnumInputOutput{})
-	pulumi.RegisterOutputType(IntegrationProviderEnumInputPtrOutput{})
+	pulumi.RegisterOutputType(IntegrationProviderInputOutput{})
+	pulumi.RegisterOutputType(IntegrationProviderInputPtrOutput{})
 	pulumi.RegisterOutputType(PentestActorOutput{})
 	pulumi.RegisterOutputType(PentestActorArrayOutput{})
 	pulumi.RegisterOutputType(PentestAssetsOutput{})

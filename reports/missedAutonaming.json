@@ -18584,7 +18584,7 @@
         "description": "The name of an active private connection used to reach a self-hosted provider instance over private networking."
       },
       "provider": {
-        "$ref": "#/types/aws-native:securityagent:IntegrationProvider",
+        "$ref": "#/types/aws-native:securityagent:IntegrationProviderEnum",
         "description": "The integration provider."
       },
       "providerInput": {

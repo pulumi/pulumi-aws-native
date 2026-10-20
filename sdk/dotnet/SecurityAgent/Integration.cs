@@ -55,7 +55,7 @@ namespace Pulumi.AwsNative.SecurityAgent
         /// The integration provider.
         /// </summary>
         [Output("provider")]
-        public Output<Pulumi.AwsNative.SecurityAgent.IntegrationProvider> Provider { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.SecurityAgent.IntegrationProviderEnum> Provider { get; private set; } = null!;
 
         [Output("providerInput")]
         public Output<Outputs.IntegrationProviderInput?> ProviderInput { get; private set; } = null!;
@@ -153,7 +153,7 @@ namespace Pulumi.AwsNative.SecurityAgent
         /// The integration provider.
         /// </summary>
         [Input("provider", required: true)]
-        public Input<Pulumi.AwsNative.SecurityAgent.IntegrationProvider> Provider { get; set; } = null!;
+        public Input<Pulumi.AwsNative.SecurityAgent.IntegrationProviderEnum> Provider { get; set; } = null!;
 
         [Input("providerInput")]
         public Input<Inputs.IntegrationProviderInputArgs>? ProviderInput { get; set; }

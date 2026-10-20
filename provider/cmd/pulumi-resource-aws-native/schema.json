@@ -258235,7 +258235,7 @@
                 }
             ]
         },
-        "aws-native:securityagent:IntegrationProvider": {
+        "aws-native:securityagent:IntegrationProviderEnum": {
             "description": "The integration provider.",
             "type": "string",
             "enum": [
@@ -431243,7 +431243,7 @@
                     "replaceOnChanges": true
                 },
                 "provider": {
-                    "$ref": "#/types/aws-native:securityagent:IntegrationProvider",
+                    "$ref": "#/types/aws-native:securityagent:IntegrationProviderEnum",
                     "description": "The integration provider.",
                     "replaceOnChanges": true
                 },
@@ -431291,7 +431291,7 @@
                     "description": "The name of an active private connection used to reach a self-hosted provider instance over private networking."
                 },
                 "provider": {
-                    "$ref": "#/types/aws-native:securityagent:IntegrationProvider",
+                    "$ref": "#/types/aws-native:securityagent:IntegrationProviderEnum",
                     "description": "The integration provider."
                 },
                 "providerInput": {

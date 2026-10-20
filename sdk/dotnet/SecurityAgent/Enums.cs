@@ -80,28 +80,28 @@ namespace Pulumi.AwsNative.SecurityAgent
     /// The integration provider.
     /// </summary>
     [EnumType]
-    public readonly struct IntegrationProvider : IEquatable<IntegrationProvider>
+    public readonly struct IntegrationProviderEnum : IEquatable<IntegrationProviderEnum>
     {
         private readonly string _value;
 
-        private IntegrationProvider(string value)
+        private IntegrationProviderEnum(string value)
         {
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static IntegrationProvider Github { get; } = new IntegrationProvider("GITHUB");
-        public static IntegrationProvider Gitlab { get; } = new IntegrationProvider("GITLAB");
-        public static IntegrationProvider Bitbucket { get; } = new IntegrationProvider("BITBUCKET");
-        public static IntegrationProvider Confluence { get; } = new IntegrationProvider("CONFLUENCE");
+        public static IntegrationProviderEnum Github { get; } = new IntegrationProviderEnum("GITHUB");
+        public static IntegrationProviderEnum Gitlab { get; } = new IntegrationProviderEnum("GITLAB");
+        public static IntegrationProviderEnum Bitbucket { get; } = new IntegrationProviderEnum("BITBUCKET");
+        public static IntegrationProviderEnum Confluence { get; } = new IntegrationProviderEnum("CONFLUENCE");
 
-        public static bool operator ==(IntegrationProvider left, IntegrationProvider right) => left.Equals(right);
-        public static bool operator !=(IntegrationProvider left, IntegrationProvider right) => !left.Equals(right);
+        public static bool operator ==(IntegrationProviderEnum left, IntegrationProviderEnum right) => left.Equals(right);
+        public static bool operator !=(IntegrationProviderEnum left, IntegrationProviderEnum right) => !left.Equals(right);
 
-        public static explicit operator string(IntegrationProvider value) => value._value;
+        public static explicit operator string(IntegrationProviderEnum value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is IntegrationProvider other && Equals(other);
-        public bool Equals(IntegrationProvider other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public override bool Equals(object? obj) => obj is IntegrationProviderEnum other && Equals(other);
+        public bool Equals(IntegrationProviderEnum other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

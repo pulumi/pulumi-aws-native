@@ -9,7 +9,7 @@ from enum import Enum
 __all__ = [
     'ArtifactType',
     'IntegrationGitLabInputTokenType',
-    'IntegrationProvider',
+    'IntegrationProviderEnum',
     'IntegrationProviderType',
     'PentestAuthenticationProviderType',
     'PentestCleanUpStrategy',
@@ -51,8 +51,8 @@ class IntegrationGitLabInputTokenType(_builtins.str, Enum):
     GROUP = "GROUP"
 
 
-@pulumi.type_token("aws-native:securityagent:IntegrationProvider")
-class IntegrationProvider(_builtins.str, Enum):
+@pulumi.type_token("aws-native:securityagent:IntegrationProviderEnum")
+class IntegrationProviderEnum(_builtins.str, Enum):
     """
     The integration provider.
     """

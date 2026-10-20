@@ -29,7 +29,7 @@ export const IntegrationGitLabInputTokenType = {
  */
 export type IntegrationGitLabInputTokenType = (typeof IntegrationGitLabInputTokenType)[keyof typeof IntegrationGitLabInputTokenType];
 
-export const IntegrationProvider = {
+export const IntegrationProviderEnum = {
     Github: "GITHUB",
     Gitlab: "GITLAB",
     Bitbucket: "BITBUCKET",
@@ -39,7 +39,7 @@ export const IntegrationProvider = {
 /**
  * The integration provider.
  */
-export type IntegrationProvider = (typeof IntegrationProvider)[keyof typeof IntegrationProvider];
+export type IntegrationProviderEnum = (typeof IntegrationProviderEnum)[keyof typeof IntegrationProviderEnum];
 
 export const IntegrationProviderType = {
     SourceCode: "SOURCE_CODE",

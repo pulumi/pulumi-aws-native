@@ -30,8 +30,8 @@ type Integration struct {
 	// The name of an active private connection used to reach a self-hosted provider instance over private networking.
 	PrivateConnectionName pulumi.StringPtrOutput `pulumi:"privateConnectionName"`
 	// The integration provider.
-	Provider      IntegrationProviderEnumOutput         `pulumi:"provider"`
-	ProviderInput IntegrationProviderEnumInputPtrOutput `pulumi:"providerInput"`
+	Provider      IntegrationProviderEnumOutput     `pulumi:"provider"`
+	ProviderInput IntegrationProviderInputPtrOutput `pulumi:"providerInput"`
 	// The type of the integration provider.
 	ProviderType IntegrationProviderTypeOutput `pulumi:"providerType"`
 	// The tags to associate with the integration.
@@ -101,8 +101,8 @@ type integrationArgs struct {
 	// The name of an active private connection used to reach a self-hosted provider instance over private networking.
 	PrivateConnectionName *string `pulumi:"privateConnectionName"`
 	// The integration provider.
-	Provider      IntegrationProviderEnum       `pulumi:"provider"`
-	ProviderInput *IntegrationProviderEnumInput `pulumi:"providerInput"`
+	Provider      IntegrationProviderEnum   `pulumi:"provider"`
+	ProviderInput *IntegrationProviderInput `pulumi:"providerInput"`
 	// The tags to associate with the integration.
 	Tags []aws.Tag `pulumi:"tags"`
 }
@@ -117,7 +117,7 @@ type IntegrationArgs struct {
 	PrivateConnectionName pulumi.StringPtrInput
 	// The integration provider.
 	Provider      IntegrationProviderEnumInput
-	ProviderInput IntegrationProviderEnumInputPtrInput
+	ProviderInput IntegrationProviderInputPtrInput
 	// The tags to associate with the integration.
 	Tags aws.TagArrayInput
 }
@@ -194,8 +194,8 @@ func (o IntegrationOutput) Provider() IntegrationProviderEnumOutput {
 	return o.ApplyT(func(v *Integration) IntegrationProviderEnumOutput { return v.Provider }).(IntegrationProviderEnumOutput)
 }
 
-func (o IntegrationOutput) ProviderInput() IntegrationProviderEnumInputPtrOutput {
-	return o.ApplyT(func(v *Integration) IntegrationProviderEnumInputPtrOutput { return v.ProviderInput }).(IntegrationProviderEnumInputPtrOutput)
+func (o IntegrationOutput) ProviderInput() IntegrationProviderInputPtrOutput {
+	return o.ApplyT(func(v *Integration) IntegrationProviderInputPtrOutput { return v.ProviderInput }).(IntegrationProviderInputPtrOutput)
 }
 
 // The type of the integration provider.

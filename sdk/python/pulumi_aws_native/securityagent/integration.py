@@ -25,7 +25,7 @@ __all__ = ['IntegrationArgs', 'Integration']
 class IntegrationArgs:
     def __init__(__self__, *,
                  display_name: pulumi.Input[_builtins.str],
-                 provider: pulumi.Input['IntegrationProvider'],
+                 provider: pulumi.Input['IntegrationProviderEnum'],
                  kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
                  private_connection_name: pulumi.Input[Optional[_builtins.str]] = None,
                  provider_input: pulumi.Input[Optional['IntegrationProviderInputArgs']] = None,
@@ -34,7 +34,7 @@ class IntegrationArgs:
         The set of arguments for constructing a Integration resource.
 
         :param pulumi.Input[_builtins.str] display_name: The display name for the integration.
-        :param pulumi.Input['IntegrationProvider'] provider: The integration provider.
+        :param pulumi.Input['IntegrationProviderEnum'] provider: The integration provider.
         :param pulumi.Input[_builtins.str] kms_key_id: The identifier of the AWS KMS key to use for encrypting data associated with the integration. Can be a key ID, key ARN, alias name, or alias ARN.
         :param pulumi.Input[_builtins.str] private_connection_name: The name of an active private connection used to reach a self-hosted provider instance over private networking.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags to associate with the integration.
@@ -64,14 +64,14 @@ class IntegrationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def provider(self) -> pulumi.Input['IntegrationProvider']:
+    def provider(self) -> pulumi.Input['IntegrationProviderEnum']:
         """
         The integration provider.
         """
         return pulumi.get(self, "provider")
 
     @provider.setter
-    def provider(self, value: pulumi.Input['IntegrationProvider']):
+    def provider(self, value: pulumi.Input['IntegrationProviderEnum']):
         pulumi.set(self, "provider", value)
 
     @_builtins.property
@@ -129,7 +129,7 @@ class Integration(pulumi.CustomResource):
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
                  kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
                  private_connection_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 provider: pulumi.Input[Optional['IntegrationProvider']] = None,
+                 provider: pulumi.Input[Optional['IntegrationProviderEnum']] = None,
                  provider_input: pulumi.Input[Optional[Union['IntegrationProviderInputArgs', 'IntegrationProviderInputArgsDict']]] = None,
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
@@ -141,7 +141,7 @@ class Integration(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] display_name: The display name for the integration.
         :param pulumi.Input[_builtins.str] kms_key_id: The identifier of the AWS KMS key to use for encrypting data associated with the integration. Can be a key ID, key ARN, alias name, or alias ARN.
         :param pulumi.Input[_builtins.str] private_connection_name: The name of an active private connection used to reach a self-hosted provider instance over private networking.
-        :param pulumi.Input['IntegrationProvider'] provider: The integration provider.
+        :param pulumi.Input['IntegrationProviderEnum'] provider: The integration provider.
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags to associate with the integration.
         """
         ...
@@ -171,7 +171,7 @@ class Integration(pulumi.CustomResource):
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
                  kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
                  private_connection_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 provider: pulumi.Input[Optional['IntegrationProvider']] = None,
+                 provider: pulumi.Input[Optional['IntegrationProviderEnum']] = None,
                  provider_input: pulumi.Input[Optional[Union['IntegrationProviderInputArgs', 'IntegrationProviderInputArgsDict']]] = None,
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
@@ -285,7 +285,7 @@ class Integration(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def provider(self) -> pulumi.Output['IntegrationProvider']:
+    def provider(self) -> pulumi.Output['IntegrationProviderEnum']:
         """
         The integration provider.
         """
